@@ -4,7 +4,7 @@
 [![Last Updated](https://img.shields.io/badge/Updated-January%202026-blue.svg)]()
 [![Python 3.10+](https://img.shields.io/badge/Python-3.10+-green.svg)]()
 
-**Practical, cutting-edge tools for integrating physical AI into oncology clinical trial workflows.**
+**Practical, cutting-edge tools for integrating physical AI into oncology clinical trial workflows, by Claude Opus 4.5 Cowork**
 
 This repository provides production-ready configurations, validated pipelines, and integration guides for deploying robotic systems, digital twins, and embodied AI agents in cancer treatment research. All referenced frameworks and tools have been updated within the last 3 months (October 2025 - January 2026).
 
