@@ -55,8 +55,6 @@ physical-ai-oncology-trials/
 │   ├── mujoco/                    # MuJoCo, MJX, MuJoCo Playground
 │   ├── gazebo/                    # Gazebo Ionic, ROS 2 integration
 │   └── pybullet/                  # PyBullet medical simulation
-├── digital-twins/                 # Patient-specific tumor modeling
-├── examples/                      # Runnable code examples
 └── configs/                       # Framework configurations
 ```
 
