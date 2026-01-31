@@ -203,9 +203,10 @@ If you use this repository in your research, please cite:
 
 ## Related Work
 
-- [clinical-trial-rl-unitree-g1](https://github.com/kevinkawchak/clinical-trial-rl-unitree-g1) - RL policies for clinical drug infusion
+- [robotarium-nurse-patient-study](https://github.com/kevinkawchak/robotarium-nurse-patient-study) - Remote robotics experiments conducted on GT's Robotarium
+- [arduino-hospital-robot-navigation](https://github.com/kevinkawchak/arduino-hospital-robot-navigation) - Arduino Hospital Robot Navigation Demonstration
 - [LLMs-Pharmaceutical](https://github.com/kevinkawchak/LLMs-Pharmaceutical) - LLM-driven oncology trial innovation
-- [glioblastoma-api](https://github.com/kevinkawchak/glioblastoma-api) - Clinical trial eligibility screening
+
 
 ---
 
