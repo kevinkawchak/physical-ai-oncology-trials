@@ -1,0 +1,189 @@
+# Physical AI for Oncology Clinical Trials
+# Training Configuration Template
+# Last updated: January 2026
+
+# =============================================================================
+# Environment Configuration
+# =============================================================================
+environment:
+  # Framework selection: isaac, mujoco, gazebo, pybullet
+  framework: isaac
+
+  # Task configuration
+  task:
+    name: needle_insertion
+    episode_length: 500
+    reward_scale: 1.0
+
+  # Parallel environments
+  num_envs: 4096
+  device: cuda:0
+
+  # Physics settings
+  physics:
+    timestep: 0.002  # 500 Hz
+    substeps: 4
+    gravity: [0, 0, -9.81]
+
+# =============================================================================
+# Domain Randomization
+# =============================================================================
+domain_randomization:
+  enabled: true
+
+  # Visual randomization
+  visual:
+    lighting_intensity: [0.7, 1.3]
+    camera_noise: 0.02
+    texture_augmentation: true
+
+  # Physics randomization
+  physics:
+    tissue_stiffness: [0.5, 2.0]
+    friction: [0.3, 0.8]
+    damping: [0.8, 1.2]
+
+  # Geometric randomization
+  geometry:
+    position_noise_mm: 5.0
+    orientation_noise_deg: 5.0
+    scale_variation: [0.9, 1.1]
+
+  # Action randomization
+  action:
+    delay_ms: [0, 20]
+    noise_std: 0.01
+
+# =============================================================================
+# Algorithm Configuration
+# =============================================================================
+algorithm:
+  name: ppo
+
+  # PPO hyperparameters
+  ppo:
+    learning_rate: 0.0003
+    gamma: 0.99
+    gae_lambda: 0.95
+    clip_ratio: 0.2
+    entropy_coef: 0.01
+    value_loss_coef: 0.5
+    max_grad_norm: 1.0
+    num_epochs: 5
+    batch_size: 8192
+    num_mini_batches: 4
+
+  # SAC hyperparameters (alternative)
+  sac:
+    learning_rate: 0.0003
+    gamma: 0.99
+    tau: 0.005
+    alpha: 0.2
+    auto_entropy: true
+    buffer_size: 1000000
+    batch_size: 256
+
+# =============================================================================
+# Network Architecture
+# =============================================================================
+network:
+  # Policy network
+  policy:
+    hidden_layers: [512, 256, 128]
+    activation: elu
+    init_std: 0.01
+
+  # Value network
+  value:
+    hidden_layers: [512, 256, 128]
+    activation: elu
+
+  # Visual encoder (if using images)
+  visual_encoder:
+    type: cnn  # cnn, vit, resnet
+    output_dim: 256
+
+# =============================================================================
+# Safety Constraints
+# =============================================================================
+safety:
+  enabled: true
+
+  # Force limits
+  max_force_n: 5.0
+  force_penalty_weight: 10.0
+
+  # Velocity limits
+  max_velocity_mps: 0.1
+  velocity_penalty_weight: 5.0
+
+  # Workspace constraints
+  workspace_bounds:
+    x: [-0.3, 0.3]
+    y: [-0.3, 0.3]
+    z: [0.0, 0.6]
+
+  # Critical structure avoidance
+  critical_structure_margin_mm: 5.0
+
+# =============================================================================
+# Training Settings
+# =============================================================================
+training:
+  total_timesteps: 10000000
+  log_interval: 10
+  save_interval: 100
+  eval_interval: 50
+  eval_episodes: 10
+
+  # Checkpointing
+  checkpoint_dir: checkpoints
+  keep_checkpoints: 5
+
+  # Logging
+  tensorboard: true
+  wandb: false
+  wandb_project: physical-ai-oncology
+
+# =============================================================================
+# Evaluation Settings
+# =============================================================================
+evaluation:
+  num_episodes: 100
+  deterministic: true
+  render: false
+  record_video: true
+  video_dir: videos
+
+# =============================================================================
+# Deployment Settings
+# =============================================================================
+deployment:
+  # Export format
+  export_format: onnx
+  onnx_opset: 17
+
+  # Target platform
+  target: jetson  # jetson, x86, ros2
+
+  # Optimization
+  quantization: false
+  fp16: true
+
+# =============================================================================
+# Sim-to-Real Transfer
+# =============================================================================
+sim2real:
+  # Validation pipeline
+  validation_stages:
+    - isaac_to_mujoco
+    - mujoco_to_highfidelity
+    - highfidelity_to_real
+
+  # Transfer thresholds
+  min_sim_success: 0.90
+  min_transfer_rate: 0.80
+
+  # Fine-tuning
+  real_world_finetune: true
+  finetune_episodes: 100

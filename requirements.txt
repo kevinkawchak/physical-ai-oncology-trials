@@ -1,0 +1,86 @@
+# Physical AI for Oncology Clinical Trials
+# Requirements file - January 2026
+
+# Core dependencies
+numpy>=1.24.0
+scipy>=1.11.0
+torch>=2.1.0
+torchvision>=0.16.0
+
+# Physics simulation
+mujoco>=3.2.0
+pybullet>=3.2.7
+
+# MuJoCo JAX backend (GPU acceleration)
+mujoco-mjx>=3.2.0
+jax[cuda12_pip]>=0.4.20
+
+# Reinforcement Learning
+stable-baselines3>=2.2.0
+gymnasium>=0.29.0
+rl-games>=1.6.0
+
+# Robotics
+# ros2 packages installed via apt (ros-jazzy-*)
+
+# Agentic AI
+langchain>=0.3.0
+langgraph>=0.2.0
+crewai>=0.80.0
+anthropic>=0.18.0
+openai>=1.10.0
+
+# Model Context Protocol
+mcp>=0.1.0
+
+# Computer Vision
+opencv-python>=4.8.0
+pillow>=10.0.0
+scikit-image>=0.21.0
+
+# Medical Imaging
+monai>=1.3.0
+nibabel>=5.2.0
+pydicom>=2.4.0
+
+# Deep Learning
+transformers>=4.35.0
+timm>=0.9.0
+einops>=0.7.0
+
+# Visualization
+matplotlib>=3.8.0
+plotly>=5.18.0
+tensorboard>=2.15.0
+
+# Utilities
+tqdm>=4.66.0
+pyyaml>=6.0.0
+hydra-core>=1.3.0
+omegaconf>=2.3.0
+
+# Deployment
+onnx>=1.15.0
+onnxruntime>=1.16.0
+onnxruntime-gpu>=1.16.0
+
+# Testing
+pytest>=7.4.0
+pytest-cov>=4.1.0
+
+# Documentation
+mkdocs>=1.5.0
+mkdocs-material>=9.4.0
+
+# Development
+black>=23.0.0
+isort>=5.12.0
+flake8>=6.1.0
+mypy>=1.7.0
+
+# Optional: NVIDIA Isaac Lab
+# Requires separate installation from NVIDIA
+# See: https://github.com/isaac-sim/IsaacLab
+
+# Optional: ORBIT-Surgical
+# git+https://github.com/orbit-surgical/orbit-surgical.git
