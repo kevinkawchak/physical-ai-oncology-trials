@@ -6,7 +6,7 @@
 
 **Practical, cutting-edge tools for integrating physical AI into oncology clinical trial workflows, by Claude Opus 4.5 Cowork**
 
-This repository provides production-ready configurations, validated pipelines, and integration guides for deploying robotic systems, digital twins, and embodied AI agents in cancer treatment research. All referenced frameworks and tools have been updated within the last 3 months (October 2025 - January 2026). Complementary and open source files, please use safely and responsibly.
+This repository provides production-ready configurations, validated pipelines, and integration guides for deploying robotic systems, digital twins, and embodied AI agents in cancer treatment research. All referenced frameworks and tools have been updated within the last 3 months (October 2025 - January 2026). This repository is complementary and open source, please use safely and responsibly.
 
 ---
 
