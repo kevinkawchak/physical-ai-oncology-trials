@@ -6,11 +6,11 @@
 
 **Practical, cutting-edge tools for integrating physical AI into oncology clinical trial workflows, by Claude Opus 4.5 Cowork**
 
-This repository provides production-ready configurations, validated pipelines, and integration guides for deploying robotic systems, digital twins, and embodied AI agents in cancer treatment research. All referenced frameworks and tools have been updated within the last 3 months (October 2025 - January 2026).  
+This repository provides production-ready configurations, validated pipelines, and integration guides for deploying robotic systems, digital twins, and embodied AI agents in oncology. Referenced frameworks and tools have been added primarily from Oct. 2025 to Jan. 2026.  
 
 ## Responsible use
 
-This repository is complementary and open source; please use the code safely and responsibly.
+This repository is complementary and open source, please implement code safely and responsibly.
 
 ## Quick Start
 
@@ -173,7 +173,7 @@ crewai>=0.80.0
 
 ## Actively Maintained Repositories (Referenced)
 
-All referenced repositories have been updated within the last 3 months:
+All referenced repositories have been updated within October 2025 - January 2026:
 
 | Repository | Purpose | Last Commit |
 |------------|---------|-------------|
@@ -205,10 +205,8 @@ If you use this repository in your research, please cite:
 
 ## Related Work
 
-- [robotarium-nurse-patient-study](https://github.com/kevinkawchak/robotarium-nurse-patient-study) - Remote robotics experiments conducted on GT's Robotarium
-- [arduino-hospital-robot-navigation](https://github.com/kevinkawchak/arduino-hospital-robot-navigation) - Arduino Hospital Robot Navigation Demonstration
-- [LLMs-Pharmaceutical](https://github.com/kevinkawchak/LLMs-Pharmaceutical) - LLM-driven cancer research and oncology trial innovation
-
+- [robotarium-nurse-patient-study](https://github.com/kevinkawchak/robotarium-nurse-patient-study) - Remote robotics experiments on GT's Robotarium
+- [arduino-hospital-robot-navigation](https://github.com/kevinkawchak/arduino-hospital-robot-navigation) - Arduino hospital robot navigation demonstration
 
  
 
@@ -225,6 +223,5 @@ Contributions welcome. Please ensure any added frameworks or tools:
 2. Include practical oncology clinical trial applications
 3. Provide reproducible configurations
 
- 
 
 *Last updated: January 2026*
