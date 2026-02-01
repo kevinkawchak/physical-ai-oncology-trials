@@ -1,6 +1,6 @@
 # Unification Framework for Physical AI Oncology Trials
 
-*Multi-Organization Cooperation for Framework-Agnostic Physical AI Development (January 2026)*
+*Multi-Organization Cooperation for Framework-Agnostic Physical AI Development (February 2026)*
 
 ---
 
@@ -287,4 +287,4 @@ See individual subdirectory READMEs for specific contribution guidelines.
 
 ---
 
-*Last updated: January 2026*
+*Last updated: February 2026*
