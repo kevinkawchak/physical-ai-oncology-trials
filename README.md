@@ -40,26 +40,26 @@ physical-ai-oncology-trials/
 ├── LICENSE
 ├── requirements.txt
 │
-├── unification/                       # ★ NEW: Cross-framework unification
-│   ├── README.md                      # Unification framework overview
-│   ├── simulation_physics/            # Simulation framework compatibility
-│   │   ├── challenges.md              # Technical barriers to interoperability
-│   │   ├── opportunities.md           # Benefits and pathways
-│   │   ├── isaac_mujoco_bridge.py     # Isaac ↔ MuJoCo conversion
-│   │   ├── urdf_sdf_mjcf_converter.py # Robot model format converter
+├── unification/                        
+│   ├── README.md                       
+│   ├── simulation_physics/             
+│   │   ├── challenges.md               
+│   │   ├── opportunities.md            
+│   │   ├── isaac_mujoco_bridge.py     
+│   │   ├── urdf_sdf_mjcf_converter.py  
 │   │   └── physics_parameter_mapping.yaml
-│   ├── agentic_generative_ai/         # AI/ML framework unification
-│   │   ├── challenges.md              # VLA/Agent integration challenges
-│   │   ├── opportunities.md           # Unified AI orchestration benefits
-│   │   └── unified_agent_interface.py # Cross-framework agent abstraction
-│   ├── surgical_robotics/             # Surgical robot platform unification
-│   │   ├── challenges.md              # Hardware/software compatibility
-│   │   └── opportunities.md           # Multi-organization cooperation
-│   ├── cross_platform_tools/          # Conversion and validation utilities
-│   │   ├── framework_detector.py      # Detect framework installations
-│   │   └── validation_suite.py        # Cross-platform policy validation
-│   ├── standards_protocols/           # Interoperability standards
-│   └── integration_workflows/         # End-to-end unified workflows
+│   ├── agentic_generative_ai/          
+│   │   ├── challenges.md               
+│   │   ├── opportunities.md            
+│   │   └── unified_agent_interface.py  
+│   ├── surgical_robotics/              
+│   │   ├── challenges.md               
+│   │   └── opportunities.md           
+│   ├── cross_platform_tools/          
+│   │   ├── framework_detector.py      
+│   │   └── validation_suite.py         
+│   ├── standards_protocols/            
+│   └── integration_workflows/          
 │
 ├── generative-ai/                     # VLA models, diffusion policies, synthetic data
 │   ├── strengths.md
