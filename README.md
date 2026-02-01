@@ -107,9 +107,9 @@ physical-ai-oncology-trials/
 
 | Framework | Version | Last Update | Use Case | Unification Status |
 |-----------|---------|-------------|----------|-------------------|
-| NVIDIA Isaac Lab | 2.3 | Nov 2025 | GPU-accelerated robot training | ✓ Bridge available |
+| NVIDIA Isaac Lab | 2.3.1 | Dec 2025 | GPU-accelerated robot training | ✓ Bridge available |
 | NVIDIA Isaac for Healthcare | 1.0 | Oct 2025 | Surgical robotics development | ✓ Bridge available |
-| MuJoCo | 3.4.0 | Jan 2025 | Precision physics simulation | ✓ Bridge available |
+| MuJoCo | 3.4.0 | Dec 2025 | Precision physics simulation | ✓ Bridge available |
 | Gazebo Ionic | Latest | Jan 2025 | ROS 2 integrated simulation | ◐ In progress |
 | PyBullet | 3.2.7 | Jan 2025 | Rapid prototyping | ✓ Bridge available |
 
