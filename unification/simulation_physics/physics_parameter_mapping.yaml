@@ -1,0 +1,368 @@
+# Physics Parameter Mapping for Cross-Framework Compatibility
+# Physical AI for Oncology Clinical Trials
+# Last updated: January 2026
+#
+# This file defines parameter equivalences between simulation frameworks
+# for consistent physics behavior across NVIDIA Isaac, MuJoCo, Gazebo, and PyBullet.
+
+# =============================================================================
+# Framework Version Compatibility
+# =============================================================================
+framework_versions:
+  isaac_lab: "2.2.0"
+  isaac_sim: "4.2.0"
+  mujoco: "3.2.7"
+  gazebo_ionic: "8.0.0"
+  pybullet: "3.2.7"
+
+# =============================================================================
+# Time Step Configuration
+# =============================================================================
+timestep:
+  # Recommended timesteps for surgical simulation
+  default: 0.002  # 500 Hz - good balance for most tasks
+  high_fidelity: 0.001  # 1000 Hz - for precise contact
+  fast_training: 0.004  # 250 Hz - for rapid iteration
+
+  framework_mapping:
+    isaac:
+      parameter: "sim.dt"
+      unit: "seconds"
+      substeps_parameter: "sim.substeps"
+    mujoco:
+      parameter: "model.opt.timestep"
+      unit: "seconds"
+      substeps_parameter: "model.opt.iterations"
+    gazebo:
+      parameter: "physics.max_step_size"
+      unit: "seconds"
+      substeps_parameter: "physics.ode.solver.iterations"
+    pybullet:
+      parameter: "setTimeStep"
+      unit: "seconds"
+      substeps_parameter: "setPhysicsEngineParameter(numSubSteps)"
+
+# =============================================================================
+# Gravity Configuration
+# =============================================================================
+gravity:
+  default: [0.0, 0.0, -9.81]  # Standard Earth gravity
+
+  framework_mapping:
+    isaac:
+      parameter: "sim.gravity"
+      format: "[x, y, z]"  # m/s²
+    mujoco:
+      parameter: "model.opt.gravity"
+      format: "[x, y, z]"  # m/s²
+    gazebo:
+      parameter: "physics.gravity"
+      format: "[x, y, z]"  # m/s²
+    pybullet:
+      parameter: "setGravity(x, y, z)"
+      format: "function(x, y, z)"  # m/s²
+
+# =============================================================================
+# Contact Dynamics Parameters
+# =============================================================================
+contact_dynamics:
+  description: >
+    Contact parameters are the most challenging to map across frameworks.
+    Each framework uses different models for contact resolution.
+
+  # Unified contact representation
+  unified_parameters:
+    stiffness: 100000  # N/m - contact stiffness
+    damping: 1000      # N·s/m - contact damping
+    friction_static: 0.8
+    friction_dynamic: 0.6
+    friction_rolling: 0.01
+    restitution: 0.1   # Coefficient of restitution
+
+  # Isaac PhysX mapping
+  isaac_physx:
+    # PhysX uses material-based contact
+    parameters:
+      contact_offset: 0.001  # meters - detection threshold
+      rest_offset: 0.0       # meters - penetration allowance
+      static_friction: 0.8
+      dynamic_friction: 0.6
+      restitution: 0.1
+      # Advanced PhysX settings
+      bounce_threshold_velocity: 0.2
+      friction_combine_mode: "average"  # average, min, max, multiply
+      restitution_combine_mode: "average"
+
+    notes: >
+      PhysX contact stiffness is implicit in the solver.
+      Adjust contact_offset for softer/stiffer contacts.
+      Lower contact_offset = stiffer contact.
+
+  # MuJoCo mapping
+  mujoco:
+    # MuJoCo uses solref (stiffness/damping) and solimp (impedance)
+    parameters:
+      # solref: [timeconst, dampratio] or [stiffness, damping] (if negative)
+      solref: [0.01, 1.0]  # timeconst=0.01s, dampratio=1.0
+
+      # solimp: [dmin, dmax, width, midpoint, power]
+      # Controls impedance curve for soft contacts
+      solimp: [0.9, 0.95, 0.001, 0.5, 2]
+
+      # Friction: [slide, torsion, rolling]
+      friction: [0.8, 0.02, 0.01]
+
+    conversion_formulas:
+      stiffness_to_timeconst: "timeconst = 1 / sqrt(stiffness / mass)"
+      damping_to_dampratio: "dampratio = damping / (2 * sqrt(stiffness * mass))"
+      # For unit mass approximation
+      timeconst_from_stiffness: "timeconst = 1 / sqrt(stiffness)"
+      dampratio_from_damping: "dampratio = damping / (2 * sqrt(stiffness))"
+
+    notes: >
+      MuJoCo contact model is more physically accurate but harder to tune.
+      Use solref with positive values for time-based specification.
+      Use negative values for direct stiffness/damping specification.
+
+  # Gazebo ODE mapping
+  gazebo_ode:
+    parameters:
+      # CFM: Constraint Force Mixing (softness)
+      cfm: 0.001  # 0 = hard, higher = softer
+      # ERP: Error Reduction Parameter (spring-like correction)
+      erp: 0.9    # 0-1, higher = stronger correction
+      # Friction
+      mu: 0.8     # Static friction
+      mu2: 0.6    # Dynamic friction
+      fdir1: [1, 0, 0]  # Primary friction direction
+      # Bounce
+      bounce: 0.1
+      bounce_vel: 0.1
+
+    conversion_formulas:
+      # CFM and ERP to stiffness/damping (assuming timestep h)
+      # erp = h * kp / (h * kp + kd)
+      # cfm = 1 / (h * kp + kd)
+      cfm_from_stiffness: "cfm = 1 / (h * stiffness + damping)"
+      erp_from_params: "erp = (h * stiffness) / (h * stiffness + damping)"
+
+    notes: >
+      ODE contact is LCP-based and less accurate than MuJoCo.
+      CFM introduces softness at the cost of penetration.
+      Higher ERP corrects penetration faster but may cause instability.
+
+  # PyBullet mapping
+  pybullet:
+    parameters:
+      contactStiffness: 100000  # N/m
+      contactDamping: 1000      # N·s/m
+      lateralFriction: 0.8
+      spinningFriction: 0.02
+      rollingFriction: 0.01
+      restitution: 0.1
+
+    api_calls:
+      set_contact: |
+        p.changeDynamics(
+            body_id, link_id,
+            contactStiffness=100000,
+            contactDamping=1000,
+            lateralFriction=0.8,
+            spinningFriction=0.02,
+            rollingFriction=0.01,
+            restitution=0.1
+        )
+
+    notes: >
+      PyBullet contact is simplest but least accurate.
+      Direct stiffness/damping specification.
+      Good for rapid prototyping, validate in MuJoCo.
+
+# =============================================================================
+# Soft Body / Tissue Simulation
+# =============================================================================
+soft_body:
+  description: >
+    Soft body simulation for tissue modeling varies significantly.
+    These parameters attempt to achieve similar tissue behavior.
+
+  tissue_properties:
+    # Realistic soft tissue properties (from literature)
+    liver:
+      youngs_modulus: 10000  # Pa (10 kPa)
+      poissons_ratio: 0.45
+      density: 1050  # kg/m³
+
+    kidney:
+      youngs_modulus: 25000  # Pa (25 kPa)
+      poissons_ratio: 0.45
+      density: 1050
+
+    tumor_soft:
+      youngs_modulus: 20000  # Pa
+      poissons_ratio: 0.40
+      density: 1100
+
+    tumor_hard:
+      youngs_modulus: 100000  # Pa (100 kPa)
+      poissons_ratio: 0.35
+      density: 1200
+
+  framework_mapping:
+    isaac:
+      method: "deformable_body"
+      parameters:
+        youngs_modulus: 10000
+        poissons_ratio: 0.45
+        damping: 0.01
+        # Uses FEM-based deformation
+
+    mujoco:
+      method: "composite"
+      parameters:
+        # Composite grid of connected bodies
+        count: [10, 10, 3]  # Grid dimensions
+        spacing: 0.01  # meters
+        # Spring properties approximating material
+        stiffness: 100  # Cable plugin stiffness
+        damping: 0.1
+
+    pybullet:
+      method: "soft_body"
+      parameters:
+        # Neo-Hookean material model
+        useNeoHookean: 1
+        NeoHookeanMu: 10000    # Shear modulus ≈ E / (2(1+ν))
+        NeoHookeanLambda: 50000  # First Lamé parameter
+        NeoHookeanDamping: 0.01
+
+    gazebo:
+      method: "limited"
+      notes: "Gazebo has limited soft body support. Use DART or Bullet physics."
+
+# =============================================================================
+# Joint Dynamics
+# =============================================================================
+joint_dynamics:
+  default_values:
+    damping: 0.5      # N·m·s/rad
+    friction: 0.1     # N·m
+    armature: 0.01    # kg·m² - reflected inertia
+
+  framework_mapping:
+    isaac:
+      damping: "joint.damping"
+      friction: "joint.friction"
+      armature: "joint.armature"
+      stiffness: "joint.stiffness"  # For position control
+
+    mujoco:
+      damping: "joint.damping"  # in default or joint element
+      friction: "joint.frictionloss"
+      armature: "joint.armature"
+      stiffness: "joint.stiffness"
+
+    gazebo:
+      damping: "joint.axis.dynamics.damping"
+      friction: "joint.axis.dynamics.friction"
+      # No direct armature equivalent
+
+    pybullet:
+      # Set via changeDynamics
+      damping: "jointDamping"
+      friction: "jointFriction"
+      # Armature added via additional inertia
+
+# =============================================================================
+# Solver Configuration
+# =============================================================================
+solver:
+  recommended:
+    training:
+      iterations: 50
+      tolerance: 1e-6
+    validation:
+      iterations: 100
+      tolerance: 1e-8
+    deployment:
+      iterations: 50
+      tolerance: 1e-6
+
+  framework_mapping:
+    isaac:
+      # PhysX TGS solver
+      position_iterations: 8
+      velocity_iterations: 1
+      # Use GPU-accelerated solver
+
+    mujoco:
+      iterations: 50  # model.opt.iterations
+      tolerance: 1e-6  # model.opt.tolerance
+      # Solver types: PGS, CG, Newton
+      solver: "Newton"  # Most accurate
+
+    gazebo:
+      # ODE solver
+      iterations: 50
+      sor: 1.3  # Successive Over-Relaxation
+      # Contact surface parameters
+      max_contacts: 20
+
+    pybullet:
+      num_solver_iterations: 50
+      num_sub_steps: 4
+
+# =============================================================================
+# Sensor Noise Models
+# =============================================================================
+sensor_noise:
+  description: >
+    Standardized sensor noise models for cross-framework consistency.
+    Apply these noise profiles to match real hardware characteristics.
+
+  force_torque:
+    noise_std: 0.02  # N (2% of max range)
+    bias: 0.01       # N
+    sample_rate: 500  # Hz
+
+  joint_encoder:
+    noise_std: 0.0001  # rad
+    quantization: 0.00001  # rad
+    sample_rate: 1000  # Hz
+
+  camera:
+    noise_std: 0.02  # Gaussian noise std dev
+    motion_blur: 0.01  # seconds
+    latency: 0.033  # seconds (30 Hz)
+
+# =============================================================================
+# Recommended Validation Workflow
+# =============================================================================
+validation_workflow:
+  steps:
+    - name: "Load identical robot model in both frameworks"
+      tolerance: null
+
+    - name: "Set matching physics parameters"
+      tolerance: null
+
+    - name: "Run identical action sequence"
+      tolerance: null
+
+    - name: "Compare joint positions"
+      tolerance: 0.001  # rad
+
+    - name: "Compare joint velocities"
+      tolerance: 0.01  # rad/s
+
+    - name: "Compare contact forces"
+      tolerance: 0.1  # N (5% of typical force)
+
+    - name: "Compare end-effector trajectory"
+      tolerance: 0.001  # m
+
+  acceptance_criteria:
+    position_error: 0.001  # rad
+    velocity_error: 0.01   # rad/s
+    force_error: 0.1       # N
+    trajectory_error: 0.001  # m
