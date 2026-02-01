@@ -82,7 +82,7 @@ physical-ai-oncology-trials/
 │   ├── limitations.md
 │   └── results.md
 │
-├── frameworks/                        # Framework-specific integration guides
+├── frameworks/                         
 │   ├── nvidia-isaac/                  # Isaac Sim, Isaac Lab, Isaac for Healthcare
 │   │   └── INTEGRATION.md
 │   ├── mujoco/                        # MuJoCo, MJX, MuJoCo Playground
