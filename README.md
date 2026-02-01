@@ -1,7 +1,7 @@
 # Physical AI for Oncology Clinical Trials
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Last Updated](https://img.shields.io/badge/Updated-January%202026-blue.svg)]()
+[![Last Updated](https://img.shields.io/badge/Updated-February%202026-blue.svg)]()
 [![Python 3.10+](https://img.shields.io/badge/Python-3.10+-green.svg)]()
 [![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.18445179-blue)](https://doi.org/10.5281/zenodo.18445179)
 
@@ -330,4 +330,4 @@ Contributions welcome. Please ensure any added frameworks or tools:
 4. **Support cross-platform compatibility** (see `unification/` for guidelines)
 
 
-*Last updated: January 2026*
+*Last updated: February 2026*
