@@ -313,11 +313,6 @@ If you use this repository in your research, please cite:
 
 ---
 
-## Related Work
-
-- [robotarium-nurse-patient-study](https://github.com/kevinkawchak/robotarium-nurse-patient-study) - Remote robotics experiments on GT's Robotarium
-- [arduino-hospital-robot-navigation](https://github.com/kevinkawchak/arduino-hospital-robot-navigation) - Arduino hospital robot navigation demonstration
-
 
 
 ## License
