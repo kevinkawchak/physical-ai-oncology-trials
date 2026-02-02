@@ -40,25 +40,25 @@ physical-ai-oncology-trials/
 ├── LICENSE
 ├── requirements.txt
 │
-├── digital-twins/                       # NEW: Patient-specific digital twins
-│   ├── README.md                        # Digital twin overview
-│   ├── patient-modeling/                # Tumor growth modeling
+├── digital-twins/                        
+│   ├── README.md                         
+│   ├── patient-modeling/                
 │   │   ├── README.md
-│   │   └── tumor_twin_pipeline.py       # TumorTwin integration
-│   ├── treatment-simulation/            # Treatment response prediction
+│   │   └── tumor_twin_pipeline.py       
+│   ├── treatment-simulation/            
 │   │   ├── README.md
-│   │   └── treatment_simulator.py       # Multi-modality simulation
-│   └── clinical-integration/            # Hospital system integration
+│   │   └── treatment_simulator.py        
+│   └── clinical-integration/            
 │       ├── README.md
-│       └── clinical_dt_interface.py     # FHIR/DICOM integration
+│       └── clinical_dt_interface.py      
 │
-├── examples/                            # NEW: Comprehensive code examples
-│   ├── README.md                        # Examples overview
-│   ├── 01_surgical_robot_training.py    # Train surgical policies
-│   ├── 02_digital_twin_surgical_planning.py  # DT-guided surgery
-│   ├── 03_cross_framework_validation.py # Multi-framework validation
-│   ├── 04_agentic_clinical_workflow.py  # Multi-agent clinical trials
-│   └── 05_treatment_response_prediction.py   # DT treatment prediction
+├── examples/                             
+│   ├── README.md                        
+│   ├── 01_surgical_robot_training.py     
+│   ├── 02_digital_twin_surgical_planning.py   
+│   ├── 03_cross_framework_validation.py 
+│   ├── 04_agentic_clinical_workflow.py   
+│   └── 05_treatment_response_prediction.py   
 │
 ├── q1-2026-standards/
 │   ├── README.md
