@@ -40,14 +40,14 @@ physical-ai-oncology-trials/
 ├── LICENSE
 ├── requirements.txt
 │
-├── q1-2026-standards/                  # ★ NEW: Q1 2026 Proposed Standards
-│   ├── README.md                       # Standards overview
+├── q1-2026-standards/                   
+│   ├── README.md                        
 │   ├── objective-1-bidirectional-conversion/
 │   │   ├── isaac_to_mujoco_pipeline.py
 │   │   ├── mujoco_to_isaac_pipeline.py
 │   │   └── physics_equivalence_tests.py
 │   ├── objective-2-robot-model-repository/
-│   │   ├── model_registry.yaml         # Registry of 50+ models
+│   │   ├── model_registry.yaml          
 │   │   └── model_validator.py
 │   ├── objective-3-validation-benchmark/
 │   │   └── benchmark_runner.py
