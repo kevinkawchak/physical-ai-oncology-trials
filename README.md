@@ -122,20 +122,20 @@ physical-ai-oncology-trials/
 
 | Framework | Version | Last Update | Use Case | Unification Status |
 |-----------|---------|-------------|----------|-------------------|
-| NVIDIA Isaac Lab | 2.3.2 | Jan 2026 | GPU-accelerated robot training | ✓ Bridge available |
-| NVIDIA Isaac for Healthcare | 1.0 | Oct 2025 | Surgical robotics development | ✓ Bridge available |
-| MuJoCo | 3.4.0 | Dec 2025 | Precision physics simulation | ✓ Bridge available |
-| Gazebo Ionic | Latest | Jan 2025 | ROS 2 integrated simulation | ◐ In progress |
-| PyBullet | 3.2.7 | Jan 2025 | Rapid prototyping | ✓ Bridge available |
+| NVIDIA Isaac Lab | 2.3.1 | Dec 2024 | GPU-accelerated robot training | ✓ Bridge available |
+| NVIDIA Isaac Sim | 5.1.0 | Jan 2026 | High-fidelity physics simulation | ✓ Bridge available |
+| MuJoCo | 3.4.0 | Dec 2024 | Precision physics simulation | ✓ Bridge available |
+| Gazebo Sim (Jetty) | 10.0.0 | Oct 2024 | ROS 2 integrated simulation | ◐ In progress |
+| PyBullet | 3.2.5 | Apr 2023 | Rapid prototyping | ✓ Bridge available |
 
 ### Agentic & Generative AI
 
 | Framework | Stars | Last Update | Use Case | Unification Status |
 |-----------|-------|-------------|----------|-------------------|
-| NVIDIA GR00T N1.6 | - | Jan 2026 | Humanoid robot foundation model | ◐ Adapter planned |
+| NVIDIA GR00T N1.6 | - | Jan 2026 | Humanoid robot foundation model | ✓ Adapter available |
 | CrewAI | 100K+ | Jan 2026 | Multi-agent orchestration | ✓ Unified interface |
 | LangChain/LangGraph | 95K+ | Jan 2026 | LLM-robot integration | ✓ Unified interface |
-| Model Context Protocol | - | Dec 2025 | Standardized agent-tool communication | ✓ Native support |
+| Model Context Protocol | - | Jan 2026 | Standardized agent-tool communication | ✓ Native support |
 
 ### Surgical Robotics
 
@@ -255,7 +255,7 @@ Train (Isaac) → Validate (MuJoCo) → Integrate (Gazebo) → Prototype (PyBull
 ### Core Requirements
 ```
 python>=3.10
-torch>=2.1.0
+torch>=2.5.0
 numpy>=1.24.0
 scipy>=1.11.0
 ```
@@ -263,20 +263,20 @@ scipy>=1.11.0
 ### Framework-Specific
 ```
 # NVIDIA Isaac (requires NVIDIA GPU)
-isaacsim>=4.2.0
-isaaclab>=2.2.0
+isaacsim>=5.0.0
+isaaclab>=2.3.0
 
 # MuJoCo
-mujoco>=3.2.0
-mujoco-mjx>=3.2.0  # JAX backend
+mujoco>=3.4.0
+mujoco-mjx>=3.4.0  # JAX backend
 
-# ROS 2 (Jazzy recommended)
-ros-jazzy-desktop
+# ROS 2 (Kilted Kaiju or Jazzy)
+ros-jazzy-desktop  # or ros-kilted-desktop
 
 # Agentic AI
-langchain>=0.3.0
-langgraph>=0.2.0
-crewai>=0.80.0
+langchain>=1.0.0
+langgraph>=1.0.0
+crewai>=1.0.0
 ```
 
 ---
@@ -287,13 +287,15 @@ All referenced repositories have been updated within October 2025 - January 2026
 
 | Repository | Purpose | Last Commit |
 |------------|---------|-------------|
-| [isaac-sim/IsaacLab](https://github.com/isaac-sim/IsaacLab) | Robot learning framework | Active |
-| [orbit-surgical/orbit-surgical](https://github.com/orbit-surgical/orbit-surgical) | Surgical simulation | Dec 2024 |
-| [jhu-dvrk/sawIntuitiveResearchKit](https://github.com/jhu-dvrk/sawIntuitiveResearchKit) | dVRK platform | Jan 2025 |
+| [isaac-sim/IsaacLab](https://github.com/isaac-sim/IsaacLab) | Robot learning framework (v2.3.1) | Dec 2024 |
+| [google-deepmind/mujoco](https://github.com/google-deepmind/mujoco) | Physics simulation (v3.4.0) | Dec 2024 |
+| [orbit-surgical/orbit-surgical](https://github.com/orbit-surgical/orbit-surgical) | Surgical simulation | Sep 2024 |
+| [jhu-dvrk/sawIntuitiveResearchKit](https://github.com/jhu-dvrk/sawIntuitiveResearchKit) | dVRK platform | Active |
 | [RobotecAI/rai](https://github.com/RobotecAI/rai) | ROS 2 agentic framework | Active |
-| [crewAIInc/crewAI](https://github.com/crewAIInc/crewAI) | Multi-agent orchestration | Active |
+| [crewAIInc/crewAI](https://github.com/crewAIInc/crewAI) | Multi-agent orchestration (v1.9+) | Jan 2025 |
+| [langchain-ai/langchain](https://github.com/langchain-ai/langchain) | LLM integration (v1.2+) | Jan 2025 |
 | [SCAI-Lab/ros4healthcare](https://github.com/SCAI-Lab/ros4healthcare) | Healthcare robotics | 2025 |
-| [bulletphysics/bullet3](https://github.com/bulletphysics/bullet3) | Physics engine | Jan 2025 |
+| [bulletphysics/bullet3](https://github.com/bulletphysics/bullet3) | Physics engine (v3.2.5) | Apr 2023 |
 
 ---
 

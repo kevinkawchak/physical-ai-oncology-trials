@@ -1,14 +1,18 @@
 # NVIDIA Isaac Integration Guide for Oncology Robotics
 
-*Production deployment guide for Isaac Lab 2.2 and Isaac for Healthcare (October 2025 - January 2026)*
+*Production deployment guide for Isaac Lab 2.3.1 and Isaac Sim 5.1.0 (February 2026)*
+
+**Sources:**
+- Isaac Lab v2.3.1 (Dec 4, 2024): https://github.com/isaac-sim/IsaacLab/releases/tag/v2.3.1
+- Isaac Sim 5.1.0: https://docs.isaacsim.omniverse.nvidia.com/5.1.0/overview/release_notes.html
 
 ---
 
 ## Overview
 
 NVIDIA Isaac provides the most comprehensive platform for physical AI development in oncology clinical trials, combining:
-- **Isaac Lab 2.2**: GPU-accelerated robot learning framework
-- **Isaac Sim**: High-fidelity physics simulation
+- **Isaac Lab 2.3.1**: GPU-accelerated robot learning framework
+- **Isaac Sim 5.1.0**: High-fidelity physics simulation
 - **Isaac for Healthcare**: Medical robotics-specific extensions
 - **Omniverse**: Digital twin and synthetic data generation
 
@@ -20,11 +24,11 @@ NVIDIA Isaac provides the most comprehensive platform for physical AI developmen
 
 | Component | Minimum | Recommended |
 |-----------|---------|-------------|
-| GPU | RTX 3080 | RTX 4090 / L40 |
+| GPU | RTX 3080 | RTX 4090 / L40 / Blackwell |
 | VRAM | 12 GB | 24+ GB |
 | RAM | 32 GB | 64 GB |
 | Storage | 100 GB SSD | 500 GB NVMe |
-| OS | Ubuntu 22.04 | Ubuntu 22.04 |
+| OS | Ubuntu 22.04 | Ubuntu 22.04 / 24.04 |
 
 ### Installation
 

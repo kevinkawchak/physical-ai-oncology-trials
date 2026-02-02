@@ -1,13 +1,18 @@
 # Gazebo Integration Guide for Oncology Robotics
 
-*ROS 2 integrated simulation with Gazebo Ionic (October 2025 - January 2026)*
+*ROS 2 integrated simulation with Gazebo Sim 10.0 (Jetty) (February 2026)*
+
+**Sources:**
+- Gazebo Sim 10.0.0 (Jetty) (Oct 14, 2024): https://github.com/gazebosim/gz-sim/releases/tag/gz-sim10_10.0.0
+- Gazebo Documentation: https://gazebosim.org/docs/jetty/
+- ROS 2 Kilted Kaiju (May 2025): https://docs.ros.org/en/kilted/
 
 ---
 
 ## Overview
 
-Gazebo Ionic provides:
-- **Native ROS 2 integration**: Seamless message passing
+Gazebo Sim (Jetty) provides:
+- **Native ROS 2 integration**: Seamless message passing with ROS 2 Jazzy/Kilted
 - **Sensor simulation**: Cameras, depth, force/torque
 - **Large ecosystem**: Extensive model and plugin library
 - **Medical robotics support**: dVRK, surgical tools
@@ -16,23 +21,24 @@ Gazebo Ionic provides:
 
 ## Installation
 
-### Gazebo Ionic with ROS 2 Jazzy
+### Gazebo Sim with ROS 2 Jazzy or Kilted
 
 ```bash
-# Install ROS 2 Jazzy (Ubuntu 24.04)
+# Option 1: Install ROS 2 Jazzy (Ubuntu 24.04)
 sudo apt update
 sudo apt install ros-jazzy-desktop
+sudo apt install ros-jazzy-ros-gz ros-jazzy-ros-gz-bridge ros-jazzy-ros-gz-sim
 
-# Install Gazebo Ionic
-sudo apt install ros-jazzy-ros-gz
+# Option 2: Install ROS 2 Kilted Kaiju (Ubuntu 24.04, May 2025+)
+# See: https://docs.ros.org/en/kilted/Installation.html
 
-# Install ros_gz bridge
-sudo apt install ros-jazzy-ros-gz-bridge ros-jazzy-ros-gz-sim
+# Install Gazebo Sim standalone (optional, for latest version)
+# See: https://gazebosim.org/docs/jetty/install
 
 # Verify installation
-source /opt/ros/jazzy/setup.bash
+source /opt/ros/jazzy/setup.bash  # or /opt/ros/kilted/setup.bash
 gz sim --version
-# Expected: Gazebo Sim, version 8.x (Ionic)
+# Expected: Gazebo Sim, version 10.x (Jetty)
 ```
 
 ---

@@ -28,14 +28,15 @@ All standards in this directory are based on the following framework versions:
 
 | Framework | Required Version | Release Date | Source |
 |-----------|------------------|--------------|--------|
-| NVIDIA Isaac Lab | 2.3.2+ | Jan 2026 | [GitHub](https://github.com/isaac-sim/IsaacLab/releases) |
-| NVIDIA Isaac Sim | 4.5.0+ | Jan 2026 | [NVIDIA Developer](https://developer.nvidia.com/isaac-sim) |
-| MuJoCo | 3.4.0 | Dec 2025 | [GitHub](https://github.com/google-deepmind/mujoco/releases) |
-| MuJoCo MJX | 3.4.0 | Dec 2025 | [MJX Docs](https://mujoco.readthedocs.io/en/stable/mjx.html) |
-| MuJoCo Warp | 0.2.0+ | Jan 2026 | [GitHub](https://github.com/google-deepmind/mujoco_warp) |
-| Newton Physics | Beta 2 | Jan 2026 | [Newton Branch](https://github.com/isaac-sim/IsaacLab/tree/feature/newton) |
-| Gazebo Ionic | 8.x | 2025 | [Gazebo](https://gazebosim.org/docs/ionic) |
-| ROS 2 | Jazzy | 2024 | [ROS 2 Docs](https://docs.ros.org/en/jazzy/) |
+| NVIDIA Isaac Lab | 2.3.1+ | Dec 2024 | [GitHub](https://github.com/isaac-sim/IsaacLab/releases/tag/v2.3.1) |
+| NVIDIA Isaac Sim | 5.1.0+ | Jan 2026 | [NVIDIA Developer](https://docs.isaacsim.omniverse.nvidia.com/) |
+| MuJoCo | 3.4.0 | Dec 2024 | [GitHub](https://github.com/google-deepmind/mujoco/releases/tag/3.4.0) |
+| MuJoCo MJX | 3.4.0 | Dec 2024 | [MJX Docs](https://mujoco.readthedocs.io/en/stable/mjx.html) |
+| JAX | 0.9.0+ | Jan 2025 | [GitHub](https://github.com/jax-ml/jax/releases/tag/jax-v0.9.0) |
+| Gazebo Sim (Jetty) | 10.0.0 | Oct 2024 | [Gazebo](https://gazebosim.org/docs/jetty/) |
+| ROS 2 | Jazzy/Kilted | 2024-2025 | [ROS 2 Docs](https://docs.ros.org/en/rolling/) |
+| CrewAI | 1.0.0+ | Jan 2025 | [GitHub](https://github.com/crewAIInc/crewAI/releases) |
+| LangChain | 1.0.0+ | Jan 2025 | [GitHub](https://github.com/langchain-ai/langchain/releases) |
 
 ---
 

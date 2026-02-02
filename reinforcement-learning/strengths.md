@@ -6,14 +6,16 @@
 
 ## 1. GPU-Accelerated Training
 
-### NVIDIA Isaac Lab 2.2 Capabilities
+### NVIDIA Isaac Lab 2.3.1 Capabilities
+
+**Source:** https://github.com/isaac-sim/IsaacLab/releases/tag/v2.3.1 (Dec 4, 2024)
 
 **Core Strength**: Massively parallel simulation enables training policies in hours instead of days.
 
-**Performance Metrics (January 2026)**:
+**Performance Metrics (Updated February 2026)**:
 
-| Metric | Isaac Lab 2.2 | Previous Gen | Speedup |
-|--------|---------------|--------------|---------|
+| Metric | Isaac Lab 2.3.1 | Previous Gen | Speedup |
+|--------|-----------------|--------------|---------|
 | Simulation throughput | 100K+ steps/sec | 5K steps/sec | 20x |
 | Policy training time | 2-8 hours | 48-96 hours | 12-20x |
 | Parallel environments | 4096+ | 64-256 | 16x |
@@ -464,7 +466,7 @@ if uncertainty > THRESHOLD:
 
 ## Recommended Starting Points
 
-1. **Training infrastructure**: NVIDIA Isaac Lab 2.2 for GPU-accelerated simulation
+1. **Training infrastructure**: NVIDIA Isaac Lab 2.3.1 for GPU-accelerated simulation
 2. **Algorithm selection**: SAC or DreamerV3 for sample efficiency
 3. **Safety integration**: CPO or safe PPO for constrained learning
 4. **Transfer pipeline**: Domain randomization + sim-to-sim validation
@@ -472,4 +474,4 @@ if uncertainty > THRESHOLD:
 
 ---
 
-*References: NVIDIA Isaac Lab 2.2 (2025), FF-SRL (arXiv 2025), ORBIT-Surgical (2024), Safe RL Survey (2025), DreamerV3 (2023)*
+*References: NVIDIA Isaac Lab 2.3.1 (Dec 2024), NVIDIA Isaac Sim 5.1.0 (Jan 2026), FF-SRL (arXiv 2025), ORBIT-Surgical (2024), Safe RL Survey (2025), DreamerV3 (2023)*

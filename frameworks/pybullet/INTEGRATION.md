@@ -1,6 +1,10 @@
 # PyBullet Integration Guide for Oncology Robotics
 
-*Rapid prototyping and RL development with PyBullet 3.2+ (October 2025 - January 2026)*
+*Rapid prototyping and RL development with PyBullet 3.2.5 (February 2026)*
+
+**Sources:**
+- PyBullet v3.2.5 (Apr 24, 2023): https://github.com/bulletphysics/bullet3/releases/tag/3.2.5
+- PyBullet Quickstart: https://pybullet.org/wordpress/
 
 ---
 
@@ -22,7 +26,7 @@ pip install pybullet
 
 # Verify installation
 python -c "import pybullet as p; print(p.getAPIVersion())"
-# Expected: 3.2.7 (January 2026)
+# Expected: 3.2.5 (April 2023)
 
 # Optional: Install stable-baselines3 for RL
 pip install stable-baselines3[extra]
