@@ -241,10 +241,10 @@ Organizations participating in unified oncology trials should establish:
 
 ## Roadmap
 
-### Q1 2026
-- [ ] Complete Isaac ↔ MuJoCo bidirectional conversion
-- [ ] Publish unified robot model repository (50+ models)
-- [ ] Release validation benchmark suite v1.0
+### Q1 2026 ★ [Standards Available](../q1-2026-standards/)
+- [ ] Complete Isaac ↔ MuJoCo bidirectional conversion → See [Objective 1](../q1-2026-standards/objective-1-bidirectional-conversion/)
+- [ ] Publish unified robot model repository (50+ models) → See [Objective 2](../q1-2026-standards/objective-2-robot-model-repository/)
+- [ ] Release validation benchmark suite v1.0 → See [Objective 3](../q1-2026-standards/objective-3-validation-benchmark/)
 
 ### Q2 2026
 - [ ] Integrate Gazebo Ionic GPU acceleration (when available)

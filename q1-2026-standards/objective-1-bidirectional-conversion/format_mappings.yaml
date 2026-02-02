@@ -1,0 +1,401 @@
+# Physics Parameter Mappings for Isaac ↔ MuJoCo Conversion
+# Q1 2026 Standards
+# Last updated: February 2026
+#
+# This file defines parameter equivalences and conversion formulas
+# for bidirectional conversion between NVIDIA Isaac Lab and MuJoCo.
+#
+# Sources:
+# - MuJoCo XML Reference: https://mujoco.readthedocs.io/en/stable/XMLreference.html
+# - PhysX Documentation: https://nvidia-omniverse.github.io/PhysX/
+# - MuJoCo Contact Model: https://mujoco.readthedocs.io/en/stable/modeling.html#contact
+
+# =============================================================================
+# Framework Versions (Q1 2026)
+# =============================================================================
+versions:
+  mujoco: "3.4.0"
+  mujoco_mjx: "3.4.0"
+  mujoco_warp: "0.2.0"
+  isaac_lab: "2.3.2"
+  isaac_sim: "4.5.0"
+  newton_physics: "beta2"
+
+# =============================================================================
+# Joint Type Mapping
+# =============================================================================
+joint_types:
+  urdf_to_mjcf:
+    revolute: hinge
+    continuous: hinge  # No range limits
+    prismatic: slide
+    fixed: null  # Becomes direct parent-child in MJCF
+    floating: free
+    planar: null  # Decompose to 3 slides
+
+  mjcf_to_urdf:
+    hinge: revolute
+    slide: prismatic
+    ball: floating  # Approximation
+    free: floating
+
+  notes:
+    - "URDF 'continuous' joints have no limits; MJCF 'hinge' can omit range"
+    - "URDF 'planar' requires decomposition into 2 slides + 1 hinge"
+    - "MJCF 'ball' is spherical joint; URDF has no direct equivalent"
+
+# =============================================================================
+# Geometry Type Mapping
+# =============================================================================
+geometry_types:
+  urdf_to_mjcf:
+    box:
+      mjcf_type: box
+      size_conversion: "divide by 2"  # URDF full size → MJCF half size
+      notes: "MJCF size attribute is half-extents"
+
+    cylinder:
+      mjcf_type: cylinder
+      size_conversion: "radius direct, length divide by 2"
+      notes: "MJCF uses [radius, half-length]"
+
+    sphere:
+      mjcf_type: sphere
+      size_conversion: "direct"
+
+    mesh:
+      mjcf_type: mesh
+      requires_asset: true
+      notes: "Mesh must be registered in MJCF asset section"
+
+  mjcf_to_urdf:
+    box:
+      urdf_type: box
+      size_conversion: "multiply by 2"
+
+    cylinder:
+      urdf_type: cylinder
+      size_conversion: "radius direct, length multiply by 2"
+
+    capsule:
+      urdf_type: cylinder  # Approximation
+      notes: "URDF has no capsule; use cylinder approximation"
+
+    sphere:
+      urdf_type: sphere
+      size_conversion: "direct"
+
+    ellipsoid:
+      urdf_type: mesh  # Generate mesh approximation
+      notes: "URDF has no ellipsoid; generate mesh or use bounding box"
+
+    mesh:
+      urdf_type: mesh
+      notes: "Direct mesh reference"
+
+# =============================================================================
+# Contact Dynamics Mapping
+# =============================================================================
+contact_dynamics:
+  description: |
+    Contact parameter mapping between PhysX (Isaac) and MuJoCo.
+    These are approximate conversions as the physics models differ.
+
+  isaac_physx:
+    parameters:
+      contact_offset:
+        description: "Distance at which contacts are detected"
+        default: 0.001
+        unit: meters
+
+      rest_offset:
+        description: "Penetration allowed at rest"
+        default: 0.0
+        unit: meters
+
+      static_friction:
+        description: "Static friction coefficient"
+        default: 0.8
+        range: [0.0, 1.0]
+
+      dynamic_friction:
+        description: "Dynamic friction coefficient"
+        default: 0.6
+        range: [0.0, 1.0]
+
+      restitution:
+        description: "Coefficient of restitution (bounciness)"
+        default: 0.1
+        range: [0.0, 1.0]
+
+      bounce_threshold_velocity:
+        description: "Velocity below which restitution is zero"
+        default: 0.2
+        unit: m/s
+
+  mujoco:
+    parameters:
+      solref:
+        description: "[timeconst, dampratio] or [-stiffness, -damping]"
+        default: [0.01, 1.0]
+        notes: |
+          Positive values: time-based (timeconst in seconds, dampratio dimensionless)
+          Negative values: direct stiffness/damping
+
+      solimp:
+        description: "[dmin, dmax, width, midpoint, power]"
+        default: [0.9, 0.95, 0.001, 0.5, 2]
+        notes: |
+          dmin: minimum damping at depth=0
+          dmax: maximum damping at depth=width
+          width: transition depth
+          midpoint: sigmoid midpoint (for power > 1)
+          power: sigmoid power
+
+      friction:
+        description: "[sliding, torsional, rolling]"
+        default: [0.8, 0.02, 0.01]
+
+      condim:
+        description: "Contact dimensionality"
+        default: 3
+        options:
+          1: "Frictionless"
+          3: "Sliding friction (pyramidal)"
+          4: "Sliding + torsional"
+          6: "Full friction cone"
+
+  conversion_formulas:
+    physx_to_mujoco:
+      timeconst: |
+        # Estimate from contact_offset (approximate)
+        stiffness = 1 / (contact_offset * 1000 + 1e-6)
+        timeconst = 1 / sqrt(stiffness)
+        timeconst = clip(timeconst, 0.001, 0.1)
+
+      dampratio: |
+        # Use critical damping (1.0) as default
+        dampratio = 1.0
+
+      solimp_width: |
+        # Use contact_offset as width
+        width = max(0.001, contact_offset)
+
+      friction: |
+        # Sliding friction from static_friction
+        # Torsional and rolling use small defaults
+        friction = [static_friction, 0.02, 0.01]
+
+    mujoco_to_physx:
+      contact_offset: |
+        # From solimp width or timeconst
+        if solimp[2] > 0:
+            contact_offset = solimp[2]
+        else:
+            contact_offset = timeconst * 0.1  # Approximate
+
+      static_friction: |
+        static_friction = friction[0]
+
+      dynamic_friction: |
+        # Approximate as 80% of static
+        dynamic_friction = friction[0] * 0.8
+
+# =============================================================================
+# Solver Configuration Mapping
+# =============================================================================
+solver_configuration:
+  isaac_physx:
+    training_mode:
+      solver_type: 1  # TGS (Temporal Gauss-Seidel)
+      position_iterations: 4
+      velocity_iterations: 1
+      max_depenetration_velocity: 10.0
+      gpu_enabled: true
+
+    validation_mode:
+      solver_type: 1
+      position_iterations: 8
+      velocity_iterations: 2
+      max_depenetration_velocity: 5.0
+
+  mujoco:
+    training_mode:
+      iterations: 50
+      tolerance: 1.0e-6
+      integrator: implicitfast  # Fast implicit Euler
+      solver: Newton
+
+    validation_mode:
+      iterations: 100
+      tolerance: 1.0e-8
+      integrator: implicit  # Standard implicit
+      solver: Newton
+
+    gpu_acceleration:
+      mjx:
+        backend: jax
+        notes: "JAX-based GPU/TPU acceleration"
+
+      mjwarp:
+        backend: cuda
+        min_cuda_version: "12.4"
+        notes: "NVIDIA Warp-based acceleration (70-300x speedup)"
+
+  equivalence_notes:
+    - "PhysX position_iterations ≈ MuJoCo iterations / 6"
+    - "PhysX TGS solver roughly equivalent to MuJoCo PGS"
+    - "For highest accuracy validation, use MuJoCo Newton solver"
+
+# =============================================================================
+# Actuator Mapping
+# =============================================================================
+actuator_mapping:
+  isaac_to_mujoco:
+    DCMotor:
+      mjcf_type: motor
+      gear: "from transmission ratio"
+      forcerange: "[-max_effort, max_effort]"
+
+    ImplicitActuator:
+      mjcf_type: general
+      dyntype: integrator
+      notes: "Requires careful parameter matching"
+
+    PositionJoint:
+      mjcf_type: position
+      kp: "from stiffness"
+      kv: "from damping (optional)"
+
+    VelocityJoint:
+      mjcf_type: velocity
+      kv: "from velocity gain"
+
+  mujoco_to_isaac:
+    motor:
+      isaac_type: DCMotor
+      notes: "Map gear and forcerange to Isaac motor params"
+
+    position:
+      isaac_type: PositionJoint
+      notes: "Map kp to stiffness, kv to damping"
+
+    velocity:
+      isaac_type: VelocityJoint
+      notes: "Map kv to velocity gain"
+
+    general:
+      isaac_type: ImplicitActuator
+      notes: "Requires analysis of dyntype and dynprm"
+
+# =============================================================================
+# Inertial Property Mapping
+# =============================================================================
+inertial_properties:
+  mass:
+    urdf: "link/inertial/mass/@value"
+    mjcf: "body/inertial/@mass"
+    conversion: direct
+
+  center_of_mass:
+    urdf: "link/inertial/origin/@xyz"
+    mjcf: "body/inertial/@pos"
+    conversion: direct
+    frame: "relative to link/body frame"
+
+  inertia_tensor:
+    urdf:
+      format: "ixx, ixy, ixz, iyy, iyz, izz"
+      element: "link/inertial/inertia"
+
+    mjcf:
+      diagonal:
+        attribute: "diaginertia"
+        format: "ixx, iyy, izz"
+        notes: "Use when off-diagonal elements are zero"
+
+      full:
+        attribute: "fullinertia"
+        format: "ixx, iyy, izz, ixy, ixz, iyz"
+        notes: "Use when off-diagonal elements are non-zero"
+
+    conversion: |
+      if abs(ixy) < 1e-10 and abs(ixz) < 1e-10 and abs(iyz) < 1e-10:
+          use diaginertia
+      else:
+          use fullinertia
+
+# =============================================================================
+# Validation Tolerances
+# =============================================================================
+validation_tolerances:
+  strict:
+    description: "For high-fidelity applications"
+    position_error: 0.0001  # rad or m
+    velocity_error: 0.001   # rad/s or m/s
+    force_error: 0.01       # N or N·m
+    trajectory_error: 0.0001  # m
+
+  standard:
+    description: "For general use"
+    position_error: 0.001
+    velocity_error: 0.01
+    force_error: 0.1
+    trajectory_error: 0.001
+
+  relaxed:
+    description: "For rapid prototyping"
+    position_error: 0.01
+    velocity_error: 0.1
+    force_error: 1.0
+    trajectory_error: 0.01
+
+# =============================================================================
+# Mesh Format Compatibility
+# =============================================================================
+mesh_formats:
+  supported:
+    both:
+      - stl
+      - obj
+
+    urdf_only:
+      - dae  # Collada - requires conversion for MuJoCo
+
+    mjcf_only: []
+
+  conversion_recommendations:
+    dae_to_obj: |
+      Use Blender or MeshLab for DAE → OBJ conversion.
+      Command: blender --background --python convert_mesh.py -- input.dae output.obj
+
+    scale_handling: |
+      URDF mesh scale is applied via scale attribute.
+      MJCF mesh scale is applied via asset mesh scale attribute.
+      Ensure consistent scaling during conversion.
+
+# =============================================================================
+# References
+# =============================================================================
+references:
+  mujoco_documentation:
+    xml_reference: "https://mujoco.readthedocs.io/en/stable/XMLreference.html"
+    modeling_guide: "https://mujoco.readthedocs.io/en/stable/modeling.html"
+    contact_dynamics: "https://mujoco.readthedocs.io/en/stable/modeling.html#contact"
+    mjx_documentation: "https://mujoco.readthedocs.io/en/stable/mjx.html"
+    mjwarp_documentation: "https://mujoco.readthedocs.io/en/latest/mjwarp.html"
+
+  isaac_documentation:
+    isaac_lab: "https://isaac-sim.github.io/IsaacLab/"
+    isaac_sim: "https://docs.isaacsim.omniverse.nvidia.com/"
+    mjcf_importer: "https://docs.isaacsim.omniverse.nvidia.com/latest/importer_exporter/ext_isaacsim_asset_importer_mjcf.html"
+
+  conversion_tools:
+    mjcf2urdf: "https://github.com/iory/mjcf2urdf"
+    urdf2mjcf: "https://github.com/eric-heiden/URDF2MJCF"
+    newton_converter: "https://github.com/newton-physics/newton"
+
+  standards:
+    urdf_specification: "https://wiki.ros.org/urdf/XML"
+    sdf_specification: "http://sdformat.org/spec"
+    usd_specification: "https://openusd.org/release/spec.html"
