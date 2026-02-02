@@ -112,7 +112,11 @@ Cosmos addresses the critical data scarcity problem in oncology robotics:
 
 ### Domain Randomization at Scale
 
-**Isaac Lab 2.2 Integration**:
+**Isaac Lab 2.3.1 Integration**
+
+**Sources:**
+- NVIDIA Isaac Lab 2.3.1: https://github.com/isaac-sim/IsaacLab/releases/tag/v2.3.1
+- NVIDIA Cosmos: https://www.nvidia.com/en-us/ai/cosmos/
 
 ```python
 # Synthetic oncology environment generation
@@ -290,10 +294,10 @@ while procedure_ongoing:
 ## Recommended Starting Points
 
 1. **Immediate deployment**: GR00T N1.6 for general manipulation, RoboNurse-VLA for surgical assistance
-2. **Training infrastructure**: NVIDIA Cosmos + Isaac Lab for synthetic data generation
+2. **Training infrastructure**: NVIDIA Cosmos + Isaac Lab 2.3.1 for synthetic data generation
 3. **Procedure-specific development**: SurgWorld for learning from existing surgical videos
 4. **Planning and reasoning**: SRT-H hierarchical framework for autonomous subtask execution
 
 ---
 
-*References: NVIDIA GR00T N1.6 (arXiv:2503.14734), RoboNurse-VLA (arXiv:2409.19590), SRT-H (Science Robotics 2025), SurgWorld (arXiv:2512.23162), GP-VLS (2025)*
+*References: NVIDIA GR00T N1.6 (arXiv:2503.14734, https://github.com/NVIDIA/Isaac-GR00T), NVIDIA Cosmos (https://www.nvidia.com/en-us/ai/cosmos/), RoboNurse-VLA (arXiv:2409.19590), SRT-H (Science Robotics 2025), SurgWorld (arXiv:2512.23162), GP-VLS (2025)*

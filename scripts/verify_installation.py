@@ -12,40 +12,41 @@ from importlib import import_module
 from typing import Dict, List, Tuple
 
 # Framework requirements with minimum versions
+# Sources: See requirements.txt for version references
 REQUIREMENTS: Dict[str, Tuple[str, str]] = {
     # Core
     "numpy": ("numpy", "1.24.0"),
-    "torch": ("torch", "2.1.0"),
+    "torch": ("torch", "2.5.0"),  # PyTorch 2.10.0 released Jan 2025
     "scipy": ("scipy", "1.11.0"),
 
     # Physics Simulation
-    "mujoco": ("mujoco", "3.2.0"),
-    "pybullet": ("pybullet", "3.2.0"),
+    "mujoco": ("mujoco", "3.4.0"),  # MuJoCo 3.4.0 released Dec 2024
+    "pybullet": ("pybullet", "3.2.5"),  # PyBullet 3.2.5 released Apr 2023
 
     # Reinforcement Learning
-    "stable_baselines3": ("stable_baselines3", "2.2.0"),
-    "gymnasium": ("gymnasium", "0.29.0"),
+    "stable_baselines3": ("stable_baselines3", "2.4.0"),  # SB3 2.7.1 released Dec 2024
+    "gymnasium": ("gymnasium", "1.0.0"),  # Gymnasium 1.2.3 released Dec 2024
 
     # Agentic AI
-    "langchain": ("langchain", "0.3.0"),
+    "langchain": ("langchain", "1.0.0"),  # LangChain 1.2.7 released Jan 2025
 
     # Medical Imaging
-    "monai": ("monai", "1.3.0"),
+    "monai": ("monai", "1.4.0"),  # MONAI 1.5.2 released Jan 2025
 
     # Deep Learning
-    "transformers": ("transformers", "4.35.0"),
+    "transformers": ("transformers", "4.45.0"),  # Transformers 5.0.0 released Jan 2026
 
     # Deployment
-    "onnx": ("onnx", "1.15.0"),
-    "onnxruntime": ("onnxruntime", "1.16.0"),
+    "onnx": ("onnx", "1.17.0"),  # ONNX 1.20.1 released Jan 2025
+    "onnxruntime": ("onnxruntime", "1.17.0"),
 }
 
 # Optional frameworks (not required but recommended)
 OPTIONAL: Dict[str, Tuple[str, str]] = {
-    "isaaclab": ("isaaclab", "2.2.0"),  # Requires separate install
-    "mjx": ("mujoco.mjx", "3.2.0"),  # MuJoCo JAX backend
-    "crewai": ("crewai", "0.80.0"),
-    "langgraph": ("langgraph", "0.2.0"),
+    "isaaclab": ("isaaclab", "2.3.0"),  # Isaac Lab 2.3.1 released Dec 2024
+    "mjx": ("mujoco.mjx", "3.4.0"),  # MuJoCo JAX backend
+    "crewai": ("crewai", "1.0.0"),  # CrewAI 1.9.3 released Jan 2025
+    "langgraph": ("langgraph", "1.0.0"),  # LangGraph 1.0.7 released Jan 2025
 }
 
 

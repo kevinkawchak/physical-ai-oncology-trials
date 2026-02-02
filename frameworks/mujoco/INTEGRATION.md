@@ -1,6 +1,10 @@
 # MuJoCo Integration Guide for Oncology Robotics
 
-*High-fidelity physics simulation with MuJoCo 3.2+ and MJX (October 2025 - January 2026)*
+*High-fidelity physics simulation with MuJoCo 3.4.0 and MJX (February 2026)*
+
+**Sources:**
+- MuJoCo v3.4.0 (Dec 5, 2024): https://github.com/google-deepmind/mujoco/releases/tag/3.4.0
+- MuJoCo Documentation: https://mujoco.readthedocs.io/en/stable/
 
 ---
 
@@ -8,7 +12,7 @@
 
 MuJoCo (Multi-Joint dynamics with Contact) provides:
 - **Accurate physics**: Best-in-class contact dynamics
-- **MJX**: JAX-based GPU acceleration
+- **MJX 3.4.0**: JAX-based GPU acceleration
 - **MuJoCo Playground**: Ready-to-train robot environments
 - **ROS 2 integration**: Seamless deployment pipeline
 
@@ -24,7 +28,7 @@ pip install mujoco
 
 # Verify installation
 python -c "import mujoco; print(mujoco.__version__)"
-# Expected: 3.2.7 (January 2026)
+# Expected: 3.4.0 (December 2024)
 ```
 
 ### MJX (GPU-Accelerated)
