@@ -136,6 +136,18 @@ physical-ai-oncology-trials/
 
 ---
 
+## ★ Q1 2026 Standards
+
+The new `q1-2026-standards/` directory contains **proposed standards** for meeting the Q1 2026 unification objectives:
+
+| Objective | Description | Status |
+|-----------|-------------|--------|
+| **1** | Complete Isaac ↔ MuJoCo bidirectional conversion | Standards defined |
+| **2** | Publish unified robot model repository (50+ models) | Registry created |
+| **3** | Release validation benchmark suite v1.0 | Suite implemented |
+
+---
+
 ## Core Technologies (Updated October 2025 - January 2026)
 
 ### Simulation & Physics
@@ -436,16 +448,6 @@ The unification framework supports collaboration across institutions:
 See `unification/README.md` for the complete cooperation model.
 
 ---
-
-## ★ Q1 2026 Standards
-
-The new `q1-2026-standards/` directory contains **proposed standards** for meeting the Q1 2026 unification objectives:
-
-| Objective | Description | Status |
-|-----------|-------------|--------|
-| **1** | Complete Isaac ↔ MuJoCo bidirectional conversion | Standards defined |
-| **2** | Publish unified robot model repository (50+ models) | Registry created |
-| **3** | Release validation benchmark suite v1.0 | Suite implemented |
 
 ### Quick Start with Q1 2026 Tools
 
