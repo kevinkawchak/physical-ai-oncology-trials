@@ -45,6 +45,15 @@ monai>=1.4.0  # MONAI Multimodal with agentic AI integration: https://github.com
 nibabel>=5.2.0
 pydicom>=2.4.0
 
+# Digital Twins
+# TumorTwin - Patient-specific cancer digital twins (UT Austin)
+# See: https://github.com/OncologyModelingGroup/TumorTwin
+# pip install tumortwin (or install from source for latest)
+# References: arXiv:2505.00670
+
+# FHIR/Clinical Integration
+fhirclient>=4.0.0  # FHIR R4 client: https://github.com/smart-on-fhir/client-py
+
 # Deep Learning
 transformers>=4.45.0  # Transformers 5.0.0 released Jan 2026: https://github.com/huggingface/transformers/releases
 timm>=0.9.0

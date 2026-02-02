@@ -40,14 +40,34 @@ physical-ai-oncology-trials/
 ├── LICENSE
 ├── requirements.txt
 │
-├── q1-2026-standards/                   
-│   ├── README.md                        
+├── digital-twins/                       # NEW: Patient-specific digital twins
+│   ├── README.md                        # Digital twin overview
+│   ├── patient-modeling/                # Tumor growth modeling
+│   │   ├── README.md
+│   │   └── tumor_twin_pipeline.py       # TumorTwin integration
+│   ├── treatment-simulation/            # Treatment response prediction
+│   │   ├── README.md
+│   │   └── treatment_simulator.py       # Multi-modality simulation
+│   └── clinical-integration/            # Hospital system integration
+│       ├── README.md
+│       └── clinical_dt_interface.py     # FHIR/DICOM integration
+│
+├── examples/                            # NEW: Comprehensive code examples
+│   ├── README.md                        # Examples overview
+│   ├── 01_surgical_robot_training.py    # Train surgical policies
+│   ├── 02_digital_twin_surgical_planning.py  # DT-guided surgery
+│   ├── 03_cross_framework_validation.py # Multi-framework validation
+│   ├── 04_agentic_clinical_workflow.py  # Multi-agent clinical trials
+│   └── 05_treatment_response_prediction.py   # DT treatment prediction
+│
+├── q1-2026-standards/
+│   ├── README.md
 │   ├── objective-1-bidirectional-conversion/
 │   │   ├── isaac_to_mujoco_pipeline.py
 │   │   ├── mujoco_to_isaac_pipeline.py
 │   │   └── physics_equivalence_tests.py
 │   ├── objective-2-robot-model-repository/
-│   │   ├── model_registry.yaml          
+│   │   ├── model_registry.yaml
 │   │   └── model_validator.py
 │   ├── objective-3-validation-benchmark/
 │   │   └── benchmark_runner.py
@@ -97,7 +117,7 @@ physical-ai-oncology-trials/
 │   ├── limitations.md
 │   └── results.md
 │
-├── frameworks/                         
+├── frameworks/
 │   ├── nvidia-isaac/                  # Isaac Sim, Isaac Lab, Isaac for Healthcare
 │   │   └── INTEGRATION.md
 │   ├── mujoco/                        # MuJoCo, MJX, MuJoCo Playground
@@ -238,6 +258,91 @@ results = validator.validate_policy(
 
 ---
 
+## ★ Digital Twins for Oncology
+
+The new `digital-twins/` directory provides comprehensive tools for creating and using patient-specific digital twins in oncology clinical trials.
+
+### Key Capabilities
+
+| Capability | Framework | Clinical Application |
+|------------|-----------|---------------------|
+| Tumor growth modeling | TumorTwin | Patient-specific progression prediction |
+| Treatment simulation | Custom PK/PD | Response prediction before treatment |
+| Surgical planning | Isaac Sim integration | Virtual surgery rehearsal |
+| Clinical integration | FHIR/DICOM | Hospital system connectivity |
+
+### Quick Start with Digital Twins
+
+```python
+# Create patient-specific tumor digital twin
+from digital_twins.patient_modeling import TumorTwinPipeline
+
+pipeline = TumorTwinPipeline(
+    model_type="reaction_diffusion",
+    tumor_type="glioblastoma"
+)
+
+patient_dt = pipeline.create_twin(
+    patient_id="ONCO-2026-001",
+    imaging_data={"mri": mri_array},
+    tumor_segmentation=tumor_mask
+)
+
+# Calibrate to longitudinal data
+patient_dt.calibrate(
+    longitudinal_scans=[scan_t0, scan_t1],
+    timepoints=[0, 30]  # days
+)
+
+# Predict tumor evolution
+prediction = patient_dt.predict(horizon_days=180)
+print(f"Predicted volume change: {prediction.metrics['volume_change_percent']:.1f}%")
+
+# Simulate treatment response
+from digital_twins.treatment_simulation import TreatmentSimulator
+
+simulator = TreatmentSimulator(patient_twin=patient_dt)
+response = simulator.predict_response(
+    treatment={"type": "radiation", "total_dose_gy": 60, "fractions": 30},
+    horizon_days=90
+)
+print(f"Predicted response: {response.response_category}")
+```
+
+See `digital-twins/README.md` for complete documentation.
+
+---
+
+## ★ Comprehensive Examples
+
+The new `examples/` directory contains production-ready code examples for the most pressing use cases in physical AI oncology trials.
+
+### Available Examples
+
+| Example | Use Case | Key Frameworks |
+|---------|----------|----------------|
+| `01_surgical_robot_training.py` | Train needle insertion policies | Isaac Lab, ORBIT-Surgical |
+| `02_digital_twin_surgical_planning.py` | DT-guided surgical planning | TumorTwin, MONAI |
+| `03_cross_framework_validation.py` | Multi-framework policy validation | Isaac, MuJoCo, PyBullet |
+| `04_agentic_clinical_workflow.py` | Multi-agent clinical trial coordination | CrewAI, LangGraph |
+| `05_treatment_response_prediction.py` | Patient-specific treatment prediction | TumorTwin |
+
+### Quick Start with Examples
+
+```bash
+# Run surgical robot training
+python examples/01_surgical_robot_training.py --task needle_insertion
+
+# Run treatment prediction
+python examples/05_treatment_response_prediction.py
+
+# Each example includes detailed inline documentation
+```
+
+See `examples/README.md` for complete documentation.
+
+---
+
 ## Validated Integration Paths
 
 ### Path 1: Surgical Robot Training Pipeline (Unified)
@@ -310,6 +415,10 @@ All referenced repositories have been updated within October 2025 - January 2026
 | [Project-MONAI/MONAI](https://github.com/Project-MONAI/MONAI) | Medical imaging AI | Jan 2026 |
 | [SCAI-Lab/ros4healthcare](https://github.com/SCAI-Lab/ros4healthcare) | Healthcare robotics | 2025 |
 | [bulletphysics/bullet3](https://github.com/bulletphysics/bullet3) | Physics engine (v3.2.5) | Apr 2023 |
+| [OncologyModelingGroup/TumorTwin](https://github.com/OncologyModelingGroup/TumorTwin) | Patient-specific cancer DTs | 2025 |
+| [surgical-robotics-ai](https://github.com/surgical-robotics-ai) | Surgical robotics ML | Active |
+| [SamuelSchmidgall/SurgicalGym](https://github.com/SamuelSchmidgall/SurgicalGym) | GPU surgical simulation | Active |
+| [med-air/SurRoL](https://github.com/med-air/SurRoL) | dVRK-compatible RL platform | 2025 |
 
 ---
 
