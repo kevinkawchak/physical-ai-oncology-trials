@@ -53,6 +53,30 @@ unification/
 
 ---
 
+## Roadmap
+
+### Q1 2026 ★ [Standards Available](../q1-2026-standards/)
+- [ ] Complete Isaac ↔ MuJoCo bidirectional conversion → See [Objective 1](../q1-2026-standards/objective-1-bidirectional-conversion/)
+- [ ] Publish unified robot model repository (50+ models) → See [Objective 2](../q1-2026-standards/objective-2-robot-model-repository/)
+- [ ] Release validation benchmark suite v1.0 → See [Objective 3](../q1-2026-standards/objective-3-validation-benchmark/)
+
+### Q2 2026
+- [ ] Integrate Gazebo Ionic GPU acceleration (when available)
+- [ ] Add GR00T N1.6 ↔ OpenVLA ↔ π₀ model adapters
+- [ ] Establish consortium data sharing infrastructure
+
+### Q3 2026
+- [ ] Multi-site clinical trial coordination platform
+- [ ] Real-time policy switching during procedures
+- [ ] FDA 510(k) pathway documentation for unified systems
+
+### Q4 2026
+- [ ] Production deployment at 3+ healthcare systems
+- [ ] Open-source community governance establishment
+- [ ] Annual consortium benchmark competition
+
+---
+
 ## Core Principles
 
 ### 1. Framework Agnosticism
@@ -237,30 +261,6 @@ Organizations participating in unified oncology trials should establish:
 2. Use `multi_site_coordination.py` for trial management
 3. Access standardized reporting via workflow templates
 4. Provide feedback on clinical utility metrics
-
----
-
-## Roadmap
-
-### Q1 2026 ★ [Standards Available](../q1-2026-standards/)
-- [ ] Complete Isaac ↔ MuJoCo bidirectional conversion → See [Objective 1](../q1-2026-standards/objective-1-bidirectional-conversion/)
-- [ ] Publish unified robot model repository (50+ models) → See [Objective 2](../q1-2026-standards/objective-2-robot-model-repository/)
-- [ ] Release validation benchmark suite v1.0 → See [Objective 3](../q1-2026-standards/objective-3-validation-benchmark/)
-
-### Q2 2026
-- [ ] Integrate Gazebo Ionic GPU acceleration (when available)
-- [ ] Add GR00T N1.6 ↔ OpenVLA ↔ π₀ model adapters
-- [ ] Establish consortium data sharing infrastructure
-
-### Q3 2026
-- [ ] Multi-site clinical trial coordination platform
-- [ ] Real-time policy switching during procedures
-- [ ] FDA 510(k) pathway documentation for unified systems
-
-### Q4 2026
-- [ ] Production deployment at 3+ healthcare systems
-- [ ] Open-source community governance establishment
-- [ ] Annual consortium benchmark competition
 
 ---
 
