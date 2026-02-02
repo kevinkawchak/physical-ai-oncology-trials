@@ -1,10 +1,12 @@
 # MuJoCo Integration Guide for Oncology Robotics
 
-*High-fidelity physics simulation with MuJoCo 3.4.0 and MJX (February 2026)*
+*High-fidelity physics simulation with MuJoCo 3.4.0, MJX, and MuJoCo Warp (February 2026)*
 
 **Sources:**
 - MuJoCo v3.4.0 (Dec 5, 2024): https://github.com/google-deepmind/mujoco/releases/tag/3.4.0
 - MuJoCo Documentation: https://mujoco.readthedocs.io/en/stable/
+- MuJoCo Warp (Jan 2026): https://github.com/google-deepmind/mujoco_warp
+- MuJoCo Menagerie: https://github.com/google-deepmind/mujoco_menagerie
 
 ---
 
@@ -13,7 +15,9 @@
 MuJoCo (Multi-Joint dynamics with Contact) provides:
 - **Accurate physics**: Best-in-class contact dynamics
 - **MJX 3.4.0**: JAX-based GPU acceleration
+- **MuJoCo Warp**: NVIDIA GPU-optimized MuJoCo (maintained by DeepMind & NVIDIA)
 - **MuJoCo Playground**: Ready-to-train robot environments
+- **MuJoCo Menagerie**: Curated high-quality robot model collection
 - **ROS 2 integration**: Seamless deployment pipeline
 
 ---
@@ -426,14 +430,43 @@ def identify_tissue_parameters(real_data, model_path):
 
 ---
 
+## MuJoCo Warp (GPU-Optimized)
+
+MuJoCo Warp (MJWarp) provides NVIDIA GPU optimization for MuJoCo, maintained jointly by Google DeepMind and NVIDIA:
+
+```python
+# MuJoCo Warp for GPU-accelerated training
+from mujoco_warp import MJWarpEnv
+
+# Create GPU-accelerated environment
+env = MJWarpEnv(
+    model_path="surgical_robot.xml",
+    num_envs=4096,
+    device="cuda:0"
+)
+
+# Native NVIDIA Warp backend for CUDA-level performance
+# without low-level coding
+```
+
+**Key MJWarp Features:**
+- CUDA-level speed without low-level coding
+- Currently supported on Windows or Linux (x86-64)
+- Optimized for training robot policies
+- Seamless integration with existing MuJoCo models
+
+---
+
 ## Best Practices
 
-1. **Use MJX for training** (4096+ parallel environments)
-2. **Use standard MuJoCo for validation** (accurate single-environment physics)
-3. **Model soft tissue with composites** for deformable interactions
-4. **Tune contact parameters** (solref, solimp) against real measurements
-5. **Use implicit integrator** for stiff contact problems
-6. **Export to ONNX** for deployment (MuJoCo models run on CPU)
+1. **Use MJX for training** (4096+ parallel environments with JAX)
+2. **Use MuJoCo Warp for NVIDIA GPUs** (alternative GPU backend)
+3. **Use standard MuJoCo for validation** (accurate single-environment physics)
+4. **Model soft tissue with composites** for deformable interactions
+5. **Tune contact parameters** (solref, solimp) against real measurements
+6. **Use implicit integrator** for stiff contact problems
+7. **Export to ONNX** for deployment (MuJoCo models run on CPU)
+8. **Use MuJoCo Menagerie** for validated robot models
 
 ---
 
@@ -441,6 +474,8 @@ def identify_tissue_parameters(real_data, model_path):
 
 - [MuJoCo Documentation](https://mujoco.readthedocs.io/)
 - [MJX Tutorial](https://mujoco.readthedocs.io/en/stable/mjx.html)
+- [MuJoCo Warp](https://github.com/google-deepmind/mujoco_warp)
+- [MuJoCo Menagerie](https://github.com/google-deepmind/mujoco_menagerie)
 - [MuJoCo Playground](https://playground.mujoco.org/)
 - [MuJoCo ROS2 Control](https://github.com/ros-controls/ros2_control_demos)
 

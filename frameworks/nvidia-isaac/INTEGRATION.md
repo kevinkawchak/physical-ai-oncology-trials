@@ -1,10 +1,12 @@
 # NVIDIA Isaac Integration Guide for Oncology Robotics
 
-*Production deployment guide for Isaac Lab 2.3.1 and Isaac Sim 5.1.0 (February 2026)*
+*Production deployment guide for Isaac Lab 2.3.1 and Isaac Sim 5.0.0 (February 2026)*
 
 **Sources:**
 - Isaac Lab v2.3.1 (Dec 4, 2024): https://github.com/isaac-sim/IsaacLab/releases/tag/v2.3.1
-- Isaac Sim 5.1.0: https://docs.isaacsim.omniverse.nvidia.com/5.1.0/overview/release_notes.html
+- Isaac Sim 5.0.0: https://docs.isaacsim.omniverse.nvidia.com/
+- Newton Physics Engine (Jan 2026): https://github.com/newton-physics/newton
+- Isaac Lab-Arena (Jan 2026): https://developer.nvidia.com/blog/simplify-generalist-robot-policy-evaluation-in-simulation-with-nvidia-isaac-lab-arena/
 
 ---
 
@@ -12,8 +14,10 @@
 
 NVIDIA Isaac provides the most comprehensive platform for physical AI development in oncology clinical trials, combining:
 - **Isaac Lab 2.3.1**: GPU-accelerated robot learning framework
-- **Isaac Sim 5.1.0**: High-fidelity physics simulation
-- **Isaac for Healthcare**: Medical robotics-specific extensions
+- **Isaac Lab-Arena**: Large-scale robot policy evaluation and benchmarking
+- **Isaac Sim 5.0.0**: High-fidelity physics simulation
+- **Newton Physics Engine**: Open-source GPU physics (NVIDIA/DeepMind/Disney, Linux Foundation)
+- **Isaac for Healthcare**: Medical robotics-specific extensions (Johnson & Johnson partnership)
 - **Omniverse**: Digital twin and synthetic data generation
 
 ---
@@ -499,6 +503,58 @@ visualize_policy(
 
 ---
 
+## Newton Physics Engine Integration
+
+The Newton Physics Engine (January 2026) provides next-generation GPU-accelerated physics for robotics:
+
+```python
+# Newton integration with Isaac Lab (feature/newton branch)
+from isaaclab.physics import NewtonPhysics
+
+# Enable Newton for contact-rich manipulation
+newton_config = NewtonPhysics(
+    solver="implicit",
+    gpu_accelerated=True,
+    differentiable=True,  # Gradient propagation through simulation
+    contact_model="newton_contact"
+)
+
+env = SurgicalEnv(
+    physics_engine=newton_config,
+    num_envs=4096
+)
+```
+
+**Key Newton Features:**
+- Differentiable physics for gradient-based optimization
+- Contact-rich behaviors (walking on soft surfaces, manipulating delicate objects)
+- Co-developed by NVIDIA, Google DeepMind, and Disney Research
+- Managed by Linux Foundation for vendor neutrality
+
+---
+
+## Isaac Lab-Arena for Policy Evaluation
+
+Isaac Lab-Arena provides large-scale benchmarking for generalist robot policies:
+
+```python
+# Benchmark surgical policies at scale
+from isaac_lab_arena import BenchmarkRunner
+
+runner = BenchmarkRunner(
+    benchmarks=["libero", "robocasa", "surgical_tasks"],
+    policy_path="policies/surgical_assistant.onnx"
+)
+
+results = runner.evaluate(
+    num_episodes=10000,
+    parallel_envs=4096,
+    metrics=["success_rate", "completion_time", "safety_violations"]
+)
+```
+
+---
+
 ## Best Practices for Oncology
 
 1. **Start with pre-built ORBIT-Surgical environments** before creating custom
@@ -507,12 +563,16 @@ visualize_policy(
 4. **Export to ONNX** for deployment on NVIDIA edge platforms
 5. **Monitor force/contact metrics** to ensure safe behaviors
 6. **Use hierarchical policies** for complex multi-step procedures
+7. **Leverage Newton** for differentiable physics and contact-rich tasks
+8. **Use Isaac Lab-Arena** for standardized policy benchmarking
 
 ---
 
 ## Resources
 
 - [Isaac Lab Documentation](https://isaac-sim.github.io/IsaacLab/)
+- [Isaac Lab-Arena](https://github.com/isaac-sim/IsaacLabArena)
+- [Newton Physics Engine](https://github.com/newton-physics/newton)
 - [ORBIT-Surgical GitHub](https://github.com/orbit-surgical/orbit-surgical)
 - [Isaac for Healthcare Blog](https://developer.nvidia.com/blog/introducing-nvidia-isaac-for-healthcare/)
 - [NVIDIA Omniverse](https://www.nvidia.com/en-us/omniverse/)

@@ -198,10 +198,12 @@ class TrialCoordinator:
 
 **Strength**: Standardized protocol for connecting LLM agents to external tools and systems.
 
-**MCP Ecosystem (December 2025)**:
-- 97 million+ monthly SDK downloads
-- 10,000+ active MCP servers globally
-- Donated to Linux Foundation's Agentic AI Foundation
+**MCP Ecosystem (December 2025 - January 2026)**:
+- 97 million+ monthly SDK downloads across Python and TypeScript
+- Donated to **Agentic AI Foundation (AAIF)** under Linux Foundation (Dec 2025)
+- Co-founded by Anthropic, Block, and OpenAI with support from Google, Microsoft, AWS, Cloudflare, and Bloomberg
+- Adopted by OpenAI (March 2025), Google DeepMind (April 2025), Microsoft/GitHub (May 2025)
+- Official community-driven Registry for discovering MCP servers (Nov 2025)
 
 **Oncology Trial Integration Points**:
 
@@ -247,6 +249,12 @@ agent.run("Verify patient 2847 eligibility for ONCO-2025-042, "
           "then schedule their week 4 PET scan and prepare the "
           "sample collection robot for tomorrow's biopsy")
 ```
+
+**Security Considerations for Clinical MCP Deployment**:
+- Implement authentication for all MCP servers (HIPAA compliance)
+- Use tool permissions and combining restrictions to prevent data exfiltration
+- Validate tool inputs to prevent prompt injection attacks
+- Follow security best practices from AAIF governance guidelines
 
 ### ROS 2 Agentic Frameworks
 
@@ -594,4 +602,4 @@ fleet.assign_task(
 
 ---
 
-*References: CrewAI Documentation (2025), LangGraph (2025), Model Context Protocol (2025), RAI Framework (2025), ROSA (NASA JPL), NVIDIA Holoscan (2025)*
+*References: CrewAI 1.6.1 (Nov 2025), LangGraph 1.1.0 (Jan 2026), Model Context Protocol/AAIF (Dec 2025, https://modelcontextprotocol.io), RAI Framework (2025), ROSA (NASA JPL), NVIDIA Holoscan (2025)*

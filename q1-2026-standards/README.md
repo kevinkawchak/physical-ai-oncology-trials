@@ -29,14 +29,17 @@ All standards in this directory are based on the following framework versions:
 | Framework | Required Version | Release Date | Source |
 |-----------|------------------|--------------|--------|
 | NVIDIA Isaac Lab | 2.3.1+ | Dec 2024 | [GitHub](https://github.com/isaac-sim/IsaacLab/releases/tag/v2.3.1) |
-| NVIDIA Isaac Sim | 5.1.0+ | Jan 2026 | [NVIDIA Developer](https://docs.isaacsim.omniverse.nvidia.com/) |
+| NVIDIA Isaac Sim | 5.0.0+ | Jan 2026 | [NVIDIA Developer](https://docs.isaacsim.omniverse.nvidia.com/) |
+| Newton Physics Engine | Beta | Jan 2026 | [GitHub](https://github.com/newton-physics/newton) |
 | MuJoCo | 3.4.0 | Dec 2024 | [GitHub](https://github.com/google-deepmind/mujoco/releases/tag/3.4.0) |
 | MuJoCo MJX | 3.4.0 | Dec 2024 | [MJX Docs](https://mujoco.readthedocs.io/en/stable/mjx.html) |
+| MuJoCo Warp | Beta | Jan 2026 | [GitHub](https://github.com/google-deepmind/mujoco_warp) |
 | JAX | 0.9.0+ | Jan 2025 | [GitHub](https://github.com/jax-ml/jax/releases/tag/jax-v0.9.0) |
 | Gazebo Sim (Jetty) | 10.0.0 | Oct 2024 | [Gazebo](https://gazebosim.org/docs/jetty/) |
 | ROS 2 | Jazzy/Kilted | 2024-2025 | [ROS 2 Docs](https://docs.ros.org/en/rolling/) |
-| CrewAI | 1.0.0+ | Jan 2025 | [GitHub](https://github.com/crewAIInc/crewAI/releases) |
-| LangChain | 1.0.0+ | Jan 2025 | [GitHub](https://github.com/langchain-ai/langchain/releases) |
+| dVRK | 2.4.0 | Jan 2026 | [GitHub](https://github.com/jhu-dvrk/sawIntuitiveResearchKit) |
+| CrewAI | 1.6.1+ | Nov 2025 | [GitHub](https://github.com/crewAIInc/crewAI/releases) |
+| LangGraph | 1.1.0+ | Jan 2026 | [GitHub](https://github.com/langchain-ai/langgraph/releases) |
 
 ---
 
@@ -195,8 +198,11 @@ All implementations must comply with:
 
 2. **Clinical Standards** (for oncology applications)
    - FDA 21 CFR Part 11 (Electronic Records)
+   - FDA AI/ML-Enabled Device Guidance (Jan 2025 draft, finalization expected 2026)
+   - FDA PCCP Guidance for AI Software Functions (Aug 2025)
    - IEC 62304 (Medical Device Software)
    - ISO 13482 (Personal Care Robots)
+   - ICH E6(R2) GCP (Good Clinical Practice)
 
 3. **Data Standards**
    - URDF 1.0 Specification (ROS)
