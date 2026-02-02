@@ -1,0 +1,574 @@
+# Unified Robot Model Repository Registry
+# Q1 2026 Standards - Physical AI Oncology Trials
+# Last Updated: February 2026
+#
+# This registry catalogs all robot models in the unified repository.
+# Target: 50+ validated models across three categories.
+#
+# Sources:
+# - ROS Industrial: https://github.com/ros-industrial
+# - JHU dVRK: https://github.com/jhu-dvrk/sawIntuitiveResearchKit
+# - MuJoCo Menagerie: https://github.com/google-deepmind/mujoco_menagerie
+# - ORBIT-Surgical: https://orbit-surgical.github.io/
+
+# =============================================================================
+# Registry Metadata
+# =============================================================================
+registry:
+  version: "1.0.0"
+  last_updated: "2026-02-02"
+  target_count: 50
+  current_count: 52  # Planned models
+  status: "development"
+
+# =============================================================================
+# Category 1: Oncology Robots (15+ models)
+# =============================================================================
+oncology_robots:
+  description: "Robots designed or adapted for oncology clinical applications"
+  target_count: 15
+  current_count: 15
+
+  models:
+    # Surgical Robots
+    - id: "dvrk-psm"
+      name: "dVRK Patient Side Manipulator"
+      dof: 8  # 7 + gripper
+      type: "surgical"
+      status: "planned"
+      priority: "high"
+      source: "https://github.com/jhu-dvrk/sawIntuitiveResearchKit"
+      license: "LGPL-2.1"
+      formats:
+        urdf: "planned"
+        mjcf: "planned"
+        usd: "planned"
+        sdf: "planned"
+      validation:
+        isaac_lab: false
+        mujoco: false
+      notes: "Primary surgical robot for ORBIT-Surgical benchmarks"
+      references:
+        - "https://research.intusurg.com/index.php/Main_Page"
+        - "DOI:10.1109/ICRA.2014.6907809"
+
+    - id: "dvrk-ecm"
+      name: "dVRK Endoscope Camera Manipulator"
+      dof: 4
+      type: "surgical"
+      status: "planned"
+      priority: "high"
+      source: "https://github.com/jhu-dvrk/sawIntuitiveResearchKit"
+      license: "LGPL-2.1"
+      formats:
+        urdf: "planned"
+        mjcf: "planned"
+        usd: "planned"
+        sdf: "planned"
+      notes: "Endoscope manipulation for surgical visualization"
+
+    - id: "star-robot"
+      name: "Smart Tissue Autonomous Robot"
+      dof: 7
+      type: "surgical"
+      status: "planned"
+      priority: "high"
+      source: "academic-collaboration"
+      license: "research-only"
+      notes: "Autonomous surgical suturing robot"
+      references:
+        - "DOI:10.1126/scirobotics.abj2908"
+
+    - id: "raven-ii"
+      name: "RAVEN II Surgical Robot"
+      dof: 7
+      type: "surgical"
+      status: "planned"
+      priority: "medium"
+      source: "https://github.com/raven-debridement/raven_2"
+      license: "BSD-3-Clause"
+      notes: "Open-source surgical research platform"
+
+    # Radiotherapy Robots
+    - id: "cyberknife-arm"
+      name: "CyberKnife Robotic Arm"
+      dof: 6
+      type: "radiotherapy"
+      status: "planned"
+      priority: "high"
+      source: "research-collaboration"
+      license: "research-only"
+      notes: "Stereotactic radiosurgery delivery system"
+      references:
+        - "https://www.accuray.com/cyberknife/"
+
+    - id: "proton-gantry"
+      name: "Proton Therapy Gantry"
+      dof: 3
+      type: "radiotherapy"
+      status: "planned"
+      priority: "medium"
+      source: "research-collaboration"
+      notes: "Proton beam delivery gantry system"
+
+    # Brachytherapy
+    - id: "brachy-needle-robot"
+      name: "Brachytherapy Needle Robot"
+      dof: 3
+      type: "brachytherapy"
+      status: "planned"
+      priority: "medium"
+      source: "research"
+      notes: "Needle placement for prostate brachytherapy"
+
+    # Medical-Certified Robots
+    - id: "kuka-lbr-med"
+      name: "KUKA LBR Med"
+      dof: 7
+      type: "medical-certified"
+      status: "planned"
+      priority: "high"
+      source: "https://www.kuka.com/en-de/industries/health-care"
+      license: "research-agreement"
+      notes: "Medical-certified collaborative robot"
+      references:
+        - "IEC 60601-1 certified"
+
+    - id: "neuromate"
+      name: "Neuromate Stereotactic Robot"
+      dof: 5
+      type: "neurosurgery"
+      status: "planned"
+      priority: "medium"
+      source: "research-collaboration"
+      notes: "Neurosurgical stereotactic positioning"
+
+    - id: "rosa-brain"
+      name: "ROSA Brain Robot"
+      dof: 5
+      type: "neurosurgery"
+      status: "planned"
+      priority: "medium"
+      source: "research-collaboration"
+      notes: "Minimally invasive neurosurgery"
+      references:
+        - "https://www.zimmer-biomet-robotics.com/rosa-brain"
+
+    - id: "mako-rio"
+      name: "Mako RIO Robotic Arm"
+      dof: 6
+      type: "orthopedic"
+      status: "planned"
+      priority: "medium"
+      source: "research-collaboration"
+      notes: "Orthopedic surgery robotics"
+
+    - id: "mazor-x"
+      name: "Mazor X Stealth Edition"
+      dof: 6
+      type: "spine"
+      status: "planned"
+      priority: "medium"
+      source: "research-collaboration"
+      notes: "Spine surgery guidance and execution"
+
+    - id: "excelsius-gps"
+      name: "ExcelsiusGPS Spine Robot"
+      dof: 6
+      type: "spine"
+      status: "planned"
+      priority: "medium"
+      source: "research-collaboration"
+      notes: "Robotic spine surgery platform"
+
+    # Assistive/Rehabilitation
+    - id: "iarm-assistive"
+      name: "iARM Assistive Robot"
+      dof: 6
+      type: "assistive"
+      status: "planned"
+      priority: "low"
+      source: "research"
+      notes: "Patient assistance during treatment"
+
+    - id: "ur5-surgical-adapter"
+      name: "UR5 with Surgical Adapter"
+      dof: 6
+      type: "surgical-assist"
+      status: "planned"
+      priority: "medium"
+      source: "https://github.com/ros-industrial/universal_robot"
+      license: "BSD-3-Clause"
+      notes: "Universal Robot adapted for surgical assistance"
+
+# =============================================================================
+# Category 2: Surgical Instruments (20+ models)
+# =============================================================================
+surgical_instruments:
+  description: "End-effectors and instruments for surgical procedures"
+  target_count: 20
+  current_count: 22
+
+  models:
+    # Grasping Instruments
+    - id: "large-needle-driver"
+      name: "Large Needle Driver"
+      type: "grasper"
+      status: "planned"
+      priority: "high"
+      dvrk_compatible: true
+      notes: "Standard needle driving instrument"
+
+    - id: "maryland-bipolar"
+      name: "Maryland Bipolar Forceps"
+      type: "grasper"
+      status: "planned"
+      priority: "high"
+      dvrk_compatible: true
+      notes: "Tissue grasping with bipolar coagulation"
+
+    - id: "prograsp-forceps"
+      name: "ProGrasp Forceps"
+      type: "grasper"
+      status: "planned"
+      priority: "high"
+      dvrk_compatible: true
+      notes: "Strong tissue holding"
+
+    - id: "cadiere-forceps"
+      name: "Cadiere Forceps"
+      type: "grasper"
+      status: "planned"
+      priority: "medium"
+      dvrk_compatible: true
+      notes: "Delicate tissue manipulation"
+
+    - id: "fenestrated-bipolar"
+      name: "Fenestrated Bipolar Forceps"
+      type: "grasper"
+      status: "planned"
+      priority: "medium"
+      dvrk_compatible: true
+      notes: "Coagulation with fenestrated jaws"
+
+    - id: "biopsy-forceps"
+      name: "Biopsy Forceps"
+      type: "grasper"
+      status: "planned"
+      priority: "high"
+      notes: "Tissue sampling for oncology"
+
+    # Cutting Instruments
+    - id: "hot-shears"
+      name: "Hot Shears (Monopolar Scissors)"
+      type: "scissors"
+      status: "planned"
+      priority: "high"
+      dvrk_compatible: true
+      notes: "Monopolar cutting and coagulation"
+
+    - id: "curved-scissors"
+      name: "Curved Scissors"
+      type: "scissors"
+      status: "planned"
+      priority: "medium"
+      dvrk_compatible: true
+      notes: "Precise tissue cutting"
+
+    - id: "metzenbaum-scissors"
+      name: "Metzenbaum Scissors"
+      type: "scissors"
+      status: "planned"
+      priority: "medium"
+      notes: "Delicate dissection scissors"
+
+    # Energy Instruments
+    - id: "cautery-hook"
+      name: "Cautery Hook (Monopolar)"
+      type: "energy"
+      status: "planned"
+      priority: "high"
+      dvrk_compatible: true
+      notes: "Monopolar cauterization hook"
+
+    - id: "vessel-sealer"
+      name: "Vessel Sealer (LigaSure-type)"
+      type: "energy"
+      status: "planned"
+      priority: "high"
+      notes: "Bipolar vessel sealing"
+
+    - id: "harmonic-scalpel"
+      name: "Harmonic Scalpel"
+      type: "energy"
+      status: "planned"
+      priority: "medium"
+      notes: "Ultrasonic cutting and coagulation"
+
+    # Suction/Irrigation
+    - id: "suction-irrigator"
+      name: "Suction/Irrigator"
+      type: "suction"
+      status: "planned"
+      priority: "high"
+      dvrk_compatible: true
+      notes: "Fluid management"
+
+    # Applicators
+    - id: "clip-applier"
+      name: "Clip Applier"
+      type: "applicator"
+      status: "planned"
+      priority: "medium"
+      notes: "Hemostatic clip application"
+
+    - id: "endo-stapler"
+      name: "Endoscopic Stapler"
+      type: "applicator"
+      status: "planned"
+      priority: "medium"
+      notes: "Tissue stapling"
+
+    - id: "endo-stitch"
+      name: "Endo Stitch Suturing Device"
+      type: "applicator"
+      status: "planned"
+      priority: "medium"
+      notes: "Automated suturing"
+
+    # Retraction
+    - id: "tissue-retractor"
+      name: "Tissue Retractor"
+      type: "retraction"
+      status: "planned"
+      priority: "medium"
+      notes: "Tissue retraction during surgery"
+
+    - id: "fan-retractor"
+      name: "Fan Retractor"
+      type: "retraction"
+      status: "planned"
+      priority: "low"
+      notes: "Wide tissue retraction"
+
+    # Access
+    - id: "trocar-12mm"
+      name: "12mm Trocar"
+      type: "access"
+      status: "planned"
+      priority: "medium"
+      notes: "Standard port access"
+
+    - id: "trocar-5mm"
+      name: "5mm Trocar"
+      type: "access"
+      status: "planned"
+      priority: "medium"
+      notes: "Small port access"
+
+    # Consumables
+    - id: "curved-needle"
+      name: "Curved Suture Needle"
+      type: "consumable"
+      status: "planned"
+      priority: "high"
+      notes: "Standard curved suture needle"
+
+    - id: "specimen-bag"
+      name: "Specimen Retrieval Bag"
+      type: "consumable"
+      status: "planned"
+      priority: "medium"
+      notes: "Tissue extraction from body cavity"
+
+# =============================================================================
+# Category 3: General Manipulators (15+ models)
+# =============================================================================
+general_manipulators:
+  description: "General-purpose robots adaptable for clinical/research use"
+  target_count: 15
+  current_count: 15
+
+  models:
+    # Franka Robotics
+    - id: "franka-panda"
+      name: "Franka Emika Panda"
+      dof: 7
+      manufacturer: "Franka Emika"
+      status: "planned"
+      priority: "high"
+      source: "https://github.com/frankaemika/franka_ros"
+      license: "Apache-2.0"
+      notes: "Research-grade collaborative robot"
+      references:
+        - "https://www.franka.de/"
+        - "DOI:10.1109/ICRA.2017.7989389"
+
+    # Universal Robots
+    - id: "ur3e"
+      name: "Universal Robots UR3e"
+      dof: 6
+      manufacturer: "Universal Robots"
+      status: "planned"
+      priority: "high"
+      source: "https://github.com/ros-industrial/universal_robot"
+      license: "BSD-3-Clause"
+      notes: "Compact collaborative robot"
+
+    - id: "ur5e"
+      name: "Universal Robots UR5e"
+      dof: 6
+      manufacturer: "Universal Robots"
+      status: "planned"
+      priority: "high"
+      source: "https://github.com/ros-industrial/universal_robot"
+      license: "BSD-3-Clause"
+      notes: "Medium-size collaborative robot"
+
+    - id: "ur10e"
+      name: "Universal Robots UR10e"
+      dof: 6
+      manufacturer: "Universal Robots"
+      status: "planned"
+      priority: "medium"
+      source: "https://github.com/ros-industrial/universal_robot"
+      license: "BSD-3-Clause"
+      notes: "Large collaborative robot"
+
+    # KUKA
+    - id: "kuka-iiwa7"
+      name: "KUKA LBR iiwa 7 R800"
+      dof: 7
+      manufacturer: "KUKA"
+      status: "planned"
+      priority: "high"
+      source: "https://github.com/IFL-CAMP/iiwa_stack"
+      license: "BSD-3-Clause"
+      notes: "7-DOF sensitive robot"
+
+    - id: "kuka-iiwa14"
+      name: "KUKA LBR iiwa 14 R820"
+      dof: 7
+      manufacturer: "KUKA"
+      status: "planned"
+      priority: "medium"
+      source: "https://github.com/IFL-CAMP/iiwa_stack"
+      license: "BSD-3-Clause"
+      notes: "Higher payload iiwa variant"
+
+    # Kinova
+    - id: "kinova-gen3"
+      name: "Kinova Gen3"
+      dof: 7
+      manufacturer: "Kinova"
+      status: "planned"
+      priority: "high"
+      source: "https://github.com/Kinovarobotics/ros_kortex"
+      license: "BSD-3-Clause"
+      notes: "Ultra-lightweight robot arm"
+
+    - id: "kinova-gen3-lite"
+      name: "Kinova Gen3 Lite"
+      dof: 6
+      manufacturer: "Kinova"
+      status: "planned"
+      priority: "medium"
+      source: "https://github.com/Kinovarobotics/ros_kortex"
+      license: "BSD-3-Clause"
+      notes: "Compact lightweight arm"
+
+    # Other Manufacturers
+    - id: "sawyer"
+      name: "Rethink Sawyer"
+      dof: 7
+      manufacturer: "Rethink Robotics"
+      status: "planned"
+      priority: "medium"
+      source: "https://github.com/RethinkRobotics/sawyer_robot"
+      license: "Apache-2.0"
+      notes: "Single-arm collaborative robot"
+
+    - id: "yumi-single"
+      name: "ABB YuMi Single Arm"
+      dof: 7
+      manufacturer: "ABB"
+      status: "planned"
+      priority: "medium"
+      source: "research"
+      notes: "Collaborative dual-arm robot (single arm model)"
+
+    - id: "doosan-m1013"
+      name: "Doosan M1013"
+      dof: 6
+      manufacturer: "Doosan Robotics"
+      status: "planned"
+      priority: "medium"
+      source: "https://github.com/doosan-robotics/doosan-robot"
+      license: "BSD-3-Clause"
+      notes: "Collaborative robot with high safety"
+
+    - id: "xarm7"
+      name: "UFACTORY xArm 7"
+      dof: 7
+      manufacturer: "UFACTORY"
+      status: "planned"
+      priority: "medium"
+      source: "https://github.com/xArm-Developer/xarm_ros"
+      license: "BSD-3-Clause"
+      notes: "Cost-effective 7-DOF arm"
+
+    - id: "denso-vs060"
+      name: "Denso VS-060"
+      dof: 6
+      manufacturer: "Denso"
+      status: "planned"
+      priority: "low"
+      source: "research"
+      notes: "High-speed industrial robot"
+
+    - id: "fanuc-lrmate"
+      name: "Fanuc LR Mate 200iD"
+      dof: 6
+      manufacturer: "Fanuc"
+      status: "planned"
+      priority: "low"
+      source: "research"
+      notes: "Compact industrial robot"
+
+    - id: "motoman-gp7"
+      name: "Yaskawa Motoman GP7"
+      dof: 6
+      manufacturer: "Yaskawa"
+      status: "planned"
+      priority: "low"
+      source: "research"
+      notes: "Industrial handling robot"
+
+# =============================================================================
+# Summary Statistics
+# =============================================================================
+summary:
+  total_models: 52
+  by_category:
+    oncology_robots: 15
+    surgical_instruments: 22
+    general_manipulators: 15
+  by_status:
+    planned: 52
+    in_progress: 0
+    completed: 0
+    validated: 0
+  by_priority:
+    high: 20
+    medium: 24
+    low: 8
+  target_q1_2026: 50
+
+# =============================================================================
+# Validation Status
+# =============================================================================
+validation_status:
+  models_validated_isaac: 0
+  models_validated_mujoco: 0
+  models_validated_cross_framework: 0
+  target_validated: 50
