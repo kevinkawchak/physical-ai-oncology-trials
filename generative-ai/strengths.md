@@ -93,13 +93,15 @@ trajectory = policy.sample(
 
 ### NVIDIA Cosmos World Foundation Models
 
-**Released CES 2025, Updated January 2026**
+**Released CES 2025, Major Updates CES 2026**
 
 Cosmos addresses the critical data scarcity problem in oncology robotics:
 
-- **9,000 trillion tokens** training corpus including medical procedures
+- **Cosmos Predict 2.5** (Jan 2026): Open, fully customizable world models for physically-based synthetic data generation
+- **Cosmos Reason 2** (Jan 2026): Open reasoning VLM enabling machines to see, understand, and act like humans
 - **Physics-aware generation**: Produces physically plausible synthetic surgical videos for training
 - **Multi-modal outputs**: Text/image/video to video generation enables scenario augmentation
+- **1M+ downloads**: Cosmos Reason currently leads the Physical Reasoning Leaderboard on Hugging Face
 
 **Strengths for Clinical Trial Robotics**:
 
@@ -116,14 +118,19 @@ Cosmos addresses the critical data scarcity problem in oncology robotics:
 
 **Sources:**
 - NVIDIA Isaac Lab 2.3.1: https://github.com/isaac-sim/IsaacLab/releases/tag/v2.3.1
-- NVIDIA Cosmos: https://www.nvidia.com/en-us/ai/cosmos/
+- NVIDIA Cosmos Predict 2.5: https://www.nvidia.com/en-us/ai/cosmos/
+- NVIDIA Cosmos Reason 2: https://huggingface.co/nvidia/Cosmos-Reason
 
 ```python
 # Synthetic oncology environment generation
 from isaaclab.envs import OncologyProcedureEnv
-from cosmos import WorldGenerator
+from cosmos import WorldGenerator, ReasoningModel
 
+# World model for synthetic data generation
 generator = WorldGenerator(model="cosmos-predict-2.5")
+
+# Reasoning model for physical AI planning
+reasoner = ReasoningModel(model="cosmos-reason-2")
 
 # Generate 10,000 synthetic variations of a biopsy procedure
 synthetic_episodes = generator.generate(
@@ -300,4 +307,4 @@ while procedure_ongoing:
 
 ---
 
-*References: NVIDIA GR00T N1.6 (arXiv:2503.14734, https://github.com/NVIDIA/Isaac-GR00T), NVIDIA Cosmos (https://www.nvidia.com/en-us/ai/cosmos/), RoboNurse-VLA (arXiv:2409.19590), SRT-H (Science Robotics 2025), SurgWorld (arXiv:2512.23162), GP-VLS (2025)*
+*References: NVIDIA GR00T N1.6 (arXiv:2503.14734, https://github.com/NVIDIA/Isaac-GR00T), NVIDIA Cosmos Predict 2.5 & Reason 2 (CES 2026, https://www.nvidia.com/en-us/ai/cosmos/), RoboNurse-VLA (arXiv:2409.19590), SRT-H (Science Robotics 2025), SurgWorld (arXiv:2512.23162), GP-VLS (2025)*

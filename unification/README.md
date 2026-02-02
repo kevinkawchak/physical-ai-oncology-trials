@@ -70,9 +70,10 @@ All trained policies, robot models, and data formats should be portable across s
 
 The framework supports collaboration across institutions without vendor lock-in:
 
-- **Stanford/JHU**: ORBIT-Surgical, dVRK platforms
-- **NVIDIA**: Isaac Lab 2.3.1, Isaac Sim 5.1.0, Isaac for Healthcare
-- **Google DeepMind**: MuJoCo 3.4.0, MJX, Playground
+- **Stanford/JHU**: ORBIT-Surgical, dVRK 2.4.0, dVRK-Si platforms
+- **NVIDIA**: Isaac Lab 2.3.1, Isaac Lab-Arena, Isaac Sim 5.0.0, Isaac for Healthcare
+- **Google DeepMind**: MuJoCo 3.4.0, MJX, MuJoCo Warp, Menagerie
+- **Linux Foundation**: Newton Physics Engine (NVIDIA/DeepMind/Disney), Model Context Protocol (AAIF)
 - **Open Robotics**: Gazebo Sim 10.0 (Jetty), ROS 2 Jazzy/Kilted
 - **Research Community**: PyBullet 3.2.5, Gymnasium
 
@@ -279,15 +280,19 @@ See individual subdirectory READMEs for specific contribution guidelines.
 ## References
 
 - [NVIDIA Isaac Lab 2.3.1](https://github.com/isaac-sim/IsaacLab/releases/tag/v2.3.1)
-- [NVIDIA Isaac Sim 5.1.0](https://docs.isaacsim.omniverse.nvidia.com/)
+- [NVIDIA Isaac Lab-Arena](https://github.com/isaac-sim/IsaacLabArena)
+- [NVIDIA Isaac Sim 5.0.0](https://docs.isaacsim.omniverse.nvidia.com/)
+- [Newton Physics Engine](https://github.com/newton-physics/newton) - Linux Foundation
 - [MuJoCo 3.4.0](https://github.com/google-deepmind/mujoco/releases/tag/3.4.0)
-- [MuJoCo Documentation](https://mujoco.readthedocs.io/)
+- [MuJoCo Warp](https://github.com/google-deepmind/mujoco_warp)
+- [MuJoCo Menagerie](https://github.com/google-deepmind/mujoco_menagerie)
 - [Gazebo Sim (Jetty)](https://gazebosim.org/docs/jetty/)
 - [ORBIT-Surgical](https://orbit-surgical.github.io/)
+- [dVRK 2.4.0](https://github.com/jhu-dvrk/sawIntuitiveResearchKit)
 - [ROS 2 Kilted Kaiju](https://docs.ros.org/en/kilted/)
-- [CrewAI](https://github.com/crewAIInc/crewAI)
-- [LangChain](https://github.com/langchain-ai/langchain)
-- [Model Context Protocol](https://modelcontextprotocol.io/)
+- [CrewAI 1.6.1](https://github.com/crewAIInc/crewAI)
+- [LangGraph 1.1.0](https://github.com/langchain-ai/langgraph)
+- [Model Context Protocol](https://modelcontextprotocol.io/) - AAIF/Linux Foundation
 
 ---
 

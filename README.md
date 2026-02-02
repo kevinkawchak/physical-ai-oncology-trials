@@ -123,8 +123,10 @@ physical-ai-oncology-trials/
 | Framework | Version | Last Update | Use Case | Unification Status |
 |-----------|---------|-------------|----------|-------------------|
 | NVIDIA Isaac Lab | 2.3.1 | Dec 2024 | GPU-accelerated robot training | ✓ Bridge available |
-| NVIDIA Isaac Sim | 5.1.0 | Jan 2026 | High-fidelity physics simulation | ✓ Bridge available |
+| NVIDIA Isaac Sim | 5.0.0 | Jan 2026 | High-fidelity physics simulation | ✓ Bridge available |
+| Newton Physics Engine | Beta | Jan 2026 | GPU physics (NVIDIA/DeepMind/Disney) | ✓ Isaac Lab integrated |
 | MuJoCo | 3.4.0 | Dec 2024 | Precision physics simulation | ✓ Bridge available |
+| MuJoCo Warp | Beta | Jan 2026 | GPU-optimized MuJoCo (NVIDIA) | ✓ Bridge available |
 | Gazebo Sim (Jetty) | 10.0.0 | Oct 2024 | ROS 2 integrated simulation | ◐ In progress |
 | PyBullet | 3.2.5 | Apr 2023 | Rapid prototyping | ✓ Bridge available |
 
@@ -133,17 +135,22 @@ physical-ai-oncology-trials/
 | Framework | Stars | Last Update | Use Case | Unification Status |
 |-----------|-------|-------------|----------|-------------------|
 | NVIDIA GR00T N1.6 | - | Jan 2026 | Humanoid robot foundation model | ✓ Adapter available |
-| CrewAI | 100K+ | Jan 2026 | Multi-agent orchestration | ✓ Unified interface |
-| LangChain/LangGraph | 95K+ | Jan 2026 | LLM-robot integration | ✓ Unified interface |
-| Model Context Protocol | - | Jan 2026 | Standardized agent-tool communication | ✓ Native support |
+| NVIDIA Cosmos Predict 2.5 | - | Jan 2026 | World foundation model, synthetic data | ✓ Native support |
+| NVIDIA Cosmos Reason 2 | - | Jan 2026 | Reasoning VLM for physical AI | ✓ Native support |
+| CrewAI | 100K+ | Jan 2026 | Multi-agent orchestration (v1.6.1) | ✓ Unified interface |
+| LangChain/LangGraph | 95K+ | Jan 2026 | LLM-robot integration (v1.1.0) | ✓ Unified interface |
+| Model Context Protocol | - | Dec 2025 | Agent-tool communication (AAIF/Linux Foundation) | ✓ Native support |
+| MONAI Multimodal | - | Jan 2026 | Medical imaging + agentic AI | ✓ Integrated |
 
 ### Surgical Robotics
 
 | Framework | Institution | Last Update | Use Case | Unification Status |
 |-----------|-------------|-------------|----------|-------------------|
 | ORBIT-Surgical | Stanford/JHU | Dec 2024 | Surgical task benchmarking | ✓ Primary benchmark |
-| dVRK 2.3.1 | JHU | Jan 2025 | da Vinci research platform | ✓ Bridge available |
+| dVRK 2.4.0 | JHU | Jan 2026 | da Vinci research platform (ROS 2 Jazzy) | ✓ Bridge available |
+| dVRK-Si | JHU | 2025 | Next-gen da Vinci Si/S support | ✓ Bridge available |
 | SurgicalGym | - | 2025 | GPU-based surgical RL | ◐ In progress |
+| Isaac Lab-Arena | NVIDIA | Jan 2026 | Large-scale policy evaluation | ✓ Benchmark integration |
 
 ---
 
@@ -204,16 +211,18 @@ results = validator.validate_policy(
 ## Key Capabilities
 
 ### 1. Generative AI for Physical Systems
-- **Vision-Language-Action (VLA) models** for surgical instrument manipulation
+- **Vision-Language-Action (VLA) models** for surgical instrument manipulation (GR00T N1.6)
 - **Diffusion policies** for trajectory generation in tumor resection
-- **Synthetic data generation** for rare oncology scenarios
-- **World models** (NVIDIA Cosmos) for physics-aware simulation
+- **Synthetic data generation** for rare oncology scenarios (Cosmos Predict 2.5)
+- **World models** (NVIDIA Cosmos) for physics-aware simulation and reasoning (Cosmos Reason 2)
+- **Physical reasoning** via dual-system architecture (System 1 fast + System 2 deliberate)
 
 ### 2. Agentic AI for Clinical Workflows
 - **LLM-based surgical assistants** with multimodal perception
-- **Multi-agent coordination** for multi-site clinical trials
-- **Natural language robot programming** via ROS 2 integration
+- **Multi-agent coordination** for multi-site clinical trials (CrewAI 1.6.1, LangGraph 1.1.0)
+- **Natural language robot programming** via ROS 2 Jazzy/Kilted integration
 - **Autonomous task planning** for drug infusion and sample handling
+- **Standardized tool integration** via Model Context Protocol (MCP) under Linux Foundation AAIF
 
 ### 3. Reinforcement Learning for Surgical Autonomy
 - **Sim2real transfer** with domain randomization
@@ -288,12 +297,17 @@ All referenced repositories have been updated within October 2025 - January 2026
 | Repository | Purpose | Last Commit |
 |------------|---------|-------------|
 | [isaac-sim/IsaacLab](https://github.com/isaac-sim/IsaacLab) | Robot learning framework (v2.3.1) | Dec 2024 |
+| [newton-physics/newton](https://github.com/newton-physics/newton) | GPU physics engine (Linux Foundation) | Jan 2026 |
 | [google-deepmind/mujoco](https://github.com/google-deepmind/mujoco) | Physics simulation (v3.4.0) | Dec 2024 |
+| [google-deepmind/mujoco_warp](https://github.com/google-deepmind/mujoco_warp) | GPU-optimized MuJoCo | Jan 2026 |
 | [orbit-surgical/orbit-surgical](https://github.com/orbit-surgical/orbit-surgical) | Surgical simulation | Sep 2024 |
-| [jhu-dvrk/sawIntuitiveResearchKit](https://github.com/jhu-dvrk/sawIntuitiveResearchKit) | dVRK platform | Active |
+| [jhu-dvrk/sawIntuitiveResearchKit](https://github.com/jhu-dvrk/sawIntuitiveResearchKit) | dVRK platform (v2.4.0) | Jan 2026 |
+| [NVIDIA/Isaac-GR00T](https://github.com/NVIDIA/Isaac-GR00T) | GR00T N1.6 foundation model | Jan 2026 |
 | [RobotecAI/rai](https://github.com/RobotecAI/rai) | ROS 2 agentic framework | Active |
-| [crewAIInc/crewAI](https://github.com/crewAIInc/crewAI) | Multi-agent orchestration (v1.9+) | Jan 2025 |
-| [langchain-ai/langchain](https://github.com/langchain-ai/langchain) | LLM integration (v1.2+) | Jan 2025 |
+| [crewAIInc/crewAI](https://github.com/crewAIInc/crewAI) | Multi-agent orchestration (v1.6.1) | Jan 2026 |
+| [langchain-ai/langgraph](https://github.com/langchain-ai/langgraph) | Durable agent framework (v1.1.0) | Jan 2026 |
+| [modelcontextprotocol](https://github.com/modelcontextprotocol) | MCP specification (AAIF) | Jan 2026 |
+| [Project-MONAI/MONAI](https://github.com/Project-MONAI/MONAI) | Medical imaging AI | Jan 2026 |
 | [SCAI-Lab/ros4healthcare](https://github.com/SCAI-Lab/ros4healthcare) | Healthcare robotics | 2025 |
 | [bulletphysics/bullet3](https://github.com/bulletphysics/bullet3) | Physics engine (v3.2.5) | Apr 2023 |
 

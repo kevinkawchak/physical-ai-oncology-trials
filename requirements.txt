@@ -26,14 +26,14 @@ rl-games>=1.6.0
 # ROS 2 Kilted Kaiju released May 2025: https://docs.ros.org/en/kilted/
 
 # Agentic AI
-langchain>=1.0.0  # LangChain 1.2.7 released Jan 2025: https://github.com/langchain-ai/langchain/releases
-langgraph>=1.0.0  # LangGraph 1.0.7 released Jan 2025: https://github.com/langchain-ai/langgraph/releases
-crewai>=1.0.0  # CrewAI 1.9.3 released Jan 2025: https://github.com/crewAIInc/crewAI/releases
-anthropic>=0.40.0  # Anthropic SDK 0.77.0 released Jan 2026: https://github.com/anthropics/anthropic-sdk-python/releases
-openai>=1.60.0  # OpenAI SDK 2.16.0 released Jan 2026: https://github.com/openai/openai-python/releases
+langchain>=1.0.0  # LangChain 1.0 GA released 2025: https://github.com/langchain-ai/langchain/releases
+langgraph>=1.0.0  # LangGraph 1.1.0 released Jan 2026: https://github.com/langchain-ai/langgraph/releases
+crewai>=1.0.0  # CrewAI 1.6.1 released Nov 2025: https://github.com/crewAIInc/crewAI/releases
+anthropic>=0.40.0  # Anthropic SDK: https://github.com/anthropics/anthropic-sdk-python/releases
+openai>=1.60.0  # OpenAI SDK: https://github.com/openai/openai-python/releases
 
-# Model Context Protocol
-mcp>=0.1.0
+# Model Context Protocol (donated to AAIF/Linux Foundation Dec 2025)
+mcp>=0.1.0  # https://modelcontextprotocol.io/ - 97M+ monthly SDK downloads
 
 # Computer Vision
 opencv-python>=4.8.0
@@ -41,7 +41,7 @@ pillow>=10.0.0
 scikit-image>=0.21.0
 
 # Medical Imaging
-monai>=1.4.0  # MONAI 1.5.2 released Jan 2025: https://github.com/Project-MONAI/MONAI/releases
+monai>=1.4.0  # MONAI Multimodal with agentic AI integration: https://github.com/Project-MONAI/MONAI
 nibabel>=5.2.0
 pydicom>=2.4.0
 
@@ -83,10 +83,21 @@ mypy>=1.7.0
 # Optional: NVIDIA Isaac Lab
 # Requires separate installation from NVIDIA
 # Isaac Lab 2.3.1 released Dec 2024: https://github.com/isaac-sim/IsaacLab/releases
+# Isaac Lab-Arena for policy evaluation: https://github.com/isaac-sim/IsaacLabArena
 # See: https://isaac-sim.github.io/IsaacLab/
 
 # Optional: NVIDIA Isaac Sim
-# Isaac Sim 5.1.0 available: https://docs.isaacsim.omniverse.nvidia.com/
+# Isaac Sim 5.0.0 available: https://docs.isaacsim.omniverse.nvidia.com/
+
+# Optional: Newton Physics Engine (NVIDIA/DeepMind/Disney - Linux Foundation)
+# GPU-accelerated physics built on NVIDIA Warp
+# See: https://github.com/newton-physics/newton
+
+# Optional: MuJoCo Warp (GPU-optimized MuJoCo)
+# See: https://github.com/google-deepmind/mujoco_warp
 
 # Optional: ORBIT-Surgical
 # git+https://github.com/orbit-surgical/orbit-surgical.git
+
+# Optional: dVRK 2.4.0 (ROS 2 Jazzy recommended)
+# See: https://github.com/jhu-dvrk/sawIntuitiveResearchKit

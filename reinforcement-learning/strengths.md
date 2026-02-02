@@ -474,4 +474,4 @@ if uncertainty > THRESHOLD:
 
 ---
 
-*References: NVIDIA Isaac Lab 2.3.1 (Dec 2024), NVIDIA Isaac Sim 5.1.0 (Jan 2026), FF-SRL (arXiv 2025), ORBIT-Surgical (2024), Safe RL Survey (2025), DreamerV3 (2023)*
+*References: NVIDIA Isaac Lab 2.3.1 (Dec 2024), NVIDIA Isaac Sim 5.0.0 (Jan 2026), Newton Physics Engine (Jan 2026), FF-SRL (arXiv 2025), ORBIT-Surgical (2024), dVRK 2.4.0 (Jan 2026), Safe RL Survey (2025), DreamerV3 (2023)*
