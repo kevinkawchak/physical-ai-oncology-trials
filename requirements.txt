@@ -75,6 +75,12 @@ onnx>=1.17.0  # ONNX 1.20.1 released Jan 2025: https://github.com/onnx/onnx/rele
 onnxruntime>=1.17.0
 onnxruntime-gpu>=1.17.0
 
+# Privacy / De-Identification
+# Microsoft Presidio for PHI/PII detection and anonymization
+# See: https://github.com/microsoft/presidio
+# pip install presidio-analyzer presidio-anonymizer
+# Requires spacy model: python -m spacy download en_core_web_lg
+
 # Testing
 pytest>=7.4.0
 pytest-cov>=4.1.0
