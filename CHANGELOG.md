@@ -34,6 +34,33 @@ Format follows [Keep a Changelog](https://keepachangelog.com/).
 ### Updated
 - Framework versions: Isaac Sim 5.0.0, Newton Physics Beta, MuJoCo Warp Beta, GR00T N1.6, Cosmos Predict 2.5, Cosmos Reason 2
 
+## [0.3.1] - 2026-02-01
+
+### Added
+- Source citations across documentation to support framework/version claims
+
+### Fixed
+- Corrected outdated framework versions and related references (11 files modified; 140 insertions; 102 deletions)
+
+## [0.3.0] - 2026-02-01
+
+### Added
+- `q1-2026-standards/` directory defining unification objectives:
+  - Objective 1: Isaac <-> MuJoCo bidirectional conversion
+  - Objective 2: Unified robot model repository (50+ models)
+  - Objective 3: Validation benchmark suite v1.0
+
+### Notes
+- Includes an implementation guide with timeline and compliance checklist  
+- Framework versions referenced: Isaac Lab 2.3.2, MuJoCo 3.4.0
+
+## [0.2.0] - 2026-01-31
+
+### Added
+- Unification framework for framework-agnostic physical AI development for oncology clinical trials
+- Multi-organization cooperation framing (release notes reference “February 2026” objectives)
+- Adoption guidance spanning: (a) simulation physics, (b) agentic/generative AI, (c) surgical robots, (d) cross-platform tools
+
 ## [0.1.0] - 2026-01-31
 
 ### Added
