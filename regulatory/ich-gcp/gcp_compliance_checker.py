@@ -45,10 +45,7 @@ from enum import Enum
 from pathlib import Path
 from typing import Any
 
-logging.basicConfig(
-    level=logging.INFO,
-    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s'
-)
+logging.basicConfig(level=logging.INFO, format="%(asctime)s - %(name)s - %(levelname)s - %(message)s")
 logger = logging.getLogger(__name__)
 
 
@@ -56,14 +53,17 @@ logger = logging.getLogger(__name__)
 # SECTION 1: COMPLIANCE CATEGORIES
 # =============================================================================
 
+
 class GuidelineVersion(Enum):
     """ICH E6 guideline versions."""
+
     E6_R2 = "E6_R2"  # Previous version
     E6_R3 = "E6_R3"  # Current version (Jan 2025)
 
 
 class Jurisdiction(Enum):
     """Regulatory jurisdictions."""
+
     US_FDA = "us_fda"
     EU_EMA = "eu_ema"
     JAPAN_PMDA = "japan_pmda"
@@ -73,6 +73,7 @@ class Jurisdiction(Enum):
 
 class ComplianceStatus(Enum):
     """Compliance status for each requirement."""
+
     COMPLIANT = "compliant"
     PARTIALLY_COMPLIANT = "partially_compliant"
     NON_COMPLIANT = "non_compliant"
@@ -82,6 +83,7 @@ class ComplianceStatus(Enum):
 
 class FindingSeverity(Enum):
     """Severity of compliance findings."""
+
     CRITICAL = "critical"
     MAJOR = "major"
     MINOR = "minor"
@@ -91,6 +93,7 @@ class FindingSeverity(Enum):
 @dataclass
 class ComplianceFinding:
     """Individual compliance finding."""
+
     finding_id: str
     category: str
     requirement: str
@@ -105,6 +108,7 @@ class ComplianceFinding:
 @dataclass
 class ComplianceReport:
     """Complete compliance assessment report."""
+
     report_id: str
     guideline_version: str
     jurisdiction: str
@@ -128,7 +132,7 @@ class ComplianceReport:
             "critical_findings": self.critical_findings,
             "major_findings": self.major_findings,
             "minor_findings": self.minor_findings,
-            "category_scores": self.category_scores
+            "category_scores": self.category_scores,
         }
 
 
@@ -145,7 +149,7 @@ GCP_REQUIREMENTS: dict[str, list[dict[str, Any]]] = {
             "description": "Sponsor has implemented a systematic risk-based approach to quality management, identifying critical data and processes",
             "reference": "E6(R3) Section 5",
             "ai_specific": False,
-            "severity": "critical"
+            "severity": "critical",
         },
         {
             "id": "QM-002",
@@ -153,7 +157,7 @@ GCP_REQUIREMENTS: dict[str, list[dict[str, Any]]] = {
             "description": "Factors essential to trial integrity identified during Quality by Design planning",
             "reference": "E6(R3) Section 5.0",
             "ai_specific": False,
-            "severity": "critical"
+            "severity": "critical",
         },
         {
             "id": "QM-003",
@@ -161,7 +165,7 @@ GCP_REQUIREMENTS: dict[str, list[dict[str, Any]]] = {
             "description": "Specific risks from AI/ML components identified and mitigated",
             "reference": "E6(R3) Section 5",
             "ai_specific": True,
-            "severity": "major"
+            "severity": "major",
         },
         {
             "id": "QM-004",
@@ -169,8 +173,8 @@ GCP_REQUIREMENTS: dict[str, list[dict[str, Any]]] = {
             "description": "Acceptable performance boundaries set for AI-generated results",
             "reference": "E6(R3) Section 5.0",
             "ai_specific": True,
-            "severity": "major"
-        }
+            "severity": "major",
+        },
     ],
     "investigator_responsibilities": [
         {
@@ -179,7 +183,7 @@ GCP_REQUIREMENTS: dict[str, list[dict[str, Any]]] = {
             "description": "PI has appropriate training and experience, including understanding of AI tools used",
             "reference": "E6(R3) Section 4.1",
             "ai_specific": False,
-            "severity": "critical"
+            "severity": "critical",
         },
         {
             "id": "IR-002",
@@ -187,7 +191,7 @@ GCP_REQUIREMENTS: dict[str, list[dict[str, Any]]] = {
             "description": "Clinical site personnel trained on AI system operation, limitations, and override procedures",
             "reference": "E6(R3) Section 4.2",
             "ai_specific": True,
-            "severity": "major"
+            "severity": "major",
         },
         {
             "id": "IR-003",
@@ -195,8 +199,8 @@ GCP_REQUIREMENTS: dict[str, list[dict[str, Any]]] = {
             "description": "Consent process addresses AI involvement, limitations, and participant rights",
             "reference": "E6(R3) Section 4.8",
             "ai_specific": True,
-            "severity": "critical"
-        }
+            "severity": "critical",
+        },
     ],
     "sponsor_obligations": [
         {
@@ -205,7 +209,7 @@ GCP_REQUIREMENTS: dict[str, list[dict[str, Any]]] = {
             "description": "Trial design scientifically sound with justification for AI components",
             "reference": "E6(R3) Section 5.2",
             "ai_specific": False,
-            "severity": "critical"
+            "severity": "critical",
         },
         {
             "id": "SO-002",
@@ -213,7 +217,7 @@ GCP_REQUIREMENTS: dict[str, list[dict[str, Any]]] = {
             "description": "Sponsor oversight of AI technology vendors and service providers",
             "reference": "E6(R3) Section 5.2",
             "ai_specific": True,
-            "severity": "major"
+            "severity": "major",
         },
         {
             "id": "SO-003",
@@ -221,8 +225,8 @@ GCP_REQUIREMENTS: dict[str, list[dict[str, Any]]] = {
             "description": "Risk-based monitoring plan addresses AI output quality and drift",
             "reference": "E6(R3) Section 5.18",
             "ai_specific": True,
-            "severity": "major"
-        }
+            "severity": "major",
+        },
     ],
     "digital_technology_provisions": [
         {
@@ -231,7 +235,7 @@ GCP_REQUIREMENTS: dict[str, list[dict[str, Any]]] = {
             "description": "AI/digital tools justified in relation to trial design, endpoints, and participant population",
             "reference": "E6(R3) Annex 1",
             "ai_specific": True,
-            "severity": "major"
+            "severity": "major",
         },
         {
             "id": "DT-002",
@@ -239,7 +243,7 @@ GCP_REQUIREMENTS: dict[str, list[dict[str, Any]]] = {
             "description": "AI/ML systems validated for intended use with documented evidence",
             "reference": "E6(R3) Annex 1",
             "ai_specific": True,
-            "severity": "critical"
+            "severity": "critical",
         },
         {
             "id": "DT-003",
@@ -247,7 +251,7 @@ GCP_REQUIREMENTS: dict[str, list[dict[str, Any]]] = {
             "description": "Risks specific to digital/AI technology included in informed consent",
             "reference": "E6(R3) Annex 1",
             "ai_specific": True,
-            "severity": "major"
+            "severity": "major",
         },
         {
             "id": "DT-004",
@@ -255,8 +259,8 @@ GCP_REQUIREMENTS: dict[str, list[dict[str, Any]]] = {
             "description": "Electronic records systems validated with appropriate access controls and audit trails",
             "reference": "E6(R3) Annex 1 / 21 CFR Part 11",
             "ai_specific": False,
-            "severity": "critical"
-        }
+            "severity": "critical",
+        },
     ],
     "data_governance": [
         {
@@ -265,7 +269,7 @@ GCP_REQUIREMENTS: dict[str, list[dict[str, Any]]] = {
             "description": "Comprehensive plan for data integrity, traceability, and security",
             "reference": "E6(R3) Section 5.5",
             "ai_specific": False,
-            "severity": "critical"
+            "severity": "critical",
         },
         {
             "id": "DG-002",
@@ -273,7 +277,7 @@ GCP_REQUIREMENTS: dict[str, list[dict[str, Any]]] = {
             "description": "Complete data lineage from AI input through output and clinical use",
             "reference": "E6(R3) Section 5.5",
             "ai_specific": True,
-            "severity": "major"
+            "severity": "major",
         },
         {
             "id": "DG-003",
@@ -281,7 +285,7 @@ GCP_REQUIREMENTS: dict[str, list[dict[str, Any]]] = {
             "description": "All AI inputs, outputs, and clinical decisions traceable",
             "reference": "E6(R3) Section 5.5 / 21 CFR Part 11",
             "ai_specific": True,
-            "severity": "critical"
+            "severity": "critical",
         },
         {
             "id": "DG-004",
@@ -289,8 +293,8 @@ GCP_REQUIREMENTS: dict[str, list[dict[str, Any]]] = {
             "description": "Quality standards for data used to train AI models in the trial",
             "reference": "E6(R3) Section 5.5",
             "ai_specific": True,
-            "severity": "major"
-        }
+            "severity": "major",
+        },
     ],
     "safety_reporting": [
         {
@@ -299,7 +303,7 @@ GCP_REQUIREMENTS: dict[str, list[dict[str, Any]]] = {
             "description": "AE/SAE reporting covers events potentially caused or influenced by AI systems",
             "reference": "E6(R3) Section 4.11",
             "ai_specific": True,
-            "severity": "critical"
+            "severity": "critical",
         },
         {
             "id": "SR-002",
@@ -307,15 +311,16 @@ GCP_REQUIREMENTS: dict[str, list[dict[str, Any]]] = {
             "description": "Data Safety Monitoring Board reviews AI system performance alongside safety data",
             "reference": "E6(R3) Section 5.5",
             "ai_specific": True,
-            "severity": "major"
-        }
-    ]
+            "severity": "major",
+        },
+    ],
 }
 
 
 # =============================================================================
 # SECTION 3: GCP COMPLIANCE CHECKER
 # =============================================================================
+
 
 class GCPComplianceChecker:
     """
@@ -334,11 +339,7 @@ class GCPComplianceChecker:
     5. Produce actionable compliance report
     """
 
-    def __init__(
-        self,
-        guideline_version: str = "E6_R3",
-        jurisdiction: str = "us_fda"
-    ):
+    def __init__(self, guideline_version: str = "E6_R3", jurisdiction: str = "us_fda"):
         """
         Initialize GCP compliance checker.
 
@@ -350,17 +351,14 @@ class GCPComplianceChecker:
         self.jurisdiction = Jurisdiction(jurisdiction)
         self._finding_counter = 0
 
-        logger.info(
-            f"GCPComplianceChecker initialized: version={guideline_version}, "
-            f"jurisdiction={jurisdiction}"
-        )
+        logger.info(f"GCPComplianceChecker initialized: version={guideline_version}, jurisdiction={jurisdiction}")
 
     def verify_compliance(
         self,
         protocol_path: str = "",
         trial_master_file: str = "",
         check_categories: list[str] | None = None,
-        ai_components_present: bool = True
+        ai_components_present: bool = True,
     ) -> ComplianceReport:
         """
         Run compliance verification against E6(R3) requirements.
@@ -381,7 +379,7 @@ class GCPComplianceChecker:
             report_id=report_id,
             guideline_version=self.guideline_version.value,
             jurisdiction=self.jurisdiction.value,
-            assessment_date=datetime.now().isoformat()
+            assessment_date=datetime.now().isoformat(),
         )
 
         for category in categories:
@@ -401,37 +399,25 @@ class GCPComplianceChecker:
 
             # Calculate category score
             if category_findings:
-                compliant = sum(
-                    1 for f in category_findings
-                    if f.status == ComplianceStatus.COMPLIANT
-                )
-                report.category_scores[category] = (
-                    compliant / len(category_findings)
-                ) * 100
+                compliant = sum(1 for f in category_findings if f.status == ComplianceStatus.COMPLIANT)
+                report.category_scores[category] = (compliant / len(category_findings)) * 100
 
         # Calculate overall metrics
         report.total_findings = len(report.findings)
         report.critical_findings = sum(
-            1 for f in report.findings
-            if f.severity == FindingSeverity.CRITICAL
-            and f.status != ComplianceStatus.COMPLIANT
+            1
+            for f in report.findings
+            if f.severity == FindingSeverity.CRITICAL and f.status != ComplianceStatus.COMPLIANT
         )
         report.major_findings = sum(
-            1 for f in report.findings
-            if f.severity == FindingSeverity.MAJOR
-            and f.status != ComplianceStatus.COMPLIANT
+            1 for f in report.findings if f.severity == FindingSeverity.MAJOR and f.status != ComplianceStatus.COMPLIANT
         )
         report.minor_findings = sum(
-            1 for f in report.findings
-            if f.severity == FindingSeverity.MINOR
-            and f.status != ComplianceStatus.COMPLIANT
+            1 for f in report.findings if f.severity == FindingSeverity.MINOR and f.status != ComplianceStatus.COMPLIANT
         )
 
         if report.total_findings > 0:
-            compliant_total = sum(
-                1 for f in report.findings
-                if f.status == ComplianceStatus.COMPLIANT
-            )
+            compliant_total = sum(1 for f in report.findings if f.status == ComplianceStatus.COMPLIANT)
             report.overall_score = (compliant_total / report.total_findings) * 100
 
         logger.info(
@@ -480,17 +466,11 @@ CATEGORY SCORES
                 if finding.recommendation:
                     text += f"  Recommendation: {finding.recommendation}\n"
                 if finding.ai_specific:
-                    text += f"  [AI-SPECIFIC REQUIREMENT]\n"
+                    text += "  [AI-SPECIFIC REQUIREMENT]\n"
 
         return text
 
-    def _assess_requirement(
-        self,
-        req: dict,
-        category: str,
-        protocol_path: str,
-        tmf_path: str
-    ) -> ComplianceFinding:
+    def _assess_requirement(self, req: dict, category: str, protocol_path: str, tmf_path: str) -> ComplianceFinding:
         """
         Assess a single compliance requirement.
 
@@ -512,9 +492,8 @@ CATEGORY SCORES
             guideline_reference=req.get("reference", ""),
             ai_specific=req.get("ai_specific", False),
             recommendation=(
-                f"Review {category} documentation against "
-                f"{req.get('reference', 'ICH E6(R3)')} requirements"
-            )
+                f"Review {category} documentation against {req.get('reference', 'ICH E6(R3)')} requirements"
+            ),
         )
 
         return finding
@@ -524,6 +503,7 @@ CATEGORY SCORES
 # SECTION 4: MAIN PIPELINE
 # =============================================================================
 
+
 def run_gcp_compliance_demo():
     """
     Demonstrate GCP compliance checking for AI oncology trials.
@@ -532,10 +512,7 @@ def run_gcp_compliance_demo():
     logger.info("GCP COMPLIANCE CHECKER DEMO")
     logger.info("=" * 60)
 
-    checker = GCPComplianceChecker(
-        guideline_version="E6_R3",
-        jurisdiction="us_fda"
-    )
+    checker = GCPComplianceChecker(guideline_version="E6_R3", jurisdiction="us_fda")
 
     # Run compliance verification
     report = checker.verify_compliance(
@@ -545,9 +522,9 @@ def run_gcp_compliance_demo():
             "sponsor_obligations",
             "digital_technology_provisions",
             "data_governance",
-            "safety_reporting"
+            "safety_reporting",
         ],
-        ai_components_present=True
+        ai_components_present=True,
     )
 
     print(f"\nGCP Compliance Report: {report.report_id}")

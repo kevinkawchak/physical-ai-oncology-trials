@@ -47,16 +47,14 @@ from enum import Enum
 from pathlib import Path
 from typing import Any
 
-logging.basicConfig(
-    level=logging.INFO,
-    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s'
-)
+logging.basicConfig(level=logging.INFO, format="%(asctime)s - %(name)s - %(levelname)s - %(message)s")
 logger = logging.getLogger(__name__)
 
 
 # =============================================================================
 # SECTION 1: PHI CATEGORY DEFINITIONS
 # =============================================================================
+
 
 class PHICategory(Enum):
     """
@@ -65,6 +63,7 @@ class PHICategory(Enum):
     Each category maps to a specific identifier type that must be
     removed or generalized for de-identification.
     """
+
     NAME = "names"
     GEOGRAPHIC = "geographic_data"
     DATE = "dates"
@@ -87,6 +86,7 @@ class PHICategory(Enum):
 
 class RiskLevel(Enum):
     """Risk level classification for PHI findings."""
+
     LOW = "low"
     MEDIUM = "medium"
     HIGH = "high"
@@ -96,6 +96,7 @@ class RiskLevel(Enum):
 @dataclass
 class PHIFinding:
     """Individual PHI detection finding."""
+
     phi_type: PHICategory
     location: str
     value_preview: str  # Redacted preview for logging
@@ -114,13 +115,14 @@ class PHIFinding:
             "confidence": self.confidence,
             "risk_level": self.risk_level.value,
             "source_file": self.source_file,
-            "line_number": self.line_number
+            "line_number": self.line_number,
         }
 
 
 @dataclass
 class ScanResult:
     """Results from a PHI detection scan."""
+
     scan_id: str
     timestamp: str
     dataset_path: str
@@ -153,7 +155,7 @@ class ScanResult:
                 if self.get_findings_by_category(cat)
             },
             "findings": [f.to_dict() for f in self.findings],
-            "errors": self.errors
+            "errors": self.errors,
         }
 
 
@@ -165,100 +167,80 @@ class ScanResult:
 # These patterns are designed for clinical trial data contexts
 PHI_PATTERNS: dict[PHICategory, list[dict[str, Any]]] = {
     PHICategory.SSN: [
-        {
-            "pattern": r"\b\d{3}-\d{2}-\d{4}\b",
-            "description": "SSN format XXX-XX-XXXX",
-            "confidence": 0.95
-        },
-        {
-            "pattern": r"\bSSN\s*[:=]\s*\d{9}\b",
-            "description": "SSN with label",
-            "confidence": 0.98
-        }
+        {"pattern": r"\b\d{3}-\d{2}-\d{4}\b", "description": "SSN format XXX-XX-XXXX", "confidence": 0.95},
+        {"pattern": r"\bSSN\s*[:=]\s*\d{9}\b", "description": "SSN with label", "confidence": 0.98},
     ],
     PHICategory.PHONE: [
-        {
-            "pattern": r"\b\(?\d{3}\)?[-.\s]?\d{3}[-.\s]?\d{4}\b",
-            "description": "US phone number",
-            "confidence": 0.85
-        }
+        {"pattern": r"\b\(?\d{3}\)?[-.\s]?\d{3}[-.\s]?\d{4}\b", "description": "US phone number", "confidence": 0.85}
     ],
     PHICategory.EMAIL: [
         {
             "pattern": r"\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,}\b",
             "description": "Email address",
-            "confidence": 0.95
+            "confidence": 0.95,
         }
     ],
     PHICategory.MRN: [
         {
             "pattern": r"\bMRN\s*[-:=]\s*\d{6,10}\b",
             "description": "Medical Record Number with label",
-            "confidence": 0.95
+            "confidence": 0.95,
         },
         {
             "pattern": r"\bPatient\s*ID\s*[-:=]\s*[A-Z0-9]{6,12}\b",
             "description": "Patient ID with label",
-            "confidence": 0.90
-        }
+            "confidence": 0.90,
+        },
     ],
     PHICategory.DATE: [
-        {
-            "pattern": r"\b\d{1,2}/\d{1,2}/\d{4}\b",
-            "description": "Date MM/DD/YYYY",
-            "confidence": 0.80
-        },
+        {"pattern": r"\b\d{1,2}/\d{1,2}/\d{4}\b", "description": "Date MM/DD/YYYY", "confidence": 0.80},
         {
             "pattern": r"\b\d{4}-\d{2}-\d{2}\b",
             "description": "Date YYYY-MM-DD (ISO)",
-            "confidence": 0.75  # Lower confidence due to common non-PHI use
+            "confidence": 0.75,  # Lower confidence due to common non-PHI use
         },
         {
             "pattern": r"\b(?:DOB|Date\s*of\s*Birth)\s*[-:=]\s*\S+",
             "description": "Date of birth with label",
-            "confidence": 0.98
-        }
+            "confidence": 0.98,
+        },
     ],
     PHICategory.IP_ADDRESS: [
-        {
-            "pattern": r"\b(?:\d{1,3}\.){3}\d{1,3}\b",
-            "description": "IPv4 address",
-            "confidence": 0.85
-        }
+        {"pattern": r"\b(?:\d{1,3}\.){3}\d{1,3}\b", "description": "IPv4 address", "confidence": 0.85}
     ],
     PHICategory.URL: [
         {
             "pattern": r"https?://[^\s<>\"']+",
             "description": "Web URL",
-            "confidence": 0.70  # Many URLs are non-PHI
+            "confidence": 0.70,  # Many URLs are non-PHI
         }
     ],
     PHICategory.GEOGRAPHIC: [
         {
             "pattern": r"\b\d{5}(?:-\d{4})?\b",
             "description": "ZIP code (5 or 9 digit)",
-            "confidence": 0.60  # Context-dependent
+            "confidence": 0.60,  # Context-dependent
         },
         {
             "pattern": r"\b(?:Address|Street|Ave|Blvd|Dr|Rd)\s*[-:=]?\s*.+",
             "description": "Street address with label",
-            "confidence": 0.85
-        }
+            "confidence": 0.85,
+        },
     ],
     PHICategory.ACCOUNT: [
         {
             "pattern": r"\b(?:Account|Acct)\s*#?\s*[-:=]\s*\d{8,16}\b",
             "description": "Account number with label",
-            "confidence": 0.90
+            "confidence": 0.90,
         }
     ],
     PHICategory.DEVICE: [
         {
             "pattern": r"\b(?:UDI|Device\s*ID|Serial)\s*[-:=]\s*[A-Z0-9]{8,20}\b",
             "description": "Device identifier with label",
-            "confidence": 0.90
+            "confidence": 0.90,
         }
-    ]
+    ],
 }
 
 # DICOM tags that contain PHI
@@ -285,6 +267,7 @@ PHI_DICOM_TAGS: dict[str, dict[str, Any]] = {
 # SECTION 3: PHI DETECTOR
 # =============================================================================
 
+
 class PHIDetector:
     """
     Automated PHI/PII detection for clinical trial data.
@@ -307,7 +290,7 @@ class PHIDetector:
         data_sources: list[str] | None = None,
         custom_patterns: dict[str, str] | None = None,
         confidence_threshold: float = 0.7,
-        use_presidio: bool = False
+        use_presidio: bool = False,
     ):
         """
         Initialize PHI detector.
@@ -330,29 +313,23 @@ class PHIDetector:
             self._init_presidio()
 
         logger.info(
-            f"PHIDetector initialized: mode={detection_mode}, "
-            f"sources={data_sources}, threshold={confidence_threshold}"
+            f"PHIDetector initialized: mode={detection_mode}, sources={data_sources}, threshold={confidence_threshold}"
         )
 
     def _init_presidio(self):
         """Initialize Microsoft Presidio analyzer if available."""
         try:
             from presidio_analyzer import AnalyzerEngine
+
             self._presidio_analyzer = AnalyzerEngine()
             logger.info("Microsoft Presidio analyzer initialized")
         except ImportError:
             logger.warning(
-                "presidio-analyzer not installed. "
-                "Install with: pip install presidio-analyzer presidio-anonymizer"
+                "presidio-analyzer not installed. Install with: pip install presidio-analyzer presidio-anonymizer"
             )
             self.use_presidio = False
 
-    def scan_dataset(
-        self,
-        dataset_path: str,
-        output_report: str | None = None,
-        recursive: bool = True
-    ) -> ScanResult:
+    def scan_dataset(self, dataset_path: str, output_report: str | None = None, recursive: bool = True) -> ScanResult:
         """
         Scan a dataset directory for PHI/PII.
 
@@ -367,11 +344,7 @@ class PHIDetector:
         scan_id = f"PHI-SCAN-{datetime.now().strftime('%Y%m%d-%H%M%S')}"
         logger.info(f"Starting PHI scan {scan_id}: {dataset_path}")
 
-        result = ScanResult(
-            scan_id=scan_id,
-            timestamp=datetime.now().isoformat(),
-            dataset_path=dataset_path
-        )
+        result = ScanResult(scan_id=scan_id, timestamp=datetime.now().isoformat(), dataset_path=dataset_path)
 
         path = Path(dataset_path)
 
@@ -425,15 +398,17 @@ class PHIDetector:
                         value = match.group()
                         redacted = value[:2] + "***" + value[-1:] if len(value) > 3 else "***"
 
-                        findings.append(PHIFinding(
-                            phi_type=category,
-                            location=f"char {match.start()}-{match.end()}",
-                            value_preview=redacted,
-                            confidence=confidence,
-                            risk_level=self._categorize_risk(category, confidence),
-                            source_file=source_label,
-                            context=pattern_def["description"]
-                        ))
+                        findings.append(
+                            PHIFinding(
+                                phi_type=category,
+                                location=f"char {match.start()}-{match.end()}",
+                                value_preview=redacted,
+                                confidence=confidence,
+                                risk_level=self._categorize_risk(category, confidence),
+                                source_file=source_label,
+                                context=pattern_def["description"],
+                            )
+                        )
 
         # Custom pattern detection
         for name, pattern in self._custom_patterns.items():
@@ -441,15 +416,17 @@ class PHIDetector:
             for match in matches:
                 value = match.group()
                 redacted = value[:2] + "***" + value[-1:] if len(value) > 3 else "***"
-                findings.append(PHIFinding(
-                    phi_type=PHICategory.UNIQUE_CODE,
-                    location=f"char {match.start()}-{match.end()}",
-                    value_preview=redacted,
-                    confidence=0.85,
-                    risk_level=RiskLevel.MEDIUM,
-                    source_file=source_label,
-                    context=f"Custom pattern: {name}"
-                ))
+                findings.append(
+                    PHIFinding(
+                        phi_type=PHICategory.UNIQUE_CODE,
+                        location=f"char {match.start()}-{match.end()}",
+                        value_preview=redacted,
+                        confidence=0.85,
+                        risk_level=RiskLevel.MEDIUM,
+                        source_file=source_label,
+                        context=f"Custom pattern: {name}",
+                    )
+                )
 
         # Presidio NLP-based detection
         if self.use_presidio and self._presidio_analyzer:
@@ -458,10 +435,7 @@ class PHIDetector:
 
         return findings
 
-    def scan_dicom_headers(
-        self,
-        dicom_path: str
-    ) -> list[PHIFinding]:
+    def scan_dicom_headers(self, dicom_path: str) -> list[PHIFinding]:
         """
         Scan DICOM file headers for PHI.
 
@@ -475,6 +449,7 @@ class PHIDetector:
 
         try:
             import pydicom
+
             ds = pydicom.dcmread(dicom_path, stop_before_pixels=True)
 
             for tag_str, tag_info in PHI_DICOM_TAGS.items():
@@ -486,15 +461,17 @@ class PHIDetector:
                     value = str(ds[tag].value)
                     if value and value.strip():
                         redacted = value[:2] + "***" if len(value) > 2 else "***"
-                        findings.append(PHIFinding(
-                            phi_type=tag_info["category"],
-                            location=f"DICOM tag {tag_str} ({tag_info['name']})",
-                            value_preview=redacted,
-                            confidence=0.99,
-                            risk_level=RiskLevel.HIGH,
-                            source_file=dicom_path,
-                            context=f"DICOM {tag_info['name']}: action={tag_info['action']}"
-                        ))
+                        findings.append(
+                            PHIFinding(
+                                phi_type=tag_info["category"],
+                                location=f"DICOM tag {tag_str} ({tag_info['name']})",
+                                value_preview=redacted,
+                                confidence=0.99,
+                                risk_level=RiskLevel.HIGH,
+                                source_file=dicom_path,
+                                context=f"DICOM {tag_info['name']}: action={tag_info['action']}",
+                            )
+                        )
 
         except ImportError:
             logger.warning("pydicom not installed. Skipping DICOM header scan.")
@@ -550,25 +527,25 @@ class PHIDetector:
 
         try:
             results = self._presidio_analyzer.analyze(
-                text=text,
-                language="en",
-                score_threshold=self.confidence_threshold
+                text=text, language="en", score_threshold=self.confidence_threshold
             )
 
             for r in results:
                 phi_category = presidio_to_phi.get(r.entity_type, PHICategory.UNIQUE_CODE)
-                value = text[r.start:r.end]
+                value = text[r.start : r.end]
                 redacted = value[:2] + "***" if len(value) > 2 else "***"
 
-                findings.append(PHIFinding(
-                    phi_type=phi_category,
-                    location=f"char {r.start}-{r.end}",
-                    value_preview=redacted,
-                    confidence=r.score,
-                    risk_level=self._categorize_risk(phi_category, r.score),
-                    source_file=source_label,
-                    context=f"Presidio: {r.entity_type}"
-                ))
+                findings.append(
+                    PHIFinding(
+                        phi_type=phi_category,
+                        location=f"char {r.start}-{r.end}",
+                        value_preview=redacted,
+                        confidence=r.score,
+                        risk_level=self._categorize_risk(phi_category, r.score),
+                        source_file=source_label,
+                        context=f"Presidio: {r.entity_type}",
+                    )
+                )
 
         except Exception as e:
             logger.error(f"Presidio analysis error: {e}")
@@ -578,12 +555,18 @@ class PHIDetector:
     def _categorize_risk(self, category: PHICategory, confidence: float) -> RiskLevel:
         """Categorize risk level based on PHI type and confidence."""
         high_risk_categories = {
-            PHICategory.SSN, PHICategory.NAME, PHICategory.MRN,
-            PHICategory.HEALTH_PLAN, PHICategory.BIOMETRIC
+            PHICategory.SSN,
+            PHICategory.NAME,
+            PHICategory.MRN,
+            PHICategory.HEALTH_PLAN,
+            PHICategory.BIOMETRIC,
         }
         medium_risk_categories = {
-            PHICategory.DATE, PHICategory.PHONE, PHICategory.EMAIL,
-            PHICategory.GEOGRAPHIC, PHICategory.ACCOUNT
+            PHICategory.DATE,
+            PHICategory.PHONE,
+            PHICategory.EMAIL,
+            PHICategory.GEOGRAPHIC,
+            PHICategory.ACCOUNT,
         }
 
         if category in high_risk_categories and confidence > 0.8:
@@ -627,6 +610,7 @@ class PHIDetector:
 # SECTION 4: MAIN PIPELINE
 # =============================================================================
 
+
 def run_phi_detection_demo():
     """
     Demonstrate PHI detection capabilities.
@@ -642,10 +626,7 @@ def run_phi_detection_demo():
     detector = PHIDetector(
         detection_mode="comprehensive",
         confidence_threshold=0.7,
-        custom_patterns={
-            "mrn_alt": r"MRN[-:]?\s*\d{6,10}",
-            "accession": r"ACC[-:]?\s*\d{8,12}"
-        }
+        custom_patterns={"mrn_alt": r"MRN[-:]?\s*\d{6,10}", "accession": r"ACC[-:]?\s*\d{8,12}"},
     )
 
     # Example clinical note with embedded PHI

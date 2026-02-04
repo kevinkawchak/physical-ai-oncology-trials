@@ -18,24 +18,18 @@ REQUIREMENTS: Dict[str, Tuple[str, str]] = {
     "numpy": ("numpy", "1.24.0"),
     "torch": ("torch", "2.5.0"),  # PyTorch 2.10.0 released Jan 2025
     "scipy": ("scipy", "1.11.0"),
-
     # Physics Simulation
     "mujoco": ("mujoco", "3.4.0"),  # MuJoCo 3.4.0 released Dec 2024
     "pybullet": ("pybullet", "3.2.5"),  # PyBullet 3.2.5 released Apr 2023
-
     # Reinforcement Learning
     "stable_baselines3": ("stable_baselines3", "2.4.0"),  # SB3 2.7.1 released Dec 2024
     "gymnasium": ("gymnasium", "1.0.0"),  # Gymnasium 1.2.3 released Dec 2024
-
     # Agentic AI
     "langchain": ("langchain", "1.0.0"),  # LangChain 1.2.7 released Jan 2025
-
     # Medical Imaging
     "monai": ("monai", "1.4.0"),  # MONAI 1.5.2 released Jan 2025
-
     # Deep Learning
     "transformers": ("transformers", "4.45.0"),  # Transformers 5.0.0 released Jan 2026
-
     # Deployment
     "onnx": ("onnx", "1.17.0"),  # ONNX 1.20.1 released Jan 2025
     "onnxruntime": ("onnxruntime", "1.17.0"),
@@ -75,6 +69,7 @@ def check_cuda() -> Tuple[bool, str]:
     """Check CUDA availability."""
     try:
         import torch
+
         if torch.cuda.is_available():
             return True, f"CUDA {torch.version.cuda}, {torch.cuda.device_count()} GPU(s)"
         return False, "CUDA not available"
@@ -86,12 +81,8 @@ def check_ros2() -> Tuple[bool, str]:
     """Check ROS 2 availability."""
     try:
         import subprocess
-        result = subprocess.run(
-            ["ros2", "--version"],
-            capture_output=True,
-            text=True,
-            timeout=5
-        )
+
+        result = subprocess.run(["ros2", "--version"], capture_output=True, text=True, timeout=5)
         if result.returncode == 0:
             return True, result.stdout.strip()
         return False, "ros2 command failed"

@@ -38,6 +38,7 @@ from datetime import datetime
 # Optional imports
 try:
     import mujoco
+
     MUJOCO_AVAILABLE = True
 except ImportError:
     MUJOCO_AVAILABLE = False
@@ -47,19 +48,21 @@ except ImportError:
 @dataclass
 class ValidationTolerance:
     """Tolerance thresholds for validation tests."""
-    position: float = 0.001        # rad or m
-    velocity: float = 0.01         # rad/s or m/s
-    acceleration: float = 0.1      # rad/s² or m/s²
-    force: float = 0.1             # N or N·m
-    trajectory: float = 0.001      # m
-    jacobian: float = 1e-6         # dimensionless
-    mass: float = 1e-6             # kg
-    inertia: float = 1e-6          # kg·m²
+
+    position: float = 0.001  # rad or m
+    velocity: float = 0.01  # rad/s or m/s
+    acceleration: float = 0.1  # rad/s² or m/s²
+    force: float = 0.1  # N or N·m
+    trajectory: float = 0.001  # m
+    jacobian: float = 1e-6  # dimensionless
+    mass: float = 1e-6  # kg
+    inertia: float = 1e-6  # kg·m²
 
 
 @dataclass
 class TestResult:
     """Result of a single test."""
+
     name: str
     passed: bool
     error_value: float = 0.0
@@ -71,6 +74,7 @@ class TestResult:
 @dataclass
 class ValidationReport:
     """Complete validation report."""
+
     source_model: str
     target_model: str
     direction: str  # "isaac_to_mujoco", "mujoco_to_isaac", "round_trip"
@@ -117,24 +121,18 @@ class KinematicValidator:
     def __init__(self, tolerance: ValidationTolerance):
         self.tolerance = tolerance
 
-    def validate_structure(
-        self,
-        source_model,
-        target_model
-    ) -> TestResult:
+    def validate_structure(self, source_model, target_model) -> TestResult:
         """Compare kinematic structure."""
-        source_nq = source_model.nq if hasattr(source_model, 'nq') else 0
-        target_nq = target_model.nq if hasattr(target_model, 'nq') else 0
+        source_nq = source_model.nq if hasattr(source_model, "nq") else 0
+        target_nq = target_model.nq if hasattr(target_model, "nq") else 0
 
-        source_nv = source_model.nv if hasattr(source_model, 'nv') else 0
-        target_nv = target_model.nv if hasattr(target_model, 'nv') else 0
+        source_nv = source_model.nv if hasattr(source_model, "nv") else 0
+        target_nv = target_model.nv if hasattr(target_model, "nv") else 0
 
-        source_nbody = source_model.nbody if hasattr(source_model, 'nbody') else 0
-        target_nbody = target_model.nbody if hasattr(target_model, 'nbody') else 0
+        source_nbody = source_model.nbody if hasattr(source_model, "nbody") else 0
+        target_nbody = target_model.nbody if hasattr(target_model, "nbody") else 0
 
-        passed = (source_nq == target_nq and
-                  source_nv == target_nv and
-                  source_nbody == target_nbody)
+        passed = source_nq == target_nq and source_nv == target_nv and source_nbody == target_nbody
 
         return TestResult(
             name="kinematic_structure",
@@ -142,16 +140,11 @@ class KinematicValidator:
             details={
                 "source": {"nq": source_nq, "nv": source_nv, "nbody": source_nbody},
                 "target": {"nq": target_nq, "nv": target_nv, "nbody": target_nbody},
-            }
+            },
         )
 
     def validate_forward_kinematics(
-        self,
-        source_model,
-        source_data,
-        target_model,
-        target_data,
-        test_configs: Optional[np.ndarray] = None
+        self, source_model, source_data, target_model, target_data, test_configs: Optional[np.ndarray] = None
     ) -> TestResult:
         """
         Compare forward kinematics at multiple configurations.
@@ -160,11 +153,7 @@ class KinematicValidator:
         end-effector (or body) positions.
         """
         if not MUJOCO_AVAILABLE:
-            return TestResult(
-                name="forward_kinematics",
-                passed=False,
-                details={"error": "MuJoCo not available"}
-            )
+            return TestResult(name="forward_kinematics", passed=False, details={"error": "MuJoCo not available"})
 
         # Generate test configurations if not provided
         if test_configs is None:
@@ -177,11 +166,11 @@ class KinematicValidator:
 
         for config in test_configs:
             # Set configuration in source
-            source_data.qpos[:len(config)] = config
+            source_data.qpos[: len(config)] = config
             mujoco.mj_forward(source_model, source_data)
 
             # Set configuration in target
-            target_data.qpos[:len(config)] = config
+            target_data.qpos[: len(config)] = config
             mujoco.mj_forward(target_model, target_data)
 
             # Compare body positions
@@ -203,26 +192,15 @@ class KinematicValidator:
                 "max_error": max_error,
                 "mean_error": np.mean(errors),
                 "n_configs_tested": len(test_configs),
-            }
+            },
         )
 
-    def validate_jacobian(
-        self,
-        source_model,
-        source_data,
-        target_model,
-        target_data,
-        body_id: int = -1
-    ) -> TestResult:
+    def validate_jacobian(self, source_model, source_data, target_model, target_data, body_id: int = -1) -> TestResult:
         """
         Compare Jacobian matrices at current configuration.
         """
         if not MUJOCO_AVAILABLE:
-            return TestResult(
-                name="jacobian",
-                passed=False,
-                details={"error": "MuJoCo not available"}
-            )
+            return TestResult(name="jacobian", passed=False, details={"error": "MuJoCo not available"})
 
         # Use last body if not specified
         if body_id < 0:
@@ -254,7 +232,7 @@ class KinematicValidator:
                 "position_jacobian_error": jacp_error,
                 "rotation_jacobian_error": jacr_error,
                 "body_id": body_id,
-            }
+            },
         )
 
 
@@ -273,12 +251,7 @@ class DynamicValidator:
         self.tolerance = tolerance
 
     def validate_free_fall(
-        self,
-        source_model,
-        source_data,
-        target_model,
-        target_data,
-        duration: float = 2.0
+        self, source_model, source_data, target_model, target_data, duration: float = 2.0
     ) -> TestResult:
         """
         Compare free-fall behavior.
@@ -287,11 +260,7 @@ class DynamicValidator:
         final positions/velocities.
         """
         if not MUJOCO_AVAILABLE:
-            return TestResult(
-                name="free_fall",
-                passed=False,
-                details={"error": "MuJoCo not available"}
-            )
+            return TestResult(name="free_fall", passed=False, details={"error": "MuJoCo not available"})
 
         # Reset both models
         mujoco.mj_resetData(source_model, source_data)
@@ -326,7 +295,7 @@ class DynamicValidator:
                 "velocity_error": vel_error,
                 "duration": duration,
                 "n_steps": n_steps,
-            }
+            },
         )
 
     def validate_pendulum(
@@ -337,7 +306,7 @@ class DynamicValidator:
         target_data,
         joint_id: int = 0,
         initial_angle: float = np.pi / 4,
-        duration: float = 10.0
+        duration: float = 10.0,
     ) -> TestResult:
         """
         Compare pendulum behavior for a specific joint.
@@ -345,11 +314,7 @@ class DynamicValidator:
         Initializes joint at given angle and lets it swing freely.
         """
         if not MUJOCO_AVAILABLE:
-            return TestResult(
-                name="pendulum",
-                passed=False,
-                details={"error": "MuJoCo not available"}
-            )
+            return TestResult(name="pendulum", passed=False, details={"error": "MuJoCo not available"})
 
         # Reset
         mujoco.mj_resetData(source_model, source_data)
@@ -397,7 +362,7 @@ class DynamicValidator:
                 "joint_id": joint_id,
                 "initial_angle": initial_angle,
                 "duration": duration,
-            }
+            },
         )
 
     def validate_trajectory_tracking(
@@ -407,17 +372,13 @@ class DynamicValidator:
         target_model,
         target_data,
         trajectory: Optional[np.ndarray] = None,
-        duration: float = 5.0
+        duration: float = 5.0,
     ) -> TestResult:
         """
         Compare trajectory tracking with same control inputs.
         """
         if not MUJOCO_AVAILABLE:
-            return TestResult(
-                name="trajectory_tracking",
-                passed=False,
-                details={"error": "MuJoCo not available"}
-            )
+            return TestResult(name="trajectory_tracking", passed=False, details={"error": "MuJoCo not available"})
 
         # Reset
         mujoco.mj_resetData(source_model, source_data)
@@ -461,7 +422,7 @@ class DynamicValidator:
                 "rmse": rmse,
                 "duration": duration,
                 "n_steps": len(errors),
-            }
+            },
         )
 
 
@@ -473,22 +434,12 @@ class ContactValidator:
     def __init__(self, tolerance: ValidationTolerance):
         self.tolerance = tolerance
 
-    def validate_contact_force(
-        self,
-        source_model,
-        source_data,
-        target_model,
-        target_data
-    ) -> TestResult:
+    def validate_contact_force(self, source_model, source_data, target_model, target_data) -> TestResult:
         """
         Compare contact forces when models are in contact with ground.
         """
         if not MUJOCO_AVAILABLE:
-            return TestResult(
-                name="contact_force",
-                passed=False,
-                details={"error": "MuJoCo not available"}
-            )
+            return TestResult(name="contact_force", passed=False, details={"error": "MuJoCo not available"})
 
         # Reset and step to establish contact
         mujoco.mj_resetData(source_model, source_data)
@@ -528,7 +479,7 @@ class ContactValidator:
                 "target_force": target_forces.tolist(),
                 "source_ncon": source_data.ncon,
                 "target_ncon": target_data.ncon,
-            }
+            },
         )
 
 
@@ -545,12 +496,7 @@ class PhysicsEquivalenceValidator:
         self.dynamic = DynamicValidator(self.tolerance)
         self.contact = ContactValidator(self.tolerance)
 
-    def validate(
-        self,
-        source_path: str,
-        target_path: str,
-        direction: str = "isaac_to_mujoco"
-    ) -> ValidationReport:
+    def validate(self, source_path: str, target_path: str, direction: str = "isaac_to_mujoco") -> ValidationReport:
         """
         Run complete validation suite.
 
@@ -562,18 +508,10 @@ class PhysicsEquivalenceValidator:
         Returns:
             Comprehensive validation report
         """
-        report = ValidationReport(
-            source_model=source_path,
-            target_model=target_path,
-            direction=direction
-        )
+        report = ValidationReport(source_model=source_path, target_model=target_path, direction=direction)
 
         if not MUJOCO_AVAILABLE:
-            report.add_test(TestResult(
-                name="mujoco_check",
-                passed=False,
-                details={"error": "MuJoCo not available"}
-            ))
+            report.add_test(TestResult(name="mujoco_check", passed=False, details={"error": "MuJoCo not available"}))
             return report
 
         try:
@@ -585,82 +523,53 @@ class PhysicsEquivalenceValidator:
             target_data = mujoco.MjData(target_model)
 
             # Kinematic tests
-            report.add_test(self.kinematic.validate_structure(
-                source_model, target_model
-            ))
+            report.add_test(self.kinematic.validate_structure(source_model, target_model))
 
-            report.add_test(self.kinematic.validate_forward_kinematics(
-                source_model, source_data, target_model, target_data
-            ))
+            report.add_test(
+                self.kinematic.validate_forward_kinematics(source_model, source_data, target_model, target_data)
+            )
 
-            report.add_test(self.kinematic.validate_jacobian(
-                source_model, source_data, target_model, target_data
-            ))
+            report.add_test(self.kinematic.validate_jacobian(source_model, source_data, target_model, target_data))
 
             # Dynamic tests
-            report.add_test(self.dynamic.validate_free_fall(
-                source_model, source_data, target_model, target_data
-            ))
+            report.add_test(self.dynamic.validate_free_fall(source_model, source_data, target_model, target_data))
 
-            report.add_test(self.dynamic.validate_pendulum(
-                source_model, source_data, target_model, target_data
-            ))
+            report.add_test(self.dynamic.validate_pendulum(source_model, source_data, target_model, target_data))
 
-            report.add_test(self.dynamic.validate_trajectory_tracking(
-                source_model, source_data, target_model, target_data
-            ))
+            report.add_test(
+                self.dynamic.validate_trajectory_tracking(source_model, source_data, target_model, target_data)
+            )
 
             # Contact tests
-            report.add_test(self.contact.validate_contact_force(
-                source_model, source_data, target_model, target_data
-            ))
+            report.add_test(self.contact.validate_contact_force(source_model, source_data, target_model, target_data))
 
         except Exception as e:
-            report.add_test(TestResult(
-                name="load_models",
-                passed=False,
-                details={"error": str(e)}
-            ))
+            report.add_test(TestResult(name="load_models", passed=False, details={"error": str(e)}))
 
         return report
 
-    def validate_round_trip(
-        self,
-        original_path: str,
-        intermediate_path: str,
-        recovered_path: str
-    ) -> ValidationReport:
+    def validate_round_trip(self, original_path: str, intermediate_path: str, recovered_path: str) -> ValidationReport:
         """
         Validate round-trip conversion fidelity.
 
         Compares: original → intermediate → recovered
         """
-        report = ValidationReport(
-            source_model=original_path,
-            target_model=recovered_path,
-            direction="round_trip"
-        )
+        report = ValidationReport(source_model=original_path, target_model=recovered_path, direction="round_trip")
 
         # First validate original vs intermediate
-        intermediate_report = self.validate(
-            original_path, intermediate_path, "forward"
-        )
+        intermediate_report = self.validate(original_path, intermediate_path, "forward")
         for test in intermediate_report.tests:
             test.name = f"forward_{test.name}"
             report.add_test(test)
 
         # Then validate intermediate vs recovered
-        recovery_report = self.validate(
-            intermediate_path, recovered_path, "reverse"
-        )
+        recovery_report = self.validate(intermediate_path, recovered_path, "reverse")
         for test in recovery_report.tests:
             test.name = f"reverse_{test.name}"
             report.add_test(test)
 
         # Finally validate original vs recovered (full round-trip)
-        full_report = self.validate(
-            original_path, recovered_path, "full_round_trip"
-        )
+        full_report = self.validate(original_path, recovered_path, "full_round_trip")
         for test in full_report.tests:
             test.name = f"roundtrip_{test.name}"
             report.add_test(test)
@@ -683,7 +592,7 @@ def generate_html_report(report: ValidationReport, output_path: str) -> None:
         th, td {{ border: 1px solid #ddd; padding: 8px; text-align: left; }}
         th {{ background-color: #4CAF50; color: white; }}
         tr:nth-child(even) {{ background-color: #f2f2f2; }}
-        .summary {{ background-color: {'#d4edda' if report.overall_passed else '#f8d7da'};
+        .summary {{ background-color: {"#d4edda" if report.overall_passed else "#f8d7da"};
                    padding: 15px; border-radius: 5px; margin-bottom: 20px; }}
     </style>
 </head>
@@ -691,8 +600,8 @@ def generate_html_report(report: ValidationReport, output_path: str) -> None:
     <h1>Physics Equivalence Validation Report</h1>
 
     <div class="summary">
-        <h2>Summary: <span class="{'passed' if report.overall_passed else 'failed'}">
-            {'PASSED' if report.overall_passed else 'FAILED'}
+        <h2>Summary: <span class="{"passed" if report.overall_passed else "failed"}">
+            {"PASSED" if report.overall_passed else "FAILED"}
         </span></h2>
         <p><strong>Source:</strong> {report.source_model}</p>
         <p><strong>Target:</strong> {report.target_model}</p>
@@ -739,47 +648,28 @@ def generate_html_report(report: ValidationReport, output_path: str) -> None:
 </html>
 """
 
-    with open(output_path, 'w') as f:
+    with open(output_path, "w") as f:
         f.write(html)
 
 
 def main():
     """Command-line interface."""
-    parser = argparse.ArgumentParser(
-        description="Physics equivalence tests for Isaac ↔ MuJoCo conversion."
-    )
+    parser = argparse.ArgumentParser(description="Physics equivalence tests for Isaac ↔ MuJoCo conversion.")
+    parser.add_argument("--source", "-s", required=True, help="Source model path (MJCF or URDF)")
+    parser.add_argument("--target", "-t", help="Target model path (for direct comparison)")
     parser.add_argument(
-        "--source", "-s", required=True,
-        help="Source model path (MJCF or URDF)"
-    )
-    parser.add_argument(
-        "--target", "-t",
-        help="Target model path (for direct comparison)"
-    )
-    parser.add_argument(
-        "--direction", "-d",
+        "--direction",
+        "-d",
         choices=["isaac_to_mujoco", "mujoco_to_isaac"],
         default="isaac_to_mujoco",
-        help="Conversion direction"
+        help="Conversion direction",
     )
+    parser.add_argument("--round-trip", action="store_true", help="Perform round-trip validation")
     parser.add_argument(
-        "--round-trip", action="store_true",
-        help="Perform round-trip validation"
+        "--tolerance", choices=["strict", "standard", "relaxed"], default="standard", help="Tolerance level"
     )
-    parser.add_argument(
-        "--tolerance",
-        choices=["strict", "standard", "relaxed"],
-        default="standard",
-        help="Tolerance level"
-    )
-    parser.add_argument(
-        "--report", "-r",
-        help="Output HTML report path"
-    )
-    parser.add_argument(
-        "--json", "-j",
-        help="Output JSON results path"
-    )
+    parser.add_argument("--report", "-r", help="Output HTML report path")
+    parser.add_argument("--json", "-j", help="Output JSON results path")
 
     args = parser.parse_args()
 
@@ -836,7 +726,7 @@ def main():
         print(f"HTML report saved: {args.report}")
 
     if args.json:
-        with open(args.json, 'w') as f:
+        with open(args.json, "w") as f:
             json.dump(report.to_dict(), f, indent=2)
         print(f"JSON results saved: {args.json}")
 

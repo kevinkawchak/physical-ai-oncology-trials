@@ -31,6 +31,7 @@ logger = logging.getLogger(__name__)
 
 class TumorType(Enum):
     """Supported tumor types with corresponding model configurations."""
+
     GLIOBLASTOMA = "glioblastoma"
     BREAST_CANCER = "breast_cancer"
     LUNG_CANCER = "lung_cancer"
@@ -40,6 +41,7 @@ class TumorType(Enum):
 
 class ModelType(Enum):
     """Mathematical model types for tumor growth simulation."""
+
     LOGISTIC = "logistic"
     GOMPERTZ = "gompertz"
     REACTION_DIFFUSION = "reaction_diffusion"
@@ -48,6 +50,7 @@ class ModelType(Enum):
 
 class SolverType(Enum):
     """Numerical solver implementations."""
+
     CPU_SERIAL = "cpu_serial"
     CPU_PARALLEL = "cpu_parallel"
     GPU_PARALLEL = "gpu_parallel"
@@ -67,6 +70,7 @@ class PatientClinicalData:
         treatment_history: List of prior treatments
         comorbidities: List of relevant comorbidities
     """
+
     patient_id: str
     age: int
     sex: str
@@ -88,6 +92,7 @@ class ModelParameters:
         treatment_sensitivity: Drug/radiation sensitivity parameter
         uncertainty: Parameter uncertainty estimates
     """
+
     diffusion_coefficient: float = 0.1
     proliferation_rate: float = 0.05
     carrying_capacity: float = 1.0
@@ -106,6 +111,7 @@ class TwinPrediction:
         uncertainty_bounds: Prediction confidence intervals
         metrics: Additional computed metrics
     """
+
     timepoints: np.ndarray
     volumes: np.ndarray
     spatial_distributions: list
@@ -150,7 +156,7 @@ class TumorTwinPipeline:
         model_type: ModelType = ModelType.REACTION_DIFFUSION,
         solver: SolverType = SolverType.GPU_PARALLEL,
         tumor_type: TumorType = TumorType.GLIOBLASTOMA,
-        resolution_mm: float = 1.0
+        resolution_mm: float = 1.0,
     ):
         """Initialize the TumorTwin pipeline.
 
@@ -169,8 +175,7 @@ class TumorTwinPipeline:
         self._model_config = self._get_model_config()
 
         logger.info(
-            f"Initialized TumorTwinPipeline: model={model_type.value}, "
-            f"solver={solver.value}, tumor={tumor_type.value}"
+            f"Initialized TumorTwinPipeline: model={model_type.value}, solver={solver.value}, tumor={tumor_type.value}"
         )
 
     def _get_model_config(self) -> dict:
@@ -180,32 +185,32 @@ class TumorTwinPipeline:
                 "diffusion_range": (0.01, 1.0),  # mm^2/day
                 "proliferation_range": (0.01, 0.2),  # /day
                 "tissue_types": ["white_matter", "grey_matter", "csf"],
-                "anisotropic_diffusion": True
+                "anisotropic_diffusion": True,
             },
             TumorType.BREAST_CANCER: {
                 "diffusion_range": (0.001, 0.1),
                 "proliferation_range": (0.005, 0.1),
                 "tissue_types": ["tumor", "stroma", "adipose"],
-                "anisotropic_diffusion": False
+                "anisotropic_diffusion": False,
             },
             TumorType.LUNG_CANCER: {
                 "diffusion_range": (0.01, 0.5),
                 "proliferation_range": (0.02, 0.15),
                 "tissue_types": ["tumor", "parenchyma", "airway"],
-                "anisotropic_diffusion": False
+                "anisotropic_diffusion": False,
             },
             TumorType.PROSTATE_CANCER: {
                 "diffusion_range": (0.001, 0.05),
                 "proliferation_range": (0.001, 0.05),
                 "tissue_types": ["tumor", "peripheral", "transition"],
-                "anisotropic_diffusion": False
+                "anisotropic_diffusion": False,
             },
             TumorType.PANCREATIC_CANCER: {
                 "diffusion_range": (0.01, 0.3),
                 "proliferation_range": (0.03, 0.2),
                 "tissue_types": ["tumor", "parenchyma", "duct"],
-                "anisotropic_diffusion": False
-            }
+                "anisotropic_diffusion": False,
+            },
         }
         return configs.get(self.tumor_type, configs[TumorType.GLIOBLASTOMA])
 
@@ -214,7 +219,7 @@ class TumorTwinPipeline:
         patient_id: str,
         imaging_data: dict[str, np.ndarray],
         tumor_segmentation: np.ndarray | str,
-        clinical_data: dict | PatientClinicalData | None = None
+        clinical_data: dict | PatientClinicalData | None = None,
     ) -> "PatientDigitalTwin":
         """
         Create a patient-specific digital twin from imaging and clinical data.
@@ -262,7 +267,7 @@ class TumorTwinPipeline:
             tumor_mask=tumor_mask,
             clinical_data=clinical,
             config=self._model_config,
-            solver=self.solver
+            solver=self.solver,
         )
 
         logger.info(f"Digital twin created for {patient_id}")
@@ -274,6 +279,7 @@ class TumorTwinPipeline:
         if path.suffix in [".nii", ".gz"]:
             try:
                 import nibabel as nib
+
                 img = nib.load(str(path))
                 return np.asarray(img.dataobj)
             except ImportError:
@@ -284,33 +290,18 @@ class TumorTwinPipeline:
         else:
             raise ValueError(f"Unsupported segmentation format: {path.suffix}")
 
-    def _initialize_model(
-        self,
-        imaging_data: dict,
-        tumor_mask: np.ndarray
-    ) -> "TumorGrowthModel":
+    def _initialize_model(self, imaging_data: dict, tumor_mask: np.ndarray) -> "TumorGrowthModel":
         """Initialize the appropriate tumor growth model."""
         if self.model_type == ModelType.REACTION_DIFFUSION:
             return ReactionDiffusionModel(
-                domain_shape=tumor_mask.shape,
-                resolution_mm=self.resolution_mm,
-                config=self._model_config
+                domain_shape=tumor_mask.shape, resolution_mm=self.resolution_mm, config=self._model_config
             )
         elif self.model_type == ModelType.LOGISTIC:
-            return LogisticGrowthModel(
-                domain_shape=tumor_mask.shape,
-                config=self._model_config
-            )
+            return LogisticGrowthModel(domain_shape=tumor_mask.shape, config=self._model_config)
         elif self.model_type == ModelType.GOMPERTZ:
-            return GompertzGrowthModel(
-                domain_shape=tumor_mask.shape,
-                config=self._model_config
-            )
+            return GompertzGrowthModel(domain_shape=tumor_mask.shape, config=self._model_config)
         else:
-            return MechanisticModel(
-                domain_shape=tumor_mask.shape,
-                config=self._model_config
-            )
+            return MechanisticModel(domain_shape=tumor_mask.shape, config=self._model_config)
 
 
 class TumorGrowthModel:
@@ -321,20 +312,12 @@ class TumorGrowthModel:
         self.config = config
         self.parameters = ModelParameters()
 
-    def simulate(
-        self,
-        initial_condition: np.ndarray,
-        duration_days: float,
-        dt: float = 0.1
-    ) -> np.ndarray:
+    def simulate(self, initial_condition: np.ndarray, duration_days: float, dt: float = 0.1) -> np.ndarray:
         """Simulate tumor growth over specified duration."""
         raise NotImplementedError
 
     def calibrate(
-        self,
-        observations: list[np.ndarray],
-        timepoints: list[float],
-        method: str = "bayesian"
+        self, observations: list[np.ndarray], timepoints: list[float], method: str = "bayesian"
     ) -> ModelParameters:
         """Calibrate model parameters to observations."""
         raise NotImplementedError
@@ -357,22 +340,12 @@ class ReactionDiffusionModel(TumorGrowthModel):
         - Swanson et al., Cell Proliferation, 2000
     """
 
-    def __init__(
-        self,
-        domain_shape: tuple,
-        resolution_mm: float = 1.0,
-        config: dict | None = None
-    ):
+    def __init__(self, domain_shape: tuple, resolution_mm: float = 1.0, config: dict | None = None):
         super().__init__(domain_shape, config or {})
         self.resolution_mm = resolution_mm
         self.dx = resolution_mm
 
-    def simulate(
-        self,
-        initial_condition: np.ndarray,
-        duration_days: float,
-        dt: float = 0.1
-    ) -> list[np.ndarray]:
+    def simulate(self, initial_condition: np.ndarray, duration_days: float, dt: float = 0.1) -> list[np.ndarray]:
         """
         Simulate reaction-diffusion tumor growth.
 
@@ -421,19 +394,19 @@ class ReactionDiffusionModel(TumorGrowthModel):
 
         # Central differences for interior points
         laplacian[1:-1, 1:-1, 1:-1] = (
-            (u[2:, 1:-1, 1:-1] + u[:-2, 1:-1, 1:-1] +
-             u[1:-1, 2:, 1:-1] + u[1:-1, :-2, 1:-1] +
-             u[1:-1, 1:-1, 2:] + u[1:-1, 1:-1, :-2] -
-             6 * u[1:-1, 1:-1, 1:-1]) / (self.dx ** 2)
-        )
+            u[2:, 1:-1, 1:-1]
+            + u[:-2, 1:-1, 1:-1]
+            + u[1:-1, 2:, 1:-1]
+            + u[1:-1, :-2, 1:-1]
+            + u[1:-1, 1:-1, 2:]
+            + u[1:-1, 1:-1, :-2]
+            - 6 * u[1:-1, 1:-1, 1:-1]
+        ) / (self.dx**2)
 
         return laplacian
 
     def calibrate(
-        self,
-        observations: list[np.ndarray],
-        timepoints: list[float],
-        method: str = "bayesian"
+        self, observations: list[np.ndarray], timepoints: list[float], method: str = "bayesian"
     ) -> ModelParameters:
         """
         Calibrate model parameters to longitudinal observations.
@@ -455,11 +428,7 @@ class ReactionDiffusionModel(TumorGrowthModel):
         else:
             return self._least_squares(observations, timepoints)
 
-    def _bayesian_calibration(
-        self,
-        observations: list[np.ndarray],
-        timepoints: list[float]
-    ) -> ModelParameters:
+    def _bayesian_calibration(self, observations: list[np.ndarray], timepoints: list[float]) -> ModelParameters:
         """Bayesian parameter estimation using MCMC or variational inference."""
         from scipy.optimize import minimize
 
@@ -475,32 +444,26 @@ class ReactionDiffusionModel(TumorGrowthModel):
             total_error = 0
             current = observations[0]
             for i, t in enumerate(timepoints[1:], 1):
-                dt = t - timepoints[i-1]
+                dt = t - timepoints[i - 1]
                 trajectory = self.simulate(current, dt, dt=0.1)
                 predicted = trajectory[-1]
-                total_error += np.sum((predicted - observations[i])**2)
+                total_error += np.sum((predicted - observations[i]) ** 2)
 
             # Log priors (lognormal)
             log_prior = (
-                -0.5 * (np.log(D) - np.log(0.1))**2 / 0.5**2 +
-                -0.5 * (np.log(rho) - np.log(0.05))**2 / 0.3**2
+                -0.5 * (np.log(D) - np.log(0.1)) ** 2 / 0.5**2 + -0.5 * (np.log(rho) - np.log(0.05)) ** 2 / 0.3**2
             )
 
             return total_error - log_prior
 
         # Optimize
-        result = minimize(
-            negative_log_posterior,
-            x0=[0.1, 0.05],
-            method='Nelder-Mead',
-            options={'maxiter': 100}
-        )
+        result = minimize(negative_log_posterior, x0=[0.1, 0.05], method="Nelder-Mead", options={"maxiter": 100})
 
         self.parameters.diffusion_coefficient = result.x[0]
         self.parameters.proliferation_rate = result.x[1]
         self.parameters.uncertainty = {
-            'diffusion_std': result.x[0] * 0.2,  # Approximate
-            'proliferation_std': result.x[1] * 0.2
+            "diffusion_std": result.x[0] * 0.2,  # Approximate
+            "proliferation_std": result.x[1] * 0.2,
         }
 
         return self.parameters
@@ -517,12 +480,7 @@ class ReactionDiffusionModel(TumorGrowthModel):
 class LogisticGrowthModel(TumorGrowthModel):
     """Logistic tumor growth model: dV/dt = rV(1 - V/K)."""
 
-    def simulate(
-        self,
-        initial_condition: np.ndarray,
-        duration_days: float,
-        dt: float = 0.1
-    ) -> list[np.ndarray]:
+    def simulate(self, initial_condition: np.ndarray, duration_days: float, dt: float = 0.1) -> list[np.ndarray]:
         """Simulate logistic growth."""
         rho = self.parameters.proliferation_rate
         K = self.parameters.carrying_capacity
@@ -550,15 +508,11 @@ class LogisticGrowthModel(TumorGrowthModel):
 
         def logistic(t, r, K):
             V0 = volumes[0]
-            return K / (1 + (K/V0 - 1) * np.exp(-r * t))
+            return K / (1 + (K / V0 - 1) * np.exp(-r * t))
 
         try:
             popt, _ = curve_fit(
-                logistic,
-                timepoints,
-                volumes,
-                p0=[0.05, volumes[-1] * 1.5],
-                bounds=([0, 0], [1, np.inf])
+                logistic, timepoints, volumes, p0=[0.05, volumes[-1] * 1.5], bounds=([0, 0], [1, np.inf])
             )
             self.parameters.proliferation_rate = popt[0]
             self.parameters.carrying_capacity = popt[1]
@@ -571,12 +525,7 @@ class LogisticGrowthModel(TumorGrowthModel):
 class GompertzGrowthModel(TumorGrowthModel):
     """Gompertz tumor growth model: dV/dt = aV*ln(K/V)."""
 
-    def simulate(
-        self,
-        initial_condition: np.ndarray,
-        duration_days: float,
-        dt: float = 0.1
-    ) -> list[np.ndarray]:
+    def simulate(self, initial_condition: np.ndarray, duration_days: float, dt: float = 0.1) -> list[np.ndarray]:
         """Simulate Gompertz growth."""
         a = self.parameters.proliferation_rate
         K = self.parameters.carrying_capacity
@@ -607,18 +556,10 @@ class GompertzGrowthModel(TumorGrowthModel):
 class MechanisticModel(TumorGrowthModel):
     """Multi-scale mechanistic tumor model with microenvironment interactions."""
 
-    def simulate(
-        self,
-        initial_condition: np.ndarray,
-        duration_days: float,
-        dt: float = 0.1
-    ) -> list[np.ndarray]:
+    def simulate(self, initial_condition: np.ndarray, duration_days: float, dt: float = 0.1) -> list[np.ndarray]:
         """Simulate mechanistic model (simplified for example)."""
         # Placeholder for complex multi-scale simulation
-        rd_model = ReactionDiffusionModel(
-            self.domain_shape,
-            config=self.config
-        )
+        rd_model = ReactionDiffusionModel(self.domain_shape, config=self.config)
         rd_model.parameters = self.parameters
         return rd_model.simulate(initial_condition, duration_days, dt)
 
@@ -656,7 +597,7 @@ class PatientDigitalTwin:
         tumor_mask: np.ndarray,
         clinical_data: PatientClinicalData,
         config: dict,
-        solver: SolverType
+        solver: SolverType,
     ):
         self.patient_id = patient_id
         self.model = model
@@ -673,7 +614,7 @@ class PatientDigitalTwin:
 
     def _compute_volume(self, mask: np.ndarray, voxel_size_mm: float = 1.0) -> float:
         """Compute tumor volume in cm^3."""
-        voxel_volume_mm3 = voxel_size_mm ** 3
+        voxel_volume_mm3 = voxel_size_mm**3
         n_voxels = np.sum(mask > 0.5)
         return n_voxels * voxel_volume_mm3 / 1000  # mm^3 to cm^3
 
@@ -691,7 +632,7 @@ class PatientDigitalTwin:
         self,
         longitudinal_scans: list[str | np.ndarray],
         treatment_history: list[dict] | None = None,
-        timepoints: list[float] | None = None
+        timepoints: list[float] | None = None,
     ) -> None:
         """
         Calibrate the digital twin to longitudinal patient data.
@@ -709,6 +650,7 @@ class PatientDigitalTwin:
             if isinstance(scan, (str, Path)):
                 try:
                     import nibabel as nib
+
                     img = nib.load(str(scan))
                     observations.append(np.asarray(img.dataobj))
                 except ImportError:
@@ -731,10 +673,7 @@ class PatientDigitalTwin:
         )
 
     def predict(
-        self,
-        horizon_days: float,
-        treatment: dict | None = None,
-        output_interval_days: float = 7
+        self, horizon_days: float, treatment: dict | None = None, output_interval_days: float = 7
     ) -> TwinPrediction:
         """
         Predict tumor evolution over specified time horizon.
@@ -758,11 +697,7 @@ class PatientDigitalTwin:
             initial_state = self._apply_treatment_effect(initial_state, treatment)
 
         # Run simulation
-        trajectory = self.model.simulate(
-            initial_state,
-            horizon_days,
-            dt=0.1
-        )
+        trajectory = self.model.simulate(initial_state, horizon_days, dt=0.1)
 
         # Extract results at specified intervals
         n_outputs = int(horizon_days / output_interval_days) + 1
@@ -774,17 +709,14 @@ class PatientDigitalTwin:
         volumes = np.array([self._compute_volume(d) for d in spatial_distributions])
 
         # Compute uncertainty bounds (simplified)
-        uncertainty_bounds = {
-            "lower": volumes * 0.85,
-            "upper": volumes * 1.15
-        }
+        uncertainty_bounds = {"lower": volumes * 0.85, "upper": volumes * 1.15}
 
         # Compute metrics
         metrics = {
             "initial_volume_cm3": volumes[0],
             "final_volume_cm3": volumes[-1],
             "volume_change_percent": (volumes[-1] - volumes[0]) / volumes[0] * 100,
-            "doubling_time_days": self._estimate_doubling_time(volumes, timepoints)
+            "doubling_time_days": self._estimate_doubling_time(volumes, timepoints),
         }
 
         return TwinPrediction(
@@ -792,14 +724,10 @@ class PatientDigitalTwin:
             volumes=volumes,
             spatial_distributions=spatial_distributions,
             uncertainty_bounds=uncertainty_bounds,
-            metrics=metrics
+            metrics=metrics,
         )
 
-    def _apply_treatment_effect(
-        self,
-        state: np.ndarray,
-        treatment: dict
-    ) -> np.ndarray:
+    def _apply_treatment_effect(self, state: np.ndarray, treatment: dict) -> np.ndarray:
         """Apply treatment effect to tumor state."""
         treatment_type = treatment.get("type", "unknown")
 
@@ -823,11 +751,7 @@ class PatientDigitalTwin:
 
         return state
 
-    def _estimate_doubling_time(
-        self,
-        volumes: np.ndarray,
-        timepoints: np.ndarray
-    ) -> float:
+    def _estimate_doubling_time(self, volumes: np.ndarray, timepoints: np.ndarray) -> float:
         """Estimate tumor volume doubling time."""
         if len(volumes) < 2 or volumes[-1] <= volumes[0]:
             return np.inf
@@ -842,10 +766,7 @@ class PatientDigitalTwin:
 
         return np.inf
 
-    def export_to_simulation(
-        self,
-        framework: str = "isaac"
-    ) -> dict[str, Any]:
+    def export_to_simulation(self, framework: str = "isaac") -> dict[str, Any]:
         """
         Export digital twin to simulation framework format.
 
@@ -861,22 +782,18 @@ class PatientDigitalTwin:
             "tumor_mask_shape": self.tumor_mask.shape,
             "model_parameters": {
                 "diffusion": self.model.parameters.diffusion_coefficient,
-                "proliferation": self.model.parameters.proliferation_rate
-            }
+                "proliferation": self.model.parameters.proliferation_rate,
+            },
         }
 
         if framework == "isaac":
             export_config["isaac_config"] = {
                 "soft_tissue_stiffness_kpa": 5.0,
                 "tumor_stiffness_multiplier": 3.0,
-                "include_deformation": True
+                "include_deformation": True,
             }
         elif framework == "mujoco":
-            export_config["mujoco_config"] = {
-                "contact_stiffness": 1000,
-                "contact_damping": 100,
-                "geom_type": "mesh"
-            }
+            export_config["mujoco_config"] = {"contact_stiffness": 1000, "contact_damping": 100, "geom_type": "mesh"}
 
         return export_config
 
@@ -925,9 +842,7 @@ For clinical use only under physician supervision.
 
 # Convenience function for quick pipeline creation
 def create_pipeline(
-    tumor_type: str = "glioblastoma",
-    model_type: str = "reaction_diffusion",
-    use_gpu: bool = True
+    tumor_type: str = "glioblastoma", model_type: str = "reaction_diffusion", use_gpu: bool = True
 ) -> TumorTwinPipeline:
     """
     Create a TumorTwin pipeline with sensible defaults.
@@ -947,7 +862,7 @@ def create_pipeline(
     return TumorTwinPipeline(
         model_type=ModelType(model_type),
         solver=SolverType.GPU_PARALLEL if use_gpu else SolverType.CPU_PARALLEL,
-        tumor_type=TumorType(tumor_type)
+        tumor_type=TumorType(tumor_type),
     )
 
 
@@ -968,11 +883,7 @@ if __name__ == "__main__":
         patient_id="TEST-001",
         imaging_data={"mri": np.random.randn(64, 64, 64)},
         tumor_segmentation=tumor_mask,
-        clinical_data={
-            "age": 55,
-            "sex": "M",
-            "tumor_grade": "IV"
-        }
+        clinical_data={"age": 55, "sex": "M", "tumor_grade": "IV"},
     )
 
     print(f"Created digital twin for patient {twin.patient_id}")
@@ -980,16 +891,13 @@ if __name__ == "__main__":
 
     # Simulate calibration with synthetic longitudinal data
     scan_t1 = tumor_mask * 1.2  # 20% growth
-    twin.calibrate(
-        longitudinal_scans=[tumor_mask, scan_t1],
-        timepoints=[0, 30]
-    )
+    twin.calibrate(longitudinal_scans=[tumor_mask, scan_t1], timepoints=[0, 30])
 
     # Predict tumor evolution
     prediction = twin.predict(horizon_days=90)
 
-    print(f"\nPrediction Results:")
-    print(f"  Horizon: 90 days")
+    print("\nPrediction Results:")
+    print("  Horizon: 90 days")
     print(f"  Final volume: {prediction.volumes[-1]:.2f} cm^3")
     print(f"  Volume change: {prediction.metrics['volume_change_percent']:.1f}%")
     print(f"  Doubling time: {prediction.metrics['doubling_time_days']:.1f} days")

@@ -45,10 +45,7 @@ from enum import Enum
 from pathlib import Path
 from typing import Any
 
-logging.basicConfig(
-    level=logging.INFO,
-    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s'
-)
+logging.basicConfig(level=logging.INFO, format="%(asctime)s - %(name)s - %(levelname)s - %(message)s")
 logger = logging.getLogger(__name__)
 
 
@@ -56,8 +53,10 @@ logger = logging.getLogger(__name__)
 # SECTION 1: BREACH DATA STRUCTURES
 # =============================================================================
 
+
 class IncidentType(Enum):
     """Types of security incidents."""
+
     UNAUTHORIZED_ACCESS = "unauthorized_access"
     UNAUTHORIZED_DISCLOSURE = "unauthorized_disclosure"
     LOSS = "loss"
@@ -71,6 +70,7 @@ class IncidentType(Enum):
 
 class RiskLevel(Enum):
     """Risk levels from four-factor assessment."""
+
     LOW = "low_probability_of_compromise"
     MEDIUM = "medium_probability"
     HIGH = "high_probability"
@@ -79,6 +79,7 @@ class RiskLevel(Enum):
 
 class NotificationRecipient(Enum):
     """Required notification recipients."""
+
     INDIVIDUALS = "affected_individuals"
     HHS_OCR = "hhs_ocr"
     MEDIA = "prominent_media"
@@ -91,6 +92,7 @@ class NotificationRecipient(Enum):
 @dataclass
 class Incident:
     """Security incident record."""
+
     incident_id: str
     incident_type: IncidentType
     description: str
@@ -112,13 +114,14 @@ class Incident:
             "phi_types_involved": self.phi_types_involved,
             "individuals_affected": self.individuals_affected,
             "discovery_date": self.discovery_date,
-            "status": self.status
+            "status": self.status,
         }
 
 
 @dataclass
 class RiskAssessment:
     """HIPAA four-factor breach risk assessment."""
+
     incident_id: str
     assessment_date: str
 
@@ -146,12 +149,7 @@ class RiskAssessment:
 
     def calculate_risk(self):
         """Calculate overall risk from four factors."""
-        scores = [
-            self.phi_nature_score,
-            self.unauthorized_party_score,
-            self.acquisition_score,
-            self.mitigation_score
-        ]
+        scores = [self.phi_nature_score, self.unauthorized_party_score, self.acquisition_score, self.mitigation_score]
 
         if not all(1 <= s <= 5 for s in scores):
             return
@@ -182,6 +180,7 @@ class RiskAssessment:
 @dataclass
 class NotificationDeadline:
     """A specific notification deadline."""
+
     recipient: str
     regulation: str
     due_date: str
@@ -194,6 +193,7 @@ class NotificationDeadline:
 @dataclass
 class NotificationTimeline:
     """Complete notification timeline for an incident."""
+
     incident_id: str
     discovery_date: str
     deadlines: list[NotificationDeadline] = field(default_factory=list)
@@ -208,10 +208,10 @@ class NotificationTimeline:
                     "regulation": d.regulation,
                     "due_date": d.due_date,
                     "days_remaining": d.days_remaining,
-                    "status": d.status
+                    "status": d.status,
                 }
                 for d in self.deadlines
-            ]
+            ],
         }
 
 
@@ -228,50 +228,44 @@ STATE_BREACH_LAWS: dict[str, dict[str, Any]] = {
         "statute": "Cal. Civ. Code § 1798.82",
         "special_requirements": [
             "Must use specific notification format",
-            "AI disclosure: AB 489 effective Jan 1, 2026"
-        ]
+            "AI disclosure: AB 489 effective Jan 1, 2026",
+        ],
     },
     "TX": {
         "name": "Texas",
         "notification_days": 60,
         "ag_notification_threshold": 250,
         "statute": "Tex. Bus. & Com. Code § 521.053",
-        "special_requirements": [
-            "TRAIGA: AI use disclosure required effective Jan 1, 2026"
-        ]
+        "special_requirements": ["TRAIGA: AI use disclosure required effective Jan 1, 2026"],
     },
     "NY": {
         "name": "New York",
         "notification_days": 60,
         "ag_notification_threshold": 0,  # All breaches
         "statute": "N.Y. Gen. Bus. Law § 899-aa",
-        "special_requirements": [
-            "Must notify NY AG, DFS, and Division of State Police"
-        ]
+        "special_requirements": ["Must notify NY AG, DFS, and Division of State Police"],
     },
     "MA": {
         "name": "Massachusetts",
         "notification_days": 30,  # Shorter than HIPAA
         "ag_notification_threshold": 0,  # All breaches
         "statute": "Mass. Gen. Laws ch. 93H",
-        "special_requirements": [
-            "Must include specific content in notification",
-            "Must notify AG and OCABR"
-        ]
+        "special_requirements": ["Must include specific content in notification", "Must notify AG and OCABR"],
     },
     "FL": {
         "name": "Florida",
         "notification_days": 30,
         "ag_notification_threshold": 500,
         "statute": "Fla. Stat. § 501.171",
-        "special_requirements": []
-    }
+        "special_requirements": [],
+    },
 }
 
 
 # =============================================================================
 # SECTION 3: BREACH RESPONSE MANAGER
 # =============================================================================
+
 
 class BreachResponseManager:
     """
@@ -296,7 +290,7 @@ class BreachResponseManager:
         organization: str,
         hipaa_covered_entity: bool = True,
         state_jurisdictions: list[str] | None = None,
-        incident_log_path: str = "incident_logs/"
+        incident_log_path: str = "incident_logs/",
     ):
         """
         Initialize breach response manager.
@@ -331,7 +325,7 @@ class BreachResponseManager:
         discovery_date: str,
         occurrence_date: str = "",
         affected_systems: list[str] | None = None,
-        containment_actions: list[str] | None = None
+        containment_actions: list[str] | None = None,
     ) -> Incident:
         """
         Report a new security incident.
@@ -362,15 +356,12 @@ class BreachResponseManager:
             occurrence_date=occurrence_date or discovery_date,
             affected_systems=affected_systems or [],
             containment_actions=containment_actions or [],
-            state_jurisdictions=self.state_jurisdictions
+            state_jurisdictions=self.state_jurisdictions,
         )
 
         self._incidents[incident_id] = incident
 
-        logger.info(
-            f"Incident reported: {incident_id} ({incident_type}), "
-            f"affecting {individuals_affected} individuals"
-        )
+        logger.info(f"Incident reported: {incident_id} ({incident_type}), affecting {individuals_affected} individuals")
 
         return incident
 
@@ -384,7 +375,7 @@ class BreachResponseManager:
         phi_nature_notes: str = "",
         unauthorized_party_notes: str = "",
         acquisition_notes: str = "",
-        mitigation_notes: str = ""
+        mitigation_notes: str = "",
     ) -> RiskAssessment:
         """
         Perform four-factor breach risk assessment.
@@ -421,7 +412,7 @@ class BreachResponseManager:
             acquisition_score=acquisition_score,
             acquisition_notes=acquisition_notes,
             mitigation_score=mitigation_score,
-            mitigation_notes=mitigation_notes
+            mitigation_notes=mitigation_notes,
         )
 
         assessment.calculate_risk()
@@ -440,10 +431,7 @@ class BreachResponseManager:
 
         return assessment
 
-    def generate_notification_timeline(
-        self,
-        incident: Incident
-    ) -> NotificationTimeline:
+    def generate_notification_timeline(self, incident: Incident) -> NotificationTimeline:
         """
         Generate notification timeline based on incident details.
 
@@ -457,51 +445,56 @@ class BreachResponseManager:
             NotificationTimeline with all deadlines
         """
         discovery = datetime.fromisoformat(incident.discovery_date)
-        timeline = NotificationTimeline(
-            incident_id=incident.incident_id,
-            discovery_date=incident.discovery_date
-        )
+        timeline = NotificationTimeline(incident_id=incident.incident_id, discovery_date=incident.discovery_date)
 
         # HIPAA federal requirements
         hipaa_deadline = discovery + timedelta(days=60)
 
         # Individual notification (always required for breaches)
-        timeline.deadlines.append(NotificationDeadline(
-            recipient="Affected Individuals",
-            regulation="45 CFR 164.404",
-            due_date=hipaa_deadline.isoformat(),
-            days_remaining=(hipaa_deadline - datetime.now()).days,
-            notes="Written notice by first-class mail or email (if consented)"
-        ))
+        timeline.deadlines.append(
+            NotificationDeadline(
+                recipient="Affected Individuals",
+                regulation="45 CFR 164.404",
+                due_date=hipaa_deadline.isoformat(),
+                days_remaining=(hipaa_deadline - datetime.now()).days,
+                notes="Written notice by first-class mail or email (if consented)",
+            )
+        )
 
         # HHS OCR notification
         if incident.individuals_affected >= 500:
-            timeline.deadlines.append(NotificationDeadline(
-                recipient="HHS OCR (large breach)",
-                regulation="45 CFR 164.408",
-                due_date=hipaa_deadline.isoformat(),
-                days_remaining=(hipaa_deadline - datetime.now()).days,
-                notes="Submit via HHS breach portal within 60 days"
-            ))
+            timeline.deadlines.append(
+                NotificationDeadline(
+                    recipient="HHS OCR (large breach)",
+                    regulation="45 CFR 164.408",
+                    due_date=hipaa_deadline.isoformat(),
+                    days_remaining=(hipaa_deadline - datetime.now()).days,
+                    notes="Submit via HHS breach portal within 60 days",
+                )
+            )
         else:
             year_end = datetime(discovery.year, 12, 31) + timedelta(days=60)
-            timeline.deadlines.append(NotificationDeadline(
-                recipient="HHS OCR (small breach)",
-                regulation="45 CFR 164.408",
-                due_date=year_end.isoformat(),
-                days_remaining=(year_end - datetime.now()).days,
-                notes="Submit via HHS breach portal by March 1 of following year"
-            ))
+            timeline.deadlines.append(
+                NotificationDeadline(
+                    recipient="HHS OCR (small breach)",
+                    regulation="45 CFR 164.408",
+                    due_date=year_end.isoformat(),
+                    days_remaining=(year_end - datetime.now()).days,
+                    notes="Submit via HHS breach portal by March 1 of following year",
+                )
+            )
 
         # Media notification (500+ in a single state)
         if incident.individuals_affected >= 500:
-            timeline.deadlines.append(NotificationDeadline(
-                recipient="Prominent Media Outlets",
-                regulation="45 CFR 164.406",
-                due_date=hipaa_deadline.isoformat(),
-                days_remaining=(hipaa_deadline - datetime.now()).days,
-                notes="In states where 500+ individuals are affected"
-            ))
+            timeline.deadlines.append(
+                NotificationDeadline(
+                    recipient="Prominent Media Outlets",
+                    regulation="45 CFR 164.406",
+                    due_date=hipaa_deadline.isoformat(),
+                    days_remaining=(hipaa_deadline - datetime.now()).days,
+                    notes="In states where 500+ individuals are affected",
+                )
+            )
 
         # State-specific requirements
         for state_code in incident.state_jurisdictions:
@@ -509,30 +502,36 @@ class BreachResponseManager:
             if state_law:
                 state_deadline = discovery + timedelta(days=state_law["notification_days"])
                 if incident.individuals_affected >= state_law["ag_notification_threshold"]:
-                    timeline.deadlines.append(NotificationDeadline(
-                        recipient=f"{state_law['name']} Attorney General",
-                        regulation=state_law["statute"],
-                        due_date=state_deadline.isoformat(),
-                        days_remaining=(state_deadline - datetime.now()).days,
-                        notes="; ".join(state_law.get("special_requirements", []))
-                    ))
+                    timeline.deadlines.append(
+                        NotificationDeadline(
+                            recipient=f"{state_law['name']} Attorney General",
+                            regulation=state_law["statute"],
+                            due_date=state_deadline.isoformat(),
+                            days_remaining=(state_deadline - datetime.now()).days,
+                            notes="; ".join(state_law.get("special_requirements", [])),
+                        )
+                    )
 
         # Clinical trial-specific notifications
-        timeline.deadlines.append(NotificationDeadline(
-            recipient="Trial Sponsor",
-            regulation="ICH E6(R3) / Protocol Agreement",
-            due_date=(discovery + timedelta(days=1)).isoformat(),
-            days_remaining=max(0, (discovery + timedelta(days=1) - datetime.now()).days),
-            notes="Immediate notification per sponsor agreement"
-        ))
+        timeline.deadlines.append(
+            NotificationDeadline(
+                recipient="Trial Sponsor",
+                regulation="ICH E6(R3) / Protocol Agreement",
+                due_date=(discovery + timedelta(days=1)).isoformat(),
+                days_remaining=max(0, (discovery + timedelta(days=1) - datetime.now()).days),
+                notes="Immediate notification per sponsor agreement",
+            )
+        )
 
-        timeline.deadlines.append(NotificationDeadline(
-            recipient="IRB/Ethics Committee",
-            regulation="45 CFR 46 / ICH E6(R3)",
-            due_date=(discovery + timedelta(days=5)).isoformat(),
-            days_remaining=max(0, (discovery + timedelta(days=5) - datetime.now()).days),
-            notes="Prompt notification of events that may affect participant safety or rights"
-        ))
+        timeline.deadlines.append(
+            NotificationDeadline(
+                recipient="IRB/Ethics Committee",
+                regulation="45 CFR 46 / ICH E6(R3)",
+                due_date=(discovery + timedelta(days=5)).isoformat(),
+                days_remaining=max(0, (discovery + timedelta(days=5) - datetime.now()).days),
+                notes="Prompt notification of events that may affect participant safety or rights",
+            )
+        )
 
         # Sort by due date
         timeline.deadlines.sort(key=lambda d: d.due_date)
@@ -561,9 +560,9 @@ Description: {incident.description}
 Discovery Date: {incident.discovery_date}
 Occurrence Date: {incident.occurrence_date}
 Individuals Affected: {incident.individuals_affected}
-PHI Types Involved: {', '.join(incident.phi_types_involved)}
-Affected Systems: {', '.join(incident.affected_systems)}
-Containment Actions: {', '.join(incident.containment_actions)}
+PHI Types Involved: {", ".join(incident.phi_types_involved)}
+Affected Systems: {", ".join(incident.affected_systems)}
+Containment Actions: {", ".join(incident.containment_actions)}
 Status: {incident.status}
 """
 
@@ -601,16 +600,9 @@ Rationale: {assessment.rationale}
                 f"High-sensitivity PHI involved: {', '.join(sensitive_types)}. "
                 "Significant risk of identity theft or financial harm."
             )
-        return (
-            f"PHI types: {', '.join(incident.phi_types_involved)}. "
-            "Moderate risk of harm from disclosure."
-        )
+        return f"PHI types: {', '.join(incident.phi_types_involved)}. Moderate risk of harm from disclosure."
 
-    def _generate_rationale(
-        self,
-        assessment: RiskAssessment,
-        incident: Incident
-    ) -> str:
+    def _generate_rationale(self, assessment: RiskAssessment, incident: Incident) -> str:
         """Generate rationale for breach determination."""
         if assessment.is_reportable_breach:
             return (
@@ -634,6 +626,7 @@ Rationale: {assessment.rationale}
 # SECTION 4: MAIN PIPELINE
 # =============================================================================
 
+
 def run_breach_response_demo():
     """
     Demonstrate breach response protocol capabilities.
@@ -649,7 +642,7 @@ def run_breach_response_demo():
     brm = BreachResponseManager(
         organization="Physical AI Oncology Consortium",
         hipaa_covered_entity=True,
-        state_jurisdictions=["CA", "TX", "NY", "MA"]
+        state_jurisdictions=["CA", "TX", "NY", "MA"],
     )
 
     # Scenario: Unauthorized access to patient imaging database
@@ -660,18 +653,15 @@ def run_breach_response_demo():
             "anomalous query patterns. AI training pipeline accessed "
             "non-de-identified DICOM files due to misconfigured access controls."
         ),
-        phi_types_involved=[
-            "medical_record_numbers", "diagnostic_images",
-            "dates", "institution_names"
-        ],
+        phi_types_involved=["medical_record_numbers", "diagnostic_images", "dates", "institution_names"],
         individuals_affected=150,
         discovery_date="2026-02-01",
         affected_systems=["imaging_pacs", "ai_training_pipeline"],
         containment_actions=[
             "Access revoked for AI training pipeline",
             "Network segment isolated",
-            "Forensic investigation initiated"
-        ]
+            "Forensic investigation initiated",
+        ],
     )
 
     # Perform risk assessment
@@ -684,7 +674,7 @@ def run_breach_response_demo():
         phi_nature_notes="MRNs and diagnostic images exposed, but no SSN or financial data",
         unauthorized_party_notes="Internal AI system, not external threat actor",
         acquisition_notes="DICOM files were processed by AI pipeline and cached",
-        mitigation_notes="Access immediately revoked, cached data purged, audit confirms no exfiltration"
+        mitigation_notes="Access immediately revoked, cached data purged, audit confirms no exfiltration",
     )
 
     # Generate notification timeline
@@ -696,11 +686,7 @@ def run_breach_response_demo():
     print("\nNOTIFICATION TIMELINE")
     print("-" * 70)
     for deadline in timeline.deadlines:
-        print(
-            f"  {deadline.due_date[:10]} | "
-            f"{deadline.recipient:35s} | "
-            f"{deadline.regulation}"
-        )
+        print(f"  {deadline.due_date[:10]} | {deadline.recipient:35s} | {deadline.regulation}")
 
     return {"incident_id": incident.incident_id, "status": "demo_complete"}
 

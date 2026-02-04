@@ -40,6 +40,7 @@ import warnings
 # Optional imports
 try:
     import numpy as np
+
     NUMPY_AVAILABLE = True
 except ImportError:
     NUMPY_AVAILABLE = False
@@ -47,6 +48,7 @@ except ImportError:
 
 try:
     import mujoco
+
     MUJOCO_AVAILABLE = True
     MUJOCO_VERSION = mujoco.__version__
 except ImportError:
@@ -57,6 +59,7 @@ except ImportError:
 @dataclass
 class BenchmarkConfig:
     """Configuration for a benchmark run."""
+
     scenario: str
     frameworks: List[str]
     num_episodes: int = 100
@@ -68,6 +71,7 @@ class BenchmarkConfig:
 @dataclass
 class BenchmarkResult:
     """Result of a single benchmark."""
+
     name: str
     category: str  # physics, performance, sim2real, cross_framework
     passed: bool
@@ -80,6 +84,7 @@ class BenchmarkResult:
 @dataclass
 class BenchmarkReport:
     """Complete benchmark report."""
+
     scenario: str
     frameworks: List[str]
     results: List[BenchmarkResult] = field(default_factory=list)
@@ -181,6 +186,7 @@ SCENARIOS = {
 # =============================================================================
 # Physics Benchmarks
 # =============================================================================
+
 
 class PhysicsBenchmark:
     """Physics accuracy benchmarks."""
@@ -372,6 +378,7 @@ class PhysicsBenchmark:
 # Performance Benchmarks
 # =============================================================================
 
+
 class PerformanceBenchmark:
     """Performance and throughput benchmarks."""
 
@@ -441,18 +448,14 @@ class PerformanceBenchmark:
 # Cross-Framework Benchmarks
 # =============================================================================
 
+
 class CrossFrameworkBenchmark:
     """Cross-framework consistency benchmarks."""
 
     def __init__(self, config: BenchmarkConfig):
         self.config = config
 
-    def run_trajectory_match(
-        self,
-        model_path_a: str,
-        model_path_b: str,
-        n_steps: int = 1000
-    ) -> BenchmarkResult:
+    def run_trajectory_match(self, model_path_a: str, model_path_b: str, n_steps: int = 1000) -> BenchmarkResult:
         """Compare trajectories between two framework instances."""
         if not MUJOCO_AVAILABLE or not NUMPY_AVAILABLE:
             return BenchmarkResult(
@@ -534,6 +537,7 @@ class CrossFrameworkBenchmark:
 # Benchmark Runner
 # =============================================================================
 
+
 class BenchmarkRunner:
     """Main benchmark execution engine."""
 
@@ -548,10 +552,7 @@ class BenchmarkRunner:
         self.cross_framework_benchmark = CrossFrameworkBenchmark(self.config)
 
     def run(
-        self,
-        scenario: str,
-        model_path: Optional[str] = None,
-        model_path_b: Optional[str] = None
+        self, scenario: str, model_path: Optional[str] = None, model_path_b: Optional[str] = None
     ) -> BenchmarkReport:
         """
         Run benchmark suite for a scenario.
@@ -573,15 +574,17 @@ class BenchmarkRunner:
 
         scenario_info = SCENARIOS.get(scenario)
         if scenario_info is None:
-            report.add_result(BenchmarkResult(
-                name="scenario_check",
-                category="setup",
-                passed=False,
-                value=0.0,
-                target=1.0,
-                unit="bool",
-                details={"error": f"Unknown scenario: {scenario}"},
-            ))
+            report.add_result(
+                BenchmarkResult(
+                    name="scenario_check",
+                    category="setup",
+                    passed=False,
+                    value=0.0,
+                    target=1.0,
+                    unit="bool",
+                    details={"error": f"Unknown scenario: {scenario}"},
+                )
+            )
             return report
 
         # Run physics benchmarks
@@ -597,20 +600,14 @@ class BenchmarkRunner:
 
         # Run cross-framework benchmark
         if model_path and model_path_b:
-            report.add_result(
-                self.cross_framework_benchmark.run_trajectory_match(
-                    model_path, model_path_b
-                )
-            )
+            report.add_result(self.cross_framework_benchmark.run_trajectory_match(model_path, model_path_b))
 
         report.duration_seconds = time.perf_counter() - start_time
 
         return report
 
     def run_suite(
-        self,
-        scenarios: Optional[List[str]] = None,
-        model_path: Optional[str] = None
+        self, scenarios: Optional[List[str]] = None, model_path: Optional[str] = None
     ) -> List[BenchmarkReport]:
         """Run multiple scenarios."""
         if scenarios is None:
@@ -642,7 +639,7 @@ def generate_html_report(report: BenchmarkReport, output_path: str) -> None:
         th, td {{ border: 1px solid #ddd; padding: 8px; text-align: left; }}
         th {{ background-color: #4CAF50; color: white; }}
         tr:nth-child(even) {{ background-color: #f2f2f2; }}
-        .summary {{ background-color: {'#d4edda' if report.overall_passed else '#f8d7da'};
+        .summary {{ background-color: {"#d4edda" if report.overall_passed else "#f8d7da"};
                    padding: 15px; border-radius: 5px; margin-bottom: 20px; }}
         .category {{ font-weight: bold; text-transform: uppercase; font-size: 0.8em; }}
     </style>
@@ -651,11 +648,11 @@ def generate_html_report(report: BenchmarkReport, output_path: str) -> None:
     <h1>Validation Benchmark Report</h1>
 
     <div class="summary">
-        <h2>Summary: <span class="{'passed' if report.overall_passed else 'failed'}">
-            {'PASSED' if report.overall_passed else 'FAILED'}
+        <h2>Summary: <span class="{"passed" if report.overall_passed else "failed"}">
+            {"PASSED" if report.overall_passed else "FAILED"}
         </span></h2>
         <p><strong>Scenario:</strong> {report.scenario}</p>
-        <p><strong>Frameworks:</strong> {', '.join(report.frameworks)}</p>
+        <p><strong>Frameworks:</strong> {", ".join(report.frameworks)}</p>
         <p><strong>Results:</strong> {passed_count}/{total_count} benchmarks passed</p>
         <p><strong>Duration:</strong> {report.duration_seconds:.2f} seconds</p>
         <p><strong>Timestamp:</strong> {report.timestamp}</p>
@@ -701,52 +698,22 @@ def generate_html_report(report: BenchmarkReport, output_path: str) -> None:
 </html>
 """
 
-    with open(output_path, 'w') as f:
+    with open(output_path, "w") as f:
         f.write(html)
 
 
 def main():
     """Command-line interface."""
-    parser = argparse.ArgumentParser(
-        description="Run Q1 2026 validation benchmark suite."
-    )
-    parser.add_argument(
-        "--scenario", "-s",
-        help="Benchmark scenario to run"
-    )
-    parser.add_argument(
-        "--model", "-m",
-        help="Path to robot model (MJCF)"
-    )
-    parser.add_argument(
-        "--model-b",
-        help="Path to second model for cross-framework comparison"
-    )
-    parser.add_argument(
-        "--frameworks", "-f",
-        default="mujoco",
-        help="Comma-separated list of frameworks"
-    )
-    parser.add_argument(
-        "--suite", action="store_true",
-        help="Run full benchmark suite"
-    )
-    parser.add_argument(
-        "--list-scenarios", action="store_true",
-        help="List available scenarios"
-    )
-    parser.add_argument(
-        "--output", "-o",
-        help="Output directory for results"
-    )
-    parser.add_argument(
-        "--report", "-r",
-        help="Generate HTML report at specified path"
-    )
-    parser.add_argument(
-        "--json", "-j",
-        help="Output JSON results at specified path"
-    )
+    parser = argparse.ArgumentParser(description="Run Q1 2026 validation benchmark suite.")
+    parser.add_argument("--scenario", "-s", help="Benchmark scenario to run")
+    parser.add_argument("--model", "-m", help="Path to robot model (MJCF)")
+    parser.add_argument("--model-b", help="Path to second model for cross-framework comparison")
+    parser.add_argument("--frameworks", "-f", default="mujoco", help="Comma-separated list of frameworks")
+    parser.add_argument("--suite", action="store_true", help="Run full benchmark suite")
+    parser.add_argument("--list-scenarios", action="store_true", help="List available scenarios")
+    parser.add_argument("--output", "-o", help="Output directory for results")
+    parser.add_argument("--report", "-r", help="Generate HTML report at specified path")
+    parser.add_argument("--json", "-j", help="Output JSON results at specified path")
 
     args = parser.parse_args()
 
@@ -784,11 +751,7 @@ def main():
             print("Error: --scenario required (or use --suite)")
             return 1
 
-        report = runner.run(
-            args.scenario,
-            model_path=args.model,
-            model_path_b=args.model_b
-        )
+        report = runner.run(args.scenario, model_path=args.model, model_path_b=args.model_b)
 
         # Print summary
         print("\n" + "=" * 60)
@@ -812,7 +775,7 @@ def main():
             print(f"HTML report: {args.report}")
 
         if args.json:
-            with open(args.json, 'w') as f:
+            with open(args.json, "w") as f:
                 json.dump(report.to_dict(), f, indent=2)
             print(f"JSON results: {args.json}")
 

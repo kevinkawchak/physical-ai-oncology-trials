@@ -48,10 +48,7 @@ from enum import Enum
 from pathlib import Path
 from typing import Any
 
-logging.basicConfig(
-    level=logging.INFO,
-    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s'
-)
+logging.basicConfig(level=logging.INFO, format="%(asctime)s - %(name)s - %(levelname)s - %(message)s")
 logger = logging.getLogger(__name__)
 
 
@@ -59,8 +56,10 @@ logger = logging.getLogger(__name__)
 # SECTION 1: ROLE AND PERMISSION DEFINITIONS
 # =============================================================================
 
+
 class Permission(Enum):
     """Granular permissions for clinical trial data and systems."""
+
     # PHI access
     READ_PHI = "read_phi"
     WRITE_PHI = "write_phi"
@@ -96,6 +95,7 @@ class Permission(Enum):
 
 class UserType(Enum):
     """Types of system users."""
+
     HUMAN = "human"
     AI_SYSTEM = "ai_system"
     SERVICE_ACCOUNT = "service_account"
@@ -104,10 +104,11 @@ class UserType(Enum):
 @dataclass
 class Role:
     """Access control role definition."""
+
     name: str
     description: str
     permissions: list[str]
-    max_phi_records: int = 0       # 0 = unlimited for authorized roles
+    max_phi_records: int = 0  # 0 = unlimited for authorized roles
     session_timeout_minutes: int = 480  # 8 hours default
     mfa_required: bool = True
     user_type: UserType = UserType.HUMAN
@@ -120,6 +121,7 @@ class Role:
 @dataclass
 class User:
     """System user record."""
+
     user_id: str
     name: str
     email: str
@@ -136,6 +138,7 @@ class User:
 @dataclass
 class AccessDecision:
     """Result of an access control check."""
+
     granted: bool
     user_id: str
     resource: str
@@ -149,6 +152,7 @@ class AccessDecision:
 @dataclass
 class AuditEntry:
     """21 CFR Part 11 compliant audit trail entry."""
+
     audit_id: str
     timestamp: str
     user_id: str
@@ -174,7 +178,7 @@ class AuditEntry:
             "reason": self.reason,
             "ip_address": self.ip_address,
             "session_id": self.session_id,
-            "integrity_hash": self.integrity_hash
+            "integrity_hash": self.integrity_hash,
         }
 
 
@@ -186,91 +190,88 @@ PREDEFINED_ROLES: dict[str, dict[str, Any]] = {
     "principal_investigator": {
         "description": "Site PI with full clinical oversight",
         "permissions": [
-            "read_phi", "write_clinical_data", "export_deidentified",
-            "approve_enrollment", "report_adverse_event",
-            "view_audit_logs", "run_queries", "export_aggregated"
+            "read_phi",
+            "write_clinical_data",
+            "export_deidentified",
+            "approve_enrollment",
+            "report_adverse_event",
+            "view_audit_logs",
+            "run_queries",
+            "export_aggregated",
         ],
         "mfa_required": True,
-        "session_timeout_minutes": 480
+        "session_timeout_minutes": 480,
     },
     "sub_investigator": {
         "description": "Sub-investigator with site-level clinical access",
-        "permissions": [
-            "read_phi", "write_clinical_data",
-            "report_adverse_event", "read_deidentified",
-            "run_queries"
-        ],
+        "permissions": ["read_phi", "write_clinical_data", "report_adverse_event", "read_deidentified", "run_queries"],
         "mfa_required": True,
-        "session_timeout_minutes": 480
+        "session_timeout_minutes": 480,
     },
     "clinical_coordinator": {
         "description": "Clinical research coordinator managing daily operations",
-        "permissions": [
-            "read_phi", "write_clinical_data",
-            "read_deidentified", "report_adverse_event"
-        ],
+        "permissions": ["read_phi", "write_clinical_data", "read_deidentified", "report_adverse_event"],
         "mfa_required": True,
-        "session_timeout_minutes": 480
+        "session_timeout_minutes": 480,
     },
     "data_manager": {
         "description": "Data manager overseeing trial database",
         "permissions": [
-            "read_phi", "read_deidentified", "write_deidentified",
-            "run_queries", "export_deidentified",
-            "view_audit_logs", "export_aggregated"
+            "read_phi",
+            "read_deidentified",
+            "write_deidentified",
+            "run_queries",
+            "export_deidentified",
+            "view_audit_logs",
+            "export_aggregated",
         ],
         "mfa_required": True,
-        "session_timeout_minutes": 480
+        "session_timeout_minutes": 480,
     },
     "biostatistician": {
         "description": "Biostatistician with de-identified data access only",
-        "permissions": [
-            "read_deidentified", "run_queries",
-            "export_aggregated", "export_deidentified"
-        ],
+        "permissions": ["read_deidentified", "run_queries", "export_aggregated", "export_deidentified"],
         "mfa_required": True,
-        "session_timeout_minutes": 480
+        "session_timeout_minutes": 480,
     },
     "ai_ml_engineer": {
         "description": "AI/ML engineer for model development",
         "permissions": [
-            "read_deidentified", "train_model", "deploy_model",
-            "write_model_outputs", "export_model", "run_queries"
+            "read_deidentified",
+            "train_model",
+            "deploy_model",
+            "write_model_outputs",
+            "export_model",
+            "run_queries",
         ],
         "mfa_required": True,
-        "session_timeout_minutes": 480
+        "session_timeout_minutes": 480,
     },
     "ai_system": {
         "description": "Automated AI system (training pipeline, inference engine)",
-        "permissions": [
-            "read_deidentified", "write_model_outputs"
-        ],
+        "permissions": ["read_deidentified", "write_model_outputs"],
         "mfa_required": False,
-        "session_timeout_minutes": 0  # No timeout for automated systems
+        "session_timeout_minutes": 0,  # No timeout for automated systems
     },
     "monitor_cra": {
         "description": "Clinical research associate / site monitor",
-        "permissions": [
-            "read_phi", "read_deidentified",
-            "view_audit_logs", "run_queries"
-        ],
+        "permissions": ["read_phi", "read_deidentified", "view_audit_logs", "run_queries"],
         "mfa_required": True,
-        "session_timeout_minutes": 480
+        "session_timeout_minutes": 480,
     },
     "irb_member": {
         "description": "IRB/ethics committee member with limited access",
-        "permissions": [
-            "export_aggregated"
-        ],
+        "permissions": ["export_aggregated"],
         "mfa_required": True,
-        "session_timeout_minutes": 240
-    }
+        "session_timeout_minutes": 240,
+    },
 }
 
 
 # =============================================================================
 # SECTION 3: ACCESS CONTROL MANAGER
 # =============================================================================
+
 
 class AccessControlManager:
     """
@@ -294,7 +295,7 @@ class AccessControlManager:
         compliance_framework: str = "21_cfr_part_11",
         audit_enabled: bool = True,
         mfa_required: bool = True,
-        audit_log_path: str = "audit_logs/"
+        audit_log_path: str = "audit_logs/",
     ):
         """
         Initialize access control manager.
@@ -322,7 +323,7 @@ class AccessControlManager:
                 description=role_def["description"],
                 permissions=role_def["permissions"],
                 mfa_required=role_def["mfa_required"],
-                session_timeout_minutes=role_def["session_timeout_minutes"]
+                session_timeout_minutes=role_def["session_timeout_minutes"],
             )
 
         logger.info(
@@ -337,7 +338,7 @@ class AccessControlManager:
         permissions: list[str],
         description: str = "",
         mfa_required: bool = True,
-        session_timeout_minutes: int = 480
+        session_timeout_minutes: int = 480,
     ):
         """
         Define a custom role.
@@ -354,7 +355,7 @@ class AccessControlManager:
             description=description,
             permissions=permissions,
             mfa_required=mfa_required,
-            session_timeout_minutes=session_timeout_minutes
+            session_timeout_minutes=session_timeout_minutes,
         )
 
         self._log_audit(
@@ -362,7 +363,7 @@ class AccessControlManager:
             action="role_defined",
             resource=f"role:{name}",
             decision="completed",
-            reason=f"Role defined with {len(permissions)} permissions"
+            reason=f"Role defined with {len(permissions)} permissions",
         )
 
         logger.info(f"Role defined: {name} ({len(permissions)} permissions)")
@@ -375,7 +376,7 @@ class AccessControlManager:
         email: str = "",
         site_id: str = "",
         user_type: str = "human",
-        access_expiration: str = ""
+        access_expiration: str = "",
     ):
         """
         Assign a role to a user.
@@ -401,7 +402,7 @@ class AccessControlManager:
             site_id=site_id,
             active=True,
             created_date=datetime.now().isoformat(),
-            access_expiration=access_expiration
+            access_expiration=access_expiration,
         )
 
         self._log_audit(
@@ -409,18 +410,12 @@ class AccessControlManager:
             action="role_assigned",
             resource=f"user:{user_id}",
             decision="completed",
-            reason=f"Assigned role '{role}' to user '{user_id}'"
+            reason=f"Assigned role '{role}' to user '{user_id}'",
         )
 
         logger.info(f"Role '{role}' assigned to user '{user_id}'")
 
-    def check_access(
-        self,
-        user_id: str,
-        resource: str,
-        action: str,
-        context: dict | None = None
-    ) -> AccessDecision:
+    def check_access(self, user_id: str, resource: str, action: str, context: dict | None = None) -> AccessDecision:
         """
         Check if a user has access to a resource.
 
@@ -445,7 +440,7 @@ class AccessControlManager:
                 action=action,
                 reason="User not found",
                 timestamp=timestamp,
-                audit_id=self._next_audit_id()
+                audit_id=self._next_audit_id(),
             )
             self._log_access_decision(decision)
             return decision
@@ -460,7 +455,7 @@ class AccessControlManager:
                 action=action,
                 reason="User account is deactivated",
                 timestamp=timestamp,
-                audit_id=self._next_audit_id()
+                audit_id=self._next_audit_id(),
             )
             self._log_access_decision(decision)
             return decision
@@ -477,7 +472,7 @@ class AccessControlManager:
                         action=action,
                         reason="Access has expired",
                         timestamp=timestamp,
-                        audit_id=self._next_audit_id()
+                        audit_id=self._next_audit_id(),
                     )
                     self._log_access_decision(decision)
                     return decision
@@ -494,7 +489,7 @@ class AccessControlManager:
                 action=action,
                 reason=f"Role '{user.role_name}' not found",
                 timestamp=timestamp,
-                audit_id=self._next_audit_id()
+                audit_id=self._next_audit_id(),
             )
             self._log_access_decision(decision)
             return decision
@@ -509,7 +504,7 @@ class AccessControlManager:
                     action=action,
                     reason="MFA enrollment required but not completed",
                     timestamp=timestamp,
-                    audit_id=self._next_audit_id()
+                    audit_id=self._next_audit_id(),
                 )
                 self._log_access_decision(decision)
                 return decision
@@ -528,7 +523,7 @@ class AccessControlManager:
                         action=action,
                         reason="PHI access restricted to user's assigned site",
                         timestamp=timestamp,
-                        audit_id=self._next_audit_id()
+                        audit_id=self._next_audit_id(),
                     )
                     self._log_access_decision(decision)
                     return decision
@@ -544,7 +539,7 @@ class AccessControlManager:
                 reason=f"Permitted by role '{user.role_name}'",
                 timestamp=timestamp,
                 audit_id=self._next_audit_id(),
-                conditions=conditions
+                conditions=conditions,
             )
         else:
             decision = AccessDecision(
@@ -554,7 +549,7 @@ class AccessControlManager:
                 action=action,
                 reason=f"Permission '{action}' not in role '{user.role_name}'",
                 timestamp=timestamp,
-                audit_id=self._next_audit_id()
+                audit_id=self._next_audit_id(),
             )
 
         self._log_access_decision(decision)
@@ -569,7 +564,7 @@ class AccessControlManager:
                 action="access_revoked",
                 resource=f"user:{user_id}",
                 decision="completed",
-                reason=reason or "Access revoked"
+                reason=reason or "Access revoked",
             )
             logger.info(f"Access revoked for user '{user_id}': {reason}")
 
@@ -578,7 +573,7 @@ class AccessControlManager:
         user_id: str | None = None,
         start_date: str | None = None,
         end_date: str | None = None,
-        action_filter: str | None = None
+        action_filter: str | None = None,
     ) -> list[AuditEntry]:
         """
         Query audit log with filters.
@@ -611,10 +606,7 @@ class AccessControlManager:
         path.parent.mkdir(parents=True, exist_ok=True)
 
         with open(path, "w") as f:
-            json.dump(
-                [entry.to_dict() for entry in self._audit_log],
-                f, indent=2
-            )
+            json.dump([entry.to_dict() for entry in self._audit_log], f, indent=2)
         logger.info(f"Audit log exported: {len(self._audit_log)} entries to {output_path}")
 
     def generate_access_report(self) -> str:
@@ -653,7 +645,7 @@ Access denied: {denied_count}
             ),
             audit_count=len(self._audit_log),
             granted_count=len([e for e in self._audit_log if e.decision == "granted"]),
-            denied_count=len([e for e in self._audit_log if e.decision == "denied"])
+            denied_count=len([e for e in self._audit_log if e.decision == "denied"]),
         )
         return report
 
@@ -662,14 +654,7 @@ Access denied: {denied_count}
         self._audit_counter += 1
         return f"AUD-{self._audit_counter:06d}"
 
-    def _log_audit(
-        self,
-        user_id: str,
-        action: str,
-        resource: str,
-        decision: str,
-        reason: str
-    ):
+    def _log_audit(self, user_id: str, action: str, resource: str, decision: str, reason: str):
         """Log an audit entry."""
         if not self.audit_enabled:
             return
@@ -682,7 +667,7 @@ Access denied: {denied_count}
             action=action,
             resource=resource,
             decision=decision,
-            reason=reason
+            reason=reason,
         )
 
         # Calculate integrity hash
@@ -707,7 +692,7 @@ Access denied: {denied_count}
             action=decision.action,
             resource=decision.resource,
             decision="granted" if decision.granted else "denied",
-            reason=decision.reason
+            reason=decision.reason,
         )
 
         hash_input = f"{entry.audit_id}:{entry.timestamp}:{entry.user_id}:{entry.action}"
@@ -719,6 +704,7 @@ Access denied: {denied_count}
 # =============================================================================
 # SECTION 4: MAIN PIPELINE
 # =============================================================================
+
 
 def run_access_control_demo():
     """
@@ -732,11 +718,7 @@ def run_access_control_demo():
     logger.info("=" * 60)
 
     # Initialize manager
-    acm = AccessControlManager(
-        compliance_framework="21_cfr_part_11",
-        audit_enabled=True,
-        mfa_required=True
-    )
+    acm = AccessControlManager(compliance_framework="21_cfr_part_11", audit_enabled=True, mfa_required=True)
 
     # Assign users with different roles
     users = [
@@ -753,7 +735,7 @@ def run_access_control_demo():
             role=role,
             name=name,
             mfa_enrolled=mfa if isinstance(mfa, bool) else False,
-            site_id="SITE-A"
+            site_id="SITE-A",
         )
         # Fix: set mfa_enrolled directly
         acm._users[user_id].mfa_enrolled = mfa

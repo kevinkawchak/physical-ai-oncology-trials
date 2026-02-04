@@ -36,12 +36,14 @@ from datetime import datetime
 # Optional imports
 try:
     import mujoco
+
     MUJOCO_AVAILABLE = True
 except ImportError:
     MUJOCO_AVAILABLE = False
 
 try:
     import numpy as np
+
     NUMPY_AVAILABLE = True
 except ImportError:
     NUMPY_AVAILABLE = False
@@ -50,6 +52,7 @@ except ImportError:
 @dataclass
 class ValidationResult:
     """Result of a single validation check."""
+
     check_name: str
     passed: bool
     level: int  # 1-4
@@ -60,6 +63,7 @@ class ValidationResult:
 @dataclass
 class ModelValidationReport:
     """Complete validation report for a robot model."""
+
     model_path: str
     model_name: str
     validation_level: int
@@ -562,19 +566,14 @@ class DynamicValidator:
 class CrossFrameworkValidator:
     """Level 4: Validate consistency across frameworks."""
 
-    def validate_format_consistency(
-        self,
-        urdf_path: str,
-        mjcf_path: str
-    ) -> ValidationResult:
+    def validate_format_consistency(self, urdf_path: str, mjcf_path: str) -> ValidationResult:
         """Compare structure between URDF and MJCF versions."""
         try:
             # Parse URDF
             urdf_tree = ET.parse(urdf_path)
             urdf_root = urdf_tree.getroot()
             urdf_links = len(urdf_root.findall("link"))
-            urdf_joints = len([j for j in urdf_root.findall("joint")
-                              if j.get("type") != "fixed"])
+            urdf_joints = len([j for j in urdf_root.findall("joint") if j.get("type") != "fixed"])
 
             # Parse MJCF
             mjcf_tree = ET.parse(mjcf_path)
@@ -619,11 +618,7 @@ class ModelValidator:
         self.dynamic_validator = DynamicValidator()
         self.cross_framework_validator = CrossFrameworkValidator()
 
-    def validate_model(
-        self,
-        model_path: str,
-        level: int = 4
-    ) -> ModelValidationReport:
+    def validate_model(self, model_path: str, level: int = 4) -> ModelValidationReport:
         """
         Validate a robot model at specified level.
 
@@ -697,9 +692,7 @@ class ModelValidator:
         # Level 4: Cross-Framework Validation
         if level >= 4 and urdf_files and mjcf_files:
             report.add_result(
-                self.cross_framework_validator.validate_format_consistency(
-                    str(urdf_files[0]), str(mjcf_files[0])
-                )
+                self.cross_framework_validator.validate_format_consistency(str(urdf_files[0]), str(mjcf_files[0]))
             )
 
         return report
@@ -723,7 +716,7 @@ def generate_html_report(report: ModelValidationReport, output_path: str) -> Non
         th, td {{ border: 1px solid #ddd; padding: 8px; text-align: left; }}
         th {{ background-color: #4CAF50; color: white; }}
         tr:nth-child(even) {{ background-color: #f2f2f2; }}
-        .summary {{ background-color: {'#d4edda' if report.overall_passed else '#f8d7da'};
+        .summary {{ background-color: {"#d4edda" if report.overall_passed else "#f8d7da"};
                    padding: 15px; border-radius: 5px; margin-bottom: 20px; }}
         .level {{ font-weight: bold; }}
         .level-1 {{ color: #17a2b8; }}
@@ -736,8 +729,8 @@ def generate_html_report(report: ModelValidationReport, output_path: str) -> Non
     <h1>Model Validation Report</h1>
 
     <div class="summary">
-        <h2>Summary: <span class="{'passed' if report.overall_passed else 'failed'}">
-            {'PASSED' if report.overall_passed else 'FAILED'}
+        <h2>Summary: <span class="{"passed" if report.overall_passed else "failed"}">
+            {"PASSED" if report.overall_passed else "FAILED"}
         </span></h2>
         <p><strong>Model:</strong> {report.model_name}</p>
         <p><strong>Path:</strong> {report.model_path}</p>
@@ -783,35 +776,20 @@ def generate_html_report(report: ModelValidationReport, output_path: str) -> Non
 </html>
 """
 
-    with open(output_path, 'w') as f:
+    with open(output_path, "w") as f:
         f.write(html)
 
 
 def main():
     """Command-line interface."""
-    parser = argparse.ArgumentParser(
-        description="Validate robot models against Q1 2026 standards."
-    )
+    parser = argparse.ArgumentParser(description="Validate robot models against Q1 2026 standards.")
+    parser.add_argument("--model", "-m", required=True, help="Path to model file or directory")
     parser.add_argument(
-        "--model", "-m", required=True,
-        help="Path to model file or directory"
+        "--level", "-l", type=int, default=4, choices=[1, 2, 3, 4], help="Validation level (1-4, default: 4)"
     )
-    parser.add_argument(
-        "--level", "-l", type=int, default=4, choices=[1, 2, 3, 4],
-        help="Validation level (1-4, default: 4)"
-    )
-    parser.add_argument(
-        "--output", "-o",
-        help="Output HTML report path"
-    )
-    parser.add_argument(
-        "--json", "-j",
-        help="Output JSON results path"
-    )
-    parser.add_argument(
-        "--verbose", "-v", action="store_true",
-        help="Verbose output"
-    )
+    parser.add_argument("--output", "-o", help="Output HTML report path")
+    parser.add_argument("--json", "-j", help="Output JSON results path")
+    parser.add_argument("--verbose", "-v", action="store_true", help="Verbose output")
 
     args = parser.parse_args()
 
@@ -841,7 +819,7 @@ def main():
         print(f"HTML report saved: {args.output}")
 
     if args.json:
-        with open(args.json, 'w') as f:
+        with open(args.json, "w") as f:
             json.dump(report.to_dict(), f, indent=2)
         print(f"JSON results saved: {args.json}")
 

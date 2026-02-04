@@ -29,6 +29,7 @@ from abc import ABC, abstractmethod
 @dataclass
 class ValidationMetrics:
     """Metrics from a validation run."""
+
     framework: str
     task: str
     episodes: int
@@ -45,6 +46,7 @@ class ValidationMetrics:
 @dataclass
 class CrossFrameworkComparison:
     """Comparison between frameworks."""
+
     reference_framework: str
     comparison_framework: str
     reward_correlation: float
@@ -58,6 +60,7 @@ class CrossFrameworkComparison:
 @dataclass
 class ValidationReport:
     """Complete validation report."""
+
     policy_path: str
     timestamp: float
     frameworks: List[str]
@@ -161,9 +164,9 @@ class PolicyLoader:
         """Load ONNX policy."""
         try:
             import onnxruntime as ort
+
             session = ort.InferenceSession(
-                self.policy_path,
-                providers=["CUDAExecutionProvider", "CPUExecutionProvider"]
+                self.policy_path, providers=["CUDAExecutionProvider", "CPUExecutionProvider"]
             )
             return session
         except ImportError:
@@ -174,6 +177,7 @@ class PolicyLoader:
         """Load PyTorch policy."""
         try:
             import torch
+
             return torch.load(self.policy_path)
         except ImportError:
             return None
@@ -201,10 +205,10 @@ class CrossPlatformValidator:
     """
 
     TOLERANCE = {
-        "reward_correlation": 0.9,       # Minimum correlation
-        "trajectory_divergence": 0.05,   # Maximum DTW distance (normalized)
-        "force_similarity": 0.85,        # Minimum force profile similarity
-        "success_rate_diff": 0.1,        # Maximum success rate difference
+        "reward_correlation": 0.9,  # Minimum correlation
+        "trajectory_divergence": 0.05,  # Maximum DTW distance (normalized)
+        "force_similarity": 0.85,  # Minimum force profile similarity
+        "success_rate_diff": 0.1,  # Maximum success rate difference
     }
 
     TASKS = [
@@ -219,11 +223,7 @@ class CrossPlatformValidator:
         self.environments: Dict[str, EnvironmentAdapter] = {}
 
     def validate_policy(
-        self,
-        policy_path: str,
-        frameworks: List[str],
-        tasks: Optional[List[str]] = None,
-        episodes_per_task: int = 100
+        self, policy_path: str, frameworks: List[str], tasks: Optional[List[str]] = None, episodes_per_task: int = 100
     ) -> ValidationReport:
         """
         Validate policy across specified frameworks.
@@ -257,9 +257,7 @@ class CrossPlatformValidator:
                 env = self._create_environment(framework, task)
 
                 # Run validation episodes
-                task_metrics, trajectories = self._run_validation(
-                    env, policy, episodes_per_task
-                )
+                task_metrics, trajectories = self._run_validation(env, policy, episodes_per_task)
                 task_metrics.framework = framework
                 task_metrics.task = task
 
@@ -287,24 +285,17 @@ class CrossPlatformValidator:
             metrics={f: m for f, fm in metrics.items() for m in [fm]},
             comparisons=comparisons,
             overall_passed=overall_passed,
-            recommendations=recommendations
+            recommendations=recommendations,
         )
 
-    def _create_environment(
-        self,
-        framework: str,
-        task: str
-    ) -> EnvironmentAdapter:
+    def _create_environment(self, framework: str, task: str) -> EnvironmentAdapter:
         """Create environment for specified framework and task."""
         # In production, would create actual environment
         # For now, return mock
         return MockEnvironment(framework, task)
 
     def _run_validation(
-        self,
-        env: EnvironmentAdapter,
-        policy: PolicyLoader,
-        num_episodes: int
+        self, env: EnvironmentAdapter, policy: PolicyLoader, num_episodes: int
     ) -> Tuple[ValidationMetrics, List[Dict]]:
         """Run validation episodes and collect metrics."""
         rewards = []
@@ -339,10 +330,12 @@ class CrossPlatformValidator:
 
                 # Track trajectory
                 state = env.get_state()
-                episode_trajectory.append({
-                    "position": state.get("ee_position", np.zeros(3)).copy(),
-                    "force": info.get("force", np.zeros(3)).copy(),
-                })
+                episode_trajectory.append(
+                    {
+                        "position": state.get("ee_position", np.zeros(3)).copy(),
+                        "force": info.get("force", np.zeros(3)).copy(),
+                    }
+                )
 
             rewards.append(episode_reward)
             episode_lengths.append(episode_length)
@@ -376,7 +369,7 @@ class CrossPlatformValidator:
         self,
         metrics: Dict[str, Dict[str, ValidationMetrics]],
         trajectories: Dict[str, Dict[str, List]],
-        frameworks: List[str]
+        frameworks: List[str],
     ) -> List[CrossFrameworkComparison]:
         """Compare results across frameworks."""
         comparisons = []
@@ -395,27 +388,21 @@ class CrossPlatformValidator:
                 comp_metrics = metrics[comparison_framework][task]
 
                 # Compute comparison metrics
-                reward_corr = self._compute_reward_correlation(
-                    ref_metrics, comp_metrics
-                )
+                reward_corr = self._compute_reward_correlation(ref_metrics, comp_metrics)
                 traj_div = self._compute_trajectory_divergence(
-                    trajectories[reference].get(task, []),
-                    trajectories[comparison_framework].get(task, [])
+                    trajectories[reference].get(task, []), trajectories[comparison_framework].get(task, [])
                 )
                 force_sim = self._compute_force_similarity(
-                    trajectories[reference].get(task, []),
-                    trajectories[comparison_framework].get(task, [])
+                    trajectories[reference].get(task, []), trajectories[comparison_framework].get(task, [])
                 )
-                success_diff = abs(
-                    ref_metrics.success_rate - comp_metrics.success_rate
-                )
+                success_diff = abs(ref_metrics.success_rate - comp_metrics.success_rate)
 
                 # Determine if acceptable
                 acceptable = (
-                    reward_corr >= self.tolerance["reward_correlation"] and
-                    traj_div <= self.tolerance["trajectory_divergence"] and
-                    force_sim >= self.tolerance["force_similarity"] and
-                    success_diff <= self.tolerance["success_rate_diff"]
+                    reward_corr >= self.tolerance["reward_correlation"]
+                    and traj_div <= self.tolerance["trajectory_divergence"]
+                    and force_sim >= self.tolerance["force_similarity"]
+                    and success_diff <= self.tolerance["success_rate_diff"]
                 )
 
                 notes = []
@@ -426,35 +413,29 @@ class CrossPlatformValidator:
                 if force_sim < self.tolerance["force_similarity"]:
                     notes.append(f"Low force similarity: {force_sim:.2f}")
 
-                comparisons.append(CrossFrameworkComparison(
-                    reference_framework=reference,
-                    comparison_framework=comparison_framework,
-                    reward_correlation=reward_corr,
-                    trajectory_divergence=traj_div,
-                    force_profile_similarity=force_sim,
-                    success_rate_difference=success_diff,
-                    acceptable=acceptable,
-                    notes=notes
-                ))
+                comparisons.append(
+                    CrossFrameworkComparison(
+                        reference_framework=reference,
+                        comparison_framework=comparison_framework,
+                        reward_correlation=reward_corr,
+                        trajectory_divergence=traj_div,
+                        force_profile_similarity=force_sim,
+                        success_rate_difference=success_diff,
+                        acceptable=acceptable,
+                        notes=notes,
+                    )
+                )
 
         return comparisons
 
-    def _compute_reward_correlation(
-        self,
-        ref: ValidationMetrics,
-        comp: ValidationMetrics
-    ) -> float:
+    def _compute_reward_correlation(self, ref: ValidationMetrics, comp: ValidationMetrics) -> float:
         """Compute correlation between reward distributions."""
         # Simplified: compare mean and std
         mean_diff = abs(ref.mean_reward - comp.mean_reward)
         max_mean = max(abs(ref.mean_reward), abs(comp.mean_reward), 1.0)
         return 1.0 - (mean_diff / max_mean)
 
-    def _compute_trajectory_divergence(
-        self,
-        ref_trajectories: List,
-        comp_trajectories: List
-    ) -> float:
+    def _compute_trajectory_divergence(self, ref_trajectories: List, comp_trajectories: List) -> float:
         """Compute trajectory divergence using simplified DTW."""
         if not ref_trajectories or not comp_trajectories:
             return 0.0
@@ -468,19 +449,12 @@ class CrossPlatformValidator:
 
                 if ref_positions and comp_positions:
                     min_len = min(len(ref_positions), len(comp_positions))
-                    diff = np.mean([
-                        np.linalg.norm(ref_positions[i] - comp_positions[i])
-                        for i in range(min_len)
-                    ])
+                    diff = np.mean([np.linalg.norm(ref_positions[i] - comp_positions[i]) for i in range(min_len)])
                     divergences.append(diff)
 
         return np.mean(divergences) if divergences else 0.0
 
-    def _compute_force_similarity(
-        self,
-        ref_trajectories: List,
-        comp_trajectories: List
-    ) -> float:
+    def _compute_force_similarity(self, ref_trajectories: List, comp_trajectories: List) -> float:
         """Compute force profile similarity."""
         if not ref_trajectories or not comp_trajectories:
             return 1.0
@@ -501,9 +475,7 @@ class CrossPlatformValidator:
         return np.mean(similarities) if similarities else 1.0
 
     def _generate_recommendations(
-        self,
-        metrics: Dict[str, Dict[str, ValidationMetrics]],
-        comparisons: List[CrossFrameworkComparison]
+        self, metrics: Dict[str, Dict[str, ValidationMetrics]], comparisons: List[CrossFrameworkComparison]
     ) -> List[str]:
         """Generate recommendations based on validation results."""
         recommendations = []
@@ -512,9 +484,7 @@ class CrossPlatformValidator:
         failed_comparisons = [c for c in comparisons if not c.acceptable]
 
         if failed_comparisons:
-            recommendations.append(
-                "Cross-framework validation failed. Review the following:"
-            )
+            recommendations.append("Cross-framework validation failed. Review the following:")
             for comp in failed_comparisons:
                 for note in comp.notes:
                     recommendations.append(f"  - {comp.comparison_framework}: {note}")
@@ -533,11 +503,7 @@ class CrossPlatformValidator:
 
         return recommendations
 
-    def generate_html_report(
-        self,
-        report: ValidationReport,
-        output_path: str
-    ) -> None:
+    def generate_html_report(self, report: ValidationReport, output_path: str) -> None:
         """Generate HTML report."""
         html = f"""
 <!DOCTYPE html>
@@ -558,14 +524,14 @@ class CrossPlatformValidator:
 <body>
     <h1>Cross-Platform Validation Report</h1>
     <p>Policy: {report.policy_path}</p>
-    <p>Frameworks: {', '.join(report.frameworks)}</p>
-    <p>Status: <span class="{'pass' if report.overall_passed else 'fail'}">
-        {'PASSED' if report.overall_passed else 'FAILED'}
+    <p>Frameworks: {", ".join(report.frameworks)}</p>
+    <p>Status: <span class="{"pass" if report.overall_passed else "fail"}">
+        {"PASSED" if report.overall_passed else "FAILED"}
     </span></p>
 
     <h2>Recommendations</h2>
     <ul>
-        {''.join(f'<li>{r}</li>' for r in report.recommendations)}
+        {"".join(f"<li>{r}</li>" for r in report.recommendations)}
     </ul>
 
     <h2>Framework Comparisons</h2>
@@ -578,12 +544,12 @@ class CrossPlatformValidator:
             <th>Force Similarity</th>
             <th>Status</th>
         </tr>
-        {''.join(self._comparison_row(c) for c in report.comparisons)}
+        {"".join(self._comparison_row(c) for c in report.comparisons)}
     </table>
 </body>
 </html>
 """
-        with open(output_path, 'w') as f:
+        with open(output_path, "w") as f:
             f.write(html)
 
         print(f"Report saved to: {output_path}")
@@ -606,39 +572,19 @@ class CrossPlatformValidator:
 
 def main():
     """Command-line interface."""
-    parser = argparse.ArgumentParser(
-        description="Validate policies across simulation frameworks."
-    )
+    parser = argparse.ArgumentParser(description="Validate policies across simulation frameworks.")
+    parser.add_argument("--policy", "-p", required=True, help="Path to policy file (ONNX recommended)")
     parser.add_argument(
-        "--policy", "-p",
-        required=True,
-        help="Path to policy file (ONNX recommended)"
+        "--frameworks", "-f", default="isaac,mujoco,pybullet", help="Comma-separated list of frameworks"
     )
-    parser.add_argument(
-        "--frameworks", "-f",
-        default="isaac,mujoco,pybullet",
-        help="Comma-separated list of frameworks"
-    )
-    parser.add_argument(
-        "--episodes", "-e",
-        type=int,
-        default=100,
-        help="Number of episodes per task"
-    )
-    parser.add_argument(
-        "--output", "-o",
-        help="Output HTML report path"
-    )
+    parser.add_argument("--episodes", "-e", type=int, default=100, help="Number of episodes per task")
+    parser.add_argument("--output", "-o", help="Output HTML report path")
 
     args = parser.parse_args()
     frameworks = args.frameworks.split(",")
 
     validator = CrossPlatformValidator()
-    report = validator.validate_policy(
-        policy_path=args.policy,
-        frameworks=frameworks,
-        episodes_per_task=args.episodes
-    )
+    report = validator.validate_policy(policy_path=args.policy, frameworks=frameworks, episodes_per_task=args.episodes)
 
     # Print summary
     print("\n" + "=" * 60)

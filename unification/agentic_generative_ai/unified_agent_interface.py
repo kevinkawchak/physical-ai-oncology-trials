@@ -37,6 +37,7 @@ logger = logging.getLogger(__name__)
 
 class AgentBackend(Enum):
     """Supported agent framework backends."""
+
     CREWAI = "crewai"
     LANGGRAPH = "langgraph"
     AUTOGEN = "autogen"
@@ -45,6 +46,7 @@ class AgentBackend(Enum):
 
 class AgentRole(Enum):
     """Standard roles for oncology agents."""
+
     PLANNER = "planner"
     EXECUTOR = "executor"
     MONITOR = "monitor"
@@ -56,6 +58,7 @@ class AgentRole(Enum):
 @dataclass
 class Tool:
     """Unified tool definition."""
+
     name: str
     description: str
     function: Callable
@@ -71,7 +74,7 @@ class Tool:
             "inputSchema": {
                 "type": "object",
                 "properties": self.input_schema,
-            }
+            },
         }
 
     def to_openai_format(self) -> Dict:
@@ -84,8 +87,8 @@ class Tool:
                 "parameters": {
                     "type": "object",
                     "properties": self.input_schema,
-                }
-            }
+                },
+            },
         }
 
     def to_anthropic_format(self) -> Dict:
@@ -96,13 +99,14 @@ class Tool:
             "input_schema": {
                 "type": "object",
                 "properties": self.input_schema,
-            }
+            },
         }
 
 
 @dataclass
 class AgentMessage:
     """Standardized message format for agent communication."""
+
     role: str  # user, assistant, system, tool
     content: str
     tool_calls: Optional[List[Dict]] = None
@@ -118,13 +122,14 @@ class AgentMessage:
             "tool_calls": self.tool_calls,
             "tool_results": self.tool_results,
             "metadata": self.metadata,
-            "timestamp": self.timestamp
+            "timestamp": self.timestamp,
         }
 
 
 @dataclass
 class AgentConfig:
     """Configuration for unified agent."""
+
     name: str
     role: str
     description: str = ""
@@ -141,12 +146,7 @@ class AgentBackendAdapter(ABC):
     """Abstract base class for backend adapters."""
 
     @abstractmethod
-    async def execute(
-        self,
-        prompt: str,
-        context: Dict[str, Any],
-        tools: List[Tool]
-    ) -> AgentMessage:
+    async def execute(self, prompt: str, context: Dict[str, Any], tools: List[Tool]) -> AgentMessage:
         """Execute agent with given prompt and context."""
         pass
 
@@ -167,13 +167,14 @@ class CrewAIAdapter(AgentBackendAdapter):
         """Initialize CrewAI agent."""
         try:
             from crewai import Agent as CrewAgent
+
             self._agent = CrewAgent(
                 role=self.config.role,
                 goal=self.config.description,
                 backstory=self.config.system_prompt,
                 tools=[self._convert_tool(t) for t in self.config.tools],
                 llm=self.config.model,
-                verbose=True
+                verbose=True,
             )
         except ImportError:
             logger.warning("CrewAI not installed, using mock implementation")
@@ -184,12 +185,7 @@ class CrewAIAdapter(AgentBackendAdapter):
         # CrewAI uses LangChain-style tools
         return tool.function
 
-    async def execute(
-        self,
-        prompt: str,
-        context: Dict[str, Any],
-        tools: List[Tool]
-    ) -> AgentMessage:
+    async def execute(self, prompt: str, context: Dict[str, Any], tools: List[Tool]) -> AgentMessage:
         """Execute using CrewAI."""
         if self._agent is None:
             self._initialize()
@@ -199,17 +195,13 @@ class CrewAIAdapter(AgentBackendAdapter):
             return AgentMessage(
                 role="assistant",
                 content=f"[CrewAI Mock] Processing: {prompt}",
-                metadata={"backend": "crewai", "mock": True}
+                metadata={"backend": "crewai", "mock": True},
             )
 
         # Execute with CrewAI
         # result = self._agent.execute_task(prompt)
         # For now, return mock
-        return AgentMessage(
-            role="assistant",
-            content=f"[CrewAI] Executed: {prompt}",
-            metadata={"backend": "crewai"}
-        )
+        return AgentMessage(role="assistant", content=f"[CrewAI] Executed: {prompt}", metadata={"backend": "crewai"})
 
     def get_backend_name(self) -> str:
         return "crewai"
@@ -226,6 +218,7 @@ class LangGraphAdapter(AgentBackendAdapter):
         """Initialize LangGraph workflow."""
         try:
             from langgraph.graph import StateGraph
+
             # Create simple agent graph
             self._graph = StateGraph(dict)
             # Would add nodes and edges here
@@ -233,12 +226,7 @@ class LangGraphAdapter(AgentBackendAdapter):
             logger.warning("LangGraph not installed, using mock implementation")
             self._graph = None
 
-    async def execute(
-        self,
-        prompt: str,
-        context: Dict[str, Any],
-        tools: List[Tool]
-    ) -> AgentMessage:
+    async def execute(self, prompt: str, context: Dict[str, Any], tools: List[Tool]) -> AgentMessage:
         """Execute using LangGraph."""
         if self._graph is None:
             self._initialize()
@@ -247,14 +235,12 @@ class LangGraphAdapter(AgentBackendAdapter):
             return AgentMessage(
                 role="assistant",
                 content=f"[LangGraph Mock] Processing: {prompt}",
-                metadata={"backend": "langgraph", "mock": True}
+                metadata={"backend": "langgraph", "mock": True},
             )
 
         # Execute with LangGraph
         return AgentMessage(
-            role="assistant",
-            content=f"[LangGraph] Executed: {prompt}",
-            metadata={"backend": "langgraph"}
+            role="assistant", content=f"[LangGraph] Executed: {prompt}", metadata={"backend": "langgraph"}
         )
 
     def get_backend_name(self) -> str:
@@ -267,18 +253,13 @@ class CustomAdapter(AgentBackendAdapter):
     def __init__(self, config: AgentConfig):
         self.config = config
 
-    async def execute(
-        self,
-        prompt: str,
-        context: Dict[str, Any],
-        tools: List[Tool]
-    ) -> AgentMessage:
+    async def execute(self, prompt: str, context: Dict[str, Any], tools: List[Tool]) -> AgentMessage:
         """Execute using custom implementation."""
         # Would make direct API call here
         return AgentMessage(
             role="assistant",
             content=f"[Custom] Processed: {prompt}",
-            metadata={"backend": "custom", "model": self.config.model}
+            metadata={"backend": "custom", "model": self.config.model},
         )
 
     def get_backend_name(self) -> str:
@@ -302,7 +283,7 @@ class UnifiedAgent:
         model: str = "claude-sonnet-4",
         tools: Optional[List[Tool]] = None,
         system_prompt: str = "",
-        safety_constraints: Optional[List[str]] = None
+        safety_constraints: Optional[List[str]] = None,
     ):
         """
         Initialize unified agent.
@@ -328,7 +309,7 @@ class UnifiedAgent:
             model=model,
             tools=tools or [],
             system_prompt=system_prompt,
-            safety_constraints=safety_constraints or []
+            safety_constraints=safety_constraints or [],
         )
 
         self.adapter = self._create_adapter()
@@ -358,11 +339,7 @@ class UnifiedAgent:
         """Add a safety constraint."""
         self.config.safety_constraints.append(constraint)
 
-    async def execute(
-        self,
-        prompt: str,
-        context: Optional[Dict[str, Any]] = None
-    ) -> AgentMessage:
+    async def execute(self, prompt: str, context: Optional[Dict[str, Any]] = None) -> AgentMessage:
         """
         Execute agent with given prompt.
 
@@ -395,9 +372,7 @@ class UnifiedAgent:
         response.metadata["execution_time"] = execution_time
         response.metadata["execution_count"] = self.execution_count
 
-        logger.info(
-            f"Agent '{self.config.name}' executed in {execution_time:.2f}s"
-        )
+        logger.info(f"Agent '{self.config.name}' executed in {execution_time:.2f}s")
 
         return response
 
@@ -434,10 +409,7 @@ class AgentTeam:
         """Get agent by name."""
         return self.agents.get(name)
 
-    async def execute_sequential(
-        self,
-        tasks: List[Dict[str, str]]
-    ) -> List[AgentMessage]:
+    async def execute_sequential(self, tasks: List[Dict[str, str]]) -> List[AgentMessage]:
         """
         Execute tasks sequentially with specified agents.
 
@@ -461,19 +433,13 @@ class AgentTeam:
             response = await agent.execute(prompt)
             responses.append(response)
 
-            self.execution_log.append({
-                "agent": agent_name,
-                "prompt": prompt,
-                "response": response.content,
-                "timestamp": time.time()
-            })
+            self.execution_log.append(
+                {"agent": agent_name, "prompt": prompt, "response": response.content, "timestamp": time.time()}
+            )
 
         return responses
 
-    async def execute_parallel(
-        self,
-        tasks: List[Dict[str, str]]
-    ) -> List[AgentMessage]:
+    async def execute_parallel(self, tasks: List[Dict[str, str]]) -> List[AgentMessage]:
         """
         Execute tasks in parallel.
 
@@ -501,14 +467,9 @@ class AgentTeam:
         return {
             "team_name": self.name,
             "agent_count": len(self.agents),
-            "total_executions": sum(
-                a.execution_count for a in self.agents.values()
-            ),
+            "total_executions": sum(a.execution_count for a in self.agents.values()),
             "execution_log_length": len(self.execution_log),
-            "agents": {
-                name: agent.get_statistics()
-                for name, agent in self.agents.items()
-            }
+            "agents": {name: agent.get_statistics() for name, agent in self.agents.items()},
         }
 
 
@@ -525,23 +486,23 @@ class OncologyToolkit:
                 function=lambda pos: {"status": "moved", "position": pos},
                 input_schema={
                     "position": {"type": "array", "items": {"type": "number"}},
-                    "speed": {"type": "number", "default": 0.1}
+                    "speed": {"type": "number", "default": 0.1},
                 },
-                safety_level="elevated"
+                safety_level="elevated",
             ),
             Tool(
                 name="get_robot_state",
                 description="Get current robot state including joint positions and forces",
                 function=lambda: {"joints": [], "forces": [], "status": "ready"},
                 input_schema={},
-                safety_level="normal"
+                safety_level="normal",
             ),
             Tool(
                 name="emergency_stop",
                 description="Immediately stop all robot motion",
                 function=lambda: {"status": "stopped"},
                 input_schema={},
-                safety_level="critical"
+                safety_level="critical",
             ),
         ]
 
@@ -553,21 +514,16 @@ class OncologyToolkit:
                 name="verify_patient_identity",
                 description="Verify patient identity against protocol",
                 function=lambda pid: {"verified": True, "patient_id": pid},
-                input_schema={
-                    "patient_id": {"type": "string"},
-                    "protocol_id": {"type": "string"}
-                },
+                input_schema={"patient_id": {"type": "string"}, "protocol_id": {"type": "string"}},
                 requires_confirmation=True,
-                safety_level="elevated"
+                safety_level="elevated",
             ),
             Tool(
                 name="check_protocol_step",
                 description="Check current protocol step and requirements",
                 function=lambda step: {"step": step, "requirements": []},
-                input_schema={
-                    "step_number": {"type": "integer"}
-                },
-                safety_level="normal"
+                input_schema={"step_number": {"type": "integer"}},
+                safety_level="normal",
             ),
             Tool(
                 name="log_adverse_event",
@@ -576,10 +532,10 @@ class OncologyToolkit:
                 input_schema={
                     "event_type": {"type": "string"},
                     "severity": {"type": "string"},
-                    "description": {"type": "string"}
+                    "description": {"type": "string"},
                 },
                 requires_confirmation=True,
-                safety_level="critical"
+                safety_level="critical",
             ),
         ]
 
@@ -591,19 +547,15 @@ class OncologyToolkit:
                 name="get_current_image",
                 description="Get current camera/endoscope image",
                 function=lambda: {"image": None, "timestamp": time.time()},
-                input_schema={
-                    "camera_id": {"type": "string", "default": "endoscope"}
-                },
-                safety_level="normal"
+                input_schema={"camera_id": {"type": "string", "default": "endoscope"}},
+                safety_level="normal",
             ),
             Tool(
                 name="segment_tissue",
                 description="Segment tissue in current view",
                 function=lambda: {"segments": [], "confidence": 0.95},
-                input_schema={
-                    "tissue_type": {"type": "string"}
-                },
-                safety_level="normal"
+                input_schema={"tissue_type": {"type": "string"}},
+                safety_level="normal",
             ),
         ]
 
@@ -621,7 +573,7 @@ async def demo():
         role="Plan surgical procedures and coordinate team",
         backend="custom",
         model="claude-opus-4",
-        tools=OncologyToolkit.clinical_tools()
+        tools=OncologyToolkit.clinical_tools(),
     )
 
     executor = UnifiedAgent(
@@ -629,7 +581,7 @@ async def demo():
         role="Control surgical robot during procedures",
         backend="custom",
         model="claude-sonnet-4",
-        tools=OncologyToolkit.robot_control_tools()
+        tools=OncologyToolkit.robot_control_tools(),
     )
 
     # Create team
@@ -639,10 +591,12 @@ async def demo():
 
     # Execute tasks
     print("Executing sequential tasks...")
-    responses = await team.execute_sequential([
-        {"agent": "procedure_planner", "prompt": "Plan biopsy procedure for lung nodule"},
-        {"agent": "robot_controller", "prompt": "Prepare robot for needle insertion"},
-    ])
+    responses = await team.execute_sequential(
+        [
+            {"agent": "procedure_planner", "prompt": "Plan biopsy procedure for lung nodule"},
+            {"agent": "robot_controller", "prompt": "Prepare robot for needle insertion"},
+        ]
+    )
 
     for response in responses:
         print(f"  Response: {response.content}")

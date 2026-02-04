@@ -50,8 +50,10 @@ logger = logging.getLogger(__name__)
 # SECTION 1: FRAMEWORK ABSTRACTIONS
 # =============================================================================
 
+
 class SimulationFramework(Enum):
     """Supported simulation frameworks."""
+
     ISAAC_LAB = "isaac_lab"
     MUJOCO = "mujoco"
     PYBULLET = "pybullet"
@@ -91,26 +93,27 @@ class ValidationConfig:
         tolerance: Tolerance for physics equivalence
         metrics: Metrics to compute
     """
+
     policy_path: str
     robot_model: str = "dvrk_psm"
     n_episodes: int = 100
     episode_length: int = 500
-    tolerance: dict = field(default_factory=lambda: {
-        "position_mm": 1.0,      # Position tolerance
-        "velocity_mm_s": 5.0,    # Velocity tolerance
-        "force_n": 0.5           # Contact force tolerance
-    })
-    metrics: list = field(default_factory=lambda: [
-        "success_rate",
-        "position_error",
-        "trajectory_divergence",
-        "contact_force_deviation"
-    ])
+    tolerance: dict = field(
+        default_factory=lambda: {
+            "position_mm": 1.0,  # Position tolerance
+            "velocity_mm_s": 5.0,  # Velocity tolerance
+            "force_n": 0.5,  # Contact force tolerance
+        }
+    )
+    metrics: list = field(
+        default_factory=lambda: ["success_rate", "position_error", "trajectory_divergence", "contact_force_deviation"]
+    )
 
 
 # =============================================================================
 # SECTION 2: FRAMEWORK IMPLEMENTATIONS
 # =============================================================================
+
 
 class IsaacLabWrapper:
     """
@@ -161,7 +164,7 @@ class IsaacLabWrapper:
             "joint_velocities": np.random.randn(7),
             "ee_position": np.random.randn(3),
             "ee_orientation": np.random.randn(4),
-            "contact_forces": np.random.uniform(0, 2, 6)
+            "contact_forces": np.random.uniform(0, 2, 6),
         }
 
 
@@ -210,7 +213,7 @@ class MuJoCoWrapper:
             "joint_velocities": np.random.randn(7),
             "ee_position": np.random.randn(3),
             "ee_orientation": np.random.randn(4),
-            "contact_forces": np.random.uniform(0, 2, 6)
+            "contact_forces": np.random.uniform(0, 2, 6),
         }
 
 
@@ -256,13 +259,14 @@ class PyBulletWrapper:
             "joint_velocities": np.random.randn(7),
             "ee_position": np.random.randn(3),
             "ee_orientation": np.random.randn(4),
-            "contact_forces": np.random.uniform(0, 2, 6)
+            "contact_forces": np.random.uniform(0, 2, 6),
         }
 
 
 # =============================================================================
 # SECTION 3: POLICY LOADING
 # =============================================================================
+
 
 class PolicyLoader:
     """
@@ -297,6 +301,7 @@ class PolicyLoader:
         """Load ONNX model."""
         try:
             import onnxruntime as ort
+
             self._session = ort.InferenceSession(str(self.policy_path))
             logger.info(f"Loaded ONNX policy: {self.policy_path}")
         except ImportError:
@@ -307,6 +312,7 @@ class PolicyLoader:
         """Load PyTorch model."""
         try:
             import torch
+
             self._policy = torch.load(str(self.policy_path))
             logger.info(f"Loaded PyTorch policy: {self.policy_path}")
         except ImportError:
@@ -334,9 +340,11 @@ class PolicyLoader:
 # SECTION 4: VALIDATION ENGINE
 # =============================================================================
 
+
 @dataclass
 class ValidationResult:
     """Result from single framework validation."""
+
     framework: SimulationFramework
     success_rate: float
     mean_reward: float
@@ -349,6 +357,7 @@ class ValidationResult:
 @dataclass
 class CrossFrameworkReport:
     """Complete cross-framework validation report."""
+
     config: ValidationConfig
     results: dict
     consistency_score: float
@@ -455,20 +464,13 @@ class CrossFrameworkValidator:
         recommendations = self._generate_recommendations(results, consistency)
 
         report = CrossFrameworkReport(
-            config=self.config,
-            results=results,
-            consistency_score=consistency,
-            recommendations=recommendations
+            config=self.config, results=results, consistency_score=consistency, recommendations=recommendations
         )
 
         logger.info(f"Validation complete. Consistency: {consistency:.1%}")
         return report
 
-    def _validate_framework(
-        self,
-        framework: SimulationFramework,
-        wrapper: FrameworkInterface
-    ) -> ValidationResult:
+    def _validate_framework(self, framework: SimulationFramework, wrapper: FrameworkInterface) -> ValidationResult:
         """Validate policy in single framework."""
         successes = []
         rewards = []
@@ -512,7 +514,7 @@ class CrossFrameworkValidator:
             position_errors=position_errors,
             trajectory=trajectories,
             contact_forces=contact_forces,
-            episode_lengths=episode_lengths
+            episode_lengths=episode_lengths,
         )
 
     def _compute_consistency(self, results: dict) -> float:
@@ -532,37 +534,28 @@ class CrossFrameworkValidator:
         consistency = (success_consistency + position_consistency) / 2
         return max(0, min(1, consistency))
 
-    def _generate_recommendations(
-        self,
-        results: dict,
-        consistency: float
-    ) -> list:
+    def _generate_recommendations(self, results: dict, consistency: float) -> list:
         """Generate recommendations based on validation results."""
         recommendations = []
 
         if consistency < 0.8:
             recommendations.append(
-                "Low cross-framework consistency detected. "
-                "Consider domain randomization during training."
+                "Low cross-framework consistency detected. Consider domain randomization during training."
             )
 
         for framework, result in results.items():
             if result.success_rate < 0.9:
                 recommendations.append(
-                    f"{framework}: Success rate below 90%. "
-                    "Additional training or policy tuning recommended."
+                    f"{framework}: Success rate below 90%. Additional training or policy tuning recommended."
                 )
 
             if np.mean(result.position_errors) > self.config.tolerance["position_mm"]:
                 recommendations.append(
-                    f"{framework}: Position error exceeds tolerance. "
-                    "Review physics parameters and control gains."
+                    f"{framework}: Position error exceeds tolerance. Review physics parameters and control gains."
                 )
 
         if not recommendations:
-            recommendations.append(
-                "Policy validation passed. Ready for hardware testing."
-            )
+            recommendations.append("Policy validation passed. Ready for hardware testing.")
 
         return recommendations
 
@@ -570,6 +563,7 @@ class CrossFrameworkValidator:
 # =============================================================================
 # SECTION 5: PHYSICS EQUIVALENCE TESTING
 # =============================================================================
+
 
 class PhysicsEquivalenceTester:
     """
@@ -587,18 +581,9 @@ class PhysicsEquivalenceTester:
     """
 
     def __init__(self):
-        self.benchmarks = [
-            "free_fall",
-            "pendulum",
-            "contact_force",
-            "joint_friction"
-        ]
+        self.benchmarks = ["free_fall", "pendulum", "contact_force", "joint_friction"]
 
-    def run_benchmark(
-        self,
-        benchmark: str,
-        frameworks: dict
-    ) -> dict:
+    def run_benchmark(self, benchmark: str, frameworks: dict) -> dict:
         """Run physics benchmark across frameworks."""
         logger.info(f"Running benchmark: {benchmark}")
 
@@ -623,7 +608,7 @@ class PhysicsEquivalenceTester:
         return {
             "fall_time_s": np.random.uniform(0.45, 0.46),
             "final_velocity_m_s": np.random.uniform(4.4, 4.5),
-            "error_percent": np.random.uniform(0, 2)
+            "error_percent": np.random.uniform(0, 2),
         }
 
     def _test_pendulum(self, wrapper) -> dict:
@@ -631,7 +616,7 @@ class PhysicsEquivalenceTester:
         return {
             "period_s": np.random.uniform(1.99, 2.01),
             "damping_ratio": np.random.uniform(0.01, 0.02),
-            "error_percent": np.random.uniform(0, 3)
+            "error_percent": np.random.uniform(0, 3),
         }
 
     def _test_contact_force(self, wrapper) -> dict:
@@ -639,7 +624,7 @@ class PhysicsEquivalenceTester:
         return {
             "peak_force_n": np.random.uniform(9.8, 10.2),
             "settling_time_ms": np.random.uniform(10, 20),
-            "error_percent": np.random.uniform(0, 5)
+            "error_percent": np.random.uniform(0, 5),
         }
 
     def _test_joint_friction(self, wrapper) -> dict:
@@ -647,7 +632,7 @@ class PhysicsEquivalenceTester:
         return {
             "static_friction": np.random.uniform(0.1, 0.15),
             "dynamic_friction": np.random.uniform(0.05, 0.08),
-            "error_percent": np.random.uniform(0, 5)
+            "error_percent": np.random.uniform(0, 5),
         }
 
 
@@ -655,9 +640,9 @@ class PhysicsEquivalenceTester:
 # SECTION 6: MAIN PIPELINE
 # =============================================================================
 
+
 def validate_surgical_policy(
-    policy_path: str = "trained_policies/needle_insertion/policy.onnx",
-    robot_model: str = "dvrk_psm"
+    policy_path: str = "trained_policies/needle_insertion/policy.onnx", robot_model: str = "dvrk_psm"
 ) -> CrossFrameworkReport:
     """
     Validate surgical policy across multiple frameworks.
@@ -680,12 +665,7 @@ def validate_surgical_policy(
     logger.info("CROSS-FRAMEWORK POLICY VALIDATION")
     logger.info("=" * 60)
 
-    config = ValidationConfig(
-        policy_path=policy_path,
-        robot_model=robot_model,
-        n_episodes=50,
-        episode_length=200
-    )
+    config = ValidationConfig(policy_path=policy_path, robot_model=robot_model, n_episodes=50, episode_length=200)
 
     # Initialize validator
     validator = CrossFrameworkValidator(config)
@@ -708,7 +688,7 @@ def validate_surgical_policy(
     frameworks = {
         "isaac": IsaacLabWrapper(robot_model),
         "mujoco": MuJoCoWrapper(robot_model),
-        "pybullet": PyBulletWrapper(robot_model)
+        "pybullet": PyBulletWrapper(robot_model),
     }
 
     for benchmark in physics_tester.benchmarks:

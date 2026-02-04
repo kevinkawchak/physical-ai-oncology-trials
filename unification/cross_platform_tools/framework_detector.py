@@ -29,6 +29,7 @@ import argparse
 @dataclass
 class FrameworkInfo:
     """Information about a detected framework."""
+
     name: str
     available: bool
     version: str = "unknown"
@@ -43,6 +44,7 @@ class FrameworkInfo:
 @dataclass
 class SystemInfo:
     """System information for framework compatibility."""
+
     python_version: str
     platform: str
     cuda_available: bool
@@ -103,6 +105,7 @@ class FrameworkDetector:
         # Check CUDA
         try:
             import torch
+
             info.cuda_available = torch.cuda.is_available()
             if info.cuda_available:
                 info.cuda_version = torch.version.cuda
@@ -113,10 +116,7 @@ class FrameworkDetector:
 
         # Check ROS 2
         try:
-            result = subprocess.run(
-                ["ros2", "--version"],
-                capture_output=True, text=True, timeout=5
-            )
+            result = subprocess.run(["ros2", "--version"], capture_output=True, text=True, timeout=5)
             if result.returncode == 0:
                 info.ros2_available = True
                 info.ros2_distro = self._get_ros2_distro()
@@ -128,6 +128,7 @@ class FrameworkDetector:
     def _get_ros2_distro(self) -> str:
         """Get ROS 2 distribution name."""
         import os
+
         return os.environ.get("ROS_DISTRO", "unknown")
 
     def _detect_isaac(self) -> FrameworkInfo:
@@ -135,12 +136,13 @@ class FrameworkDetector:
         info = FrameworkInfo(
             name="NVIDIA Isaac Lab",
             available=False,
-            recommended_use="GPU-accelerated robot training (4096+ parallel envs)"
+            recommended_use="GPU-accelerated robot training (4096+ parallel envs)",
         )
 
         # Check for isaaclab module
         try:
             import omni.isaac.lab as lab
+
             info.available = True
             info.version = getattr(lab, "__version__", "unknown")
             info.gpu_support = True
@@ -148,7 +150,7 @@ class FrameworkDetector:
                 "GPU-parallel simulation",
                 "Isaac Sim integration",
                 "ORBIT-Surgical support",
-                "USD scene format"
+                "USD scene format",
             ]
             info.path = str(Path(lab.__file__).parent)
 
@@ -156,6 +158,7 @@ class FrameworkDetector:
             # Try alternative import
             try:
                 import isaaclab
+
                 info.available = True
                 info.version = getattr(isaaclab, "__version__", "unknown")
                 info.gpu_support = True
@@ -177,26 +180,21 @@ class FrameworkDetector:
     def _detect_mujoco(self) -> FrameworkInfo:
         """Detect MuJoCo installation."""
         info = FrameworkInfo(
-            name="MuJoCo",
-            available=False,
-            recommended_use="High-fidelity physics validation and MJX GPU training"
+            name="MuJoCo", available=False, recommended_use="High-fidelity physics validation and MJX GPU training"
         )
 
         try:
             import mujoco
+
             info.available = True
             info.version = mujoco.__version__
             info.path = str(Path(mujoco.__file__).parent)
-            info.features = [
-                "Accurate contact dynamics",
-                "MJCF model format",
-                "Visualization",
-                "Force/torque sensing"
-            ]
+            info.features = ["Accurate contact dynamics", "MJCF model format", "Visualization", "Force/torque sensing"]
 
             # Check for MJX (GPU)
             try:
                 from mujoco import mjx
+
                 info.gpu_support = True
                 info.features.append("MJX GPU acceleration (JAX backend)")
             except ImportError:
@@ -216,28 +214,18 @@ class FrameworkDetector:
     def _detect_gazebo(self) -> FrameworkInfo:
         """Detect Gazebo Ionic installation."""
         info = FrameworkInfo(
-            name="Gazebo Ionic",
-            available=False,
-            recommended_use="ROS 2 integration and sensor simulation"
+            name="Gazebo Ionic", available=False, recommended_use="ROS 2 integration and sensor simulation"
         )
 
         # Check for gz-sim command
         try:
-            result = subprocess.run(
-                ["gz", "sim", "--version"],
-                capture_output=True, text=True, timeout=10
-            )
+            result = subprocess.run(["gz", "sim", "--version"], capture_output=True, text=True, timeout=10)
             if result.returncode == 0:
                 info.available = True
                 # Parse version from output
                 version_line = result.stdout.strip()
                 info.version = version_line.split()[-1] if version_line else "unknown"
-                info.features = [
-                    "ROS 2 native integration",
-                    "SDF model format",
-                    "Sensor simulation",
-                    "Physics plugins"
-                ]
+                info.features = ["ROS 2 native integration", "SDF model format", "Sensor simulation", "Physics plugins"]
 
                 # ROS 2 integration
                 if self.system_info and self.system_info.ros2_available:
@@ -253,13 +241,12 @@ class FrameworkDetector:
     def _detect_pybullet(self) -> FrameworkInfo:
         """Detect PyBullet installation."""
         info = FrameworkInfo(
-            name="PyBullet",
-            available=False,
-            recommended_use="Rapid prototyping and algorithm development"
+            name="PyBullet", available=False, recommended_use="Rapid prototyping and algorithm development"
         )
 
         try:
             import pybullet as p
+
             info.available = True
             info.version = str(p.getAPIVersion())
             info.path = str(Path(p.__file__).parent)
@@ -268,7 +255,7 @@ class FrameworkDetector:
                 "URDF support",
                 "Soft body simulation",
                 "Camera rendering",
-                "Gymnasium interface"
+                "Gymnasium interface",
             ]
 
             # Check for OpenGL rendering
@@ -383,9 +370,7 @@ class FrameworkDetector:
         """Export detection results as JSON."""
         data = {
             "system": asdict(self.system_info) if self.system_info else None,
-            "frameworks": {
-                name: asdict(info) for name, info in self.frameworks.items()
-            },
+            "frameworks": {name: asdict(info) for name, info in self.frameworks.items()},
             "recommendations": self.get_recommended_pipeline(),
         }
         return json.dumps(data, indent=2)
@@ -393,19 +378,9 @@ class FrameworkDetector:
 
 def main():
     """Command-line interface."""
-    parser = argparse.ArgumentParser(
-        description="Detect available simulation frameworks for oncology robotics."
-    )
-    parser.add_argument(
-        "--verbose", "-v",
-        action="store_true",
-        help="Show detailed detection progress"
-    )
-    parser.add_argument(
-        "--json", "-j",
-        action="store_true",
-        help="Output results as JSON"
-    )
+    parser = argparse.ArgumentParser(description="Detect available simulation frameworks for oncology robotics.")
+    parser.add_argument("--verbose", "-v", action="store_true", help="Show detailed detection progress")
+    parser.add_argument("--json", "-j", action="store_true", help="Output results as JSON")
 
     args = parser.parse_args()
 

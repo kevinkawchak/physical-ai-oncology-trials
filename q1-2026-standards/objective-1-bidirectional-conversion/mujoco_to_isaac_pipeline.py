@@ -34,6 +34,7 @@ import json
 # Optional imports
 try:
     import mujoco
+
     MUJOCO_AVAILABLE = True
     MUJOCO_VERSION = mujoco.__version__
 except ImportError:
@@ -45,6 +46,7 @@ except ImportError:
 @dataclass
 class MJCFBody:
     """Parsed MJCF body representation."""
+
     name: str
     pos: np.ndarray = field(default_factory=lambda: np.zeros(3))
     quat: np.ndarray = field(default_factory=lambda: np.array([1, 0, 0, 0]))
@@ -60,6 +62,7 @@ class MJCFBody:
 @dataclass
 class ConversionConfig:
     """Configuration for MuJoCo → Isaac conversion."""
+
     # Output format
     output_format: str = "urdf"  # "urdf" or "usd"
 
@@ -107,12 +110,7 @@ class MJCFToURDFConverter:
         self.actuators: List[Dict] = []
         self.warnings: List[str] = []
 
-    def convert(
-        self,
-        mjcf_path: str,
-        output_path: str,
-        robot_name: Optional[str] = None
-    ) -> Dict[str, Any]:
+    def convert(self, mjcf_path: str, output_path: str, robot_name: Optional[str] = None) -> Dict[str, Any]:
         """
         Convert MJCF file to URDF format.
 
@@ -259,11 +257,9 @@ class MJCFToURDFConverter:
                 body.inertia = np.diag(vals)
             elif full:
                 vals = [float(x) for x in full.split()]
-                body.inertia = np.array([
-                    [vals[0], vals[3], vals[4]],
-                    [vals[3], vals[1], vals[5]],
-                    [vals[4], vals[5], vals[2]]
-                ])
+                body.inertia = np.array(
+                    [[vals[0], vals[3], vals[4]], [vals[3], vals[1], vals[5]], [vals[4], vals[5], vals[2]]]
+                )
 
         # Parse joints
         for joint_elem in body_elem.findall("joint"):
@@ -350,29 +346,35 @@ class MJCFToURDFConverter:
             return
 
         for motor in actuator_elem.findall("motor"):
-            self.actuators.append({
-                "type": "motor",
-                "name": motor.get("name", ""),
-                "joint": motor.get("joint", ""),
-                "gear": float(motor.get("gear", 1.0)),
-                "forcerange": motor.get("forcerange"),
-            })
+            self.actuators.append(
+                {
+                    "type": "motor",
+                    "name": motor.get("name", ""),
+                    "joint": motor.get("joint", ""),
+                    "gear": float(motor.get("gear", 1.0)),
+                    "forcerange": motor.get("forcerange"),
+                }
+            )
 
         for position in actuator_elem.findall("position"):
-            self.actuators.append({
-                "type": "position",
-                "name": position.get("name", ""),
-                "joint": position.get("joint", ""),
-                "kp": float(position.get("kp", 100.0)),
-            })
+            self.actuators.append(
+                {
+                    "type": "position",
+                    "name": position.get("name", ""),
+                    "joint": position.get("joint", ""),
+                    "kp": float(position.get("kp", 100.0)),
+                }
+            )
 
         for velocity in actuator_elem.findall("velocity"):
-            self.actuators.append({
-                "type": "velocity",
-                "name": velocity.get("name", ""),
-                "joint": velocity.get("joint", ""),
-                "kv": float(velocity.get("kv", 10.0)),
-            })
+            self.actuators.append(
+                {
+                    "type": "velocity",
+                    "name": velocity.get("name", ""),
+                    "joint": velocity.get("joint", ""),
+                    "kv": float(velocity.get("kv", 10.0)),
+                }
+            )
 
     def _parse_vec3(self, s: str) -> np.ndarray:
         """Parse a 3D vector from string."""
@@ -481,9 +483,7 @@ class MJCFToURDFConverter:
 
         elif geom_type == "cylinder" or geom_type == "capsule":
             size = geom["size"]
-            ET.SubElement(geometry, "cylinder",
-                         radius=f"{size['radius']:.6f}",
-                         length=f"{size['length']:.6f}")
+            ET.SubElement(geometry, "cylinder", radius=f"{size['radius']:.6f}", length=f"{size['length']:.6f}")
 
         elif geom_type == "mesh" and geom.get("mesh"):
             mesh_name = geom["mesh"]
@@ -500,9 +500,7 @@ class MJCFToURDFConverter:
             mjcf_joint = body.joints[0]
             urdf_type = self.JOINT_TYPE_MAP.get(mjcf_joint["type"], "fixed")
 
-            joint = ET.Element("joint",
-                              name=mjcf_joint["name"],
-                              type=urdf_type)
+            joint = ET.Element("joint", name=mjcf_joint["name"], type=urdf_type)
 
             # Parent and child
             ET.SubElement(joint, "parent", link=body.parent)
@@ -535,9 +533,7 @@ class MJCFToURDFConverter:
             return joint
         else:
             # Fixed joint (no MJCF joint defined)
-            joint = ET.Element("joint",
-                              name=f"{body.parent}_to_{body.name}",
-                              type="fixed")
+            joint = ET.Element("joint", name=f"{body.parent}_to_{body.name}", type="fixed")
 
             ET.SubElement(joint, "parent", link=body.parent)
             ET.SubElement(joint, "child", link=body.name)
@@ -587,12 +583,7 @@ class MuJoCoToIsaacConverter:
         self.config = config or ConversionConfig()
         self.urdf_converter = MJCFToURDFConverter(config)
 
-    def convert(
-        self,
-        mjcf_path: str,
-        output_path: str,
-        **kwargs
-    ) -> Dict[str, Any]:
+    def convert(self, mjcf_path: str, output_path: str, **kwargs) -> Dict[str, Any]:
         """
         Convert MJCF to Isaac-compatible format.
 
@@ -617,12 +608,7 @@ class MuJoCoToIsaacConverter:
                 "error": f"Unsupported output format: {output_format}",
             }
 
-    def _convert_to_usd(
-        self,
-        mjcf_path: str,
-        output_path: str,
-        **kwargs
-    ) -> Dict[str, Any]:
+    def _convert_to_usd(self, mjcf_path: str, output_path: str, **kwargs) -> Dict[str, Any]:
         """
         Convert MJCF to USD format.
 
@@ -648,11 +634,7 @@ class MuJoCoToIsaacConverter:
                 "error": "Isaac Sim not available for USD export",
             }
 
-    def convert_with_isaac_sim(
-        self,
-        mjcf_path: str,
-        output_usd_path: str
-    ) -> Dict[str, Any]:
+    def convert_with_isaac_sim(self, mjcf_path: str, output_usd_path: str) -> Dict[str, Any]:
         """
         Convert using Isaac Sim's native MJCF importer.
 
@@ -674,11 +656,7 @@ class MuJoCoToIsaacConverter:
             import_config.self_collision = False
 
             # Import MJCF
-            success = mjcf_interface.import_asset(
-                mjcf_path,
-                output_usd_path,
-                import_config
-            )
+            success = mjcf_interface.import_asset(mjcf_path, output_usd_path, import_config)
 
             return {
                 "success": success,
@@ -696,29 +674,12 @@ class MuJoCoToIsaacConverter:
 
 def main():
     """Command-line interface."""
-    parser = argparse.ArgumentParser(
-        description="Convert MuJoCo MJCF models to Isaac Lab compatible formats."
-    )
-    parser.add_argument(
-        "--input", "-i", required=True,
-        help="Input MJCF file path"
-    )
-    parser.add_argument(
-        "--output", "-o", required=True,
-        help="Output file path (URDF or USD)"
-    )
-    parser.add_argument(
-        "--name", "-n",
-        help="Override robot name"
-    )
-    parser.add_argument(
-        "--validate", action="store_true",
-        help="Validate output"
-    )
-    parser.add_argument(
-        "--verbose", "-v", action="store_true",
-        help="Verbose output"
-    )
+    parser = argparse.ArgumentParser(description="Convert MuJoCo MJCF models to Isaac Lab compatible formats.")
+    parser.add_argument("--input", "-i", required=True, help="Input MJCF file path")
+    parser.add_argument("--output", "-o", required=True, help="Output file path (URDF or USD)")
+    parser.add_argument("--name", "-n", help="Override robot name")
+    parser.add_argument("--validate", action="store_true", help="Validate output")
+    parser.add_argument("--verbose", "-v", action="store_true", help="Verbose output")
 
     args = parser.parse_args()
 
@@ -732,7 +693,7 @@ def main():
 
     # Print result
     if result.get("success"):
-        print(f"Conversion successful!")
+        print("Conversion successful!")
         print(f"  Output: {result['output']}")
         print(f"  Bodies: {result.get('bodies_converted', 'N/A')}")
         print(f"  Joints: {result.get('joints_converted', 'N/A')}")
@@ -740,7 +701,7 @@ def main():
         if result.get("validation"):
             val = result["validation"]
             if val["valid"]:
-                print(f"  Validation: PASSED")
+                print("  Validation: PASSED")
             else:
                 print(f"  Validation: FAILED - {val.get('error', 'Unknown')}")
 
