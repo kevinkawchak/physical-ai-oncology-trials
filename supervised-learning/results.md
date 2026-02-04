@@ -2,6 +2,8 @@
 
 *Benchmark performance and clinical validation (October 2025 - January 2026)*
 
+> **Data Disclaimer:** Tables in this document combine figures from published literature and illustrative (projected) values. Published results cite the originating system or challenge (e.g., ORBIT-Surgical, EndoVis, Cholec80). Rows labeled **Illustrative** represent projected performance targets, not peer-reviewed measurements. See `CONTRIBUTING.md` for the labeling policy.
+
 ---
 
 ## 1. Instrument Detection Benchmarks
@@ -47,7 +49,7 @@
 | Trans-SVNet | 90.3% | 84.5% | 88.7% | 89.9% | 89.3% |
 | SKiT | 91.8% | 86.2% | 90.1% | 91.5% | 90.8% |
 | SAHC | 93.5% | 88.4% | 91.8% | 93.2% | 92.5% |
-| Ours (2025) | 94.2% | 89.7% | 92.5% | 93.9% | 93.2% |
+| Ours (2025) *Illustrative* | 94.2% | 89.7% | 92.5% | 93.9% | 93.2% |
 
 **Per-Phase Breakdown**:
 
@@ -118,7 +120,7 @@
 | TCN | 79.6% | 85.8% | 83.2% |
 | MS-TCN | 84.2% | 88.4% | 87.1% |
 | DTGRM | 86.8% | 90.2% | 89.5% |
-| Ours (2025) | 89.4% | 92.1% | 91.8% |
+| Ours (2025) *Illustrative* | 89.4% | 92.1% | 91.8% |
 
 **Skill Classification (OSATS correlation)**:
 
@@ -147,7 +149,7 @@
 
 ### Complication Detection
 
-**Binary Classification (Normal vs Abnormal)**:
+**Binary Classification (Normal vs Abnormal)** *Illustrative -- aggregated from literature trends, not a single published study*:
 
 | Event | AUC-ROC | Sensitivity | Specificity | F1 |
 |-------|---------|-------------|-------------|-----|
@@ -159,7 +161,7 @@
 
 ### Early Warning System
 
-**Prediction Lead Time Analysis**:
+**Prediction Lead Time Analysis** *Illustrative*:
 
 | Event | 5s Warning | 10s Warning | 30s Warning |
 |-------|------------|-------------|-------------|
@@ -180,7 +182,7 @@
 | Monodepth2 | 0.089 | 0.012 | 5.82mm | 93.2% |
 | PackNet-SfM | 0.078 | 0.009 | 4.95mm | 94.8% |
 | AF-SfMLearner | 0.071 | 0.008 | 4.52mm | 95.6% |
-| Ours (2025) | 0.062 | 0.006 | 3.98mm | 96.8% |
+| Ours (2025) *Illustrative* | 0.062 | 0.006 | 3.98mm | 96.8% |
 
 ### Stereo Depth
 
@@ -225,7 +227,7 @@
 
 ### Surgical Planning
 
-**Optimal Port Placement**:
+**Optimal Port Placement** *Illustrative*:
 
 | Metric | Value |
 |--------|-------|
@@ -236,7 +238,7 @@
 
 ### Margin Prediction
 
-**Tumor Margin Estimation (CT)**:
+**Tumor Margin Estimation (CT)** *Illustrative*:
 
 | Cancer Type | Sensitivity | Specificity | AUC |
 |-------------|-------------|-------------|-----|
@@ -262,7 +264,7 @@
 
 ### Surgeon Feedback
 
-**Usability Study (n=24 surgeons)**:
+**Usability Study (n=24 surgeons)** *Illustrative -- hypothetical survey, not a published study*:
 
 | Aspect | Rating (1-5) |
 |--------|--------------|
@@ -289,7 +291,7 @@
 
 ### Inference Efficiency
 
-**Throughput by Hardware**:
+**Throughput by Hardware** *Illustrative -- approximate FPS based on typical benchmarks*:
 
 | Model | RTX 3090 | RTX 4090 | H100 |
 |-------|----------|----------|------|

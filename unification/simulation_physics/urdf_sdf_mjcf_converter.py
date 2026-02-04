@@ -31,6 +31,7 @@ import warnings
 @dataclass
 class Link:
     """Unified link representation."""
+
     name: str
     mass: float = 1.0
     inertia: np.ndarray = field(default_factory=lambda: np.eye(3) * 0.01)
@@ -42,6 +43,7 @@ class Link:
 @dataclass
 class Joint:
     """Unified joint representation."""
+
     name: str
     joint_type: str  # revolute, prismatic, fixed, continuous
     parent: str
@@ -60,6 +62,7 @@ class Joint:
 @dataclass
 class RobotModel:
     """Unified robot model representation."""
+
     name: str
     links: List[Link] = field(default_factory=list)
     joints: List[Joint] = field(default_factory=list)
@@ -76,10 +79,7 @@ class URDFParser:
         tree = ET.parse(filepath)
         root = tree.getroot()
 
-        model = RobotModel(
-            name=root.get("name", "robot"),
-            source_format="urdf"
-        )
+        model = RobotModel(name=root.get("name", "robot"), source_format="urdf")
 
         # Parse links
         for link_elem in root.findall("link"):
@@ -116,17 +116,25 @@ class URDFParser:
 
             inertia_elem = inertial.find("inertia")
             if inertia_elem is not None:
-                inertia = np.array([
-                    [float(inertia_elem.get("ixx", 0.01)),
-                     float(inertia_elem.get("ixy", 0)),
-                     float(inertia_elem.get("ixz", 0))],
-                    [float(inertia_elem.get("ixy", 0)),
-                     float(inertia_elem.get("iyy", 0.01)),
-                     float(inertia_elem.get("iyz", 0))],
-                    [float(inertia_elem.get("ixz", 0)),
-                     float(inertia_elem.get("iyz", 0)),
-                     float(inertia_elem.get("izz", 0.01))]
-                ])
+                inertia = np.array(
+                    [
+                        [
+                            float(inertia_elem.get("ixx", 0.01)),
+                            float(inertia_elem.get("ixy", 0)),
+                            float(inertia_elem.get("ixz", 0)),
+                        ],
+                        [
+                            float(inertia_elem.get("ixy", 0)),
+                            float(inertia_elem.get("iyy", 0.01)),
+                            float(inertia_elem.get("iyz", 0)),
+                        ],
+                        [
+                            float(inertia_elem.get("ixz", 0)),
+                            float(inertia_elem.get("iyz", 0)),
+                            float(inertia_elem.get("izz", 0.01)),
+                        ],
+                    ]
+                )
 
         # Parse visual
         visual_geometry = URDFParser._parse_geometry(elem.find("visual"))
@@ -140,7 +148,7 @@ class URDFParser:
             inertia=inertia,
             com_position=com_position,
             visual_geometry=visual_geometry,
-            collision_geometry=collision_geometry
+            collision_geometry=collision_geometry,
         )
 
     @staticmethod
@@ -166,23 +174,16 @@ class URDFParser:
             geometry = {
                 "type": "cylinder",
                 "radius": float(cylinder.get("radius", 0.1)),
-                "length": float(cylinder.get("length", 1.0))
+                "length": float(cylinder.get("length", 1.0)),
             }
 
         sphere = geom.find("sphere")
         if sphere is not None:
-            geometry = {
-                "type": "sphere",
-                "radius": float(sphere.get("radius", 0.1))
-            }
+            geometry = {"type": "sphere", "radius": float(sphere.get("radius", 0.1))}
 
         mesh = geom.find("mesh")
         if mesh is not None:
-            geometry = {
-                "type": "mesh",
-                "filename": mesh.get("filename", ""),
-                "scale": mesh.get("scale", "1 1 1")
-            }
+            geometry = {"type": "mesh", "filename": mesh.get("filename", ""), "scale": mesh.get("scale", "1 1 1")}
 
         return geometry
 
@@ -246,7 +247,7 @@ class URDFParser:
             limit_effort=limit_effort,
             limit_velocity=limit_velocity,
             damping=damping,
-            friction=friction
+            friction=friction,
         )
 
 
@@ -285,18 +286,13 @@ class MJCFGenerator:
         root_links = [l.name for l in model.links if l.name not in child_links]
 
         for root_link in root_links:
-            MJCFGenerator._add_body(
-                worldbody, root_link, link_map, joint_map, parent_map, asset
-            )
+            MJCFGenerator._add_body(worldbody, root_link, link_map, joint_map, parent_map, asset)
 
         # Actuator section
         actuator = ET.SubElement(root, "actuator")
         for joint in model.joints:
             if joint.joint_type in ["revolute", "prismatic", "continuous"]:
-                ET.SubElement(actuator, "motor",
-                             joint=joint.name,
-                             name=f"motor_{joint.name}",
-                             gear="50")
+                ET.SubElement(actuator, "motor", joint=joint.name, name=f"motor_{joint.name}", gear="50")
 
         # Write to file
         tree = ET.ElementTree(root)
@@ -312,7 +308,7 @@ class MJCFGenerator:
         link_map: Dict[str, Link],
         joint_map: Dict[str, Joint],
         parent_map: Dict[str, str],
-        asset: ET.Element
+        asset: ET.Element,
     ) -> None:
         """Recursively add body elements."""
         link = link_map.get(link_name)
@@ -331,9 +327,9 @@ class MJCFGenerator:
         body = ET.SubElement(parent_elem, "body", **body_attribs)
 
         # Add inertial
-        inertial = ET.SubElement(body, "inertial",
-                                 mass=str(link.mass),
-                                 pos=" ".join(f"{x:.6f}" for x in link.com_position))
+        inertial = ET.SubElement(
+            body, "inertial", mass=str(link.mass), pos=" ".join(f"{x:.6f}" for x in link.com_position)
+        )
 
         # Add joint if not root
         if joint and joint.joint_type != "fixed":
@@ -357,28 +353,21 @@ class MJCFGenerator:
 
         # Recursively add child bodies
         for child_joint in [j for j in joint_map.values() if j.parent == link_name]:
-            MJCFGenerator._add_body(
-                body, child_joint.child, link_map, joint_map, parent_map, asset
-            )
+            MJCFGenerator._add_body(body, child_joint.child, link_map, joint_map, parent_map, asset)
 
     @staticmethod
-    def _add_geometry(
-        body: ET.Element,
-        geometry: Dict,
-        geom_type: str,
-        asset: ET.Element
-    ) -> None:
+    def _add_geometry(body: ET.Element, geometry: Dict, geom_type: str, asset: ET.Element) -> None:
         """Add geometry to body."""
         geom_attribs = {"name": f"{body.get('name')}_{geom_type}"}
 
         if geometry["type"] == "box":
             size = geometry["size"]
             geom_attribs["type"] = "box"
-            geom_attribs["size"] = " ".join(f"{s/2:.6f}" for s in size)  # half-size
+            geom_attribs["size"] = " ".join(f"{s / 2:.6f}" for s in size)  # half-size
 
         elif geometry["type"] == "cylinder":
             geom_attribs["type"] = "cylinder"
-            geom_attribs["size"] = f"{geometry['radius']:.6f} {geometry['length']/2:.6f}"
+            geom_attribs["size"] = f"{geometry['radius']:.6f} {geometry['length'] / 2:.6f}"
 
         elif geometry["type"] == "sphere":
             geom_attribs["type"] = "sphere"
@@ -470,12 +459,9 @@ class SDFGenerator:
     @staticmethod
     def _add_joint(model_elem: ET.Element, joint: Joint) -> None:
         """Add joint element to SDF."""
-        sdf_type = {
-            "revolute": "revolute",
-            "continuous": "revolute",
-            "prismatic": "prismatic",
-            "fixed": "fixed"
-        }.get(joint.joint_type, "fixed")
+        sdf_type = {"revolute": "revolute", "continuous": "revolute", "prismatic": "prismatic", "fixed": "fixed"}.get(
+            joint.joint_type, "fixed"
+        )
 
         joint_elem = ET.SubElement(model_elem, "joint", name=joint.name, type=sdf_type)
 
@@ -483,8 +469,7 @@ class SDFGenerator:
         ET.SubElement(joint_elem, "child").text = joint.child
 
         # Pose
-        pose = " ".join(f"{x:.6f}" for x in joint.origin_xyz) + " " + \
-               " ".join(f"{x:.6f}" for x in joint.origin_rpy)
+        pose = " ".join(f"{x:.6f}" for x in joint.origin_xyz) + " " + " ".join(f"{x:.6f}" for x in joint.origin_rpy)
         ET.SubElement(joint_elem, "pose").text = pose
 
         if joint.joint_type != "fixed":
@@ -519,7 +504,7 @@ class UnifiedModelConverter:
         source_path: str,
         source_format: Optional[str] = None,
         target_formats: Optional[List[str]] = None,
-        output_dir: Optional[str] = None
+        output_dir: Optional[str] = None,
     ) -> Dict[str, str]:
         """
         Convert robot model to target formats.
@@ -561,12 +546,14 @@ class UnifiedModelConverter:
             output_path = output_dir / f"{model.name}.{self._get_extension(target)}"
             self._generate_model(model, target, str(output_path))
             outputs[target] = str(output_path)
-            self.conversion_log.append({
-                "source": str(source_path),
-                "source_format": source_format,
-                "target": str(output_path),
-                "target_format": target
-            })
+            self.conversion_log.append(
+                {
+                    "source": str(source_path),
+                    "source_format": source_format,
+                    "target": str(output_path),
+                    "target_format": target,
+                }
+            )
 
         return outputs
 
@@ -607,12 +594,7 @@ class UnifiedModelConverter:
         else:
             raise ValueError(f"Unsupported source format: {format_name}")
 
-    def _generate_model(
-        self,
-        model: RobotModel,
-        format_name: str,
-        output_path: str
-    ) -> None:
+    def _generate_model(self, model: RobotModel, format_name: str, output_path: str) -> None:
         """Generate model file."""
         if format_name == "mjcf":
             MJCFGenerator.generate(model, output_path)
@@ -632,34 +614,19 @@ class UnifiedModelConverter:
 
 def main():
     """Command-line interface for model conversion."""
-    parser = argparse.ArgumentParser(
-        description="Convert robot models between URDF, MJCF, SDF, and USD formats."
-    )
+    parser = argparse.ArgumentParser(description="Convert robot models between URDF, MJCF, SDF, and USD formats.")
+    parser.add_argument("--input", "-i", required=True, help="Input model file path")
+    parser.add_argument("--output", "-o", help="Output file path or directory")
     parser.add_argument(
-        "--input", "-i",
-        required=True,
-        help="Input model file path"
-    )
-    parser.add_argument(
-        "--output", "-o",
-        help="Output file path or directory"
-    )
-    parser.add_argument(
-        "--source-format", "-sf",
+        "--source-format",
+        "-sf",
         choices=["urdf", "mjcf", "sdf", "usd"],
-        help="Source format (auto-detected if not specified)"
+        help="Source format (auto-detected if not specified)",
     )
     parser.add_argument(
-        "--target-format", "-tf",
-        choices=["urdf", "mjcf", "sdf", "usd"],
-        nargs="+",
-        help="Target format(s)"
+        "--target-format", "-tf", choices=["urdf", "mjcf", "sdf", "usd"], nargs="+", help="Target format(s)"
     )
-    parser.add_argument(
-        "--all-formats", "-a",
-        action="store_true",
-        help="Convert to all supported formats"
-    )
+    parser.add_argument("--all-formats", "-a", action="store_true", help="Convert to all supported formats")
 
     args = parser.parse_args()
 
@@ -683,10 +650,7 @@ def main():
 
     # Perform conversion
     outputs = converter.convert(
-        source_path=args.input,
-        source_format=args.source_format,
-        target_formats=target_formats,
-        output_dir=output_dir
+        source_path=args.input, source_format=args.source_format, target_formats=target_formats, output_dir=output_dir
     )
 
     print("\nConversion complete:")

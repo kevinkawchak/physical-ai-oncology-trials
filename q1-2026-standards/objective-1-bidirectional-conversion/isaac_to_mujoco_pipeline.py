@@ -35,6 +35,7 @@ import json
 # Optional imports for full functionality
 try:
     import mujoco
+
     MUJOCO_AVAILABLE = True
     MUJOCO_VERSION = mujoco.__version__
 except ImportError:
@@ -46,6 +47,7 @@ except ImportError:
 @dataclass
 class PhysXContactParams:
     """Isaac PhysX contact parameters."""
+
     contact_offset: float = 0.001
     rest_offset: float = 0.0
     static_friction: float = 0.8
@@ -57,6 +59,7 @@ class PhysXContactParams:
 @dataclass
 class MuJoCoContactParams:
     """MuJoCo contact parameters."""
+
     solref: Tuple[float, float] = (0.01, 1.0)
     solimp: Tuple[float, ...] = (0.9, 0.95, 0.001, 0.5, 2)
     friction: Tuple[float, float, float] = (0.8, 0.02, 0.01)
@@ -66,6 +69,7 @@ class MuJoCoContactParams:
 @dataclass
 class ConversionConfig:
     """Configuration for Isaac → MuJoCo conversion."""
+
     # Physics settings
     timestep: float = 0.002
     solver_iterations: int = 50
@@ -132,14 +136,14 @@ class PhysicsParameterConverter:
         friction = (
             params.static_friction,
             0.02,  # Torsional friction (typically small)
-            0.01   # Rolling friction (typically small)
+            0.01,  # Rolling friction (typically small)
         )
 
         return MuJoCoContactParams(
             solref=(timeconst, dampratio),
             solimp=(dmin, dmax, width, midpoint, power),
             friction=friction,
-            condim=3  # Standard 3D friction cone
+            condim=3,  # Standard 3D friction cone
         )
 
     @staticmethod
@@ -148,7 +152,7 @@ class PhysicsParameterConverter:
         timeconst, dampratio = params.solref
 
         # Estimate stiffness from timeconst
-        stiffness = 1.0 / (timeconst ** 2) if timeconst > 0 else 1e6
+        stiffness = 1.0 / (timeconst**2) if timeconst > 0 else 1e6
 
         # contact_offset from solimp width
         contact_offset = params.solimp[2] if len(params.solimp) > 2 else 0.001
@@ -159,7 +163,7 @@ class PhysicsParameterConverter:
             static_friction=params.friction[0],
             dynamic_friction=params.friction[0] * 0.8,
             restitution=0.1,
-            bounce_threshold_velocity=0.2
+            bounce_threshold_velocity=0.2,
         )
 
 
@@ -199,7 +203,7 @@ class URDFToMJCFConverter:
         urdf_path: str,
         output_path: str,
         robot_name: Optional[str] = None,
-        physx_params: Optional[PhysXContactParams] = None
+        physx_params: Optional[PhysXContactParams] = None,
     ) -> Dict[str, Any]:
         """
         Convert URDF file to MJCF format.
@@ -307,17 +311,25 @@ class URDFToMJCFConverter:
 
             inertia_elem = inertial.find("inertia")
             if inertia_elem is not None:
-                link["inertia"] = np.array([
-                    [float(inertia_elem.get("ixx", 0.01)),
-                     float(inertia_elem.get("ixy", 0)),
-                     float(inertia_elem.get("ixz", 0))],
-                    [float(inertia_elem.get("ixy", 0)),
-                     float(inertia_elem.get("iyy", 0.01)),
-                     float(inertia_elem.get("iyz", 0))],
-                    [float(inertia_elem.get("ixz", 0)),
-                     float(inertia_elem.get("iyz", 0)),
-                     float(inertia_elem.get("izz", 0.01))]
-                ])
+                link["inertia"] = np.array(
+                    [
+                        [
+                            float(inertia_elem.get("ixx", 0.01)),
+                            float(inertia_elem.get("ixy", 0)),
+                            float(inertia_elem.get("ixz", 0)),
+                        ],
+                        [
+                            float(inertia_elem.get("ixy", 0)),
+                            float(inertia_elem.get("iyy", 0.01)),
+                            float(inertia_elem.get("iyz", 0)),
+                        ],
+                        [
+                            float(inertia_elem.get("ixz", 0)),
+                            float(inertia_elem.get("iyz", 0)),
+                            float(inertia_elem.get("izz", 0.01)),
+                        ],
+                    ]
+                )
 
         # Visual geometry
         visual = elem.find("visual")
@@ -448,24 +460,20 @@ class URDFToMJCFConverter:
     def _add_compiler_options(self, root: ET.Element) -> None:
         """Add compiler and option elements."""
         # Compiler settings
-        ET.SubElement(root, "compiler",
-                     angle="radian",
-                     autolimits="true",
-                     meshdir="meshes")
+        ET.SubElement(root, "compiler", angle="radian", autolimits="true", meshdir="meshes")
 
         # Physics options
-        ET.SubElement(root, "option",
-                     timestep=str(self.config.timestep),
-                     iterations=str(self.config.solver_iterations),
-                     tolerance=str(self.config.solver_tolerance),
-                     integrator=self.config.integrator,
-                     gravity="0 0 -9.81")
+        ET.SubElement(
+            root,
+            "option",
+            timestep=str(self.config.timestep),
+            iterations=str(self.config.solver_iterations),
+            tolerance=str(self.config.solver_tolerance),
+            integrator=self.config.integrator,
+            gravity="0 0 -9.81",
+        )
 
-    def _add_defaults(
-        self,
-        root: ET.Element,
-        physx_params: Optional[PhysXContactParams]
-    ) -> None:
+    def _add_defaults(self, root: ET.Element, physx_params: Optional[PhysXContactParams]) -> None:
         """Add default element with contact and joint parameters."""
         default = ET.SubElement(root, "default")
 
@@ -481,33 +489,36 @@ class URDFToMJCFConverter:
             solimp = self.config.default_solimp
 
         # Joint defaults
-        ET.SubElement(default, "joint",
-                     damping=str(self.config.default_damping),
-                     armature=str(self.config.default_armature))
+        ET.SubElement(
+            default, "joint", damping=str(self.config.default_damping), armature=str(self.config.default_armature)
+        )
 
         # Geom defaults
-        ET.SubElement(default, "geom",
-                     friction=" ".join(str(f) for f in friction),
-                     solref=" ".join(str(s) for s in solref),
-                     solimp=" ".join(str(s) for s in solimp))
+        ET.SubElement(
+            default,
+            "geom",
+            friction=" ".join(str(f) for f in friction),
+            solref=" ".join(str(s) for s in solref),
+            solimp=" ".join(str(s) for s in solimp),
+        )
 
-    def _add_assets(
-        self,
-        root: ET.Element,
-        links: Dict,
-        urdf_path: str
-    ) -> None:
+    def _add_assets(self, root: ET.Element, links: Dict, urdf_path: str) -> None:
         """Add asset element with meshes."""
         asset = ET.SubElement(root, "asset")
 
         # Add ground texture and material
-        ET.SubElement(asset, "texture",
-                     name="grid", type="2d", builtin="checker",
-                     width="512", height="512",
-                     rgb1="0.1 0.2 0.3", rgb2="0.2 0.3 0.4")
-        ET.SubElement(asset, "material",
-                     name="grid", texture="grid",
-                     texrepeat="8 8", reflectance="0.2")
+        ET.SubElement(
+            asset,
+            "texture",
+            name="grid",
+            type="2d",
+            builtin="checker",
+            width="512",
+            height="512",
+            rgb1="0.1 0.2 0.3",
+            rgb2="0.2 0.3 0.4",
+        )
+        ET.SubElement(asset, "material", name="grid", texture="grid", texrepeat="8 8", reflectance="0.2")
 
         # Collect unique meshes
         urdf_dir = Path(urdf_path).parent
@@ -526,9 +537,7 @@ class URDFToMJCFConverter:
             resolved_path = self._resolve_mesh_path(mesh_path, urdf_dir)
 
             if resolved_path:
-                ET.SubElement(asset, "mesh",
-                             name=mesh_name,
-                             file=str(resolved_path))
+                ET.SubElement(asset, "mesh", name=mesh_name, file=str(resolved_path))
             else:
                 self.warnings.append(f"Mesh not found: {mesh_path}")
 
@@ -553,12 +562,7 @@ class URDFToMJCFConverter:
                 return str(candidate)
             return mesh_path
 
-    def _build_body_hierarchy(
-        self,
-        worldbody: ET.Element,
-        links: Dict,
-        joints: Dict
-    ) -> None:
+    def _build_body_hierarchy(self, worldbody: ET.Element, links: Dict, joints: Dict) -> None:
         """Build MJCF body hierarchy from URDF links/joints."""
         # Build parent-child relationships
         child_to_joint = {j["child"]: j for j in joints.values()}
@@ -575,23 +579,14 @@ class URDFToMJCFConverter:
         root_links = [name for name in links.keys() if name not in all_children]
 
         # Add ground plane
-        ET.SubElement(worldbody, "geom",
-                     name="ground", type="plane",
-                     size="5 5 0.1", material="grid")
+        ET.SubElement(worldbody, "geom", name="ground", type="plane", size="5 5 0.1", material="grid")
 
         # Build hierarchy starting from roots
         for root_name in root_links:
-            self._add_body_recursive(
-                worldbody, root_name, links, child_to_joint, parent_children
-            )
+            self._add_body_recursive(worldbody, root_name, links, child_to_joint, parent_children)
 
     def _add_body_recursive(
-        self,
-        parent_elem: ET.Element,
-        link_name: str,
-        links: Dict,
-        child_to_joint: Dict,
-        parent_children: Dict
+        self, parent_elem: ET.Element, link_name: str, links: Dict, child_to_joint: Dict, parent_children: Dict
     ) -> None:
         """Recursively add body elements."""
         link = links.get(link_name)
@@ -615,25 +610,17 @@ class URDFToMJCFConverter:
             inertia = link["inertia"]
 
             # Check if diagonal
-            is_diagonal = (
-                abs(inertia[0, 1]) < 1e-10 and
-                abs(inertia[0, 2]) < 1e-10 and
-                abs(inertia[1, 2]) < 1e-10
-            )
+            is_diagonal = abs(inertia[0, 1]) < 1e-10 and abs(inertia[0, 2]) < 1e-10 and abs(inertia[1, 2]) < 1e-10
 
             if is_diagonal:
-                diag = f"{inertia[0,0]:.6g} {inertia[1,1]:.6g} {inertia[2,2]:.6g}"
-                ET.SubElement(body, "inertial",
-                             mass=str(link["mass"]),
-                             pos=com_pos,
-                             diaginertia=diag)
+                diag = f"{inertia[0, 0]:.6g} {inertia[1, 1]:.6g} {inertia[2, 2]:.6g}"
+                ET.SubElement(body, "inertial", mass=str(link["mass"]), pos=com_pos, diaginertia=diag)
             else:
-                full = (f"{inertia[0,0]:.6g} {inertia[1,1]:.6g} {inertia[2,2]:.6g} "
-                       f"{inertia[0,1]:.6g} {inertia[0,2]:.6g} {inertia[1,2]:.6g}")
-                ET.SubElement(body, "inertial",
-                             mass=str(link["mass"]),
-                             pos=com_pos,
-                             fullinertia=full)
+                full = (
+                    f"{inertia[0, 0]:.6g} {inertia[1, 1]:.6g} {inertia[2, 2]:.6g} "
+                    f"{inertia[0, 1]:.6g} {inertia[0, 2]:.6g} {inertia[1, 2]:.6g}"
+                )
+                ET.SubElement(body, "inertial", mass=str(link["mass"]), pos=com_pos, fullinertia=full)
 
         # Add joint if this is not a root body and joint is not fixed
         if joint_info and joint_info["type"] != "fixed":
@@ -665,9 +652,7 @@ class URDFToMJCFConverter:
         # Recursively add children
         children = parent_children.get(link_name, [])
         for child_name in children:
-            self._add_body_recursive(
-                body, child_name, links, child_to_joint, parent_children
-            )
+            self._add_body_recursive(body, child_name, links, child_to_joint, parent_children)
 
     def _add_geom(self, body: ET.Element, name: str, geom: Dict) -> None:
         """Add geometry to body."""
@@ -703,11 +688,14 @@ class URDFToMJCFConverter:
 
         for joint in joints.values():
             if joint["type"] in ["revolute", "prismatic", "continuous"]:
-                ET.SubElement(actuator, "motor",
-                             name=f"motor_{joint['name']}",
-                             joint=joint["name"],
-                             gear=str(self.config.default_gear),
-                             forcerange=f"{self.config.default_forcerange[0]} {self.config.default_forcerange[1]}")
+                ET.SubElement(
+                    actuator,
+                    "motor",
+                    name=f"motor_{joint['name']}",
+                    joint=joint["name"],
+                    gear=str(self.config.default_gear),
+                    forcerange=f"{self.config.default_forcerange[0]} {self.config.default_forcerange[1]}",
+                )
 
     def _validate_mjcf(self, mjcf_path: str) -> Dict[str, Any]:
         """Validate generated MJCF file."""
@@ -749,21 +737,11 @@ class IsaacToMuJoCoConverter:
         self.config = config or ConversionConfig()
         self.urdf_converter = URDFToMJCFConverter(config)
 
-    def convert_urdf(
-        self,
-        urdf_path: str,
-        output_path: str,
-        **kwargs
-    ) -> Dict[str, Any]:
+    def convert_urdf(self, urdf_path: str, output_path: str, **kwargs) -> Dict[str, Any]:
         """Convert URDF file to MJCF."""
         return self.urdf_converter.convert(urdf_path, output_path, **kwargs)
 
-    def convert_usd(
-        self,
-        usd_path: str,
-        output_path: str,
-        **kwargs
-    ) -> Dict[str, Any]:
+    def convert_usd(self, usd_path: str, output_path: str, **kwargs) -> Dict[str, Any]:
         """
         Convert USD file to MJCF.
 
@@ -778,7 +756,7 @@ class IsaacToMuJoCoConverter:
                 "USD → MJCF conversion requires either:",
                 "  1. Isaac Sim installed for native export, or",
                 "  2. Intermediate USD → URDF conversion via Newton tools",
-                "See: https://github.com/newton-physics/newton for USD converter"
+                "See: https://github.com/newton-physics/newton for USD converter",
             ]
 
             return {
@@ -796,33 +774,13 @@ class IsaacToMuJoCoConverter:
 
 def main():
     """Command-line interface."""
-    parser = argparse.ArgumentParser(
-        description="Convert Isaac Lab URDF/USD models to MuJoCo MJCF format."
-    )
-    parser.add_argument(
-        "--input", "-i", required=True,
-        help="Input file path (URDF or USD)"
-    )
-    parser.add_argument(
-        "--output", "-o", required=True,
-        help="Output MJCF file path"
-    )
-    parser.add_argument(
-        "--name", "-n",
-        help="Override robot name"
-    )
-    parser.add_argument(
-        "--timestep", type=float, default=0.002,
-        help="Simulation timestep (default: 0.002)"
-    )
-    parser.add_argument(
-        "--validate", action="store_true",
-        help="Validate output with MuJoCo"
-    )
-    parser.add_argument(
-        "--verbose", "-v", action="store_true",
-        help="Verbose output"
-    )
+    parser = argparse.ArgumentParser(description="Convert Isaac Lab URDF/USD models to MuJoCo MJCF format.")
+    parser.add_argument("--input", "-i", required=True, help="Input file path (URDF or USD)")
+    parser.add_argument("--output", "-o", required=True, help="Output MJCF file path")
+    parser.add_argument("--name", "-n", help="Override robot name")
+    parser.add_argument("--timestep", type=float, default=0.002, help="Simulation timestep (default: 0.002)")
+    parser.add_argument("--validate", action="store_true", help="Validate output with MuJoCo")
+    parser.add_argument("--verbose", "-v", action="store_true", help="Verbose output")
 
     args = parser.parse_args()
 
@@ -846,7 +804,7 @@ def main():
 
     # Print result
     if result["success"]:
-        print(f"Conversion successful!")
+        print("Conversion successful!")
         print(f"  Output: {result['output']}")
         print(f"  Links: {result['links_converted']}")
         print(f"  Joints: {result['joints_converted']}")
@@ -854,7 +812,7 @@ def main():
         if result.get("validation"):
             val = result["validation"]
             if val["valid"]:
-                print(f"  Validation: PASSED")
+                print("  Validation: PASSED")
                 print(f"    Bodies: {val['nbody']}, Joints: {val['njnt']}, Actuators: {val['nu']}")
             else:
                 print(f"  Validation: FAILED - {val['error']}")

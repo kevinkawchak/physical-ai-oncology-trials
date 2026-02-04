@@ -25,6 +25,7 @@ import warnings
 
 try:
     import mujoco
+
     MUJOCO_AVAILABLE = True
 except ImportError:
     MUJOCO_AVAILABLE = False
@@ -32,6 +33,7 @@ except ImportError:
 
 try:
     import torch
+
     TORCH_AVAILABLE = True
 except ImportError:
     TORCH_AVAILABLE = False
@@ -41,17 +43,19 @@ except ImportError:
 @dataclass
 class PhysicsParameters:
     """Standardized physics parameters for cross-framework compatibility."""
+
     timestep: float = 0.002  # seconds
     gravity: Tuple[float, float, float] = (0.0, 0.0, -9.81)
     friction_coefficient: float = 0.5
     contact_stiffness: float = 1e5  # N/m
-    contact_damping: float = 1e3   # N·s/m
+    contact_damping: float = 1e3  # N·s/m
     solver_iterations: int = 50
 
 
 @dataclass
 class ContactParameters:
     """Contact dynamics parameters with framework-specific mappings."""
+
     # Unified parameters
     stiffness: float = 1e5
     damping: float = 1e3
@@ -108,12 +112,7 @@ class PhysicsParameterMapper:
     }
 
     @classmethod
-    def convert_parameters(
-        cls,
-        params: PhysicsParameters,
-        source: str,
-        target: str
-    ) -> Dict[str, Any]:
+    def convert_parameters(cls, params: PhysicsParameters, source: str, target: str) -> Dict[str, Any]:
         """Convert physics parameters between frameworks."""
         if source == target:
             return params.__dict__
@@ -127,10 +126,7 @@ class PhysicsParameterMapper:
         converted["gravity"] = params.gravity
 
         # Contact parameters (require transformation)
-        contact = ContactParameters(
-            stiffness=params.contact_stiffness,
-            damping=params.contact_damping
-        )
+        contact = ContactParameters(stiffness=params.contact_stiffness, damping=params.contact_damping)
 
         if target == "mujoco":
             solref = contact.to_mujoco_solref()
@@ -152,9 +148,7 @@ class StateConverter:
     """Converts simulation state between frameworks."""
 
     @staticmethod
-    def isaac_to_mujoco(
-        isaac_state: Dict[str, np.ndarray]
-    ) -> Tuple[np.ndarray, np.ndarray]:
+    def isaac_to_mujoco(isaac_state: Dict[str, np.ndarray]) -> Tuple[np.ndarray, np.ndarray]:
         """Convert Isaac state to MuJoCo qpos/qvel format."""
         # Isaac typically provides joint positions and velocities
         joint_pos = isaac_state.get("joint_pos", np.array([]))
@@ -168,10 +162,7 @@ class StateConverter:
         return qpos, qvel
 
     @staticmethod
-    def mujoco_to_isaac(
-        qpos: np.ndarray,
-        qvel: np.ndarray
-    ) -> Dict[str, np.ndarray]:
+    def mujoco_to_isaac(qpos: np.ndarray, qvel: np.ndarray) -> Dict[str, np.ndarray]:
         """Convert MuJoCo qpos/qvel to Isaac state format."""
         return {
             "joint_pos": qpos.copy(),
@@ -179,9 +170,7 @@ class StateConverter:
         }
 
     @staticmethod
-    def isaac_to_pybullet(
-        isaac_state: Dict[str, np.ndarray]
-    ) -> Dict[str, np.ndarray]:
+    def isaac_to_pybullet(isaac_state: Dict[str, np.ndarray]) -> Dict[str, np.ndarray]:
         """Convert Isaac state to PyBullet format."""
         return {
             "joint_positions": isaac_state.get("joint_pos", np.array([])),
@@ -200,11 +189,7 @@ class IsaacMuJoCoBridge:
     - Cross-framework benchmarking
     """
 
-    def __init__(
-        self,
-        config_path: Optional[str] = None,
-        validate_conversion: bool = True
-    ):
+    def __init__(self, config_path: Optional[str] = None, validate_conversion: bool = True):
         """
         Initialize the Isaac-MuJoCo bridge.
 
@@ -244,7 +229,7 @@ class IsaacMuJoCoBridge:
         source_env: Any,
         source_framework: str = "isaac",
         target_framework: str = "mujoco",
-        output_path: Optional[str] = None
+        output_path: Optional[str] = None,
     ) -> Any:
         """
         Convert an environment from one framework to another.
@@ -265,16 +250,9 @@ class IsaacMuJoCoBridge:
         elif source_framework == "mujoco" and target_framework == "isaac":
             return self._mujoco_to_isaac(source_env, output_path)
         else:
-            raise NotImplementedError(
-                f"Conversion from {source_framework} to {target_framework} "
-                "not yet implemented."
-            )
+            raise NotImplementedError(f"Conversion from {source_framework} to {target_framework} not yet implemented.")
 
-    def _isaac_to_mujoco(
-        self,
-        isaac_env: Any,
-        output_path: Optional[str]
-    ) -> Any:
+    def _isaac_to_mujoco(self, isaac_env: Any, output_path: Optional[str]) -> Any:
         """Convert Isaac environment to MuJoCo."""
         if not MUJOCO_AVAILABLE:
             raise ImportError("MuJoCo not installed")
@@ -297,11 +275,7 @@ class IsaacMuJoCoBridge:
 
         return None  # Would return mujoco.MjModel
 
-    def _mujoco_to_isaac(
-        self,
-        mujoco_model: Any,
-        output_path: Optional[str]
-    ) -> Any:
+    def _mujoco_to_isaac(self, mujoco_model: Any, output_path: Optional[str]) -> Any:
         """Convert MuJoCo model to Isaac environment."""
         if not TORCH_AVAILABLE:
             raise ImportError("PyTorch not installed for Isaac Lab")
@@ -316,13 +290,7 @@ class IsaacMuJoCoBridge:
 
         return None  # Would return Isaac environment
 
-    def sync_state(
-        self,
-        source_env: Any,
-        target_env: Any,
-        source_framework: str,
-        target_framework: str
-    ) -> None:
+    def sync_state(self, source_env: Any, target_env: Any, source_framework: str, target_framework: str) -> None:
         """
         Synchronize physics state between environments.
 
@@ -355,36 +323,22 @@ class IsaacMuJoCoBridge:
             "ee_quat": np.array([1, 0, 0, 0]),
         }
 
-    def _set_mujoco_state(
-        self,
-        model_data: Tuple,
-        qpos: np.ndarray,
-        qvel: np.ndarray
-    ) -> None:
+    def _set_mujoco_state(self, model_data: Tuple, qpos: np.ndarray, qvel: np.ndarray) -> None:
         """Set state in MuJoCo environment."""
         if not MUJOCO_AVAILABLE:
             return
 
         model, data = model_data
-        data.qpos[:len(qpos)] = qpos
-        data.qvel[:len(qvel)] = qvel
+        data.qpos[: len(qpos)] = qpos
+        data.qvel[: len(qvel)] = qvel
         mujoco.mj_forward(model, data)
 
-    def _set_pybullet_state(
-        self,
-        env: Any,
-        state: Dict[str, np.ndarray]
-    ) -> None:
+    def _set_pybullet_state(self, env: Any, state: Dict[str, np.ndarray]) -> None:
         """Set state in PyBullet environment."""
         # Placeholder for PyBullet state setting
         pass
 
-    def validate_conversion(
-        self,
-        source_env: Any,
-        target_env: Any,
-        num_steps: int = 100
-    ) -> Dict[str, float]:
+    def validate_conversion(self, source_env: Any, target_env: Any, num_steps: int = 100) -> Dict[str, float]:
         """
         Validate physics consistency between converted environments.
 
@@ -427,9 +381,9 @@ class IsaacMuJoCoBridge:
 
         tolerance = self.config["tolerance"]
         passed = (
-            errors["position_mae"] < tolerance["position"] and
-            errors["velocity_mae"] < tolerance["velocity"] and
-            errors["force_mae"] < tolerance["force"]
+            errors["position_mae"] < tolerance["position"]
+            and errors["velocity_mae"] < tolerance["velocity"]
+            and errors["force_mae"] < tolerance["force"]
         )
 
         print(f"Validation {'PASSED' if passed else 'FAILED'}")
@@ -456,7 +410,7 @@ class PolicyTransferValidator:
         source_env: Any,
         target_env: Any,
         num_episodes: int = 100,
-        performance_threshold: float = 0.9
+        performance_threshold: float = 0.9,
     ) -> Dict[str, Any]:
         """
         Validate that a policy trained in one framework performs
@@ -504,12 +458,7 @@ class PolicyTransferValidator:
 
         return results
 
-    def _evaluate_policy(
-        self,
-        policy_path: str,
-        env: Any,
-        num_episodes: int
-    ) -> np.ndarray:
+    def _evaluate_policy(self, policy_path: str, env: Any, num_episodes: int) -> np.ndarray:
         """Evaluate policy in environment."""
         rewards = []
 
@@ -546,17 +495,10 @@ def main():
     print("1. Physics Parameter Mapping")
     print("-" * 40)
 
-    params = PhysicsParameters(
-        timestep=0.002,
-        gravity=(0, 0, -9.81),
-        contact_stiffness=1e5,
-        contact_damping=1e3
-    )
+    params = PhysicsParameters(timestep=0.002, gravity=(0, 0, -9.81), contact_stiffness=1e5, contact_damping=1e3)
 
-    mujoco_params = PhysicsParameterMapper.convert_parameters(
-        params, source="isaac", target="mujoco"
-    )
-    print(f"  Isaac → MuJoCo conversion:")
+    mujoco_params = PhysicsParameterMapper.convert_parameters(params, source="isaac", target="mujoco")
+    print("  Isaac → MuJoCo conversion:")
     print(f"    solref: {mujoco_params.get('solref', 'N/A')}")
     print()
 

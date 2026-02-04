@@ -1,0 +1,30 @@
+cff-version: 1.2.0
+title: "Physical AI for Oncology Clinical Trials"
+message: "If you use this repository in your research, please cite it using this metadata."
+type: software
+authors:
+  - family-names: Kawchak
+    given-names: Kevin
+    affiliation: ChemicalQDevice
+date-released: "2026-01-01"
+url: "https://github.com/kevinkawchak/physical-ai-oncology-trials"
+repository-code: "https://github.com/kevinkawchak/physical-ai-oncology-trials"
+license: MIT
+identifiers:
+  - type: doi
+    value: "10.5281/zenodo.18445179"
+keywords:
+  - physical-ai
+  - oncology
+  - clinical-trials
+  - surgical-robotics
+  - reinforcement-learning
+  - digital-twins
+  - sim-to-real
+  - medical-ai
+abstract: >-
+  Practical tools for integrating physical AI into oncology clinical trials.
+  Provides production-ready configurations, validated pipelines, and
+  integration guides for deploying robotic systems, digital twins, and
+  embodied AI agents in oncology. Covers NVIDIA Isaac Lab, MuJoCo,
+  ORBIT-Surgical, dVRK, and agentic/generative AI frameworks.

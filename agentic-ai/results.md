@@ -2,6 +2,8 @@
 
 *Validated benchmarks and clinical outcomes (October 2025 - January 2026)*
 
+> **Data Disclaimer:** Tables in this document combine figures from published literature and illustrative (projected) values. Published results cite the originating system or study (e.g., RoboNurse-VLA, SRT-H, ROSA, MCP ecosystem metrics). Where no citation is given, figures are illustrative targets derived from aggregated literature trends and should not be treated as peer-reviewed measurements. See `CONTRIBUTING.md` for the labeling policy.
+
 ---
 
 ## 1. LLM-Embedded Surgical Robot Performance
@@ -50,7 +52,7 @@ Total end-to-end:          450-850ms (95th percentile: 1000ms)
 
 ## 2. Multi-Agent Surgical Cooperation
 
-### Human-Robot Team Performance (Simulation Study)
+### Human-Robot Team Performance (Simulation Study) *Illustrative*
 
 **Cooperative Assistance Results**:
 
@@ -132,7 +134,7 @@ Training time (8x NVIDIA A100):
 
 ## 4. ROS 2 Agentic Framework Performance
 
-### RAI Framework Benchmarks
+### RAI Framework Benchmarks *Illustrative*
 
 **Natural Language → Robot Action**:
 
@@ -152,7 +154,7 @@ Training time (8x NVIDIA A100):
 | Equipment positioning | 92.3% | 1.8 min |
 | Patient room navigation | 97.1% | 2.5 min |
 
-### ROSA (NASA JPL) Diagnostic Performance
+### ROSA (NASA JPL) Diagnostic Performance *Illustrative -- system attributed to NASA JPL, metrics not from a published study*
 
 **Robot System Diagnosis**:
 
@@ -304,7 +306,7 @@ Procedure errors prevented: 12 (3.5% of procedures)
 
 ### Multi-Robot Coordination
 
-**Hospital Robot Fleet Performance (Pilot: 8 robots, 6 months)**:
+**Hospital Robot Fleet Performance (Pilot: 8 robots, 6 months)** *Illustrative -- hypothetical deployment scenario, not from a published study*:
 
 | Metric | Value | Trend |
 |--------|-------|-------|
@@ -325,7 +327,7 @@ Procedure errors prevented: 12 (3.5% of procedures)
 
 ### Dynamic Task Allocation
 
-**Optimization Results**:
+**Optimization Results** *Illustrative*:
 
 | Allocation Strategy | Avg Wait Time | Robot Utilization |
 |--------------------|---------------|-------------------|
@@ -340,7 +342,7 @@ Procedure errors prevented: 12 (3.5% of procedures)
 
 ### Agentic vs Traditional Automation
 
-**Clinical Trial Workflow Comparison**:
+**Clinical Trial Workflow Comparison** *Illustrative*:
 
 | Workflow | Traditional | Rule-Based | Agentic | Improvement |
 |----------|-------------|------------|---------|-------------|
@@ -350,7 +352,7 @@ Procedure errors prevented: 12 (3.5% of procedures)
 | Adverse event reporting | 40 min | 20 min | 7 min | 83% |
 | Protocol compliance check | 20 min | 8 min | 2 min | 90% |
 
-### LLM Model Comparison for Agentic Tasks
+### LLM Model Comparison for Agentic Tasks *Illustrative -- not from a published benchmark*
 
 **Task Success Rates by Model**:
 
@@ -378,7 +380,7 @@ Recommendation: Sonnet for most applications, Opus for complex planning
 
 ### Error Distribution
 
-**Root Cause Analysis (n=500 failures)**:
+**Root Cause Analysis (n=500 failures)** *Illustrative*:
 
 | Cause | Percentage | Mitigation |
 |-------|------------|------------|
@@ -404,7 +406,7 @@ Recommendation: Sonnet for most applications, Opus for complex planning
 
 ## 12. Long-Term Stability
 
-### 6-Month Deployment Metrics
+### 6-Month Deployment Metrics *Illustrative -- hypothetical deployment scenario*
 
 **System Reliability**:
 

@@ -62,10 +62,7 @@ from typing import Any
 import numpy as np
 
 # Configure logging
-logging.basicConfig(
-    level=logging.INFO,
-    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s'
-)
+logging.basicConfig(level=logging.INFO, format="%(asctime)s - %(name)s - %(levelname)s - %(message)s")
 logger = logging.getLogger(__name__)
 
 
@@ -75,6 +72,7 @@ logger = logging.getLogger(__name__)
 # These classes define the training configuration for surgical robot policies.
 # Modify these parameters based on your specific oncology application.
 # =============================================================================
+
 
 class SurgicalTask(Enum):
     """
@@ -87,6 +85,7 @@ class SurgicalTask(Enum):
     - NEEDLE_HANDOVER: Bimanual needle transfer between robot arms
     - SHUNT_INSERTION: Vascular access procedures
     """
+
     NEEDLE_INSERTION = "needle_insertion"
     TISSUE_GRASPING = "tissue_grasping"
     NEEDLE_LIFT = "needle_lift"
@@ -116,6 +115,7 @@ class TrainingConfig:
         checkpoint_interval: Save checkpoint every N iterations
         device: Training device ("cuda:0" or "cpu")
     """
+
     task: SurgicalTask = SurgicalTask.NEEDLE_LIFT
     num_envs: int = 1024
     max_iterations: int = 1000
@@ -127,23 +127,27 @@ class TrainingConfig:
 
     # Task-specific reward weights
     # These have been tuned for oncology precision requirements
-    reward_weights: dict = field(default_factory=lambda: {
-        "position_tracking": 1.0,    # Weight for end-effector position accuracy
-        "orientation_tracking": 0.5,  # Weight for tool orientation
-        "collision_penalty": -10.0,   # Penalty for collisions with anatomy
-        "success_bonus": 100.0,       # Bonus for task completion
-        "smoothness": 0.1             # Reward for smooth trajectories
-    })
+    reward_weights: dict = field(
+        default_factory=lambda: {
+            "position_tracking": 1.0,  # Weight for end-effector position accuracy
+            "orientation_tracking": 0.5,  # Weight for tool orientation
+            "collision_penalty": -10.0,  # Penalty for collisions with anatomy
+            "success_bonus": 100.0,  # Bonus for task completion
+            "smoothness": 0.1,  # Reward for smooth trajectories
+        }
+    )
 
     # Domain randomization ranges for sim2real transfer
     # Critical for robust policy transfer to clinical environments
-    domain_randomization: dict = field(default_factory=lambda: {
-        "tissue_stiffness_range": (0.5, 2.0),      # Relative to nominal
-        "friction_range": (0.8, 1.2),              # Friction coefficient multiplier
-        "lighting_variation": True,                 # Randomize OR lighting
-        "camera_noise_std": 0.01,                  # Gaussian noise on observations
-        "actuator_delay_ms": (0, 20)               # Control delay simulation
-    })
+    domain_randomization: dict = field(
+        default_factory=lambda: {
+            "tissue_stiffness_range": (0.5, 2.0),  # Relative to nominal
+            "friction_range": (0.8, 1.2),  # Friction coefficient multiplier
+            "lighting_variation": True,  # Randomize OR lighting
+            "camera_noise_std": 0.01,  # Gaussian noise on observations
+            "actuator_delay_ms": (0, 20),  # Control delay simulation
+        }
+    )
 
 
 @dataclass
@@ -164,20 +168,23 @@ class EnvironmentConfig:
                     Smaller = more accurate but slower
         render_mode: Rendering mode for visualization
     """
+
     robot_model: str = "dvrk_psm"
     control_mode: str = "cartesian"
     control_frequency_hz: int = 60
-    physics_dt: float = 1/120
+    physics_dt: float = 1 / 120
     render_mode: str = "headless"
 
     # Anatomy configuration for oncology procedures
-    anatomy: dict = field(default_factory=lambda: {
-        "include_tumor": True,
-        "tumor_size_mm": 20,
-        "tumor_location": "lung_right_upper_lobe",
-        "include_vessels": True,
-        "vessel_proximity_mm": 5
-    })
+    anatomy: dict = field(
+        default_factory=lambda: {
+            "include_tumor": True,
+            "tumor_size_mm": 20,
+            "tumor_location": "lung_right_upper_lobe",
+            "include_vessels": True,
+            "vessel_proximity_mm": 5,
+        }
+    )
 
 
 # =============================================================================
@@ -186,6 +193,7 @@ class EnvironmentConfig:
 # This section wraps Isaac Lab / ORBIT-Surgical environments for our
 # oncology-specific training pipeline.
 # =============================================================================
+
 
 class OncologySurgicalEnv:
     """
@@ -212,13 +220,7 @@ class OncologySurgicalEnv:
         >>> obs, reward, done, info = env.step(action)
     """
 
-    def __init__(
-        self,
-        task: SurgicalTask,
-        config: EnvironmentConfig,
-        num_envs: int = 1024,
-        device: str = "cuda:0"
-    ):
+    def __init__(self, task: SurgicalTask, config: EnvironmentConfig, num_envs: int = 1024, device: str = "cuda:0"):
         """
         Initialize oncology surgical environment.
 
@@ -239,7 +241,7 @@ class OncologySurgicalEnv:
             SurgicalTask.NEEDLE_HANDOVER: "Isaac-Handover-Needle-PSM-IK-Rel-v0",
             SurgicalTask.SHUNT_INSERTION: "Isaac-Shunt-Insertion-PSM-IK-Rel-v0",
             SurgicalTask.NEEDLE_INSERTION: "Isaac-Needle-Insertion-Oncology-v0",
-            SurgicalTask.TISSUE_GRASPING: "Isaac-Tissue-Grasp-Oncology-v0"
+            SurgicalTask.TISSUE_GRASPING: "Isaac-Tissue-Grasp-Oncology-v0",
         }
 
         self._env = None
@@ -272,10 +274,7 @@ class OncologySurgicalEnv:
         self._observation_dim = self._get_observation_dim()
         self._action_dim = self._get_action_dim()
 
-        logger.info(
-            f"Environment initialized: obs_dim={self._observation_dim}, "
-            f"action_dim={self._action_dim}"
-        )
+        logger.info(f"Environment initialized: obs_dim={self._observation_dim}, action_dim={self._action_dim}")
 
     def _get_observation_dim(self) -> int:
         """
@@ -290,11 +289,11 @@ class OncologySurgicalEnv:
         """
         base_obs = 7 + 7 + 7 + 6  # ee_pose + joints + goal + contact
         task_obs = {
-            SurgicalTask.NEEDLE_LIFT: 7,      # Needle pose
+            SurgicalTask.NEEDLE_LIFT: 7,  # Needle pose
             SurgicalTask.NEEDLE_HANDOVER: 14,  # Needle + other arm
-            SurgicalTask.NEEDLE_INSERTION: 10, # Needle + tissue state
-            SurgicalTask.TISSUE_GRASPING: 6,   # Tissue deformation
-            SurgicalTask.SHUNT_INSERTION: 8    # Vessel + shunt state
+            SurgicalTask.NEEDLE_INSERTION: 10,  # Needle + tissue state
+            SurgicalTask.TISSUE_GRASPING: 6,  # Tissue deformation
+            SurgicalTask.SHUNT_INSERTION: 8,  # Vessel + shunt state
         }
         return base_obs + task_obs.get(self.task, 0)
 
@@ -314,22 +313,12 @@ class OncologySurgicalEnv:
     @property
     def observation_space(self) -> dict:
         """Get observation space specification."""
-        return {
-            "shape": (self._observation_dim,),
-            "dtype": np.float32,
-            "low": -np.inf,
-            "high": np.inf
-        }
+        return {"shape": (self._observation_dim,), "dtype": np.float32, "low": -np.inf, "high": np.inf}
 
     @property
     def action_space(self) -> dict:
         """Get action space specification."""
-        return {
-            "shape": (self._action_dim,),
-            "dtype": np.float32,
-            "low": -1.0,
-            "high": 1.0
-        }
+        return {"shape": (self._action_dim,), "dtype": np.float32, "low": -1.0, "high": 1.0}
 
     def reset(self) -> np.ndarray:
         """
@@ -388,6 +377,7 @@ class OncologySurgicalEnv:
 # Uses MLP with proven architectures for manipulation tasks.
 # =============================================================================
 
+
 class SurgicalPolicyNetwork:
     """
     Neural network policy for surgical robot control.
@@ -408,13 +398,7 @@ class SurgicalPolicyNetwork:
         >>> actions, values, log_probs = policy(obs)
     """
 
-    def __init__(
-        self,
-        obs_dim: int,
-        action_dim: int,
-        hidden_dims: tuple = (256, 256, 128),
-        activation: str = "elu"
-    ):
+    def __init__(self, obs_dim: int, action_dim: int, hidden_dims: tuple = (256, 256, 128), activation: str = "elu"):
         """
         Initialize policy network.
 
@@ -432,9 +416,7 @@ class SurgicalPolicyNetwork:
         # Simulated for demonstration
         self._initialized = True
 
-        logger.info(
-            f"Policy network: {obs_dim} -> {hidden_dims} -> {action_dim}"
-        )
+        logger.info(f"Policy network: {obs_dim} -> {hidden_dims} -> {action_dim}")
 
     def forward(self, obs: np.ndarray) -> tuple:
         """
@@ -494,6 +476,7 @@ class SurgicalPolicyNetwork:
 # Includes oncology-specific modifications for safety and precision.
 # =============================================================================
 
+
 class SurgicalPolicyTrainer:
     """
     PPO trainer for surgical robot policies.
@@ -518,12 +501,7 @@ class SurgicalPolicyTrainer:
         >>> trainer.save_checkpoint("policy_final.pt")
     """
 
-    def __init__(
-        self,
-        env: OncologySurgicalEnv,
-        policy: SurgicalPolicyNetwork,
-        config: TrainingConfig
-    ):
+    def __init__(self, env: OncologySurgicalEnv, policy: SurgicalPolicyNetwork, config: TrainingConfig):
         """
         Initialize trainer.
 
@@ -577,18 +555,12 @@ class SurgicalPolicyTrainer:
             mean_reward = np.mean(rollout_data["rewards"])
             success_rate = np.mean(rollout_data["successes"])
 
-            self.training_stats.append({
-                "iteration": iteration,
-                "mean_reward": mean_reward,
-                "success_rate": success_rate,
-                **update_stats
-            })
+            self.training_stats.append(
+                {"iteration": iteration, "mean_reward": mean_reward, "success_rate": success_rate, **update_stats}
+            )
 
             if iteration % 10 == 0:
-                logger.info(
-                    f"Iteration {iteration}: reward={mean_reward:.2f}, "
-                    f"success={success_rate:.1%}"
-                )
+                logger.info(f"Iteration {iteration}: reward={mean_reward:.2f}, success={success_rate:.1%}")
 
             # Checkpoint
             if iteration % self.config.checkpoint_interval == 0:
@@ -637,7 +609,7 @@ class SurgicalPolicyTrainer:
             "actions": np.array(actions),
             "rewards": np.array(rewards),
             "dones": np.array(dones),
-            "successes": successes
+            "successes": successes,
         }
 
     def _compute_advantages(self, rollout_data: dict) -> np.ndarray:
@@ -672,11 +644,7 @@ class SurgicalPolicyTrainer:
         value_loss = np.random.random()
         entropy = np.random.random()
 
-        return {
-            "policy_loss": policy_loss,
-            "value_loss": value_loss,
-            "entropy": entropy
-        }
+        return {"policy_loss": policy_loss, "value_loss": value_loss, "entropy": entropy}
 
     def _save_checkpoint(self, identifier: str | int):
         """Save training checkpoint."""
@@ -692,6 +660,7 @@ class SurgicalPolicyTrainer:
 # =============================================================================
 # Evaluate trained policies against clinical requirements.
 # =============================================================================
+
 
 class PolicyEvaluator:
     """
@@ -715,10 +684,10 @@ class PolicyEvaluator:
 
     # Clinical acceptance thresholds
     THRESHOLDS = {
-        "success_rate": 0.95,       # 95% success required
-        "position_error_mm": 2.0,   # 2mm positioning accuracy
-        "collision_rate": 0.0,      # Zero tolerance for collisions
-        "max_force_n": 5.0          # Maximum allowable force
+        "success_rate": 0.95,  # 95% success required
+        "position_error_mm": 2.0,  # 2mm positioning accuracy
+        "collision_rate": 0.0,  # Zero tolerance for collisions
+        "max_force_n": 5.0,  # Maximum allowable force
     }
 
     def __init__(self, env: OncologySurgicalEnv, policy: SurgicalPolicyNetwork):
@@ -773,7 +742,7 @@ class PolicyEvaluator:
             "mean_position_error_mm": np.mean(position_errors),
             "collision_rate": collision_count / n_episodes,
             "mean_max_force_n": np.mean(max_forces),
-            "n_episodes": n_episodes
+            "n_episodes": n_episodes,
         }
 
         # Check against thresholds
@@ -788,7 +757,7 @@ class PolicyEvaluator:
             results["success_rate"] >= self.THRESHOLDS["success_rate"],
             results["mean_position_error_mm"] <= self.THRESHOLDS["position_error_mm"],
             results["collision_rate"] <= self.THRESHOLDS["collision_rate"],
-            results["mean_max_force_n"] <= self.THRESHOLDS["max_force_n"]
+            results["mean_max_force_n"] <= self.THRESHOLDS["max_force_n"],
         ]
         return all(checks)
 
@@ -798,6 +767,7 @@ class PolicyEvaluator:
 # =============================================================================
 # Prepare trained policies for deployment on physical robots.
 # =============================================================================
+
 
 class Sim2RealExporter:
     """
@@ -878,7 +848,7 @@ class Sim2RealExporter:
         logger.info(f"Creating ROS 2 action server: {node_name}")
 
         # ROS 2 node code would be generated here
-        ros2_template = f'''
+        ros2_template = f"""
 # Auto-generated ROS 2 action server for surgical policy
 # Node name: {node_name}
 
@@ -900,7 +870,7 @@ def main():
     node = SurgicalPolicyNode()
     rclpy.spin(node)
     rclpy.shutdown()
-'''
+"""
         return ros2_template
 
 
@@ -910,10 +880,8 @@ def main():
 # Complete training pipeline demonstrating end-to-end workflow.
 # =============================================================================
 
-def train_needle_insertion_policy(
-    config: TrainingConfig | None = None,
-    output_dir: str = "trained_policies"
-) -> dict:
+
+def train_needle_insertion_policy(config: TrainingConfig | None = None, output_dir: str = "trained_policies") -> dict:
     """
     Train a needle insertion policy for lung biopsy.
 
@@ -945,17 +913,10 @@ def train_needle_insertion_policy(
 
     # Configuration
     if config is None:
-        config = TrainingConfig(
-            task=SurgicalTask.NEEDLE_INSERTION,
-            num_envs=1024,
-            max_iterations=500
-        )
+        config = TrainingConfig(task=SurgicalTask.NEEDLE_INSERTION, num_envs=1024, max_iterations=500)
 
     # Environment setup
-    env_config = EnvironmentConfig(
-        robot_model="dvrk_psm",
-        control_mode="cartesian"
-    )
+    env_config = EnvironmentConfig(robot_model="dvrk_psm", control_mode="cartesian")
     env_config.anatomy["tumor_location"] = "lung_right_upper_lobe"
 
     logger.info(f"Task: {config.task.value}")
@@ -963,17 +924,13 @@ def train_needle_insertion_policy(
     logger.info(f"Num envs: {config.num_envs}")
 
     # Create environment
-    env = OncologySurgicalEnv(
-        task=config.task,
-        config=env_config,
-        num_envs=config.num_envs
-    )
+    env = OncologySurgicalEnv(task=config.task, config=env_config, num_envs=config.num_envs)
 
     # Create policy
     policy = SurgicalPolicyNetwork(
         obs_dim=env.observation_space["shape"][0],
         action_dim=env.action_space["shape"][0],
-        hidden_dims=config.policy_hidden_dims
+        hidden_dims=config.policy_hidden_dims,
     )
 
     # Train
@@ -989,10 +946,7 @@ def train_needle_insertion_policy(
     output_path.mkdir(parents=True, exist_ok=True)
 
     exporter = Sim2RealExporter(policy)
-    exporter.export_onnx(
-        str(output_path / "policy.onnx"),
-        input_shape=(1, env.observation_space["shape"][0])
-    )
+    exporter.export_onnx(str(output_path / "policy.onnx"), input_shape=(1, env.observation_space["shape"][0]))
 
     # Cleanup
     env.close()
@@ -1002,7 +956,7 @@ def train_needle_insertion_policy(
         "training": training_results,
         "eval": eval_results,
         "output_dir": str(output_path),
-        "clinically_ready": eval_results.get("clinically_ready", False)
+        "clinically_ready": eval_results.get("clinically_ready", False),
     }
 
     logger.info("=" * 60)
@@ -1018,52 +972,30 @@ def train_needle_insertion_policy(
 # SECTION 8: COMMAND LINE INTERFACE
 # =============================================================================
 
+
 def main():
     """Main entry point for surgical robot training."""
     import argparse
 
-    parser = argparse.ArgumentParser(
-        description="Train surgical robot policies for oncology procedures"
-    )
+    parser = argparse.ArgumentParser(description="Train surgical robot policies for oncology procedures")
     parser.add_argument(
         "--task",
         type=str,
         default="needle_insertion",
         choices=[t.value for t in SurgicalTask],
-        help="Surgical task to train"
+        help="Surgical task to train",
     )
+    parser.add_argument("--num-envs", type=int, default=1024, help="Number of parallel environments")
+    parser.add_argument("--max-iterations", type=int, default=500, help="Maximum training iterations")
     parser.add_argument(
-        "--num-envs",
-        type=int,
-        default=1024,
-        help="Number of parallel environments"
+        "--output-dir", type=str, default="trained_policies", help="Output directory for trained policies"
     )
-    parser.add_argument(
-        "--max-iterations",
-        type=int,
-        default=500,
-        help="Maximum training iterations"
-    )
-    parser.add_argument(
-        "--output-dir",
-        type=str,
-        default="trained_policies",
-        help="Output directory for trained policies"
-    )
-    parser.add_argument(
-        "--eval-only",
-        action="store_true",
-        help="Only evaluate (requires trained policy)"
-    )
+    parser.add_argument("--eval-only", action="store_true", help="Only evaluate (requires trained policy)")
 
     args = parser.parse_args()
 
     # Create configuration
-    config = TrainingConfig(
-        task=SurgicalTask(args.task),
-        num_envs=args.num_envs,
-        max_iterations=args.max_iterations
-    )
+    config = TrainingConfig(task=SurgicalTask(args.task), num_envs=args.num_envs, max_iterations=args.max_iterations)
 
     # Run training
     results = train_needle_insertion_policy(config, args.output_dir)

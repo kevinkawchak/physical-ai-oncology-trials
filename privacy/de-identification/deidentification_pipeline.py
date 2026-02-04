@@ -50,10 +50,7 @@ from enum import Enum
 from pathlib import Path
 from typing import Any
 
-logging.basicConfig(
-    level=logging.INFO,
-    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s'
-)
+logging.basicConfig(level=logging.INFO, format="%(asctime)s - %(name)s - %(levelname)s - %(message)s")
 logger = logging.getLogger(__name__)
 
 
@@ -61,30 +58,35 @@ logger = logging.getLogger(__name__)
 # SECTION 1: CONFIGURATION
 # =============================================================================
 
+
 class DeidentificationMethod(Enum):
     """HIPAA-recognized de-identification methods."""
+
     SAFE_HARBOR = "safe_harbor"
     EXPERT_DETERMINATION = "expert_determination"
 
 
 class DateHandling(Enum):
     """Strategies for date de-identification."""
-    REMOVE = "remove"           # Remove entirely
-    YEAR_ONLY = "year_only"     # Keep year, remove month/day
-    DATE_SHIFT = "date_shift"   # Shift by random offset (consistent per patient)
-    GENERALIZE = "generalize"   # Convert to ranges
+
+    REMOVE = "remove"  # Remove entirely
+    YEAR_ONLY = "year_only"  # Keep year, remove month/day
+    DATE_SHIFT = "date_shift"  # Shift by random offset (consistent per patient)
+    GENERALIZE = "generalize"  # Convert to ranges
 
 
 class GeographyHandling(Enum):
     """Strategies for geographic data de-identification."""
+
     REMOVE = "remove"
     STATE_ONLY = "state_only"
-    ZIP3 = "zip3"               # First 3 digits if population >20,000
+    ZIP3 = "zip3"  # First 3 digits if population >20,000
 
 
 @dataclass
 class DeidentificationConfig:
     """Configuration for de-identification pipeline."""
+
     method: DeidentificationMethod = DeidentificationMethod.SAFE_HARBOR
     hipaa_identifiers: str = "all_18"
     preserve_clinical_utility: bool = True
@@ -92,7 +94,7 @@ class DeidentificationConfig:
     age_handling: str = "cap_at_89"
     geography_handling: GeographyHandling = GeographyHandling.STATE_ONLY
     date_shift_range_days: int = 365
-    hash_salt: str = ""         # Salt for consistent pseudonymization
+    hash_salt: str = ""  # Salt for consistent pseudonymization
     generate_crosswalk: bool = False  # Create ID mapping (store securely)
     log_transformations: bool = True
 
@@ -100,6 +102,7 @@ class DeidentificationConfig:
 @dataclass
 class DeidentificationResult:
     """Results from a de-identification operation."""
+
     result_id: str
     timestamp: str
     method: str
@@ -123,13 +126,14 @@ class DeidentificationResult:
             "identifiers_removed": self.identifiers_removed,
             "identifiers_generalized": self.identifiers_generalized,
             "residual_risk": self.residual_risk,
-            "errors": self.errors
+            "errors": self.errors,
         }
 
 
 # =============================================================================
 # SECTION 2: SAFE HARBOR TRANSFORMATIONS
 # =============================================================================
+
 
 class SafeHarborTransformer:
     """
@@ -218,31 +222,23 @@ class SafeHarborTransformer:
 
                 for match in reversed(matches):  # Reverse to preserve positions
                     original = match.group()
-                    replacement = self._apply_action(
-                        action, original, identifier_type, patient_id
-                    )
+                    replacement = self._apply_action(action, original, identifier_type, patient_id)
 
                     if replacement != original:
-                        transformed = (
-                            transformed[:match.start()]
-                            + replacement
-                            + transformed[match.end():]
+                        transformed = transformed[: match.start()] + replacement + transformed[match.end() :]
+                        log.append(
+                            {
+                                "type": identifier_type,
+                                "action": action,
+                                "position": match.start(),
+                                "original_length": len(original),
+                                "replacement": replacement,
+                            }
                         )
-                        log.append({
-                            "type": identifier_type,
-                            "action": action,
-                            "position": match.start(),
-                            "original_length": len(original),
-                            "replacement": replacement
-                        })
 
         return transformed, log
 
-    def transform_structured(
-        self,
-        record: dict,
-        phi_fields: dict[str, str]
-    ) -> tuple[dict, list[dict]]:
+    def transform_structured(self, record: dict, phi_fields: dict[str, str]) -> tuple[dict, list[dict]]:
         """
         Apply Safe Harbor transformations to a structured record.
 
@@ -269,26 +265,14 @@ class SafeHarborTransformer:
                 elif identifier_type == "geographic":
                     action = "generalize_zip"
 
-                replacement = self._apply_action(
-                    action, original, identifier_type, patient_id
-                )
+                replacement = self._apply_action(action, original, identifier_type, patient_id)
                 transformed[field_name] = replacement
 
-                log.append({
-                    "field": field_name,
-                    "type": identifier_type,
-                    "action": action
-                })
+                log.append({"field": field_name, "type": identifier_type, "action": action})
 
         return transformed, log
 
-    def _apply_action(
-        self,
-        action: str,
-        value: str,
-        identifier_type: str,
-        patient_id: str
-    ) -> str:
+    def _apply_action(self, action: str, value: str, identifier_type: str, patient_id: str) -> str:
         """Apply a specific de-identification action."""
         if action == "replace":
             return f"[{identifier_type.upper()}_REMOVED]"
@@ -341,9 +325,11 @@ class SafeHarborTransformer:
 # SECTION 3: EXPERT DETERMINATION SUPPORT
 # =============================================================================
 
+
 @dataclass
 class ReidentificationRiskAssessment:
     """Assessment of re-identification risk for Expert Determination."""
+
     dataset_name: str
     assessment_date: str
     method: str
@@ -376,11 +362,7 @@ class ExpertDeterminationAssessor:
         """
         self.risk_threshold = risk_threshold
 
-    def assess_uniqueness(
-        self,
-        records: list[dict],
-        quasi_identifiers: list[str]
-    ) -> ReidentificationRiskAssessment:
+    def assess_uniqueness(self, records: list[dict], quasi_identifiers: list[str]) -> ReidentificationRiskAssessment:
         """
         Assess re-identification risk based on quasi-identifier uniqueness.
 
@@ -396,9 +378,7 @@ class ExpertDeterminationAssessor:
         """
         if not records:
             return ReidentificationRiskAssessment(
-                dataset_name="",
-                assessment_date=datetime.now().isoformat(),
-                method="uniqueness_analysis"
+                dataset_name="", assessment_date=datetime.now().isoformat(), method="uniqueness_analysis"
             )
 
         # Count unique combinations of quasi-identifiers
@@ -439,13 +419,14 @@ class ExpertDeterminationAssessor:
             risk_threshold=self.risk_threshold,
             passes_threshold=estimated_risk <= self.risk_threshold,
             quasi_identifiers=quasi_identifiers,
-            recommendations=recommendations
+            recommendations=recommendations,
         )
 
 
 # =============================================================================
 # SECTION 4: DE-IDENTIFICATION PIPELINE
 # =============================================================================
+
 
 class DeidentificationPipeline:
     """
@@ -471,7 +452,7 @@ class DeidentificationPipeline:
         date_handling: str = "year_only",
         age_handling: str = "cap_at_89",
         geography_handling: str = "state_only",
-        hash_salt: str = ""
+        hash_salt: str = "",
     ):
         """
         Initialize de-identification pipeline.
@@ -492,7 +473,7 @@ class DeidentificationPipeline:
             date_handling=DateHandling(date_handling),
             age_handling=age_handling,
             geography_handling=GeographyHandling(geography_handling),
-            hash_salt=hash_salt
+            hash_salt=hash_salt,
         )
 
         self.transformer = SafeHarborTransformer(self.config)
@@ -504,10 +485,7 @@ class DeidentificationPipeline:
         )
 
     def deidentify(
-        self,
-        input_path: str,
-        output_path: str,
-        data_types: list[str] | None = None
+        self, input_path: str, output_path: str, data_types: list[str] | None = None
     ) -> DeidentificationResult:
         """
         De-identify a clinical trial dataset.
@@ -529,7 +507,7 @@ class DeidentificationPipeline:
             result_id=result_id,
             timestamp=datetime.now().isoformat(),
             method=self.config.method.value,
-            output_path=output_path
+            output_path=output_path,
         )
 
         # Ensure output directory exists
@@ -580,11 +558,7 @@ class DeidentificationPipeline:
         transformed, _ = self.transformer.transform_text(text, patient_id)
         return transformed
 
-    def deidentify_record(
-        self,
-        record: dict,
-        phi_fields: dict[str, str]
-    ) -> dict:
+    def deidentify_record(self, record: dict, phi_fields: dict[str, str]) -> dict:
         """
         De-identify a single structured record.
 
@@ -641,12 +615,7 @@ class DeidentificationPipeline:
             result.errors.append(f"Error processing {input_path}: {e}")
             logger.error(f"Error processing {input_path}: {e}")
 
-    def _deidentify_dicom(
-        self,
-        input_path: Path,
-        output_path: Path,
-        result: DeidentificationResult
-    ):
+    def _deidentify_dicom(self, input_path: Path, output_path: Path, result: DeidentificationResult):
         """De-identify a DICOM file."""
         try:
             import pydicom
@@ -658,8 +627,7 @@ class DeidentificationPipeline:
             phi_tags = {
                 "PatientName": "",
                 "PatientID": self.transformer._pseudonymize(
-                    str(getattr(ds, "PatientID", "")),
-                    str(getattr(ds, "PatientID", ""))
+                    str(getattr(ds, "PatientID", "")), str(getattr(ds, "PatientID", ""))
                 ),
                 "PatientBirthDate": "",
                 "OtherPatientIDs": "",
@@ -727,6 +695,7 @@ class DeidentificationPipeline:
 # SECTION 5: MAIN PIPELINE
 # =============================================================================
 
+
 def run_deidentification_demo():
     """
     Demonstrate de-identification pipeline capabilities.
@@ -745,7 +714,7 @@ def run_deidentification_demo():
         preserve_clinical_utility=True,
         date_handling="year_only",
         geography_handling="state_only",
-        hash_salt="demo_salt_change_in_production"
+        hash_salt="demo_salt_change_in_production",
     )
 
     # Example: De-identify clinical text
@@ -779,15 +748,10 @@ def run_deidentification_demo():
         "diagnosis": "NSCLC Stage IIIA",
         "ecog_status": 1,
         "tumor_size_cm": 4.2,
-        "treatment_arm": "Arm A"
+        "treatment_arm": "Arm A",
     }
 
-    phi_fields = {
-        "patient_id": "mrn",
-        "patient_name": "names",
-        "dob": "dates",
-        "mrn": "mrn"
-    }
+    phi_fields = {"patient_id": "mrn", "patient_name": "names", "dob": "dates", "mrn": "mrn"}
 
     deidentified_record = pipeline.deidentify_record(sample_record, phi_fields)
 
@@ -811,11 +775,10 @@ def run_deidentification_demo():
     ] * 20  # Simulate larger dataset
 
     risk_assessment = assessor.assess_uniqueness(
-        records=sample_records,
-        quasi_identifiers=["age_group", "gender", "state"]
+        records=sample_records, quasi_identifiers=["age_group", "gender", "state"]
     )
 
-    print(f"\nExpert Determination Risk Assessment:")
+    print("\nExpert Determination Risk Assessment:")
     print(f"  Population size: {risk_assessment.population_size}")
     print(f"  Unique combinations: {risk_assessment.unique_combinations}")
     print(f"  Estimated risk: {risk_assessment.estimated_risk:.4f}")

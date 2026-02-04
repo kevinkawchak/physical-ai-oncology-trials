@@ -46,10 +46,7 @@ from enum import Enum
 from pathlib import Path
 from typing import Any
 
-logging.basicConfig(
-    level=logging.INFO,
-    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s'
-)
+logging.basicConfig(level=logging.INFO, format="%(asctime)s - %(name)s - %(levelname)s - %(message)s")
 logger = logging.getLogger(__name__)
 
 
@@ -57,8 +54,10 @@ logger = logging.getLogger(__name__)
 # SECTION 1: DUA CONFIGURATION
 # =============================================================================
 
+
 class DUATemplate(Enum):
     """Available DUA templates."""
+
     LIMITED_DATA_SET = "limited_data_set"
     DEIDENTIFIED_DATA = "deidentified_data"
     MULTI_SITE_AI_RESEARCH = "multi_site_ai_research"
@@ -69,6 +68,7 @@ class DUATemplate(Enum):
 
 class Jurisdiction(Enum):
     """Legal jurisdictions for DUA compliance."""
+
     US_HIPAA = "us_hipaa"
     EU_GDPR = "eu_gdpr"
     CROSS_BORDER = "cross_border"
@@ -77,6 +77,7 @@ class Jurisdiction(Enum):
 
 class SecurityLevel(Enum):
     """Data security requirement levels."""
+
     STANDARD = "standard"
     ENHANCED = "enhanced"
     MAXIMUM = "maximum"
@@ -85,6 +86,7 @@ class SecurityLevel(Enum):
 @dataclass
 class DUAParty:
     """Party to a Data Use Agreement."""
+
     organization_name: str
     organization_type: str  # "academic", "industry", "healthcare_system", "government"
     contact_name: str = ""
@@ -99,6 +101,7 @@ class DUAParty:
 @dataclass
 class DataDescription:
     """Description of data covered by the DUA."""
+
     description: str
     data_types: list[str] = field(default_factory=list)
     record_count_estimate: int = 0
@@ -112,6 +115,7 @@ class DataDescription:
 @dataclass
 class SecurityRequirement:
     """Security requirement for data handling."""
+
     requirement: str
     category: str  # "technical", "administrative", "physical"
     mandatory: bool = True
@@ -121,6 +125,7 @@ class SecurityRequirement:
 @dataclass
 class DUADocument:
     """Generated Data Use Agreement document."""
+
     agreement_id: str
     template: str
     jurisdiction: str
@@ -173,12 +178,12 @@ class DUADocument:
             "effective_date": self.effective_date,
             "expiration_date": self.expiration_date,
             "generated_date": self.generated_date,
-            "sections": self.sections
+            "sections": self.sections,
         }
 
     def _to_markdown(self) -> str:
         """Convert to markdown document."""
-        md = f"# Data Use Agreement\n\n"
+        md = "# Data Use Agreement\n\n"
         md += f"**Agreement ID**: {self.agreement_id}\n\n"
         for title, content in self.sections.items():
             md += f"## {title}\n\n{content}\n\n"
@@ -205,104 +210,105 @@ SECURITY_REQUIREMENTS: dict[str, list[dict[str, Any]]] = {
         {
             "requirement": "encryption_in_transit",
             "category": "technical",
-            "description": "All data transmitted using TLS 1.2 or higher"
+            "description": "All data transmitted using TLS 1.2 or higher",
         },
         {
             "requirement": "access_controls",
             "category": "administrative",
-            "description": "Role-based access limited to authorized personnel"
+            "description": "Role-based access limited to authorized personnel",
         },
         {
             "requirement": "audit_logging",
             "category": "technical",
-            "description": "Access and modification logs maintained for duration of agreement"
+            "description": "Access and modification logs maintained for duration of agreement",
         },
     ],
     "enhanced": [
         {
             "requirement": "encryption_at_rest",
             "category": "technical",
-            "description": "AES-256 encryption for all stored data"
+            "description": "AES-256 encryption for all stored data",
         },
         {
             "requirement": "encryption_in_transit",
             "category": "technical",
-            "description": "All data transmitted using TLS 1.3"
+            "description": "All data transmitted using TLS 1.3",
         },
         {
             "requirement": "mfa",
             "category": "technical",
-            "description": "Multi-factor authentication for all data access"
+            "description": "Multi-factor authentication for all data access",
         },
         {
             "requirement": "access_controls",
             "category": "administrative",
-            "description": "Role-based access with principle of least privilege"
+            "description": "Role-based access with principle of least privilege",
         },
         {
             "requirement": "audit_logging",
             "category": "technical",
-            "description": "Tamper-evident audit logs with integrity verification"
+            "description": "Tamper-evident audit logs with integrity verification",
         },
         {
             "requirement": "security_training",
             "category": "administrative",
-            "description": "Annual HIPAA/privacy training for all personnel with access"
+            "description": "Annual HIPAA/privacy training for all personnel with access",
         },
     ],
     "maximum": [
         {
             "requirement": "encryption_at_rest",
             "category": "technical",
-            "description": "AES-256 encryption with hardware security modules (HSM)"
+            "description": "AES-256 encryption with hardware security modules (HSM)",
         },
         {
             "requirement": "encryption_in_transit",
             "category": "technical",
-            "description": "TLS 1.3 with certificate pinning"
+            "description": "TLS 1.3 with certificate pinning",
         },
         {
             "requirement": "mfa",
             "category": "technical",
-            "description": "Hardware token MFA (FIDO2/WebAuthn) for all data access"
+            "description": "Hardware token MFA (FIDO2/WebAuthn) for all data access",
         },
         {
             "requirement": "network_segmentation",
             "category": "technical",
-            "description": "Dedicated VLAN/subnet for research data with firewall controls"
+            "description": "Dedicated VLAN/subnet for research data with firewall controls",
         },
         {
             "requirement": "access_controls",
             "category": "administrative",
-            "description": "Role-based access with quarterly access reviews"
+            "description": "Role-based access with quarterly access reviews",
         },
         {
             "requirement": "audit_logging",
             "category": "technical",
-            "description": "Real-time SIEM integration with tamper-evident logging"
+            "description": "Real-time SIEM integration with tamper-evident logging",
         },
         {
             "requirement": "security_training",
             "category": "administrative",
-            "description": "Annual training plus quarterly security awareness updates"
+            "description": "Annual training plus quarterly security awareness updates",
         },
         {
             "requirement": "vulnerability_management",
             "category": "technical",
-            "description": "Quarterly vulnerability scans and annual penetration testing"
+            "description": "Quarterly vulnerability scans and annual penetration testing",
         },
         {
             "requirement": "data_loss_prevention",
             "category": "technical",
-            "description": "DLP controls preventing unauthorized data exfiltration"
+            "description": "DLP controls preventing unauthorized data exfiltration",
         },
-    ]
+    ],
 }
 
 
 # =============================================================================
 # SECTION 3: DUA GENERATOR
 # =============================================================================
+
 
 class DUAGenerator:
     """
@@ -320,11 +326,7 @@ class DUAGenerator:
     5. Produce formatted agreement document
     """
 
-    def __init__(
-        self,
-        template: str = "multi_site_ai_research",
-        jurisdiction: str = "us_hipaa"
-    ):
+    def __init__(self, template: str = "multi_site_ai_research", jurisdiction: str = "us_hipaa"):
         """
         Initialize DUA generator.
 
@@ -349,7 +351,7 @@ class DUAGenerator:
         provider_details: dict | None = None,
         recipient_details: dict | None = None,
         data_details: dict | None = None,
-        effective_date: str | None = None
+        effective_date: str | None = None,
     ) -> DUADocument:
         """
         Generate a Data Use Agreement.
@@ -373,9 +375,7 @@ class DUAGenerator:
         agreement_id = f"DUA-{datetime.now().strftime('%Y%m%d')}-{self._agreement_counter:04d}"
 
         effective = effective_date or datetime.now().isoformat()[:10]
-        expiration = (
-            datetime.fromisoformat(effective) + timedelta(days=365 * retention_period_years)
-        ).isoformat()[:10]
+        expiration = (datetime.fromisoformat(effective) + timedelta(days=365 * retention_period_years)).isoformat()[:10]
 
         # Build party objects
         provider = DUAParty(
@@ -404,11 +404,7 @@ class DUAGenerator:
         # Determine security level
         security_level = self._determine_security_level(data_desc, security_requirements or [])
         sec_reqs = [
-            SecurityRequirement(
-                requirement=r["requirement"],
-                category=r["category"],
-                description=r["description"]
-            )
+            SecurityRequirement(requirement=r["requirement"], category=r["category"], description=r["description"])
             for r in SECURITY_REQUIREMENTS.get(security_level, SECURITY_REQUIREMENTS["enhanced"])
         ]
 
@@ -417,9 +413,15 @@ class DUAGenerator:
 
         # Build agreement sections
         sections = self._generate_sections(
-            provider, recipient, data_desc, permitted_uses,
-            prohibited_uses, sec_reqs, retention_period_years,
-            effective, expiration
+            provider,
+            recipient,
+            data_desc,
+            permitted_uses,
+            prohibited_uses,
+            sec_reqs,
+            retention_period_years,
+            effective,
+            expiration,
         )
 
         dua = DUADocument(
@@ -436,18 +438,14 @@ class DUAGenerator:
             effective_date=effective,
             expiration_date=expiration,
             sections=sections,
-            generated_date=datetime.now().isoformat()
+            generated_date=datetime.now().isoformat(),
         )
 
         logger.info(f"DUA generated: {agreement_id} ({data_provider} -> {data_recipient})")
 
         return dua
 
-    def _determine_security_level(
-        self,
-        data_desc: DataDescription,
-        requested_requirements: list[str]
-    ) -> str:
+    def _determine_security_level(self, data_desc: DataDescription, requested_requirements: list[str]) -> str:
         """Determine security level based on data sensitivity."""
         if data_desc.identifiability_level == "phi":
             return "maximum"
@@ -471,11 +469,13 @@ class DUAGenerator:
         ]
 
         if self.template == DUATemplate.MULTI_SITE_AI_RESEARCH:
-            prohibited.extend([
-                "Training AI models for uses outside the specified research scope",
-                "Deploying AI models trained on this data without written approval",
-                "Retaining model weights that memorize individual patient data",
-            ])
+            prohibited.extend(
+                [
+                    "Training AI models for uses outside the specified research scope",
+                    "Deploying AI models trained on this data without written approval",
+                    "Retaining model weights that memorize individual patient data",
+                ]
+            )
 
         return prohibited
 
@@ -489,7 +489,7 @@ class DUAGenerator:
         sec_reqs: list[SecurityRequirement],
         retention_years: int,
         effective: str,
-        expiration: str
+        expiration: str,
     ) -> dict[str, str]:
         """Generate DUA document sections."""
         sections = {}
@@ -515,17 +515,13 @@ class DUAGenerator:
             + "\n".join(f"- {use}" for use in permitted_uses)
         )
 
-        sections["4. Prohibited Uses"] = (
-            "The Data Recipient shall NOT:\n\n"
-            + "\n".join(f"- {use}" for use in prohibited_uses)
+        sections["4. Prohibited Uses"] = "The Data Recipient shall NOT:\n\n" + "\n".join(
+            f"- {use}" for use in prohibited_uses
         )
 
         sections["5. Data Security Requirements"] = (
             "The Data Recipient shall implement the following security safeguards:\n\n"
-            + "\n".join(
-                f"- **{req.requirement}** ({req.category}): {req.description}"
-                for req in sec_reqs
-            )
+            + "\n".join(f"- **{req.requirement}** ({req.category}): {req.description}" for req in sec_reqs)
         )
 
         sections["6. Term and Termination"] = (
@@ -592,6 +588,7 @@ class DUAGenerator:
 # SECTION 4: MAIN PIPELINE
 # =============================================================================
 
+
 def run_dua_generator_demo():
     """
     Demonstrate DUA generation capabilities.
@@ -603,10 +600,7 @@ def run_dua_generator_demo():
     logger.info("DUA GENERATOR DEMO")
     logger.info("=" * 60)
 
-    generator = DUAGenerator(
-        template="multi_site_ai_research",
-        jurisdiction="us_hipaa"
-    )
+    generator = DUAGenerator(template="multi_site_ai_research", jurisdiction="us_hipaa")
 
     dua = generator.generate(
         data_provider="Memorial Sloan Kettering Cancer Center",
@@ -620,15 +614,15 @@ def run_dua_generator_demo():
             "AI model training for surgical planning optimization",
             "Validation of digital twin tumor models",
             "Publication of aggregate research findings",
-            "Cross-institutional model performance benchmarking"
+            "Cross-institutional model performance benchmarking",
         ],
         retention_period_years=7,
         security_requirements=["encryption_at_rest", "encryption_in_transit", "mfa"],
         data_details={
             "data_types": ["DICOM CT", "treatment outcomes", "pathology reports"],
             "identifiability": "de-identified",
-            "contains_imaging": True
-        }
+            "contains_imaging": True,
+        },
     )
 
     print(f"\nGenerated DUA: {dua.agreement_id}")

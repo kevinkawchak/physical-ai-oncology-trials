@@ -32,6 +32,7 @@ logger = logging.getLogger(__name__)
 
 class ConnectionStatus(Enum):
     """Clinical system connection status."""
+
     CONNECTED = "connected"
     DISCONNECTED = "disconnected"
     ERROR = "error"
@@ -40,6 +41,7 @@ class ConnectionStatus(Enum):
 
 class ComplianceRegulation(Enum):
     """Regulatory compliance frameworks."""
+
     FDA_21CFR11 = "21CFR11"
     HIPAA = "HIPAA"
     GDPR = "GDPR"
@@ -59,6 +61,7 @@ class PatientRecord:
         imaging_studies: List of imaging study references
         treatments: Treatment history
     """
+
     mrn: str
     name: str = ""
     dob: str = ""
@@ -81,6 +84,7 @@ class ImagingStudy:
         series: List of series in study
         storage_path: Path to DICOM files
     """
+
     study_id: str
     modality: str
     date: str
@@ -100,6 +104,7 @@ class AuditEntry:
         resource: Resource affected
         details: Additional details
     """
+
     timestamp: datetime
     user: str
     action: str
@@ -138,7 +143,7 @@ class ClinicalConnector:
         pacs_endpoint: str = "",
         fhir_endpoint: str = "",
         auth_method: str = "oauth2",
-        credentials_path: str | None = None
+        credentials_path: str | None = None,
     ):
         """Initialize clinical connector.
 
@@ -208,7 +213,7 @@ class ClinicalConnector:
             name="[De-identified]",
             sex="M",
             diagnoses=["C34.9 - Malignant neoplasm of lung"],
-            biomarkers={"EGFR": "positive", "ALK": "negative"}
+            biomarkers={"EGFR": "positive", "ALK": "negative"},
         )
 
         logger.info(f"Retrieved patient record: {mrn}")
@@ -219,7 +224,7 @@ class ClinicalConnector:
         patient_id: str,
         modality: list[str] | None = None,
         body_part: str = "",
-        date_range: tuple[str, str] | None = None
+        date_range: tuple[str, str] | None = None,
     ) -> list[ImagingStudy]:
         """Query imaging studies from PACS.
 
@@ -232,31 +237,18 @@ class ClinicalConnector:
         Returns:
             List of matching ImagingStudy objects
         """
-        self._log_audit(
-            "query_imaging",
-            f"Patient/{patient_id}",
-            {"modality": modality, "body_part": body_part}
-        )
+        self._log_audit("query_imaging", f"Patient/{patient_id}", {"modality": modality, "body_part": body_part})
 
         # Simulated PACS query
         studies = [
-            ImagingStudy(
-                study_id=f"1.2.3.4.{i}",
-                modality=mod,
-                date="2025-12-01",
-                body_part=body_part or "CHEST"
-            )
+            ImagingStudy(study_id=f"1.2.3.4.{i}", modality=mod, date="2025-12-01", body_part=body_part or "CHEST")
             for i, mod in enumerate(modality or ["CT"])
         ]
 
         logger.info(f"Found {len(studies)} imaging studies for patient {patient_id}")
         return studies
 
-    def download_study(
-        self,
-        study_id: str,
-        output_dir: str | None = None
-    ) -> list[str]:
+    def download_study(self, study_id: str, output_dir: str | None = None) -> list[str]:
         """Download DICOM study from PACS.
 
         Args:
@@ -275,19 +267,14 @@ class ClinicalConnector:
         logger.info(f"Downloaded study {study_id}: {len(files)} files")
         return files
 
-    def _log_audit(
-        self,
-        action: str,
-        resource: str,
-        details: dict | None = None
-    ) -> None:
+    def _log_audit(self, action: str, resource: str, details: dict | None = None) -> None:
         """Log audit entry for compliance."""
         entry = AuditEntry(
             timestamp=datetime.now(),
             user="system",  # Would be actual user in production
             action=action,
             resource=resource,
-            details=details or {}
+            details=details or {},
         )
         self._audit_log.append(entry)
 
@@ -318,11 +305,7 @@ class FHIRClient:
 
         logger.info(f"FHIRClient initialized: {base_url}")
 
-    def search(
-        self,
-        resource_type: str,
-        params: dict[str, str]
-    ) -> list[dict]:
+    def search(self, resource_type: str, params: dict[str, str]) -> list[dict]:
         """Search for FHIR resources.
 
         Args:
@@ -337,19 +320,24 @@ class FHIRClient:
 
         # Return simulated results
         if resource_type == "Patient":
-            return [{
-                "resourceType": "Patient",
-                "id": "patient-123",
-                "identifier": [{"system": "MRN", "value": params.get("identifier", "").split("|")[-1]}],
-                "name": [{"family": "Test", "given": ["Patient"]}]
-            }]
+            return [
+                {
+                    "resourceType": "Patient",
+                    "id": "patient-123",
+                    "identifier": [{"system": "MRN", "value": params.get("identifier", "").split("|")[-1]}],
+                    "name": [{"family": "Test", "given": ["Patient"]}],
+                }
+            ]
         elif resource_type == "ImagingStudy":
-            return [{
-                "resourceType": "ImagingStudy",
-                "id": f"study-{i}",
-                "status": "available",
-                "modality": [{"code": "CT"}]
-            } for i in range(3)]
+            return [
+                {
+                    "resourceType": "ImagingStudy",
+                    "id": f"study-{i}",
+                    "status": "available",
+                    "modality": [{"code": "CT"}],
+                }
+                for i in range(3)
+            ]
         else:
             return []
 
@@ -364,10 +352,7 @@ class FHIRClient:
             FHIR resource dictionary
         """
         logger.info(f"FHIR read: {resource_type}/{resource_id}")
-        return {
-            "resourceType": resource_type,
-            "id": resource_id
-        }
+        return {"resourceType": resource_type, "id": resource_id}
 
     def create(self, resource_type: str, resource: dict) -> dict:
         """Create a new FHIR resource.
@@ -420,6 +405,7 @@ class DICOMHandler:
         """Check if pydicom is available."""
         try:
             import pydicom
+
             return True
         except ImportError:
             logger.warning("pydicom not installed, using numpy fallback")
@@ -474,7 +460,7 @@ class DICOMHandler:
                 "StudyDate": getattr(ds, "StudyDate", "Unknown"),
                 "SeriesDescription": getattr(ds, "SeriesDescription", "Unknown"),
                 "SliceThickness": getattr(ds, "SliceThickness", 1.0),
-                "PixelSpacing": list(getattr(ds, "PixelSpacing", [1.0, 1.0]))
+                "PixelSpacing": list(getattr(ds, "PixelSpacing", [1.0, 1.0])),
             }
         else:
             return {
@@ -482,7 +468,7 @@ class DICOMHandler:
                 "PatientName": "Test Patient",
                 "StudyDate": "20251201",
                 "SliceThickness": 1.0,
-                "PixelSpacing": [1.0, 1.0]
+                "PixelSpacing": [1.0, 1.0],
             }
 
     def to_numpy(self, datasets: list) -> np.ndarray:
@@ -507,12 +493,7 @@ class DICOMHandler:
         logger.info(f"Created volume: {volume.shape}")
         return volume
 
-    def create_structured_report(
-        self,
-        patient_dt,
-        report_type: str,
-        content: dict
-    ) -> dict:
+    def create_structured_report(self, patient_dt, report_type: str, content: dict) -> dict:
         """Create DICOM Structured Report.
 
         Args:
@@ -529,7 +510,7 @@ class DICOMHandler:
             "SeriesDescription": f"Digital Twin {report_type}",
             "ContentDate": datetime.now().strftime("%Y%m%d"),
             "ContentTime": datetime.now().strftime("%H%M%S"),
-            "Content": content
+            "Content": content,
         }
 
         logger.info(f"Created DICOM SR: {report_type}")
@@ -581,7 +562,7 @@ class ClinicalDecisionSupport:
         self,
         treatment_options: list[str],
         optimization_target: str = "overall_survival",
-        patient_preferences: dict | None = None
+        patient_preferences: dict | None = None,
     ) -> dict:
         """Generate treatment recommendations.
 
@@ -603,14 +584,16 @@ class ClinicalDecisionSupport:
             protocol = self._create_protocol(option)
             response = simulator.predict_response(protocol, horizon_days=365)
 
-            recommendations.append({
-                "treatment": option,
-                "predicted_response": response.response_category.value,
-                "volume_change": response.volume_change_percent,
-                "confidence": 0.85,  # Placeholder
-                "evidence_level": "II",
-                "considerations": self._get_considerations(option)
-            })
+            recommendations.append(
+                {
+                    "treatment": option,
+                    "predicted_response": response.response_category.value,
+                    "volume_change": response.volume_change_percent,
+                    "confidence": 0.85,  # Placeholder
+                    "evidence_level": "II",
+                    "considerations": self._get_considerations(option),
+                }
+            )
 
         # Rank by optimization target
         if optimization_target == "overall_survival":
@@ -624,7 +607,7 @@ class ClinicalDecisionSupport:
             "timestamp": datetime.now().isoformat(),
             "optimization_target": optimization_target,
             "recommendations": recommendations,
-            "disclaimer": "For clinical decision support only. Physician review required."
+            "disclaimer": "For clinical decision support only. Physician review required.",
         }
 
         logger.info(f"Generated {len(recommendations)} treatment recommendations")
@@ -633,23 +616,15 @@ class ClinicalDecisionSupport:
     def _create_protocol(self, treatment_option: str) -> dict:
         """Create treatment protocol for simulation."""
         protocols = {
-            "surgery": {
-                "type": "surgery",
-                "resection_extent": 0.95,
-                "margin_mm": 10
-            },
+            "surgery": {"type": "surgery", "resection_extent": 0.95, "margin_mm": 10},
             "chemoradiation": {
                 "type": "combined",
                 "modalities": [
                     {"type": "chemotherapy", "drug": "cisplatin", "cycles": 4},
-                    {"type": "radiation", "total_dose_gy": 60, "fractions": 30}
-                ]
+                    {"type": "radiation", "total_dose_gy": 60, "fractions": 30},
+                ],
             },
-            "immunotherapy": {
-                "type": "immunotherapy",
-                "agent": "pembrolizumab",
-                "dose_mg_kg": 2
-            }
+            "immunotherapy": {"type": "immunotherapy", "agent": "pembrolizumab", "dose_mg_kg": 2},
         }
         return protocols.get(treatment_option, {"type": treatment_option})
 
@@ -658,24 +633,14 @@ class ClinicalDecisionSupport:
         considerations = {
             "surgery": [
                 "Surgical candidacy assessment required",
-                "Consider neoadjuvant therapy if borderline resectable"
+                "Consider neoadjuvant therapy if borderline resectable",
             ],
-            "chemoradiation": [
-                "Monitor for treatment-related toxicity",
-                "Consider supportive care needs"
-            ],
-            "immunotherapy": [
-                "PD-L1 expression testing recommended",
-                "Monitor for immune-related adverse events"
-            ]
+            "chemoradiation": ["Monitor for treatment-related toxicity", "Consider supportive care needs"],
+            "immunotherapy": ["PD-L1 expression testing recommended", "Monitor for immune-related adverse events"],
         }
         return considerations.get(treatment, [])
 
-    def export_to_fhir(
-        self,
-        recommendations: dict,
-        destination: str = "tumor_board_review"
-    ) -> str:
+    def export_to_fhir(self, recommendations: dict, destination: str = "tumor_board_review") -> str:
         """Export recommendations as FHIR DiagnosticReport.
 
         Args:
@@ -689,14 +654,16 @@ class ClinicalDecisionSupport:
             "resourceType": "DiagnosticReport",
             "status": "final",
             "code": {
-                "coding": [{
-                    "system": "http://loinc.org",
-                    "code": "59776-5",
-                    "display": "Digital Twin Treatment Recommendations"
-                }]
+                "coding": [
+                    {
+                        "system": "http://loinc.org",
+                        "code": "59776-5",
+                        "display": "Digital Twin Treatment Recommendations",
+                    }
+                ]
             },
             "conclusion": json.dumps(recommendations["recommendations"]),
-            "issued": recommendations["timestamp"]
+            "issued": recommendations["timestamp"],
         }
 
         logger.info(f"Exported recommendations to FHIR for {destination}")
@@ -731,10 +698,7 @@ class ComplianceManager:
         logger.info(f"ComplianceManager initialized: {regulation}")
 
     def enable_audit_trail(
-        self,
-        log_path: str,
-        include_user_actions: bool = True,
-        include_data_access: bool = True
+        self, log_path: str, include_user_actions: bool = True, include_data_access: bool = True
     ) -> None:
         """Enable audit trail logging.
 
@@ -748,14 +712,7 @@ class ComplianceManager:
 
         logger.info(f"Audit trail enabled: {log_path}")
 
-    def log_event(
-        self,
-        event_type: str,
-        user: str,
-        resource: str,
-        action: str,
-        details: dict | None = None
-    ) -> None:
+    def log_event(self, event_type: str, user: str, resource: str, action: str, details: dict | None = None) -> None:
         """Log compliance event.
 
         Args:
@@ -772,7 +729,7 @@ class ComplianceManager:
             "resource": resource,
             "action": action,
             "details": details or {},
-            "regulation": self.regulation.value
+            "regulation": self.regulation.value,
         }
 
         self._audit_entries.append(entry)
@@ -790,23 +747,15 @@ class ComplianceManager:
         Returns:
             Wrapped function with signature verification
         """
+
         def wrapper(*args, **kwargs):
             # In production, would verify e-signature
-            self.log_event(
-                "signature_required",
-                user="system",
-                resource=func.__name__,
-                action="execute_with_signature"
-            )
+            self.log_event("signature_required", user="system", resource=func.__name__, action="execute_with_signature")
             return func(*args, **kwargs)
 
         return wrapper
 
-    def generate_report(
-        self,
-        output_path: str,
-        period: str = "2026-Q1"
-    ) -> str:
+    def generate_report(self, output_path: str, period: str = "2026-Q1") -> str:
         """Generate compliance report.
 
         Args:
@@ -822,7 +771,7 @@ class ComplianceManager:
             "generated": datetime.now().isoformat(),
             "total_events": len(self._audit_entries),
             "events_by_type": self._count_events_by_type(),
-            "summary": "All activities logged and compliant"
+            "summary": "All activities logged and compliant",
         }
 
         output_path = Path(output_path)
@@ -862,11 +811,7 @@ class IntraoperativeInterface:
         >>> intraop.register_patient(patient_dt)
     """
 
-    def __init__(
-        self,
-        navigation_system: str = "generic",
-        robot_interface: str = "simulation"
-    ):
+    def __init__(self, navigation_system: str = "generic", robot_interface: str = "simulation"):
         """Initialize intraoperative interface.
 
         Args:
@@ -878,15 +823,9 @@ class IntraoperativeInterface:
         self._patient_registered = False
         self._alert_callbacks = []
 
-        logger.info(
-            f"IntraoperativeInterface: nav={navigation_system}, robot={robot_interface}"
-        )
+        logger.info(f"IntraoperativeInterface: nav={navigation_system}, robot={robot_interface}")
 
-    def register_patient(
-        self,
-        patient_dt,
-        registration_method: str = "surface_matching"
-    ) -> bool:
+    def register_patient(self, patient_dt, registration_method: str = "surface_matching") -> bool:
         """Register patient anatomy for navigation.
 
         Args:
@@ -919,7 +858,7 @@ class IntraoperativeInterface:
                 position=[0.0, 0.0, 0.0],
                 margin_distance_mm=np.random.uniform(3, 20),
                 trajectory=[0.0, 0.0, 1.0],
-                confidence=0.95
+                confidence=0.95,
             )
 
             yield update
@@ -949,6 +888,7 @@ class GuidanceUpdate:
         trajectory: Recommended trajectory
         confidence: Confidence score
     """
+
     timestamp: datetime
     position: list[float]
     margin_distance_mm: float
@@ -995,10 +935,7 @@ class SurgicalDigitalTwin:
         return cls(patient_dt)
 
     def export_to_robot_sim(
-        self,
-        framework: str = "isaac",
-        robot_model: str = "dvrk_psm",
-        output_path: str = "/tmp/sim_scene.usd"
+        self, framework: str = "isaac", robot_model: str = "dvrk_psm", output_path: str = "/tmp/sim_scene.usd"
     ) -> str:
         """Export to robot simulation framework.
 
@@ -1018,10 +955,7 @@ class SurgicalDigitalTwin:
             "robot_model": robot_model,
             "patient_id": self.patient_dt.patient_id,
             "tumor_volume": self.patient_dt.current_volume_cm3,
-            "anatomy": {
-                "include_soft_tissue": True,
-                "deformation_model": "fem"
-            }
+            "anatomy": {"include_soft_tissue": True, "deformation_model": "fem"},
         }
 
         # In production, would generate actual scene file
@@ -1032,12 +966,7 @@ class SurgicalDigitalTwin:
         logger.info(f"Scene exported to {output_path}")
         return output_path
 
-    def enable_overlay(
-        self,
-        robot_interface,
-        visualization: str = "tumor_margin",
-        update_rate_hz: int = 30
-    ) -> None:
+    def enable_overlay(self, robot_interface, visualization: str = "tumor_margin", update_rate_hz: int = 30) -> None:
         """Enable digital twin overlay on robot visualization.
 
         Args:
@@ -1050,9 +979,7 @@ class SurgicalDigitalTwin:
         self._visualization = visualization
         self._update_rate = update_rate_hz
 
-        logger.info(
-            f"Overlay enabled: {visualization} at {update_rate_hz}Hz"
-        )
+        logger.info(f"Overlay enabled: {visualization} at {update_rate_hz}Hz")
 
 
 # Factory class for creating digital twins from clinical data
@@ -1068,11 +995,7 @@ class ClinicalDigitalTwinFactory:
         self.connector = connector
 
     def create_from_patient(
-        self,
-        mrn: str,
-        include_imaging: bool = True,
-        include_pathology: bool = True,
-        include_genomics: bool = True
+        self, mrn: str, include_imaging: bool = True, include_pathology: bool = True, include_genomics: bool = True
     ):
         """Create digital twin from patient clinical data.
 
@@ -1105,11 +1028,7 @@ class ClinicalDigitalTwinFactory:
             patient_id=mrn,
             imaging_data=imaging_data,
             tumor_segmentation=np.zeros((64, 64, 64)),
-            clinical_data={
-                "age": 60,
-                "sex": patient.sex,
-                "tumor_grade": "III"
-            }
+            clinical_data={"age": 60, "sex": patient.sex, "tumor_grade": "III"},
         )
 
         # Add clinical attributes
@@ -1126,9 +1045,7 @@ if __name__ == "__main__":
 
     # Test clinical connector
     print("\n1. Testing Clinical Connector")
-    connector = ClinicalConnector(
-        fhir_endpoint="https://fhir.hospital.local/R4"
-    )
+    connector = ClinicalConnector(fhir_endpoint="https://fhir.hospital.local/R4")
     status = connector.test_connection()
     print(f"   Connection status: {status}")
 

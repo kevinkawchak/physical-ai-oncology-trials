@@ -54,8 +54,10 @@ logger = logging.getLogger(__name__)
 # SECTION 1: PATIENT AND TUMOR DATA STRUCTURES
 # =============================================================================
 
+
 class TumorType(Enum):
     """Common tumor types for modeling."""
+
     NSCLC = "non_small_cell_lung_cancer"
     SCLC = "small_cell_lung_cancer"
     BREAST_TNBC = "triple_negative_breast_cancer"
@@ -67,6 +69,7 @@ class TumorType(Enum):
 
 class TreatmentModality(Enum):
     """Treatment modalities."""
+
     CHEMOTHERAPY = "chemotherapy"
     RADIATION = "radiation"
     IMMUNOTHERAPY = "immunotherapy"
@@ -91,6 +94,7 @@ class PatientProfile:
         performance_status: ECOG performance status (0-4)
         comorbidities: List of comorbidities
     """
+
     patient_id: str
     age: int
     sex: str
@@ -109,17 +113,19 @@ class TumorCharacteristics:
 
     These parameters are estimated from imaging and biopsy data.
     """
-    proliferation_rate: float = 0.05     # Cell division rate (/day)
-    death_rate: float = 0.01             # Natural cell death rate (/day)
-    drug_sensitivity: float = 0.5        # Drug response parameter
-    radiation_sensitivity: float = 0.3   # Alpha parameter for LQ model
-    immune_visibility: float = 0.5       # Immunogenicity score
-    heterogeneity_index: float = 0.3     # Intra-tumor heterogeneity
+
+    proliferation_rate: float = 0.05  # Cell division rate (/day)
+    death_rate: float = 0.01  # Natural cell death rate (/day)
+    drug_sensitivity: float = 0.5  # Drug response parameter
+    radiation_sensitivity: float = 0.3  # Alpha parameter for LQ model
+    immune_visibility: float = 0.5  # Immunogenicity score
+    heterogeneity_index: float = 0.3  # Intra-tumor heterogeneity
 
 
 @dataclass
 class TreatmentProtocol:
     """Treatment protocol specification."""
+
     modality: TreatmentModality
     name: str
     parameters: dict = field(default_factory=dict)
@@ -130,8 +136,9 @@ class TreatmentProtocol:
 @dataclass
 class TreatmentOutcome:
     """Predicted treatment outcome."""
+
     protocol: TreatmentProtocol
-    response_category: str          # CR, PR, SD, PD
+    response_category: str  # CR, PR, SD, PD
     volume_change_percent: float
     time_to_progression_days: float
     survival_probability_1yr: float
@@ -143,6 +150,7 @@ class TreatmentOutcome:
 # =============================================================================
 # SECTION 2: TUMOR GROWTH MODELS
 # =============================================================================
+
 
 class TumorGrowthModel:
     """
@@ -166,10 +174,7 @@ class TumorGrowthModel:
         self.characteristics = characteristics
 
     def simulate(
-        self,
-        initial_volume: float,
-        duration_days: float,
-        treatment: TreatmentProtocol | None = None
+        self, initial_volume: float, duration_days: float, treatment: TreatmentProtocol | None = None
     ) -> np.ndarray:
         """
         Simulate tumor volume over time.
@@ -189,10 +194,7 @@ class ExponentialGrowthModel(TumorGrowthModel):
     """Exponential tumor growth: dV/dt = (r - d) * V"""
 
     def simulate(
-        self,
-        initial_volume: float,
-        duration_days: float,
-        treatment: TreatmentProtocol | None = None
+        self, initial_volume: float, duration_days: float, treatment: TreatmentProtocol | None = None
     ) -> np.ndarray:
         """Simulate exponential growth with optional treatment."""
         t = np.arange(0, duration_days + 1)
@@ -208,10 +210,7 @@ class ExponentialGrowthModel(TumorGrowthModel):
         return volumes
 
     def _simulate_with_treatment(
-        self,
-        initial_volume: float,
-        timepoints: np.ndarray,
-        treatment: TreatmentProtocol
+        self, initial_volume: float, timepoints: np.ndarray, treatment: TreatmentProtocol
     ) -> np.ndarray:
         """Simulate growth with treatment effect."""
         volumes = np.zeros_like(timepoints, dtype=float)
@@ -231,7 +230,7 @@ class ExponentialGrowthModel(TumorGrowthModel):
                 # Post-treatment: regrowth
                 net_rate = self.characteristics.proliferation_rate - self.characteristics.death_rate
 
-            volumes[i] = volumes[i-1] * np.exp(net_rate)
+            volumes[i] = volumes[i - 1] * np.exp(net_rate)
 
         return volumes
 
@@ -246,16 +245,13 @@ class GompertzGrowthModel(TumorGrowthModel):
     def __init__(
         self,
         characteristics: TumorCharacteristics,
-        carrying_capacity: float = 1000.0  # cm^3
+        carrying_capacity: float = 1000.0,  # cm^3
     ):
         super().__init__(characteristics)
         self.carrying_capacity = carrying_capacity
 
     def simulate(
-        self,
-        initial_volume: float,
-        duration_days: float,
-        treatment: TreatmentProtocol | None = None
+        self, initial_volume: float, duration_days: float, treatment: TreatmentProtocol | None = None
     ) -> np.ndarray:
         """Simulate Gompertz growth."""
         t = np.arange(0, duration_days + 1)
@@ -283,6 +279,7 @@ class GompertzGrowthModel(TumorGrowthModel):
 # SECTION 3: TREATMENT RESPONSE MODELS
 # =============================================================================
 
+
 class TreatmentResponseModel:
     """
     Model treatment-specific responses.
@@ -299,10 +296,7 @@ class TreatmentResponseModel:
         self.tumor = tumor
 
     def predict_response(
-        self,
-        protocol: TreatmentProtocol,
-        baseline_volume: float,
-        horizon_days: int = 180
+        self, protocol: TreatmentProtocol, baseline_volume: float, horizon_days: int = 180
     ) -> TreatmentOutcome:
         """
         Predict treatment response.
@@ -325,10 +319,7 @@ class TreatmentResponseModel:
             return self._predict_generic(protocol, baseline_volume, horizon_days)
 
     def _predict_chemotherapy(
-        self,
-        protocol: TreatmentProtocol,
-        baseline_volume: float,
-        horizon_days: int
+        self, protocol: TreatmentProtocol, baseline_volume: float, horizon_days: int
     ) -> TreatmentOutcome:
         """Predict chemotherapy response using PK/PD model."""
         # Drug parameters
@@ -369,14 +360,11 @@ class TreatmentResponseModel:
             survival_probability_1yr=survival_1yr,
             quality_of_life_score=qol,
             toxicity_profile=toxicity,
-            confidence_interval=(volume_change - 15, volume_change + 15)
+            confidence_interval=(volume_change - 15, volume_change + 15),
         )
 
     def _predict_radiation(
-        self,
-        protocol: TreatmentProtocol,
-        baseline_volume: float,
-        horizon_days: int
+        self, protocol: TreatmentProtocol, baseline_volume: float, horizon_days: int
     ) -> TreatmentOutcome:
         """Predict radiation response using LQ model."""
         total_dose = protocol.parameters.get("total_dose_gy", 60)
@@ -389,7 +377,7 @@ class TreatmentResponseModel:
         # Surviving fraction per fraction
         dose_per_fraction = total_dose / fractions
         sf_per_fraction = np.exp(-alpha * dose_per_fraction - beta * dose_per_fraction**2)
-        total_sf = sf_per_fraction ** fractions
+        total_sf = sf_per_fraction**fractions
 
         # Predicted volume after treatment
         final_volume = baseline_volume * total_sf
@@ -410,14 +398,11 @@ class TreatmentResponseModel:
             time_to_progression_days=self._estimate_time_to_progression(regrowth, final_volume),
             survival_probability_1yr=self._estimate_survival(response, self.patient),
             quality_of_life_score=0.7,
-            toxicity_profile={"fatigue": 0.9, "skin_reaction": 0.6, "esophagitis": 0.3}
+            toxicity_profile={"fatigue": 0.9, "skin_reaction": 0.6, "esophagitis": 0.3},
         )
 
     def _predict_immunotherapy(
-        self,
-        protocol: TreatmentProtocol,
-        baseline_volume: float,
-        horizon_days: int
+        self, protocol: TreatmentProtocol, baseline_volume: float, horizon_days: int
     ) -> TreatmentOutcome:
         """Predict immunotherapy response using immune kinetics."""
         # Immune response parameters
@@ -450,14 +435,11 @@ class TreatmentResponseModel:
             time_to_progression_days=self._estimate_time_to_progression(volumes, baseline_volume),
             survival_probability_1yr=self._estimate_survival(response, self.patient),
             quality_of_life_score=0.8,
-            toxicity_profile={"irAE": response_prob * 0.3, "fatigue": 0.4}
+            toxicity_profile={"irAE": response_prob * 0.3, "fatigue": 0.4},
         )
 
     def _predict_generic(
-        self,
-        protocol: TreatmentProtocol,
-        baseline_volume: float,
-        horizon_days: int
+        self, protocol: TreatmentProtocol, baseline_volume: float, horizon_days: int
     ) -> TreatmentOutcome:
         """Generic treatment prediction."""
         return TreatmentOutcome(
@@ -466,7 +448,7 @@ class TreatmentResponseModel:
             volume_change_percent=0,
             time_to_progression_days=180,
             survival_probability_1yr=0.5,
-            quality_of_life_score=0.7
+            quality_of_life_score=0.7,
         )
 
     def _classify_response(self, volume_change_percent: float) -> str:
@@ -480,11 +462,7 @@ class TreatmentResponseModel:
         else:
             return "PD"  # Progressive Disease
 
-    def _estimate_time_to_progression(
-        self,
-        volumes: np.ndarray,
-        baseline: float
-    ) -> float:
+    def _estimate_time_to_progression(self, volumes: np.ndarray, baseline: float) -> float:
         """Estimate time to disease progression."""
         # Progression = 20% increase from nadir
         nadir = np.min(volumes)
@@ -499,12 +477,7 @@ class TreatmentResponseModel:
 
     def _estimate_survival(self, response: str, patient: PatientProfile) -> float:
         """Estimate 1-year survival probability."""
-        base_survival = {
-            "CR": 0.95,
-            "PR": 0.80,
-            "SD": 0.60,
-            "PD": 0.30
-        }
+        base_survival = {"CR": 0.95, "PR": 0.80, "SD": 0.60, "PD": 0.30}
 
         # Adjust for performance status
         ps_adjustment = 1 - patient.performance_status * 0.1
@@ -518,7 +491,7 @@ class TreatmentResponseModel:
             TreatmentModality.CHEMOTHERAPY: 0.5,
             TreatmentModality.RADIATION: 0.7,
             TreatmentModality.IMMUNOTHERAPY: 0.8,
-            TreatmentModality.TARGETED: 0.75
+            TreatmentModality.TARGETED: 0.75,
         }
         return base_qol.get(protocol.modality, 0.7)
 
@@ -529,13 +502,14 @@ class TreatmentResponseModel:
             "nausea": 0.6,
             "fatigue": 0.8,
             "neuropathy": min(0.5, cycles * 0.08),
-            "alopecia": 0.7
+            "alopecia": 0.7,
         }
 
 
 # =============================================================================
 # SECTION 4: TREATMENT COMPARISON AND OPTIMIZATION
 # =============================================================================
+
 
 class TreatmentOptimizer:
     """
@@ -553,10 +527,7 @@ class TreatmentOptimizer:
         self.response_model = TreatmentResponseModel(patient, tumor)
 
     def compare_treatments(
-        self,
-        protocols: list[TreatmentProtocol],
-        baseline_volume: float,
-        horizon_days: int = 180
+        self, protocols: list[TreatmentProtocol], baseline_volume: float, horizon_days: int = 180
     ) -> list[TreatmentOutcome]:
         """
         Compare multiple treatment options.
@@ -572,24 +543,16 @@ class TreatmentOptimizer:
         outcomes = []
 
         for protocol in protocols:
-            outcome = self.response_model.predict_response(
-                protocol, baseline_volume, horizon_days
-            )
+            outcome = self.response_model.predict_response(protocol, baseline_volume, horizon_days)
             outcomes.append(outcome)
 
         # Sort by response (CR > PR > SD > PD) then by volume change
         response_rank = {"CR": 0, "PR": 1, "SD": 2, "PD": 3}
-        outcomes.sort(
-            key=lambda x: (response_rank.get(x.response_category, 4), x.volume_change_percent)
-        )
+        outcomes.sort(key=lambda x: (response_rank.get(x.response_category, 4), x.volume_change_percent))
 
         return outcomes
 
-    def generate_recommendation(
-        self,
-        outcomes: list[TreatmentOutcome],
-        optimization_target: str = "efficacy"
-    ) -> dict:
+    def generate_recommendation(self, outcomes: list[TreatmentOutcome], optimization_target: str = "efficacy") -> dict:
         """
         Generate treatment recommendation.
 
@@ -611,10 +574,7 @@ class TreatmentOptimizer:
             best = max(outcomes, key=lambda x: x.quality_of_life_score)
         else:
             # Balanced approach
-            best = min(
-                outcomes,
-                key=lambda x: -x.quality_of_life_score + x.volume_change_percent / 100
-            )
+            best = min(outcomes, key=lambda x: -x.quality_of_life_score + x.volume_change_percent / 100)
 
         return {
             "recommended_treatment": best.protocol.name,
@@ -623,14 +583,10 @@ class TreatmentOptimizer:
             "survival_1yr": f"{best.survival_probability_1yr:.1%}",
             "quality_of_life": f"{best.quality_of_life_score:.2f}",
             "confidence": "Moderate",
-            "rationale": self._generate_rationale(best, optimization_target)
+            "rationale": self._generate_rationale(best, optimization_target),
         }
 
-    def _generate_rationale(
-        self,
-        outcome: TreatmentOutcome,
-        target: str
-    ) -> str:
+    def _generate_rationale(self, outcome: TreatmentOutcome, target: str) -> str:
         """Generate explanation for recommendation."""
         if target == "efficacy":
             return (
@@ -655,15 +611,11 @@ class TreatmentOptimizer:
 # SECTION 5: CLINICAL DECISION SUPPORT REPORT
 # =============================================================================
 
+
 class ClinicalDecisionReport:
     """Generate clinical decision support report."""
 
-    def __init__(
-        self,
-        patient: PatientProfile,
-        outcomes: list[TreatmentOutcome],
-        recommendation: dict
-    ):
+    def __init__(self, patient: PatientProfile, outcomes: list[TreatmentOutcome], recommendation: dict):
         self.patient = patient
         self.outcomes = outcomes
         self.recommendation = recommendation
@@ -705,17 +657,17 @@ Recommendation
 --------------
 Based on the digital twin analysis:
 
-  RECOMMENDED: {self.recommendation['recommended_treatment']}
+  RECOMMENDED: {self.recommendation["recommended_treatment"]}
 
-  Expected Response: {self.recommendation['expected_response']}
-  Volume Change: {self.recommendation['volume_change']}
-  1-Year Survival: {self.recommendation['survival_1yr']}
-  Quality of Life: {self.recommendation['quality_of_life']}
+  Expected Response: {self.recommendation["expected_response"]}
+  Volume Change: {self.recommendation["volume_change"]}
+  1-Year Survival: {self.recommendation["survival_1yr"]}
+  Quality of Life: {self.recommendation["quality_of_life"]}
 
 Rationale:
-  {self.recommendation['rationale']}
+  {self.recommendation["rationale"]}
 
-Confidence Level: {self.recommendation['confidence']}
+Confidence Level: {self.recommendation["confidence"]}
 
 ================================================================================
 DISCLAIMER: This report is generated by an AI-based clinical decision support
@@ -723,7 +675,7 @@ system and is intended to assist, not replace, clinical judgment. All treatment
 decisions should be made by qualified healthcare providers in consultation with
 the patient.
 
-Generated: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}
+Generated: {datetime.now().strftime("%Y-%m-%d %H:%M:%S")}
 Framework: Physical AI Oncology Trials v1.0
 ================================================================================
 """
@@ -734,19 +686,15 @@ Framework: Physical AI Oncology Trials v1.0
         if not self.patient.biomarkers:
             return "Not available"
 
-        return ", ".join(
-            f"{k}: {v}" for k, v in self.patient.biomarkers.items()
-        )
+        return ", ".join(f"{k}: {v}" for k, v in self.patient.biomarkers.items())
 
 
 # =============================================================================
 # SECTION 6: MAIN PIPELINE
 # =============================================================================
 
-def predict_treatment_response(
-    patient_id: str = "ONCO-2026-001",
-    tumor_volume_cm3: float = 15.0
-) -> dict:
+
+def predict_treatment_response(patient_id: str = "ONCO-2026-001", tumor_volume_cm3: float = 15.0) -> dict:
     """
     Predict treatment responses for a patient using digital twin.
 
@@ -773,7 +721,7 @@ def predict_treatment_response(
         stage="IIIB",
         tumor_volume_cm3=tumor_volume_cm3,
         biomarkers={"PD-L1": 60, "EGFR": "negative", "ALK": "negative"},
-        performance_status=1
+        performance_status=1,
     )
 
     # Estimate tumor characteristics
@@ -782,7 +730,7 @@ def predict_treatment_response(
         death_rate=0.005,
         drug_sensitivity=0.4,
         radiation_sensitivity=0.35,
-        immune_visibility=0.6
+        immune_visibility=0.6,
     )
 
     logger.info(f"Patient: {patient.patient_id}")
@@ -795,44 +743,34 @@ def predict_treatment_response(
             modality=TreatmentModality.CHEMOTHERAPY,
             name="Carboplatin/Paclitaxel",
             parameters={"drug": "carboplatin_paclitaxel", "cycle_days": 21},
-            cycles=4
+            cycles=4,
         ),
         TreatmentProtocol(
             modality=TreatmentModality.RADIATION,
             name="Definitive Chemoradiation",
-            parameters={"total_dose_gy": 60, "fractions": 30}
+            parameters={"total_dose_gy": 60, "fractions": 30},
         ),
         TreatmentProtocol(
             modality=TreatmentModality.IMMUNOTHERAPY,
             name="Pembrolizumab",
             parameters={"agent": "pembrolizumab", "dose_mg_kg": 2},
             cycles=12,
-            duration_days=365
+            duration_days=365,
         ),
         TreatmentProtocol(
             modality=TreatmentModality.COMBINED,
             name="Chemoimmunotherapy",
-            parameters={
-                "chemotherapy": "carboplatin_paclitaxel",
-                "immunotherapy": "pembrolizumab"
-            },
-            cycles=4
-        )
+            parameters={"chemotherapy": "carboplatin_paclitaxel", "immunotherapy": "pembrolizumab"},
+            cycles=4,
+        ),
     ]
 
     # Compare treatments
     optimizer = TreatmentOptimizer(patient, tumor)
-    outcomes = optimizer.compare_treatments(
-        protocols,
-        patient.tumor_volume_cm3,
-        horizon_days=180
-    )
+    outcomes = optimizer.compare_treatments(protocols, patient.tumor_volume_cm3, horizon_days=180)
 
     # Generate recommendation
-    recommendation = optimizer.generate_recommendation(
-        outcomes,
-        optimization_target="balanced"
-    )
+    recommendation = optimizer.generate_recommendation(outcomes, optimization_target="balanced")
 
     # Generate clinical report
     report = ClinicalDecisionReport(patient, outcomes, recommendation)
@@ -847,13 +785,9 @@ def predict_treatment_response(
         "patient_id": patient_id,
         "recommendation": recommendation,
         "outcomes": [
-            {
-                "treatment": o.protocol.name,
-                "response": o.response_category,
-                "volume_change": o.volume_change_percent
-            }
+            {"treatment": o.protocol.name, "response": o.response_category, "volume_change": o.volume_change_percent}
             for o in outcomes
-        ]
+        ],
     }
 
 

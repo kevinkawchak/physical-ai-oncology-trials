@@ -2,6 +2,8 @@
 
 *Validated benchmarks and clinical outcomes (October 2025 - January 2026)*
 
+> **Data Disclaimer:** Tables in this document combine figures from published literature and illustrative (projected) values. Published results cite the originating system or paper (e.g., GR00T N1.6, SRT-H, Cosmos, ORBIT-Surgical baselines). Where no citation is given, figures are illustrative targets derived from aggregated literature trends and should not be treated as peer-reviewed measurements. See `CONTRIBUTING.md` for the labeling policy.
+
 ---
 
 ## 1. Vision-Language-Action Model Performance
@@ -243,7 +245,7 @@ Performance improvement: +12% on oncology-specific tasks
 | Bleeding prediction | 71% | Event-based |
 | Procedure phase transition | 84% | Next phase |
 
-**Radiation Therapy Simulation** (Preliminary):
+**Radiation Therapy Simulation** (Preliminary) *Illustrative -- retrospective only, not peer-reviewed*:
 ```
 Tumor volume prediction accuracy:
 - 30-day forecast: 82% within 10% error
@@ -307,7 +309,7 @@ video_learning_results = {
 
 ### Multi-Agent Surgical Cooperation
 
-**Human-Robot Team Performance** (Simulation Study):
+**Human-Robot Team Performance** (Simulation Study) *Illustrative*:
 
 | Team Configuration | Procedure Time | Collision Rate | Success Rate |
 |-------------------|----------------|----------------|--------------|

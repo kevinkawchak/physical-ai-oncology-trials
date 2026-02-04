@@ -42,10 +42,7 @@ from enum import Enum
 from pathlib import Path
 from typing import Any
 
-logging.basicConfig(
-    level=logging.INFO,
-    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s'
-)
+logging.basicConfig(level=logging.INFO, format="%(asctime)s - %(name)s - %(levelname)s - %(message)s")
 logger = logging.getLogger(__name__)
 
 
@@ -53,8 +50,10 @@ logger = logging.getLogger(__name__)
 # SECTION 1: DATA STRUCTURES
 # =============================================================================
 
+
 class RegulatoryJurisdiction(Enum):
     """Regulatory jurisdictions tracked."""
+
     FDA = "fda"
     EMA = "ema"
     ICH = "ich"
@@ -68,6 +67,7 @@ class RegulatoryJurisdiction(Enum):
 
 class UpdateType(Enum):
     """Types of regulatory updates."""
+
     GUIDANCE_DRAFT = "guidance_draft"
     GUIDANCE_FINAL = "guidance_final"
     DEVICE_CLEARANCE = "device_clearance"
@@ -81,16 +81,18 @@ class UpdateType(Enum):
 
 class ImpactLevel(Enum):
     """Impact level for trial operations."""
-    CRITICAL = "critical"       # Immediate action required
-    HIGH = "high"               # Plan changes needed
-    MEDIUM = "medium"           # Monitor and prepare
-    LOW = "low"                 # Informational
+
+    CRITICAL = "critical"  # Immediate action required
+    HIGH = "high"  # Plan changes needed
+    MEDIUM = "medium"  # Monitor and prepare
+    LOW = "low"  # Informational
     INFORMATIONAL = "informational"
 
 
 @dataclass
 class RegulatoryUpdate:
     """A single regulatory update or development."""
+
     update_id: str
     jurisdiction: str
     title: str
@@ -113,13 +115,14 @@ class RegulatoryUpdate:
             "update_type": self.update_type,
             "impact_level": self.impact_level,
             "summary": self.summary,
-            "affected_areas": self.affected_areas
+            "affected_areas": self.affected_areas,
         }
 
 
 @dataclass
 class ComplianceDeadline:
     """A regulatory compliance deadline."""
+
     jurisdiction: str
     regulation: str
     requirement: str
@@ -142,8 +145,11 @@ REGULATORY_TIMELINE: list[dict[str, Any]] = [
         "impact": "critical",
         "summary": "Comprehensive lifecycle management and submission recommendations for AI/ML-enabled devices. TPLC approach for 510(k), PMA, and De Novo submissions.",
         "affected_areas": ["device_submissions", "ai_ml_models", "post_market"],
-        "action_items": ["Review guidance against current submission strategy", "Update device submission documentation"],
-        "source_url": "https://www.fda.gov/news-events/press-announcements/fda-issues-comprehensive-draft-guidance-developers-artificial-intelligence-enabled-medical-devices"
+        "action_items": [
+            "Review guidance against current submission strategy",
+            "Update device submission documentation",
+        ],
+        "source_url": "https://www.fda.gov/news-events/press-announcements/fda-issues-comprehensive-draft-guidance-developers-artificial-intelligence-enabled-medical-devices",
     },
     {
         "jurisdiction": "fda",
@@ -154,7 +160,7 @@ REGULATORY_TIMELINE: list[dict[str, Any]] = [
         "summary": "Risk-based credibility assessment framework for AI models across nonclinical, clinical, postmarketing, and manufacturing phases.",
         "affected_areas": ["drug_development", "ai_ml_models", "clinical_trials"],
         "action_items": ["Assess AI model credibility per proposed framework"],
-        "source_url": "https://www.fda.gov/news-events/press-announcements/fda-proposes-framework-advance-credibility-ai-models-used-drug-and-biological-product-submissions"
+        "source_url": "https://www.fda.gov/news-events/press-announcements/fda-proposes-framework-advance-credibility-ai-models-used-drug-and-biological-product-submissions",
     },
     {
         "jurisdiction": "ich",
@@ -165,7 +171,7 @@ REGULATORY_TIMELINE: list[dict[str, Any]] = [
         "summary": "Comprehensive GCP revision with RBQM, digital technology provisions, AI/ML validation requirements, and shared data governance.",
         "affected_areas": ["clinical_trials", "data_governance", "digital_technology", "quality_management"],
         "action_items": ["Update SOPs for RBQM", "Document AI tool validation", "Revise monitoring plans"],
-        "source_url": "https://database.ich.org/sites/default/files/ICH_E6(R3)_Step4_FinalGuideline_2025_0106.pdf"
+        "source_url": "https://database.ich.org/sites/default/files/ICH_E6(R3)_Step4_FinalGuideline_2025_0106.pdf",
     },
     {
         "jurisdiction": "ema",
@@ -175,7 +181,7 @@ REGULATORY_TIMELINE: list[dict[str, Any]] = [
         "impact": "critical",
         "summary": "E6(R3) GCP becomes binding for all clinical trials conducted in EU member states.",
         "affected_areas": ["clinical_trials", "eu_sites"],
-        "action_items": ["Ensure EU site compliance with E6(R3)", "Update EU-specific trial documents"]
+        "action_items": ["Ensure EU site compliance with E6(R3)", "Update EU-specific trial documents"],
     },
     {
         "jurisdiction": "fda",
@@ -186,7 +192,7 @@ REGULATORY_TIMELINE: list[dict[str, Any]] = [
         "summary": "Predetermined Change Control Plans allow AI device updates post-market without new submissions if changes fall within pre-approved boundaries.",
         "affected_areas": ["device_submissions", "ai_ml_models", "post_market"],
         "action_items": ["Develop PCCP for adaptive AI components", "Define modification boundaries"],
-        "source_url": "https://www.fda.gov/regulatory-information/search-fda-guidance-documents/marketing-submission-recommendations-predetermined-change-control-plan-artificial-intelligence"
+        "source_url": "https://www.fda.gov/regulatory-information/search-fda-guidance-documents/marketing-submission-recommendations-predetermined-change-control-plan-artificial-intelligence",
     },
     {
         "jurisdiction": "fda",
@@ -196,7 +202,7 @@ REGULATORY_TIMELINE: list[dict[str, Any]] = [
         "impact": "critical",
         "summary": "E6(R3) GCP requirements available for U.S. clinical trial sites. Transition period from E6(R2).",
         "affected_areas": ["clinical_trials", "us_sites"],
-        "action_items": ["Begin E6(R3) transition for U.S. sites"]
+        "action_items": ["Begin E6(R3) transition for U.S. sites"],
     },
     {
         "jurisdiction": "fda",
@@ -207,7 +213,7 @@ REGULATORY_TIMELINE: list[dict[str, Any]] = [
         "summary": "FDA no longer requires identifiable patient-level data from all RWD sources. Operational February 16, 2026.",
         "affected_areas": ["real_world_evidence", "post_market"],
         "action_items": ["Review RWE strategy for post-market surveillance"],
-        "effective_date": "2026-02-16"
+        "effective_date": "2026-02-16",
     },
     {
         "jurisdiction": "fda",
@@ -217,7 +223,7 @@ REGULATORY_TIMELINE: list[dict[str, Any]] = [
         "impact": "high",
         "summary": "Quality Management System Regulation aligns U.S. requirements with ISO 13485 international standards.",
         "affected_areas": ["quality_management", "device_manufacturing"],
-        "action_items": ["Verify QMS alignment with ISO 13485", "Update quality procedures"]
+        "action_items": ["Verify QMS alignment with ISO 13485", "Update quality procedures"],
     },
     {
         "jurisdiction": "ema",
@@ -227,7 +233,11 @@ REGULATORY_TIMELINE: list[dict[str, Any]] = [
         "impact": "critical",
         "summary": "Full transparency, conformity assessment, and documentation requirements for high-risk AI systems. Penalties up to 35M EUR or 7% global turnover.",
         "affected_areas": ["ai_ml_models", "eu_compliance", "transparency"],
-        "action_items": ["Complete AI Act conformity assessment", "Implement transparency requirements", "Document AI system governance"]
+        "action_items": [
+            "Complete AI Act conformity assessment",
+            "Implement transparency requirements",
+            "Document AI system governance",
+        ],
     },
     {
         "jurisdiction": "ema",
@@ -237,14 +247,15 @@ REGULATORY_TIMELINE: list[dict[str, Any]] = [
         "impact": "critical",
         "summary": "AI systems in CE-marked medical devices under MDR/IVDR fully regulated under EU AI Act.",
         "affected_areas": ["ai_ml_models", "eu_compliance", "device_submissions"],
-        "action_items": ["Prepare dual MDR + AI Act compliance", "Update technical files"]
-    }
+        "action_items": ["Prepare dual MDR + AI Act compliance", "Update technical files"],
+    },
 ]
 
 
 # =============================================================================
 # SECTION 3: REGULATORY TRACKER
 # =============================================================================
+
 
 class RegulatoryTracker:
     """
@@ -263,11 +274,7 @@ class RegulatoryTracker:
     5. Action item generation
     """
 
-    def __init__(
-        self,
-        jurisdictions: list[str] | None = None,
-        topics: list[str] | None = None
-    ):
+    def __init__(self, jurisdictions: list[str] | None = None, topics: list[str] | None = None):
         """
         Initialize regulatory tracker.
 
@@ -291,25 +298,24 @@ class RegulatoryTracker:
         """Load regulatory timeline into structured updates."""
         for idx, entry in enumerate(REGULATORY_TIMELINE):
             if entry["jurisdiction"] in self.jurisdictions:
-                self._updates.append(RegulatoryUpdate(
-                    update_id=f"REG-{idx + 1:04d}",
-                    jurisdiction=entry["jurisdiction"],
-                    title=entry["title"],
-                    date=entry["date"],
-                    update_type=entry["type"],
-                    impact_level=entry["impact"],
-                    summary=entry["summary"],
-                    affected_areas=entry.get("affected_areas", []),
-                    action_items=entry.get("action_items", []),
-                    source_url=entry.get("source_url", ""),
-                    effective_date=entry.get("effective_date", "")
-                ))
+                self._updates.append(
+                    RegulatoryUpdate(
+                        update_id=f"REG-{idx + 1:04d}",
+                        jurisdiction=entry["jurisdiction"],
+                        title=entry["title"],
+                        date=entry["date"],
+                        update_type=entry["type"],
+                        impact_level=entry["impact"],
+                        summary=entry["summary"],
+                        affected_areas=entry.get("affected_areas", []),
+                        action_items=entry.get("action_items", []),
+                        source_url=entry.get("source_url", ""),
+                        effective_date=entry.get("effective_date", ""),
+                    )
+                )
 
     def get_recent_updates(
-        self,
-        days: int = 90,
-        jurisdiction: str | None = None,
-        impact_level: str | None = None
+        self, days: int = 90, jurisdiction: str | None = None, impact_level: str | None = None
     ) -> list[RegulatoryUpdate]:
         """
         Get recent regulatory updates.
@@ -335,10 +341,7 @@ class RegulatoryTracker:
 
         return filtered
 
-    def get_upcoming_deadlines(
-        self,
-        days_ahead: int = 180
-    ) -> list[ComplianceDeadline]:
+    def get_upcoming_deadlines(self, days_ahead: int = 180) -> list[ComplianceDeadline]:
         """
         Get upcoming compliance deadlines.
 
@@ -355,9 +358,7 @@ class RegulatoryTracker:
         for update in self._updates:
             effective = update.effective_date or update.date
             if today <= effective <= future:
-                days_until = (
-                    datetime.fromisoformat(effective) - datetime.now()
-                ).days
+                days_until = (datetime.fromisoformat(effective) - datetime.now()).days
 
                 status = "upcoming"
                 if days_until <= 30:
@@ -365,22 +366,21 @@ class RegulatoryTracker:
                 elif days_until <= 0:
                     status = "overdue"
 
-                deadlines.append(ComplianceDeadline(
-                    jurisdiction=update.jurisdiction,
-                    regulation=update.title,
-                    requirement=update.summary[:100] + "...",
-                    deadline=effective,
-                    status=status,
-                    notes=f"{days_until} days remaining"
-                ))
+                deadlines.append(
+                    ComplianceDeadline(
+                        jurisdiction=update.jurisdiction,
+                        regulation=update.title,
+                        requirement=update.summary[:100] + "...",
+                        deadline=effective,
+                        status=status,
+                        notes=f"{days_until} days remaining",
+                    )
+                )
 
         deadlines.sort(key=lambda d: d.deadline)
         return deadlines
 
-    def generate_action_items(
-        self,
-        jurisdiction: str | None = None
-    ) -> list[dict[str, str]]:
+    def generate_action_items(self, jurisdiction: str | None = None) -> list[dict[str, str]]:
         """
         Generate consolidated action items from regulatory updates.
 
@@ -398,13 +398,15 @@ class RegulatoryTracker:
 
         for update in filtered:
             for action in update.action_items:
-                items.append({
-                    "action": action,
-                    "source": update.title,
-                    "jurisdiction": update.jurisdiction,
-                    "impact": update.impact_level,
-                    "date": update.date
-                })
+                items.append(
+                    {
+                        "action": action,
+                        "source": update.title,
+                        "jurisdiction": update.jurisdiction,
+                        "impact": update.impact_level,
+                        "date": update.date,
+                    }
+                )
 
         return items
 
@@ -414,8 +416,8 @@ class RegulatoryTracker:
 REGULATORY LANDSCAPE REPORT
 =============================
 Report Date: {datetime.now().isoformat()[:10]}
-Jurisdictions: {', '.join(self.jurisdictions)}
-Topics: {', '.join(self.topics)}
+Jurisdictions: {", ".join(self.jurisdictions)}
+Topics: {", ".join(self.topics)}
 Total Updates Tracked: {len(self._updates)}
 
 IMPACT SUMMARY
@@ -444,7 +446,7 @@ IMPACT SUMMARY
         for item in actions:
             report += f"  [{item['jurisdiction'].upper():3s}] {item['action']}\n"
 
-        report += f"\nKEY REGULATORY UPDATES\n"
+        report += "\nKEY REGULATORY UPDATES\n"
         report += "-" * 40 + "\n"
 
         for update in sorted(self._updates, key=lambda u: u.date, reverse=True)[:10]:
@@ -461,6 +463,7 @@ IMPACT SUMMARY
 # SECTION 4: MAIN PIPELINE
 # =============================================================================
 
+
 def run_regulatory_tracker_demo():
     """
     Demonstrate regulatory intelligence tracking for AI oncology trials.
@@ -470,8 +473,7 @@ def run_regulatory_tracker_demo():
     logger.info("=" * 60)
 
     tracker = RegulatoryTracker(
-        jurisdictions=["fda", "ema", "ich"],
-        topics=["ai_ml_devices", "oncology", "clinical_trials"]
+        jurisdictions=["fda", "ema", "ich"], topics=["ai_ml_devices", "oncology", "clinical_trials"]
     )
 
     # Get all tracked updates

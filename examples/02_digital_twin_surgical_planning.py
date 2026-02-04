@@ -54,8 +54,10 @@ logger = logging.getLogger(__name__)
 # SECTION 1: PATIENT DATA STRUCTURES
 # =============================================================================
 
+
 class TumorType(Enum):
     """Supported tumor types for digital twin modeling."""
+
     LUNG_NSCLC = "non_small_cell_lung_cancer"
     LUNG_SCLC = "small_cell_lung_cancer"
     LIVER_HCC = "hepatocellular_carcinoma"
@@ -78,6 +80,7 @@ class PatientImagingData:
         voxel_spacing: Voxel dimensions in mm (x, y, z)
         orientation: Patient orientation matrix
     """
+
     patient_id: str
     ct_volume: np.ndarray | None = None
     mri_volumes: dict = field(default_factory=dict)
@@ -98,6 +101,7 @@ class TumorSegmentation:
         margin_mm: Applied margin in mm
         confidence: Segmentation confidence score
     """
+
     mask: np.ndarray
     gross_tumor_volume: float = 0.0
     clinical_target_volume: float = 0.0
@@ -115,6 +119,7 @@ class CriticalStructures:
         nerves: Dictionary of nerve segmentations
         organs_at_risk: Dictionary of OAR segmentations
     """
+
     vessels: dict = field(default_factory=dict)
     nerves: dict = field(default_factory=dict)
     organs_at_risk: dict = field(default_factory=dict)
@@ -123,6 +128,7 @@ class CriticalStructures:
 # =============================================================================
 # SECTION 2: DIGITAL TWIN CREATION
 # =============================================================================
+
 
 class SurgicalDigitalTwinBuilder:
     """
@@ -161,7 +167,7 @@ class SurgicalDigitalTwinBuilder:
         imaging_dir: str | Path,
         tumor_type: TumorType,
         include_vessels: bool = True,
-        include_airways: bool = True
+        include_airways: bool = True,
     ) -> "SurgicalDigitalTwin":
         """
         Build complete surgical digital twin.
@@ -208,7 +214,7 @@ class SurgicalDigitalTwinBuilder:
             tumor=tumor_seg,
             critical_structures=critical,
             anatomy_mesh=anatomy_mesh,
-            tumor_type=tumor_type
+            tumor_type=tumor_type,
         )
 
         logger.info(f"Digital twin created: tumor volume = {tumor_seg.gross_tumor_volume:.2f} cm^3")
@@ -224,17 +230,10 @@ class SurgicalDigitalTwinBuilder:
 
         logger.info(f"Loaded imaging from {imaging_dir}")
         return PatientImagingData(
-            patient_id="",
-            ct_volume=ct_volume,
-            mri_volumes=mri_volumes,
-            voxel_spacing=(1.0, 1.0, 1.0)
+            patient_id="", ct_volume=ct_volume, mri_volumes=mri_volumes, voxel_spacing=(1.0, 1.0, 1.0)
         )
 
-    def _segment_tumor(
-        self,
-        imaging: PatientImagingData,
-        tumor_type: TumorType
-    ) -> TumorSegmentation:
+    def _segment_tumor(self, imaging: PatientImagingData, tumor_type: TumorType) -> TumorSegmentation:
         """
         Segment tumor from imaging data.
 
@@ -257,10 +256,10 @@ class SurgicalDigitalTwinBuilder:
         center = [s // 2 for s in shape]
         radius = 20  # 20 voxel radius tumor
 
-        for i in range(max(0, center[0]-radius), min(shape[0], center[0]+radius)):
-            for j in range(max(0, center[1]-radius), min(shape[1], center[1]+radius)):
-                for k in range(max(0, center[2]-radius), min(shape[2], center[2]+radius)):
-                    if (i-center[0])**2 + (j-center[1])**2 + (k-center[2])**2 < radius**2:
+        for i in range(max(0, center[0] - radius), min(shape[0], center[0] + radius)):
+            for j in range(max(0, center[1] - radius), min(shape[1], center[1] + radius)):
+                for k in range(max(0, center[2] - radius), min(shape[2], center[2] + radius)):
+                    if (i - center[0]) ** 2 + (j - center[1]) ** 2 + (k - center[2]) ** 2 < radius**2:
                         mask[i, j, k] = 1
 
         # Calculate volumes
@@ -274,7 +273,7 @@ class SurgicalDigitalTwinBuilder:
             mask=mask,
             gross_tumor_volume=gtv_cm3,
             clinical_target_volume=gtv_cm3 * 1.2,  # 20% expansion for CTV
-            confidence=0.95
+            confidence=0.95,
         )
 
     def _segment_vessels(self, imaging: PatientImagingData) -> dict:
@@ -285,7 +284,7 @@ class SurgicalDigitalTwinBuilder:
         vessels = {
             "pulmonary_artery": np.zeros(shape, dtype=np.uint8),
             "pulmonary_vein": np.zeros(shape, dtype=np.uint8),
-            "bronchial_artery": np.zeros(shape, dtype=np.uint8)
+            "bronchial_artery": np.zeros(shape, dtype=np.uint8),
         }
 
         logger.info("Vessel segmentation complete")
@@ -297,10 +296,7 @@ class SurgicalDigitalTwinBuilder:
         return np.zeros(shape, dtype=np.uint8)
 
     def _create_anatomy_mesh(
-        self,
-        imaging: PatientImagingData,
-        tumor: TumorSegmentation,
-        critical: CriticalStructures
+        self, imaging: PatientImagingData, tumor: TumorSegmentation, critical: CriticalStructures
     ) -> dict:
         """
         Create 3D mesh representation of anatomy.
@@ -311,7 +307,7 @@ class SurgicalDigitalTwinBuilder:
         meshes = {
             "tumor": {"vertices": np.array([]), "faces": np.array([])},
             "lung": {"vertices": np.array([]), "faces": np.array([])},
-            "vessels": {"vertices": np.array([]), "faces": np.array([])}
+            "vessels": {"vertices": np.array([]), "faces": np.array([])},
         }
 
         logger.info("Anatomy mesh created")
@@ -321,6 +317,7 @@ class SurgicalDigitalTwinBuilder:
 # =============================================================================
 # SECTION 3: SURGICAL PLANNING
 # =============================================================================
+
 
 class SurgicalDigitalTwin:
     """
@@ -340,7 +337,7 @@ class SurgicalDigitalTwin:
         tumor: TumorSegmentation,
         critical_structures: CriticalStructures,
         anatomy_mesh: dict,
-        tumor_type: TumorType
+        tumor_type: TumorType,
     ):
         self.patient_id = patient_id
         self.imaging = imaging
@@ -349,11 +346,7 @@ class SurgicalDigitalTwin:
         self.anatomy_mesh = anatomy_mesh
         self.tumor_type = tumor_type
 
-    def plan_resection(
-        self,
-        margin_mm: float = 10.0,
-        approach: str = "thoracoscopic"
-    ) -> "ResectionPlan":
+    def plan_resection(self, margin_mm: float = 10.0, approach: str = "thoracoscopic") -> "ResectionPlan":
         """
         Plan tumor resection with specified margins.
 
@@ -392,7 +385,7 @@ class SurgicalDigitalTwin:
             trajectory=trajectory,
             vessel_proximity=vessel_distances,
             feasibility_score=feasibility,
-            risk_assessment=self._assess_risk(vessel_distances)
+            risk_assessment=self._assess_risk(vessel_distances),
         )
 
         logger.info(f"Resection plan complete: feasibility={feasibility:.1%}")
@@ -420,6 +413,7 @@ class SurgicalDigitalTwin:
         for vessel_name, vessel_mask in self.critical_structures.vessels.items():
             if vessel_mask.any():
                 from scipy import ndimage
+
                 dist_transform = ndimage.distance_transform_edt(~vessel_mask)
                 min_dist = np.min(dist_transform[expanded_mask > 0])
                 distances[vessel_name] = min_dist * self.imaging.voxel_spacing[0]
@@ -459,7 +453,7 @@ class SurgicalDigitalTwin:
             "entry_point": entry_point.tolist(),
             "target_point": tumor_center.tolist(),
             "approach": approach,
-            "distance_mm": float(np.linalg.norm(entry_point - tumor_center))
+            "distance_mm": float(np.linalg.norm(entry_point - tumor_center)),
         }
 
     def _assess_risk(self, vessel_distances: dict) -> dict:
@@ -472,16 +466,9 @@ class SurgicalDigitalTwin:
             elif dist < 10:
                 risks.append(f"Moderate: {vessel} within 10mm")
 
-        return {
-            "vessel_risks": risks,
-            "overall_risk": "high" if any("High" in r for r in risks) else "moderate"
-        }
+        return {"vessel_risks": risks, "overall_risk": "high" if any("High" in r for r in risks) else "moderate"}
 
-    def export_to_simulation(
-        self,
-        framework: str = "isaac",
-        output_path: str = "patient_scene"
-    ) -> str:
+    def export_to_simulation(self, framework: str = "isaac", output_path: str = "patient_scene") -> str:
         """
         Export digital twin to robot simulation framework.
 
@@ -511,10 +498,11 @@ class SurgicalDigitalTwin:
                 "tumor_type": self.tumor_type.value,
                 "tumor_volume_cm3": self.tumor.gross_tumor_volume,
                 "anatomy_meshes": list(self.anatomy_mesh.keys()),
-                "framework": "isaac_sim_5.0"
+                "framework": "isaac_sim_5.0",
             }
             config_path = output_path.with_suffix(".json")
             import json
+
             with open(config_path, "w") as f:
                 json.dump(scene_config, f, indent=2)
 
@@ -525,6 +513,7 @@ class SurgicalDigitalTwin:
 @dataclass
 class ResectionPlan:
     """Surgical resection plan."""
+
     patient_id: str
     tumor_volume_cm3: float
     planned_margin_mm: float
@@ -550,8 +539,8 @@ Planned Margin: {self.planned_margin_mm} mm
 SURGICAL APPROACH
 -----------------
 Approach: {self.approach}
-Entry Point: {self.trajectory['entry_point']}
-Distance to Target: {self.trajectory['distance_mm']:.1f} mm
+Entry Point: {self.trajectory["entry_point"]}
+Distance to Target: {self.trajectory["distance_mm"]:.1f} mm
 
 VESSEL PROXIMITY
 ----------------
@@ -559,7 +548,7 @@ VESSEL PROXIMITY
 
 RISK ASSESSMENT
 ---------------
-Overall Risk: {self.risk_assessment['overall_risk'].upper()}
+Overall Risk: {self.risk_assessment["overall_risk"].upper()}
 Feasibility Score: {self.feasibility_score:.1%}
 
 RECOMMENDATIONS
@@ -592,6 +581,7 @@ For clinical use: Physician review required
 # SECTION 4: VIRTUAL SURGERY REHEARSAL
 # =============================================================================
 
+
 class VirtualSurgerySimulator:
     """
     Virtual surgery rehearsal using digital twin.
@@ -618,18 +608,13 @@ class VirtualSurgerySimulator:
 
         # Export scene to simulation
         scene_path = self.twin.export_to_simulation(
-            framework="isaac",
-            output_path=f"/tmp/surgery_{self.twin.patient_id}"
+            framework="isaac", output_path=f"/tmp/surgery_{self.twin.patient_id}"
         )
 
         self._simulation_running = True
         logger.info(f"Simulation ready: {scene_path}")
 
-        return {
-            "scene_path": scene_path,
-            "plan": plan,
-            "status": "ready"
-        }
+        return {"scene_path": scene_path, "plan": plan, "status": "ready"}
 
     def record_trajectory(self) -> np.ndarray:
         """Record surgical trajectory during rehearsal."""
@@ -642,7 +627,7 @@ class VirtualSurgerySimulator:
             "total_path_length_mm": float(np.sum(np.linalg.norm(np.diff(trajectory[:, :3], axis=0), axis=1))),
             "max_velocity_mm_s": float(np.random.uniform(50, 200)),
             "margin_violations": 0,
-            "vessel_approaches": []
+            "vessel_approaches": [],
         }
 
 
@@ -650,10 +635,9 @@ class VirtualSurgerySimulator:
 # SECTION 5: MAIN PIPELINE
 # =============================================================================
 
+
 def plan_lung_tumor_resection(
-    patient_id: str = "ONCO-2026-001",
-    imaging_dir: str = "/data/patient/",
-    margin_mm: float = 10.0
+    patient_id: str = "ONCO-2026-001", imaging_dir: str = "/data/patient/", margin_mm: float = 10.0
 ) -> dict:
     """
     Complete pipeline for lung tumor resection planning.
@@ -686,14 +670,11 @@ def plan_lung_tumor_resection(
         imaging_dir=imaging_dir,
         tumor_type=TumorType.LUNG_NSCLC,
         include_vessels=True,
-        include_airways=True
+        include_airways=True,
     )
 
     # Plan resection
-    plan = twin.plan_resection(
-        margin_mm=margin_mm,
-        approach="thoracoscopic"
-    )
+    plan = twin.plan_resection(margin_mm=margin_mm, approach="thoracoscopic")
 
     # Generate report
     report = plan.generate_report()
@@ -708,7 +689,7 @@ def plan_lung_tumor_resection(
         "tumor_volume_cm3": twin.tumor.gross_tumor_volume,
         "feasibility_score": plan.feasibility_score,
         "risk_level": plan.risk_assessment["overall_risk"],
-        "simulation_ready": sim_result["status"] == "ready"
+        "simulation_ready": sim_result["status"] == "ready",
     }
 
     logger.info("=" * 60)

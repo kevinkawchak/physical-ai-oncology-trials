@@ -44,10 +44,7 @@ from enum import Enum
 from pathlib import Path
 from typing import Any
 
-logging.basicConfig(
-    level=logging.INFO,
-    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s'
-)
+logging.basicConfig(level=logging.INFO, format="%(asctime)s - %(name)s - %(levelname)s - %(message)s")
 logger = logging.getLogger(__name__)
 
 
@@ -55,8 +52,10 @@ logger = logging.getLogger(__name__)
 # SECTION 1: DATA STRUCTURES
 # =============================================================================
 
+
 class ProtocolStatus(Enum):
     """IRB protocol submission status."""
+
     DRAFT = "draft"
     SUBMITTED = "submitted"
     UNDER_REVIEW = "under_review"
@@ -70,6 +69,7 @@ class ProtocolStatus(Enum):
 
 class ReviewType(Enum):
     """Type of IRB review."""
+
     FULL_BOARD = "full_board"
     EXPEDITED = "expedited"
     EXEMPT = "exempt"
@@ -80,6 +80,7 @@ class ReviewType(Enum):
 
 class RiskCategory(Enum):
     """Risk level per Common Rule."""
+
     MINIMAL_RISK = "minimal_risk"
     GREATER_THAN_MINIMAL = "greater_than_minimal_risk"
 
@@ -87,6 +88,7 @@ class RiskCategory(Enum):
 @dataclass
 class AIComponent:
     """AI component in a clinical trial protocol."""
+
     name: str
     function: str  # "diagnostic", "treatment_planning", "monitoring", "decision_support"
     autonomy_level: str = "advisory"  # "advisory", "semi_autonomous", "autonomous"
@@ -100,6 +102,7 @@ class AIComponent:
 @dataclass
 class ConsentElement:
     """Element required in informed consent for AI trials."""
+
     element: str
     description: str
     required: bool = True
@@ -111,6 +114,7 @@ class ConsentElement:
 @dataclass
 class ReviewChecklistItem:
     """IRB review checklist item."""
+
     category: str
     item: str
     status: str = "not_reviewed"  # "not_reviewed", "satisfactory", "needs_revision", "not_applicable"
@@ -122,6 +126,7 @@ class ReviewChecklistItem:
 @dataclass
 class Protocol:
     """IRB protocol record."""
+
     protocol_id: str
     title: str
     pi_name: str
@@ -149,7 +154,7 @@ class Protocol:
             "review_type": self.review_type.value,
             "ai_components": len(self.ai_components),
             "participant_count": self.participant_count,
-            "trial_phase": self.trial_phase
+            "trial_phase": self.trial_phase,
         }
 
 
@@ -169,7 +174,7 @@ AI_CONSENT_ELEMENTS: list[dict[str, Any]] = [
             "[describe function: treatment planning / diagnosis / monitoring]. The AI system "
             "analyzes [describe data used] to [describe what AI does]. All AI recommendations "
             "are reviewed by your clinical care team before any decisions are made."
-        )
+        ),
     },
     {
         "element": "AI limitations and risks",
@@ -180,7 +185,7 @@ AI_CONSENT_ELEMENTS: list[dict[str, Any]] = [
             "The AI system may produce incorrect or incomplete recommendations. Like all "
             "medical technologies, it has limitations including [describe known limitations]. "
             "Your doctors will always review AI outputs and make final treatment decisions."
-        )
+        ),
     },
     {
         "element": "Human oversight assurance",
@@ -191,7 +196,7 @@ AI_CONSENT_ELEMENTS: list[dict[str, Any]] = [
             "A qualified physician will review all AI-generated recommendations before they "
             "are used in your care. Your treatment team can override or disregard AI "
             "recommendations at any time based on their clinical judgment."
-        )
+        ),
     },
     {
         "element": "Data use for AI training",
@@ -203,7 +208,7 @@ AI_CONSENT_ELEMENTS: list[dict[str, Any]] = [
             "This data will be stripped of all identifying information before use. "
             "You may choose not to allow use of your data for AI improvement without "
             "affecting your participation in the trial."
-        )
+        ),
     },
     {
         "element": "AI-specific privacy risks",
@@ -214,7 +219,7 @@ AI_CONSENT_ELEMENTS: list[dict[str, Any]] = [
             "Advanced AI systems can sometimes identify patterns in medical data that could "
             "potentially link back to individuals, even from de-identified data. We take "
             "additional precautions to protect against this risk, including [describe safeguards]."
-        )
+        ),
     },
     {
         "element": "Algorithmic bias disclosure",
@@ -225,7 +230,7 @@ AI_CONSENT_ELEMENTS: list[dict[str, Any]] = [
             "AI systems may perform differently across patient populations. We have tested "
             "this system across diverse populations and [describe bias assessment results]. "
             "Your care team is aware of these considerations."
-        )
+        ),
     },
     {
         "element": "Right to non-AI alternative",
@@ -235,8 +240,8 @@ AI_CONSENT_ELEMENTS: list[dict[str, Any]] = [
         "template_text": (
             "You may request that AI technology not be used in your treatment planning. "
             "Standard clinical approaches will be available as alternatives."
-        )
-    }
+        ),
+    },
 ]
 
 # AI-specific IRB review checklist items per MRCT Framework
@@ -244,94 +249,91 @@ AI_REVIEW_CHECKLIST: list[dict[str, Any]] = [
     {
         "category": "ai_transparency",
         "item": "AI involvement clearly described in protocol and consent",
-        "reference": "SACHRP Recommendations"
+        "reference": "SACHRP Recommendations",
     },
     {
         "category": "ai_transparency",
         "item": "AI model development stage documented (research, validated, cleared/approved)",
-        "reference": "MRCT Framework"
+        "reference": "MRCT Framework",
     },
     {
         "category": "ai_transparency",
         "item": "Regulatory status of AI components specified (investigational, cleared, none)",
-        "reference": "MRCT Framework"
+        "reference": "MRCT Framework",
     },
     {
         "category": "algorithmic_bias",
         "item": "Bias assessment conducted across demographic subgroups",
-        "reference": "SACHRP, FDA AI/ML Guidance"
+        "reference": "SACHRP, FDA AI/ML Guidance",
     },
-    {
-        "category": "algorithmic_bias",
-        "item": "Bias mitigation strategy documented",
-        "reference": "MRCT Framework"
-    },
+    {"category": "algorithmic_bias", "item": "Bias mitigation strategy documented", "reference": "MRCT Framework"},
     {
         "category": "algorithmic_bias",
         "item": "Training data demographic representation described",
-        "reference": "FDA AI/ML Guidance (Jan 2025)"
+        "reference": "FDA AI/ML Guidance (Jan 2025)",
     },
     {
         "category": "privacy_data",
         "item": "AI-specific re-identification risks assessed",
-        "reference": "SACHRP Recommendations"
+        "reference": "SACHRP Recommendations",
     },
     {
         "category": "privacy_data",
         "item": "Data access by AI systems limited per minimum necessary principle",
-        "reference": "45 CFR 164.502(b)"
+        "reference": "45 CFR 164.502(b)",
     },
     {
         "category": "privacy_data",
         "item": "AI system access to demographic data limited where possible",
-        "reference": "SACHRP Recommendations"
+        "reference": "SACHRP Recommendations",
     },
     {
         "category": "human_oversight",
         "item": "Human oversight mechanism described for all AI-influenced decisions",
-        "reference": "MRCT Framework"
+        "reference": "MRCT Framework",
     },
     {
         "category": "human_oversight",
         "item": "Override procedures for AI recommendations specified",
-        "reference": "ICH E6(R3)"
+        "reference": "ICH E6(R3)",
     },
     {
         "category": "risk_benefit",
         "item": "AI-specific risks and benefits analyzed in protocol",
-        "reference": "45 CFR 46.111(a)(2)"
+        "reference": "45 CFR 46.111(a)(2)",
     },
     {
         "category": "risk_benefit",
         "item": "Data Safety Monitoring Board (DSMB) plan includes AI performance review",
-        "reference": "ICH E6(R3)"
+        "reference": "ICH E6(R3)",
     },
     {
         "category": "consent",
         "item": "Informed consent describes AI involvement in plain language",
-        "reference": "45 CFR 46.116"
+        "reference": "45 CFR 46.116",
     },
     {
         "category": "consent",
         "item": "Consent addresses secondary use of data for AI training",
-        "reference": "45 CFR 46.116(c)(7)"
+        "reference": "45 CFR 46.116(c)(7)",
     },
     {
         "category": "monitoring",
         "item": "AI performance monitoring plan during trial execution",
-        "reference": "ICH E6(R3)"
+        "reference": "ICH E6(R3)",
     },
     {
         "category": "monitoring",
         "item": "Stopping rules defined for AI performance degradation",
-        "reference": "MRCT Framework"
-    }
+        "reference": "MRCT Framework",
+    },
 ]
 
 
 # =============================================================================
 # SECTION 3: IRB PROTOCOL MANAGER
 # =============================================================================
+
 
 class IRBProtocolManager:
     """
@@ -349,12 +351,7 @@ class IRBProtocolManager:
     5. Continuing review management
     """
 
-    def __init__(
-        self,
-        institution: str,
-        irb_type: str = "central",
-        fwa_number: str = ""
-    ):
+    def __init__(self, institution: str, irb_type: str = "central", fwa_number: str = ""):
         """
         Initialize IRB protocol manager.
 
@@ -370,10 +367,7 @@ class IRBProtocolManager:
         self._protocols: dict[str, Protocol] = {}
         self._protocol_counter = 0
 
-        logger.info(
-            f"IRBProtocolManager initialized: institution={institution}, "
-            f"irb_type={irb_type}"
-        )
+        logger.info(f"IRBProtocolManager initialized: institution={institution}, irb_type={irb_type}")
 
     def create_protocol(
         self,
@@ -382,7 +376,7 @@ class IRBProtocolManager:
         ai_components: list[str],
         participant_count: int = 0,
         trial_phase: str = "pivotal",
-        risk_category: str = "greater_than_minimal_risk"
+        risk_category: str = "greater_than_minimal_risk",
     ) -> Protocol:
         """
         Create a new IRB protocol submission.
@@ -403,12 +397,7 @@ class IRBProtocolManager:
 
         # Create AI component records
         components = [
-            AIComponent(
-                name=comp,
-                function="decision_support",
-                human_override=True
-            )
-            for comp in ai_components
+            AIComponent(name=comp, function="decision_support", human_override=True) for comp in ai_components
         ]
 
         # Generate consent elements
@@ -419,7 +408,7 @@ class IRBProtocolManager:
                 required=elem["required"],
                 ai_specific=True,
                 regulatory_basis=elem["regulatory_basis"],
-                template_text=elem["template_text"]
+                template_text=elem["template_text"],
             )
             for elem in AI_CONSENT_ELEMENTS
         ]
@@ -435,22 +424,16 @@ class IRBProtocolManager:
             participant_count=participant_count,
             trial_phase=trial_phase,
             consent_elements=consent,
-            created_date=datetime.now().isoformat()
+            created_date=datetime.now().isoformat(),
         )
 
         self._protocols[protocol_id] = protocol
 
-        logger.info(
-            f"Protocol created: {protocol_id} - {title} "
-            f"({len(components)} AI components)"
-        )
+        logger.info(f"Protocol created: {protocol_id} - {title} ({len(components)} AI components)")
 
         return protocol
 
-    def generate_ai_review_checklist(
-        self,
-        protocol: Protocol
-    ) -> SubmissionChecklist:
+    def generate_ai_review_checklist(self, protocol: Protocol) -> SubmissionChecklist:
         """
         Generate AI-specific IRB review checklist.
 
@@ -463,23 +446,19 @@ class IRBProtocolManager:
         Returns:
             SubmissionChecklist with AI-specific items
         """
-        checklist = SubmissionChecklist(
-            submission_id=protocol.protocol_id,
-            submission_type="irb_ai_review"
-        )
+        checklist = SubmissionChecklist(submission_id=protocol.protocol_id, submission_type="irb_ai_review")
 
         for item_def in AI_REVIEW_CHECKLIST:
-            checklist.items.append(ReviewChecklistItem(
-                category=item_def["category"],
-                item=item_def["item"],
-                regulatory_reference=item_def["reference"],
-                ai_specific=True
-            ))
+            checklist.items.append(
+                ReviewChecklistItem(
+                    category=item_def["category"],
+                    item=item_def["item"],
+                    regulatory_reference=item_def["reference"],
+                    ai_specific=True,
+                )
+            )
 
-        logger.info(
-            f"AI review checklist generated for {protocol.protocol_id}: "
-            f"{len(checklist.items)} items"
-        )
+        logger.info(f"AI review checklist generated for {protocol.protocol_id}: {len(checklist.items)} items")
 
         return checklist
 
@@ -525,7 +504,7 @@ AI TECHNOLOGY IN THIS STUDY
                 template += f"\n{element.element.upper()}\n"
                 template += f"{element.template_text}\n"
 
-        template += f"""
+        template += """
 ---
 
 AI COMPONENTS USED IN THIS STUDY
@@ -559,13 +538,7 @@ PI or Designee: ______________________ Date: ___________
 
         return template
 
-    def file_amendment(
-        self,
-        protocol_id: str,
-        amendment_type: str,
-        description: str,
-        ai_model_changed: bool = False
-    ):
+    def file_amendment(self, protocol_id: str, amendment_type: str, description: str, ai_model_changed: bool = False):
         """
         File a protocol amendment.
 
@@ -584,21 +557,19 @@ PI or Designee: ______________________ Date: ___________
             "type": amendment_type,
             "description": description,
             "ai_model_changed": ai_model_changed,
-            "status": "submitted"
+            "status": "submitted",
         }
 
         protocol.amendments.append(amendment)
 
-        logger.info(
-            f"Amendment filed for {protocol_id}: {amendment_type} "
-            f"(AI model changed: {ai_model_changed})"
-        )
+        logger.info(f"Amendment filed for {protocol_id}: {amendment_type} (AI model changed: {ai_model_changed})")
 
 
 # Reuse SubmissionChecklist from fda_submission_tracker for consistency
 @dataclass
 class SubmissionChecklist:
     """Checklist for IRB submission."""
+
     submission_id: str
     submission_type: str
     items: list = field(default_factory=list)
@@ -609,6 +580,7 @@ class SubmissionChecklist:
 # SECTION 4: MAIN PIPELINE
 # =============================================================================
 
+
 def run_irb_manager_demo():
     """
     Demonstrate IRB protocol management for AI oncology trials.
@@ -617,10 +589,7 @@ def run_irb_manager_demo():
     logger.info("IRB PROTOCOL MANAGER DEMO")
     logger.info("=" * 60)
 
-    irb = IRBProtocolManager(
-        institution="Memorial Sloan Kettering Cancer Center",
-        irb_type="central"
-    )
+    irb = IRBProtocolManager(institution="Memorial Sloan Kettering Cancer Center", irb_type="central")
 
     # Create protocol
     protocol = irb.create_protocol(
@@ -629,10 +598,10 @@ def run_irb_manager_demo():
         ai_components=[
             "Real-time tumor boundary detection via intraoperative CT",
             "Robotic instrument path guidance for tumor resection",
-            "Digital twin treatment response prediction"
+            "Digital twin treatment response prediction",
         ],
         participant_count=200,
-        trial_phase="pivotal"
+        trial_phase="pivotal",
     )
 
     print(f"\nProtocol: {protocol.protocol_id}")

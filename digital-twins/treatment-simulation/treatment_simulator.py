@@ -31,6 +31,7 @@ logger = logging.getLogger(__name__)
 
 class TreatmentType(Enum):
     """Supported treatment modalities."""
+
     CHEMOTHERAPY = "chemotherapy"
     RADIATION = "radiation"
     IMMUNOTHERAPY = "immunotherapy"
@@ -41,6 +42,7 @@ class TreatmentType(Enum):
 
 class ResponseType(Enum):
     """RECIST-style response categories."""
+
     COMPLETE_RESPONSE = "CR"
     PARTIAL_RESPONSE = "PR"
     STABLE_DISEASE = "SD"
@@ -58,6 +60,7 @@ class TreatmentProtocol:
         schedule: Treatment schedule
         duration_days: Total treatment duration
     """
+
     type: TreatmentType
     name: str = ""
     parameters: dict = field(default_factory=dict)
@@ -78,6 +81,7 @@ class TreatmentResponse:
         toxicity_estimate: Predicted toxicity metrics
         confidence_interval: 95% CI for predictions
     """
+
     timepoints: np.ndarray
     volumes: np.ndarray
     response_category: ResponseType
@@ -126,15 +130,10 @@ class TreatmentSimulator:
         self._chemo_model = PharmacokineticModel()
         self._immuno_model = ImmunotherapyModel()
 
-        logger.info(
-            f"TreatmentSimulator initialized for patient {patient_twin.patient_id}"
-        )
+        logger.info(f"TreatmentSimulator initialized for patient {patient_twin.patient_id}")
 
     def predict_response(
-        self,
-        treatment: dict | TreatmentProtocol,
-        horizon_days: float = 90,
-        include_uncertainty: bool = True
+        self, treatment: dict | TreatmentProtocol, horizon_days: float = 90, include_uncertainty: bool = True
     ) -> TreatmentResponse:
         """
         Predict treatment response for given protocol.
@@ -169,29 +168,20 @@ class TreatmentSimulator:
         else:
             return self._simulate_generic(treatment, horizon_days, include_uncertainty)
 
-    def _simulate_radiation(
-        self,
-        treatment: dict,
-        horizon_days: float,
-        include_uncertainty: bool
-    ) -> TreatmentResponse:
+    def _simulate_radiation(self, treatment: dict, horizon_days: float, include_uncertainty: bool) -> TreatmentResponse:
         """Simulate radiation therapy response using LQ model."""
         total_dose = treatment.get("total_dose_gy", 60)
         fractions = treatment.get("fractions", 30)
         dose_per_fraction = total_dose / fractions
 
         # Get tumor-specific alpha/beta
-        alpha, beta = self._radiation_model.get_tissue_parameters(
-            self.patient_twin.clinical_data.tumor_grade
-        )
+        alpha, beta = self._radiation_model.get_tissue_parameters(self.patient_twin.clinical_data.tumor_grade)
 
         # Calculate surviving fraction per fraction
-        sf_per_fraction = self._radiation_model.surviving_fraction(
-            dose_per_fraction, alpha, beta
-        )
+        sf_per_fraction = self._radiation_model.surviving_fraction(dose_per_fraction, alpha, beta)
 
         # Total surviving fraction
-        total_sf = sf_per_fraction ** fractions
+        total_sf = sf_per_fraction**fractions
 
         # Calculate tumor volume trajectory
         treatment_duration = fractions * 1.4  # Weekday fractions
@@ -206,7 +196,7 @@ class TreatmentSimulator:
             if t <= treatment_duration:
                 # Fraction delivery (simplified daily)
                 fractions_delivered = min(int(t / 1.4), fractions)
-                sf = sf_per_fraction ** fractions_delivered
+                sf = sf_per_fraction**fractions_delivered
                 # Regrowth between fractions
                 regrowth = np.exp(proliferation * t * 0.5)
                 volumes[i] = self.baseline_volume * sf * regrowth
@@ -214,9 +204,9 @@ class TreatmentSimulator:
                 # Post-treatment regrowth from nadir
                 nadir_idx = int(treatment_duration)
                 if nadir_idx < len(volumes):
-                    nadir_volume = min(volumes[:nadir_idx+1])
+                    nadir_volume = min(volumes[: nadir_idx + 1])
                 else:
-                    nadir_volume = volumes[i-1]
+                    nadir_volume = volumes[i - 1]
                 time_since_treatment = t - treatment_duration
                 volumes[i] = nadir_volume * np.exp(proliferation * time_since_treatment)
 
@@ -227,7 +217,7 @@ class TreatmentSimulator:
         # Tumor control probability (TCP)
         tcp = self._radiation_model.tumor_control_probability(
             self.baseline_volume * 1e6,  # cells
-            total_sf
+            total_sf,
         )
 
         # Response category
@@ -236,9 +226,7 @@ class TreatmentSimulator:
         # Uncertainty estimation
         confidence_interval = {}
         if include_uncertainty:
-            confidence_interval = self._estimate_uncertainty(
-                volumes, alpha_std=0.05, beta_std=0.01
-            )
+            confidence_interval = self._estimate_uncertainty(volumes, alpha_std=0.05, beta_std=0.01)
 
         return TreatmentResponse(
             timepoints=timepoints,
@@ -253,15 +241,12 @@ class TreatmentSimulator:
                 "fractions": fractions,
                 "surviving_fraction": total_sf,
                 "nadir_volume": np.min(volumes),
-                "nadir_day": timepoints[np.argmin(volumes)]
-            }
+                "nadir_day": timepoints[np.argmin(volumes)],
+            },
         )
 
     def _simulate_chemotherapy(
-        self,
-        treatment: dict,
-        horizon_days: float,
-        include_uncertainty: bool
+        self, treatment: dict, horizon_days: float, include_uncertainty: bool
     ) -> TreatmentResponse:
         """Simulate chemotherapy response using PK/PD model."""
         drug = treatment.get("drug", "generic")
@@ -285,17 +270,15 @@ class TreatmentSimulator:
             if current_cycle < cycles:
                 # Drug effect during treatment
                 time_in_cycle = t % cycle_days
-                concentration = self._chemo_model.concentration_profile(
-                    dose_mg_m2, time_in_cycle, drug_params
-                )
+                concentration = self._chemo_model.concentration_profile(dose_mg_m2, time_in_cycle, drug_params)
                 kill_rate = self._chemo_model.cell_kill_rate(concentration, drug_params)
 
                 # Net growth = proliferation - kill
                 net_rate = proliferation - kill_rate
-                volumes[i] = volumes[i-1] * np.exp(net_rate)
+                volumes[i] = volumes[i - 1] * np.exp(net_rate)
             else:
                 # Post-treatment regrowth
-                volumes[i] = volumes[i-1] * np.exp(proliferation)
+                volumes[i] = volumes[i - 1] * np.exp(proliferation)
 
         # Calculate metrics
         final_volume = volumes[-1]
@@ -314,15 +297,12 @@ class TreatmentSimulator:
                 "drug": drug,
                 "total_dose": dose_mg_m2 * cycles,
                 "cycles_completed": cycles,
-                "nadir_volume": np.min(volumes)
-            }
+                "nadir_volume": np.min(volumes),
+            },
         )
 
     def _simulate_immunotherapy(
-        self,
-        treatment: dict,
-        horizon_days: float,
-        include_uncertainty: bool
+        self, treatment: dict, horizon_days: float, include_uncertainty: bool
     ) -> TreatmentResponse:
         """Simulate immunotherapy response."""
         agent = treatment.get("agent", "pembrolizumab")
@@ -342,8 +322,10 @@ class TreatmentSimulator:
             immune_boost = 2.0  # Fold increase in immune activity
 
             dV = proliferation * V - self._immuno_model.kill_rate * T * V / (V + 100)
-            dT = (self._immuno_model.activation_rate * immune_boost * T * V / (V + 1000) -
-                  self._immuno_model.exhaustion_rate * T)
+            dT = (
+                self._immuno_model.activation_rate * immune_boost * T * V / (V + 1000)
+                - self._immuno_model.exhaustion_rate * T
+            )
 
             return [dV, dT]
 
@@ -363,18 +345,10 @@ class TreatmentSimulator:
             control_probability=0.0,
             toxicity_estimate={"irAE_risk": 0.15},
             confidence_interval={},
-            metrics={
-                "agent": agent,
-                "immune_response": "active" if volume_change < -20 else "limited"
-            }
+            metrics={"agent": agent, "immune_response": "active" if volume_change < -20 else "limited"},
         )
 
-    def _simulate_surgery(
-        self,
-        treatment: dict,
-        horizon_days: float,
-        include_uncertainty: bool
-    ) -> TreatmentResponse:
+    def _simulate_surgery(self, treatment: dict, horizon_days: float, include_uncertainty: bool) -> TreatmentResponse:
         """Simulate surgical resection and recurrence."""
         resection_extent = treatment.get("resection_extent", 0.95)  # 95% resection
         margin_mm = treatment.get("margin_mm", 5)
@@ -394,13 +368,13 @@ class TreatmentSimulator:
         for i, t in enumerate(timepoints[1:], 1):
             if t < surgery_day:
                 # Pre-operative growth
-                volumes[i] = volumes[i-1] * np.exp(proliferation)
-            elif t == surgery_day or (t > surgery_day and volumes[i-1] == 0):
+                volumes[i] = volumes[i - 1] * np.exp(proliferation)
+            elif t == surgery_day or (t > surgery_day and volumes[i - 1] == 0):
                 # Surgery day - immediate reduction
                 volumes[i] = self.baseline_volume * residual_fraction
             else:
                 # Post-operative regrowth from residual
-                volumes[i] = volumes[i-1] * np.exp(proliferation)
+                volumes[i] = volumes[i - 1] * np.exp(proliferation)
 
         # Calculate metrics
         final_volume = volumes[-1]
@@ -422,16 +396,11 @@ class TreatmentSimulator:
                 "resection_extent": resection_extent,
                 "margin_mm": margin_mm,
                 "residual_volume": self.baseline_volume * residual_fraction,
-                "recurrence_probability": recurrence_prob
-            }
+                "recurrence_probability": recurrence_prob,
+            },
         )
 
-    def _simulate_combined(
-        self,
-        treatment: dict,
-        horizon_days: float,
-        include_uncertainty: bool
-    ) -> TreatmentResponse:
+    def _simulate_combined(self, treatment: dict, horizon_days: float, include_uncertainty: bool) -> TreatmentResponse:
         """Simulate combined modality treatment."""
         modalities = treatment.get("modalities", [])
         sequencing = treatment.get("sequencing", "sequential")
@@ -454,7 +423,7 @@ class TreatmentSimulator:
         proliferation = self.patient_twin.proliferation_rate * 0.5  # Reduced during treatment
 
         for i, t in enumerate(timepoints[1:], 1):
-            volumes[i] = volumes[i-1] * np.exp(proliferation)
+            volumes[i] = volumes[i - 1] * np.exp(proliferation)
 
         volumes = volumes * (current_volume / self.baseline_volume)
 
@@ -470,15 +439,10 @@ class TreatmentSimulator:
             control_probability=0.0,
             toxicity_estimate={},
             confidence_interval={},
-            metrics={"modalities": len(modalities)}
+            metrics={"modalities": len(modalities)},
         )
 
-    def _simulate_generic(
-        self,
-        treatment: dict,
-        horizon_days: float,
-        include_uncertainty: bool
-    ) -> TreatmentResponse:
+    def _simulate_generic(self, treatment: dict, horizon_days: float, include_uncertainty: bool) -> TreatmentResponse:
         """Generic treatment simulation for unsupported modalities."""
         timepoints = np.linspace(0, horizon_days, int(horizon_days) + 1)
         volumes = np.full_like(timepoints, self.baseline_volume)
@@ -490,7 +454,7 @@ class TreatmentSimulator:
             volume_change_percent=0,
             control_probability=0,
             confidence_interval={},
-            metrics={}
+            metrics={},
         )
 
     def _classify_response(self, volume_change_percent: float) -> ResponseType:
@@ -504,63 +468,34 @@ class TreatmentSimulator:
         else:
             return ResponseType.PROGRESSIVE_DISEASE
 
-    def _estimate_uncertainty(
-        self,
-        volumes: np.ndarray,
-        alpha_std: float,
-        beta_std: float
-    ) -> dict:
+    def _estimate_uncertainty(self, volumes: np.ndarray, alpha_std: float, beta_std: float) -> dict:
         """Estimate prediction uncertainty."""
         # Simplified uncertainty estimation
         relative_std = 0.15  # 15% relative uncertainty
-        return {
-            "lower": volumes * (1 - 1.96 * relative_std),
-            "upper": volumes * (1 + 1.96 * relative_std)
-        }
+        return {"lower": volumes * (1 - 1.96 * relative_std), "upper": volumes * (1 + 1.96 * relative_std)}
 
-    def _estimate_radiation_toxicity(
-        self,
-        total_dose: float,
-        fractions: int
-    ) -> dict:
+    def _estimate_radiation_toxicity(self, total_dose: float, fractions: int) -> dict:
         """Estimate radiation toxicity risk."""
         dose_per_fraction = total_dose / fractions
 
         return {
             "acute_mucositis_risk": min(0.8, total_dose / 70 * 0.7),
             "late_fibrosis_risk": min(0.3, dose_per_fraction / 2.5 * 0.2),
-            "fatigue_probability": 0.9 if total_dose > 50 else 0.5
+            "fatigue_probability": 0.9 if total_dose > 50 else 0.5,
         }
 
-    def _estimate_chemo_toxicity(
-        self,
-        drug: str,
-        dose_mg_m2: float,
-        cycles: int
-    ) -> dict:
+    def _estimate_chemo_toxicity(self, drug: str, dose_mg_m2: float, cycles: int) -> dict:
         """Estimate chemotherapy toxicity risk."""
-        return {
-            "neutropenia_risk": min(0.7, dose_mg_m2 / 150),
-            "nausea_risk": 0.6,
-            "neuropathy_risk": 0.3 * cycles / 6
-        }
+        return {"neutropenia_risk": min(0.7, dose_mg_m2 / 150), "nausea_risk": 0.6, "neuropathy_risk": 0.3 * cycles / 6}
 
-    def _estimate_recurrence_probability(
-        self,
-        margin_mm: float,
-        residual_fraction: float
-    ) -> float:
+    def _estimate_recurrence_probability(self, margin_mm: float, residual_fraction: float) -> float:
         """Estimate recurrence probability after surgery."""
         # Simplified model
         margin_factor = np.exp(-margin_mm / 5)
         residual_factor = residual_fraction * 10
         return min(0.9, margin_factor * 0.3 + residual_factor)
 
-    def compare_treatments(
-        self,
-        treatments: list[dict],
-        metrics: list[str] | None = None
-    ) -> "TreatmentComparison":
+    def compare_treatments(self, treatments: list[dict], metrics: list[str] | None = None) -> "TreatmentComparison":
         """
         Compare multiple treatment strategies.
 
@@ -577,13 +512,15 @@ class TreatmentSimulator:
         results = []
         for treatment in treatments:
             response = self.predict_response(treatment, horizon_days=90)
-            results.append({
-                "name": treatment.get("name", treatment.get("type", "Unknown")),
-                "protocol": treatment,
-                "response": response,
-                "volume_change": response.volume_change_percent,
-                "control_prob": response.control_probability
-            })
+            results.append(
+                {
+                    "name": treatment.get("name", treatment.get("type", "Unknown")),
+                    "protocol": treatment,
+                    "response": response,
+                    "volume_change": response.volume_change_percent,
+                    "control_prob": response.control_probability,
+                }
+            )
 
         # Rank by volume reduction
         results.sort(key=lambda x: x["volume_change"])
@@ -591,10 +528,7 @@ class TreatmentSimulator:
         return TreatmentComparison(treatments=results)
 
     def monte_carlo_simulation(
-        self,
-        treatment: dict,
-        n_samples: int = 1000,
-        parameter_uncertainty: dict | None = None
+        self, treatment: dict, n_samples: int = 1000, parameter_uncertainty: dict | None = None
     ) -> dict:
         """
         Monte Carlo simulation for uncertainty quantification.
@@ -624,11 +558,13 @@ class TreatmentSimulator:
 
             # Run simulation
             response = self.predict_response(treatment, horizon_days=90, include_uncertainty=False)
-            results.append({
-                "final_volume": response.volumes[-1],
-                "volume_change": response.volume_change_percent,
-                "control_prob": response.control_probability
-            })
+            results.append(
+                {
+                    "final_volume": response.volumes[-1],
+                    "volume_change": response.volume_change_percent,
+                    "control_prob": response.control_probability,
+                }
+            )
 
         # Restore original parameters
         self.patient_twin.model.parameters.proliferation_rate = original_proliferation
@@ -642,13 +578,14 @@ class TreatmentSimulator:
             "volume_std": np.std(final_volumes),
             "volume_ci": np.percentile(final_volumes, [2.5, 97.5]),
             "tcp_mean": np.mean(control_probs),
-            "tcp_ci": np.percentile(control_probs, [2.5, 97.5])
+            "tcp_ci": np.percentile(control_probs, [2.5, 97.5]),
         }
 
 
 @dataclass
 class TreatmentComparison:
     """Treatment comparison results."""
+
     treatments: list
 
     def generate_report(self, format: str = "clinical") -> str:
@@ -669,41 +606,27 @@ class LinearQuadraticModel:
 
     # Tissue-specific alpha/beta values (Gy)
     TISSUE_PARAMS = {
-        "I": (0.20, 0.02),   # Low grade
+        "I": (0.20, 0.02),  # Low grade
         "II": (0.25, 0.025),
         "III": (0.30, 0.03),  # High grade
         "IV": (0.35, 0.035),  # Most aggressive
-        "unknown": (0.30, 0.03)
+        "unknown": (0.30, 0.03),
     }
 
     def get_tissue_parameters(self, tumor_grade: str) -> tuple[float, float]:
         """Get alpha/beta parameters for tumor grade."""
         return self.TISSUE_PARAMS.get(tumor_grade, self.TISSUE_PARAMS["unknown"])
 
-    def surviving_fraction(
-        self,
-        dose: float,
-        alpha: float,
-        beta: float
-    ) -> float:
+    def surviving_fraction(self, dose: float, alpha: float, beta: float) -> float:
         """Calculate surviving fraction for single dose."""
         return np.exp(-alpha * dose - beta * dose**2)
 
-    def tumor_control_probability(
-        self,
-        initial_cells: float,
-        total_sf: float
-    ) -> float:
+    def tumor_control_probability(self, initial_cells: float, total_sf: float) -> float:
         """Calculate tumor control probability."""
         surviving_cells = initial_cells * total_sf
         return np.exp(-surviving_cells)
 
-    def biologically_effective_dose(
-        self,
-        total_dose: float,
-        dose_per_fraction: float,
-        alpha_beta: float
-    ) -> float:
+    def biologically_effective_dose(self, total_dose: float, dose_per_fraction: float, alpha_beta: float) -> float:
         """Calculate BED for fractionated treatment."""
         return total_dose * (1 + dose_per_fraction / alpha_beta)
 
@@ -718,34 +641,17 @@ class PharmacokineticModel:
             "vd": 20,  # L
             "t_half": 0.5,  # hours (distribution)
             "ec50": 1.0,  # ug/mL
-            "hill": 2
+            "hill": 2,
         },
-        "paclitaxel": {
-            "clearance": 15,
-            "vd": 200,
-            "t_half": 5,
-            "ec50": 0.5,
-            "hill": 1.5
-        },
-        "generic": {
-            "clearance": 20,
-            "vd": 50,
-            "t_half": 2,
-            "ec50": 1.0,
-            "hill": 1
-        }
+        "paclitaxel": {"clearance": 15, "vd": 200, "t_half": 5, "ec50": 0.5, "hill": 1.5},
+        "generic": {"clearance": 20, "vd": 50, "t_half": 2, "ec50": 1.0, "hill": 1},
     }
 
     def get_drug_parameters(self, drug: str) -> dict:
         """Get PK parameters for drug."""
         return self.DRUG_PARAMS.get(drug.lower(), self.DRUG_PARAMS["generic"])
 
-    def concentration_profile(
-        self,
-        dose_mg_m2: float,
-        time_hours: float,
-        params: dict
-    ) -> float:
+    def concentration_profile(self, dose_mg_m2: float, time_hours: float, params: dict) -> float:
         """Calculate drug concentration at time t."""
         k_elim = 0.693 / params["t_half"]
         c0 = dose_mg_m2 / params["vd"]
@@ -799,11 +705,7 @@ if __name__ == "__main__":
 
     # Test radiation simulation
     print("\n1. Radiation Therapy Simulation")
-    rt_protocol = {
-        "type": "radiation",
-        "total_dose_gy": 60,
-        "fractions": 30
-    }
+    rt_protocol = {"type": "radiation", "total_dose_gy": 60, "fractions": 30}
     rt_response = simulator.predict_response(rt_protocol, horizon_days=90)
     print(f"   Response: {rt_response.response_category.value}")
     print(f"   Volume change: {rt_response.volume_change_percent:.1f}%")
@@ -811,20 +713,14 @@ if __name__ == "__main__":
 
     # Test chemotherapy simulation
     print("\n2. Chemotherapy Simulation")
-    chemo_protocol = {
-        "type": "chemotherapy",
-        "drug": "cisplatin",
-        "dose_mg_m2": 75,
-        "cycles": 4
-    }
+    chemo_protocol = {"type": "chemotherapy", "drug": "cisplatin", "dose_mg_m2": 75, "cycles": 4}
     chemo_response = simulator.predict_response(chemo_protocol, horizon_days=90)
     print(f"   Response: {chemo_response.response_category.value}")
     print(f"   Volume change: {chemo_response.volume_change_percent:.1f}%")
 
     # Test treatment comparison
     print("\n3. Treatment Comparison")
-    comparison = simulator.compare_treatments([
-        {"name": "Radiation 60Gy", **rt_protocol},
-        {"name": "Cisplatin", **chemo_protocol}
-    ])
+    comparison = simulator.compare_treatments(
+        [{"name": "Radiation 60Gy", **rt_protocol}, {"name": "Cisplatin", **chemo_protocol}]
+    )
     print(comparison.generate_report())

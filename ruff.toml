@@ -1,0 +1,27 @@
+# Ruff configuration for physical-ai-oncology-trials
+# See https://docs.astral.sh/ruff/configuration/
+
+line-length = 120
+target-version = "py310"
+
+[lint]
+select = ["E", "F", "W"]
+# F841: unused variables are common in example/reference code that demonstrates patterns
+# E741: single-letter variables (l, O) appear in physics/math formulas
+# E501: long lines in regulatory strings and descriptions are more readable unsplit
+ignore = ["F841", "E741", "E501"]
+
+[lint.per-file-ignores]
+# Example scripts use try/except imports and loop variable shadowing
+"examples/*.py" = ["F401", "F402"]
+# Integration code uses try/except import availability checks
+"digital-twins/**/*.py" = ["F401"]
+# Framework integration code uses conditional imports
+"unification/**/*.py" = ["F401", "F402"]
+# Standards pipelines use conditional imports for optional frameworks
+"q1-2026-standards/**/*.py" = ["F401", "F402"]
+# Utility scripts use try/except to probe optional packages
+"scripts/*.py" = ["F401"]
+# Regulatory/privacy tooling has placeholder imports and forward references
+"regulatory/**/*.py" = ["F401", "F821"]
+"privacy/**/*.py" = ["F401"]

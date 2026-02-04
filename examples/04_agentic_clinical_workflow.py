@@ -52,8 +52,10 @@ logger = logging.getLogger(__name__)
 # SECTION 1: CLINICAL TRIAL DATA STRUCTURES
 # =============================================================================
 
+
 class TrialPhase(Enum):
     """Clinical trial phases."""
+
     PHASE_I = "Phase I"
     PHASE_II = "Phase II"
     PHASE_III = "Phase III"
@@ -62,6 +64,7 @@ class TrialPhase(Enum):
 
 class PatientStatus(Enum):
     """Patient enrollment status."""
+
     SCREENING = "screening"
     ENROLLED = "enrolled"
     ACTIVE = "active_treatment"
@@ -73,6 +76,7 @@ class PatientStatus(Enum):
 @dataclass
 class ClinicalTrial:
     """Clinical trial metadata."""
+
     trial_id: str
     title: str
     phase: TrialPhase
@@ -87,6 +91,7 @@ class ClinicalTrial:
 @dataclass
 class Patient:
     """Patient record for clinical trial."""
+
     patient_id: str
     site_id: str
     status: PatientStatus
@@ -99,6 +104,7 @@ class Patient:
 @dataclass
 class AdverseEvent:
     """Adverse event record."""
+
     event_id: str
     patient_id: str
     description: str
@@ -113,8 +119,10 @@ class AdverseEvent:
 # SECTION 2: AGENT DEFINITIONS
 # =============================================================================
 
+
 class AgentRole(Enum):
     """Roles for clinical trial agents."""
+
     COORDINATOR = "trial_coordinator"
     ELIGIBILITY = "eligibility_specialist"
     DATA_MANAGER = "data_manager"
@@ -126,6 +134,7 @@ class AgentRole(Enum):
 @dataclass
 class AgentConfig:
     """Configuration for a clinical trial agent."""
+
     role: AgentRole
     name: str
     goal: str
@@ -171,11 +180,9 @@ class ClinicalTrialAgent:
         logger.info(f"{self.name} processing: {task[:50]}...")
 
         # Record action for audit trail
-        self._action_history.append({
-            "timestamp": datetime.now().isoformat(),
-            "task": task,
-            "context_keys": list(context.keys())
-        })
+        self._action_history.append(
+            {"timestamp": datetime.now().isoformat(), "task": task, "context_keys": list(context.keys())}
+        )
 
         # Simulated processing - in production would call LLM
         result = self._execute_role_specific_logic(task, context)
@@ -206,7 +213,7 @@ class EligibilityAgent(ClinicalTrialAgent):
             name="Dr. Eligibility",
             goal="Accurately screen patients against trial criteria",
             backstory="Expert in oncology trial eligibility with 15 years experience",
-            tools=["check_lab_values", "review_medical_history", "verify_diagnosis"]
+            tools=["check_lab_values", "review_medical_history", "verify_diagnosis"],
         )
         super().__init__(config)
 
@@ -214,11 +221,7 @@ class EligibilityAgent(ClinicalTrialAgent):
         self.inclusion_criteria = []
         self.exclusion_criteria = []
 
-    def set_trial_criteria(
-        self,
-        inclusion: list,
-        exclusion: list
-    ):
+    def set_trial_criteria(self, inclusion: list, exclusion: list):
         """Set eligibility criteria for the trial."""
         self.inclusion_criteria = inclusion
         self.exclusion_criteria = exclusion
@@ -247,7 +250,7 @@ class EligibilityAgent(ClinicalTrialAgent):
             "eligible": eligible,
             "inclusion_results": inclusion_met,
             "exclusion_violations": exclusion_violated,
-            "recommendation": "Proceed with enrollment" if eligible else "Not eligible"
+            "recommendation": "Proceed with enrollment" if eligible else "Not eligible",
         }
 
     def _check_criterion(self, criterion: str, patient_data: dict) -> bool:
@@ -270,7 +273,7 @@ class SafetyOfficerAgent(ClinicalTrialAgent):
             name="Safety Monitor",
             goal="Ensure patient safety and regulatory compliance for AE reporting",
             backstory="Pharmacovigilance expert with expertise in oncology safety",
-            tools=["evaluate_ae", "report_to_irb", "report_to_fda", "recommend_action"]
+            tools=["evaluate_ae", "report_to_irb", "report_to_fda", "recommend_action"],
         )
         super().__init__(config)
 
@@ -296,7 +299,7 @@ class SafetyOfficerAgent(ClinicalTrialAgent):
             "severity_assessment": severity,
             "required_actions": actions,
             "reporting_timeline": self._get_reporting_timeline(severity),
-            "recommendation": f"Handle as {severity} adverse event"
+            "recommendation": f"Handle as {severity} adverse event",
         }
 
     def _get_reporting_timeline(self, severity: str) -> dict:
@@ -305,7 +308,7 @@ class SafetyOfficerAgent(ClinicalTrialAgent):
             "mild": {"irb": "annual_report"},
             "moderate": {"irb": "30_days"},
             "severe": {"irb": "24_hours", "sponsor": "24_hours"},
-            "life_threatening": {"irb": "24_hours", "fda": "7_days", "sponsor": "immediate"}
+            "life_threatening": {"irb": "24_hours", "fda": "7_days", "sponsor": "immediate"},
         }
         return timelines.get(severity, timelines["mild"])
 
@@ -324,7 +327,7 @@ class DataManagerAgent(ClinicalTrialAgent):
             name="Data Manager",
             goal="Maintain high-quality trial data and resolve discrepancies",
             backstory="Expert in clinical data management and EDC systems",
-            tools=["validate_data", "generate_query", "resolve_discrepancy"]
+            tools=["validate_data", "generate_query", "resolve_discrepancy"],
         )
         super().__init__(config)
 
@@ -341,11 +344,7 @@ class DataManagerAgent(ClinicalTrialAgent):
         for field in required_fields:
             if field not in data or not data[field]:
                 issues.append(f"Missing required field: {field}")
-                queries.append({
-                    "field": field,
-                    "query": f"Please provide {field} value",
-                    "priority": "high"
-                })
+                queries.append({"field": field, "query": f"Please provide {field} value", "priority": "high"})
 
         # Check for out-of-range values
         if "lab_values" in data:
@@ -358,7 +357,7 @@ class DataManagerAgent(ClinicalTrialAgent):
             "data_quality_score": 100 - len(issues) * 10,
             "issues_found": issues,
             "queries_generated": queries,
-            "action": "Data accepted" if not issues else "Queries sent to site"
+            "action": "Data accepted" if not issues else "Queries sent to site",
         }
 
     def _value_in_range(self, lab: str, value: Any) -> bool:
@@ -370,6 +369,7 @@ class DataManagerAgent(ClinicalTrialAgent):
 # =============================================================================
 # SECTION 3: MULTI-AGENT ORCHESTRATION
 # =============================================================================
+
 
 class ClinicalTrialCrew:
     """
@@ -405,14 +405,14 @@ class ClinicalTrialCrew:
                 "Age >= 18 years",
                 "ECOG performance status 0-1",
                 "Histologically confirmed diagnosis",
-                "Adequate organ function"
+                "Adequate organ function",
             ],
             exclusion=[
                 "Prior treatment with study drug",
                 "Active CNS metastases",
                 "Uncontrolled infection",
-                "Pregnancy or lactation"
-            ]
+                "Pregnancy or lactation",
+            ],
         )
 
     def process_enrollment(self, patient_data: dict) -> dict:
@@ -436,18 +436,14 @@ class ClinicalTrialCrew:
             "workflow": "enrollment",
             "patient_id": patient_data.get("patient_id"),
             "timestamp": datetime.now().isoformat(),
-            "steps": []
+            "steps": [],
         }
 
         # Step 1: Eligibility check
         eligibility_result = self.agents["eligibility"].process_task(
-            "Screen patient for trial eligibility",
-            {"patient_data": patient_data}
+            "Screen patient for trial eligibility", {"patient_data": patient_data}
         )
-        workflow_result["steps"].append({
-            "agent": "eligibility",
-            "result": eligibility_result
-        })
+        workflow_result["steps"].append({"agent": "eligibility", "result": eligibility_result})
 
         if not eligibility_result.get("eligible", False):
             workflow_result["outcome"] = "not_eligible"
@@ -456,13 +452,9 @@ class ClinicalTrialCrew:
 
         # Step 2: Data validation
         data_result = self.agents["data"].process_task(
-            "Validate patient enrollment data",
-            {"patient_data": patient_data}
+            "Validate patient enrollment data", {"patient_data": patient_data}
         )
-        workflow_result["steps"].append({
-            "agent": "data",
-            "result": data_result
-        })
+        workflow_result["steps"].append({"agent": "data", "result": data_result})
 
         if data_result.get("data_quality_score", 0) < 80:
             workflow_result["outcome"] = "pending_queries"
@@ -499,18 +491,14 @@ class ClinicalTrialCrew:
             "workflow": "adverse_event",
             "event_id": ae_data.get("event_id"),
             "timestamp": datetime.now().isoformat(),
-            "steps": []
+            "steps": [],
         }
 
         # Safety evaluation
         safety_result = self.agents["safety"].process_task(
-            "Evaluate adverse event and determine required actions",
-            {"adverse_event": ae_data}
+            "Evaluate adverse event and determine required actions", {"adverse_event": ae_data}
         )
-        workflow_result["steps"].append({
-            "agent": "safety",
-            "result": safety_result
-        })
+        workflow_result["steps"].append({"agent": "safety", "result": safety_result})
 
         workflow_result["severity"] = safety_result.get("severity_assessment")
         workflow_result["required_actions"] = safety_result.get("required_actions", [])
@@ -522,6 +510,7 @@ class ClinicalTrialCrew:
     def _assign_treatment_arm(self) -> str:
         """Assign patient to treatment arm (randomization)."""
         import random
+
         arms = ["Treatment A", "Treatment B", "Control"]
         return random.choice(arms)
 
@@ -565,6 +554,7 @@ Total workflows processed: {len(self._workflow_history)}
 # SECTION 4: LANGGRAPH WORKFLOW (Alternative Implementation)
 # =============================================================================
 
+
 class LangGraphWorkflow:
     """
     Alternative workflow implementation using LangGraph.
@@ -597,6 +587,7 @@ class LangGraphWorkflow:
 # =============================================================================
 # SECTION 5: NATURAL LANGUAGE INTERFACE
 # =============================================================================
+
 
 class ClinicalTrialAssistant:
     """
@@ -641,19 +632,21 @@ class ClinicalTrialAssistant:
         elif "eligibility" in command_lower or "eligible" in command_lower:
             return self._handle_eligibility_check(command)
         else:
-            return f"I can help with enrollment, adverse events, eligibility checks, and reports. What would you like to do?"
+            return "I can help with enrollment, adverse events, eligibility checks, and reports. What would you like to do?"
 
     def _handle_enrollment(self, command: str) -> str:
         """Handle enrollment command."""
         # Extract patient ID (simplified)
         patient_id = f"PT-{hash(command) % 10000:04d}"
 
-        result = self.crew.process_enrollment({
-            "patient_id": patient_id,
-            "site_id": "Site-A",
-            "vital_signs": {"bp": "120/80", "hr": 72},
-            "lab_values": {"wbc": 5.5, "hgb": 12.0}
-        })
+        result = self.crew.process_enrollment(
+            {
+                "patient_id": patient_id,
+                "site_id": "Site-A",
+                "vital_signs": {"bp": "120/80", "hr": 72},
+                "lab_values": {"wbc": 5.5, "hgb": 12.0},
+            }
+        )
 
         if result["outcome"] == "enrolled":
             return f"Patient {patient_id} has been enrolled in {result.get('treatment_arm', 'unknown arm')}."
@@ -666,13 +659,15 @@ class ClinicalTrialAssistant:
         """Handle adverse event command."""
         event_id = f"AE-{hash(command) % 10000:04d}"
 
-        result = self.crew.process_adverse_event({
-            "event_id": event_id,
-            "patient_id": "PT-0001",
-            "description": command,
-            "severity": "moderate",
-            "onset_date": datetime.now().isoformat()
-        })
+        result = self.crew.process_adverse_event(
+            {
+                "event_id": event_id,
+                "patient_id": "PT-0001",
+                "description": command,
+                "severity": "moderate",
+                "onset_date": datetime.now().isoformat(),
+            }
+        )
 
         actions = result.get("required_actions", [])
         return f"Adverse event {event_id} recorded. Severity: {result.get('severity')}. Required actions: {', '.join(actions)}"
@@ -684,8 +679,7 @@ class ClinicalTrialAssistant:
     def _handle_eligibility_check(self, command: str) -> str:
         """Handle eligibility check."""
         result = self.crew.agents["eligibility"].process_task(
-            "Check eligibility",
-            {"patient_data": {"ecog": 1, "age": 55}}
+            "Check eligibility", {"patient_data": {"ecog": 1, "age": 55}}
         )
         return f"Eligibility assessment: {'Eligible' if result.get('eligible') else 'Not eligible'}"
 
@@ -693,6 +687,7 @@ class ClinicalTrialAssistant:
 # =============================================================================
 # SECTION 6: MAIN PIPELINE
 # =============================================================================
+
 
 def run_clinical_trial_workflow():
     """
@@ -713,7 +708,7 @@ def run_clinical_trial_workflow():
         sponsor="Physical AI Oncology Consortium",
         sites=["Site-A", "Site-B", "Site-C"],
         enrollment_target=150,
-        current_enrollment=45
+        current_enrollment=45,
     )
 
     # Create assistant
@@ -724,7 +719,7 @@ def run_clinical_trial_workflow():
         "Enroll patient John Doe from Site A",
         "Check eligibility for patient with ECOG status 1",
         "Report adverse event for patient: Grade 2 fatigue starting yesterday",
-        "Generate enrollment report"
+        "Generate enrollment report",
     ]
 
     print("\nClinical Trial Assistant Demo")
@@ -744,7 +739,7 @@ def run_clinical_trial_workflow():
     return {
         "trial_id": trial.trial_id,
         "workflows_processed": len(assistant.crew.get_workflow_history()),
-        "status": "demo_complete"
+        "status": "demo_complete",
     }
 
 
