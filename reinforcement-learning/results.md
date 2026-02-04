@@ -2,6 +2,8 @@
 
 *Validated benchmarks and deployment outcomes (October 2025 - January 2026)*
 
+> **Data Disclaimer:** Tables in this document combine figures from published literature and illustrative (projected) values. Published results cite the originating system, platform, or paper (e.g., ORBIT-Surgical, DreamerV3, dVRK). Where no citation is given, figures are illustrative targets derived from aggregated literature trends and should not be treated as peer-reviewed measurements. See `CONTRIBUTING.md` for the labeling policy.
+
 ---
 
 ## 1. ORBIT-Surgical Benchmark Results
@@ -169,7 +171,7 @@
 | Communication | 350K | 88% | Excellent |
 | Hierarchical | 300K | 91% | Excellent |
 
-### Scaling Results
+### Scaling Results *Illustrative*
 
 | Number of Agents | Training Time | Coordination Success |
 |------------------|---------------|---------------------|
@@ -321,7 +323,7 @@ Deployment: ONNX format for edge inference
 
 ### Hospital Robot Navigation
 
-**Q-Learning Optimization Results**:
+**Q-Learning Optimization Results** *Illustrative*:
 
 | Episode | Completion Rate | Path Efficiency |
 |---------|-----------------|-----------------|

@@ -2,6 +2,8 @@
 
 *Benchmark performance and deployment outcomes (October 2025 - January 2026)*
 
+> **Data Disclaimer:** Tables in this document combine figures from published literature and illustrative (projected) values. Published results cite the originating model or benchmark (e.g., DINO v2, VideoMAE, DreamerV3). Rows labeled **Illustrative** represent projected performance targets, not peer-reviewed measurements. See `CONTRIBUTING.md` for the labeling policy.
+
 ---
 
 ## 1. Foundation Model Benchmarks
@@ -59,11 +61,11 @@
 |-------|---------------------|---------------------|-----|
 | OpenAI CLIP | 45% | 42% | 43% |
 | BiomedCLIP | 62% | 58% | 60% |
-| SurgCLIP (ours) | 78% | 74% | 76% |
+| SurgCLIP (ours) *Illustrative* | 78% | 74% | 76% |
 
 **Zero-Shot Classification**:
 
-| Task | CLIP | BiomedCLIP | SurgCLIP |
+| Task | CLIP | BiomedCLIP | SurgCLIP *Illustrative* |
 |------|------|------------|----------|
 | Instrument type | 58% | 72% | 85% |
 | Procedure phase | 45% | 61% | 78% |
