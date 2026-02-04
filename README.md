@@ -11,7 +11,7 @@ This repository provides production-ready configurations, validated pipelines, a
 
 ## Responsible use
 
-This repository is complementary and open source, please implement code safely and responsibly.
+This repository is complementary and open source, please implement code safely and responsibly. Intended audience: engineers building physical AI systems (robotics, ML, integration, and validation) for clinical trial settings.
 
 ## Quick Start
 
