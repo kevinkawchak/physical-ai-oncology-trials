@@ -127,7 +127,7 @@ physical-ai-oncology-trials/
 │   └── pybullet/                      # PyBullet medical simulation
 │       └── INTEGRATION.md
 │
-├── privacy/                             # Patient data privacy framework
+├── privacy/                              
 │   ├── README.md
 │   ├── phi-pii-management/
 │   │   ├── README.md
@@ -145,7 +145,7 @@ physical-ai-oncology-trials/
 │       ├── README.md
 │       └── dua_generator.py
 │
-├── regulatory/                          # Regulatory compliance framework
+├── regulatory/                           
 │   ├── README.md
 │   ├── fda-compliance/
 │   │   ├── README.md
@@ -160,10 +160,10 @@ physical-ai-oncology-trials/
 │       ├── README.md
 │       └── regulatory_tracker.py
 │
-├── configs/                           # Framework configurations
+├── configs/                           
 │   └── training_config.yaml
 │
-└── scripts/                           # Utility scripts
+└── scripts/                            
     └── verify_installation.py
 ```
 
