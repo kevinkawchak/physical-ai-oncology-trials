@@ -127,6 +127,39 @@ physical-ai-oncology-trials/
 │   └── pybullet/                      # PyBullet medical simulation
 │       └── INTEGRATION.md
 │
+├── privacy/                             # Patient data privacy framework
+│   ├── README.md
+│   ├── phi-pii-management/
+│   │   ├── README.md
+│   │   └── phi_detector.py
+│   ├── de-identification/
+│   │   ├── README.md
+│   │   └── deidentification_pipeline.py
+│   ├── access-control/
+│   │   ├── README.md
+│   │   └── access_control_manager.py
+│   ├── breach-response/
+│   │   ├── README.md
+│   │   └── breach_response_protocol.py
+│   └── dua-templates/
+│       ├── README.md
+│       └── dua_generator.py
+│
+├── regulatory/                          # Regulatory compliance framework
+│   ├── README.md
+│   ├── fda-compliance/
+│   │   ├── README.md
+│   │   └── fda_submission_tracker.py
+│   ├── irb-management/
+│   │   ├── README.md
+│   │   └── irb_protocol_manager.py
+│   ├── ich-gcp/
+│   │   ├── README.md
+│   │   └── gcp_compliance_checker.py
+│   └── regulatory-intelligence/
+│       ├── README.md
+│       └── regulatory_tracker.py
+│
 ├── configs/                           # Framework configurations
 │   └── training_config.yaml
 │
@@ -444,6 +477,8 @@ The unification framework supports collaboration across institutions:
 | Industry R&D | Hardware, deployment | ros2_surgical, safety validation |
 | Healthcare Systems | Clinical validation | Multi-site coordination |
 | Regulatory Bodies | Compliance standards | IEC 62304 documentation |
+| Privacy Officers | PHI/PII management, de-identification | `privacy/` framework tools |
+| Regulatory Affairs | FDA/IRB/ICH-GCP compliance | `regulatory/` framework tools |
 
 See `unification/README.md` for the complete cooperation model.
 
@@ -469,6 +504,90 @@ results = runner.run("needle_insertion", model_path="robot.xml")
 ```
 
 See `q1-2026-standards/README.md` for complete documentation and implementation timeline.
+
+---
+
+## ★ Privacy Framework
+
+The new `privacy/` directory provides **HIPAA-compliant patient data protection** tools for AI-enabled oncology clinical trials.
+
+### Key Capabilities
+
+| Module | Purpose | Regulatory Basis |
+|--------|---------|-----------------|
+| PHI/PII Management | Detect and classify protected health information | HIPAA 45 CFR 164.514 |
+| De-Identification | Safe Harbor and Expert Determination methods | 45 CFR 164.514(b) |
+| Access Control | Role-based access with audit trails | 21 CFR Part 11, HIPAA Security Rule |
+| Breach Response | Automated incident response and notification | 45 CFR 164.400-414 |
+| DUA Templates | Data Use Agreement generation for multi-site sharing | 45 CFR 164.514(e) |
+
+### Quick Start with Privacy Tools
+
+```python
+# Detect PHI in clinical trial data
+from privacy.phi_pii_management.phi_detector import PHIDetector
+detector = PHIDetector(detection_mode="comprehensive")
+result = detector.scan_dataset("trial_data/enrollment_records/")
+
+# De-identify patient data for AI model training
+from privacy.de_identification.deidentification_pipeline import DeidentificationPipeline
+pipeline = DeidentificationPipeline(method="safe_harbor")
+result = pipeline.deidentify("trial_data/raw/", "trial_data/deidentified/")
+
+# Generate Data Use Agreement for multi-site collaboration
+from privacy.dua_templates.dua_generator import DUAGenerator
+generator = DUAGenerator(template="multi_site_ai_research")
+dua = generator.generate(
+    data_provider="Memorial Sloan Kettering",
+    data_recipient="Physical AI Oncology Consortium",
+    data_description="De-identified CT imaging for AI training",
+    permitted_uses=["model_training", "validation", "publication"]
+)
+```
+
+See `privacy/README.md` for complete documentation.
+
+---
+
+## ★ Regulatory Compliance Framework
+
+The new `regulatory/` directory provides **FDA, IRB, and ICH-GCP compliance tools** for navigating the regulatory landscape of AI-enabled oncology trials.
+
+### Key Capabilities
+
+| Module | Purpose | Key Regulations |
+|--------|---------|----------------|
+| FDA Compliance | Submission tracking (510(k), De Novo, PMA, Breakthrough) | FDA AI/ML Guidance (Jan 2025) |
+| IRB Management | AI-specific protocol preparation and review | SACHRP, MRCT Framework (Jul 2025) |
+| ICH-GCP | E6(R3) compliance verification and audit | ICH E6(R3) (effective Sep 2025) |
+| Regulatory Intelligence | Multi-jurisdiction monitoring and deadline tracking | FDA, EMA, ICH, WHO |
+
+### Quick Start with Regulatory Tools
+
+```python
+# Track FDA submissions for AI oncology devices
+from regulatory.fda_compliance.fda_submission_tracker import FDASubmissionTracker
+tracker = FDASubmissionTracker(sponsor="Physical AI Oncology Consortium")
+submission = tracker.create_submission(
+    submission_type="de_novo",
+    device_name="AI-Guided Surgical Planning System",
+    intended_use="AI-assisted tumor resection planning"
+)
+
+# Verify ICH E6(R3) GCP compliance
+from regulatory.ich_gcp.gcp_compliance_checker import GCPComplianceChecker
+checker = GCPComplianceChecker(guideline_version="E6_R3")
+report = checker.verify_compliance(
+    check_categories=["digital_technology_provisions", "data_governance"]
+)
+
+# Monitor regulatory developments
+from regulatory.regulatory_intelligence.regulatory_tracker import RegulatoryTracker
+tracker = RegulatoryTracker(jurisdictions=["fda", "ema", "ich"])
+updates = tracker.get_recent_updates(days=90)
+```
+
+See `regulatory/README.md` for complete documentation.
 
 ---
 

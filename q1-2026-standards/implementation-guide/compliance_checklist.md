@@ -118,14 +118,17 @@ This checklist ensures all Q1 2026 deliverables meet technical standards and reg
 
 These standards are for future reference when pursuing clinical approval:
 
-| Standard | Description | Applicability |
-|----------|-------------|---------------|
-| FDA 21 CFR Part 11 | Electronic records | Audit trail capability |
-| IEC 62304 | Medical device software | Software lifecycle |
-| ISO 13482 | Personal care robots | Safety requirements |
-| ISO 14971 | Risk management | Risk analysis |
+| Standard | Description | Applicability | Tools |
+|----------|-------------|---------------|-------|
+| FDA 21 CFR Part 11 | Electronic records | Audit trail capability | [`privacy/access-control/`](../../privacy/access-control/) |
+| FDA AI/ML Guidance (Jan 2025) | AI device submissions | 510(k)/De Novo/PMA | [`regulatory/fda-compliance/`](../../regulatory/fda-compliance/) |
+| ICH E6(R3) (effective Sep 2025) | Good Clinical Practice | Digital technology provisions | [`regulatory/ich-gcp/`](../../regulatory/ich-gcp/) |
+| IEC 62304 | Medical device software | Software lifecycle | |
+| ISO 13482 | Personal care robots | Safety requirements | |
+| ISO 14971 | Risk management | Risk analysis | |
+| HIPAA 45 CFR 164 | PHI protection | De-identification, access control | [`privacy/`](../../privacy/) |
 
-**Note**: Current deliverables are for research purposes. Clinical use requires additional validation and regulatory approval.
+**Note**: Current deliverables are for research purposes. Clinical use requires additional validation and regulatory approval. See `privacy/` and `regulatory/` directories for compliance tooling.
 
 ---
 

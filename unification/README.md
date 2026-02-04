@@ -106,7 +106,7 @@ The framework supports collaboration across institutions without vendor lock-in:
 All unified components maintain:
 
 - FDA 21 CFR Part 11 audit trail capability
-- ICH E6(R2) GCP compliance hooks
+- ICH E6(R3) GCP compliance hooks (effective Sep 2025)
 - ISO 13482 safety robot requirements
 - IEC 62304 software lifecycle traceability
 
@@ -207,8 +207,9 @@ Organizations participating in unified oncology trials should establish:
 
 1. **Model Sharing**: Open-source robot models in standardized formats
 2. **Policy Sharing**: Trained policies with documented training conditions
-3. **Data Sharing**: Anonymized trial data with HIPAA/GDPR compliance
+3. **Data Sharing**: Anonymized trial data with HIPAA/GDPR compliance → See [`privacy/`](../privacy/) for de-identification and DUA tools
 4. **Benchmark Sharing**: Standardized evaluation environments and metrics
+5. **Regulatory Compliance**: FDA/IRB/ICH-GCP documentation → See [`regulatory/`](../regulatory/) for compliance tools
 
 ---
 
