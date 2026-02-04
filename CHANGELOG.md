@@ -5,7 +5,7 @@ Format follows [Keep a Changelog](https://keepachangelog.com/).
 
 ## [Unreleased]
 
-## [0.4.0] - 2026-02-04
+## [0.5.1] - 2026-02-04
 
 ### Added
 - `.github/` directory with issue templates, PR template, and CI workflow
@@ -15,7 +15,7 @@ Format follows [Keep a Changelog](https://keepachangelog.com/).
 - Python lint/format CI via `ruff` and `yamllint`
 - Illustrative-data disclaimers on all `results.md` benchmark tables
 
-## [0.3.0] - 2026-02-01
+## [0.5.0] - 2026-02-04
 
 ### Added
 - `privacy/` framework: PHI/PII detection, de-identification, access control, breach response, DUA templates
@@ -23,7 +23,7 @@ Format follows [Keep a Changelog](https://keepachangelog.com/).
 - Privacy tooling covers all 18 HIPAA identifiers
 - Regulatory tooling aligned with FDA AI/ML guidance (Jan 2025), ICH E6(R3) (Sep 2025), EU AI Act timelines
 
-## [0.2.0] - 2026-01-15
+## [0.4.0] - 2026-02-02
 
 ### Added
 - `digital-twins/` directory: patient modeling (TumorTwin), treatment simulation, clinical integration (FHIR/DICOM)
@@ -34,7 +34,7 @@ Format follows [Keep a Changelog](https://keepachangelog.com/).
 ### Updated
 - Framework versions: Isaac Sim 5.0.0, Newton Physics Beta, MuJoCo Warp Beta, GR00T N1.6, Cosmos Predict 2.5, Cosmos Reason 2
 
-## [0.1.0] - 2025-12-01
+## [0.1.0] - 2026-01-31
 
 ### Added
 - Initial repository structure
