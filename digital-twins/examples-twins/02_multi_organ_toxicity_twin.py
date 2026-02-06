@@ -165,27 +165,43 @@ class PBPKParameters:
 DRUG_PBPK_LIBRARY: dict[ChemoDrug, PBPKParameters] = {
     ChemoDrug.CISPLATIN: PBPKParameters(
         drug=ChemoDrug.CISPLATIN,
-        cl_renal=4.5, cl_hepatic=2.0,
-        kp_heart=0.8, kp_kidney=5.0, kp_liver=1.2,
-        kp_nerve=0.3, kp_marrow=1.5,
+        cl_renal=4.5,
+        cl_hepatic=2.0,
+        kp_heart=0.8,
+        kp_kidney=5.0,
+        kp_liver=1.2,
+        kp_nerve=0.3,
+        kp_marrow=1.5,
     ),
     ChemoDrug.DOXORUBICIN: PBPKParameters(
         drug=ChemoDrug.DOXORUBICIN,
-        cl_renal=1.0, cl_hepatic=25.0,
-        kp_heart=3.5, kp_kidney=1.0, kp_liver=2.5,
-        kp_nerve=0.2, kp_marrow=2.0,
+        cl_renal=1.0,
+        cl_hepatic=25.0,
+        kp_heart=3.5,
+        kp_kidney=1.0,
+        kp_liver=2.5,
+        kp_nerve=0.2,
+        kp_marrow=2.0,
     ),
     ChemoDrug.OXALIPLATIN: PBPKParameters(
         drug=ChemoDrug.OXALIPLATIN,
-        cl_renal=8.0, cl_hepatic=5.0,
-        kp_heart=0.5, kp_kidney=2.5, kp_liver=1.8,
-        kp_nerve=2.0, kp_marrow=1.0,
+        cl_renal=8.0,
+        cl_hepatic=5.0,
+        kp_heart=0.5,
+        kp_kidney=2.5,
+        kp_liver=1.8,
+        kp_nerve=2.0,
+        kp_marrow=1.0,
     ),
     ChemoDrug.PACLITAXEL: PBPKParameters(
         drug=ChemoDrug.PACLITAXEL,
-        cl_renal=0.5, cl_hepatic=20.0,
-        kp_heart=0.6, kp_kidney=0.8, kp_liver=3.0,
-        kp_nerve=1.5, kp_marrow=1.8,
+        cl_renal=0.5,
+        cl_hepatic=20.0,
+        kp_heart=0.6,
+        kp_kidney=0.8,
+        kp_liver=3.0,
+        kp_nerve=1.5,
+        kp_marrow=1.8,
     ),
 }
 
@@ -220,9 +236,7 @@ class PBPKModel:
 
     def __init__(self, drug: ChemoDrug):
         self.drug = drug
-        self.params = DRUG_PBPK_LIBRARY.get(
-            drug, PBPKParameters(drug=drug)
-        )
+        self.params = DRUG_PBPK_LIBRARY.get(drug, PBPKParameters(drug=drug))
 
     def _ode_system(self, t: float, y: np.ndarray) -> np.ndarray:
         """PBPK ODE system: dC/dt for each compartment.
@@ -254,8 +268,7 @@ class PBPKModel:
 
         # Plasma
         dydt[self.PLASMA] = (
-            -(flow_heart + flow_kidney + flow_liver + flow_nerve + flow_marrow)
-            - elim_renal
+            -(flow_heart + flow_kidney + flow_liver + flow_nerve + flow_marrow) - elim_renal
         ) / p.vd_plasma
 
         # Organs
@@ -292,8 +305,12 @@ class PBPKModel:
         t_eval = np.arange(0, duration_hours, dt_hours)
 
         sol = solve_ivp(
-            self._ode_system, [0, duration_hours], y0,
-            t_eval=t_eval, method="RK45", max_step=0.5,
+            self._ode_system,
+            [0, duration_hours],
+            y0,
+            t_eval=t_eval,
+            method="RK45",
+            max_step=0.5,
         )
 
         compartment_names = ["plasma", "heart", "kidney", "liver", "nerve", "marrow"]
@@ -362,7 +379,7 @@ class CardiacToxicityModel:
         )
         # Sensitivity: LVEF decline per unit AUC (drug-specific)
         self.sensitivity = {
-            ChemoDrug.DOXORUBICIN: 0.0015,   # per ug*hr/mL AUC
+            ChemoDrug.DOXORUBICIN: 0.0015,  # per ug*hr/mL AUC
             ChemoDrug.TRASTUZUMAB: 0.0008,
         }
 
@@ -389,9 +406,7 @@ class CardiacToxicityModel:
             self.state.cumulative_damage += damage_increment * 0.3  # 70% recovers
 
         # LVEF = baseline * (1 - cumulative_damage)
-        self.state.current_biomarker = self.baseline_lvef * (
-            1 - self.state.cumulative_damage
-        )
+        self.state.current_biomarker = self.baseline_lvef * (1 - self.state.cumulative_damage)
         self.state.functional_reserve = 1 - self.state.cumulative_damage
         self.state.cycles_exposed += 1
 
@@ -532,9 +547,7 @@ class HepaticToxicityModel:
         self.state.cumulative_damage = np.clip(self.state.cumulative_damage, 0, 0.95)
 
         # Bilirubin rises with damage
-        self.state.current_biomarker = self.baseline_bilirubin * (
-            1 + 3 * self.state.cumulative_damage
-        )
+        self.state.current_biomarker = self.baseline_bilirubin * (1 + 3 * self.state.cumulative_damage)
         self.state.functional_reserve = 1 - self.state.cumulative_damage
         self.state.cycles_exposed += 1
 
@@ -790,19 +803,12 @@ class MultiOrganToxicityTwin:
             creatinine: Baseline creatinine (mg/dL)
         """
         self.cardiac_model = CardiacToxicityModel(baseline_lvef=lvef)
-        self.renal_model = RenalToxicityModel(
-            baseline_gfr=gfr, baseline_creatinine=creatinine
-        )
+        self.renal_model = RenalToxicityModel(baseline_gfr=gfr, baseline_creatinine=creatinine)
         self.hepatic_model = HepaticToxicityModel(baseline_bilirubin=bilirubin)
-        self.neuro_model = NeurologicalToxicityModel(
-            baseline_neuropathy_score=neuropathy_score
-        )
+        self.neuro_model = NeurologicalToxicityModel(baseline_neuropathy_score=neuropathy_score)
         self.hemato_model = HematologicToxicityModel(baseline_anc=anc)
 
-        logger.info(
-            "Baseline set: GFR=%.0f, LVEF=%.0f%%, ANC=%.1f, Bili=%.1f",
-            gfr, lvef * 100, anc, bilirubin
-        )
+        logger.info("Baseline set: GFR=%.0f, LVEF=%.0f%%, ANC=%.1f, Bili=%.1f", gfr, lvef * 100, anc, bilirubin)
 
     def simulate_cycle(
         self,
@@ -831,21 +837,11 @@ class MultiOrganToxicityTwin:
         pk_result = pbpk.simulate(dose_mg=dose_mg, duration_hours=72)
 
         # Step 2: Update each organ model with its specific drug exposure
-        cardiac_state = self.cardiac_model.update(
-            drug, pk_result["auc_heart"]
-        )
-        renal_state = self.renal_model.update(
-            drug, pk_result["auc_kidney"], hydration=hydration
-        )
-        hepatic_state = self.hepatic_model.update(
-            drug, pk_result["auc_liver"]
-        )
-        neuro_state = self.neuro_model.update(
-            drug, pk_result["auc_nerve"]
-        )
-        hemato_state = self.hemato_model.update(
-            drug, pk_result["auc_marrow"]
-        )
+        cardiac_state = self.cardiac_model.update(drug, pk_result["auc_heart"])
+        renal_state = self.renal_model.update(drug, pk_result["auc_kidney"], hydration=hydration)
+        hepatic_state = self.hepatic_model.update(drug, pk_result["auc_liver"])
+        neuro_state = self.neuro_model.update(drug, pk_result["auc_nerve"])
+        hemato_state = self.hemato_model.update(drug, pk_result["auc_marrow"])
 
         # Step 3: Compile toxicity profile
         organ_states = {
@@ -862,9 +858,7 @@ class MultiOrganToxicityTwin:
         )
 
         # DLT probability: P(any organ reaches grade 3+)
-        grade3_organs = sum(
-            1 for s in organ_states.values() if s.ctcae_grade.value >= 3
-        )
+        grade3_organs = sum(1 for s in organ_states.values() if s.ctcae_grade.value >= 3)
         dlt_prob = min(1.0, grade3_organs * 0.3 + 0.05 * cycle)
 
         # Dose recommendation
@@ -880,8 +874,7 @@ class MultiOrganToxicityTwin:
         self.cycle_history.append(profile)
 
         logger.info(
-            "Cycle %d: %s %.0f mg/m^2 → max grade %d, rec: %s",
-            cycle, drug.value, dose_mg_m2, max_grade.value, dose_rec
+            "Cycle %d: %s %.0f mg/m^2 → max grade %d, rec: %s", cycle, drug.value, dose_mg_m2, max_grade.value, dose_rec
         )
 
         return profile
@@ -952,9 +945,7 @@ class MultiOrganToxicityTwin:
         current_cycle = len(self.cycle_history) + 1
 
         for i in range(remaining_cycles):
-            profile = self.simulate_cycle(
-                drug, dose_mg_m2, bsa, cycle=current_cycle + i
-            )
+            profile = self.simulate_cycle(drug, dose_mg_m2, bsa, cycle=current_cycle + i)
             predictions.append(profile)
 
             # If DLT predicted, flag and continue with reduced dose
@@ -962,7 +953,9 @@ class MultiOrganToxicityTwin:
                 dose_mg_m2 *= 0.75  # 25% reduction
                 logger.info(
                     "Dose reduced to %.0f mg/m^2 after predicted Grade %d at cycle %d",
-                    dose_mg_m2, profile.max_grade.value, current_cycle + i
+                    dose_mg_m2,
+                    profile.max_grade.value,
+                    current_cycle + i,
                 )
 
         return predictions

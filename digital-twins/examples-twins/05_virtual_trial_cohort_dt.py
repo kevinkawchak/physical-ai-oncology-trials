@@ -58,9 +58,7 @@ from enum import Enum
 from typing import Any
 
 import numpy as np
-from scipy.stats import (
-    expon, gamma, lognorm, norm, truncnorm, weibull_min
-)
+from scipy.stats import expon, gamma, lognorm, norm, truncnorm, weibull_min
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
@@ -157,16 +155,12 @@ class PopulationParameters:
     age_std: float = 10.0
     male_fraction: float = 0.55
     ecog_distribution: list[float] = field(default_factory=lambda: [0.35, 0.55, 0.10])
-    stage_distribution: dict[str, float] = field(
-        default_factory=lambda: {"IIIB": 0.15, "IVA": 0.45, "IVB": 0.40}
-    )
+    stage_distribution: dict[str, float] = field(default_factory=lambda: {"IIIB": 0.15, "IVA": 0.45, "IVB": 0.40})
     volume_lognormal_mu: float = 3.0
     volume_lognormal_sigma: float = 0.8
     growth_rate_mean: float = 0.015
     growth_rate_std: float = 0.008
-    pdl1_distribution: dict[str, float] = field(
-        default_factory=lambda: {"negative": 0.30, "low": 0.30, "high": 0.40}
-    )
+    pdl1_distribution: dict[str, float] = field(default_factory=lambda: {"negative": 0.30, "low": 0.30, "high": 0.40})
     tmb_lognormal_mu: float = 2.0
     tmb_lognormal_sigma: float = 0.7
 
@@ -175,24 +169,36 @@ class PopulationParameters:
 POPULATION_LIBRARY = {
     TumorSite.NSCLC: PopulationParameters(
         tumor_site=TumorSite.NSCLC,
-        age_mean=66, age_std=9, male_fraction=0.57,
+        age_mean=66,
+        age_std=9,
+        male_fraction=0.57,
         ecog_distribution=[0.30, 0.60, 0.10],
-        volume_lognormal_mu=3.2, volume_lognormal_sigma=0.9,
-        growth_rate_mean=0.018, growth_rate_std=0.010,
+        volume_lognormal_mu=3.2,
+        volume_lognormal_sigma=0.9,
+        growth_rate_mean=0.018,
+        growth_rate_std=0.010,
     ),
     TumorSite.COLORECTAL: PopulationParameters(
         tumor_site=TumorSite.COLORECTAL,
-        age_mean=62, age_std=11, male_fraction=0.53,
+        age_mean=62,
+        age_std=11,
+        male_fraction=0.53,
         ecog_distribution=[0.35, 0.55, 0.10],
-        volume_lognormal_mu=3.0, volume_lognormal_sigma=0.7,
-        growth_rate_mean=0.012, growth_rate_std=0.006,
+        volume_lognormal_mu=3.0,
+        volume_lognormal_sigma=0.7,
+        growth_rate_mean=0.012,
+        growth_rate_std=0.006,
     ),
     TumorSite.MELANOMA: PopulationParameters(
         tumor_site=TumorSite.MELANOMA,
-        age_mean=60, age_std=14, male_fraction=0.60,
+        age_mean=60,
+        age_std=14,
+        male_fraction=0.60,
         ecog_distribution=[0.40, 0.50, 0.10],
-        volume_lognormal_mu=2.5, volume_lognormal_sigma=1.0,
-        growth_rate_mean=0.020, growth_rate_std=0.012,
+        volume_lognormal_mu=2.5,
+        volume_lognormal_sigma=1.0,
+        growth_rate_mean=0.020,
+        growth_rate_std=0.012,
     ),
 }
 
@@ -216,9 +222,7 @@ class VirtualCohortGenerator:
     """
 
     def __init__(self, tumor_site: TumorSite, seed: int | None = None):
-        self.params = POPULATION_LIBRARY.get(
-            tumor_site, PopulationParameters(tumor_site=tumor_site)
-        )
+        self.params = POPULATION_LIBRARY.get(tumor_site, PopulationParameters(tumor_site=tumor_site))
         self.rng = np.random.default_rng(seed)
 
     def generate(
@@ -433,14 +437,10 @@ class OutcomeSimulator:
             os_time = max_followup_days
 
         # Determine best response
-        best_response = self._determine_response(
-            patient.treatment_sensitivity, treatment_hr, rng
-        )
+        best_response = self._determine_response(patient.treatment_sensitivity, treatment_hr, rng)
 
         # Simulate tumor volume trajectory
-        trajectory = self._simulate_tumor_trajectory(
-            patient, treatment_hr, min(pfs, max_followup_days), rng
-        )
+        trajectory = self._simulate_tumor_trajectory(patient, treatment_hr, min(pfs, max_followup_days), rng)
 
         return PatientOutcome(
             patient_id=patient.patient_id,
@@ -645,7 +645,9 @@ class VirtualTrialSimulator:
         for patient, arm in zip(cohort, arm_assignments):
             hr = self.design.arms[arm]
             outcome = self.outcome_sim.simulate_patient(
-                patient, arm, treatment_hr=hr,
+                patient,
+                arm,
+                treatment_hr=hr,
                 max_followup_days=self.design.max_followup_days,
                 rng=rng,
             )
@@ -724,9 +726,7 @@ class VirtualTrialSimulator:
             "posterior_prob_hr_lt_1": posterior_prob,
         }
 
-    def _log_rank_test(
-        self, outcomes: list[PatientOutcome], arm_names: list[str]
-    ) -> tuple[float, float]:
+    def _log_rank_test(self, outcomes: list[PatientOutcome], arm_names: list[str]) -> tuple[float, float]:
         """Simplified log-rank test for PFS comparison."""
         if len(arm_names) < 2:
             return 1.0, 1.0
@@ -749,9 +749,7 @@ class VirtualTrialSimulator:
 
         return round(float(hr), 3), round(float(p_value), 4)
 
-    def _bayesian_posterior(
-        self, outcomes: list[PatientOutcome], arm_names: list[str]
-    ) -> float:
+    def _bayesian_posterior(self, outcomes: list[PatientOutcome], arm_names: list[str]) -> float:
         """Compute Bayesian posterior P(HR < 1).
 
         Uses a normal approximation to the log-HR posterior with
@@ -865,7 +863,8 @@ class VirtualControlArmBuilder:
 
         logger.info(
             "Built virtual control arm: %d matched controls for %d experimental",
-            len(matched_controls), len(target_cohort)
+            len(matched_controls),
+            len(target_cohort),
         )
 
         return matched_controls
@@ -923,10 +922,10 @@ if __name__ == "__main__":
 
     print("\n--- Trial Results ---")
     print(f"Enrollment: {results.sample_size_achieved}")
-    print(f"\nMedian PFS (days):")
+    print("\nMedian PFS (days):")
     for arm, median in results.median_pfs_by_arm.items():
         print(f"  {arm}: {median:.0f}")
-    print(f"\nObjective Response Rate:")
+    print("\nObjective Response Rate:")
     for arm, rate in results.orr_by_arm.items():
         print(f"  {arm}: {rate:.1%}")
     print(f"\nHazard Ratio: {results.hazard_ratio:.3f}")

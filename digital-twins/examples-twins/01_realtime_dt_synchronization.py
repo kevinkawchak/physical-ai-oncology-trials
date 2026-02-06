@@ -73,16 +73,16 @@ logger = logging.getLogger(__name__)
 class ObservationType(Enum):
     """Clinical observation modalities feeding the digital twin."""
 
-    TUMOR_MARKER = "tumor_marker"          # e.g., CEA, CA-125, PSA
-    IMAGING_VOLUME = "imaging_volume"      # CT/MRI tumor volume (cm^3)
-    IMAGING_DIAMETER = "imaging_diameter"   # RECIST longest diameter (mm)
-    LAB_NEUTROPHILS = "lab_neutrophils"    # ANC for myelosuppression
-    LAB_CREATININE = "lab_creatinine"      # Renal function
-    LAB_BILIRUBIN = "lab_bilirubin"        # Hepatic function
-    LAB_HEMOGLOBIN = "lab_hemoglobin"      # Anemia monitoring
-    VITAL_WEIGHT = "vital_weight"          # Body weight (kg)
-    VITAL_ECOG = "vital_ecog"             # Performance status (0-4)
-    CTCAE_TOXICITY = "ctcae_toxicity"     # CTCAE grade (0-5)
+    TUMOR_MARKER = "tumor_marker"  # e.g., CEA, CA-125, PSA
+    IMAGING_VOLUME = "imaging_volume"  # CT/MRI tumor volume (cm^3)
+    IMAGING_DIAMETER = "imaging_diameter"  # RECIST longest diameter (mm)
+    LAB_NEUTROPHILS = "lab_neutrophils"  # ANC for myelosuppression
+    LAB_CREATININE = "lab_creatinine"  # Renal function
+    LAB_BILIRUBIN = "lab_bilirubin"  # Hepatic function
+    LAB_HEMOGLOBIN = "lab_hemoglobin"  # Anemia monitoring
+    VITAL_WEIGHT = "vital_weight"  # Body weight (kg)
+    VITAL_ECOG = "vital_ecog"  # Performance status (0-4)
+    CTCAE_TOXICITY = "ctcae_toxicity"  # CTCAE grade (0-5)
 
 
 @dataclass
@@ -122,8 +122,7 @@ class ClinicalObservation:
 
 
 STATE_DIM = 8
-STATE_LABELS = ["Volume", "GrowthRate", "DrugEffect",
-                "ANC", "Creatinine", "Hemoglobin", "Weight", "ECOG"]
+STATE_LABELS = ["Volume", "GrowthRate", "DrugEffect", "ANC", "Creatinine", "Hemoglobin", "Weight", "ECOG"]
 
 
 @dataclass
@@ -200,13 +199,11 @@ class TumorPatientDynamics:
         self.hemoglobin_recovery_rate = hemoglobin_recovery_rate
 
         # Homeostatic setpoints
-        self.anc_baseline = 4.5      # 10^9/L
+        self.anc_baseline = 4.5  # 10^9/L
         self.creatinine_baseline = 1.0  # mg/dL
         self.hemoglobin_baseline = 13.0  # g/dL
 
-    def state_transition(
-        self, x: np.ndarray, dt_days: float, treatment_active: bool = False
-    ) -> np.ndarray:
+    def state_transition(self, x: np.ndarray, dt_days: float, treatment_active: bool = False) -> np.ndarray:
         """Propagate state forward by dt_days.
 
         Args:
@@ -261,8 +258,7 @@ class TumorPatientDynamics:
         toxicity_factor = 0.1 * max(0, 2.0 - anc_next) * dt_days
         e_next = np.clip(e + tumor_burden_factor + toxicity_factor, 0.0, 4.0)
 
-        return np.array([V_next, g_next, d_next, anc_next, cr_next,
-                         hb_next, w_next, e_next])
+        return np.array([V_next, g_next, d_next, anc_next, cr_next, hb_next, w_next, e_next])
 
     def jacobian(self, x: np.ndarray, dt_days: float) -> np.ndarray:
         """Compute state transition Jacobian for EKF.
@@ -337,16 +333,16 @@ class ObservationModel:
 
     # Observation noise standard deviations (measurement uncertainty)
     NOISE_STD = {
-        ObservationType.TUMOR_MARKER: 5.0,        # ng/mL
-        ObservationType.IMAGING_VOLUME: 2.0,       # cm^3 (segmentation error)
-        ObservationType.IMAGING_DIAMETER: 2.0,     # mm (RECIST measurement)
-        ObservationType.LAB_NEUTROPHILS: 0.5,      # 10^9/L
-        ObservationType.LAB_CREATININE: 0.1,       # mg/dL
-        ObservationType.LAB_BILIRUBIN: 0.2,        # mg/dL
-        ObservationType.LAB_HEMOGLOBIN: 0.3,       # g/dL
-        ObservationType.VITAL_WEIGHT: 0.5,         # kg (scale precision)
-        ObservationType.VITAL_ECOG: 0.3,           # continuous approximation
-        ObservationType.CTCAE_TOXICITY: 0.5,       # grade uncertainty
+        ObservationType.TUMOR_MARKER: 5.0,  # ng/mL
+        ObservationType.IMAGING_VOLUME: 2.0,  # cm^3 (segmentation error)
+        ObservationType.IMAGING_DIAMETER: 2.0,  # mm (RECIST measurement)
+        ObservationType.LAB_NEUTROPHILS: 0.5,  # 10^9/L
+        ObservationType.LAB_CREATININE: 0.1,  # mg/dL
+        ObservationType.LAB_BILIRUBIN: 0.2,  # mg/dL
+        ObservationType.LAB_HEMOGLOBIN: 0.3,  # g/dL
+        ObservationType.VITAL_WEIGHT: 0.5,  # kg (scale precision)
+        ObservationType.VITAL_ECOG: 0.3,  # continuous approximation
+        ObservationType.CTCAE_TOXICITY: 0.5,  # grade uncertainty
     }
 
     # Marker sensitivity: ng/mL per cm^3 of tumor volume
@@ -406,9 +402,7 @@ class ObservationModel:
         else:
             return 0.0
 
-    def observation_jacobian(
-        self, x: np.ndarray, obs_type: ObservationType
-    ) -> np.ndarray:
+    def observation_jacobian(self, x: np.ndarray, obs_type: ObservationType) -> np.ndarray:
         """Compute observation Jacobian dh/dx for EKF update.
 
         Args:
@@ -452,7 +446,7 @@ class ObservationModel:
     def noise_variance(self, obs_type: ObservationType) -> float:
         """Get observation noise variance for this modality."""
         std = self.NOISE_STD.get(obs_type, 1.0)
-        return std ** 2
+        return std**2
 
 
 # =============================================================================
@@ -518,16 +512,21 @@ class ExtendedKalmanFilterSync:
         self._anomaly_history: list[dict] = []
 
         # Process noise covariance (tuned for oncology time scales)
-        self.Q_base = np.diag([
-            0.5,    # Volume uncertainty grows ~0.5 cm^3/day
-            0.001,  # Growth rate slowly drifts
-            0.01,   # Drug effect uncertainty
-            0.2,    # ANC fluctuation
-            0.01,   # Creatinine fluctuation
-            0.05,   # Hemoglobin fluctuation
-            0.1,    # Weight fluctuation
-            0.05,   # ECOG fluctuation
-        ]) ** 2
+        self.Q_base = (
+            np.diag(
+                [
+                    0.5,  # Volume uncertainty grows ~0.5 cm^3/day
+                    0.001,  # Growth rate slowly drifts
+                    0.01,  # Drug effect uncertainty
+                    0.2,  # ANC fluctuation
+                    0.01,  # Creatinine fluctuation
+                    0.05,  # Hemoglobin fluctuation
+                    0.1,  # Weight fluctuation
+                    0.05,  # ECOG fluctuation
+                ]
+            )
+            ** 2
+        )
 
         logger.info("EKF synchronizer initialized with %d-dim state", STATE_DIM)
 
@@ -545,9 +544,7 @@ class ExtendedKalmanFilterSync:
             Predicted state estimate
         """
         # State prediction via nonlinear dynamics
-        x_pred = self.dynamics.state_transition(
-            self.x, dt_days, self.treatment_active
-        )
+        x_pred = self.dynamics.state_transition(self.x, dt_days, self.treatment_active)
 
         # Covariance prediction via linearized dynamics
         F = self.dynamics.jacobian(self.x, dt_days)
@@ -584,7 +581,7 @@ class ExtendedKalmanFilterSync:
 
         # Use provided uncertainty or default
         if observation.uncertainty > 0:
-            R = observation.uncertainty ** 2
+            R = observation.uncertainty**2
         else:
             R = self.obs_model.noise_variance(observation.obs_type)
 
@@ -596,20 +593,24 @@ class ExtendedKalmanFilterSync:
         S_scalar = float(S) if np.isscalar(S) or S.size == 1 else S
 
         # Anomaly detection: Mahalanobis distance of innovation
-        anomaly_score = innovation ** 2 / S_scalar
+        anomaly_score = innovation**2 / S_scalar
         if anomaly_score > 9.0:  # ~3 sigma
             logger.warning(
                 "Anomaly detected: %s value=%.2f expected=%.2f (score=%.1f)",
-                observation.obs_type.value, observation.value, z_pred,
-                anomaly_score
+                observation.obs_type.value,
+                observation.value,
+                z_pred,
+                anomaly_score,
             )
-            self._anomaly_history.append({
-                "timestamp": observation.timestamp.isoformat(),
-                "type": observation.obs_type.value,
-                "observed": observation.value,
-                "expected": z_pred,
-                "score": anomaly_score,
-            })
+            self._anomaly_history.append(
+                {
+                    "timestamp": observation.timestamp.isoformat(),
+                    "type": observation.obs_type.value,
+                    "observed": observation.value,
+                    "expected": z_pred,
+                    "score": anomaly_score,
+                }
+            )
 
         # Kalman gain
         K = self.P @ H.T / S_scalar
@@ -622,20 +623,20 @@ class ExtendedKalmanFilterSync:
         self.P = I_KH @ self.P @ I_KH.T + np.outer(K, K) * R
 
         # Accumulate log-likelihood for model comparison
-        self.log_likelihood += -0.5 * (
-            np.log(2 * np.pi * S_scalar) + innovation ** 2 / S_scalar
-        )
+        self.log_likelihood += -0.5 * (np.log(2 * np.pi * S_scalar) + innovation**2 / S_scalar)
 
         # Audit trail entry
-        self._audit_log.append({
-            "observation_id": observation.observation_id,
-            "timestamp": observation.timestamp.isoformat(),
-            "type": observation.obs_type.value,
-            "value": observation.value,
-            "predicted": z_pred,
-            "innovation": innovation,
-            "source": observation.source_system,
-        })
+        self._audit_log.append(
+            {
+                "observation_id": observation.observation_id,
+                "timestamp": observation.timestamp.isoformat(),
+                "type": observation.obs_type.value,
+                "value": observation.value,
+                "predicted": z_pred,
+                "innovation": innovation,
+                "source": observation.source_system,
+            }
+        )
 
         return self.get_state()
 
@@ -661,18 +662,17 @@ class ExtendedKalmanFilterSync:
         self.P[0, 0] *= 1.5  # more uncertain about volume during treatment
         self.P[3, 3] *= 2.0  # ANC highly uncertain after chemo
 
-        self._audit_log.append({
-            "event": "treatment_administered",
-            "timestamp": event.timestamp.isoformat(),
-            "drug": event.drug,
-            "dose": event.dose_mg_m2,
-            "cycle": event.cycle,
-        })
-
-        logger.info(
-            "Treatment registered: %s %.0f mg/m^2 (cycle %d)",
-            event.drug, event.dose_mg_m2, event.cycle
+        self._audit_log.append(
+            {
+                "event": "treatment_administered",
+                "timestamp": event.timestamp.isoformat(),
+                "drug": event.drug,
+                "dose": event.dose_mg_m2,
+                "cycle": event.cycle,
+            }
         )
+
+        logger.info("Treatment registered: %s %.0f mg/m^2 (cycle %d)", event.drug, event.dose_mg_m2, event.cycle)
 
     def get_state(self) -> StateEstimate:
         """Get current state estimate."""
@@ -746,9 +746,7 @@ class ParticleFilterSync:
         if initial_spread is None:
             initial_spread = np.array([3.0, 0.005, 0.0, 0.5, 0.1, 0.5, 5.0, 0.3])
 
-        self.particles = np.random.normal(
-            initial_state, initial_spread, size=(n_particles, STATE_DIM)
-        )
+        self.particles = np.random.normal(initial_state, initial_spread, size=(n_particles, STATE_DIM))
         # Enforce physical constraints
         self.particles[:, 0] = np.maximum(self.particles[:, 0], 0.01)
         self.particles[:, 3] = np.maximum(self.particles[:, 3], 0.1)
@@ -757,10 +755,7 @@ class ParticleFilterSync:
         # Uniform initial weights (log-space)
         self.log_weights = np.full(n_particles, -np.log(n_particles))
 
-        logger.info(
-            "Particle filter initialized: %d particles, %d-dim state",
-            n_particles, STATE_DIM
-        )
+        logger.info("Particle filter initialized: %d particles, %d-dim state", n_particles, STATE_DIM)
 
     def predict(self, dt_days: float) -> None:
         """Propagate all particles forward with stochastic dynamics.
@@ -768,15 +763,11 @@ class ParticleFilterSync:
         Args:
             dt_days: Time step in days
         """
-        process_noise_std = np.array([
-            0.5, 0.001, 0.01, 0.2, 0.01, 0.05, 0.1, 0.05
-        ]) * np.sqrt(dt_days)
+        process_noise_std = np.array([0.5, 0.001, 0.01, 0.2, 0.01, 0.05, 0.1, 0.05]) * np.sqrt(dt_days)
 
         for i in range(self.n_particles):
             # Deterministic propagation
-            self.particles[i] = self.dynamics.state_transition(
-                self.particles[i], dt_days, self.treatment_active
-            )
+            self.particles[i] = self.dynamics.state_transition(self.particles[i], dt_days, self.treatment_active)
             # Add process noise
             self.particles[i] += np.random.normal(0, process_noise_std)
 
@@ -804,12 +795,10 @@ class ParticleFilterSync:
         R = self.obs_model.noise_variance(observation.obs_type)
 
         for i in range(self.n_particles):
-            z_pred = self.obs_model.observe(
-                self.particles[i], observation.obs_type
-            )
+            z_pred = self.obs_model.observe(self.particles[i], observation.obs_type)
             innovation = observation.value - z_pred
             # Gaussian likelihood
-            log_lik = -0.5 * innovation ** 2 / R - 0.5 * np.log(2 * np.pi * R)
+            log_lik = -0.5 * innovation**2 / R - 0.5 * np.log(2 * np.pi * R)
             self.log_weights[i] += log_lik
 
         # Normalize weights
@@ -826,7 +815,7 @@ class ParticleFilterSync:
     def effective_sample_size(self) -> float:
         """Compute effective sample size (ESS)."""
         weights = np.exp(self.log_weights)
-        return 1.0 / np.sum(weights ** 2)
+        return 1.0 / np.sum(weights**2)
 
     def _systematic_resample(self) -> None:
         """Systematic resampling to combat particle degeneracy."""
@@ -838,9 +827,7 @@ class ParticleFilterSync:
         indices = np.clip(indices, 0, self.n_particles - 1)
 
         self.particles = self.particles[indices].copy()
-        self.log_weights = np.full(
-            self.n_particles, -np.log(self.n_particles)
-        )
+        self.log_weights = np.full(self.n_particles, -np.log(self.n_particles))
 
     def get_state(self) -> StateEstimate:
         """Get weighted mean and covariance of particle ensemble."""
@@ -1037,14 +1024,10 @@ class DigitalTwinSynchronizer:
         if initial_state is None:
             initial_state = np.array([15.0, 0.01, 0.0, 4.5, 1.0, 13.0, 70.0, 1.0])
         if initial_covariance is None:
-            initial_covariance = np.diag([
-                9.0, 0.0001, 0.01, 0.25, 0.01, 0.25, 4.0, 0.09
-            ])
+            initial_covariance = np.diag([9.0, 0.0001, 0.01, 0.25, 0.01, 0.25, 4.0, 0.09])
 
         if filter_type == "ekf":
-            self.filter = ExtendedKalmanFilterSync(
-                initial_state, initial_covariance
-            )
+            self.filter = ExtendedKalmanFilterSync(initial_state, initial_covariance)
         elif filter_type == "particle":
             self.filter = ParticleFilterSync(
                 n_particles=n_particles,
@@ -1053,10 +1036,7 @@ class DigitalTwinSynchronizer:
         else:
             raise ValueError(f"Unknown filter type: {filter_type}")
 
-        logger.info(
-            "DT Synchronizer created for patient %s using %s filter",
-            patient_id, filter_type
-        )
+        logger.info("DT Synchronizer created for patient %s using %s filter", patient_id, filter_type)
 
     @classmethod
     def from_baseline(
@@ -1085,16 +1065,18 @@ class DigitalTwinSynchronizer:
         Returns:
             Configured DigitalTwinSynchronizer
         """
-        initial_state = np.array([
-            tumor_volume_cm3,
-            0.01,   # initial growth rate estimate
-            0.0,    # no drug effect at baseline
-            anc,
-            creatinine,
-            hemoglobin,
-            weight_kg,
-            ecog,
-        ])
+        initial_state = np.array(
+            [
+                tumor_volume_cm3,
+                0.01,  # initial growth rate estimate
+                0.0,  # no drug effect at baseline
+                anc,
+                creatinine,
+                hemoglobin,
+                weight_kg,
+                ecog,
+            ]
+        )
         return cls(patient_id, filter_type, initial_state)
 
     def process_observation(self, observation: ClinicalObservation) -> StateEstimate:
@@ -1120,11 +1102,11 @@ class DigitalTwinSynchronizer:
         # Run anomaly detection
         z_pred = ObservationModel().observe(state.mean, observation.obs_type)
         innovation = observation.value - z_pred
-        expected_std = np.sqrt(
-            ObservationModel().noise_variance(observation.obs_type)
-        )
+        expected_std = np.sqrt(ObservationModel().noise_variance(observation.obs_type))
         self.anomaly_detector.process_innovation(
-            observation.obs_type, innovation, expected_std,
+            observation.obs_type,
+            innovation,
+            expected_std,
             observation.timestamp,
         )
 
@@ -1185,10 +1167,7 @@ class DigitalTwinSynchronizer:
         return summary
 
 
-_STATE_UNITS = [
-    "cm^3", "/day", "dimensionless", "10^9/L",
-    "mg/dL", "g/dL", "kg", "score"
-]
+_STATE_UNITS = ["cm^3", "/day", "dimensionless", "10^9/L", "mg/dL", "g/dL", "kg", "score"]
 
 
 # =============================================================================
@@ -1204,9 +1183,9 @@ if __name__ == "__main__":
     # --- Initialize DT from baseline measurements ---
     sync = DigitalTwinSynchronizer.from_baseline(
         patient_id="TRIAL-CRC-042",
-        tumor_volume_cm3=18.5,   # baseline CT measurement
-        anc=5.2,                 # normal baseline
-        creatinine=0.85,         # normal baseline
+        tumor_volume_cm3=18.5,  # baseline CT measurement
+        anc=5.2,  # normal baseline
+        creatinine=0.85,  # normal baseline
         hemoglobin=14.1,
         weight_kg=78.0,
         ecog=1.0,
@@ -1222,13 +1201,15 @@ if __name__ == "__main__":
     # --- Simulate 21-day chemotherapy cycle ---
     # Day 1: FOLFOX administration
     t0 = datetime(2026, 3, 1, 9, 0)
-    sync.process_treatment(TreatmentEvent(
-        timestamp=t0,
-        drug="FOLFOX",
-        dose_mg_m2=85,
-        cycle=1,
-    ))
-    print(f"\nDay 1: FOLFOX administered")
+    sync.process_treatment(
+        TreatmentEvent(
+            timestamp=t0,
+            drug="FOLFOX",
+            dose_mg_m2=85,
+            cycle=1,
+        )
+    )
+    print("\nDay 1: FOLFOX administered")
 
     # Simulate observations arriving over 21-day cycle
     observations = [

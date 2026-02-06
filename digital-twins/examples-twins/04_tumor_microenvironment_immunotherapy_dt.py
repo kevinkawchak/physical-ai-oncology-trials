@@ -72,19 +72,19 @@ logger = logging.getLogger(__name__)
 class ImmunePheno(Enum):
     """Tumor immune phenotype classification."""
 
-    INFLAMED = "inflamed"               # Hot: high TIL, high PD-L1
+    INFLAMED = "inflamed"  # Hot: high TIL, high PD-L1
     IMMUNE_EXCLUDED = "immune_excluded"  # T-cells at margin, not infiltrating
-    IMMUNE_DESERT = "immune_desert"      # Cold: minimal immune infiltrate
+    IMMUNE_DESERT = "immune_desert"  # Cold: minimal immune infiltrate
 
 
 class CheckpointAgent(Enum):
     """Immune checkpoint inhibitor agents."""
 
-    PEMBROLIZUMAB = "pembrolizumab"    # Anti-PD-1
-    NIVOLUMAB = "nivolumab"            # Anti-PD-1
-    ATEZOLIZUMAB = "atezolizumab"      # Anti-PD-L1
-    DURVALUMAB = "durvalumab"          # Anti-PD-L1
-    IPILIMUMAB = "ipilimumab"          # Anti-CTLA-4
+    PEMBROLIZUMAB = "pembrolizumab"  # Anti-PD-1
+    NIVOLUMAB = "nivolumab"  # Anti-PD-1
+    ATEZOLIZUMAB = "atezolizumab"  # Anti-PD-L1
+    DURVALUMAB = "durvalumab"  # Anti-PD-L1
+    IPILIMUMAB = "ipilimumab"  # Anti-CTLA-4
 
 
 class iRECISTResponse(Enum):
@@ -150,8 +150,7 @@ class PatientTMEProfile:
 
 
 TME_STATE_DIM = 9
-TME_LABELS = ["Tumor", "CD8_Effector", "Treg", "Macrophage", "Dendritic",
-              "PD-L1", "IFN-gamma", "TGF-beta", "IL-10"]
+TME_LABELS = ["Tumor", "CD8_Effector", "Treg", "Macrophage", "Dendritic", "PD-L1", "IFN-gamma", "TGF-beta", "IL-10"]
 
 
 @dataclass
@@ -177,19 +176,19 @@ class TMEParameters:
         ctla4_blockade_efficacy: Fraction of CTLA-4 axis blocked (0-1)
     """
 
-    tumor_growth_rate: float = 0.02        # /day
+    tumor_growth_rate: float = 0.02  # /day
     tumor_carrying_capacity: float = 1000.0  # 10^6 cells
-    immunogenicity: float = 0.5             # 0-1
-    cd8_activation_rate: float = 0.1        # /day
-    cd8_killing_rate: float = 0.05          # /day per 10^6 effectors
-    cd8_exhaustion_rate: float = 0.03       # /day
-    cd8_reinvigoration_rate: float = 0.0    # /day (set by checkpoint blockade)
-    treg_suppression_rate: float = 0.02     # /day
-    treg_recruitment_rate: float = 0.01     # /day
-    macrophage_polarization: float = 0.5    # M1 vs M2 balance (0=M2, 1=M1)
-    dc_maturation_rate: float = 0.05        # /day
-    pd1_blockade_efficacy: float = 0.0      # 0-1 (0=no drug, 1=complete block)
-    ctla4_blockade_efficacy: float = 0.0    # 0-1
+    immunogenicity: float = 0.5  # 0-1
+    cd8_activation_rate: float = 0.1  # /day
+    cd8_killing_rate: float = 0.05  # /day per 10^6 effectors
+    cd8_exhaustion_rate: float = 0.03  # /day
+    cd8_reinvigoration_rate: float = 0.0  # /day (set by checkpoint blockade)
+    treg_suppression_rate: float = 0.02  # /day
+    treg_recruitment_rate: float = 0.01  # /day
+    macrophage_polarization: float = 0.5  # M1 vs M2 balance (0=M2, 1=M1)
+    dc_maturation_rate: float = 0.05  # /day
+    pd1_blockade_efficacy: float = 0.0  # 0-1 (0=no drug, 1=complete block)
+    ctla4_blockade_efficacy: float = 0.0  # 0-1
 
 
 class TMEDynamicsModel:
@@ -249,8 +248,13 @@ class TMEDynamicsModel:
 
         # --- CD8+ Effector T-cells (E) ---
         # Activation by DCs (enhanced by CTLA-4 blockade); antigen-driven
-        activation = p.cd8_activation_rate * D * p.immunogenicity * (
-            1 + 0.5 * ctla4_block  # CTLA-4 blockade enhances priming
+        activation = (
+            p.cd8_activation_rate
+            * D
+            * p.immunogenicity
+            * (
+                1 + 0.5 * ctla4_block  # CTLA-4 blockade enhances priming
+            )
         )
         # Stimulation by IFN-gamma
         ifng_boost = 0.02 * ifng * E
@@ -391,22 +395,30 @@ class CheckpointPKParams:
 CHECKPOINT_PK_LIBRARY = {
     CheckpointAgent.PEMBROLIZUMAB: CheckpointPKParams(
         agent=CheckpointAgent.PEMBROLIZUMAB,
-        half_life_days=25.0, trough_efficacy=0.75, peak_efficacy=0.95,
+        half_life_days=25.0,
+        trough_efficacy=0.75,
+        peak_efficacy=0.95,
         dosing_interval_days=21,
     ),
     CheckpointAgent.NIVOLUMAB: CheckpointPKParams(
         agent=CheckpointAgent.NIVOLUMAB,
-        half_life_days=26.7, trough_efficacy=0.70, peak_efficacy=0.92,
+        half_life_days=26.7,
+        trough_efficacy=0.70,
+        peak_efficacy=0.92,
         dosing_interval_days=14,
     ),
     CheckpointAgent.ATEZOLIZUMAB: CheckpointPKParams(
         agent=CheckpointAgent.ATEZOLIZUMAB,
-        half_life_days=27.0, trough_efficacy=0.72, peak_efficacy=0.93,
+        half_life_days=27.0,
+        trough_efficacy=0.72,
+        peak_efficacy=0.93,
         dosing_interval_days=21,
     ),
     CheckpointAgent.IPILIMUMAB: CheckpointPKParams(
         agent=CheckpointAgent.IPILIMUMAB,
-        half_life_days=15.0, trough_efficacy=0.50, peak_efficacy=0.85,
+        half_life_days=15.0,
+        trough_efficacy=0.50,
+        peak_efficacy=0.85,
         dosing_interval_days=21,
     ),
 }
@@ -436,9 +448,7 @@ class CheckpointPKModel:
         )
         self.k_elim = np.log(2) / self.params.half_life_days
 
-    def get_blockade_efficacy(
-        self, day: float, dose_days: list[float]
-    ) -> float:
+    def get_blockade_efficacy(self, day: float, dose_days: list[float]) -> float:
         """Compute blockade efficacy at a given time point.
 
         Args:
@@ -457,14 +467,10 @@ class CheckpointPKModel:
         # Sigmoidal receptor occupancy model
         ec50 = 0.5  # concentration for 50% occupancy (normalized)
         hill = 2.0
-        occupancy = total_concentration ** hill / (
-            ec50 ** hill + total_concentration ** hill
-        )
+        occupancy = total_concentration**hill / (ec50**hill + total_concentration**hill)
 
         # Scale between trough and peak efficacy
-        efficacy = self.params.trough_efficacy + (
-            self.params.peak_efficacy - self.params.trough_efficacy
-        ) * occupancy
+        efficacy = self.params.trough_efficacy + (self.params.peak_efficacy - self.params.trough_efficacy) * occupancy
 
         return min(efficacy, self.params.peak_efficacy)
 
@@ -527,16 +533,16 @@ class ImmunotherapyResponsePredictor:
 
         # Weighted composite
         self.immunogenicity = (
-            0.25 * tmb_score
-            + 0.20 * msi_score
-            + 0.20 * pdl1_score
-            + 0.20 * til_score
-            + 0.15 * ifng_score
+            0.25 * tmb_score + 0.20 * msi_score + 0.20 * pdl1_score + 0.20 * til_score + 0.15 * ifng_score
         )
 
         logger.info(
             "Immunogenicity score: %.3f (TMB=%.2f, MSI=%.2f, PD-L1=%.2f, TIL=%.2f)",
-            self.immunogenicity, tmb_score, msi_score, pdl1_score, til_score
+            self.immunogenicity,
+            tmb_score,
+            msi_score,
+            pdl1_score,
+            til_score,
         )
 
     def predict_response(
@@ -608,8 +614,11 @@ class ImmunotherapyResponsePredictor:
 
             # Single step of ODE
             sol = solve_ivp(
-                model._ode_system, [0, 1.0], state,
-                t_eval=[1.0], method="RK45",
+                model._ode_system,
+                [0, 1.0],
+                state,
+                t_eval=[1.0],
+                method="RK45",
             )
             state = np.maximum(sol.y[:, -1], 0.0)
             trajectories[:, i] = state
@@ -651,7 +660,9 @@ class ImmunotherapyResponsePredictor:
 
         logger.info(
             "Response prediction: %s, tumor change=%.1f%%, prob=%.1%%",
-            irecist.value, tumor_change_pct, response_prob * 100
+            irecist.value,
+            tumor_change_pct,
+            response_prob * 100,
         )
 
         return result
@@ -661,21 +672,21 @@ class ImmunotherapyResponsePredictor:
         p = self.profile
         # Scale from per mm^2 to 10^6 cells (assuming ~1 cm^3 biopsy)
         scale = 0.01  # cells/mm^2 → 10^6 cells (rough approximation)
-        return np.array([
-            p.tumor_cells_per_mm2 * scale,   # T: tumor cells
-            p.cd8_til_per_mm2 * scale,        # E: CD8+ effectors
-            p.treg_per_mm2 * scale,           # R: Tregs
-            p.macrophage_per_mm2 * scale,     # M: macrophages
-            1.0,                               # D: dendritic cells
-            p.pdl1_tps / 100.0,               # P: PD-L1 expression
-            p.ifn_gamma_signature,            # IFN-gamma
-            p.tgf_beta_level / 50.0,          # TGF-beta (normalized)
-            0.3,                               # IL-10 (baseline)
-        ])
+        return np.array(
+            [
+                p.tumor_cells_per_mm2 * scale,  # T: tumor cells
+                p.cd8_til_per_mm2 * scale,  # E: CD8+ effectors
+                p.treg_per_mm2 * scale,  # R: Tregs
+                p.macrophage_per_mm2 * scale,  # M: macrophages
+                1.0,  # D: dendritic cells
+                p.pdl1_tps / 100.0,  # P: PD-L1 expression
+                p.ifn_gamma_signature,  # IFN-gamma
+                p.tgf_beta_level / 50.0,  # TGF-beta (normalized)
+                0.3,  # IL-10 (baseline)
+            ]
+        )
 
-    def _classify_irecist(
-        self, tumor_trajectory: np.ndarray, time_days: np.ndarray
-    ) -> iRECISTResponse:
+    def _classify_irecist(self, tumor_trajectory: np.ndarray, time_days: np.ndarray) -> iRECISTResponse:
         """Classify response per iRECIST criteria."""
         T0 = tumor_trajectory[0]
         T_final = tumor_trajectory[-1]
@@ -700,9 +711,7 @@ class ImmunotherapyResponsePredictor:
             else:
                 return iRECISTResponse.iUPD  # unconfirmed, may be pseudo
 
-    def _pseudoprogression_probability(
-        self, tumor_trajectory: np.ndarray, time_days: np.ndarray
-    ) -> float:
+    def _pseudoprogression_probability(self, tumor_trajectory: np.ndarray, time_days: np.ndarray) -> float:
         """Estimate probability of pseudoprogression.
 
         Pseudoprogression occurs when apparent tumor growth is actually
@@ -823,15 +832,15 @@ if __name__ == "__main__":
     cold_patient = PatientTMEProfile(
         patient_id="NSCLC-IO-023",
         tumor_cells_per_mm2=8000.0,
-        cd8_til_per_mm2=30.0,       # very low TIL
+        cd8_til_per_mm2=30.0,  # very low TIL
         treg_per_mm2=20.0,
         macrophage_per_mm2=50.0,
-        pdl1_tps=5.0,               # low PD-L1
+        pdl1_tps=5.0,  # low PD-L1
         pdl1_cps=8.0,
-        tmb_mut_per_mb=3.0,         # low TMB
+        tmb_mut_per_mb=3.0,  # low TMB
         msi_status="MSS",
         ifn_gamma_signature=0.1,
-        tgf_beta_level=40.0,        # high TGF-beta (immunosuppressive)
+        tgf_beta_level=40.0,  # high TGF-beta (immunosuppressive)
         immune_phenotype=ImmunePheno.IMMUNE_DESERT,
     )
 

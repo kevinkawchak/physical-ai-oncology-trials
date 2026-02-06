@@ -85,8 +85,8 @@ class ValidationLevel(Enum):
 class RiskCategory(Enum):
     """FDA Software as Medical Device risk categories."""
 
-    CLASS_I = "class_I"     # Low risk
-    CLASS_II = "class_II"   # Moderate risk (most DT applications)
+    CLASS_I = "class_I"  # Low risk
+    CLASS_II = "class_II"  # Moderate risk (most DT applications)
     CLASS_III = "class_III"  # High risk
 
 
@@ -358,12 +358,14 @@ class CalibrationAnalyzer:
             group_pred = pred_sorted[start:end]
             group_obs = obs_sorted[start:end]
 
-            groups.append({
-                "mean_predicted": float(np.mean(group_pred)),
-                "mean_observed": float(np.mean(group_obs)),
-                "n": len(group_pred),
-                "n_events": int(np.sum(group_obs)),
-            })
+            groups.append(
+                {
+                    "mean_predicted": float(np.mean(group_pred)),
+                    "mean_observed": float(np.mean(group_obs)),
+                    "n": len(group_pred),
+                    "n_events": int(np.sum(group_obs)),
+                }
+            )
 
         # Hosmer-Lemeshow statistic
         hl_stat = 0.0
@@ -372,18 +374,13 @@ class CalibrationAnalyzer:
                 continue
             expected = g["mean_predicted"] * g["n"]
             if expected > 0 and (g["n"] - expected) > 0:
-                hl_stat += (g["n_events"] - expected) ** 2 / (
-                    expected * (1 - g["mean_predicted"])
-                )
+                hl_stat += (g["n_events"] - expected) ** 2 / (expected * (1 - g["mean_predicted"]))
 
         hl_df = max(1, len(groups) - 2)
         hl_pvalue = float(1 - chi2.cdf(hl_stat, hl_df))
 
         # Expected Calibration Error
-        ece = np.mean([
-            abs(g["mean_predicted"] - g["mean_observed"]) * g["n"] / n
-            for g in groups
-        ])
+        ece = np.mean([abs(g["mean_predicted"] - g["mean_observed"]) * g["n"] / n for g in groups])
 
         # Brier score
         brier = float(np.mean((predicted_probabilities - observed_binary) ** 2))
@@ -460,9 +457,7 @@ class DiscriminationAnalyzer:
         auc = self._compute_auc(predicted_scores, observed_labels)
 
         # Youden's J statistic for optimal threshold
-        optimal_threshold = self._find_optimal_threshold(
-            predicted_scores, observed_labels
-        )
+        optimal_threshold = self._find_optimal_threshold(predicted_scores, observed_labels)
 
         return {
             "auc": round(auc, 3),
@@ -477,9 +472,7 @@ class DiscriminationAnalyzer:
             "confusion_matrix": {"tp": tp, "tn": tn, "fp": fp, "fn": fn},
         }
 
-    def _compute_auc(
-        self, scores: np.ndarray, labels: np.ndarray
-    ) -> float:
+    def _compute_auc(self, scores: np.ndarray, labels: np.ndarray) -> float:
         """Compute AUC via Mann-Whitney U statistic."""
         pos = scores[labels == 1]
         neg = scores[labels == 0]
@@ -493,9 +486,7 @@ class DiscriminationAnalyzer:
 
         return float(u_stat / (len(pos) * len(neg)))
 
-    def _find_optimal_threshold(
-        self, scores: np.ndarray, labels: np.ndarray
-    ) -> float:
+    def _find_optimal_threshold(self, scores: np.ndarray, labels: np.ndarray) -> float:
         """Find optimal threshold via Youden's J statistic."""
         thresholds = np.linspace(0.01, 0.99, 99)
         best_j = -1
@@ -564,10 +555,7 @@ class SubgroupAnalyzer:
 
             subgroup_results = {}
             for value in sorted(values, key=str):
-                subset = [
-                    p for p in dataset.pairs
-                    if p.covariates.get(variable) == value
-                ]
+                subset = [p for p in dataset.pairs if p.covariates.get(variable) == value]
 
                 if len(subset) < 10:
                     continue
@@ -646,11 +634,8 @@ class RobustnessAnalyzer:
             sensitivities[var_name] = {
                 "mean_prediction": round(float(np.mean(pred_array)), 3),
                 "std_prediction": round(float(np.std(pred_array)), 3),
-                "range": (round(float(np.min(pred_array)), 3),
-                          round(float(np.max(pred_array)), 3)),
-                "sensitivity_index": round(
-                    float(np.std(pred_array) / max(abs(baseline_pred), 0.01)), 3
-                ),
+                "range": (round(float(np.min(pred_array)), 3), round(float(np.max(pred_array)), 3)),
+                "sensitivity_index": round(float(np.std(pred_array) / max(abs(baseline_pred), 0.01)), 3),
             }
 
         # Overall stability
@@ -658,9 +643,7 @@ class RobustnessAnalyzer:
         stability = {
             "baseline_prediction": round(float(baseline_pred), 3),
             "overall_std": round(float(np.std(all_preds)), 3),
-            "coefficient_of_variation": round(
-                float(np.std(all_preds) / max(abs(np.mean(all_preds)), 0.01)), 3
-            ),
+            "coefficient_of_variation": round(float(np.std(all_preds) / max(abs(np.mean(all_preds)), 0.01)), 3),
             "robust": float(np.std(all_preds)) < 0.1 * abs(baseline_pred),
         }
 
@@ -878,17 +861,11 @@ class VVReportGenerator:
         }
 
         if fails:
-            report["recommendations"].append(
-                "Address failing criteria before regulatory submission"
-            )
+            report["recommendations"].append("Address failing criteria before regulatory submission")
         if not subgroup_results:
-            report["recommendations"].append(
-                "Conduct subgroup analysis for complete regulatory package"
-            )
+            report["recommendations"].append("Conduct subgroup analysis for complete regulatory package")
         if not robustness_results:
-            report["recommendations"].append(
-                "Perform sensitivity analysis per FDA AI/ML guidance"
-            )
+            report["recommendations"].append("Perform sensitivity analysis per FDA AI/ML guidance")
 
         return report
 
@@ -932,7 +909,8 @@ if __name__ == "__main__":
     true_response = (rng.random(n_patients) > 0.6).astype(int)
     predicted_prob = np.clip(
         true_response * 0.7 + (1 - true_response) * 0.3 + rng.normal(0, 0.15, n_patients),
-        0.01, 0.99,
+        0.01,
+        0.99,
     )
 
     # Create validation dataset
@@ -941,12 +919,14 @@ if __name__ == "__main__":
         age_group = "young" if rng.random() > 0.5 else "old"
         sex = "M" if rng.random() > 0.45 else "F"
         stage = rng.choice(["IIIB", "IVA", "IVB"])
-        pairs.append(PredictionPair(
-            patient_id=f"VAL-{i:04d}",
-            predicted=float(predicted_pfs[i]),
-            observed=float(true_pfs[i]),
-            covariates={"age_group": age_group, "sex": sex, "stage": stage},
-        ))
+        pairs.append(
+            PredictionPair(
+                patient_id=f"VAL-{i:04d}",
+                predicted=float(predicted_pfs[i]),
+                observed=float(true_pfs[i]),
+                covariates={"age_group": age_group, "sex": sex, "stage": stage},
+            )
+        )
 
     dataset = ValidationDataset(
         name="Tumor Growth DT Validation Set",

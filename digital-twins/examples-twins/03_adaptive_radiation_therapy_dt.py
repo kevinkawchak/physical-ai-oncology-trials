@@ -76,9 +76,9 @@ logger = logging.getLogger(__name__)
 class StructureType(Enum):
     """Anatomical structure categories."""
 
-    GTV = "gross_tumor_volume"       # Visible tumor
-    CTV = "clinical_target_volume"   # Microscopic extension
-    PTV = "planning_target_volume"   # Setup margin
+    GTV = "gross_tumor_volume"  # Visible tumor
+    CTV = "clinical_target_volume"  # Microscopic extension
+    PTV = "planning_target_volume"  # Setup margin
     OAR = "organ_at_risk"
     BODY = "body_contour"
 
@@ -96,7 +96,7 @@ class DoseConstraint:
     """
 
     structure_name: str
-    constraint_type: str   # "max_dose", "mean_dose", "d_volume", "v_dose"
+    constraint_type: str  # "max_dose", "mean_dose", "d_volume", "v_dose"
     limit_gy: float
     volume_percent: float = 0.0
     priority: int = 1
@@ -222,8 +222,7 @@ class BSplineRegistration:
         shape = fixed.shape
 
         # Initialize displacement field (zero = identity)
-        n_ctrl = [max(2, int(s * voxel_spacing[i] / self.control_point_spacing))
-                  for i, s in enumerate(shape)]
+        n_ctrl = [max(2, int(s * voxel_spacing[i] / self.control_point_spacing)) for i, s in enumerate(shape)]
 
         # Simplified registration using gradient-based optimization
         # In production, use MONAI DenseAffineHead or SimpleITK B-spline
@@ -236,15 +235,13 @@ class BSplineRegistration:
         for axis in range(3):
             grad = np.gradient(moving.astype(np.float64), axis=axis)
             # Demons-like force: displacement proportional to diff * grad
-            force = diff * grad / (grad ** 2 + diff ** 2 + 1e-6)
+            force = diff * grad / (grad**2 + diff**2 + 1e-6)
             force = gaussian_filter(force, sigma=self.smoothing_sigma)
             displacement[axis] = force * 2.0  # scale factor
 
         # Smooth the displacement field
         for axis in range(3):
-            displacement[axis] = gaussian_filter(
-                displacement[axis], sigma=self.smoothing_sigma * 2
-            )
+            displacement[axis] = gaussian_filter(displacement[axis], sigma=self.smoothing_sigma * 2)
 
         # Compute Jacobian determinant for quality check
         jac_det = self._compute_jacobian_determinant(displacement)
@@ -263,10 +260,7 @@ class BSplineRegistration:
         # Quality check: warn if folding detected
         if jac_det is not None and np.any(jac_det < 0):
             n_folded = int(np.sum(jac_det < 0))
-            logger.warning(
-                "DIR quality: %d voxels with negative Jacobian (folding)",
-                n_folded
-            )
+            logger.warning("DIR quality: %d voxels with negative Jacobian (folding)", n_folded)
 
         logger.info("Registration complete: metric=%.4f", metric)
         return dvf
@@ -302,16 +296,13 @@ class BSplineRegistration:
     def _warp_image(self, image: np.ndarray, displacement: np.ndarray) -> np.ndarray:
         """Apply displacement field to warp an image."""
         shape = image.shape
-        coords = np.mgrid[0:shape[0], 0:shape[1], 0:shape[2]].astype(np.float64)
+        coords = np.mgrid[0 : shape[0], 0 : shape[1], 0 : shape[2]].astype(np.float64)
 
         # Add displacement to identity coordinates
         warped_coords = coords + displacement
 
         # Interpolate image at displaced coordinates
-        warped = map_coordinates(
-            image.astype(np.float64), warped_coords,
-            order=1, mode="nearest"
-        )
+        warped = map_coordinates(image.astype(np.float64), warped_coords, order=1, mode="nearest")
         return warped
 
     def _compute_jacobian_determinant(self, displacement: np.ndarray) -> np.ndarray:
@@ -412,7 +403,9 @@ class DoseAccumulator:
 
         logger.info(
             "Dose accumulator initialized: %s shape, %d structures, %d fractions",
-            reference_shape, len(structures), total_fractions
+            reference_shape,
+            len(structures),
+            total_fractions,
         )
 
     def add_fraction(
@@ -457,8 +450,9 @@ class DoseAccumulator:
 
         logger.info(
             "Fraction %d/%d accumulated. Max dose: %.1f Gy",
-            fraction_number, self.total_fractions,
-            float(np.max(self.accumulated_dose))
+            fraction_number,
+            self.total_fractions,
+            float(np.max(self.accumulated_dose)),
         )
 
         return record
@@ -496,9 +490,7 @@ class DoseAccumulator:
 
         return metrics
 
-    def compute_bed(
-        self, alpha_beta: float = 10.0
-    ) -> np.ndarray:
+    def compute_bed(self, alpha_beta: float = 10.0) -> np.ndarray:
         """Compute biologically effective dose (BED) map.
 
         BED = n * d * (1 + d / (alpha/beta))
@@ -539,9 +531,7 @@ class DoseAccumulator:
         bed = self.compute_bed(alpha_beta)
         return bed / (1 + 2.0 / alpha_beta)
 
-    def check_replanning_trigger(
-        self, tolerance_percent: float = 5.0
-    ) -> dict[str, Any]:
+    def check_replanning_trigger(self, tolerance_percent: float = 5.0) -> dict[str, Any]:
         """Check if replanning is needed based on dosimetric criteria.
 
         Compares current accumulated dose projections against planned
@@ -569,29 +559,26 @@ class DoseAccumulator:
                 continue
 
             for constraint in structure.constraints:
-                projected = self._project_metric(
-                    current_metrics[name], constraint, scale_factor
-                )
+                projected = self._project_metric(current_metrics[name], constraint, scale_factor)
 
                 if projected is not None:
                     deviation_pct = (projected - constraint.limit_gy) / constraint.limit_gy * 100
                     if deviation_pct > tolerance_percent:
-                        violations.append({
-                            "structure": constraint.structure_name,
-                            "constraint": constraint.constraint_type,
-                            "limit_gy": constraint.limit_gy,
-                            "projected_gy": round(projected, 2),
-                            "deviation_pct": round(deviation_pct, 1),
-                            "priority": constraint.priority,
-                        })
+                        violations.append(
+                            {
+                                "structure": constraint.structure_name,
+                                "constraint": constraint.constraint_type,
+                                "limit_gy": constraint.limit_gy,
+                                "projected_gy": round(projected, 2),
+                                "deviation_pct": round(deviation_pct, 1),
+                                "priority": constraint.priority,
+                            }
+                        )
 
         trigger = len(violations) > 0
 
         if trigger:
-            logger.warning(
-                "Replanning triggered: %d constraint violations detected",
-                len(violations)
-            )
+            logger.warning("Replanning triggered: %d constraint violations detected", len(violations))
 
         return {
             "trigger": trigger,
@@ -622,9 +609,9 @@ class DoseAccumulator:
             "fractions_delivered": n,
             "fractions_remaining": self.total_fractions - n,
             "max_accumulated_dose_gy": float(np.max(self.accumulated_dose)),
-            "mean_accumulated_dose_gy": float(np.mean(
-                self.accumulated_dose[self.accumulated_dose > 0]
-            )) if np.any(self.accumulated_dose > 0) else 0.0,
+            "mean_accumulated_dose_gy": float(np.mean(self.accumulated_dose[self.accumulated_dose > 0]))
+            if np.any(self.accumulated_dose > 0)
+            else 0.0,
         }
 
         if n > 0:
@@ -721,7 +708,9 @@ class AdaptiveRTDigitalTwin:
 
         logger.info(
             "ART Digital Twin initialized: patient=%s, %d fractions, Rx=%.0f Gy",
-            patient_id, total_fractions, prescribed_dose_gy
+            patient_id,
+            total_fractions,
+            prescribed_dose_gy,
         )
 
     def process_fraction(
@@ -759,17 +748,17 @@ class AdaptiveRTDigitalTwin:
         delivered_dose = self.dose_per_fraction.copy()
 
         # Step 3: Accumulate dose on reference anatomy
-        record = self.accumulator.add_fraction(
-            fraction_number, delivered_dose, dvf
-        )
+        record = self.accumulator.add_fraction(fraction_number, delivered_dose, dvf)
 
         # Step 4: Check replanning triggers
         replan_check = self.accumulator.check_replanning_trigger()
         if replan_check["trigger"]:
-            self._replanning_events.append({
-                "fraction": fraction_number,
-                "violations": replan_check["violations"],
-            })
+            self._replanning_events.append(
+                {
+                    "fraction": fraction_number,
+                    "violations": replan_check["violations"],
+                }
+            )
 
         result = {
             "fraction": fraction_number,
@@ -823,11 +812,11 @@ if __name__ == "__main__":
     tumor_center = (16, 32, 32)
 
     # GTV: spherical tumor
-    zz, yy, xx = np.mgrid[0:shape[0], 0:shape[1], 0:shape[2]]
+    zz, yy, xx = np.mgrid[0 : shape[0], 0 : shape[1], 0 : shape[2]]
     tumor_radius = 8
-    gtv_mask = ((zz - tumor_center[0]) ** 2 +
-                (yy - tumor_center[1]) ** 2 +
-                (xx - tumor_center[2]) ** 2) < tumor_radius ** 2
+    gtv_mask = (
+        (zz - tumor_center[0]) ** 2 + (yy - tumor_center[1]) ** 2 + (xx - tumor_center[2]) ** 2
+    ) < tumor_radius**2
     gtv_mask = gtv_mask.astype(np.float64)
 
     # PTV: GTV + 5mm margin
@@ -835,7 +824,7 @@ if __name__ == "__main__":
     ptv_mask = ptv_mask.astype(np.float64)
 
     # Spinal cord OAR (cylindrical, posterior)
-    cord_mask = ((yy - 50) ** 2 + (xx - 32) ** 2) < 5 ** 2
+    cord_mask = ((yy - 50) ** 2 + (xx - 32) ** 2) < 5**2
     cord_mask = cord_mask.astype(np.float64)
 
     # Planned dose: 2 Gy/fx to PTV, falloff outside
@@ -846,17 +835,23 @@ if __name__ == "__main__":
     # Define structures
     structures = [
         Structure(
-            name="GTV", structure_type=StructureType.GTV, mask=gtv_mask,
+            name="GTV",
+            structure_type=StructureType.GTV,
+            mask=gtv_mask,
             constraints=[DoseConstraint("GTV", "d_95", 60.0, 95.0, 1)],
             alpha_beta=10.0,
         ),
         Structure(
-            name="PTV", structure_type=StructureType.PTV, mask=ptv_mask,
+            name="PTV",
+            structure_type=StructureType.PTV,
+            mask=ptv_mask,
             constraints=[DoseConstraint("PTV", "d_95", 57.0, 95.0, 1)],
             alpha_beta=10.0,
         ),
         Structure(
-            name="Spinal_Cord", structure_type=StructureType.OAR, mask=cord_mask,
+            name="Spinal_Cord",
+            structure_type=StructureType.OAR,
+            mask=cord_mask,
             constraints=[DoseConstraint("Spinal_Cord", "max_dose", 45.0, 0, 1)],
             alpha_beta=3.0,
         ),
@@ -886,9 +881,9 @@ if __name__ == "__main__":
         daily_cbct = planning_ct.copy()
         # Modify tumor region to simulate shrinkage
         shrunk_radius = tumor_radius * shrink_factor
-        daily_tumor = ((zz - tumor_center[0]) ** 2 +
-                       (yy - tumor_center[1]) ** 2 +
-                       (xx - tumor_center[2]) ** 2) < shrunk_radius ** 2
+        daily_tumor = (
+            (zz - tumor_center[0]) ** 2 + (yy - tumor_center[1]) ** 2 + (xx - tumor_center[2]) ** 2
+        ) < shrunk_radius**2
         daily_cbct[gtv_mask > 0.5] += 50  # tumor contrast
         daily_cbct += np.random.randn(*shape) * 10  # CBCT noise
 
