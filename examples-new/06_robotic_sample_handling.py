@@ -58,11 +58,9 @@ LAST UPDATED: February 2026
 
 import hashlib
 import logging
-import time
 from dataclasses import dataclass, field
 from datetime import datetime
-from enum import Enum, auto
-from typing import Any
+from enum import Enum
 
 import numpy as np
 
@@ -103,11 +101,11 @@ class ContainerType(Enum):
 
 
 class StorageCondition(Enum):
-    ROOM_TEMP = "room_temperature"        # 15-25 C
-    REFRIGERATED = "refrigerated"          # 2-8 C
-    FROZEN_MINUS20 = "frozen_minus20"      # -20 C
-    FROZEN_MINUS80 = "frozen_minus80"      # -80 C
-    LIQUID_NITROGEN = "liquid_nitrogen"    # -196 C
+    ROOM_TEMP = "room_temperature"  # 15-25 C
+    REFRIGERATED = "refrigerated"  # 2-8 C
+    FROZEN_MINUS20 = "frozen_minus20"  # -20 C
+    FROZEN_MINUS80 = "frozen_minus80"  # -80 C
+    LIQUID_NITROGEN = "liquid_nitrogen"  # -196 C
 
 
 @dataclass
@@ -344,9 +342,7 @@ class ColdChainMonitor:
         in_range = low <= current_temp_c <= high
 
         # Log temperature reading
-        specimen.temperature_log.append(
-            (datetime.now().isoformat(), current_temp_c)
-        )
+        specimen.temperature_log.append((datetime.now().isoformat(), current_temp_c))
 
         if not in_range:
             excursion = {
@@ -354,22 +350,16 @@ class ColdChainMonitor:
                 "timestamp": datetime.now().isoformat(),
                 "temperature_c": current_temp_c,
                 "required_range": f"{low} to {high} C",
-                "deviation_c": (
-                    current_temp_c - high
-                    if current_temp_c > high
-                    else low - current_temp_c
-                ),
+                "deviation_c": (current_temp_c - high if current_temp_c > high else low - current_temp_c),
             }
             self._excursion_log.append(excursion)
             specimen.record_event(
                 "temperature_excursion",
-                f"Temperature {current_temp_c:.1f} C outside "
-                f"range [{low}, {high}] C",
+                f"Temperature {current_temp_c:.1f} C outside range [{low}, {high}] C",
                 "cold_chain_monitor",
             )
             logger.warning(
-                "TEMPERATURE EXCURSION: specimen %s at %.1f C "
-                "(required: %.0f to %.0f C)",
+                "TEMPERATURE EXCURSION: specimen %s at %.1f C (required: %.0f to %.0f C)",
                 specimen.specimen_id,
                 current_temp_c,
                 low,
@@ -535,9 +525,7 @@ class SpecimenRobotController:
             return {"success": False, "reason": "grasp_failed"}
 
         # Step 5: Verify barcode
-        scan_result = self._barcode_verifier.scan_and_verify(
-            specimen.barcode, f"pick_station_{rack_id}"
-        )
+        scan_result = self._barcode_verifier.scan_and_verify(specimen.barcode, f"pick_station_{rack_id}")
 
         if not scan_result["verified"]:
             # Release and report error
@@ -664,8 +652,7 @@ class SpecimenRobotController:
             StorageCondition.LIQUID_NITROGEN,
         ):
             logger.warning(
-                "Cold chain concern: specimen %s requires %s storage, "
-                "currently at %.1f C",
+                "Cold chain concern: specimen %s requires %s storage, currently at %.1f C",
                 specimen.specimen_id,
                 specimen.storage_condition.value,
                 ambient_temp,
@@ -689,9 +676,7 @@ class SpecimenRobotController:
             "cold_chain_ok": cold_check["in_range"],
         }
 
-    def _rack_to_world(
-        self, rack_id: str, position: tuple[int, int], height_m: float
-    ) -> np.ndarray:
+    def _rack_to_world(self, rack_id: str, position: tuple[int, int], height_m: float) -> np.ndarray:
         """
         Convert rack position to world coordinates.
 
@@ -703,11 +688,13 @@ class SpecimenRobotController:
         rack_origin = np.array([0.3, -0.2, 0.0])  # Rack base position
         spacing = 0.018  # 18 mm between positions (standard SBS spacing)
 
-        return np.array([
-            rack_origin[0] + col * spacing,
-            rack_origin[1] + row * spacing,
-            rack_origin[2] + height_m,
-        ])
+        return np.array(
+            [
+                rack_origin[0] + col * spacing,
+                rack_origin[1] + row * spacing,
+                rack_origin[2] + height_m,
+            ]
+        )
 
     def _move_to(self, position_m: np.ndarray):
         """Move robot to position (simulated)."""
@@ -851,9 +838,7 @@ class BatchProcessor:
             SpecimenType.CSF: 0,
             SpecimenType.FFPE_BLOCK: 5,  # Already fixed
         }
-        return sorted(
-            specimens, key=lambda s: priority_order.get(s.specimen_type, 99)
-        )
+        return sorted(specimens, key=lambda s: priority_order.get(s.specimen_type, 99))
 
     def _get_storage_rack(self, specimen: Specimen) -> str:
         """Determine destination rack based on storage requirements."""

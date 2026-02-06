@@ -22,6 +22,8 @@ ignore = ["F841", "E741", "E501"]
 "q1-2026-standards/**/*.py" = ["F401", "F402"]
 # Utility scripts use try/except to probe optional packages
 "scripts/*.py" = ["F401"]
+# Physical robot engineering examples use conditional imports
+"examples-new/*.py" = ["F401", "F402"]
 # Regulatory/privacy tooling has placeholder imports and forward references
 "regulatory/**/*.py" = ["F401", "F821"]
 "privacy/**/*.py" = ["F401"]

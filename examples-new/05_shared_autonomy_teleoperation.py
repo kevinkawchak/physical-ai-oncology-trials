@@ -58,9 +58,8 @@ LAST UPDATED: February 2026
 """
 
 import logging
-from dataclasses import dataclass, field
+from dataclasses import dataclass
 from enum import Enum, auto
-from typing import Callable
 
 import numpy as np
 
@@ -436,17 +435,11 @@ class VirtualFixtureEngine:
                 continue
 
             if fixture.fixture_type == VirtualFixtureType.FORBIDDEN_REGION:
-                f, p = self._compute_forbidden_region(
-                    fixture, current_position_m, target_position_m, velocity_m_s
-                )
+                f, p = self._compute_forbidden_region(fixture, current_position_m, target_position_m, velocity_m_s)
             elif fixture.fixture_type == VirtualFixtureType.GUIDANCE_PATH:
-                f, p = self._compute_guidance(
-                    fixture, current_position_m, target_position_m
-                )
+                f, p = self._compute_guidance(fixture, current_position_m, target_position_m)
             elif fixture.fixture_type == VirtualFixtureType.BOUNDARY_PLANE:
-                f, p = self._compute_boundary(
-                    fixture, current_position_m, target_position_m, velocity_m_s
-                )
+                f, p = self._compute_boundary(fixture, current_position_m, target_position_m, velocity_m_s)
             else:
                 continue
 
@@ -497,9 +490,7 @@ class VirtualFixtureEngine:
         closest_point = target.copy()
 
         for i in range(len(waypoints) - 1):
-            p = self._closest_point_on_segment(
-                target, waypoints[i], waypoints[i + 1]
-            )
+            p = self._closest_point_on_segment(target, waypoints[i], waypoints[i + 1])
             dist = float(np.linalg.norm(target - p))
             if dist < min_dist:
                 min_dist = dist
@@ -542,9 +533,7 @@ class VirtualFixtureEngine:
         return np.zeros(3), target
 
     @staticmethod
-    def _closest_point_on_segment(
-        p: np.ndarray, a: np.ndarray, b: np.ndarray
-    ) -> np.ndarray:
+    def _closest_point_on_segment(p: np.ndarray, a: np.ndarray, b: np.ndarray) -> np.ndarray:
         """Find closest point on line segment AB to point P."""
         ab = b - a
         ap = p - a
@@ -693,9 +682,7 @@ class SharedAutonomyController:
         """
         old_level = self._autonomy_level
         self._autonomy_level = level
-        logger.info(
-            "Autonomy level: %s -> %s", old_level.name, level.name
-        )
+        logger.info("Autonomy level: %s -> %s", old_level.name, level.name)
 
     def add_vessel_fixture(
         self,
@@ -711,13 +698,9 @@ class SharedAutonomyController:
         """
         # Add safety margin to vessel radius
         exclusion_radius = radius_m + 0.003  # 3 mm safety margin
-        self._fixture_engine.add_forbidden_region(
-            name, center_m, exclusion_radius
-        )
+        self._fixture_engine.add_forbidden_region(name, center_m, exclusion_radius)
 
-    def add_resection_boundary(
-        self, name: str, point_m: np.ndarray, normal: np.ndarray
-    ):
+    def add_resection_boundary(self, name: str, point_m: np.ndarray, normal: np.ndarray):
         """
         Add a planar boundary for resection margin enforcement.
 
@@ -726,9 +709,7 @@ class SharedAutonomyController:
         """
         self._fixture_engine.add_boundary_plane(name, point_m, normal)
 
-    def add_approach_path(
-        self, name: str, waypoints_m: np.ndarray
-    ):
+    def add_approach_path(self, name: str, waypoints_m: np.ndarray):
         """Add guidance path for instrument approach trajectory."""
         self._fixture_engine.add_guidance_path(name, waypoints_m)
 
@@ -858,18 +839,22 @@ def run_shared_autonomy_demo():
         progress = cycle / n_cycles
 
         # Simulate surgeon moving toward the vessel
-        surgeon_input = np.array([
-            0.0 + progress * 0.08,  # Moving in +x toward vessel
-            np.sin(cycle * 0.3) * 0.002,  # Small lateral tremor
-            -0.15 + np.sin(cycle * 0.5) * 0.001,
-        ])
+        surgeon_input = np.array(
+            [
+                0.0 + progress * 0.08,  # Moving in +x toward vessel
+                np.sin(cycle * 0.3) * 0.002,  # Small lateral tremor
+                -0.15 + np.sin(cycle * 0.5) * 0.001,
+            ]
+        )
 
         # Simulate AI suggesting a safer path
-        ai_target = np.array([
-            0.0 + progress * 0.04,  # AI moves slower, more conservative
-            0.0,
-            -0.15,
-        ])
+        ai_target = np.array(
+            [
+                0.0 + progress * 0.04,  # AI moves slower, more conservative
+                0.0,
+                -0.15,
+            ]
+        )
 
         result = controller.compute(
             surgeon_input_position_m=surgeon_input,
@@ -919,7 +904,7 @@ def run_shared_autonomy_demo():
     print(f"Fixture activations:    {fixture_active_count}/{n_cycles}")
     print(f"Max haptic force:       {max_haptic:.2f} N")
     print(f"Max robot X position:   {max_x:.1f} mm")
-    print(f"Vessel center X:        20.0 mm")
+    print("Vessel center X:        20.0 mm")
     print(f"Vessel exclusion zone:  {(8 + 3):.0f} mm radius")
     vessel_breached = max_x > 20.0 - 11.0
     print(f"Vessel exclusion held:  {not vessel_breached}")

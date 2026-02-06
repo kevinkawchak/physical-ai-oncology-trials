@@ -60,7 +60,7 @@ LAST UPDATED: February 2026
 """
 
 import logging
-from dataclasses import dataclass, field
+from dataclasses import dataclass
 
 import numpy as np
 from scipy.spatial.transform import Rotation
@@ -272,12 +272,8 @@ class HandEyeCalibrator:
             method=self.method,
             n_poses=n,
             mean_rotation_error_deg=float(np.mean([r["rot_err_deg"] for r in residuals])),
-            mean_translation_error_mm=float(
-                np.mean([r["trans_err_mm"] for r in residuals])
-            ),
-            max_translation_error_mm=float(
-                np.max([r["trans_err_mm"] for r in residuals])
-            ),
+            mean_translation_error_mm=float(np.mean([r["trans_err_mm"] for r in residuals])),
+            max_translation_error_mm=float(np.max([r["trans_err_mm"] for r in residuals])),
             residuals=residuals,
         )
 
@@ -288,9 +284,7 @@ class HandEyeCalibrator:
         )
         return result
 
-    def _solve_tsai_lenz(
-        self, A_list: list[np.ndarray], B_list: list[np.ndarray]
-    ) -> np.ndarray:
+    def _solve_tsai_lenz(self, A_list: list[np.ndarray], B_list: list[np.ndarray]) -> np.ndarray:
         """
         Solve AX=XB using the Tsai-Lenz method.
 
@@ -389,14 +383,9 @@ class HandEyeCalibrationResult:
     max_translation_error_mm: float
     residuals: list
 
-    def is_acceptable(
-        self, max_trans_mm: float = 1.0, max_rot_deg: float = 0.5
-    ) -> bool:
+    def is_acceptable(self, max_trans_mm: float = 1.0, max_rot_deg: float = 0.5) -> bool:
         """Check if calibration meets accuracy requirements."""
-        return (
-            self.mean_translation_error_mm <= max_trans_mm
-            and self.mean_rotation_error_deg <= max_rot_deg
-        )
+        return self.mean_translation_error_mm <= max_trans_mm and self.mean_rotation_error_deg <= max_rot_deg
 
     def print_report(self):
         """Print calibration quality report."""
@@ -629,9 +618,7 @@ class PatientRegistration:
             sub_src = transformed_src[indices]
 
             # Find nearest neighbor in destination for each source point
-            distances = np.linalg.norm(
-                sub_src[:, None, :] - dst[None, :, :], axis=2
-            )
+            distances = np.linalg.norm(sub_src[:, None, :] - dst[None, :, :], axis=2)
             nn_indices = np.argmin(distances, axis=1)
             nn_distances = distances[np.arange(n_src), nn_indices]
 
@@ -663,9 +650,7 @@ class PatientRegistration:
         final_transformed = transform_points(T, src)
         sample_size = min(len(final_transformed), len(dst), 500)
         sample_idx = np.random.choice(len(final_transformed), sample_size, replace=False)
-        final_dists = np.linalg.norm(
-            final_transformed[sample_idx, None, :] - dst[None, :, :], axis=2
-        )
+        final_dists = np.linalg.norm(final_transformed[sample_idx, None, :] - dst[None, :, :], axis=2)
         nn_dists = np.min(final_dists, axis=1)
         fre = float(np.sqrt(np.mean(nn_dists**2)))
 
@@ -679,9 +664,7 @@ class PatientRegistration:
             fiducial_names=[],
         )
 
-        logger.info(
-            "ICP registration complete: mean_distance=%.2f mm", fre * 1000
-        )
+        logger.info("ICP registration complete: mean_distance=%.2f mm", fre * 1000)
         return result
 
     @staticmethod
@@ -733,9 +716,7 @@ class RegistrationResult:
 
         if self.per_fiducial_errors_mm:
             print("\nPer-fiducial errors:")
-            for name, err in zip(
-                self.fiducial_names, self.per_fiducial_errors_mm
-            ):
+            for name, err in zip(self.fiducial_names, self.per_fiducial_errors_mm):
                 status = "OK" if err < 2.0 else "HIGH"
                 print(f"  {name}: {err:.3f} mm [{status}]")
 
@@ -880,9 +861,7 @@ def run_calibration_demo():
         # Add noise
         T_cam[:3, 3] += np.random.randn(3) * 0.0002  # 0.2 mm noise
 
-        calibrator.add_pose(
-            CalibrationPose(T_base_to_ee=T_base_to_ee, T_camera_to_target=T_cam)
-        )
+        calibrator.add_pose(CalibrationPose(T_base_to_ee=T_base_to_ee, T_camera_to_target=T_cam))
 
     he_result = calibrator.calibrate()
     he_result.print_report()

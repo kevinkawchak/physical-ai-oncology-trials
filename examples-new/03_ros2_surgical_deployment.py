@@ -74,7 +74,7 @@ import logging
 import time
 from dataclasses import dataclass, field
 from enum import Enum, auto
-from typing import Any, Callable
+from typing import Callable
 
 import numpy as np
 
@@ -254,9 +254,7 @@ class ProcedureStateMachine:
     def current_config(self) -> PhaseConfig:
         return self._phase_configs[self._current_phase]
 
-    def register_transition_callback(
-        self, callback: Callable[[ProcedurePhase, ProcedurePhase, PhaseConfig], None]
-    ):
+    def register_transition_callback(self, callback: Callable[[ProcedurePhase, ProcedurePhase, PhaseConfig], None]):
         """Register callback for phase transitions."""
         self._transition_callbacks.append(callback)
 
@@ -316,8 +314,7 @@ class ProcedureStateMachine:
         )
 
         logger.info(
-            "Phase transition: %s -> %s (vel=%.2f m/s, force=%.1f N, "
-            "autonomy=%s, teleop=%s)",
+            "Phase transition: %s -> %s (vel=%.2f m/s, force=%.1f N, autonomy=%s, teleop=%s)",
             old_phase.name,
             target_phase.name,
             new_config.max_velocity_m_s,
@@ -401,9 +398,7 @@ class PolicyInferenceEngine:
                 providers=['CUDAExecutionProvider', 'CPUExecutionProvider']
             )
         """
-        logger.info(
-            "PolicyInferenceEngine: obs_dim=%d, act_dim=%d", self.obs_dim, self.act_dim
-        )
+        logger.info("PolicyInferenceEngine: obs_dim=%d, act_dim=%d", self.obs_dim, self.act_dim)
 
     def set_normalization(self, obs_mean: np.ndarray, obs_std: np.ndarray):
         """
@@ -432,9 +427,7 @@ class PolicyInferenceEngine:
         if self._session is not None:
             # ONNX Runtime inference
             input_name = self._session.get_inputs()[0].name
-            output = self._session.run(
-                None, {input_name: self._input_buffer}
-            )
+            output = self._session.run(None, {input_name: self._input_buffer})
             action = output[0].flatten()
         else:
             # Simulated inference
@@ -685,9 +678,7 @@ class SurgicalControlLoop:
                 phase_config = self.state_machine.current_config
                 if phase_config.autonomy_enabled:
                     action = self.policy.infer(observation)
-                    target_position, target_orientation = self._action_to_command(
-                        action, robot_state
-                    )
+                    target_position, target_orientation = self._action_to_command(action, robot_state)
                 else:
                     # Hold current position when autonomy disabled
                     target_position = robot_state["position_m"]
@@ -707,9 +698,7 @@ class SurgicalControlLoop:
                 )
 
                 # --- Record data ---
-                self._record_cycle(
-                    robot_state, target_position, phase_config
-                )
+                self._record_cycle(robot_state, target_position, phase_config)
 
                 # --- Check termination ---
                 if max_cycles > 0 and self._cycle_count >= max_cycles:
@@ -775,9 +764,7 @@ class SurgicalControlLoop:
 
         return obs
 
-    def _action_to_command(
-        self, action: np.ndarray, robot_state: dict
-    ) -> tuple[np.ndarray, np.ndarray]:
+    def _action_to_command(self, action: np.ndarray, robot_state: dict) -> tuple[np.ndarray, np.ndarray]:
         """
         Convert policy action to robot command.
 
@@ -849,11 +836,7 @@ class SurgicalControlLoop:
 
     def _get_run_summary(self) -> dict:
         """Get control loop run summary."""
-        avg_jitter = (
-            self._total_jitter_us / self._cycle_count
-            if self._cycle_count > 0
-            else 0
-        )
+        avg_jitter = self._total_jitter_us / self._cycle_count if self._cycle_count > 0 else 0
         return {
             "total_cycles": self._cycle_count,
             "max_jitter_us": self._max_jitter_us,
@@ -1000,9 +983,7 @@ def run_ros2_deployment_demo():
     ]
 
     for target, needs_confirm in transitions:
-        success = state_machine.request_transition(
-            target, operator_confirmed=needs_confirm
-        )
+        success = state_machine.request_transition(target, operator_confirmed=needs_confirm)
         if not success:
             logger.warning("Transition to %s failed", target.name)
 

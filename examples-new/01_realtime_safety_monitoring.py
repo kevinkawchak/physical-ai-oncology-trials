@@ -162,9 +162,7 @@ class SafetyLimits:
     torque_max_nm: float = 0.5
     velocity_max_m_s: float = 0.25
     acceleration_max_m_s2: float = 1.0
-    workspace_center_m: np.ndarray = field(
-        default_factory=lambda: np.array([0.0, 0.0, -0.15])
-    )
+    workspace_center_m: np.ndarray = field(default_factory=lambda: np.array([0.0, 0.0, -0.15]))
     workspace_radius_m: float = 0.15
     joint_limits_deg: list = field(
         default_factory=lambda: [
@@ -315,24 +313,19 @@ class SafetyMonitor:
         self._last_timestamp_ns: int = 0
         self._last_force_magnitude: float = 0.0
         self._event_log: list[SafetyEvent] = []
-        self._callbacks: dict[SafetyLevel, list[Callable]] = {
-            level: [] for level in SafetyLevel
-        }
+        self._callbacks: dict[SafetyLevel, list[Callable]] = {level: [] for level in SafetyLevel}
         self._is_stopped = False
         self._stop_reason = ""
         self._cycle_count = 0
 
         logger.info(
-            "SafetyMonitor initialized: force_max=%.1f N, "
-            "workspace_radius=%.3f m, watchdog=%.1f ms",
+            "SafetyMonitor initialized: force_max=%.1f N, workspace_radius=%.3f m, watchdog=%.1f ms",
             limits.force_max_n,
             limits.workspace_radius_m,
             limits.watchdog_timeout_ms,
         )
 
-    def register_callback(
-        self, level: SafetyLevel, callback: Callable[[SafetyEvent], None]
-    ):
+    def register_callback(self, level: SafetyLevel, callback: Callable[[SafetyEvent], None]):
         """
         Register a callback for a specific safety level.
 
@@ -444,10 +437,7 @@ class SafetyMonitor:
                 timestamp_ns=current_timestamp_ns,
                 level=SafetyLevel.CRITICAL,
                 category="watchdog",
-                description=(
-                    f"Control loop overrun: {dt_ms:.2f} ms "
-                    f"(limit: {self.limits.watchdog_timeout_ms:.1f} ms)"
-                ),
+                description=(f"Control loop overrun: {dt_ms:.2f} ms (limit: {self.limits.watchdog_timeout_ms:.1f} ms)"),
                 measured_value=dt_ms,
                 limit_value=self.limits.watchdog_timeout_ms,
                 action_taken="STOP_CATEGORY_1",
@@ -492,10 +482,7 @@ class SafetyMonitor:
                 timestamp_ns=ft.timestamp_ns,
                 level=SafetyLevel.CRITICAL,
                 category="force_exceeded",
-                description=(
-                    f"Force {force_magnitude:.2f} N exceeds limit "
-                    f"{self.limits.force_max_n:.1f} N"
-                ),
+                description=(f"Force {force_magnitude:.2f} N exceeds limit {self.limits.force_max_n:.1f} N"),
                 measured_value=force_magnitude,
                 limit_value=self.limits.force_max_n,
                 action_taken="STOP_CATEGORY_1",
@@ -512,10 +499,7 @@ class SafetyMonitor:
                 timestamp_ns=ft.timestamp_ns,
                 level=SafetyLevel.CRITICAL,
                 category="torque_exceeded",
-                description=(
-                    f"Torque {torque_magnitude:.3f} Nm exceeds limit "
-                    f"{self.limits.torque_max_nm:.2f} Nm"
-                ),
+                description=(f"Torque {torque_magnitude:.3f} Nm exceeds limit {self.limits.torque_max_nm:.2f} Nm"),
                 measured_value=torque_magnitude,
                 limit_value=self.limits.torque_max_nm,
                 action_taken="STOP_CATEGORY_1",
@@ -536,9 +520,7 @@ class SafetyMonitor:
         - The workspace must be verified against preop imaging before
           the procedure begins.
         """
-        dist = float(
-            np.linalg.norm(target_position_m - self.limits.workspace_center_m)
-        )
+        dist = float(np.linalg.norm(target_position_m - self.limits.workspace_center_m))
 
         if dist > self.limits.workspace_radius_m:
             event = SafetyEvent(
@@ -546,8 +528,7 @@ class SafetyMonitor:
                 level=SafetyLevel.CRITICAL,
                 category="workspace_violation",
                 description=(
-                    f"Position {dist:.4f} m from workspace center "
-                    f"exceeds radius {self.limits.workspace_radius_m:.3f} m"
+                    f"Position {dist:.4f} m from workspace center exceeds radius {self.limits.workspace_radius_m:.3f} m"
                 ),
                 measured_value=dist,
                 limit_value=self.limits.workspace_radius_m,
@@ -579,10 +560,7 @@ class SafetyMonitor:
                 timestamp_ns=int(time.monotonic_ns()),
                 level=SafetyLevel.CRITICAL,
                 category="velocity_exceeded",
-                description=(
-                    f"Speed {speed:.3f} m/s exceeds limit "
-                    f"{self.limits.velocity_max_m_s:.2f} m/s"
-                ),
+                description=(f"Speed {speed:.3f} m/s exceeds limit {self.limits.velocity_max_m_s:.2f} m/s"),
                 measured_value=speed,
                 limit_value=self.limits.velocity_max_m_s,
                 action_taken="STOP_CATEGORY_1",
@@ -602,19 +580,14 @@ class SafetyMonitor:
         These are software limits tighter than mechanical stops to prevent
         self-collision and collisions with the patient outside the workspace.
         """
-        for i, (pos_rad, (lo_deg, hi_deg)) in enumerate(
-            zip(joint_positions_rad, self.limits.joint_limits_deg)
-        ):
+        for i, (pos_rad, (lo_deg, hi_deg)) in enumerate(zip(joint_positions_rad, self.limits.joint_limits_deg)):
             pos_deg = float(np.degrees(pos_rad))
             if pos_deg < lo_deg or pos_deg > hi_deg:
                 event = SafetyEvent(
                     timestamp_ns=int(time.monotonic_ns()),
                     level=SafetyLevel.CRITICAL,
                     category="joint_limit",
-                    description=(
-                        f"Joint {i} at {pos_deg:.1f} deg outside "
-                        f"[{lo_deg}, {hi_deg}] deg"
-                    ),
+                    description=(f"Joint {i} at {pos_deg:.1f} deg outside [{lo_deg}, {hi_deg}] deg"),
                     measured_value=pos_deg,
                     limit_value=hi_deg if pos_deg > hi_deg else lo_deg,
                     action_taken="STOP_CATEGORY_1",
@@ -667,10 +640,7 @@ class SafetyMonitor:
 
         if dist > self.limits.workspace_radius_m:
             direction = offset / dist
-            return (
-                self.limits.workspace_center_m
-                + direction * self.limits.workspace_radius_m * 0.95
-            )
+            return self.limits.workspace_center_m + direction * self.limits.workspace_radius_m * 0.95
         return position_m
 
     def reset_stop(self, authorization_code: str):
@@ -685,9 +655,7 @@ class SafetyMonitor:
             authorization_code: Authorization string (facility-specific).
         """
         if authorization_code:
-            logger.warning(
-                "Safety stop reset. Previous reason: %s", self._stop_reason
-            )
+            logger.warning("Safety stop reset. Previous reason: %s", self._stop_reason)
             self._is_stopped = False
             self._stop_reason = ""
         else:
@@ -721,12 +689,8 @@ class SafetyMonitor:
             "stop_reason": self._stop_reason,
             "total_cycles": self._cycle_count,
             "total_events": len(self._event_log),
-            "critical_events": sum(
-                1 for e in self._event_log if e.level == SafetyLevel.CRITICAL
-            ),
-            "warning_events": sum(
-                1 for e in self._event_log if e.level == SafetyLevel.WARNING
-            ),
+            "critical_events": sum(1 for e in self._event_log if e.level == SafetyLevel.CRITICAL),
+            "warning_events": sum(1 for e in self._event_log if e.level == SafetyLevel.WARNING),
         }
 
 
@@ -762,9 +726,7 @@ class ForceTorqueSensorProcessor:
         self.sample_rate_hz = sample_rate_hz
         self._bias_force = np.zeros(3)
         self._bias_torque = np.zeros(3)
-        self._filter_alpha = self._compute_filter_alpha(
-            filter_cutoff_hz, sample_rate_hz
-        )
+        self._filter_alpha = self._compute_filter_alpha(filter_cutoff_hz, sample_rate_hz)
         self._filtered_force = np.zeros(3)
         self._filtered_torque = np.zeros(3)
 
@@ -782,9 +744,7 @@ class ForceTorqueSensorProcessor:
         tau = 1.0 / (2.0 * np.pi * cutoff_hz)
         return dt / (tau + dt)
 
-    def calibrate_bias(
-        self, readings: list[ForceTorqueReading], n_samples: int = 100
-    ):
+    def calibrate_bias(self, readings: list[ForceTorqueReading], n_samples: int = 100):
         """
         Calibrate sensor bias from zero-load readings.
 
@@ -825,12 +785,8 @@ class ForceTorqueSensorProcessor:
         compensated_torque = raw.torque_xyz_nm - self._bias_torque
 
         # Low-pass filter (exponential moving average)
-        self._filtered_force += self._filter_alpha * (
-            compensated_force - self._filtered_force
-        )
-        self._filtered_torque += self._filter_alpha * (
-            compensated_torque - self._filtered_torque
-        )
+        self._filtered_force += self._filter_alpha * (compensated_force - self._filtered_force)
+        self._filtered_torque += self._filter_alpha * (compensated_torque - self._filtered_torque)
 
         return ForceTorqueReading(
             force_xyz_n=self._filtered_force.copy(),
@@ -958,9 +914,7 @@ def run_safety_monitor_demo():
     monitor.register_callback(SafetyLevel.CRITICAL, on_critical)
 
     # --- Setup force-torque sensor processor ---
-    ft_processor = ForceTorqueSensorProcessor(
-        filter_cutoff_hz=50.0, sample_rate_hz=100.0
-    )
+    ft_processor = ForceTorqueSensorProcessor(filter_cutoff_hz=50.0, sample_rate_hz=100.0)
 
     # Calibrate bias with zero-load readings
     bias_readings = [
@@ -987,9 +941,7 @@ def run_safety_monitor_demo():
 
         # Simulate robot moving toward workspace boundary
         progress = step / n_steps
-        ee_pos = np.array([0.0, 0.0, -0.15]) + np.array(
-            [progress * 0.13, 0.0, 0.0]
-        )
+        ee_pos = np.array([0.0, 0.0, -0.15]) + np.array([progress * 0.13, 0.0, 0.0])
         ee_vel = np.array([0.13, 0.0, 0.0])
 
         # Simulate increasing contact force near boundary
@@ -1043,10 +995,7 @@ def run_safety_monitor_demo():
     if events:
         print("\nSafety Events:")
         for event in events:
-            print(
-                f"  [{event.level.name}] {event.category}: "
-                f"{event.description}"
-            )
+            print(f"  [{event.level.name}] {event.category}: {event.description}")
 
     return {
         "cycles_completed": status["total_cycles"],

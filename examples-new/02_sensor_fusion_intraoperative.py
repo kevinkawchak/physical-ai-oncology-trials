@@ -60,7 +60,6 @@ LAST UPDATED: February 2026
 """
 
 import logging
-import time
 from dataclasses import dataclass, field
 from enum import Enum, auto
 from typing import Any
@@ -120,12 +119,8 @@ class StereoImagePair:
     left: np.ndarray
     right: np.ndarray
     timestamp_ns: int
-    camera_matrix_left: np.ndarray = field(
-        default_factory=lambda: np.eye(3)
-    )
-    camera_matrix_right: np.ndarray = field(
-        default_factory=lambda: np.eye(3)
-    )
+    camera_matrix_left: np.ndarray = field(default_factory=lambda: np.eye(3))
+    camera_matrix_right: np.ndarray = field(default_factory=lambda: np.eye(3))
     baseline_m: float = 0.005
 
 
@@ -247,9 +242,7 @@ class InstrumentSegmenter:
             self._model = torch.jit.load(self.model_path)
             self._model.eval().cuda()
         """
-        logger.info(
-            "InstrumentSegmenter initialized (input_size=%s)", self.input_size
-        )
+        logger.info("InstrumentSegmenter initialized (input_size=%s)", self.input_size)
 
     def segment(self, image_bgr: np.ndarray) -> np.ndarray:
         """
@@ -407,9 +400,7 @@ class TissueDeformationTracker:
         mean_deformation = float(np.mean(displacements))
         max_deformation = float(np.max(displacements))
 
-        self._cumulative_deformation_m = max(
-            self._cumulative_deformation_m, max_deformation
-        )
+        self._cumulative_deformation_m = max(self._cumulative_deformation_m, max_deformation)
 
         return {
             "is_valid": True,
@@ -572,9 +563,7 @@ class TemporalSynchronizer:
                 return None
 
         # Find the most recent timestamp from the slowest stream
-        latest_per_stream = {
-            name: buf[-1][0] for name, buf in self._buffers.items()
-        }
+        latest_per_stream = {name: buf[-1][0] for name, buf in self._buffers.items()}
         reference_time = min(latest_per_stream.values())
 
         # Find closest sample in each stream to reference time
@@ -757,9 +746,7 @@ class SensorFusionPipeline:
         # In production, this uses the registered preop tumor segmentation
         # plus the current deformation field to compute distance from
         # instrument tip to nearest tumor boundary.
-        scene.tumor_margin_distance_m = self._estimate_margin(
-            instrument_ee_position_m
-        )
+        scene.tumor_margin_distance_m = self._estimate_margin(instrument_ee_position_m)
         scene.margin_confidence = 0.85
 
         return scene
@@ -837,9 +824,7 @@ def run_sensor_fusion_demo():
         depth[200:280, 280:360] = 0.15 - progress * 0.005
         rgb = np.random.randint(0, 255, (h, w, 3), dtype=np.uint8)
         # Reddish tissue
-        rgb[:, :, 2] = np.clip(rgb[:, :, 2].astype(int) + 80, 0, 255).astype(
-            np.uint8
-        )
+        rgb[:, :, 2] = np.clip(rgb[:, :, 2].astype(int) + 80, 0, 255).astype(np.uint8)
 
         depth_img = DepthImage(
             depth_m=depth,
@@ -860,13 +845,10 @@ def run_sensor_fusion_demo():
 
         if frame % 10 == 0:
             margin_str = (
-                f"{scene.tumor_margin_distance_m * 1000:.1f} mm"
-                if scene.tumor_margin_distance_m is not None
-                else "N/A"
+                f"{scene.tumor_margin_distance_m * 1000:.1f} mm" if scene.tumor_margin_distance_m is not None else "N/A"
             )
             logger.info(
-                "Frame %d: instrument_visible=%s, deformation=%.2f mm, "
-                "margin=%s, force=%.2f N",
+                "Frame %d: instrument_visible=%s, deformation=%.2f mm, margin=%s, force=%.2f N",
                 frame,
                 scene.instrument_visible,
                 scene.tissue_deformation_m * 1000,
@@ -880,20 +862,13 @@ def run_sensor_fusion_demo():
     print("=" * 60)
     print(f"Frames processed:      {n_frames}")
     print(f"Final margin:          {margin_history[-1] * 1000:.1f} mm")
-    print(
-        f"Minimum margin:        "
-        f"{min(m for m in margin_history if m is not None) * 1000:.1f} mm"
-    )
-    margin_safe = all(
-        m is not None and m >= 0.005 for m in margin_history
-    )
+    print(f"Minimum margin:        {min(m for m in margin_history if m is not None) * 1000:.1f} mm")
+    margin_safe = all(m is not None and m >= 0.005 for m in margin_history)
     print(f"Margin always safe:    {margin_safe}")
 
     return {
         "frames_processed": n_frames,
-        "final_margin_mm": margin_history[-1] * 1000
-        if margin_history[-1]
-        else None,
+        "final_margin_mm": margin_history[-1] * 1000 if margin_history[-1] else None,
         "margin_safe": margin_safe,
     }
 
