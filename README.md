@@ -52,13 +52,22 @@ physical-ai-oncology-trials/
 │       ├── README.md
 │       └── clinical_dt_interface.py      
 │
-├── examples/                             
-│   ├── README.md                        
-│   ├── 01_surgical_robot_training.py     
-│   ├── 02_digital_twin_surgical_planning.py   
-│   ├── 03_cross_framework_validation.py 
-│   ├── 04_agentic_clinical_workflow.py   
-│   └── 05_treatment_response_prediction.py   
+├── examples/
+│   ├── README.md
+│   ├── 01_surgical_robot_training.py
+│   ├── 02_digital_twin_surgical_planning.py
+│   ├── 03_cross_framework_validation.py
+│   ├── 04_agentic_clinical_workflow.py
+│   └── 05_treatment_response_prediction.py
+│
+├── examples-new/
+│   ├── README.md
+│   ├── 01_realtime_safety_monitoring.py
+│   ├── 02_sensor_fusion_intraoperative.py
+│   ├── 03_ros2_surgical_deployment.py
+│   ├── 04_hand_eye_calibration_registration.py
+│   ├── 05_shared_autonomy_teleoperation.py
+│   └── 06_robotic_sample_handling.py
 │
 ├── q1-2026-standards/
 │   ├── README.md
@@ -385,6 +394,40 @@ python examples/05_treatment_response_prediction.py
 ```
 
 See `examples/README.md` for complete documentation.
+
+---
+
+## ★ Physical Robot Engineering Examples
+
+The new `examples-new/` directory contains code for engineers working directly on **physical robot hardware** for oncology trials. These examples complement `examples/` (which focuses on AI/ML pipelines) by covering deployment, safety, calibration, and human-robot interaction.
+
+### Available Examples
+
+| Example | Use Case | Key Hardware |
+|---------|----------|--------------|
+| `01_realtime_safety_monitoring.py` | Force/torque limits, workspace boundaries, watchdog | F/T sensor, E-stop |
+| `02_sensor_fusion_intraoperative.py` | Multi-sensor perception, tissue deformation tracking | Stereo camera, RGBD |
+| `03_ros2_surgical_deployment.py` | ROS 2 node architecture, control loop, state machine | dVRK, Kinova, UR |
+| `04_hand_eye_calibration_registration.py` | Camera-robot calibration, patient registration | Optical tracker |
+| `05_shared_autonomy_teleoperation.py` | Surgeon-AI shared control, virtual fixtures, haptics | Surgeon console |
+| `06_robotic_sample_handling.py` | Specimen handling, barcode verification, cold chain | Lab robot, scanner |
+
+### Quick Start with Physical Robot Examples
+
+```bash
+# Run safety monitoring demo
+python examples-new/01_realtime_safety_monitoring.py
+
+# Run sensor fusion demo
+python examples-new/02_sensor_fusion_intraoperative.py
+
+# Run hand-eye calibration demo
+python examples-new/04_hand_eye_calibration_registration.py
+
+# Each example includes detailed inline hardware setup instructions
+```
+
+See `examples-new/README.md` for complete documentation.
 
 ---
 
