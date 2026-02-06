@@ -40,17 +40,25 @@ physical-ai-oncology-trials/
 ├── LICENSE
 ├── requirements.txt
 │
-├── digital-twins/                        
-│   ├── README.md                         
-│   ├── patient-modeling/                
+├── digital-twins/
+│   ├── README.md
+│   ├── patient-modeling/
 │   │   ├── README.md
-│   │   └── tumor_twin_pipeline.py       
-│   ├── treatment-simulation/            
+│   │   └── tumor_twin_pipeline.py
+│   ├── treatment-simulation/
 │   │   ├── README.md
-│   │   └── treatment_simulator.py        
-│   └── clinical-integration/            
+│   │   └── treatment_simulator.py
+│   ├── clinical-integration/
+│   │   ├── README.md
+│   │   └── clinical_dt_interface.py
+│   └── examples-twins/
 │       ├── README.md
-│       └── clinical_dt_interface.py      
+│       ├── 01_realtime_dt_synchronization.py
+│       ├── 02_multi_organ_toxicity_twin.py
+│       ├── 03_adaptive_radiation_therapy_dt.py
+│       ├── 04_tumor_microenvironment_immunotherapy_dt.py
+│       ├── 05_virtual_trial_cohort_dt.py
+│       └── 06_dt_validation_verification.py      
 │
 ├── examples/
 │   ├── README.md
@@ -364,6 +372,40 @@ print(f"Predicted response: {response.response_category}")
 ```
 
 See `digital-twins/README.md` for complete documentation.
+
+---
+
+## ★ Digital Twin Engineering Examples
+
+The new `digital-twins/examples-twins/` directory contains **6 advanced code examples** for engineers building digital twin systems for oncology clinical trials. These extend the core DT modules with real-time synchronization, multi-organ toxicity, adaptive radiation therapy, immunotherapy modeling, virtual trial design, and regulatory V&V.
+
+### Available Digital Twin Examples
+
+| Example | Use Case | Key Techniques |
+|---------|----------|---------------|
+| `01_realtime_dt_synchronization.py` | Live patient data fusion during treatment | EKF, particle filter, anomaly detection |
+| `02_multi_organ_toxicity_twin.py` | Systemic toxicity prediction across organs | PBPK, CTCAE grading, dose modification |
+| `03_adaptive_radiation_therapy_dt.py` | Daily anatomical adaptation during RT | Deformable registration, dose accumulation |
+| `04_tumor_microenvironment_immunotherapy_dt.py` | Checkpoint inhibitor response prediction | TME ODE model, PD-1/PD-L1 dynamics |
+| `05_virtual_trial_cohort_dt.py` | In-silico trial design and virtual controls | Virtual patients, Bayesian interim analysis |
+| `06_dt_validation_verification.py` | Regulatory V&V and model cards | C-index, calibration, AUC, FDA documentation |
+
+### Quick Start with Digital Twin Examples
+
+```bash
+# Run real-time DT synchronization demo
+python digital-twins/examples-twins/01_realtime_dt_synchronization.py
+
+# Run multi-organ toxicity simulation
+python digital-twins/examples-twins/02_multi_organ_toxicity_twin.py
+
+# Run V&V framework demo
+python digital-twins/examples-twins/06_dt_validation_verification.py
+
+# Each example includes detailed inline documentation
+```
+
+See `digital-twins/examples-twins/README.md` for complete documentation.
 
 ---
 

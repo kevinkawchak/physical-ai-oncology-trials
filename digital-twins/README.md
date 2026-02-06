@@ -17,6 +17,12 @@ Digital twins (DTs) in oncology create dynamic virtual replicas of patients, ena
 - Treatment response simulation (chemotherapy, radiation, immunotherapy)
 - In-silico clinical trial optimization
 - Real-time intraoperative guidance
+- Real-time DT synchronization with live clinical data streams
+- Multi-organ toxicity prediction and dose modification guidance
+- Adaptive radiation therapy with dose accumulation on deforming anatomy
+- Tumor microenvironment modeling for immunotherapy response prediction
+- Virtual trial cohort generation with Bayesian adaptive designs
+- FDA-grade validation and verification with model card generation
 
 ---
 
@@ -46,9 +52,18 @@ digital-twins/
 │   ├── README.md                  # Simulation overview
 │   └── treatment_simulator.py     # Multi-modality treatment sim
 │
-└── clinical-integration/          # Clinical workflow integration
-    ├── README.md                  # Integration overview
-    └── clinical_dt_interface.py   # Hospital system integration
+├── clinical-integration/          # Clinical workflow integration
+│   ├── README.md                  # Integration overview
+│   └── clinical_dt_interface.py   # Hospital system integration
+│
+└── examples-twins/                # Advanced DT engineering examples
+    ├── README.md                  # Examples documentation
+    ├── 01_realtime_dt_synchronization.py        # EKF/particle filter sync
+    ├── 02_multi_organ_toxicity_twin.py          # PBPK multi-organ toxicity
+    ├── 03_adaptive_radiation_therapy_dt.py       # Deformable registration + dose
+    ├── 04_tumor_microenvironment_immunotherapy_dt.py  # TME + checkpoint inhibitor
+    ├── 05_virtual_trial_cohort_dt.py            # In-silico trial design
+    └── 06_dt_validation_verification.py         # FDA V&V + model cards
 ```
 
 ---
