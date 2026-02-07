@@ -29,3 +29,5 @@ ignore = ["F841", "E741", "E501"]
 "privacy/**/*.py" = ["F401"]
 # CLI tools use conditional imports for optional dependencies
 "tools/**/*.py" = ["F401"]
+# Agentic AI examples use conditional imports for optional frameworks
+"agentic-ai/**/*.py" = ["F401", "F402"]
