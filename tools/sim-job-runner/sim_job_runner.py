@@ -507,7 +507,9 @@ def cmd_init_config(args):
 
     print(f"Configuration template written to {output_path}")
     print(f"  Task: {task}")
-    print(f"  Edit parameters and run: python sim_job_runner.py launch --framework mujoco --task {task} --config {output_path}")
+    print(
+        f"  Edit parameters and run: python sim_job_runner.py launch --framework mujoco --task {task} --config {output_path}"
+    )
 
 
 def _write_json(filepath: str, data: dict):

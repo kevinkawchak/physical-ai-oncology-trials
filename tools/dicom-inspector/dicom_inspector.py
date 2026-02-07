@@ -489,7 +489,12 @@ def main():
     # validate
     p_validate = subparsers.add_parser("validate", help="Validate DICOM compliance for trial submission")
     p_validate.add_argument("directory", help="Directory containing DICOM files")
-    p_validate.add_argument("--standard", default="DICOM-BASE", choices=["DICOM-BASE", "DICOM-RT"], help="Validation standard (default: DICOM-BASE)")
+    p_validate.add_argument(
+        "--standard",
+        default="DICOM-BASE",
+        choices=["DICOM-BASE", "DICOM-RT"],
+        help="Validation standard (default: DICOM-BASE)",
+    )
     p_validate.add_argument("--output", "-o", help="Write JSON report to file")
 
     # summarize

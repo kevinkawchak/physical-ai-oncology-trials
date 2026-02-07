@@ -286,14 +286,16 @@ def cmd_compare(args):
         dose, fx = _parse_scheme(s)
         bed = calc_bed(dose, fx, alpha_beta)
         eqd2 = calc_eqd2(dose, fx, alpha_beta)
-        results.append({
-            "scheme": s.strip(),
-            "dose_gy": dose,
-            "fractions": fx,
-            "dose_per_fx_gy": round(dose / fx, 4),
-            "bed_gy": round(bed, 2),
-            "eqd2_gy": round(eqd2, 2),
-        })
+        results.append(
+            {
+                "scheme": s.strip(),
+                "dose_gy": dose,
+                "fractions": fx,
+                "dose_per_fx_gy": round(dose / fx, 4),
+                "bed_gy": round(bed, 2),
+                "eqd2_gy": round(eqd2, 2),
+            }
+        )
 
     print("=" * 70)
     print(f"FRACTIONATION COMPARISON (alpha/beta = {alpha_beta} Gy)")
@@ -359,7 +361,7 @@ def cmd_tcp(args):
     print(f"  BED:             {bed:.2f} Gy")
     print(f"  EQD2:            {eqd2:.2f} Gy")
     print(f"  Model:           {model_detail}")
-    print(f"  TCP:             {tcp:.4f} ({tcp*100:.2f}%)")
+    print(f"  TCP:             {tcp:.4f} ({tcp * 100:.2f}%)")
 
     if args.output:
         result = DoseResult(
@@ -420,7 +422,7 @@ def cmd_ntcp(args):
     print(f"  Volume fraction: {volume_fraction:.2f}")
     print(f"  BED (late):      {bed:.2f} Gy")
     print(f"  EQD2 (late):     {eqd2:.2f} Gy")
-    print(f"  NTCP:            {ntcp:.6f} ({ntcp*100:.3f}%)")
+    print(f"  NTCP:            {ntcp:.6f} ({ntcp * 100:.3f}%)")
 
     if args.output:
         result = {
@@ -499,7 +501,9 @@ def main():
     p_tcp.add_argument("--dose", type=float, required=True, help="Total dose in Gy")
     p_tcp.add_argument("--fractions", type=int, required=True, help="Number of fractions")
     p_tcp.add_argument("--alpha-beta", type=float, required=True, help="alpha/beta ratio in Gy")
-    p_tcp.add_argument("--model", choices=["poisson", "logistic"], default="poisson", help="TCP model (default: poisson)")
+    p_tcp.add_argument(
+        "--model", choices=["poisson", "logistic"], default="poisson", help="TCP model (default: poisson)"
+    )
     p_tcp.add_argument("--n0", type=float, help="Initial clonogen count (Poisson model)")
     p_tcp.add_argument("--alpha", type=float, help="Radiosensitivity alpha (Poisson model)")
     p_tcp.add_argument("--td50", type=float, help="Dose for 50%% TCP (logistic model)")

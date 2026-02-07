@@ -70,35 +70,111 @@ REGULATORY_CHECKLIST = {
     "iec_62304": {
         "title": "IEC 62304 Software Lifecycle",
         "items": [
-            {"id": "62304-5.1", "requirement": "Software development planning", "description": "Development plan covering activities, deliverables, traceability"},
-            {"id": "62304-5.2", "requirement": "Software requirements analysis", "description": "Documented functional and performance requirements"},
-            {"id": "62304-5.3", "requirement": "Software architectural design", "description": "Architecture decomposed into items with interfaces defined"},
-            {"id": "62304-5.5", "requirement": "Software integration and testing", "description": "Integration tests verify correct interaction between items"},
-            {"id": "62304-5.7", "requirement": "Software release", "description": "Release documentation with known residual anomalies"},
-            {"id": "62304-7.1", "requirement": "Risk analysis", "description": "Software items contributing to hazardous situations identified"},
-            {"id": "62304-8", "requirement": "Software configuration management", "description": "Version control, change control, build reproducibility"},
-            {"id": "62304-9", "requirement": "Software problem resolution", "description": "Problem reporting, evaluation, and tracking process"},
+            {
+                "id": "62304-5.1",
+                "requirement": "Software development planning",
+                "description": "Development plan covering activities, deliverables, traceability",
+            },
+            {
+                "id": "62304-5.2",
+                "requirement": "Software requirements analysis",
+                "description": "Documented functional and performance requirements",
+            },
+            {
+                "id": "62304-5.3",
+                "requirement": "Software architectural design",
+                "description": "Architecture decomposed into items with interfaces defined",
+            },
+            {
+                "id": "62304-5.5",
+                "requirement": "Software integration and testing",
+                "description": "Integration tests verify correct interaction between items",
+            },
+            {
+                "id": "62304-5.7",
+                "requirement": "Software release",
+                "description": "Release documentation with known residual anomalies",
+            },
+            {
+                "id": "62304-7.1",
+                "requirement": "Risk analysis",
+                "description": "Software items contributing to hazardous situations identified",
+            },
+            {
+                "id": "62304-8",
+                "requirement": "Software configuration management",
+                "description": "Version control, change control, build reproducibility",
+            },
+            {
+                "id": "62304-9",
+                "requirement": "Software problem resolution",
+                "description": "Problem reporting, evaluation, and tracking process",
+            },
         ],
     },
     "fda_aiml": {
         "title": "FDA AI/ML Predetermined Change Control Plan",
         "items": [
-            {"id": "PCCP-1", "requirement": "Modification protocol", "description": "Description of planned modifications to the AI/ML model"},
-            {"id": "PCCP-2", "requirement": "Performance monitoring", "description": "Real-world performance monitoring plan with metrics"},
-            {"id": "PCCP-3", "requirement": "Update validation", "description": "Re-validation protocol for model updates"},
-            {"id": "PCCP-4", "requirement": "Data management", "description": "Training data governance and quality controls"},
-            {"id": "PCCP-5", "requirement": "Transparency", "description": "Labeling and user-facing documentation for AI decisions"},
-            {"id": "PCCP-6", "requirement": "Bias evaluation", "description": "Assessment of model performance across demographic subgroups"},
+            {
+                "id": "PCCP-1",
+                "requirement": "Modification protocol",
+                "description": "Description of planned modifications to the AI/ML model",
+            },
+            {
+                "id": "PCCP-2",
+                "requirement": "Performance monitoring",
+                "description": "Real-world performance monitoring plan with metrics",
+            },
+            {
+                "id": "PCCP-3",
+                "requirement": "Update validation",
+                "description": "Re-validation protocol for model updates",
+            },
+            {
+                "id": "PCCP-4",
+                "requirement": "Data management",
+                "description": "Training data governance and quality controls",
+            },
+            {
+                "id": "PCCP-5",
+                "requirement": "Transparency",
+                "description": "Labeling and user-facing documentation for AI decisions",
+            },
+            {
+                "id": "PCCP-6",
+                "requirement": "Bias evaluation",
+                "description": "Assessment of model performance across demographic subgroups",
+            },
         ],
     },
     "iso_14971": {
         "title": "ISO 14971 Risk Management",
         "items": [
-            {"id": "14971-4", "requirement": "Risk analysis", "description": "Hazard identification and risk estimation"},
-            {"id": "14971-5", "requirement": "Risk evaluation", "description": "Acceptability of estimated risks against criteria"},
-            {"id": "14971-6", "requirement": "Risk control", "description": "Risk control measures selected and implemented"},
-            {"id": "14971-7", "requirement": "Residual risk evaluation", "description": "Overall residual risk acceptable, benefit-risk analysis"},
-            {"id": "14971-9", "requirement": "Production and post-production", "description": "Information collection and review system for deployed device"},
+            {
+                "id": "14971-4",
+                "requirement": "Risk analysis",
+                "description": "Hazard identification and risk estimation",
+            },
+            {
+                "id": "14971-5",
+                "requirement": "Risk evaluation",
+                "description": "Acceptability of estimated risks against criteria",
+            },
+            {
+                "id": "14971-6",
+                "requirement": "Risk control",
+                "description": "Risk control measures selected and implemented",
+            },
+            {
+                "id": "14971-7",
+                "requirement": "Residual risk evaluation",
+                "description": "Overall residual risk acceptable, benefit-risk analysis",
+            },
+            {
+                "id": "14971-9",
+                "requirement": "Production and post-production",
+                "description": "Information collection and review system for deployed device",
+            },
         ],
     },
 }
@@ -203,22 +279,26 @@ def _check_model_compatibility(model_path: str) -> dict:
         if inp.type.tensor_type.shape:
             for dim in inp.type.tensor_type.shape.dim:
                 shape.append(dim.dim_value if dim.dim_value else "dynamic")
-        result["inputs"].append({
-            "name": inp.name,
-            "dtype": onnx.TensorProto.DataType.Name(inp.type.tensor_type.elem_type),
-            "shape": shape,
-        })
+        result["inputs"].append(
+            {
+                "name": inp.name,
+                "dtype": onnx.TensorProto.DataType.Name(inp.type.tensor_type.elem_type),
+                "shape": shape,
+            }
+        )
 
     for out in model.graph.output:
         shape = []
         if out.type.tensor_type.shape:
             for dim in out.type.tensor_type.shape.dim:
                 shape.append(dim.dim_value if dim.dim_value else "dynamic")
-        result["outputs"].append({
-            "name": out.name,
-            "dtype": onnx.TensorProto.DataType.Name(out.type.tensor_type.elem_type),
-            "shape": shape,
-        })
+        result["outputs"].append(
+            {
+                "name": out.name,
+                "dtype": onnx.TensorProto.DataType.Name(out.type.tensor_type.elem_type),
+                "shape": shape,
+            }
+        )
 
     # Check for runtime compatibility
     if HAS_ORT:
@@ -437,19 +517,23 @@ def _validate_against_reference(model_path: str, reference_path: str, tolerance:
             else:
                 result["num_failed"] += 1
 
-            result["details"].append({
-                "test_case": i,
-                "max_abs_error": round(abs_error, 8),
-                "mean_abs_error": round(mean_error, 8),
-                "passed": passed,
-            })
+            result["details"].append(
+                {
+                    "test_case": i,
+                    "max_abs_error": round(abs_error, 8),
+                    "mean_abs_error": round(mean_error, 8),
+                    "passed": passed,
+                }
+            )
         except Exception as e:
             result["num_failed"] += 1
-            result["details"].append({
-                "test_case": i,
-                "error": str(e),
-                "passed": False,
-            })
+            result["details"].append(
+                {
+                    "test_case": i,
+                    "error": str(e),
+                    "passed": False,
+                }
+            )
 
     if all_errors:
         result["max_absolute_error"] = round(max(all_errors), 8)
@@ -464,12 +548,14 @@ def _generate_checklist() -> dict:
     for standard_id, standard in REGULATORY_CHECKLIST.items():
         items = []
         for item in standard["items"]:
-            items.append({
-                **item,
-                "status": "not_assessed",
-                "evidence": "",
-                "notes": "",
-            })
+            items.append(
+                {
+                    **item,
+                    "status": "not_assessed",
+                    "evidence": "",
+                    "notes": "",
+                }
+            )
         checklist[standard_id] = {
             "title": standard["title"],
             "items": items,
