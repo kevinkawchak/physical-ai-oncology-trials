@@ -5,6 +5,22 @@ Format follows [Keep a Changelog](https://keepachangelog.com/).
 
 ## [Unreleased]
 
+## [0.9.0] - 2026-02-07
+
+### Added
+- `agentic-ai/examples-agentic-ai/` directory: 6 comprehensive agentic AI engineering examples for robotic oncology trials
+  - `01_mcp_clinical_robotics_server.py`: Model Context Protocol (MCP) server exposing robot telemetry, DICOM imaging, patient vitals, and procedure management as structured tools and resources with 21 CFR Part 11 audit trails, keep-out zone enforcement, and WHO-adapted surgical safety checklist
+  - `02_react_procedure_planner.py`: ReAct (Reasoning + Acting) agent for surgical procedure planning with chain-of-thought reasoning, patient-specific anatomy integration, instrument selection, approach safety evaluation, margin estimation, and contingency planning across lobectomy, nephrectomy, and prostatectomy protocols
+  - `03_realtime_adaptive_treatment_agent.py`: Real-time adaptive treatment agent processing streaming multi-modal data (force/torque, patient vitals, intraoperative imaging) with cross-modal correlation engine detecting hemorrhage, hemodynamic instability, and resection boundary concerns, generating prioritized treatment recommendations
+  - `04_autonomous_simulation_orchestrator.py`: Autonomous agent that designs, configures, runs, and analyzes simulation experiment campaigns across Isaac Lab, MuJoCo, PyBullet, and Gazebo with parameter sensitivity analysis, cross-framework consistency checks, hypothesis evaluation, and iterative refinement
+  - `05_safety_constrained_agent_executor.py`: Formal safety constraint framework for agentic control of surgical robots with pre-condition/post-condition verification, runtime invariant monitoring, safety gate human-in-the-loop approval, constraint library aligned to IEC 80601-2-77 and ISO 14971, and rollback mechanisms
+  - `06_protocol_rag_compliance_agent.py`: Retrieval-Augmented Generation (RAG) agent grounding clinical decisions in trial protocols, FDA guidance, ICH E6(R3), IEC standards, and institutional SOPs with keyword-based document retrieval, compliance verification, cited regulatory responses, and audit trail
+
+### Updated
+- `ruff.toml`: Added per-file ignore rules for `agentic-ai/**/*.py`
+- Main `README.md`: Added Agentic AI Engineering Examples section with table and quick start
+- Repository structure updated to include `agentic-ai/examples-agentic-ai/`
+
 ## [0.8.0] - 2026-02-07
 
 ### Added
