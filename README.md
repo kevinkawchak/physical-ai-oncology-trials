@@ -5,7 +5,7 @@
 [![Python 3.10+](https://img.shields.io/badge/Python-3.10+-green.svg)]()
 [![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.18445179-blue)](https://doi.org/10.5281/zenodo.18445179)
 
-**Practical tools for integrating physical AI into oncology clinical trials, by Claude Code Opus 4.5/Cowork, ChatGPT 5.2 Thinking**
+**Practical tools for integrating physical AI into oncology clinical trials, by Claude Code Opus 4.6/4.5, Cowork; ChatGPT 5.2 Thinking**
 
 This repository provides production-ready configurations, validated pipelines, and integration guides for deploying robotic systems, digital twins, and embodied AI agents in oncology. Referenced frameworks and tools have been added primarily from Oct. 2025 to Jan. 2026.
 
