@@ -177,10 +177,23 @@ physical-ai-oncology-trials/
 │       ├── README.md
 │       └── regulatory_tracker.py
 │
-├── configs/                           
+├── tools/
+│   ├── README.md
+│   ├── dicom-inspector/
+│   │   └── dicom_inspector.py
+│   ├── dose-calculator/
+│   │   └── dose_calculator.py
+│   ├── trial-site-monitor/
+│   │   └── trial_site_monitor.py
+│   ├── sim-job-runner/
+│   │   └── sim_job_runner.py
+│   └── deployment-readiness/
+│       └── deployment_readiness.py
+│
+├── configs/
 │   └── training_config.yaml
 │
-└── scripts/                            
+└── scripts/
     └── verify_installation.py
 ```
 
@@ -470,6 +483,43 @@ python examples-new/04_hand_eye_calibration_registration.py
 ```
 
 See `examples-new/README.md` for complete documentation.
+
+---
+
+## ★ Command-Line Tools
+
+The new `tools/` directory provides **standalone CLI utilities** for engineers working on physical AI oncology trials. Each tool operates independently with JSON output for CI/CD integration.
+
+### Available Tools
+
+| Tool | Use Case | Key Commands |
+|------|----------|-------------|
+| `dicom-inspector/dicom_inspector.py` | DICOM file inspection, PHI audit, trial compliance | `inspect`, `audit-phi`, `validate`, `summarize` |
+| `dose-calculator/dose_calculator.py` | Radiotherapy dose calculations (BED, EQD2, TCP, NTCP) | `bed`, `eqd2`, `compare`, `tcp`, `ntcp`, `tissues` |
+| `trial-site-monitor/trial_site_monitor.py` | Multi-site enrollment tracking, data quality monitoring | `enrollment`, `quality`, `deviations`, `report` |
+| `sim-job-runner/sim_job_runner.py` | Cross-framework simulation launcher and comparator | `launch`, `launch-all`, `compare`, `list-tasks` |
+| `deployment-readiness/deployment_readiness.py` | Pre-deployment AI model validation for clinical use | `check`, `benchmark`, `safety`, `checklist`, `validate` |
+
+### Quick Start with Tools
+
+```bash
+# Inspect DICOM files for PHI leaks before data sharing
+python tools/dicom-inspector/dicom_inspector.py audit-phi /path/to/dicom_dir/
+
+# Compare fractionation schemes for protocol design
+python tools/dose-calculator/dose_calculator.py compare --schemes "60/30,42.56/16,34/10" --alpha-beta 10
+
+# Generate a trial site manifest and monitor enrollment
+python tools/trial-site-monitor/trial_site_monitor.py init-manifest --sites 5 --output manifest.json
+
+# Launch a simulation across all available frameworks
+python tools/sim-job-runner/sim_job_runner.py launch-all --task needle_insertion
+
+# Run full deployment readiness check on an AI model
+python tools/deployment-readiness/deployment_readiness.py check --model model.onnx --output report.json
+```
+
+See `tools/README.md` for complete documentation.
 
 ---
 

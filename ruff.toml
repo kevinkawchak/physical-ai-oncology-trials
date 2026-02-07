@@ -27,3 +27,5 @@ ignore = ["F841", "E741", "E501"]
 # Regulatory/privacy tooling has placeholder imports and forward references
 "regulatory/**/*.py" = ["F401", "F821"]
 "privacy/**/*.py" = ["F401"]
+# CLI tools use conditional imports for optional dependencies
+"tools/**/*.py" = ["F401"]
