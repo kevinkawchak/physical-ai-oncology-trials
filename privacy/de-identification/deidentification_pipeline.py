@@ -43,6 +43,7 @@ LAST UPDATED: February 2026
 import hashlib
 import json
 import logging
+import os
 import re
 from dataclasses import dataclass, field
 from datetime import datetime, timedelta
@@ -290,7 +291,12 @@ class SafeHarborTransformer:
 
     def _pseudonymize(self, value: str, patient_id: str) -> str:
         """Generate a consistent pseudonym using salted hash."""
-        salt = self.config.hash_salt or "default_salt"
+        if not self.config.hash_salt:
+            logger.warning(
+                "No hash_salt configured; generating random salt. Set hash_salt for reproducible pseudonymization."
+            )
+            self.config.hash_salt = hashlib.sha256(os.urandom(32)).hexdigest()[:16]
+        salt = self.config.hash_salt
         hash_input = f"{salt}:{patient_id}:{value}"
         hash_value = hashlib.sha256(hash_input.encode()).hexdigest()[:12]
         return f"SUBJ-{hash_value.upper()}"

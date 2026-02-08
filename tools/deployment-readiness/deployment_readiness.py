@@ -470,7 +470,7 @@ def _validate_against_reference(model_path: str, reference_path: str, tolerance:
         return result
 
     try:
-        ref_data = np.load(reference_path, allow_pickle=True)
+        ref_data = np.load(reference_path, allow_pickle=False)
     except Exception as e:
         result["issues"].append(f"Failed to load reference data: {str(e)}")
         return result
@@ -804,7 +804,7 @@ def cmd_validate(args):
     print(f"  Passed:        {result['num_passed']}")
     print(f"  Failed:        {result['num_failed']}")
     print(f"  Max abs error: {result['max_absolute_error']}")
-    print(f"  Mean abs error:{result['mean_absolute_error']}")
+    print(f"  Mean abs error: {result['mean_absolute_error']}")
 
     if result["num_failed"] > 0:
         print("\n  FAILED CASES:")

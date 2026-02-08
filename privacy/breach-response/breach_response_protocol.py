@@ -147,12 +147,22 @@ class RiskAssessment:
     is_reportable_breach: bool = False
     rationale: str = ""
 
-    def calculate_risk(self):
-        """Calculate overall risk from four factors."""
+    def calculate_risk(self) -> None:
+        """Calculate overall risk from four factors.
+
+        Scores must be integers in the range 1-5 for each of the four
+        HIPAA risk-assessment factors.  Invalid scores are clamped to the
+        nearest boundary (1 or 5) and a warning is logged so that the
+        assessment object is never left in an inconsistent state.
+        """
         scores = [self.phi_nature_score, self.unauthorized_party_score, self.acquisition_score, self.mitigation_score]
 
         if not all(1 <= s <= 5 for s in scores):
-            return
+            logger.warning("Risk scores out of range %s; clamping to [1, 5].", scores)
+            self.phi_nature_score = max(1, min(5, self.phi_nature_score))
+            self.unauthorized_party_score = max(1, min(5, self.unauthorized_party_score))
+            self.acquisition_score = max(1, min(5, self.acquisition_score))
+            self.mitigation_score = max(1, min(5, self.mitigation_score))
 
         # Higher mitigation score = lower risk, so invert
         adjusted_mitigation = 6 - self.mitigation_score

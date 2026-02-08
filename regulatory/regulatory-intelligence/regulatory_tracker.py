@@ -329,7 +329,7 @@ class RegulatoryTracker:
             List of matching regulatory updates
         """
         cutoff = (datetime.now() - timedelta(days=days)).isoformat()[:10]
-        filtered = self._updates
+        filtered = [u for u in self._updates if u.date >= cutoff]
 
         if jurisdiction:
             filtered = [u for u in filtered if u.jurisdiction == jurisdiction]

@@ -650,6 +650,8 @@ class ImmunotherapyResponsePredictor:
             "pseudoprogression_probability": pseudo_prob,
             "immunogenicity_score": self.immunogenicity,
             "immune_phenotype": self.profile.immune_phenotype.value,
+            "peak_cd8": float(np.max(trajectories[1])),
+            "peak_ifng": float(np.max(trajectories[6])),
             "biomarkers": {
                 "TMB": self.profile.tmb_mut_per_mb,
                 "PD-L1_TPS": self.profile.pdl1_tps,

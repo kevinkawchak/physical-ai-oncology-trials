@@ -273,7 +273,7 @@ class PBPKModel:
 
         # Organs
         dydt[self.HEART] = flow_heart / p.vd_heart
-        dydt[self.KIDNEY] = (flow_kidney - elim_renal * 0.0) / p.vd_kidney
+        dydt[self.KIDNEY] = (flow_kidney - elim_renal) / p.vd_kidney
         dydt[self.LIVER] = (flow_liver - elim_hepatic) / p.vd_liver
         dydt[self.NERVE] = flow_nerve / p.vd_nerve
         dydt[self.MARROW] = flow_marrow / p.vd_marrow

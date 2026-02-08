@@ -28,9 +28,7 @@ import xml.etree.ElementTree as ET
 from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Any, Dict, List, Optional, Tuple
-import yaml
 import json
-import warnings
 from datetime import datetime
 
 # Optional imports
