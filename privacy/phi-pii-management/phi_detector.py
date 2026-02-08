@@ -32,6 +32,9 @@ REFERENCES:
     - Microsoft Presidio: https://github.com/microsoft/presidio
     - DICOM PS3.15: Security and System Management Profiles
 
+DISCLAIMER: RESEARCH USE ONLY. Not approved for clinical decision-making.
+    Requires institutional validation and regulatory review before deployment.
+
 LICENSE: MIT
 VERSION: 1.0.0
 LAST UPDATED: February 2026

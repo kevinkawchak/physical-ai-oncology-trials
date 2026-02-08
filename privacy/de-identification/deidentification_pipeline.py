@@ -34,6 +34,9 @@ REFERENCES:
     - Expert Determination: 45 CFR 164.514(b)(1)
     - Medical Image De-ID: https://github.com/TIO-IKIM/medical_image_deidentification
 
+DISCLAIMER: RESEARCH USE ONLY. Not approved for clinical decision-making.
+    Requires institutional validation and regulatory review before deployment.
+
 LICENSE: MIT
 VERSION: 1.0.0
 LAST UPDATED: February 2026
@@ -309,6 +312,14 @@ class SafeHarborTransformer:
             # Extract year from various date formats
             year_match = re.search(r"\d{4}", value)
             return year_match.group() if year_match else "[DATE_REMOVED]"
+        elif self.config.date_handling == DateHandling.DATE_SHIFT:
+            # Date shifting requires a per-patient random offset for consistency.
+            # The offset should be stored in _date_shifts dict keyed by patient_id.
+            # This preserves temporal relationships while protecting identity.
+            logger.warning(
+                "DATE_SHIFT selected but per-patient offset not provided; falling back to date removal for safety."
+            )
+            return "[DATE_SHIFTED]"
         elif self.config.date_handling == DateHandling.GENERALIZE:
             return "[DATE_GENERALIZED]"
         return "[DATE_REMOVED]"

@@ -353,7 +353,7 @@ def cmd_launch_all(args):
     print()
 
     results = []
-    for fw in task_def["frameworks"]:
+    for fw in target_frameworks:
         result = _run_simulation(fw, task, params)
         results.append(result)
 

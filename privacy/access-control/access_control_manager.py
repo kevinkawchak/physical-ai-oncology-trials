@@ -33,6 +33,9 @@ REFERENCES:
     - NIST SP 800-53 Rev. 5: Security and Privacy Controls
     - NISTIR 8596: Cybersecurity Profile for AI (Dec 2025)
 
+DISCLAIMER: RESEARCH USE ONLY. Not approved for clinical decision-making.
+    Requires institutional validation and regulatory review before deployment.
+
 LICENSE: MIT
 VERSION: 1.0.0
 LAST UPDATED: February 2026
@@ -477,7 +480,22 @@ class AccessControlManager:
                     self._log_access_decision(decision)
                     return decision
             except ValueError:
-                pass
+                logger.error(
+                    "Invalid access_expiration format for user '%s': '%s'. Denying access.",
+                    user_id,
+                    user.access_expiration,
+                )
+                decision = AccessDecision(
+                    granted=False,
+                    user_id=user_id,
+                    resource=resource,
+                    action=action,
+                    reason="Invalid access expiration date format",
+                    timestamp=timestamp,
+                    audit_id=self._next_audit_id(),
+                )
+                self._log_access_decision(decision)
+                return decision
 
         # Check role permissions
         role = self._roles.get(user.role_name)
@@ -587,7 +605,7 @@ class AccessControlManager:
         Returns:
             Filtered list of audit entries
         """
-        filtered = self._audit_log
+        filtered = list(self._audit_log)
 
         if user_id:
             filtered = [e for e in filtered if e.user_id == user_id]
@@ -734,11 +752,10 @@ def run_access_control_demo():
             user_id=user_id,
             role=role,
             name=name,
-            mfa_enrolled=mfa if isinstance(mfa, bool) else False,
             site_id="SITE-A",
         )
-        # Fix: set mfa_enrolled directly
-        acm._users[user_id].mfa_enrolled = mfa
+        # Set mfa_enrolled directly (not part of assign_role signature)
+        acm._users[user_id].mfa_enrolled = mfa if isinstance(mfa, bool) else False
 
     # Test access scenarios
     scenarios = [

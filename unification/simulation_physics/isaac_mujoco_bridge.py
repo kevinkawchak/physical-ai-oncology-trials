@@ -16,12 +16,15 @@ Usage:
 Last updated: January 2026
 """
 
+import logging
 import numpy as np
-from typing import Dict, Optional, Tuple, Any, Union
+from typing import Dict, Optional, Tuple, Any
 from dataclasses import dataclass
 from pathlib import Path
 import yaml
 import warnings
+
+logger = logging.getLogger(__name__)
 
 try:
     import mujoco
@@ -311,6 +314,22 @@ class IsaacMuJoCoBridge:
                 pb_state = self.state_converter.isaac_to_pybullet(state)
                 self._set_pybullet_state(target_env, pb_state)
 
+        elif source_framework == "mujoco":
+            # Get MuJoCo state and convert to target framework
+            state = self._get_mujoco_state(source_env)
+
+            if target_framework == "isaac":
+                isaac_state = self.state_converter.mujoco_to_isaac(state)
+                self._set_isaac_state(target_env, isaac_state)
+
+            elif target_framework == "pybullet":
+                pb_state = self.state_converter.mujoco_to_pybullet(state)
+                self._set_pybullet_state(target_env, pb_state)
+
+        else:
+            logger.warning("Unsupported source framework: %s", source_framework)
+            return
+
         self.conversion_stats["states_synced"] += 1
 
     def _get_isaac_state(self, env: Any) -> Dict[str, np.ndarray]:
@@ -469,12 +488,15 @@ class PolicyTransferValidator:
             # obs = env.reset()
             episode_reward = 0
             done = False
+            max_steps = 1000
 
-            while not done:
+            for _step in range(max_steps):
+                if done:
+                    break
                 # action = policy.predict(obs)
                 # obs, reward, done, info = env.step(action)
                 # episode_reward += reward
-                pass
+                break  # Placeholder: exit immediately until policy loading is implemented
 
             rewards.append(episode_reward)
 

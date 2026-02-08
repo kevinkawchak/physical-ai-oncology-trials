@@ -737,10 +737,10 @@ class VirtualTrialSimulator:
         if not control or not experimental:
             return 1.0, 1.0
 
-        # Hazard ratio from median ratio
+        # Hazard ratio from median survival ratio (HR < 1 favors experimental)
         median_c = np.median(control)
         median_e = np.median(experimental)
-        hr = median_c / max(median_e, 1.0)  # HR < 1 favors experimental
+        hr = median_e / max(median_c, 1.0)
 
         # Approximate log-rank p-value from HR and sample size
         n = len(control) + len(experimental)
