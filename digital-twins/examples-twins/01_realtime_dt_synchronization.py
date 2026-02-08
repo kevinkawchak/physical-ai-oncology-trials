@@ -291,8 +291,8 @@ class TumorPatientDynamics:
         F[3, 3] = 1.0 - self.anc_recovery_rate * dt_days
         F[3, 2] = -0.3 * dt_days  # drug effect on ANC
 
-        # Creatinine dynamics
-        F[4, 4] = 1.0 + self.creatinine_clearance_rate * dt_days
+        # Creatinine dynamics (recovery subtracts, so derivative is 1 - rate*dt)
+        F[4, 4] = 1.0 - self.creatinine_clearance_rate * dt_days
         F[4, 2] = 0.05 * dt_days
 
         # Hemoglobin

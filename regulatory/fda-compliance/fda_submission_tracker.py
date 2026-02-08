@@ -36,6 +36,10 @@ REFERENCES:
     - SPIRIT-AI / CONSORT-AI Reporting Extensions
     - 21 CFR Part 11: Electronic Records
 
+DISCLAIMER: RESEARCH USE ONLY. Not approved for clinical decision-making.
+    Requires institutional validation and regulatory review before deployment.
+    This tool does not constitute an FDA submission and is not FDA-cleared/approved.
+
 LICENSE: MIT
 VERSION: 1.0.0
 LAST UPDATED: February 2026
@@ -405,8 +409,8 @@ class FDASubmissionTracker:
         self._submission_counter += 1
         submission_id = f"SUB-{datetime.now().strftime('%Y%m%d')}-{self._submission_counter:04d}"
 
-        # Create AI/ML component records
-        components = [AIMLComponent(name=name, model_type="classification") for name in (ai_ml_components or [])]
+        # Create AI/ML component records (model_type should be specified per component)
+        components = [AIMLComponent(name=name, model_type="unspecified") for name in (ai_ml_components or [])]
 
         submission = Submission(
             submission_id=submission_id,

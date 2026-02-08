@@ -13,6 +13,9 @@ Framework Dependencies:
     - NumPy 1.24.0+
     - SciPy 1.11.0+
 
+DISCLAIMER: RESEARCH USE ONLY. Not approved for clinical decision-making.
+    All predictions require physician review before any clinical action.
+
 License: MIT
 """
 
@@ -493,8 +496,9 @@ class LogisticGrowthModel(TumorGrowthModel):
             dVdt = rho * V * (1 - V / K)
             V = V + dt * dVdt
 
-        # Scale final distribution
-        scale = V / np.sum(initial_condition)
+        # Scale final distribution (guard against zero initial condition)
+        total = np.sum(initial_condition)
+        scale = V / total if total > 0 else 0.0
         final = initial_condition * scale
         trajectory.append(final)
 
@@ -715,7 +719,7 @@ class PatientDigitalTwin:
         metrics = {
             "initial_volume_cm3": volumes[0],
             "final_volume_cm3": volumes[-1],
-            "volume_change_percent": (volumes[-1] - volumes[0]) / volumes[0] * 100,
+            "volume_change_percent": (volumes[-1] - volumes[0]) / max(volumes[0], 1e-10) * 100,
             "doubling_time_days": self._estimate_doubling_time(volumes, timepoints),
         }
 

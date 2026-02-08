@@ -178,7 +178,7 @@ class PolicyLoader:
         try:
             import torch
 
-            return torch.load(self.policy_path)
+            return torch.load(self.policy_path, weights_only=True)
         except ImportError:
             return None
 
@@ -346,8 +346,9 @@ class CrossPlatformValidator:
 
         execution_time = time.time() - start_time
 
-        # Compute success rate (based on reward threshold)
-        reward_threshold = np.percentile(rewards, 75)
+        # Compute success rate using a fixed task-appropriate threshold
+        # (using percentile of same data would always yield ~25%)
+        reward_threshold = 0.0  # Fixed task-appropriate threshold
         success_rate = np.mean([r > reward_threshold for r in rewards])
 
         metrics = ValidationMetrics(

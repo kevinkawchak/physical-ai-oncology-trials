@@ -31,6 +31,9 @@ REFERENCES:
     - ICH E6(R3) Annex 1: Implementation guidance
     - ICH E6(R3) Annex 2: Decentralized trials (expected 2026)
 
+DISCLAIMER: RESEARCH USE ONLY. Not approved for clinical decision-making.
+    Requires institutional validation and regulatory review before deployment.
+
 LICENSE: MIT
 VERSION: 1.0.0
 LAST UPDATED: February 2026
@@ -397,10 +400,15 @@ class GCPComplianceChecker:
                 report.findings.append(finding)
                 category_findings.append(finding)
 
-            # Calculate category score
+            # Calculate category score (exclude NOT_ASSESSED from denominator)
             if category_findings:
-                compliant = sum(1 for f in category_findings if f.status == ComplianceStatus.COMPLIANT)
-                report.category_scores[category] = (compliant / len(category_findings)) * 100
+                assessed = [f for f in category_findings if f.status != ComplianceStatus.NOT_ASSESSED]
+                if assessed:
+                    compliant = sum(1 for f in assessed if f.status == ComplianceStatus.COMPLIANT)
+                    report.category_scores[category] = (compliant / len(assessed)) * 100
+                else:
+                    # All findings require manual review
+                    report.category_scores[category] = 0.0
 
         # Calculate overall metrics
         report.total_findings = len(report.findings)
@@ -417,8 +425,12 @@ class GCPComplianceChecker:
         )
 
         if report.total_findings > 0:
-            compliant_total = sum(1 for f in report.findings if f.status == ComplianceStatus.COMPLIANT)
-            report.overall_score = (compliant_total / report.total_findings) * 100
+            assessed_total = [f for f in report.findings if f.status != ComplianceStatus.NOT_ASSESSED]
+            if assessed_total:
+                compliant_total = sum(1 for f in assessed_total if f.status == ComplianceStatus.COMPLIANT)
+                report.overall_score = (compliant_total / len(assessed_total)) * 100
+            else:
+                report.overall_score = 0.0
 
         logger.info(
             f"Compliance report {report_id}: score={report.overall_score:.1f}%, "

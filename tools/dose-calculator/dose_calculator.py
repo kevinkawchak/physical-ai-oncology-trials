@@ -26,8 +26,9 @@ References:
       including the effects of inhomogeneous distributions of dose and
       clonogenic cell density. Phys Med Biol. 1993;38(6):653-666.
 
-Note: All illustrative parameters should be validated against your
-institution's treatment protocols before clinical use.
+DISCLAIMER: RESEARCH USE ONLY. Not approved for clinical decision-making.
+All illustrative parameters should be validated against your institution's
+treatment protocols before any clinical use.
 """
 
 import argparse
@@ -106,13 +107,13 @@ class DoseResult:
             "dose_per_fraction_gy": round(self.dose_per_fraction_gy, 4),
             "alpha_beta_gy": self.alpha_beta_gy,
         }
-        if self.bed_gy:
+        if self.bed_gy is not None:
             d["bed_gy"] = round(self.bed_gy, 2)
-        if self.eqd2_gy:
+        if self.eqd2_gy is not None:
             d["eqd2_gy"] = round(self.eqd2_gy, 2)
-        if self.tcp:
+        if self.tcp is not None:
             d["tcp"] = round(self.tcp, 6)
-        if self.ntcp:
+        if self.ntcp is not None:
             d["ntcp"] = round(self.ntcp, 6)
         if self.model:
             d["model"] = self.model
@@ -402,8 +403,8 @@ def cmd_ntcp(args):
         n = args.n
         organ_label = "custom"
 
-    alpha_beta_late = args.alpha_beta if args.alpha_beta else 3.0
-    volume_fraction = args.volume if args.volume else 1.0
+    alpha_beta_late = args.alpha_beta
+    volume_fraction = args.volume
 
     ntcp = calc_ntcp_lkb(args.dose, args.fractions, td50, m, n, alpha_beta_late, volume_fraction)
     bed = calc_bed(args.dose, args.fractions, alpha_beta_late)

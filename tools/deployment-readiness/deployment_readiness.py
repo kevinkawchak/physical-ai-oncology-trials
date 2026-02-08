@@ -426,16 +426,19 @@ def _check_safety_constraints(model_path: str, constraints_path: str | None) -> 
                 "status": "passed",
             }
 
-            # Validate constraint structure
+            # Validate constraint structure and record for runtime verification
             if isinstance(check_spec, dict):
                 min_val = check_spec.get("min")
                 max_val = check_spec.get("max")
                 if min_val is not None and max_val is not None:
                     check_result["valid_range"] = f"[{min_val}, {max_val}]"
-                check_result["status"] = "passed"
+                # Mark as requiring runtime verification since actual model
+                # outputs are not available during static safety check
+                check_result["status"] = "requires_runtime_verification"
+                check_result["note"] = "Constraint bounds validated; runtime output verification required"
                 result["constraints_passed"] += 1
             else:
-                check_result["status"] = "passed"
+                check_result["status"] = "spec_validated"
                 result["constraints_passed"] += 1
 
             result["details"].append(check_result)
@@ -503,7 +506,7 @@ def _validate_against_reference(model_path: str, reference_path: str, tolerance:
 
         # Run inference
         try:
-            feed = {input_names[0]: input_data} if len(input_names) == 1 else {input_names[0]: input_data}
+            feed = {input_names[0]: input_data} if len(input_names) == 1 else {name: input_data for name in input_names}
             outputs = sess.run(None, feed)
             actual = outputs[0]
 

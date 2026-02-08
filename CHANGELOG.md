@@ -5,6 +5,41 @@ Format follows [Keep a Changelog](https://keepachangelog.com/).
 
 ## [Unreleased]
 
+## [0.9.2] - 2026-02-08
+
+### Fixed
+- **Logic (CRITICAL)**: Fixed EKF Jacobian sign error in `digital-twins/examples-twins/01_realtime_dt_synchronization.py` (line 295: `1.0 + rate*dt` corrected to `1.0 - rate*dt`) causing divergent creatinine state estimates
+- **Logic (CRITICAL)**: Fixed inverted hazard ratio calculation in `digital-twins/examples-twins/05_virtual_trial_cohort_dt.py` (line 743: `control/experimental` corrected to `experimental/control` per standard oncology convention where HR < 1 favors experimental arm)
+- **Logic (CRITICAL)**: Fixed infinite `while not done: pass` loop in `unification/simulation_physics/isaac_mujoco_bridge.py` `_evaluate_policy()` that would hang indefinitely; replaced with bounded step loop
+- **Logic (CRITICAL)**: Fixed `sync_state()` in `unification/simulation_physics/isaac_mujoco_bridge.py` only handling Isaac-to-MuJoCo direction; added MuJoCo-to-Isaac and MuJoCo-to-PyBullet branches and prevented false counter increment for unsupported frameworks
+- **Logic**: Fixed unreachable "overdue" status branch in `regulatory/regulatory-intelligence/regulatory_tracker.py` where deadlines past due were mislabeled as "imminent" due to incorrect if/elif ordering
+- **Logic**: Fixed GCP compliance score always reporting 0% in `regulatory/ich-gcp/gcp_compliance_checker.py` by excluding `NOT_ASSESSED` findings from the scoring denominator
+- **Logic**: Fixed format string bug `%.1%%` in `digital-twins/examples-twins/04_tumor_microenvironment_immunotherapy_dt.py` (line 664) causing `TypeError` at runtime; corrected to `%.1f%%`
+- **Logic**: Fixed division by zero in `digital-twins/patient-modeling/tumor_twin_pipeline.py` `LogisticGrowthModel.simulate()` when initial condition sums to zero (post-resection scenarios)
+- **Logic**: Fixed division by zero in `tumor_twin_pipeline.py` `predict()` volume change calculation when baseline volume is zero
+- **Logic**: Fixed floating-point equality comparison in `digital-twins/treatment-simulation/treatment_simulator.py` surgery day check (line 372) that could miss the surgery timepoint due to `np.linspace` precision
+- **Logic**: Fixed MJCF parsing incorrectly falling back to URDF parser in `unification/simulation_physics/urdf_sdf_mjcf_converter.py`; now raises `NotImplementedError` with guidance to use dedicated conversion pipelines
+- **Logic**: Fixed `sim_job_runner.py` `cmd_launch_all` iterating all frameworks including unavailable ones despite computing and displaying `target_frameworks`
+- **Logic**: Fixed `dose_calculator.py` truthiness checks (`if self.bed_gy:`) that silently dropped valid zero-value results from `DoseResult.to_dict()`; changed to `is not None` checks
+- **Logic**: Fixed `dose_calculator.py` CLI falsy-value check replacing explicit `--alpha-beta 0` and `--volume 0` inputs with defaults
+- **Logic**: Fixed `validation_suite.py` success rate always reporting ~25% because threshold was computed as 75th percentile of the same rewards array; replaced with fixed task-appropriate threshold
+- **Runtime (CRITICAL)**: Fixed `TypeError` crash in `privacy/access-control/access_control_manager.py` demo where `assign_role()` was called with unsupported `mfa_enrolled` keyword argument
+- **Security**: Changed `torch.load()` to `torch.load(weights_only=True)` in `unification/cross_platform_tools/validation_suite.py` to prevent arbitrary code execution via pickle deserialization
+- **Security**: Fixed `access_control_manager.py` `get_audit_log()` returning a reference to the internal audit log list; now returns a copy to prevent external mutation of audit trail
+- **Security**: Fixed `access_control_manager.py` silently granting access when `access_expiration` date format is invalid; now logs error and denies access by default
+- **Compliance**: Fixed `deidentification_pipeline.py` `DATE_SHIFT` handling silently falling through to date removal; added explicit `DATE_SHIFT` branch with appropriate logging
+- **Compliance**: Fixed `fda_submission_tracker.py` defaulting all AI/ML components to `model_type="classification"`; changed to `"unspecified"` since component type should be explicitly specified
+- **Compliance**: Fixed `deployment_readiness.py` safety constraints always reporting "passed" without checking actual model outputs; now reports `requires_runtime_verification` status
+- **Compliance**: Fixed `deployment_readiness.py` identical ternary branches for multi-input model validation; both branches produced single-input feed dict
+- **Compliance**: Added `RESEARCH USE ONLY` disclaimers to 11 modules: `deidentification_pipeline.py`, `phi_detector.py`, `access_control_manager.py`, `breach_response_protocol.py`, `dua_generator.py`, `fda_submission_tracker.py`, `irb_protocol_manager.py`, `gcp_compliance_checker.py`, `regulatory_tracker.py`, `tumor_twin_pipeline.py`, `treatment_simulator.py`, `dose_calculator.py`
+- **Lint**: Added missing `import logging` and `logger` to `isaac_mujoco_bridge.py`; removed unused `Union` import
+- **Format**: Auto-formatted `deidentification_pipeline.py` and `deployment_readiness.py` to pass `ruff format --check`
+
+### Notes
+- Comprehensive logic, context, and compliance audit of 51 Python files across all modules
+- CI lint-and-format checks pass for Python 3.10, 3.11, and 3.12
+- ChatGPT 5.2 Thinking Agent assisted with this audit prompt
+
 ## [0.9.1] - 2026-02-08
 
 ### Fixed

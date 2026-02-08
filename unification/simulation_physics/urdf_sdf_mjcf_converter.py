@@ -585,8 +585,10 @@ class UnifiedModelConverter:
         if format_name == "urdf":
             return URDFParser.parse(str(path))
         elif format_name == "mjcf":
-            warnings.warn("MJCF parsing not fully implemented, using URDF parser")
-            return URDFParser.parse(str(path))
+            raise NotImplementedError(
+                "MJCF parsing requires a dedicated parser (MJCF and URDF have different XML schemas). "
+                "Use isaac_to_mujoco_pipeline.py or mujoco_to_isaac_pipeline.py for MJCF conversion."
+            )
         elif format_name == "sdf":
             warnings.warn("SDF parsing not fully implemented")
             return RobotModel(name="parsed_model", source_format="sdf")

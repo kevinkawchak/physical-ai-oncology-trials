@@ -661,7 +661,7 @@ class ImmunotherapyResponsePredictor:
         }
 
         logger.info(
-            "Response prediction: %s, tumor change=%.1f%%, prob=%.1%%",
+            "Response prediction: %s, tumor change=%.1f%%, prob=%.1f%%",
             irecist.value,
             tumor_change_pct,
             response_prob * 100,

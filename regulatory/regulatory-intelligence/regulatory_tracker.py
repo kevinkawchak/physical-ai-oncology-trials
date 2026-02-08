@@ -28,6 +28,9 @@ REFERENCES:
     - ICH Guidelines Database
     - WHO Regulatory Considerations on AI for Health
 
+DISCLAIMER: RESEARCH USE ONLY. Not approved for clinical decision-making.
+    Requires institutional validation and regulatory review before deployment.
+
 LICENSE: MIT
 VERSION: 1.0.0
 LAST UPDATED: February 2026
@@ -361,10 +364,10 @@ class RegulatoryTracker:
                 days_until = (datetime.fromisoformat(effective) - datetime.now()).days
 
                 status = "upcoming"
-                if days_until <= 30:
-                    status = "imminent"
-                elif days_until <= 0:
+                if days_until <= 0:
                     status = "overdue"
+                elif days_until <= 30:
+                    status = "imminent"
 
                 deadlines.append(
                     ComplianceDeadline(

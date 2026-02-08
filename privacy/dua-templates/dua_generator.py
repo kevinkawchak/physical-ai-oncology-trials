@@ -32,6 +32,9 @@ REFERENCES:
     - CDC Core DUA Initiative (Dec 2025)
     - GA4GH Framework for Responsible Sharing
 
+DISCLAIMER: RESEARCH USE ONLY. Generated DUAs require legal review
+    before execution. Not a substitute for institutional legal counsel.
+
 LICENSE: MIT
 VERSION: 1.0.0
 LAST UPDATED: February 2026

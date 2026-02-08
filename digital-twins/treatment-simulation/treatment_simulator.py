@@ -12,6 +12,9 @@ Framework Dependencies:
     - SciPy 1.11.0+
     - Patient modeling from digital_twins.patient_modeling
 
+DISCLAIMER: RESEARCH USE ONLY. Not approved for clinical decision-making.
+    All treatment predictions require physician review before any clinical action.
+
 License: MIT
 """
 
@@ -369,7 +372,7 @@ class TreatmentSimulator:
             if t < surgery_day:
                 # Pre-operative growth
                 volumes[i] = volumes[i - 1] * np.exp(proliferation)
-            elif t == surgery_day or (t > surgery_day and volumes[i - 1] == 0):
+            elif abs(t - surgery_day) < 0.5 or (t > surgery_day and volumes[i - 1] < 1e-10):
                 # Surgery day - immediate reduction
                 volumes[i] = self.baseline_volume * residual_fraction
             else:
