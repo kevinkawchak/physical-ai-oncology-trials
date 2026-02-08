@@ -581,7 +581,7 @@ def main():
     parser.add_argument("--output", "-o", help="Output HTML report path")
 
     args = parser.parse_args()
-    frameworks = args.frameworks.split(",")
+    frameworks = [f.strip() for f in args.frameworks.split(",")]
 
     validator = CrossPlatformValidator()
     report = validator.validate_policy(policy_path=args.policy, frameworks=frameworks, episodes_per_task=args.episodes)

@@ -92,7 +92,7 @@ def check_ros2() -> Tuple[bool, str]:
         return False, str(e)
 
 
-def main():
+def main() -> int:
     """Run all verification checks."""
     print("=" * 60)
     print("Physical AI for Oncology Clinical Trials")

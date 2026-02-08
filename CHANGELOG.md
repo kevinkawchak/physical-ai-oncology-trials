@@ -5,6 +5,30 @@ Format follows [Keep a Changelog](https://keepachangelog.com/).
 
 ## [Unreleased]
 
+## [0.9.1] - 2026-02-08
+
+### Fixed
+- **Security**: Replaced weak default pseudonymization salt (`"default_salt"`) in `privacy/de-identification/deidentification_pipeline.py` with cryptographically random salt generation via `os.urandom`; logs a warning when no explicit `hash_salt` is configured
+- **Security**: Changed `numpy.load(allow_pickle=True)` to `allow_pickle=False` in `tools/deployment-readiness/deployment_readiness.py` to prevent arbitrary code execution from untrusted `.npz` files
+- **Logic**: Fixed `RiskAssessment.calculate_risk()` in `privacy/breach-response/breach_response_protocol.py` to clamp out-of-range scores instead of silently returning and leaving the object in an inconsistent state
+- **Logic**: Added missing `peak_cd8` and `peak_ifng` keys to `predict_response()` return dict in `digital-twins/examples-twins/04_tumor_microenvironment_immunotherapy_dt.py`, fixing a `KeyError` in the demo main block
+- **Logic**: Fixed dead-code multiplication by `0.0` for renal elimination in `digital-twins/examples-twins/02_multi_organ_toxicity_twin.py` PBPK kidney compartment ODE
+- **Logic**: Fixed `get_recent_updates()` in `regulatory/regulatory-intelligence/regulatory_tracker.py` to actually use the computed `cutoff` date for filtering
+- **Logic**: Added whitespace stripping to comma-separated framework parsing in `unification/cross_platform_tools/validation_suite.py`
+- **Type safety**: Added `from __future__ import annotations` to `regulatory/irb-management/irb_protocol_manager.py` to resolve forward reference of `SubmissionChecklist`
+- **Type hint**: Added return type `-> int` to `main()` in `scripts/verify_installation.py`
+- **Imports**: Removed unused `import re` from `unification/simulation_physics/urdf_sdf_mjcf_converter.py`
+- **Imports**: Removed unused `from abc import ABC, abstractmethod` from `digital-twins/clinical-integration/clinical_dt_interface.py`
+- **Imports**: Removed unused `import yaml` from `q1-2026-standards/objective-1-bidirectional-conversion/isaac_to_mujoco_pipeline.py`
+- **Imports**: Removed unused `import yaml` and `import warnings` from `q1-2026-standards/objective-2-robot-model-repository/model_validator.py`
+- **Formatting**: Fixed missing space in output string in `tools/deployment-readiness/deployment_readiness.py`
+- **YAML**: Split long comment line in `unification/simulation_physics/physics_parameter_mapping.yaml` to resolve yamllint line-length warning
+
+### Notes
+- Full static analysis audit of 51 Python files, 5 YAML files, and 47+ Markdown files
+- CI lint-and-format checks pass for Python 3.10, 3.11, and 3.12
+- ChatGPT 5.2 Thinking Agent assisted with this audit prompt
+
 ## [0.9.0] - 2026-02-07
 
 ### Added
