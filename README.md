@@ -1,4 +1,4 @@
-# Physical AI Unification: Oncology Clinical Trials
+# End-to-End Physical AI Unification: Oncology Clinical Trials
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Last Updated](https://img.shields.io/badge/Updated-February%202026-blue.svg)]()
