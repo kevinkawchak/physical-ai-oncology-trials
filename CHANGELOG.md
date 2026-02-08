@@ -5,6 +5,25 @@ Format follows [Keep a Changelog](https://keepachangelog.com/).
 
 ## [Unreleased]
 
+## [1.0.0] - 2026-02-08
+
+### Added
+- `V1_RELEASE.md`: Comprehensive v1.0.0 release documentation covering community needs, technical achievements, version history, and v1.0.0 standards compliance
+- Version badge (`v1.0.0`) added to README.md header
+- v1.0.0 release summary block added to README.md with repository metrics (51 Python modules, 40,526 LOC, 69 docs, 28 examples, 5 CLI tools)
+- `V1_RELEASE.md` added to repository structure in README.md
+
+### Updated
+- README.md: Added v1.0.0 designation, release summary, version badge, and updated citation block with `version = {1.0.0}`
+- CHANGELOG.md: Consolidated all prior releases under v1.0.0 milestone
+
+### Notes
+- v1.0.0 designates the first stable release of the public API: directory structure, module interfaces, CLI tool contracts, and configuration formats
+- Repository totals at v1.0.0: 66 commits, 12 merged pull requests, 65,287 insertions, 4,035 deletions, 160 project files across 61 directories
+- Development primarily by Claude Code Opus 4.5/Opus 4.6; Claude Cowork Opus 4.5 for initial release; ChatGPT 5.2 Thinking/Agent for audit prompts and repo insights
+- CI passes on Python 3.10, 3.11, and 3.12 (ruff lint, ruff format, yamllint, py_compile)
+- Follows Semantic Versioning 2.0.0 and Keep a Changelog format
+
 ## [0.9.2] - 2026-02-08
 
 ### Fixed
