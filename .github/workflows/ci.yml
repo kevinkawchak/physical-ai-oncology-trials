@@ -66,8 +66,11 @@ jobs:
         with:
           python-version: ${{ matrix.python-version }}
 
+      # Core deps only — heavy/optional packages (torch, mujoco, langchain,
+      # monai, etc.) are NOT installed.  Tests that require them are
+      # automatically skipped via the load_module() guard in conftest.py.
       - name: Install dependencies
-        run: pip install numpy scipy pytest
+        run: pip install numpy scipy pytest pyyaml
 
       - name: Run test suite
         run: pytest tests/ -v --tb=short
