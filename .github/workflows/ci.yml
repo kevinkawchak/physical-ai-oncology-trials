@@ -13,6 +13,7 @@ jobs:
   lint-and-format:
     runs-on: ubuntu-latest
     strategy:
+      fail-fast: false
       matrix:
         python-version: ["3.10", "3.11", "3.12"]
 
@@ -56,6 +57,7 @@ jobs:
     runs-on: ubuntu-latest
     needs: [lint-and-format]
     strategy:
+      fail-fast: false
       matrix:
         python-version: ["3.10", "3.11", "3.12"]
 
@@ -68,12 +70,9 @@ jobs:
           python-version: ${{ matrix.python-version }}
 
       - name: Install test dependencies
-        run: pip install numpy scipy pytest pytest-cov
+        run: |
+          pip install numpy scipy pytest
+          python -c "import numpy; print(f'numpy {numpy.__version__}'); import scipy; print(f'scipy {scipy.__version__}')"
 
       - name: Run test suite
-        run: python -m pytest tests/ -v --tb=short
-
-      - name: Verify test count
-        run: |
-          count=$(python -m pytest tests/ --collect-only -q 2>&1 | tail -1)
-          echo "Discovered: $count"
+        run: python -m pytest tests/ -v --tb=long -W default
