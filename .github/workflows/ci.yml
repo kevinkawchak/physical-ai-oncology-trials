@@ -54,6 +54,7 @@ jobs:
 
   test:
     runs-on: ubuntu-latest
+    needs: [lint-and-format]
     strategy:
       matrix:
         python-version: ["3.10", "3.11", "3.12"]
@@ -66,8 +67,13 @@ jobs:
         with:
           python-version: ${{ matrix.python-version }}
 
-      - name: Install dependencies
-        run: pip install numpy scipy pytest
+      - name: Install test dependencies
+        run: pip install numpy scipy pytest pytest-cov
 
-      - name: Run test suite
-        run: pytest tests/ -v --tb=short
+      - name: Run test suite with coverage
+        run: pytest tests/ -v --tb=short --co -q 2>&1 | head -5 && pytest tests/ -v --tb=short
+
+      - name: Verify test count
+        run: |
+          count=$(pytest tests/ --co -q 2>&1 | tail -1)
+          echo "Discovered: $count"

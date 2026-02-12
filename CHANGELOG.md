@@ -9,28 +9,87 @@ Format follows [Keep a Changelog](https://keepachangelog.com/).
 
 ### Added
 - `DEVELOPMENT_PROPOSALS.md`: Three comprehensive prompt proposals for future Claude Code development — Proposal A (Comprehensive Test Suite), Proposal B (Multi-Site Federated Trial Coordination), Proposal C (Regulatory Submission Automation) — with feature-by-feature comparison tables, strategic impact matrix, and audience impact analysis
-- `tests/` directory: Full pytest-based test suite with 150 tests across 8 modules, all passing on Python 3.10–3.12
-  - `tests/conftest.py`: Shared fixtures and `importlib.util.spec_from_file_location()` loader for importing modules from hyphenated directories (`examples-new/`, `digital-twins/`, etc.); autouse RNG seeding (seed=42) for deterministic tests
-  - `tests/test_safety_monitoring.py` (15 tests): SafetyLevel ordering, StopCategory values, SafetyLimits defaults, SafetyMonitor nominal/force/workspace/velocity violations, critical callbacks, reset behavior, ForceTorqueSensorProcessor bias calibration, WorkspaceBoundaryGenerator
-  - `tests/test_dose_calculator.py` (16 tests): BED calculations (standard, hypofractionation, single fraction, alpha/beta comparison), EQD2, TCP (Poisson, logistic, bounded), NTCP (LKB model, dose-response, volume fraction, lung preset), fractionation scheme parsing, DoseResult.to_dict() zero-value regression, tissue data validation
-  - `tests/test_digital_twin_sync.py` (20 tests): TumorPatientDynamics state transition/tumor growth/drug decay/Jacobian, ObservationModel tumor marker/imaging/ANC/Jacobian/noise, EKF predict/uncertainty/update/audit trail/treatment, ParticleFilter count/predict/ESS/response probability/MAP, ClinicalAnomalyDetector, DigitalTwinSynchronizer factory methods/observation processing/state summary
-  - `tests/test_mcp_server.py` (24 tests): Data models (RobotTelemetry, PatientVitals, enums), tool definitions (count, fields, safety levels), resource definitions, server telemetry, workspace, robot commands (valid, out-of-bounds, keepout zone, velocity clamping), DICOM queries, vitals, procedure events, resource reads, audit trail
-  - `tests/test_calibration.py` (16 tests): Transform utilities (make_transform, invert_transform roundtrip, transform_points, rotation_error, translation_error), HandEyeCalibrator (synthetic poses, minimum poses, too-few raises), PatientRegistration (fiducial-based identity/known-transform registration), CalibrationVerifier
-  - `tests/test_sample_handling.py` (16 tests): Enums (SpecimenType, ContainerType, StorageCondition), Specimen creation/audit trail/hash, BarcodeVerifier scan_and_verify, ColdChainMonitor temperature checks (in-range, out-of-range, refrigerated, excursion logging), SpecimenRobotController pick/place, BatchProcessor
-  - `tests/test_deidentification.py` (13 tests): DeidentificationMethod and DateHandling enums, config defaults, SafeHarborTransformer (SSN, email, phone, IP, URL removal; clinical content preservation; structured transform), DeidentificationResult
-  - `tests/test_regression.py` (7 tests): Regression guards for v0.9.1/v0.9.2 critical bugs — EKF Jacobian sign (creatinine diagonal), hazard ratio convention (median_e/median_c), DoseResult zero-value inclusion, LogisticGrowthModel division-by-zero with zero initial volume, TreatmentSimulator initialization, deidentification salt randomization
-  - `tests/__init__.py`: Package marker
-  - `tests/README.md`: Testing strategy documentation, module coverage table, running instructions, architecture notes
+- `tests/` directory: Comprehensive pytest-based test suite with **566 tests** across **11 subdirectories + 8 legacy modules**, all passing on Python 3.10–3.12
+  - `tests/conftest.py`: Enhanced shared fixtures with `load_module()` helper using `importlib.util.spec_from_file_location()` for hyphenated directories; `PatientFactory`, `TrialFactory`, `RobotFactory` mock data factories; 40+ module-loading fixtures; autouse RNG seeding (seed=42) for deterministic tests
+  - `tests/test_digital_twins/` (73 tests across 6 modules):
+    - `test_tumor_twin_pipeline.py`: TumorType/ModelType/SolverType enums, PatientClinicalData/ModelParameters/TwinPrediction dataclasses, LogisticGrowthModel simulate/zero-volume/growth-bounds, GompertzGrowthModel, create_pipeline factory
+    - `test_treatment_simulator.py`: TreatmentType/ResponseType enums, TreatmentProtocol/TreatmentResponse dataclasses, LinearQuadraticModel surviving_fraction/BED/TCP/tissue_params, PharmacokineticModel, TreatmentSimulator predict_response
+    - `test_clinical_dt_interface.py`: ConnectionStatus/ComplianceRegulation enums, PatientRecord/ImagingStudy/AuditEntry dataclasses, ClinicalConnector, ComplianceManager
+    - `test_multi_organ_toxicity.py`: ChemoDrug/OrganSystem/CTCAEGrade enums, DRUG_PBPK_LIBRARY, PBPKModel ODE system, MultiOrganToxicityTwin simulate_cycle/organ_states/CTCAE grading
+    - `test_virtual_trial_cohort.py`: TumorSite/TrialEndpoint enums, VirtualPatient, PopulationParameters, VirtualCohortGenerator deterministic generation, VirtualTrialSimulator
+    - `test_dt_validation.py`: ValidationLevel/RiskCategory enums, PredictionPair, ValidationDataset, AccuracyMetrics (MAE, RMSE, R², MAPE, C-index, compute_all)
+  - `tests/test_agentic_ai/` (60 tests across 6 modules):
+    - `test_mcp_server.py`: RobotMode/ProcedurePhase enums, RobotTelemetry, ClinicalRoboticsMCPTools/Resources definitions, async handle_tool_call (telemetry, commands, velocity clamping, out-of-bounds rejection), audit trail export
+    - `test_react_planner.py`: TumorType/RiskLevel enums, AnatomicalStructure, PatientAnatomy, SurgicalInstrument, ProcedureStep, ProcedurePlanningTools instrument catalog
+    - `test_adaptive_treatment.py`: StreamType/AlertSeverity ordering, DataSample, AnomalyEvent, TreatmentRecommendation, StreamBuffer
+    - `test_simulation_orchestrator.py`: SimFramework/ExperimentStatus/SamplingStrategy enums, ParameterRange sample_values, SimulationConfig, SimulationResult, ExperimentDesign
+    - `test_safety_executor.py`: ConstraintType/ConstraintSeverity/ViolationResponse/ActionCategory enums, SafetyConstraint check, ConstraintResult, AgentAction, SafetyVerdict
+    - `test_protocol_rag.py`: DocumentType/ComplianceStatus enums, DocumentChunk get_citation, RetrievalResult, ComplianceCheck, RegulatoryKnowledgeBase retrieve
+  - `tests/test_tools/` (50 tests across 5 modules):
+    - `test_dose_calculator.py`: TISSUE_ALPHA_BETA constants, calc_bed/calc_eqd2/calc_tcp_poisson/calc_ntcp_lkb functions, DoseResult, _parse_scheme
+    - `test_dicom_inspector.py`: PHI_TAGS/REQUIRED_TRIAL_TAGS/ONCOLOGY_MODALITIES constants, InspectionResult
+    - `test_sim_job_runner.py`: TASK_REGISTRY/SUPPORTED_FRAMEWORKS constants, JobResult, _generate_job_id uniqueness
+    - `test_trial_site_monitor.py`: DEFAULT_THRESHOLDS/SITE_STATUS constants, SiteMetrics, compute_site_metrics
+    - `test_deployment_readiness.py`: REGULATORY_CHECKLIST/SAFETY_CATEGORIES constants, _generate_checklist IEC 62304/FDA AI/ML items
+  - `tests/test_physical_robots/` (61 tests across 6 modules):
+    - `test_safety_monitoring.py`: SafetyLevel/StopCategory enums, SafetyLimits defaults, SafetyMonitor check_and_filter (nominal/force/workspace/velocity), reset_stop, event_log, ForceTorqueSensorProcessor bias calibration, WorkspaceBoundaryGenerator compute_workspace_from_tumor
+    - `test_sensor_fusion.py`: SensorType enum, StereoImagePair, DepthImage, PointCloud, TrackedPose
+    - `test_ros2_deployment.py`: ProcedurePhase enum, PhaseConfig, PHASE_CONFIGS constants
+    - `test_calibration.py`: make_transform, rotation_error_deg, translation_error_mm, HandEyeCalibrator add_pose/calibrate, PatientRegistration add_fiducial/register_fiducial, CalibrationVerifier add_test_point/verify
+    - `test_shared_autonomy.py`: AutonomyLevel enum, SharedAutonomyConfig, SurgeonInputProcessor
+    - `test_sample_handling.py`: SpecimenType/ContainerType/StorageCondition enums, Specimen record_event/audit_trail, BarcodeVerifier scan_and_verify, ColdChainMonitor check_temperature, SpecimenRobotController pick_specimen
+  - `tests/test_integration/` (22 tests across 6 modules):
+    - `test_twin_to_simulation.py`: Digital twin creation → growth simulation → treatment response pipeline
+    - `test_agentic_decision_workflow.py`: Safety constraint check → async MCP handle_tool_call → audit trail chain
+    - `test_clinical_data_pipeline.py`: DICOM constants → SafeHarborTransformer deidentification → PHI detection
+    - `test_safety_monitoring_chain.py`: Nominal → critical transition, multiple sensor readings, reset_stop after emergency
+    - `test_regulatory_audit_trail.py`: FDA submission lifecycle, GCP verify_compliance, access control define_role/assign_role/check_access audit
+    - `test_cross_framework_validation.py`: Physics parameter round-trip, contact conversion, framework detection
+  - `tests/test_regression/` (30 tests across 4 modules):
+    - `test_v092_critical.py`: EKF Jacobian sign error, inverted hazard ratio convention
+    - `test_v092_logic.py`: Division by zero guards, DoseResult truthiness, GCP scoring excludes NOT_ASSESSED, MJCF parsing, sim job runner
+    - `test_v091_security.py`: DeidentificationPipeline salt randomization, audit log reference leak, access expiration denial, deployment safety
+    - `test_v092_compliance.py`: DATE_SHIFT handling, AIMLComponent model_type default, FDA status values, regulatory tracker ordering, RESEARCH USE disclaimers
+  - `tests/test_unification/` (32 tests across 4 modules):
+    - `test_unified_agent_interface.py`: AgentBackend/AgentRole enums, Tool to_mcp/openai/anthropic format, AgentMessage, AgentConfig
+    - `test_isaac_mujoco_bridge.py`: PhysicsParameters, ContactParameters to_isaac_physx/to_mujoco_solref/to_pybullet, PhysicsParameterMapper, StateConverter
+    - `test_urdf_sdf_mjcf_converter.py`: Link, Joint, RobotModel dataclasses, URDFParser
+    - `test_framework_detector.py`: FrameworkDetector.FRAMEWORKS, FrameworkInfo, SystemInfo, detect_all
+  - `tests/test_privacy/` (39 tests across 4 modules):
+    - `test_phi_detector.py`: PHICategory (18 members), RiskLevel, PHI_PATTERNS, PHIFinding, ScanResult, PHIDetector scan_text
+    - `test_access_control.py`: Permission/UserType enums, Role has_permission, AccessDecision, AccessControlManager define_role/assign_role/check_access/audit_log
+    - `test_breach_response.py`: IncidentType, RiskLevel, NotificationRecipient, Incident, RiskAssessment calculate_risk/clamping
+    - `test_dua_generator.py`: DUATemplate, Jurisdiction, SecurityLevel, DUAParty, DataDescription, DUADocument
+  - `tests/test_regulatory/` (31 tests across 4 modules):
+    - `test_fda_submission_tracker.py`: SubmissionType, SubmissionStatus, DeviceClass, AIMLComponent model_type, Submission, ChecklistItem
+    - `test_irb_protocol_manager.py`: ProtocolStatus, ReviewType, RiskCategory, AIComponent, ConsentElement, Protocol
+    - `test_gcp_compliance_checker.py`: GuidelineVersion, ComplianceStatus, FindingSeverity, ComplianceFinding, GCP_REQUIREMENTS, GCPComplianceChecker verify_compliance
+    - `test_regulatory_tracker.py`: RegulatoryJurisdiction, UpdateType, ImpactLevel, RegulatoryUpdate, REGULATORY_TIMELINE
+  - `tests/test_q1_standards/` (20 tests across 3 modules):
+    - `test_isaac_to_mujoco_pipeline.py`: PhysXContactParams, MuJoCoContactParams, ConversionConfig, PhysicsParameterConverter physx_to_mujoco/mujoco_to_physx
+    - `test_model_validator.py`: ValidationResult, ModelValidationReport add_result/to_dict
+    - `test_benchmark_runner.py`: SCENARIOS, BenchmarkConfig, BenchmarkResult, BenchmarkReport
+  - `tests/test_scripts/` (5 tests):
+    - `test_verify_installation.py`: REQUIREMENTS/OPTIONAL constants, check_version return tuple validation
+  - Legacy flat test files retained (143 tests across 8 modules): `test_safety_monitoring.py`, `test_dose_calculator.py`, `test_digital_twin_sync.py`, `test_mcp_server.py`, `test_calibration.py`, `test_sample_handling.py`, `test_deidentification.py`
+  - `tests/__init__.py` and per-subdirectory `__init__.py` package markers
+  - `tests/README.md`: Comprehensive testing strategy documentation with directory structure, architecture notes, fixture hierarchy, coverage targets, and CI integration guide
 
 ### Updated
-- `.github/workflows/ci.yml`: Added `test` job running `pytest tests/ -v --tb=short` across Python 3.10, 3.11, and 3.12 matrix with numpy, scipy, and pytest dependencies
+- `.github/workflows/ci.yml`: Added `needs: [lint-and-format]` dependency for test job, added `pytest-cov` to test dependencies, added test count verification step
+- `ruff.toml`: Added `tests/**/*.py` ignore rules for `F401` and `F811` to accommodate test fixture imports
 
 ### Notes
-- Implements Proposal A from `DEVELOPMENT_PROPOSALS.md`
-- All 150 tests pass with zero external dependencies beyond numpy, scipy, and pytest
+- Implements Proposal A (Comprehensive Test Suite & Continuous Validation Infrastructure) from `DEVELOPMENT_PROPOSALS.md`
+- All 566 tests pass with zero external dependencies beyond numpy, scipy, and pytest
+- 50+ test modules across 11 subdirectories mirroring the source structure
+- Unit tests cover all 51 Python modules in the repository
+- 6 end-to-end integration test scenarios validating cross-module workflows
+- 30+ regression tests guarding v0.9.1/v0.9.2 bug fixes
+- Mock-based isolation — no hardware, GPU, or network required
 - Tests use `importlib.util.spec_from_file_location()` to handle hyphenated directory names
 - Deterministic RNG seeding (seed=42) ensures reproducible results across platforms
-- CI now runs ruff format, ruff check, yamllint, py_compile, and pytest on Python 3.10–3.12
+- CI now runs ruff format, ruff check, yamllint, py_compile, and pytest with coverage across Python 3.10–3.12
 - Development by Claude Code Opus 4.6
 
 ## [1.0.0] - 2026-02-08

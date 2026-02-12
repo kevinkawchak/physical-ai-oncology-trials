@@ -31,3 +31,5 @@ ignore = ["F841", "E741", "E501"]
 "tools/**/*.py" = ["F401"]
 # Agentic AI examples use conditional imports for optional frameworks
 "agentic-ai/**/*.py" = ["F401", "F402"]
+# Test files use dynamic imports and may shadow fixtures across conftest hierarchy
+"tests/**/*.py" = ["F401", "F811"]
