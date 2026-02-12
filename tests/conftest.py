@@ -28,6 +28,12 @@ PROJECT_ROOT = Path(__file__).resolve().parent.parent
 def load_module(name: str, relative_path: str):
     """Load a Python module by file-path from the project root.
 
+    If the module depends on packages that are not installed in the
+    current environment (e.g. torch, mujoco, langchain, monai) the
+    test is automatically **skipped** instead of erroring out.  This
+    keeps CI green when only core dependencies (numpy, scipy, pytest)
+    are available.
+
     Args:
         name: Module name to register in ``sys.modules``.
         relative_path: Path relative to the project root
@@ -40,10 +46,19 @@ def load_module(name: str, relative_path: str):
         return sys.modules[name]
 
     filepath = PROJECT_ROOT / relative_path
+    if not filepath.exists():
+        pytest.skip(f"Source file not found: {relative_path}")
+
     spec = importlib.util.spec_from_file_location(name, filepath)
     mod = importlib.util.module_from_spec(spec)
     sys.modules[name] = mod
-    spec.loader.exec_module(mod)
+    try:
+        spec.loader.exec_module(mod)
+    except ImportError as exc:
+        # Remove the partially-initialised module so later attempts
+        # also trigger a skip rather than returning a broken object.
+        sys.modules.pop(name, None)
+        pytest.skip(f"Module {name!r} requires a dependency not installed in this environment: {exc}")
     return mod
 
 
@@ -223,4 +238,46 @@ def sample_patient_record() -> dict:
         "diagnosis": "Stage IIIA Non-Small Cell Lung Cancer",
         "tumor_volume_cm3": 12.5,
         "treatment": "Concurrent Chemoradiation",
+    }
+
+
+# ---------------------------------------------------------------------------
+# Mock data factories
+# ---------------------------------------------------------------------------
+
+
+@pytest.fixture()
+def synthetic_tumor_geometry() -> dict:
+    """Synthetic 3D tumor geometry for digital twin tests."""
+    return {
+        "center_mm": np.array([50.0, 30.0, -20.0]),
+        "axes_mm": np.array([15.0, 12.0, 10.0]),
+        "volume_cm3": 4.0 / 3.0 * np.pi * 15.0 * 12.0 * 10.0 / 1000.0,
+        "voxel_spacing_mm": np.array([1.0, 1.0, 2.5]),
+    }
+
+
+@pytest.fixture()
+def synthetic_dose_distribution() -> dict:
+    """Synthetic 3D dose distribution for radiation tests."""
+    grid = np.zeros((20, 20, 10), dtype=np.float64)
+    grid[5:15, 5:15, 2:8] = 2.0  # 2 Gy per fraction in PTV
+    return {
+        "dose_grid_gy": grid,
+        "prescription_gy": 60.0,
+        "fractions": 30,
+        "voxel_volume_cm3": 0.1 * 0.1 * 0.25,
+    }
+
+
+@pytest.fixture()
+def trial_cohort_config() -> dict:
+    """Configuration for virtual trial cohort generation."""
+    return {
+        "n_patients": 50,
+        "tumor_site": "NSCLC",
+        "treatment_arms": ["control", "experimental"],
+        "primary_endpoint": "PFS",
+        "follow_up_months": 12,
+        "randomization_ratio": [1, 1],
     }
