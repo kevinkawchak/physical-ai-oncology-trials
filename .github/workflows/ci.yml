@@ -25,7 +25,7 @@ jobs:
           python-version: ${{ matrix.python-version }}
 
       - name: Install linting tools
-        run: pip install ruff yamllint
+        run: pip install ruff==0.9.10 yamllint
 
       - name: Ruff lint
         run: ruff check . --output-format=github
