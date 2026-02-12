@@ -67,7 +67,10 @@ jobs:
           python-version: ${{ matrix.python-version }}
 
       - name: Install dependencies
-        run: pip install numpy scipy pytest
+        run: pip install numpy scipy pytest pytest-cov
 
-      - name: Run test suite
+      - name: Run test suite with coverage
+        run: pytest tests/ -v --tb=short --co -q | tail -5
+
+      - name: Run all tests
         run: pytest tests/ -v --tb=short
