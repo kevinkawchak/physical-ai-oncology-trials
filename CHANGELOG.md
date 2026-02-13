@@ -5,6 +5,38 @@ Format follows [Keep a Changelog](https://keepachangelog.com/).
 
 ## [Unreleased]
 
+## [1.2.1] - 2026-02-13
+
+### Added
+- `regulatory-submit/` directory: Regulatory Submission Automation & FDA Pre-Submission Package Generator — fully implements Proposal C from `DEVELOPMENT_PROPOSALS.md`
+  - `regulatory-submit/presub_generator.py`: FDA Pre-Submission (Q-Sub) meeting request package generator producing structured Markdown documents with device descriptions, AI/ML model documentation (architecture, training data, performance metrics), proposed testing protocols, and auto-generated questions for FDA review; supports Pre-Sub, Informational, Agreement/Determination, and Study Risk meeting types across 7 physical AI oncology device categories (surgical planning, robotic guidance, treatment prediction, diagnostic imaging, digital twin, dose optimization, computational pathology); includes risk consideration templates and PCCP discussion support for adaptive algorithms
+  - `regulatory-submit/pccp_engine.py`: Predetermined Change Control Plan template engine per FDA's August 2025 finalized PCCP guidance; generates modification boundary definitions for 5 change types (model retraining, threshold adjustment, preprocessing update, architecture change, drift adaptation) with risk-stratified authorization categories (pre-authorized, requires notification, requires new submission); includes verification and validation protocols with statistical acceptance criteria (McNemar's test, DeLong AUC comparison, KS distribution test), transparency and communication plans, and lifecycle duration management
+  - `regulatory-submit/classification_advisor.py`: 510(k)/De Novo/PMA regulatory pathway decision support engine analyzing device characteristics (software-only vs. physical contact, autonomy level, algorithm novelty, condition severity), predicate device suitability, and IEC 62304 software safety classification; produces structured recommendation documents with decision factors, risk classification justification, special considerations for physical AI devices (IEC 80601-2-77, ISO 13482), Breakthrough Device Designation assessment, and recommended next steps
+  - `regulatory-submit/iec62304_generator.py`: IEC 62304:2015 software lifecycle documentation generator producing Software Development Plans (SDP), Software Requirements Specifications (SRS), Software Architecture Documents (SAD), and ISO 14971-integrated risk analysis matrices from project metadata; includes 10 default oncology AI requirements (functional, performance, safety, security, usability, regulatory, data), 5-level risk acceptability matrix (UNACCEPTABLE/ALARP/ACCEPTABLE), sample risk entries for AI device hazards, SOUP component tracking, and software item safety classification
+  - `regulatory-submit/clinical_evidence.py`: Clinical evidence report builder linking simulation benchmarks, digital twin validation data, and retrospective clinical results to clinical performance claims; computes Wilson score confidence intervals for proportion metrics and normal approximation CIs for continuous metrics; performs demographic subgroup analysis (age, sex, race/ethnicity, tumor stage) with parity assessment; generates evidence-to-claim linkage documentation aligned with SPIRIT-AI/CONSORT-AI reporting extensions
+  - `regulatory-submit/audit_trail.py`: 21 CFR Part 11-compliant audit trail generator with SHA-256 hash chain integrity for tamper detection; records AI model training runs (hyperparameters, metrics, hardware, random seed), validation experiments (acceptance criteria, pass/fail, reviewer sign-off), configuration changes (previous/new values, reason for change), and deployment events; produces structured audit reports with event timelines, training provenance, and chain hash verification
+  - `regulatory-submit/README.md`: System overview with module descriptions, quick start examples for all 6 components, relationship to existing `regulatory/` directory, regulatory standards cross-reference table, and dependency information
+- `regulatory-submit/examples-regulatory-submit/` directory: 6 progressive example scripts demonstrating regulatory submission automation
+  - `01_presub_package.py`: Complete Pre-Sub package generation for an AI surgical planning system with 2 AI models, testing protocol, auto-generated FDA questions, and risk considerations
+  - `02_pccp_plan.py`: PCCP document creation with default and custom modification boundaries, validation protocols, and transparency planning for an adaptive AI device
+  - `03_classification.py`: Pathway decision support analyzing 3 different device profiles (novel treatment planner, CADe with predicate, robotic AI with patient contact) with comparative recommendations
+  - `04_iec62304_docs.py`: Full IEC 62304 document set generation (SDP, SRS, SAD, risk analysis) for a 6-component software architecture with custom requirements and project-specific risks
+  - `05_clinical_evidence.py`: Evidence report building with 7 benchmark results across 4 evidence levels, 13 demographic subgroup analyses, 3 clinical claims with evidence linkage, and study limitations
+  - `06_full_submission.py`: End-to-end regulatory strategy combining all 6 components (classification → Pre-Sub → PCCP → IEC 62304 → clinical evidence → audit trail) into a complete De Novo submission package
+  - `examples-regulatory-submit/README.md`: Examples overview with progression guide and quick start
+
+### Updated
+- `ruff.toml`: Added per-file ignore rules for `regulatory-submit/**/*.py` (F401, F402 for conditional imports and sys.path manipulation)
+
+### Notes
+- Fully implements Proposal C from `DEVELOPMENT_PROPOSALS.md` (Regulatory Submission Automation & FDA Pre-Submission Package Generator)
+- Functionally distinct from existing `regulatory/` directory: `regulatory/` tracks submission status, manages IRB protocols, verifies GCP compliance, and monitors regulatory intelligence; `regulatory-submit/` generates the structured documents required for submissions
+- All output is generated Markdown — no external FDA systems, APIs, or network connectivity required
+- Uses only Python 3.10+ standard library (dataclasses, enum, hashlib, math, logging, datetime)
+- Follows the same directory/example structure as existing `federation/examples-federation/` and `digital-twins/examples-twins/`
+- All code passes `ruff check`, `ruff format --check` on Python 3.10–3.12
+- Development by Claude Code Opus 4.6
+
 ## [1.1.1] - 2026-02-13
 
 ### Added
