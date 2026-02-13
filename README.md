@@ -188,6 +188,24 @@ physical-ai-oncology-trials/
 │       ├── README.md
 │       └── regulatory_tracker.py
 │
+├── federation/
+│   ├── README.md
+│   ├── federated_coordinator.py
+│   ├── differential_privacy.py
+│   ├── secure_aggregation.py
+│   ├── site_enrollment.py
+│   ├── data_harmonization.py
+│   ├── consortium_reporting.py
+│   ├── privacy_analytics.py
+│   └── examples-federation/
+│       ├── README.md
+│       ├── 01_basic_two_site.py
+│       ├── 02_differential_privacy.py
+│       ├── 03_secure_aggregation.py
+│       ├── 04_enrollment_sync.py
+│       ├── 05_data_harmonization.py
+│       └── 06_full_consortium.py
+│
 ├── tools/
 │   ├── README.md
 │   ├── dicom-inspector/
@@ -563,6 +581,43 @@ python tools/deployment-readiness/deployment_readiness.py check --model model.on
 ```
 
 See `tools/README.md` for complete documentation.
+
+---
+
+### ★ Multi-Site Federated Oncology Trial Coordination
+
+The `federation/` directory provides a federated learning and trial coordination platform for orchestrating multi-site oncology clinical trials without sharing raw patient data.
+
+| Module | Purpose |
+|--------|---------|
+| `federated_coordinator.py` | FedAvg, FedProx, SCAFFOLD aggregation across N simulated sites |
+| `differential_privacy.py` | Epsilon/delta budgets, Gaussian/Laplacian noise, gradient clipping |
+| `secure_aggregation.py` | Simulated secure MPC with pairwise masking and verification |
+| `site_enrollment.py` | Stratified randomization, conflict resolution, balance monitoring |
+| `data_harmonization.py` | DICOM normalization, ICD-10/SNOMED CT/LOINC mapping, FHIR R4 |
+| `consortium_reporting.py` | DSMB packages, enrollment dashboards, AE summaries |
+| `privacy_analytics.py` | Federated Kaplan-Meier, Cox PH, response rates |
+
+**Examples** (`federation/examples-federation/`):
+
+| # | Example | Description |
+|---|---------|-------------|
+| 01 | `01_basic_two_site.py` | Minimal 2-site federation with FedAvg |
+| 02 | `02_differential_privacy.py` | Privacy budget demonstration |
+| 03 | `03_secure_aggregation.py` | Secure weight aggregation |
+| 04 | `04_enrollment_sync.py` | Multi-site enrollment coordination |
+| 05 | `05_data_harmonization.py` | Cross-site data normalization |
+| 06 | `06_full_consortium.py` | 8-site multi-cancer consortium |
+
+```bash
+# Run basic 2-site federation
+python federation/examples-federation/01_basic_two_site.py
+
+# Run full 8-site consortium
+python federation/examples-federation/06_full_consortium.py
+```
+
+See `federation/README.md` for architecture, compliance alignment, and full component documentation.
 
 ---
 
