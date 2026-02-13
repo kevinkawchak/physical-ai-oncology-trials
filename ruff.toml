@@ -33,3 +33,5 @@ ignore = ["F841", "E741", "E501"]
 "agentic-ai/**/*.py" = ["F401", "F402"]
 # Federation platform uses conditional imports and sys.path manipulation
 "federation/**/*.py" = ["F401", "F402"]
+# Regulatory submission automation uses conditional imports and sys.path
+"regulatory-submit/**/*.py" = ["F401", "F402"]
