@@ -137,7 +137,7 @@ def create_domain_rand_chart(dark_mode=False):
 def main():
     """Generate domain randomization visualizations."""
     script_dir = os.path.dirname(os.path.abspath(__file__))
-    png_dir = os.path.join(os.path.dirname(script_dir), "png")
+    png_dir = os.path.join(os.path.dirname(os.path.dirname(script_dir)), "png", "1st")
     os.makedirs(png_dir, exist_ok=True)
 
     for dark_mode in [False, True]:

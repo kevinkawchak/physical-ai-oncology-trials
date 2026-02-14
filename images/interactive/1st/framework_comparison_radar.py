@@ -126,7 +126,7 @@ def _hex_to_rgb(color_str):
 def main():
     """Generate radar chart visualizations."""
     script_dir = os.path.dirname(os.path.abspath(__file__))
-    png_dir = os.path.join(os.path.dirname(script_dir), "png")
+    png_dir = os.path.join(os.path.dirname(os.path.dirname(script_dir)), "png", "1st")
     os.makedirs(png_dir, exist_ok=True)
 
     for dark_mode in [False, True]:
