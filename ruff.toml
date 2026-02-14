@@ -35,3 +35,5 @@ ignore = ["F841", "E741", "E501"]
 "federation/**/*.py" = ["F401", "F402"]
 # Regulatory submission automation uses conditional imports and sys.path
 "regulatory-submit/**/*.py" = ["F401", "F402"]
+# Visualization scripts use conditional imports for plotly/kaleido
+"images/**/*.py" = ["F401"]
