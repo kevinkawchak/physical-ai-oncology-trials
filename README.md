@@ -219,6 +219,22 @@ physical-ai-oncology-trials/
 │   └── deployment-readiness/
 │       └── deployment_readiness.py
 │
+├── images/
+│   ├── README.md
+│   ├── prompts/                     # Human-authored + AI-recommended prompts
+│   │   ├── plan.md
+│   │   ├── 1st.md
+│   │   ├── 2nd.md
+│   │   └── 3rd.md
+│   ├── interactive/                 # Python visualization scripts
+│   │   ├── 1st/                     # 10 scripts (architecture, clinical)
+│   │   ├── 2nd/                     # 10 scripts (AI/ML benchmarks)
+│   │   └── 3rd/                     # 10 scripts (regulatory, privacy)
+│   └── png/                         # Static PNG exports (1920×1080 @2x)
+│       ├── 1st/                     # 20 PNGs (10 light + 10 dark)
+│       ├── 2nd/                     # 20 PNGs (10 light + 10 dark)
+│       └── 3rd/                     # 20 PNGs (10 light + 10 dark)
+│
 ├── configs/
 │   └── training_config.yaml
 │
