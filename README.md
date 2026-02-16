@@ -858,4 +858,4 @@ Contributions welcome. Please ensure any added frameworks or tools:
 4. **Support cross-platform compatibility** (see `unification/` for guidelines)
 
 
-*v1.0.0 — Last updated: February 2026*
+*v1.2.2 - Last updated: February 2026*
