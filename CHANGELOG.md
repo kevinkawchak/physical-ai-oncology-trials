@@ -5,6 +5,39 @@ Format follows [Keep a Changelog](https://keepachangelog.com/).
 
 ## [Unreleased]
 
+## [1.3.0] - 2026-02-16
+
+### Added
+- `images/interactive/3rd/` directory: 3rd set of 10 visualization scripts covering regulatory compliance, privacy frameworks, and deployment readiness
+  - `federated_learning_convergence.py`: Dual-panel line chart showing federated model convergence across 3 hospital sites over 5 rounds (ONCO-FED-001 trial)
+  - `multi_site_trial_dashboard.py`: Heatmap table with color-coded enrollment and data quality metrics for 4 trial sites
+  - `federated_algorithm_radar.py`: Radar chart comparing FedAvg, FedProx, and SCAFFOLD across 5 operational dimensions
+  - `fda_device_classification_tree.py`: Decision tree showing FDA AI/ML device classification pathways for 9 oncology device types with escalation factors
+  - `fda_oncology_device_distribution.py`: Stacked bar + pie chart showing 1,300+ FDA-authorized AI/ML oncology device distribution across 6 subspecialties
+  - `regulatory_compliance_scorecard.py`: Annotated heatmap showing 19 compliance items across IEC 62304, FDA AI/ML PCCP, and ISO 14971
+  - `hipaa_phi_detection_matrix.py`: Annotated heatmap of 18 HIPAA identifier types with detection confidence and risk stratification
+  - `privacy_analytics_pipeline.py`: Process flow diagram of the 6-stage privacy-preserving analytics pipeline
+  - `deployment_readiness_radar.py`: Radar chart with table inset for ONNX model validation and safety compliance assessment
+  - `production_readiness_tasks.py`: Horizontal bar chart showing production readiness scores for 15 surgical task categories
+- `images/png/3rd/` directory: 20 PNG exports (10 light + 10 dark) for the 3rd visualization set
+- `images/interactive/1st/README.md`: Directory README with script table, LOC counts, and Google Drive link for interactive HTML files
+- `images/interactive/2nd/README.md`: Directory README with script table, LOC counts, and Google Drive link for interactive HTML files
+- `images/interactive/3rd/README.md`: Directory README with script table, LOC counts, and Google Drive link for interactive HTML files
+
+### Updated
+- `images/README.md`: Comprehensive rewrite with prompt-to-visualization workflow documentation, text-based pipeline diagrams, conversion efficiency metrics (30/30 scripts, 60/60 HTML, 60/60 PNG — 100% success rate), per-set LOC tables (5,655 total LOC), repository data source reference table, visualization significance descriptions, data inputs table for all 30 charts, and Google Drive link for interactive HTML files
+- `images/` directory structure: Updated to reflect 3rd set directories and prompts directory
+
+### Removed
+- 60 HTML files from `images/interactive/1st/`, `images/interactive/2nd/`, and `images/interactive/3rd/` — interactive HTML versions are now available on [Google Drive](https://drive.google.com/drive/folders/1C092zdAyP3_go9fx7rj2yiCW0KhLo7er) to reduce repository size
+
+### Notes
+- The 30 visualization scripts (5,655 LOC) were generated across three Claude Code sessions using human-authored prompts (plan.md, 1st.md, 2nd.md, 3rd.md) combined with AI-recommended data extraction from repository source files
+- Visualization pipeline: Python (Plotly) → HTML (interactive) → PNG (static, 1920×1080 @2x)
+- All Python scripts pass `ruff check` and `ruff format --check` on Python 3.10–3.12
+- Interactive HTML files (60 total) relocated to Google Drive for repository size optimization
+- Development by Claude Code Opus 4.6
+
 ## [1.2.1] - 2026-02-13
 
 ### Added
