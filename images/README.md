@@ -1,6 +1,6 @@
 # Coming Soon
 
-# Visualizations — Physical AI Oncology Trials
+# Visualizations - Physical AI Oncology Trials
 
 Interactive and static visualizations detailing processes, methods, mechanisms,
 and metrics critical for engineers building physical AI oncology trials.
