@@ -5,6 +5,32 @@ Format follows [Keep a Changelog](https://keepachangelog.com/).
 
 ## [Unreleased]
 
+## [1.5.0] - 2026-02-23
+
+### Added
+- `unification/usl/surgical/` directory: Unification Standard Level (USL) evaluation framework for surgical robot systems — a new category evaluating three major surgical robot platforms for multi-site oncology clinical trial unification readiness
+  - `unification/usl/surgical/surgical_usl_scoring.py`: Surgical robot USL scoring engine with four weighted dimensions adapted for surgical systems (A: Simulation Framework Switching, B: Generative/Agentic AI Integration, C: Cross-Robot Progress Sharing, D: Multi-Site Clinical Trial Collaboration); includes SurgicalSimScore, SurgicalDimA/B/C/D scores, SurgicalUSLRating, comparison tables, gap analysis with improvement suggestions, level classification, and JSON/text report generation; new enums for SurgicalRobotCategory (teleoperated, semi-autonomous, autonomous, table-integrated), SurgicalSimFramework (ORBIT-Surgical, dVRK Sim, SurRoL, SurgicalGym, Isaac Lab, MuJoCo, Gazebo, AMBF), SurgicalAICapability, SurgicalSharingMethod, and RegulatoryStatus (cleared, de_novo_pending, ide_active, not_submitted)
+  - `unification/usl/surgical/davinci/davinci_usl.py`: Intuitive Surgical da Vinci (Xi / da Vinci 5) evaluation module — DaVinciSpecs (7 DOF EndoWrist cable-driven instruments, 4 boom-mounted arms, sub-millimeter precision, force feedback on da Vinci 5, ~14M procedures), PSMKinematicChain with modified DH parameters for 6 active joints and joint limits, DaVinciKinematicsValidator for PSM chain verification, 5 simulation framework configurations (ORBIT-Surgical with 14 benchmark tasks, dVRK Sim with cisst/SAW, SurRoL, SurgicalGym with 7000x speedup, AMBF), DaVinciPolicyTransfer with 4 oncology surgical tasks (tissue dissection, lymph node excision, suturing, vessel sealing), DaVinciCrossOrgSharing with 5 capabilities (dVRK research kit, ORBIT-Surgical benchmarks, OpenIGTLink, ONNX export, My Intuitive analytics); USL score: 7.6 (Level 7 — Advanced)
+  - `unification/usl/surgical/hugo_ras/hugo_ras_usl.py`: Medtronic Hugo RAS evaluation module — HugoRASSpecs (7 DOF wristed instruments, 4 independent arm carts, 520° wrist rotation with 2x multiplier, Karl Storz 3D Tipcam S, open console with 32-inch 3D display, pistol-grip + IR contact sensors, head tracking, collision avoidance, Valleylab electrosurgery, standalone laparoscopic mode), HugoArmCartConfig with collision zone validation, HugoModularArchitecture for 4-arm configuration with collision risk checking, HugoSimulationStatus tracker (no public models), HugoClinicalReadiness assessment with 5 capability evaluations; USL score: 4.1 (Level 4 — Developing)
+  - `unification/usl/surgical/ottava/ottava_usl.py`: Johnson & Johnson OTTAVA evaluation module — OTTAVASpecs (4 arms, table-integrated bed-mounted architecture, zero OR footprint, Twin Motion, Ethicon instruments, Polyphonic digital ecosystem planned), TableIntegrationConfig with deploy/stow operations, OTTAVATwinMotion repositioning simulator with 6 supported positions (supine through lithotomy), OTTAVARegulatoryTracker with 6 milestones from first IDE approval to expected oncology expansion, OTTAVAOncologyPotential with 4 specialty expansion targets and estimated addressable procedure volumes; USL score: 2.3 (Level 2 — Exploratory)
+- `prompts.md`: Added v1.5.0 USL surgical robot standard creation prompt
+- `releases.md`: Added v1.5.0 release notes
+
+### Updated
+- `unification/usl/README.md`: Comprehensive rewrite — now covers both surgical robots and cobots with general USL framework overview, surgical robot evaluations (da Vinci, Hugo RAS, OTTAVA), cobot evaluations (Franka, Kinova, xArm), six text comparison diagrams (3 surgical + 3 cobot), updated directory structure tree, surgical robot-specific references (IEEE 3177-2024, IEC 80601-2-77, LASR classification, SAGES STARSS, dVRK architecture, OpenIGTLink), and updated quick-start commands
+- `unification/usl/usl_scoring_framework.py` → `unification/usl/cobots/usl_scoring_framework.py`: Moved cobot scoring framework into cobots directory for category-based organization
+- `unification/README.md`: Updated USL roadmap — marked surgical category as completed; updated directory structure tree with surgical/ directory
+- `README.md`: Added surgical robot evaluation table with da Vinci/Hugo RAS/OTTAVA scores; updated repository structure tree; updated USL quick-start commands; updated version to v1.5.0
+- `CHANGELOG.md`: Added v1.5.0 entry
+
+### Notes
+- USL surgical robot scoring criteria adapted from cobot framework with surgical-specific considerations: teleoperated master-slave architectures, FDA clearance pathways (IEC 80601-2-77), clinical evidence volumes (procedure counts), proprietary vs open-source control ecosystems, and LASR autonomy classification
+- Three evaluated surgical robots selected for: different manufacturers, different architectural paradigms (boom-mounted/cart-based/table-integrated), FDA clearance status diversity (established/recent/pending), and oncology surgical relevance
+- Key surgical robot references: IEEE 3177-2024 (approved Dec 2024; modular surgical robot framework), IEC 80601-2-77 (robotically assisted surgical equipment safety), dVRK v2.3.1 (open-source da Vinci research kit, ~40 institutions), ORBIT-Surgical (14 GPU-accelerated benchmark tasks), OpenIGTLink (open network protocol for IGT, DOI 10.1002/rcs.274), LASR classification (npj Digital Medicine 2024, DOI 10.1038/s41746-024-01102-y), SAGES STARSS (DOI 10.1007/s00464-025-11897-w)
+- All code passes `ruff check` and `ruff format --check` on Python 3.10–3.12
+- 4 new Python modules, approximately 2,500 LOC
+- Development by Claude Code Opus 4.6
+
 ## [1.4.0] - 2026-02-23
 
 ### Added

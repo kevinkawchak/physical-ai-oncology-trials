@@ -10,8 +10,8 @@ The **Unification Standard Level (USL)** is a scoring framework for evaluating h
 
 | Dimension | Weight | What It Measures |
 |-----------|--------|------------------|
-| **A) Simulation Framework Switching** | 25% | Ability to move trained policies between simulation engines (Isaac Lab, MuJoCo, Gazebo, PyBullet) |
-| **B) Generative / Agentic AI Integration** | 25% | Integration with LLMs, VLAs, diffusion policies, Claude Code, Codex, MCP, and agentic frameworks |
+| **A) Simulation Framework Switching** | 25% | Ability to move trained policies between simulation engines |
+| **B) Generative / Agentic AI Integration** | 25% | Integration with LLMs, VLAs, diffusion policies, agentic frameworks |
 | **C) Cross-Robot Progress Sharing** | 25% | Capacity to share and continue progress with other robots (intra- and inter-organization) |
 | **D) Multi-Site Clinical Trial Collaboration** | 25% | Readiness for federated, regulatory-compliant deployment across clinical trial sites |
 
@@ -20,6 +20,8 @@ Each dimension derives from the four unification pillars defined in [`unificatio
 - Dimension B ← [`agentic_generative_ai/`](../agentic_generative_ai/)
 - Dimension C ← [`cross_platform_tools/`](../cross_platform_tools/) and [`surgical_robotics/`](../surgical_robotics/)
 - Dimension D ← [`../../federation/`](../../federation/) and [`../../regulatory/`](../../regulatory/)
+
+The USL evaluates robots across **multiple categories** — each category uses the same four-dimension framework with scoring criteria adapted to the unique characteristics of that robot type. Current categories include **Surgical Robots** and **Collaborative Robots (Cobots)**.
 
 ---
 
@@ -52,6 +54,233 @@ Each dimension derives from the four unification pillars defined in [`unificatio
 
 ---
 
+## Evaluated Surgical Robots (Category: Surgical Robot Systems)
+
+This USL evaluation covers three major surgical robot systems from different manufacturers, representing the three dominant architectural paradigms in teleoperated surgery: boom-mounted (da Vinci), cart-based modular (Hugo RAS), and table-integrated (OTTAVA).
+
+| Robot | Manufacturer | USL Score | USL Level | Band |
+|-------|-------------|-----------|-----------|------|
+| [da Vinci (Xi / da Vinci 5)](#da-vinci-xi--da-vinci-5) | Intuitive Surgical | **7.6** | 7 (Advanced) | Advanced |
+| [Hugo RAS](#hugo-ras) | Medtronic | **4.1** | 4 (Developing) | Foundational |
+| [OTTAVA](#ottava) | Johnson & Johnson MedTech | **2.3** | 2 (Exploratory) | Initial |
+
+---
+
+## Diagram 1: General Surgical Robot Comparison
+
+```
+┌──────────────────────────────────────────────────────────────────────────────┐
+│          GENERAL SURGICAL ROBOT COMPARISON — USL Category: Surgical          │
+├──────────────────────────────────────────────────────────────────────────────┤
+│                                                                              │
+│  ┌────────────────────────┐  ┌────────────────────────┐  ┌─────────────────┐│
+│  │ DA VINCI (Xi / dV5)    │  │ HUGO RAS               │  │ OTTAVA          ││
+│  │ (Intuitive Surgical)   │  │ (Medtronic)            │  │ (J&J MedTech)   ││
+│  ├────────────────────────┤  ├────────────────────────┤  ├─────────────────┤│
+│  │ Heritage: Pioneer in   │  │ Heritage: Medtronic's  │  │ Heritage: J&J   ││
+│  │  surgical robotics     │  │  entry into robotic    │  │  Ethicon + Auris││
+│  │  (1999 — first FDA)    │  │  surgery (2021+ OUS)   │  │  Health + Verb  ││
+│  │                        │  │                        │  │                 ││
+│  │ Architecture:          │  │ Architecture:          │  │ Architecture:   ││
+│  │  Boom-mounted unified  │  │  Modular cart-based    │  │  Table-         ││
+│  │  patient cart (4 arms) │  │  (4 independent carts) │  │  integrated     ││
+│  │                        │  │                        │  │  (bed-mounted)  ││
+│  │ Key Strength:          │  │ Key Strength:          │  │ Key Strength:   ││
+│  │  Largest evidence base │  │  Modular flexibility + │  │  Twin Motion +  ││
+│  │  + open-source dVRK    │  │  standalone laparos-   │  │  zero OR foot-  ││
+│  │  research ecosystem    │  │  copic fallback mode   │  │  print design   ││
+│  │                        │  │                        │  │                 ││
+│  │ FDA Status:            │  │ FDA Status:            │  │ FDA Status:     ││
+│  │  Cleared (all indica-  │  │  Cleared Dec 2025      │  │  De Novo filed  ││
+│  │  tions, established)   │  │  (urologic procedures) │  │  Jan 2026       ││
+│  │                        │  │                        │  │                 ││
+│  │ USL Score: 7.6 ███████ │  │ USL Score: 4.1 ████   │  │ USL: 2.3 ██    ││
+│  │ Level 7 — Advanced     │  │ Level 4 — Developing   │  │ Level 2 — Expl ││
+│  └────────────────────────┘  └────────────────────────┘  └─────────────────┘│
+│                                                                              │
+│  Legend: Each █ ≈ 1.0 point on the 1.0–10.0 USL scale                       │
+└──────────────────────────────────────────────────────────────────────────────┘
+```
+
+---
+
+## Diagram 2: Technical Specifications — Surgical Robots
+
+```
+┌──────────────────────────────────────────────────────────────────────────────┐
+│        TECHNICAL SPECIFICATIONS — Surgical Robot Side-by-Side                │
+├──────────────────────────────────────────────────────────────────────────────┤
+│                                                                              │
+│  Spec                   da Vinci Xi/5      Hugo RAS         OTTAVA           │
+│  ─────────────────────  ─────────────────  ───────────────  ───────────────  │
+│  Instrument DOF         7 EndoWrist        7 wristed        Not disclosed    │
+│  Arms                   4 (shared boom)    4 (indep carts)  4 (table-integ)  │
+│  Mounting               Boom-mounted       Cart-based       Bed-mounted      │
+│  Console Type           Closed immersive   Open (3D screen) Not disclosed    │
+│  Controller             Pincer-grip        Pistol-grip+IR   Not disclosed    │
+│  Vision System          Proprietary 3D HD  Karl Storz 3D    Not disclosed    │
+│  Force Feedback         Yes (dV5 only) ◄   Reported haptic  Not disclosed    │
+│  Wrist Rotation         Full articulation  520° (2x multi)  Not disclosed    │
+│  Electrosurgery         Integrated         Valleylab        Ethicon          │
+│  Head Tracking          No                 Yes ◄─ unique    Not disclosed    │
+│  Collision Avoidance    Software-based     Yes ◄─ built-in  Not disclosed    │
+│  Twin Motion            No                 No               Yes ◄─ unique    │
+│  Standalone Lap Mode    No                 Yes ◄─ unique    No               │
+│                                                                              │
+│  Open-Source Ecosystem:                                                      │
+│  ─────────────────────                                                       │
+│  Research Kit           dVRK (~40 sites)   None             None             │
+│  Simulation Platform    ORBIT-Surgical ◄   None             None             │
+│  ROS 2 Bridge           Yes (cisst/SAW)    No               No               │
+│  Published Kinematics   Yes (full DH)      No               No               │
+│                                                                              │
+│  Communication Protocol:                                                     │
+│  ──────────────────────                                                      │
+│  Low-level (dVRK)       IEEE-1394/EtherCAT Proprietary      Proprietary      │
+│  High-level             cisst/SAW + ROS    Proprietary      Proprietary      │
+│  Control Frequency      ~2 kHz (dVRK)      Not disclosed    Not disclosed    │
+│  FPGA Control           100 kHz PI-loop    Not disclosed    Not disclosed    │
+│                                                                              │
+│  Clinical Evidence:                                                          │
+│  ────────────────                                                            │
+│  Total Procedures       ~14,000,000 ◄      ~50,000          ~100 (IDE)       │
+│  FDA Status             Cleared (all)      Cleared (uro)    De Novo pending  │
+│  Countries              70+                30+              IDE only          │
+│  Installed Base         ~9,000 systems     Growing          Pre-market       │
+│                                                                              │
+│  Digital Ecosystem      My Intuitive       Touch Surgery    Polyphonic       │
+│                                                                              │
+│  ◄ = category leader for that specification                                  │
+└──────────────────────────────────────────────────────────────────────────────┘
+```
+
+---
+
+## Diagram 3: USL Scoring Breakdown — Surgical Robots
+
+```
+┌──────────────────────────────────────────────────────────────────────────────┐
+│         USL SCORING BREAKDOWN — Surgical Robot Dimension-by-Dimension        │
+├──────────────────────────────────────────────────────────────────────────────┤
+│                                                                              │
+│  Dimension A: Simulation Framework Switching (25% weight)                    │
+│  ────────────────────────────────────────────────                            │
+│  da Vinci     [███████░░░] 7.8   dVRK + ORBIT-Surgical + SurRoL + GPU     │
+│  Hugo RAS     [███░░░░░░░] 3.5   No public models; proprietary only        │
+│  OTTAVA       [█░░░░░░░░░] 1.0   No simulation available; pre-market       │
+│                                                                              │
+│  Dimension B: Generative / Agentic AI Integration (25% weight)               │
+│  ────────────────────────────────────────────────────────                    │
+│  da Vinci     [███████░░░] 7.2   Extensive RL/IL; autonomous suturing      │
+│  Hugo RAS     [███░░░░░░░] 3.8   Touch Surgery planning; limited AI        │
+│  OTTAVA       [██░░░░░░░░] 2.3   Minimal; pre-market constraints           │
+│                                                                              │
+│  Dimension C: Cross-Robot Progress Sharing (25% weight)                      │
+│  ──────────────────────────────────────────────                              │
+│  da Vinci     [██████░░░░] 6.5   dVRK open-source; ONNX; OpenIGTLink      │
+│  Hugo RAS     [███░░░░░░░] 3.2   Intra-Medtronic only; proprietary API    │
+│  OTTAVA       [█░░░░░░░░░] 1.8   No sharing infrastructure yet            │
+│                                                                              │
+│  Dimension D: Multi-Site Clinical Trial Collaboration (25% weight)           │
+│  ─────────────────────────────────────────────────────                       │
+│  da Vinci     [████████░░] 8.8   14M procedures; FDA cleared; multi-site   │
+│  Hugo RAS     [█████░░░░░] 5.8   FDA cleared (uro); 30+ countries          │
+│  OTTAVA       [███░░░░░░░] 3.2   De Novo pending; IDE studies only         │
+│                                                                              │
+│  ═══════════════════════════════════════════════════                         │
+│  FINAL USL SCORES (weighted average):                                        │
+│  ────────────────────────────────────                                        │
+│  da Vinci     [███████░░░] 7.6   Level 7 — Advanced                        │
+│  Hugo RAS     [████░░░░░░] 4.1   Level 4 — Developing                     │
+│  OTTAVA       [██░░░░░░░░] 2.3   Level 2 — Exploratory                    │
+│                                                                              │
+│  Bar scale: each █ = 1.0 point (10 blocks = 10.0)                           │
+└──────────────────────────────────────────────────────────────────────────────┘
+```
+
+---
+
+## da Vinci (Xi / da Vinci 5)
+
+**USL Score: 7.6 / 10.0 — Level 7 (Advanced)**
+
+The da Vinci system by Intuitive Surgical is the most established surgical robot in the world, with approximately 14 million procedures performed and the largest open-source research ecosystem (dVRK) of any surgical robot. The da Vinci 5 (2024) introduced the first FDA-cleared force feedback in a surgical robot.
+
+**Key USL strengths:**
+- dVRK open-source research kit deployed at ~40 institutions worldwide
+- ORBIT-Surgical provides 14 GPU-accelerated benchmark tasks
+- Extensive autonomous subtask research (suturing, tissue manipulation)
+- Force feedback (da Vinci 5) — first FDA-cleared surgical robot with haptics
+- ~14 million procedures — largest clinical evidence base
+
+**Key USL gaps:**
+- Commercial system control is fully proprietary (dVRK is research only)
+- No IEEE 3177-2024 alignment
+- Federated learning infrastructure not yet available
+- VLA model integration not demonstrated
+
+**Open-source references:**
+- [dVRK](https://github.com/jhu-dvrk/sawIntuitiveResearchKit) — Open-source da Vinci research kit (v2.3.1)
+- [ORBIT-Surgical](https://github.com/orbit-surgical/orbit-surgical) — GPU-accelerated surgical tasks
+- [SurRoL](https://github.com/med-air/SurRoL) — dVRK-compatible RL platform
+- [SurgicalGym](https://github.com/SamuelSchmidgall/SurgicalGym) — GPU surgical simulation
+- [OpenIGTLink](https://github.com/openigtlink/OpenIGTLink) — Open network protocol for IGT
+
+---
+
+## Hugo RAS
+
+**USL Score: 4.1 / 10.0 — Level 4 (Developing)**
+
+The Hugo RAS by Medtronic is a modular cart-based surgical robot system that received FDA clearance in December 2025 for urologic procedures. Its unique modular design (four independent arm carts) offers flexible OR positioning, and its standalone laparoscopic mode provides a surgical fallback.
+
+**Key USL strengths:**
+- Modular cart-based design — each arm independently positionable
+- FDA cleared (December 2025) for oncology-relevant urologic procedures
+- Standalone laparoscopic fallback mode (tower without console)
+- Collision avoidance and intelligent instrument tracking
+- Touch Surgery digital ecosystem for surgical planning
+
+**Key USL gaps:**
+- No open-source simulation models or research kit
+- Proprietary control protocols — no public API
+- Limited AI research community
+- Limited to urologic indications (multi-specialty pending)
+
+**References:**
+- [Hugo RAS System](https://www.medtronic.com/en-us/healthcare-professionals/specialties/surgical-robotics/hugo-robotic-assisted-surgery.html) — Medtronic
+- Introducing Hugo RAS for Gynecological Surgery (PMC9218341): DOI [10.3389/fonc.2022.898060](https://doi.org/10.3389/fonc.2022.898060)
+- State of the Art in Robotic Surgery with Hugo RAS (PMC10456103): DOI [10.3390/jpm13081233](https://doi.org/10.3390/jpm13081233)
+- Hugo vs da Vinci Comparison (J Robotic Surg 2024): DOI [10.1007/s11701-024-01838-5](https://doi.org/10.1007/s11701-024-01838-5)
+
+---
+
+## OTTAVA
+
+**USL Score: 2.3 / 10.0 — Level 2 (Exploratory)**
+
+The OTTAVA by Johnson & Johnson MedTech is a table-integrated surgical robot with a fundamentally different architecture — robotic arms built into the surgical table that stow underneath when not in use. Its unique "Twin Motion" allows patient repositioning during surgery without undocking. OTTAVA filed a De Novo submission with the FDA in January 2026.
+
+**Key USL strengths:**
+- Table-integrated design — zero OR footprint when arms stowed
+- Twin Motion: patient repositioning without undocking (unique capability)
+- Ethicon instrumentation ecosystem backed by J&J MedTech
+- Potential advantages for multi-quadrant oncology procedures
+
+**Key USL gaps:**
+- No public simulation models, kinematics, or research platform
+- Most technical specifications not yet publicly disclosed
+- No FDA clearance yet (De Novo pending)
+- No AI research community or published AI experiments
+- No interoperability with existing surgical robot ecosystems
+
+**References:**
+- [OTTAVA FDA Submission (Jan 2026)](https://www.jnj.com/media-center/press-releases/johnson-johnson-submits-ottava-robotic-surgical-system-to-the-u-s-food-and-drug-administration) — J&J
+- [OTTAVA First Cases](https://www.jnj.com/media-center/press-releases/johnson-johnson-medtech-announces-completion-of-first-cases-with-ottava-robotic-surgical-system) — J&J
+- Upcoming Multi-Visceral Robotic Systems (PMC11615118): DOI [10.1007/s00464-024-11384-8](https://doi.org/10.1007/s00464-024-11384-8)
+
+---
+
 ## Evaluated Cobots (Category: Collaborative Robots)
 
 This initial USL evaluation covers three state-of-the-art open-source collaborative robot arms from different manufacturers, each with active ROS 2 support, MuJoCo Menagerie models, and potential oncology applications.
@@ -64,7 +293,7 @@ This initial USL evaluation covers three state-of-the-art open-source collaborat
 
 ---
 
-## Diagram 1: General Comparison
+## Diagram 4: General Cobot Comparison
 
 ```
 ┌─────────────────────────────────────────────────────────────────────────┐
@@ -100,7 +329,7 @@ This initial USL evaluation covers three state-of-the-art open-source collaborat
 
 ---
 
-## Diagram 2: Technical Specifications Comparison
+## Diagram 5: Technical Specifications — Cobots
 
 ```
 ┌─────────────────────────────────────────────────────────────────────────┐
@@ -147,7 +376,7 @@ This initial USL evaluation covers three state-of-the-art open-source collaborat
 
 ---
 
-## Diagram 3: USL Scoring Breakdown
+## Diagram 6: USL Scoring Breakdown — Cobots
 
 ```
 ┌─────────────────────────────────────────────────────────────────────────┐
@@ -195,15 +424,23 @@ This initial USL evaluation covers three state-of-the-art open-source collaborat
 
 ```
 unification/usl/
-├── README.md                              # This file
-├── usl_scoring_framework.py               # Core USL scoring engine
-└── cobots/                                # Collaborative Robots category
+├── README.md                                     # This file
+├── surgical/                                     # Surgical Robot Systems category
+│   ├── surgical_usl_scoring.py                   # Surgical USL scoring engine
+│   ├── davinci/
+│   │   └── davinci_usl.py                        # da Vinci evaluation + tools
+│   ├── hugo_ras/
+│   │   └── hugo_ras_usl.py                       # Hugo RAS evaluation + tools
+│   └── ottava/
+│       └── ottava_usl.py                         # OTTAVA evaluation + tools
+└── cobots/                                       # Collaborative Robots category
+    ├── usl_scoring_framework.py                  # Cobot USL scoring engine
     ├── franka_panda/
-    │   └── franka_panda_usl.py            # Franka Panda evaluation + tools
+    │   └── franka_panda_usl.py                   # Franka Panda evaluation + tools
     ├── kinova_gen3/
-    │   └── kinova_gen3_usl.py             # Kinova Gen3 evaluation + tools
+    │   └── kinova_gen3_usl.py                    # Kinova Gen3 evaluation + tools
     └── ufactory_xarm7/
-        └── ufactory_xarm7_usl.py          # xArm 7 evaluation + tools
+        └── ufactory_xarm7_usl.py                # xArm 7 evaluation + tools
 ```
 
 ---
@@ -295,6 +532,20 @@ The USL framework draws on established technology readiness methodologies:
 
 4. **LLM Recommendations for Oncology Trials** — Kawchak, K. (2025). *Physical AI for Clinical Oncology Trials*. Zenodo. DOI: [10.5281/zenodo.17451709](https://doi.org/10.5281/zenodo.17451709). Recommends LLM usage for upcoming oncology trials and motivates the need for standardized evaluation of AI-integrated robotic systems in clinical settings. Inspiration for the USL standard.
 
+### Surgical Robot Specific References
+
+5. **IEEE 3177-2024** — *Standard for a Modular Framework for a Robotically-Assisted Surgical System*. IEEE, approved December 2024. Defines hierarchical modular architecture with Execution, Perception, HMI, Navigation, Planning, and Safety modules.
+
+6. **IEC 80601-2-77** — *Safety standard for robotically assisted surgical equipment*. Addresses basic safety and essential performance requirements for surgical robots.
+
+7. **Levels of Autonomy in Surgical Robotics (LASR)** — Yang, G.-Z., et al. (2024). *npj Digital Medicine*. DOI: [10.1038/s41746-024-01102-y](https://doi.org/10.1038/s41746-024-01102-y). Systematic classification of surgical robot autonomy from Level 1 (Robot Assistance) through Level 5 (Full Autonomy).
+
+8. **SAGES STARSS** — *Tool for Assessing Robotic Surgery Systems*. DOI: [10.1007/s00464-025-11897-w](https://doi.org/10.1007/s00464-025-11897-w). Standardized assessment tool for comparing robotic surgery systems.
+
+9. **dVRK Software Architecture** — Kazanzides, P., et al. (2017). IEEE Conference. Describes cisst/SAW distributed real-time framework with ROS integration.
+
+10. **OpenIGTLink** — Tokuda, J., et al. (2009). *Int J Med Robot Comput Assist Surg*, 5(4):423-34. DOI: [10.1002/rcs.274](https://doi.org/10.1002/rcs.274). Open network protocol for image-guided therapy environment.
+
 ### Additional References
 
 - [NVIDIA Isaac Lab 2.3.1](https://github.com/isaac-sim/IsaacLab) — GPU-accelerated robot learning
@@ -310,10 +561,29 @@ The USL framework draws on established technology readiness methodologies:
 
 ## Quick Start
 
-### Run USL Scoring Demo
+### Run Surgical Robot Scoring Demo
 
 ```bash
-python unification/usl/usl_scoring_framework.py
+python unification/usl/surgical/surgical_usl_scoring.py
+```
+
+### Evaluate Individual Surgical Robots
+
+```bash
+# da Vinci (Xi / da Vinci 5)
+python unification/usl/surgical/davinci/davinci_usl.py
+
+# Medtronic Hugo RAS
+python unification/usl/surgical/hugo_ras/hugo_ras_usl.py
+
+# Johnson & Johnson OTTAVA
+python unification/usl/surgical/ottava/ottava_usl.py
+```
+
+### Run Cobot Scoring Demo
+
+```bash
+python unification/usl/cobots/usl_scoring_framework.py
 ```
 
 ### Evaluate Individual Cobots
@@ -329,46 +599,18 @@ python unification/usl/cobots/kinova_gen3/kinova_gen3_usl.py
 python unification/usl/cobots/ufactory_xarm7/ufactory_xarm7_usl.py
 ```
 
-### Use in Code
-
-```python
-from unification.usl.usl_scoring_framework import (
-    USLRating,
-    DimensionAScore,
-    DimensionBScore,
-    DimensionCScore,
-    DimensionDScore,
-    generate_evaluation_report,
-    compare_ratings,
-)
-
-# Create a rating for a new cobot
-rating = USLRating(
-    robot_name="My Research Robot",
-    manufacturer="My Organization",
-)
-
-# Set dimension scores and compute
-rating.dimension_a = DimensionAScore(num_frameworks_supported=3)
-rating.dimension_b = DimensionBScore(llm_task_planning=True)
-rating.dimension_c = DimensionCScore(onnx_policy_export=True)
-rating.dimension_d = DimensionDScore(audit_trail_capable=True)
-
-score = rating.compute_final_score()
-print(rating.summary())
-```
-
 ---
 
 ## Contributing
 
-To add a new robot category or evaluate additional cobots:
+To add a new robot category or evaluate additional robots:
 
-1. Create a new directory under `cobots/` (or a new category directory)
-2. Implement an evaluation module following the pattern in existing cobot files
-3. Add the robot to this README with all three diagram sections updated
-4. Validate across at least 2 simulation frameworks
-5. Submit a PR with USL scores and supporting evidence
+1. Create a new category directory under `usl/` (e.g., `mobile_manipulators/`)
+2. Implement a scoring engine adapted to the category's unique characteristics
+3. Create a subdirectory for each evaluated robot with an evaluation module
+4. Add the robots to this README with diagram sections updated
+5. Validate across at least 2 simulation frameworks
+6. Submit a PR with USL scores and supporting evidence
 
 ---
 

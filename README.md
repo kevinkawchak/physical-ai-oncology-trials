@@ -116,8 +116,13 @@ physical-ai-oncology-trials/
 │   │   └── validation_suite.py
 │   ├── usl/                          # ★ Unification Standard Level
 │   │   ├── README.md
-│   │   ├── usl_scoring_framework.py
-│   │   └── cobots/
+│   │   ├── surgical/                 # Surgical Robot Systems
+│   │   │   ├── surgical_usl_scoring.py
+│   │   │   ├── davinci/
+│   │   │   ├── hugo_ras/
+│   │   │   └── ottava/
+│   │   └── cobots/                   # Collaborative Robots
+│   │       ├── usl_scoring_framework.py
 │   │       ├── franka_panda/
 │   │       ├── kinova_gen3/
 │   │       └── ufactory_xarm7/
@@ -303,9 +308,17 @@ The new `q1-2026-standards/` directory contains **proposed standards** for meeti
 
 ## ★ Unification Standard Level (USL)
 
-The new `unification/usl/` directory introduces the **Unification Standard Level (USL)** — a scoring framework for evaluating robot readiness for unified, multi-site oncology clinical trials. USL scores range from **1.0 to 10.0** across four dimensions: simulation switching, AI integration, cross-robot sharing, and clinical trial collaboration.
+The `unification/usl/` directory introduces the **Unification Standard Level (USL)** — a scoring framework for evaluating robot readiness for unified, multi-site oncology clinical trials. USL scores range from **1.0 to 10.0** across four dimensions: simulation switching, AI integration, cross-robot sharing, and clinical trial collaboration.
 
-### Initial Cobot Evaluations
+### Surgical Robot Evaluations
+
+| Robot | Manufacturer | USL Score | Level | Band |
+|-------|-------------|-----------|-------|------|
+| da Vinci (Xi / da Vinci 5) | Intuitive Surgical | **7.6** | 7 — Advanced | Advanced |
+| Hugo RAS | Medtronic | **4.1** | 4 — Developing | Foundational |
+| OTTAVA | Johnson & Johnson MedTech | **2.3** | 2 — Exploratory | Initial |
+
+### Cobot Evaluations
 
 | Robot | Manufacturer | USL Score | Level | Band |
 |-------|-------------|-----------|-------|------|
@@ -314,8 +327,16 @@ The new `unification/usl/` directory introduces the **Unification Standard Level
 | UFACTORY xArm 7 | UFACTORY | **3.4** | 3 — Basic | Foundational |
 
 ```bash
-# Run USL scoring framework demo
-python unification/usl/usl_scoring_framework.py
+# Run surgical robot scoring demo
+python unification/usl/surgical/surgical_usl_scoring.py
+
+# Run cobot scoring framework demo
+python unification/usl/cobots/usl_scoring_framework.py
+
+# Evaluate individual surgical robots
+python unification/usl/surgical/davinci/davinci_usl.py
+python unification/usl/surgical/hugo_ras/hugo_ras_usl.py
+python unification/usl/surgical/ottava/ottava_usl.py
 
 # Evaluate individual cobots
 python unification/usl/cobots/franka_panda/franka_panda_usl.py
@@ -323,7 +344,7 @@ python unification/usl/cobots/kinova_gen3/kinova_gen3_usl.py
 python unification/usl/cobots/ufactory_xarm7/ufactory_xarm7_usl.py
 ```
 
-See `unification/usl/README.md` for the full USL standard, scoring methodology, and three comparison diagrams.
+See `unification/usl/README.md` for the full USL standard, scoring methodology, and six comparison diagrams.
 
 ---
 
@@ -907,4 +928,4 @@ Contributions welcome. Please ensure any added frameworks or tools:
 4. **Support cross-platform compatibility** (see `unification/` for guidelines)
 
 
-*v1.4.0 - Last updated: February 2026*
+*v1.5.0 - Last updated: February 2026*

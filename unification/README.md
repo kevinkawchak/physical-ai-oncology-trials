@@ -43,8 +43,16 @@ unification/
 │   └── validation_suite.py            # Cross-platform validation tests
 ├── usl/                               # ★ Unification Standard Level framework
 │   ├── README.md                      # USL standard documentation with diagrams
-│   ├── usl_scoring_framework.py       # Core USL scoring engine (1.0-10.0 scale)
+│   ├── surgical/                      # Surgical Robot Systems category
+│   │   ├── surgical_usl_scoring.py    # Surgical USL scoring engine
+│   │   ├── davinci/
+│   │   │   └── davinci_usl.py         # da Vinci evaluation + tools
+│   │   ├── hugo_ras/
+│   │   │   └── hugo_ras_usl.py        # Hugo RAS evaluation + tools
+│   │   └── ottava/
+│   │       └── ottava_usl.py          # OTTAVA evaluation + tools
 │   └── cobots/                        # Collaborative Robots category evaluations
+│       ├── usl_scoring_framework.py   # Cobot USL scoring engine
 │       ├── franka_panda/
 │       │   └── franka_panda_usl.py    # Franka Panda evaluation + tools
 │       ├── kinova_gen3/
@@ -73,7 +81,8 @@ unification/
 ### Q1 2026 (USL Standard)
 - [x] Establish Unification Standard Level (USL) scoring framework → See [usl/](usl/)
 - [x] Evaluate 3 open-source cobots (Franka Panda, Kinova Gen3, xArm 7)
-- [ ] Extend USL to surgical and mobile manipulator categories
+- [x] Extend USL to surgical robot category (da Vinci, Hugo RAS, OTTAVA)
+- [ ] Extend USL to mobile manipulator categories
 
 ### Q2 2026
 - [ ] Integrate Gazebo Ionic GPU acceleration (when available)
