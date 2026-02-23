@@ -5,6 +5,32 @@ Format follows [Keep a Changelog](https://keepachangelog.com/).
 
 ## [Unreleased]
 
+## [1.4.0] - 2026-02-23
+
+### Added
+- `unification/usl/` directory: Unification Standard Level (USL) scoring framework for evaluating physical AI robot readiness for multi-site oncology clinical trials
+  - `unification/usl/usl_scoring_framework.py`: Core USL scoring engine with four weighted dimensions (A: Simulation Framework Switching, B: Generative/Agentic AI Integration, C: Cross-Robot Progress Sharing, D: Multi-Site Clinical Trial Collaboration); 10-level classification system from Conceptual (1) to Exemplary (10); score band categorization (Initial/Foundational/Intermediate/Advanced/Exemplary); comparison tables, gap analysis with improvement suggestions, and JSON/text report generation; final scores on 1.0–10.0 scale in 0.1 increments
+  - `unification/usl/cobots/franka_panda/franka_panda_usl.py`: Franka Emika Panda (Franka Robotics) USL evaluation module — hardware specifications (7-DOF, 3 kg payload, 855 mm reach, ±0.1 mm repeatability, 7-joint torque sensing, 1 kHz control), Denavit-Hartenberg parameters, URDF template generator with validated kinematic chain, joint limit validator against official specs, policy transfer interface with 4 oncology task definitions (needle insertion, tissue retraction, sample handling, instrument handoff), cross-organization sharing manager (ONNX, ROS 2, MuJoCo Menagerie, federated learning, URDF/Xacro), and framework configurations for MuJoCo/Isaac Lab/Gazebo/PyBullet; USL score: 7.4 (Level 7 — Advanced)
+  - `unification/usl/cobots/kinova_gen3/kinova_gen3_usl.py`: Kinova Gen3 7DoF (Kinova Robotics) USL evaluation module — hardware specifications (7-DOF, 4 kg payload, 902 mm reach, 8.2 kg weight, Intel RealSense depth, Kortex API), modified DH kinematic model, 7 actuator module specifications (large/small types), Kortex API abstraction layer with angular/Cartesian command interfaces, joint position validator with continuous-rotation support, 4 oncology task definitions (medication dispensing, biopsy assistance, patient positioning, sample transport), and framework configurations for Gazebo/MuJoCo/Isaac Lab/PyBullet; USL score: 5.7 (Level 5 — Functional)
+  - `unification/usl/cobots/ufactory_xarm7/ufactory_xarm7_usl.py`: UFACTORY xArm 7 (UFACTORY) USL evaluation module — hardware specifications (7-DOF, 3.5 kg payload, 700 mm reach, built-in collision detection, IP51 rating, 0–50 °C range), xArm Python SDK abstraction with error code mapping, 7 joint specifications with degree/radian limit validation, 4 oncology lab automation tasks (vial handling, plate stacking, pipette operation, equipment loading), intra-organization sharing across xArm family (5/6/7/Lite 6/850), and framework configurations for Gazebo/MuJoCo/PyBullet/Isaac Lab; USL score: 3.4 (Level 3 — Basic)
+  - `unification/usl/README.md`: Comprehensive USL standard documentation with scoring methodology, dimension-weight table, 10-level definitions, 5 score bands, three text comparison diagrams (general differences, technical specifications side-by-side, dimension-by-dimension scoring breakdown with bar charts), individual cobot evaluations with strengths/gaps/recommendations, references to TRL/MLTRL influences, quick-start guide, and contributing guidelines
+- `prompts.md`: Development prompt archive containing the v1.4.0 USL standard creation prompt
+- `releases.md`: Release notes for v1.4.0 in standardized format with summary, features, contributors, and notes
+
+### Updated
+- `unification/README.md`: Added USL directory to structure tree; added Q1 2026 USL roadmap items (USL framework established, 3 cobots evaluated, surgical/mobile categories planned)
+- `README.md`: Added ★ Unification Standard Level section with cobot evaluation table and quick-start commands; updated repository structure tree with `usl/` directory; updated version to v1.4.0
+- `CHANGELOG.md`: Added v1.4.0 entry
+- `ruff.toml`: Added per-file ignore rules for `unification/usl/**/*.py` (F401, F402 for conditional imports)
+
+### Notes
+- USL framework is project-specific — "Unification Standard Level" evaluates robot readiness for multi-site oncology trial unification, influenced by NASA/DOD TRL (Mankins, 2004), MLTRL (Lavin et al., 2021; ai-infrastructure-alliance/mltrl), TRL for complex systems (Tomaschek et al., 2015; DOI 10.1109/PICMET.2015.7273196), and inspired by LLM recommendations for oncology trials (Kawchak, 2025; DOI 10.5281/zenodo.17451709)
+- Three evaluated cobots selected for: open-source availability (GitHub repos), different manufacturers, official MuJoCo Menagerie models, active ROS 2 support, and potential oncology applications
+- All four USL dimensions derive from existing unification pillars: simulation_physics/, agentic_generative_ai/, cross_platform_tools/, and federation/+regulatory/
+- All code passes `ruff check` and `ruff format --check` on Python 3.10–3.12
+- 4 new Python modules, approximately 2,100 LOC
+- Development by Claude Code Opus 4.6
+
 ## [1.3.0] - 2026-02-16
 
 ### Added
