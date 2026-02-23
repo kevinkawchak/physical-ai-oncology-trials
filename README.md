@@ -114,6 +114,13 @@ physical-ai-oncology-trials/
 │   ├── cross_platform_tools/
 │   │   ├── framework_detector.py
 │   │   └── validation_suite.py
+│   ├── usl/                          # ★ Unification Standard Level
+│   │   ├── README.md
+│   │   ├── usl_scoring_framework.py
+│   │   └── cobots/
+│   │       ├── franka_panda/
+│   │       ├── kinova_gen3/
+│   │       └── ufactory_xarm7/
 │   ├── standards_protocols/
 │   └── integration_workflows/
 │
@@ -294,9 +301,35 @@ The new `q1-2026-standards/` directory contains **proposed standards** for meeti
 
 ---
 
+## ★ Unification Standard Level (USL)
+
+The new `unification/usl/` directory introduces the **Unification Standard Level (USL)** — a scoring framework for evaluating robot readiness for unified, multi-site oncology clinical trials. USL scores range from **1.0 to 10.0** across four dimensions: simulation switching, AI integration, cross-robot sharing, and clinical trial collaboration.
+
+### Initial Cobot Evaluations
+
+| Robot | Manufacturer | USL Score | Level | Band |
+|-------|-------------|-----------|-------|------|
+| Franka Emika Panda | Franka Robotics | **7.4** | 7 — Advanced | Advanced |
+| Kinova Gen3 7DoF | Kinova Robotics | **5.7** | 5 — Functional | Intermediate |
+| UFACTORY xArm 7 | UFACTORY | **3.4** | 3 — Basic | Foundational |
+
+```bash
+# Run USL scoring framework demo
+python unification/usl/usl_scoring_framework.py
+
+# Evaluate individual cobots
+python unification/usl/cobots/franka_panda/franka_panda_usl.py
+python unification/usl/cobots/kinova_gen3/kinova_gen3_usl.py
+python unification/usl/cobots/ufactory_xarm7/ufactory_xarm7_usl.py
+```
+
+See `unification/usl/README.md` for the full USL standard, scoring methodology, and three comparison diagrams.
+
+---
+
 ## ★ Unification Framework
 
-The new `unification/` directory enables **seamless interoperability** between core physical AI technologies. Users can now:
+The `unification/` directory enables **seamless interoperability** between core physical AI technologies. Users can now:
 
 ### Switch Frameworks at Any Workflow Stage
 
@@ -874,4 +907,4 @@ Contributions welcome. Please ensure any added frameworks or tools:
 4. **Support cross-platform compatibility** (see `unification/` for guidelines)
 
 
-*v1.2.2 - Last updated: February 2026*
+*v1.4.0 - Last updated: February 2026*

@@ -41,6 +41,16 @@ unification/
 │   ├── model_converter.py             # Universal robot model converter
 │   ├── policy_exporter.py             # Cross-framework policy export
 │   └── validation_suite.py            # Cross-platform validation tests
+├── usl/                               # ★ Unification Standard Level framework
+│   ├── README.md                      # USL standard documentation with diagrams
+│   ├── usl_scoring_framework.py       # Core USL scoring engine (1.0-10.0 scale)
+│   └── cobots/                        # Collaborative Robots category evaluations
+│       ├── franka_panda/
+│       │   └── franka_panda_usl.py    # Franka Panda evaluation + tools
+│       ├── kinova_gen3/
+│       │   └── kinova_gen3_usl.py     # Kinova Gen3 evaluation + tools
+│       └── ufactory_xarm7/
+│           └── ufactory_xarm7_usl.py  # xArm 7 evaluation + tools
 ├── standards_protocols/               # Interoperability standards
 │   ├── data_formats.md                # Standardized data format specifications
 │   ├── communication_protocols.md     # Inter-system communication standards
@@ -59,6 +69,11 @@ unification/
 - [ ] Complete Isaac ↔ MuJoCo bidirectional conversion → See [Objective 1](../q1-2026-standards/objective-1-bidirectional-conversion/)
 - [ ] Publish unified robot model repository (50+ models) → See [Objective 2](../q1-2026-standards/objective-2-robot-model-repository/)
 - [ ] Release validation benchmark suite v1.0 → See [Objective 3](../q1-2026-standards/objective-3-validation-benchmark/)
+
+### Q1 2026 (USL Standard)
+- [x] Establish Unification Standard Level (USL) scoring framework → See [usl/](usl/)
+- [x] Evaluate 3 open-source cobots (Franka Panda, Kinova Gen3, xArm 7)
+- [ ] Extend USL to surgical and mobile manipulator categories
 
 ### Q2 2026
 - [ ] Integrate Gazebo Ionic GPU acceleration (when available)
