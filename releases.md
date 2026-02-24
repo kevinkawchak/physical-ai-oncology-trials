@@ -4,6 +4,44 @@ Release notes for the physical-ai-oncology-trials repository.
 
 ---
 
+## Unification Standard Level (USL) — Humanoid Robots
+v1.6.0 - February 24, 2026
+
+### Summary
+
+Extends the **Unification Standard Level (USL)** framework to **Humanoid Robots** — a new robot category under `unification/usl/humanoids/`. Three bipedal humanoid robot systems from different manufacturers are evaluated: **Boston Dynamics Atlas (Electric)** (USL 5.8), **Agility Robotics Digit** (USL 4.2), and **Tesla Optimus (Gen 2)** (USL 3.6). Each system is scored across the same four dimensions (A–D) established for cobots and surgical robots: simulation framework switching, generative/agentic AI integration, cross-robot progress sharing, and multi-site clinical trial collaboration.
+
+A new `usl_humanoid_scoring.py` scoring engine is created for humanoid robot evaluation with humanoid-specific criteria (whole-body locomotion, foundation model integration, bipedal navigation safety, hospital logistics tasks). The USL README is restructured to cover general, humanoid, surgical, and cobot information in that order, with 3 new text diagrams for humanoid robots (general, technical, scoring) bringing the total to 9 diagrams. Each humanoid robot has its own directory with comprehensive evaluation code including hardware specifications, kinematic models, locomotion profiles, oncology-specific task definitions, cross-organization sharing interfaces, and USL scoring.
+
+### Features
+
+- `unification/usl/humanoids/usl_humanoid_scoring.py`: USL scoring engine adapted for humanoid robots with `HumanoidType`, `HumanoidSimFramework` (8 frameworks including Drake), and `HumanoidAICapability` (12 capabilities including VLA, foundation model, whole-body control, locomotion/manipulation policy) enums; `HumanoidTask` (8 oncology tasks); `HumanoidDimAScore` through `HumanoidDimDScore` with humanoid-specific scoring criteria (whole-body model formats, locomotion/manipulation sim fidelity, foundation model integration, ISO 13482 alignment, autonomous navigation safety); `HumanoidUSLRating` with weighted score computation, comparison tables, gap analysis, and report generation
+- `unification/usl/humanoids/boston_dynamics_atlas/boston_dynamics_atlas_usl.py`: Boston Dynamics Atlas (Electric) evaluation module — `AtlasElectricSpecs` (~1.5 m, ~89 kg, 28 DOF, custom electric actuators, stereo + LiDAR perception), `AtlasKinematics` with joint group definitions (head, torso, arms, legs) and joint limit validation, `AtlasLocomotionConfig` with hospital/logistics/outdoor profiles, `AtlasOncologyTask` definitions (supply transport, specimen delivery, equipment positioning, decontamination), `AtlasCrossOrgSharing` with Drake/BDAII/URDF/ONNX sharing methods; `AtlasUnifiedActionSpace` and `AtlasUnifiedObsSpace` for cross-platform normalization; USL score: 5.8
+- `unification/usl/humanoids/tesla_optimus/tesla_optimus_usl.py`: Tesla Optimus (Gen 2) evaluation module — `OptimusGen2Specs` (~1.73 m, ~57 kg, 28 body DOF + 22 hand DOF, FSD-derived perception, Dojo training), `OptimusKinematics` with joint definitions including 11-DOF hands (5 finger types, 4 grasp types), `OptimusDeploymentProjection` timeline model (2025-2027), `OptimusOncologyTask` definitions (pharmacy delivery, linen transport, sample tray handling, equipment staging), `OptimusCrossOrgSharing` documenting fully proprietary ecosystem; USL score: 3.6
+- `unification/usl/humanoids/agility_digit/agility_digit_usl.py`: Agility Robotics Digit evaluation module — `DigitSpecs` (~1.75 m, ~65 kg, 20 DOF, backward-bending knees, 16 kg payload, Jetson AGX Orin), `DigitKinematics` with backward-bending knee handling and spring energy computation, `GROOTIntegrationConfig` documenting NVIDIA GR00T N1 foundation model partnership, `DigitLocomotionConfig` with hospital/warehouse/campus profiles, `DigitOncologyTask` definitions (supply tote delivery, specimen courier, pharmacy restocking, waste collection), `DigitCrossOrgSharing` with NVIDIA/Amazon/DeepMind/OSU partnership ecosystem; USL score: 4.2
+- `unification/usl/README.md`: Restructured with general USL information first, then humanoid robot evaluation (3 new text diagrams: general comparison, technical specifications, scoring breakdown), then surgical robot evaluation (3 existing diagrams renumbered 4-6), then cobot evaluation (3 existing diagrams renumbered 7-9), updated robot category table, updated directory structure, expanded references
+- Updated `prompts.md`: Added v1.6.0 USL Humanoid Robots prompt
+- Updated `releases.md`: Added v1.6.0 release notes
+- Updated `CHANGELOG.md`: Added v1.6.0 entry
+- Updated `unification/README.md`: Updated USL directory structure, added humanoid robot roadmap items
+- Updated `README.md`: Added humanoid robot USL section, updated version to v1.6.0
+
+### Contributors
+@kevinkawchak
+@claude
+
+### Notes
+- Three humanoid robots selected for: different manufacturers (Boston Dynamics, Agility Robotics, Tesla), same type (bipedal full-size humanoid), potential oncology logistics and assistive applications, and varying levels of open-source availability and AI integration
+- Atlas (Electric) scores highest due to its advanced whole-body dynamics, 4-framework simulation support (Drake + Isaac Lab + MuJoCo + Gazebo), and BDAII research publications — however, its proprietary platform and lack of healthcare deployment limit sharing and clinical trial dimensions
+- Digit benefits from GR00T N1 foundation model integration and commercial deployment experience (Amazon), but lacks healthcare-specific safety certifications
+- Optimus scores lowest primarily due to its fully proprietary platform with no public SDK, simulation models, or developer ecosystem, despite having the most capable hands (11 DOF) and mass production potential
+- All four USL dimensions (A–D) are adapted for humanoid-specific criteria: whole-body locomotion simulation, foundation model integration (GR00T, OpenVLA), bipedal navigation safety, hospital logistics tasks, ISO 13482 personal care robot safety
+- All code passes `ruff check` and `ruff format --check` on Python 3.10–3.12
+- 4 new Python modules totaling approximately 2,700 lines of code
+- Development by Claude Code Opus 4.6
+
+---
+
 ## Unification Standard Level (USL) — Surgical Robots
 v1.5.0 - February 24, 2026
 
