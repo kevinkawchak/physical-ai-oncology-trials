@@ -4,6 +4,37 @@ Development prompts used to generate content for this repository.
 
 ---
 
+## USL Restructure Prompt (v1.7.0)
+
+*Used: February 2026 — Claude Code Opus 4.6*
+
+Your goal is to update kevinkawchak/physical-ai-oncology-trials/tree/main/unification and kevinkawchak/physical-ai-oncology-trials/tree/main/unification/usl based on the unification/usl directory. The top of the readme in the /unification directory should add a proper link to unification/usl, followed by three text diagrams that generally address usl results (including why each score was assigned), meaning, and their impact on the future of physical ai oncology trials. At the top of the Readme in /unification/usl directory should add three text diagrams that more specifically address usl results (including why each score was assigned), meaning, and their impact on the future of physical ai oncology trials. This readme should then continue from the existing Overview through  Evaluated Humanoid Robots (Category: Humanoid Robots).
+
+All unification/usl humanoid related diagrams and associated text should be moved to a new Readme (adding relevant Readme text) to kevinkawchak/physical-ai-oncology-trials/tree/main/unification/usl/humanoids. Repeat this process of moving robot specific diagrams and text to their new specific Readme files for respective cobots and surgical directories. Keep Readme Directory Structure (updated based on your new output to this prompt), Influences, and References in the existing kevinkawchak/physical-ai-oncology-trials/tree/main/unification/usl. For Readme quick start and contributing sections: properly distribute across robot Readmes and/or keep portions in the current readme.
+
+It is important that you clone the most current version of physical-ai-oncology-trials, and that your decisions be based on the current repository and reputable sources of information firstly from other reputable GitHub accounts and secondly from other reputable sources of online information (peer or non-peer reviewed). Cite sources you use properly. Update prompts.md to now also include this new full prompt (make sure this newest v1.7.0 prompt is on top).
+
+Be sure to fix and address errors that would cause failed checks for the single pull request (such as Python environment issues to avoid the following error during final checks): "3 failing checks
+x Cl / lint-and-format (3.10) (pull...
+x Cl / lint-and-format (3.11) (pull...
+x Cl / lint-and-format (3.12) (pull... " Place the new release notes in releases.md under main using the format below (note title gets no hashes, while summary, features, etc. get two leading hashes)(this release format is new and different based on other releases in this .md). Update other relevant documentation such as project structures. Update the main Readme diagrams, repository structure, etc. where necessary (also note the prompts.md file has moved to /unification/usl). Provide an updated changelog (v1.7.0). When you are finished, auto-push the update to GitHub on your own for my review. The user will then review your updates in GitHub prior to finalization.
+
+"FORMAT"
+Release title
+v1.7.0 - [Fill in Title Here]
+
+## Summary
+
+## Features
+
+## Contributors
+@kevinkawchak
+@claude
+
+## Notes
+
+---
+
 ## USL Humanoid Robots Prompt (v1.6.0)
 
 *Used: February 2026 — Claude Code Opus 4.6*

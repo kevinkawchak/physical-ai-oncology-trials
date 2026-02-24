@@ -4,6 +4,42 @@ Release notes for the physical-ai-oncology-trials repository.
 
 ---
 
+USL Restructure — Category-Specific READMEs and Cross-Category Diagrams
+v1.7.0 - February 24, 2026
+
+## Summary
+
+Restructures the **Unification Standard Level (USL)** documentation into category-specific READMEs with dedicated text diagrams for each robot type. The main `unification/usl/README.md` is streamlined to contain only the USL standard overview, directory structure, influences, and references. All robot-specific evaluations, diagrams, and text are moved to new READMEs in `humanoids/`, `surgical/`, and `cobots/` subdirectories. The `unification/README.md` gains a link to USL and three new cross-category text diagrams covering USL results (with score rationale), meaning, and impact on the future of physical AI oncology trials. Each category README adds three new diagrams addressing results, meaning, and impact specific to that robot type, bringing the total from 9 to 18 text diagrams across the USL documentation.
+
+## Features
+
+- `unification/usl/humanoids/README.md`: New category README with 6 text diagrams (3 new: results with score rationale, meaning, impact; 3 moved: general comparison, technical specs, scoring breakdown), full Atlas/Digit/Optimus evaluations, quick start, contributing guide, and directory structure
+- `unification/usl/surgical/README.md`: New category README with 6 text diagrams (3 new: results with score rationale, meaning, impact; 3 moved: general comparison, technical specs, scoring breakdown), full da Vinci/Hugo/Versius evaluations, quick start, contributing guide, and directory structure
+- `unification/usl/cobots/README.md`: New category README with 6 text diagrams (3 new: results with score rationale, meaning, impact; 3 moved: general comparison, technical specs, scoring breakdown), full Franka/Kinova/xArm evaluations, quick start, contributing guide, and directory structure
+- `unification/usl/README.md`: Streamlined to USL standard overview (scoring methodology, score bands, level definitions, robot categories table with links), directory structure (updated with README.md entries), influences, and references — robot-specific content moved to category READMEs
+- `unification/README.md`: Added USL link at top, 3 new cross-category text diagrams (results summary with all 9 robots, meaning with key findings, impact with phased future timeline)
+- Updated `unification/usl/prompts.md`: Added v1.7.0 USL Restructure prompt on top
+- Updated `releases.md`: Added v1.7.0 release notes in new format (title without hashes)
+- Updated `CHANGELOG.md`: Added v1.7.0 entry
+- Updated `README.md`: Updated version to v1.7.0, updated repository structure to reflect new READMEs and prompts.md location
+
+## Contributors
+@kevinkawchak
+@claude
+
+## Notes
+- Documentation restructure only — no Python code changes, no new modules
+- 3 new category READMEs created (humanoids, surgical, cobots) with 9 new text diagrams (3 per category: results, meaning, impact)
+- 3 new cross-category diagrams added to `unification/README.md`
+- Total text diagrams in USL documentation: 18 (was 9)
+- All robot evaluations, scores, and references preserved exactly from v1.6.0
+- Quick start and contributing sections distributed to category READMEs
+- `prompts.md` location confirmed at `unification/usl/prompts.md` (moved in v1.5.0)
+- No Python files changed — CI lint/format checks unaffected
+- Development by Claude Code Opus 4.6
+
+---
+
 ## Unification Standard Level (USL) — Humanoid Robots
 v1.6.0 - February 24, 2026
 
