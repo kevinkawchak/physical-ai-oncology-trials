@@ -1,7 +1,7 @@
 # End-to-End Physical AI Unification of Oncology Clinical Trials
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Release](https://img.shields.io/badge/Release-v1.5.0-brightgreen.svg)]()
+[![Release](https://img.shields.io/badge/Release-v1.6.0-brightgreen.svg)]()
 [![Last Updated](https://img.shields.io/badge/Updated-February%202026-blue.svg)]()
 [![Python 3.10+](https://img.shields.io/badge/Python-3.10+-green.svg)]()
 [![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.18445179-blue)](https://doi.org/10.5281/zenodo.18445179)
@@ -116,16 +116,21 @@ physical-ai-oncology-trials/
 │   │   └── validation_suite.py
 │   ├── usl/                          # ★ Unification Standard Level
 │   │   ├── README.md
-│   │   ├── cobots/
-│   │   │   ├── usl_scoring_framework.py
-│   │   │   ├── franka_panda/
-│   │   │   ├── kinova_gen3/
-│   │   │   └── ufactory_xarm7/
-│   │   └── surgical/
-│   │       ├── usl_surgical_scoring.py
-│   │       ├── intuitive_davinci/
-│   │       ├── medtronic_hugo/
-│   │       └── cmr_versius/
+│   │   ├── humanoids/                # ★ Humanoid Robots (v1.6.0)
+│   │   │   ├── usl_humanoid_scoring.py
+│   │   │   ├── boston_dynamics_atlas/
+│   │   │   ├── tesla_optimus/
+│   │   │   └── agility_digit/
+│   │   ├── surgical/
+│   │   │   ├── usl_surgical_scoring.py
+│   │   │   ├── intuitive_davinci/
+│   │   │   ├── medtronic_hugo/
+│   │   │   └── cmr_versius/
+│   │   └── cobots/
+│   │       ├── usl_scoring_framework.py
+│   │       ├── franka_panda/
+│   │       ├── kinova_gen3/
+│   │       └── ufactory_xarm7/
 │   ├── standards_protocols/
 │   └── integration_workflows/
 │
@@ -310,6 +315,24 @@ The new `q1-2026-standards/` directory contains **proposed standards** for meeti
 
 The `unification/usl/` directory implements the **Unification Standard Level (USL)** — a scoring framework for evaluating robot readiness for unified, multi-site oncology clinical trials. USL scores range from **1.0 to 10.0** across four dimensions: simulation switching, AI integration, cross-robot sharing, and clinical trial collaboration.
 
+### Humanoid Robot Evaluations (v1.6.0)
+
+| Robot | Manufacturer | USL Score | Level | Band |
+|-------|-------------|-----------|-------|------|
+| Atlas (Electric) | Boston Dynamics | **5.8** | 5 — Functional | Intermediate |
+| Digit | Agility Robotics | **4.2** | 4 — Developing | Foundational |
+| Optimus (Gen 2) | Tesla | **3.6** | 3 — Basic | Foundational |
+
+```bash
+# Run humanoid robot USL scoring demo
+python unification/usl/humanoids/usl_humanoid_scoring.py
+
+# Evaluate individual humanoid robots
+python unification/usl/humanoids/boston_dynamics_atlas/boston_dynamics_atlas_usl.py
+python unification/usl/humanoids/tesla_optimus/tesla_optimus_usl.py
+python unification/usl/humanoids/agility_digit/agility_digit_usl.py
+```
+
 ### Surgical Robot Evaluations (v1.5.0)
 
 | Robot | Manufacturer | USL Score | Level | Band |
@@ -346,7 +369,7 @@ python unification/usl/cobots/kinova_gen3/kinova_gen3_usl.py
 python unification/usl/cobots/ufactory_xarm7/ufactory_xarm7_usl.py
 ```
 
-See `unification/usl/README.md` for the full USL standard, scoring methodology, and six comparison diagrams (3 surgical, 3 cobot).
+See `unification/usl/README.md` for the full USL standard, scoring methodology, and nine comparison diagrams (3 humanoid, 3 surgical, 3 cobot).
 
 ---
 

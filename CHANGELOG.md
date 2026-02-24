@@ -5,6 +5,30 @@ Format follows [Keep a Changelog](https://keepachangelog.com/).
 
 ## [Unreleased]
 
+## [1.6.0] - 2026-02-24
+
+### Added
+- `unification/usl/humanoids/` directory: USL Humanoid Robot evaluation framework extending the Unification Standard Level to bipedal humanoid robot systems for oncology clinical trials (logistics, transport, assistive tasks)
+  - `unification/usl/humanoids/usl_humanoid_scoring.py`: Humanoid robot-specific USL scoring engine with `HumanoidType` (4 types), `HumanoidSimFramework` (8 frameworks including Drake), `HumanoidAICapability` (12 capabilities including VLA, foundation model, whole-body control, locomotion/manipulation policy), `HumanoidTask` (8 oncology tasks); `HumanoidDimAScore` through `HumanoidDimDScore` with humanoid-specific scoring criteria (whole-body model formats, locomotion/manipulation sim fidelity, foundation model integration, autonomous navigation safety, ISO 13482 alignment, hospital pilot testing); `HumanoidUSLRating` with weighted scoring, comparison tables, gap analysis, and text/JSON report generation
+  - `unification/usl/humanoids/boston_dynamics_atlas/boston_dynamics_atlas_usl.py`: Boston Dynamics Atlas (Electric) evaluation module — `AtlasElectricSpecs` (~1.5 m, ~89 kg, 28 DOF, custom electric actuators, exceeds human ROM), `AtlasKinematics` with joint group definitions and validation, `AtlasLocomotionConfig` with 3 locomotion profiles (hospital/logistics/outdoor), 4 oncology task definitions, `AtlasCrossOrgSharing` with Drake/BDAII/URDF/ONNX sharing methods, `AtlasUnifiedActionSpace` and `AtlasUnifiedObsSpace` for cross-platform normalization; USL score: 5.8 (Level 5 — Functional)
+  - `unification/usl/humanoids/tesla_optimus/tesla_optimus_usl.py`: Tesla Optimus (Gen 2) evaluation module — `OptimusGen2Specs` (~1.73 m, ~57 kg, 28+22 DOF with 11-DOF hands, FSD-derived AI), `OptimusKinematics` with hand grasp type estimation, `OptimusDeploymentProjection` timeline model (2025-2027), 4 oncology tasks, `OptimusCrossOrgSharing` documenting fully proprietary ecosystem; USL score: 3.6 (Level 3 — Basic)
+  - `unification/usl/humanoids/agility_digit/agility_digit_usl.py`: Agility Robotics Digit evaluation module — `DigitSpecs` (~1.75 m, ~65 kg, 20 DOF, backward-bending knees, 16 kg payload, Jetson AGX Orin), `DigitKinematics` with spring energy computation, `GROOTIntegrationConfig` for NVIDIA GR00T N1 partnership, 4 oncology tasks, `DigitCrossOrgSharing` with NVIDIA/Amazon/DeepMind/OSU ecosystem; USL score: 4.2 (Level 4 — Developing)
+
+### Updated
+- `unification/usl/README.md`: Restructured to cover general USL information, then humanoid robots (with 3 new text diagrams: general comparison, technical specifications, scoring breakdown), then surgical robots (3 existing diagrams renumbered 4-6), then cobots (3 existing diagrams renumbered 7-9); added robot categories table with humanoid row; updated directory structure; expanded references with humanoid-specific citations (Drake, GR00T N1, Agility Robotics, Kuindersma et al.)
+- `unification/README.md`: Updated USL directory structure to reflect `humanoids/` subdirectory; added Q1 2026 USL humanoid robot roadmap items
+- `README.md`: Added ★ USL Humanoid Robots section with evaluation table; updated repository structure; updated version to v1.6.0
+- `prompts.md`: Added v1.6.0 USL Humanoid Robots prompt
+- `releases.md`: Added v1.6.0 release notes
+- `CHANGELOG.md`: Added v1.6.0 entry
+
+### Notes
+- Three humanoid robots selected for: different manufacturers (Boston Dynamics, Agility Robotics, Tesla), bipedal full-size architecture, potential oncology logistics and assistive applications, and varying open-source/AI integration levels
+- Humanoid robot USL scoring adapts all four dimensions (A–D) with humanoid-specific criteria: whole-body locomotion simulation, foundation model integration (GR00T, OpenVLA), bipedal navigation safety for hospital environments, ISO 13482 personal care robot safety alignment
+- All code passes `ruff check` and `ruff format --check` on Python 3.10–3.12
+- 4 new Python modules, approximately 2,700 LOC
+- Development by Claude Code Opus 4.6
+
 ## [1.5.0] - 2026-02-24
 
 ### Added
