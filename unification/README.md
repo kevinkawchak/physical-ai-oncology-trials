@@ -43,14 +43,22 @@ unification/
 │   └── validation_suite.py            # Cross-platform validation tests
 ├── usl/                               # ★ Unification Standard Level framework
 │   ├── README.md                      # USL standard documentation with diagrams
-│   ├── usl_scoring_framework.py       # Core USL scoring engine (1.0-10.0 scale)
-│   └── cobots/                        # Collaborative Robots category evaluations
-│       ├── franka_panda/
-│       │   └── franka_panda_usl.py    # Franka Panda evaluation + tools
-│       ├── kinova_gen3/
-│       │   └── kinova_gen3_usl.py     # Kinova Gen3 evaluation + tools
-│       └── ufactory_xarm7/
-│           └── ufactory_xarm7_usl.py  # xArm 7 evaluation + tools
+│   ├── cobots/                        # Collaborative Robots category evaluations
+│   │   ├── usl_scoring_framework.py   # Core USL scoring engine (cobots)
+│   │   ├── franka_panda/
+│   │   │   └── franka_panda_usl.py    # Franka Panda evaluation + tools
+│   │   ├── kinova_gen3/
+│   │   │   └── kinova_gen3_usl.py     # Kinova Gen3 evaluation + tools
+│   │   └── ufactory_xarm7/
+│   │       └── ufactory_xarm7_usl.py  # xArm 7 evaluation + tools
+│   └── surgical/                      # Surgical Robots category evaluations
+│       ├── usl_surgical_scoring.py    # USL scoring engine (surgical)
+│       ├── intuitive_davinci/
+│       │   └── intuitive_davinci_usl.py  # da Vinci (dVRK) evaluation + tools
+│       ├── medtronic_hugo/
+│       │   └── medtronic_hugo_usl.py  # Hugo RAS evaluation + tools
+│       └── cmr_versius/
+│           └── cmr_versius_usl.py     # Versius evaluation + tools
 ├── standards_protocols/               # Interoperability standards
 │   ├── data_formats.md                # Standardized data format specifications
 │   ├── communication_protocols.md     # Inter-system communication standards
@@ -73,7 +81,8 @@ unification/
 ### Q1 2026 (USL Standard)
 - [x] Establish Unification Standard Level (USL) scoring framework → See [usl/](usl/)
 - [x] Evaluate 3 open-source cobots (Franka Panda, Kinova Gen3, xArm 7)
-- [ ] Extend USL to surgical and mobile manipulator categories
+- [x] Extend USL to surgical robot category (da Vinci dVRK, Hugo RAS, Versius)
+- [ ] Extend USL to mobile manipulator category
 
 ### Q2 2026
 - [ ] Integrate Gazebo Ionic GPU acceleration (when available)
