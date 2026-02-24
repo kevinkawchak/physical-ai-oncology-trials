@@ -52,9 +52,248 @@ Each dimension derives from the four unification pillars defined in [`unificatio
 
 ---
 
+## Robot Categories
+
+The USL framework evaluates robots across multiple categories relevant to oncology clinical trials.
+
+| Category | Robots Evaluated | Score Range | Status |
+|----------|-----------------|-------------|--------|
+| **Surgical Robots** | da Vinci (dVRK), Hugo RAS, Versius | 3.4 – 7.1 | v1.5.0 |
+| **Collaborative Robots (Cobots)** | Franka Panda, Kinova Gen3, xArm 7 | 3.4 – 7.4 | v1.4.0 |
+
+---
+
+## Evaluated Surgical Robots (Category: Surgical Robots)
+
+This USL evaluation covers three teleoperated surgical robot systems from different manufacturers, each used in minimally invasive oncology surgery. These are master-slave systems where the surgeon controls robotic arms from a console.
+
+| Robot | Manufacturer | USL Score | USL Level | Band |
+|-------|-------------|-----------|-----------|------|
+| [da Vinci (dVRK)](#da-vinci-dvrk) | Intuitive Surgical | **7.1** | 7 (Advanced) | Advanced |
+| [Hugo RAS](#hugo-ras) | Medtronic | **4.5** | 4 (Developing) | Foundational |
+| [Versius](#versius) | CMR Surgical | **3.4** | 3 (Basic) | Foundational |
+
+---
+
+## Diagram 1: General Surgical Robot Comparison
+
+```
+┌─────────────────────────────────────────────────────────────────────────┐
+│          GENERAL COMPARISON — USL Category: Surgical Robots             │
+├─────────────────────────────────────────────────────────────────────────┤
+│                                                                         │
+│  ┌──────────────────────┐  ┌──────────────────────┐  ┌──────────────────┐
+│  │   DA VINCI (dVRK)    │  │     HUGO RAS         │  │    VERSIUS       │
+│  │ (Intuitive Surgical) │  │    (Medtronic)       │  │  (CMR Surgical)  │
+│  ├──────────────────────┤  ├──────────────────────┤  ├──────────────────┤
+│  │ Heritage: Pioneer    │  │ Heritage: Medtronic  │  │ Heritage: UK     │
+│  │  of robotic surgery  │  │  medical device      │  │  startup focused │
+│  │  since 1999          │  │  ecosystem           │  │  on portability  │
+│  │                      │  │                      │  │                  │
+│  │ Ecosystem: Largest   │  │ Ecosystem: Touch     │  │ Ecosystem:       │
+│  │  open-source via     │  │  Surgery Enterprise  │  │  Proprietary     │
+│  │  dVRK (JHU, 45+     │  │  AI video analytics  │  │  with growing    │
+│  │  institutions)       │  │                      │  │  clinical data   │
+│  │                      │  │                      │  │                  │
+│  │ Key Strength:        │  │ Key Strength:        │  │ Key Strength:    │
+│  │  ORBIT-Surgical GPU  │  │  Modular cart arms + │  │  Lightest arms   │
+│  │  sim + 14M clinical  │  │  Medtronic OR stack  │  │  (~10 kg) +      │
+│  │  procedures          │  │  integration         │  │  portable across │
+│  │                      │  │                      │  │  operating rooms │
+│  │ Oncology Focus:      │  │ Oncology Focus:      │  │ Oncology Focus:  │
+│  │  Prostatectomy,      │  │  Colectomy, gynecol- │  │  Gynecologic &   │
+│  │  nephrectomy,        │  │  ogic, and urologic  │  │  colorectal      │
+│  │  lobectomy           │  │  oncology            │  │  oncology        │
+│  │                      │  │                      │  │                  │
+│  │ USL Score: 7.1 ██████│  │ USL Score: 4.5 ████  │  │ USL Score: 3.4██ │
+│  │ Level 7 — Advanced   │  │ Level 4 — Developing │  │ Level 3 — Basic  │
+│  └──────────────────────┘  └──────────────────────┘  └──────────────────┘
+│                                                                         │
+│  Legend: Each █ ≈ 1.2 points on the 1.0–10.0 USL scale                  │
+└─────────────────────────────────────────────────────────────────────────┘
+```
+
+---
+
+## Diagram 2: Technical Specifications — Surgical Robots
+
+```
+┌─────────────────────────────────────────────────────────────────────────┐
+│       TECHNICAL SPECIFICATIONS — Surgical Robot Comparison              │
+├─────────────────────────────────────────────────────────────────────────┤
+│                                                                         │
+│  Spec               da Vinci (dVRK)   Hugo RAS          Versius         │
+│  ─────────────────  ────────────────  ────────────────  ────────────────│
+│  Architecture       Single cart       Modular carts     Modular carts   │
+│  Instrument Arms    3 PSMs            3 arms            3 arms (max 4)  │
+│  Camera Arms        1 ECM             1 arm             1 arm           │
+│  DOF per Arm        7 + grip          7 + grip          7 + grip        │
+│  Instrument ⌀       5/8 mm            8 mm              5 mm ◄─ thin   │
+│  Arm Weight (kg)    ~65 (full cart)   38 (per cart)     10 ◄─ lightest  │
+│  Console Type       Immersive         Open              Open            │
+│  Tremor Filtering   Yes               Yes               Yes             │
+│  Motion Scaling     2:1, 3:1, 5:1    Yes               Yes             │
+│  Control Freq (Hz)  1000              1000              1000            │
+│  Stereo Vision      Yes               3D HD             3D HD           │
+│  Portability        Fixed             Semi-portable     Portable ◄─    │
+│                                                                         │
+│  Regulatory Status:                                                     │
+│  ─────────────────                                                      │
+│  FDA Cleared        ✓ ◄─ only one    ✗ (pending)       ✗ (pending)    │
+│  CE Marked          ✓                 ✓                 ✓               │
+│  Countries          69                20+               25+             │
+│  Systems Installed  9,000+ ◄─ most   500+              350+            │
+│  Procedures Done    14M+ ◄─ most     50,000+           30,000+         │
+│                                                                         │
+│  Simulation / Open-Source Support:                                      │
+│  ─────────────────────────────────                                      │
+│  Open-Source Code   ✓ dVRK (BSD)     ✗                 ✗               │
+│  ORBIT-Surgical     ✓ ◄─ unique     ✗                 ✗               │
+│  SurRoL Benchmark   ✓ ◄─ unique     ✗                 ✗               │
+│  AMBF Simulator     ✓ ◄─ unique     ✗                 ✗               │
+│  Gazebo + ROS 2     ✓                ◐                 ◐               │
+│  MuJoCo             ✓                ✗                 ◐               │
+│  GPU Sim (Isaac)    ✓                ◐                 ✗               │
+│                                                                         │
+│  AI Research Ecosystem:                                                 │
+│  ─────────────────────                                                  │
+│  Surgical Video AI  ✓ JIGSAWS+       ✓ Touch Surgery   ◐ Limited      │
+│  RL / IL Research   ✓ Extensive      ✗                 ✗               │
+│  VLA / Diffusion    ✓ ◄─ unique     ✗                 ✗               │
+│  Phase Recognition  ✓                ✓                 ◐               │
+│                                                                         │
+│  ✓ = Supported   ◐ = Partial/Limited   ✗ = Not available               │
+└─────────────────────────────────────────────────────────────────────────┘
+```
+
+---
+
+## Diagram 3: USL Scoring Breakdown — Surgical Robots
+
+```
+┌─────────────────────────────────────────────────────────────────────────┐
+│         USL SCORING BREAKDOWN — Surgical Robot Dimension Scores         │
+├─────────────────────────────────────────────────────────────────────────┤
+│                                                                         │
+│  Dimension A: Simulation Framework Switching (25% weight)               │
+│  ────────────────────────────────────────────────                       │
+│  da Vinci(dVRK) [███████░░░] 7.5   5 frameworks, GPU sim, tissue def  │
+│  Hugo RAS       [████░░░░░░] 4.5   2 frameworks, limited open-source  │
+│  Versius        [███░░░░░░░] 3.2   2 frameworks, no open-source sim   │
+│                                                                         │
+│  Dimension B: Generative / Agentic AI Integration (25% weight)          │
+│  ────────────────────────────────────────────────────────               │
+│  da Vinci(dVRK) [███████░░░] 7.2   VLA, diffusion, IL, RL, video AI  │
+│  Hugo RAS       [████░░░░░░] 4.0   Touch Surgery video AI + phase     │
+│  Versius        [██░░░░░░░░] 2.8   Basic video AI, limited research   │
+│                                                                         │
+│  Dimension C: Cross-Robot Progress Sharing (25% weight)                 │
+│  ──────────────────────────────────────────────                         │
+│  da Vinci(dVRK) [██████░░░░] 6.8   Open-source, ONNX, ROS 2, JIGSAWS│
+│  Hugo RAS       [███░░░░░░░] 3.5   Intra-org via Medtronic ecosystem │
+│  Versius        [██░░░░░░░░] 2.5   Intra-org only, no open standards │
+│                                                                         │
+│  Dimension D: Multi-Site Clinical Trial Collaboration (25% weight)      │
+│  ─────────────────────────────────────────────────────                  │
+│  da Vinci(dVRK) [███████░░░] 7.0   FDA cleared, 9000+ systems, certs │
+│  Hugo RAS       [█████░░░░░] 5.8   CE marked, EXPAND trials, audit   │
+│  Versius        [█████░░░░░] 5.2   CE marked, 350+ hospitals, certs  │
+│                                                                         │
+│  ═══════════════════════════════════════════════════                    │
+│  FINAL USL SCORES (weighted average):                                   │
+│  ────────────────────────────────────                                   │
+│  da Vinci(dVRK) [███████░░░] 7.1   Level 7 — Advanced                │
+│  Hugo RAS       [████░░░░░░] 4.5   Level 4 — Developing              │
+│  Versius        [███░░░░░░░] 3.4   Level 3 — Basic                   │
+│                                                                         │
+│  Bar scale: each █ = 1.0 point (10 blocks = 10.0)                      │
+└─────────────────────────────────────────────────────────────────────────┘
+```
+
+---
+
+## da Vinci (dVRK)
+
+**USL Score: 7.1 / 10.0 — Level 7 (Advanced)**
+
+The da Vinci Surgical System by Intuitive Surgical is the most widely deployed surgical robot in the world, with over 9,000 systems installed across 69 countries and more than 14 million procedures performed. The da Vinci Research Kit (dVRK), maintained by Johns Hopkins University, provides an open-source research platform based on the da Vinci Classic/S/Si hardware, enabling extensive academic collaboration.
+
+**Key USL strengths:**
+- ORBIT-Surgical (Isaac Lab): GPU-accelerated surgical RL with dVRK models
+- SurRoL (PyBullet): 10 validated surgical task benchmarks
+- AMBF: Real-time deformable tissue simulation with haptic feedback
+- Open-source dVRK platform used at 45+ research institutions worldwide
+- Extensive VLA, diffusion policy, and imitation learning research
+- FDA-cleared clinical system with established regulatory pathway
+
+**Key USL gaps:**
+- dVRK hardware is legacy (Classic/S/Si) — not current Xi/5 system
+- Instrument interchangeability limited by proprietary EndoWrist design
+- No MCP server integration or HIPAA-compliant data sharing tools
+
+**Open-source references:**
+- [dVRK (sawIntuitiveResearchKit)](https://github.com/jhu-dvrk/sawIntuitiveResearchKit) — Open-source research kit
+- [ORBIT-Surgical](https://github.com/orbit-surgical/orbit-surgical) — GPU-accelerated surgical RL (Isaac Lab)
+- [SurRoL](https://github.com/med-air/SurRoL) — Surgical robot learning benchmark (PyBullet)
+- [AMBF](https://github.com/WPI-AIM/ambf) — Asynchronous Multi-Body Framework
+- [dvrk-ros](https://github.com/jhu-dvrk/dvrk-ros) — ROS 2 integration
+
+---
+
+## Hugo RAS
+
+**USL Score: 4.5 / 10.0 — Level 4 (Developing)**
+
+The Medtronic Hugo RAS is a modular surgical robot system featuring independently cart-mounted arms and an open console design. It integrates with Medtronic's Touch Surgery Enterprise platform for AI-powered surgical video analysis and is backed by Medtronic's extensive medical device ecosystem including StealthStation navigation and O-arm imaging.
+
+**Key USL strengths:**
+- Modular arm design — each arm independently positioned around patient
+- Touch Surgery Enterprise — integrated AI video analysis platform
+- Medtronic ecosystem integration (StealthStation, O-arm, Surgical Synergy)
+- CE Mark obtained — active clinical use in Europe and other regions
+- EXPAND clinical trial program demonstrating surgical outcomes
+
+**Key USL gaps:**
+- No public open-source code, models, or simulation environments
+- FDA clearance not yet obtained as of February 2026
+- No ROS 2 integration or standardized robot middleware
+- Limited academic research community compared to dVRK
+
+**References:**
+- [Medtronic Hugo RAS](https://www.medtronic.com/covidien/en-us/robotic-assisted-surgery/hugo-ras-system.html) — Official product page
+- [Touch Surgery Enterprise](https://www.medtronic.com/covidien/en-us/robotic-assisted-surgery/touch-surgery.html) — AI surgical intelligence
+
+---
+
+## Versius
+
+**USL Score: 3.4 / 10.0 — Level 3 (Basic)**
+
+The CMR Surgical Versius is a modular, portable surgical robot from Cambridge, UK, featuring the lightest surgical robot arms in the market (~10 kg each). Its biomimetic design mimics the human arm and enables portability between operating rooms. Versius is deployed in 350+ hospitals across 25+ countries.
+
+**Key USL strengths:**
+- Lightest surgical robot arms (~10 kg each) — highly portable
+- 5 mm instrument diameter — thinnest instruments in class
+- Biomimetic arm design — intuitive OR positioning
+- Portable between operating rooms within a facility
+- CE Mark obtained — deployed in 350+ hospitals across 25+ countries
+
+**Key USL gaps:**
+- No public open-source code, models, or simulation environments
+- FDA clearance not yet obtained as of February 2026
+- Smallest academic research community of the three surgical robots
+- No published AI/ML research using Versius platform
+
+**References:**
+- [CMR Surgical Versius](https://cmrsurgical.com/) — Official site
+- Puntambekar, S., et al. (2022). DOI: [10.1007/s11701-022-01390-2](https://doi.org/10.1007/s11701-022-01390-2) — Initial Versius experience
+- Morton, B., et al. (2023). DOI: [10.1007/s11701-023-01611-w](https://doi.org/10.1007/s11701-023-01611-w) — Systematic review
+
+---
+
 ## Evaluated Cobots (Category: Collaborative Robots)
 
-This initial USL evaluation covers three state-of-the-art open-source collaborative robot arms from different manufacturers, each with active ROS 2 support, MuJoCo Menagerie models, and potential oncology applications.
+This USL evaluation covers three state-of-the-art open-source collaborative robot arms from different manufacturers, each with active ROS 2 support, MuJoCo Menagerie models, and potential oncology applications.
 
 | Robot | Manufacturer | USL Score | USL Level | Band |
 |-------|-------------|-----------|-----------|------|
@@ -64,7 +303,7 @@ This initial USL evaluation covers three state-of-the-art open-source collaborat
 
 ---
 
-## Diagram 1: General Comparison
+## Diagram 4: General Cobot Comparison
 
 ```
 ┌─────────────────────────────────────────────────────────────────────────┐
@@ -100,7 +339,7 @@ This initial USL evaluation covers three state-of-the-art open-source collaborat
 
 ---
 
-## Diagram 2: Technical Specifications Comparison
+## Diagram 5: Technical Specifications — Cobots
 
 ```
 ┌─────────────────────────────────────────────────────────────────────────┐
@@ -147,7 +386,7 @@ This initial USL evaluation covers three state-of-the-art open-source collaborat
 
 ---
 
-## Diagram 3: USL Scoring Breakdown
+## Diagram 6: USL Scoring Breakdown — Cobots
 
 ```
 ┌─────────────────────────────────────────────────────────────────────────┐
@@ -187,23 +426,6 @@ This initial USL evaluation covers three state-of-the-art open-source collaborat
 │                                                                         │
 │  Bar scale: each █ = 1.0 point (10 blocks = 10.0)                      │
 └─────────────────────────────────────────────────────────────────────────┘
-```
-
----
-
-## Directory Structure
-
-```
-unification/usl/
-├── README.md                              # This file
-├── usl_scoring_framework.py               # Core USL scoring engine
-└── cobots/                                # Collaborative Robots category
-    ├── franka_panda/
-    │   └── franka_panda_usl.py            # Franka Panda evaluation + tools
-    ├── kinova_gen3/
-    │   └── kinova_gen3_usl.py             # Kinova Gen3 evaluation + tools
-    └── ufactory_xarm7/
-        └── ufactory_xarm7_usl.py          # xArm 7 evaluation + tools
 ```
 
 ---
@@ -283,6 +505,31 @@ The UFACTORY xArm 7 is the most affordable 7-DOF cobot in its class, with built-
 
 ---
 
+## Directory Structure
+
+```
+unification/usl/
+├── README.md                              # This file
+├── cobots/                                # Collaborative Robots category
+│   ├── usl_scoring_framework.py           # Core USL scoring engine (cobots)
+│   ├── franka_panda/
+│   │   └── franka_panda_usl.py            # Franka Panda evaluation + tools
+│   ├── kinova_gen3/
+│   │   └── kinova_gen3_usl.py             # Kinova Gen3 evaluation + tools
+│   └── ufactory_xarm7/
+│       └── ufactory_xarm7_usl.py          # xArm 7 evaluation + tools
+└── surgical/                              # Surgical Robots category
+    ├── usl_surgical_scoring.py            # USL scoring engine (surgical)
+    ├── intuitive_davinci/
+    │   └── intuitive_davinci_usl.py       # da Vinci (dVRK) evaluation + tools
+    ├── medtronic_hugo/
+    │   └── medtronic_hugo_usl.py          # Hugo RAS evaluation + tools
+    └── cmr_versius/
+        └── cmr_versius_usl.py             # Versius evaluation + tools
+```
+
+---
+
 ## Influences and References
 
 The USL framework draws on established technology readiness methodologies:
@@ -301,19 +548,43 @@ The USL framework draws on established technology readiness methodologies:
 - [MuJoCo 3.4.0](https://github.com/google-deepmind/mujoco) — Physics simulation
 - [MuJoCo Menagerie](https://github.com/google-deepmind/mujoco_menagerie) — Curated robot models
 - [ROS 2 Kilted Kaiju](https://docs.ros.org/en/kilted/) — Robot middleware
+- [ORBIT-Surgical](https://github.com/orbit-surgical/orbit-surgical) — Surgical robot learning (Isaac Lab)
+- [SurRoL](https://github.com/med-air/SurRoL) — Surgical robot RL benchmark
+- [dVRK 2.4.0](https://github.com/jhu-dvrk/sawIntuitiveResearchKit) — da Vinci Research Kit
+- [AMBF](https://github.com/WPI-AIM/ambf) — Asynchronous Multi-Body Framework
 - [Model Context Protocol](https://modelcontextprotocol.io/) — Agent-tool communication (AAIF/Linux Foundation)
 - ISO 13482:2014 — Robots and robotic devices — Safety requirements for personal care robots
 - IEC 62304:2006+AMD1:2015 — Medical device software — Software life cycle processes
+- IEC 80601-2-77:2019 — Particular requirements for robotically assisted surgical equipment
 - FDA Guidance: *Marketing Submission Recommendations for a Predetermined Change Control Plan for AI/ML-Enabled Device Software Functions* (August 2025)
 
 ---
 
 ## Quick Start
 
-### Run USL Scoring Demo
+### Run Surgical Robot USL Scoring Demo
 
 ```bash
-python unification/usl/usl_scoring_framework.py
+python unification/usl/surgical/usl_surgical_scoring.py
+```
+
+### Evaluate Individual Surgical Robots
+
+```bash
+# Intuitive Surgical da Vinci (dVRK)
+python unification/usl/surgical/intuitive_davinci/intuitive_davinci_usl.py
+
+# Medtronic Hugo RAS
+python unification/usl/surgical/medtronic_hugo/medtronic_hugo_usl.py
+
+# CMR Surgical Versius
+python unification/usl/surgical/cmr_versius/cmr_versius_usl.py
+```
+
+### Run Cobot USL Scoring Demo
+
+```bash
+python unification/usl/cobots/usl_scoring_framework.py
 ```
 
 ### Evaluate Individual Cobots
@@ -329,46 +600,18 @@ python unification/usl/cobots/kinova_gen3/kinova_gen3_usl.py
 python unification/usl/cobots/ufactory_xarm7/ufactory_xarm7_usl.py
 ```
 
-### Use in Code
-
-```python
-from unification.usl.usl_scoring_framework import (
-    USLRating,
-    DimensionAScore,
-    DimensionBScore,
-    DimensionCScore,
-    DimensionDScore,
-    generate_evaluation_report,
-    compare_ratings,
-)
-
-# Create a rating for a new cobot
-rating = USLRating(
-    robot_name="My Research Robot",
-    manufacturer="My Organization",
-)
-
-# Set dimension scores and compute
-rating.dimension_a = DimensionAScore(num_frameworks_supported=3)
-rating.dimension_b = DimensionBScore(llm_task_planning=True)
-rating.dimension_c = DimensionCScore(onnx_policy_export=True)
-rating.dimension_d = DimensionDScore(audit_trail_capable=True)
-
-score = rating.compute_final_score()
-print(rating.summary())
-```
-
 ---
 
 ## Contributing
 
-To add a new robot category or evaluate additional cobots:
+To add a new robot category or evaluate additional robots:
 
-1. Create a new directory under `cobots/` (or a new category directory)
-2. Implement an evaluation module following the pattern in existing cobot files
-3. Add the robot to this README with all three diagram sections updated
-4. Validate across at least 2 simulation frameworks
-5. Submit a PR with USL scores and supporting evidence
+1. Create a new category directory under `usl/` (e.g., `mobile_manipulators/`)
+2. Create a scoring framework module adapted for the category
+3. Create a subdirectory for each evaluated robot with an evaluation module
+4. Add the robot to this README with all diagram sections updated
+5. Validate across at least 2 simulation frameworks
+6. Submit a PR with USL scores and supporting evidence
 
 ---
 

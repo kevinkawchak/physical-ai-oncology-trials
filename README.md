@@ -1,7 +1,7 @@
 # End-to-End Physical AI Unification of Oncology Clinical Trials
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Release](https://img.shields.io/badge/Release-v1.0.0-brightgreen.svg)]()
+[![Release](https://img.shields.io/badge/Release-v1.5.0-brightgreen.svg)]()
 [![Last Updated](https://img.shields.io/badge/Updated-February%202026-blue.svg)]()
 [![Python 3.10+](https://img.shields.io/badge/Python-3.10+-green.svg)]()
 [![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.18445179-blue)](https://doi.org/10.5281/zenodo.18445179)
@@ -116,11 +116,16 @@ physical-ai-oncology-trials/
 │   │   └── validation_suite.py
 │   ├── usl/                          # ★ Unification Standard Level
 │   │   ├── README.md
-│   │   ├── usl_scoring_framework.py
-│   │   └── cobots/
-│   │       ├── franka_panda/
-│   │       ├── kinova_gen3/
-│   │       └── ufactory_xarm7/
+│   │   ├── cobots/
+│   │   │   ├── usl_scoring_framework.py
+│   │   │   ├── franka_panda/
+│   │   │   ├── kinova_gen3/
+│   │   │   └── ufactory_xarm7/
+│   │   └── surgical/
+│   │       ├── usl_surgical_scoring.py
+│   │       ├── intuitive_davinci/
+│   │       ├── medtronic_hugo/
+│   │       └── cmr_versius/
 │   ├── standards_protocols/
 │   └── integration_workflows/
 │
@@ -303,9 +308,27 @@ The new `q1-2026-standards/` directory contains **proposed standards** for meeti
 
 ## ★ Unification Standard Level (USL)
 
-The new `unification/usl/` directory introduces the **Unification Standard Level (USL)** — a scoring framework for evaluating robot readiness for unified, multi-site oncology clinical trials. USL scores range from **1.0 to 10.0** across four dimensions: simulation switching, AI integration, cross-robot sharing, and clinical trial collaboration.
+The `unification/usl/` directory implements the **Unification Standard Level (USL)** — a scoring framework for evaluating robot readiness for unified, multi-site oncology clinical trials. USL scores range from **1.0 to 10.0** across four dimensions: simulation switching, AI integration, cross-robot sharing, and clinical trial collaboration.
 
-### Initial Cobot Evaluations
+### Surgical Robot Evaluations (v1.5.0)
+
+| Robot | Manufacturer | USL Score | Level | Band |
+|-------|-------------|-----------|-------|------|
+| da Vinci (dVRK) | Intuitive Surgical | **7.1** | 7 — Advanced | Advanced |
+| Hugo RAS | Medtronic | **4.5** | 4 — Developing | Foundational |
+| Versius | CMR Surgical | **3.4** | 3 — Basic | Foundational |
+
+```bash
+# Run surgical robot USL scoring demo
+python unification/usl/surgical/usl_surgical_scoring.py
+
+# Evaluate individual surgical robots
+python unification/usl/surgical/intuitive_davinci/intuitive_davinci_usl.py
+python unification/usl/surgical/medtronic_hugo/medtronic_hugo_usl.py
+python unification/usl/surgical/cmr_versius/cmr_versius_usl.py
+```
+
+### Cobot Evaluations (v1.4.0)
 
 | Robot | Manufacturer | USL Score | Level | Band |
 |-------|-------------|-----------|-------|------|
@@ -314,8 +337,8 @@ The new `unification/usl/` directory introduces the **Unification Standard Level
 | UFACTORY xArm 7 | UFACTORY | **3.4** | 3 — Basic | Foundational |
 
 ```bash
-# Run USL scoring framework demo
-python unification/usl/usl_scoring_framework.py
+# Run cobot USL scoring demo
+python unification/usl/cobots/usl_scoring_framework.py
 
 # Evaluate individual cobots
 python unification/usl/cobots/franka_panda/franka_panda_usl.py
@@ -323,7 +346,7 @@ python unification/usl/cobots/kinova_gen3/kinova_gen3_usl.py
 python unification/usl/cobots/ufactory_xarm7/ufactory_xarm7_usl.py
 ```
 
-See `unification/usl/README.md` for the full USL standard, scoring methodology, and three comparison diagrams.
+See `unification/usl/README.md` for the full USL standard, scoring methodology, and six comparison diagrams (3 surgical, 3 cobot).
 
 ---
 

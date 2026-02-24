@@ -5,6 +5,33 @@ Format follows [Keep a Changelog](https://keepachangelog.com/).
 
 ## [Unreleased]
 
+## [1.5.0] - 2026-02-24
+
+### Added
+- `unification/usl/surgical/` directory: USL Surgical Robot evaluation framework extending the Unification Standard Level to teleoperated surgical robot systems for oncology clinical trials
+  - `unification/usl/surgical/usl_surgical_scoring.py`: Surgical robot-specific USL scoring engine with `SurgicalSimFramework` (9 frameworks including ORBIT-Surgical, SurRoL, AMBF), `SurgicalAICapability` (11 capabilities including VLA, diffusion policy, surgical video AI, phase recognition), `SurgicalProcedure` (8 oncology procedures), and four dimension scorers (`SurgicalDimAScore` through `SurgicalDimDScore`) with surgical-specific criteria (tissue deformation, haptic feedback, instrument modeling, remote proctoring, IEC 80601); `SurgicalUSLRating` with weighted scoring, comparison tables, gap analysis, and text/JSON report generation
+  - `unification/usl/surgical/intuitive_davinci/intuitive_davinci_usl.py`: Intuitive Surgical da Vinci (dVRK) evaluation module — `DVRKSpecs` (PSM 7+1 DOF, ECM 4 DOF, MTM 7+1 DOF, 3 PSM arms, 5/8 mm instruments, EndoWrist articulation, stereo vision, tremor filtering, 1 kHz control), `PSMKinematics` with RCM model and modified DH parameters (Kazanzides et al., 2014; DOI 10.1109/ICRA.2014.6907809), `DVRKFrameworkConfig` for ORBIT-Surgical/SurRoL/AMBF/Gazebo/MuJoCo, 4 oncology task definitions, `DVRKCrossOrgSharing` with 5 sharing methods and 10 dVRK institutions; USL score: 7.1 (Level 7 — Advanced)
+  - `unification/usl/surgical/medtronic_hugo/medtronic_hugo_usl.py`: Medtronic Hugo RAS evaluation module — `HugoRASSpecs` (modular cart, 7 DOF + grip, open console, 8 mm instruments, 38 kg per cart), `HugoArmKinematics` with DH parameters, `TouchSurgeryInterface` with phase recognition and performance metrics, 4 oncology tasks, `HugoCrossOrgSharing` with Medtronic ecosystem; USL score: 4.5 (Level 4 — Developing)
+  - `unification/usl/surgical/cmr_versius/cmr_versius_usl.py`: CMR Surgical Versius evaluation module — `VersiusSpecs` (~10 kg arms, 5 mm instruments, biomimetic design, portable, 350+ hospitals), `VersiusArmKinematics` with biomimetic DH parameters, `VersiusORSetup` for 3 oncology specialties, 4 oncology tasks, `VersiusCrossOrgSharing` with deployment regions; USL score: 3.4 (Level 3 — Basic)
+
+### Moved
+- `unification/usl/usl_scoring_framework.py` → `unification/usl/cobots/usl_scoring_framework.py`: Core cobot scoring engine relocated under the `cobots/` subdirectory to separate it from the new `surgical/` category
+
+### Updated
+- `unification/usl/README.md`: Restructured to cover general USL information, then surgical robots (with 3 new text diagrams: general comparison, technical specifications, scoring breakdown), then cobots (original 3 diagrams preserved); added robot categories table, expanded references with surgical-specific citations (Kazanzides et al., ORBIT-Surgical, SurRoL, AMBF, IEC 80601-2-77)
+- `unification/README.md`: Updated USL directory structure to reflect `cobots/` and `surgical/` subdirectories; added Q1 2026 USL surgical robot roadmap items
+- `README.md`: Added ★ USL Surgical Robots section with evaluation table; updated repository structure; updated version to v1.5.0
+- `prompts.md`: Added v1.5.0 USL Surgical Robots prompt
+- `releases.md`: Added v1.5.0 release notes
+- `CHANGELOG.md`: Added v1.5.0 entry
+
+### Notes
+- Three surgical robots selected for: different manufacturers (Intuitive Surgical, Medtronic, CMR Surgical), same type (teleoperated MIS), oncology surgical applications, and varying open-source availability
+- Surgical robot USL scoring adapts all four dimensions (A–D) with surgical-specific criteria: tissue deformation simulation, instrument articulation, surgical video AI, phase recognition, remote proctoring, IEC 80601-2-77 compliance, FDA/CE regulatory pathways
+- All code passes `ruff check` and `ruff format --check` on Python 3.10–3.12
+- 4 new Python modules, approximately 2,400 LOC
+- Development by Claude Code Opus 4.6
+
 ## [1.4.0] - 2026-02-23
 
 ### Added

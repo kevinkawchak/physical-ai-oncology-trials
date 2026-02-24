@@ -4,6 +4,44 @@ Release notes for the physical-ai-oncology-trials repository.
 
 ---
 
+## Unification Standard Level (USL) — Surgical Robots
+v1.5.0 - February 24, 2026
+
+### Summary
+
+Extends the **Unification Standard Level (USL)** framework to **Surgical Robots** — a new robot category under `unification/usl/surgical/`. Three teleoperated surgical robot systems from different manufacturers are evaluated: **Intuitive Surgical da Vinci (dVRK)** (USL 7.1), **Medtronic Hugo RAS** (USL 4.5), and **CMR Surgical Versius** (USL 3.4). Each system is scored across the same four dimensions (A–D) established for cobots: simulation framework switching, generative/agentic AI integration, cross-robot progress sharing, and multi-site clinical trial collaboration.
+
+The existing `usl_scoring_framework.py` is moved under the `cobots/` directory, and a new `usl_surgical_scoring.py` is created for surgical robot evaluation. The USL README is restructured to cover general, surgical, and cobot information in that order, with 3 new text diagrams for surgical robots (general, technical, scoring). Each surgical robot has its own directory with comprehensive evaluation code including hardware specifications, kinematic models, simulation framework configurations, oncology-specific task definitions, cross-organization sharing interfaces, and USL scoring.
+
+### Features
+
+- `unification/usl/surgical/usl_surgical_scoring.py`: USL scoring engine adapted for surgical robots with `SurgicalSimFramework`, `SurgicalAICapability`, and `SurgicalProcedure` enums; `SurgicalDimAScore` through `SurgicalDimDScore` with surgical-specific scoring criteria (tissue deformation, instrument modeling, haptic feedback, surgical video AI, phase recognition, remote proctoring, IEC 80601 compliance); `SurgicalUSLRating` with weighted score computation, comparison tables, gap analysis, and report generation
+- `unification/usl/surgical/intuitive_davinci/intuitive_davinci_usl.py`: Intuitive Surgical da Vinci (dVRK) evaluation module — `DVRKSpecs` with PSM/ECM/MTM configuration (7+1 DOF, 3 PSMs, stereo vision, EndoWrist articulation), `PSMKinematics` with remote center of motion (RCM) model and modified DH parameters (from Kazanzides et al., 2014), `DVRKFrameworkConfig` for 5 simulation frameworks (ORBIT-Surgical/Isaac Lab, SurRoL/PyBullet, AMBF, Gazebo, MuJoCo), `DVRKOncologyTask` definitions (tumor resection, lymph node dissection, suturing, biopsy), `DVRKCrossOrgSharing` with 5 sharing methods and 10 dVRK institution listing; USL score: 7.1
+- `unification/usl/surgical/medtronic_hugo/medtronic_hugo_usl.py`: Medtronic Hugo RAS evaluation module — `HugoRASSpecs` with modular cart architecture (7 DOF per arm, open console, 8 mm instruments), `HugoArmKinematics` with DH parameters and joint validation, `TouchSurgeryInterface` with surgical phase recognition, performance metrics, and analytics, `HugoOncologyTask` definitions (colectomy, hysterectomy, prostatectomy, lymph node biopsy), `HugoCrossOrgSharing` with Medtronic ecosystem listing; USL score: 4.5
+- `unification/usl/surgical/cmr_versius/cmr_versius_usl.py`: CMR Surgical Versius evaluation module — `VersiusSpecs` with biomimetic modular architecture (7 DOF, ~10 kg arms, 5 mm instruments, portable), `VersiusArmKinematics` with biomimetic DH parameters, `VersiusORSetup` configurations for 3 oncology specialties (gynecologic, colorectal, upper GI), `VersiusOncologyTask` definitions (hysterectomy, colectomy, gastrectomy, omentectomy), `VersiusCrossOrgSharing` with deployment regions; USL score: 3.4
+- `unification/usl/README.md`: Restructured with general USL information first, then surgical robot evaluation (3 new text diagrams: general comparison, technical specifications, scoring breakdown), then cobot evaluation (original 3 diagrams preserved), robot category table, updated directory structure, expanded references
+- Moved `unification/usl/usl_scoring_framework.py` → `unification/usl/cobots/usl_scoring_framework.py`
+- Updated `prompts.md`: Added v1.5.0 USL Surgical Robots prompt
+- Updated `releases.md`: Added v1.5.0 release notes
+- Updated `CHANGELOG.md`: Added v1.5.0 entry
+- Updated `unification/README.md`: Updated USL directory structure, added surgical robot roadmap items
+- Updated `README.md`: Added surgical robot USL section, updated version to v1.5.0
+
+### Contributors
+@kevinkawchak
+@claude
+
+### Notes
+- Three surgical robots selected for: different manufacturers, teleoperated MIS architecture, oncology surgical applications, and varying levels of open-source availability
+- da Vinci (dVRK) scores highest due to its unique open-source ecosystem (dVRK, ORBIT-Surgical, SurRoL, AMBF) and extensive AI research community — no other surgical robot has comparable simulation and research infrastructure
+- Hugo RAS and Versius score lower primarily due to proprietary platforms with limited open-source availability, which limits simulation switching, AI integration, and cross-robot sharing
+- All four USL dimensions (A–D) are adapted for surgical robot-specific criteria: tissue deformation simulation, instrument articulation modeling, surgical video AI, phase recognition, remote proctoring, IEC 80601-2-77 compliance
+- All code passes `ruff check` and `ruff format --check` on Python 3.10–3.12
+- 4 new Python modules totaling approximately 2,400 lines of code
+- Development by Claude Code Opus 4.6
+
+---
+
 ## Unification Standard Level (USL) for Collaborative Robots
 v1.4.0 - February 23, 2026
 
