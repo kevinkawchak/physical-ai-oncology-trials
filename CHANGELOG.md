@@ -5,6 +5,30 @@ Format follows [Keep a Changelog](https://keepachangelog.com/).
 
 ## [Unreleased]
 
+## [1.7.0] - 2026-02-24
+
+### Added
+- `unification/usl/humanoids/README.md`: New category README with 6 text diagrams (3 new results/meaning/impact diagrams + 3 moved general/technical/scoring diagrams), full humanoid robot evaluations (Atlas Electric, Digit, Optimus Gen 2), quick start guide, contributing guidelines, and directory structure
+- `unification/usl/surgical/README.md`: New category README with 6 text diagrams (3 new results/meaning/impact diagrams + 3 moved general/technical/scoring diagrams), full surgical robot evaluations (da Vinci dVRK, Hugo RAS, Versius), quick start guide, contributing guidelines, and directory structure
+- `unification/usl/cobots/README.md`: New category README with 6 text diagrams (3 new results/meaning/impact diagrams + 3 moved general/technical/scoring diagrams), full cobot evaluations (Franka Panda, Kinova Gen3, xArm 7), quick start guide, contributing guidelines, and directory structure
+- 3 new cross-category text diagrams in `unification/README.md`: USL results summary (all 9 robots with score rationale), USL meaning (key findings about open-source correlation, clinical readiness gaps, category frontiers), USL impact (phased timeline from category-specific trials through unified consortium)
+
+### Updated
+- `unification/usl/README.md`: Streamlined to contain USL standard overview (scoring methodology, score bands, level definitions), robot categories table with links to category READMEs, updated directory structure reflecting new README.md files, influences, and references — all robot-specific evaluations, diagrams, quick start, and contributing sections moved to category READMEs
+- `unification/README.md`: Added USL link and 3 cross-category text diagrams at top; updated directory structure to reflect new README.md files in category subdirectories and prompts.md location
+- `unification/usl/prompts.md`: Added v1.7.0 USL Restructure prompt on top
+- `releases.md`: Added v1.7.0 release notes in new format (title without hashes)
+- `README.md`: Updated version to v1.7.0; updated repository structure to reflect new category READMEs and prompts.md location under `unification/usl/`
+- `CHANGELOG.md`: Added v1.7.0 entry
+
+### Notes
+- Documentation restructure only — no Python code changes, no new modules
+- Total text diagrams in USL documentation: 18 (was 9) — 9 new diagrams (3 results/meaning/impact per category + 3 cross-category)
+- All robot evaluations, USL scores, and references preserved exactly from v1.6.0
+- Quick start and contributing sections distributed to category READMEs where they are most relevant
+- No Python files changed — CI lint/format checks unaffected
+- Development by Claude Code Opus 4.6
+
 ## [1.6.0] - 2026-02-24
 
 ### Added

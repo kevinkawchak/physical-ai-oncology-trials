@@ -1,7 +1,7 @@
 # End-to-End Physical AI Unification of Oncology Clinical Trials
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Release](https://img.shields.io/badge/Release-v1.6.0-brightgreen.svg)]()
+[![Release](https://img.shields.io/badge/Release-v1.7.0-brightgreen.svg)]()
 [![Last Updated](https://img.shields.io/badge/Updated-February%202026-blue.svg)]()
 [![Python 3.10+](https://img.shields.io/badge/Python-3.10+-green.svg)]()
 [![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.18445179-blue)](https://doi.org/10.5281/zenodo.18445179)
@@ -115,18 +115,22 @@ physical-ai-oncology-trials/
 │   │   ├── framework_detector.py
 │   │   └── validation_suite.py
 │   ├── usl/                          # ★ Unification Standard Level
-│   │   ├── README.md
+│   │   ├── README.md                 # USL standard overview
+│   │   ├── prompts.md                # Development prompts archive
 │   │   ├── humanoids/                # ★ Humanoid Robots (v1.6.0)
+│   │   │   ├── README.md             # Humanoid evaluations & diagrams
 │   │   │   ├── usl_humanoid_scoring.py
 │   │   │   ├── boston_dynamics_atlas/
 │   │   │   ├── tesla_optimus/
 │   │   │   └── agility_digit/
-│   │   ├── surgical/
+│   │   ├── surgical/                 # Surgical Robots (v1.5.0)
+│   │   │   ├── README.md             # Surgical evaluations & diagrams
 │   │   │   ├── usl_surgical_scoring.py
 │   │   │   ├── intuitive_davinci/
 │   │   │   ├── medtronic_hugo/
 │   │   │   └── cmr_versius/
-│   │   └── cobots/
+│   │   └── cobots/                   # Cobots (v1.4.0)
+│   │       ├── README.md             # Cobot evaluations & diagrams
 │   │       ├── usl_scoring_framework.py
 │   │       ├── franka_panda/
 │   │       ├── kinova_gen3/
@@ -369,7 +373,7 @@ python unification/usl/cobots/kinova_gen3/kinova_gen3_usl.py
 python unification/usl/cobots/ufactory_xarm7/ufactory_xarm7_usl.py
 ```
 
-See `unification/usl/README.md` for the full USL standard, scoring methodology, and nine comparison diagrams (3 humanoid, 3 surgical, 3 cobot).
+See `unification/usl/README.md` for the full USL standard and scoring methodology, and individual category READMEs ([humanoids/](unification/usl/humanoids/), [surgical/](unification/usl/surgical/), [cobots/](unification/usl/cobots/)) for 18 text diagrams (6 per category: results, meaning, impact, general comparison, technical specs, scoring breakdown).
 
 ---
 
@@ -953,4 +957,4 @@ Contributions welcome. Please ensure any added frameworks or tools:
 4. **Support cross-platform compatibility** (see `unification/` for guidelines)
 
 
-*v1.4.0 - Last updated: February 2026*
+*v1.7.0 - Last updated: February 2026*
