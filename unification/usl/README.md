@@ -6,7 +6,7 @@
 
 ## Overview
 
-The **Unification Standard Level (USL)** is a scoring framework for evaluating how ready a physical AI robot is for deployment in unified, multi-site oncology clinical trials. USL scores range from **1.0 to 10.0** (in 0.1 increments) and assess four weighted dimensions:
+The **Unification Standard Level (USL)/Unification Standard Levels (USLs)** is a scoring framework for evaluating how ready a physical AI robot is for deployment in unified, multi-site oncology clinical trials. USL scores range from **1.0 to 10.0** (in 0.1 increments) and assess four weighted dimensions:
 
 | Dimension | Weight | What It Measures |
 |-----------|--------|------------------|
