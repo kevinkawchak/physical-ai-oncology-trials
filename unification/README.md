@@ -4,7 +4,7 @@
 
 ---
 
-## Unification Standard Level (USL)
+## Unification Standard Level (USL) / Unification Standard Levels (USL)
 
 The **[Unification Standard Level (USL)](usl/)** is a scoring framework for evaluating robot readiness for unified, multi-site oncology clinical trials. USL scores range from **1.0 to 10.0** across four weighted dimensions: simulation switching, AI integration, cross-robot sharing, and clinical trial collaboration. See [usl/README.md](usl/) for the full standard, and individual category READMEs for detailed evaluations and diagrams.
 
