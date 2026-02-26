@@ -1,0 +1,50 @@
+Unification Standard Level for Physical AI Oncology Trials
+==========================================================
+
+LaTeX Source Code
+-----------------
+
+This archive contains the LaTeX source files for the paper:
+
+  Kawchak K. Unification Standard Level for Physical AI Oncology Trial.
+  Zenodo. 2026; DOI: 10.5281/zenodo.18778220
+
+Files
+-----
+
+  usl_oncology_trials.tex   Main LaTeX document (article class, 11pt)
+  usl-oncology.sty          Custom style package (geometry, colors, formatting)
+  references.bib            BibTeX bibliography (28 references)
+  README                    This file
+
+Compilation
+-----------
+
+  # Full compilation with bibliography:
+  pdflatex usl_oncology_trials.tex
+  bibtex usl_oncology_trials
+  pdflatex usl_oncology_trials.tex
+  pdflatex usl_oncology_trials.tex
+
+  # Or using latexmk:
+  latexmk -pdf usl_oncology_trials.tex
+
+Requirements
+------------
+
+  - LaTeX distribution (TeX Live 2024+ recommended)
+  - Packages: geometry, fontenc, inputenc, mathptmx, microtype, xcolor,
+    graphicx, tikz, booktabs, tabularx, multirow, array, colortbl,
+    enumitem, listings, hyperref, fancyhdr, titlesec, caption, amsmath,
+    amssymb, float, soul
+
+License
+-------
+
+  CC BY 4.0 - Creative Commons Attribution 4.0 International
+  https://creativecommons.org/licenses/by/4.0/
+
+Repository
+----------
+
+  https://github.com/kevinkawchak/physical-ai-oncology-trials

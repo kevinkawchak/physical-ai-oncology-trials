@@ -1,7 +1,7 @@
 # End-to-End Physical AI Unification of Oncology Clinical Trials
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Release](https://img.shields.io/badge/Release-v1.7.0-brightgreen.svg)]()
+[![Release](https://img.shields.io/badge/Release-v1.8.0-brightgreen.svg)]()
 [![Last Updated](https://img.shields.io/badge/Updated-February%202026-blue.svg)]()
 [![Python 3.10+](https://img.shields.io/badge/Python-3.10+-green.svg)]()
 [![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.18445179-blue)](https://doi.org/10.5281/zenodo.18445179)
@@ -117,6 +117,13 @@ physical-ai-oncology-trials/
 │   ├── usl/                          # ★ Unification Standard Level
 │   │   ├── README.md                 # USL standard overview
 │   │   ├── prompts.md                # Development prompts archive
+│   │   ├── paper/                    # ★ USL Paper (v1.8.0)
+│   │   │   ├── Unification Standard Level for Physical AI Oncology Trials.pdf
+│   │   │   ├── Latex Source Code.zip # .tex, .sty, .bib, README
+│   │   │   ├── usl_oncology_trials.tex
+│   │   │   ├── usl-oncology.sty
+│   │   │   ├── references.bib
+│   │   │   └── README
 │   │   ├── humanoids/                # ★ Humanoid Robots (v1.6.0)
 │   │   │   ├── README.md             # Humanoid evaluations & diagrams
 │   │   │   ├── usl_humanoid_scoring.py
@@ -318,6 +325,8 @@ The new `q1-2026-standards/` directory contains **proposed standards** for meeti
 ## ★ Unification Standard Level (USL)
 
 The `unification/usl/` directory implements the **Unification Standard Level (USL)** — a scoring framework for evaluating robot readiness for unified, multi-site oncology clinical trials. USL scores range from **1.0 to 10.0** across four dimensions: simulation switching, AI integration, cross-robot sharing, and clinical trial collaboration.
+
+> **★ USL Paper (v1.8.0)** — See [`unification/usl/paper/`](unification/usl/paper/) for the comprehensive 9-page paper: *Unification Standard Level for Physical AI Oncology Trials* (DOI: [10.5281/zenodo.18778220](https://doi.org/10.5281/zenodo.18778220)). Includes LaTeX source code, complete scoring methodology, all 9 robot evaluations with dimension-by-dimension rationale, cross-category analysis, and discussion.
 
 ### Humanoid Robot Evaluations (v1.6.0)
 

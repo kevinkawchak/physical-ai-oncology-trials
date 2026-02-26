@@ -5,6 +5,29 @@ Format follows [Keep a Changelog](https://keepachangelog.com/).
 
 ## [Unreleased]
 
+## [1.8.0] - 2026-02-26
+
+### Added
+- `unification/usl/paper/` directory: Comprehensive academic paper publication of the USL framework
+  - `Unification Standard Level for Physical AI Oncology Trials.pdf`: 9-page compiled paper with Abstract, Table of Contents, Introduction (prior studies, repository overview, path to USL), Methods (AI tools, development timeline, scoring methodology, category-specific engines), Results (all 9 robots with dimension-by-dimension score rationale and cross-category comparisons), Discussion (open-source correlation, hardware vs. readiness, clinical gaps, category-specific scoring, individual robot code differences), Limitations and Future Work (human, Claude Code, and framework limitations), Conclusion, References (28 citations), Acknowledgments, Ethical Disclosures, Rights and Permissions, and Citation
+  - `Latex Source Code.zip`: Archive containing all 4 LaTeX source files
+  - `usl_oncology_trials.tex`: Main LaTeX document (article class, 11pt, Times Roman, 9 pages)
+  - `usl-oncology.sty`: Custom style package (geometry, colors, section formatting, code listings, TikZ score bars, hyperlinks)
+  - `references.bib`: BibTeX bibliography with 28 references (NASA TRL, MLTRL, simulation frameworks, AI frameworks, regulatory standards)
+  - `README`: LaTeX compilation instructions
+
+### Updated
+- `unification/usl/prompts.md`: Added v1.8.0 USL Paper prompt on top
+- `releases.md`: Added v1.8.0 release notes
+- `CHANGELOG.md`: Added v1.8.0 entry
+- `README.md`: Updated version badge to v1.8.0, added paper reference in USL section, updated repository structure with paper directory
+
+### Notes
+- Paper DOI: 10.5281/zenodo.18778220
+- License: CC BY 4.0 (paper), MIT (repository code)
+- No Python code changes — CI lint/format checks unaffected
+- Development by Claude Code Opus 4.6
+
 ## [1.7.0] - 2026-02-24
 
 ### Added
