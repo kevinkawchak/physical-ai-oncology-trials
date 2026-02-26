@@ -70,6 +70,13 @@ The USL framework evaluates robots across multiple categories relevant to oncolo
 unification/usl/
 ├── README.md                              # This file — USL standard overview
 ├── prompts.md                             # Development prompts archive
+├── paper/                                 # ★ USL Paper (v1.8.0)
+│   ├── Unification Standard Level for Physical AI Oncology Trials.pdf
+│   ├── Latex Source Code.zip              # .tex, .sty, .bib, README
+│   ├── usl_oncology_trials.tex            # Main LaTeX document
+│   ├── usl-oncology.sty                   # Custom style package
+│   ├── references.bib                     # BibTeX bibliography (28 refs)
+│   └── README                             # Compilation instructions
 ├── humanoids/                             # Humanoid Robots category (v1.6.0)
 │   ├── README.md                          # Humanoid evaluations, diagrams, results
 │   ├── usl_humanoid_scoring.py            # USL scoring engine (humanoids)

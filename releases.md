@@ -4,6 +4,43 @@ Release notes for the physical-ai-oncology-trials repository.
 
 ---
 
+Unification Standard Level for Physical AI Oncology Trials — Comprehensive Paper Publication
+v1.8.0 - February 26, 2026
+
+## Summary
+
+Publishes the first comprehensive academic paper formalizing the **Unification Standard Level (USL)** framework for evaluating physical AI robot readiness for multi-site oncology clinical trials. The 9-page LaTeX paper covers all nine evaluated robots across three categories (cobots, surgical robots, humanoid robots), with complete quantitative scoring, code analysis, text diagrams, cross-category comparisons, and discussion of findings. All LaTeX source code is included as a zip archive alongside the compiled PDF.
+
+## Features
+
+- `unification/usl/paper/Unification Standard Level for Physical AI Oncology Trials.pdf`: 9-page compiled paper with Abstract, Table of Contents, Introduction, Methods, Results (all 9 robots with dimension-by-dimension score rationale), Discussion, Limitations and Future Work, Conclusion, References (28 citations), Acknowledgments, Ethical Disclosures, Rights and Permissions, and Citation
+- `unification/usl/paper/Latex Source Code.zip`: Archive containing 4 LaTeX source files (usl_oncology_trials.tex, usl-oncology.sty, references.bib, README)
+- `unification/usl/paper/usl_oncology_trials.tex`: Main LaTeX document (article class, 11pt, Times Roman)
+- `unification/usl/paper/usl-oncology.sty`: Custom style package (geometry, colors, section formatting, code listings, TikZ score bars)
+- `unification/usl/paper/references.bib`: BibTeX bibliography with 28 references (NASA TRL, MLTRL, TRL complex systems, oncology trials, simulation frameworks, AI frameworks, regulatory standards)
+- `unification/usl/paper/README`: LaTeX compilation instructions and file descriptions
+- Updated `unification/usl/prompts.md`: Added v1.8.0 USL Paper prompt on top
+- Updated `releases.md`: Added v1.8.0 release notes in standard format
+- Updated `CHANGELOG.md`: Added v1.8.0 entry
+- Updated `README.md`: Updated version badge to v1.8.0, added paper reference in USL section, updated repository structure with paper directory
+
+## Contributors
+@kevinkawchak
+@claude
+
+## Notes
+- Paper DOI: 10.5281/zenodo.18778220
+- Paper format: Single-column, 11pt Times Roman, A4, with colored section headers, code listings, and tables
+- All USL scores, dimension breakdowns, and robot specifications verified against repository source code
+- Includes code snippets from usl_scoring_framework.py showing Dimension A computation
+- Includes text diagrams showing cross-category Dim A and Dim D comparisons and phased trial timeline
+- References are clickable with DOI links
+- License: CC BY 4.0 (paper), MIT (repository code)
+- No Python code changes — CI lint/format checks unaffected
+- Development by Claude Code Opus 4.6
+
+---
+
 USL Restructure — Category-Specific READMEs and Cross-Category Diagrams
 v1.7.0 - February 24, 2026
 

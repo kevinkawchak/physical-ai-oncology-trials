@@ -1,0 +1,135 @@
+% usl-oncology.sty — Custom style for USL Physical AI Oncology Trials paper
+% License: CC BY 4.0
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{usl-oncology}[2026/02/26 USL Oncology Paper Style]
+
+% ── Page geometry ──────────────────────────────────────────────
+\RequirePackage[
+  a4paper,
+  top=1.5cm,
+  bottom=1.7cm,
+  left=1.5cm,
+  right=1.5cm,
+  headheight=14pt
+]{geometry}
+
+% ── Fonts and encoding ────────────────────────────────────────
+\RequirePackage[T1]{fontenc}
+\RequirePackage[utf8]{inputenc}
+\RequirePackage{mathptmx}          % Times Roman font family
+\RequirePackage{microtype}         % Microtypographic enhancements
+\RequirePackage{multicol}          % Two-column support
+
+% ── Color and graphics ────────────────────────────────────────
+\RequirePackage[dvipsnames,table]{xcolor}
+\RequirePackage{graphicx}
+\RequirePackage{tikz}
+
+% Define custom colors
+\definecolor{uslblue}{RGB}{0,82,155}
+\definecolor{uslgreen}{RGB}{0,128,64}
+\definecolor{uslorange}{RGB}{210,105,30}
+\definecolor{uslgray}{RGB}{88,88,88}
+\definecolor{lightgray}{RGB}{240,240,240}
+\definecolor{bandadvanced}{RGB}{34,139,34}
+\definecolor{bandintermediate}{RGB}{218,165,32}
+\definecolor{bandfoundational}{RGB}{205,92,92}
+\definecolor{bandinitial}{RGB}{178,34,34}
+
+% ── Tables ────────────────────────────────────────────────────
+\RequirePackage{booktabs}
+\RequirePackage{tabularx}
+\RequirePackage{multirow}
+\RequirePackage{array}
+\RequirePackage{colortbl}
+
+% ── Lists and formatting ─────────────────────────────────────
+\RequirePackage{enumitem}
+\setlist{nosep, leftmargin=1.5em}
+
+% ── Code listings ─────────────────────────────────────────────
+\RequirePackage{listings}
+\lstset{
+  basicstyle=\ttfamily\scriptsize,
+  backgroundcolor=\color{lightgray},
+  frame=single,
+  framerule=0.5pt,
+  rulecolor=\color{uslgray},
+  breaklines=true,
+  breakatwhitespace=false,
+  columns=fullflexible,
+  keepspaces=true,
+  showstringspaces=false,
+  numbers=left,
+  numberstyle=\tiny\color{uslgray},
+  numbersep=5pt,
+  tabsize=4,
+  keywordstyle=\color{uslblue}\bfseries,
+  commentstyle=\color{uslgreen}\itshape,
+  stringstyle=\color{uslorange},
+  language=Python,
+  morekeywords={dataclass,field,Enum,Optional,self,True,False,None},
+  literate={─}{{\textendash}}1 {│}{|}1 {├}{+}1 {└}{+}1,
+}
+
+% ── Hyperlinks ────────────────────────────────────────────────
+\RequirePackage[
+  colorlinks=true,
+  linkcolor=uslblue,
+  citecolor=uslgreen,
+  urlcolor=uslblue,
+  bookmarks=true,
+  bookmarksnumbered=true
+]{hyperref}
+
+% ── Headers and footers ──────────────────────────────────────
+\RequirePackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small\textit{USL for Physical AI Oncology Trials}}
+\fancyhead[R]{\small\textit{Kawchak, 2026}}
+\fancyfoot[C]{\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% ── Section formatting ────────────────────────────────────────
+\RequirePackage{titlesec}
+\titleformat{\section}
+  {\normalfont\large\bfseries\color{uslblue}}
+  {\thesection}{0.8em}{}
+\titlespacing*{\section}{0pt}{1.2ex plus 0.3ex minus 0.1ex}{0.6ex plus 0.1ex}
+\titleformat{\subsection}
+  {\normalfont\normalsize\bfseries\color{uslblue!80!black}}
+  {\thesubsection}{0.8em}{}
+\titlespacing*{\subsection}{0pt}{0.9ex plus 0.2ex minus 0.1ex}{0.4ex plus 0.1ex}
+\titleformat{\subsubsection}
+  {\normalfont\small\bfseries\color{uslblue!60!black}}
+  {\thesubsubsection}{0.8em}{}
+\titlespacing*{\subsubsection}{0pt}{0.7ex plus 0.2ex minus 0.1ex}{0.3ex plus 0.1ex}
+
+% ── Captions ──────────────────────────────────────────────────
+\RequirePackage[font=small,labelfont=bf]{caption}
+
+% ── Math ──────────────────────────────────────────────────────
+\RequirePackage{amsmath,amssymb}
+
+% ── Misc ──────────────────────────────────────────────────────
+\RequirePackage{float}
+\RequirePackage{verbatim}
+\RequirePackage{soul}
+
+% ── Custom commands ───────────────────────────────────────────
+\newcommand{\usl}{\textsc{usl}}
+\newcommand{\doi}[1]{\href{https://doi.org/#1}{\texttt{#1}}}
+\newcommand{\scorebar}[1]{%
+  \begin{tikzpicture}[baseline=-0.3em]
+    \fill[uslgray!20] (0,0) rectangle (2,0.3);
+    \fill[uslblue!70] (0,0) rectangle ({#1/10*2},0.3);
+    \node[right] at (2.1,0.15) {\scriptsize #1};
+  \end{tikzpicture}%
+}
+\newcommand{\USLband}[2]{%
+  \textbf{#1} (\textit{#2})%
+}
+
+\endinput
