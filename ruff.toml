@@ -37,3 +37,5 @@ ignore = ["F841", "E741", "E501"]
 "regulatory-submit/**/*.py" = ["F401", "F402"]
 # Visualization scripts use conditional imports for plotly/kaleido
 "images/**/*.py" = ["F401"]
+# Patient illustration generators use cairo imports
+"patients/**/*.py" = ["F401"]
