@@ -1,0 +1,117 @@
+% patient_robot_instructions.sty — Custom style for Patient-Robot Instructions PDF
+% License: CC BY 4.0
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{patient_robot_instructions}[2026/02/28 Patient-Robot Instructions Style]
+
+% ── Page geometry ──────────────────────────────────────────────
+\RequirePackage[
+  a4paper,
+  portrait,
+  top=2.0cm,
+  bottom=1.8cm,
+  left=2.0cm,
+  right=2.0cm,
+  headheight=14pt,
+  footskip=1.2cm
+]{geometry}
+
+% ── Fonts and encoding ────────────────────────────────────────
+\RequirePackage[T1]{fontenc}
+\RequirePackage[utf8]{inputenc}
+\RequirePackage{mathptmx}          % Times Roman font family
+\RequirePackage{microtype}         % Microtypographic enhancements
+
+% ── Color and graphics ────────────────────────────────────────
+\RequirePackage[dvipsnames]{xcolor}
+\RequirePackage{graphicx}
+\RequirePackage{tikz}
+\usetikzlibrary{shapes.geometric,arrows.meta,decorations.pathreplacing,calc}
+
+% ── Tables ────────────────────────────────────────────────────
+\RequirePackage{booktabs}
+\RequirePackage{tabularx}
+
+% ── Lists and formatting ─────────────────────────────────────
+\RequirePackage{enumitem}
+\setlist{nosep, leftmargin=1.8em, topsep=2pt, itemsep=1pt}
+\setlist[enumerate]{label=\arabic*.}
+\setlist[itemize]{label=\textbullet}
+
+% ── Hyperlinks ────────────────────────────────────────────────
+\RequirePackage[
+  colorlinks=false,
+  linkcolor=black,
+  citecolor=black,
+  urlcolor=black,
+  bookmarks=true,
+  bookmarksnumbered=true
+]{hyperref}
+
+% ── Headers and footers ──────────────────────────────────────
+\RequirePackage{fancyhdr}
+\RequirePackage{lastpage}
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0.4pt}
+
+% Header: author info (small)
+\fancyhead[C]{\scriptsize Kevin Kawchak, CEO ChemicalQDevice, https://orcid.org/0009-0007-5457-8667, kevink@chemicalqdevice.com}
+
+% Footer: date, DOI, model, page
+\fancyfoot[L]{\scriptsize February 28, 2026 \enspace|\enspace 10.5281/zenodo.18810541}
+\fancyfoot[R]{\scriptsize Claude Code Opus 4.6 \enspace|\enspace Page \thepage\ of \pageref{LastPage}}
+
+% ── Section formatting ────────────────────────────────────────
+\RequirePackage{titlesec}
+\titleformat{\section}
+  {\normalfont\large\bfseries}
+  {\thesection}{0.8em}{}
+\titlespacing*{\section}{0pt}{1.0ex plus 0.2ex minus 0.1ex}{0.4ex plus 0.1ex}
+\titleformat{\subsection}
+  {\normalfont\normalsize\bfseries}
+  {\thesubsection}{0.8em}{}
+\titlespacing*{\subsection}{0pt}{0.8ex plus 0.2ex minus 0.1ex}{0.3ex plus 0.1ex}
+
+% ── Captions ──────────────────────────────────────────────────
+\RequirePackage[font=small,labelfont=bf]{caption}
+
+% ── Math ──────────────────────────────────────────────────────
+\RequirePackage{amsmath}
+
+% ── Misc ──────────────────────────────────────────────────────
+\RequirePackage{float}
+\RequirePackage{parskip}
+
+% ── Custom commands ───────────────────────────────────────────
+% ISO symbol commands using TikZ
+\newcommand{\isowarning}[1][0.8cm]{%
+  \begin{tikzpicture}[scale=1,baseline=-0.1cm]
+    \draw[thick] (0,0) -- (0.4,0.7) -- (-0.4,0.7) -- cycle;
+    \draw[thick] (0,0.25) -- (0,0.48);
+    \fill (0,0.15) circle (0.04);
+  \end{tikzpicture}%
+}
+
+\newcommand{\isoradiation}[1][0.8cm]{%
+  \begin{tikzpicture}[scale=0.5,baseline=-0.1cm]
+    \foreach \i in {0,120,240} {
+      \fill[rotate=\i] (0,0) -- (80:0.6) arc (80:40:0.6) -- (0,0);
+    }
+    \fill[white] (0,0) circle (0.12);
+  \end{tikzpicture}%
+}
+
+\newcommand{\isokeepstill}[1][0.8cm]{%
+  \begin{tikzpicture}[scale=0.6,baseline=-0.1cm]
+    \draw[thick] (0,0.5) circle (0.12);
+    \draw[thick] (0,0.38) -- (0,0.05);
+    \draw[thick] (-0.2,0.25) -- (0.2,0.25);
+    \draw[thick] (0,0.05) -- (-0.12,-0.2);
+    \draw[thick] (0,0.05) -- (0.12,-0.2);
+    \draw[thick] (-0.3,0.0) -- (-0.3,0.45);
+    \draw[thick] (0.3,0.0) -- (0.3,0.45);
+  \end{tikzpicture}%
+}
+
+\endinput

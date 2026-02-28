@@ -5,6 +5,37 @@ Format follows [Keep a Changelog](https://keepachangelog.com/).
 
 ## [Unreleased]
 
+## [1.9.0] - 2026-02-28
+
+### Added
+- `patients/` directory: Patient-facing instructional illustrations for physical AI oncology trials
+  - `patients/paper/Patient-Robot Instructions: Physical AI Oncology Trials.pdf`: 10-page compiled PDF with black-and-white portrait illustrations and detailed patient instructions for 10 robot types
+  - `patients/paper/Latex Source Code.zip`: Archive containing LaTeX source files (patient_robot_instructions.tex, patient_robot_instructions.sty, references.bib, README)
+  - `patients/paper/patient_robot_instructions.tex`: Main LaTeX document (article class, 11pt, Times Roman, 10 pages)
+  - `patients/paper/patient_robot_instructions.sty`: Custom style package (geometry, fancyhdr, TikZ ISO symbols, enumitem)
+  - `patients/paper/references.bib`: BibTeX bibliography with 35 references
+  - `patients/paper/README`: Compilation instructions
+  - `patients/svg/`: 10 individual SVG vector illustrations
+  - `patients/pdf/`: 10 individual PDF vector illustrations
+  - `patients/png/`: 10 individual PNG raster illustrations (3600×4000 pixels)
+  - `patients/generate_illustrations.py`: Cairo illustration generator for SVG/PDF/PNG
+  - `patients/generate_pdf.py`: Combined 10-page PDF generator
+  - `patients/README.md`: Detailed documentation of paper, robot types, ISO standards, and directory structure
+  - `patients/prompts/prompts.md`: Development prompt archive
+
+### Updated
+- `releases.md`: Added v1.9.0 release notes
+- `CHANGELOG.md`: Added v1.9.0 entry
+- `README.md`: Updated version badge to v1.9.0, added patients section, updated repository structure
+- `ruff.toml`: Added per-file ignore for patients directory Python scripts
+
+### Notes
+- Paper DOI: 10.5281/zenodo.18810541
+- 10 robot types: Surgical Robots, Cobots, Radiotherapy Patient-Positioning Robots, Robotic Needle-Placement Systems, Social Companion Robots (pediatric), Humanoids (pediatric), Radiotherapy Motion-Management/Tracking Robots, Imaging Assistant Robots, Steerable Needle/Needle-Steering Robots, Rehabilitation Exoskeletons/Robotic Gait Trainers
+- ISO standards referenced: ISO 15223-1, ISO 20417, ISO 7000, IEC 60417, ISO 7010, ISO 3864-1
+- License: CC BY 4.0 (paper), MIT (scripts)
+- Development by Claude Code Opus 4.6
+
 ## [1.8.0] - 2026-02-26
 
 ### Added

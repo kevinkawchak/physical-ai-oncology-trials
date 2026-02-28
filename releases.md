@@ -4,6 +4,50 @@ Release notes for the physical-ai-oncology-trials repository.
 
 ---
 
+Patient-Robot Instructions: Physical AI Oncology Trials — Instructional Illustrations
+v1.9.0 - February 28, 2026
+
+## Summary
+
+Publishes a **10-page patient-facing instructional PDF** with professional black-and-white portrait illustrations for physical AI oncology clinical trials. Each page is a self-contained instruction sheet for one of 10 robot types, showing a diverse patient interacting with the robot alongside detailed numbered instructions covering home preparation, entering the room, during interaction, concluding the session, and follow-up care. Pages 5 and 6 feature pediatric patients matched to child-appropriate robots (Social Companion Robots, Humanoids). All illustrations are generated using Python Cairo as high-resolution vector graphics and exported in SVG, PDF, and PNG formats. ISO 15223-1, ISO 20417, ISO 7000, IEC 60417, ISO 7010, and ISO 3864-1 standards are referenced for symbols and safety pictograms.
+
+## Features
+
+- `patients/paper/Patient-Robot Instructions: Physical AI Oncology Trials.pdf`: 10-page compiled PDF with header (author, ORCID, email), title with robot type, prominent black-and-white illustration, 5-section numbered instructions, and footer (date, DOI, model, page number, sources)
+- `patients/paper/Latex Source Code.zip`: Archive containing 4 LaTeX source files (patient_robot_instructions.tex, patient_robot_instructions.sty, references.bib, README)
+- `patients/paper/patient_robot_instructions.tex`: Main LaTeX document (10 pages, article class, 11pt, Times Roman)
+- `patients/paper/patient_robot_instructions.sty`: Custom style package (geometry, fancyhdr, TikZ ISO symbols, enumitem)
+- `patients/paper/references.bib`: BibTeX bibliography with 35 references (surgical robots, cobots, radiotherapy, needle placement, companion robots, humanoids, motion tracking, imaging, steerable needles, exoskeletons, ISO standards)
+- `patients/paper/README`: Compilation instructions and content overview
+- `patients/svg/`: 10 individual SVG vector illustrations (one per robot type)
+- `patients/pdf/`: 10 individual PDF vector illustrations
+- `patients/png/`: 10 individual PNG raster illustrations (3600×4000 pixels)
+- `patients/generate_illustrations.py`: Cairo illustration generator for individual SVG/PDF/PNG files
+- `patients/generate_pdf.py`: Combined 10-page PDF generator with full layout
+- `patients/README.md`: Detailed documentation of the paper, directory structure, robot types, ISO standards, and regeneration instructions
+- `patients/prompts/prompts.md`: Development prompt archive for v1.9.0
+- Updated `releases.md`: Added v1.9.0 release notes
+- Updated `CHANGELOG.md`: Added v1.9.0 entry
+- Updated `README.md`: Updated version badge to v1.9.0, added patients section, updated repository structure
+
+## Contributors
+@kevinkawchak
+@claude
+
+## Notes
+- Paper DOI: 10.5281/zenodo.18810541
+- 10 robot types selected from 13 candidates; must-include: Cobots, Surgical Robots, Humanoids
+- Excluded: Telepresence robots, AMRs, UV disinfection robots (limited direct patient interaction)
+- Patient diversity across 10 pages: 9 distinct hair styles, 2 pediatric patients (pages 5--6)
+- Quantitative patient guidance: estimated minutes, force values, distances, specific hand/body positions
+- ISO standards: ISO 15223-1, ISO 20417, ISO 7000, IEC 60417 (symbols); ISO 7010, ISO 3864-1 (safety)
+- Illustrations rendered with Python Cairo; LaTeX source provided as reference/alternative compilation path
+- License: CC BY 4.0 (paper and illustrations), MIT (generation scripts)
+- No Python module changes — CI lint/format checks addressed with ruff.toml per-file ignores
+- Development by Claude Code Opus 4.6
+
+---
+
 Unification Standard Level for Physical AI Oncology Trials — Comprehensive Paper Publication
 v1.8.0 - February 26, 2026
 

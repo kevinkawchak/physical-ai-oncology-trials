@@ -1,7 +1,7 @@
 # End-to-End Physical AI Unification of Oncology Clinical Trials
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Release](https://img.shields.io/badge/Release-v1.8.0-brightgreen.svg)]()
+[![Release](https://img.shields.io/badge/Release-v1.9.0-brightgreen.svg)]()
 [![Last Updated](https://img.shields.io/badge/Updated-February%202026-blue.svg)]()
 [![Python 3.10+](https://img.shields.io/badge/Python-3.10+-green.svg)]()
 [![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.18445179-blue)](https://doi.org/10.5281/zenodo.18445179)
@@ -9,6 +9,8 @@
 **Practical tools for integrating physical AI into oncology clinical trials, by Claude Code Opus 4.6/4.5, Cowork; ChatGPT 5.2 Thinking**
 
 This repository provides production-ready configurations, validated pipelines, and integration guides for deploying robotic systems, digital twins, and embodied AI agents in oncology. Referenced frameworks and tools have been added primarily from Oct. 2025 to Jan. 2026.
+
+📄 **2/28: New Paper (Patient-Robot Instructions)** *Patient-Robot Instructions: Physical AI Oncology Trials* [![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.18810541-blue)](https://doi.org/10.5281/zenodo.18810541)
 
 📄 **2/26: New Paper (USL)** *Unification Standard Level for Physical AI Oncology Trials* [![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.18778219-blue)](https://doi.org/10.5281/zenodo.18778219)
 
@@ -45,6 +47,23 @@ physical-ai-oncology-trials/
 ├── V1_RELEASE.md
 ├── LICENSE
 ├── requirements.txt
+│
+├── patients/                          # ★ Patient-Robot Instructions (v1.9.0)
+│   ├── README.md                      # Detailed paper documentation
+│   ├── generate_illustrations.py      # Cairo illustration generator
+│   ├── generate_pdf.py                # Combined 10-page PDF generator
+│   ├── paper/                         # ★ Main paper output
+│   │   ├── Patient-Robot Instructions: Physical AI Oncology Trials.pdf
+│   │   ├── Latex Source Code.zip      # .tex, .sty, .bib, README
+│   │   ├── patient_robot_instructions.tex
+│   │   ├── patient_robot_instructions.sty
+│   │   ├── references.bib
+│   │   └── README
+│   ├── svg/                           # 10 SVG vector illustrations
+│   ├── pdf/                           # 10 PDF vector illustrations
+│   ├── png/                           # 10 PNG raster illustrations
+│   └── prompts/
+│       └── prompts.md                 # Development prompts archive
 │
 ├── digital-twins/
 │   ├── README.md
@@ -321,6 +340,27 @@ The new `q1-2026-standards/` directory contains **proposed standards** for meeti
 | dVRK-Si | JHU | 2025 | Next-gen da Vinci Si/S support | ✓ Bridge available |
 | SurgicalGym | - | 2025 | GPU-based surgical RL | ◐ In progress |
 | Isaac Lab-Arena | NVIDIA | Jan 2026 | Large-scale policy evaluation | ✓ Benchmark integration |
+
+---
+
+## ★ Patient-Robot Instructions (v1.9.0)
+
+The `patients/` directory contains a **10-page patient-facing instructional PDF** with professional black-and-white portrait illustrations. Each page is a self-contained instruction sheet for one robot type used in physical AI oncology trials, covering home preparation, entering the room, interaction, concluding the session, and follow-up.
+
+> **★ Patient-Robot Instructions Paper (v1.9.0)** — See [`patients/paper/`](patients/paper/) for the 10-page PDF: *Patient-Robot Instructions: Physical AI Oncology Trials* (DOI: [10.5281/zenodo.18810541](https://doi.org/10.5281/zenodo.18810541)). Includes LaTeX source code, 10 individual illustrations (SVG/PDF/PNG), and 35-reference bibliography.
+
+| Page | Robot Type | Patient | Est. Time |
+|------|-----------|---------|-----------|
+| 1 | Surgical Robots | Adult | 45--180 min |
+| 2 | Cobots | Adult | 10--25 min |
+| 3 | Radiotherapy Patient-Positioning Robots | Adult | 15--30 min |
+| 4 | Robotic Needle-Placement Systems | Adult | 20--45 min |
+| 5 | Social Companion Robots | **Pediatric** | 10--20 min |
+| 6 | Humanoids | **Pediatric** | 15--25 min |
+| 7 | Radiotherapy Motion-Management / Tracking Robots | Adult | 10--20 min |
+| 8 | Imaging Assistant Robots | Adult | 10--20 min |
+| 9 | Steerable Needle / Needle-Steering Robots | Adult | 30--60 min |
+| 10 | Rehabilitation Exoskeletons / Robotic Gait Trainers | Adult | 15--30 min |
 
 ---
 
