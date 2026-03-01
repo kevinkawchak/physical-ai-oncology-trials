@@ -4,6 +4,55 @@ Archive of prompts used to develop the patient-robot instructional illustrations
 
 ---
 
+## v1.9.1 — Patient-Robot Instructions: AI Oncology Trials — New Images and Streamlined Instructions (March 1, 2026)
+
+Based on the prior .tex in physical-ai-oncology-trials/tree/main/patients/paper/patient_robot_instructions.tex, kevinkawchak/physical-ai-oncology-trials, and this drive link to new 10 images (https://drive.google.com/drive/folders/1Cpe7fz3KlaERIfd6LQz2wmSBQNmB00Ax): substitute each of the new images by file name number into their respective pages (1-10). Don't use the A)-E) letters themselves from below.
+
+A) Keep the top bar and text above the top bar.
+
+B) The title for each respective robot type should be the same text size and type and changed to "Patient-Robot Instructions: AI Oncology Trials - " as the basis. Abbreviate the appended robot type name if the title starts becoming wider than the image below it. Include the bar below the title.
+
+C) Remove the prior image, image border, the lower right hand icon, the "Adult/Pediatric Oncology Trial Setting". Each page's respective image should be the new image and occupy the largest portion of each page, followed by the horizontal dashed bar, and then each page's respective robot type (use full name if previously abbreviated from above), followed by a new horizontal bar under the robot type in bold that is the same thickness as the bar under the title, leaving sufficient white space between the numbered list and bottom text/bar. All images should be of the same dimensions and quality inside each page (same x, y coordinates for every corner.)
+
+D) Below the image, remove the five large sets of instructions, and use 1 line of text that introduces the patient to the robot that the patient will be interacting with at the clinical trial. Then use a numbered list (1-3) that is 1 line per number, and describes how the patient should interact with the robot (only the human patient and robot are in the room) 1) What the patient needs to do the moment the patient walks into the room alone with the robot 2) What the patient needs to do while interacting with the robot, 3) What the patient needs to do in concluding the session with the robot. Use quantitative data like the estimated number of minutes each patient will interact with the robot (at different stages of the interaction if relevant), what exactly the patient needs to do with their hands at certain times, how to talk to the robot, and touch the robot if necessary. This section (4 total lines) should look consistent across the ten pages.
+
+You must be an expert regarding all the ways the patient would need to be seen by the robot, all the ways the patient will interact with the robot, and all types of procedures/surgeries the patient would need to have with the robot prior to writing the bullet points. Pick one major cancer reason the patient needs to visit the robot.
+
+E) Keep the bottom bar, except there should not be full URLs (instead abbreviate them and have them clickable, with phrases like Zenodo, Intuitive Surgical, etc.). Many of the current URLs do not work. Fix all URLs and test each and every one of them (.bib should have all the correct URLs as well). Only have the clickable doi that has been assigned to this paper (10.5281/zenodo.18810541) not the second doi.org... Add the statement at the bottom of each page: "For Demonstration Purposes Only" to the right of the "Sources".
+
+Keep the high resolution and clear images. The purpose of the pdf is for an upcoming patient to visualize, read, and feel comfortable regarding how to correctly interact with a specific type of robot for their upcoming physical ai oncology trial (that patient should have all the information they need on that single page for interacting with that robot type).
+
+Move all v1.9.0 associated material to a new folder under patients/research, except for prompts/ and prompts.md. Don't associate the v1.9.0 as the current doi in Readme/documentation (but don't change prior v1.9.0 files).
+
+Store all files under kevinkawchak/physical-ai-oncology-trials/patients and its corresponding subdirectories (include an updated Readme describing this version's progress under /patients). Create a separate images directory and Readme that correctly states the drive url link to access all images included here.
+
+Make sure to clone the current repo and utilize appropriate information regarding this pdf. Search other GitHub repositories and online sites if additional context or robot visual assistance is needed. Make sure every page is properly formatted and seems attractive to read. Make sure there are not large gaps between words if using latex raggedright. Make sure information across pages is not exactly duplicate.
+
+Be sure to fix and address errors that would cause failed checks for the single pull request (such as Python environment issues to avoid the following error during final checks): "3 failing checks
+x Cl / lint-and-format (3.10) (pull...
+x Cl / lint-and-format (3.11) (pull...
+x Cl / lint-and-format (3.12) (pull... " Place the new release notes in releases.md under main using the format below (note title gets no hashes, while summary, features, etc. get two leading hashes).
+
+Update other relevant documentation such as project structures. Update the main Readme diagrams, repository structure, etc. where necessary. Provide an updated changelog (v1.9.1). Provide a copy of this prompt under the existing kevinkawchak/physical-ai-oncology-trials/patients/prompts.md
+
+Output the finished pdf paper with file name "Patient-Robot Instructions: Physical AI Oncology Trials" as a .pdf under a new patients/paper. Provide three pdf versions (full size images, 10 mb total pdf, 5 mb total pdf). Output a zip file containing 4 files titled "Latex Source Code" under patients/paper: .tex,.sty, README, .bib. When you are finished, auto-push the update to GitHub on your own for my review. The user will then review your updates in GitHub prior to finalization.
+
+"FORMAT"
+Release title
+v1.9.1 - [Fill in Title Here]
+
+## Summary
+
+## Features
+
+## Contributors
+@kevinkawchak
+@claude
+
+## Notes
+
+---
+
 ## v1.9.0 — Patient-Robot Instructions: Physical AI Oncology Trials (February 28, 2026)
 
 Based on kevinkawchak/physical-ai-oncology-trials, your goal is to create patient-facing instructional illustrations in a high resolution and clear LaTeX formatted portrait pdf with 10 pages. Each page should have their own unique professional and prominent black and white portrait layout image (black draw, white background). Each page should have a consistent feel in terms of image artistry and size, text formatting, title placement, etc. The purpose of the pdf is for an upcoming patient to visualize, read, and feel comfortable regarding how to correctly interact with a specific type of robot for their upcoming physical ai oncology trial (that patient should have all the information they need on that single page for that robot type)(only 1 human patient and 1 robot per page, no human doctors or nurses). Patient diversity should be apparent (even for the black and white images). 2 of the images (starting after the forth image) should be children of suitable age for a pediatric oncology trial, and matched to robots suitable to their size and most likely to be used on children).
