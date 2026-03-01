@@ -4,12 +4,12 @@
 \title{%
   \vspace{-1.5cm}
   {\Large\bfseries Patient-Robot Instructions: Physical AI Oncology Trials}\\[0.3em]
-  {\normalsize Instructional Illustrations and Procedural Guidance for 10 Robot Types}
+  {\normalsize Instructional Sheets for 10 Robot Types — v1.9.1}
 }
 \author{%
   Kevin Kawchak\thanks{CEO, ChemicalQDevice. ORCID: \url{https://orcid.org/0009-0007-5457-8667}. Email: kevink@chemicalqdevice.com}\\
   \small DOI: \href{https://doi.org/10.5281/zenodo.18810541}{\texttt{10.5281/zenodo.18810541}}\\[0.2em]
-  \small February 28, 2026
+  \small March 1, 2026
 }
 \date{}
 
@@ -19,12 +19,7 @@
 % Each page is a self-contained instructional sheet for one robot type.
 % Pages 5 and 6 feature pediatric patients.
 % Robot types are ordered by frequency of use in physical AI oncology trials.
-% Illustrations are black-and-white TikZ portraits rendered with Cairo.
-%
-% ISO standards considered:
-%   - ISO 15223-1, ISO 20417 (medical device symbols and information)
-%   - ISO 7000, IEC 60417 (graphical symbols for equipment)
-%   - ISO 7010, ISO 3864-1 (safety signs and pictograms)
+% Images are sourced from patients/images/ (numbered 1--10).
 % ══════════════════════════════════════════════════════════════
 
 % ──────────────────────────────────────────────────────────────
@@ -32,655 +27,339 @@
 % ──────────────────────────────────────────────────────────────
 \newpage
 \thispagestyle{fancy}
-\section*{Patient-Robot Instructions: Physical AI Oncology Trials -- Surgical Robots}
+\section*{Patient-Robot Instructions: AI Oncology Trials - Surgical Robots}
+\vspace{-0.3em}
+\noindent\rule{\textwidth}{0.4pt}
 
 \begin{center}
-\textit{Adult Oncology Trial Setting}
-
-\vspace{0.5em}
-% [Illustration: Adult patient lying on operating table. Multi-arm surgical robot
-%  (da Vinci style) positioned overhead with 3--4 articulating arms. Camera arm
-%  centered, instrument arms flanking. Patient in hospital gown, arms on rests.]
-\fbox{\parbox{0.85\textwidth}{\centering\vspace{4cm}
-\textbf{[TikZ/Cairo Illustration: Surgical Robot with Patient]}\\
-Adult patient on operating table; multi-arm surgical robot overhead\\
-ISO 7010 Caution Symbol \isowarning
-\vspace{4cm}}}
+\vspace{0.3em}
+\includegraphics[width=0.92\textwidth,keepaspectratio]{../images/1.png}
 \end{center}
 
-\subsection*{1. Preparation at Home}
-\begin{enumerate}
-  \item Fast for 8 hours before your scheduled procedure (no food or drink).
-  \item Shower with antibacterial soap the evening before and morning of.
-  \item Wear loose, comfortable clothing; leave jewelry and valuables at home.
-  \item Bring your photo ID, insurance card, and signed consent forms.
-  \item Take prescribed pre-operative medications as directed by your oncologist.
-\end{enumerate}
+\vspace{-0.3em}
+\noindent\dashrule{\textwidth}
+\begin{center}
+{\large\bfseries Surgical Robots}
+\end{center}
+\noindent\rule{\textwidth}{0.4pt}
 
-\subsection*{2. Entering the Room}
-\begin{enumerate}
-  \item A staff member will guide you to the pre-op area; the robot will already be in the OR.
-  \item Change into the hospital gown provided and place belongings in the labeled bag.
-  \item Lie on the operating table face-up when instructed.
-  \item Place both arms on the padded arm rests, palms facing up.
-  \item Remain still while the anesthesiologist administers sedation (approx.\ 2~min).
-\end{enumerate}
+\vspace{0.3em}
+This surgical robot assists your surgeon in performing a minimally invasive robotic prostatectomy through small incisions using precise multi-arm instruments.
 
-\subsection*{3. During the Interaction}
-\begin{enumerate}
-  \item The surgical robot has 3--4 arms that will operate through small incisions (8--12~mm).
-  \item You will be under general anesthesia and will not feel or need to do anything.
-  \item Estimated procedure time: 45--180 minutes depending on tumor location.
-  \item The surgeon controls the robot from a console nearby; the robot does not act autonomously.
-  \item Robotic instruments include a camera, graspers, and cautery tools.
-\end{enumerate}
-
-\subsection*{4. Concluding the Session}
-\begin{enumerate}
-  \item After the procedure, the robot arms are retracted and incisions are closed.
-  \item You will be moved to the recovery room; expect to wake in 15--30 minutes.
-  \item A nurse will check your vitals every 15 minutes for the first hour.
-  \item You may feel mild soreness at incision sites; request pain management as needed.
-\end{enumerate}
-
-\subsection*{5. At Home \& Follow-Up}
-\begin{enumerate}
-  \item Keep incision sites clean and dry for 48 hours; change dressings as instructed.
-  \item Attend your post-operative follow-up appointment in 7--10 days.
-  \item Report any fever above 38.5\,$^\circ$C, excessive bleeding, or unusual swelling immediately.
-  \item Resume light activity after 1--2 weeks; avoid heavy lifting for 4--6 weeks.
-  \item Your next robotic-assisted session (if needed) will be scheduled at follow-up.
+\begin{enumerate}[leftmargin=1.5em,itemsep=2pt]
+  \item Lie face-up on the operating table, place both arms flat on the padded arm rests with palms up, and remain still while anesthesia is administered over approximately 2 minutes.
+  \item You will be under general anesthesia for the entire 90--180 minute procedure; the robot's 4 arms operate through 8--12\,mm incisions while the surgeon controls it from a nearby console.
+  \item After the robot arms retract, you are moved to recovery where you will awaken in 15--30 minutes; remain lying down until a nurse confirms your vitals.
 \end{enumerate}
 
 \vfill
 \noindent\rule{\textwidth}{0.4pt}\\
-{\scriptsize Sources: intuitivesurgical.com/davinci \cite{intuitive2026davinci}; \cite{sheetz2020trends}; \cite{moglia2021systematic}}
+{\scriptsize Sources: \href{https://www.intuitive.com/en-us/products-and-services/da-vinci}{Intuitive Surgical} \cite{intuitive2026davinci}; \cite{sheetz2020trends}; \cite{moglia2021systematic} \hfill \textit{For Demonstration Purposes Only}}
 
 % ──────────────────────────────────────────────────────────────
 % PAGE 2: Cobots
 % ──────────────────────────────────────────────────────────────
 \newpage
 \thispagestyle{fancy}
-\section*{Patient-Robot Instructions: Physical AI Oncology Trials -- Cobots}
+\section*{Patient-Robot Instructions: AI Oncology Trials - Cobots}
+\vspace{-0.3em}
+\noindent\rule{\textwidth}{0.4pt}
 
 \begin{center}
-\textit{Adult Oncology Trial Setting}
-
-\vspace{0.5em}
-\fbox{\parbox{0.85\textwidth}{\centering\vspace{4cm}
-\textbf{[TikZ/Cairo Illustration: Cobot with Patient]}\\
-Adult patient seated in exam chair; 7-DOF collaborative robot arm on mobile cart\\
-ISO 15223-1 Keep Still Symbol \isokeepstill
-\vspace{4cm}}}
+\vspace{0.3em}
+\includegraphics[width=0.92\textwidth,keepaspectratio]{../images/2.png}
 \end{center}
 
-\subsection*{1. Preparation at Home}
-\begin{enumerate}
-  \item Eat a light meal 2 hours before your appointment to maintain comfort.
-  \item Wear a short-sleeved shirt or top that allows arm and shoulder access.
-  \item Review your medication list; bring any prescribed topical numbing cream.
-  \item Arrive 15 minutes early to complete check-in paperwork.
-  \item Remove watches, bracelets, and rings from the arm the cobot will assist.
-\end{enumerate}
+\vspace{-0.3em}
+\noindent\dashrule{\textwidth}
+\begin{center}
+{\large\bfseries Cobots (Collaborative Robots)}
+\end{center}
+\noindent\rule{\textwidth}{0.4pt}
 
-\subsection*{2. Entering the Room}
-\begin{enumerate}
-  \item Enter the procedure room; the cobot is mounted on a mobile cart beside the exam chair.
-  \item Sit in the adjustable exam chair and place your arm on the padded arm rest.
-  \item The cobot will be in standby mode with its arm retracted and a green status light on.
-  \item A technician will verbally confirm the procedure and activate the cobot.
-  \item Place your hand palm-down on the marked target area on the arm rest.
-\end{enumerate}
+\vspace{0.3em}
+This collaborative robot arm gently positions your arm and assists with automated tissue sample collection for your breast cancer biopsy analysis.
 
-\subsection*{3. During the Interaction}
-\begin{enumerate}
-  \item The cobot arm moves slowly and gently (max speed 250~mm/s); you may feel light pressure.
-  \item If you feel discomfort, say ``Stop'' clearly; the cobot will halt within 0.5~seconds.
-  \item Estimated interaction time: 10--25 minutes for sample collection or positioning tasks.
-  \item Keep your arm relaxed and still; the cobot uses force sensors to avoid excess pressure.
-  \item The cobot may reposition your arm 2--3 times; follow verbal audio prompts.
-\end{enumerate}
-
-\subsection*{4. Concluding the Session}
-\begin{enumerate}
-  \item The cobot arm will retract to its home position when the task is complete.
-  \item Remain seated for 2 minutes while the technician reviews results on screen.
-  \item A bandage will be applied to any sample collection site.
-  \item You will receive a printed summary of the session before leaving.
-\end{enumerate}
-
-\subsection*{5. At Home \& Follow-Up}
-\begin{enumerate}
-  \item No special home care is usually required after cobot-assisted procedures.
-  \item If a sample was collected, results will be available in 3--5 business days.
-  \item Monitor the site for 24 hours; apply gentle pressure if any minor bleeding.
-  \item Your next cobot session will be scheduled during your regular oncology visit.
+\begin{enumerate}[leftmargin=1.5em,itemsep=2pt]
+  \item Sit in the adjustable exam chair, rest your arm on the padded support with your palm facing down, and keep your hand relaxed and fingers open for approximately 1 minute.
+  \item The cobot moves at a maximum of 250\,mm/s with force-limited contact; hold still for 10--25 minutes while it repositions your arm 2--3 times and collects samples, saying ``Stop'' if you feel discomfort.
+  \item The cobot retracts to its home position; remain seated for 2 minutes while results are reviewed, then receive a bandage at the collection site before leaving.
 \end{enumerate}
 
 \vfill
 \noindent\rule{\textwidth}{0.4pt}\\
-{\scriptsize Sources: franka.de/research \cite{franka2026research}; \cite{lamon2023collaborative}; \cite{haddadin2022collaborative}}
+{\scriptsize Sources: \href{https://franka.de/franka-research-3}{Franka Robotics} \cite{franka2026research}; \cite{lamon2023collaborative}; \cite{haddadin2016physical} \hfill \textit{For Demonstration Purposes Only}}
 
 % ──────────────────────────────────────────────────────────────
 % PAGE 3: Radiotherapy Patient-Positioning Robots
 % ──────────────────────────────────────────────────────────────
 \newpage
 \thispagestyle{fancy}
-\section*{Patient-Robot Instructions: Physical AI Oncology Trials -- Radiotherapy Patient-Positioning Robots}
+\section*{Patient-Robot Instructions: AI Oncology Trials - RT Positioning Robots}
+\vspace{-0.3em}
+\noindent\rule{\textwidth}{0.4pt}
 
 \begin{center}
-\textit{Adult Oncology Trial Setting}
-
-\vspace{0.5em}
-\fbox{\parbox{0.85\textwidth}{\centering\vspace{4cm}
-\textbf{[TikZ/Cairo Illustration: Radiotherapy Positioning Robot with Patient]}\\
-Adult patient lying on robotic 6-DOF couch; gantry ring above; laser crosshairs\\
-ISO 7010 W003 Ionizing Radiation Symbol \isoradiation
-\vspace{4cm}}}
+\vspace{0.3em}
+\includegraphics[width=0.92\textwidth,keepaspectratio]{../images/3.png}
 \end{center}
 
-\subsection*{1. Preparation at Home}
-\begin{enumerate}
-  \item Wear comfortable clothing without metal (zippers, snaps, underwire).
-  \item Do not apply lotion, deodorant, or powder to the treatment area.
-  \item Eat and drink normally unless otherwise directed by your radiation oncologist.
-  \item Take anxiety-reducing medication 30 min before if prescribed.
-  \item Use the restroom before your session; a full bladder may be required for some sites.
-\end{enumerate}
+\vspace{-0.3em}
+\noindent\dashrule{\textwidth}
+\begin{center}
+{\large\bfseries Radiotherapy Patient-Positioning Robots}
+\end{center}
+\noindent\rule{\textwidth}{0.4pt}
 
-\subsection*{2. Entering the Room}
-\begin{enumerate}
-  \item Enter the treatment room; the robotic couch is the flat table in the center.
-  \item Lie on the robotic couch in the position demonstrated during your simulation session.
-  \item Place your arms in the arm cradle or above your head as instructed.
-  \item A custom immobilization mask or mold may be placed to hold you steady.
-  \item The couch will adjust automatically using 6 degrees of freedom (6-DOF).
-\end{enumerate}
+\vspace{0.3em}
+This robotic treatment couch precisely positions your body using six degrees of freedom to align with the radiation beam for your lung tumor treatment.
 
-\subsection*{3. During the Interaction}
-\begin{enumerate}
-  \item The robotic couch shifts in small increments (1--3~mm) to align you with the beam.
-  \item You will hear mechanical sounds as the couch moves; this is normal.
-  \item Breathe normally and remain completely still during alignment (approx.\ 5--8~min).
-  \item Laser crosshairs will project onto your skin to verify position; do not block them.
-  \item Estimated total session time: 15--30 minutes including setup and treatment.
-\end{enumerate}
-
-\subsection*{4. Concluding the Session}
-\begin{enumerate}
-  \item After the beam delivery ends, the couch will lower to exit height.
-  \item Wait for the therapist to remove any immobilization devices before sitting up.
-  \item Sit up slowly to avoid dizziness and swing your legs off the side.
-  \item The therapist will confirm your next session date and time.
-\end{enumerate}
-
-\subsection*{5. At Home \& Follow-Up}
-\begin{enumerate}
-  \item Gently wash the treatment area with mild soap; do not scrub.
-  \item Apply recommended moisturizer to the treatment area if skin redness develops.
-  \item Attend all scheduled daily sessions (typically Mon--Fri for 3--7 weeks).
-  \item Report skin changes, pain, or fatigue to your radiation oncology team.
+\begin{enumerate}[leftmargin=1.5em,itemsep=2pt]
+  \item Lie on the robotic couch in the position practiced during simulation, place your arms in the overhead cradle, and allow the immobilization mask to be fitted over 2--3 minutes.
+  \item The couch shifts in 1--3\,mm increments to align you with the beam; breathe normally and remain completely still during the 15--30 minute session, keeping your hands above your head.
+  \item When the beam stops, the couch lowers to exit height; wait for the immobilization device to be removed, then sit up slowly using both hands for support.
 \end{enumerate}
 
 \vfill
 \noindent\rule{\textwidth}{0.4pt}\\
-{\scriptsize Sources: accuray.com/cyberknife \cite{accuray2026cyberknife}; \cite{hoisak2022robotic}; \cite{verellen2003robotic}}
+{\scriptsize Sources: \href{https://www.accuray.com/treatment-delivery/cyberknife-system/}{Accuray} \cite{accuray2026cyberknife}; \cite{hoisak2022robotic}; \cite{verellen2007innovations} \hfill \textit{For Demonstration Purposes Only}}
 
 % ──────────────────────────────────────────────────────────────
 % PAGE 4: Robotic Needle-Placement Systems
 % ──────────────────────────────────────────────────────────────
 \newpage
 \thispagestyle{fancy}
-\section*{Patient-Robot Instructions: Physical AI Oncology Trials -- Robotic Needle-Placement Systems}
+\section*{Patient-Robot Instructions: AI Oncology Trials - Needle-Placement Robots}
+\vspace{-0.3em}
+\noindent\rule{\textwidth}{0.4pt}
 
 \begin{center}
-\textit{Adult Oncology Trial Setting}
-
-\vspace{0.5em}
-\fbox{\parbox{0.85\textwidth}{\centering\vspace{4cm}
-\textbf{[TikZ/Cairo Illustration: Robotic Needle-Placement System with Patient]}\\
-Adult patient on imaging table; articulating needle-guide robot with display\\
-ISO 7010 Caution Symbol \isowarning
-\vspace{4cm}}}
+\vspace{0.3em}
+\includegraphics[width=0.92\textwidth,keepaspectratio]{../images/4.png}
 \end{center}
 
-\subsection*{1. Preparation at Home}
-\begin{enumerate}
-  \item Fast for 4 hours before the procedure (clear liquids may be allowed).
-  \item Inform the team of any blood-thinning medications; some may need to be paused.
-  \item Wear loose clothing that provides access to the biopsy or treatment area.
-  \item Arrange for someone to drive you home if sedation will be used.
-  \item Bring prior imaging (CT/MRI scans) on CD or USB if requested.
-\end{enumerate}
+\vspace{-0.3em}
+\noindent\dashrule{\textwidth}
+\begin{center}
+{\large\bfseries Robotic Needle-Placement Systems}
+\end{center}
+\noindent\rule{\textwidth}{0.4pt}
 
-\subsection*{2. Entering the Room}
-\begin{enumerate}
-  \item Enter the procedure room; the robotic needle system is beside the imaging table.
-  \item Lie on the imaging table in the position indicated (face-up or face-down).
-  \item Place both hands at your sides or above your head as directed.
-  \item A local anesthetic will be applied to the needle insertion site (1--2~min to numb).
-  \item The robot's articulating arm will position the needle guide over the target.
-\end{enumerate}
+\vspace{0.3em}
+This robotic needle-guidance system uses real-time CT imaging to place a biopsy needle with sub-millimeter accuracy into your liver lesion.
 
-\subsection*{3. During the Interaction}
-\begin{enumerate}
-  \item The robot aligns the needle to sub-millimeter accuracy using real-time imaging.
-  \item You may feel pressure but should not feel sharp pain; alert staff if you do.
-  \item Hold your breath briefly (5--10~seconds) when instructed for image capture.
-  \item The needle insertion takes 1--3~minutes; the robot maintains steady guidance.
-  \item Estimated total procedure time: 20--45~minutes including imaging and sampling.
-\end{enumerate}
-
-\subsection*{4. Concluding the Session}
-\begin{enumerate}
-  \item The needle is withdrawn and gentle pressure is applied for 3--5~minutes.
-  \item A sterile bandage is placed over the insertion site.
-  \item Remain lying down for 15--30~minutes for post-procedure monitoring.
-  \item A nurse will check your blood pressure and verify no immediate complications.
-\end{enumerate}
-
-\subsection*{5. At Home \& Follow-Up}
-\begin{enumerate}
-  \item Keep the bandage dry for 24 hours; replace with a clean one after.
-  \item Avoid strenuous activity or heavy lifting for 48 hours.
-  \item Biopsy results are typically available within 5--7 business days.
-  \item Contact your care team if you experience increasing pain, swelling, or bleeding.
-  \item A follow-up appointment will be scheduled to review results and next steps.
+\begin{enumerate}[leftmargin=1.5em,itemsep=2pt]
+  \item Lie on the imaging table face-up with both hands at your sides, hold still while local anesthetic numbs the insertion site for 1--2 minutes, and keep your breathing shallow.
+  \item The robot aligns and inserts the needle over 1--3 minutes; hold your breath for 5--10 seconds when prompted for image capture during the 20--45 minute total procedure.
+  \item After the needle is withdrawn, press gently on the gauze placed over the site for 3--5 minutes, then remain lying down for 15--30 minutes of monitoring.
 \end{enumerate}
 
 \vfill
 \noindent\rule{\textwidth}{0.4pt}\\
-{\scriptsize Sources: \cite{walsh2022robotic}; \cite{li2023needle}; ISO 15223-1 \cite{iso15223}}
+{\scriptsize Sources: \cite{walsh2021robotic}; \cite{li2023needle}; \href{https://www.iso.org/standard/77326.html}{ISO 15223-1} \cite{iso15223} \hfill \textit{For Demonstration Purposes Only}}
 
 % ──────────────────────────────────────────────────────────────
 % PAGE 5: Social Companion Robots (PEDIATRIC)
 % ──────────────────────────────────────────────────────────────
 \newpage
 \thispagestyle{fancy}
-\section*{Patient-Robot Instructions: Physical AI Oncology Trials -- Social Companion Robots}
+\section*{Patient-Robot Instructions: AI Oncology Trials - Companion Robots}
+\vspace{-0.3em}
+\noindent\rule{\textwidth}{0.4pt}
 
 \begin{center}
-\textit{Pediatric Oncology Trial Setting}
-
-\vspace{0.5em}
-\fbox{\parbox{0.85\textwidth}{\centering\vspace{4cm}
-\textbf{[TikZ/Cairo Illustration: Social Companion Robot with Child Patient]}\\
-Child patient interacting with friendly Pepper-style robot; chest screen with heart icon\\
-ISO 15223-1 Keep Still Symbol \isokeepstill
-\vspace{4cm}}}
+\vspace{0.3em}
+\includegraphics[width=0.92\textwidth,keepaspectratio]{../images/5.png}
 \end{center}
 
-\subsection*{1. Preparation at Home}
-\begin{enumerate}
-  \item Parents/guardians: explain to your child that they will meet a friendly robot.
-  \item Bring your child's favorite small comfort item (stuffed animal, blanket).
-  \item Ensure your child has eaten a light snack and is well-hydrated.
-  \item Dress your child in comfortable, easy-to-move-in clothing.
-  \item Review the picture book provided at your last visit showing the robot.
-\end{enumerate}
+\vspace{-0.3em}
+\noindent\dashrule{\textwidth}
+\begin{center}
+{\large\bfseries Social Companion Robots}
+\end{center}
+\noindent\rule{\textwidth}{0.4pt}
 
-\subsection*{2. Entering the Room}
-\begin{enumerate}
-  \item Your child enters the room alone (you may watch through the window).
-  \item The companion robot (about 1.2~m tall) will greet your child by name.
-  \item The robot's screen displays a friendly face and a welcome message.
-  \item Encourage your child to wave or say ``Hello'' to the robot.
-  \item The robot will extend its hand for a gentle high-five if your child is comfortable.
-\end{enumerate}
+\vspace{0.3em}
+This friendly companion robot will talk and play interactive games with you to help you feel comfortable before your leukemia treatment today.
 
-\subsection*{3. During the Interaction}
-\begin{enumerate}
-  \item The robot guides your child through breathing exercises with visual cues on its screen.
-  \item Your child can talk to the robot; it responds with simple, comforting phrases.
-  \item Interactive games on the robot's chest screen help distract during waiting (5--10~min).
-  \item The robot demonstrates how to sit still using fun animations (e.g., ``freeze like a statue'').
-  \item Estimated interaction time: 10--20 minutes before and/or during the clinical procedure.
-\end{enumerate}
-
-\subsection*{4. Concluding the Session}
-\begin{enumerate}
-  \item The robot will say goodbye and offer a virtual sticker on its screen.
-  \item Your child can give the robot a high-five or wave goodbye.
-  \item The robot plays a short congratulatory song (15~seconds).
-  \item A staff member will escort your child back to you.
-\end{enumerate}
-
-\subsection*{5. At Home \& Follow-Up}
-\begin{enumerate}
-  \item Ask your child about their experience to reinforce positive associations.
-  \item The companion robot session notes are shared with your child's oncology team.
-  \item Future visits will include the same robot to build familiarity and trust.
-  \item Report any anxiety or distress your child expresses about the robot to the care team.
+\begin{enumerate}[leftmargin=1.5em,itemsep=2pt]
+  \item Walk into the room and wave or say ``Hello'' to the 1.2-meter tall robot; it will greet you by name and offer a gentle high-five with its soft hand if you feel ready.
+  \item Sit or stand near the robot and follow the breathing games on its chest screen for 10--20 minutes; talk to it normally and touch its hands or arms gently when it asks.
+  \item The robot says goodbye and shows a virtual sticker on its screen; give it a high-five or wave, then walk to the door where a staff member is waiting.
 \end{enumerate}
 
 \vfill
 \noindent\rule{\textwidth}{0.4pt}\\
-{\scriptsize Sources: softbankrobotics.com/pepper \cite{softbank2026pepper}; \cite{logan2019social}; \cite{rhee2023companion}}
+{\scriptsize Sources: \href{https://us.softbankrobotics.com/pepper}{SoftBank Robotics} \cite{softbank2026pepper}; \cite{logan2019social}; \cite{rhee2023companion} \hfill \textit{For Demonstration Purposes Only}}
 
 % ──────────────────────────────────────────────────────────────
 % PAGE 6: Humanoids (PEDIATRIC)
 % ──────────────────────────────────────────────────────────────
 \newpage
 \thispagestyle{fancy}
-\section*{Patient-Robot Instructions: Physical AI Oncology Trials -- Humanoids}
+\section*{Patient-Robot Instructions: AI Oncology Trials - Humanoids}
+\vspace{-0.3em}
+\noindent\rule{\textwidth}{0.4pt}
 
 \begin{center}
-\textit{Pediatric Oncology Trial Setting}
-
-\vspace{0.5em}
-\fbox{\parbox{0.85\textwidth}{\centering\vspace{4cm}
-\textbf{[TikZ/Cairo Illustration: Humanoid Robot with Child Patient]}\\
-Child patient walking alongside bipedal humanoid robot; robot at child's eye level\\
-ISO 15223-1 Keep Still Symbol \isokeepstill
-\vspace{4cm}}}
+\vspace{0.3em}
+\includegraphics[width=0.92\textwidth,keepaspectratio]{../images/6.png}
 \end{center}
 
-\subsection*{1. Preparation at Home}
-\begin{enumerate}
-  \item Parents/guardians: show your child the humanoid robot introduction video sent by email.
-  \item Pack a small snack and water bottle for after the session.
-  \item Dress your child in comfortable clothes and non-slip shoes for walking activities.
-  \item Arrive 10 minutes early so your child can see the robot through the window first.
-  \item Inform the team of your child's preferred name and any communication needs.
-\end{enumerate}
+\vspace{-0.3em}
+\noindent\dashrule{\textwidth}
+\begin{center}
+{\large\bfseries Humanoids}
+\end{center}
+\noindent\rule{\textwidth}{0.4pt}
 
-\subsection*{2. Entering the Room}
-\begin{enumerate}
-  \item Your child enters the activity room; the humanoid robot (about 1.5~m tall) stands inside.
-  \item The robot waves and introduces itself by name in a child-friendly voice.
-  \item The robot takes one slow step forward and stops, allowing your child to approach.
-  \item Your child may hold the robot's hand if comfortable; the grip is very gentle.
-  \item The robot kneels down to your child's eye level for face-to-face interaction.
-\end{enumerate}
+\vspace{0.3em}
+This humanoid robot will walk with you and practice the route to your treatment room to help you feel prepared for your bone cancer therapy session.
 
-\subsection*{3. During the Interaction}
-\begin{enumerate}
-  \item The robot walks alongside your child at their pace (0.5--1.0~m/s maximum).
-  \item Together they practice the route to the treatment room (approx.\ 3--5~minutes).
-  \item The robot demonstrates deep breathing: ``Breathe in 1-2-3, out 1-2-3.'' Your child copies.
-  \item Your child can ask the robot questions; it answers in simple, reassuring language.
-  \item Estimated session time: 15--25 minutes including walking and guided preparation.
-\end{enumerate}
-
-\subsection*{4. Concluding the Session}
-\begin{enumerate}
-  \item The robot walks your child back to the waiting area.
-  \item It gives a gentle wave and says, ``Great job! See you next time.''
-  \item The robot returns to its standby position in the activity room.
-  \item A care team member brings your child to you with a session summary card.
-\end{enumerate}
-
-\subsection*{5. At Home \& Follow-Up}
-\begin{enumerate}
-  \item Discuss with your child what they liked about the humanoid robot visit.
-  \item The session summary is added to your child's electronic health record.
-  \item The same humanoid robot will be used for consistency at future visits.
-  \item Contact the pediatric oncology team if your child has questions or concerns.
+\begin{enumerate}[leftmargin=1.5em,itemsep=2pt]
+  \item Enter the activity room and approach the 1.5-meter tall robot when it waves; hold its hand if comfortable---its grip is very gentle---and let it kneel to your eye level over about 1 minute.
+  \item Walk alongside the robot at your own pace (up to 1.0\,m/s) for 3--5 minutes practicing the route, then follow its deep-breathing demonstration: inhale 1-2-3, exhale 1-2-3, for 15--25 minutes total.
+  \item The robot walks you back to the waiting area, waves, and says ``Great job!''; release its hand and walk to the door where your parent or guardian is waiting.
 \end{enumerate}
 
 \vfill
 \noindent\rule{\textwidth}{0.4pt}\\
-{\scriptsize Sources: bostondynamics.com/atlas \cite{bostondynamics2026atlas}; \cite{darvish2023humanoid}}
+{\scriptsize Sources: \href{https://bostondynamics.com/products/atlas/}{Boston Dynamics} \cite{bostondynamics2026atlas}; \cite{darvish2024humanoid} \hfill \textit{For Demonstration Purposes Only}}
 
 % ──────────────────────────────────────────────────────────────
 % PAGE 7: Radiotherapy Motion-Management / Tracking Robots
 % ──────────────────────────────────────────────────────────────
 \newpage
 \thispagestyle{fancy}
-\section*{Patient-Robot Instructions: Physical AI Oncology Trials -- Radiotherapy Motion-Management / Tracking Robots}
+\section*{Patient-Robot Instructions: AI Oncology Trials - RT Motion-Tracking Robots}
+\vspace{-0.3em}
+\noindent\rule{\textwidth}{0.4pt}
 
 \begin{center}
-\textit{Adult Oncology Trial Setting}
-
-\vspace{0.5em}
-\fbox{\parbox{0.85\textwidth}{\centering\vspace{4cm}
-\textbf{[TikZ/Cairo Illustration: Motion-Tracking Robot with Patient]}\\
-Adult patient on couch; stereo camera array overhead; reflective markers on chest\\
-ISO 7010 W003 Ionizing Radiation Symbol \isoradiation
-\vspace{4cm}}}
+\vspace{0.3em}
+\includegraphics[width=0.92\textwidth,keepaspectratio]{../images/7.png}
 \end{center}
 
-\subsection*{1. Preparation at Home}
-\begin{enumerate}
-  \item Wear comfortable clothing without metal; a hospital gown may be provided.
-  \item Do not eat a large meal within 1 hour of your session to reduce diaphragm movement.
-  \item Practice the breathing pattern taught during your simulation: inhale 3~sec, exhale 3~sec.
-  \item Avoid caffeine on the day of treatment, as it may increase involuntary movement.
-  \item Bring your treatment schedule card for session verification.
-\end{enumerate}
+\vspace{-0.3em}
+\noindent\dashrule{\textwidth}
+\begin{center}
+{\large\bfseries Radiotherapy Motion-Management / Tracking Robots}
+\end{center}
+\noindent\rule{\textwidth}{0.4pt}
 
-\subsection*{2. Entering the Room}
-\begin{enumerate}
-  \item Enter the treatment vault; the motion-tracking system has cameras mounted overhead.
-  \item Lie on the treatment couch and position your arms as practiced in simulation.
-  \item A technician places a small reflective marker block on your chest or abdomen.
-  \item Breathe normally; the tracking cameras detect the markers and display your breathing trace.
-  \item The system calibrates to your breathing pattern in approximately 1--2~minutes.
-\end{enumerate}
+\vspace{0.3em}
+This motion-tracking system monitors your breathing in real time so the radiation beam activates only when your pancreatic tumor is precisely aligned.
 
-\subsection*{3. During the Interaction}
-\begin{enumerate}
-  \item Follow the breathing guide on the ceiling-mounted screen: inhale when the bar rises.
-  \item The system tracks your tumor position in real time; the beam activates only when aligned.
-  \item You will hear clicking sounds as the beam gates on and off; this is expected.
-  \item Remain as still as possible between breaths; the tracking tolerance is 2--3~mm.
-  \item Estimated treatment delivery time: 10--20~minutes once tracking is calibrated.
-\end{enumerate}
-
-\subsection*{4. Concluding the Session}
-\begin{enumerate}
-  \item After the last beam, the tracking system deactivates and cameras power down.
-  \item The technician removes the marker block from your chest.
-  \item Sit up slowly and wait for the therapist to confirm session completion.
-  \item Your breathing trace data is saved for comparison at future sessions.
-\end{enumerate}
-
-\subsection*{5. At Home \& Follow-Up}
-\begin{enumerate}
-  \item Practice your breathing exercises at home for 5 minutes daily between sessions.
-  \item Attend all scheduled treatment sessions to maintain the motion-management protocol.
-  \item Report any new breathing difficulties or chest discomfort to your care team.
-  \item Skin care for the treatment area follows the same guidelines as standard radiotherapy.
+\begin{enumerate}[leftmargin=1.5em,itemsep=2pt]
+  \item Lie on the treatment couch with arms at your sides, allow a small reflective marker block to be placed on your abdomen, and breathe normally while the system calibrates in 1--2 minutes.
+  \item Follow the ceiling-screen breathing guide---inhale when the bar rises, exhale when it falls---for 10--20 minutes; remain still between breaths within the 2--3\,mm tracking tolerance.
+  \item After the final beam, the system deactivates; hold still while the marker block is removed from your abdomen, then sit up slowly using both hands on the couch edge.
 \end{enumerate}
 
 \vfill
 \noindent\rule{\textwidth}{0.4pt}\\
-{\scriptsize Sources: varian.com/respiratory-gating \cite{varian2026gating}; \cite{bertholet2019motion}; \cite{keall2023tumor}}
+{\scriptsize Sources: \href{https://www.varian.com/products/adaptive-therapy/real-time-tracking}{Varian Medical} \cite{varian2026tracking}; \cite{bertholet2019motion}; \cite{keall2023tumor} \hfill \textit{For Demonstration Purposes Only}}
 
 % ──────────────────────────────────────────────────────────────
 % PAGE 8: Imaging Assistant Robots
 % ──────────────────────────────────────────────────────────────
 \newpage
 \thispagestyle{fancy}
-\section*{Patient-Robot Instructions: Physical AI Oncology Trials -- Imaging Assistant Robots}
+\section*{Patient-Robot Instructions: AI Oncology Trials - Imaging Robots}
+\vspace{-0.3em}
+\noindent\rule{\textwidth}{0.4pt}
 
 \begin{center}
-\textit{Adult Oncology Trial Setting}
-
-\vspace{0.5em}
-\fbox{\parbox{0.85\textwidth}{\centering\vspace{4cm}
-\textbf{[TikZ/Cairo Illustration: Imaging Assistant Robot with Patient]}\\
-Adult patient on exam bed; robotic ultrasound arm with force-controlled probe holder\\
-ISO 15223-1 Keep Still Symbol \isokeepstill
-\vspace{4cm}}}
+\vspace{0.3em}
+\includegraphics[width=0.92\textwidth,keepaspectratio]{../images/8.png}
 \end{center}
 
-\subsection*{1. Preparation at Home}
-\begin{enumerate}
-  \item Drink 500~mL of water 1 hour before your appointment for ultrasound imaging clarity.
-  \item Wear a two-piece outfit for easy access to the imaging area.
-  \item Do not apply oils or lotion to the area being imaged.
-  \item Bring previous imaging reports if this is a follow-up scan.
-  \item Arrive 10 minutes early to complete a brief imaging questionnaire.
-\end{enumerate}
+\vspace{-0.3em}
+\noindent\dashrule{\textwidth}
+\begin{center}
+{\large\bfseries Imaging Assistant Robots}
+\end{center}
+\noindent\rule{\textwidth}{0.4pt}
 
-\subsection*{2. Entering the Room}
-\begin{enumerate}
-  \item Enter the imaging room; the robotic ultrasound system is beside the exam bed.
-  \item Lie on the exam bed and expose the area to be imaged.
-  \item The robotic arm holds the ultrasound probe and will approach your body slowly.
-  \item The technician applies ultrasound gel to the imaging area (it may feel cool).
-  \item Place your hands behind your head or at your sides as instructed.
-\end{enumerate}
+\vspace{0.3em}
+This robotic ultrasound system scans your neck area with consistent gentle pressure to evaluate your thyroid nodule and guide treatment planning.
 
-\subsection*{3. During the Interaction}
-\begin{enumerate}
-  \item The robotic probe applies consistent, gentle pressure (1--3~N) on your skin.
-  \item Breathe normally; the robot compensates for your breathing motion automatically.
-  \item The robot scans methodically in a grid pattern for complete coverage of the target area.
-  \item You may hear the motor of the robotic arm; this is normal operation.
-  \item Estimated imaging time: 10--20 minutes depending on the area and scan complexity.
-\end{enumerate}
-
-\subsection*{4. Concluding the Session}
-\begin{enumerate}
-  \item The robotic arm retracts and the probe is lifted from your skin.
-  \item The technician wipes excess gel from the imaged area with a warm cloth.
-  \item Preliminary images appear on the display for immediate quality check.
-  \item You may sit up and get dressed; there is no recovery period needed.
-\end{enumerate}
-
-\subsection*{5. At Home \& Follow-Up}
-\begin{enumerate}
-  \item Imaging results are reviewed by a radiologist within 1--3 business days.
-  \item Your oncologist will discuss findings at your next scheduled appointment.
-  \item No special home care is needed after robotic ultrasound imaging.
-  \item Future robotic imaging sessions maintain the same scan protocol for comparison.
+\begin{enumerate}[leftmargin=1.5em,itemsep=2pt]
+  \item Lie on the exam bed and tilt your head slightly back; place both hands at your sides and remain relaxed while ultrasound gel is applied to your neck over approximately 1 minute.
+  \item The robotic probe applies 1--3\,N of gentle, steady pressure and scans in a grid pattern for 10--20 minutes; breathe normally as the robot compensates for motion automatically.
+  \item The probe lifts away and excess gel is wiped with a warm cloth; you may sit up immediately---no recovery period is needed.
 \end{enumerate}
 
 \vfill
 \noindent\rule{\textwidth}{0.4pt}\\
-{\scriptsize Sources: \cite{von2022robotic}; \cite{jiang2023imaging}; ISO 20417 \cite{iso20417}}
+{\scriptsize Sources: \cite{von2022robotic}; \cite{jiang2023imaging}; \href{https://www.iso.org/standard/78087.html}{ISO 20417} \cite{iso20417} \hfill \textit{For Demonstration Purposes Only}}
 
 % ──────────────────────────────────────────────────────────────
 % PAGE 9: Steerable Needle / Needle-Steering Robots
 % ──────────────────────────────────────────────────────────────
 \newpage
 \thispagestyle{fancy}
-\section*{Patient-Robot Instructions: Physical AI Oncology Trials -- Steerable Needle / Needle-Steering Robots}
+\section*{Patient-Robot Instructions: AI Oncology Trials - Steerable Needle Robots}
+\vspace{-0.3em}
+\noindent\rule{\textwidth}{0.4pt}
 
 \begin{center}
-\textit{Adult Oncology Trial Setting}
-
-\vspace{0.5em}
-\fbox{\parbox{0.85\textwidth}{\centering\vspace{4cm}
-\textbf{[TikZ/Cairo Illustration: Steerable Needle Robot with Patient]}\\
-Adult patient on table; needle-steering robot with curved needle path to target\\
-ISO 7010 Caution Symbol \isowarning
-\vspace{4cm}}}
+\vspace{0.3em}
+\includegraphics[width=0.92\textwidth,keepaspectratio]{../images/9.png}
 \end{center}
 
-\subsection*{1. Preparation at Home}
-\begin{enumerate}
-  \item Fast for 6 hours before the procedure if sedation is planned.
-  \item Inform the team of all current medications, especially blood thinners.
-  \item An MRI compatibility screening form must be completed if MRI-guided.
-  \item Remove all metal objects, credit cards, and electronic devices.
-  \item Arrange transportation home; you should not drive after sedation.
-\end{enumerate}
+\vspace{-0.3em}
+\noindent\dashrule{\textwidth}
+\begin{center}
+{\large\bfseries Steerable Needle / Needle-Steering Robots}
+\end{center}
+\noindent\rule{\textwidth}{0.4pt}
 
-\subsection*{2. Entering the Room}
-\begin{enumerate}
-  \item Enter the interventional suite; the needle-steering robot is mounted to the imaging table.
-  \item Lie on the table in the position indicated; pillows support your comfort.
-  \item The area around the insertion site is cleaned and draped with sterile towels.
-  \item A local anesthetic is injected at the entry point (brief 5-second sting).
-  \item The robot's needle guide is positioned at the skin entry point.
-\end{enumerate}
+\vspace{0.3em}
+This needle-steering robot curves a flexible needle along a pre-planned path through tissue to reach your kidney tumor for targeted ablation treatment.
 
-\subsection*{3. During the Interaction}
-\begin{enumerate}
-  \item The steerable needle curves through tissue along a pre-planned path to the target.
-  \item You may feel deep pressure but should not feel sharp pain; speak up if you do.
-  \item Real-time MRI or CT images confirm the needle tip position every 5--10~seconds.
-  \item Hold still; the robot compensates for small movements but large shifts require re-planning.
-  \item Estimated procedure time: 30--60 minutes for needle placement and treatment delivery.
-\end{enumerate}
-
-\subsection*{4. Concluding the Session}
-\begin{enumerate}
-  \item The steerable needle is slowly withdrawn along its insertion path.
-  \item Pressure is held at the entry site for 5--10 minutes.
-  \item A sterile dressing is applied and secured with medical tape.
-  \item You are monitored in recovery for 30--60 minutes before discharge.
-\end{enumerate}
-
-\subsection*{5. At Home \& Follow-Up}
-\begin{enumerate}
-  \item Rest at home for 24 hours; avoid bending or straining.
-  \item Keep the dressing clean and dry for 48 hours.
-  \item Take prescribed pain medication as directed (typically acetaminophen).
-  \item Follow-up imaging is usually scheduled 1--2 weeks after the procedure.
-  \item Call your care team for fever, worsening pain, or signs of infection.
+\begin{enumerate}[leftmargin=1.5em,itemsep=2pt]
+  \item Lie on the interventional table with pillows for support, place both hands above your head, and hold still while local anesthetic is injected at the entry site (brief 5-second sting).
+  \item The steerable needle advances along a curved path while real-time MRI confirms position every 5--10 seconds; remain motionless for the 30--60 minute procedure and breathe shallowly.
+  \item The needle is slowly withdrawn; apply gentle pressure to the gauze on the entry site for 5--10 minutes, then rest on the table for 30--60 minutes of monitoring.
 \end{enumerate}
 
 \vfill
 \noindent\rule{\textwidth}{0.4pt}\\
-{\scriptsize Sources: \cite{cowan2023steerable}; \cite{reed2023needle}; ISO 7010 \cite{iso7010}}
+{\scriptsize Sources: \cite{cowan2024steerable}; \cite{reed2023needle}; \href{https://www.iso.org/standard/72424.html}{ISO 7010} \cite{iso7010} \hfill \textit{For Demonstration Purposes Only}}
 
 % ──────────────────────────────────────────────────────────────
 % PAGE 10: Rehabilitation Exoskeletons / Robotic Gait Trainers
 % ──────────────────────────────────────────────────────────────
 \newpage
 \thispagestyle{fancy}
-\section*{Patient-Robot Instructions: Physical AI Oncology Trials -- Rehabilitation Exoskeletons / Robotic Gait Trainers}
+\section*{Patient-Robot Instructions: AI Oncology Trials - Rehab Exoskeletons}
+\vspace{-0.3em}
+\noindent\rule{\textwidth}{0.4pt}
 
 \begin{center}
-\textit{Adult Oncology Trial Setting}
-
-\vspace{0.5em}
-\fbox{\parbox{0.85\textwidth}{\centering\vspace{4cm}
-\textbf{[TikZ/Cairo Illustration: Rehabilitation Exoskeleton with Patient]}\\
-Adult patient wearing bilateral leg exoskeleton; gripping parallel bars\\
-ISO 15223-1 Keep Still Symbol \isokeepstill
-\vspace{4cm}}}
+\vspace{0.3em}
+\includegraphics[width=0.92\textwidth,keepaspectratio]{../images/10.png}
 \end{center}
 
-\subsection*{1. Preparation at Home}
-\begin{enumerate}
-  \item Wear fitted athletic clothing (leggings or joggers, T-shirt) and flat athletic shoes.
-  \item Eat a moderate meal 1--2 hours before your session for sustained energy.
-  \item Complete the pre-session mobility questionnaire sent to your phone.
-  \item Bring a water bottle; hydration is important during physical rehabilitation.
-  \item Inform the therapist of any new pain, swelling, or changes since your last session.
-\end{enumerate}
+\vspace{-0.3em}
+\noindent\dashrule{\textwidth}
+\begin{center}
+{\large\bfseries Rehabilitation Exoskeletons / Robotic Gait Trainers}
+\end{center}
+\noindent\rule{\textwidth}{0.4pt}
 
-\subsection*{2. Entering the Room}
-\begin{enumerate}
-  \item Enter the rehabilitation gym; the exoskeleton is hanging on a support frame between parallel bars.
-  \item Stand with your back to the exoskeleton; a therapist secures the waist belt first.
-  \item Thigh and shank straps are fastened snugly (you should feel firm but not tight pressure).
-  \item Foot plates are adjusted to match your shoe size and secured with Velcro.
-  \item Grip the parallel bars with both hands before the exoskeleton powers on.
-\end{enumerate}
+\vspace{0.3em}
+This lower-body exoskeleton supports your legs and guides your walking motion to rebuild strength and mobility after your bone cancer surgery.
 
-\subsection*{3. During the Interaction}
-\begin{enumerate}
-  \item The exoskeleton initiates a gentle standing motion; let it support your weight.
-  \item Follow the audible ``step'' cues: the exoskeleton moves one leg, then the other.
-  \item Walk between the parallel bars at the robot's guided pace (0.2--0.5~m/s).
-  \item If fatigued, say ``Pause''; the exoskeleton stops and supports you in a standing position.
-  \item Estimated active walking time: 15--30 minutes with rest breaks as needed.
-\end{enumerate}
-
-\subsection*{4. Concluding the Session}
-\begin{enumerate}
-  \item The exoskeleton slowly returns you to a standing rest position.
-  \item The therapist unbuckles straps in reverse order: feet, shank, thigh, waist.
-  \item Sit in the provided chair for 5 minutes; drink water and rest.
-  \item The therapist records your session metrics (steps, distance, gait symmetry).
-\end{enumerate}
-
-\subsection*{5. At Home \& Follow-Up}
-\begin{enumerate}
-  \item Perform the prescribed home stretching exercises daily between sessions.
-  \item Sessions are typically 2--3 times per week for 4--8 weeks.
-  \item Track your fatigue, pain, and mobility in the patient diary provided.
-  \item Progress metrics are reviewed at your monthly oncology rehabilitation appointment.
+\begin{enumerate}[leftmargin=1.5em,itemsep=2pt]
+  \item Stand with your back to the exoskeleton frame, grip both parallel bars firmly, and hold steady while waist, thigh, shank, and foot straps are secured over 2--3 minutes.
+  \item Follow the audible step cues and walk between the parallel bars at 0.2--0.5\,m/s for 15--30 minutes; say ``Pause'' to stop at any time, keeping both hands on the bars throughout.
+  \item The exoskeleton returns you to a standing rest position; keep gripping the bars while straps are removed in reverse order (feet, shank, thigh, waist), then sit and rest for 5 minutes.
 \end{enumerate}
 
 \vfill
 \noindent\rule{\textwidth}{0.4pt}\\
-{\scriptsize Sources: \cite{molteni2023exoskeleton}; eksobionics.com/ekso-indego \cite{ekso2026indego}; ISO 15223-1 \cite{iso15223}}
+{\scriptsize Sources: \cite{molteni2023exoskeleton}; \href{https://eksobionics.com/eksohealth/}{Ekso Bionics} \cite{ekso2026products}; \href{https://www.iso.org/standard/77326.html}{ISO 15223-1} \cite{iso15223} \hfill \textit{For Demonstration Purposes Only}}
 
 \end{document}

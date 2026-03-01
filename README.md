@@ -1,8 +1,8 @@
 # End-to-End Physical AI Unification of Oncology Clinical Trials
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Release](https://img.shields.io/badge/Release-v1.9.0-brightgreen.svg)]()
-[![Last Updated](https://img.shields.io/badge/Updated-February%202026-blue.svg)]()
+[![Release](https://img.shields.io/badge/Release-v1.9.1-brightgreen.svg)]()
+[![Last Updated](https://img.shields.io/badge/Updated-March%202026-blue.svg)]()
 [![Python 3.10+](https://img.shields.io/badge/Python-3.10+-green.svg)]()
 [![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.18445179-blue)](https://doi.org/10.5281/zenodo.18445179)
 
@@ -10,7 +10,7 @@
 
 This repository provides production-ready configurations, validated pipelines, and integration guides for deploying robotic systems, digital twins, and embodied AI agents in oncology. Referenced frameworks and tools have been added primarily from Oct. 2025 to Jan. 2026.
 
-📄 **2/28: New Paper (Patient-Robot Instructions)** *Patient-Robot Instructions: Physical AI Oncology Trials* [![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.18810541-blue)](https://doi.org/10.5281/zenodo.18810541)
+📄 **3/1: Updated Paper (Patient-Robot Instructions v1.9.1)** *Patient-Robot Instructions: AI Oncology Trials* — New images, streamlined 3-step instructions, corrected URLs [![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.18810541-blue)](https://doi.org/10.5281/zenodo.18810541)
 
 📄 **2/26: New Paper (USL)** *Unification Standard Level for Physical AI Oncology Trials* [![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.18778219-blue)](https://doi.org/10.5281/zenodo.18778219)
 
@@ -48,20 +48,22 @@ physical-ai-oncology-trials/
 ├── LICENSE
 ├── requirements.txt
 │
-├── patients/                          # ★ Patient-Robot Instructions (v1.9.0)
+├── patients/                          # ★ Patient-Robot Instructions (v1.9.1)
 │   ├── README.md                      # Detailed paper documentation
-│   ├── generate_illustrations.py      # Cairo illustration generator
-│   ├── generate_pdf.py                # Combined 10-page PDF generator
-│   ├── paper/                         # ★ Main paper output
+│   ├── generate_pdf.py                # PDF generator (reportlab + Pillow)
+│   ├── paper/                         # ★ Main paper output (v1.9.1)
 │   │   ├── Patient-Robot Instructions: Physical AI Oncology Trials.pdf
+│   │   ├── Patient-Robot Instructions: Physical AI Oncology Trials (10MB).pdf
+│   │   ├── Patient-Robot Instructions: Physical AI Oncology Trials (5MB).pdf
 │   │   ├── Latex Source Code.zip      # .tex, .sty, .bib, README
 │   │   ├── patient_robot_instructions.tex
 │   │   ├── patient_robot_instructions.sty
 │   │   ├── references.bib
 │   │   └── README
-│   ├── svg/                           # 10 SVG vector illustrations
-│   ├── pdf/                           # 10 PDF vector illustrations
-│   ├── png/                           # 10 PNG raster illustrations
+│   ├── images/                        # ★ New images (numbered 1-10)
+│   │   └── README.md                  # Google Drive link
+│   ├── research/                      # Archived v1.9.0 materials
+│   │   └── v1.9.0/                    # Cairo illustrations, generators
 │   └── prompts/
 │       └── prompts.md                 # Development prompts archive
 │
@@ -343,24 +345,24 @@ The new `q1-2026-standards/` directory contains **proposed standards** for meeti
 
 ---
 
-## ★ Patient-Robot Instructions (v1.9.0)
+## ★ Patient-Robot Instructions (v1.9.1)
 
-The `patients/` directory contains a **10-page patient-facing instructional PDF** with professional black-and-white portrait illustrations. Each page is a self-contained instruction sheet for one robot type used in physical AI oncology trials, covering home preparation, entering the room, interaction, concluding the session, and follow-up.
+The `patients/` directory contains a **10-page patient-facing instructional PDF** with new images and streamlined 3-step interaction instructions. Each page is a self-contained instruction sheet for one robot type used in physical AI oncology trials, with quantitative data (minutes, distances, forces) and a specific cancer pairing.
 
-> **★ Patient-Robot Instructions Paper (v1.9.0)** — See [`patients/paper/`](patients/paper/) for the 10-page PDF: *Patient-Robot Instructions: Physical AI Oncology Trials* (DOI: [10.5281/zenodo.18810541](https://doi.org/10.5281/zenodo.18810541)). Includes LaTeX source code, 10 individual illustrations (SVG/PDF/PNG), and 35-reference bibliography.
+> **★ Patient-Robot Instructions Paper (v1.9.1)** — See [`patients/paper/`](patients/paper/) for the 10-page PDF: *Patient-Robot Instructions: AI Oncology Trials* (DOI: [10.5281/zenodo.18810541](https://doi.org/10.5281/zenodo.18810541)). Includes LaTeX source code, 28-reference bibliography, and three PDF versions (full, 10 MB, 5 MB).
 
-| Page | Robot Type | Patient | Est. Time |
-|------|-----------|---------|-----------|
-| 1 | Surgical Robots | Adult | 45--180 min |
-| 2 | Cobots | Adult | 10--25 min |
-| 3 | Radiotherapy Patient-Positioning Robots | Adult | 15--30 min |
-| 4 | Robotic Needle-Placement Systems | Adult | 20--45 min |
-| 5 | Social Companion Robots | **Pediatric** | 10--20 min |
-| 6 | Humanoids | **Pediatric** | 15--25 min |
-| 7 | Radiotherapy Motion-Management / Tracking Robots | Adult | 10--20 min |
-| 8 | Imaging Assistant Robots | Adult | 10--20 min |
-| 9 | Steerable Needle / Needle-Steering Robots | Adult | 30--60 min |
-| 10 | Rehabilitation Exoskeletons / Robotic Gait Trainers | Adult | 15--30 min |
+| Page | Robot Type | Cancer Type | Est. Time |
+|------|-----------|-------------|-----------|
+| 1 | Surgical Robots | Prostate cancer | 90--180 min |
+| 2 | Cobots | Breast cancer | 10--25 min |
+| 3 | Radiotherapy Patient-Positioning Robots | Lung cancer | 15--30 min |
+| 4 | Robotic Needle-Placement Systems | Liver cancer | 20--45 min |
+| 5 | Social Companion Robots | **Pediatric leukemia** | 10--20 min |
+| 6 | Humanoids | **Pediatric bone cancer** | 15--25 min |
+| 7 | Radiotherapy Motion-Management / Tracking Robots | Pancreatic cancer | 10--20 min |
+| 8 | Imaging Assistant Robots | Thyroid cancer | 10--20 min |
+| 9 | Steerable Needle / Needle-Steering Robots | Kidney cancer | 30--60 min |
+| 10 | Rehabilitation Exoskeletons / Robotic Gait Trainers | Bone cancer post-surgery | 15--30 min |
 
 ---
 
@@ -1008,4 +1010,4 @@ Contributions welcome. Please ensure any added frameworks or tools:
 4. **Support cross-platform compatibility** (see `unification/` for guidelines)
 
 
-*v1.7.0 - Last updated: February 2026*
+*v1.9.1 - Last updated: March 2026*

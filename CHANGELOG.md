@@ -5,6 +5,48 @@ Format follows [Keep a Changelog](https://keepachangelog.com/).
 
 ## [Unreleased]
 
+## [1.9.1] - 2026-03-01
+
+### Added
+- `patients/images/` directory: Numbered images (1.png--10.png) for each robot type page
+- `patients/images/README.md`: Image access documentation with Google Drive link
+- `patients/research/v1.9.0/`: Archived v1.9.0 materials (Cairo illustrations, generators, paper files)
+- `patients/paper/Patient-Robot Instructions: Physical AI Oncology Trials (10MB).pdf`: 10 MB compressed version
+- `patients/paper/Patient-Robot Instructions: Physical AI Oncology Trials (5MB).pdf`: 5 MB compressed version
+
+### Changed
+- `patients/paper/Patient-Robot Instructions: Physical AI Oncology Trials.pdf`: Updated with new images, streamlined 3-step instructions, corrected URLs, "For Demonstration Purposes Only"
+- `patients/paper/patient_robot_instructions.tex`: Rewritten with new layout (image-dominant, dashed bar, full name, intro + 3 steps)
+- `patients/paper/patient_robot_instructions.sty`: Updated style for v1.9.1 (added dashrule, clickable URLs, updated footer)
+- `patients/paper/references.bib`: Fixed all 7 source URLs, corrected citation keys, 28 references
+- `patients/paper/README`: Updated compilation instructions and content overview for v1.9.1
+- `patients/paper/Latex Source Code.zip`: Regenerated with v1.9.1 files
+- `patients/generate_pdf.py`: Rewritten using reportlab + Pillow (replaces Cairo), generates 3 PDF versions
+- `patients/README.md`: Updated with v1.9.1 changes, new directory structure, robot-cancer pairings
+- Title format changed to "Patient-Robot Instructions: AI Oncology Trials - [Robot Type]"
+- Each robot type now paired with a specific cancer type
+- Single DOI (10.5281/zenodo.18810541) used throughout; removed duplicate
+
+### Removed
+- v1.9.0 files moved from `patients/` to `patients/research/v1.9.0/` (except prompts/)
+- Removed `patients/svg/`, `patients/pdf/`, `patients/png/` from main directory
+- Removed `patients/generate_illustrations.py` from main directory
+- Removed 5-section instruction format (replaced with 1-intro + 3-step)
+- Removed "Adult/Pediatric Oncology Trial Setting" label from pages
+- Removed image borders and lower-right icons from pages
+
+### Updated
+- `releases.md`: Added v1.9.1 release notes
+- `CHANGELOG.md`: Added v1.9.1 entry
+- `README.md`: Updated version badge, patients section, repository structure
+- `patients/prompts/prompts.md`: Added v1.9.1 prompt
+
+### Notes
+- Paper DOI: 10.5281/zenodo.18810541
+- Google Drive images: https://drive.google.com/drive/folders/1Cpe7fz3KlaERIfd6LQz2wmSBQNmB00Ax
+- License: CC BY 4.0 (paper and images), MIT (scripts)
+- Development by Claude Code Opus 4.6
+
 ## [1.9.0] - 2026-02-28
 
 ### Added

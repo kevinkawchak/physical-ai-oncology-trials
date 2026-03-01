@@ -4,6 +4,42 @@ Release notes for the physical-ai-oncology-trials repository.
 
 ---
 
+Patient-Robot Instructions: AI Oncology Trials — New Images and Streamlined Instructions
+v1.9.1 - March 1, 2026
+
+## Summary
+
+Updates the 10-page patient-facing instructional PDF with new images from Google Drive, a streamlined 3-step interaction format with quantitative data (minutes, distances, forces), corrected URLs for all bibliography sources, abbreviated clickable source links, and a reorganized file structure. Each robot type is now paired with a specific cancer type. The v1.9.0 materials (Cairo illustrations, generators) are archived under `patients/research/`. Three PDF versions are provided: full-size, 10 MB, and 5 MB.
+
+## Features
+
+- New images from [Google Drive](https://drive.google.com/drive/folders/1Cpe7fz3KlaERIfd6LQz2wmSBQNmB00Ax) numbered 1--10, occupying the largest portion of each page
+- Streamlined instruction format: 1 introductory sentence + 3-item numbered list per page (entering, interacting, concluding)
+- Each robot paired with a specific cancer type (prostate, breast, lung, liver, pediatric leukemia, pediatric bone, pancreatic, thyroid, kidney, bone post-surgery)
+- Title updated to "Patient-Robot Instructions: AI Oncology Trials - [Robot Type]" with abbreviations for long names
+- Fixed all 7 source URLs (Intuitive Surgical, Franka Robotics, Accuray, SoftBank, Boston Dynamics, Varian, Ekso Bionics)
+- Single DOI (10.5281/zenodo.18810541) throughout; removed duplicate DOI reference
+- "For Demonstration Purposes Only" added to each page
+- Three PDF versions: full-size, 10 MB target, 5 MB target
+- `patients/images/` directory with numbered images and README with Drive link
+- `patients/research/v1.9.0/` archive of prior version materials (SVG/PDF/PNG illustrations, Cairo generators)
+- Updated LaTeX source, style, and bibliography (28 references with corrected URLs)
+- Updated `patients/README.md` with v1.9.1 changes, new directory structure, and regeneration instructions
+- PDF generated with Python reportlab + Pillow (replaces Cairo dependency)
+
+## Contributors
+@kevinkawchak
+@claude
+
+## Notes
+- Paper DOI: 10.5281/zenodo.18810541
+- Google Drive images: https://drive.google.com/drive/folders/1Cpe7fz3KlaERIfd6LQz2wmSBQNmB00Ax
+- v1.9.0 materials preserved under patients/research/v1.9.0/ (except prompts/)
+- License: CC BY 4.0 (paper and images), MIT (generation scripts)
+- Development by Claude Code Opus 4.6
+
+---
+
 Patient-Robot Instructions: Physical AI Oncology Trials — Instructional Illustrations
 v1.9.0 - February 28, 2026
 
