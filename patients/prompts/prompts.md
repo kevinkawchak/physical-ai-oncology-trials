@@ -1,6 +1,37 @@
 # Development Prompts — Patient-Robot Instructions
 
-Archive of prompts used to develop the patient-robot instructional illustrations.
+Archive of prompts used to develop the patient-robot instructional materials.
+
+---
+
+## v2.0.0 — Patient-Robot Instructions: Physical AI Oncology Trials — Hyperlink-Only References and Site-Wide Documentation Restructure (March 2, 2026)
+
+Your goal is to update the physical-ai-oncology-trials/tree/main/patients directory with a major release v2.0.0 based on the new https://doi.org/10.5281/zenodo.18810541 paper. Place clickable links for this url for both the paper and the latex source files (separate references for each file type, but same url). It is important that previous references to this doi throughout the repo be referred to this newest version with specific new title, details, etc. Where only image links for this DOI are appropriate to use, provide hyperlink(s) to https://drive.google.com/drive/folders/1Cpe7fz3KlaERIfd6LQz2wmSBQNmB00Ax; without using the folder name. Again, in this most recent major release: the paper, latex source files, and images do not get uploaded, only url hyperlinks to each. Utilize information from the pdf and its zenodo description to populate relevant parts of the repository (readmes), and other documentation. Make a note in changelog and the new release that @kevinkawchak relocated files from v1.9.0 and v1.9.1 into Drive to reduce repository size.
+
+2nd goal: Site-wide documentation update: based on all information in the repository, now perform repo-wide documentation updates that consider this new version, and other recent updates to make sure all Readmes, repository structures, text diagrams, tables, etc. reflect the text and code in the repository. The following main Readme information should be re-located to other more appropriate directories under their own Readme, or create a new Readme if necessary: "Agentic AI Engineering Examples", "Digital Twin Engineering Examples", "Comprehensive Examples", "Physical Robot Engineering Examples", "Command-Line Tools", "Multi-Site Federated Oncology Trial Coordination" + "Examples (federation/examples-federation/)".
+Update any main Readme dates/versions for "Actively Maintained Repositories (Referenced)", "Regulatory Compliance Framework". Make a reference in main Readme to prior major release v1.0.0 alongside v2.0.0 major release.
+
+Make sure to clone the current repo and utilize appropriate information regarding this pdf. Be sure to fix and address errors that would cause failed checks for the single pull request (such as Python environment issues to avoid the following error during final checks): "3 failing checks
+x Cl / lint-and-format (3.10) (pull...
+x Cl / lint-and-format (3.11) (pull...
+x Cl / lint-and-format (3.12) (pull... " Place the new release notes in releases.md under main using the format below (note title gets no hashes, while summary, features, etc. get two leading hashes).
+
+Update other relevant out of date documentation such as project structures. Update the main Readme diagrams, repository structure, etc. where necessary. Provide an updated changelog (v2.0.0). Provide a copy of this prompt under the existing kevinkawchak/physical-ai-oncology-trials/patients/prompts.md When you are finished, auto-push the update to GitHub on your own for my review. The user will then review your updates in GitHub prior to finalization.
+
+"FORMAT"
+Release title
+v2.0.0 - [Use format only from most prior release sent to zenodo]
+
+## Summary
+
+## Features
+
+## Contributors
+@kevinkawchak
+@claude
+@openai
+
+## Notes
 
 ---
 

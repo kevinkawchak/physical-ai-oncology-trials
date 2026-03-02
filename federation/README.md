@@ -91,6 +91,17 @@ Cross-site survival analysis without exposing individual patient records.
 - **Response rate estimation** — Treatment arm response rates with confidence intervals
 - **Cell suppression** — Automatic suppression of small cell sizes (configurable threshold)
 
+## Examples (`examples-federation/`)
+
+| # | Example | Description |
+|---|---------|-------------|
+| 01 | `01_basic_two_site.py` | Minimal 2-site federation with FedAvg |
+| 02 | `02_differential_privacy.py` | Privacy budget demonstration |
+| 03 | `03_secure_aggregation.py` | Secure weight aggregation |
+| 04 | `04_enrollment_sync.py` | Multi-site enrollment coordination |
+| 05 | `05_data_harmonization.py` | Cross-site data normalization |
+| 06 | `06_full_consortium.py` | 8-site multi-cancer consortium |
+
 ## Quick Start
 
 ```bash

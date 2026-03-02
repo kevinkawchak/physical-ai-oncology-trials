@@ -5,6 +5,37 @@ Format follows [Keep a Changelog](https://keepachangelog.com/).
 
 ## [Unreleased]
 
+## [2.0.0] - 2026-03-02
+
+### Added
+- `agentic-ai/README.md`: New README with relocated agentic AI engineering examples documentation from main README
+- Consolidated engineering examples table in main README linking to all 34 examples and 5 CLI tools
+- v1.0.0 and v2.0.0 major release references in main README
+- Federation examples table added to `federation/README.md`
+
+### Changed
+- `patients/README.md`: Rewritten for v2.0.0 with hyperlink-only references to paper (Zenodo), LaTeX source files (Zenodo), and images (Google Drive)
+- `README.md`: Updated to v2.0.0 — relocated Agentic AI Engineering Examples, Digital Twin Engineering Examples, Comprehensive Examples, Physical Robot Engineering Examples, Command-Line Tools, and Multi-Site Federated Oncology Trial Coordination sections to their respective directory READMEs
+- `README.md`: Updated version badge to v2.0.0, updated Actively Maintained Repositories date range to March 2026, updated Regulatory Compliance Framework date
+- `README.md`: Updated citation version to 2.0.0
+- `CITATION.cff`: Updated version to 2.0.0
+- `patients/prompts/prompts.md`: Added v2.0.0 development prompt
+
+### Removed
+- Paper PDFs from `patients/paper/` (relocated to Zenodo/Drive by @kevinkawchak)
+- LaTeX source files from `patients/paper/` (relocated to Zenodo/Drive by @kevinkawchak)
+- Images from `patients/images/` (relocated to Drive by @kevinkawchak)
+- `patients/generate_pdf.py` (archived under `patients/research/v1.9.1/`)
+
+### Notes
+- Paper DOI: 10.5281/zenodo.18810541
+- Google Drive images: https://drive.google.com/drive/folders/1Cpe7fz3KlaERIfd6LQz2wmSBQNmB00Ax
+- @kevinkawchak relocated files from v1.9.0 and v1.9.1 into Drive to reduce repository size
+- Second major release (v2.0.0) following v1.0.0 (February 2026)
+- No Python code changes — documentation-only release
+- License: CC BY 4.0 (paper and images), MIT (repository code)
+- Development by Claude Code Opus 4.6
+
 ## [1.9.1] - 2026-03-01
 
 ### Added
