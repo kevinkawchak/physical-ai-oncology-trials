@@ -60,53 +60,6 @@ Each of the 10 pages follows a consistent structure:
 
 ---
 
-## Robot Type Overview
-
-| Page | Robot Type | Abbreviated Title | Cancer Type | Est. Time | Source |
-|------|-----------|-------------------|-------------|-----------|--------|
-| 1 | Surgical Robots | Surgical Robots | Prostate cancer | 90–180 min | [Intuitive Surgical](https://www.intuitivesurgical.com/) |
-| 2 | Cobots (Collaborative Robots) | Cobots | Breast cancer | 10–25 min | [Franka Robotics](https://franka.de/) |
-| 3 | Radiotherapy Patient-Positioning Robots | RT Positioning Robots | Lung cancer | 15–30 min | [Accuray](https://www.accuray.com/) |
-| 4 | Robotic Needle-Placement Systems | Needle-Placement Robots | Liver cancer | 20–45 min | ISO 15223-1 |
-| 5 | Social Companion Robots | Companion Robots | **Pediatric leukemia** | 10–20 min | [SoftBank Robotics](https://www.softbankrobotics.com/) |
-| 6 | Humanoids | Humanoids | **Pediatric bone cancer** | 15–25 min | [Boston Dynamics](https://bostondynamics.com/) |
-| 7 | Radiotherapy Motion-Management / Tracking Robots | RT Motion-Tracking Robots | Pancreatic cancer | 10–20 min | [Varian Medical](https://www.varian.com/) |
-| 8 | Imaging Assistant Robots | Imaging Robots | Thyroid cancer | 10–20 min | ISO 20417 |
-| 9 | Steerable Needle / Needle-Steering Robots | Steerable Needle Robots | Kidney cancer | 30–60 min | ISO 7010 |
-| 10 | Rehabilitation Exoskeletons / Robotic Gait Trainers | Rehab Exoskeletons | Bone cancer post-surgery | 15–30 min | [Ekso Bionics](https://eksobionics.com/) |
-
----
-
-## Robot Categories
-
-```
-Patient Instructions: Physical AI Oncology Trials
-10 Robot Types Across 5 Clinical Categories
-=============================================
-
-  SURGICAL (Invasive)           THERAPEUTIC (Radiation)         DIAGNOSTIC (Imaging/Biopsy)
-  ----------------------        -------------------------       ---------------------------
-  Page 1: Surgical Robots       Page 3: RT Positioning          Page 4: Needle-Placement
-          Prostate cancer               Lung cancer                     Liver cancer
-          90-180 min                    15-30 min                       20-45 min
-                                Page 7: RT Motion-Tracking      Page 8: Imaging Robots
-                                        Pancreatic cancer               Thyroid cancer
-                                        10-20 min                       10-20 min
-  Page 2: Cobots                                                Page 9: Steerable Needle
-          Breast cancer                                                 Kidney cancer
-          10-25 min                                                     30-60 min
-
-  ASSISTIVE (Emotional/Physical Support)          REHABILITATIVE (Post-Treatment)
-  ----------------------------------------        ---------------------------------
-  Page 5: Companion Robots (Pediatric)            Page 10: Rehab Exoskeletons
-          Pediatric leukemia                               Bone cancer post-surgery
-          10-20 min                                        15-30 min
-  Page 6: Humanoids (Pediatric)
-          Pediatric bone cancer
-          15-25 min
-```
-
----
 
 ## Procedure Time Comparison
 
@@ -132,7 +85,7 @@ PT = Physical Therapy | Ward = Hospital Ward/Playroom | Lab = Clinical Lab
 
 ## Page-by-Page Content
 
-### Page 1 — Surgical Robots (Prostate Cancer)
+### Page 1 — Surgical Robots 
 
 **Introduction:** A surgical robot is a large, multi-armed machine that your doctor controls from a console nearby. It will not move on its own — every action is guided by your surgeon.
 
@@ -146,7 +99,7 @@ PT = Physical Therapy | Ward = Hospital Ward/Playroom | Lab = Clinical Lab
 
 ---
 
-### Page 2 — Cobots / Collaborative Robots (Breast Cancer)
+### Page 2 — Cobots / Collaborative Robots 
 
 **Introduction:** A cobot is a lightweight robotic arm designed to work alongside your healthcare team. It assists with precise, repetitive tasks like tissue sample handling or guiding a biopsy needle.
 
@@ -160,7 +113,7 @@ PT = Physical Therapy | Ward = Hospital Ward/Playroom | Lab = Clinical Lab
 
 ---
 
-### Page 3 — RT Positioning Robots (Lung Cancer)
+### Page 3 — RT Positioning Robots 
 
 **Introduction:** A radiotherapy positioning robot is a robotic system that helps align your body precisely for radiation treatment. It works by adjusting the treatment table and your position automatically to target the tumor while avoiding healthy tissue.
 
@@ -174,7 +127,7 @@ PT = Physical Therapy | Ward = Hospital Ward/Playroom | Lab = Clinical Lab
 
 ---
 
-### Page 4 — Needle-Placement Robots (Liver Cancer)
+### Page 4 — Needle-Placement Robots 
 
 **Introduction:** A robotic needle-placement system uses a robotic arm and real-time imaging to guide a needle precisely into a tumor for biopsy or treatment. It improves accuracy and reduces the number of needle insertions needed.
 
@@ -188,7 +141,7 @@ PT = Physical Therapy | Ward = Hospital Ward/Playroom | Lab = Clinical Lab
 
 ---
 
-### Page 5 — Companion Robots (Pediatric Leukemia)
+### Page 5 — Companion Robots 
 
 **Introduction:** A companion robot is a friendly, interactive robot that talks, plays games, and provides emotional support. It is designed to help children feel more comfortable and less anxious during hospital visits.
 
@@ -202,7 +155,7 @@ PT = Physical Therapy | Ward = Hospital Ward/Playroom | Lab = Clinical Lab
 
 ---
 
-### Page 6 — Humanoids (Pediatric Bone Cancer)
+### Page 6 — Humanoids 
 
 **Introduction:** A humanoid robot looks similar to a person and can walk, carry items, and interact using gestures and speech. In a hospital, it may deliver supplies, guide you to your appointment, or provide encouragement.
 
@@ -216,7 +169,7 @@ PT = Physical Therapy | Ward = Hospital Ward/Playroom | Lab = Clinical Lab
 
 ---
 
-### Page 7 — RT Motion-Tracking Robots (Pancreatic Cancer)
+### Page 7 — RT Motion-Tracking Robots 
 
 **Introduction:** A motion-tracking robot monitors your breathing and body movements in real time during radiation treatment. It adjusts the radiation beam so that it always targets the tumor, even as you breathe.
 
@@ -230,7 +183,7 @@ PT = Physical Therapy | Ward = Hospital Ward/Playroom | Lab = Clinical Lab
 
 ---
 
-### Page 8 — Imaging Robots (Thyroid Cancer)
+### Page 8 — Imaging Robots 
 
 **Introduction:** An imaging assistant robot holds and positions an ultrasound probe or imaging device with steady precision. It helps the doctor get clearer images by keeping the device perfectly still and at the correct angle.
 
@@ -244,7 +197,7 @@ PT = Physical Therapy | Ward = Hospital Ward/Playroom | Lab = Clinical Lab
 
 ---
 
-### Page 9 — Steerable Needle Robots (Kidney Cancer)
+### Page 9 — Steerable Needle Robots 
 
 **Introduction:** A steerable needle robot uses a flexible, computer-guided needle that can bend around obstacles inside your body to reach a tumor. It provides more accurate targeting than a straight needle.
 
@@ -258,7 +211,7 @@ PT = Physical Therapy | Ward = Hospital Ward/Playroom | Lab = Clinical Lab
 
 ---
 
-### Page 10 — Rehab Exoskeletons (Bone Cancer Post-Surgery)
+### Page 10 — Rehab Exoskeletons 
 
 **Introduction:** A rehabilitation exoskeleton is a wearable robot that attaches to your legs and helps you stand and walk during physical therapy. It supports your weight and guides your leg movements.
 
