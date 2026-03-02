@@ -283,53 +283,6 @@ Sources Referenced Across 10 Pages
 
 ---
 
-## PDF Image Descriptions
-
-The paper contains 10 full-color illustrations, one per page. Five images are provided below (2 pages per image) showing the complete 10-page paper.
-
-### Image 1 — Pages 1–2 (Surgical Robots, Cobots)
-
-Page 1 features a colorful illustration of a multi-armed surgical robot system (Intuitive Surgical da Vinci-style) positioned over an operating area, with the patient instruction title for **Surgical Robots** and prostate cancer. Page 2 shows a single collaborative robot arm (Franka Robotics-style cobot) mounted on a stand in a clinical lab setting, with **Cobots** breast cancer biopsy instructions.
-
-### Image 2 — Pages 3–4 (RT Positioning Robots, Needle-Placement Robots)
-
-Page 3 presents a radiation therapy positioning system (Accuray CyberKnife-style) with a treatment table and robotic gantry for **RT Positioning Robots** lung cancer alignment instructions. Page 4 displays a robotic needle-placement system with ISO 15223-1 medical symbol imagery for **Needle-Placement Robots** liver cancer biopsy guidance.
-
-### Image 3 — Pages 5–6 (Companion Robots, Humanoids) — Pediatric Pages
-
-Page 5 features a friendly social companion robot (SoftBank Pepper-style) with a white body and expressive face for **Companion Robots** pediatric leukemia emotional support instructions. Page 6 shows a bipedal humanoid robot (Boston Dynamics Atlas-style) standing upright in a hospital setting for **Humanoids** pediatric bone cancer navigation and encouragement instructions.
-
-### Image 4 — Pages 7–8 (RT Motion-Tracking Robots, Imaging Robots)
-
-Page 7 presents a radiation therapy motion-tracking system (Varian Medical-style) with surface-tracking cameras and a treatment table for **RT Motion-Tracking Robots** pancreatic cancer beam adjustment instructions. Page 8 displays an imaging assistant robot with ISO 20417 medical labeling symbol imagery for **Imaging Robots** thyroid cancer ultrasound scanning instructions.
-
-### Image 5 — Pages 9–10 (Steerable Needle Robots, Rehab Exoskeletons)
-
-Page 9 features a steerable needle robot system with ISO 7010 safety symbol imagery for **Steerable Needle Robots** kidney cancer targeted needle biopsy instructions. Page 10 shows a lower-body rehabilitation exoskeleton (Ekso Bionics-style) with leg supports and walking aids for **Rehab Exoskeletons** bone cancer post-surgery physical therapy instructions.
-
----
-
-## Cancer Types Covered
-
-```
-Cancer Type Distribution Across 10 Robot Types
-================================================
-
-  Adult Cancers (8 pages)                    Pediatric Cancers (2 pages)
-  -----------------------------------        ---------------------------
-  Prostate cancer    (Page 1, Surgical)      Pediatric leukemia   (Page 5, Companion)
-  Breast cancer      (Page 2, Cobots)        Pediatric bone cancer(Page 6, Humanoids)
-  Lung cancer        (Page 3, RT Position)
-  Liver cancer       (Page 4, Needle)
-  Pancreatic cancer  (Page 7, RT Tracking)
-  Thyroid cancer     (Page 8, Imaging)
-  Kidney cancer      (Page 9, Steerable)
-  Bone cancer post-  (Page 10, Rehab Exo)
-    surgery
-```
-
----
-
 ## References
 
 The bibliography (`references.bib`, available on [Zenodo](https://doi.org/10.5281/zenodo.18810541)) contains references covering:
