@@ -2,34 +2,10 @@ Patient-Robot Instructions: Physical AI Oncology Trials
 ======================================================
 LaTeX Source Code and Compiled PDF — v1.9.1
 
-Files
------
-- patient_robot_instructions.tex   Main LaTeX document (10 pages)
-- patient_robot_instructions.sty   Custom style package
-- references.bib                   BibTeX bibliography (28 references)
-- README                           This file
-
-Compilation
------------
-To compile the LaTeX source:
-
-    pdflatex patient_robot_instructions.tex
-    bibtex patient_robot_instructions
-    pdflatex patient_robot_instructions.tex
-    pdflatex patient_robot_instructions.tex
-
-Or with latexmk:
-
-    latexmk -pdf patient_robot_instructions.tex
-
-Requirements: texlive-latex-base, texlive-latex-extra, texlive-fonts-recommended
-
-Note: Images are in ../images/ (numbered 1.png through 10.png).
-
 Note on Images
 --------------
 Images are sourced from the Google Drive folder:
-https://drive.google.com/drive/folders/1Cpe7fz3KlaERIfd6LQz2wmSBQNmB00Ax
+https://drive.google.com/drive/folders/1hll4YwNRxw1kG82M0tLftFGXF1ZgUU4S
 
 To reproduce the full PDF with illustrations, run:
 
@@ -70,7 +46,6 @@ License
 Paper: CC BY 4.0
 Repository code: MIT
 
-DOI: 10.5281/zenodo.18810541
 Author: Kevin Kawchak, CEO ChemicalQDevice
 Date: March 1, 2026
 AI: Claude Code Opus 4.6
