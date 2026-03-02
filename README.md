@@ -353,18 +353,6 @@ The `patients/` directory documents a **10-page patient-facing instructional PDF
 
 > **[Paper (PDF) — Zenodo](https://doi.org/10.5281/zenodo.18810541)** | **[LaTeX Source Files — Zenodo](https://doi.org/10.5281/zenodo.18810541)** | **[Images — Google Drive](https://drive.google.com/drive/folders/1Cpe7fz3KlaERIfd6LQz2wmSBQNmB00Ax)**
 
-| Page | Robot Type | Cancer Type | Est. Time | Source |
-|------|-----------|-------------|-----------|--------|
-| 1 | Surgical Robots | Prostate cancer | 90–180 min | Intuitive Surgical |
-| 2 | Cobots (Collaborative Robots) | Breast cancer | 10–25 min | Franka Robotics |
-| 3 | RT Positioning Robots | Lung cancer | 15–30 min | Accuray |
-| 4 | Needle-Placement Robots | Liver cancer | 20–45 min | ISO 15223-1 |
-| 5 | Companion Robots | **Pediatric leukemia** | 10–20 min | SoftBank Robotics |
-| 6 | Humanoids | **Pediatric bone cancer** | 15–25 min | Boston Dynamics |
-| 7 | RT Motion-Tracking Robots | Pancreatic cancer | 10–20 min | Varian Medical |
-| 8 | Imaging Robots | Thyroid cancer | 10–20 min | ISO 20417 |
-| 9 | Steerable Needle Robots | Kidney cancer | 30–60 min | ISO 7010 |
-| 10 | Rehab Exoskeletons | Bone cancer post-surgery | 15–30 min | Ekso Bionics |
 
 ```
 Robot Categories (5 Clinical Categories)
