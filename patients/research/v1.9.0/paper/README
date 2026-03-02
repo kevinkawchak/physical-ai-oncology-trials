@@ -2,86 +2,13 @@ Patient-Robot Instructions: Physical AI Oncology Trials
 ======================================================
 LaTeX Source Code and Compiled PDF
 
-Files
------
-- patient_robot_instructions.tex   Main LaTeX document (10 pages)
-- patient_robot_instructions.sty   Custom style package
-- references.bib                   BibTeX bibliography (35 references)
-- README                           This file
-
-Compilation
------------
-To compile the LaTeX source:
-
-    pdflatex patient_robot_instructions.tex
-    bibtex patient_robot_instructions
-    pdflatex patient_robot_instructions.tex
-    pdflatex patient_robot_instructions.tex
-
-Or with latexmk:
-
-    latexmk -pdf patient_robot_instructions.tex
-
-Requirements: texlive-latex-base, texlive-latex-extra, texlive-fonts-recommended,
-              texlive-pictures (for TikZ)
-
-Note on Illustrations
----------------------
-The compiled PDF (Patient-Robot Instructions: Physical AI Oncology Trials.pdf) was
-generated using Python Cairo for high-resolution vector illustrations. The .tex
-source includes placeholder illustration descriptions that correspond to the Cairo-
-rendered images. To reproduce the full PDF with illustrations, run:
-
-    python3 generate_pdf.py       # Generates combined 10-page PDF
-    python3 generate_illustrations.py  # Generates individual SVG/PDF/PNG files
-
-Individual illustrations are available in:
-    ../svg/   (SVG vector format)
-    ../pdf/   (PDF vector format)
-    ../png/   (PNG raster format, 3600x4000 pixels)
-
-Content Overview
-----------------
-10 pages, each a self-contained instructional sheet for one robot type:
-
-  Page 1:  Surgical Robots
-  Page 2:  Cobots (Collaborative Robots)
-  Page 3:  Radiotherapy Patient-Positioning Robots
-  Page 4:  Robotic Needle-Placement Systems
-  Page 5:  Social Companion Robots (Pediatric)
-  Page 6:  Humanoids (Pediatric)
-  Page 7:  Radiotherapy Motion-Management / Tracking Robots
-  Page 8:  Imaging Assistant Robots
-  Page 9:  Steerable Needle / Needle-Steering Robots
-  Page 10: Rehabilitation Exoskeletons / Robotic Gait Trainers
-
-Each page includes:
-  (a) Header: Author, ORCID, affiliation, email
-  (b) Title: "Patient-Robot Instructions: Physical AI Oncology Trials - [Robot Type]"
-  (c) Black-and-white portrait illustration of patient interacting with robot
-  (d) Five instruction sections (numbered lists):
-      1. Preparation at Home
-      2. Entering the Room
-      3. During the Interaction
-      4. Concluding the Session
-      5. At Home & Follow-Up
-  (e) Footer: Date, DOI, AI model, page number, truncated source links
-
-ISO Standards Referenced
-------------------------
-- ISO 15223-1:2021 (Medical device symbols)
-- ISO 20417:2021 (Medical device information)
-- ISO 7000:2019 (Graphical symbols for equipment)
-- IEC 60417:2023 (Graphical symbols for equipment)
-- ISO 7010:2019 (Safety signs - including W003 ionizing radiation)
-- ISO 3864-1:2011 (Safety colours and safety signs)
+https://drive.google.com/drive/folders/1w1KzmqF7OuyRzABxxW2SKqYeH9eAkjiS
 
 License
 -------
 Paper: CC BY 4.0
 Repository code: MIT
 
-DOI: 10.5281/zenodo.18810541
 Author: Kevin Kawchak, CEO ChemicalQDevice
 Date: February 28, 2026
 AI: Claude Code Opus 4.6
