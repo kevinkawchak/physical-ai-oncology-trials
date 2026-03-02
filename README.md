@@ -1,7 +1,7 @@
 # End-to-End Physical AI Unification of Oncology Clinical Trials
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Release](https://img.shields.io/badge/Release-v1.9.1-brightgreen.svg)]()
+[![Release](https://img.shields.io/badge/Release-v2.0.0-brightgreen.svg)]()
 [![Last Updated](https://img.shields.io/badge/Updated-March%202026-blue.svg)]()
 [![Python 3.10+](https://img.shields.io/badge/Python-3.10+-green.svg)]()
 [![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.18445179-blue)](https://doi.org/10.5281/zenodo.18445179)
@@ -10,9 +10,11 @@
 
 This repository provides production-ready configurations, validated pipelines, and integration guides for deploying robotic systems, digital twins, and embodied AI agents in oncology. Referenced frameworks and tools have been added primarily from Oct. 2025 to Jan. 2026.
 
-📄 **3/1: Updated Paper (Patient-Robot Instructions v1.9.1)** *Patient-Robot Instructions: AI Oncology Trials* — New images, streamlined 3-step instructions, corrected URLs [![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.18810541-blue)](https://doi.org/10.5281/zenodo.18810541)
+📄 **3/2: v2.0.0 (Patient-Robot Instructions)** *Patient-Robot Instructions: Physical AI Oncology Trials* — Hyperlink-only references; paper, LaTeX source, and images relocated to external hosting [![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.18810541-blue)](https://doi.org/10.5281/zenodo.18810541)
 
 📄 **2/26: New Paper (USL)** *Unification Standard Level for Physical AI Oncology Trials* [![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.18778219-blue)](https://doi.org/10.5281/zenodo.18778219)
+
+> **v2.0.0** — Second major release. Hyperlink-only patient-robot instructions, relocated binary files to Drive, site-wide documentation restructure. See [releases.md](releases.md) and [CHANGELOG.md](CHANGELOG.md) for full details.
 
 > **v1.0.0** — First stable release. 51 Python modules (40,526 LOC), 69 documentation files, 28 examples, 5 CLI tools, and complete privacy/regulatory infrastructure. CI-validated on Python 3.10, 3.11, and 3.12. See [V1_RELEASE.md](V1_RELEASE.md) for full release documentation.
 
@@ -48,22 +50,21 @@ physical-ai-oncology-trials/
 ├── LICENSE
 ├── requirements.txt
 │
-├── patients/                          # ★ Patient-Robot Instructions (v1.9.1)
-│   ├── README.md                      # Detailed paper documentation
-│   ├── generate_pdf.py                # PDF generator (reportlab + Pillow)
-│   ├── paper/                         # ★ Main paper output (v1.9.1)
-│   │   ├── Patient-Robot Instructions: Physical AI Oncology Trials.pdf
-│   │   ├── Patient-Robot Instructions: Physical AI Oncology Trials (10MB).pdf
-│   │   ├── Patient-Robot Instructions: Physical AI Oncology Trials (5MB).pdf
-│   │   ├── Latex Source Code.zip      # .tex, .sty, .bib, README
-│   │   ├── patient_robot_instructions.tex
-│   │   ├── patient_robot_instructions.sty
-│   │   ├── references.bib
-│   │   └── README
-│   ├── images/                        # ★ New images (numbered 1-10)
-│   │   └── README.md                  # Google Drive link
-│   ├── research/                      # Archived v1.9.0 materials
-│   │   └── v1.9.0/                    # Cairo illustrations, generators
+├── patients/                          # ★ Patient-Robot Instructions (v2.0.0)
+│   ├── README.md                      # Paper, LaTeX, and image hyperlinks
+│   ├── research/                      # Archived generation scripts
+│   │   ├── v1.9.1/
+│   │   │   ├── generate_pdf.py        # reportlab + Pillow generator
+│   │   │   ├── paper/README           # Paper access (Drive link)
+│   │   │   └── images/README.md       # Image access (Drive link)
+│   │   └── v1.9.0/
+│   │       ├── README.md
+│   │       ├── generate_illustrations.py
+│   │       ├── generate_pdf.py
+│   │       ├── paper/README
+│   │       ├── svg/README.md
+│   │       ├── pdf/README.md
+│   │       └── png/README.md
 │   └── prompts/
 │       └── prompts.md                 # Development prompts archive
 │
@@ -85,7 +86,7 @@ physical-ai-oncology-trials/
 │       ├── 03_adaptive_radiation_therapy_dt.py
 │       ├── 04_tumor_microenvironment_immunotherapy_dt.py
 │       ├── 05_virtual_trial_cohort_dt.py
-│       └── 06_dt_validation_verification.py      
+│       └── 06_dt_validation_verification.py
 │
 ├── examples/
 │   ├── README.md
@@ -173,6 +174,7 @@ physical-ai-oncology-trials/
 │   ├── limitations.md
 │   └── results.md
 ├── agentic-ai/                        # LLM-based robot control, multi-agent systems
+│   ├── README.md
 │   ├── strengths.md
 │   ├── limitations.md
 │   ├── results.md
@@ -206,7 +208,7 @@ physical-ai-oncology-trials/
 │   └── pybullet/                      # PyBullet medical simulation
 │       └── INTEGRATION.md
 │
-├── privacy/                              
+├── privacy/
 │   ├── README.md
 │   ├── phi-pii-management/
 │   │   ├── README.md
@@ -224,7 +226,7 @@ physical-ai-oncology-trials/
 │       ├── README.md
 │       └── dua_generator.py
 │
-├── regulatory/                           
+├── regulatory/
 │   ├── README.md
 │   ├── fda-compliance/
 │   │   ├── README.md
@@ -345,11 +347,13 @@ The new `q1-2026-standards/` directory contains **proposed standards** for meeti
 
 ---
 
-## ★ Patient-Robot Instructions (v1.9.1)
+## ★ Patient-Robot Instructions (v2.0.0)
 
-The `patients/` directory contains a **10-page patient-facing instructional PDF** with new images and streamlined 3-step interaction instructions. Each page is a self-contained instruction sheet for one robot type used in physical AI oncology trials, with quantitative data (minutes, distances, forces) and a specific cancer pairing.
+The `patients/` directory documents a **10-page patient-facing instructional PDF** with streamlined 3-step interaction instructions. Each page is a self-contained instruction sheet for one robot type used in physical AI oncology trials, with quantitative data (minutes, distances, forces) and a specific cancer pairing.
 
-> **★ Patient-Robot Instructions Paper (v1.9.1)** — See [`patients/paper/`](patients/paper/) for the 10-page PDF: *Patient-Robot Instructions: AI Oncology Trials* (DOI: [10.5281/zenodo.18810541](https://doi.org/10.5281/zenodo.18810541)). Includes LaTeX source code, 28-reference bibliography, and three PDF versions (full, 10 MB, 5 MB).
+In v2.0.0, the paper, LaTeX source files, and images are referenced via hyperlinks only — binary files have been relocated to external hosting to reduce repository size.
+
+> **[Patient-Robot Instructions Paper (PDF) — Zenodo](https://doi.org/10.5281/zenodo.18810541)** | **[LaTeX Source Files — Zenodo](https://doi.org/10.5281/zenodo.18810541)** | **[Images — Google Drive](https://drive.google.com/drive/folders/1Cpe7fz3KlaERIfd6LQz2wmSBQNmB00Ax)**
 
 | Page | Robot Type | Cancer Type | Est. Time |
 |------|-----------|-------------|-----------|
@@ -363,6 +367,8 @@ The `patients/` directory contains a **10-page patient-facing instructional PDF*
 | 8 | Imaging Assistant Robots | Thyroid cancer | 10--20 min |
 | 9 | Steerable Needle / Needle-Steering Robots | Kidney cancer | 30--60 min |
 | 10 | Rehabilitation Exoskeletons / Robotic Gait Trainers | Bone cancer post-surgery | 15--30 min |
+
+See [`patients/README.md`](patients/README.md) for complete documentation, hyperlinks, and prior version history.
 
 ---
 
@@ -565,211 +571,22 @@ response = simulator.predict_response(
 print(f"Predicted response: {response.response_category}")
 ```
 
-See `digital-twins/README.md` for complete documentation.
+See `digital-twins/README.md` for complete documentation, and `digital-twins/examples-twins/README.md` for 6 advanced engineering examples (real-time synchronization, multi-organ toxicity, adaptive radiation therapy, immunotherapy modeling, virtual trial design, and V&V).
 
 ---
 
-## ★ Agentic AI Engineering Examples
+## ★ Engineering Examples
 
-The `agentic-ai/examples-agentic-ai/` directory contains **6 comprehensive code examples** for engineers building agentic AI systems for robotic oncology trials. These cover MCP integration, reasoning agents, real-time decision support, simulation orchestration, formal safety constraints, and RAG-based regulatory compliance.
+Detailed engineering examples are documented in their respective directories:
 
-### Available Agentic AI Examples
-
-| Example | Use Case | Key Techniques |
-|---------|----------|---------------|
-| `01_mcp_clinical_robotics_server.py` | MCP server for robot telemetry, imaging, vitals | Model Context Protocol, audit trails, keep-out zones |
-| `02_react_procedure_planner.py` | ReAct surgical procedure planning with reasoning | Chain-of-thought, instrument selection, margin estimation |
-| `03_realtime_adaptive_treatment_agent.py` | Real-time multi-modal anomaly detection and response | Cross-modal correlation, hemodynamic monitoring, streaming |
-| `04_autonomous_simulation_orchestrator.py` | Autonomous experiment design, execution, and analysis | Parameter sweeps, cross-framework validation, sensitivity |
-| `05_safety_constrained_agent_executor.py` | Formal safety constraints for agent-controlled robots | Pre/post-conditions, invariants, safety gates, rollback |
-| `06_protocol_rag_compliance_agent.py` | RAG agent grounded in regulatory documents | Document retrieval, compliance verification, citations |
-
-### Quick Start with Agentic AI Examples
-
-```bash
-# Run MCP server demo
-python agentic-ai/examples-agentic-ai/01_mcp_clinical_robotics_server.py
-
-# Run ReAct procedure planner
-python agentic-ai/examples-agentic-ai/02_react_procedure_planner.py
-
-# Run safety-constrained executor demo
-python agentic-ai/examples-agentic-ai/05_safety_constrained_agent_executor.py
-
-# Each example includes detailed inline documentation and architecture diagrams
-```
-
----
-
-## ★ Digital Twin Engineering Examples
-
-The new `digital-twins/examples-twins/` directory contains **6 advanced code examples** for engineers building digital twin systems for oncology clinical trials. These extend the core DT modules with real-time synchronization, multi-organ toxicity, adaptive radiation therapy, immunotherapy modeling, virtual trial design, and regulatory V&V.
-
-### Available Digital Twin Examples
-
-| Example | Use Case | Key Techniques |
-|---------|----------|---------------|
-| `01_realtime_dt_synchronization.py` | Live patient data fusion during treatment | EKF, particle filter, anomaly detection |
-| `02_multi_organ_toxicity_twin.py` | Systemic toxicity prediction across organs | PBPK, CTCAE grading, dose modification |
-| `03_adaptive_radiation_therapy_dt.py` | Daily anatomical adaptation during RT | Deformable registration, dose accumulation |
-| `04_tumor_microenvironment_immunotherapy_dt.py` | Checkpoint inhibitor response prediction | TME ODE model, PD-1/PD-L1 dynamics |
-| `05_virtual_trial_cohort_dt.py` | In-silico trial design and virtual controls | Virtual patients, Bayesian interim analysis |
-| `06_dt_validation_verification.py` | Regulatory V&V and model cards | C-index, calibration, AUC, FDA documentation |
-
-### Quick Start with Digital Twin Examples
-
-```bash
-# Run real-time DT synchronization demo
-python digital-twins/examples-twins/01_realtime_dt_synchronization.py
-
-# Run multi-organ toxicity simulation
-python digital-twins/examples-twins/02_multi_organ_toxicity_twin.py
-
-# Run V&V framework demo
-python digital-twins/examples-twins/06_dt_validation_verification.py
-
-# Each example includes detailed inline documentation
-```
-
-See `digital-twins/examples-twins/README.md` for complete documentation.
-
----
-
-## ★ Comprehensive Examples
-
-The new `examples/` directory contains production-ready code examples for the most pressing use cases in physical AI oncology trials.
-
-### Available Examples
-
-| Example | Use Case | Key Frameworks |
-|---------|----------|----------------|
-| `01_surgical_robot_training.py` | Train needle insertion policies | Isaac Lab, ORBIT-Surgical |
-| `02_digital_twin_surgical_planning.py` | DT-guided surgical planning | TumorTwin, MONAI |
-| `03_cross_framework_validation.py` | Multi-framework policy validation | Isaac, MuJoCo, PyBullet |
-| `04_agentic_clinical_workflow.py` | Multi-agent clinical trial coordination | CrewAI, LangGraph |
-| `05_treatment_response_prediction.py` | Patient-specific treatment prediction | TumorTwin |
-
-### Quick Start with Examples
-
-```bash
-# Run surgical robot training
-python examples/01_surgical_robot_training.py --task needle_insertion
-
-# Run treatment prediction
-python examples/05_treatment_response_prediction.py
-
-# Each example includes detailed inline documentation
-```
-
-See `examples/README.md` for complete documentation.
-
----
-
-## ★ Physical Robot Engineering Examples
-
-The new `examples-new/` directory contains code for engineers working directly on **physical robot hardware** for oncology trials. These examples complement `examples/` (which focuses on AI/ML pipelines) by covering deployment, safety, calibration, and human-robot interaction.
-
-### Available Examples
-
-| Example | Use Case | Key Hardware |
-|---------|----------|--------------|
-| `01_realtime_safety_monitoring.py` | Force/torque limits, workspace boundaries, watchdog | F/T sensor, E-stop |
-| `02_sensor_fusion_intraoperative.py` | Multi-sensor perception, tissue deformation tracking | Stereo camera, RGBD |
-| `03_ros2_surgical_deployment.py` | ROS 2 node architecture, control loop, state machine | dVRK, Kinova, UR |
-| `04_hand_eye_calibration_registration.py` | Camera-robot calibration, patient registration | Optical tracker |
-| `05_shared_autonomy_teleoperation.py` | Surgeon-AI shared control, virtual fixtures, haptics | Surgeon console |
-| `06_robotic_sample_handling.py` | Specimen handling, barcode verification, cold chain | Lab robot, scanner |
-
-### Quick Start with Physical Robot Examples
-
-```bash
-# Run safety monitoring demo
-python examples-new/01_realtime_safety_monitoring.py
-
-# Run sensor fusion demo
-python examples-new/02_sensor_fusion_intraoperative.py
-
-# Run hand-eye calibration demo
-python examples-new/04_hand_eye_calibration_registration.py
-
-# Each example includes detailed inline hardware setup instructions
-```
-
-See `examples-new/README.md` for complete documentation.
-
----
-
-## ★ Command-Line Tools
-
-The new `tools/` directory provides **standalone CLI utilities** for engineers working on physical AI oncology trials. Each tool operates independently with JSON output for CI/CD integration.
-
-### Available Tools
-
-| Tool | Use Case | Key Commands |
-|------|----------|-------------|
-| `dicom-inspector/dicom_inspector.py` | DICOM file inspection, PHI audit, trial compliance | `inspect`, `audit-phi`, `validate`, `summarize` |
-| `dose-calculator/dose_calculator.py` | Radiotherapy dose calculations (BED, EQD2, TCP, NTCP) | `bed`, `eqd2`, `compare`, `tcp`, `ntcp`, `tissues` |
-| `trial-site-monitor/trial_site_monitor.py` | Multi-site enrollment tracking, data quality monitoring | `enrollment`, `quality`, `deviations`, `report` |
-| `sim-job-runner/sim_job_runner.py` | Cross-framework simulation launcher and comparator | `launch`, `launch-all`, `compare`, `list-tasks` |
-| `deployment-readiness/deployment_readiness.py` | Pre-deployment AI model validation for clinical use | `check`, `benchmark`, `safety`, `checklist`, `validate` |
-
-### Quick Start with Tools
-
-```bash
-# Inspect DICOM files for PHI leaks before data sharing
-python tools/dicom-inspector/dicom_inspector.py audit-phi /path/to/dicom_dir/
-
-# Compare fractionation schemes for protocol design
-python tools/dose-calculator/dose_calculator.py compare --schemes "60/30,42.56/16,34/10" --alpha-beta 10
-
-# Generate a trial site manifest and monitor enrollment
-python tools/trial-site-monitor/trial_site_monitor.py init-manifest --sites 5 --output manifest.json
-
-# Launch a simulation across all available frameworks
-python tools/sim-job-runner/sim_job_runner.py launch-all --task needle_insertion
-
-# Run full deployment readiness check on an AI model
-python tools/deployment-readiness/deployment_readiness.py check --model model.onnx --output report.json
-```
-
-See `tools/README.md` for complete documentation.
-
----
-
-### ★ Multi-Site Federated Oncology Trial Coordination
-
-The `federation/` directory provides a federated learning and trial coordination platform for orchestrating multi-site oncology clinical trials without sharing raw patient data.
-
-| Module | Purpose |
-|--------|---------|
-| `federated_coordinator.py` | FedAvg, FedProx, SCAFFOLD aggregation across N simulated sites |
-| `differential_privacy.py` | Epsilon/delta budgets, Gaussian/Laplacian noise, gradient clipping |
-| `secure_aggregation.py` | Simulated secure MPC with pairwise masking and verification |
-| `site_enrollment.py` | Stratified randomization, conflict resolution, balance monitoring |
-| `data_harmonization.py` | DICOM normalization, ICD-10/SNOMED CT/LOINC mapping, FHIR R4 |
-| `consortium_reporting.py` | DSMB packages, enrollment dashboards, AE summaries |
-| `privacy_analytics.py` | Federated Kaplan-Meier, Cox PH, response rates |
-
-**Examples** (`federation/examples-federation/`):
-
-| # | Example | Description |
-|---|---------|-------------|
-| 01 | `01_basic_two_site.py` | Minimal 2-site federation with FedAvg |
-| 02 | `02_differential_privacy.py` | Privacy budget demonstration |
-| 03 | `03_secure_aggregation.py` | Secure weight aggregation |
-| 04 | `04_enrollment_sync.py` | Multi-site enrollment coordination |
-| 05 | `05_data_harmonization.py` | Cross-site data normalization |
-| 06 | `06_full_consortium.py` | 8-site multi-cancer consortium |
-
-```bash
-# Run basic 2-site federation
-python federation/examples-federation/01_basic_two_site.py
-
-# Run full 8-site consortium
-python federation/examples-federation/06_full_consortium.py
-```
-
-See `federation/README.md` for architecture, compliance alignment, and full component documentation.
+| Directory | Examples | Focus Area |
+|-----------|----------|------------|
+| [`agentic-ai/`](agentic-ai/README.md) | 6 examples | MCP integration, ReAct planning, safety constraints, RAG compliance |
+| [`digital-twins/examples-twins/`](digital-twins/examples-twins/README.md) | 6 examples | Real-time sync, toxicity modeling, adaptive RT, virtual trials, V&V |
+| [`examples/`](examples/README.md) | 5 examples | Surgical training, DT planning, cross-framework, agentic workflows |
+| [`examples-new/`](examples-new/README.md) | 6 examples | Safety monitoring, sensor fusion, ROS 2 deployment, calibration |
+| [`tools/`](tools/README.md) | 5 CLI tools | DICOM inspection, dose calculation, trial monitoring, simulation, deployment |
+| [`federation/`](federation/README.md) | 6 examples | Multi-site federation, differential privacy, secure aggregation |
 
 ---
 
@@ -827,7 +644,7 @@ crewai>=1.0.0
 
 ## Actively Maintained Repositories (Referenced)
 
-All referenced repositories have been updated within October 2025 - January 2026:
+All referenced repositories have been updated within October 2025 - March 2026:
 
 | Repository | Purpose | Last Commit |
 |------------|---------|-------------|
@@ -936,7 +753,7 @@ See `privacy/README.md` for complete documentation.
 
 ## ★ Regulatory Compliance Framework
 
-The new `regulatory/` directory provides **FDA, IRB, and ICH-GCP compliance tools** for navigating the regulatory landscape of AI-enabled oncology trials.
+The `regulatory/` directory provides **FDA, IRB, and ICH-GCP compliance tools** for navigating the regulatory landscape of AI-enabled oncology trials. Updated March 2026.
 
 ### Key Capabilities
 
@@ -984,7 +801,7 @@ If you use this repository in your research, please cite:
 @software{kawchak2026physicalai,
   author = {Kawchak, Kevin},
   title = {Physical AI for Oncology Clinical Trials},
-  version = {1.0.0},
+  version = {2.0.0},
   year = {2026},
   publisher = {GitHub},
   url = {https://github.com/kevinkawchak/physical-ai-oncology-trials}
@@ -1010,4 +827,4 @@ Contributions welcome. Please ensure any added frameworks or tools:
 4. **Support cross-platform compatibility** (see `unification/` for guidelines)
 
 
-*v1.9.1 - Last updated: March 2026*
+*v2.0.0 - Last updated: March 2026*

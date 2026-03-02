@@ -6,26 +6,49 @@
 
 ## Overview
 
-This directory contains a **10-page patient-facing instructional PDF** for physical AI oncology clinical trials. Each page is a self-contained instruction sheet for one robot type, designed so that an upcoming patient can visualize, read, and feel comfortable regarding how to correctly interact with a specific robot. The v1.9.1 update introduces new images, a streamlined 3-step instruction format with quantitative interaction data, corrected URLs, and a reorganized file structure.
+This directory documents the **10-page patient-facing instructional PDF** for physical AI oncology clinical trials. Each page is a self-contained instruction sheet for one robot type, designed so that an upcoming patient can visualize, read, and feel comfortable regarding how to correctly interact with a specific robot.
+
+In v2.0.0, the paper, LaTeX source files, and images have been relocated to external hosting to reduce repository size. All materials are accessible via the hyperlinks below.
 
 **Author:** Kevin Kawchak, CEO ChemicalQDevice
 **ORCID:** [0009-0007-5457-8667](https://orcid.org/0009-0007-5457-8667)
-**Date:** March 1, 2026
+**Date:** March 2, 2026
 **AI Model:** Claude Code Opus 4.6
 **DOI:** [10.5281/zenodo.18810541](https://doi.org/10.5281/zenodo.18810541)
 
-## What Changed in v1.9.1
+## Paper
 
-- **New images** from [Google Drive](https://drive.google.com/drive/folders/1Cpe7fz3KlaERIfd6LQz2wmSBQNmB00Ax) numbered 1--10, occupying the largest portion of each page
-- **Streamlined instructions**: 1 introductory sentence + 3-item numbered list (entering, interacting, concluding) with quantitative data (minutes, mm, N)
-- **Title updated** to "Patient-Robot Instructions: AI Oncology Trials - [Robot Type]" with abbreviated names when needed
-- **Fixed all URLs** in bibliography and source links (corrected domains for Intuitive, Franka, Accuray, SoftBank, Boston Dynamics, Varian, Ekso Bionics)
-- **Single DOI** (10.5281/zenodo.18810541) throughout
-- **"For Demonstration Purposes Only"** added to each page
-- **Abbreviated clickable source links** (e.g., "Intuitive Surgical" instead of full URL)
-- **v1.9.0 materials** moved to `patients/research/` for archival
-- **Three PDF versions**: full-size, 10 MB, 5 MB
-- **Each robot paired with a specific cancer type** for patient context
+The compiled 10-page PDF is available on Zenodo:
+
+> **[Patient-Robot Instructions: Physical AI Oncology Trials (PDF)](https://doi.org/10.5281/zenodo.18810541)**
+
+Three PDF versions were published: full-size, 10 MB target, and 5 MB target.
+
+## LaTeX Source Files
+
+The LaTeX source code (.tex, .sty, .bib, README) is available on Zenodo:
+
+> **[LaTeX Source Code (Zenodo)](https://doi.org/10.5281/zenodo.18810541)**
+
+Includes `patient_robot_instructions.tex`, `patient_robot_instructions.sty`, `references.bib` (28 references), and compilation instructions.
+
+## Images
+
+All 10 patient-robot instruction images are available on Google Drive:
+
+> **[Patient-Robot Instruction Images (Google Drive)](https://drive.google.com/drive/folders/1Cpe7fz3KlaERIfd6LQz2wmSBQNmB00Ax)**
+
+## v2.0.0 Changes
+
+- **Repository size reduction**: @kevinkawchak relocated paper PDFs, LaTeX source files, and images from v1.9.0 and v1.9.1 into Google Drive to reduce repository size
+- **Hyperlink-only references**: Paper, LaTeX source files, and images are now referenced via hyperlinks only (no binary files in the repository)
+- **Consolidated documentation**: All materials accessible through Zenodo DOI and Google Drive links
+- **Major release**: v2.0.0 marks the second major release milestone for the repository
+
+## Prior Versions
+
+- **v1.9.1** (March 1, 2026): New images, streamlined 3-step instructions, corrected URLs. See [`research/v1.9.1/`](research/v1.9.1/) for archived generation scripts.
+- **v1.9.0** (February 28, 2026): Original 10-page PDF with Cairo black-and-white illustrations. See [`research/v1.9.0/`](research/v1.9.0/) for archived generation scripts.
 
 ## Robot Types (10 Pages)
 
@@ -42,13 +65,13 @@ This directory contains a **10-page patient-facing instructional PDF** for physi
 | 9 | Steerable Needle / Needle-Steering Robots | Steerable Needle Robots | Kidney cancer | 30--60 min |
 | 10 | Rehabilitation Exoskeletons / Robotic Gait Trainers | Rehab Exoskeletons | Bone cancer post-surgery | 15--30 min |
 
-## Page Layout (v1.9.1)
+## Page Layout
 
 Each page follows a consistent format:
 
 - **(a) Header:** Kevin Kawchak, CEO ChemicalQDevice, ORCID, email (top bar)
 - **(b) Title:** "Patient-Robot Instructions: AI Oncology Trials - [Abbreviated Robot Type]" (bar below)
-- **(c) Image:** New illustration from Google Drive, occupying the largest portion of the page
+- **(c) Image:** Illustration from Google Drive, occupying the largest portion of the page
 - **(d) Dashed bar, full robot type name (centered), bold bar**
 - **(e) Instructions:** 1 introductory sentence + 3-item numbered list:
   1. What to do upon entering the room (hands, body position, timing)
@@ -60,50 +83,27 @@ Each page follows a consistent format:
 
 ```
 patients/
-├── README.md                   # This file
-├── generate_pdf.py             # PDF generator (reportlab + Pillow)
-│
-├── paper/                      # ★ Main paper output (v1.9.1)
-│   ├── Patient-Robot Instructions: Physical AI Oncology Trials.pdf
-│   ├── Patient-Robot Instructions: Physical AI Oncology Trials (10MB).pdf
-│   ├── Patient-Robot Instructions: Physical AI Oncology Trials (5MB).pdf
-│   ├── Latex Source Code.zip   # .tex, .sty, .bib, README
-│   ├── patient_robot_instructions.tex
-│   ├── patient_robot_instructions.sty
-│   ├── references.bib          # BibTeX bibliography (28 references)
-│   └── README
-│
-├── images/                     # ★ New images (v1.9.1)
-│   ├── README.md               # Image access and Google Drive link
-│   ├── 1.png ... 10.png        # Numbered images for each page
-│
-├── research/                   # ★ Archived v1.9.0 materials
+├── README.md                   # This file (v2.0.0)
+├── research/                   # Archived generation scripts
+│   ├── v1.9.1/
+│   │   ├── generate_pdf.py     # reportlab + Pillow PDF generator
+│   │   ├── paper/README        # Paper access (Drive link)
+│   │   └── images/README.md    # Image access (Drive link)
 │   └── v1.9.0/
-│       ├── README.md
-│       ├── generate_illustrations.py
-│       ├── generate_pdf.py
-│       ├── paper/              # Original v1.9.0 paper files
-│       ├── svg/                # 10 SVG vector illustrations
-│       ├── pdf/                # 10 PDF vector illustrations
-│       └── png/                # 10 PNG raster illustrations
-│
+│       ├── README.md           # v1.9.0 overview
+│       ├── generate_illustrations.py  # Cairo illustration generator
+│       ├── generate_pdf.py     # Cairo-based PDF generator
+│       ├── paper/README        # Paper access (Drive link)
+│       ├── svg/README.md       # SVG files (Drive link)
+│       ├── pdf/README.md       # PDF files (Drive link)
+│       └── png/README.md       # PNG files (Drive link)
 └── prompts/
     └── prompts.md              # Development prompt archive
 ```
 
-## Regenerating the PDF
-
-```bash
-# Install dependencies
-pip install reportlab Pillow
-
-# Generate all three PDF versions
-python3 patients/generate_pdf.py
-```
-
 ## References
 
-The bibliography (`references.bib`) contains 28 references covering:
+The bibliography (`references.bib`, available on [Zenodo](https://doi.org/10.5281/zenodo.18810541)) contains 28 references covering:
 - Surgical robotics (Intuitive Surgical, Sheetz et al., Moglia et al.)
 - Collaborative robots (Franka Robotics, Lamon et al., Haddadin & Croft)
 - Radiotherapy positioning (Accuray, Hoisak & Pawlicki, Verellen et al.)

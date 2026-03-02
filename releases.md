@@ -4,6 +4,51 @@ Release notes for the physical-ai-oncology-trials repository.
 
 ---
 
+Patient-Robot Instructions: Physical AI Oncology Trials — Hyperlink-Only References and Site-Wide Documentation Restructure
+v2.0.0 - March 2, 2026
+
+## Summary
+
+Major release that transitions the patient-robot instruction materials to hyperlink-only references, reducing repository size by relocating paper PDFs, LaTeX source files, and images to external hosting (Zenodo and Google Drive). Includes a site-wide documentation restructure that moves detailed engineering example sections from the main README into their respective directory READMEs (`agentic-ai/`, `digital-twins/examples-twins/`, `examples/`, `examples-new/`, `tools/`, `federation/`). The main README now provides a consolidated engineering examples table linking to each directory. @kevinkawchak relocated files from v1.9.0 and v1.9.1 into Drive to reduce repository size. This is the second major release milestone, following v1.0.0 (February 2026).
+
+## Features
+
+- **Hyperlink-only patient-robot instructions**: Paper, LaTeX source files, and images are now referenced via hyperlinks only — no binary files in the repository
+  - Paper (PDF): [Zenodo DOI 10.5281/zenodo.18810541](https://doi.org/10.5281/zenodo.18810541)
+  - LaTeX Source Files: [Zenodo DOI 10.5281/zenodo.18810541](https://doi.org/10.5281/zenodo.18810541)
+  - Images: [Google Drive](https://drive.google.com/drive/folders/1Cpe7fz3KlaERIfd6LQz2wmSBQNmB00Ax)
+- **Repository size reduction**: @kevinkawchak relocated paper PDFs, LaTeX source, illustrations, and images from v1.9.0 and v1.9.1 into Google Drive
+- **Site-wide documentation restructure**: Engineering example sections relocated from main README to directory-specific READMEs:
+  - Agentic AI Engineering Examples → `agentic-ai/README.md` (new file)
+  - Digital Twin Engineering Examples → `digital-twins/examples-twins/README.md`
+  - Comprehensive Examples → `examples/README.md`
+  - Physical Robot Engineering Examples → `examples-new/README.md`
+  - Command-Line Tools → `tools/README.md`
+  - Multi-Site Federated Oncology Trial Coordination → `federation/README.md`
+- **Consolidated examples table**: Main README now links to all 34 examples and 5 CLI tools via a single summary table
+- **Updated patients/README.md**: v2.0.0 documentation with paper, LaTeX, and image hyperlinks, prior version history, and updated directory structure
+- **Updated version references**: Badge updated to v2.0.0, Citation.cff version updated, Actively Maintained Repositories date range extended to March 2026
+- **Regulatory Compliance Framework date updated**: March 2026
+- **v1.0.0 reference**: Main README now references both v1.0.0 and v2.0.0 major releases
+- **Federation README updated**: Added examples table from main README
+- **Updated CHANGELOG.md**: Added v2.0.0 entry
+- **Updated prompts archive**: Added v2.0.0 prompt to `patients/prompts/prompts.md`
+
+## Contributors
+@kevinkawchak
+@claude
+@openai
+
+## Notes
+- Paper DOI: [10.5281/zenodo.18810541](https://doi.org/10.5281/zenodo.18810541)
+- Google Drive images: [Google Drive](https://drive.google.com/drive/folders/1Cpe7fz3KlaERIfd6LQz2wmSBQNmB00Ax)
+- Second major release (v2.0.0) following v1.0.0 (February 2026)
+- No Python code changes — documentation-only release
+- License: CC BY 4.0 (paper and images), MIT (repository code)
+- Development by Claude Code Opus 4.6
+
+---
+
 Patient-Robot Instructions: AI Oncology Trials — New Images and Streamlined Instructions
 v1.9.1 - March 1, 2026
 
