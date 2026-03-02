@@ -22,15 +22,12 @@ The compiled 10-page PDF is available on Zenodo:
 
 > **[Patient-Robot Instructions: Physical AI Oncology Trials (PDF)](https://doi.org/10.5281/zenodo.18810541)**
 
-Three PDF versions were published: full-size, 10 MB target, and 5 MB target.
-
 ## LaTeX Source Files
 
 The LaTeX source code (.tex, .sty, .bib, README) is available on Zenodo:
 
 > **[LaTeX Source Code (Zenodo)](https://doi.org/10.5281/zenodo.18810541)**
 
-Includes `patient_robot_instructions.tex`, `patient_robot_instructions.sty`, `references.bib` (28 references), and compilation instructions.
 
 ## Images
 
