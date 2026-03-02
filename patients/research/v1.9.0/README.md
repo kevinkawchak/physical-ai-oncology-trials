@@ -1,6 +1,6 @@
 # Patient-Robot Instructions: Physical AI Oncology Trials
 
-[![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.18810541-blue)](https://doi.org/10.5281/zenodo.18810541)
+
 [![License: CC BY 4.0](https://img.shields.io/badge/License-CC%20BY%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by/4.0/)
 [![Pages](https://img.shields.io/badge/Pages-10-green.svg)]()
 
@@ -12,7 +12,7 @@ This directory contains a **10-page patient-facing instructional PDF** with prof
 **ORCID:** [0009-0007-5457-8667](https://orcid.org/0009-0007-5457-8667)
 **Date:** February 28, 2026
 **AI Model:** Claude Code Opus 4.6
-**DOI:** [10.5281/zenodo.18810541](https://doi.org/10.5281/zenodo.18810541)
+
 
 ## Robot Types (10 Pages)
 
@@ -69,48 +69,6 @@ Symbols and safety pictograms follow established international standards:
 | **IEC 60417:2023** | Graphical symbols for equipment | Equipment interface symbols |
 | **ISO 7010:2019** | Safety signs (W003 radiation) | Radiotherapy pages |
 | **ISO 3864-1:2011** | Safety colours and safety signs | Warning triangle on surgical/needle pages |
-
-## Directory Structure
-
-```
-patients/
-├── README.md                   # This file
-├── generate_illustrations.py   # Cairo illustration generator (SVG/PDF/PNG)
-├── generate_pdf.py             # Combined 10-page PDF generator
-│
-├── paper/                      # Main paper output
-│   ├── Patient-Robot Instructions: Physical AI Oncology Trials.pdf  # 10-page PDF
-│   ├── Latex Source Code.zip   # .tex, .sty, .bib, README
-│   ├── patient_robot_instructions.tex   # LaTeX source
-│   ├── patient_robot_instructions.sty   # Custom style package
-│   ├── references.bib          # BibTeX bibliography (35 references)
-│   └── README                  # Compilation instructions
-│
-├── svg/                        # Individual SVG illustrations (vector)
-│   ├── 01_surgical_robots.svg
-│   ├── 02_cobots.svg
-│   ├── 03_radiotherapy_patient-positioning_robots.svg
-│   ├── 04_robotic_needle-placement_systems.svg
-│   ├── 05_social_companion_robots.svg
-│   ├── 06_humanoids.svg
-│   ├── 07_radiotherapy_motion-management___tracking_robots.svg
-│   ├── 08_imaging_assistant_robots.svg
-│   ├── 09_steerable_needle___needle-steering_robots.svg
-│   └── 10_rehabilitation_exoskeletons___robotic_gait_trainers.svg
-│
-├── pdf/                        # Individual PDF illustrations (vector)
-│   ├── 01_surgical_robots.pdf
-│   ├── ... (10 files, same naming as SVG)
-│   └── 10_rehabilitation_exoskeletons___robotic_gait_trainers.pdf
-│
-├── png/                        # Individual PNG illustrations (3600×4000 px)
-│   ├── 01_surgical_robots.png
-│   ├── ... (10 files, same naming as SVG)
-│   └── 10_rehabilitation_exoskeletons___robotic_gait_trainers.png
-│
-└── prompts/
-    └── prompts.md              # Development prompt archive
-```
 
 ## Illustration Details
 
