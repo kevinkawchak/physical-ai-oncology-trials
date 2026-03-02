@@ -1,6 +1,34 @@
-# Development Prompts — Patient-Robot Instructions
+# Development Prompts — Patient Instructions
 
-Archive of prompts used to develop the patient-robot instructional materials.
+Archive of prompts used to develop the patient instructional materials.
+
+---
+
+## v2.1.0 — Patient Instructions: Physical AI Oncology Trials — Paper Content Context Update and Documentation Restructure (March 2, 2026)
+
+Update the context in physical-ai-oncology-trials based on the 5 images of the pdf (2 pages per image). Comment on the images that correspond to each page. There is no context of the paper in your last update, and portions of context  from prior v1.9.0 and v1.9.1 are mixed in with the new paper. The new paper context needs to be correctly displayed for /patients (fix and add more tables and text diagrams), main Readme, diagrams, tables and other relevant documentation. This includes fixing current tables that keep repeating how files were transferred to drive. New tables and text diagrams need to focus on the context of the paper. Keep the URL format for referencing the paper, latex source files, and images.
+
+Make sure to clone the current repo and utilize appropriate information regarding this pdf. Be sure to fix and address errors that would cause failed checks for the single pull request (such as Python environment issues to avoid the following error during final checks): "3 failing checks
+x Cl / lint-and-format (3.10) (pull...
+x Cl / lint-and-format (3.11) (pull...
+x Cl / lint-and-format (3.12) (pull... " Place the new release notes in releases.md under main using the format below (note title gets no hashes, while summary, features, etc. get two leading hashes).
+
+Provide an updated changelog (v2.1.0). Provide a copy of this prompt under the existing kevinkawchak/physical-ai-oncology-trials/patients/prompts.md When you are finished, auto-push the update to GitHub on your own for my review. The user will then review your updates in GitHub prior to finalization.
+
+"FORMAT"
+Release title
+v2.1.0 - [Use title format only from most prior actual release, not releases.md]
+
+## Summary
+
+## Features
+
+## Contributors
+@kevinkawchak
+@claude
+@openai
+
+## Notes
 
 ---
 
