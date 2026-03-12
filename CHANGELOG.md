@@ -32,6 +32,10 @@ Format follows [Keep a Changelog](https://keepachangelog.com/).
 - No em dashes used in the entire document
 - Development by Claude Code Opus 4.6
 
+---
+- @kevinkawchak updates to main README and regulatory/ 2026-03-12.
+---
+
 ## [2.1.0] - 2026-03-02
 
 ### Added
