@@ -1,5 +1,5 @@
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesPackage{ich_guideline_style}[2026/03/11 Custom style for reconstructed ICH guideline]
+\ProvidesPackage{ich_guideline_style}[2026/03/12 Custom style for Physical AI Oncology Clinical Trial Unification Guidance]
 \usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
 \usepackage{lmodern}
@@ -10,21 +10,22 @@
 \usepackage{titlesec}
 \usepackage{fancyhdr}
 \usepackage{xcolor}
-\usepackage[hidelinks]{hyperref}
+\usepackage[hidelinks,colorlinks=true,linkcolor=ICHBlue,urlcolor=ICHBlue,citecolor=ICHBlue]{hyperref}
 \usepackage[nameinlink,noabbrev]{cleveref}
 \usepackage{enumitem}
 \usepackage{csquotes}
 \usepackage[backend=biber,style=numeric,sorting=nyt]{biblatex}
+\usepackage{ragged2e}
 \definecolor{ICHBlue}{HTML}{143A5A}
 \hypersetup{
-  pdftitle={ICH E6(R3): Guideline for Good Clinical Practice},
-  pdfauthor={International Council for Harmonisation}
+  pdftitle={End-to-End Physical AI Oncology Clinical Trial Unification},
+  pdfauthor={Kevin Kawchak, ChemicalQDevice}
 }
 \setstretch{1.05}
 \pagestyle{fancy}
 \fancyhf{}
-\fancyhead[L]{\footnotesize ICH E6(R3)}
-\fancyhead[R]{\footnotesize Good Clinical Practice}
+\fancyhead[L]{\footnotesize Physical AI Oncology Unification}
+\fancyhead[R]{\footnotesize Modified E6(R3)}
 \fancyfoot[C]{\footnotesize \thepage}
 \renewcommand{\headrulewidth}{0.3pt}
 \titleformat{\section}{\Large\bfseries\color{ICHBlue}}{\thesection}{0.6em}{}
