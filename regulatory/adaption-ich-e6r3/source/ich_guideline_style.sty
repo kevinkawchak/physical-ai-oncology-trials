@@ -1,0 +1,37 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{ich_guideline_style}[2026/03/11 Custom style for reconstructed ICH guideline]
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage[margin=1in]{geometry}
+\usepackage{setspace}
+\usepackage{parskip}
+\usepackage{microtype}
+\usepackage{titlesec}
+\usepackage{fancyhdr}
+\usepackage{xcolor}
+\usepackage[hidelinks]{hyperref}
+\usepackage[nameinlink,noabbrev]{cleveref}
+\usepackage{enumitem}
+\usepackage{csquotes}
+\usepackage[backend=biber,style=numeric,sorting=nyt]{biblatex}
+\definecolor{ICHBlue}{HTML}{143A5A}
+\hypersetup{
+  pdftitle={ICH E6(R3): Guideline for Good Clinical Practice},
+  pdfauthor={International Council for Harmonisation}
+}
+\setstretch{1.05}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\footnotesize ICH E6(R3)}
+\fancyhead[R]{\footnotesize Good Clinical Practice}
+\fancyfoot[C]{\footnotesize \thepage}
+\renewcommand{\headrulewidth}{0.3pt}
+\titleformat{\section}{\Large\bfseries\color{ICHBlue}}{\thesection}{0.6em}{}
+\titleformat{\subsection}{\large\bfseries\color{ICHBlue}}{\thesubsection}{0.6em}{}
+\titleformat{\subsubsection}{\normalsize\bfseries\color{ICHBlue}}{\thesubsubsection}{0.6em}{}
+\titleformat{\paragraph}[runin]{\normalsize\bfseries}{\theparagraph}{0.5em}{}[.]
+\titlespacing*{\section}{0pt}{2.0ex plus .5ex minus .2ex}{1.0ex}
+\titlespacing*{\subsection}{0pt}{1.6ex plus .5ex minus .2ex}{0.8ex}
+\titlespacing*{\subsubsection}{0pt}{1.4ex plus .4ex minus .2ex}{0.6ex}
+\setlist[description]{font=\normalfont\bfseries,labelsep=0.5em}
