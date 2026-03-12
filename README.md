@@ -14,7 +14,7 @@ This repository provides production-ready configurations, validated pipelines, a
 
 📄 **3/2: v2.1.0 (Patient Instructions)** *Patient Instructions: Physical AI Oncology Trials* -- Paper content documentation with page-by-page instructions, text diagrams, and quantitative patient data [![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.18810541-blue)](https://doi.org/10.5281/zenodo.18810541)
 
-📄 **2/26: New Paper (USL)** *Unification Standard Level for Physical AI Oncology Trials* [![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.18778219-blue)](https://doi.org/10.5281/zenodo.18778219)
+📄 **2/26: New Paper (USL)** *Unification Standard Level for Physical AI Oncology Trials. Standardizing and Evaluating Robot Unification Readiness for Multi-Site Clinical Trials.* [![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.18778219-blue)](https://doi.org/10.5281/zenodo.18778219)
 
 > **v2.2.0** -- End-to-End Physical AI Oncology Clinical Trial Unification guidance. Comprehensive LaTeX document adapting the prior ICH E6(R3) regulation for physical AI oncology trials. Covers principles, investigator and sponsor responsibilities, data governance, appendices, and glossary with 30 physical AI definitions. See [releases.md](releases.md) and [CHANGELOG.md](CHANGELOG.md) for full details.
 
