@@ -4,7 +4,51 @@ Release notes for the physical-ai-oncology-trials repository.
 
 ---
 
-Patient Instructions: Physical AI Oncology Trials — Paper Content Context Update and Documentation Restructure
+End-to-End Physical AI Oncology Clinical Trial Unification Guidance
+v2.2.0 - March 12, 2026
+
+## Summary
+
+Publishes the **End-to-End Physical AI Oncology Clinical Trial Unification** guidance, a comprehensive LaTeX document adapting the prior ICH E6(R3) regulation for physical AI oncology clinical trials. The guidance covers Sections 1 through 4 (Principles, Investigator Responsibilities, Sponsor Responsibilities, Data Governance), Appendices A through C (Physical AI System Documentation, Clinical Trial Protocol, Essential Records), and a specialized Glossary with 30 physical AI-specific definitions. The document integrates USL scoring (v1.4.0 through v1.8.0) for all 9 evaluated robot platforms, references all simulation frameworks (NVIDIA Isaac Lab v2.3.1, MuJoCo v3.4.0, Gazebo v10.0.0, PyBullet v3.2.5), AI/ML categories (generative, agentic, RL, self-supervised, supervised), digital twin capabilities, federated learning, and privacy/regulatory compliance tools from the repository. Throughout the guidance, the prior ICH E6(R3) regulation is consistently referenced as the baseline being adapted. The repository README, regulatory README, CHANGELOG, and other documentation are updated for v2.2.0.
+
+## Features
+
+- **Complete LaTeX guidance document** (`regulatory/adaption-ich-e6r3/source/main.tex`): 4 major sections, 3 appendices, glossary, and bibliography adapted from prior ICH E6(R3) for physical AI oncology trials
+- **Section 1: Principles of Physical AI Clinical Practice**: Foundational principles, robot classification (7 categories), AI/ML framework requirements (5 types), simulation and digital twin requirements, USL framework overview
+- **Section 2: Investigator Responsibilities**: Qualifications, resources, medical care, IRB communication, informed consent for physical AI interactions, safety reporting, oversight
+- **Section 3: Sponsor Responsibilities**: Quality management, regulatory submission, monitoring, noncompliance, safety assessment, data handling, clinical trial reports
+- **Section 4: Data Governance**: Blinding in physical AI systems, data lifecycle (capture, metadata, review, corrections, transfer, finalisation, retention, destruction), computerised systems (procedures, training, security, validation, system failure, user management)
+- **Appendix A: Physical AI System Documentation**: System description, specifications, safety studies, clinical experience (analogous to Investigator's Brochure)
+- **Appendix B: Clinical Trial Protocol**: Protocol template adapted for physical AI trials with B.1 through B.16 sections
+- **Appendix C: Essential Records**: Physical AI essential records criteria and table with 20 record categories
+- **Glossary**: 30 physical AI-specific definitions (Agentic AI, Cobot, Digital Twin, Federated Learning, USL, VLA Model, etc.)
+- **Updated style package** (`ich_guideline_style.sty`): Adapted headers, metadata, and hyperlink colors for physical AI guidance
+- **Updated bibliography** (`references.bib`): 18 references covering ICH E6(R3), repository, USL paper, patient instructions, NASA TRL, MLTRL, simulation frameworks, AI frameworks, and regulatory standards
+- **Prompts archive** (`regulatory/adaption-ich-e6r3/prompts.md`): v2.2.0 development prompt
+- **Updated regulatory README**: Added adaption-ich-e6r3 directory to structure, updated version
+- **Updated source README**: Build instructions, version info, DOI reference
+- **Cover page**: Title, adaption line, guideline name, Modified E6(R3), draft release date, Zenodo DOI hyperlink, CEO attribution, ICH copyright and attribution text
+- **Repository version references**: v1.0.0 through v2.2.0 referenced strategically throughout
+- **USL scores**: All 9 robots referenced (da Vinci 7.1, Panda 7.4, Atlas 5.8, Gen3 5.7, Hugo 4.5, Digit 4.2, Optimus 3.6, Versius 3.4, xArm 3.4)
+- **No em dashes**: Entire document uses hyphens and "to" ranges per style requirements
+- **DOI**: 10.5281/zenodo.18973368
+
+## Contributors
+@kevinkawchak
+@claude
+
+## Notes
+- Guidance DOI: [10.5281/zenodo.18973368](https://doi.org/10.5281/zenodo.18973368)
+- Adapted from the prior ICH E6(R3) regulation (adopted 06 January 2025)
+- Not endorsed or sponsored by ICH
+- Development by Claude Code Opus 4.6
+- License: MIT (repository code)
+- The original .tex is longer than the prior ICH E6(R3) LaTeX reconstruction
+- Compiled PDF and source zip included in repository
+
+---
+
+Patient Instructions: Physical AI Oncology Trials -- Paper Content Context Update and Documentation Restructure
 v2.1.0 - March 2, 2026
 
 ## Summary

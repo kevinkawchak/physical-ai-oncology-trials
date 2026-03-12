@@ -2,9 +2,9 @@
 
 *FDA, IRB, and ICH-GCP compliance tools for AI-enabled clinical trial management (February 2026)*
 
-**Version**: 1.0.0
+**Version**: 2.2.0
 **Status**: Active Development
-**Last Updated**: February 2026
+**Last Updated**: March 2026
 
 ---
 
@@ -55,6 +55,16 @@ As of December 2025, the FDA has authorized over **1,300 AI/ML-enabled medical d
 ```
 regulatory/
 ├── README.md                          # This file
+│
+├── adaption-ich-e6r3/                 # ★ Physical AI Unification Guidance (v2.2.0)
+│   ├── prompts.md                     # Development prompts archive
+│   └── source/
+│       ├── main.tex                   # LaTeX source (Sections 1-4, Appendices A-C, Glossary)
+│       ├── ich_guideline_style.sty    # Custom style package
+│       ├── references.bib             # Bibliography (18 references)
+│       ├── compiled.pdf               # Compiled PDF output
+│       ├── ICH_E6R3_LaTeX_Package.zip # Archive of source files
+│       └── README.md                  # Build instructions
 │
 ├── fda-compliance/                    # FDA regulatory pathway management
 │   ├── README.md                      # FDA compliance overview
