@@ -5,6 +5,33 @@ Format follows [Keep a Changelog](https://keepachangelog.com/).
 
 ## [Unreleased]
 
+## [2.2.0] - 2026-03-12
+
+### Added
+- `regulatory/adaption-ich-e6r3/source/main.tex`: Complete End-to-End Physical AI Oncology Clinical Trial Unification guidance (Sections 1-4, Appendices A-C, Glossary) adapted from prior ICH E6(R3) regulation
+- `regulatory/adaption-ich-e6r3/source/ich_guideline_style.sty`: Updated style package for physical AI guidance
+- `regulatory/adaption-ich-e6r3/source/references.bib`: Updated bibliography with 18 references
+- `regulatory/adaption-ich-e6r3/prompts.md`: Development prompt archive for v2.2.0
+- Sections 1-4: Principles, Investigator Responsibilities, Sponsor Responsibilities, Data Governance
+- Appendices A-C: Physical AI System Documentation, Clinical Trial Protocol, Essential Records
+- Glossary with 30 physical AI-specific definitions
+- Cover page with DOI 10.5281/zenodo.18973368 and CEO attribution
+- v2.2.0 release notes in `releases.md`
+
+### Changed
+- `regulatory/adaption-ich-e6r3/source/README.md`: Updated for v2.2.0 with build instructions and DOI
+- `regulatory/README.md`: Added adaption-ich-e6r3 directory to structure, updated version to 2.2.0
+- `README.md`: Updated version badge to v2.2.0, added regulatory guidance section, updated repository structure and citation
+- `CITATION.cff`: Updated version to 2.2.0
+
+### Notes
+- Guidance DOI: 10.5281/zenodo.18973368
+- Adapted from the prior ICH E6(R3) regulation (adopted 06 January 2025)
+- Not endorsed or sponsored by ICH
+- All 9 USL-evaluated robots referenced with scores throughout
+- No em dashes used in the entire document
+- Development by Claude Code Opus 4.6
+
 ## [2.1.0] - 2026-03-02
 
 ### Added

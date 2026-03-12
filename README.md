@@ -1,7 +1,7 @@
 # End-to-End Physical AI Unification of Oncology Clinical Trials
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Release](https://img.shields.io/badge/Release-v2.1.0-brightgreen.svg)]()
+[![Release](https://img.shields.io/badge/Release-v2.2.0-brightgreen.svg)]()
 [![Last Updated](https://img.shields.io/badge/Updated-March%202026-blue.svg)]()
 [![Python 3.10+](https://img.shields.io/badge/Python-3.10+-green.svg)]()
 [![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.18445179-blue)](https://doi.org/10.5281/zenodo.18445179)
@@ -10,11 +10,13 @@
 
 This repository provides production-ready configurations, validated pipelines, and integration guides for deploying robotic systems, digital twins, and embodied AI agents in oncology. Referenced frameworks and tools have been added primarily from Oct. 2025 to Jan. 2026.
 
-📄 **3/2: v2.1.0 (Patient Instructions)** *Patient Instructions: Physical AI Oncology Trials* — Paper content documentation with page-by-page instructions, text diagrams, and quantitative patient data [![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.18810541-blue)](https://doi.org/10.5281/zenodo.18810541)
+📄 **3/12: v2.2.0 (Regulatory Guidance)** *End-to-End Physical AI Oncology Clinical Trial Unification* -- Comprehensive guidance adapted from prior ICH E6(R3), with Sections 1-4, Appendices A-C, and Glossary [![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.18973368-blue)](https://doi.org/10.5281/zenodo.18973368)
+
+📄 **3/2: v2.1.0 (Patient Instructions)** *Patient Instructions: Physical AI Oncology Trials* -- Paper content documentation with page-by-page instructions, text diagrams, and quantitative patient data [![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.18810541-blue)](https://doi.org/10.5281/zenodo.18810541)
 
 📄 **2/26: New Paper (USL)** *Unification Standard Level for Physical AI Oncology Trials* [![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.18778219-blue)](https://doi.org/10.5281/zenodo.18778219)
 
-> **v2.1.0** — Paper content context update. Adds page-by-page patient instructions, robot category text diagrams, quantitative patient data tables, procedure time comparisons, and image descriptions for the 10-page *Patient Instructions: Physical AI Oncology Trials* paper. See [releases.md](releases.md) and [CHANGELOG.md](CHANGELOG.md) for full details.
+> **v2.2.0** -- End-to-End Physical AI Oncology Clinical Trial Unification guidance. Comprehensive LaTeX document adapting the prior ICH E6(R3) regulation for physical AI oncology trials. Covers principles, investigator and sponsor responsibilities, data governance, appendices, and glossary with 30 physical AI definitions. See [releases.md](releases.md) and [CHANGELOG.md](CHANGELOG.md) for full details.
 
 > **v1.0.0** — First stable release. 51 Python modules (40,526 LOC), 69 documentation files, 28 examples, 5 CLI tools, and complete privacy/regulatory infrastructure. CI-validated on Python 3.10, 3.11, and 3.12. See [V1_RELEASE.md](V1_RELEASE.md) for full release documentation.
 
@@ -228,6 +230,14 @@ physical-ai-oncology-trials/
 │
 ├── regulatory/
 │   ├── README.md
+│   ├── adaption-ich-e6r3/             # ★ Physical AI Unification Guidance (v2.2.0)
+│   │   ├── prompts.md                 # Development prompts archive
+│   │   └── source/
+│   │       ├── main.tex               # LaTeX source (Sections 1-4, Appendices, Glossary)
+│   │       ├── ich_guideline_style.sty
+│   │       ├── references.bib
+│   │       ├── compiled.pdf
+│   │       └── README.md
 │   ├── fda-compliance/
 │   │   ├── README.md
 │   │   └── fda_submission_tracker.py
@@ -789,6 +799,31 @@ See `regulatory/README.md` for complete documentation.
 
 ---
 
+## ★ Regulatory Guidance: Physical AI Clinical Trial Unification (v2.2.0)
+
+The `regulatory/adaption-ich-e6r3/` directory contains the **End-to-End Physical AI Oncology Clinical Trial Unification** guidance, a comprehensive LaTeX document adapting the prior ICH E6(R3) regulation for physical AI oncology trials.
+
+> **[Guidance (PDF) -- Zenodo](https://doi.org/10.5281/zenodo.18973368)** | **[LaTeX Source Files](regulatory/adaption-ich-e6r3/source/)**
+
+```
+Guidance Structure
+==================
+  Section 1: Principles of Physical AI Clinical Practice
+  Section 2: Investigator Responsibilities in Physical AI Trials
+  Section 3: Sponsor Responsibilities in Physical AI Trials
+  Section 4: Data Governance for Physical AI Trials
+  Appendix A: Physical AI System Documentation
+  Appendix B: Clinical Trial Protocol for Physical AI Trials
+  Appendix C: Essential Records for Physical AI Clinical Trials
+  Glossary:   30 Physical AI-Specific Definitions
+```
+
+Key features: 7 robot categories, 5 AI/ML types, 4 simulation frameworks, USL scoring for 9 robots, digital twin integration, federated learning, privacy/cybersecurity requirements. All content adapted from the prior ICH E6(R3) regulation (adopted 06 January 2025).
+
+See [`regulatory/adaption-ich-e6r3/source/README.md`](regulatory/adaption-ich-e6r3/source/README.md) for build instructions.
+
+---
+
 ## Citation
 
 If you use this repository in your research, please cite:
@@ -797,7 +832,7 @@ If you use this repository in your research, please cite:
 @software{kawchak2026physicalai,
   author = {Kawchak, Kevin},
   title = {Physical AI for Oncology Clinical Trials},
-  version = {2.1.0},
+  version = {2.2.0},
   year = {2026},
   publisher = {GitHub},
   url = {https://github.com/kevinkawchak/physical-ai-oncology-trials}
@@ -823,4 +858,4 @@ Contributions welcome. Please ensure any added frameworks or tools:
 4. **Support cross-platform compatibility** (see `unification/` for guidelines)
 
 
-*v2.1.0 - Last updated: March 2026*
+*v2.2.0 - Last updated: March 2026*
