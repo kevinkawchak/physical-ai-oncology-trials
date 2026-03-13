@@ -17,7 +17,7 @@ This repository provides production-ready configurations, validated pipelines, a
 
 📄 **3/2: v2.1.0 (Patient Instructions)** *Patient Instructions: Physical AI Oncology Trials* - Paper content documentation with page-by-page instructions, text diagrams, and quantitative patient data [![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.18810541-blue)](https://doi.org/10.5281/zenodo.18810541)
 
-📄 **2/26: New Paper (USL)** *Unification Standard Level for Physical AI Oncology Trials. Standardizing and Evaluating Robot Unification Readiness for Multi-Site Clinical Trials.* [![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.18778219-blue)](https://doi.org/10.5281/zenodo.18778219)
+📄 **2/26: New Paper (USL)** *Unification Standard Level for Physical AI Oncology Trials. Standardizing and Evaluating Robot Unification Readiness for Multi-Site Clinical Trials. USL scores range from 1.0 to 10.0 (in 0.1 increments)* [![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.18778219-blue)](https://doi.org/10.5281/zenodo.18778219)
 
 > **v2.3.0** - Physical AI Oncology Trial Industry Specification (PAIOTIS) v1.0. Formal 8-part industry standard unifying four repositories (physical-ai-oncology-trials, TrialMCP, national-mcp-pai-oncology-trials, pai-oncology-trial-fl) with RFC 2119 normative language, USL robot qualification tiers, pharmaceutical sponsor implementation guide, clinical site readiness criteria, and industry milestone roadmap. See [releases.md](releases.md) and [CHANGELOG.md](CHANGELOG.md) for full details.
 
