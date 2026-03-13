@@ -1,7 +1,7 @@
 # End-to-End Physical AI Unification of Oncology Clinical Trials
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Release](https://img.shields.io/badge/Release-v2.2.0-brightgreen.svg)]()
+[![Release](https://img.shields.io/badge/Release-v2.3.0-brightgreen.svg)]()
 [![Last Updated](https://img.shields.io/badge/Updated-March%202026-blue.svg)]()
 [![Python 3.10+](https://img.shields.io/badge/Python-3.10+-green.svg)]()
 [![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.18445179-blue)](https://doi.org/10.5281/zenodo.18445179)
@@ -10,13 +10,15 @@
 
 This repository provides production-ready configurations, validated pipelines, and integration guides for deploying robotic systems, digital twins, and embodied AI agents in oncology. Referenced frameworks and tools have been added primarily from Oct. 2025 to Jan. 2026.
 
+📄 **3/13: v2.3.0 (Industry Specification)** *Physical AI Oncology Trial Industry Specification (PAIOTIS) v1.0* -- 8-part industry standard unifying four repositories with RFC 2119 normative language, USL robot qualification, pharmaceutical sponsor guide, and clinical site readiness criteria
+
 📄 **3/12: v2.2.0 (Regulatory Guidance)** *End-to-End Physical AI Oncology Clinical Trial Unification* -- Comprehensive guidance adapted from prior ICH E6(R3), with Sections 1-4, Appendices A-C, and Glossary [![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.18973368-blue)](https://doi.org/10.5281/zenodo.18973368)
 
 📄 **3/2: v2.1.0 (Patient Instructions)** *Patient Instructions: Physical AI Oncology Trials* -- Paper content documentation with page-by-page instructions, text diagrams, and quantitative patient data [![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.18810541-blue)](https://doi.org/10.5281/zenodo.18810541)
 
 📄 **2/26: New Paper (USL)** *Unification Standard Level for Physical AI Oncology Trials. Standardizing and Evaluating Robot Unification Readiness for Multi-Site Clinical Trials.* [![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.18778219-blue)](https://doi.org/10.5281/zenodo.18778219)
 
-> **v2.2.0** -- End-to-End Physical AI Oncology Clinical Trial Unification guidance. Comprehensive LaTeX document adapting the prior ICH E6(R3) regulation for physical AI oncology trials. Covers principles, investigator and sponsor responsibilities, data governance, appendices, and glossary with 30 physical AI definitions. See [releases.md](releases.md) and [CHANGELOG.md](CHANGELOG.md) for full details.
+> **v2.3.0** -- Physical AI Oncology Trial Industry Specification (PAIOTIS) v1.0. Formal 8-part industry standard unifying four repositories (physical-ai-oncology-trials, TrialMCP, national-mcp-pai-oncology-trials, pai-oncology-trial-fl) with RFC 2119 normative language, USL robot qualification tiers, pharmaceutical sponsor implementation guide, clinical site readiness criteria, and industry milestone roadmap. See [releases.md](releases.md) and [CHANGELOG.md](CHANGELOG.md) for full details.
 
 > **v1.0.0** — First stable release. 51 Python modules (40,526 LOC), 69 documentation files, 28 examples, 5 CLI tools, and complete privacy/regulatory infrastructure. CI-validated on Python 3.10, 3.11, and 3.12. See [V1_RELEASE.md](V1_RELEASE.md) for full release documentation.
 
@@ -124,6 +126,13 @@ physical-ai-oncology-trials/
 │
 ├── unification/
 │   ├── README.md
+│   ├── industry/                        # ★ PAIOTIS v1.0 (v2.3.0)
+│   │   ├── paiotis_v1.tex               # Main LaTeX document (8 parts)
+│   │   ├── paiotis.sty                  # Custom style package
+│   │   ├── references.bib               # Bibliography (24 references)
+│   │   ├── paiotis_v1.pdf               # Compiled PDF (25 pages)
+│   │   ├── paiotis_v1.zip               # Source archive
+│   │   └── prompts.md                   # Development prompts
 │   ├── simulation_physics/
 │   │   ├── challenges.md
 │   │   ├── opportunities.md
@@ -824,6 +833,29 @@ See [`regulatory/adaption-ich-e6r3/source/README.md`](regulatory/adaption-ich-e6
 
 ---
 
+## ★ Industry Specification: PAIOTIS v1.0 (v2.3.0)
+
+The `unification/industry/` directory contains the **Physical AI Oncology Trial Industry Specification (PAIOTIS) v1.0**, a formal 25-page LaTeX document that unifies four repositories into a single industry standard using RFC 2119 normative language (SHALL, SHOULD, MAY).
+
+```
+PAIOTIS Structure (8 Parts)
+============================
+  Part I:    Industry Definition and Scope
+  Part II:   Technical Architecture
+  Part III:  Regulatory Compliance Framework
+  Part IV:   Privacy and Data Governance
+  Part V:    Robot Qualification and Certification
+  Part VI:   Pharmaceutical Sponsor Implementation Guide
+  Part VII:  Clinical Site Readiness Criteria
+  Part VIII: Industry Milestone Roadmap
+```
+
+Key features: Three-layer architecture (Physical AI, MCP Protocol, Clinical Trial), USL-based robot qualification tiers for trial phases, 3-tier pharmaceutical adoption pathways (observer/pilot/full), clinical site infrastructure and staffing requirements, federation onboarding stages, and phased industry roadmap (2026-2028+). Integrates content from physical-ai-oncology-trials, TrialMCP (5 MCP servers), national-mcp-pai-oncology-trials (13 JSON schemas, 331 conformance tests), and pai-oncology-trial-fl (federated learning with differential privacy).
+
+See [`unification/industry/`](unification/industry/) for LaTeX source, compiled PDF, and source archive.
+
+---
+
 ## Citation
 
 If you use this repository in your research, please cite:
@@ -832,7 +864,7 @@ If you use this repository in your research, please cite:
 @software{kawchak2026physicalai,
   author = {Kawchak, Kevin},
   title = {Physical AI for Oncology Clinical Trials},
-  version = {2.2.0},
+  version = {2.3.0},
   year = {2026},
   publisher = {GitHub},
   url = {https://github.com/kevinkawchak/physical-ai-oncology-trials}
@@ -858,4 +890,4 @@ Contributions welcome. Please ensure any added frameworks or tools:
 4. **Support cross-platform compatibility** (see `unification/` for guidelines)
 
 
-*v2.2.0 - Last updated: March 2026*
+*v2.3.0 - Last updated: March 2026*
