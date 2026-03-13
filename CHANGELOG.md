@@ -32,6 +32,10 @@ Format follows [Keep a Changelog](https://keepachangelog.com/).
 
 ---
 
+- @kevinkawchak main README, and unification/industry/ updates 2026-03-13.
+
+---
+
 ## [2.2.0] - 2026-03-12
 
 ### Added
