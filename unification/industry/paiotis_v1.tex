@@ -1,0 +1,606 @@
+\documentclass[11pt,letterpaper]{article}
+\usepackage{paiotis}
+
+% ======================================================================
+% DOCUMENT METADATA
+% ======================================================================
+\hypersetup{
+  pdftitle={Physical AI Oncology Trial Industry Specification and Pharmaceutical Implementation Standard},
+  pdfauthor={Kevin Kawchak, ChemicalQDevice},
+  pdfsubject={PAIOTIS v1.0}
+}
+
+\begin{document}
+
+% ======================================================================
+% COVER PAGE
+% ======================================================================
+\begin{titlepage}
+\centering
+\vspace*{2cm}
+{\LARGE\bfseries\color{PAIBlue} Physical AI Oncology Trial Industry Specification\\[0.3em]
+and Pharmaceutical Implementation Standard -- v1.0\par}
+\vspace{1.5cm}
+{\large 13 March 2026\par}
+\vspace{0.4cm}
+{\large \href{https://doi.org/10.5281/zenodo.18994579}{10.5281/zenodo.18994579}\par}
+\vspace{0.4cm}
+{\large CEO Kevin Kawchak\par}
+\vspace{0.4cm}
+{\large ChemicalQDevice\par}
+\vspace{0.4cm}
+{\large San Diego, California\par}
+\vfill
+{\small This work was generated using Claude Code Opus 4.6.\par}
+\vspace{0.5cm}
+{\footnotesize LaTeX template adapted from the Thesis Template for Master's Degree in Engineering (UTB) by Edwin Puertas, Universidad Tecnologica de Bolivar.\par}
+\end{titlepage}
+
+% ======================================================================
+% FRONT MATTER
+% ======================================================================
+\pagenumbering{roman}
+\tableofcontents
+\clearpage
+\pagenumbering{arabic}
+
+% ======================================================================
+% NORMATIVE LANGUAGE NOTICE
+% ======================================================================
+\section*{Normative Language}
+\addcontentsline{toc}{section}{Normative Language}
+
+The key words ``\SHALL,'' ``\SHOULD,'' ``\MAY,'' ``\MUST,'' ``\REQUIRED,'' ``\RECOMMENDED,'' and ``\OPTIONAL'' in this document are to be interpreted as described in RFC 2119 \cite{rfc2119}. Conforming implementations are evaluated against normative requirements using these terms. ``SHALL'' denotes an absolute requirement. ``SHOULD'' denotes a recommendation where valid reasons may exist to deviate, provided the full implications are understood. ``MAY'' denotes a truly optional provision.
+
+\section*{Document Scope and Purpose}
+\addcontentsline{toc}{section}{Document Scope and Purpose}
+
+This document is the \textbf{Physical AI Oncology Trial Industry Specification and Pharmaceutical Implementation Standard (PAIOTIS) v1.0}, a formal industry standard that establishes the Physical AI oncology trial industry by unifying all technical, regulatory, operational, and commercial infrastructure developed across four foundational repositories into one executable standard. Pharmaceutical and biotechnology companies can adopt this specification immediately.
+
+The four foundational repositories are:
+\begin{enumerate}
+  \item \textbf{physical-ai-oncology-trials} (v2.2.0) \cite{kawchak2026repo}: The core framework with 51+ validated Python modules, 69+ documentation files, and 28+ engineering examples.
+  \item \textbf{mcp-pai-oncology-trials} (TrialMCP) \cite{kawchak2026mcp}: Five specialized MCP servers with 39 passing security and integration tests.
+  \item \textbf{national-mcp-pai-oncology-trials} (v1.2.0) \cite{kawchak2026nationalmcp}: The proposed National MCP Standard with 13 JSON schemas, 34 integration adapters, 331 conformance tests, and 337 unit tests.
+  \item \textbf{pai-oncology-trial-fl} (v1.1.1) \cite{kawchak2026fl}: The federated learning specialization with 235 Python modules, 82 test files, and triple AI peer review.
+\end{enumerate}
+
+Together, these repositories contain 51+ core modules, 235+ federated learning modules, 668+ automated tests, 34+ integration adapters, 13 JSON schemas, 5 MCP server implementations, 8 safety modules, 9 evaluated robots, and published regulatory guidance with DOIs on Zenodo.
+
+% ======================================================================
+% PART I -- INDUSTRY DEFINITION AND SCOPE
+% ======================================================================
+\section{Industry Definition and Scope}
+\label{sec:part1}
+
+\subsection{Formal Industry Definition}
+
+The \textbf{Physical AI Oncology Trial Industry} is hereby defined as the convergence of embodied robotic systems, artificial intelligence, simulation platforms, digital twin technologies, and clinical trial infrastructure for the purpose of conducting regulatory-compliant oncology clinical trials in which physical AI systems interact directly with patients, clinical specimens, therapeutic equipment, or trial data.
+
+The technical boundaries of this industry are established by the Unification Standard Level (USL) framework \cite{kawchak2026usl}, which evaluates physical AI systems across four dimensions:
+
+\begin{enumerate}
+  \item \textbf{Simulation Framework Switching} (Dimension A): The ability to transfer validated robot behaviors between simulation engines including NVIDIA Isaac Lab \cite{isaaclab2024}, MuJoCo \cite{mujoco2024}, Gazebo, PyBullet, and Drake, using standardized model formats (URDF, MJCF, SDF, USD).
+  \item \textbf{Generative and Agentic AI Integration} (Dimension B): Compatibility with vision-language-action (VLA) models, diffusion policies, large language model (LLM) task planning, multi-agent orchestration frameworks, and the Model Context Protocol (MCP) \cite{mcp2025}.
+  \item \textbf{Cross-Robot Progress Sharing} (Dimension C): The capability to share trained policies, calibration data, and operational procedures across different robot platforms via ONNX export, ROS 2 interfaces, federated learning, and standardized skill libraries.
+  \item \textbf{Multi-Site Clinical Trial Collaboration} (Dimension D): Readiness for federated multi-site deployment including regulatory compliance documentation, differential privacy enforcement, audit trail generation, and HIPAA-compliant data governance.
+\end{enumerate}
+
+The commercial boundaries encompass all entities that develop, manufacture, deploy, regulate, or operate physical AI systems within oncology clinical trials, as defined in the canonical taxonomy below.
+
+\subsection{Canonical Taxonomy of Industry Participants}
+
+The Physical AI oncology trial industry comprises the following participant categories. Each category maps to specific infrastructure components already implemented and validated across the four foundational repositories.
+
+\begin{description}[leftmargin=3.5cm, style=sameline]
+  \item[Robot Manufacturers] Companies that design, build, and maintain robotic platforms for clinical deployment. Evaluated manufacturers include Franka Robotics, Intuitive Surgical, Boston Dynamics, Kinova Robotics, Medtronic, CMR Surgical, Tesla, Agility Robotics, and UFACTORY. Robot manufacturers \SHALL{} provide USL evaluation data per Part V of this specification.
+
+  \item[Simulation Providers] Organizations that develop and maintain physics simulation engines and associated toolchains. Primary providers include NVIDIA (Isaac Lab, Isaac Sim, Newton Physics Engine), Google DeepMind (MuJoCo, MuJoCo Warp), Open Robotics (Gazebo), and the PyBullet community. Simulation providers \SHALL{} support at least one standardized model format (URDF, MJCF, SDF, or USD).
+
+  \item[Pharmaceutical Sponsors] Companies that sponsor oncology clinical trials incorporating Physical AI systems. Sponsors \SHALL{} comply with Part VI of this specification for adoption pathways and Part III for regulatory requirements.
+
+  \item[Contract Research Organizations] CROs that manage clinical trial operations involving Physical AI systems. CROs \SHALL{} demonstrate conformance with the National MCP Standard \cite{kawchak2026nationalmcp} as specified in Part IV.
+
+  \item[Clinical Sites] Hospitals, cancer centers, and research institutions where Physical AI oncology trials are conducted. Sites \SHALL{} meet the readiness criteria defined in Part VII.
+
+  \item[AI and ML Vendors] Companies providing artificial intelligence and machine learning models, training infrastructure, or inference services for Physical AI systems. This includes providers of VLA models (e.g., NVIDIA GR00T \cite{groot2026}), LLM services, and federated learning platforms.
+
+  \item[MCP Infrastructure Providers] Organizations that implement, deploy, and maintain MCP server instances conforming to the five-server architecture defined in TrialMCP \cite{kawchak2026mcp}. Providers \SHALL{} pass the 331 conformance tests from the National MCP Standard.
+
+  \item[Regulatory Bodies] Government agencies and international organizations that regulate medical devices, software as a medical device (SaMD), and clinical trial conduct. Primary bodies include the FDA, EMA, PMDA (Japan), TGA (Australia), and Health Canada.
+\end{description}
+
+\subsection{Minimum Viable Ecosystem Requirements}
+
+For a Physical AI oncology trial to be considered operational under this specification, the following minimum infrastructure \SHALL{} be present:
+
+\begin{enumerate}
+  \item \textbf{At least one qualified robot platform} with a USL score of 5.0 or higher (Functional level), evaluated using the USL scoring methodology defined in Part V. Reference: the \reporef{unification/usl/} directory contains scoring engines for cobots (\reporef{usl\_scoring\_framework.py}), surgical robots (\reporef{usl\_surgical\_scoring.py}), and humanoids (\reporef{usl\_humanoid\_scoring.py}).
+
+  \item \textbf{MCP server deployment} implementing all five server types (authorization, FHIR, DICOM, audit ledger, provenance) as specified in TrialMCP \cite{kawchak2026mcp}. Reference: \reporef{servers/} directory in the National MCP Standard repository.
+
+  \item \textbf{Validated simulation environment} supporting at least two simulation frameworks with demonstrated bidirectional policy transfer. Reference: \reporef{unification/simulation\_physics/isaac\_mujoco\_bridge.py} in the core repository.
+
+  \item \textbf{Digital twin capability} for patient-specific tumor modeling using at least one of the supported growth models (reaction-diffusion, Gompertz, mechanistic). Reference: \reporef{digital-twins/patient-modeling/tumor\_twin\_pipeline.py}.
+
+  \item \textbf{Federated learning infrastructure} implementing at least FedAvg aggregation with differential privacy budget accounting. Reference: \reporef{federated/coordinator.py} and \reporef{federated/differential\_privacy.py} in the FL repository \cite{kawchak2026fl}.
+
+  \item \textbf{Privacy framework} with automated PHI detection covering all 18 HIPAA Safe Harbor identifiers, de-identification pipeline, and RBAC access control with 21 CFR Part 11 audit trails. Reference: \reporef{privacy/} directories in both the core and FL repositories.
+
+  \item \textbf{Regulatory documentation} including ICH E6(R3)-adapted guidance \cite{kawchak2026guidance}, FDA submission pathway identification, and IRB protocol preparation. Reference: \reporef{regulatory/} directory.
+
+  \item \textbf{Patient instruction materials} covering all robot types to be deployed, following the 10-page format validated in \cite{kawchak2026patient}.
+\end{enumerate}
+
+% ======================================================================
+% PART II -- TECHNICAL ARCHITECTURE STANDARD
+% ======================================================================
+\section{Technical Architecture Standard}
+\label{sec:part2}
+
+\subsection{Three-Layer Reference Architecture}
+
+The industry reference architecture is organized into three layers, codified from the TrialMCP implementation \cite{kawchak2026mcp} and the National MCP Standard \cite{kawchak2026nationalmcp}. All conforming Physical AI oncology trial deployments \SHALL{} implement this three-layer architecture.
+
+\subsubsection{Layer 1: Physical AI Layer}
+
+The Physical AI Layer comprises all embodied robotic systems, their simulation environments, and associated AI models operating within a clinical trial. This layer includes:
+
+\begin{itemize}
+  \item Robot hardware platforms evaluated under the USL framework (Part V)
+  \item Simulation engines (Isaac Lab, MuJoCo, Gazebo, PyBullet, Drake) with the bidirectional bridge (\reporef{isaac\_mujoco\_bridge.py})
+  \item AI models: VLA models, diffusion policies, reinforcement learning agents, LLM-based planners
+  \item Digital twin systems (\reporef{digital-twins/}) for patient-specific modeling
+  \item Sensor fusion and intraoperative guidance modules
+\end{itemize}
+
+Conforming implementations \SHALL{} support model format conversion between at least URDF and MJCF using the \reporef{urdf\_sdf\_mjcf\_converter.py} module or equivalent. Conforming implementations \SHOULD{} support all four formats (URDF, MJCF, SDF, USD).
+
+\subsubsection{Layer 2: MCP Protocol Layer}
+
+The MCP Protocol Layer provides standardized communication between the Physical AI Layer and clinical trial infrastructure. This layer implements five mandatory server types as defined in TrialMCP \cite{kawchak2026mcp}:
+
+\begin{description}[leftmargin=3.5cm, style=sameline]
+  \item[trialmcp-authz] Authorization server enforcing deny-by-default role-based access control (RBAC). Manages session tokens, validates permissions across all other servers, and maintains explicit DENY overrides. All MCP operations \SHALL{} be authorized through this server before execution.
+
+  \item[trialmcp-fhir] Clinical data server providing scoped, read-only access to FHIR R4 resources. Data undergoes HIPAA Safe Harbor de-identification (removing all 18 identifier categories) before transmission to robot agents. Four tools handle patient lookup, study status queries, and resource searches.
+
+  \item[trialmcp-dicom] Medical imaging server implementing a query/retrieve proxy with role-based permissions. Supports C-FIND queries and C-MOVE retrieval pointers with differentiated access levels for trial coordinators, robot agents, data monitors, and auditors.
+
+  \item[trialmcp-ledger] Append-only, hash-chained audit ledger satisfying 21 CFR Part 11 requirements. Every MCP operation produces a signed audit entry linked via SHA-256 hashing, enabling tamper-evident compliance documentation across the entire trial lifecycle.
+
+  \item[trialmcp-provenance] Data lineage server tracking W3C PROV-based provenance across all access events, recording which agents accessed which resources and when. Provides replayable audit traces and SHA-256 fingerprint verification for regulatory review.
+\end{description}
+
+Conforming implementations \SHALL{} deploy all five server types at each participating clinical site. The National MCP Standard \cite{kawchak2026nationalmcp} provides 13 JSON Schema files (Draft 2020-12) defining machine-readable contracts for all server inputs and outputs, including: capability-descriptor, robot-capability, site-capability, task-order, audit-record, provenance, consent-status, authz-decision, dicom-query, fhir-read, fhir-search, error-response, and health-status.
+
+\subsubsection{Layer 3: Clinical Trial Layer}
+
+The Clinical Trial Layer encompasses all clinical trial operations, regulatory compliance, and patient-facing processes. This layer integrates with hospital EHR systems, PACS, identity platforms, and regulatory reporting infrastructure through the 34 integration adapters specified in the National MCP Standard \cite{kawchak2026nationalmcp}.
+
+Integration adapters \SHALL{} cover at minimum:
+\begin{itemize}
+  \item EHR systems (Epic, Cerner, MEDITECH) via FHIR R4
+  \item PACS systems via DICOM
+  \item Identity management platforms (LDAP, SAML, OAuth 2.0)
+  \item Regulatory reporting systems for adverse event submission
+  \item Enrollment management and randomization systems
+\end{itemize}
+
+\subsection{MCP Server Conformance Requirements}
+
+\subsubsection{Mandatory Conformance Testing}
+
+All MCP server implementations intended for use in Physical AI oncology trials \SHALL{} pass the 331 conformance tests defined in the National MCP Standard conformance test suite (\reporef{conformance/} directory) \cite{kawchak2026nationalmcp}. These tests cover:
+
+\begin{itemize}
+  \item Protocol compliance: JSON-RPC 2.0 message formatting, capability negotiation, tool discovery
+  \item Security: SSRF prevention, SQL injection resistance, command injection resistance, permission escalation prevention, replay attack detection
+  \item Data integrity: Hash chain verification, provenance graph consistency, de-identification completeness
+  \item Interoperability: Cross-server token validation, multi-site audit merge, schema validation
+\end{itemize}
+
+Additionally, implementations \SHALL{} pass the 337 unit tests from the National MCP Standard test suite (\reporef{tests/} directory), covering individual server functionality and edge cases.
+
+In total, conforming implementations \SHALL{} pass 668 automated tests (331 conformance + 337 unit) as the baseline for deployment authorization.
+
+\subsubsection{Conformance Levels}
+
+The National MCP Standard defines five conformance levels. All Physical AI oncology trial deployments \SHALL{} achieve at minimum Level 3 (Clinical) before patient enrollment begins:
+
+\begin{enumerate}
+  \item \textbf{Level 1 -- Core Protocol}: Basic MCP transport, tool discovery, and JSON-RPC compliance.
+  \item \textbf{Level 2 -- Security Baseline}: Authentication, authorization, SSRF prevention, injection resistance.
+  \item \textbf{Level 3 -- Clinical}: FHIR R4 de-identification, DICOM role-based access, 21 CFR Part 11 audit ledger, provenance tracking. \textit{This is the minimum level for clinical deployment.}
+  \item \textbf{Level 4 -- Federated}: Cross-site coordination, federated learning integration, privacy budget enforcement, multi-site audit synchronization.
+  \item \textbf{Level 5 -- National}: Full national standard compliance including all 34 integration adapters, 8 safety modules, and deployment via Docker Compose or Kubernetes.
+\end{enumerate}
+
+\subsubsection{Security Validation}
+
+TrialMCP's validation test suite \cite{kawchak2026mcp} includes 39 passing security and integration tests. Conforming implementations \SHALL{} demonstrate resistance to:
+
+\begin{itemize}
+  \item Server-Side Request Forgery (SSRF) via URL validation and allowlist enforcement
+  \item SQL and NoSQL injection via parameterized queries and input sanitization
+  \item Permission escalation via deny-by-default RBAC with explicit DENY overrides
+  \item Replay attacks via nonce-based request deduplication and timestamp validation
+  \item Audit tampering via SHA-256 hash chain verification
+\end{itemize}
+
+\subsection{Simulation Interoperability Requirements}
+
+\subsubsection{Cross-Framework Policy Transfer}
+
+Any conforming Physical AI system intended for clinical deployment \SHALL{} demonstrate cross-framework policy transfer between at least two of the recognized simulation frameworks. The bidirectional bridge between NVIDIA Isaac Lab and MuJoCo, implemented in \reporef{isaac\_mujoco\_bridge.py}, establishes the reference implementation for this requirement.
+
+Cross-framework policy transfer \SHALL{} satisfy the following criteria:
+\begin{itemize}
+  \item Trajectory deviation below 2mm RMS across 100 evaluation episodes
+  \item Force discrepancy below 0.5N at contact points
+  \item Task success rate degradation of no more than 5\% when transferring a policy from one framework to another
+  \item Documented physics parameter mapping using the \reporef{physics\_parameter\_mapping.yaml} reference
+\end{itemize}
+
+\subsubsection{Model Format Requirements}
+
+Conforming robot platforms \SHALL{} provide validated models in at least two of the following formats, and \SHOULD{} support all four:
+
+\begin{table}[H]
+\centering
+\caption{Recognized Robot Model Formats}
+\small
+\begin{tabularx}{\textwidth}{l l X}
+\toprule
+\textbf{Format} & \textbf{Primary Framework} & \textbf{Description} \\
+\midrule
+URDF & ROS 2, Gazebo & Unified Robot Description Format for kinematic and dynamic properties \\
+MJCF & MuJoCo & MuJoCo XML format with native contact dynamics and actuator modeling \\
+SDF & Gazebo & Simulation Description Format with world and model definitions \\
+USD & Isaac Sim/Lab & Universal Scene Description for high-fidelity rendering and physics \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+The \reporef{urdf\_sdf\_mjcf\_converter.py} module provides reference implementations for format conversion. Conforming implementations \MAY{} use alternative conversion tools provided they produce equivalent output validated against the cross-platform validation suite (\reporef{validation\_suite.py}).
+
+\subsection{Digital Twin Integration Protocols}
+
+Conforming Physical AI oncology trial systems \SHALL{} implement digital twin capabilities using the three-component architecture established in the core repository:
+
+\begin{description}[leftmargin=3.5cm, style=sameline]
+  \item[Tumor Twin Pipeline] Patient-specific tumor modeling using reaction-diffusion equations, Gompertz growth models, or mechanistic models calibrated to longitudinal imaging data. Reference implementation: \reporef{tumor\_twin\_pipeline.py}. Implementations \SHALL{} support calibration to at least two longitudinal scan timepoints and prediction horizons of at least 180 days.
+
+  \item[Treatment Simulator] Pharmacokinetic/pharmacodynamic (PK/PD) modeling for chemotherapy response prediction, radiation dose optimization, and immunotherapy simulation. Reference implementation: \reporef{treatment\_simulator.py}. Implementations \SHALL{} support at least one treatment modality (chemotherapy, radiation, or immunotherapy).
+
+  \item[Clinical DT Interface] Integration with hospital clinical systems via FHIR and DICOM, providing real-time intraoperative synchronization through Extended Kalman Filters for state estimation. Reference implementation: \reporef{clinical\_dt\_interface.py}. Implementations \SHOULD{} support real-time synchronization with update rates of at least 10 Hz during active procedures.
+\end{description}
+
+Six engineering examples demonstrate progressive digital twin complexity, from basic real-time synchronization to full validation and verification (V\&V) pipelines. Trial sponsors and clinical sites \SHOULD{} review these examples when designing digital twin deployments.
+
+\subsection{Federated Learning Minimum Requirements}
+
+Conforming Physical AI oncology trial networks \SHALL{} implement federated learning infrastructure meeting the following minimum requirements, as validated in the federated learning repository \cite{kawchak2026fl}:
+
+\subsubsection{Mandatory Aggregation Strategies}
+
+Conforming implementations \SHALL{} support at least \textbf{FedAvg} as the baseline aggregation strategy. Implementations \SHOULD{} additionally support:
+
+\begin{description}[leftmargin=2.5cm, style=sameline]
+  \item[FedAvg] Federated Averaging: weighted averaging of model parameters proportional to local dataset size. Reference: \reporef{federated/coordinator.py}.
+  \item[FedProx] Federated Proximal: FedAvg with a proximal regularization term ($\mu$ parameter) to handle statistical heterogeneity across sites. \RECOMMENDED{} for trials with non-IID data distributions.
+  \item[SCAFFOLD] Stochastic Controlled Averaging for Federated Learning: variance reduction via control variates for accelerated convergence. \RECOMMENDED{} for trials with more than 4 participating sites.
+\end{description}
+
+\subsubsection{Privacy Guarantees}
+
+Conforming implementations \SHALL{} enforce differential privacy with the following requirements:
+
+\begin{itemize}
+  \item Gaussian noise mechanism with calibrated noise scale ($\sigma$) based on sensitivity analysis
+  \item Epsilon-delta ($\varepsilon, \delta$) privacy budget accounting with configurable bounds
+  \item Per-round privacy budget tracking with automatic termination when the cumulative budget is exhausted
+  \item Privacy budget \SHALL{} be set at $\varepsilon \leq 8.0$ for exploratory analyses and $\varepsilon \leq 1.0$ for publication-grade results
+\end{itemize}
+
+Reference implementation: \reporef{federated/differential\_privacy.py} in the FL repository.
+
+\subsubsection{Secure Aggregation}
+
+Conforming implementations \SHOULD{} support secure aggregation via mask-based protocols (additive secret sharing) to prevent the aggregation server from observing individual site model updates. Reference implementation: \reporef{federated/secure\_aggregation.py} in the FL repository.
+
+Secure aggregation \SHALL{} be \REQUIRED{} for any trial involving more than two participating sites, or when any participating site's local dataset contains fewer than 100 patient records.
+
+% ======================================================================
+% PART III -- REGULATORY COMPLIANCE FRAMEWORK
+% ======================================================================
+\section{Regulatory Compliance Framework}
+\label{sec:part3}
+
+\subsection{ICH E6(R3) Adaptation for Physical AI Trials}
+
+The ICH E6(R3) guideline \cite{ich2025e6r3}, effective in the United States as of September 2025, establishes the foundation for good clinical practice (GCP). The Physical AI Oncology Clinical Trial Unification guidance \cite{kawchak2026guidance} adapts this regulation with 4 sections, 3 appendices, and 30 Physical AI-specific definitions. Conforming Physical AI oncology trials \SHALL{} comply with both the original ICH E6(R3) and the adaptations specified in \cite{kawchak2026guidance}.
+
+\subsubsection{Section 1: Principles of Physical AI Clinical Practice}
+
+The adapted guidance establishes 8 foundational principles extending ICH E6(R3) to physical AI contexts. Key adaptations include:
+
+\begin{itemize}
+  \item Participant welfare prevails over all other considerations, including interactions with all 7 robot categories (surgical, cobot, humanoid, therapeutic, diagnostic, assistive, rehabilitative)
+  \item Investigator qualifications \SHALL{} include demonstrated competency with robotic systems, AI model interpretation, digital twin management, and simulation validation
+  \item Informed consent \SHALL{} describe the nature, purpose, and risks of robotic interactions and AI-assisted decision making
+  \item Physical AI systems serve as tools under human oversight; autonomous robotic actions require continuous human monitoring and intervention capability
+\end{itemize}
+
+\subsubsection{Section 2: Investigator Responsibilities}
+
+Investigators conducting Physical AI oncology trials \SHALL{} maintain:
+
+\begin{itemize}
+  \item Trained robotic system operators certified on each platform in the protocol
+  \item AI systems engineers for model deployment, version control, and anomaly detection
+  \item Digital twin specialists for patient model creation, calibration, and interpretation
+  \item Simulation validation engineers for pre-clinical behavior verification
+  \item Physical AI safety officers with authority to halt robotic operations
+\end{itemize}
+
+\subsubsection{Section 3: Sponsor Responsibilities}
+
+Sponsors of Physical AI oncology trials \SHALL{} implement a quality management system that includes:
+
+\begin{itemize}
+  \item AI model version control with documented training data, hyperparameters, and validation results
+  \item Robotic system firmware tracking with change impact assessment
+  \item Simulation environment configuration management
+  \item Digital twin model validation against clinical outcomes
+  \item Continuous safety monitoring across all deployed Physical AI systems
+\end{itemize}
+
+\subsubsection{Section 4: Data Governance}
+
+Data governance for Physical AI trials \SHALL{} address:
+
+\begin{itemize}
+  \item Blinding integrity when Physical AI systems process unblinded data (e.g., imaging)
+  \item Data lifecycle management: capture, metadata, review, corrections, transfer, finalization, retention, and destruction
+  \item Computerized system validation (CSV) for all AI models and robotic control software
+  \item Electronic signatures and audit trails per 21 CFR Part 11
+\end{itemize}
+
+\subsubsection{Appendices and Glossary}
+
+Three appendices and a 30-definition glossary complete the adapted guidance:
+
+\begin{description}[leftmargin=2.5cm, style=sameline]
+  \item[Appendix A] Physical AI System Documentation: system description, specifications, safety studies, and clinical experience. Analogous to the Investigator's Brochure for robotic systems.
+  \item[Appendix B] Clinical Trial Protocol: protocol template adapted for Physical AI trials with sections B.1 through B.16.
+  \item[Appendix C] Essential Records: 20 record categories specific to Physical AI clinical trials.
+  \item[Glossary] 30 Physical AI-specific definitions including Agentic AI, Cobot, Digital Twin, Federated Learning, MCP, USL, VLA Model, and others.
+\end{description}
+
+\subsection{FDA Submission Pathways}
+
+Physical AI systems used in oncology trials may require FDA clearance or approval depending on their intended use and risk classification. The regulatory compliance framework (\reporef{regulatory/fda-compliance/fda\_submission\_tracker.py}) tracks submissions across five pathways:
+
+\begin{table}[H]
+\centering
+\caption{FDA Submission Pathways for Physical AI Systems}
+\small
+\begin{tabularx}{\textwidth}{l l X}
+\toprule
+\textbf{Pathway} & \textbf{Risk Class} & \textbf{Physical AI Application} \\
+\midrule
+510(k) & Class II & AI-assisted surgical planning with predicate device, robotic positioning systems with established equivalence \\
+De Novo & Class I/II & Novel AI-guided tumor modeling systems, digital twin treatment planning without predicate \\
+PMA & Class III & Autonomous surgical robots with AI decision-making, closed-loop radiation delivery systems \\
+Breakthrough & Any & Physical AI systems addressing unmet clinical needs with significant advantages over existing alternatives \\
+Pre-Submission & N/A & Early FDA engagement for novel Physical AI architectures \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+Sponsors \SHALL{} identify the appropriate FDA submission pathway for each Physical AI component prior to IND submission. The regulatory intelligence module (\reporef{regulatory/regulatory-intelligence/regulatory\_tracker.py}) provides multi-jurisdiction monitoring across FDA, EMA, PMDA, TGA, and Health Canada with deadline tracking.
+
+\subsection{IRB Review Requirements}
+
+Institutional Review Boards reviewing Physical AI oncology trial protocols \SHALL{} evaluate the following Physical AI-specific elements in addition to standard clinical trial review:
+
+\begin{enumerate}
+  \item \textbf{Robot safety parameters}: Maximum forces, velocities, and workspace boundaries for each robot platform, with reference to USL Dimension D scores
+  \item \textbf{AI model validation evidence}: Training data provenance, validation metrics, known failure modes, and bias assessment for all AI models deployed in patient-facing roles
+  \item \textbf{Human-robot interaction protocols}: Detailed procedures for patient introduction to robotic systems, including the patient instruction format validated in \cite{kawchak2026patient}
+  \item \textbf{Cybersecurity measures}: Network segmentation, access control policies, and incident response plans for connected robotic systems
+  \item \textbf{Data privacy impact assessment}: Analysis of PHI exposure risks introduced by robotic sensors, imaging systems, and AI processing pipelines
+  \item \textbf{Informed consent adequacy}: Consent forms \SHALL{} describe specific robot types, AI capabilities, data collection methods, and the nature of human oversight
+\end{enumerate}
+
+The IRB protocol manager (\reporef{regulatory/irb-management/irb\_protocol\_manager.py}) provides protocol lifecycle management including amendment tracking, consent versioning, and AI/ML disclosure requirements.
+
+\subsection{Predetermined Change Control Plan (PCCP) Requirements}
+
+Physical AI systems that incorporate AI/ML models subject to post-market updates \SHALL{} include a Predetermined Change Control Plan per FDA guidance \cite{fda2025aiml}. The PCCP \SHALL{} address:
+
+\begin{enumerate}
+  \item \textbf{Description of modifications}: Specific types of AI model updates anticipated (e.g., retraining on new data, architecture changes, hyperparameter optimization)
+  \item \textbf{Modification protocol}: Automated validation pipeline including regression testing, performance benchmarks, and clinical equivalence criteria
+  \item \textbf{Impact assessment}: Methodology for evaluating the clinical impact of each modification on safety and effectiveness
+  \item \textbf{Verification and validation}: V\&V procedures for modified AI models, including simulation-based testing and holdout dataset evaluation
+  \item \textbf{Record keeping}: Documentation requirements for each modification, including before/after performance metrics and authorization records
+\end{enumerate}
+
+The PCCP \SHALL{} be reviewed and approved by the FDA as part of the initial marketing submission. Updates within the scope of an approved PCCP do not require a new submission, but \SHALL{} be documented in the 21 CFR Part 11 audit ledger maintained by the trialmcp-ledger server.
+
+\subsection{Multi-Jurisdiction Regulatory Intelligence}
+
+Physical AI oncology trials conducted across multiple countries \SHALL{} maintain regulatory intelligence covering at minimum the following jurisdictions:
+
+\begin{table}[H]
+\centering
+\caption{Regulatory Jurisdictions for Physical AI Oncology Trials}
+\small
+\begin{tabularx}{\textwidth}{l l X}
+\toprule
+\textbf{Jurisdiction} & \textbf{Agency} & \textbf{Key Requirements} \\
+\midrule
+United States & FDA & 510(k)/De Novo/PMA pathways, 21 CFR Part 11, HIPAA, ICH E6(R3) \\
+European Union & EMA & EU MDR (2017/745), CE marking, GDPR, ICH E6(R3) \\
+Japan & PMDA & PMDA PAL, J-GCP, data localization requirements \\
+Australia & TGA & Australian Register of Therapeutic Goods, GCP (TGA) \\
+Canada & Health Canada & Medical Devices Regulations (SOR/98-282), GCP Division 5 \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+The regulatory tracker module (\reporef{regulatory/regulatory-intelligence/regulatory\_tracker.py}) monitors regulatory developments, tracks submission deadlines, and alerts trial sponsors to new guidance relevant to Physical AI systems.
+
+% ======================================================================
+% PART IV -- PRIVACY AND DATA GOVERNANCE STANDARD
+% ======================================================================
+\section{Privacy and Data Governance Standard}
+\label{sec:part4}
+
+\subsection{Mandatory Privacy Framework Stack}
+
+All Physical AI oncology trial deployments \SHALL{} implement the complete privacy framework stack as validated across the core repository and the FL repository \cite{kawchak2026fl}. This stack comprises five integrated components:
+
+\subsubsection{PHI Detection}
+
+Conforming implementations \SHALL{} provide automated detection of all 18 HIPAA Safe Harbor identifiers as defined in 45 CFR 164.514(b)(2). The reference implementation (\reporef{privacy/phi-pii-management/phi\_detector.py}) detects:
+
+\begin{enumerate}
+  \setcounter{enumi}{0}
+  \item Names
+  \item Geographic data smaller than a state
+  \item Dates (except year) related to an individual
+  \item Telephone numbers
+  \item Fax numbers
+  \item Email addresses
+  \item Social Security numbers
+  \item Medical record numbers
+  \item Health plan beneficiary numbers
+  \item Account numbers
+  \item Certificate/license numbers
+  \item Vehicle identifiers and serial numbers
+  \item Device identifiers and serial numbers
+  \item Web URLs
+  \item IP addresses
+  \item Biometric identifiers
+  \item Full-face photographs and comparable images
+  \item Any other unique identifying number or code
+\end{enumerate}
+
+PHI detection \SHALL{} operate in ``comprehensive'' mode scanning all data fields, DICOM tags, and free-text entries. The FL repository's advanced PHI detector includes regex-based pattern matching, DICOM tag scanning, and optional Presidio NER integration for enhanced detection accuracy.
+
+\subsubsection{De-Identification}
+
+Conforming implementations \SHALL{} support both de-identification methods recognized by HIPAA:
+
+\begin{description}[leftmargin=3.5cm, style=sameline]
+  \item[Safe Harbor] Removal or generalization of all 18 identifier categories. Reference: \reporef{deidentification\_pipeline.py}. Implementation uses HMAC-SHA256 pseudonymization with cryptographically random salt (\texttt{os.urandom}), date shifting with consistent patient-level offsets, and geographic generalization (ZIP to 3-digit).
+
+  \item[Expert Determination] Statistical verification that the risk of re-identification is very small. \RECOMMENDED{} for datasets where Safe Harbor removal would eliminate clinically relevant features.
+\end{description}
+
+De-identification \SHALL{} be applied before any data leaves the originating clinical site, including data transmitted to robot agents via the trialmcp-fhir server.
+
+\subsubsection{Access Control}
+
+Role-based access control (RBAC) \SHALL{} be implemented with 21 CFR Part 11 audit trails per the reference implementation (\reporef{privacy/access-control/access\_control\_manager.py}). Access control \SHALL{} include:
+
+\begin{itemize}
+  \item Time-limited access tokens with fail-closed expiration
+  \item Role hierarchy: trial coordinator, robot agent, data monitor, auditor, safety officer
+  \item Deny-by-default policy enforcement (no implicit permissions)
+  \item Complete audit trail of all access events with tamper-evident logging
+  \item Separation of duties between data access and data modification roles
+\end{itemize}
+
+\subsubsection{Breach Response}
+
+Conforming implementations \SHALL{} maintain automated breach detection and response per 45 CFR 164.400-414. The reference implementation (\reporef{privacy/breach-response/breach\_response\_protocol.py}) provides:
+
+\begin{itemize}
+  \item Four-factor risk assessment per 45 CFR 164.402
+  \item 60-day notification timeline tracking from breach discovery
+  \item Automated escalation workflows for breach severity levels
+  \item Documentation templates for HHS OCR notification
+  \item Post-breach remediation tracking and verification
+\end{itemize}
+
+\subsubsection{Data Use Agreements}
+
+Multi-site Physical AI oncology trials \SHALL{} execute Data Use Agreements (DUAs) governing all cross-site data transfers. The DUA generator (\reporef{privacy/dua-templates/dua\_generator.py}) supports five agreement types with tiered security requirements and configurable retention policies. DUAs \SHALL{} specify:
+
+\begin{itemize}
+  \item Permitted data uses (model training, validation, publication)
+  \item Data retention periods and destruction procedures
+  \item Security requirements (encryption at rest and in transit)
+  \item Breach notification obligations between parties
+  \item Audit and inspection rights
+\end{itemize}
+
+\subsection{Cross-Site Data Harmonization}
+
+Multi-site Physical AI oncology trials \SHALL{} implement data harmonization to ensure consistent data representation across participating sites. The federation data harmonization module (\reporef{data\_harmonization.py}) in both the core and FL repositories provides:
+
+\begin{description}[leftmargin=3.5cm, style=sameline]
+  \item[DICOM Normalization] Standardization of DICOM headers, reconstruction parameters, and pixel spacing across imaging equipment from different vendors.
+  \item[Vocabulary Mapping] ICD-10 to SNOMED-CT mapping, LOINC code alignment, and CDISC terminology harmonization via the clinical interoperability module (\reporef{clinical-analytics/clinical\_interoperability.py}) in the FL repository.
+  \item[FHIR R4 Standardization] Normalization of FHIR R4 resources from different EHR systems to a common profile, ensuring consistent patient, observation, and procedure representations.
+\end{description}
+
+\subsection{Consortium Reporting Standards}
+
+Physical AI oncology trial consortia \SHALL{} produce standardized reports using the following formats, implemented in the consortium reporting module (\reporef{consortium\_reporting.py}):
+
+\begin{description}[leftmargin=3.5cm, style=sameline]
+  \item[DSMB Packages] Data Safety Monitoring Board reports with SHA-256 integrity hashing, unblinded safety summaries, enrollment dashboards, and protocol deviation logs. Reference: \reporef{clinical-analytics/consortium\_reporting.py} in the FL repository.
+
+  \item[Enrollment Dashboards] Real-time enrollment tracking across all participating sites with demographic breakdowns, screening-to-enrollment ratios, and projected completion dates.
+
+  \item[Adverse Event Grading] CTCAE (Common Terminology Criteria for Adverse Events) grading for all adverse events, including Physical AI-specific event categories (robotic malfunction, AI prediction error, sensor failure, human-robot interaction injury).
+
+  \item[Privacy-Preserving Analytics] Federated statistical analyses that produce aggregate results without centralizing patient-level data. Conforming implementations \SHALL{} support:
+  \begin{itemize}
+    \item Federated Kaplan-Meier survival analysis
+    \item Federated Cox proportional hazards regression
+    \item Concordance index (C-index) computation
+    \item Restricted mean survival time (RMST) estimation
+  \end{itemize}
+  Reference: \reporef{clinical-analytics/survival\_analysis.py} in the FL repository.
+\end{description}
+
+\vspace{1em}
+\begin{center}
+\rule{0.5\textwidth}{0.4pt}
+\end{center}
+\vspace{0.5em}
+
+\textit{This concludes the first half of the PAIOTIS v1.0 specification (Parts I through IV). Parts V through VIII, covering Robot Qualification and Certification, Pharmaceutical Sponsor Implementation Guide, Clinical Site Readiness Criteria, and the Industry Milestone Roadmap, continue in the following sections.}
+
+% PLACEHOLDER: Parts V-VIII will be added in the second half
+
+% ======================================================================
+% BACK MATTER (placeholder -- references will be at the end of the full document)
+% ======================================================================
+
+\bibliographystyle{unsrt}
+\bibliography{references}
+
+\section*{Acknowledgments}
+\addcontentsline{toc}{section}{Acknowledgments}
+The author acknowledges Anthropic for providing access to Claude Code Opus 4.6.
+
+\section*{Ethical Disclosures}
+\addcontentsline{toc}{section}{Ethical Disclosures}
+The author of this specification declares no competing interests.
+
+\section*{Rights and Permissions}
+\addcontentsline{toc}{section}{Rights and Permissions}
+This specification is distributed under the terms of the Creative Commons Attribution 4.0 International License (CC BY 4.0), which permits unrestricted use, distribution, and reproduction in any medium, provided the original author(s) and source are properly credited. To view a copy of this license, visit \url{https://creativecommons.org/licenses/by/4.0/}.
+
+\section*{Cite This Specification}
+\addcontentsline{toc}{section}{Cite This Specification}
+Kawchak K. Physical AI Oncology Trial Industry Specification and Pharmaceutical Implementation Standard (PAIOTIS) v1.0. Zenodo. 2026; \doi{10.5281/zenodo.18994579}.
+
+\end{document}
