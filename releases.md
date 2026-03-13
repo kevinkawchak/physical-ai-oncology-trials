@@ -4,6 +4,48 @@ Release notes for the physical-ai-oncology-trials repository.
 
 ---
 
+Physical AI Oncology Trial Industry Specification (PAIOTIS) v1.0
+v2.3.0 - March 13, 2026
+
+## Summary
+
+Publishes the **Physical AI Oncology Trial Industry Specification (PAIOTIS) v1.0**, a formal 25-page LaTeX document that unifies four kevinkawchak repositories into a single industry standard. The specification uses RFC 2119 normative language (SHALL, SHOULD, MAY) throughout and covers 8 parts: Industry Definition and Scope, Technical Architecture, Regulatory Compliance Framework, Privacy and Data Governance, Robot Qualification and Certification, Pharmaceutical Sponsor Implementation Guide, Clinical Site Readiness Criteria, and Industry Milestone Roadmap. The document integrates content from physical-ai-oncology-trials v2.2.0, mcp-pai-oncology-trials/TrialMCP, national-mcp-pai-oncology-trials v1.2.0, and pai-oncology-trial-fl v1.1.1. Adapted from the Overleaf UTB thesis template by Edwin Puertas (CC BY 4.0) for industry specification use.
+
+## Features
+
+- **Complete LaTeX industry specification** (`unification/industry/paiotis_v1.tex`): 8 parts with RFC 2119 normative language, cover page, table of contents, normative language notice, and back matter
+- **Part I: Industry Definition and Scope**: Physical AI oncology trial industry definition, stakeholder matrix (6 stakeholder types), normative references (12 standards/specifications)
+- **Part II: Technical Architecture**: Three-layer architecture (Physical AI Layer, MCP Protocol Layer, Clinical Trial Layer), MCP server architecture (5 server types), simulation bridge architecture (Isaac Lab/MuJoCo bidirectional), digital twin pipeline
+- **Part III: Regulatory Compliance Framework**: ICH E6(R3) adaptation, FDA submission pathways (510(k), De Novo, PMA, Breakthrough), PCCP for AI/ML model updates, IEC 80601 robot-specific compliance, risk classification table
+- **Part IV: Privacy and Data Governance**: HIPAA Safe Harbor (18 identifiers), differential privacy (epsilon-delta), RBAC implementation, 21 CFR Part 11 electronic records, federated learning privacy with FedAvg/FedProx/SCAFFOLD
+- **Part V: Robot Qualification and Certification**: USL methodology (4 dimensions x 25% weight), USL score bands table (5 bands), baseline scores for all 9 evaluated robots, qualification tiers by trial phase, re-qualification requirements
+- **Part VI: Pharmaceutical Sponsor Implementation Guide**: 3-tier adoption pathways (observer/pilot/full integration), commercial value proposition, development stage integration, CRO partnership model
+- **Part VII: Clinical Site Readiness Criteria**: Computational/network/physical infrastructure requirements, staffing table (7 roles), patient education framework, 8 e-stop implementations, 6-stage federation onboarding
+- **Part VIII: Industry Milestone Roadmap**: Phase 1 (2026), Phase 2 (2027), Phase 3 (2028+), cross-repository dependency table (4 repositories)
+- **Custom style package** (`paiotis.sty`): Adapted from UTB thesis template with Times Roman, PAIBlue color scheme, custom normative commands
+- **Bibliography** (`references.bib`): 24 BibTeX entries covering all 4 repositories, ICH E6(R3), FDA guidance, ISO/IEC standards, RFC 2119, simulation frameworks
+- **Compiled PDF** (`paiotis_v1.pdf`): 25-page compiled document
+- **Source archive** (`paiotis_v1.zip`): .tex, .sty, .bib, and .pdf files
+- **Prompts archive** (`unification/industry/prompts.md`): v2.3.0 development prompt
+- **No em dashes**: Entire document uses hyphens and "to" ranges per style requirements
+- **Cover page**: Title, date "13 March 2026", DOI hyperlink, CEO Kevin Kawchak, ChemicalQDevice, San Diego California, Claude Code attribution
+
+## Contributors
+@kevinkawchak
+@claude
+
+## Notes
+- DOI: 10.5281/zenodo.18445179 (repository)
+- Adapted from Overleaf UTB thesis template by Edwin Puertas (CC BY 4.0)
+- RFC 2119 normative language used throughout (SHALL, SHOULD, MAY)
+- All 9 USL-evaluated robots included with baseline scores
+- Four repositories unified: physical-ai-oncology-trials, TrialMCP, national-mcp-pai-oncology-trials, pai-oncology-trial-fl
+- No Python code changes -- documentation-only release
+- Development by Claude Code Opus 4.6
+- License: MIT (repository code), CC BY 4.0 (LaTeX style adaptation)
+
+---
+
 End-to-End Physical AI Oncology Clinical Trial Unification Guidance
 v2.2.0 - March 12, 2026
 

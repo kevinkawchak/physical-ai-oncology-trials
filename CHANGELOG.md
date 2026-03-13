@@ -5,6 +5,33 @@ Format follows [Keep a Changelog](https://keepachangelog.com/).
 
 ## [Unreleased]
 
+## [2.3.0] - 2026-03-13
+
+### Added
+- `unification/industry/paiotis_v1.tex`: Physical AI Oncology Trial Industry Specification (PAIOTIS) v1.0 -- 8-part industry standard with RFC 2119 normative language
+- `unification/industry/paiotis.sty`: Custom LaTeX style package adapted from UTB thesis template by Edwin Puertas (CC BY 4.0)
+- `unification/industry/references.bib`: Bibliography with 24 references covering all 4 repositories, standards, and frameworks
+- `unification/industry/paiotis_v1.pdf`: Compiled 25-page PDF
+- `unification/industry/paiotis_v1.zip`: Source archive (.tex, .sty, .bib, .pdf)
+- `unification/industry/prompts.md`: Development prompt archive for v2.3.0
+- Parts I-VIII: Industry Definition, Technical Architecture, Regulatory Compliance, Privacy/Data Governance, Robot Qualification, Pharma Sponsor Guide, Clinical Site Readiness, Industry Milestone Roadmap
+- USL-based robot qualification tiers for trial phases (Phase I-III)
+- 3-tier pharmaceutical adoption pathways (observer, pilot, full integration)
+- Clinical site infrastructure, staffing, and federation onboarding requirements
+- v2.3.0 release notes in `releases.md`
+
+### Changed
+- `README.md`: Updated version badge to v2.3.0, added industry specification section, updated repository structure with `unification/industry/` directory, updated citation version
+- `CITATION.cff`: Updated version to 2.3.0
+
+### Notes
+- Unifies four repositories: physical-ai-oncology-trials, TrialMCP, national-mcp-pai-oncology-trials, pai-oncology-trial-fl
+- RFC 2119 normative language (SHALL, SHOULD, MAY) used throughout
+- No Python code changes -- documentation-only release
+- Development by Claude Code Opus 4.6
+
+---
+
 ## [2.2.0] - 2026-03-12
 
 ### Added
