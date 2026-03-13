@@ -10,16 +10,16 @@
 
 This repository provides production-ready configurations, validated pipelines, and integration guides for deploying robotic systems, digital twins, and embodied AI agents in oncology. Referenced frameworks and tools have been added primarily from Oct. 2025 to Jan. 2026.
 
-📄 **3/13: v2.3.0 (Industry Specification)** *Physical AI Oncology Trial Industry Specification (PAIOTIS) v1.0* -- 8-part industry standard unifying four repositories with RFC 2119 normative language, USL robot qualification, pharmaceutical sponsor guide, and clinical site readiness criteria [![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.18994579-blue)](https://doi.org/10.5281/zenodo.18994579)
+📄 **3/13: v2.3.0 (Industry Specification)** *Physical AI Oncology Trial Industry Specification (PAIOTIS) v1.0* - 8-part industry standard unifying four repositories with RFC 2119 normative language [![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.18994579-blue)](https://doi.org/10.5281/zenodo.18994579)
 
 
 📄 **3/12: v2.2.0 (Regulatory Guidance)** *End-to-End Physical AI Oncology Clinical Trial Unification* -- Comprehensive guidance adapted from prior ICH E6(R3), with Sections 1-4, Appendices A-C, and Glossary [![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.18973368-blue)](https://doi.org/10.5281/zenodo.18973368)
 
-📄 **3/2: v2.1.0 (Patient Instructions)** *Patient Instructions: Physical AI Oncology Trials* -- Paper content documentation with page-by-page instructions, text diagrams, and quantitative patient data [![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.18810541-blue)](https://doi.org/10.5281/zenodo.18810541)
+📄 **3/2: v2.1.0 (Patient Instructions)** *Patient Instructions: Physical AI Oncology Trials* - Paper content documentation with page-by-page instructions, text diagrams, and quantitative patient data [![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.18810541-blue)](https://doi.org/10.5281/zenodo.18810541)
 
 📄 **2/26: New Paper (USL)** *Unification Standard Level for Physical AI Oncology Trials. Standardizing and Evaluating Robot Unification Readiness for Multi-Site Clinical Trials.* [![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.18778219-blue)](https://doi.org/10.5281/zenodo.18778219)
 
-> **v2.3.0** -- Physical AI Oncology Trial Industry Specification (PAIOTIS) v1.0. Formal 8-part industry standard unifying four repositories (physical-ai-oncology-trials, TrialMCP, national-mcp-pai-oncology-trials, pai-oncology-trial-fl) with RFC 2119 normative language, USL robot qualification tiers, pharmaceutical sponsor implementation guide, clinical site readiness criteria, and industry milestone roadmap. See [releases.md](releases.md) and [CHANGELOG.md](CHANGELOG.md) for full details.
+> **v2.3.0** - Physical AI Oncology Trial Industry Specification (PAIOTIS) v1.0. Formal 8-part industry standard unifying four repositories (physical-ai-oncology-trials, TrialMCP, national-mcp-pai-oncology-trials, pai-oncology-trial-fl) with RFC 2119 normative language, USL robot qualification tiers, pharmaceutical sponsor implementation guide, clinical site readiness criteria, and industry milestone roadmap. See [releases.md](releases.md) and [CHANGELOG.md](CHANGELOG.md) for full details.
 
 > **v1.0.0** — First stable release. 51 Python modules (40,526 LOC), 69 documentation files, 28 examples, 5 CLI tools, and complete privacy/regulatory infrastructure. CI-validated on Python 3.10, 3.11, and 3.12. See [V1_RELEASE.md](V1_RELEASE.md) for full release documentation.
 
