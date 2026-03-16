@@ -1,5 +1,18 @@
 All Posts Created by Kevin Kawchak
 
+## [LinkedIn 12Mar26 Post](https://www.linkedin.com/posts/kevin-kawchak-38b52a4a_adaption-ich-harmonised-guideline-activity-7437891580507688960-ctFn)
+
+The end-to-end physical ai oncology clinical trial unification guidance is a replacement draft to the International Council for Harmonisation (ICH) E6(R3) Guideline for Good Clinical Practice (GCP). This new adaption incorporates scalable AI and robotics workflows into clinical trials.
+
+The original ICH E6(R3) document is protected by copyright and may be used, reproduced, incorporated into other works, adapted, modified, translated or distributed under a public license, as detailed in Legal Notice. This current work is not endorsed or sponsored by ICH. 
+
+Sources:
+1) ICH Harmonised Guideline: Good Clinical Practice E6(R3). Step 4 Final Guideline, 6 Jan. 2025, https://lnkd.in/gq7sG5wT
+2) Kawchak, K. (2026). Adaption: ICH Harmonised Guideline, End-to-End Physical AI Oncology Clinical Trial Unification. Zenodo. https://lnkd.in/gqxyz-uC
+3) Kawchak, Kevin. Physical-ai-oncology-trials. GitHub, https://lnkd.in/g34_i-SN. Accessed 11 Mar. 2026.
+
+---
+
 ## [LinkedIn 28Feb26 Post](https://www.linkedin.com/posts/kevin-kawchak-38b52a4a_patient-instructions-physical-ai-oncology-activity-7433776175665197056-KUCy)
 
 Patients participating in fully autonomous physical AI clinical trials require guidance on how to interact with robots for their specific cancer procedures. 
