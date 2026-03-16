@@ -11,9 +11,9 @@
 This repository provides production-ready configurations, validated pipelines, and integration guides for deploying robotic systems, digital twins, and embodied AI agents in oncology. Referenced frameworks and tools have been added primarily from Oct. 2025 to Jan. 2026.
 
 
-📄 **3/16: v2.4.0 (Regulatory Adaptation)** *End-to-End Physical AI Oncology Clinical Trial Unification: Adaption of 21 CFR Part 50 -- Protection of Human Subjects* - Adaptation of 21 CFR Part 50 [![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.19040707-blue)](https://doi.org/10.5281/zenodo.19040707)
+📄 **3/16: v2.4.0 (Regulatory Adaptation)** *End-to-End Physical AI Oncology Clinical Trial Unification: Adaption of 21 CFR Part 50 - Protection of Human Subjects* - Adaptation of 21 CFR Part 50 [![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.19040707-blue)](https://doi.org/10.5281/zenodo.19040707)
 
-📄 **3/12: v2.2.0 (Regulatory Guidance)** *End-to-End Physical AI Oncology Clinical Trial Unification* -Comprehensive guidance adapted from prior ICH E6(R3), with Sections 1-4, Appendices A-C, and Glossary [![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.18973368-blue)](https://doi.org/10.5281/zenodo.18973368)
+📄 **3/12: v2.2.0 (Regulatory Guidance)** *End-to-End Physical AI Oncology Clinical Trial Unification.* Comprehensive guidance adapted from prior ICH E6(R3), with Sections 1-4, Appendices A-C, and Glossary [![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.18973368-blue)](https://doi.org/10.5281/zenodo.18973368)
 
 📄 **3/2: v2.1.0 (Patient Instructions)** *Patient Instructions: Physical AI Oncology Trials* - Paper content documentation with page-by-page instructions, text diagrams, and quantitative patient data [![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.18810541-blue)](https://doi.org/10.5281/zenodo.18810541)
 
