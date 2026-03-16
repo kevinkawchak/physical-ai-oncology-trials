@@ -6,7 +6,7 @@
 [![Python 3.10+](https://img.shields.io/badge/Python-3.10+-green.svg)]()
 [![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.18445179-blue)](https://doi.org/10.5281/zenodo.18445179)
 
-**Practical tools for integrating physical AI into oncology clinical trials, by Claude Code Opus 4.6/4.5, Cowork; ChatGPT 5.2 Thinking**
+**Practical tools for integrating physical AI into oncology clinical trials, by Claude Code Opus 4.6/4.5, Cowork; ChatGPT 5.4/5.2 Thinking**
 
 This repository provides production-ready configurations, validated pipelines, and integration guides for deploying robotic systems, digital twins, and embodied AI agents in oncology. Referenced frameworks and tools have been added primarily from Oct. 2025 to Jan. 2026.
 
@@ -19,7 +19,7 @@ This repository provides production-ready configurations, validated pipelines, a
 
 📄 **2/26: New Paper (USL)** *Unification Standard Level for Physical AI Oncology Trials. Standardizing and Evaluating Robot Unification Readiness for Multi-Site Clinical Trials. USL scores range from 1.0 to 10.0* [![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.18778219-blue)](https://doi.org/10.5281/zenodo.18778219)
 
-> **v2.4.0** - Adaption of 21 CFR Part 50 (Protection of Human Subjects) for Physical AI oncology clinical trials. Modifies Subparts A, B, and D in-place with Physical AI requirements and adds new Subpart C (Physical AI System Safety, IRB Review, Ongoing Consent, Data Protection, Classification). 37-page LaTeX document with 19 bibliography references and 30-definition glossary. See [releases.md](releases.md) and [CHANGELOG.md](CHANGELOG.md) for full details.
+> **v2.4.0** - Adaption of 21 CFR Part 50 (Protection of Human Subjects) for Physical AI oncology clinical trials. Modifies Subparts A, B, and D in-place with Physical AI requirements and adds new Subpart C. See [releases.md](releases.md) and [CHANGELOG.md](CHANGELOG.md) for full details.
 
 > **v1.0.0** — First stable release. 51 Python modules (40,526 LOC), 69 documentation files, 28 examples, 5 CLI tools, and complete privacy/regulatory infrastructure. CI-validated on Python 3.10, 3.11, and 3.12. See [V1_RELEASE.md](V1_RELEASE.md) for full release documentation.
 
