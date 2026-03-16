@@ -51,7 +51,6 @@ python unification/cross_platform_tools/framework_detector.py
 ```
 physical-ai-oncology-trials/
 ├── README.md
-├── prompts.md                            # ★ Development prompts archive (v2.4.0)
 ├── V1_RELEASE.md
 ├── LICENSE
 ├── requirements.txt
@@ -248,6 +247,7 @@ physical-ai-oncology-trials/
 │   │       ├── Physical_AI_21_CFR_Part_50.bib   # Bibliography (19 references)
 │   │       ├── Physical_AI_21_CFR_Part_50.pdf   # Compiled PDF
 │   │       ├── Physical_AI_21_CFR_Part_50.zip   # Source archive
+│   │       ├── prompts.md                            # ★ Development prompts archive (v2.4.0)
 │   │       └── README.md
 │   ├── adaption-ich-e6r3/             # ★ Physical AI Unification Guidance (v2.2.0)
 │   │   ├── prompts.md                 # Development prompts archive
