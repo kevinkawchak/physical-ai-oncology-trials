@@ -1,7 +1,7 @@
 # End-to-End Physical AI Unification of Oncology Clinical Trials
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Release](https://img.shields.io/badge/Release-v2.3.0-brightgreen.svg)]()
+[![Release](https://img.shields.io/badge/Release-v2.4.0-brightgreen.svg)]()
 [![Last Updated](https://img.shields.io/badge/Updated-March%202026-blue.svg)]()
 [![Python 3.10+](https://img.shields.io/badge/Python-3.10+-green.svg)]()
 [![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.18445179-blue)](https://doi.org/10.5281/zenodo.18445179)
@@ -11,13 +11,15 @@
 This repository provides production-ready configurations, validated pipelines, and integration guides for deploying robotic systems, digital twins, and embodied AI agents in oncology. Referenced frameworks and tools have been added primarily from Oct. 2025 to Jan. 2026.
 
 
+📄 **3/16: v2.4.0 (Regulatory Adaptation)** *End-to-End Physical AI Oncology Clinical Trial Unification: Adaption of 21 CFR Part 50 -- Protection of Human Subjects* - Adaptation of 21 CFR Part 50 with Physical AI requirements throughout Subparts A-D and new Subpart C [![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.19040707-blue)](https://doi.org/10.5281/zenodo.19040707)
+
 📄 **3/12: v2.2.0 (Regulatory Guidance)** *End-to-End Physical AI Oncology Clinical Trial Unification* -Comprehensive guidance adapted from prior ICH E6(R3), with Sections 1-4, Appendices A-C, and Glossary [![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.18973368-blue)](https://doi.org/10.5281/zenodo.18973368)
 
 📄 **3/2: v2.1.0 (Patient Instructions)** *Patient Instructions: Physical AI Oncology Trials* - Paper content documentation with page-by-page instructions, text diagrams, and quantitative patient data [![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.18810541-blue)](https://doi.org/10.5281/zenodo.18810541)
 
 📄 **2/26: New Paper (USL)** *Unification Standard Level for Physical AI Oncology Trials. Standardizing and Evaluating Robot Unification Readiness for Multi-Site Clinical Trials. USL scores range from 1.0 to 10.0* [![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.18778219-blue)](https://doi.org/10.5281/zenodo.18778219)
 
-> **v2.3.0** - Physical AI Oncology Trial Industry Specification (PAIOTIS) v1.0. Formal 8-part industry standard unifying four repositories (physical-ai-oncology-trials, TrialMCP, national-mcp-pai-oncology-trials, pai-oncology-trial-fl) with RFC 2119 normative language, USL robot qualification tiers, pharmaceutical sponsor implementation guide, clinical site readiness criteria, and industry milestone roadmap. See [releases.md](releases.md) and [CHANGELOG.md](CHANGELOG.md) for full details.
+> **v2.4.0** - Adaption of 21 CFR Part 50 (Protection of Human Subjects) for Physical AI oncology clinical trials. Modifies Subparts A, B, and D in-place with Physical AI requirements and adds new Subpart C (Physical AI System Safety, IRB Review, Ongoing Consent, Data Protection, Classification). 37-page LaTeX document with 19 bibliography references and 30-definition glossary. See [releases.md](releases.md) and [CHANGELOG.md](CHANGELOG.md) for full details.
 
 > **v1.0.0** — First stable release. 51 Python modules (40,526 LOC), 69 documentation files, 28 examples, 5 CLI tools, and complete privacy/regulatory infrastructure. CI-validated on Python 3.10, 3.11, and 3.12. See [V1_RELEASE.md](V1_RELEASE.md) for full release documentation.
 
@@ -49,6 +51,7 @@ python unification/cross_platform_tools/framework_detector.py
 ```
 physical-ai-oncology-trials/
 ├── README.md
+├── prompts.md                            # ★ Development prompts archive (v2.4.0)
 ├── V1_RELEASE.md
 ├── LICENSE
 ├── requirements.txt
@@ -238,6 +241,14 @@ physical-ai-oncology-trials/
 │
 ├── regulatory/
 │   ├── README.md
+│   ├── Adaption-21-CFR-Part-50/       # ★ Physical AI 21 CFR Part 50 Adaptation (v2.4.0)
+│   │   └── source/
+│   │       ├── Physical_AI_21_CFR_Part_50.tex   # LaTeX source (37 pages compiled)
+│   │       ├── Physical_AI_21_CFR_Part_50.sty   # Custom style package
+│   │       ├── Physical_AI_21_CFR_Part_50.bib   # Bibliography (19 references)
+│   │       ├── Physical_AI_21_CFR_Part_50.pdf   # Compiled PDF
+│   │       ├── Physical_AI_21_CFR_Part_50.zip   # Source archive
+│   │       └── README.md
 │   ├── adaption-ich-e6r3/             # ★ Physical AI Unification Guidance (v2.2.0)
 │   │   ├── prompts.md                 # Development prompts archive
 │   │   └── source/
@@ -832,6 +843,43 @@ See [`regulatory/adaption-ich-e6r3/source/README.md`](regulatory/adaption-ich-e6
 
 ---
 
+## ★ Regulatory Adaptation: 21 CFR Part 50 -- Protection of Human Subjects (v2.4.0)
+
+The `regulatory/Adaption-21-CFR-Part-50/` directory contains the **End-to-End Physical AI Oncology Clinical Trial Unification: Adaption of 21 CFR Part 50 -- Protection of Human Subjects**, a 37-page LaTeX document that modifies the prior 21 CFR Part 50 regulation in-place to incorporate Physical AI requirements throughout.
+
+> **[Adaptation (PDF) -- Zenodo](https://doi.org/10.5281/zenodo.19040707)** | **[LaTeX Source Files](regulatory/Adaption-21-CFR-Part-50/source/)**
+
+```
+Document Structure
+===================
+  Subpart A: General Provisions
+    §50.1  Scope (with Physical AI expansion)
+    §50.3  Definitions (18 original + 17 Physical AI definitions)
+  Subpart B: Informed Consent of Human Subjects
+    §50.20  General Requirements (with Physical AI adaptation)
+    §50.22  Exception for Minimal Risk (with Physical AI risk mapping)
+    §50.23  Exception from General Requirements (with Physical AI emergency/military)
+    §50.24  Exception for Emergency Research (with Physical AI community consultation)
+    §50.25  Elements of Informed Consent (8 basic + 6 additional + 8 Physical AI)
+    §50.27  Documentation of Informed Consent (with MCP consent tracking)
+  Subpart C: Additional Protections for Subjects in Physical AI Investigations
+    §50.30  Physical AI System Safety Requirements
+    §50.31  IRB Review of Physical AI Investigations
+    §50.32  Ongoing Consent and Subject Notification
+    §50.33  Data Protection for Physical AI Investigations
+    §50.34  Physical AI System Classification and Regulatory Pathways
+  Subpart D: Additional Safeguards for Children in Clinical Investigations
+    §50.50-§50.56 (with Physical AI adaptations for pediatric populations)
+  Glossary: 30 Physical AI-Specific Definitions
+  Bibliography: 19 References
+```
+
+Key features: 5 robot types (surgical, therapeutic positioning, diagnostic needle-placement, rehabilitative exoskeletons, companion monitoring), USL minimum thresholds per procedure type, MCP consent tracking (5 servers, 23 tools), HIPAA Safe Harbor de-identification, hash-chained audit trails, pre-procedure safety matrix, task-order lifecycle, and FDA regulatory pathways (510(k), De Novo, PMA, Breakthrough). All content adapted from the prior 21 CFR Part 50 regulation (public domain under 17 U.S.C. §105).
+
+See [`regulatory/Adaption-21-CFR-Part-50/source/README.md`](regulatory/Adaption-21-CFR-Part-50/source/README.md) for build instructions.
+
+---
+
 ## ★ Industry Specification: PAIOTIS v1.0 (v2.3.0)
 
 The `unification/industry/` directory contains the **Physical AI Oncology Trial Industry Specification (PAIOTIS) v1.0**, a formal 25-page LaTeX document that unifies four repositories into a single industry standard using RFC 2119 normative language (SHALL, SHOULD, MAY).
@@ -863,7 +911,7 @@ If you use this repository in your research, please cite:
 @software{kawchak2026physicalai,
   author = {Kawchak, Kevin},
   title = {Physical AI for Oncology Clinical Trials},
-  version = {2.3.0},
+  version = {2.4.0},
   year = {2026},
   publisher = {GitHub},
   url = {https://github.com/kevinkawchak/physical-ai-oncology-trials}
@@ -889,4 +937,4 @@ Contributions welcome. Please ensure any added frameworks or tools:
 4. **Support cross-platform compatibility** (see `unification/` for guidelines)
 
 
-*v2.3.0 - Last updated: March 2026*
+*v2.4.0 - Last updated: March 2026*

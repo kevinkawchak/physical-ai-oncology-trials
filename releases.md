@@ -4,6 +4,43 @@ Release notes for the physical-ai-oncology-trials repository.
 
 ---
 
+End-to-End Physical AI Oncology Clinical Trial Unification: Adaption of 21 CFR Part 50 -- Protection of Human Subjects
+v2.4.0 - March 16, 2026
+
+## Summary
+
+Publishes the **End-to-End Physical AI Oncology Clinical Trial Unification: Adaption of 21 CFR Part 50 -- Protection of Human Subjects**, a 37-page LaTeX document that modifies the prior 21 CFR Part 50 regulation in-place to incorporate Physical AI requirements throughout. The adaptation covers Subpart A (General Provisions with Physical AI scope expansion and 17 new definitions), Subpart B (Informed Consent with 8 Physical AI consent elements and MCP consent tracking), a new Subpart C (Additional Protections for Subjects in Physical AI Clinical Investigations with 5 new sections covering safety requirements, IRB review, ongoing consent, data protection, and system classification), and Subpart D (Additional Safeguards for Children with Physical AI adaptations for pediatric populations). The document includes a 30-definition glossary and 19-reference bibliography. Formatting follows the same style as the ICH E6(R3) adaptation (v2.2.0). The repository README, regulatory README, CHANGELOG, and other documentation are updated for v2.4.0.
+
+## Features
+
+- **Complete LaTeX adaptation document** (`regulatory/Adaption-21-CFR-Part-50/source/Physical_AI_21_CFR_Part_50.tex`): 37 pages compiled, Subparts A-D with Physical AI modifications and new Subpart C
+- **Subpart A: General Provisions**: §50.1 Scope expanded to Physical AI systems (autonomous surgical robots, therapeutic positioning systems, diagnostic needle-placement platforms, rehabilitative exoskeletons, companion monitoring systems); §50.3 Definitions with 18 original CFR definitions modified and 17 new Physical AI definitions added
+- **Subpart B: Informed Consent**: §50.20 General Requirements adapted for Physical AI interactions; §50.22 Exception for Minimal Risk with Physical AI risk mapping; §50.23 Exception from General Requirements with Physical AI emergency and military provisions; §50.24 Exception for Emergency Research with Physical AI community consultation; §50.25 Elements of Informed Consent with 8 basic, 6 additional, and 8 Physical AI-specific consent elements; §50.27 Documentation of Informed Consent with MCP consent tracking (5 servers, 23 tools)
+- **Subpart C: Additional Protections for Physical AI Investigations** (new): §50.30 Physical AI System Safety Requirements (pre-procedure safety matrix, runtime monitoring, post-procedure reporting); §50.31 IRB Review of Physical AI Investigations; §50.32 Ongoing Consent and Subject Notification; §50.33 Data Protection (HIPAA Safe Harbor, RBAC, hash-chained audit trails, federated learning); §50.34 Physical AI System Classification and Regulatory Pathways (510(k), De Novo, PMA, Breakthrough)
+- **Subpart D: Additional Safeguards for Children**: §50.50-§50.56 adapted with Physical AI requirements for pediatric populations, including USL minimum thresholds, pediatric-specific safety protocols, and companion robot provisions
+- **Glossary**: 30 Physical AI-specific definitions (Agentic AI, Cobot, Digital Twin, Federated Learning, MCP, USL, etc.)
+- **Custom style package** (`Physical_AI_21_CFR_Part_50.sty`): CFRBlue color scheme, fancy headers, section formatting adapted from ICH E6(R3) style
+- **Bibliography** (`Physical_AI_21_CFR_Part_50.bib`): 19 BibTeX entries covering CFR Part 50, both repositories, ICH E6(R3), FDA guidance, simulation frameworks, safety standards, MCP
+- **Compiled PDF** (`Physical_AI_21_CFR_Part_50.pdf`): 37-page compiled document
+- **Source archive** (`Physical_AI_21_CFR_Part_50.zip`): .tex, .sty, .bib, and .pdf files
+- **Source README** (`README.md`): Build instructions, document structure, version info
+- **Cover page**: Title, date "16 March 2026", DOI hyperlink to 10.5281/zenodo.19040707, CEO Kevin Kawchak, ChemicalQDevice, San Diego California, Claude Code attribution
+- **No em dashes**: Entire document uses hyphens and "to" ranges per style requirements
+
+## Contributors
+@kevinkawchak
+@claude
+
+## Notes
+- DOI: [10.5281/zenodo.19040707](https://doi.org/10.5281/zenodo.19040707)
+- Adapted from the prior 21 CFR Part 50 regulation (public domain under 17 U.S.C. §105)
+- Source repositories: physical-ai-oncology-trials v2.3.0 (DOI: 10.5281/zenodo.18445179), national-mcp-pai-oncology-trials v1.2.0 (DOI: 10.5281/zenodo.18869776)
+- No Python code changes -- documentation-only release
+- Development by Claude Code Opus 4.6
+- License: MIT (repository code)
+
+---
+
 Physical AI Oncology Trial Industry Specification (PAIOTIS) v1.0
 v2.3.0 - March 13, 2026
 

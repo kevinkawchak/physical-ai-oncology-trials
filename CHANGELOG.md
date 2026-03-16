@@ -5,6 +5,32 @@ Format follows [Keep a Changelog](https://keepachangelog.com/).
 
 ## [Unreleased]
 
+## [2.4.0] - 2026-03-16
+
+### Added
+- `regulatory/Adaption-21-CFR-Part-50/source/Physical_AI_21_CFR_Part_50.tex`: Adaptation of 21 CFR Part 50 (Protection of Human Subjects) for Physical AI oncology trials -- 37-page LaTeX document with Subparts A-D modified in-place and new Subpart C
+- `regulatory/Adaption-21-CFR-Part-50/source/Physical_AI_21_CFR_Part_50.sty`: Custom style package with CFRBlue color scheme
+- `regulatory/Adaption-21-CFR-Part-50/source/Physical_AI_21_CFR_Part_50.bib`: Bibliography with 19 references
+- `regulatory/Adaption-21-CFR-Part-50/source/Physical_AI_21_CFR_Part_50.pdf`: Compiled 37-page PDF
+- `regulatory/Adaption-21-CFR-Part-50/source/Physical_AI_21_CFR_Part_50.zip`: Source archive (.tex, .sty, .bib, .pdf)
+- `regulatory/Adaption-21-CFR-Part-50/source/README.md`: Build instructions and document structure
+- Subpart A: §50.1 Scope expanded for Physical AI systems, §50.3 Definitions with 17 new Physical AI definitions
+- Subpart B: §50.20-§50.27 adapted with Physical AI consent elements, MCP consent tracking
+- Subpart C (new): §50.30-§50.34 covering safety requirements, IRB review, ongoing consent, data protection, system classification
+- Subpart D: §50.50-§50.56 adapted for Physical AI pediatric populations
+- Glossary with 30 Physical AI-specific definitions
+- v2.4.0 release notes in `releases.md`
+
+### Changed
+- `README.md`: Updated version badge to v2.4.0, added 21 CFR Part 50 adaptation section, updated repository structure with `regulatory/Adaption-21-CFR-Part-50/` directory, updated citation version
+- `regulatory/README.md`: Added Adaption-21-CFR-Part-50 directory to structure, updated version
+
+### Notes
+- Adapted from the prior 21 CFR Part 50 regulation (public domain under 17 U.S.C. §105)
+- DOI: 10.5281/zenodo.19040707
+- No Python code changes -- documentation-only release
+- Development by Claude Code Opus 4.6
+
 ## [2.3.0] - 2026-03-13
 
 ### Added
