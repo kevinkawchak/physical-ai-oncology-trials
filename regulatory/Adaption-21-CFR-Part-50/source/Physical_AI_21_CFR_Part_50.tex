@@ -1,0 +1,340 @@
+\documentclass[11pt]{article}
+\usepackage{Physical_AI_21_CFR_Part_50}
+\addbibresource{Physical_AI_21_CFR_Part_50.bib}
+\title{End-to-End Physical AI Oncology Clinical Trial Unification}
+\author{Kevin Kawchak, ChemicalQDevice}
+\date{16 March 2026}
+\begin{document}
+
+\begin{titlepage}
+\centering
+{\Large END-TO-END PHYSICAL AI ONCOLOGY CLINICAL TRIAL UNIFICATION\par}
+\vspace{1.5cm}
+{\Huge\bfseries Adaption: 21 CFR Part 50\par}
+\vspace{0.5cm}
+{\LARGE\bfseries Protection of Human Subjects\par}
+\vspace{0.3cm}
+{\Large Modified ECFR\par}
+\vspace{0.8cm}
+{\large Draft release\par}
+\vspace{0.2cm}
+{\large Released on 16 March 2026\par}
+\vspace{0.2cm}
+{\large \href{https://doi.org/10.5281/zenodo.19040707}{10.5281/zenodo.19040707}\par}
+\vspace{0.2cm}
+{\large CEO Kevin Kawchak, ChemicalQDevice\par}
+\vfill
+{\small The original 21 CFR Part 50 document is a work in the public domain under 17 U.S.C. \S~105, and may be used, reproduced, incorporated into other works, adapted, modified, translated or distributed under a public license. 21 CFR Part 50 -- Protection of Human Subjects. \href{https://www.ecfr.gov/current/title-21/chapter-I/subchapter-A/part-50}{Source ECFR}. This current work is not endorsed or sponsored by CFR. The original ECFR formatting was reconstructed into Markdown, and adapted further into LaTeX using Claude Code Opus 4.6.\par}
+\end{titlepage}
+
+\pagenumbering{roman}
+\tableofcontents
+\clearpage
+\section*{Prefatory Note}
+
+This adaptation extends the prior 21 CFR Part 50 -- Protection of Human Subjects to address the end-to-end integration of Physical AI systems, advanced robotics, digital twins, and AI/ML agents into oncology clinical trials. The prior 21 CFR Part 50 regulation established foundational protections for human subjects in clinical investigations regulated by the Food and Drug Administration. This current document adapts those protections to encompass the specialized requirements of Physical AI oncology clinical trial unification, including autonomous surgical robots, therapeutic positioning systems, diagnostic needle-placement platforms, rehabilitative exoskeletons, companion monitoring systems, AI-driven decision support, and simulation-validated clinical procedures.
+
+The Unification Standard Level (USL) scoring framework (v1.4.0 through v1.8.0) provides quantitative readiness assessments for robotic platforms across four dimensions: simulation switching, AI integration, cross-robot sharing, and clinical trial collaboration. USL scores range from 1.0 to 10.0 and are referenced throughout this adaptation to establish minimum readiness thresholds for clinical deployment and to inform risk-based consent requirements.
+
+The national MCP-PAI standard (v1.2.0) defines the five-server Model Context Protocol topology (authorization, FHIR, DICOM, ledger, provenance), 23 standardized tools, six actor roles, and five cumulative conformance levels that govern data access, audit, and robot agent operations in Physical AI oncology trials. This protocol infrastructure underpins the data protection and audit trail requirements throughout this adaptation.
+
+This adaptation should be read in conjunction with the physical-ai-oncology-trials repository (v2.3.0, DOI: 10.5281/zenodo.18445179), the national MCP-PAI oncology trials standard (v1.2.0, DOI: 10.5281/zenodo.18869776), the ICH E6(R3) Physical AI adaptation (DOI: 10.5281/zenodo.18973368), and the federated learning framework (DOI: 10.5281/zenodo.18840880).
+
+\section*{Document History}
+
+\begin{description}[leftmargin=4cm,style=sameline]
+\item[Prior Regulation] 21 CFR Part 50 -- Protection of Human Subjects. Originally published at 45 FR 36390, May 30, 1980, with subsequent amendments through 2023. The prior regulation established the baseline framework for protecting human subjects in FDA-regulated clinical investigations.
+\item[Current Adaptation] End-to-End Physical AI Oncology Clinical Trial Unification: Adaption of 21 CFR Part 50, released 16 March 2026. This adaptation incorporates Physical AI requirements throughout the regulatory structure for oncology clinical investigations involving autonomous robotic systems, digital twins, and AI/ML agents.
+\item[Repository References] physical-ai-oncology-trials v2.3.0 (March 2026), national-mcp-pai-oncology-trials v1.2.0 (March 2026). These repositories provide validated code, tools, specifications, and documentation supporting this adaptation.
+\end{description}
+
+\clearpage
+\pagenumbering{arabic}
+
+\section*{Prior 21 CFR Part 50: Public Domain Notice}
+
+This section preserves the public domain notice from the prior 21 CFR Part 50 regulation. The original 21 CFR Part 50 document is a work of the United States Government and is in the public domain under 17 U.S.C. \S~105. It may be used, reproduced, incorporated into other works, adapted, modified, translated or distributed under a public license. This current adaptation is not endorsed or sponsored by CFR. The original ECFR formatting was reconstructed into Markdown and adapted further into LaTeX. All adaptations, modifications, and additions for Physical AI are clearly identified throughout.
+
+\textbf{Authority:} 21 U.S.C. 321, 343, 346, 346a, 348, 350a, 350b, 352, 353, 355, 360, 360c--360f, 360h--360j, 371, 379e, 381; 42 U.S.C. 216, 241, 262.
+
+\textbf{Source:} 45 FR 36390, May 30, 1980, unless otherwise noted.
+
+\section{SUBPART A -- GENERAL PROVISIONS}
+
+\subsection{\S~50.1 Scope}
+
+(a) This part applies to all clinical investigations regulated by the Food and Drug Administration under sections 505(i) and 520(g) of the Federal Food, Drug, and Cosmetic Act, as well as clinical investigations that support applications for research or marketing permits for products regulated by the Food and Drug Administration, including foods, including dietary supplements, that bear a nutrient content claim or a health claim, infant formulas, food and color additives, drugs for human use, medical devices for human use, biological products for human use, and electronic products. Additional specific obligations and commitments of, and standards of conduct for, persons who sponsor or monitor clinical investigations involving particular test articles may also be found in other parts (e.g., parts 312 and 812). Compliance with these parts is intended to protect the rights and safety of subjects involved in investigations filed with the Food and Drug Administration pursuant to sections 403, 406, 409, 412, 413, 502, 503, 505, 510, 513--516, 518--520, 721, and 801 of the Federal Food, Drug, and Cosmetic Act and sections 351 and 354--360F of the Public Health Service Act.
+
+(b) References in this part to regulatory sections of the Code of Federal Regulations are to chapter I of title 21, unless otherwise noted.
+
+\subsubsection{Physical AI Adaptation of \S~50.1}
+
+(c) This part additionally applies to all clinical investigations in which Physical AI systems perform, assist, or monitor clinical procedures on human subjects. Physical AI systems encompass the five robot types defined in the national MCP-PAI standard (v1.2.0): autonomous surgical robots, therapeutic positioning systems, diagnostic needle-placement platforms, rehabilitative exoskeletons, and companion monitoring systems. These systems operate through MCP-mediated data access with deny-by-default authorization, hash-chained audit trails, and HIPAA Safe Harbor de-identification protections.
+
+(d) The scope of protection under this part extends to subjects whose clinical data is processed by Physical AI systems, including data used for digital twin modeling, AI/ML inference, federated learning, and simulation-based procedure planning. The processing of subject data through the five MCP servers (trialmcp-authz, trialmcp-fhir, trialmcp-dicom, trialmcp-ledger, trialmcp-provenance) constitutes an interaction subject to the consent and protection requirements of this part.
+
+(e) The Unification Standard Level (USL) framework serves as the readiness assessment methodology for Physical AI platforms used in clinical investigations. USL scores are computed across four equally weighted dimensions (simulation switching, AI integration, cross-robot sharing, clinical trial collaboration) and range from 1.0 (Minimal) to 10.0 (Reference). The national MCP-PAI standard specifies minimum USL thresholds by procedure type: surgical robots require USL 7.0 or above, therapeutic positioning and diagnostic needle placement require USL 6.0 or above, rehabilitative exoskeletons require USL 4.0 or above, and companion monitoring systems require USL 3.0 or above.
+
+(f) The seven robot categories recognized for clinical investigation purposes, consistent with the physical-ai-oncology-trials repository (v2.3.0) and USL scoring methodology, are: surgical robots, cobots, humanoid robots, therapeutic robots, diagnostic robots, assistive robots, and rehabilitative robots. Nine robotic platforms have been evaluated under the USL framework: da Vinci dVRK (USL 7.1), Franka Emika Panda (USL 7.4), Boston Dynamics Atlas (USL 5.8), Kinova Gen3 (USL 5.7), Medtronic Hugo RAS (USL 4.5), Agility Digit (USL 4.2), Tesla Optimus (USL 3.6), CMR Versius (USL 3.4), and UFACTORY xArm 7 (USL 3.4).
+
+(g) Five categories of AI/ML are recognized for use in Physical AI clinical investigations: generative AI (vision-language-action models, diffusion policies, synthetic data generation), agentic AI (LLM-based assistants, multi-agent coordination via CrewAI v1.6.1 and LangGraph v1.1.0), reinforcement learning (sim-to-real transfer, hierarchical and multi-agent RL via NVIDIA Isaac Lab v2.3.1), self-supervised learning (contrastive learning, foundation model pretraining), and supervised learning (segmentation, detection, classification via MONAI).
+
+(h) Four simulation frameworks are recognized for pre-clinical validation of Physical AI systems: NVIDIA Isaac Lab (v2.3.1) for GPU-accelerated robot training, MuJoCo (v3.4.0) for precision physics simulation, Gazebo Sim (v10.0.0) for ROS 2 integrated simulation, and PyBullet (v3.2.5) for rapid prototyping. Cross-framework validation via the unification bridge must demonstrate behavioral consistency with trajectory deviations below 2mm and force discrepancies below 0.5N.
+
+[45 FR 36390, May 30, 1980; 46 FR 8979, Jan. 27, 1981, as amended at 63 FR 26697, May 13, 1998; 64 FR 399, Jan. 5, 1999; 66 FR 20597, Apr. 24, 2001. Physical AI adaptation added 16 March 2026.]
+
+\subsection{\S~50.3 Definitions}
+
+As used in this part:
+
+(a) \textit{Act} means the Federal Food, Drug, and Cosmetic Act, as amended (secs. 201--902, 52 Stat. 1040 \textit{et seq.} as amended (21 U.S.C. 321--392)).
+
+(b) \textit{Application for research or marketing permit} includes:
+
+\begin{description}[leftmargin=1.0cm,style=sameline]
+\item[(1)] A color additive petition, described in part 71.
+\item[(2)] A food additive petition, described in parts 171 and 571.
+\item[(3)] Data and information about a substance submitted as part of the procedures for establishing that the substance is generally recognized as safe for use that results or may reasonably be expected to result, directly or indirectly, in its becoming a component or otherwise affecting the characteristics of any food, described in \S\S~170.30 and 570.30.
+\item[(4)] Data and information about a food additive submitted as part of the procedures for food additives permitted to be used on an interim basis pending additional study, described in \S~180.1.
+\item[(5)] Data and information about a substance submitted as part of the procedures for establishing a tolerance for unavoidable contaminants in food and food-packaging materials, described in section 406 of the act.
+\item[(6)] An investigational new drug application, described in part 312 of this chapter.
+\item[(7)] A new drug application, described in part 314.
+\item[(8)] Data and information about the bioavailability or bioequivalence of drugs for human use submitted as part of the procedures for issuing, amending, or repealing a bioequivalence requirement, described in part 320.
+\item[(9)] Data and information about an over-the-counter drug for human use submitted as part of the procedures for classifying these drugs as generally recognized as safe and effective and not misbranded, described in part 330.
+\item[(10)] Data and information about a prescription drug for human use submitted as part of the procedures for classifying these drugs as generally recognized as safe and effective and not misbranded, described in this chapter.
+\item[(11)] [Reserved]
+\item[(12)] An application for a biologics license, described in part 601 of this chapter.
+\item[(13)] Data and information about a biological product submitted as part of the procedures for determining that licensed biological products are safe and effective and not misbranded, described in part 601.
+\item[(14)] Data and information about an in vitro diagnostic product submitted as part of the procedures for establishing, amending, or repealing a standard for these products, described in part 809.
+\item[(15)] An \textit{Application for an Investigational Device Exemption,} described in part 812.
+\item[(16)] Data and information about a medical device submitted as part of the procedures for classifying these devices, described in section 513.
+\item[(17)] Data and information about a medical device submitted as part of the procedures for establishing, amending, or repealing a standard for these devices, described in section 514.
+\item[(18)] An application for premarket approval of a medical device, described in section 515.
+\item[(19)] A product development protocol for a medical device, described in section 515.
+\item[(20)] Data and information about an electronic product submitted as part of the procedures for establishing, amending, or repealing a standard for these products, described in section 358 of the Public Health Service Act.
+\item[(21)] Data and information about an electronic product submitted as part of the procedures for obtaining a variance from any electronic product performance standard, as described in \S~1010.4.
+\item[(22)] Data and information about an electronic product submitted as part of the procedures for granting, amending, or extending an exemption from a radiation safety performance standard, as described in \S~1010.5.
+\item[(23)] Data and information about a clinical study of an infant formula when submitted as part of an infant formula notification under section 412(c) of the Federal Food, Drug, and Cosmetic Act.
+\item[(24)] Data and information submitted in a petition for a nutrient content claim, described in \S~101.69 of this chapter, or for a health claim, described in \S~101.70 of this chapter.
+\item[(25)] Data and information from investigations involving children submitted in a new dietary ingredient notification, described in \S~190.6 of this chapter.
+\end{description}
+
+(c) \textit{Clinical investigation} means any experiment that involves a test article and one or more human subjects and that either is subject to requirements for prior submission to the Food and Drug Administration under section 505(i) or 520(g) of the act, or is not subject to requirements for prior submission to the Food and Drug Administration under these sections of the act, but the results of which are intended to be submitted later to, or held for inspection by, the Food and Drug Administration as part of an application for a research or marketing permit. The term does not include experiments that are subject to the provisions of part 58 of this chapter, regarding nonclinical laboratory studies.
+
+(d) \textit{Investigator} means an individual who actually conducts a clinical investigation, i.e., under whose immediate direction the test article is administered or dispensed to, or used involving, a subject, or, in the event of an investigation conducted by a team of individuals, is the responsible leader of that team.
+
+(e) \textit{Sponsor} means a person who initiates a clinical investigation, but who does not actually conduct the investigation, i.e., the test article is administered or dispensed to or used involving, a subject under the immediate direction of another individual. A person other than an individual (e.g., corporation or agency) that uses one or more of its own employees to conduct a clinical investigation it has initiated is considered to be a sponsor (not a sponsor-investigator), and the employees are considered to be investigators.
+
+(f) \textit{Sponsor-investigator} means an individual who both initiates and actually conducts, alone or with others, a clinical investigation, i.e., under whose immediate direction the test article is administered or dispensed to, or used involving, a subject. The term does not include any person other than an individual, e.g., corporation or agency.
+
+(g) \textit{Human subject} means an individual who is or becomes a participant in research, either as a recipient of the test article or as a control. A subject may be either a healthy human or a patient.
+
+(h) \textit{Institution} means any public or private entity or agency (including Federal, State, and other agencies). The word \textit{facility} as used in section 520(g) of the act is deemed to be synonymous with the term \textit{institution} for purposes of this part.
+
+(i) \textit{Institutional review board} (IRB) means any board, committee, or other group formally designated by an institution to review biomedical research involving humans as subjects, to approve the initiation of and conduct periodic review of such research. The term has the same meaning as the phrase \textit{institutional review committee} as used in section 520(g) of the act.
+
+(j) \textit{Test article} means any drug (including a biological product for human use), medical device for human use, human food additive, color additive, electronic product, or any other article subject to regulation under the act or under sections 351 and 354--360F of the Public Health Service Act (42 U.S.C. 262 and 263b--263n).
+
+(k) \textit{Minimal risk} means that the probability and magnitude of harm or discomfort anticipated in the research are not greater in and of themselves than those ordinarily encountered in daily life or during the performance of routine physical or psychological examinations or tests.
+
+(l) \textit{Legally authorized representative} means an individual or judicial or other body authorized under applicable law to consent on behalf of a prospective subject to the subject's participation in the procedure(s) involved in the research.
+
+(m) \textit{Family member} means any one of the following legally competent persons: Spouse; parents; children (including adopted children); brothers, sisters, and spouses of brothers and sisters; and any individual related by blood or affinity whose close association with the subject is the equivalent of a family relationship.
+
+(n) \textit{Assent} means a child's affirmative agreement to participate in a clinical investigation. Mere failure to object should not, absent affirmative agreement, be construed as assent.
+
+(o) \textit{Children} means persons who have not attained the legal age for consent to treatments or procedures involved in clinical investigations, under the applicable law of the jurisdiction in which the clinical investigation will be conducted.
+
+(p) \textit{Parent} means a child's biological or adoptive parent.
+
+(q) \textit{Ward} means a child who is placed in the legal custody of the State or other agency, institution, or entity, consistent with applicable Federal, State, or local law.
+
+(r) \textit{Permission} means the agreement of parent(s) or guardian to the participation of their child or ward in a clinical investigation.
+
+(s) \textit{Guardian} means an individual who is authorized under applicable State or local law to consent on behalf of a child to general medical care.
+
+\subsubsection{Physical AI Definitions}
+
+The following additional definitions apply to clinical investigations involving Physical AI systems. These definitions are derived from the physical-ai-oncology-trials repository (v2.3.0) and the national MCP-PAI oncology trials standard (v1.2.0).
+
+(t) \textit{Physical AI system} means an AI system operating in the physical world through a robotic platform used in clinical investigations. Physical AI systems include autonomous surgical robots, therapeutic positioning systems, diagnostic needle-placement platforms, rehabilitative exoskeletons, and companion monitoring systems. The term encompasses the robotic hardware, its control software, embedded AI/ML models, and associated sensor systems that collectively perform, assist, or monitor clinical procedures on human subjects.
+
+(u) \textit{Robot agent} means an autonomous Physical AI system executing clinical procedures within an oncology trial, interacting through MCP-mediated data access. The robot agent operates under the six-step workflow defined in the national MCP-PAI standard: authenticate, retrieve clinical data, access imaging, execute procedure, record audit, and record provenance. Robot agents are one of six actor types (alongside Trial Coordinator, Data Monitor, Auditor, Sponsor, and CRO) in the MCP actor model.
+
+(v) \textit{Unification Standard Level (USL)} means a scoring framework (v1.4.0 through v1.8.0) evaluating Physical AI platform readiness across four equally weighted dimensions: simulation switching, AI integration, cross-robot sharing, and clinical trial collaboration. USL scores range from 1.0 to 10.0, mapping to ten levels from Minimal (1.0) to Reference (10.0) and three readiness bands: Foundational (1.0 to 4.9), Intermediate (5.0 to 6.9), and Advanced (7.0 to 10.0).
+
+(w) \textit{Digital twin} means a patient-specific computational model used for treatment simulation, procedure planning, and real-time intraoperative guidance. Digital twins are calibrated to longitudinal imaging data using reaction-diffusion equations, pharmacokinetic/pharmacodynamic models, or other mathematical frameworks and are continuously updated with real-world clinical data.
+
+(x) \textit{Simulation framework} means a physics-based computational environment used for validating Physical AI system behavior before clinical deployment. Recognized simulation frameworks include NVIDIA Isaac Lab (v2.3.1), MuJoCo (v3.4.0), Gazebo Sim (v10.0.0), and PyBullet (v3.2.5). The validated integration path follows: training (Isaac Lab) to validation (MuJoCo) to hardware deployment to clinical use.
+
+(y) \textit{Robot capability profile} means a machine-readable specification of a Physical AI platform's capabilities, safety prerequisites, USL score, and required MCP tools. The profile is defined by a JSON schema (robot-capability-profile.schema.json) in the national MCP-PAI standard and must be registered with the authorization server before any clinical procedure.
+
+(z) \textit{Task order} means a scheduled clinical trial task assigned to a Physical AI system, including procedure type, robot assignment, safety check requirements, and lifecycle state. Task orders progress through defined states: scheduled, safety\_check, in\_progress, and completed, cancelled, or failed.
+
+(aa) \textit{Emergency stop} means an immediate halt capability that must be available for any Physical AI system during clinical procedures, with mandatory audit recording. Activation of an emergency stop transitions the task order to a failed state and requires a new safety check cycle before any subsequent procedure.
+
+(bb) \textit{Human oversight} means the requirement that qualified clinical personnel maintain supervisory authority over Physical AI systems during all phases of clinical investigation. Human oversight encompasses the ability to monitor, intervene, override, or terminate Physical AI system operations at any time. The human oversight quality management framework (v1.2.0) specifies risk-tiered controls with escalating requirements based on clinical consequence.
+
+(cc) \textit{Hash-chained audit trail} means an immutable, tamper-evident record of all Physical AI system actions using SHA-256 hash chains. Each audit record contains the action performed, actor identity, timestamp, resource affected, and a hash linking it to the previous record. This mechanism satisfies the electronic records requirements of 21 CFR Part 11.
+
+(dd) \textit{Model Context Protocol (MCP)} means an open protocol for connecting AI agents to external tools and data sources, implemented through five standardized servers: trialmcp-authz (authorization), trialmcp-fhir (clinical data), trialmcp-dicom (imaging), trialmcp-ledger (audit), and trialmcp-provenance (data lineage). The protocol defines 23 tools and operates under the governance of the Linux Foundation AI and Data Foundation.
+
+(ee) \textit{Deny-by-default authorization} means a security model where all Physical AI system access to clinical data is denied unless explicitly permitted by policy. Token-based sessions with defined scopes and time limits govern every data access request. This authorization model is enforced by the trialmcp-authz server.
+
+(ff) \textit{HIPAA Safe Harbor de-identification} means the removal or generalization of all 18 Protected Health Information (PHI) identifiers before clinical data is provided to Physical AI systems. The 18 identifiers include names, geographic data, dates, phone numbers, fax numbers, email addresses, Social Security numbers, medical record numbers, health plan beneficiary numbers, account numbers, certificate/license numbers, vehicle identifiers, device identifiers, web URLs, IP addresses, biometric identifiers, full-face photographs, and any other unique identifying number. HMAC-SHA256 with site-specific salts is used for pseudonymization.
+
+(gg) \textit{Predetermined Change Control Plan (PCCP)} means a documented plan for managing modifications to Physical AI systems used as or within medical devices, per FDA AI/ML guidance. The PCCP specifies the types of anticipated modifications, the methodology for implementing and validating changes, and the assessment of the impact on safety and effectiveness.
+
+(hh) \textit{Federated learning} means multi-site AI model training without sharing raw patient data, using differential privacy (epsilon and delta parameters) and secure aggregation (additive secret sharing, pairwise masking). The federation framework supports FedAvg, FedProx, and SCAFFOLD algorithms with data harmonization for DICOM, FHIR, ICD-10 to SNOMED CT, and LOINC tumor marker standardization.
+
+(ii) \textit{Pre-procedure safety matrix} means the set of verification checks that must pass before a Physical AI system may begin a clinical procedure. The matrix includes: valid authorization token, patient identity verification, clinical data availability (FHIR), imaging data access (DICOM), robot readiness and USL threshold verification, environmental checks, simulation validation confirmation, and digital twin synchronization status.
+
+(jj) \textit{Conformance level} means one of five cumulative levels defined in the national MCP-PAI standard for MCP server implementations: Core (base audit and authorization), Clinical Read (FHIR R4 clinical data access), Imaging (DICOM imaging with RECIST), Federated Site (multi-site federated learning with differential privacy), and Robot Procedure (full robot agent workflow with safety matrix and USL integration).
+
+[45 FR 36390, May 30, 1980, as amended through 78 FR 12950, Feb. 26, 2013. Physical AI definitions added 16 March 2026.]
+
+\section{SUBPART B -- INFORMED CONSENT OF HUMAN SUBJECTS}
+
+\textbf{Source:} 46 FR 8951, Jan. 27, 1981, unless otherwise noted.
+
+\subsection{\S~50.20 General Requirements for Informed Consent}
+
+Except as provided in \S\S~50.22, 50.23, and 50.24, no investigator may involve a human being as a subject in research covered by these regulations unless the investigator has obtained the legally effective informed consent of the subject or the subject's legally authorized representative. An investigator shall seek such consent only under circumstances that provide the prospective subject or the representative sufficient opportunity to consider whether or not to participate and that minimize the possibility of coercion or undue influence. The information that is given to the subject or the representative shall be in language understandable to the subject or the representative. No informed consent, whether oral or written, may include any exculpatory language through which the subject or the representative is made to waive or appear to waive any of the subject's legal rights, or releases or appears to release the investigator, the sponsor, the institution, or its agents from liability for negligence.
+
+\subsubsection{Physical AI Adaptation of \S~50.20}
+
+In addition to the general requirements above, informed consent for clinical investigations involving Physical AI systems must address the following:
+
+(a) The informed consent process must disclose the role of all autonomous robotic systems, AI/ML models, and digital twin technologies that will interact with or affect the subject during the investigation. Disclosure must include whether the Physical AI system will make autonomous clinical decisions, serve in an assistive capacity under human teleoperation, or operate in a shared-autonomy mode.
+
+(b) The degree of human oversight during procedures must be clearly explained, including the identity and qualifications of the clinical personnel maintaining supervisory authority, the mechanism by which the supervising clinician can intervene or override the Physical AI system, and the conditions under which an emergency stop would be activated.
+
+(c) Simulation validation results relevant to the subject's planned procedure must be made available upon request. The informed consent document must state whether the specific procedure has been validated in simulation, which simulation framework(s) were used, and what the cross-framework consistency results demonstrated.
+
+(d) The USL readiness score of the Physical AI platform assigned to the subject's procedure must be disclosed. The consent document must explain the USL score in plain language, including what the score represents, the minimum threshold required for the procedure type, and how the assigned platform compares to the threshold.
+
+(e) The specific robot type(s) to be used must be identified by manufacturer, model designation, and clinical function. The safety record of the platform must be summarized, including the number of prior clinical procedures, any reported safety incidents, and the emergency stop provisions.
+
+(f) If a digital twin model will be created from the subject's data, the consent document must describe what patient data will be used to construct the twin, how the twin will be used for treatment planning or procedure guidance, whether the twin model will be retained after the investigation, and the subject's right to request deletion of the twin model.
+
+(g) The consent document must explain how the subject's data will be processed through the five MCP servers, including the HIPAA Safe Harbor de-identification protections applied before data reaches Physical AI systems, the deny-by-default authorization model governing data access, and the hash-chained audit trail that records all data access events.
+
+[46 FR 8951, Jan. 27, 1981, as amended at 64 FR 10942, Mar. 8, 1999; 88 FR 88248, Dec. 21, 2023. Physical AI adaptation added 16 March 2026.]
+
+\subsection{\S~50.22 Exception from Informed Consent Requirements for Minimal Risk Clinical Investigations}
+
+The IRB may approve a consent procedure that omits or alters some or all of the elements of informed consent set forth in \S~50.25, or waive the requirements to obtain informed consent, provided that the IRB finds and documents that:
+
+(a) The clinical investigation involves no more than minimal risk to the subjects;
+
+(b) The clinical investigation could not practicably be carried out without the requested waiver or alteration;
+
+(c) If the clinical investigation involves using identifiable private information or identifiable biospecimens, the clinical investigation could not practicably be carried out without using such information or biospecimens in an identifiable format;
+
+(d) The waiver or alteration will not adversely affect the rights and welfare of the subjects; and
+
+(e) Whenever appropriate, the subjects or legally authorized representatives will be provided with additional pertinent information after participation.
+
+\subsubsection{Physical AI Adaptation of \S~50.22}
+
+(f) When Physical AI systems are involved in a clinical investigation, the determination of minimal risk must consider the specific robot type and its operational characteristics. The following guidelines apply to the assessment of minimal risk in Physical AI investigations:
+
+\begin{description}[leftmargin=1.0cm,style=sameline]
+\item[(1)] Companion monitoring systems (USL threshold 3.0 or above) that perform only non-contact observation, environmental monitoring, or verbal interaction with subjects may qualify for minimal risk classification, provided no physical contact with the subject occurs and no autonomous clinical decisions are made based on the monitoring data.
+\item[(2)] Low-risk rehabilitative applications involving exoskeletons or gait trainers (USL threshold 4.0 or above) may qualify for minimal risk classification when the device operates within force limits that do not exceed those encountered in routine physical therapy, the subject can independently remove or deactivate the device at any time, and the device has been validated through at least 100 hours of simulation testing with documented safety performance.
+\item[(3)] Surgical robots, therapeutic positioning systems, and diagnostic needle-placement platforms generally do not qualify for minimal risk classification due to the inherent physical contact, tissue interaction, or needle insertion involved in their operation. These systems require full informed consent as specified in \S\S~50.20 and 50.25.
+\item[(4)] Any Physical AI system that makes autonomous clinical decisions affecting treatment delivery, dose adjustment, or procedure modification does not qualify for minimal risk classification, regardless of its robot type or USL score.
+\end{description}
+
+(g) The IRB must map the minimal risk determination to the USL score and conformance level of the Physical AI system. Systems operating at Conformance Level 5 (Robot Procedure) under the national MCP-PAI standard require full informed consent for any procedure involving physical contact with the subject. Systems operating at Conformance Levels 1 through 4 may be evaluated for minimal risk on a case-by-case basis.
+
+[88 FR 88248, Dec. 21, 2023. Physical AI adaptation added 16 March 2026.]
+
+\subsection{\S~50.23 Exception from General Requirements}
+
+(a) The obtaining of informed consent shall be deemed feasible unless, before use of the test article (except as provided in paragraph (b) of this section), both the investigator and a physician who is not otherwise participating in the clinical investigation certify in writing all of the following:
+
+\begin{description}[leftmargin=1.0cm,style=sameline]
+\item[(1)] The human subject is confronted by a life-threatening situation necessitating the use of the test article.
+\item[(2)] Informed consent cannot be obtained from the subject because of an inability to communicate with, or obtain legally effective consent from, the subject.
+\item[(3)] Time is not sufficient to obtain consent from the subject's legal representative.
+\item[(4)] There is available no alternative method of approved or generally recognized therapy that provides an equal or greater likelihood of saving the life of the subject.
+\end{description}
+
+(b) If immediate use of the test article is, in the investigator's opinion, required to preserve the life of the subject, and time is not sufficient to obtain the independent determination required in paragraph (a) of this section in advance of using the test article, the determinations of the clinical investigator shall be made and, within 5 working days after the use of the article, be reviewed and evaluated in writing by a physician who is not participating in the clinical investigation.
+
+(c) The documentation required in paragraph (a) or (b) of this section shall be submitted to the IRB within 5 working days after the use of the test article.
+
+\subsubsection{Physical AI Adaptation of \S~50.23}
+
+(d-adapted) In life-threatening situations where a Physical AI system is the only available means of delivering urgent treatment, the exception from informed consent requirements may apply to the Physical AI system component of the investigation, subject to the following additional conditions:
+
+\begin{description}[leftmargin=1.0cm,style=sameline]
+\item[(1)] The Physical AI system must meet or exceed the minimum USL threshold for the procedure type (surgical: 7.0, therapeutic positioning: 6.0, diagnostic needle placement: 6.0).
+\item[(2)] Even in emergency situations, the Physical AI system must maintain its complete hash-chained audit trail. The emergency use must be recorded as an audit event with ``emergency\_consent\_exception'' classification, and the complete provenance chain from clinical data through procedure execution to outcome must be preserved.
+\item[(3)] Continuous safety monitoring must be maintained throughout the emergency procedure, including real-time force/torque limit monitoring, emergency stop availability, and qualified human oversight.
+\item[(4)] The pre-procedure safety matrix must still be completed to the extent practicable. At minimum, robot readiness verification, environmental checks, and patient identity verification must be performed. If time does not permit full safety matrix completion, the specific checks that were omitted must be documented in the audit trail.
+\end{description}
+
+\subsubsection{Prior 21 CFR Part 50: \S~50.23 Military Exception Provisions}
+
+(d) The military exception provisions of the prior 21 CFR Part 50 regulation apply in their original form to investigations involving investigational new drugs administered to members of the armed forces. When Physical AI surgical or therapeutic systems are deployed in military medical settings under these provisions, the following additional requirements apply:
+
+\begin{description}[leftmargin=1.0cm,style=sameline]
+\item[(1)] The written information sheet required under 10 U.S.C. 1107(d) must include a description of any Physical AI systems that will be used in the member's treatment, including the robot type, degree of autonomy, and safety provisions.
+\item[(2)] Medical records must accurately document not only the receipt of investigational products but also all Physical AI system interactions, including robot system identifiers, software versions, procedure logs, and safety events.
+\item[(3)] DOD's recordkeeping system must be capable of tracking Physical AI system deployments and configurations, including which specific robotic platform was used for each member's procedure, with the same level of detail required for investigational drug tracking.
+\item[(4)] The IRB review required under paragraph (d)(1)(v) of the prior regulation must include evaluation of the Physical AI system's safety profile, USL score, and simulation validation evidence.
+\end{description}
+
+(e) The in vitro diagnostic device provisions of paragraphs (e)(1) through (e)(6) of the prior 21 CFR Part 50 regulation remain applicable in their original form. When Physical AI systems are used in conjunction with investigational in vitro diagnostic devices for identifying chemical, biological, radiological, or nuclear agents, the Physical AI system components are subject to the informed consent adaptations specified in this part.
+
+[46 FR 8951, Jan. 27, 1981, as amended through 76 FR 36993, June 24, 2011. Physical AI adaptation added 16 March 2026.]
+
+\subsection{\S~50.24 Exception from Informed Consent Requirements for Emergency Research}
+
+(a) The IRB responsible for the review, approval, and continuing review of the clinical investigation described in this section may approve that investigation without requiring that informed consent of all research subjects be obtained if the IRB (with the concurrence of a licensed physician who is a member of or consultant to the IRB and who is not otherwise participating in the clinical investigation) finds and documents each of the following:
+
+\begin{description}[leftmargin=1.0cm,style=sameline]
+\item[(1)] The human subjects are in a life-threatening situation, available treatments are unproven or unsatisfactory, and the collection of valid scientific evidence, which may include evidence obtained through randomized placebo-controlled investigations, is necessary to determine the safety and effectiveness of particular interventions.
+
+\item[(2)] Obtaining informed consent is not feasible because: (i) the subjects will not be able to give their informed consent as a result of their medical condition; (ii) the intervention under investigation must be administered before consent from the subjects' legally authorized representatives is feasible; and (iii) there is no reasonable way to identify prospectively the individuals likely to become eligible for participation in the clinical investigation.
+
+\item[(3)] Participation in the research holds out the prospect of direct benefit to the subjects because: (i) subjects are facing a life-threatening situation that necessitates intervention; (ii) appropriate animal and other preclinical studies have been conducted, and the information derived from those studies and related evidence support the potential for the intervention to provide a direct benefit to the individual subjects; and (iii) risks associated with the investigation are reasonable in relation to what is known about the medical condition of the potential class of subjects, the risks and benefits of standard therapy, if any, and what is known about the risks and benefits of the proposed intervention or activity.
+
+\item[(4)] The clinical investigation could not practicably be carried out without the waiver.
+
+\item[(5)] The proposed investigational plan defines the length of the potential therapeutic window based on scientific evidence, and the investigator has committed to attempting to contact a legally authorized representative for each subject within that window of time and, if feasible, to asking the legally authorized representative contacted for consent within that window rather than proceeding without consent.
+
+\item[(6)] The IRB has reviewed and approved informed consent procedures and an informed consent document consistent with \S~50.25. These procedures and the informed consent document are to be used with subjects or their legally authorized representatives in situations where use of such procedures and documents is feasible. The IRB has reviewed and approved procedures and information to be used when providing an opportunity for a family member to object to a subject's participation in the clinical investigation consistent with paragraph (a)(7)(v) of this section.
+
+\item[(7)] Additional protections of the rights and welfare of the subjects will be provided, including, at least: (i) consultation with representatives of the communities in which the clinical investigation will be conducted and from which the subjects will be drawn; (ii) public disclosure to the communities prior to initiation of the clinical investigation of plans for the investigation and its risks and expected benefits; (iii) public disclosure of sufficient information following completion of the clinical investigation to apprise the community and researchers of the study; (iv) establishment of an independent data monitoring committee to exercise oversight of the clinical investigation; and (v) if obtaining informed consent is not feasible and a legally authorized representative is not reasonably available, the investigator has committed, if feasible, to attempting to contact within the therapeutic window the subject's family member who is not a legally authorized representative, and asking whether he or she objects to the subject's participation.
+\end{description}
+
+(b) The IRB is responsible for ensuring that procedures are in place to inform, at the earliest feasible opportunity, each subject, or if the subject remains incapacitated, a legally authorized representative of the subject, or if such a representative is not reasonably available, a family member, of the subject's inclusion in the clinical investigation, the details of the investigation and other information contained in the informed consent document. The IRB shall also ensure that there is a procedure to inform the subject, or if the subject remains incapacitated, a legally authorized representative, or if such a representative is not reasonably available, a family member, that he or she may discontinue the subject's participation at any time without penalty or loss of benefits to which the subject is otherwise entitled.
+
+(c) The IRB determinations required by paragraph (a) of this section and the documentation required by paragraph (e) of this section are to be retained by the IRB for at least 3 years after completion of the clinical investigation, and the records shall be accessible for inspection and copying by FDA in accordance with \S~56.115(b) of this chapter.
+
+(d) Protocols involving an exception to the informed consent requirement under this section must be performed under a separate investigational new drug application (IND) or investigational device exemption (IDE) that clearly identifies such protocols as protocols that may include subjects who are unable to consent.
+
+(e) If an IRB determines that it cannot approve a clinical investigation because the investigation does not meet the criteria in the exception provided under paragraph (a) of this section or because of other relevant ethical concerns, the IRB must document its findings and provide these findings promptly in writing to the clinical investigator and to the sponsor. The sponsor must promptly disclose this information to FDA and to the sponsor's clinical investigators who are participating or are asked to participate in this or a substantially equivalent investigation, and to other IRBs that have been, or are, asked to review this or a substantially equivalent investigation.
+
+\subsubsection{Physical AI Adaptation of \S~50.24}
+
+(f) When emergency research under this section involves Physical AI systems, the following additional requirements apply:
+
+\begin{description}[leftmargin=1.0cm,style=sameline]
+\item[(1)] Community consultation required under paragraph (a)(7)(i) must include education about Physical AI systems and their role in the emergency research protocol. Community engagement materials must explain, in accessible language, the types of robotic systems involved, the degree of autonomous operation, the safety measures in place, and the circumstances under which a Physical AI system would be used in the subject's care without prior consent.
+
+\item[(2)] Public disclosure required under paragraph (a)(7)(ii) must include information about the Physical AI systems to be used, including robot types, USL readiness scores, simulation validation summary, and the safety record of the platforms.
+
+\item[(3)] The independent data monitoring committee established under paragraph (a)(7)(iv) must include expertise in Physical AI systems or have access to such expertise through consultation. The committee's oversight responsibilities must encompass Physical AI system performance metrics, USL score trends across the investigation, safety incident patterns involving robotic systems, and the adequacy of human oversight during emergency procedures.
+
+\item[(4)] When family member or legally authorized representative notification occurs under paragraph (b), the notification must include information about the Physical AI system's involvement in the subject's care, including the specific robot used, the procedure performed, the degree of autonomous operation, and any Physical AI-related safety events that occurred.
+
+\item[(5)] The separate IND or IDE required under paragraph (d) must include Physical AI system documentation as part of the protocol, including robot capability profiles, USL assessments, simulation validation reports, and the pre-procedure safety matrix requirements applicable to emergency deployment.
+\end{description}
+
+[61 FR 51528, Oct. 2, 1996. Physical AI adaptation added 16 March 2026.]
+
+\end{document}
