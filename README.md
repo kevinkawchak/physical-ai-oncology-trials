@@ -880,29 +880,6 @@ See [`regulatory/Adaption-21-CFR-Part-50/source/README.md`](regulatory/Adaption-
 
 ---
 
-## ★ Industry Specification: PAIOTIS v1.0 (v2.3.0)
-
-The `unification/industry/` directory contains the **Physical AI Oncology Trial Industry Specification (PAIOTIS) v1.0**, a formal 25-page LaTeX document that unifies four repositories into a single industry standard using RFC 2119 normative language (SHALL, SHOULD, MAY).
-
-```
-PAIOTIS Structure (8 Parts)
-============================
-  Part I:    Industry Definition and Scope
-  Part II:   Technical Architecture
-  Part III:  Regulatory Compliance Framework
-  Part IV:   Privacy and Data Governance
-  Part V:    Robot Qualification and Certification
-  Part VI:   Pharmaceutical Sponsor Implementation Guide
-  Part VII:  Clinical Site Readiness Criteria
-  Part VIII: Industry Milestone Roadmap
-```
-
-Key features: Three-layer architecture (Physical AI, MCP Protocol, Clinical Trial), USL-based robot qualification tiers for trial phases, 3-tier pharmaceutical adoption pathways (observer/pilot/full), clinical site infrastructure and staffing requirements, federation onboarding stages, and phased industry roadmap (2026-2028+). Integrates content from physical-ai-oncology-trials, TrialMCP (5 MCP servers), national-mcp-pai-oncology-trials (13 JSON schemas, 331 conformance tests), and pai-oncology-trial-fl (federated learning with differential privacy).
-
-See [`unification/industry/`](unification/industry/) for LaTeX source, compiled PDF, and source archive.
-
----
-
 ## Citation
 
 If you use this repository in your research, please cite:
