@@ -31,6 +31,12 @@ Format follows [Keep a Changelog](https://keepachangelog.com/).
 - No Python code changes -- documentation-only release
 - Development by Claude Code Opus 4.6
 
+---
+
+- @kevinkawchak modifications to main README and prompts.md to better reflect new v2.4.0 content 2026-03-16.
+
+---
+
 ## [2.3.0] - 2026-03-13
 
 ### Added
