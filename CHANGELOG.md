@@ -33,7 +33,7 @@ Format follows [Keep a Changelog](https://keepachangelog.com/).
 
 ---
 
-- @kevinkawchak modifications to main README and prompts.md to better reflect new v2.4.0 content 2026-03-16.
+- @kevinkawchak modifications to main README, regulatory/Adaption-21-CFR-Part-50, prompts.md, and posts.md (including prior post) to better reflect new v2.4.0 content 2026-03-16.
 
 ---
 
