@@ -238,3 +238,14 @@ From national-mcp-pai-oncology-trials:
 Double check LaTeX final document appearance to avoid lines with one word, and lines separated from paragraphs into new pages. Make sure text doesn’t run off the right side of the page (this needs double checked).
 
 When finished, output a new Physical_AI_21_CFR_Part_50.tex, Physical_AI_21_CFR_Part_50.sty, Physical_AI_21_CFR_Part_50.bib, and README, along with the zip of these files, and the properly compiled pdf as Physical_AI_21_CFR_Part_50.pdf. The files should be placed in kevinkawchak/physical-ai-oncology-trials/tree/main/regulatory/Adaption-21-CFR-Part-50 under appropriate directories. The files should be complete, self-contained, and ready for regulatory review.
+
+## Meta Prompt v2.4.0 - End-to-End Physical AI Oncology Clinical Trial Unification: Adaption of 21 CFR Part 50 (March 16, 2026)
+
+Your goal is to utilize these kevinkawchak/ GitHub repositories to make a comprehensive prompt based on this original physical-ai-oncology-trials/regulatory/Adaption-21-CFR-Part-50
+/843pm 14Mar26 21_CFR_Part_50.md that incorporates new Physical AI requirements throughout the entire original .md and outputs a new 21 CFR Part 50 markdown file. Your new prompt should aim to modify the entire regulation with Physical AI incorporations throughout, not just appending new standards.
+a) physical-ai-oncology-trials
+b) national-mcp-pai-oncology-trials
+
+It is important that you provide the exact code files, directories, and additional files that Claude Code will need to access in the repositories in order to make its processing effective.
+
+Please, no questions or follow up plan proposals. Simply return the comprehensive new prompt in this conversation as formatted text. Nothing needs pushed to any repository.
