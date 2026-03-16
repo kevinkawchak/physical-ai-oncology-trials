@@ -1,5 +1,18 @@
 All Posts Created by Kevin Kawchak
 
+## [LinkedIn 16Mar26 Post](https://www.linkedin.com/posts/kevin-kawchak-38b52a4a_adaption-21-cfr-part-50-activity-7439168637074235393-qPWB)
+
+This adaption extends the original 21 CFR Part 50 – Protection of Human Subjects to address the end-to-end integration of Physical AI systems, advanced robotics, digital twins, and AI/ML agents into oncology clinical trials. The online eCFR version established foundational protections for human subjects in clinical investigations regulated by the Food and Drug Administration.
+
+The original 21 CFR Part 50 document is in the public domain and may be used, reproduced, incorporated into other works, adapted, modified, translated or distributed under a public license. This current work is not endorsed or sponsored by CFR. 
+
+Sources:
+1) “21 CFR Part 50—Protection of Human Subjects.” eCFR, Food and Drug Administration, U.S. Department of Health and Human Services, current as of 12 Mar. 2026, https://lnkd.in/gXXyd5mG
+2) Kawchak, K. (2026). Adaption: 21 CFR Part 50, End-to-End Physical AI Oncology Clinical Trial Unification. Zenodo. https://lnkd.in/gxDdptE3
+3) Kawchak, Kevin. physical-ai-oncology-trials. GitHub, 16 Mar. 2026, https://lnkd.in/gdW2c3Tp
+
+---
+
 ## [LinkedIn 12Mar26 Post](https://www.linkedin.com/posts/kevin-kawchak-38b52a4a_adaption-ich-harmonised-guideline-activity-7437891580507688960-ctFn)
 
 The end-to-end physical ai oncology clinical trial unification guidance is a replacement draft to the International Council for Harmonisation (ICH) E6(R3) Guideline for Good Clinical Practice (GCP). This new adaption incorporates scalable AI and robotics workflows into clinical trials.
