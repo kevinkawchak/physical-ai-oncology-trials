@@ -1,5 +1,10 @@
 # Prompts Archive
 
+## v2.5.0 - 2nd Prompt: End-to-End Physical AI Oncology Clinical Trial Unification: Adaption of 21 CFR Part 312 (March 18, 2026)
+
+Now take additional looks at the entire LaTeX code and pdf to make sure all sections and pages have been correctly implemented (with corresponding physical AI adaptions)(compare back to adapting to the original regulation markdown for guidance). For instance, one of the commits appeared to not add size to the prior commit for the .tex and .pdf. Fix any issues and return the new files. Make sure the total pages of the document matches what was expected from each commit. Make sure both the individual files and zip file of the files are included. Make sure prompts.md is under the corresponding source/prompts.md where the LaTeX files are (and that other original prompt requirements for correct LaTeX and pdf files are met). Also, provide 4 concise bullet points regarding the technical feat of adapting the regulation was in terms of comparisons based on processing, man hours, cost, etc. all this would take without Claude Code (appended as Notes in the release notes). Take a second scan that all other documentation stated from the original prompt is correct. Submit this new commit to the PR.
+
+
 ## v2.5.0 - End-to-End Physical AI Oncology Clinical Trial Unification: Adaption of 21 CFR Part 312 (March 18, 2026)
 
 Your goal is to process the main prompt below using kevinkawchak/physical-ai-oncology-trials and kevinkawchak/national-mcp-pai-oncology-trials (make no changes to this second repository). You are responsible for comprehensive understanding and applying all aspects of the repositories to the new work. This includes, where relevant: all code, all code types, machine learning and AI types, different robot types and characteristics, digital twins, examples, patients, physical ai unification, unification standard level (USL), tools, etc. The new incorporations of physical AI must be consistently high quality throughout the entire new work.
@@ -77,11 +82,6 @@ Throughout all adapted sections, incorporate the following Physical AI concepts 
 - Emergency stop specifications (hardware-independent, <500ms response)
 - Operator-to-system ratio requirements (1:1 minimum)
 - Cybersecurity by design with SBOM and vulnerability management
-
-## v2.5.0 - 2nd Prompt: End-to-End Physical AI Oncology Clinical Trial Unification: Adaption of 21 CFR Part 312 (March 18, 2026)
-
-Now take additional looks at the entire LaTeX code and pdf to make sure all sections and pages have been correctly implemented (with corresponding physical AI adaptions)(compare back to adapting to the original regulation markdown for guidance). For instance, one of the commits appeared to not add size to the prior commit for the .tex and .pdf. Fix any issues and return the new files. Make sure the total pages of the document matches what was expected from each commit. Make sure both the individual files and zip file of the files are included. Make sure prompts.md is under the corresponding source/prompts.md where the LaTeX files are (and that other original prompt requirements for correct LaTeX and pdf files are met). Also, provide 4 concise bullet points regarding the technical feat of adapting the regulation was in terms of comparisons based on processing, man hours, cost, etc. all this would take without Claude Code (appended as Notes in the release notes). Take a second scan that all other documentation stated from the original prompt is correct. Submit this new commit to the PR.
-
 
 ## v2.5.0 - Meta-Prompt: End-to-End Physical AI Oncology Clinical Trial Unification: Adaption of 21 CFR Part 312 (March 18, 2026)
 
