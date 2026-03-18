@@ -34,6 +34,10 @@ Format follows [Keep a Changelog](https://keepachangelog.com/).
 
 ---
 
+- @kevinkawchak v2.5.0 prompts.md 2nd prompt and meta-prompt additions. Main README DOI badge and context update regarding v2.5.0 pdf 2026-03-18.
+
+---
+
 ## [2.4.0] - 2026-03-16
 
 ### Added
