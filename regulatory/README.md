@@ -57,10 +57,13 @@ regulatory/
 ├── README.md                          # This file
 │
 ├── Adaption-21-CFR-Part-312/          # ★ Physical AI 21 CFR Part 312 Adaptation (v2.5.0)
-│   ├── prompts.md                     # Development prompts archive
 │   └── source/
-│       ├── Physical_AI_21_CFR_Part_312.tex  # LaTeX source (85 pages compiled)
-│       └── Physical_AI_21_CFR_Part_312.pdf  # Compiled PDF
+│       ├── Physical_AI_21_CFR_Part_312.tex  # LaTeX source (94 pages compiled)
+│       ├── Physical_AI_21_CFR_Part_312.sty  # Custom style package
+│       ├── Physical_AI_21_CFR_Part_312.bib  # Bibliography (42 references)
+│       ├── Physical_AI_21_CFR_Part_312.pdf  # Compiled PDF
+│       ├── Physical_AI_21_CFR_Part_312.zip  # Source archive
+│       └── prompts.md                       # Development prompts archive
 │
 ├── Adaption-21-CFR-Part-50/           # ★ Physical AI 21 CFR Part 50 Adaptation (v2.4.0)
 │   └── source/
