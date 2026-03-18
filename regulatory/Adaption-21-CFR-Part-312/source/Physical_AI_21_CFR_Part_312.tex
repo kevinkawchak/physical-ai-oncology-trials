@@ -1,0 +1,422 @@
+\documentclass[11pt]{article}
+\usepackage{Physical_AI_21_CFR_Part_312}
+\addbibresource{Physical_AI_21_CFR_Part_312.bib}
+\title{End-to-End Physical AI Oncology Clinical Trial Unification}
+\author{Kevin Kawchak, ChemicalQDevice}
+\date{17 March 2026}
+\begin{document}
+
+\begin{titlepage}
+\centering
+{\Large END-TO-END PHYSICAL AI ONCOLOGY CLINICAL TRIAL UNIFICATION\par}
+\vspace{1.5cm}
+{\Huge\bfseries Adaption: 21 CFR Part 312\par}
+\vspace{0.5cm}
+{\LARGE\bfseries Investigational New Drug Application\par}
+\vspace{0.3cm}
+{\Large Modified ECFR\par}
+\vspace{0.8cm}
+{\large Draft release\par}
+\vspace{0.2cm}
+{\large Released on 17 March 2026\par}
+\vspace{0.2cm}
+{\large \href{https://doi.org/10.5281/zenodo.19057628}{10.5281/zenodo.19057628}\par}
+\vspace{0.2cm}
+{\large CEO Kevin Kawchak, ChemicalQDevice\par}
+\vfill
+{\small The original 21 CFR Part 312 document is a work in the public domain under 17 U.S.C. \S~105, and may be used, reproduced, incorporated into other works, adapted, modified, translated or distributed under a public license. 21 CFR Part 312 --- Investigational New Drug Application. \href{https://www.ecfr.gov/current/title-21/chapter-I/subchapter-D/part-312}{Source ECFR}. This current work is not endorsed or sponsored by CFR. The original ECFR formatting was reconstructed into Markdown, and adapted further into LaTeX using Claude Code Opus 4.6.\par}
+\end{titlepage}
+
+\pagenumbering{roman}
+\tableofcontents
+\clearpage
+\section*{Prefatory Note}
+
+This adaptation extends the prior 21 CFR Part 312 --- Investigational New Drug Application to address the end-to-end integration of Physical AI systems, advanced robotics, digital twins, and AI/ML agents into oncology clinical trials. The prior 21 CFR Part 312 regulation established foundational procedures and requirements governing the use of investigational new drugs, including submission, review, and approval of INDs by the Food and Drug Administration. This current document adapts those procedures to encompass the specialized requirements of Physical AI oncology clinical trial unification, including autonomous surgical robots, therapeutic positioning systems, diagnostic needle-placement platforms, rehabilitative exoskeletons, companion monitoring systems, AI-driven decision support, simulation-validated procedures, and federated multi-site trial coordination.
+
+The Unification Standard Level (USL) scoring framework (v1.4.0 through v1.8.0) provides quantitative readiness assessments for robotic platforms across four dimensions: simulation switching, AI integration, cross-robot sharing, and clinical trial collaboration. USL scores range from 1.0 to 10.0 and are referenced throughout this adaptation to establish minimum readiness thresholds for clinical deployment and to inform IND submission requirements for Physical AI components.
+
+The national MCP-PAI standard (v1.2.0) defines the five-server Model Context Protocol topology (authorization, FHIR, DICOM, ledger, provenance), 23 standardized tools, six actor roles, and five cumulative conformance levels that govern data access, audit, and robot agent operations in Physical AI oncology trials. This protocol infrastructure underpins the data management, safety reporting, and electronic records requirements throughout this adaptation.
+
+This adaptation should be read in conjunction with the physical-ai-oncology-trials repository (v2.5.0, DOI: 10.5281/zenodo.19057628), the national MCP-PAI oncology trials standard (v1.2.0, DOI: 10.5281/zenodo.18869776), the ICH E6(R3) Physical AI adaptation (DOI: 10.5281/zenodo.18973368), the 21 CFR Part 50 Physical AI adaptation (DOI: 10.5281/zenodo.19040707), and the federated learning framework (DOI: 10.5281/zenodo.18840880).
+
+\section*{Document History}
+
+\begin{description}[leftmargin=3.8cm,style=sameline]
+\item[Prior Regulation] 21 CFR Part 312 --- Investigational New Drug Application. Originally published at 52 FR 8831, March 19, 1987, with subsequent amendments through 2023. The prior regulation established the baseline framework for IND submissions, clinical investigation phases, sponsor and investigator responsibilities, safety reporting, and expanded access provisions.
+\item[Current Adaptation] End-to-End Physical AI Oncology Clinical Trial Unification: Adaption of 21 CFR Part 312, released 17 March 2026. This adaptation incorporates Physical AI requirements throughout for oncology clinical investigations involving autonomous robotic systems, digital twins, simulation frameworks, and AI/ML agents.
+\item[Repository Refs] physical-ai-oncology-trials v2.5.0 (March 2026), national-mcp-pai-oncology-trials v1.2.0 (March 2026). These repositories provide validated code, tools, specifications, and documentation supporting this adaptation.
+\end{description}
+
+\clearpage
+\pagenumbering{arabic}
+
+\section*{Prior 21 CFR Part 312: Public Domain Notice}
+
+This section preserves the public domain notice from the prior 21 CFR Part 312 regulation. The original 21 CFR Part 312 document is a work of the United States Government and is in the public domain under 17 U.S.C. \S~105. It may be used, reproduced, incorporated into other works, adapted, modified, translated or distributed under a public license. This current adaptation is not endorsed or sponsored by CFR. The original ECFR formatting was reconstructed into Markdown and adapted further into LaTeX. All adaptations, modifications, and additions for Physical AI are clearly identified throughout.
+
+\textbf{Authority:} 21 U.S.C. 321, 331, 351, 352, 353, 355, 360bbb, 371; 42 U.S.C. 262.
+
+\textbf{Source:} 52 FR 8831, Mar. 19, 1987, unless otherwise noted.
+
+\textbf{Editorial Note:} Nomenclature changes to part 312 appear at 69 FR 13717, Mar. 24, 2004.
+
+\clearpage
+
+\section*{Change Summary Table}
+
+The following table identifies every section of the prior 21 CFR Part 312 regulation that has been modified in this adaptation and summarizes the nature of the Physical AI additions. Sections not listed below retain their original text without modification.
+
+\begin{longtable}{>{\raggedright\arraybackslash}p{2.2cm} >{\raggedright\arraybackslash}p{11.5cm}}
+\toprule
+\textbf{Section} & \textbf{Nature of Physical AI Additions} \\
+\midrule
+\endfirsthead
+\toprule
+\textbf{Section} & \textbf{Nature of Physical AI Additions} \\
+\midrule
+\endhead
+\midrule
+\multicolumn{2}{r}{\textit{Continued on next page}} \\
+\bottomrule
+\endfoot
+\bottomrule
+\endlastfoot
+\S~312.1 & Extended scope to include Physical AI systems performing, assisting, or monitoring clinical procedures; added applicability to robotic platforms, simulation frameworks, and digital twins \\
+\S~312.2 & Added Physical AI applicability provisions for IND exemptions; clarified that Physical AI system components require IND coverage when used in clinical investigations \\
+\S~312.3 & Added 22 Physical AI definitions covering robot agents, USL, digital twins, simulation frameworks, MCP, conformance levels, hash-chained audit trails, federated learning, PCCP, and safety constructs \\
+\S~312.6 & Extended labeling requirements to Physical AI system components and robot-administered investigational drugs \\
+\S~312.7 & Extended promotion restrictions to Physical AI system capabilities associated with investigational drugs \\
+\S~312.8 & Added Physical AI cost recovery provisions for robotic system deployment, simulation validation, and digital twin infrastructure \\
+\S~312.10 & Extended waiver provisions to accommodate Physical AI system requirements \\
+\S~312.20 & Added IND requirement for Physical AI system components used in clinical investigations \\
+\S~312.21 & Added Physical AI considerations for each phase of clinical investigation, including simulation-based Phase 0 validation \\
+\S~312.22 & Extended IND submission principles to Physical AI system documentation requirements \\
+\S~312.23 & Added comprehensive Physical AI documentation requirements for IND content, including robot specifications, simulation validation data, digital twin models, AI/ML algorithms, and cybersecurity assessments \\
+\S~312.30 & Extended protocol amendment requirements to Physical AI system modifications, algorithm updates, and simulation framework changes \\
+\S~312.31 & Extended information amendment requirements to Physical AI technical updates \\
+\S~312.32 & Added Physical AI safety reporting requirements including robot malfunction events, AI prediction errors, digital twin divergence, and cybersecurity incidents \\
+\S~312.33 & Extended annual reporting to Physical AI system performance metrics, USL score updates, and simulation validation results \\
+\S~312.38 & Extended IND withdrawal procedures to Physical AI system decommissioning \\
+\S~312.40 & Added Physical AI general requirements for IND effectiveness, including simulation validation and USL threshold verification \\
+\S~312.42 & Added Physical AI grounds for clinical hold including robotic safety failures, AI model degradation, and simulation-reality divergence \\
+\S~312.44 & Extended termination grounds to Physical AI system failures and cybersecurity compromises \\
+\S~312.45 & Extended inactive status provisions to Physical AI system dormancy and reactivation \\
+\S~312.47 & Added Physical AI system demonstration requirements for regulatory meetings \\
+\S~312.48 & Extended dispute resolution to Physical AI technical disagreements \\
+\S~312.50 & Extended sponsor responsibilities to Physical AI system selection, validation, monitoring, and lifecycle management \\
+\S~312.52 & Extended CRO transfer provisions to Physical AI obligations \\
+\S~312.53 & Extended investigator and monitor selection to Physical AI qualifications \\
+\S~312.54 & Extended emergency research monitoring to Physical AI systems \\
+\S~312.55 & Extended investigator information requirements to Physical AI system updates \\
+\S~312.56 & Extended ongoing investigation review to Physical AI system compliance monitoring \\
+\S~312.57 & Extended recordkeeping to Physical AI system logs, simulation data, and digital twin records \\
+\S~312.58 & Extended inspection access to Physical AI system records and audit trails \\
+\S~312.59 & Extended drug disposition to Physical AI system decommissioning procedures \\
+\S~312.60 & Extended investigator responsibilities to Physical AI system oversight \\
+\S~312.61 & Extended drug control to Physical AI system access control \\
+\S~312.62 & Extended investigator recordkeeping to Physical AI case histories and system interaction logs \\
+\S~312.64 & Extended investigator reporting to Physical AI system events and performance metrics \\
+\S~312.66 & Extended IRB review assurance to Physical AI system components \\
+\S~312.68 & Extended inspection access to Physical AI investigator records \\
+\S~312.69 & Extended controlled substance handling to Physical AI-mediated administration \\
+\S~312.70 & Extended disqualification to Physical AI system misuse and noncompliance \\
+\S~312.80 & Extended life-threatening illness provisions to Physical AI accelerated development pathways \\
+\S~312.82 & Extended early consultation to Physical AI system design review \\
+\S~312.83 & Extended treatment protocols to Physical AI-assisted therapeutic delivery \\
+\S~312.84 & Extended risk-benefit analysis to Physical AI system risk profiles \\
+\S~312.85 & Extended Phase 4 studies to Physical AI post-market performance monitoring \\
+\S~312.87 & Extended active monitoring to Physical AI system clinical performance \\
+\S~312.88 & Extended patient safety safeguards to Physical AI-specific protections \\
+\S~312.110 & Extended import/export requirements to Physical AI system components and software \\
+\S~312.120 & Extended foreign clinical study acceptance to Physical AI system validation data \\
+\S~312.130 & Extended public disclosure provisions to Physical AI system data \\
+\S~312.160 & Extended laboratory use provisions to Physical AI preclinical testing \\
+\S~312.300 & Extended expanded access scope to Physical AI-assisted treatment \\
+\S~312.305 & Extended expanded access requirements to Physical AI system safeguards \\
+\S~312.310 & Extended individual patient access to Physical AI-assisted emergency treatment \\
+\S~312.315 & Extended intermediate-size access to Physical AI multi-site deployment \\
+\S~312.320 & Extended treatment IND to Physical AI widespread treatment use \\
+New J & New Subpart J: Additional Requirements for Physical AI Investigational Systems in Oncology Trials \\
+\end{longtable}
+
+\clearpage
+
+\section{SUBPART A --- GENERAL PROVISIONS}
+
+\subsection{\S~312.1 Scope}
+
+(a) This part contains procedures and requirements governing the use of investigational new drugs, including procedures and requirements for the submission to, and review by, the Food and Drug Administration of investigational new drug applications (IND's). An investigational new drug for which an IND is in effect in accordance with this part is exempt from the premarketing approval requirements that are otherwise applicable and may be shipped lawfully for the purpose of conducting clinical investigations of that drug.
+
+(b) References in this part to regulations in the Code of Federal Regulations are to chapter I of title 21, unless otherwise noted.
+
+\subsubsection{Physical AI Adaptation of \S~312.1}
+
+(c) This part additionally applies to all clinical investigations in which Physical AI systems perform, assist, or monitor procedures involving the administration or dispensing of investigational new drugs to human subjects. Physical AI systems encompass the seven robot categories recognized for clinical investigation purposes: autonomous surgical robots, cobots, humanoid robots, therapeutic robots, diagnostic robots, assistive robots, and rehabilitative robots. These categories are further organized into five functional types defined in the national MCP-PAI standard (v1.2.0): autonomous surgical robots, therapeutic positioning systems, diagnostic needle-placement platforms, rehabilitative exoskeletons, and companion monitoring systems.
+
+(d) The scope of this part extends to IND applications involving investigational drugs that are administered, dispensed, prepared, compounded, or monitored by Physical AI systems. When a Physical AI system participates in any step of the drug administration pathway, the IND must document the system's role, safety parameters, and operational specifications as described in \S~312.23 of this part. The processing of investigational drug data through Physical AI systems, including through the five MCP servers (trialmcp-authz, trialmcp-fhir, trialmcp-dicom, trialmcp-ledger, trialmcp-provenance), constitutes an activity subject to the requirements of this part.
+
+(e) The Unification Standard Level (USL) framework serves as the readiness assessment methodology for Physical AI platforms used in clinical investigations under this part. USL scores are computed across four equally weighted dimensions (simulation switching, AI integration, cross-robot sharing, clinical trial collaboration) and range from 1.0 (Minimal) to 10.0 (Reference). The national MCP-PAI standard specifies minimum USL thresholds by procedure type: surgical robots require USL 7.0 or above, therapeutic positioning and diagnostic needle placement require USL 6.0 or above, rehabilitative exoskeletons require USL 4.0 or above, and companion monitoring systems require USL 3.0 or above. These thresholds apply to Physical AI systems used in clinical investigations conducted under INDs submitted pursuant to this part.
+
+(f) Four simulation frameworks are recognized for pre-clinical validation of Physical AI systems before their use in IND-covered clinical investigations: NVIDIA Isaac Lab (v2.3.1) for GPU-accelerated robot training, MuJoCo (v3.4.0) for precision physics simulation, Gazebo Sim (v10.0.0) for ROS 2 integrated simulation, and PyBullet (v3.2.5) for rapid prototyping. Cross-framework validation via the unification bridge must demonstrate behavioral consistency with trajectory deviations below 2mm and force discrepancies below 0.5N before a Physical AI system may be used in clinical investigations under an IND.
+
+(g) Digital twin models used for treatment planning, procedure rehearsal, or real-time intraoperative guidance in connection with investigational drug administration are subject to the documentation and validation requirements of this part. Digital twins must be calibrated to patient-specific imaging data and continuously validated against clinical outcomes throughout the investigation.
+
+[52 FR 8831, Mar. 19, 1987; 46 FR 8979, Jan. 27, 1981. Physical AI adaptation added 17 March 2026.]
+
+\subsection{\S~312.2 Applicability}
+
+(a) \textit{Applicability.} Except as provided in this section, this part applies to all clinical investigations of products that are subject to section 505 of the Federal Food, Drug, and Cosmetic Act or to the licensing provisions of the Public Health Service Act (58 Stat. 632, as amended (42 U.S.C. 201 \textit{et seq.})).
+
+(b) \textit{Exemptions.}
+
+\begin{description}[leftmargin=0.5cm,style=sameline]
+\item[(1)] The clinical investigation of a drug product that is lawfully marketed in the United States is exempt from the requirements of this part if all the following apply:
+
+\begin{description}[leftmargin=0.8cm,style=sameline]
+\item[(i)] The investigation is not intended to be reported to FDA as a well-controlled study in support of a new indication for use nor intended to be used to support any other significant change in the labeling for the drug;
+\item[(ii)] If the drug that is undergoing investigation is lawfully marketed as a prescription drug product, the investigation is not intended to support a significant change in the advertising for the product;
+\item[(iii)] The investigation does not involve a route of administration or dosage level or use in a patient population or other factor that significantly increases the risks (or decreases the acceptability of the risks) associated with the use of the drug product;
+\item[(iv)] The investigation is conducted in compliance with the requirements for institutional review set forth in part 56 and with the requirements for informed consent set forth in part 50; and
+\item[(v)] The investigation is conducted in compliance with the requirements of \S~312.7.
+\end{description}
+
+\item[(2)] \hfill
+\begin{description}[leftmargin=0.8cm,style=sameline]
+\item[(i)] A clinical investigation involving an in vitro diagnostic biological product listed in paragraph (b)(2)(ii) of this section is exempt from the requirements of this part if (\textit{a}) it is intended to be used in a diagnostic procedure that confirms the diagnosis made by another, medically established, diagnostic product or procedure and (\textit{b}) it is shipped in compliance with \S~312.160.
+\item[(ii)] In accordance with paragraph (b)(2)(i) of this section, the following products are exempt from the requirements of this part: (\textit{a}) blood grouping serum; (\textit{b}) reagent red blood cells; and (\textit{c}) anti-human globulin.
+\end{description}
+
+\item[(3)] A drug intended solely for tests in vitro or in laboratory research animals is exempt from the requirements of this part if shipped in accordance with \S~312.160.
+\item[(4)] FDA will not accept an application for an investigation that is exempt under the provisions of paragraph (b)(1) of this section.
+\item[(5)] A clinical investigation involving use of a placebo is exempt from the requirements of this part if the investigation does not otherwise require submission of an IND.
+\item[(6)] A clinical investigation involving an exception from informed consent under \S~50.24 of this chapter is not exempt from the requirements of this part.
+\end{description}
+
+(c) \textit{Bioavailability studies.} The applicability of this part to in vivo bioavailability studies in humans is subject to the provisions of \S~320.31.
+
+(d) \textit{Unlabeled indication.} This part does not apply to the use in the practice of medicine for an unlabeled indication of a new drug product approved under part 314 or of a licensed biological product.
+
+(e) \textit{Guidance.} FDA may, on its own initiative, issue guidance on the applicability of this part to particular investigational uses of drugs. On request, FDA will advise on the applicability of this part to a planned clinical investigation.
+
+\subsubsection{Physical AI Adaptation of \S~312.2}
+
+(f) \textit{Physical AI system components.} When a clinical investigation involves both an investigational new drug and a Physical AI system that administers, monitors, or otherwise participates in the drug delivery pathway, the IND requirements of this part apply to the combined drug-device-robot system. The exemptions in paragraph (b)(1) of this section do not apply if the introduction of a Physical AI system into the drug administration pathway significantly increases the risks or introduces new categories of risk (including robotic malfunction, AI prediction error, cyber-physical failure, or human-robot interaction hazards) not present in conventional drug administration.
+
+(g) \textit{Simulation-only investigations.} Investigations conducted entirely in simulation environments (NVIDIA Isaac Lab, MuJoCo, Gazebo Sim, or PyBullet) without any human subject involvement are not subject to the requirements of this part. However, simulation data generated for the purpose of supporting a subsequent IND submission must comply with the documentation standards specified in \S~312.23 and must be generated using validated simulation frameworks meeting the specifications in the physical-ai-oncology-trials repository (v2.5.0).
+
+(h) \textit{Digital twin investigations.} Clinical investigations that use patient-specific digital twin models for treatment planning or procedure rehearsal, where the digital twin output directly influences the administration of an investigational drug to a human subject, are subject to the requirements of this part. Digital twin models used solely for post-hoc analysis or research purposes that do not influence active treatment decisions are not subject to IND requirements but must be documented in the annual report under \S~312.33.
+
+[52 FR 8831, Mar. 19, 1987, as amended at 61 FR 51529, Oct. 2, 1996; 64 FR 401, Jan. 5, 1999. Physical AI adaptation added 17 March 2026.]
+
+\subsection{\S~312.3 Definitions and Interpretations}
+
+(a) The definitions and interpretations of terms contained in section 201 of the Act apply to those terms when used in this part:
+
+(b) The following definitions of terms also apply to this part:
+
+\textit{Act} means the Federal Food, Drug, and Cosmetic Act (secs. 201--902, 52 Stat. 1040 \textit{et seq.}, as amended (21 U.S.C. 301--392)).
+
+\textit{Clinical investigation} means any experiment in which a drug is administered or dispensed to, or used involving, one or more human subjects. For the purposes of this part, an experiment is any use of a drug except for the use of a marketed drug in the course of medical practice.
+
+\textit{Contract research organization} means a person that assumes, as an independent contractor with the sponsor, one or more of the obligations of a sponsor, e.g., design of a protocol, selection or monitoring of investigations, evaluation of reports, and preparation of materials to be submitted to the Food and Drug Administration.
+
+\textit{FDA} means the Food and Drug Administration.
+
+\textit{IND} means an investigational new drug application. For purposes of this part, ``IND'' is synonymous with ``Notice of Claimed Investigational Exemption for a New Drug.''
+
+\textit{Independent ethics committee (IEC)} means a review panel that is responsible for ensuring the protection of the rights, safety, and well-being of human subjects involved in a clinical investigation and is adequately constituted to provide assurance of that protection. An institutional review board (IRB), as defined in \S~56.102(g) of this chapter and subject to the requirements of part 56 of this chapter, is one type of IEC.
+
+\textit{Investigational new drug} means a new drug or biological drug that is used in a clinical investigation. The term also includes a biological product that is used in vitro for diagnostic purposes. The terms ``investigational drug'' and ``investigational new drug'' are deemed to be synonymous for purposes of this part.
+
+\textit{Investigator} means an individual who actually conducts a clinical investigation (\textit{i.e.}, under whose immediate direction the drug is administered or dispensed to a subject). In the event an investigation is conducted by a team of individuals, the investigator is the responsible leader of the team. ``Subinvestigator'' includes any other individual member of that team.
+
+\textit{Marketing application} means an application for a new drug submitted under section 505(b) of the act or a biologics license application for a biological product submitted under the Public Health Service Act.
+
+\textit{Sponsor} means a person who takes responsibility for and initiates a clinical investigation. The sponsor may be an individual or pharmaceutical company, governmental agency, academic institution, private organization, or other organization. The sponsor does not actually conduct the investigation unless the sponsor is a sponsor-investigator. A person other than an individual that uses one or more of its own employees to conduct an investigation that it has initiated is a sponsor, not a sponsor-investigator, and the employees are investigators.
+
+\textit{Sponsor-Investigator} means an individual who both initiates and conducts an investigation, and under whose immediate direction the investigational drug is administered or dispensed. The term does not include any person other than an individual. The requirements applicable to a sponsor-investigator under this part include both those applicable to an investigator and a sponsor.
+
+\textit{Subject} means a human who participates in an investigation, either as a recipient of the investigational new drug or as a control. A subject may be a healthy human or a patient with a disease.
+
+[52 FR 8831, Mar. 19, 1987, as amended at 64 FR 401, Jan. 5, 1999; 64 FR 56449, Oct. 20, 1999; 73 FR 22815, Apr. 28, 2008]
+
+\subsubsection{Physical AI Definitions}
+
+The following additional definitions apply to clinical investigations involving Physical AI systems. These definitions are derived from the physical-ai-oncology-trials repository (v2.5.0) and the national MCP-PAI oncology trials standard (v1.2.0).
+
+(c) \textit{Physical AI system} means an AI system operating in the physical world through a robotic platform used in clinical investigations involving investigational new drugs. Physical AI systems include autonomous surgical robots, therapeutic positioning systems, diagnostic needle-placement platforms, rehabilitative exoskeletons, and companion monitoring systems. The term encompasses the robotic hardware, its control software, embedded AI/ML models, and associated sensor systems that collectively perform, assist, or monitor clinical procedures involving the administration or dispensing of investigational drugs to human subjects.
+
+(d) \textit{Robot agent} means an autonomous Physical AI system executing clinical procedures within an oncology trial conducted under an IND, interacting through MCP-mediated data access. The robot agent operates under the six-step workflow defined in the national MCP-PAI standard: authenticate, retrieve clinical data, access imaging, execute procedure, record audit, and record provenance. Robot agents are one of six actor types (alongside Trial Coordinator, Data Monitor, Auditor, Sponsor, and CRO) in the MCP actor model.
+
+(e) \textit{Unification Standard Level (USL)} means a scoring framework (v1.4.0 through v1.8.0) evaluating Physical AI platform readiness across four equally weighted dimensions: simulation switching, AI integration, cross-robot sharing, and clinical trial collaboration. USL scores range from 1.0 to 10.0, mapping to ten levels from Minimal (1.0) to Reference (10.0) and three readiness bands: Foundational (1.0 to 4.9), Intermediate (5.0 to 6.9), and Advanced (7.0 to 10.0). Nine robotic platforms have been evaluated: da Vinci dVRK (USL 7.1), Franka Emika Panda (USL 7.4), Boston Dynamics Atlas (USL 5.8), Kinova Gen3 (USL 5.7), Medtronic Hugo RAS (USL 4.5), Agility Digit (USL 4.2), Tesla Optimus (USL 3.6), CMR Versius (USL 3.4), and UFACTORY xArm 7 (USL 3.4).
+
+(f) \textit{Digital twin} means a patient-specific computational model used for treatment simulation, procedure planning, and real-time intraoperative guidance in connection with the administration of an investigational drug. Digital twins are calibrated to longitudinal imaging data using reaction-diffusion equations, pharmacokinetic/pharmacodynamic models, or other mathematical frameworks and are continuously updated with real-world clinical data. Digital twin models used in IND-covered investigations must meet the validation requirements specified in this part.
+
+(g) \textit{Simulation framework} means a physics-based computational environment used for validating Physical AI system behavior before clinical deployment in IND-covered investigations. Recognized simulation frameworks include NVIDIA Isaac Lab (v2.3.1), MuJoCo (v3.4.0), Gazebo Sim (v10.0.0), and PyBullet (v3.2.5). The validated integration path follows: training (Isaac Lab) to validation (MuJoCo) to hardware deployment to clinical use.
+
+(h) \textit{Robot capability profile} means a machine-readable specification of a Physical AI platform's capabilities, safety prerequisites, USL score, and required MCP tools. The profile is defined by a JSON schema (robot-capability-profile.schema.json) in the national MCP-PAI standard and must be registered with the authorization server before any clinical procedure involving an investigational drug.
+
+(i) \textit{Task order} means a scheduled clinical trial task assigned to a Physical AI system, including procedure type, robot assignment, safety check requirements, and lifecycle state. Task orders progress through defined states: scheduled, safety\_check, in\_progress, and completed, cancelled, or failed.
+
+(j) \textit{Emergency stop} means an immediate halt capability that must be available for any Physical AI system during clinical procedures involving investigational drugs, with mandatory audit recording. Activation of an emergency stop transitions the task order to a failed state and requires a new safety check cycle before any subsequent procedure.
+
+(k) \textit{Human oversight} means the requirement that qualified clinical personnel maintain supervisory authority over Physical AI systems during all phases of clinical investigation under an IND. Human oversight encompasses the ability to monitor, intervene, override, or terminate Physical AI system operations at any time. The human oversight quality management framework (v1.2.0) specifies risk-tiered controls with escalating requirements based on clinical consequence.
+
+(l) \textit{Hash-chained audit trail} means an immutable, tamper-evident record of all Physical AI system actions using SHA-256 hash chains. Each audit record contains the action performed, actor identity, timestamp, resource affected, and a hash linking it to the previous record. This mechanism satisfies the electronic records requirements of 21 CFR Part 11 for IND-related activities.
+
+(m) \textit{Model Context Protocol (MCP)} means an open protocol for connecting AI agents to external tools and data sources, implemented through five standardized servers: trialmcp-authz (authorization), trialmcp-fhir (clinical data), trialmcp-dicom (imaging), trialmcp-ledger (audit), and trialmcp-provenance (data lineage). The protocol defines 23 tools and operates under the governance of the Linux Foundation AI and Data Foundation.
+
+(n) \textit{Deny-by-default authorization} means a security model where all Physical AI system access to clinical data associated with an IND is denied unless explicitly permitted by policy. Token-based sessions with defined scopes and time limits govern every data access request. This authorization model is enforced by the trialmcp-authz server.
+
+(o) \textit{HIPAA Safe Harbor de-identification} means the removal or generalization of all 18 Protected Health Information (PHI) identifiers before clinical data is provided to Physical AI systems. HMAC-SHA256 with site-specific salts is used for pseudonymization of subject identifiers in IND-related records processed by Physical AI systems.
+
+(p) \textit{Predetermined Change Control Plan (PCCP)} means a documented plan for managing modifications to Physical AI systems used as or within medical devices in connection with investigational drug administration, per FDA AI/ML guidance. The PCCP specifies the types of anticipated modifications, the methodology for implementing and validating changes, and the assessment of the impact on safety and effectiveness.
+
+(q) \textit{Federated learning} means multi-site AI model training without sharing raw patient data, using differential privacy (epsilon and delta parameters) and secure aggregation. The federation framework supports FedAvg, FedProx, and SCAFFOLD algorithms with data harmonization for DICOM, FHIR, ICD-10 to SNOMED CT, and LOINC tumor marker standardization. Federated learning in IND-covered investigations must comply with the data protection requirements of this part.
+
+(r) \textit{Pre-procedure safety matrix} means the set of verification checks that must pass before a Physical AI system may begin a clinical procedure involving an investigational drug. The matrix includes: valid authorization token, patient identity verification, clinical data availability (FHIR), imaging data access (DICOM), robot readiness and USL threshold verification, environmental checks, simulation validation confirmation, and digital twin synchronization status.
+
+(s) \textit{Conformance level} means one of five cumulative levels defined in the national MCP-PAI standard for MCP server implementations: Core (base audit and authorization), Clinical Read (FHIR R4 clinical data access), Imaging (DICOM imaging with RECIST), Federated Site (multi-site federated learning with differential privacy), and Robot Procedure (full robot agent workflow with safety matrix and USL integration).
+
+(t) \textit{Sim-to-real gap} means the difference between the behavior of a Physical AI system in simulation and its behavior in the physical world. For IND-covered investigations, the sim-to-real gap must be quantified using the validation benchmark suite (v1.0) and must demonstrate trajectory deviations below 2mm and force discrepancies below 0.5N for the specific clinical procedures to be performed.
+
+(u) \textit{Cross-framework validation} means the verification that a Physical AI system's behavior is consistent across multiple simulation frameworks. Cross-framework validation requires testing in at least two recognized simulation frameworks with behavioral consistency metrics within the tolerances specified in the physical-ai-oncology-trials repository (v2.5.0).
+
+(v) \textit{Vision-language-action (VLA) model} means a generative AI model that accepts visual and language inputs and produces robotic action outputs. VLA models used in Physical AI systems for IND-covered investigations must be validated for the specific clinical procedures to be performed, with performance metrics documented in the IND submission.
+
+[52 FR 8831, Mar. 19, 1987, as amended at 64 FR 401, Jan. 5, 1999; 64 FR 56449, Oct. 20, 1999; 73 FR 22815, Apr. 28, 2008. Physical AI definitions added 17 March 2026.]
+
+\subsection{\S~312.6 Labeling of an Investigational New Drug}
+
+(a) The immediate package of an investigational new drug intended for human use shall bear a label with the statement ``Caution: New Drug---Limited by Federal (or United States) law to investigational use.''
+
+(b) The label or labeling of an investigational new drug shall not bear any statement that is false or misleading in any particular and shall not represent that the investigational new drug is safe or effective for the purposes for which it is being investigated.
+
+(c) The appropriate FDA Center Director, according to the procedures set forth in \S\S~201.26 or 610.68 of this chapter, may grant an exception or alternative to the provision in paragraph (a) of this section, to the extent that this provision is not explicitly required by statute, for specified lots, batches, or other units of a human drug product that is or will be included in the Strategic National Stockpile.
+
+\subsubsection{Physical AI Adaptation of \S~312.6}
+
+(d) When an investigational new drug is administered, dispensed, or monitored by a Physical AI system, the labeling of the investigational drug shall additionally include, either on the label or in accompanying documentation provided to the Physical AI system operator:
+
+\begin{description}[leftmargin=0.8cm,style=sameline]
+\item[(i)] A statement identifying the drug as an investigational new drug under an active IND;
+\item[(ii)] The specific Physical AI system(s) authorized to administer, dispense, or monitor the drug, identified by system type, manufacturer, and model;
+\item[(iii)] Any Physical AI system-specific administration parameters, including dosing rate constraints, positional accuracy requirements, and timing specifications that differ from manual administration; and
+\item[(iv)] Machine-readable identifiers (barcode, RFID, or equivalent) sufficient to enable the Physical AI system to verify drug identity, lot number, and expiration date prior to administration.
+\end{description}
+
+(e) The labeling of a Physical AI system component that is integral to the administration of an investigational new drug (such as a robotic injector cartridge, automated infusion adapter, or needle-placement guide) shall bear the statement ``Caution: For use with investigational new drug under IND---Physical AI system component.''
+
+[52 FR 8831, Mar. 19, 1987, as amended at 72 FR 73599, Dec. 28, 2007. Physical AI adaptation added 17 March 2026.]
+
+\subsection{\S~312.7 Promotion of Investigational Drugs}
+
+(a) \textit{Promotion of an investigational new drug.} A sponsor or investigator, or any person acting on behalf of a sponsor or investigator, shall not represent in a promotional context that an investigational new drug is safe or effective for the purposes for which it is under investigation or otherwise promote the drug. This provision is not intended to restrict the full exchange of scientific information concerning the drug, including dissemination of scientific findings in scientific or lay media. Rather, its intent is to restrict promotional claims of safety or effectiveness of the drug for a use for which it is under investigation and to preclude commercialization of the drug before it is approved for commercial distribution.
+
+(b) \textit{Commercial distribution of an investigational new drug.} A sponsor or investigator shall not commercially distribute or test market an investigational new drug.
+
+(c) \textit{Prolonging an investigation.} A sponsor shall not unduly prolong an investigation after finding that the results of the investigation appear to establish sufficient data to support a marketing application.
+
+\subsubsection{Physical AI Adaptation of \S~312.7}
+
+(d) \textit{Physical AI system promotion restrictions.} The promotion restrictions in paragraphs (a) through (c) of this section extend to claims regarding the performance, accuracy, or superiority of Physical AI systems used in connection with the administration of investigational new drugs. A sponsor or investigator shall not represent, in a promotional context, that a Physical AI system's involvement in drug administration enhances the safety or effectiveness of an investigational drug beyond what the clinical evidence supports.
+
+(e) \textit{Simulation and digital twin data.} The dissemination of simulation results, digital twin predictions, or AI model performance metrics generated during an IND-covered investigation is permitted as part of the full exchange of scientific information, provided such dissemination does not constitute a promotional claim of drug safety or effectiveness. Simulation data presented in scientific communications shall be clearly labeled as computational predictions subject to validation.
+
+[52 FR 8831, Mar. 19, 1987, as amended at 52 FR 19476, May 22, 1987; 67 FR 9585, Mar. 4, 2002; 74 FR 40899, Aug. 13, 2009. Physical AI adaptation added 17 March 2026.]
+
+\subsection{\S~312.8 Charging for Investigational Drugs Under an IND}
+
+(a) \textit{General criteria for charging.}
+
+\begin{description}[leftmargin=0.5cm,style=sameline]
+\item[(1)] A sponsor must meet the applicable requirements in paragraph (b) of this section for charging in a clinical trial or paragraph (c) of this section for charging for expanded access to an investigational drug for treatment use under subpart I of this part, except that sponsors need not fulfill the requirements in this section to charge for an approved drug obtained from another entity not affiliated with the sponsor for use as part of the clinical trial evaluation (e.g., in a clinical trial of a new use of the approved drug, for use of the approved drug as an active control).
+\item[(2)] A sponsor must justify the amount to be charged in accordance with paragraph (d) of this section.
+\item[(3)] A sponsor must obtain prior written authorization from FDA to charge for an investigational drug.
+\item[(4)] FDA will withdraw authorization to charge if it determines that charging is interfering with the development of a drug for marketing approval or that the criteria for the authorization are no longer being met.
+\end{description}
+
+(b) \textit{Charging in a clinical trial.}
+
+\begin{description}[leftmargin=0.5cm,style=sameline]
+\item[(1)] \textit{Charging for a sponsor's drug.} A sponsor who wishes to charge for its investigational drug, including investigational use of its approved drug, must:
+\begin{description}[leftmargin=0.8cm,style=sameline]
+\item[(i)] Provide evidence that the drug has a potential clinical benefit that, if demonstrated in the clinical investigations, would provide a significant advantage over available products in the diagnosis, treatment, mitigation, or prevention of a disease or condition;
+\item[(ii)] Demonstrate that the data to be obtained from the clinical trial would be essential to establishing that the drug is effective or safe for the purpose of obtaining initial approval of a drug, or would support a significant change in the labeling of an approved drug; and
+\item[(iii)] Demonstrate that the clinical trial could not be conducted without charging because the cost of the drug is extraordinary to the sponsor.
+\end{description}
+\item[(2)] \textit{Duration of charging in a clinical trial.} Unless FDA specifies a shorter period, charging may continue for the length of the clinical trial.
+\end{description}
+
+(c) \textit{Charging for expanded access to investigational drug for treatment use.}
+
+\begin{description}[leftmargin=0.5cm,style=sameline]
+\item[(1)] A sponsor who wishes to charge for expanded access to an investigational drug for treatment use under subpart I of this part must provide reasonable assurance that charging will not interfere with developing the drug for marketing approval.
+\item[(2)] For expanded access under \S~312.320 (treatment IND or treatment protocol), such assurance must include:
+\begin{description}[leftmargin=0.8cm,style=sameline]
+\item[(i)] Evidence of sufficient enrollment in any ongoing clinical trial(s) needed for marketing approval;
+\item[(ii)] Evidence of adequate progress in the development of the drug for marketing approval; and
+\item[(iii)] Information submitted under the general investigational plan (\S~312.23(a)(3)(iv)) specifying the drug development milestones the sponsor plans to meet in the next year.
+\end{description}
+\item[(3)] The authorization to charge is limited to the number of patients authorized to receive the drug under the treatment use, if there is a limitation.
+\item[(4)] Unless FDA specifies a shorter period, charging for expanded access to an investigational drug for treatment use under subpart I of this part may continue for 1 year from the time of FDA authorization. A sponsor may request that FDA reauthorize charging for additional periods.
+\end{description}
+
+(d) \textit{Costs recoverable when charging for an investigational drug.}
+
+\begin{description}[leftmargin=0.5cm,style=sameline]
+\item[(1)] A sponsor may recover only the direct costs of making its investigational drug available.
+\begin{description}[leftmargin=0.8cm,style=sameline]
+\item[(i)] Direct costs are costs incurred by a sponsor that can be specifically and exclusively attributed to providing the drug for the investigational use for which FDA has authorized cost recovery. Direct costs include costs per unit to manufacture the drug or costs to acquire the drug from another manufacturing source, and direct costs to ship and handle the drug.
+\item[(ii)] Indirect costs include costs incurred primarily to produce the drug for commercial sale and research and development, administrative, labor, or other costs that would be incurred even if the clinical trial or treatment use for which charging is authorized did not occur.
+\end{description}
+\item[(2)] For expanded access to an investigational drug for treatment use under \S\S~312.315 and 312.320, in addition to the direct costs described in paragraph (d)(1)(i) of this section, a sponsor may recover the costs of monitoring the expanded access IND or protocol, complying with IND reporting requirements, and other administrative costs directly associated with the expanded access IND.
+\item[(3)] To support its calculation for cost recovery, a sponsor must provide supporting documentation to show that the calculation is consistent with the requirements of paragraphs (d)(1) and, if applicable, (d)(2) of this section. The documentation must be accompanied by a statement that an independent certified public accountant has reviewed and approved the calculations.
+\end{description}
+
+\subsubsection{Physical AI Adaptation of \S~312.8}
+
+(e) \textit{Physical AI system costs.} When an investigational drug is administered through or monitored by a Physical AI system, the following cost considerations apply:
+
+\begin{description}[leftmargin=0.8cm,style=sameline]
+\item[(i)] The direct costs of Physical AI system deployment, including robotic hardware calibration, simulation validation, and digital twin configuration specific to the investigational drug, are not recoverable as drug costs under paragraph (d) of this section unless the Physical AI system is integral to the drug's mechanism of delivery and cannot be separated from the drug administration process.
+\item[(ii)] Costs associated with Physical AI system safety validation, including pre-procedure safety matrix verification, USL assessment, and cross-framework simulation testing, are considered investigation infrastructure costs and are not recoverable as direct drug costs.
+\item[(iii)] When a Physical AI system is classified as a combination product with the investigational drug, the sponsor may seek FDA guidance on the allocation of recoverable costs between the drug component and the Physical AI system component.
+\end{description}
+
+[74 FR 40899, Aug. 13, 2009. Physical AI adaptation added 17 March 2026.]
+
+\subsection{\S~312.10 Waivers}
+
+(a) A sponsor may request FDA to waive applicable requirement under this part. A waiver request may be submitted either in an IND or in an information amendment to an IND. In an emergency, a request may be made by telephone or other rapid communication means. A waiver request is required to contain at least one of the following:
+
+\begin{description}[leftmargin=0.5cm,style=sameline]
+\item[(1)] An explanation why the sponsor's compliance with the requirement is unnecessary or cannot be achieved;
+\item[(2)] A description of an alternative submission or course of action that satisfies the purpose of the requirement; or
+\item[(3)] Other information justifying a waiver.
+\end{description}
+
+(b) FDA may grant a waiver if it finds that the sponsor's noncompliance would not pose a significant and unreasonable risk to human subjects of the investigation and that one of the following is met:
+
+\begin{description}[leftmargin=0.5cm,style=sameline]
+\item[(1)] The sponsor's compliance with the requirement is unnecessary for the agency to evaluate the application, or compliance cannot be achieved;
+\item[(2)] The sponsor's proposed alternative satisfies the requirement; or
+\item[(3)] The applicant's submission otherwise justifies a waiver.
+\end{description}
+
+\subsubsection{Physical AI Adaptation of \S~312.10}
+
+(c) \textit{Physical AI waiver provisions.} The waiver provisions of paragraphs (a) and (b) of this section apply to Physical AI system requirements established under this part. A sponsor seeking a waiver of Physical AI-specific requirements must, in addition to the requirements of paragraph (a):
+
+\begin{description}[leftmargin=0.8cm,style=sameline]
+\item[(i)] Demonstrate that the waiver would not compromise the safety of human subjects who interact with or are treated by Physical AI systems during the investigation;
+\item[(ii)] Provide a risk assessment addressing the specific Physical AI system risks that the waived requirement was designed to mitigate; and
+\item[(iii)] Describe alternative safety measures that will be implemented in lieu of the waived requirement.
+\end{description}
+
+(d) \textit{USL threshold waivers.} FDA may grant a waiver of the minimum USL threshold requirements specified in \S~312.1(e) if the sponsor demonstrates that the Physical AI system, despite not meeting the minimum USL score, has been validated through alternative means that provide equivalent assurance of safety and effectiveness for the specific clinical procedures to be performed. Such alternative validation must be documented and submitted with the waiver request.
+
+(e) \textit{Simulation framework waivers.} FDA may grant a waiver of the cross-framework validation requirement if the sponsor demonstrates that the Physical AI system has been validated in a single simulation framework with sufficient fidelity and that cross-framework validation is not technically feasible for the specific system or procedure. The sponsor must provide evidence that the single-framework validation adequately characterizes the sim-to-real gap for the intended clinical use.
+
+[52 FR 8831, Mar. 19, 1987, as amended at 52 FR 23031, June 17, 1987; 67 FR 9585, Mar. 4, 2002. Physical AI adaptation added 17 March 2026.]
