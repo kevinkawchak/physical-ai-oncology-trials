@@ -420,3 +420,437 @@ The following additional definitions apply to clinical investigations involving 
 (e) \textit{Simulation framework waivers.} FDA may grant a waiver of the cross-framework validation requirement if the sponsor demonstrates that the Physical AI system has been validated in a single simulation framework with sufficient fidelity and that cross-framework validation is not technically feasible for the specific system or procedure. The sponsor must provide evidence that the single-framework validation adequately characterizes the sim-to-real gap for the intended clinical use.
 
 [52 FR 8831, Mar. 19, 1987, as amended at 52 FR 23031, June 17, 1987; 67 FR 9585, Mar. 4, 2002. Physical AI adaptation added 17 March 2026.]
+
+\clearpage
+
+\section{SUBPART B --- INVESTIGATIONAL NEW DRUG APPLICATION (IND)}
+
+\subsection{\S~312.20 Requirement for an IND}
+
+(a) A sponsor shall submit an IND to FDA if the sponsor intends to conduct a clinical investigation with an investigational new drug that is subject to \S~312.2(a).
+
+(b) A sponsor shall not begin a clinical investigation subject to \S~312.2(a) until the investigation is subject to an IND which is in effect in accordance with \S~312.40.
+
+(c) A sponsor shall submit a separate IND for any clinical investigation involving an exception from informed consent under \S~50.24 of this chapter. Such a clinical investigation is not permitted to proceed without the prior written authorization from FDA. FDA shall provide a written determination 30 days after FDA receives the IND or earlier.
+
+\subsubsection{Physical AI Adaptation of \S~312.20}
+
+(d) When a clinical investigation involves a Physical AI system that administers, dispenses, monitors, or otherwise participates in the investigational drug delivery pathway, the sponsor shall include in the IND a Physical AI System Description as specified in \S~312.23. The Physical AI System Description shall be submitted as part of the initial IND or, if the Physical AI system is introduced after the IND is in effect, as a protocol amendment under \S~312.30.
+
+(e) A sponsor shall submit a separate protocol amendment for each distinct Physical AI system type (surgical robot, cobot, humanoid, therapeutic, diagnostic, assistive, or rehabilitative) to be used in the clinical investigation, unless the systems share substantially similar safety profiles and operational parameters, in which case they may be covered under a single protocol amendment with individual system specifications appended.
+
+(f) When a Physical AI system is used in an investigation involving an exception from informed consent under \S~50.24 of this chapter, the IND must additionally document the Physical AI system's emergency deployment protocols, including rapid activation procedures, pre-loaded safety parameters, and the minimum human oversight requirements during emergency administration of the investigational drug.
+
+[52 FR 8831, Mar. 19, 1987, as amended at 61 FR 51529, Oct. 2, 1996; 62 FR 32479, June 16, 1997. Physical AI adaptation added 17 March 2026.]
+
+\subsection{\S~312.21 Phases of an Investigation}
+
+An IND may be submitted for one or more phases of an investigation. The clinical investigation of a previously untested drug is generally divided into three phases. Although in general the phases are conducted sequentially, they may overlap. These three phases of an investigation are as follows:
+
+(a) \textit{Phase 1.}
+
+\begin{description}[leftmargin=0.5cm,style=sameline]
+\item[(1)] Phase 1 includes the initial introduction of an investigational new drug into humans. Phase 1 studies are typically closely monitored and may be conducted in patients or normal volunteer subjects. These studies are designed to determine the metabolism and pharmacologic actions of the drug in humans, the side effects associated with increasing doses, and, if possible, to gain early evidence on effectiveness. During Phase 1, sufficient information about the drug's pharmacokinetics and pharmacological effects should be obtained to permit the design of well-controlled, scientifically valid, Phase 2 studies. The total number of subjects and patients included in Phase 1 studies varies with the drug, but is generally in the range of 20 to 80.
+\item[(2)] Phase 1 studies also include studies of drug metabolism, structure-activity relationships, and mechanism of action in humans, as well as studies in which investigational drugs are used as research tools to explore biological phenomena or disease processes.
+\end{description}
+
+(b) \textit{Phase 2.} Phase 2 includes the controlled clinical studies conducted to evaluate the effectiveness of the drug for a particular indication or indications in patients with the disease or condition under study and to determine the common short-term side effects and risks associated with the drug. Phase 2 studies are typically well controlled, closely monitored, and conducted in a relatively small number of patients, usually involving no more than several hundred subjects.
+
+(c) \textit{Phase 3.} Phase 3 studies are expanded controlled and uncontrolled trials. They are performed after preliminary evidence suggesting effectiveness of the drug has been obtained, and are intended to gather the additional information about effectiveness and safety that is needed to evaluate the overall benefit-risk relationship of the drug and to provide an adequate basis for physician labeling. Phase 3 studies usually include from several hundred to several thousand subjects.
+
+\subsubsection{Physical AI Adaptation of \S~312.21}
+
+(d) \textit{Phase 0 --- Simulation Validation.} For clinical investigations involving Physical AI systems, a simulation validation phase (Phase 0) shall precede human subject enrollment. Phase 0 consists of comprehensive testing of the Physical AI system in validated simulation environments using patient-derived digital twin models. Phase 0 is not a regulatory phase requiring separate IND submission but shall be documented in the IND as part of the pharmacology and toxicology information under \S~312.23(a)(8). Phase 0 validation shall include:
+
+\begin{description}[leftmargin=0.8cm,style=sameline]
+\item[(i)] Testing in at least two recognized simulation frameworks (NVIDIA Isaac Lab v2.3.1, MuJoCo v3.4.0, Gazebo Sim v10.0.0, or PyBullet v3.2.5) demonstrating cross-framework behavioral consistency with trajectory deviations below 2mm and force discrepancies below 0.5N;
+\item[(ii)] Sim-to-real gap quantification using the validation benchmark suite with documented metrics for physics accuracy, contact dynamics, and task completion rates;
+\item[(iii)] Digital twin-based procedure rehearsal using patient-specific anatomical models calibrated to clinical imaging data; and
+\item[(iv)] Failure mode analysis across at least 1,000 simulated procedures documenting emergency stop activation rates, collision events, and force limit exceedances.
+\end{description}
+
+(e) \textit{Physical AI considerations by phase.}
+
+\begin{description}[leftmargin=0.8cm,style=sameline]
+\item[(i)] \textit{Phase 1 Physical AI requirements.} When Physical AI systems are used in Phase 1 investigations, the sponsor shall implement maximum human oversight with qualified operators maintaining direct manual override capability at all times. Physical AI systems used in Phase 1 shall operate in teleoperation or supervised autonomous mode only. Fully autonomous operation is not permitted in Phase 1.
+\item[(ii)] \textit{Phase 2 Physical AI requirements.} Phase 2 investigations may permit graduated autonomy of Physical AI systems based on Phase 1 safety data. The protocol shall specify the autonomy level permitted and the conditions under which autonomy may be increased or decreased. USL scores shall be reassessed at the Phase 1 to Phase 2 transition using updated clinical performance data.
+\item[(iii)] \textit{Phase 3 Physical AI requirements.} Phase 3 investigations may permit the full range of Physical AI autonomy levels supported by the accumulated safety data from Phases 1 and 2. Multi-site deployment of Physical AI systems in Phase 3 shall comply with the federated learning and cross-site coordination requirements of this part. Each site shall independently verify the Physical AI system's USL score and pre-procedure safety matrix before patient enrollment begins.
+\end{description}
+
+[52 FR 8831, Mar. 19, 1987. Physical AI adaptation added 17 March 2026.]
+
+\subsection{\S~312.22 General Principles of the IND Submission}
+
+(a) FDA's primary objectives in reviewing an IND are, in all phases of the investigation, to assure the safety and rights of subjects, and, in Phase 2 and 3, to help assure that the quality of the scientific evaluation of drugs is adequate to permit an evaluation of the drug's effectiveness and safety. Therefore, although FDA's review of Phase 1 submissions will focus on assessing the safety of Phase 1 investigations, FDA's review of Phases 2 and 3 submissions will also include an assessment of the scientific quality of the clinical investigations and the likelihood that the investigations will yield data capable of meeting statutory standards for marketing approval.
+
+(b) The amount of information on a particular drug that must be submitted in an IND to assure the accomplishment of the objectives described in paragraph (a) of this section depends upon such factors as the novelty of the drug, the extent to which it has been studied previously, the known or suspected risks, and the developmental phase of the drug.
+
+(c) The central focus of the initial IND submission should be on the general investigational plan and the protocols for specific human studies. Subsequent amendments to the IND that contain new or revised protocols should build logically on previous submissions and should be supported by additional information, including the results of animal toxicology studies or other human studies as appropriate. Annual reports to the IND should serve as the focus for reporting the status of studies being conducted under the IND and should update the general investigational plan for the coming year.
+
+(d) The IND format set forth in \S~312.23 should be followed routinely by sponsors in the interest of fostering an efficient review of applications. Sponsors are expected to exercise considerable discretion, however, regarding the content of information submitted in each section, depending upon the kind of drug being studied and the nature of the available information. \S~312.23 outlines the information needed for a commercially sponsored IND for a new molecular entity. A sponsor-investigator who uses, as a research tool, an investigational new drug that is already subject to a manufacturer's IND or marketing application should follow the same general format, but ordinarily may, if authorized by the manufacturer, refer to the manufacturer's IND or marketing application in providing the technical information supporting the proposed clinical investigation. A sponsor-investigator who uses an investigational drug not subject to a manufacturer's IND or marketing application is ordinarily required to submit all technical information supporting the IND, unless such information may be referenced from the scientific literature.
+
+\subsubsection{Physical AI Adaptation of \S~312.22}
+
+(e) \textit{Physical AI submission principles.} In addition to the factors listed in paragraph (b) of this section, the amount of Physical AI system information required in an IND depends upon the complexity of the Physical AI system, the degree of autonomy involved, the criticality of the system's role in drug administration, and the maturity of the system as measured by its USL score. Systems with USL scores in the Advanced band (7.0 to 10.0) may require less extensive simulation validation documentation than systems in the Foundational band (1.0 to 4.9), provided the higher USL score is supported by documented clinical deployment history.
+
+(f) \textit{Scalable documentation.} The Physical AI documentation requirements of \S~312.23 are scalable based on the role of the Physical AI system in the investigation:
+
+\begin{description}[leftmargin=0.8cm,style=sameline]
+\item[(i)] \textit{Primary role} (the Physical AI system directly administers or dispenses the investigational drug): Full Physical AI System Description, simulation validation data, digital twin specifications, and cybersecurity assessment required.
+\item[(ii)] \textit{Secondary role} (the Physical AI system monitors or assists with drug administration under direct human control): Abbreviated Physical AI System Description focusing on safety parameters, human-robot interaction protocols, and monitoring accuracy.
+\item[(iii)] \textit{Ancillary role} (the Physical AI system performs supportive tasks such as sample handling, logistics, or patient positioning that do not directly involve drug contact): Summary Physical AI System Description with safety parameters and human oversight protocols.
+\end{description}
+
+[52 FR 8831, Mar. 19, 1987. Physical AI adaptation added 17 March 2026.]
+
+\subsection{\S~312.23 IND Content and Format}
+
+(a) A sponsor who intends to conduct a clinical investigation subject to this part shall submit an ``Investigational New Drug Application'' (IND) including, in the following order:
+
+\begin{description}[leftmargin=0.5cm,style=sameline]
+\item[(1)] \textit{Cover sheet (Form FDA-1571).} A cover sheet for the application containing the following:
+\begin{description}[leftmargin=0.8cm,style=sameline]
+\item[(i)] The name, address, and telephone number of the sponsor, the date of the application, and the name of the investigational new drug.
+\item[(ii)] Identification of the phase or phases of the clinical investigation to be conducted.
+\item[(iii)] A commitment not to begin clinical investigations until an IND covering the investigations is in effect.
+\item[(iv)] A commitment that an Institutional Review Board (IRB) that complies with the requirements set forth in part 56 will be responsible for the initial and continuing review and approval of each of the studies in the proposed clinical investigation and that the investigator will report to the IRB proposed changes in the research activity in accordance with the requirements of part 56.
+\item[(v)] A commitment to conduct the investigation in accordance with all other applicable regulatory requirements.
+\item[(vi)] The name and title of the person responsible for monitoring the conduct and progress of the clinical investigations.
+\item[(vii)] The name(s) and title(s) of the person(s) responsible under \S~312.32 for review and evaluation of information relevant to the safety of the drug.
+\item[(viii)] If a sponsor has transferred any obligations for the conduct of any clinical study to a contract research organization, a statement containing the name and address of the contract research organization, identification of the clinical study, and a listing of the obligations transferred.
+\item[(ix)] The signature of the sponsor or the sponsor's authorized representative.
+\end{description}
+
+\item[(2)] \textit{A table of contents.}
+
+\item[(3)] \textit{Introductory statement and general investigational plan.}
+\begin{description}[leftmargin=0.8cm,style=sameline]
+\item[(i)] A brief introductory statement giving the name of the drug and all active ingredients, the drug's pharmacological class, the structural formula of the drug (if known), the formulation of the dosage form(s) to be used, the route of administration, and the broad objectives and planned duration of the proposed clinical investigation(s).
+\item[(ii)] A brief summary of previous human experience with the drug, with reference to other IND's if pertinent, and to investigational or marketing experience in other countries that may be relevant to the safety of the proposed clinical investigation(s).
+\item[(iii)] If the drug has been withdrawn from investigation or marketing in any country for any reason related to safety or effectiveness, identification of the country(ies) where the drug was withdrawn and the reasons for the withdrawal.
+\item[(iv)] A brief description of the overall plan for investigating the drug product for the following year, including: (\textit{a}) the rationale for the drug or the research study; (\textit{b}) the indication(s) to be studied; (\textit{c}) the general approach to be followed in evaluating the drug; (\textit{d}) the kinds of clinical trials to be conducted in the first year following the submission; (\textit{e}) the estimated number of patients to be given the drug in those studies; and (\textit{f}) any risks of particular severity or seriousness anticipated on the basis of the toxicological data in animals or prior studies in humans with the drug or related drugs.
+\end{description}
+
+\item[(4)] [Reserved]
+
+\item[(5)] \textit{Investigator's brochure.} If required under \S~312.55, a copy of the investigator's brochure, containing the following information:
+\begin{description}[leftmargin=0.8cm,style=sameline]
+\item[(i)] A brief description of the drug substance and the formulation, including the structural formula, if known.
+\item[(ii)] A summary of the pharmacological and toxicological effects of the drug in animals and, to the extent known, in humans.
+\item[(iii)] A summary of the pharmacokinetics and biological disposition of the drug in animals and, if known, in humans.
+\item[(iv)] A summary of information relating to safety and effectiveness in humans obtained from prior clinical studies.
+\item[(v)] A description of possible risks and side effects to be anticipated on the basis of prior experience with the drug under investigation or with related drugs, and of precautions or special monitoring to be done as part of the investigational use of the drug.
+\end{description}
+
+\item[(6)] \textit{Protocols.}
+\begin{description}[leftmargin=0.8cm,style=sameline]
+\item[(i)] A protocol for each planned study. In general, protocols for Phase 1 studies may be less detailed and more flexible than protocols for Phase 2 and 3 studies. Phase 1 protocols should be directed primarily at providing an outline of the investigation---an estimate of the number of patients to be involved, a description of safety exclusions, and a description of the dosing plan including duration, dose, or method to be used in determining dose---and should specify in detail only those elements of the study that are critical to safety, such as necessary monitoring of vital signs and blood chemistries. Modifications of the experimental design of Phase 1 studies that do not affect critical safety assessments are required to be reported to FDA only in the annual report.
+\item[(ii)] In Phases 2 and 3, detailed protocols describing all aspects of the study should be submitted.
+\item[(iii)] A protocol is required to contain the following: (\textit{a}) a statement of the objectives and purpose of the study; (\textit{b}) the name, address, and qualifications of each investigator and subinvestigator, the research facilities, and the reviewing IRB; (\textit{c}) the criteria for patient selection and exclusion and an estimate of the number of patients; (\textit{d}) a description of the design of the study, including the control group and methods to minimize bias; (\textit{e}) the method for determining the dose(s), the planned maximum dosage, and the duration of individual patient exposure; (\textit{f}) a description of the observations and measurements to fulfill the study objectives; and (\textit{g}) a description of clinical procedures, laboratory tests, or other measures to monitor the effects of the drug and to minimize risk.
+\end{description}
+
+\item[(7)] \textit{Chemistry, manufacturing, and control information.}
+\begin{description}[leftmargin=0.8cm,style=sameline]
+\item[(i)] As appropriate for the particular investigations covered by the IND, a section describing the composition, manufacture, and control of the drug substance and the drug product. The amount of information needed will vary with the phase of the investigation, the proposed duration, the dosage form, and the amount of information otherwise available.
+\item[(ii)] The amount of information to be submitted depends upon the scope of the proposed clinical investigation.
+\item[(iii)] As drug development proceeds and as the scale of production is changed, the sponsor should submit information amendments to supplement the initial information.
+\item[(iv)] Based on the phase(s) to be studied, the submission is required to contain: (\textit{a}) \textit{Drug substance}: a description including physical, chemical, or biological characteristics; manufacturer name and address; general method of preparation; acceptable limits and analytical methods; and stability information. (\textit{b}) \textit{Drug product}: a list of all components, quantitative composition, manufacturer name and address, manufacturing and packaging procedure, acceptable limits and analytical methods, and stability information. (\textit{c}) A brief general description of the composition, manufacture, and control of any placebo. (\textit{d}) \textit{Labeling}: a copy of all labels and labeling to be provided to each investigator. (\textit{e}) \textit{Environmental analysis requirements}: a claim for categorical exclusion under \S~25.30 or 25.31 or an environmental assessment under \S~25.40.
+\end{description}
+
+\item[(8)] \textit{Pharmacology and toxicology information.} Adequate information about pharmacological and toxicological studies of the drug involving laboratory animals or in vitro, on the basis of which the sponsor has concluded that it is reasonably safe to conduct the proposed clinical investigations. Such information is required to include the identification and qualifications of the individuals who evaluated the results and a statement of where the investigations were conducted and where the records are available for inspection.
+\begin{description}[leftmargin=0.8cm,style=sameline]
+\item[(i)] \textit{Pharmacology and drug disposition.} A section describing the pharmacological effects and mechanism(s) of action of the drug in animals, and information on the absorption, distribution, metabolism, and excretion of the drug, if known.
+\item[(ii)] \textit{Toxicology.} (\textit{a}) An integrated summary of the toxicological effects of the drug in animals and in vitro, including acute, subacute, and chronic toxicity tests; tests of effects on reproduction and the developing fetus; and any special toxicity tests. (\textit{b}) For each toxicology study primarily supporting the safety of the proposed clinical investigation, a full tabulation of data suitable for detailed review.
+\item[(iii)] For each nonclinical laboratory study subject to good laboratory practice regulations under part 58, a statement of compliance or a brief statement of the reason for noncompliance.
+\end{description}
+
+\item[(9)] \textit{Previous human experience with the investigational drug.} A summary of previous human experience known to the applicant, if any, with the investigational drug, including:
+\begin{description}[leftmargin=0.8cm,style=sameline]
+\item[(i)] Detailed information about previous investigations or marketing experience relevant to the safety of the proposed investigation.
+\item[(ii)] If the drug is a combination of drugs previously investigated or marketed, the required information for each active drug component.
+\item[(iii)] If the drug has been marketed outside the United States, a list of the countries in which it has been marketed and withdrawn from marketing for safety or effectiveness reasons.
+\end{description}
+
+\item[(10)] \textit{Additional information.}
+\begin{description}[leftmargin=0.8cm,style=sameline]
+\item[(i)] \textit{Drug dependence and abuse potential.} If the drug is a psychotropic substance or otherwise has abuse potential, relevant clinical studies and experience and studies in test animals.
+\item[(ii)] \textit{Radioactive drugs.} If the drug is a radioactive drug, sufficient data for dosimetry calculations.
+\item[(iii)] \textit{Pediatric studies.} Plans for assessing pediatric safety and effectiveness.
+\item[(iv)] \textit{Other information.} A brief statement of any other information that would aid evaluation of the proposed clinical investigations.
+\end{description}
+
+\item[(11)] \textit{Relevant information.} If requested by FDA, any other relevant information needed for review of the application.
+\end{description}
+
+(b) \textit{Information previously submitted.} The sponsor ordinarily is not required to resubmit information previously submitted, but may incorporate the information by reference. A reference to information submitted previously must identify the file by name, reference number, volume, and page number.
+
+(c) \textit{Material in a foreign language.} The sponsor shall submit an accurate and complete English translation of each part of the IND that is not in English.
+
+(d) \textit{Number of copies.} The sponsor shall submit an original and two copies of all submissions to the IND file.
+
+(e) \textit{Numbering of IND submissions.} Each submission relating to an IND is required to be numbered serially using a single, three-digit serial number. The initial IND is required to be numbered 000.
+
+(f) \textit{Identification of exception from informed consent.} If the investigation involves an exception from informed consent under \S~50.24 of this chapter, the sponsor shall prominently identify on the cover sheet that the investigation is subject to the requirements in \S~50.24 of this chapter.
+
+\subsubsection{Physical AI Adaptation of \S~312.23}
+
+(g) \textit{Physical AI System Description.} When the clinical investigation involves a Physical AI system, the IND shall include, as a separate section following the information required by paragraph (a)(8), a Physical AI System Description containing the following:
+
+\begin{description}[leftmargin=0.8cm,style=sameline]
+\item[(i)] \textit{System identification and classification.} The manufacturer, model designation, software version, and robot category (surgical, cobot, humanoid, therapeutic, diagnostic, assistive, or rehabilitative) of each Physical AI system to be used. The current USL score for each system, computed across the four dimensions (simulation switching, AI integration, cross-robot sharing, clinical trial collaboration), with supporting documentation for the score calculation.
+
+\item[(ii)] \textit{Role in drug administration.} A detailed description of the Physical AI system's role in the investigational drug pathway, classified as primary (direct drug administration or dispensing), secondary (monitoring or assisted administration under human control), or ancillary (supportive tasks not involving direct drug contact). The description shall include the specific clinical procedures to be performed, the degree of autonomy permitted, and the human oversight requirements for each procedure.
+
+\item[(iii)] \textit{Hardware specifications.} Technical specifications of the robotic platform, including degrees of freedom, payload capacity, positional accuracy, force sensing resolution, workspace dimensions, and end-effector specifications relevant to drug administration. For surgical robots, the specifications shall include instrument tip accuracy, tremor compensation parameters, and tissue interaction force limits.
+
+\item[(iv)] \textit{Software and AI/ML specifications.} A description of all software components, including the operating system, middleware (ROS 2 Jazzy or Kilted where applicable), control algorithms, and embedded AI/ML models. For each AI/ML model, the description shall include the model architecture, training data characteristics (including demographic diversity and oncology-specific representation), validation methodology, performance metrics, and the Predetermined Change Control Plan (PCCP) if the model is expected to be updated during the investigation.
+
+\item[(v)] \textit{Simulation validation data.} The results of Phase 0 simulation validation as described in \S~312.21(d), including cross-framework behavioral consistency metrics, sim-to-real gap quantification, failure mode analysis results, and digital twin procedure rehearsal outcomes. The validation data shall reference the specific simulation framework versions used and the validation benchmark suite (v1.0) metrics achieved.
+
+\item[(vi)] \textit{Digital twin specifications.} If digital twins are used for treatment planning or intraoperative guidance, a description of the digital twin modeling methodology, calibration data sources, update frequency, validation metrics, and the mathematical frameworks employed (reaction-diffusion equations, pharmacokinetic/pharmacodynamic models, finite element analysis). The description shall include the digital twin's role in the drug administration decision pathway.
+
+\item[(vii)] \textit{Safety systems.} A comprehensive description of the Physical AI system's safety architecture, including emergency stop mechanisms (hardware and software), force and torque limits, collision detection and avoidance systems, workspace boundary enforcement, and fail-safe behaviors. The description shall include the pre-procedure safety matrix requirements and the automated verification checks performed before each clinical procedure.
+
+\item[(viii)] \textit{Cybersecurity assessment.} An assessment of the Physical AI system's cybersecurity posture, including network architecture, authentication and authorization mechanisms (deny-by-default per the national MCP-PAI standard), encryption protocols, vulnerability management procedures, and incident response plans. The assessment shall address threats specific to robotic systems in clinical settings, including unauthorized command injection, sensor data manipulation, and communication interception.
+
+\item[(ix)] \textit{MCP integration.} If the Physical AI system interfaces with clinical data through the Model Context Protocol, a description of the MCP server topology, the tools and resources accessed, the conformance level achieved (Core, Clinical Read, Imaging, Federated Site, or Robot Procedure), and the hash-chained audit trail implementation. The description shall include the robot capability profile (JSON schema) and the task order lifecycle management approach.
+
+\item[(x)] \textit{Human-robot interaction protocols.} A description of the interfaces between the Physical AI system and clinical personnel, including operator control stations, status displays, alarm systems, communication channels, and handoff procedures. The description shall specify the training requirements for personnel who operate or supervise the Physical AI system during the investigation.
+
+\item[(xi)] \textit{Maintenance and calibration.} The scheduled maintenance intervals, calibration procedures, and performance verification protocols for the Physical AI system. The description shall include the criteria for taking a system out of service and the re-qualification procedures required before returning the system to clinical use.
+\end{description}
+
+(h) \textit{Investigator's brochure Physical AI supplement.} When Physical AI systems are used in the investigation, the investigator's brochure required under paragraph (a)(5) shall include a Physical AI supplement containing:
+
+\begin{description}[leftmargin=0.8cm,style=sameline]
+\item[(i)] A plain-language summary of the Physical AI system's capabilities and limitations for investigator reference;
+\item[(ii)] Known and anticipated risks specific to Physical AI system interactions, including robotic malfunction modes, AI prediction error rates, and human-robot interaction hazards;
+\item[(iii)] Emergency procedures for Physical AI system failures, including manual override instructions and patient stabilization protocols; and
+\item[(iv)] The minimum training requirements and competency assessments for investigators and subinvestigators who will operate or supervise the Physical AI system.
+\end{description}
+
+(i) \textit{Protocol Physical AI section.} When Physical AI systems are used in the investigation, each protocol submitted under paragraph (a)(6) shall include a Physical AI section containing:
+
+\begin{description}[leftmargin=0.8cm,style=sameline]
+\item[(i)] The specific Physical AI system(s) to be used in the study, referenced by the system identification in the Physical AI System Description;
+\item[(ii)] The autonomy level permitted for each procedure type and the conditions under which autonomy may be increased, decreased, or revoked;
+\item[(iii)] The Physical AI-specific inclusion and exclusion criteria for subjects (e.g., anatomical constraints, implant compatibility, claustrophobia assessment for enclosed robotic systems);
+\item[(iv)] The Physical AI-specific observations and measurements, including system telemetry data, force profiles, trajectory accuracy, and procedure timing;
+\item[(v)] The Physical AI-specific stopping rules, including system performance degradation thresholds, consecutive failure limits, and sim-to-real divergence criteria; and
+\item[(vi)] The plan for federated learning coordination if the study involves multi-site deployment of Physical AI systems, including data harmonization protocols, differential privacy parameters, and aggregation algorithms.
+\end{description}
+
+[52 FR 8831, Mar. 19, 1987, as amended at 52 FR 23031, June 17, 1987; 53 FR 1918, Jan. 25, 1988; 61 FR 51529, Oct. 2, 1996; 62 FR 40599, July 29, 1997; 63 FR 66669, Dec. 2, 1998; 65 FR 56479, Sept. 19, 2000; 67 FR 9585, Mar. 4, 2002. Physical AI adaptation added 17 March 2026.]
+
+\subsection{\S~312.30 Protocol Amendments}
+
+Once an IND is in effect, a sponsor shall amend it as needed to ensure that the clinical investigations are conducted according to protocols included in the application. This section sets forth the provisions under which new protocols may be submitted and changes in previously submitted protocols may be made. Whenever a sponsor intends to conduct a clinical investigation with an exception from informed consent for emergency research as set forth in \S~50.24 of this chapter, the sponsor shall submit a separate IND for such investigation.
+
+(a) \textit{New protocol.} Whenever a sponsor intends to conduct a study that is not covered by a protocol already contained in the IND, the sponsor shall submit to FDA a protocol amendment containing the protocol for the study. Such study may begin provided two conditions are met:
+
+\begin{description}[leftmargin=0.5cm,style=sameline]
+\item[(1)] The sponsor has submitted the protocol to FDA for its review; and
+\item[(2)] the protocol has been approved by the Institutional Review Board (IRB) with responsibility for review and approval of the study in accordance with the requirements of part 56. The sponsor may comply with these two conditions in either order.
+\end{description}
+
+(b) \textit{Changes in a protocol.}
+
+\begin{description}[leftmargin=0.5cm,style=sameline]
+\item[(1)] A sponsor shall submit a protocol amendment describing any change in a Phase 1 protocol that significantly affects the safety of subjects or any change in a Phase 2 or 3 protocol that significantly affects the safety of subjects, the scope of the investigation, or the scientific quality of the study. Examples of changes requiring an amendment under this paragraph include:
+\begin{description}[leftmargin=0.8cm,style=sameline]
+\item[(i)] Any increase in drug dosage or duration of exposure of individual subjects to the drug beyond that in the current protocol, or any significant increase in the number of subjects under study.
+\item[(ii)] Any significant change in the design of a protocol (such as the addition or dropping of a control group).
+\item[(iii)] The addition of a new test or procedure that is intended to improve monitoring for, or reduce the risk of, a side effect or adverse event; or the dropping of a test intended to monitor safety.
+\end{description}
+\item[(2)] A protocol change under paragraph (b)(1) of this section may be made provided the sponsor has submitted the change to FDA and the change has been approved by the IRB. Notwithstanding the foregoing, a protocol change intended to eliminate an apparent immediate hazard to subjects may be implemented immediately provided FDA is subsequently notified by protocol amendment and the reviewing IRB is notified in accordance with \S~56.104(c).
+\end{description}
+
+(c) \textit{New investigator.} A sponsor shall submit a protocol amendment when a new investigator is added to carry out a previously submitted protocol, except that a protocol amendment is not required when a licensed practitioner is added in the case of a treatment protocol under \S~312.315 or \S~312.320. The sponsor shall notify FDA of the new investigator within 30 days.
+
+(d) \textit{Content and format.} A protocol amendment is required to be prominently identified as such and to contain the following:
+
+\begin{description}[leftmargin=0.5cm,style=sameline]
+\item[(1)] In the case of a new protocol, a copy of the new protocol and a brief description of the most clinically significant differences between it and previous protocols. In the case of a change in protocol, a brief description of the change. In the case of a new investigator, the investigator's name, qualifications, reference to the previously submitted protocol, and all additional required information.
+\item[(2)] Reference to specific technical information in the IND or in a concurrently submitted information amendment that the sponsor relies on to support any clinically significant change.
+\item[(3)] If the sponsor desires FDA to comment on the submission, a request for such comment and the specific questions FDA's response should address.
+\end{description}
+
+(e) \textit{When submitted.} A sponsor shall submit a protocol amendment for a new protocol or a change in protocol before its implementation. Protocol amendments to add a new investigator or to provide additional information about investigators may be grouped and submitted at 30-day intervals.
+
+\subsubsection{Physical AI Adaptation of \S~312.30}
+
+(f) \textit{Physical AI protocol amendments.} In addition to the changes described in paragraph (b)(1) of this section, the following Physical AI system changes require a protocol amendment:
+
+\begin{description}[leftmargin=0.8cm,style=sameline]
+\item[(i)] Introduction of a new Physical AI system type or model not previously described in the Physical AI System Description under \S~312.23(g);
+\item[(ii)] Any change in the autonomy level permitted for a Physical AI system during clinical procedures, including changes from teleoperation to supervised autonomy or from supervised autonomy to full autonomy;
+\item[(iii)] Any significant update to an AI/ML model embedded in a Physical AI system that is outside the scope of the Predetermined Change Control Plan (PCCP), including changes to model architecture, training data composition, or performance thresholds;
+\item[(iv)] Any change in the simulation framework or validation methodology used for ongoing Physical AI system verification;
+\item[(v)] Any change in the human oversight requirements for Physical AI system operation, including changes to operator-to-system ratios, monitoring protocols, or intervention thresholds;
+\item[(vi)] Any change in the digital twin modeling methodology, calibration data sources, or validation criteria that affects treatment planning or intraoperative guidance decisions; and
+\item[(vii)] Any change in the MCP server topology, conformance level, or security architecture that affects the Physical AI system's access to clinical data.
+\end{description}
+
+(g) \textit{AI/ML model updates within PCCP scope.} Changes to AI/ML models embedded in Physical AI systems that fall within the scope of a previously submitted PCCP do not require a protocol amendment, provided the sponsor maintains documentation of all model updates and includes a summary of PCCP-covered changes in the annual report under \S~312.33. The sponsor shall notify FDA within 15 calendar days if a PCCP-covered update results in a performance metric falling below the pre-specified acceptance criteria.
+
+(h) \textit{Emergency Physical AI modifications.} A Physical AI system modification intended to eliminate an apparent immediate safety hazard may be implemented immediately, consistent with paragraph (b)(2) of this section. The sponsor shall submit a protocol amendment describing the emergency modification within 15 working days and shall include an assessment of the modification's impact on system safety, USL score, and ongoing simulation validation.
+
+[52 FR 8831, Mar. 19, 1987, as amended at 52 FR 23031, June 17, 1987; 53 FR 1918, Jan. 25, 1988; 61 FR 51530, Oct. 2, 1996; 67 FR 9585, Mar. 4, 2002; 74 FR 40942, Aug. 13, 2009. Physical AI adaptation added 17 March 2026.]
+
+\subsection{\S~312.31 Information Amendments}
+
+(a) \textit{Requirement for information amendment.} A sponsor shall report in an information amendment essential information on the IND that is not within the scope of a protocol amendment, IND safety reports, or annual report. Examples of information requiring an information amendment include:
+
+\begin{description}[leftmargin=0.5cm,style=sameline]
+\item[(1)] New toxicology, chemistry, or other technical information; or
+\item[(2)] A report regarding the discontinuance of a clinical investigation.
+\end{description}
+
+(b) \textit{Content and format of an information amendment.} An information amendment is required to bear prominent identification of its contents and to contain: (1) a statement of the nature and purpose of the amendment; (2) an organized submission of the data in a format appropriate for scientific review; and (3) if the sponsor desires FDA to comment, a request for such comment.
+
+(c) \textit{When submitted.} Information amendments to the IND should be submitted as necessary but, to the extent feasible, not more than every 30 days.
+
+\subsubsection{Physical AI Adaptation of \S~312.31}
+
+(d) \textit{Physical AI information amendments.} In addition to the examples in paragraph (a), the following Physical AI-related information requires an information amendment:
+
+\begin{description}[leftmargin=0.8cm,style=sameline]
+\item[(i)] New simulation validation data, including results from updated simulation framework versions or new cross-framework validation studies;
+\item[(ii)] Updated USL scores for Physical AI systems used in the investigation, whether resulting from new assessment data or changes to the USL scoring methodology;
+\item[(iii)] New cybersecurity vulnerability information affecting Physical AI systems used in the investigation, including vendor security advisories and patch deployment status;
+\item[(iv)] Changes to the national MCP-PAI standard or the Physical AI system's MCP conformance level that affect the system's interaction with clinical data;
+\item[(v)] New published literature or regulatory actions in other jurisdictions related to the safety or performance of Physical AI systems of the same type used in the investigation; and
+\item[(vi)] Updates to the digital twin modeling framework, including new calibration data sources, algorithm improvements, or validation results that are not significant enough to require a protocol amendment.
+\end{description}
+
+[52 FR 8831, Mar. 19, 1987, as amended at 52 FR 23031, June 17, 1987; 53 FR 1918, Jan. 25, 1988; 67 FR 9585, Mar. 4, 2002. Physical AI adaptation added 17 March 2026.]
+
+\subsection{\S~312.32 IND Safety Reporting}
+
+(a) \textit{Definitions.} The following definitions of terms apply to this section:
+
+\textit{Adverse event} means any untoward medical occurrence associated with the use of a drug in humans, whether or not considered drug related.
+
+\textit{Life-threatening adverse event or life-threatening suspected adverse reaction.} An adverse event or suspected adverse reaction is considered ``life-threatening'' if, in the view of either the investigator or sponsor, its occurrence places the patient or subject at immediate risk of death. It does not include an adverse event or suspected adverse reaction that, had it occurred in a more severe form, might have caused death.
+
+\textit{Serious adverse event or serious suspected adverse reaction.} An adverse event or suspected adverse reaction is considered ``serious'' if, in the view of either the investigator or sponsor, it results in any of the following outcomes: death, a life-threatening adverse event, inpatient hospitalization or prolongation of existing hospitalization, a persistent or significant incapacity or substantial disruption of the ability to conduct normal life functions, or a congenital anomaly/birth defect. Important medical events that may not result in death, be life-threatening, or require hospitalization may be considered serious when, based upon appropriate medical judgment, they may jeopardize the patient or subject and may require medical or surgical intervention to prevent one of the listed outcomes.
+
+\textit{Suspected adverse reaction} means any adverse event for which there is a reasonable possibility that the drug caused the adverse event. For the purposes of IND safety reporting, ``reasonable possibility'' means there is evidence to suggest a causal relationship between the drug and the adverse event.
+
+\textit{Unexpected adverse event or unexpected suspected adverse reaction.} An adverse event or suspected adverse reaction is considered ``unexpected'' if it is not listed in the investigator brochure or is not listed at the specificity or severity that has been observed; or, if an investigator brochure is not required or available, is not consistent with the risk information described in the general investigational plan or elsewhere in the current application, as amended.
+
+(b) \textit{Review of safety information.} The sponsor must promptly review all information relevant to the safety of the drug obtained or otherwise received by the sponsor from foreign or domestic sources, including information derived from any clinical or epidemiological investigations, animal or in vitro studies, reports in the scientific literature, and unpublished scientific papers, as well as reports from foreign regulatory authorities and reports of foreign commercial marketing experience for drugs that are not marketed in the United States.
+
+(c) \textit{IND safety reports.}
+
+\begin{description}[leftmargin=0.5cm,style=sameline]
+\item[(1)] The sponsor must notify FDA and all participating investigators in an IND safety report of potential serious risks, from clinical trials or any other source, as soon as possible, but in no case later than 15 calendar days after the sponsor determines that the information qualifies for reporting under paragraph (c)(1)(i), (c)(1)(ii), (c)(1)(iii), or (c)(1)(iv) of this section. In each IND safety report, the sponsor must identify all IND safety reports previously submitted concerning a similar suspected adverse reaction, and must analyze the significance of the suspected adverse reaction in light of previous reports or any other relevant information.
+
+\begin{description}[leftmargin=0.8cm,style=sameline]
+\item[(i)] \textit{Serious and unexpected suspected adverse reaction.} The sponsor must report any suspected adverse reaction that is both serious and unexpected, where there is evidence to suggest a causal relationship between the drug and the adverse event.
+\item[(ii)] \textit{Findings from other studies.} The sponsor must report any findings from epidemiological studies, pooled analysis, or clinical studies that suggest a significant risk in humans exposed to the drug.
+\item[(iii)] \textit{Findings from animal or in vitro testing.} The sponsor must report any findings from animal or in vitro testing that suggest a significant risk in humans exposed to the drug, such as reports of mutagenicity, teratogenicity, or carcinogenicity.
+\item[(iv)] \textit{Increased rate of occurrence of serious suspected adverse reactions.} The sponsor must report any clinically important increase in the rate of a serious suspected adverse reaction over that listed in the protocol or investigator brochure.
+\item[(v)] \textit{Submission of IND safety reports.} The sponsor must submit each IND safety report in a narrative format or on FDA Form 3500A or in an electronic format that FDA can process, review, and archive.
+\end{description}
+
+\item[(2)] \textit{Unexpected fatal or life-threatening suspected adverse reaction reports.} The sponsor must also notify FDA of any unexpected fatal or life-threatening suspected adverse reaction as soon as possible but in no case later than 7 calendar days after the sponsor's initial receipt of the information.
+
+\item[(3)] \textit{Reporting format or frequency.} FDA may require a sponsor to submit IND safety reports in a format or at a frequency different than that required under this paragraph.
+
+\item[(4)] \textit{Investigations of marketed drugs.} A sponsor of a clinical study of a drug marketed or approved in the United States that is conducted under an IND is required to submit IND safety reports for suspected adverse reactions observed in the clinical study.
+
+\item[(5)] \textit{Reporting study endpoints.} Study endpoints (e.g., mortality or major morbidity) must be reported to FDA as described in the protocol and ordinarily would not be reported under paragraph (c) of this section, unless a serious and unexpected adverse event occurs for which there is evidence suggesting a causal relationship between the drug and the event.
+\end{description}
+
+(d) \textit{Followup.}
+
+\begin{description}[leftmargin=0.5cm,style=sameline]
+\item[(1)] The sponsor must promptly investigate all safety information it receives.
+\item[(2)] Relevant followup information to an IND safety report must be submitted as soon as the information is available and must be identified as a ``Followup IND Safety Report.''
+\item[(3)] If the results of a sponsor's investigation show that an adverse event not initially determined to be reportable under paragraph (c) of this section is so reportable, the sponsor must report it as soon as possible, but in no case later than 15 calendar days after the determination is made.
+\end{description}
+
+(e) \textit{Disclaimer.} A safety report or other information submitted by a sponsor under this part does not necessarily reflect a conclusion by the sponsor or FDA that the report or information constitutes an admission that the drug caused or contributed to an adverse event.
+
+\subsubsection{Physical AI Adaptation of \S~312.32}
+
+(f) \textit{Physical AI safety event definitions.} In addition to the definitions in paragraph (a), the following definitions apply to safety reporting for investigations involving Physical AI systems:
+
+\textit{Physical AI adverse event} means any untoward occurrence associated with the operation of a Physical AI system during a clinical investigation involving an investigational drug, whether or not considered to be caused by the Physical AI system. Physical AI adverse events include robotic malfunction, AI prediction error, sensor failure, communication loss, unauthorized system access, digital twin divergence, and any event requiring activation of the emergency stop.
+
+\textit{Serious Physical AI adverse event} means a Physical AI adverse event that results in, or has the potential to result in, any of the outcomes listed in the definition of serious adverse event in paragraph (a), or that results in unplanned interruption of an investigational drug administration procedure requiring clinical intervention, uncontrolled release of the investigational drug, or compromise of the Physical AI system's sterile field during a surgical procedure.
+
+(g) \textit{Physical AI safety reporting requirements.} The sponsor must include Physical AI adverse events in IND safety reports as follows:
+
+\begin{description}[leftmargin=0.8cm,style=sameline]
+\item[(i)] \textit{Serious Physical AI adverse events.} Any serious Physical AI adverse event must be reported under the same timelines and procedures as paragraph (c)(1) of this section. The report must include the Physical AI system identification, the nature of the malfunction or error, the system telemetry data for the period surrounding the event, the emergency stop activation status, and the patient outcome.
+\item[(ii)] \textit{Physical AI system-drug interaction events.} Any event in which a Physical AI system error directly or indirectly results in incorrect drug administration (wrong dose, wrong route, wrong timing, wrong patient) must be reported as an IND safety report regardless of whether the event meets the criteria for a serious adverse event.
+\item[(iii)] \textit{Cybersecurity incidents.} Any cybersecurity incident affecting a Physical AI system during a clinical investigation, including unauthorized access attempts, data integrity violations, and communication interceptions, must be reported in an IND safety report within 15 calendar days of detection. If the incident results in or has the potential to result in patient harm, the 7-calendar-day reporting timeline for unexpected fatal or life-threatening events applies.
+\item[(iv)] \textit{AI model performance degradation.} The sponsor must report any sustained degradation in AI/ML model performance below the pre-specified acceptance criteria documented in the PCCP or the Physical AI System Description. Sustained degradation is defined as performance below acceptance criteria for three or more consecutive procedures or for a cumulative period of 24 hours, whichever occurs first.
+\item[(v)] \textit{Sim-to-real divergence.} The sponsor must report any instance in which the observed behavior of a Physical AI system during a clinical procedure diverges from the simulated behavior by more than twice the validated sim-to-real gap tolerance (i.e., trajectory deviation greater than 4mm or force discrepancy greater than 1.0N).
+\item[(vi)] \textit{Digital twin discrepancy.} The sponsor must report any instance in which a digital twin model used for treatment planning or intraoperative guidance produces predictions that diverge from observed clinical outcomes by more than the pre-specified accuracy thresholds documented in the protocol.
+\end{description}
+
+(h) \textit{Physical AI safety review.} In addition to the review requirements of paragraph (b), the sponsor must establish a Physical AI Safety Review Committee (or equivalent function) responsible for the ongoing review and evaluation of Physical AI adverse events. The committee shall include members with expertise in robotic systems engineering, AI/ML, clinical oncology, and cybersecurity. The committee shall meet at intervals not exceeding 90 days during active clinical investigations to review Physical AI safety data and to recommend modifications to Physical AI system operation, human oversight requirements, or USL threshold criteria.
+
+(i) \textit{Hash-chained audit trail preservation.} For all Physical AI adverse events reported under this section, the sponsor must preserve the complete hash-chained audit trail for the Physical AI system covering the period from 24 hours before the event to 72 hours after the event. The audit trail must be maintained in accordance with the electronic records requirements of 21 CFR Part 11 and must be made available to FDA upon request.
+
+[75 FR 59961, Sept. 29, 2010. Physical AI adaptation added 17 March 2026.]
+
+\subsection{\S~312.33 Annual Reports}
+
+A sponsor shall within 60 days of the anniversary date that the IND went into effect, submit a brief report of the progress of the investigation that includes:
+
+(a) \textit{Individual study information.} A brief summary of the status of each study in progress and each study completed during the previous year, including: (1) the title of the study, its purpose, a brief statement identifying the patient population, and whether the study is completed; (2) the total number of subjects initially planned, the number entered to date tabulated by age group, gender, and race, the number whose participation was completed as planned, and the number who dropped out for any reason; and (3) if the study has been completed or interim results are known, a brief description of any available study results.
+
+(b) \textit{Summary information.} Information obtained during the previous year's clinical and nonclinical investigations, including: (1) a narrative or tabular summary of the most frequent and most serious adverse experiences by body system; (2) a summary of all IND safety reports submitted during the past year; (3) a list of subjects who died during participation in the investigation, with the cause of death for each; (4) a list of subjects who dropped out in association with any adverse experience; (5) a brief description of pertinent findings regarding the drug's actions; (6) a list of preclinical studies completed or in progress during the past year; and (7) a summary of any significant manufacturing or microbiological changes made during the past year.
+
+(c) A description of the general investigational plan for the coming year to replace that submitted 1 year earlier.
+
+(d) If the investigator brochure has been revised, a description of the revision and a copy of the new brochure.
+
+(e) A description of any significant Phase 1 protocol modifications made during the previous year and not previously reported to the IND in a protocol amendment.
+
+(f) A brief summary of significant foreign marketing developments with the drug during the past year.
+
+(g) If desired by the sponsor, a log of any outstanding business with respect to the IND for which the sponsor requests or expects a reply, comment, or meeting.
+
+\subsubsection{Physical AI Adaptation of \S~312.33}
+
+(h) \textit{Physical AI system performance summary.} In addition to the information required by paragraphs (a) through (g), the annual report for investigations involving Physical AI systems shall include:
+
+\begin{description}[leftmargin=0.8cm,style=sameline]
+\item[(i)] A summary of all Physical AI adverse events reported during the previous year, organized by system type, event category (malfunction, AI error, cybersecurity, digital twin discrepancy), and patient outcome;
+\item[(ii)] Updated USL scores for each Physical AI system used in the investigation, with a comparison to the scores reported in the initial IND submission or the most recent annual report, and an explanation of any changes;
+\item[(iii)] A summary of AI/ML model updates implemented during the year, distinguishing between updates within PCCP scope and updates requiring protocol amendments, and including performance metrics before and after each update;
+\item[(iv)] Updated simulation validation results, including any new cross-framework validation studies, updated sim-to-real gap measurements, and the results of any re-validation prompted by Physical AI system modifications;
+\item[(v)] A summary of digital twin model performance, including calibration accuracy, prediction reliability, and any instances of clinically significant divergence from observed outcomes;
+\item[(vi)] A summary of cybersecurity events affecting Physical AI systems, including vulnerability disclosures, patch deployments, and incident investigations;
+\item[(vii)] A summary of the Physical AI Safety Review Committee's meetings, findings, and recommendations during the year; and
+\item[(viii)] An updated Physical AI investigational plan for the coming year, including planned system upgrades, new Physical AI system introductions, and changes to autonomy levels or human oversight requirements.
+\end{description}
+
+[52 FR 8831, Mar. 19, 1987, as amended at 52 FR 23031, June 17, 1987; 63 FR 6862, Feb. 11, 1998; 67 FR 9585, Mar. 4, 2002. Physical AI adaptation added 17 March 2026.]
+
+\subsection{\S~312.38 Withdrawal of an IND}
+
+(a) At any time a sponsor may withdraw an effective IND without prejudice.
+
+(b) If an IND is withdrawn, FDA shall be so notified, all clinical investigations conducted under the IND shall be ended, all current investigators notified, and all stocks of the drug returned to the sponsor or otherwise disposed of at the request of the sponsor in accordance with \S~312.59.
+
+(c) If an IND is withdrawn because of a safety reason, the sponsor shall promptly so inform FDA, all participating investigators, and all reviewing Institutional Review Boards, together with the reasons for such withdrawal.
+
+\subsubsection{Physical AI Adaptation of \S~312.38}
+
+(d) \textit{Physical AI system decommissioning upon IND withdrawal.} When an IND is withdrawn and the investigation involved Physical AI systems, the sponsor shall, in addition to the requirements of paragraphs (a) through (c):
+
+\begin{description}[leftmargin=0.8cm,style=sameline]
+\item[(i)] Ensure that all Physical AI systems are safely deactivated and removed from clinical service in accordance with the decommissioning procedures specified in the Physical AI System Description;
+\item[(ii)] Preserve all Physical AI system logs, telemetry data, hash-chained audit trails, simulation validation records, and digital twin models for the retention period specified in \S~312.57;
+\item[(iii)] Securely erase all patient-specific data from Physical AI system local storage in compliance with HIPAA Safe Harbor de-identification requirements, while maintaining de-identified copies in the sponsor's central records;
+\item[(iv)] Notify all sites of the Physical AI system decommissioning requirements and verify completion of decommissioning activities at each site within 30 days of the IND withdrawal; and
+\item[(v)] If the withdrawal is for a safety reason related to the Physical AI system, provide FDA with a detailed technical analysis of the Physical AI system failure modes and the contributing factors, within 60 days of the withdrawal.
+\end{description}
+
+[52 FR 8831, Mar. 19, 1987, as amended at 52 FR 23031, June 17, 1987; 67 FR 9586, Mar. 4, 2002. Physical AI adaptation added 17 March 2026.]
