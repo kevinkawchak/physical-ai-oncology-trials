@@ -5,6 +5,35 @@ Format follows [Keep a Changelog](https://keepachangelog.com/).
 
 ## [Unreleased]
 
+## [2.5.0] - 2026-03-18
+
+### Added
+- `regulatory/Adaption-21-CFR-Part-312/source/Physical_AI_21_CFR_Part_312.tex`: Adaptation of 21 CFR Part 312 (Investigational New Drug Application) for Physical AI oncology trials -- 94-page LaTeX document with Subparts A-I modified in-place and new Subpart J
+- `regulatory/Adaption-21-CFR-Part-312/source/Physical_AI_21_CFR_Part_312.pdf`: Compiled 94-page PDF
+- `regulatory/Adaption-21-CFR-Part-312/source/Physical_AI_21_CFR_Part_312.zip`: Source archive (.tex, .sty, .bib, .pdf, prompts.md)
+- `regulatory/Adaption-21-CFR-Part-312/source/prompts.md`: Development prompts archive
+- Subpart A: 21 new Physical AI definitions (USL, simulation validation, digital twin, MCP, PCCP, sim-to-real gap, etc.), scope expansion for 5 Physical AI system types
+- Subpart B: Physical AI System Description as new IND section (g) with 7 subsections, Physical AI phase-specific requirements, Physical AI amendments and safety reporting
+- Subpart C: Physical AI readiness requirements, 8 Physical AI grounds for clinical hold, Physical AI termination and dormancy/reactivation
+- Subpart D: 7 Physical AI sponsor responsibilities, CRO transfer requirements, Physical AI investigator qualifications, 7 record categories, Physical AI disqualification grounds
+- Subpart E: 21 CFR 312.80-312.88 adapted with Physical AI provisions for life-threatening illnesses, early consultation, treatment protocols, risk-benefit analysis, Phase 4 studies, active monitoring, patient safety
+- Subparts F-G, I: Physical AI import/export, foreign studies, laboratory research, expanded access provisions
+- Subpart H [Reserved]
+- Subpart J (new): 21 CFR 312.400-312.405 -- Physical AI system classification (3-tier), validation (simulation/bench/integration/site), cybersecurity by design, human oversight with e-stop specifications, AI/ML lifecycle management
+- 42-reference bibliography across 7 categories
+- v2.5.0 release notes in `releases.md`
+
+### Changed
+- `README.md`: Updated version badge to v2.5.0, added 21 CFR Part 312 adaptation section, updated repository structure with `regulatory/Adaption-21-CFR-Part-312/` directory
+- `regulatory/README.md`: Added Adaption-21-CFR-Part-312 directory to structure, updated version to 2.5.0
+
+### Notes
+- Adapted from the prior 21 CFR Part 312 regulation (public domain under 17 U.S.C. section 105)
+- No Python code changes -- documentation-only release
+- Development by Claude Code Opus 4.6
+
+---
+
 ## [2.4.0] - 2026-03-16
 
 ### Added
