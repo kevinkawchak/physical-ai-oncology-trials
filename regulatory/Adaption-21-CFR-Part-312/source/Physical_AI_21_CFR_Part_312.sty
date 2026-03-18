@@ -1,0 +1,41 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{Physical_AI_21_CFR_Part_312}[2026/03/17 Custom style for Physical AI 21 CFR Part 312 Adaptation]
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage[margin=1in]{geometry}
+\usepackage{setspace}
+\usepackage{parskip}
+\usepackage{microtype}
+\usepackage{titlesec}
+\usepackage{fancyhdr}
+\usepackage{xcolor}
+\usepackage[hidelinks,colorlinks=true,linkcolor=CFRBlue,urlcolor=CFRBlue,citecolor=CFRBlue]{hyperref}
+\usepackage[nameinlink,noabbrev]{cleveref}
+\usepackage{enumitem}
+\usepackage{csquotes}
+\usepackage[backend=biber,style=numeric,sorting=nyt]{biblatex}
+\usepackage{ragged2e}
+\usepackage{longtable}
+\usepackage{booktabs}
+\usepackage{array}
+\definecolor{CFRBlue}{HTML}{143A5A}
+\hypersetup{
+  pdftitle={End-to-End Physical AI Oncology Clinical Trial Unification -- Adaption: 21 CFR Part 312},
+  pdfauthor={Kevin Kawchak, ChemicalQDevice}
+}
+\setstretch{1.05}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\footnotesize Physical AI Oncology Unification}
+\fancyhead[R]{\footnotesize Modified 21 CFR Part 312}
+\fancyfoot[C]{\footnotesize \thepage}
+\renewcommand{\headrulewidth}{0.3pt}
+\titleformat{\section}{\Large\bfseries\color{CFRBlue}}{\thesection}{0.6em}{}
+\titleformat{\subsection}{\large\bfseries\color{CFRBlue}}{\thesubsection}{0.6em}{}
+\titleformat{\subsubsection}{\normalsize\bfseries\color{CFRBlue}}{\thesubsubsection}{0.6em}{}
+\titleformat{\paragraph}[runin]{\normalsize\bfseries}{\theparagraph}{0.5em}{}[.]
+\titlespacing*{\section}{0pt}{2.0ex plus .5ex minus .2ex}{1.0ex}
+\titlespacing*{\subsection}{0pt}{1.6ex plus .5ex minus .2ex}{0.8ex}
+\titlespacing*{\subsubsection}{0pt}{1.4ex plus .4ex minus .2ex}{0.6ex}
+\setlist[description]{font=\normalfont\bfseries,labelsep=0.5em}
