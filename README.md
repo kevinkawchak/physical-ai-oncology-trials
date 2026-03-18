@@ -1,7 +1,7 @@
 # End-to-End Physical AI Unification of Oncology Clinical Trials
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Release](https://img.shields.io/badge/Release-v2.4.0-brightgreen.svg)]()
+[![Release](https://img.shields.io/badge/Release-v2.5.0-brightgreen.svg)]()
 [![Last Updated](https://img.shields.io/badge/Updated-March%202026-blue.svg)]()
 [![Python 3.10+](https://img.shields.io/badge/Python-3.10+-green.svg)]()
 [![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.18445179-blue)](https://doi.org/10.5281/zenodo.18445179)
@@ -11,6 +11,8 @@
 This repository provides production-ready configurations, validated pipelines, and integration guides for deploying robotic systems, digital twins, and embodied AI agents in oncology. Referenced frameworks and tools have been added primarily from Oct. 2025 to Jan. 2026.
 
 
+📄 **3/18: v2.5.0 (Regulatory Adaptation)** *End-to-End Physical AI Oncology Clinical Trial Unification: Adaption of 21 CFR Part 312 - Investigational New Drug Application* - Adaptation of 21 CFR Part 312 Regulation (85 pages, 10 subparts, 42 references)
+
 📄 **3/16: v2.4.0 (Regulatory Adaptation)** *End-to-End Physical AI Oncology Clinical Trial Unification: Adaption of 21 CFR Part 50 - Protection of Human Subjects* - Adaptation of 21 CFR Part 50 Regulation [![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.19040707-blue)](https://doi.org/10.5281/zenodo.19040707)
 
 📄 **3/12: v2.2.0 (Regulatory Guidance)** *End-to-End Physical AI Oncology Clinical Trial Unification.* Comprehensive guidance adapted from prior ICH E6(R3), with Sections 1-4, Appendices A-C, and Glossary [![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.18973368-blue)](https://doi.org/10.5281/zenodo.18973368)
@@ -19,7 +21,7 @@ This repository provides production-ready configurations, validated pipelines, a
 
 📄 **2/26: New Paper (USL)** *Unification Standard Level for Physical AI Oncology Trials. Standardizing and Evaluating Robot Unification Readiness for Multi-Site Clinical Trials. USL scores range from 1.0 to 10.0* [![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.18778219-blue)](https://doi.org/10.5281/zenodo.18778219)
 
-> **v2.4.0** - Adaption of 21 CFR Part 50 (Protection of Human Subjects) for Physical AI oncology clinical trials. Modifies Subparts A, B, and D in-place with Physical AI requirements and adds new Subpart C. See [releases.md](releases.md) and [CHANGELOG.md](CHANGELOG.md) for full details.
+> **v2.5.0** - Adaption of 21 CFR Part 312 (Investigational New Drug Application) for Physical AI oncology clinical trials. 85-page document covering all 10 subparts (A-J) with Physical AI adaptations woven into the existing regulatory text. New Subpart J establishes Physical AI system classification, validation, cybersecurity, human oversight, and lifecycle management requirements. See [releases.md](releases.md) and [CHANGELOG.md](CHANGELOG.md) for full details.
 
 > **v1.0.0** — First stable release. 51 Python modules (40,526 LOC), 69 documentation files, 28 examples, 5 CLI tools, and complete privacy/regulatory infrastructure. CI-validated on Python 3.10, 3.11, and 3.12. See [V1_RELEASE.md](V1_RELEASE.md) for full release documentation.
 
@@ -240,6 +242,11 @@ physical-ai-oncology-trials/
 │
 ├── regulatory/
 │   ├── README.md
+│   ├── Adaption-21-CFR-Part-312/      # ★ Physical AI 21 CFR Part 312 Adaptation (v2.5.0)
+│   │   ├── prompts.md                 # Development prompts archive
+│   │   └── source/
+│   │       ├── Physical_AI_21_CFR_Part_312.tex  # LaTeX source (85 pages compiled)
+│   │       └── Physical_AI_21_CFR_Part_312.pdf  # Compiled PDF
 │   ├── Adaption-21-CFR-Part-50/       # ★ Physical AI 21 CFR Part 50 Adaptation (v2.4.0)
 │   │   └── source/
 │   │       ├── Physical_AI_21_CFR_Part_50.tex   # LaTeX source (37 pages compiled)

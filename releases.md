@@ -4,6 +4,38 @@ Release notes for the physical-ai-oncology-trials repository.
 
 ---
 
+End-to-End Physical AI Oncology Clinical Trial Unification: Adaption of 21 CFR Part 312 -- Investigational New Drug Application
+v2.5.0 - March 18, 2026
+
+## Summary
+
+Publishes the **End-to-End Physical AI Oncology Clinical Trial Unification: Adaption of 21 CFR Part 312 -- Investigational New Drug Application**, an 85-page LaTeX document that modifies the prior 21 CFR Part 312 regulation in-place to incorporate Physical AI requirements throughout. The adaptation covers Subpart A (General Provisions with Physical AI scope expansion and 21 new definitions including USL, simulation validation, digital twin, and MCP), Subpart B (IND Application with Physical AI System Description as new IND section, Physical AI pre-clinical requirements, Physical AI amendments, Physical AI adverse event reporting, and Physical AI annual report supplements), Subpart C (Administrative Actions with Physical AI readiness requirements, 8 Physical AI grounds for clinical hold, Physical AI termination grounds, Physical AI dormancy/reactivation, and Physical AI meeting provisions), Subpart D (Responsibilities of Sponsors and Investigators with 7 Physical AI sponsor responsibilities, CRO transfer requirements, Physical AI investigator qualifications, 7 Physical AI record categories, Physical AI investigator responsibilities including informed consent, and Physical AI disqualification grounds), Subpart E (Drugs for Investigational Use with Physical AI import/export and supply chain security), Subpart F (Miscellaneous with Physical AI information disclosure and 8 guidance document topics), Subpart G (Drugs for Investigational Use During Emergencies with Physical AI expanded access provisions), Subpart I (Expanded Access with Physical AI submission and safeguard requirements), a new Subpart J (Physical AI Systems in Clinical Investigations with 3-tier risk classification, comprehensive validation requirements, cybersecurity by design, human oversight with emergency stop specifications, and AI/ML lifecycle management), and a 42-reference bibliography across 7 categories. The document is compiled to 85 pages from 2,106 lines of LaTeX source.
+
+## Features
+
+- **Complete LaTeX adaptation document** (`regulatory/Adaption-21-CFR-Part-312/source/Physical_AI_21_CFR_Part_312.tex`): 85 pages compiled, Subparts A-J with Physical AI modifications and new Subpart J
+- **Subpart A: General Provisions**: 21 CFR 312.1 Scope expanded for Physical AI systems with 5 system types; 21 CFR 312.2 Applicability with Physical AI exemption criteria; 21 CFR 312.3 Definitions with 21 new Physical AI definitions (USL, simulation validation, digital twin, MCP, PCCP, sim-to-real gap, etc.); 21 CFR 312.6 Labeling with Physical AI system labeling; 21 CFR 312.7 Promotion with Physical AI system promotion restrictions; 21 CFR 312.8 Charging with Physical AI cost recovery; 21 CFR 312.10 Waivers with Physical AI-specific waivers
+- **Subpart B: IND Application**: 21 CFR 312.20 IND requirements with Physical AI system documentation; 21 CFR 312.21 Phases with Physical AI requirements per phase (Phase 1 single-site/single-system, Phase 2 multi-site, Phase 3 full deployment); 21 CFR 312.22 General principles with Physical AI data integrity; 21 CFR 312.23 IND Content with new section (g) Physical AI System Description (7 subsections: system architecture, simulation validation, cybersecurity, human oversight, USL assessment, PCCP, MCP); 21 CFR 312.30-312.33 Amendments and reports with Physical AI provisions; 21 CFR 312.38 Withdrawal with Physical AI decommissioning
+- **Subpart C: Administrative Actions**: 21 CFR 312.40 with Physical AI readiness requirements (USL verification, pre-procedure safety matrix, MCP infrastructure); 21 CFR 312.42 with 8 Physical AI grounds for clinical hold (robotic safety failure, AI model degradation, simulation-reality divergence, cybersecurity compromise, USL score decline, inadequate system description, digital twin failure, human oversight failure); 21 CFR 312.44 with Physical AI termination grounds; 21 CFR 312.45 with Physical AI dormancy and reactivation; 21 CFR 312.47-312.48 with Physical AI meetings and dispute resolution
+- **Subpart D: Responsibilities**: 21 CFR 312.50 with 7 Physical AI sponsor responsibilities; 21 CFR 312.52 CRO transfer with Physical AI obligations; 21 CFR 312.53 with Physical AI investigator qualifications; 21 CFR 312.57 with 7 Physical AI record categories (deployment, maintenance, simulation, telemetry, USL, cybersecurity, training); 21 CFR 312.60 with 7 Physical AI investigator responsibilities including informed consent; 21 CFR 312.69 with Physical AI controlled substance safeguards; 21 CFR 312.70 with Physical AI disqualification grounds
+- **Subparts E-G, I**: Import/export with Physical AI supply chain security; foreign studies with USL assessment comparability; public disclosure with Physical AI confidential information; expanded access with Physical AI provisions for individual, intermediate, and treatment use
+- **Subpart J: Physical AI Systems (NEW)**: 21 CFR 312.400-312.405 establishing comprehensive Physical AI regulatory framework: 3-tier risk classification (Class I Assistive, Class II Collaborative, Class III Supervised Autonomous); validation (simulation, bench, integration, sim-to-real gap, site IQ/OQ/PQ, ongoing); cybersecurity by design (MFA, encryption, network segmentation, SBOM, incident response); human oversight (class-based levels, 1:1 operator ratio, fatigue management, hardware-independent e-stop <500ms); lifecycle management (configuration, AI/ML model management with drift monitoring, decommissioning)
+- **References and Bibliography**: 42 references across 7 categories (primary regulatory sources, FDA guidance, robotics standards, simulation literature, oncology robotics, AI/ML clinical trials, cybersecurity, digital twins)
+- **Development prompts archive** (`regulatory/Adaption-21-CFR-Part-312/prompts.md`)
+
+## Contributors
+@kevinkawchak
+@claude
+
+## Notes
+- Adapted from the prior 21 CFR Part 312 regulation (public domain under 17 U.S.C. section 105)
+- Source repositories: physical-ai-oncology-trials v2.4.0, national-mcp-pai-oncology-trials v1.2.0
+- No Python code changes -- documentation-only release
+- Development by Claude Code Opus 4.6
+- License: MIT (repository code)
+
+---
+
 End-to-End Physical AI Oncology Clinical Trial Unification: Adaption of 21 CFR Part 50 -- Protection of Human Subjects
 v2.4.0 - March 16, 2026
 

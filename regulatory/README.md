@@ -2,7 +2,7 @@
 
 *FDA, IRB, and ICH-GCP compliance tools for AI-enabled clinical trial management (February 2026)*
 
-**Version**: 2.4.0
+**Version**: 2.5.0
 **Status**: Active Development
 **Last Updated**: March 2026
 
@@ -55,6 +55,12 @@ As of December 2025, the FDA has authorized over **1,300 AI/ML-enabled medical d
 ```
 regulatory/
 ├── README.md                          # This file
+│
+├── Adaption-21-CFR-Part-312/          # ★ Physical AI 21 CFR Part 312 Adaptation (v2.5.0)
+│   ├── prompts.md                     # Development prompts archive
+│   └── source/
+│       ├── Physical_AI_21_CFR_Part_312.tex  # LaTeX source (85 pages compiled)
+│       └── Physical_AI_21_CFR_Part_312.pdf  # Compiled PDF
 │
 ├── Adaption-21-CFR-Part-50/           # ★ Physical AI 21 CFR Part 50 Adaptation (v2.4.0)
 │   └── source/
