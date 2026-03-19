@@ -77,67 +77,109 @@ logger = logging.getLogger(__name__)
 
 STAGE_REGULATORY_MAP: dict[PatientStage, list[str]] = {
     PatientStage.PRESCREENING: [
-        "21 CFR 312.1", "21 CFR 312.3", "21 CFR 312.57",
-        "21 CFR 50.1", "21 CFR 50.3", "21 CFR 50.33",
+        "21 CFR 312.1",
+        "21 CFR 312.3",
+        "21 CFR 312.57",
+        "21 CFR 50.1",
+        "21 CFR 50.3",
+        "21 CFR 50.33",
         "ICH E6(R3) section 2.9",
     ],
     PatientStage.ENROLLMENT: [
-        "21 CFR 312.20", "21 CFR 312.23",
-        "21 CFR 50.20", "21 CFR 50.25", "21 CFR 50.27",
-        "21 CFR 50.30", "21 CFR 50.31", "21 CFR 50.34",
-        "ICH E6(R3) section 2.4", "ICH E6(R3) section 2.7",
+        "21 CFR 312.20",
+        "21 CFR 312.23",
+        "21 CFR 50.20",
+        "21 CFR 50.25",
+        "21 CFR 50.27",
+        "21 CFR 50.30",
+        "21 CFR 50.31",
+        "21 CFR 50.34",
+        "ICH E6(R3) section 2.4",
+        "ICH E6(R3) section 2.7",
         "ICH E6(R3) section 2.8",
     ],
     PatientStage.DIGITAL_TWIN_CONSTRUCTION: [
-        "21 CFR 312.21", "21 CFR 312.23", "21 CFR 312.402",
+        "21 CFR 312.21",
+        "21 CFR 312.23",
+        "21 CFR 312.402",
         "21 CFR 50.32",
-        "ICH E6(R3) section 1.4", "ICH E6(R3) section 1.4.1",
+        "ICH E6(R3) section 1.4",
+        "ICH E6(R3) section 1.4.1",
         "ICH E6(R3) section 1.4.2",
     ],
     PatientStage.ROBOT_QUALIFICATION: [
-        "21 CFR 312.401", "21 CFR 312.402", "21 CFR 312.403",
-        "21 CFR 312.404", "21 CFR 312.405",
+        "21 CFR 312.401",
+        "21 CFR 312.402",
+        "21 CFR 312.403",
+        "21 CFR 312.404",
+        "21 CFR 312.405",
         "21 CFR 50.30",
-        "ICH E6(R3) section 1.5", "ICH E6(R3) section 1.4.1",
+        "ICH E6(R3) section 1.5",
+        "ICH E6(R3) section 1.4.1",
         "ICH E6(R3) section 2.6",
     ],
     PatientStage.SURGERY: [
-        "21 CFR 312.62", "21 CFR 312.57",
-        "21 CFR 50.30", "21 CFR 50.33",
-        "ICH E6(R3) section 2.3", "ICH E6(R3) section 2.10",
-        "ICH E6(R3) section 2.12", "ICH E6(R3) section 2.12.3",
+        "21 CFR 312.62",
+        "21 CFR 312.57",
+        "21 CFR 50.30",
+        "21 CFR 50.33",
+        "ICH E6(R3) section 2.3",
+        "ICH E6(R3) section 2.10",
+        "ICH E6(R3) section 2.12",
+        "ICH E6(R3) section 2.12.3",
     ],
     PatientStage.RECOVERY: [
-        "21 CFR 312.32", "21 CFR 312.64",
-        "21 CFR 50.30", "21 CFR 50.32",
-        "ICH E6(R3) section 2.10", "ICH E6(R3) section 2.10.1",
+        "21 CFR 312.32",
+        "21 CFR 312.64",
+        "21 CFR 50.30",
+        "21 CFR 50.32",
+        "ICH E6(R3) section 2.10",
+        "ICH E6(R3) section 2.10.1",
         "ICH E6(R3) section 2.3.2",
     ],
     PatientStage.IMMUNOTHERAPY: [
-        "21 CFR 312.32", "21 CFR 312.33", "21 CFR 312.56",
-        "21 CFR 312.30", "21 CFR 312.405",
-        "21 CFR 50.30", "21 CFR 50.32", "21 CFR 50.33",
-        "ICH E6(R3) section 2.5", "ICH E6(R3) section 2.10",
-        "ICH E6(R3) section 2.12.4", "ICH E6(R3) section 3.1",
+        "21 CFR 312.32",
+        "21 CFR 312.33",
+        "21 CFR 312.56",
+        "21 CFR 312.30",
+        "21 CFR 312.405",
+        "21 CFR 50.30",
+        "21 CFR 50.32",
+        "21 CFR 50.33",
+        "ICH E6(R3) section 2.5",
+        "ICH E6(R3) section 2.10",
+        "ICH E6(R3) section 2.12.4",
+        "ICH E6(R3) section 3.1",
         "ICH E6(R3) section 2.3",
     ],
     PatientStage.FEDERATION: [
-        "21 CFR 312.52", "21 CFR 312.120", "21 CFR 312.130",
+        "21 CFR 312.52",
+        "21 CFR 312.120",
+        "21 CFR 312.130",
         "21 CFR 312.58",
         "21 CFR 50.33",
         "ICH E6(R3) section 3.1.1",
     ],
     PatientStage.SURVEILLANCE: [
-        "21 CFR 312.32", "21 CFR 312.56", "21 CFR 312.62",
-        "21 CFR 50.30", "21 CFR 50.32",
-        "ICH E6(R3) section 2.10", "ICH E6(R3) section 2.12.4",
+        "21 CFR 312.32",
+        "21 CFR 312.56",
+        "21 CFR 312.62",
+        "21 CFR 50.30",
+        "21 CFR 50.32",
+        "ICH E6(R3) section 2.10",
+        "ICH E6(R3) section 2.12.4",
         "ICH E6(R3) section 3.1",
     ],
     PatientStage.CLOSEOUT: [
-        "21 CFR 312.38", "21 CFR 312.44", "21 CFR 312.130",
-        "21 CFR 312.57", "21 CFR 312.68", "21 CFR 312.402",
+        "21 CFR 312.38",
+        "21 CFR 312.44",
+        "21 CFR 312.130",
+        "21 CFR 312.57",
+        "21 CFR 312.68",
+        "21 CFR 312.402",
         "21 CFR 50.33",
-        "ICH E6(R3) section 2.9", "ICH E6(R3) section 3.1.1",
+        "ICH E6(R3) section 2.9",
+        "ICH E6(R3) section 3.1.1",
     ],
 }
 
@@ -147,46 +189,86 @@ STAGE_REGULATORY_MAP: dict[PatientStage, list[str]] = {
 
 STAGE_MODULE_MAP: dict[PatientStage, list[str]] = {
     PatientStage.PRESCREENING: [
-        "phi_scanner", "deidentification", "vocabulary_harmonizer",
-        "dicom_validator", "referral_intake", "eligibility_prescreener",
+        "phi_scanner",
+        "deidentification",
+        "vocabulary_harmonizer",
+        "dicom_validator",
+        "referral_intake",
+        "eligibility_prescreener",
     ],
     PatientStage.ENROLLMENT: [
-        "eligibility_engine", "consent_manager", "randomization_engine",
-        "irb_interface", "part11_signatures", "enrollment_tracker",
+        "eligibility_engine",
+        "consent_manager",
+        "randomization_engine",
+        "irb_interface",
+        "part11_signatures",
+        "enrollment_tracker",
     ],
     PatientStage.DIGITAL_TWIN_CONSTRUCTION: [
-        "anatomy_segmentation", "tumor_growth_model", "pharmacokinetics",
-        "organ_physiology", "twin_calibration", "virtual_cohort",
+        "anatomy_segmentation",
+        "tumor_growth_model",
+        "pharmacokinetics",
+        "organ_physiology",
+        "twin_calibration",
+        "virtual_cohort",
     ],
     PatientStage.ROBOT_QUALIFICATION: [
-        "usl_evaluator", "safety_validator", "calibration_engine",
-        "simulation_benchmark", "cybersecurity_scanner", "iec80601_checker",
+        "usl_evaluator",
+        "safety_validator",
+        "calibration_engine",
+        "simulation_benchmark",
+        "cybersecurity_scanner",
+        "iec80601_checker",
     ],
     PatientStage.SURGERY: [
-        "surgical_planner", "sensor_fusion", "real_time_monitor",
-        "sim_vs_real_comparator", "specimen_tracker", "video_recorder",
+        "surgical_planner",
+        "sensor_fusion",
+        "real_time_monitor",
+        "sim_vs_real_comparator",
+        "specimen_tracker",
+        "video_recorder",
     ],
     PatientStage.RECOVERY: [
-        "post_op_monitor", "wound_tracker", "pain_manager",
-        "mobility_assessor", "complication_detector", "discharge_planner",
+        "post_op_monitor",
+        "wound_tracker",
+        "pain_manager",
+        "mobility_assessor",
+        "complication_detector",
+        "discharge_planner",
     ],
     PatientStage.IMMUNOTHERAPY: [
-        "cycle_manager", "toxicity_tracker", "pkpd_model",
-        "twin_updater", "adaptive_agent", "annual_reporter",
+        "cycle_manager",
+        "toxicity_tracker",
+        "pkpd_model",
+        "twin_updater",
+        "adaptive_agent",
+        "annual_reporter",
         "regulatory_monitor",
     ],
     PatientStage.FEDERATION: [
-        "local_trainer", "dp_engine", "smpc_aggregator",
-        "federated_analytics", "dsmb_reporter", "site_monitor",
+        "local_trainer",
+        "dp_engine",
+        "smpc_aggregator",
+        "federated_analytics",
+        "dsmb_reporter",
+        "site_monitor",
         "audit_chain",
     ],
     PatientStage.SURVEILLANCE: [
-        "imaging_scheduler", "biomarker_tracker", "recurrence_detector",
-        "twin_surveillance", "quality_of_life", "long_term_monitor",
+        "imaging_scheduler",
+        "biomarker_tracker",
+        "recurrence_detector",
+        "twin_surveillance",
+        "quality_of_life",
+        "long_term_monitor",
     ],
     PatientStage.CLOSEOUT: [
-        "data_locker", "deidentification_reviewer", "csr_generator",
-        "gcp_auditor", "archive_manager", "bayesian_analyzer",
+        "data_locker",
+        "deidentification_reviewer",
+        "csr_generator",
+        "gcp_auditor",
+        "archive_manager",
+        "bayesian_analyzer",
         "record_finalizer",
     ],
 }
@@ -213,13 +295,16 @@ class MasterJourneyOrchestrator:
         self.trial_protocol = trial_protocol
         self._site_id = trial_protocol.get("site_id", "SITE-003")
         self._treatment_protocol = trial_protocol.get("treatment_protocol", {})
-        self._federation_config = trial_protocol.get("federation_config", {
-            "strategy": "federated_averaging",
-            "num_sites": 5,
-            "epsilon": 1.0,
-            "delta": 1e-5,
-            "max_norm": 1.0,
-        })
+        self._federation_config = trial_protocol.get(
+            "federation_config",
+            {
+                "strategy": "federated_averaging",
+                "num_sites": 5,
+                "epsilon": 1.0,
+                "delta": 1e-5,
+                "max_norm": 1.0,
+            },
+        )
         self._eligibility_criteria = trial_protocol.get("eligibility_criteria", {})
         self._stage_results: dict[str, Any] = {}
         logger.info(
@@ -259,7 +344,8 @@ class MasterJourneyOrchestrator:
     # ------------------------------------------------------------------
 
     def run_stage_01_prescreening(
-        self, referral_data: dict,
+        self,
+        referral_data: dict,
     ) -> PatientJourneyState:
         """Run Stage 1: Pre-Screening and Referral Intake.
 
@@ -276,7 +362,8 @@ class MasterJourneyOrchestrator:
         return state
 
     def run_stage_02_enrollment(
-        self, state: PatientJourneyState,
+        self,
+        state: PatientJourneyState,
     ) -> PatientJourneyState:
         """Run Stage 2: Enrollment, Consent, and Randomization.
 
@@ -294,7 +381,8 @@ class MasterJourneyOrchestrator:
         return state
 
     def run_stage_03_digital_twin(
-        self, state: PatientJourneyState,
+        self,
+        state: PatientJourneyState,
     ) -> PatientJourneyState:
         """Run Stage 3: Digital Twin Construction.
 
@@ -311,7 +399,8 @@ class MasterJourneyOrchestrator:
         return state
 
     def run_stage_04_robot_qualification(
-        self, state: PatientJourneyState,
+        self,
+        state: PatientJourneyState,
     ) -> PatientJourneyState:
         """Run Stage 4: Robot Qualification.
 
@@ -329,7 +418,8 @@ class MasterJourneyOrchestrator:
         return state
 
     def run_stage_05_surgery(
-        self, state: PatientJourneyState,
+        self,
+        state: PatientJourneyState,
     ) -> PatientJourneyState:
         """Run Stage 5: Physical AI-Assisted Surgery.
 
@@ -346,7 +436,8 @@ class MasterJourneyOrchestrator:
         return state
 
     def run_stage_06_recovery(
-        self, state: PatientJourneyState,
+        self,
+        state: PatientJourneyState,
     ) -> PatientJourneyState:
         """Run Stage 6: Post-Operative Recovery.
 
@@ -363,7 +454,8 @@ class MasterJourneyOrchestrator:
         return state
 
     def run_stage_07_immunotherapy(
-        self, state: PatientJourneyState,
+        self,
+        state: PatientJourneyState,
     ) -> PatientJourneyState:
         """Run Stage 7: Adjuvant Immunotherapy.
 
@@ -380,7 +472,8 @@ class MasterJourneyOrchestrator:
         return state
 
     def run_stage_08_federation(
-        self, state: PatientJourneyState,
+        self,
+        state: PatientJourneyState,
     ) -> PatientJourneyState:
         """Run Stage 8: Federated Data Contribution.
 
@@ -397,7 +490,8 @@ class MasterJourneyOrchestrator:
         return state
 
     def run_stage_09_surveillance(
-        self, state: PatientJourneyState,
+        self,
+        state: PatientJourneyState,
     ) -> PatientJourneyState:
         """Run Stage 9: Long-Term Surveillance (Month 24 to 36).
 
@@ -418,55 +512,55 @@ class MasterJourneyOrchestrator:
         # Attempt to load stage_09 module; fall back to inline simulation
         try:
             from stage_09_surveillance import SurveillanceOrchestrator  # type: ignore[import-not-found]
+
             orch = SurveillanceOrchestrator(state)
             state = orch.run(state)
         except ImportError:
-            logger.info(
-                "stage_09_surveillance module not available; "
-                "simulating surveillance transitions"
-            )
+            logger.info("stage_09_surveillance module not available; simulating surveillance transitions")
             # Simulate quarterly imaging over 12 months (Month 24-36)
             base_day = 730  # ~Month 24
             for quarter in range(1, 5):
                 imaging_day = base_day + quarter * 90
-                state.imaging_timepoints.append(ImagingTimepoint(
-                    day=imaging_day,
-                    modality="CT",
-                    tumor_volume_cm3=0.0,
-                    response_category=ResponseCategory.CR,
-                    notes=f"Surveillance Q{quarter}: NED, event-free",
-                ))
+                state.imaging_timepoints.append(
+                    ImagingTimepoint(
+                        day=imaging_day,
+                        modality="CT",
+                        tumor_volume_cm3=0.0,
+                        response_category=ResponseCategory.CR,
+                        notes=f"Surveillance Q{quarter}: NED, event-free",
+                    )
+                )
 
             # Advance stage to SURVEILLANCE
             state.advance_stage(PatientStage.SURVEILLANCE)
             state.status = PatientStatus.SURVEILLANCE
 
-            state.add_regulatory_event(RegulatoryEvent(
-                event_type="SURVEILLANCE_COMPLETE",
-                day=base_day + 360,
-                description=(
-                    "Surveillance period complete: 4 quarterly imaging "
-                    "assessments, NED maintained, event-free at 36 months"
-                ),
-                document_id="SURV-COMP-001",
-                cfr_section="21 CFR 312.56",
-                status="COMPLETED",
-            ))
+            state.add_regulatory_event(
+                RegulatoryEvent(
+                    event_type="SURVEILLANCE_COMPLETE",
+                    day=base_day + 360,
+                    description=(
+                        "Surveillance period complete: 4 quarterly imaging "
+                        "assessments, NED maintained, event-free at 36 months"
+                    ),
+                    document_id="SURV-COMP-001",
+                    cfr_section="21 CFR 312.56",
+                    status="COMPLETED",
+                )
+            )
 
             state.add_audit_entry(
                 action="SURVEILLANCE_COMPLETE",
                 actor="MasterJourneyOrchestrator",
-                details=(
-                    "Stage 9 simulated: 4 quarterly CT scans, NED, "
-                    "event-free at 36 months"
-                ),
+                details=("Stage 9 simulated: 4 quarterly CT scans, NED, event-free at 36 months"),
             )
 
         self._stage_results["stage_09"] = "COMPLETED"
         return state
 
     def run_stage_10_closeout(
-        self, state: PatientJourneyState,
+        self,
+        state: PatientJourneyState,
     ) -> PatientJourneyState:
         """Run Stage 10: Trial Closeout.
 
@@ -487,7 +581,8 @@ class MasterJourneyOrchestrator:
     # ------------------------------------------------------------------
 
     def run_full_journey(
-        self, referral_data: dict,
+        self,
+        referral_data: dict,
     ) -> PatientJourneyState:
         """Run all 10 stages sequentially for a single patient.
 
@@ -502,9 +597,7 @@ class MasterJourneyOrchestrator:
         Returns:
             Final patient state with COMPLETED status and HARD_LOCK.
         """
-        logger.info(
-            "Starting full 10-stage journey for patient in referral data"
-        )
+        logger.info("Starting full 10-stage journey for patient in referral data")
 
         # Stage 1: Pre-Screening
         state = self.run_stage_01_prescreening(referral_data)
@@ -537,8 +630,7 @@ class MasterJourneyOrchestrator:
         state = self.run_stage_10_closeout(state)
 
         logger.info(
-            "Full journey complete: patient %s, status=%s, "
-            "data_lock=%s, stage=%s",
+            "Full journey complete: patient %s, status=%s, data_lock=%s, stage=%s",
             state.demographics.patient_id,
             state.status.value,
             state.data_lock.value,
@@ -551,7 +643,8 @@ class MasterJourneyOrchestrator:
     # ------------------------------------------------------------------
 
     def generate_journey_report(
-        self, final_state: PatientJourneyState,
+        self,
+        final_state: PatientJourneyState,
     ) -> dict:
         """Generate comprehensive journey report for a completed patient.
 
@@ -571,14 +664,10 @@ class MasterJourneyOrchestrator:
         )
 
         # Count regulatory sections across all stages
-        total_regulatory_sections = sum(
-            len(sections) for sections in STAGE_REGULATORY_MAP.values()
-        )
+        total_regulatory_sections = sum(len(sections) for sections in STAGE_REGULATORY_MAP.values())
 
         # Count total modules across all stages
-        total_modules = sum(
-            len(modules) for modules in STAGE_MODULE_MAP.values()
-        )
+        total_modules = sum(len(modules) for modules in STAGE_MODULE_MAP.values())
 
         # Clinical summary
         total_aes = len(final_state.adverse_events)
@@ -586,9 +675,7 @@ class MasterJourneyOrchestrator:
         if final_state.adverse_events:
             max_ae_grade = max(ae.ctcae_grade for ae in final_state.adverse_events)
 
-        device_related_aes = sum(
-            1 for ae in final_state.adverse_events if ae.related_to_device
-        )
+        device_related_aes = sum(1 for ae in final_state.adverse_events if ae.related_to_device)
 
         report = {
             "patient_id": final_state.demographics.patient_id,
@@ -598,11 +685,7 @@ class MasterJourneyOrchestrator:
             "stages_completed": len(self._stage_results),
             "stage_results": dict(self._stage_results),
             "clinical_metrics": {
-                "treatment_arm": (
-                    final_state.treatment_arm.value
-                    if final_state.treatment_arm
-                    else None
-                ),
+                "treatment_arm": (final_state.treatment_arm.value if final_state.treatment_arm else None),
                 "treatment_cycles": len(final_state.treatment_cycles),
                 "imaging_timepoints": len(final_state.imaging_timepoints),
                 "total_adverse_events": total_aes,
@@ -619,14 +702,8 @@ class MasterJourneyOrchestrator:
                 "subpart_j_compliant": True,
             },
             "physical_ai_performance": {
-                "digital_twin_calibrated": (
-                    final_state.digital_twin.calibrated
-                    if final_state.digital_twin
-                    else False
-                ),
-                "robots_qualified": len(
-                    [r for r in final_state.robot_qualifications if r.deployment_ready]
-                ),
+                "digital_twin_calibrated": (final_state.digital_twin.calibrated if final_state.digital_twin else False),
+                "robots_qualified": len([r for r in final_state.robot_qualifications if r.deployment_ready]),
                 "federation_rounds": len(final_state.federation_contributions),
                 "mcp_conformance": final_state.mcp_conformance_level.value,
             },

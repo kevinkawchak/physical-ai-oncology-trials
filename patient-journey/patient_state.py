@@ -152,10 +152,10 @@ class USLReadinessLevel(Enum):
     Autonomy, Dexterity, Safety, and Interoperability.
     """
 
-    FOUNDATIONAL = "FOUNDATIONAL"          # 1.0 - 4.9
-    INTERMEDIATE = "INTERMEDIATE"          # 5.0 - 6.9
-    ADVANCED = "ADVANCED"                  # 7.0 - 8.9
-    CLINICAL_GRADE = "CLINICAL_GRADE"      # 9.0 - 10.0
+    FOUNDATIONAL = "FOUNDATIONAL"  # 1.0 - 4.9
+    INTERMEDIATE = "INTERMEDIATE"  # 5.0 - 6.9
+    ADVANCED = "ADVANCED"  # 7.0 - 8.9
+    CLINICAL_GRADE = "CLINICAL_GRADE"  # 9.0 - 10.0
 
 
 class MCPConformanceLevel(Enum):
@@ -240,10 +240,10 @@ class OrganFunction:
     """Organ-function assessments for eligibility and safety monitoring."""
 
     ecog: int = 0
-    renal_function: float = 0.0   # eGFR mL/min/1.73m2
-    hepatic_function: str = ""    # Child-Pugh class
-    cardiac_ef: float = 0.0       # Ejection fraction %
-    pulmonary_fev1: float = 0.0   # FEV1 %predicted
+    renal_function: float = 0.0  # eGFR mL/min/1.73m2
+    hepatic_function: str = ""  # Child-Pugh class
+    cardiac_ef: float = 0.0  # Ejection fraction %
+    pulmonary_fev1: float = 0.0  # FEV1 %predicted
 
 
 @dataclass

@@ -577,51 +577,59 @@ class DigitalTwinOrchestrator:
         )
 
         # Add baseline imaging timepoint
-        state.imaging_timepoints.append(ImagingTimepoint(
-            day=0,
-            modality="CT",
-            tumor_volume_cm3=42.3,
-            response_category=None,
-            notes="Baseline CT for twin calibration",
-        ))
+        state.imaging_timepoints.append(
+            ImagingTimepoint(
+                day=0,
+                modality="CT",
+                tumor_volume_cm3=42.3,
+                response_category=None,
+                notes="Baseline CT for twin calibration",
+            )
+        )
 
         # Advance stage
         state.advance_stage(PatientStage.DIGITAL_TWIN_CONSTRUCTION)
 
         # Record regulatory events
-        state.add_regulatory_event(RegulatoryEvent(
-            event_type="DIGITAL_TWIN_CREATED",
-            day=3,
-            description=(
-                "Patient-specific digital twin created per ICH E6(R3) section 1.4.2 "
-                "with 4 growth models calibrated to baseline CT (42.3 cm3)."
-            ),
-            document_id="DT-001",
-            cfr_section="ICH E6(R3) section 1.4.2",
-            status="CREATED",
-        ))
+        state.add_regulatory_event(
+            RegulatoryEvent(
+                event_type="DIGITAL_TWIN_CREATED",
+                day=3,
+                description=(
+                    "Patient-specific digital twin created per ICH E6(R3) section 1.4.2 "
+                    "with 4 growth models calibrated to baseline CT (42.3 cm3)."
+                ),
+                document_id="DT-001",
+                cfr_section="ICH E6(R3) section 1.4.2",
+                status="CREATED",
+            )
+        )
 
-        state.add_regulatory_event(RegulatoryEvent(
-            event_type="TWIN_VALIDATED",
-            day=5,
-            description=(
-                "Digital twin validated per 21 CFR 312.402 / ASME V&V 40: "
-                f"validation score {vv40['overall_validation_score']:.2f}, "
-                f"RMSE {vv40['validation']['rmse_6mo_cm3']:.1f} cm3 at 6 months."
-            ),
-            document_id="VV40-001",
-            cfr_section="21 CFR 312.402",
-            status="VALIDATED",
-        ))
+        state.add_regulatory_event(
+            RegulatoryEvent(
+                event_type="TWIN_VALIDATED",
+                day=5,
+                description=(
+                    "Digital twin validated per 21 CFR 312.402 / ASME V&V 40: "
+                    f"validation score {vv40['overall_validation_score']:.2f}, "
+                    f"RMSE {vv40['validation']['rmse_6mo_cm3']:.1f} cm3 at 6 months."
+                ),
+                document_id="VV40-001",
+                cfr_section="21 CFR 312.402",
+                status="VALIDATED",
+            )
+        )
 
-        state.add_regulatory_event(RegulatoryEvent(
-            event_type="ONGOING_CONSENT_TWIN",
-            day=7,
-            description="Patient notified of digital twin creation per 21 CFR 50.32",
-            document_id="CONSENT-TWIN-001",
-            cfr_section="21 CFR 50.32",
-            status="DOCUMENTED",
-        ))
+        state.add_regulatory_event(
+            RegulatoryEvent(
+                event_type="ONGOING_CONSENT_TWIN",
+                day=7,
+                description="Patient notified of digital twin creation per 21 CFR 50.32",
+                document_id="CONSENT-TWIN-001",
+                cfr_section="21 CFR 50.32",
+                status="DOCUMENTED",
+            )
+        )
 
         state.add_audit_entry(
             action="DIGITAL_TWIN_CONSTRUCTION_COMPLETE",

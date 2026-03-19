@@ -77,9 +77,9 @@ PHYSICAL_AI_AE_CATEGORIES: list[str] = [
 
 # AE reporting timelines per 21 CFR 312.64
 AE_REPORTING_TIMELINE_DAYS: dict[str, int] = {
-    "irb_notification": 5,       # 5 calendar days for non-serious
-    "irb_serious": 1,            # 24 hours for serious
-    "fda_serious": 15,           # 15 calendar days per 21 CFR 312.32
+    "irb_notification": 5,  # 5 calendar days for non-serious
+    "irb_serious": 1,  # 24 hours for serious
+    "fda_serious": 15,  # 15 calendar days per 21 CFR 312.32
     "fda_fatal_life_threat": 7,  # 7 calendar days per 21 CFR 312.32
 }
 
@@ -129,10 +129,7 @@ class RecoveryOrchestrator:
             Dictionary with sync transition details including old and
             new rates, trigger events, and compliance status.
         """
-        logger.info(
-            "Transitioning DT sync from 30 Hz to event-driven "
-            "per 21 CFR 50.30 Post-Procedure Requirements"
-        )
+        logger.info("Transitioning DT sync from 30 Hz to event-driven per 21 CFR 50.30 Post-Procedure Requirements")
         # Per 21 CFR 50.30 - post-procedure sync requirements
         self._dt_sync_mode = "event_driven"
         result = {
@@ -245,8 +242,7 @@ class RecoveryOrchestrator:
 
         # Per 21 CFR 50.32 - post-operative monitoring requirements
         discharge_ready = any(
-            obs.get("cxr_result") == "clear" and obs.get("vitals_stable", False)
-            for obs in daily_data
+            obs.get("cxr_result") == "clear" and obs.get("vitals_stable", False) for obs in daily_data
         )
 
         result = {
@@ -421,8 +417,7 @@ class RecoveryOrchestrator:
             overall conclusion.
         """
         logger.info(
-            "Assessing Physical AI causality per ICH E6(R3) section 2.10.1 "
-            "for AE %s",
+            "Assessing Physical AI causality per ICH E6(R3) section 2.10.1 for AE %s",
             ae.event_id,
         )
         # Per ICH E6(R3) section 2.10.1 - Physical AI AE categories
@@ -458,26 +453,18 @@ class RecoveryOrchestrator:
                 "category": PHYSICAL_AI_AE_CATEGORIES[3],
                 "assessed": True,
                 "related": False,
-                "rationale": (
-                    "No communication failures recorded. "
-                    "Network latency within 2.1ms threshold throughout."
-                ),
+                "rationale": ("No communication failures recorded. Network latency within 2.1ms threshold throughout."),
             },
             "(e) cybersecurity_breach": {
                 "category": PHYSICAL_AI_AE_CATEGORIES[4],
                 "assessed": True,
                 "related": False,
-                "rationale": (
-                    "No cybersecurity incidents detected. "
-                    "All access logs reviewed and verified."
-                ),
+                "rationale": ("No cybersecurity incidents detected. All access logs reviewed and verified."),
             },
         }
 
         # Overall conclusion per ICH E6(R3) section 2.10.1
-        all_unrelated = all(
-            not cat["related"] for cat in category_assessments.values()
-        )
+        all_unrelated = all(not cat["related"] for cat in category_assessments.values())
 
         result = {
             "ae_event_id": ae.event_id,
@@ -543,12 +530,8 @@ class RecoveryOrchestrator:
             ev_result["irb_reported"] = ae.reported_to_irb
             ev_result["fda_reported"] = ae.reported_to_fda
             ev_result["irb_compliant"] = ae.reported_to_irb
-            ev_result["fda_compliant"] = (
-                ae.reported_to_fda if ev_result["fda_reporting_required"] else True
-            )
-            ev_result["overall_compliant"] = (
-                ev_result["irb_compliant"] and ev_result["fda_compliant"]
-            )
+            ev_result["fda_compliant"] = ae.reported_to_fda if ev_result["fda_reporting_required"] else True
+            ev_result["overall_compliant"] = ev_result["irb_compliant"] and ev_result["fda_compliant"]
 
             if not ev_result["overall_compliant"]:
                 all_compliant = False
@@ -613,44 +596,50 @@ class RecoveryOrchestrator:
         state.biomarkers.pdl1_tps = 72.0
 
         # Record regulatory events
-        state.add_regulatory_event(RegulatoryEvent(
-            event_type="DT_SYNC_TRANSITION",
-            day=14,
-            description=(
-                "Digital twin sync transitioned from 30 Hz real-time to "
-                "event-driven per 21 CFR 50.30 Post-Procedure Requirements"
-            ),
-            document_id="DT-TRANS-001",
-            cfr_section="21 CFR 50.30",
-            status="COMPLETED",
-        ))
+        state.add_regulatory_event(
+            RegulatoryEvent(
+                event_type="DT_SYNC_TRANSITION",
+                day=14,
+                description=(
+                    "Digital twin sync transitioned from 30 Hz real-time to "
+                    "event-driven per 21 CFR 50.30 Post-Procedure Requirements"
+                ),
+                document_id="DT-TRANS-001",
+                cfr_section="21 CFR 50.30",
+                status="COMPLETED",
+            )
+        )
 
-        state.add_regulatory_event(RegulatoryEvent(
-            event_type="PATHOLOGY_INTEGRATION",
-            day=17,
-            description=(
-                f"Final pathology integrated: {pathology_result['pathologic_stage']}, "
-                f"margins {pathology_result['margins']}, "
-                f"PD-L1 {pathology_result['pdl1_tps_percent']}%, "
-                f"recurrence risk {pathology_result['recurrence_risk_18mo'] * 100:.0f}% at 18 months"
-            ),
-            document_id="PATH-INT-001",
-            cfr_section="ICH E6(R3) section 2.3",
-            status="INTEGRATED",
-        ))
+        state.add_regulatory_event(
+            RegulatoryEvent(
+                event_type="PATHOLOGY_INTEGRATION",
+                day=17,
+                description=(
+                    f"Final pathology integrated: {pathology_result['pathologic_stage']}, "
+                    f"margins {pathology_result['margins']}, "
+                    f"PD-L1 {pathology_result['pdl1_tps_percent']}%, "
+                    f"recurrence risk {pathology_result['recurrence_risk_18mo'] * 100:.0f}% at 18 months"
+                ),
+                document_id="PATH-INT-001",
+                cfr_section="ICH E6(R3) section 2.3",
+                status="INTEGRATED",
+            )
+        )
 
-        state.add_regulatory_event(RegulatoryEvent(
-            event_type="AE_REPORTING",
-            day=16,
-            description=(
-                "AE-PAT0042-001: New-onset atrial fibrillation (Grade 2). "
-                "Reported to IRB. Not reported to FDA (not device-related per "
-                "ICH E6(R3) section 2.10.1 causality assessment)."
-            ),
-            document_id="AE-RPT-001",
-            cfr_section="21 CFR 312.64",
-            status="REPORTED",
-        ))
+        state.add_regulatory_event(
+            RegulatoryEvent(
+                event_type="AE_REPORTING",
+                day=16,
+                description=(
+                    "AE-PAT0042-001: New-onset atrial fibrillation (Grade 2). "
+                    "Reported to IRB. Not reported to FDA (not device-related per "
+                    "ICH E6(R3) section 2.10.1 causality assessment)."
+                ),
+                document_id="AE-RPT-001",
+                cfr_section="21 CFR 312.64",
+                status="REPORTED",
+            )
+        )
 
         # Advance stage per legal transitions
         state.advance_stage(PatientStage.RECOVERY)

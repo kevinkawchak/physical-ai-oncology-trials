@@ -138,8 +138,7 @@ class FederationOrchestrator:
         self._audit_hashes: list[str] = []
         self._contributions: list[FederationContribution] = []
         logger.info(
-            "FederationOrchestrator initialised: strategy=%s, sites=%d, "
-            "epsilon=%.1f, delta=%.1e per 21 CFR 50.33",
+            "FederationOrchestrator initialised: strategy=%s, sites=%d, epsilon=%.1f, delta=%.1e per 21 CFR 50.33",
             self._strategy,
             self._num_sites,
             self._epsilon,
@@ -168,9 +167,7 @@ class FederationOrchestrator:
             Dictionary with model updates (gradients) for each model type
             and metadata confirming no raw data exposure.
         """
-        logger.info(
-            "Training local models per 21 CFR 50.33 — no raw data exposure"
-        )
+        logger.info("Training local models per 21 CFR 50.33 — no raw data exposure")
         # Per 21 CFR 50.33 — train locally, export only gradients
         model_updates: dict[str, Any] = {}
         for model_type in FEDERATED_MODEL_TYPES:
@@ -219,8 +216,7 @@ class FederationOrchestrator:
             and noise parameters.
         """
         logger.info(
-            "Applying differential privacy: epsilon=%.1f, delta=%.1e, "
-            "max_norm=%.1f per 21 CFR 50.33",
+            "Applying differential privacy: epsilon=%.1f, delta=%.1e, max_norm=%.1f per 21 CFR 50.33",
             self._epsilon,
             self._delta,
             self._max_norm,
@@ -228,11 +224,7 @@ class FederationOrchestrator:
         import math
 
         # Compute noise scale per Gaussian mechanism
-        sigma = (
-            self._max_norm
-            * math.sqrt(2.0 * math.log(1.25 / self._delta))
-            / self._epsilon
-        )
+        sigma = self._max_norm * math.sqrt(2.0 * math.log(1.25 / self._delta)) / self._epsilon
 
         privatised_updates: dict[str, Any] = {}
         for model_type, update in model_updates.items():
@@ -250,10 +242,10 @@ class FederationOrchestrator:
                 clipped_norm = float(np.linalg.norm(grad_array))
             else:
                 # Fallback without numpy
-                grad_norm = sum(g ** 2 for g in gradients) ** 0.5
+                grad_norm = sum(g**2 for g in gradients) ** 0.5
                 scale = min(1.0, self._max_norm / max(grad_norm, 1e-12))
                 privatised = [g * scale for g in gradients]
-                clipped_norm = sum(g ** 2 for g in privatised) ** 0.5
+                clipped_norm = sum(g**2 for g in privatised) ** 0.5
 
             privatised_updates[model_type] = {
                 "gradients": privatised,
@@ -303,8 +295,7 @@ class FederationOrchestrator:
             metadata confirming MCP conformance.
         """
         logger.info(
-            "Executing secure aggregation via SMPC with %d sites "
-            "per 21 CFR 312.52",
+            "Executing secure aggregation via SMPC with %d sites per 21 CFR 312.52",
             len(site_updates),
         )
         num_sites = len(site_updates)
@@ -340,10 +331,7 @@ class FederationOrchestrator:
             else:
                 n = len(all_grads)
                 dim = len(all_grads[0])
-                mean_grad = [
-                    sum(all_grads[s][d] for s in range(n)) / n
-                    for d in range(dim)
-                ]
+                mean_grad = [sum(all_grads[s][d] for s in range(n)) / n for d in range(dim)]
 
             aggregated[model_type] = {
                 "global_gradients": mean_grad,
@@ -394,9 +382,7 @@ class FederationOrchestrator:
         # Step 3: Simulate other site updates for aggregation
         other_sites = []
         for site_idx in range(self._num_sites - 1):
-            site_local = self.train_local_models(
-                {"num_samples": 1, "round": round_number, "site": site_idx}
-            )
+            site_local = self.train_local_models({"num_samples": 1, "round": round_number, "site": site_idx})
             site_dp = self.apply_differential_privacy(site_local["model_updates"])
             other_sites.append(site_dp)
 
@@ -425,14 +411,16 @@ class FederationOrchestrator:
         round_hash = self._compute_round_hash(round_number, contribution)
         self._audit_hashes.append(round_hash)
 
-        self._round_results.append({
-            "round": round_number,
-            "epsilon_spent": dp_result["epsilon_spent"],
-            "total_epsilon": dp_result["total_epsilon_spent"],
-            "gradient_norm": float(gradient_norm),
-            "sites_aggregated": len(all_site_updates),
-            "hash": round_hash,
-        })
+        self._round_results.append(
+            {
+                "round": round_number,
+                "epsilon_spent": dp_result["epsilon_spent"],
+                "total_epsilon": dp_result["total_epsilon_spent"],
+                "gradient_norm": float(gradient_norm),
+                "sites_aggregated": len(all_site_updates),
+                "hash": round_hash,
+            }
+        )
 
         return contribution
 
@@ -452,10 +440,7 @@ class FederationOrchestrator:
             Dictionary with federated KM PFS curve data and Cox PH
             hazard ratios computed without raw data exchange.
         """
-        logger.info(
-            "Computing federated analytics (KM PFS, Cox PH) "
-            "per 21 CFR 50.33 — no raw data shared"
-        )
+        logger.info("Computing federated analytics (KM PFS, Cox PH) per 21 CFR 50.33 — no raw data shared")
         # Federated Kaplan-Meier: each site contributes counts, not times
         # Per 21 CFR 50.33 — aggregate sufficient statistics only
         km_timepoints = [0, 3, 6, 9, 12, 15, 18]
@@ -508,10 +493,7 @@ class FederationOrchestrator:
             Dictionary with DSMB report including safety summary,
             device-related event counts, and recommendation.
         """
-        logger.info(
-            "Generating DSMB report per 21 CFR 312.33 — "
-            "0 device-related events"
-        )
+        logger.info("Generating DSMB report per 21 CFR 312.33 — 0 device-related events")
         # Per 21 CFR 312.33 — DSMB safety reporting
         ae_summary = {
             "total_aes": 14,
@@ -562,33 +544,30 @@ class FederationOrchestrator:
             Dictionary with per-site quality metrics and overall
             federation health status.
         """
-        logger.info(
-            "Monitoring site performance per 21 CFR 312.56 — "
-            "target data quality >= 95%%"
-        )
+        logger.info("Monitoring site performance per 21 CFR 312.56 — target data quality >= 95%%")
         # Per 21 CFR 312.56 — investigator recordkeeping
         site_metrics = []
         for site_idx in range(self._num_sites):
             site_id = f"SITE-{site_idx + 1:03d}"
             quality = 0.973 - (site_idx * 0.002)  # slight variation
-            site_metrics.append({
-                "site_id": site_id,
-                "data_quality": round(quality, 4),
-                "rounds_contributed": len(self._contributions),
-                "missing_data_rate": round(1.0 - quality, 4),
-                "query_resolution_days": 2.1 + site_idx * 0.3,
-                "protocol_deviations": 0,
-                "meets_threshold": quality >= SITE_DATA_QUALITY_THRESHOLD,
-            })
+            site_metrics.append(
+                {
+                    "site_id": site_id,
+                    "data_quality": round(quality, 4),
+                    "rounds_contributed": len(self._contributions),
+                    "missing_data_rate": round(1.0 - quality, 4),
+                    "query_resolution_days": 2.1 + site_idx * 0.3,
+                    "protocol_deviations": 0,
+                    "meets_threshold": quality >= SITE_DATA_QUALITY_THRESHOLD,
+                }
+            )
 
         overall_quality = sum(s["data_quality"] for s in site_metrics) / len(site_metrics)
 
         result = {
             "site_metrics": site_metrics,
             "overall_data_quality": round(overall_quality, 4),
-            "sites_meeting_threshold": sum(
-                1 for s in site_metrics if s["meets_threshold"]
-            ),
+            "sites_meeting_threshold": sum(1 for s in site_metrics if s["meets_threshold"]),
             "total_sites": self._num_sites,
             "federation_health": "HEALTHY",
             "cfr_section": "21 CFR 312.56",
@@ -612,15 +591,13 @@ class FederationOrchestrator:
             Dictionary with audit chain metadata, hash verification
             status, and chain integrity confirmation.
         """
-        logger.info(
-            "Maintaining hash-chained audit trail per 21 CFR 312.58"
-        )
+        logger.info("Maintaining hash-chained audit trail per 21 CFR 312.58")
         # Per 21 CFR 312.58 — inspection-ready records
         # Verify chain integrity
         chain_valid = True
         for i in range(1, len(self._audit_hashes)):
             expected_prefix = self._audit_hashes[i - 1][:8]
-            if not self._audit_hashes[i].startswith("") :
+            if not self._audit_hashes[i].startswith(""):
                 # In real implementation, verify hash chain linkage
                 pass
 
@@ -686,8 +663,7 @@ class FederationOrchestrator:
             readiness, federation contributions recorded.
         """
         logger.info(
-            "Starting Stage 8: Federated Data Contribution "
-            "(%d rounds) per 21 CFR 50.33",
+            "Starting Stage 8: Federated Data Contribution (%d rounds) per 21 CFR 50.33",
             total_rounds,
         )
         state = patient_state
@@ -710,42 +686,48 @@ class FederationOrchestrator:
         audit = self.maintain_audit_trail()
 
         # Record regulatory events
-        state.add_regulatory_event(RegulatoryEvent(
-            event_type="FEDERATION_COMPLETE",
-            day=42 + total_rounds,
-            description=(
-                f"Federated learning completed: {total_rounds} rounds, "
-                f"total epsilon spent {self._total_epsilon_spent:.1f}, "
-                f"{self._num_sites} sites, DSMB recommends CONTINUE"
-            ),
-            document_id="FED-COMP-001",
-            cfr_section="21 CFR 50.33",
-            status="COMPLETED",
-        ))
+        state.add_regulatory_event(
+            RegulatoryEvent(
+                event_type="FEDERATION_COMPLETE",
+                day=42 + total_rounds,
+                description=(
+                    f"Federated learning completed: {total_rounds} rounds, "
+                    f"total epsilon spent {self._total_epsilon_spent:.1f}, "
+                    f"{self._num_sites} sites, DSMB recommends CONTINUE"
+                ),
+                document_id="FED-COMP-001",
+                cfr_section="21 CFR 50.33",
+                status="COMPLETED",
+            )
+        )
 
-        state.add_regulatory_event(RegulatoryEvent(
-            event_type="DSMB_REPORT",
-            day=42 + total_rounds,
-            description=(
-                f"DSMB interim report: {dsmb['device_related_events']} "
-                f"device-related events, recommendation={dsmb['dsmb_recommendation']}"
-            ),
-            document_id="DSMB-RPT-001",
-            cfr_section="21 CFR 312.33",
-            status="FILED",
-        ))
+        state.add_regulatory_event(
+            RegulatoryEvent(
+                event_type="DSMB_REPORT",
+                day=42 + total_rounds,
+                description=(
+                    f"DSMB interim report: {dsmb['device_related_events']} "
+                    f"device-related events, recommendation={dsmb['dsmb_recommendation']}"
+                ),
+                document_id="DSMB-RPT-001",
+                cfr_section="21 CFR 312.33",
+                status="FILED",
+            )
+        )
 
-        state.add_regulatory_event(RegulatoryEvent(
-            event_type="AUDIT_TRAIL_VERIFIED",
-            day=42 + total_rounds,
-            description=(
-                f"Hash-chained audit trail verified: {audit['total_entries']} "
-                f"entries, chain_valid={audit['chain_valid']}"
-            ),
-            document_id="AUDIT-VER-001",
-            cfr_section="21 CFR 312.58",
-            status="VERIFIED",
-        ))
+        state.add_regulatory_event(
+            RegulatoryEvent(
+                event_type="AUDIT_TRAIL_VERIFIED",
+                day=42 + total_rounds,
+                description=(
+                    f"Hash-chained audit trail verified: {audit['total_entries']} "
+                    f"entries, chain_valid={audit['chain_valid']}"
+                ),
+                document_id="AUDIT-VER-001",
+                cfr_section="21 CFR 312.58",
+                status="VERIFIED",
+            )
+        )
 
         # Update MCP conformance to FEDERATED_SITE
         state.mcp_conformance_level = MCPConformanceLevel.FEDERATED_SITE
@@ -766,8 +748,7 @@ class FederationOrchestrator:
         )
 
         logger.info(
-            "Stage 8 complete: %d rounds, epsilon=%.1f, "
-            "0 device-related events",
+            "Stage 8 complete: %d rounds, epsilon=%.1f, 0 device-related events",
             total_rounds,
             self._total_epsilon_spent,
         )

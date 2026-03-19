@@ -86,13 +86,15 @@ def _advance_through_stage_7(state):
         state.treatment_cycles.append(tc)
 
     # Add imaging timepoint for response assessment
-    state.imaging_timepoints.append(patient_state_mod.ImagingTimepoint(
-        day=42,
-        modality="CT",
-        tumor_volume_cm3=0.0,
-        response_category=patient_state_mod.ResponseCategory.CR,
-        notes="Complete response maintained post-surgery",
-    ))
+    state.imaging_timepoints.append(
+        patient_state_mod.ImagingTimepoint(
+            day=42,
+            modality="CT",
+            tumor_volume_cm3=0.0,
+            response_category=patient_state_mod.ResponseCategory.CR,
+            notes="Complete response maintained post-surgery",
+        )
+    )
 
     state.add_audit_entry(
         action="IMMUNOTHERAPY_COMPLETE",
@@ -160,9 +162,7 @@ def federation_config():
 class TestFederationOrchestrator:
     """Tests for Stage 8 federated data contribution."""
 
-    def test_local_model_training_no_data_exposure(
-        self, federation_state, federation_config
-    ):
+    def test_local_model_training_no_data_exposure(self, federation_state, federation_config):
         """Local model training never exports raw data per 21 CFR 50.33."""
         orch = FederationOrchestrator(federation_state, federation_config)
         result = orch.train_local_models({"num_samples": 1})
@@ -173,9 +173,7 @@ class TestFederationOrchestrator:
             assert "gradients" in update
             assert len(update["gradients"]) > 0
 
-    def test_differential_privacy_epsilon(
-        self, federation_state, federation_config
-    ):
+    def test_differential_privacy_epsilon(self, federation_state, federation_config):
         """Differential privacy uses epsilon=1.0, delta=1e-5."""
         orch = FederationOrchestrator(federation_state, federation_config)
         local = orch.train_local_models({"num_samples": 1})
@@ -185,9 +183,7 @@ class TestFederationOrchestrator:
         assert dp_result["sigma"] > 0
         assert dp_result["compliant"] is True
 
-    def test_gradient_clipping(
-        self, federation_state, federation_config
-    ):
+    def test_gradient_clipping(self, federation_state, federation_config):
         """Gradient clipping enforces max_norm=1.0 per 21 CFR 50.33."""
         orch = FederationOrchestrator(federation_state, federation_config)
         local = orch.train_local_models({"num_samples": 1})
@@ -197,9 +193,7 @@ class TestFederationOrchestrator:
             # Clipped norm should be <= max_norm (within floating point)
             assert update["clipped_norm"] <= 1.0 + 1e-6
 
-    def test_secure_aggregation_mcp_conformance(
-        self, federation_state, federation_config
-    ):
+    def test_secure_aggregation_mcp_conformance(self, federation_state, federation_config):
         """Secure aggregation uses SMPC and reports FEDERATED_SITE conformance."""
         orch = FederationOrchestrator(federation_state, federation_config)
         # Create privatised updates from multiple sites
@@ -216,9 +210,7 @@ class TestFederationOrchestrator:
         assert result["num_sites"] == 5
         assert result["compliant"] is True
 
-    def test_federation_round_execution(
-        self, federation_state, federation_config
-    ):
+    def test_federation_round_execution(self, federation_state, federation_config):
         """Single federation round produces valid FederationContribution."""
         orch = FederationOrchestrator(federation_state, federation_config)
         contribution = orch.run_federation_round(1)
@@ -228,9 +220,7 @@ class TestFederationOrchestrator:
         assert contribution.gradient_norm > 0
         assert contribution.day == 43  # 42 + 1
 
-    def test_federation_strategy_selection(
-        self, federation_state
-    ):
+    def test_federation_strategy_selection(self, federation_state):
         """Federation supports multiple strategy options."""
         for strategy in stage_08_mod.FEDERATION_STRATEGIES:
             config = {
@@ -243,9 +233,7 @@ class TestFederationOrchestrator:
             orch = FederationOrchestrator(federation_state, config)
             assert orch._strategy == strategy
 
-    def test_federated_kaplan_meier_no_raw_data(
-        self, federation_state, federation_config
-    ):
+    def test_federated_kaplan_meier_no_raw_data(self, federation_state, federation_config):
         """Federated KM PFS computed without sharing raw survival times."""
         orch = FederationOrchestrator(federation_state, federation_config)
         analytics = orch.compute_federated_analytics()
@@ -256,9 +244,7 @@ class TestFederationOrchestrator:
         assert km["survival_probability"][0] == 1.0
         assert km["survival_probability"][-1] < 1.0
 
-    def test_federated_cox_ph(
-        self, federation_state, federation_config
-    ):
+    def test_federated_cox_ph(self, federation_state, federation_config):
         """Federated Cox PH produces hazard ratios without raw data."""
         orch = FederationOrchestrator(federation_state, federation_config)
         analytics = orch.compute_federated_analytics()
@@ -270,9 +256,7 @@ class TestFederationOrchestrator:
         assert pai_hr < 1.0
         assert cox["covariates"]["physical_ai_arm"]["p_value"] < 0.05
 
-    def test_dsmb_safety_report_physical_ai(
-        self, federation_state, federation_config
-    ):
+    def test_dsmb_safety_report_physical_ai(self, federation_state, federation_config):
         """DSMB reports 0 device-related events per 21 CFR 312.33."""
         orch = FederationOrchestrator(federation_state, federation_config)
         # Run a few rounds first
@@ -286,9 +270,7 @@ class TestFederationOrchestrator:
         assert dsmb["physical_ai_safety"]["software_malfunctions"] == 0
         assert dsmb["compliant"] is True
 
-    def test_site_performance_metrics(
-        self, federation_state, federation_config
-    ):
+    def test_site_performance_metrics(self, federation_state, federation_config):
         """Site data quality meets 97.3% target per 21 CFR 312.56."""
         orch = FederationOrchestrator(federation_state, federation_config)
         perf = orch.monitor_site_performance()
@@ -300,9 +282,7 @@ class TestFederationOrchestrator:
             assert site["meets_threshold"] is True
             assert site["protocol_deviations"] == 0
 
-    def test_audit_trail_hash_chained(
-        self, federation_state, federation_config
-    ):
+    def test_audit_trail_hash_chained(self, federation_state, federation_config):
         """Audit trail is hash-chained per 21 CFR 312.58."""
         orch = FederationOrchestrator(federation_state, federation_config)
         for r in range(1, 11):
@@ -317,9 +297,7 @@ class TestFederationOrchestrator:
         # Verify hashes are unique
         assert len(set(orch._audit_hashes)) == 10
 
-    def test_70_rounds_executed(
-        self, federation_state, federation_config
-    ):
+    def test_70_rounds_executed(self, federation_state, federation_config):
         """All 70 federation rounds execute and track epsilon."""
         orch = FederationOrchestrator(federation_state, federation_config)
         for r in range(1, 71):
@@ -331,9 +309,7 @@ class TestFederationOrchestrator:
         # including simulated sites, but contributions track 70 rounds
         assert orch._contributions[-1].round_number == 70
 
-    def test_federation_run_end_to_end(
-        self, federation_state, federation_config
-    ):
+    def test_federation_run_end_to_end(self, federation_state, federation_config):
         """Full federation run produces valid state transition."""
         orch = FederationOrchestrator(federation_state, federation_config)
         state = orch.run(federation_state, total_rounds=70)
@@ -342,18 +318,9 @@ class TestFederationOrchestrator:
         assert len(state.federation_contributions) == 70
         assert state.mcp_conformance_level == MCPConformanceLevel.FEDERATED_SITE
         # Verify regulatory events were recorded
-        fed_events = [
-            e for e in state.regulatory_events
-            if e.event_type == "FEDERATION_COMPLETE"
-        ]
+        fed_events = [e for e in state.regulatory_events if e.event_type == "FEDERATION_COMPLETE"]
         assert len(fed_events) >= 1
-        dsmb_events = [
-            e for e in state.regulatory_events
-            if e.event_type == "DSMB_REPORT"
-        ]
+        dsmb_events = [e for e in state.regulatory_events if e.event_type == "DSMB_REPORT"]
         assert len(dsmb_events) >= 1
-        audit_events = [
-            e for e in state.regulatory_events
-            if e.event_type == "AUDIT_TRAIL_VERIFIED"
-        ]
+        audit_events = [e for e in state.regulatory_events if e.event_type == "AUDIT_TRAIL_VERIFIED"]
         assert len(audit_events) >= 1

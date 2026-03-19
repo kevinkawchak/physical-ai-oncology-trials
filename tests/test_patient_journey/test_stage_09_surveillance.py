@@ -109,9 +109,7 @@ def _build_state_through_stage_8():
         "delta": 1e-5,
         "max_norm": 1.0,
     }
-    state = stage_08_mod.FederationOrchestrator(state, federation_config).run(
-        state, total_rounds=70
-    )
+    state = stage_08_mod.FederationOrchestrator(state, federation_config).run(state, total_rounds=70)
     return state
 
 
@@ -219,10 +217,7 @@ class TestSurveillanceOrchestrator:
         assert result["cfr_section"] == "21 CFR 312.88"
         assert result["compliant"] is True
         # Thyroid should be MANAGED (known hypothyroidism from cycle 6)
-        thyroid = [
-            c for c in result["category_results"]
-            if c["category"] == "thyroid_function"
-        ]
+        thyroid = [c for c in result["category_results"] if c["category"] == "thyroid_function"]
         assert len(thyroid) == 1
         assert thyroid[0]["status"] == "MANAGED"
         assert thyroid[0]["max_grade"] == 1
@@ -273,39 +268,21 @@ class TestSurveillanceOrchestrator:
         assert state.outcome["surveillance_complete"] is True
 
         # Regulatory events recorded
-        completion_events = [
-            e for e in state.regulatory_events
-            if e.event_type == "TREATMENT_COMPLETION"
-        ]
+        completion_events = [e for e in state.regulatory_events if e.event_type == "TREATMENT_COMPLETION"]
         assert len(completion_events) >= 1
 
-        twin_events = [
-            e for e in state.regulatory_events
-            if e.event_type == "SURVEILLANCE_TWIN_ACTIVE"
-        ]
+        twin_events = [e for e in state.regulatory_events if e.event_type == "SURVEILLANCE_TWIN_ACTIVE"]
         assert len(twin_events) >= 1
 
-        safety_events = [
-            e for e in state.regulatory_events
-            if e.event_type == "LONG_TERM_SAFETY_REPORT"
-        ]
+        safety_events = [e for e in state.regulatory_events if e.event_type == "LONG_TERM_SAFETY_REPORT"]
         assert len(safety_events) >= 1
 
-        imaging_events = [
-            e for e in state.regulatory_events
-            if e.event_type == "SURVEILLANCE_IMAGING_COMPLETE"
-        ]
+        imaging_events = [e for e in state.regulatory_events if e.event_type == "SURVEILLANCE_IMAGING_COMPLETE"]
         assert len(imaging_events) >= 1
 
-        fu_events = [
-            e for e in state.regulatory_events
-            if e.event_type == "FOLLOW_UP_DATA_COLLECTED"
-        ]
+        fu_events = [e for e in state.regulatory_events if e.event_type == "FOLLOW_UP_DATA_COLLECTED"]
         assert len(fu_events) >= 1
 
         # Imaging timepoints added to state
-        surv_imaging = [
-            tp for tp in state.imaging_timepoints
-            if "surveillance" in tp.notes.lower()
-        ]
+        surv_imaging = [tp for tp in state.imaging_timepoints if "surveillance" in tp.notes.lower()]
         assert len(surv_imaging) == 4

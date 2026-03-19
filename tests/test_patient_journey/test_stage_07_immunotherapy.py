@@ -78,14 +78,16 @@ def _advance_through_recovery(state):
     state.status = PatientStatus.RECOVERING
 
     # Post-surgical recovery milestones
-    state.add_regulatory_event(RegulatoryEvent(
-        event_type="RECOVERY_COMPLETE",
-        day=27,
-        description="Post-operative recovery: wound healing satisfactory, pathology finalised pT2aN2M0",
-        document_id="RECOVERY-001",
-        cfr_section="ICH E6(R3) section 2.3",
-        status="COMPLETED",
-    ))
+    state.add_regulatory_event(
+        RegulatoryEvent(
+            event_type="RECOVERY_COMPLETE",
+            day=27,
+            description="Post-operative recovery: wound healing satisfactory, pathology finalised pT2aN2M0",
+            document_id="RECOVERY-001",
+            cfr_section="ICH E6(R3) section 2.3",
+            status="COMPLETED",
+        )
+    )
 
     state.add_audit_entry(
         action="RECOVERY_COMPLETE",
@@ -447,15 +449,13 @@ class TestImmunotherapyOrchestrator:
         assert len(state.treatment_cycles) == 35
 
         # Adverse events recorded on state (2 from immunotherapy)
-        immuno_aes = [
-            ae for ae in state.adverse_events
-            if ae.event_id.startswith("AE-IMM")
-        ]
+        immuno_aes = [ae for ae in state.adverse_events if ae.event_id.startswith("AE-IMM")]
         assert len(immuno_aes) == 2
 
         # Imaging time-points recorded
         immuno_imaging = [
-            img for img in state.imaging_timepoints
+            img
+            for img in state.imaging_timepoints
             if img.modality == "CT" and img.response_category == ResponseCategory.CR
         ]
         assert len(immuno_imaging) == 7

@@ -155,18 +155,17 @@ class EnrollmentOrchestrator:
         inclusion_results["ecog_0_or_1"] = state.organ_function.ecog in (0, 1)
         inclusion_results["pdl1_gte_50"] = state.biomarkers.pdl1_tps >= 50.0
         inclusion_results["adequate_organ_function"] = (
-            state.organ_function.renal_function >= 60.0
-            and state.organ_function.cardiac_ef >= 50.0
+            state.organ_function.renal_function >= 60.0 and state.organ_function.cardiac_ef >= 50.0
         )
         inclusion_results["age_gte_18"] = state.demographics.age >= 18
 
         exclusion_results: dict[str, bool] = {}
-        # Per 21 CFR 312.20 - exclusion criteria (False means not triggered)
-        exclusion_results["prior_immunotherapy"] = False
-        exclusion_results["autoimmune_disease"] = False
-        exclusion_results["active_brain_metastases"] = False
-        exclusion_results["uncontrolled_infection"] = False
-        exclusion_results["pregnancy"] = False
+        # Per 21 CFR 312.20 - exclusion criteria (True means triggered/excluded)
+        exclusion_results["prior_immunotherapy"] = bool(exclusion.get("prior_immunotherapy", False))
+        exclusion_results["autoimmune_disease"] = bool(exclusion.get("autoimmune_disease", False))
+        exclusion_results["active_brain_metastases"] = bool(exclusion.get("active_brain_metastases", False))
+        exclusion_results["uncontrolled_infection"] = bool(exclusion.get("uncontrolled_infection", False))
+        exclusion_results["pregnancy"] = bool(exclusion.get("pregnancy", False))
 
         all_inclusion_met = all(inclusion_results.values())
         no_exclusion_triggered = not any(exclusion_results.values())
@@ -503,10 +502,13 @@ class EnrollmentOrchestrator:
 
         # Step 1: Check eligibility
         # Per Physical AI Adaptation of 21 CFR 312.20
-        criteria = self.trial_config.get("criteria", {
-            "inclusion": DEFAULT_INCLUSION_CRITERIA,
-            "exclusion": DEFAULT_EXCLUSION_CRITERIA,
-        })
+        criteria = self.trial_config.get(
+            "criteria",
+            {
+                "inclusion": DEFAULT_INCLUSION_CRITERIA,
+                "exclusion": DEFAULT_EXCLUSION_CRITERIA,
+            },
+        )
         eligibility = self.check_eligibility(criteria)
         if not eligibility["eligible"]:
             logger.error("Patient not eligible - enrollment blocked")
@@ -545,14 +547,16 @@ class EnrollmentOrchestrator:
         # Step 6: IRB review
         # Per 21 CFR 50.31
         irb_result = self.submit_for_irb_review({"consent_form": consent})
-        state.add_regulatory_event(RegulatoryEvent(
-            event_type="IRB_APPROVAL",
-            day=-7,
-            description="IRB approved Physical AI investigation per 21 CFR 50.31",
-            document_id="IRB-SITE003-001",
-            cfr_section="21 CFR 50.31",
-            status="APPROVED",
-        ))
+        state.add_regulatory_event(
+            RegulatoryEvent(
+                event_type="IRB_APPROVAL",
+                day=-7,
+                description="IRB approved Physical AI investigation per 21 CFR 50.31",
+                document_id="IRB-SITE003-001",
+                cfr_section="21 CFR 50.31",
+                status="APPROVED",
+            )
+        )
 
         # Step 7: Randomize
         # Per ICH E6(R3) section 2.7
@@ -569,43 +573,49 @@ class EnrollmentOrchestrator:
         state.enrollment_day = 0
 
         # Record regulatory events for enrollment
-        state.add_regulatory_event(RegulatoryEvent(
-            event_type="IND_SCOPE",
-            day=-14,
-            description=(
-                "Physical AI IND content verified per 21 CFR 312.23: robot capability "
-                "profiles, USL scores, simulation data, cybersecurity assessments included."
-            ),
-            document_id="REG-003",
-            cfr_section="21 CFR 312.23",
-            status="VERIFIED",
-        ))
+        state.add_regulatory_event(
+            RegulatoryEvent(
+                event_type="IND_SCOPE",
+                day=-14,
+                description=(
+                    "Physical AI IND content verified per 21 CFR 312.23: robot capability "
+                    "profiles, USL scores, simulation data, cybersecurity assessments included."
+                ),
+                document_id="REG-003",
+                cfr_section="21 CFR 312.23",
+                status="VERIFIED",
+            )
+        )
 
-        state.add_regulatory_event(RegulatoryEvent(
-            event_type="CONSENT_OBTAINED",
-            day=0,
-            description=(
-                "Informed consent obtained with 6 ICH E6(R3) section 2.8.5 Physical AI elements, "
-                "8 basic elements per 21 CFR 50.25, Physical AI appendix with robot types, "
-                "autonomy levels, and override rights disclosed."
-            ),
-            document_id="CONSENT-PAT-2026-0042-v1",
-            cfr_section="21 CFR 50.25",
-            status="OBTAINED",
-        ))
+        state.add_regulatory_event(
+            RegulatoryEvent(
+                event_type="CONSENT_OBTAINED",
+                day=0,
+                description=(
+                    "Informed consent obtained with 6 ICH E6(R3) section 2.8.5 Physical AI elements, "
+                    "8 basic elements per 21 CFR 50.25, Physical AI appendix with robot types, "
+                    "autonomy levels, and override rights disclosed."
+                ),
+                document_id="CONSENT-PAT-2026-0042-v1",
+                cfr_section="21 CFR 50.25",
+                status="OBTAINED",
+            )
+        )
 
-        state.add_regulatory_event(RegulatoryEvent(
-            event_type="RANDOMIZATION",
-            day=0,
-            description=(
-                "Stratified block randomization per ICH E6(R3) section 2.7: "
-                "Arm A (Experimental) assigned. Stratification: Stage IIIB, PD-L1 high, "
-                "ECOG 1, former smoker."
-            ),
-            document_id="RAND-PAT-2026-0042",
-            cfr_section="ICH E6(R3) section 2.7",
-            status="RANDOMIZED",
-        ))
+        state.add_regulatory_event(
+            RegulatoryEvent(
+                event_type="RANDOMIZATION",
+                day=0,
+                description=(
+                    "Stratified block randomization per ICH E6(R3) section 2.7: "
+                    "Arm A (Experimental) assigned. Stratification: Stage IIIB, PD-L1 high, "
+                    "ECOG 1, former smoker."
+                ),
+                document_id="RAND-PAT-2026-0042",
+                cfr_section="ICH E6(R3) section 2.7",
+                status="RANDOMIZED",
+            )
+        )
 
         # Update status to RANDOMIZED
         state.status = PatientStatus.RANDOMIZED

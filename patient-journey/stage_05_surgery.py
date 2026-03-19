@@ -445,27 +445,31 @@ class SurgeryOrchestrator:
         state.tumor.volume_cm3 = 0.0
 
         # Record regulatory events
-        state.add_regulatory_event(RegulatoryEvent(
-            event_type="SURGERY_SAFETY_MONITORING",
-            day=14,
-            description=(
-                "Runtime safety monitoring at 1 kHz per 21 CFR 50.30. "
-                f"Max force {safety['max_force_n']}N, 0 boundary violations, 0 e-stops. "
-                "Force warning at T+45min (12.1N) resolved in 200ms."
-            ),
-            document_id="SURG-SAFETY-001",
-            cfr_section="21 CFR 50.30",
-            status="MONITORED",
-        ))
+        state.add_regulatory_event(
+            RegulatoryEvent(
+                event_type="SURGERY_SAFETY_MONITORING",
+                day=14,
+                description=(
+                    "Runtime safety monitoring at 1 kHz per 21 CFR 50.30. "
+                    f"Max force {safety['max_force_n']}N, 0 boundary violations, 0 e-stops. "
+                    "Force warning at T+45min (12.1N) resolved in 200ms."
+                ),
+                document_id="SURG-SAFETY-001",
+                cfr_section="21 CFR 50.30",
+                status="MONITORED",
+            )
+        )
 
-        state.add_regulatory_event(RegulatoryEvent(
-            event_type="INVESTIGATOR_OVERSIGHT",
-            day=14,
-            description="Investigator oversight review per ICH E6(R3) section 2.12.3: items (a)-(e) APPROVED",
-            document_id="OVERSIGHT-001",
-            cfr_section="ICH E6(R3) section 2.12.3",
-            status="APPROVED",
-        ))
+        state.add_regulatory_event(
+            RegulatoryEvent(
+                event_type="INVESTIGATOR_OVERSIGHT",
+                day=14,
+                description="Investigator oversight review per ICH E6(R3) section 2.12.3: items (a)-(e) APPROVED",
+                document_id="OVERSIGHT-001",
+                cfr_section="ICH E6(R3) section 2.12.3",
+                status="APPROVED",
+            )
+        )
 
         state.add_audit_entry(
             action="SURGERY_COMPLETE",

@@ -120,13 +120,15 @@ def _advance_through_stage_9(state):
     # Simulate surveillance (Stage 9)
     base_day = 730
     for quarter in range(1, 5):
-        state.imaging_timepoints.append(ImagingTimepoint(
-            day=base_day + quarter * 90,
-            modality="CT",
-            tumor_volume_cm3=0.0,
-            response_category=ResponseCategory.CR,
-            notes=f"Surveillance Q{quarter}: NED",
-        ))
+        state.imaging_timepoints.append(
+            ImagingTimepoint(
+                day=base_day + quarter * 90,
+                modality="CT",
+                tumor_volume_cm3=0.0,
+                response_category=ResponseCategory.CR,
+                notes=f"Surveillance Q{quarter}: NED",
+            )
+        )
     state.advance_stage(PatientStage.SURVEILLANCE)
     state.status = PatientStatus.SURVEILLANCE
     return state
@@ -279,11 +281,16 @@ class TestCloseoutOrchestrator:
         assert state.outcome["federated_hr"] == 0.62
         # Verify regulatory events from closeout
         closeout_events = [
-            e for e in state.regulatory_events
-            if e.event_type in (
-                "DATA_HARD_LOCK", "DEIDENTIFICATION_REVIEW",
-                "CSR_GENERATED", "GCP_AUDIT_FINAL",
-                "PHYSICAL_AI_DATA_ARCHIVED", "TRIAL_CONTRIBUTION_CALCULATED",
+            e
+            for e in state.regulatory_events
+            if e.event_type
+            in (
+                "DATA_HARD_LOCK",
+                "DEIDENTIFICATION_REVIEW",
+                "CSR_GENERATED",
+                "GCP_AUDIT_FINAL",
+                "PHYSICAL_AI_DATA_ARCHIVED",
+                "TRIAL_CONTRIBUTION_CALCULATED",
             )
         ]
         assert len(closeout_events) >= 6

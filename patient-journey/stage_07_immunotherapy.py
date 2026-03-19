@@ -167,8 +167,7 @@ class ImmunotherapyOrchestrator:
             Treatment initialisation result with PK/PD model and schedule.
         """
         logger.info(
-            "Initialising treatment: %s %s mg %s q%dd, %d planned cycles "
-            "per ICH E6(R3) section 2.5",
+            "Initialising treatment: %s %s mg %s q%dd, %d planned cycles per ICH E6(R3) section 2.5",
             DRUG_NAME,
             DOSE_MG,
             ROUTE,
@@ -197,11 +196,13 @@ class ImmunotherapyOrchestrator:
         schedule = []
         for cycle_num in range(1, PLANNED_CYCLES + 1):
             cycle_day = TREATMENT_START_DAY + (cycle_num - 1) * CYCLE_INTERVAL_DAYS
-            schedule.append({
-                "cycle": cycle_num,
-                "day": cycle_day,
-                "imaging": cycle_num in IMAGING_CYCLES,
-            })
+            schedule.append(
+                {
+                    "cycle": cycle_num,
+                    "day": cycle_day,
+                    "imaging": cycle_num in IMAGING_CYCLES,
+                }
+            )
 
         result = {
             "treatment_plan": {
@@ -297,12 +298,14 @@ class ImmunotherapyOrchestrator:
         response = None
         if imaging is not None and cycle_number in IMAGING_CYCLES:
             response = ResponseCategory.CR
-            self._imaging_results.append({
-                "cycle": cycle_number,
-                "day": cycle_day,
-                "response": response.value,
-                "recurrence_risk_pct": RECURRENCE_RISK_TRAJECTORY.get(cycle_number, 0.0),
-            })
+            self._imaging_results.append(
+                {
+                    "cycle": cycle_number,
+                    "day": cycle_day,
+                    "response": response.value,
+                    "recurrence_risk_pct": RECURRENCE_RISK_TRAJECTORY.get(cycle_number, 0.0),
+                }
+            )
 
         cycle = TreatmentCycle(
             cycle_number=cycle_number,
@@ -343,17 +346,19 @@ class ImmunotherapyOrchestrator:
         all_aes: list[dict] = []
         for cycle in cycles:
             for ae in cycle.toxicities:
-                all_aes.append({
-                    "cycle": cycle.cycle_number,
-                    "event_id": ae.event_id,
-                    "description": ae.description,
-                    "grade": ae.ctcae_grade,
-                    "organ_system": ae.organ_system,
-                    "onset_day": ae.onset_day,
-                    # Per 21 CFR 50.32 - ongoing consent notification
-                    "patient_notified": True,
-                    "notification_per": "21 CFR 50.32",
-                })
+                all_aes.append(
+                    {
+                        "cycle": cycle.cycle_number,
+                        "event_id": ae.event_id,
+                        "description": ae.description,
+                        "grade": ae.ctcae_grade,
+                        "organ_system": ae.organ_system,
+                        "onset_day": ae.onset_day,
+                        # Per 21 CFR 50.32 - ongoing consent notification
+                        "patient_notified": True,
+                        "notification_per": "21 CFR 50.32",
+                    }
+                )
 
         max_grade = max((ae["grade"] for ae in all_aes), default=0)
 
@@ -393,8 +398,7 @@ class ImmunotherapyOrchestrator:
         """
         risk_pct = RECURRENCE_RISK_TRAJECTORY.get(cycle, 3.0)
         logger.info(
-            "Updating digital twin at cycle %d: recurrence risk %.1f%% "
-            "per ICH E6(R3) section 2.12.4",
+            "Updating digital twin at cycle %d: recurrence risk %.1f%% per ICH E6(R3) section 2.12.4",
             cycle,
             risk_pct,
         )
@@ -436,8 +440,7 @@ class ImmunotherapyOrchestrator:
             Agent recommendation with human oversight record.
         """
         logger.info(
-            "Running adaptive agent at cycle %d per 21 CFR 312.404 "
-            "human oversight requirements",
+            "Running adaptive agent at cycle %d per 21 CFR 312.404 human oversight requirements",
             cycle,
         )
         risk_pct = RECURRENCE_RISK_TRAJECTORY.get(cycle, 3.0)
@@ -445,12 +448,14 @@ class ImmunotherapyOrchestrator:
         # Simulation agent: what-if analysis for rash management
         whatif_scenarios = []
         if cycle >= 12:
-            whatif_scenarios.append({
-                "scenario": "rash_dose_hold",
-                "description": "Hold pembrolizumab 1 cycle for rash management",
-                "predicted_risk_change_pct": 0.5,
-                "recommendation": "continue_with_topical_steroids",
-            })
+            whatif_scenarios.append(
+                {
+                    "scenario": "rash_dose_hold",
+                    "description": "Hold pembrolizumab 1 cycle for rash management",
+                    "predicted_risk_change_pct": 0.5,
+                    "recommendation": "continue_with_topical_steroids",
+                }
+            )
 
         recommendation = {
             "cycle": cycle,
@@ -532,9 +537,7 @@ class ImmunotherapyOrchestrator:
         Returns:
             Regulatory monitoring status.
         """
-        logger.info(
-            "Monitoring regulatory changes per 21 CFR 312.56 and 21 CFR 312.30"
-        )
+        logger.info("Monitoring regulatory changes per 21 CFR 312.56 and 21 CFR 312.30")
         # Per 21 CFR 312.56 - review of ongoing investigations
         result = {
             "monitoring_active": True,
@@ -567,9 +570,7 @@ class ImmunotherapyOrchestrator:
             ],
             "protocol_amendments_pending": 0,
             "system_maintenance_events": 0,
-            "next_review_cycle": min(
-                len(self._cycles_completed) + 4, PLANNED_CYCLES
-            ),
+            "next_review_cycle": min(len(self._cycles_completed) + 4, PLANNED_CYCLES),
             "cfr_sections": ["21 CFR 312.56", "21 CFR 312.30", "21 CFR 312.405"],
         }
         return result
@@ -667,13 +668,15 @@ class ImmunotherapyOrchestrator:
             # Update twin at imaging per ICH E6(R3) section 2.12.4
             if imaging is not None and cycle_num in IMAGING_CYCLES:
                 twin_update = self.update_twin_at_imaging(imaging, cycle_num)
-                state.imaging_timepoints.append(ImagingTimepoint(
-                    day=cycle.start_day,
-                    modality="CT",
-                    tumor_volume_cm3=0.0,
-                    response_category=ResponseCategory.CR,
-                    notes=f"NED, recurrence risk {twin_update['recurrence_risk_pct']}%",
-                ))
+                state.imaging_timepoints.append(
+                    ImagingTimepoint(
+                        day=cycle.start_day,
+                        modality="CT",
+                        tumor_volume_cm3=0.0,
+                        response_category=ResponseCategory.CR,
+                        notes=f"NED, recurrence risk {twin_update['recurrence_risk_pct']}%",
+                    )
+                )
 
             # Run adaptive agent per 21 CFR 312.404
             if cycle_num in IMAGING_CYCLES or cycle_num in (6, 12):
@@ -693,36 +696,42 @@ class ImmunotherapyOrchestrator:
         state.status = PatientStatus.ON_IMMUNOTHERAPY
 
         # Record regulatory events
-        state.add_regulatory_event(RegulatoryEvent(
-            event_type="IMMUNOTHERAPY_COMPLETE",
-            day=TREATMENT_START_DAY + (PLANNED_CYCLES - 1) * CYCLE_INTERVAL_DAYS,
-            description=(
-                f"Completed {PLANNED_CYCLES} cycles of {DRUG_NAME} {DOSE_MG} mg "
-                f"{ROUTE} q3w. {toxicity_summary['total_aes']} AEs (max grade "
-                f"{toxicity_summary['max_grade']}). NED at final imaging."
-            ),
-            document_id="IMM-COMPLETE-001",
-            cfr_section="ICH E6(R3) section 2.5",
-            status="COMPLETED",
-        ))
+        state.add_regulatory_event(
+            RegulatoryEvent(
+                event_type="IMMUNOTHERAPY_COMPLETE",
+                day=TREATMENT_START_DAY + (PLANNED_CYCLES - 1) * CYCLE_INTERVAL_DAYS,
+                description=(
+                    f"Completed {PLANNED_CYCLES} cycles of {DRUG_NAME} {DOSE_MG} mg "
+                    f"{ROUTE} q3w. {toxicity_summary['total_aes']} AEs (max grade "
+                    f"{toxicity_summary['max_grade']}). NED at final imaging."
+                ),
+                document_id="IMM-COMPLETE-001",
+                cfr_section="ICH E6(R3) section 2.5",
+                status="COMPLETED",
+            )
+        )
 
-        state.add_regulatory_event(RegulatoryEvent(
-            event_type="ANNUAL_IND_REPORT",
-            day=TREATMENT_START_DAY + 365,
-            description="Annual IND report with Physical AI performance data per 21 CFR 312.33",
-            document_id="IND-ANNUAL-001",
-            cfr_section="21 CFR 312.33",
-            status="SUBMITTED",
-        ))
+        state.add_regulatory_event(
+            RegulatoryEvent(
+                event_type="ANNUAL_IND_REPORT",
+                day=TREATMENT_START_DAY + 365,
+                description="Annual IND report with Physical AI performance data per 21 CFR 312.33",
+                document_id="IND-ANNUAL-001",
+                cfr_section="21 CFR 312.33",
+                status="SUBMITTED",
+            )
+        )
 
-        state.add_regulatory_event(RegulatoryEvent(
-            event_type="REGULATORY_MONITORING",
-            day=TREATMENT_START_DAY + (PLANNED_CYCLES - 1) * CYCLE_INTERVAL_DAYS,
-            description="Ongoing regulatory monitoring per 21 CFR 312.56; no amendments required",
-            document_id="REG-MON-001",
-            cfr_section="21 CFR 312.56",
-            status="COMPLIANT",
-        ))
+        state.add_regulatory_event(
+            RegulatoryEvent(
+                event_type="REGULATORY_MONITORING",
+                day=TREATMENT_START_DAY + (PLANNED_CYCLES - 1) * CYCLE_INTERVAL_DAYS,
+                description="Ongoing regulatory monitoring per 21 CFR 312.56; no amendments required",
+                document_id="REG-MON-001",
+                cfr_section="21 CFR 312.56",
+                status="COMPLIANT",
+            )
+        )
 
         state.add_audit_entry(
             action="IMMUNOTHERAPY_COMPLETE",

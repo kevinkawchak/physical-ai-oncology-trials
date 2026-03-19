@@ -323,9 +323,7 @@ class TestMasterJourneyOrchestrator:
         """STAGE_REGULATORY_MAP covers all 10 PatientStage values."""
         all_stages = set(PatientStage)
         mapped_stages = set(STAGE_REGULATORY_MAP.keys())
-        assert mapped_stages == all_stages, (
-            f"Missing stages: {all_stages - mapped_stages}"
-        )
+        assert mapped_stages == all_stages, f"Missing stages: {all_stages - mapped_stages}"
         # Each stage has at least one regulatory section
         for stage, sections in STAGE_REGULATORY_MAP.items():
             assert len(sections) >= 1, f"No sections for {stage}"
@@ -334,9 +332,7 @@ class TestMasterJourneyOrchestrator:
         """STAGE_MODULE_MAP covers all 10 PatientStage values."""
         all_stages = set(PatientStage)
         mapped_stages = set(STAGE_MODULE_MAP.keys())
-        assert mapped_stages == all_stages, (
-            f"Missing stages: {all_stages - mapped_stages}"
-        )
+        assert mapped_stages == all_stages, f"Missing stages: {all_stages - mapped_stages}"
         # Each stage has at least one module
         for stage, modules in STAGE_MODULE_MAP.items():
             assert len(modules) >= 1, f"No modules for {stage}"

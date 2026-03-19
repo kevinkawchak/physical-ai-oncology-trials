@@ -5,6 +5,37 @@ Format follows [Keep a Changelog](https://keepachangelog.com/).
 
 ## [Unreleased]
 
+## [2.6.0] - 2026-03-20
+
+### Added
+- `patient-journey/patient_state.py`: Central data model with 10 enums, 14 dataclasses, legal stage transitions, and PatientJourneyState master class
+- `patient-journey/stage_01_prescreening.py`: Pre-Screening & Referral Intake orchestrator (Day -30 to Day -14) with PHI detection, HIPAA Safe Harbor de-identification, DICOM validation
+- `patient-journey/stage_02_enrollment.py`: Enrollment & Informed Consent orchestrator (Day -14 to Day 0) with ICH E6(R3) consent elements, eligibility checks, IRB review, randomization
+- `patient-journey/stage_03_digital_twin.py`: Digital Twin Construction orchestrator (Day 0 to Day 7) with ASME V&V 40 validation, tumor microenvironment modeling, adaptive radiation simulation
+- `patient-journey/stage_04_robot_qualification.py`: Robot Qualification orchestrator (Day 7 to Day 13) with USL scoring, cross-framework validation, cybersecurity assessment, hand-eye calibration
+- `patient-journey/stage_05_surgery.py`: Surgery orchestrator (Day 14) with ROS 2 deployment, shared autonomy, sensor fusion, sim-vs-real validation, specimen chain of custody
+- `patient-journey/stage_06_recovery.py`: Post-Operative Recovery orchestrator (Day 14 to Day 28) with pathology integration, adverse event tracking, Physical AI causality assessment
+- `patient-journey/stage_07_immunotherapy.py`: Immunotherapy orchestrator (Day 28 to Day 763) with 35 pembrolizumab cycles, adaptive dosing, cumulative toxicity tracking, annual reporting
+- `patient-journey/stage_08_federation.py`: Federated Learning orchestrator (Day 28 to Day 763) with 70 rounds, differential privacy (epsilon=1.0, delta=1e-5), secure aggregation, DSMB reporting
+- `patient-journey/stage_09_surveillance.py`: Long-Term Surveillance orchestrator (Day 763 to Day 1858) with quarterly imaging, recurrence risk modeling (35% to 3%), treatment completion
+- `patient-journey/stage_10_closeout.py`: Trial Closeout orchestrator (Day 1858+) with HARD_LOCK, re-identification risk validation (<0.04%), GCP audit, regulatory package generation
+- `patient-journey/master_journey.py`: Master Journey Orchestrator coordinating all 10 stages with regulatory mapping, journey reporting, and stage result tracking
+- `patient-journey/diagrams/`: 30 ASCII progress diagrams (3 perspectives x 10 stages) -- timeline, regulatory, and clinical perspectives
+- `tests/test_patient_journey/`: 208 tests across 13 test modules including per-stage tests, master journey tests, and cross-stage consistency tests
+- `tests/test_patient_journey/test_cross_stage_consistency.py`: 57 cross-stage validation tests verifying enum completeness, stage transitions, orchestrator interfaces, demographic consistency, data model fields, full journey progression, diagram file existence, and module file existence
+
+### Changed
+- `ruff.toml`: Added per-file-ignores for `patient-journey/**/*.py` (F401, F402) to support conditional imports
+- `patient-journey/stage_02_enrollment.py`: Fixed exclusion criteria to use passed-in criteria dict instead of hardcoded False values
+
+### Notes
+- Single-patient journey for PAT-2026-0042 (58F, Stage IIIB NSCLC, ECOG 1, PD-L1 65%, TMB 14 mut/Mb, SITE-003)
+- Three regulatory frameworks: 21 CFR Part 312 Subpart J (sections 312.400-405), 21 CFR Part 50 Subpart C (sections 50.30-34), ICH E6(R3) (sections 1.2-1.5, 2.8-2.12)
+- Physical AI classifications: SURGICAL_ROBOT, COBOT, HUMANOID, THERAPEUTIC, DIAGNOSTIC, ASSISTIVE, REHABILITATIVE
+- USL scoring: 4 dimensions (Autonomy, Dexterity, Safety, Interoperability), range 1.0-10.0
+- MCP conformance levels: CORE, CLINICAL_READ, IMAGING, FEDERATED_SITE, ROBOT_PROCEDURE
+- Development by Claude Code Opus 4.6
+
 ## [2.5.0] - 2026-03-18
 
 ### Added

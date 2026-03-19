@@ -49,6 +49,7 @@ from patient_state import (
     Biomarkers,
     ConsentRecord,
     ConsentStatus,
+    DataLockStatus,
     MCPConformanceLevel,
     OrganFunction,
     PatientDemographics,
@@ -89,10 +90,10 @@ HIPAA_SAFE_HARBOR_IDENTIFIERS: list[str] = [
 
 # SNOMED CT mapping for common ICD-10 lung cancer codes
 ICD10_TO_SNOMED: dict[str, int] = {
-    "C34.1": 254637007,   # Malignant neoplasm of upper lobe, bronchus or lung
-    "C34.2": 254638002,   # Malignant neoplasm of middle lobe, bronchus or lung
-    "C34.3": 187875007,   # Malignant neoplasm of lower lobe, bronchus or lung
-    "C34.9": 93880001,    # Primary malignant neoplasm of lung
+    "C34.1": 254637007,  # Malignant neoplasm of upper lobe, bronchus or lung
+    "C34.2": 254638002,  # Malignant neoplasm of middle lobe, bronchus or lung
+    "C34.3": 187875007,  # Malignant neoplasm of lower lobe, bronchus or lung
+    "C34.9": 93880001,  # Primary malignant neoplasm of lung
 }
 
 # Required DICOM attributes for trial imaging
@@ -398,15 +399,17 @@ class PreScreeningOrchestrator:
                     missing_attrs.append(attr)
 
             valid = len(missing_attrs) == 0
-            series_results.append({
-                "series_index": idx,
-                "series_uid": series_meta.get("SeriesInstanceUID", f"SERIES-{idx}"),
-                "modality": series_meta.get("Modality", "UNKNOWN"),
-                "valid": valid,
-                "missing_attributes": missing_attrs,
-                "slice_thickness": series_meta.get("SliceThickness"),
-                "pixel_spacing": series_meta.get("PixelSpacing"),
-            })
+            series_results.append(
+                {
+                    "series_index": idx,
+                    "series_uid": series_meta.get("SeriesInstanceUID", f"SERIES-{idx}"),
+                    "modality": series_meta.get("Modality", "UNKNOWN"),
+                    "valid": valid,
+                    "missing_attributes": missing_attrs,
+                    "slice_thickness": series_meta.get("SliceThickness"),
+                    "pixel_spacing": series_meta.get("PixelSpacing"),
+                }
+            )
 
             if not valid:
                 logger.warning("DICOM series %d missing attributes: %s", idx, missing_attrs)
@@ -587,54 +590,66 @@ class PreScreeningOrchestrator:
 
         # Step 1: Scan incoming documents for PHI
         # Per 21 CFR 50.33 - all documents must be scanned before processing
-        documents = self.patient_data.get("documents", [
-            "Patient Name: Jane Doe, DOB: 1968-01-15, MRN: 12345678",
-            "Referring physician: Dr. Smith, Phone: 555-0123",
-        ])
+        documents = self.patient_data.get(
+            "documents",
+            [
+                "Patient Name: Jane Doe, DOB: 1968-01-15, MRN: 12345678",
+                "Referring physician: Dr. Smith, Phone: 555-0123",
+            ],
+        )
         phi_results = self.scan_for_phi(documents)
         logger.info("PHI scan: %d detections across %d documents", phi_results["total_detections"], len(documents))
 
         # Step 2: De-identify records
         # Per 21 CFR 50.33 - strip all 18 HIPAA identifiers
-        raw_records = self.patient_data.get("records", [
-            {
-                "patient_id": "ORIG-12345",
-                "name": "Jane Doe",
-                "date_of_birth": "1968-01-15",
-                "diagnosis_code": "C34.1",
-                "stage": "IIIB",
-            }
-        ])
+        raw_records = self.patient_data.get(
+            "records",
+            [
+                {
+                    "patient_id": "ORIG-12345",
+                    "name": "Jane Doe",
+                    "date_of_birth": "1968-01-15",
+                    "diagnosis_code": "C34.1",
+                    "stage": "IIIB",
+                }
+            ],
+        )
         deidentified = self.deidentify_records(raw_records)
         logger.info("De-identification: %d records processed", len(deidentified))
 
         # Step 3: Harmonize clinical data
         # Per ICH E6(R3) section 1.4.2 - standard vocabularies for twin construction
-        raw_clinical = self.patient_data.get("clinical_data", {
-            "diagnosis_code": "C34.1",
-            "stage": "IIIB",
-            "sex": "female",
-            "ecog": 1,
-        })
+        raw_clinical = self.patient_data.get(
+            "clinical_data",
+            {
+                "diagnosis_code": "C34.1",
+                "stage": "IIIB",
+                "sex": "female",
+                "ecog": 1,
+            },
+        )
         harmonized = self.harmonize_clinical_data(raw_clinical)
         logger.info("Harmonization: confidence %.2f", harmonized["confidence_scores"]["overall"])
 
         # Step 4: Validate DICOM imaging
         # Per Physical AI Adaptation of 21 CFR 312.3 - imaging quality for twin
-        dicom_series = self.patient_data.get("dicom_series", [
-            {
-                "PatientID": "PAT-2026-0042",
-                "StudyDate": "20260201",
-                "Modality": "CT",
-                "SliceThickness": 1.0,
-                "PixelSpacing": [0.7, 0.7],
-                "Rows": 512,
-                "Columns": 512,
-                "ImagePositionPatient": [0, 0, 0],
-                "ImageOrientationPatient": [1, 0, 0, 0, 1, 0],
-                "SeriesInstanceUID": "1.2.840.113619.2.55.3.0",
-            }
-        ])
+        dicom_series = self.patient_data.get(
+            "dicom_series",
+            [
+                {
+                    "PatientID": "PAT-2026-0042",
+                    "StudyDate": "20260201",
+                    "Modality": "CT",
+                    "SliceThickness": 1.0,
+                    "PixelSpacing": [0.7, 0.7],
+                    "Rows": 512,
+                    "Columns": 512,
+                    "ImagePositionPatient": [0, 0, 0],
+                    "ImageOrientationPatient": [1, 0, 0, 0, 1, 0],
+                    "SeriesInstanceUID": "1.2.840.113619.2.55.3.0",
+                }
+            ],
+        )
         dicom_result = self.validate_dicom(dicom_series)
         logger.info("DICOM validation: %d/%d series valid", dicom_result["valid_count"], dicom_result["series_count"])
 
@@ -647,32 +662,36 @@ class PreScreeningOrchestrator:
 
         # Record regulatory event for scope applicability
         # Per Physical AI Adaptation of 21 CFR 312.1 - IND scope includes Physical AI
-        state.add_regulatory_event(RegulatoryEvent(
-            event_type="SCOPE_APPLICABILITY",
-            day=-30,
-            description=(
-                "Physical AI IND requirements applicable per 21 CFR 312.1. "
-                "All Physical AI components (surgical robots, cobots, digital twins, "
-                "agentic AI) fall within IND scope for this investigation."
-            ),
-            document_id="REG-001",
-            cfr_section="21 CFR 312.1",
-            status="DOCUMENTED",
-        ))
+        state.add_regulatory_event(
+            RegulatoryEvent(
+                event_type="SCOPE_APPLICABILITY",
+                day=-30,
+                description=(
+                    "Physical AI IND requirements applicable per 21 CFR 312.1. "
+                    "All Physical AI components (surgical robots, cobots, digital twins, "
+                    "agentic AI) fall within IND scope for this investigation."
+                ),
+                document_id="REG-001",
+                cfr_section="21 CFR 312.1",
+                status="DOCUMENTED",
+            )
+        )
 
         # Record pre-screening completion
-        state.add_regulatory_event(RegulatoryEvent(
-            event_type="PRESCREENING_COMPLETE",
-            day=-14,
-            description=(
-                "Pre-screening complete: PHI scanned, records de-identified per "
-                "21 CFR 50.33, data harmonized to FHIR R4/SNOMED, DICOM validated, "
-                "access provisioned with 21 CFR Part 11 electronic signatures."
-            ),
-            document_id="REG-002",
-            cfr_section="21 CFR 50.33",
-            status="COMPLETED",
-        ))
+        state.add_regulatory_event(
+            RegulatoryEvent(
+                event_type="PRESCREENING_COMPLETE",
+                day=-14,
+                description=(
+                    "Pre-screening complete: PHI scanned, records de-identified per "
+                    "21 CFR 50.33, data harmonized to FHIR R4/SNOMED, DICOM validated, "
+                    "access provisioned with 21 CFR Part 11 electronic signatures."
+                ),
+                document_id="REG-002",
+                cfr_section="21 CFR 50.33",
+                status="COMPLETED",
+            )
+        )
 
         logger.info("Stage 1 complete: PAT-2026-0042 pre-screening finished, ready for enrollment")
         return state

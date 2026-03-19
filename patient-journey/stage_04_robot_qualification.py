@@ -463,14 +463,16 @@ class RobotQualificationOrchestrator:
             ("21 CFR 312.404", "Human oversight documented: autonomy levels, override mechanisms"),
             ("21 CFR 312.405", "Lifecycle management: 47/47 items passed, IEC 62304 compliant"),
         ]:
-            state.add_regulatory_event(RegulatoryEvent(
-                event_type="SUBPART_J_COMPLIANCE",
-                day=12,
-                description=desc,
-                document_id=f"RQ-{section.replace(' ', '-')}",
-                cfr_section=section,
-                status="COMPLIANT",
-            ))
+            state.add_regulatory_event(
+                RegulatoryEvent(
+                    event_type="SUBPART_J_COMPLIANCE",
+                    day=12,
+                    description=desc,
+                    document_id=f"RQ-{section.replace(' ', '-')}",
+                    cfr_section=section,
+                    status="COMPLIANT",
+                )
+            )
 
         state.add_audit_entry(
             action="ROBOT_QUALIFICATION_COMPLETE",

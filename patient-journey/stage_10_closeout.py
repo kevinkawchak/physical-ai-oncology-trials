@@ -131,8 +131,7 @@ class CloseoutOrchestrator:
         self._archive_result: dict = {}
         self._contribution_result: dict = {}
         logger.info(
-            "CloseoutOrchestrator initialised for patient %s "
-            "per 21 CFR 312.38 and 21 CFR 312.44",
+            "CloseoutOrchestrator initialised for patient %s per 21 CFR 312.38 and 21 CFR 312.44",
             patient_state.demographics.patient_id,
         )
 
@@ -152,10 +151,7 @@ class CloseoutOrchestrator:
             Dictionary with lock status, electronic signature metadata,
             record hash, and compliance confirmation.
         """
-        logger.info(
-            "Applying HARD_LOCK per 21 CFR 312.57 with Part 11 "
-            "electronic signatures"
-        )
+        logger.info("Applying HARD_LOCK per 21 CFR 312.57 with Part 11 electronic signatures")
         # Compute cryptographic hash of patient record
         state_summary = str(self.patient_state.summary())
         record_hash = hashlib.sha256(state_summary.encode("utf-8")).hexdigest()
@@ -200,8 +196,7 @@ class CloseoutOrchestrator:
             audit results, and compliance confirmation.
         """
         logger.info(
-            "Final de-identification review per 21 CFR 50.33 — "
-            "target re-identification risk < %.2f%%",
+            "Final de-identification review per 21 CFR 50.33 — target re-identification risk < %.2f%%",
             REIDENTIFICATION_RISK_THRESHOLD * 100,
         )
         # Assess re-identification risk across data categories
@@ -224,12 +219,14 @@ class CloseoutOrchestrator:
         overall_risk = 0.0
         for field_name, risk in data_fields:
             status = "CLEAN" if risk < REIDENTIFICATION_RISK_THRESHOLD else "FLAGGED"
-            field_assessments.append({
-                "field": field_name,
-                "risk": risk,
-                "status": status,
-                "phi_detected": False,
-            })
+            field_assessments.append(
+                {
+                    "field": field_name,
+                    "risk": risk,
+                    "status": status,
+                    "phi_detected": False,
+                }
+            )
             overall_risk = max(overall_risk, risk)
 
         # Compute combined maximum risk
@@ -269,10 +266,7 @@ class CloseoutOrchestrator:
             Dictionary with CSR components, regulatory section coverage,
             and Physical AI addenda.
         """
-        logger.info(
-            "Generating Clinical Study Report per 21 CFR 312.23 "
-            "with Physical AI device performance data"
-        )
+        logger.info("Generating Clinical Study Report per 21 CFR 312.23 with Physical AI device performance data")
         # Build CSR sections
         csr_sections = {
             "title_page": True,
@@ -293,9 +287,7 @@ class CloseoutOrchestrator:
         physical_ai_addenda = {
             "robot_system_identification": {
                 "robot_id": (
-                    self.patient_state.surgical_record.robot_id
-                    if self.patient_state.surgical_record
-                    else "N/A"
+                    self.patient_state.surgical_record.robot_id if self.patient_state.surgical_record else "N/A"
                 ),
                 "classification": (
                     self.patient_state.surgical_record.robot_classification.value
@@ -313,26 +305,18 @@ class CloseoutOrchestrator:
             },
             "digital_twin_validation": {
                 "calibrated": (
-                    self.patient_state.digital_twin.calibrated
-                    if self.patient_state.digital_twin
-                    else False
+                    self.patient_state.digital_twin.calibrated if self.patient_state.digital_twin else False
                 ),
                 "validation_score": (
-                    self.patient_state.digital_twin.validation_score
-                    if self.patient_state.digital_twin
-                    else 0.0
+                    self.patient_state.digital_twin.validation_score if self.patient_state.digital_twin else 0.0
                 ),
             },
             "surgical_performance": {
                 "operative_time_min": (
-                    self.patient_state.surgical_record.operative_time_min
-                    if self.patient_state.surgical_record
-                    else 0
+                    self.patient_state.surgical_record.operative_time_min if self.patient_state.surgical_record else 0
                 ),
                 "margins_status": (
-                    self.patient_state.surgical_record.margins_status
-                    if self.patient_state.surgical_record
-                    else "N/A"
+                    self.patient_state.surgical_record.margins_status if self.patient_state.surgical_record else "N/A"
                 ),
             },
             "federation_summary": {
@@ -374,20 +358,19 @@ class CloseoutOrchestrator:
             Dictionary with per-domain audit results, overall compliance
             verdict, and Physical AI-specific findings.
         """
-        logger.info(
-            "Running final GCP audit per ICH E6(R3) section 2.9 "
-            "and section 3.1.1 with Physical AI addenda"
-        )
+        logger.info("Running final GCP audit per ICH E6(R3) section 2.9 and section 3.1.1 with Physical AI addenda")
         # Audit each GCP domain
         domain_results: list[dict] = []
         for domain in GCP_AUDIT_DOMAINS:
-            domain_results.append({
-                "domain": domain,
-                "status": "PASS",
-                "findings": 0,
-                "critical_findings": 0,
-                "observations": [],
-            })
+            domain_results.append(
+                {
+                    "domain": domain,
+                    "status": "PASS",
+                    "findings": 0,
+                    "critical_findings": 0,
+                    "observations": [],
+                }
+            )
 
         # Physical AI-specific audit items
         physical_ai_audit = {
@@ -438,22 +421,21 @@ class CloseoutOrchestrator:
             hashes, and compliance confirmation.
         """
         logger.info(
-            "Archiving Physical AI data per 21 CFR 312.57 and "
-            "21 CFR 312.68 — %d-year retention",
+            "Archiving Physical AI data per 21 CFR 312.57 and 21 CFR 312.68 — %d-year retention",
             ARCHIVE_RETENTION_YEARS,
         )
         archive_manifest: list[dict] = []
         for category in PHYSICAL_AI_DATA_CATEGORIES:
-            entry_hash = hashlib.sha256(
-                f"{self.patient_state.demographics.patient_id}-{category}".encode()
-            ).hexdigest()
-            archive_manifest.append({
-                "category": category,
-                "archived": True,
-                "integrity_hash": entry_hash,
-                "format": "encrypted_parquet",
-                "compressed": True,
-            })
+            entry_hash = hashlib.sha256(f"{self.patient_state.demographics.patient_id}-{category}".encode()).hexdigest()
+            archive_manifest.append(
+                {
+                    "category": category,
+                    "archived": True,
+                    "integrity_hash": entry_hash,
+                    "format": "encrypted_parquet",
+                    "compressed": True,
+                }
+            )
 
         self._archive_result = {
             "archive_manifest": archive_manifest,
@@ -484,10 +466,7 @@ class CloseoutOrchestrator:
             Dictionary with Bayesian posterior metrics, federated hazard
             ratio, and patient-level contribution summary.
         """
-        logger.info(
-            "Calculating Bayesian posterior trial contribution — "
-            "P(experimental superior) = 0.97"
-        )
+        logger.info("Calculating Bayesian posterior trial contribution — P(experimental superior) = 0.97")
         # Bayesian posterior analysis
         posterior_p_superior = 0.97
         federated_hr = 0.62
@@ -554,9 +533,7 @@ class CloseoutOrchestrator:
             Dictionary with final status, validation summary, and
             completion confirmation.
         """
-        logger.info(
-            "Finalising patient record — setting status to COMPLETED"
-        )
+        logger.info("Finalising patient record — setting status to COMPLETED")
         # Build final validation report
         validation_checks = {
             "all_stages_completed": True,
@@ -611,8 +588,7 @@ class CloseoutOrchestrator:
             HARD_LOCK data lock, and all closeout records.
         """
         logger.info(
-            "Starting Stage 10: Trial Closeout for patient %s "
-            "per 21 CFR 312.38 and 21 CFR 312.44",
+            "Starting Stage 10: Trial Closeout for patient %s per 21 CFR 312.38 and 21 CFR 312.44",
             patient_state.demographics.patient_id,
         )
         state = patient_state
@@ -640,79 +616,91 @@ class CloseoutOrchestrator:
         final_record = self.finalize_patient_record()
 
         # Record regulatory events
-        state.add_regulatory_event(RegulatoryEvent(
-            event_type="DATA_HARD_LOCK",
-            day=state.get_current_day(),
-            description=(
-                f"Patient data HARD_LOCK applied with Part 11 electronic "
-                f"signatures. Record hash: {lock_result['record_hash'][:16]}..."
-            ),
-            document_id="LOCK-001",
-            cfr_section="21 CFR 312.57",
-            status="COMPLETED",
-        ))
+        state.add_regulatory_event(
+            RegulatoryEvent(
+                event_type="DATA_HARD_LOCK",
+                day=state.get_current_day(),
+                description=(
+                    f"Patient data HARD_LOCK applied with Part 11 electronic "
+                    f"signatures. Record hash: {lock_result['record_hash'][:16]}..."
+                ),
+                document_id="LOCK-001",
+                cfr_section="21 CFR 312.57",
+                status="COMPLETED",
+            )
+        )
 
-        state.add_regulatory_event(RegulatoryEvent(
-            event_type="DEIDENTIFICATION_REVIEW",
-            day=state.get_current_day(),
-            description=(
-                f"Final de-identification review passed: overall risk "
-                f"{deid_result['overall_risk']:.4f} < {REIDENTIFICATION_RISK_THRESHOLD}"
-            ),
-            document_id="DEID-FINAL-001",
-            cfr_section="21 CFR 50.33",
-            status="PASSED",
-        ))
+        state.add_regulatory_event(
+            RegulatoryEvent(
+                event_type="DEIDENTIFICATION_REVIEW",
+                day=state.get_current_day(),
+                description=(
+                    f"Final de-identification review passed: overall risk "
+                    f"{deid_result['overall_risk']:.4f} < {REIDENTIFICATION_RISK_THRESHOLD}"
+                ),
+                document_id="DEID-FINAL-001",
+                cfr_section="21 CFR 50.33",
+                status="PASSED",
+            )
+        )
 
-        state.add_regulatory_event(RegulatoryEvent(
-            event_type="CSR_GENERATED",
-            day=state.get_current_day(),
-            description=(
-                f"Clinical Study Report generated: "
-                f"{reg_package['regulatory_sections_addressed']} sections, "
-                f"Physical AI addenda included"
-            ),
-            document_id=reg_package["document_id"],
-            cfr_section="21 CFR 312.23",
-            status="COMPLETED",
-        ))
+        state.add_regulatory_event(
+            RegulatoryEvent(
+                event_type="CSR_GENERATED",
+                day=state.get_current_day(),
+                description=(
+                    f"Clinical Study Report generated: "
+                    f"{reg_package['regulatory_sections_addressed']} sections, "
+                    f"Physical AI addenda included"
+                ),
+                document_id=reg_package["document_id"],
+                cfr_section="21 CFR 312.23",
+                status="COMPLETED",
+            )
+        )
 
-        state.add_regulatory_event(RegulatoryEvent(
-            event_type="GCP_AUDIT_FINAL",
-            day=state.get_current_day(),
-            description=(
-                f"Final GCP audit: {gcp_result['overall_verdict']}, "
-                f"Subpart J compliant: {gcp_result['subpart_j_compliant']}"
-            ),
-            document_id="GCP-AUDIT-FINAL-001",
-            cfr_section="ICH E6(R3) section 2.9",
-            status="COMPLETED",
-        ))
+        state.add_regulatory_event(
+            RegulatoryEvent(
+                event_type="GCP_AUDIT_FINAL",
+                day=state.get_current_day(),
+                description=(
+                    f"Final GCP audit: {gcp_result['overall_verdict']}, "
+                    f"Subpart J compliant: {gcp_result['subpart_j_compliant']}"
+                ),
+                document_id="GCP-AUDIT-FINAL-001",
+                cfr_section="ICH E6(R3) section 2.9",
+                status="COMPLETED",
+            )
+        )
 
-        state.add_regulatory_event(RegulatoryEvent(
-            event_type="PHYSICAL_AI_DATA_ARCHIVED",
-            day=state.get_current_day(),
-            description=(
-                f"Physical AI data archived: {archive_result['total_categories']} "
-                f"categories, {archive_result['retention_years']}-year retention"
-            ),
-            document_id="ARCHIVE-001",
-            cfr_section="21 CFR 312.57, 21 CFR 312.68",
-            status="COMPLETED",
-        ))
+        state.add_regulatory_event(
+            RegulatoryEvent(
+                event_type="PHYSICAL_AI_DATA_ARCHIVED",
+                day=state.get_current_day(),
+                description=(
+                    f"Physical AI data archived: {archive_result['total_categories']} "
+                    f"categories, {archive_result['retention_years']}-year retention"
+                ),
+                document_id="ARCHIVE-001",
+                cfr_section="21 CFR 312.57, 21 CFR 312.68",
+                status="COMPLETED",
+            )
+        )
 
-        state.add_regulatory_event(RegulatoryEvent(
-            event_type="TRIAL_CONTRIBUTION_CALCULATED",
-            day=state.get_current_day(),
-            description=(
-                f"Bayesian posterior P(experimental superior) = "
-                f"{contribution['bayesian_posterior']['p_experimental_superior']:.2f}, "
-                f"Federated HR = {contribution['federated_hazard_ratio']['hr']:.2f}"
-            ),
-            document_id="CONTRIB-001",
-            cfr_section="21 CFR 312.130",
-            status="COMPLETED",
-        ))
+        state.add_regulatory_event(
+            RegulatoryEvent(
+                event_type="TRIAL_CONTRIBUTION_CALCULATED",
+                day=state.get_current_day(),
+                description=(
+                    f"Bayesian posterior P(experimental superior) = "
+                    f"{contribution['bayesian_posterior']['p_experimental_superior']:.2f}, "
+                    f"Federated HR = {contribution['federated_hazard_ratio']['hr']:.2f}"
+                ),
+                document_id="CONTRIB-001",
+                cfr_section="21 CFR 312.130",
+                status="COMPLETED",
+            )
+        )
 
         # Store outcome
         state.outcome = {
@@ -740,8 +728,7 @@ class CloseoutOrchestrator:
         )
 
         logger.info(
-            "Stage 10 complete: patient %s COMPLETED, HARD_LOCK, "
-            "GCP COMPLIANT: PASS",
+            "Stage 10 complete: patient %s COMPLETED, HARD_LOCK, GCP COMPLIANT: PASS",
             state.demographics.patient_id,
         )
         return state
