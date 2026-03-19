@@ -4,6 +4,51 @@ Release notes for the physical-ai-oncology-trials repository.
 
 ---
 
+End-to-End Physical AI Oncology Clinical Trial Unification: Single-Patient Journey Orchestration
+v2.6.0 - Draft release
+
+Released on 20 March 2026
+CEO Kevin Kawchak, ChemicalQDevice
+
+## Summary
+
+Publishes the **End-to-End Physical AI Oncology Clinical Trial Unification: Single-Patient Journey Orchestration**, a complete 10-stage patient journey system tracing Patient PAT-2026-0042 (58F, Stage IIIB NSCLC, ECOG 1, PD-L1 65%, TMB 14 mut/Mb, SITE-003) through a Physical AI oncology clinical trial. The system comprises 12 Python orchestrator modules, 30 ASCII progress diagrams, 10 Plotly chart generators, 6 text tables, an FDA cost-savings analysis, 4 guidance documents, and 262 tests. Three regulatory frameworks are implemented throughout: 21 CFR Part 312 Subpart J (§312.400-405), 21 CFR Part 50 Subpart C (§50.30-34), and ICH E6(R3) (§1.2-1.5, §2.8-2.12).
+
+## Features
+
+- **Central data model** (`patient-journey/patient_state.py`): 10 enums (PatientStage, PatientStatus, TreatmentArm, ResponseCategory, AESeverity, ConsentStatus, DataLockStatus, PhysicalAIClassification, USLReadinessLevel, MCPConformanceLevel), 14 dataclasses, legal stage transitions, and PatientJourneyState master class
+- **Stage 1: Pre-Screening & Referral Intake** (Day -30 to Day -14): PHI detection, HIPAA Safe Harbor de-identification, ICD-10 to SNOMED harmonization, DICOM validation
+- **Stage 2: Enrollment & Informed Consent** (Day -14 to Day 0): ICH E6(R3) consent elements, eligibility criteria evaluation, duplicate enrollment check, IRB review, stratified randomization
+- **Stage 3: Digital Twin Construction** (Day 0 to Day 7): ASME V&V 40 validation, tumor microenvironment modeling, adaptive radiation simulation, virtual cohort analysis
+- **Stage 4: Robot Qualification** (Day 7 to Day 13): USL scoring (4 dimensions: Autonomy, Dexterity, Safety, Interoperability), cross-framework validation, cybersecurity assessment, hand-eye calibration
+- **Stage 5: Robot-Assisted Surgery** (Day 14): ROS 2 deployment, shared autonomy with Level 2 teleoperation, sensor fusion, sim-vs-real validation, specimen chain of custody per 21 CFR Part 11
+- **Stage 6: Post-Operative Recovery** (Day 14 to Day 28): Pathology integration (pT2aN2M0), adverse event tracking (Day 16 atrial fibrillation Grade 2), Physical AI causality assessment
+- **Stage 7: Immunotherapy Treatment** (Day 28 to Day 763): 35 cycles pembrolizumab 200mg q3w, adaptive dosing, cumulative toxicity tracking, hypothyroidism cycle 6, rash cycle 12, annual reporting
+- **Stage 8: Federated Learning** (Day 28 to Day 763): 70 rounds federated averaging, differential privacy (epsilon=1.0, delta=1e-5), secure aggregation, DSMB safety reporting, site performance monitoring
+- **Stage 9: Long-Term Surveillance** (Day 763 to Day 1858): Complete response (CR), quarterly imaging, recurrence risk modeling (35% to 3%), long-term safety monitoring
+- **Stage 10: Trial Closeout** (Day 1858+): HARD_LOCK data integrity, re-identification risk validation (<0.04%), GCP audit, regulatory package generation, hazard ratio 0.62
+- **Master orchestrator** (`patient-journey/master_journey.py`): Coordinates all 10 stages with regulatory mapping, stage result tracking, and journey reporting
+- **30 ASCII progress diagrams**: 3 perspectives (timeline, regulatory, clinical) x 10 stages
+- **Deliverables package**: 10 Plotly chart generators, 6 text tables, 6 high-level diagrams, FDA cost-savings analysis (15-25% cost reduction), 4 guidance documents (pharmaceutical industry, field observer, site activation, patient information)
+- **262 tests** across 14 test modules: per-stage tests, master journey tests, cross-stage consistency tests, and deliverables tests
+
+## Contributors
+@kevinkawchak
+@claude
+
+## Notes
+- Patient journey for PAT-2026-0042 (58F, Stage IIIB NSCLC, ECOG 1, PD-L1 TPS 65%, TMB 14 mut/Mb, SITE-003)
+- Physical AI classifications: SURGICAL_ROBOT, COBOT, HUMANOID, THERAPEUTIC, DIAGNOSTIC, ASSISTIVE, REHABILITATIVE
+- USL scoring: 4 dimensions (Autonomy, Dexterity, Safety, Interoperability), range 1.0-10.0; da Vinci Xi composite 7.9, Franka Emika composite 7.2
+- MCP conformance levels: CORE, CLINICAL_READ, IMAGING, FEDERATED_SITE, ROBOT_PROCEDURE
+- 21 CFR Part 11 compliant electronic signatures and audit trails
+- Digital twin with ASME V&V 40 validation framework
+- Federated learning with differential privacy (epsilon=1.0, delta=1e-5)
+- Development by Claude Code Opus 4.6
+- License: MIT (repository code)
+
+---
+
 End-to-End Physical AI Oncology Clinical Trial Unification: Adaption of 21 CFR Part 312 -- Investigational New Drug Application
 v2.5.0 - March 18, 2026
 
