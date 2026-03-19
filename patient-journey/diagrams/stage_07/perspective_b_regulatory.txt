@@ -1,0 +1,52 @@
+PAT-2026-0042 REGULATORY COMPLIANCE — Through Stage 7: Adjuvant Immunotherapy
+════════════════════════════════════════════════════════════════════════════════
+
+Framework          │ S1-PreScr │ S2-Enroll │ S3-DTwin │ S4-Robot │ S5-Surg │ S6-Recov
+───────────────────┼───────────┼───────────┼──────────┼─────────┼─────────┼──────────
+21 CFR Part 312    │[✓] §312.1 │[✓] §312.20│[✓]§312.21│[✓]§312.401[✓]§312.62│[✓]§312.32
+                   │    §312.3 │    §312.23│   §312.23│   §312.402   §312.57│   §312.62
+                   │    §312.57│           │   §312.402   §312.403         │
+                   │           │           │          │   §312.404         │
+                   │           │           │          │   §312.405         │
+───────────────────┼───────────┼───────────┼──────────┼─────────┼─────────┼──────────
+21 CFR Part 50     │[✓] §50.1  │[✓] §50.20 │[✓] §50.32│[✓]§50.30│[✓]§50.30│[✓]§50.25
+                   │    §50.3  │    §50.25 │          │         │   §50.33│   §50.32
+                   │    §50.33 │    §50.27 │          │         │         │
+                   │           │    §50.30 │          │         │         │
+                   │           │    §50.31 │          │         │         │
+                   │           │    §50.34 │          │         │         │
+───────────────────┼───────────┼───────────┼──────────┼─────────┼─────────┼──────────
+ICH E6(R3)         │[✓] §2.9   │[✓] §2.4   │[✓] §1.4  │[✓] §1.5 │[✓] §2.3 │[✓]§2.3
+                   │           │    §2.7   │    §1.4.1│    §1.4.1    §2.10│   §2.10
+                   │           │    §2.8   │    §1.4.2│    §2.6 │    §2.12│   §2.12.4
+                   │           │           │          │         │   §2.12.3
+
+Framework          │ S7-Immuno (NEW)
+───────────────────┼──────────────────────────────────────────────────────
+21 CFR Part 312    │[→] §312.33 ... Annual IND Reports / Physical AI data
+                   │    §312.56 ... Review of Ongoing Investigations
+                   │    §312.30 ... Protocol Amendments
+                   │    §312.405 .. Physical AI System Maintenance Reporting
+───────────────────┼──────────────────────────────────────────────────────
+21 CFR Part 50     │[→] §50.32 ... Ongoing Consent / Participant Notification
+───────────────────┼──────────────────────────────────────────────────────
+ICH E6(R3)         │[→] §2.5 ..... Medical Decisions / Treatment Modifications
+                   │    §2.12.4 .. Ongoing Digital Twin Validation
+                   │    §3.1 ..... Sponsor Responsibilities
+───────────────────┼──────────────────────────────────────────────────────
+
+Framework          │ S8-Feder │ S9-Surv │ S10-Close
+───────────────────┼──────────┼─────────┼──────────
+(all pending)      │[ ]       │[ ]      │[ ]
+
+STAGE 7 KEY SECTIONS:
+  §312.33 .. Annual IND report with Physical AI system performance data
+  §312.56 .. Sponsor review of ongoing investigations and safety
+  §312.30 .. Protocol amendments assessed (none required)
+  §312.405 . Physical AI system maintenance and update reporting
+  §50.32 ... Patient notified of AEs (hypothyroidism C6, rash C12)
+  §2.5 ..... Investigator medical decisions for treatment modifications
+  §2.12.4 .. Digital twin recalibrated at 7 imaging time-points
+  §3.1 ..... Sponsor responsibilities for ongoing trial oversight
+
+CUMULATIVE: ~61 regulatory sections addressed (7+12+7+11+10+6+8)
