@@ -1,0 +1,46 @@
+PAT-2026-0042 JOURNEY TIMELINE — Through Stage 1: Pre-Screening & Referral Intake
+════════════════════════════════════════════════════════════════════════════════════
+
+Day -30                              Day -14
+  │                                    │
+  ▼                                    ▼
+┌──────────────────────────────────────────┐
+│            STAGE 1: PRE-SCREENING        │
+│               [ACTIVE]                   │
+│    PHI Detection & De-identification     │
+│    Data Harmonization (FHIR/SNOMED)      │
+│    DICOM Validation                      │
+│    Patient Record Creation               │
+│    Access Provisioning                   │
+└──────────────────────────────────────────┘
+  │
+  ▼
+┌──────────┐  ┌──────────┐  ┌──────────┐  ┌──────────┐  ┌──────────┐
+│ STAGE 2  │  │ STAGE 3  │  │ STAGE 4  │  │ STAGE 5  │  │ STAGE 6  │
+│[PENDING] │  │[PENDING] │  │[PENDING] │  │[PENDING] │  │[PENDING] │
+│Enrollment│  │Dig. Twin │  │Robot Qual│  │ Surgery  │  │ Recovery │
+└──────────┘  └──────────┘  └──────────┘  └──────────┘  └──────────┘
+
+┌──────────┐  ┌──────────┐  ┌──────────┐  ┌──────────┐
+│ STAGE 7  │  │ STAGE 8  │  │ STAGE 9  │  │ STAGE 10 │
+│[PENDING] │  │[PENDING] │  │[PENDING] │  │[PENDING] │
+│Immuno-   │  │Federation│  │Surveill. │  │ Closeout │
+│therapy   │  │          │  │          │  │          │
+└──────────┘  └──────────┘  └──────────┘  └──────────┘
+
+KEY MILESTONES — Stage 1:
+  Day -30 .... Referral received from community oncologist
+  Day -28 .... PHI scan complete (18 HIPAA identifiers checked)
+  Day -26 .... Records de-identified per 21 CFR 50.33
+  Day -22 .... FHIR R4 resources mapped (Patient/Condition/Observation)
+  Day -20 .... ICD-10 C34.1 mapped to SNOMED 254637007
+  Day -18 .... DICOM series validated (512x512, 1mm, Lung kernel)
+  Day -16 .... Patient record PAT-2026-0042 created
+  Day -14 .... Access provisioned, 21 CFR Part 11 signatures generated
+
+CUMULATIVE PROGRESS:
+  Elapsed ............. 16 days (Day -30 to Day -14)
+  Stages .............. 1 of 10 active | 0 complete
+  Status .............. REFERRED
+  MCP Conformance ..... CLINICAL_READ
+  Modules Activated ... 6 of 51

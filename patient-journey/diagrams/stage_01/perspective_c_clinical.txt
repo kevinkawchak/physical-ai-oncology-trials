@@ -1,0 +1,49 @@
+PAT-2026-0042 CLINICAL & TECHNICAL DASHBOARD — Through Stage 1
+════════════════════════════════════════════════════════════════════════════════
+
+┌─ PATIENT ──────────────────────────┐  ┌─ TRIAL STATUS ──────────────────┐
+│ ID:      PAT-2026-0042             │  │ Stage:    PRESCREENING (1/10)   │
+│ Age:     58F                       │  │ Status:   REFERRED              │
+│ Dx:      Stage IIIB NSCLC          │  │ Arm:      [NOT ASSIGNED]        │
+│ Histo:   Adenocarcinoma            │  │ Day:      -14                   │
+│ ECOG:    1                         │  │ Site:     SITE-003              │
+│ PD-L1:   65%   TMB: 14 mut/Mb     │  │ Enroll:   [PENDING]             │
+└────────────────────────────────────┘  └─────────────────────────────────┘
+
+┌─ TUMOR PROFILE ────────────────────────────────────────────────────────────┐
+│ Type:     NSCLC (Adenocarcinoma)    Volume:   42.3 cm3                    │
+│ Stage:    IIIB    Grade: G2         Growth:   0.023/day                   │
+│ EGFR: WT  ALK: neg  ROS1: neg  MSI: MSS  KRAS: WT  BRAF: WT             │
+└────────────────────────────────────────────────────────────────────────────┘
+
+┌─ PHYSICAL AI SYSTEMS ──────────────────────────────────────────────────────┐
+│ Digital Twin:  [NOT CREATED]                                              │
+│ Da Vinci Xi:   [PENDING QUALIFICATION]                                    │
+│ Franka Panda:  [PENDING QUALIFICATION]                                    │
+│ Realtime Sync: [NOT CONFIGURED]                                           │
+│ Agentic AI:    [NOT ACTIVATED]                                            │
+└────────────────────────────────────────────────────────────────────────────┘
+
+┌─ ORGAN FUNCTION ───────────────────┐  ┌─ DATA HARMONIZATION ────────────┐
+│ ECOG:     1                        │  │ FHIR R4:    MAPPED              │
+│ eGFR:     92 mL/min/1.73m2        │  │ SNOMED:     254637007           │
+│ Hepatic:  Child-Pugh A            │  │ DICOM:      VALIDATED           │
+│ Cardiac:  EF 62%                   │  │ ICD-10:     C34.1              │
+│ Pulm:     FEV1 78% predicted       │  │ Confidence: 0.98               │
+└────────────────────────────────────┘  └─────────────────────────────────┘
+
+┌─ SAFETY & COMPLIANCE ─────────────┐  ┌─ DATA METRICS ──────────────────┐
+│ Adverse Events:  0                │  │ Audit Entries:     ~8           │
+│ Max AE Grade:    N/A              │  │ MCP Conformance:   CLINICAL_READ│
+│ Device AEs:      0                │  │ Data Lock:         OPEN         │
+│ Consent:         PENDING          │  │ Modules Active:    6 of 51      │
+│ IRB:             [NOT SUBMITTED]  │  │ Regulatory Sects:  7 addressed  │
+└───────────────────────────────────┘  └─────────────────────────────────┘
+
+MODULES ACTIVATED (6 of 51):
+  1. privacy/phi-pii-management/phi_detector.py
+  2. privacy/de-identification/deidentification_pipeline.py
+  3. federation/data_harmonization.py
+  4. tools/dicom-inspector/dicom_inspector.py
+  5. digital-twins/clinical-integration/clinical_dt_interface.py
+  6. privacy/access-control/access_control_manager.py
