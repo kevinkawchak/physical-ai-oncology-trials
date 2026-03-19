@@ -1,0 +1,55 @@
+PAT-2026-0042 CLINICAL & TECHNICAL DASHBOARD — Through Stage 8
+════════════════════════════════════════════════════════════════════════════════
+
++- PATIENT --------------------+  +- TRIAL STATUS ------------------+
+| ID:      PAT-2026-0042       |  | Stage:    FEDERATION (8/10)     |
+| Age:     58F                 |  | Status:   SURVEILLANCE (ready)  |
+| Dx:      Stage IIIB NSCLC    |  | Arm:      A (Experimental)      |
+| ECOG:    1                   |  | Day:      112                   |
+| PD-L1:   72% (specimen)     |  | Site:     SITE-003              |
+| TMB:     14 mut/Mb           |  |                                 |
++------------------------------+  +---------------------------------+
+
++- FEDERATION STATUS --------------------------------------------------------+
+| Rounds Completed:    70 of 70                                              |
+| Strategy:            Federated Averaging + SMPC                            |
+| Sites Contributing:  5 (SITE-001 through SITE-005)                        |
+| Total Patients:      120 (federated across all sites)                     |
+| Epsilon Per Round:   1.0 (delta=1e-5)                                     |
+| Total Epsilon:       70.0 (cumulative privacy budget)                     |
+| Gradient Clipping:   max_norm=1.0                                         |
+| Raw Data Exported:   NEVER (0 instances)                                  |
++----------------------------------------------------------------------------+
+
++- FEDERATED ANALYTICS (no raw data shared) ---------------------------------+
+| Kaplan-Meier PFS:   Median 16.2 months                                    |
+|   Survival at 6mo:  88%  |  12mo: 76%  |  18mo: 67%                      |
+| Cox PH Results:                                                            |
+|   PD-L1 TPS:        HR=0.62 (0.44-0.87, p=0.006)                        |
+|   Physical AI Arm:  HR=0.71 (0.52-0.97, p=0.03)                         |
+|   Stage N2:         HR=1.85 (1.22-2.80, p=0.004)                        |
+|   Concordance:      0.72                                                  |
++----------------------------------------------------------------------------+
+
++- DSMB SAFETY REPORT -------------------------------------------------------+
+| Total AEs (all sites):   14                                                |
+| Grade 3+:                3 (Grade 3), 0 (Grade 4-5)                       |
+| Device-Related AEs:      0                                                 |
+| Physical AI AEs:         0 (all 5 categories assessed)                    |
+| Stopping Rules:          NOT triggered                                     |
+| DSMB Recommendation:     CONTINUE                                          |
++----------------------------------------------------------------------------+
+
++- SITE PERFORMANCE ---------+  +- DATA METRICS --------------------+
+| Overall Quality:  97.3%    |  | Audit Entries:     ~500+          |
+| Sites >= 95%:     5 of 5   |  | MCP Conformance:   FEDERATED_SITE|
+| Protocol Devs:    0        |  | Data Lock:         OPEN           |
+| Query Resolution: 2.1 days |  | Modules Active:    41 of 51      |
++-----------------------------+  | Regulatory Sects:  ~67 addressed |
+                                 | Audit Chain:       SHA-256 valid  |
++- PRIVACY BUDGET ----------+   | Hash-Chained:      YES            |
+| Epsilon Used:   70.0       |  +-----------------------------------+
+| Delta:          1e-5       |
+| Gradient Clip:  1.0        |
+| SMPC Shares:    3 (t=2)   |
++----------------------------+
