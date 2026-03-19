@@ -1,0 +1,54 @@
+PAT-2026-0042 CLINICAL & TECHNICAL DASHBOARD — Through Stage 2
+════════════════════════════════════════════════════════════════════════════════
+
+┌─ PATIENT ──────────────────────────┐  ┌─ TRIAL STATUS ──────────────────┐
+│ ID:      PAT-2026-0042             │  │ Stage:    ENROLLMENT (2/10)     │
+│ Age:     58F                       │  │ Status:   RANDOMIZED            │
+│ Dx:      Stage IIIB NSCLC          │  │ Arm:      A (Experimental)      │
+│ Histo:   Adenocarcinoma            │  │ Day:      0                     │
+│ ECOG:    1                         │  │ Site:     SITE-003              │
+│ PD-L1:   65%   TMB: 14 mut/Mb     │  │ Enroll:   Day 0                 │
+└────────────────────────────────────┘  └─────────────────────────────────┘
+
+┌─ ELIGIBILITY RESULTS ─────────────────────────────────────────────────────┐
+│ Inclusion Criteria:                  Exclusion Criteria:                  │
+│  [PASS] Confirmed NSCLC              [CLEAR] No prior immunotherapy      │
+│  [PASS] Stage IIIB                   [CLEAR] No autoimmune disease       │
+│  [PASS] ECOG 0-1 (score: 1)         [CLEAR] No active brain mets        │
+│  [PASS] PD-L1 >= 50% (65%)          [CLEAR] No uncontrolled infection   │
+│  [PASS] Adequate organ function      [CLEAR] Not pregnant               │
+│  [PASS] Age >= 18 (58)              Overall: ELIGIBLE                   │
+└───────────────────────────────────────────────────────────────────────────┘
+
+┌─ PHYSICAL AI SYSTEMS ──────────────────────────────────────────────────────┐
+│ Digital Twin:  [NOT CREATED]                                              │
+│ Da Vinci Xi:   [PENDING QUALIFICATION]                                    │
+│ Franka Panda:  [PENDING QUALIFICATION]                                    │
+│ Realtime Sync: [NOT CONFIGURED]                                           │
+│ Agentic AI:    Protocol compliance agent activated                        │
+└────────────────────────────────────────────────────────────────────────────┘
+
+┌─ CONSENT DETAILS ─────────────────┐  ┌─ RANDOMIZATION ─────────────────┐
+│ Status:     OBTAINED v1            │  │ Arm:        A (Experimental)    │
+│ PAI Append: YES                    │  │ Treatment:  Robotic lobectomy   │
+│ Robots:     da Vinci Xi,           │  │             + pembrolizumab     │
+│             Franka Panda           │  │             200mg q3w x 2yr     │
+│ Autonomy:   Disclosed (0-4)       │  │ Stratified: Stage IIIB,         │
+│ Override:   Disclosed              │  │   PD-L1 high, ECOG 1, former   │
+│ ICH 2.8.5:  All 6 elements (a-f)  │  │ Method:     Block randomization │
+└───────────────────────────────────┘  └─────────────────────────────────┘
+
+┌─ SAFETY & COMPLIANCE ─────────────┐  ┌─ DATA METRICS ──────────────────┐
+│ Adverse Events:  0                │  │ Audit Entries:     ~18          │
+│ Max AE Grade:    N/A              │  │ MCP Conformance:   CLINICAL_READ│
+│ Device AEs:      0                │  │ Data Lock:         OPEN         │
+│ Consent:         OBTAINED v1      │  │ Modules Active:    11 of 51     │
+│ IRB:             APPROVED         │  │ Regulatory Sects:  19 addressed │
+└───────────────────────────────────┘  └─────────────────────────────────┘
+
+MODULES ACTIVATED (11 of 51, 5 new):
+  7. federation/site_enrollment.py
+  8. agentic-ai/examples-agentic-ai/06_protocol_rag_compliance_agent.py
+  9. regulatory/irb-management/irb_protocol_manager.py
+  10. regulatory/ich-gcp/gcp_compliance_checker.py
+  11. privacy/access-control/access_control_manager.py (upgraded)

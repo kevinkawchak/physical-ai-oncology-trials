@@ -1,0 +1,47 @@
+PAT-2026-0042 REGULATORY COMPLIANCE — Through Stage 2: Enrollment
+════════════════════════════════════════════════════════════════════════════════
+
+Framework          │ S1-PreScr │ S2-Enroll │ S3-DTwin │ S4-Robot │ S5-Surg
+───────────────────┼───────────┼───────────┼──────────┼─────────┼─────────
+21 CFR Part 312    │[✓] §312.1 │[→] §312.20│[ ]       │[ ]      │[ ]
+                   │    §312.3 │    §312.23│          │         │
+                   │    §312.57│           │          │         │
+───────────────────┼───────────┼───────────┼──────────┼─────────┼─────────
+21 CFR Part 50     │[✓] §50.1  │[→] §50.20 │[ ]       │[ ]      │[ ]
+                   │    §50.3  │    §50.25 │          │         │
+                   │    §50.33 │    §50.27 │          │         │
+                   │           │    §50.30 │          │         │
+                   │           │    §50.31 │          │         │
+                   │           │    §50.34 │          │         │
+───────────────────┼───────────┼───────────┼──────────┼─────────┼─────────
+ICH E6(R3)         │[✓] §2.9   │[→] §2.4   │[ ]       │[ ]      │[ ]
+                   │           │    §2.7   │          │         │
+                   │           │    §2.8   │          │         │
+───────────────────┼───────────┼───────────┼──────────┼─────────┼─────────
+
+Framework          │ S6-Recov  │ S7-Immuno │ S8-Feder │ S9-Surv │ S10-Close
+───────────────────┼───────────┼───────────┼──────────┼─────────┼──────────
+21 CFR Part 312    │[ ]        │[ ]        │[ ]       │[ ]      │[ ]
+───────────────────┼───────────┼───────────┼──────────┼─────────┼──────────
+21 CFR Part 50     │[ ]        │[ ]        │[ ]       │[ ]      │[ ]
+───────────────────┼───────────┼───────────┼──────────┼─────────┼──────────
+ICH E6(R3)         │[ ]        │[ ]        │[ ]       │[ ]      │[ ]
+───────────────────┼───────────┼───────────┼──────────┼─────────┼──────────
+
+SECTION DETAIL — Stage 2 (new sections):
+  21 CFR 312.20 .. IND Requirement — Physical AI component readiness
+  21 CFR 312.23 .. IND Content — robot profiles, USL scores, simulations
+  21 CFR 50.20 ... Informed Consent General — extends to Physical AI
+  21 CFR 50.25 ... Consent Elements — 8 basic + Physical AI Additional
+  21 CFR 50.27 ... Consent Documentation — Physical AI System Summary
+  21 CFR 50.30 ... Safety Requirements — pre-procedure safety matrix
+  21 CFR 50.31 ... IRB Review of Physical AI Investigations
+  21 CFR 50.34 ... System Classification and Regulatory Pathways
+  ICH E6(R3) §2.4  Communication with IRB/IEC
+  ICH E6(R3) §2.7  Randomisation and Blinding in Physical AI Trials
+  ICH E6(R3) §2.8  Informed Consent (6 Physical AI elements a-f)
+
+LEGEND:
+  [✓] Completed   [→] Active   [ ] Pending
+
+CUMULATIVE: 19 regulatory sections addressed (7 from S1 + 12 from S2)

@@ -1,0 +1,51 @@
+PAT-2026-0042 JOURNEY TIMELINE — Through Stage 2: Eligibility Screening & Enrollment
+═════════════════════════════════════════════════════════════════════════════════════════
+
+Day -30          Day -14          Day -7           Day 0
+  │                │                │                │
+  ▼                ▼                ▼                ▼
+┌──────────────┐  ┌────────────────────────────────────┐
+│   STAGE 1    │  │         STAGE 2: ENROLLMENT        │
+│   [DONE]     │→ │            [ACTIVE]                │
+│ Pre-Screening│  │  Eligibility, Consent, Randomize   │
+└──────────────┘  └────────────────────────────────────┘
+  PHI cleared       Eligible (all criteria met)
+  FHIR mapped       Consented (Physical AI appendix v1)
+  DICOM valid       IRB approved per 21 CFR 50.31
+  Record created    Randomized: Arm A (Experimental)
+  Access prov.      Access upgraded (PI read-write)
+                    │
+                    ▼
+┌──────────┐  ┌──────────┐  ┌──────────┐  ┌──────────┐
+│ STAGE 3  │  │ STAGE 4  │  │ STAGE 5  │  │ STAGE 6  │
+│[PENDING] │  │[PENDING] │  │[PENDING] │  │[PENDING] │
+│Dig. Twin │  │Robot Qual│  │ Surgery  │  │ Recovery │
+└──────────┘  └──────────┘  └──────────┘  └──────────┘
+
+┌──────────┐  ┌──────────┐  ┌──────────┐  ┌──────────┐
+│ STAGE 7  │  │ STAGE 8  │  │ STAGE 9  │  │ STAGE 10 │
+│[PENDING] │  │[PENDING] │  │[PENDING] │  │[PENDING] │
+│Immuno-   │  │Federation│  │Surveill. │  │ Closeout │
+│therapy   │  │          │  │          │  │          │
+└──────────┘  └──────────┘  └──────────┘  └──────────┘
+
+KEY MILESTONES — Stage 1 (Day -30 to -14):
+  Day -30 .... Referral received, PHI scanned
+  Day -14 .... Records de-identified, FHIR mapped, DICOM validated
+
+KEY MILESTONES — Stage 2 (Day -14 to Day 0):
+  Day -14 .... Eligibility screening begins
+  Day -12 .... All inclusion criteria met, no exclusions triggered
+  Day -10 .... Protocol compliance verified (ICH E6(R3) section 2.8)
+  Day -8  .... Consent obtained with Physical AI appendix v1
+  Day -7  .... IRB approved per 21 CFR 50.31
+  Day -3  .... GCP validation passed (sections 2.1-2.4)
+  Day  0  .... Randomized Arm A, enrollment_day = 0
+
+CUMULATIVE PROGRESS:
+  Elapsed ............. 30 days (Day -30 to Day 0)
+  Stages .............. 2 of 10 (1 done, 1 active)
+  Status .............. RANDOMIZED
+  Treatment Arm ....... A (Experimental)
+  MCP Conformance ..... CLINICAL_READ
+  Modules Activated ... 11 of 51
