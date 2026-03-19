@@ -1,0 +1,40 @@
+PAT-2026-0042 CLINICAL & TECHNICAL DASHBOARD — Through Stage 5
+════════════════════════════════════════════════════════════════════════════════
+
+┌─ PATIENT ──────────────────────────┐  ┌─ TRIAL STATUS ──────────────────┐
+│ ID:      PAT-2026-0042             │  │ Stage:    SURGERY (5/10)        │
+│ Age:     58F                       │  │ Status:   SURGERY_COMPLETE      │
+│ Dx:      Stage IIIB NSCLC          │  │ Arm:      A (Experimental)      │
+│ ECOG:    1                         │  │ Day:      14                    │
+│ PD-L1:   65%   TMB: 14 mut/Mb     │  │ Site:     SITE-003              │
+└────────────────────────────────────┘  └─────────────────────────────────┘
+
+┌─ SURGICAL RECORD ──────────────────────────────────────────────────────────┐
+│ Procedure:   Robotic-assisted thoracoscopic RUL lobectomy + LN dissection │
+│ Robot:       da Vinci Xi (DAVINCI-XI-SITE003), USL 7.9, Level 2 autonomy │
+│ Duration:    168 minutes                                                  │
+│ EBL:         85 mL                                                        │
+│ Margins:     NEGATIVE (8mm clearance)                                     │
+│ Lymph Nodes: 18 sampled, 3 positive (stations 4R, 7)                     │
+│ Specimens:   3 (RUL, LN station 4R, LN station 7)                       │
+│ Pathology:   pT2aN2M0                                                    │
+│ Complications: None                                                       │
+│ Tumor Vol:   42.3 cm3 -> 0.0 cm3 (resected)                             │
+└───────────────────────────────────────────────────────────────────────────┘
+
+┌─ PHYSICAL AI SYSTEMS ──────────────────────────────────────────────────────┐
+│ Da Vinci Xi:   PROCEDURE COMPLETE (168 min, Level 2)                      │
+│ Franka Panda:  SPECIMEN HANDLING COMPLETE (3 specimens, Part 11 CoC)     │
+│ Digital Twin:  INTRAOP OVERLAY ACTIVE (max deviation 3.2mm < 5mm)        │
+│ Realtime Sync: 30 Hz during procedure, 10.8M data points collected       │
+│ Safety Mon:    1 kHz, max force 12.1N (< 15N limit), 0 e-stops          │
+└────────────────────────────────────────────────────────────────────────────┘
+
+┌─ SAFETY & COMPLIANCE ─────────────┐  ┌─ DATA METRICS ──────────────────┐
+│ Adverse Events:  0                │  │ Audit Entries:     ~180         │
+│ Max AE Grade:    N/A              │  │ MCP Conformance:   ROBOT_PROC.  │
+│ Device AEs:      0                │  │ Data Lock:         OPEN         │
+│ Force Warnings:  1 (resolved)     │  │ Modules Active:    38 of 51     │
+│ Consent:         OBTAINED v1      │  │ Regulatory Sects:  47 addressed │
+│ IRB:             APPROVED         │  │ Safety Data Pts:   10.8M        │
+└───────────────────────────────────┘  └─────────────────────────────────┘

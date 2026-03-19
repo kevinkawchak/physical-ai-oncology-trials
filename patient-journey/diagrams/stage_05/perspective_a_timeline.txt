@@ -1,0 +1,41 @@
+PAT-2026-0042 JOURNEY TIMELINE — Through Stage 5: Surgery
+═════════════════════════════════════════════════════════════════════════════
+
+Day -30     Day -14      Day 0       Day 7       Day 14
+  │           │            │           │           │
+  ▼           ▼            ▼           ▼           ▼
+┌─────────┐ ┌─────────┐ ┌─────────┐ ┌─────────┐ ┌─────────────────┐
+│ STAGE 1 │ │ STAGE 2 │ │ STAGE 3 │ │ STAGE 4 │ │    STAGE 5      │
+│ [DONE]  │→│ [DONE]  │→│ [DONE]  │→│ [DONE]  │→│   [ACTIVE]      │
+│Pre-Scrn │ │Enrollmt │ │Dig Twin │ │Robot Ql │ │   Surgery       │
+└─────────┘ └─────────┘ └─────────┘ └─────────┘ └─────────────────┘
+ PHI scan    Eligible     Twin cal    DV USL 7.9   168 min procedure
+ FHIR map    Consent v1   V&V 40      FP USL 7.2   85 mL EBL
+ DICOM val   Arm A        4 models    Cyber OK     Neg margins
+                                      Safety OK    18 LN (3 pos)
+                                                   Level 2 autonomy
+             │
+             ▼
+┌──────────┐ ┌──────────┐ ┌──────────┐ ┌──────────┐ ┌──────────┐
+│ STAGE 6  │ │ STAGE 7  │ │ STAGE 8  │ │ STAGE 9  │ │ STAGE 10 │
+│[PENDING] │ │[PENDING] │ │[PENDING] │ │[PENDING] │ │[PENDING] │
+│ Recovery │ │Immunother│ │Federation│ │Surveill. │ │ Closeout │
+└──────────┘ └──────────┘ └──────────┘ └──────────┘ └──────────┘
+
+KEY MILESTONES — Stage 5 (Day 14):
+  T+0 min ... ROS2 deployment: IDLE -> SETUP -> DOCKED -> READY
+  T+18 min .. Pre-procedure safety matrix: all checks passed
+  T+20 min .. Digital twin overlay activated (0.9mm registration)
+  T+25 min .. Sensor fusion: endoscope, RGBD, tracking, force/torque
+  T+45 min .. Force spike 12.1N, warning issued, resolved 200ms
+  T+168 min . Procedure complete: negative margins, 18 LN sampled
+  Post-op ... Investigator review (a)-(e) APPROVED
+  Post-op ... Specimens: 3 collected, Part 11 chain-of-custody
+
+CUMULATIVE PROGRESS:
+  Elapsed ............. 44 days (Day -30 to Day 14)
+  Stages .............. 5 of 10 (4 done, 1 active)
+  Status .............. SURGERY_COMPLETE
+  Tumor Volume ........ 0.0 cm3 (resected)
+  MCP Conformance ..... ROBOT_PROCEDURE
+  Modules Activated ... 38 of 51
