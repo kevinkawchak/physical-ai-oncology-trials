@@ -1,0 +1,47 @@
+====================================================================================================================
+  TABLE 03 -- 10-STAGE PATIENT JOURNEY SUMMARY
+  Protocol: Physical AI Oncology Trial | Patient: PAT-2026-0042
+====================================================================================================================
+
++-------+---------------------------+-----------------+--------------------------------------+-------------------------+
+| Stage | Name                      | Day Range       | Key Outcome                          | Regulatory Citations    |
++-------+---------------------------+-----------------+--------------------------------------+-------------------------+
+|   1   | Screening & Eligibility   | Day -30 to -1   | Patient meets all inclusion criteria | 21 CFR 312.400;         |
+|       |                           |                 | and no exclusion criteria            | ICH E6(R3) 1.2, 1.5    |
++-------+---------------------------+-----------------+--------------------------------------+-------------------------+
+|   2   | Informed Consent &        | Day -14 to 0    | Consent obtained; IRB-approved       | 21 CFR 50.30-34;        |
+|       | Enrollment                |                 | document signed and witnessed        | ICH E6(R3) 1.2          |
++-------+---------------------------+-----------------+--------------------------------------+-------------------------+
+|   3   | Baseline Assessment &     | Day 0 to 7      | Digital twin initialized; baseline   | 21 CFR 312.402;         |
+|       | Digital Twin Init         |                 | imaging and labs recorded            | ICH E6(R3) 2.8, 2.9    |
++-------+---------------------------+-----------------+--------------------------------------+-------------------------+
+|   4   | Neoadjuvant Therapy       | Day 8 to 84     | 4 cycles immunotherapy completed;    | 21 CFR 312.404;         |
+|       |                           |                 | partial response on imaging          | ICH E6(R3) 2.10         |
++-------+---------------------------+-----------------+--------------------------------------+-------------------------+
+|   5   | Robotic Surgery           | Day 85 to 99    | da Vinci Xi lobectomy performed;     | 21 CFR 312.402;         |
+|       |                           |                 | R0 resection achieved                | ICH E6(R3) 2.8          |
++-------+---------------------------+-----------------+--------------------------------------+-------------------------+
+|   6   | Post-Operative Recovery   | Day 100 to 128  | Recovery on track; AF resolved;      | 21 CFR 312.404;         |
+|       |                           |                 | drain removed Day 107                | 21 CFR 50.32            |
++-------+---------------------------+-----------------+--------------------------------------+-------------------------+
+|   7   | Adjuvant Therapy          | Day 129 to 798  | 35 cycles adjuvant immunotherapy;    | 21 CFR 312.404;         |
+|       |                           |                 | complete response confirmed          | ICH E6(R3) 2.10, 2.11  |
++-------+---------------------------+-----------------+--------------------------------------+-------------------------+
+|   8   | Surveillance & Federated  | Day 799 to 1528 | No recurrence detected; federated    | ICH E6(R3) 2.9, 2.12;  |
+|       | Learning                  |                 | learning model updated quarterly     | 21 CFR 312.405          |
++-------+---------------------------+-----------------+--------------------------------------+-------------------------+
+|   9   | Long-Term Follow-Up       | Day 1529 to     | Event-free survival at 36 months;    | ICH E6(R3) 2.12;       |
+|       |                           | 1858            | recurrence risk reduced to 3%        | 21 CFR 312.400          |
++-------+---------------------------+-----------------+--------------------------------------+-------------------------+
+|  10   | Data Lock & Archival      | Day 1858+       | HARD_LOCK applied; trial data        | ICH E6(R3) 2.9, 2.12;  |
+|       |                           |                 | archived per retention policy        | 21 CFR 312.403          |
++-------+---------------------------+-----------------+--------------------------------------+-------------------------+
+
+  Notes:
+  - Day 0 = Date of enrollment and randomization
+  - All day ranges are approximate and subject to clinical judgment
+  - Regulatory citations reference primary applicable sections; additional sections may apply
+
+====================================================================================================================
+  RESEARCH USE ONLY -- Not for clinical decision-making
+====================================================================================================================

@@ -1,0 +1,83 @@
+================================================================================
+  DIAGRAM 01 -- FULL 10-STAGE PATIENT JOURNEY OVERVIEW
+  Protocol: Physical AI Oncology Trial | Patient: PAT-2026-0042
+================================================================================
+
+  +----------------------------+
+  | STAGE 1: Screening &       |
+  | Eligibility                |
+  | Day -30 to -1              |
+  +----------------------------+
+               |
+               v
+  +----------------------------+
+  | STAGE 2: Informed Consent  |
+  | & Enrollment               |
+  | Day -14 to 0               |
+  +----------------------------+
+               |
+               v
+  +----------------------------+
+  | STAGE 3: Baseline          |
+  | Assessment & Digital Twin  |
+  | Day 0 to 7                 |
+  +----------------------------+
+               |
+               v
+  +----------------------------+       +---------------------------+
+  | STAGE 4: Neoadjuvant       |       | Adverse Event Monitoring  |
+  | Therapy (4 cycles)         |<----->| - AF Grade 2 (Day 16)    |
+  | Day 8 to 84                |       | - Dose held, recovered    |
+  +----------------------------+       +---------------------------+
+               |
+               v
+  +----------------------------+       +---------------------------+
+  | STAGE 5: Robotic Surgery   |       | da Vinci Xi Lobectomy     |
+  | (da Vinci Xi)              |<----->| - R0 resection            |
+  | Day 85 to 99               |       | - pT2aN2M0 pathology      |
+  +----------------------------+       +---------------------------+
+               |
+               v
+  +----------------------------+
+  | STAGE 6: Post-Operative    |
+  | Recovery                   |
+  | Day 100 to 128             |
+  +----------------------------+
+               |
+               v
+  +----------------------------+       +---------------------------+
+  | STAGE 7: Adjuvant Therapy  |       | Adverse Events:           |
+  | (35 cycles immunotherapy)  |<----->| - Hypothyroidism Gr1 (C6) |
+  | Day 129 to 798             |       | - Rash Gr1 (C12)          |
+  +----------------------------+       +---------------------------+
+               |
+               v
+  +----------------------------+       +---------------------------+
+  | STAGE 8: Surveillance &    |       | Federated Learning:       |
+  | Federated Learning         |<----->| - Quarterly model updates |
+  | Day 799 to 1528            |       | - Risk recalculation      |
+  +----------------------------+       +---------------------------+
+               |
+               v
+  +----------------------------+
+  | STAGE 9: Long-Term         |
+  | Follow-Up                  |
+  | Day 1529 to 1858           |
+  +----------------------------+
+               |
+               v
+  +----------------------------+       +---------------------------+
+  | STAGE 10: Data Lock &      |       | Final Metrics:            |
+  | Archival                   |<----->| - CR confirmed            |
+  | Day 1858+                  |       | - HR 0.62, EFS 36 mo     |
+  +----------------------------+       | - HARD_LOCK applied       |
+                                       +---------------------------+
+
+  Legend:
+    |       = sequential progression
+    <---->  = bidirectional data exchange / annotation
+    v       = direction of patient journey flow
+
+================================================================================
+  RESEARCH USE ONLY -- Not for clinical decision-making
+================================================================================

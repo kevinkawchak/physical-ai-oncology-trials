@@ -1,0 +1,98 @@
+====================================================================================================================
+  DIAGRAM 06 -- COMPLETE TRIAL TIMELINE
+  Protocol: Physical AI Oncology Trial | Patient: PAT-2026-0042
+  Day -30 through Day 1858+
+====================================================================================================================
+
+  Day -30         Day -14          Day 0           Day 7            Day 84
+    |               |               |               |                |
+    v               v               v               v                v
+    [--- SCREENING ---]             [-- BASELINE --]
+                    [-- CONSENT --] [- DT INIT -]
+                                                    [--- NEOADJUVANT THERAPY ---]
+
+  DETAILED TIMELINE:
+  ==================
+
+  PRE-TREATMENT PHASE
+  |
+  |  Day -30 .... Screening begins: imaging, labs, genomic panel
+  |  Day -21 .... PD-L1 TPS result: 65%
+  |  Day -18 .... TMB result: 14 mut/Mb
+  |  Day -14 .... Informed consent process initiated
+  |  Day  -7 .... Eligibility confirmed; IRB notification
+  |  Day   0 .... ENROLLED -- Randomization; baseline imaging
+  |  Day   3 .... Digital twin v1.0 initialized
+  |  Day   7 .... Baseline assessment complete
+  |
+  +==============================================================================
+
+  ACTIVE TREATMENT PHASE
+  |
+  |  Day   8 .... Neoadjuvant Cycle 1 begins
+  |  Day  16 .... ** AE #1: Atrial fibrillation (Grade 2) -- dose held **
+  |  Day  22 .... AF resolved; treatment resumed
+  |  Day  29 .... Cycle 2
+  |  Day  50 .... Cycle 3
+  |  Day  71 .... Cycle 4 (final neoadjuvant)
+  |  Day  84 .... Restaging: partial response confirmed
+  |               |
+  |  Day  85 .... PRE-OP PLANNING -- Digital twin surgical simulation
+  |  Day  90 .... ** ROBOTIC SURGERY (da Vinci Xi) -- R0 lobectomy **
+  |  Day  92 .... Pathology: pT2aN2M0
+  |  Day  99 .... Surgical recovery phase begins
+  |  Day 107 .... Chest drain removed
+  |  Day 128 .... Post-op recovery complete; cleared for adjuvant
+  |               |
+  |  Day 129 .... Adjuvant Cycle 1 begins
+  |  Day ~250 ... ** AE #2: Hypothyroidism (Grade 1, Cycle 6) **
+  |  Day ~500 ... ** AE #3: Rash (Grade 1, Cycle 12) **
+  |  Day 798 .... Adjuvant Cycle 35 (final); CR confirmed
+  |
+  +==============================================================================
+
+  SURVEILLANCE PHASE
+  |
+  |  Day  799 ... Surveillance begins; q3-month imaging
+  |  Day  890 ... Federated learning model update #1
+  |  Day  980 ... Recurrence risk: 35% --> 22%
+  |  Day 1070 ... Federated learning model update #2
+  |  Day 1160 ... Recurrence risk: 22% --> 12%
+  |  Day 1250 ... Federated learning model update #3
+  |  Day 1340 ... Recurrence risk: 12% --> 7%
+  |  Day 1430 ... Federated learning model update #4
+  |  Day 1528 ... Recurrence risk: 7% --> 3%
+  |
+  +==============================================================================
+
+  LONG-TERM FOLLOW-UP & CLOSE-OUT
+  |
+  |  Day 1529 ... Long-term follow-up begins
+  |  Day 1650 ... 36-month event-free survival milestone
+  |  Day 1750 ... Final protocol visit
+  |  Day 1858 ... DATA LOCK (HARD_LOCK applied)
+  |  Day 1858+... Archival and retention per ICH E6(R3) 2.12
+  |
+  +==============================================================================
+
+  MILESTONE SUMMARY BAR:
+  ======================
+
+  Day:  -30       0        84    90      128     798       1528      1858
+         |        |         |     |       |       |          |         |
+  -------+--------+---------+-----+-------+-------+----------+---------+------>
+         |        |         |     |       |       |          |         |
+       Screen   Enroll   Restage Surg  Clear   CR        Risk=3%   LOCK
+                                  R0    Adj    Confirmed
+
+  Key Statistics at Close-Out:
+    - Total duration on study:     ~1888 days (5.2 years)
+    - Total treatment cycles:      39 (4 neo + 35 adj)
+    - Event-free survival:         36 months
+    - Final recurrence risk:       3% (from 35% baseline)
+    - Hazard ratio:                0.62 (95% CI: 0.45-0.85)
+    - Best response:               Complete Response (CR)
+
+====================================================================================================================
+  RESEARCH USE ONLY -- Not for clinical decision-making
+====================================================================================================================
