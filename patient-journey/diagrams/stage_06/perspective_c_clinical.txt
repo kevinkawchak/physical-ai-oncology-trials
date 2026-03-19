@@ -1,0 +1,48 @@
+PAT-2026-0042 CLINICAL & TECHNICAL DASHBOARD — Through Stage 6
+════════════════════════════════════════════════════════════════════════════════
+
+┌─ PATIENT ──────────────────────────┐  ┌─ TRIAL STATUS ──────────────────┐
+│ ID:      PAT-2026-0042             │  │ Stage:    RECOVERY (6/10)       │
+│ Age:     58F                       │  │ Status:   RECOVERING            │
+│ Dx:      Stage IIIB NSCLC          │  │ Arm:      A (Experimental)      │
+│ ECOG:    1                         │  │ Day:      28                    │
+│ PD-L1:   72% (confirmed specimen) │  │ Site:     SITE-003              │
+│ TMB:     14 mut/Mb                 │  │                                 │
+└────────────────────────────────────┘  └─────────────────────────────────┘
+
+┌─ PATHOLOGY REPORT ───────────────────────────────────────────────────────────┐
+│ Pathologic Stage:  pT2aN2M0                                                 │
+│ Margins:           NEGATIVE (8mm clearance)                                 │
+│ Lymph Nodes:       3/18 positive (stations 4R, 7)                          │
+│ Histology:         Adenocarcinoma, moderately differentiated               │
+│ PD-L1 TPS:         72% (confirmed on surgical specimen)                    │
+│ Recurrence Risk:   35% at 18 months (intermediate-high)                    │
+│ Treatment Plan:    Adjuvant pembrolizumab x 16 cycles recommended          │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+┌─ RECOVERY METRICS ───────────────────────────────────────────────────────────┐
+│ DT Sync:     Transitioned from 30 Hz real-time to event-driven (Day 14)    │
+│ Drain:       Removed Day 17 (output 45 mL < 100 mL threshold)             │
+│ CXR:         Clear (Day 19), discharge planning initiated                  │
+│ Vitals:      Stable throughout recovery period                             │
+│ Tumor Vol:   0.0 cm3 (resected)                                           │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+┌─ ADVERSE EVENTS ─────────────────────────────────────────────────────────────┐
+│ Total AEs:         1                                                        │
+│ AE-PAT0042-001:   New-onset atrial fibrillation (Grade 2, MODERATE)        │
+│   Onset:           Day 16  |  Resolved: Day 20                             │
+│   Organ System:    Cardiac                                                  │
+│   Causality:       Unrelated to Physical AI (5 categories assessed)        │
+│   IRB Reported:    Yes (within 5 days)                                     │
+│   FDA Reported:    No (not device-related, Grade < 3)                      │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+┌─ SAFETY & COMPLIANCE ─────────────┐  ┌─ DATA METRICS ──────────────────┐
+│ Adverse Events:  1 (Grade 2 AF)  │  │ Audit Entries:     ~200         │
+│ Max AE Grade:    2 (MODERATE)     │  │ MCP Conformance:   ROBOT_PROC.  │
+│ Device AEs:      0                │  │ Data Lock:         OPEN         │
+│ AE Compliance:   FULLY COMPLIANT  │  │ Modules Active:    39 of 51     │
+│ Consent:         OBTAINED v1      │  │ Regulatory Sects:  ~53 addressed│
+│ IRB:             APPROVED         │  │ Safety Data Pts:   10.8M+       │
+└───────────────────────────────────┘  └─────────────────────────────────┘
