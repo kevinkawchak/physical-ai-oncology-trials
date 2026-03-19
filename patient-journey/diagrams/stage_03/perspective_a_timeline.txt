@@ -1,0 +1,47 @@
+PAT-2026-0042 JOURNEY TIMELINE — Through Stage 3: Digital Twin Construction
+═════════════════════════════════════════════════════════════════════════════
+
+Day -30          Day -14          Day 0            Day 7
+  │                │                │                │
+  ▼                ▼                ▼                ▼
+┌──────────────┐  ┌──────────────┐  ┌──────────────────────┐
+│   STAGE 1    │  │   STAGE 2    │  │      STAGE 3         │
+│   [DONE]     │→ │   [DONE]     │→ │     [ACTIVE]         │
+│ Pre-Screening│  │  Enrollment  │  │  Digital Twin Constr. │
+└──────────────┘  └──────────────┘  └──────────────────────┘
+  PHI cleared       Eligible          4 growth models fitted
+  FHIR mapped       Consented v1      Toxicity predicted
+  DICOM valid       IRB approved      3 arms simulated
+  Record created    Arm A assigned    V&V 40 validated (0.92)
+                                      Real-time sync config.
+                                      Patient notified (§50.32)
+                    │
+                    ▼
+┌──────────┐  ┌──────────┐  ┌──────────┐  ┌──────────┐
+│ STAGE 4  │  │ STAGE 5  │  │ STAGE 6  │  │ STAGE 7  │
+│[PENDING] │  │[PENDING] │  │[PENDING] │  │[PENDING] │
+│Robot Qual│  │ Surgery  │  │ Recovery │  │Immunother│
+└──────────┘  └──────────┘  └──────────┘  └──────────┘
+
+┌──────────┐  ┌──────────┐  ┌──────────┐
+│ STAGE 8  │  │ STAGE 9  │  │ STAGE 10 │
+│[PENDING] │  │[PENDING] │  │[PENDING] │
+│Federation│  │Surveill. │  │ Closeout │
+└──────────┘  └──────────┘  └──────────┘
+
+KEY MILESTONES — Stage 3 (Day 0 to Day 7):
+  Day 0 .... Baseline CT: 42.3 cm3, twin construction begins
+  Day 2 .... 4 growth models calibrated (RD, Logistic, Gompertz, Mechanistic)
+  Day 3 .... Toxicity predictions: hepatic 12%, pulmonary 8%, thyroid 15%
+  Day 4 .... Treatment simulation: Arm A PFS 14.2 mo, Arm B 12.7, Arm C 8.9
+  Day 5 .... ASME V&V 40 validation: score 0.92, RMSE 3.2 cm3
+  Day 6 .... Real-time sync configured: 30 Hz intraop, EKF estimator
+  Day 7 .... Patient notified per 21 CFR 50.32
+
+CUMULATIVE PROGRESS:
+  Elapsed ............. 37 days (Day -30 to Day 7)
+  Stages .............. 3 of 10 (2 done, 1 active)
+  Status .............. ENROLLED
+  Treatment Arm ....... A (Experimental)
+  MCP Conformance ..... CLINICAL_READ
+  Modules Activated ... 24 of 51
