@@ -21,7 +21,7 @@ This repository provides production-ready configurations, validated pipelines, a
 
 📄 **2/26: New Paper (USL)** *Unification Standard Level for Physical AI Oncology Trials. Standardizing and Evaluating Robot Unification Readiness for Multi-Site Clinical Trials. USL scores range from 1.0 to 10.0* [![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.18778219-blue)](https://doi.org/10.5281/zenodo.18778219)
 
-> **v2.5.0** - Adaption of 21 CFR Part 312 (Investigational New Drug Application) for Physical AI oncology clinical trials. 94-page document covering all 10 subparts (A-J) with Physical AI adaptations woven into the existing regulatory text. New Subpart J establishes Physical AI system classification, validation, cybersecurity, human oversight, and lifecycle management requirements. See [releases.md](releases.md) and [CHANGELOG.md](CHANGELOG.md) for full details.
+> **v2.5.0** - Adaption of 21 CFR Part 312 (Investigational New Drug Application) for Physical AI oncology clinical trials. 94-page document covering all 10 subparts (A-J) with Physical AI adaptations woven into the existing regulatory text. New Subpart J establishes Physical AI system classification, validation, cybersecurity, human oversight, and lifecycle management requirements. 
 
 > **v1.0.0** — First stable release. 51 Python modules (40,526 LOC), 69 documentation files, 28 examples, 5 CLI tools, and complete privacy/regulatory infrastructure. CI-validated on Python 3.10, 3.11, and 3.12. See [V1_RELEASE.md](V1_RELEASE.md) for full release documentation.
 
