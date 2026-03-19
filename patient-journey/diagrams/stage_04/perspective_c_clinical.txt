@@ -1,0 +1,44 @@
+PAT-2026-0042 CLINICAL & TECHNICAL DASHBOARD — Through Stage 4
+════════════════════════════════════════════════════════════════════════════════
+
+┌─ PATIENT ──────────────────────────┐  ┌─ TRIAL STATUS ──────────────────┐
+│ ID:      PAT-2026-0042             │  │ Stage:    ROBOT_QUAL (4/10)     │
+│ Age:     58F                       │  │ Status:   SURGERY_SCHEDULED     │
+│ Dx:      Stage IIIB NSCLC          │  │ Arm:      A (Experimental)      │
+│ ECOG:    1                         │  │ Day:      14                    │
+│ PD-L1:   65%   TMB: 14 mut/Mb     │  │ Site:     SITE-003              │
+└────────────────────────────────────┘  └─────────────────────────────────┘
+
+┌─ PHYSICAL AI SYSTEMS ──────────────────────────────────────────────────────┐
+│ Da Vinci Xi:                                                              │
+│   Classification: SURGICAL_ROBOT (Class III) per 21 CFR 312.401          │
+│   USL Score:      7.9/10 (ADVANCED) per ICH E6(R3) section 1.5          │
+│   Dimensions:     Autonomy 6.8, Dexterity 9.2, Safety 8.5, Interop 7.1  │
+│   Calibration:    0.12mm reprojection error                               │
+│   Status:         DEPLOYMENT READY                                        │
+├────────────────────────────────────────────────────────────────────────────┤
+│ Franka Panda:                                                             │
+│   Classification: COBOT (Class II) per 21 CFR 312.401                    │
+│   USL Score:      7.2/10 (ADVANCED) per ICH E6(R3) section 1.5          │
+│   Dimensions:     Autonomy 5.8, Dexterity 7.5, Safety 7.8, Interop 6.7  │
+│   Status:         DEPLOYMENT READY                                        │
+├────────────────────────────────────────────────────────────────────────────┤
+│ Digital Twin:     CALIBRATED (4 models, V&V 40 score 0.92)               │
+│ Realtime Sync:    Configured (30 Hz intraop)                              │
+└────────────────────────────────────────────────────────────────────────────┘
+
+┌─ SAFETY MATRIX (21 CFR 50.30) ────┐  ┌─ CYBERSECURITY (312.403) ───────┐
+│ Force Limits:  15N tip, 5N lat     │  │ TLS:        1.3                 │
+│ Workspace:     Defined, validated  │  │ MFA:        Enabled             │
+│ E-Stop:        42ms (< 50ms)      │  │ IDS:        Active              │
+│ IEC 80601:     Compliant           │  │ SBOM:       Available           │
+│ Forbidden Ops: 4 defined           │  │ Firmware:   Integrity verified  │
+└───────────────────────────────────┘  └─────────────────────────────────┘
+
+┌─ SAFETY & COMPLIANCE ─────────────┐  ┌─ DATA METRICS ──────────────────┐
+│ Adverse Events:  0                │  │ Audit Entries:     ~95          │
+│ Max AE Grade:    N/A              │  │ MCP Conformance:   CLINICAL_READ│
+│ Device AEs:      0                │  │ Data Lock:         OPEN         │
+│ Consent:         OBTAINED v1      │  │ Modules Active:    36 of 51     │
+│ IRB:             APPROVED         │  │ Regulatory Sects:  37 addressed │
+└───────────────────────────────────┘  └─────────────────────────────────┘
