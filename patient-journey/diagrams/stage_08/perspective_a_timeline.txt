@@ -1,0 +1,45 @@
+PAT-2026-0042 JOURNEY TIMELINE — Through Stage 8: Federated Data Contribution
+═══════════════════════════════════════════════════════════════════════════════
+
+Day -30     Day -14      Day 0       Day 7       Day 14      Day 28
+  |           |            |           |           |           |
+  v           v            v           v           v           v
++---------+ +---------+ +---------+ +---------+ +---------+ +---------+
+| STAGE 1 | | STAGE 2 | | STAGE 3 | | STAGE 4 | | STAGE 5 | | STAGE 6 |
+| [DONE]  |>| [DONE]  |>| [DONE]  |>| [DONE]  |>| [DONE]  |>| [DONE]  |
+|Pre-Scrn | |Enrollmt | |Dig Twin | |Robot Ql | | Surgery | |Recovery |
++---------+ +---------+ +---------+ +---------+ +---------+ +---------+
+
+Day 42                     Day 42 to Day 112                  Day 113+
+  |                            |                                |
+  v                            v                                v
++---------+ +--------------------------------------+ +---------+ +---------+
+| STAGE 7 | |           STAGE 8                    | | STAGE 9 | |STAGE 10 |
+| [DONE]  |>|          [ACTIVE]                    |>|[PENDING]|>|[PENDING]|
+|Immunoth | |  Federated Data Contribution         | |Surveill.| |Closeout |
++---------+ +--------------------------------------+ +---------+ +---------+
+ 16 cycles    70 federation rounds (continuous)
+ Pembro       Epsilon=1.0, delta=1e-5 per round
+ PFS on trk   5 sites, SMPC aggregation, KM+Cox PH
+
+KEY MILESTONES — Stage 8 (Day 42 to Day 112, ~70 rounds):
+  Round 1  .... Local model training initiated, no raw data exported
+  Round 1  .... Differential privacy applied: epsilon=1.0, gradient clip 1.0
+  Round 1  .... Secure aggregation via additive secret sharing (5 sites)
+  Round 10 .... Federated KM PFS curve: median 16.2 months (no raw times)
+  Round 20 .... Cox PH federated: Physical AI arm HR=0.71 (p=0.03)
+  Round 35 .... DSMB interim: 0 device-related AEs, recommend CONTINUE
+  Round 50 .... Site performance: data quality 97.3%, all sites above 95%
+  Round 70 .... Federation complete, hash-chained audit verified
+  Round 70 .... MCP conformance upgraded to FEDERATED_SITE
+
+CUMULATIVE PROGRESS:
+  Elapsed ............. 142 days (Day -30 to Day 112)
+  Stages .............. 8 of 10 (7 done, 1 active)
+  Status .............. SURVEILLANCE (ready)
+  Federation Rounds ... 70 of 70
+  Epsilon Budget ...... 70.0 total (1.0 per round x 70)
+  Device-Related AEs .. 0
+  DSMB Recommendation . CONTINUE
+  MCP Conformance ..... FEDERATED_SITE
+  Modules Activated ... 41 of 51

@@ -1,0 +1,83 @@
+================================================================================
+  DIAGRAM 03 -- DATA FLOW BETWEEN STAGES
+  Protocol: Physical AI Oncology Trial | Patient: PAT-2026-0042
+================================================================================
+
+  +-----------------+      +-----------------+      +-----------------+
+  | STAGE 1         |      | STAGE 2         |      | STAGE 3         |
+  | Screening       |----->| Consent &       |----->| Baseline &      |
+  |                 |      | Enrollment      |      | Digital Twin    |
+  +-----------------+      +-----------------+      +-----------------+
+  | PRODUCES:       |      | PRODUCES:       |      | PRODUCES:       |
+  | - Eligibility   |      | - Signed ICF    |      | - CT/PET scans  |
+  |   checklist     |      | - Demographics  |      | - Lab panels    |
+  | - Medical hx    |      | - Randomization |      | - Genomic data  |
+  | - Genomic panel |      |   assignment    |      | - Digital twin  |
+  | - PD-L1 / TMB   |      | - Site ID       |      |   v1.0 model    |
+  +-----------------+      +-----------------+      +-----------------+
+                                                           |
+          +------------------------------------------------+
+          |
+          v
+  +-----------------+      +-----------------+      +-----------------+
+  | STAGE 4         |      | STAGE 5         |      | STAGE 6         |
+  | Neoadjuvant     |----->| Robotic         |----->| Post-Op         |
+  | Therapy         |      | Surgery         |      | Recovery        |
+  +-----------------+      +-----------------+      +-----------------+
+  | CONSUMES:       |      | CONSUMES:       |      | CONSUMES:       |
+  | - Digital twin  |      | - Treatment     |      | - Surgical      |
+  | - Baseline labs |      |   response data |      |   report        |
+  |                 |      | - Digital twin  |      | - Pathology     |
+  | PRODUCES:       |      |                 |      |                 |
+  | - Cycle logs    |      | PRODUCES:       |      | PRODUCES:       |
+  | - Response data |      | - Surgical log  |      | - Recovery log  |
+  | - AE records    |      | - Robot telemetry|     | - AE Day 16 AF  |
+  | - Imaging delta |      | - Pathology     |      | - Discharge     |
+  |                 |      |   (pT2aN2M0)    |      |   summary       |
+  +-----------------+      +-----------------+      +-----------------+
+                                                           |
+          +------------------------------------------------+
+          |
+          v
+  +-----------------+      +-----------------+      +-----------------+
+  | STAGE 7         |      | STAGE 8         |      | STAGE 9         |
+  | Adjuvant        |----->| Surveillance &  |----->| Long-Term       |
+  | Therapy         |      | Federated Learn |      | Follow-Up       |
+  +-----------------+      +-----------------+      +-----------------+
+  | CONSUMES:       |      | CONSUMES:       |      | CONSUMES:       |
+  | - Pathology     |      | - All treatment |      | - Surveillance  |
+  | - Recovery data |      |   data          |      |   history       |
+  |                 |      | - Multi-site    |      | - Risk model    |
+  | PRODUCES:       |      |   model params  |      |                 |
+  | - 35 cycle logs |      |                 |      | PRODUCES:       |
+  | - AE records    |      | PRODUCES:       |      | - EFS 36 mo     |
+  |   (hypo, rash)  |      | - Updated risk  |      | - Final risk 3% |
+  | - CR confirmed  |      |   model (35%->3%)|     | - Survival data |
+  +-----------------+      | - Federated     |      +-----------------+
+                           |   model weights |             |
+                           +-----------------+             |
+                                                           v
+                                                  +-----------------+
+                                                  | STAGE 10        |
+                                                  | Data Lock &     |
+                                                  | Archival        |
+                                                  +-----------------+
+                                                  | CONSUMES:       |
+                                                  | - ALL prior     |
+                                                  |   stage data    |
+                                                  |                 |
+                                                  | PRODUCES:       |
+                                                  | - HARD_LOCK     |
+                                                  | - Archived      |
+                                                  |   dataset       |
+                                                  | - Audit trail   |
+                                                  | - HR 0.62       |
+                                                  +-----------------+
+
+  Data Governance:
+    [All Stages] ----> [ Audit Trail ] ----> [ Immutable Ledger ]
+    [All Stages] ----> [ AE Reporting ] ---> [ DSMB / IRB ]
+
+================================================================================
+  RESEARCH USE ONLY -- Not for clinical decision-making
+================================================================================

@@ -1,0 +1,53 @@
+================================================================================
+  TABLE 04 -- ADVERSE EVENTS LOG
+  Protocol: Physical AI Oncology Trial | Patient: PAT-2026-0042
+================================================================================
+
++------+--------+-----------------------+-------+----------+------------+----------+-----------+
+| AE # | Day /  | Event                 | CTCAE | Serious? | Causality  | Action   | Outcome   |
+|      | Cycle  |                       | Grade |          | Assessment | Taken    |           |
++------+--------+-----------------------+-------+----------+------------+----------+-----------+
+|  1   | Day 16 | Atrial fibrillation   |   2   |   No     | Possibly   | Dose     | Recovered |
+|      |        | (AF)                  |       |          | related    | held;    | / resolved|
+|      |        |                       |       |          | to immuno- | cardio   | by Day 22 |
+|      |        |                       |       |          | therapy    | consult  |           |
++------+--------+-----------------------+-------+----------+------------+----------+-----------+
+|  2   | Cycle  | Hypothyroidism        |   1   |   No     | Probably   | Levothy- | Ongoing;  |
+|      | 6      | (subclinical)         |       |          | related    | roxine   | managed   |
+|      |        |                       |       |          | to immuno- | started  | with meds |
+|      |        |                       |       |          | therapy    |          |           |
++------+--------+-----------------------+-------+----------+------------+----------+-----------+
+|  3   | Cycle  | Maculopapular rash    |   1   |   No     | Possibly   | Topical  | Recovered |
+|      | 12     | (trunk, extremities)  |       |          | related    | cortico- | / resolved|
+|      |        |                       |       |          | to immuno- | steroid  | within    |
+|      |        |                       |       |          | therapy    | applied  | 2 weeks   |
++------+--------+-----------------------+-------+----------+------------+----------+-----------+
+
+  Causality Assessment Legend:
+  +-------------------+------------------------------------------------------+
+  | Classification    | Definition                                           |
+  +-------------------+------------------------------------------------------+
+  | Definitely        | Clear temporal relationship; positive rechallenge;    |
+  |                   | no alternative explanation                            |
+  +-------------------+------------------------------------------------------+
+  | Probably related  | Reasonable temporal relationship; unlikely alternative|
+  |                   | cause; positive dechallenge                           |
+  +-------------------+------------------------------------------------------+
+  | Possibly related  | Temporal relationship present; alternative causes     |
+  |                   | exist but drug causation plausible                    |
+  +-------------------+------------------------------------------------------+
+  | Unlikely          | Temporal relationship doubtful; alternative cause     |
+  |                   | more probable                                         |
+  +-------------------+------------------------------------------------------+
+  | Unrelated         | No temporal relationship; clear alternative etiology  |
+  +-------------------+------------------------------------------------------+
+
+  Notes:
+  - CTCAE = Common Terminology Criteria for Adverse Events v5.0
+  - No Grade 3+ adverse events recorded for this patient
+  - All events reported to IRB and DSMB per protocol requirements
+  - Atrial fibrillation resolved with rate control; no recurrence
+
+================================================================================
+  RESEARCH USE ONLY -- Not for clinical decision-making
+================================================================================

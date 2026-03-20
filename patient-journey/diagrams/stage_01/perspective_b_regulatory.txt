@@ -1,0 +1,40 @@
+PAT-2026-0042 REGULATORY COMPLIANCE — Through Stage 1: Pre-Screening
+════════════════════════════════════════════════════════════════════════════════
+
+Framework          │ S1-PreScr │ S2-Enroll │ S3-DTwin │ S4-Robot │ S5-Surg
+───────────────────┼───────────┼───────────┼──────────┼─────────┼─────────
+21 CFR Part 312    │[→] §312.1 │[ ]        │[ ]       │[ ]      │[ ]
+                   │    §312.3 │           │          │         │
+                   │    §312.57│           │          │         │
+───────────────────┼───────────┼───────────┼──────────┼─────────┼─────────
+21 CFR Part 50     │[→] §50.1  │[ ]        │[ ]       │[ ]      │[ ]
+                   │    §50.3  │           │          │         │
+                   │    §50.33 │           │          │         │
+───────────────────┼───────────┼───────────┼──────────┼─────────┼─────────
+ICH E6(R3)         │[→] §2.9   │[ ]        │[ ]       │[ ]      │[ ]
+───────────────────┼───────────┼───────────┼──────────┼─────────┼─────────
+
+Framework          │ S6-Recov  │ S7-Immuno │ S8-Feder │ S9-Surv │ S10-Close
+───────────────────┼───────────┼───────────┼──────────┼─────────┼──────────
+21 CFR Part 312    │[ ]        │[ ]        │[ ]       │[ ]      │[ ]
+───────────────────┼───────────┼───────────┼──────────┼─────────┼──────────
+21 CFR Part 50     │[ ]        │[ ]        │[ ]       │[ ]      │[ ]
+───────────────────┼───────────┼───────────┼──────────┼─────────┼──────────
+ICH E6(R3)         │[ ]        │[ ]        │[ ]       │[ ]      │[ ]
+───────────────────┼───────────┼───────────┼──────────┼─────────┼──────────
+
+SECTION DETAIL — Stage 1:
+  21 CFR 312.1 ... Scope — extends IND requirements to Physical AI components
+  21 CFR 312.3 ... Definitions — Physical AI system terminology
+  21 CFR 312.57 .. Recordkeeping — audit trail, electronic signatures
+  21 CFR 50.1 .... Scope — extends human subject protections to Physical AI
+  21 CFR 50.3 .... Definitions — consent-relevant definitions for robotic sys.
+  21 CFR 50.33 ... Data Protection — HIPAA, de-identification, MCP-PAI servers
+  ICH E6(R3) §2.9  Records and Reports — adequate, accurate, audit-trailed
+
+LEGEND:
+  [→] Current stage (sections being addressed)
+  [✓] Completed stage (all sections satisfied)
+  [ ] Pending stage (not yet reached)
+
+CUMULATIVE: 7 regulatory sections addressed | 3 frameworks active

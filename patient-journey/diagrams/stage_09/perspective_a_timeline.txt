@@ -1,0 +1,49 @@
+PAT-2026-0042 JOURNEY TIMELINE — Through Stage 9: Treatment Completion & Surveillance
+═════════════════════════════════════════════════════════════════════════════════════════
+
+Day -30     Day -14      Day 0       Day 7       Day 14      Day 28
+  |           |            |           |           |           |
+  v           v            v           v           v           v
++---------+ +---------+ +---------+ +---------+ +---------+ +---------+
+| STAGE 1 | | STAGE 2 | | STAGE 3 | | STAGE 4 | | STAGE 5 | | STAGE 6 |
+| [DONE]  |>| [DONE]  |>| [DONE]  |>| [DONE]  |>| [DONE]  |>| [DONE]  |
+|Pre-Scrn | |Enrollmt | |Dig Twin | |Robot Ql | | Surgery | |Recovery |
++---------+ +---------+ +---------+ +---------+ +---------+ +---------+
+
+Day 42       Day 42-112    Day 112       Month 24-36        Month 36+
+  |              |            |               |                 |
+  v              v            v               v                 v
++---------+ +---------+ +---------+ +-------------------+ +---------+
+| STAGE 7 | | STAGE 8 | |         | |     STAGE 9       | |STAGE 10 |
+| [DONE]  |>| [DONE]  |>|         |>|    [ACTIVE]       |>|[PENDING]|
+|Immunoth | |Federate | |         | | Surveillance       | |Closeout |
++---------+ +---------+ +---------+ +-------------------+ +---------+
+ 35 cycles    70 rounds                CR, 35/35 cycles
+ Pembro       SMPC agg.               Event-free, NED
+ CR maint.    Eps=1.0                  Risk: 5% -> 3%
+
+KEY MILESTONES — Stage 9 (Month 24 to Month 36):
+  Month 24 .... Treatment completion recorded: CR, 35/35 cycles per § 50.32
+  Month 24 .... Digital twin transitioned to recurrence detection per § 1.4.2
+  Month 24 .... Patient notified of surveillance plan (ongoing consent)
+  Month 27 .... Surveillance CT: NED, recurrence risk 4%
+  Month 30 .... Surveillance CT: NED, recurrence risk 5% per § 312.87
+  Month 33 .... Surveillance CT: NED, recurrence risk 2.5%
+  Month 36 .... Surveillance CT: NED, recurrence risk 3% per § 312.87
+  Month 36 .... Long-term safety report: max toxicity Grade 1 per § 312.88
+  Month 36 .... Follow-up PROs complete: EORTC QLQ-C30 + LC13 per § 2.9
+  Month 36 .... Outcome set: PFS 730d, OS 1095d, CR, censored, event-free
+
+CUMULATIVE PROGRESS:
+  Elapsed ............. ~1126 days (Day -30 to Month 36)
+  Stages .............. 9 of 10 (8 done, 1 active)
+  Status .............. SURVEILLANCE
+  Treatment Cycles .... 35 of 35 (complete)
+  Response ............ CR (Complete Response)
+  Event-Free .......... YES (no recurrence detected)
+  Recurrence Risk ..... 3% (declining from 35% at cycle 4)
+  Max Toxicity Grade .. 2
+  PFS ................. 730 days
+  OS .................. 1095 days
+  MCP Conformance ..... FEDERATED_SITE
+  Modules Activated ... ~42 of 51

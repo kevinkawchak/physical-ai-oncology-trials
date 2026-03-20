@@ -1,0 +1,70 @@
+================================================================================
+  TABLE 05 -- PHYSICAL AI ROBOT QUALIFICATION RESULTS
+  Protocol: Physical AI Oncology Trial
+================================================================================
+
++======================================+==================+==================+
+|                                      |   da Vinci Xi    |  Franka Emika    |
+| Parameter                            |  (Surgical)      |  (Lab/Pharmacy)  |
++======================================+==================+==================+
+| Manufacturer                         | Intuitive        | Franka Emika     |
+|                                      | Surgical         | GmbH             |
++--------------------------------------+------------------+------------------+
+| Application Domain                   | Robotic-assisted | Laboratory       |
+|                                      | thoracic surgery | automation and   |
+|                                      |                  | pharmacy dosing  |
++--------------------------------------+------------------+------------------+
+| FDA Clearance                        | 510(k) cleared   | Class I exempt   |
++--------------------------------------+------------------+------------------+
+
+  USL (Unified Scoring Level) Assessment:
+
++--------------------------------------+------------------+------------------+
+| USL Dimension                        | da Vinci Xi      | Franka Emika     |
+|                                      | Score (0-100)    | Score (0-100)    |
++--------------------------------------+------------------+------------------+
+| Autonomy                             |       78         |       82         |
+|   - Task planning capability         |       74         |       85         |
+|   - Adaptive decision-making         |       82         |       79         |
++--------------------------------------+------------------+------------------+
+| Dexterity                            |       95         |       88         |
+|   - Precision (sub-mm accuracy)      |       97         |       90         |
+|   - Force feedback sensitivity       |       93         |       86         |
++--------------------------------------+------------------+------------------+
+| Safety                               |       92         |       94         |
+|   - Fault detection response time    |       90         |       96         |
+|   - Emergency stop reliability       |       94         |       92         |
++--------------------------------------+------------------+------------------+
+| Interoperability                     |       85         |       91         |
+|   - HL7 FHIR integration            |       88         |       93         |
+|   - MCP conformance level           |       82         |       89         |
++--------------------------------------+------------------+------------------+
+| COMPOSITE USL SCORE                  |       87.5       |       88.75      |
++--------------------------------------+------------------+------------------+
+
+  Deployment Status:
+
++--------------------------------------+------------------+------------------+
+| Criterion                            | da Vinci Xi      | Franka Emika     |
++--------------------------------------+------------------+------------------+
+| Qualification Status                 | QUALIFIED        | QUALIFIED        |
++--------------------------------------+------------------+------------------+
+| Deployment Readiness                 | DEPLOYED         | DEPLOYED         |
++--------------------------------------+------------------+------------------+
+| Last Calibration Date                | 2026-01-15       | 2026-02-01       |
++--------------------------------------+------------------+------------------+
+| Next Recalibration Due               | 2026-07-15       | 2026-08-01       |
++--------------------------------------+------------------+------------------+
+| Qualification Reviewer               | QA-ENGR-004      | QA-ENGR-007      |
++--------------------------------------+------------------+------------------+
+
+  Notes:
+  - USL = Unified Scoring Level per Physical AI qualification framework
+  - Composite = weighted average (Autonomy 20%, Dexterity 30%,
+    Safety 30%, Interoperability 20%)
+  - Minimum composite threshold for deployment: 75.0
+  - Both systems exceed minimum thresholds across all dimensions
+
+================================================================================
+  RESEARCH USE ONLY -- Not for clinical decision-making
+================================================================================

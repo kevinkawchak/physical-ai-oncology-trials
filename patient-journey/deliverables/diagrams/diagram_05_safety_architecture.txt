@@ -1,0 +1,85 @@
+================================================================================
+  DIAGRAM 05 -- SAFETY MONITORING ARCHITECTURE
+  Protocol: Physical AI Oncology Trial | Patient: PAT-2026-0042
+================================================================================
+
+                     +==========================================+
+                     ||       SAFETY MONITORING OVERVIEW       ||
+                     +==========================================+
+                                        |
+          +-----------------------------+-----------------------------+
+          |                             |                             |
+          v                             v                             v
+  +-----------------+       +---------------------+       +-----------------+
+  | REAL-TIME       |       | ADVERSE EVENT       |       | OVERSIGHT       |
+  | MONITORING      |       | REPORTING           |       | BODIES          |
+  +-----------------+       +---------------------+       +-----------------+
+          |                             |                             |
+          v                             v                             v
+
+  =====================       =====================       =====================
+  REAL-TIME MONITORING        AE REPORTING PIPELINE       OVERSIGHT STRUCTURE
+  =====================       =====================       =====================
+
+  +------------------+        +------------------+        +------------------+
+  | Vital Signs      |        | Detection        |        | DSMB             |
+  | - HR, BP, SpO2   |        | - Investigator   |        | (Data Safety     |
+  | - ECG continuous |        |   observation    |        |  Monitoring      |
+  | - Temp, RR       |        | - Patient report |        |  Board)          |
+  +------------------+        | - Lab abnormality|        +------------------+
+         |                    | - Robot telemetry|        | - Independent    |
+         v                    +------------------+        |   review         |
+  +------------------+               |                    | - Interim        |
+  | Digital Twin     |               v                    |   analyses       |
+  | State Monitor    |        +------------------+        | - Stopping       |
+  | - Risk score     |        | Classification   |        |   rules          |
+  |   tracking       |        | - CTCAE grading  |        | - Unblinded      |
+  | - Anomaly        |        | - Seriousness    |        |   access         |
+  |   detection      |        | - Causality      |        +------------------+
+  | - Predictive     |        |   assessment     |               |
+  |   alerts         |        +------------------+               v
+  +------------------+               |                    +------------------+
+         |                           v                    | IRB / IEC        |
+         v                    +------------------+        | (Institutional   |
+  +------------------+        | Documentation    |        |  Review Board)   |
+  | Robot Telemetry  |        | - AE case form   |        +------------------+
+  | - Force limits   |        | - Medical records|        | - Protocol       |
+  | - Motion bounds  |        | - Concomitant    |        |   approval       |
+  | - Collision      |        |   medications    |        | - Consent        |
+  |   detection      |        | - Outcome data   |        |   oversight      |
+  | - E-stop status  |        +------------------+        | - Continuing     |
+  +------------------+               |                    |   review         |
+         |                           v                    | - SAE review     |
+         v                    +------------------+        +------------------+
+  +------------------+        | Expedited Reports|               |
+  | Alert Thresholds |        | - SAE: 24 hours  |               v
+  | ~~~~~~~~~~~~~~~  |        | - Fatal: 7 days  |        +------------------+
+  | YELLOW: Warning  |        |   (IND safety)   |        | FDA / Regulatory |
+  |   deviation from |        | - Annual: DSUR   |        | Authority        |
+  |   expected range |        +------------------+        +------------------+
+  | ORANGE: Action   |               |                    | - IND safety     |
+  |   required by    |               v                    |   reports        |
+  |   clinical team  |        +------------------+        | - Annual updates |
+  | RED: Immediate   |        | Recipients       |        | - Protocol       |
+  |   intervention   |        | - Sponsor safety |        |   amendments     |
+  |   / e-stop       |        | - DSMB           |        +------------------+
+  +------------------+        | - IRB / IEC      |
+                              | - FDA (if SAE)   |
+                              | - All sites      |
+                              +------------------+
+
+  Event Log for PAT-2026-0042:
+  +-----+--------+-------------------+-------+-----------+------------------+
+  | AE# | Day    | Event             | Grade | Alert Lvl | Escalation       |
+  +-----+--------+-------------------+-------+-----------+------------------+
+  |  1  | Day 16 | Atrial fib        |   2   | ORANGE    | Cardio consult;  |
+  |     |        |                   |       |           | dose held        |
+  +-----+--------+-------------------+-------+-----------+------------------+
+  |  2  | Cyc 6  | Hypothyroidism    |   1   | YELLOW    | Endocrine consult|
+  +-----+--------+-------------------+-------+-----------+------------------+
+  |  3  | Cyc 12 | Rash              |   1   | YELLOW    | Topical steroids |
+  +-----+--------+-------------------+-------+-----------+------------------+
+
+================================================================================
+  RESEARCH USE ONLY -- Not for clinical decision-making
+================================================================================

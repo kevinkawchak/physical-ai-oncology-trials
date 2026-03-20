@@ -1,0 +1,79 @@
+PAT-2026-0042 CLINICAL & TECHNICAL DASHBOARD — Final (All 10 Stages COMPLETE)
+════════════════════════════════════════════════════════════════════════════════
+
++- PATIENT --------------------+  +- TRIAL STATUS ------------------+
+| ID:      PAT-2026-0042       |  | Stage:    CLOSEOUT (10/10)      |
+| Age:     58F                 |  | Status:   COMPLETED             |
+| Dx:      Stage IIIB NSCLC    |  | Arm:      A (Experimental)      |
+| ECOG:    1                   |  | Day:      1090+                 |
+| PD-L1:   72% (specimen)     |  | Site:     SITE-003              |
+| TMB:     14 mut/Mb           |  | Data Lock: HARD_LOCK            |
++------------------------------+  +---------------------------------+
+
++- CLINICAL OUTCOME ---------------------------------------------------+
+| Best Response:         CR (Complete Response)                        |
+| Event-Free Survival:   36 months (event-free at closeout)           |
+| Treatment Completed:   35 cycles pembrolizumab 200 mg IV q3w       |
+| Surgical Margins:      R0 (negative)                                |
+| Pathologic Stage:      ypT1aN0 (major pathologic response)         |
+| Surveillance:          4 quarterly CT scans — NED maintained        |
+| Bayesian Posterior:    P(experimental superior) = 0.97              |
+| Federated HR:          0.62 (95% CrI: 0.44-0.87)                  |
++----------------------------------------------------------------------+
+
++- ADVERSE EVENT SUMMARY -----------------------------------------------+
+| Total AEs:             All reported and reconciled                    |
+| Device-Related AEs:    0                                              |
+| Physical AI AEs:       0 (all 5 categories assessed)                |
+| Max CTCAE Grade:       Grade 2 (hypothyroidism, managed)            |
+| SAEs:                  0                                              |
++-----------------------------------------------------------------------+
+
++- DATA LOCK & ARCHIVE ------------------------------------------------+
+| Lock Status:           HARD_LOCK (Part 11 electronic signatures)    |
+| Record Hash:           SHA-256 verified                              |
+| Electronic Signatures: PI, DM, QA (all applied)                    |
+| Read-Only:             YES — modifications blocked                   |
+| Archive Retention:     15 years (cold archive, AES-256-GCM)        |
++----------------------------------------------------------------------+
+
++- PHYSICAL AI PERFORMANCE ---------------------------------------------+
+| Digital Twin:          Calibrated, validation score 0.93             |
+| Robot System:          ROBOT-DA-VINCI-2026, SURGICAL_ROBOT          |
+| USL Score:             9.2 (CLINICAL_GRADE)                         |
+| Autonomy Level:        2 (shared control)                           |
+| MCP Conformance:       FEDERATED_SITE                               |
+| Federation Rounds:     70 of 70 (epsilon budget 70.0)              |
+| DSMB Recommendation:   CONTINUE (favorable efficacy signal)        |
++----------------------------------------------------------------------+
+
++- DE-IDENTIFICATION ---+  +- GCP AUDIT ---------------------+
+| Re-ID Risk:  0.012    |  | Overall:   GCP COMPLIANT: PASS  |
+| Threshold:   0.040    |  | Domains:   10/10 PASS           |
+| Status:      PASSED   |  | Subpart J: COMPLIANT            |
+| PHI Residual: NONE    |  | Findings:  0 critical           |
+| Fields:      12/12 OK |  | PAI Audit: 8/8 PASS            |
++------------------------+  +---------------------------------+
+
++- CSR (Clinical Study Report) ----------------------------------------+
+| Document ID:           CSR-PAT-2026-0042 v1.0                       |
+| Sections:              12 standard CSR sections                      |
+| Physical AI Addenda:   Device performance, USL trajectory, DT valid.|
+| Regulatory Coverage:   84+ sections across 3 frameworks             |
+| Modules Activated:     51 of 51                                      |
++----------------------------------------------------------------------+
+
++- STAGE COMPLETION CHECKLIST ------------------------------------------+
+| [v] Stage  1: Pre-Screening          (Day -30 to -14)              |
+| [v] Stage  2: Enrollment             (Day -14 to 0)                |
+| [v] Stage  3: Digital Twin           (Day 0 to 7)                  |
+| [v] Stage  4: Robot Qualification    (Day 7 to 14)                 |
+| [v] Stage  5: Surgery                (Day 14 to 15)                |
+| [v] Stage  6: Recovery               (Day 15 to 28)                |
+| [v] Stage  7: Immunotherapy          (Day 28 to Month 24)          |
+| [v] Stage  8: Federation             (Continuous, 70 rounds)       |
+| [v] Stage  9: Surveillance           (Month 24 to 36)              |
+| [v] Stage 10: Closeout               (Month 36+)                   |
+|                                                                      |
+| JOURNEY STATUS: COMPLETED — CR, event-free at 36 months            |
++----------------------------------------------------------------------+

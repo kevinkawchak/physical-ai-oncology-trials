@@ -1,0 +1,46 @@
+PAT-2026-0042 JOURNEY TIMELINE — Through Stage 6: Post-Operative Recovery
+═════════════════════════════════════════════════════════════════════════════
+
+Day -30     Day -14      Day 0       Day 7       Day 14      Day 28
+  │           │            │           │           │           │
+  ▼           ▼            ▼           ▼           ▼           ▼
+┌─────────┐ ┌─────────┐ ┌─────────┐ ┌─────────┐ ┌─────────┐ ┌─────────────────┐
+│ STAGE 1 │ │ STAGE 2 │ │ STAGE 3 │ │ STAGE 4 │ │ STAGE 5 │ │    STAGE 6      │
+│ [DONE]  │→│ [DONE]  │→│ [DONE]  │→│ [DONE]  │→│ [DONE]  │→│   [ACTIVE]      │
+│Pre-Scrn │ │Enrollmt │ │Dig Twin │ │Robot Ql │ │ Surgery │ │   Recovery      │
+└─────────┘ └─────────┘ └─────────┘ └─────────┘ └─────────┘ └─────────────────┘
+ PHI scan    Eligible     Twin cal    DV USL 7.9   168 min     DT event-driven
+ FHIR map    Consent v1   V&V 40      FP USL 7.2   85 mL EBL   Drain mgmt
+ DICOM val   Arm A        4 models    Cyber OK     Neg margins  pT2aN2M0
+                                      Safety OK    18 LN(3+)    AF Grade 2 D16
+                                                   Level 2      Recurrence 35%
+
+             │
+             ▼
+┌──────────┐ ┌──────────┐ ┌──────────┐ ┌──────────┐
+│ STAGE 7  │ │ STAGE 8  │ │ STAGE 9  │ │ STAGE 10 │
+│[PENDING] │ │[PENDING] │ │[PENDING] │ │[PENDING] │
+│Immunother│ │Federation│ │Surveill. │ │ Closeout │
+└──────────┘ └──────────┘ └──────────┘ └──────────┘
+
+KEY MILESTONES — Stage 6 (Day 14 to Day 28):
+  Day 14 .... DT sync transition: 30 Hz real-time -> event-driven
+  Day 14 .... Drain output 310 mL -> continue monitoring
+  Day 15 .... Drain output 210 mL -> continue (> 100 mL threshold)
+  Day 16 .... AE: new-onset atrial fibrillation (Grade 2, MODERATE)
+  Day 16 .... Physical AI causality: 5 categories (a)-(e) -> unrelated
+  Day 17 .... Drain output 45 mL -> drain removed (< 100 mL threshold)
+  Day 17 .... Pathology: pT2aN2M0, margins neg (8mm), 3/18 LN+, PD-L1 72%
+  Day 19 .... CXR clear, discharge planning initiated
+  Day 20 .... AF resolved, IRB notified (not FDA — not device-related)
+  Day 28 .... Recovery period complete, adjuvant immunotherapy recommended
+
+CUMULATIVE PROGRESS:
+  Elapsed ............. 58 days (Day -30 to Day 28)
+  Stages .............. 6 of 10 (5 done, 1 active)
+  Status .............. RECOVERING
+  Tumor Volume ........ 0.0 cm3 (resected)
+  Adverse Events ...... 1 (Grade 2 AF, unrelated to device)
+  Pathology ........... pT2aN2M0, PD-L1 72%, recurrence risk 35%
+  MCP Conformance ..... ROBOT_PROCEDURE
+  Modules Activated ... 39 of 51

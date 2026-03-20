@@ -1,0 +1,54 @@
+PAT-2026-0042 REGULATORY COMPLIANCE — Through Stage 9: Treatment Completion & Surveillance
+════════════════════════════════════════════════════════════════════════════════════════════
+
+Framework          | S1-PreScr | S2-Enroll | S3-DTwin | S4-Robot | S5-Surg | S6-Recov
+-------------------+-----------+-----------+----------+---------+---------+----------
+21 CFR Part 312    |[v] s312.1 |[v] s312.20|[v]s312.21|[v]s312.401[v]s312.62|[v]s312.32
+                   |    s312.3 |    s312.23|   s312.23|   s312.402   s312.57|   s312.64
+                   |    s312.57|           |   s312.402   s312.403          |
+                   |           |           |          |   s312.404          |
+                   |           |           |          |   s312.405          |
+-------------------+-----------+-----------+----------+---------+---------+----------
+21 CFR Part 50     |[v] s50.1  |[v] s50.20 |[v] s50.32|[v]s50.30|[v]s50.30|[v]s50.30
+                   |    s50.3  |    s50.25 |          |         |   s50.33|   s50.32
+                   |    s50.33 |    s50.27 |          |         |         |
+                   |           |    s50.30 |          |         |         |
+                   |           |    s50.31 |          |         |         |
+                   |           |    s50.34 |          |         |         |
+-------------------+-----------+-----------+----------+---------+---------+----------
+ICH E6(R3)         |[v] s2.9   |[v] s2.4   |[v] s1.4  |[v] s1.5 |[v] s2.3 |[v] s2.10
+                   |           |    s2.7   |    s1.4.1|    s1.4.1    s2.10|    s2.10.1
+                   |           |    s2.8   |    s1.4.2|    s2.6 |    s2.12|    s2.3.2
+                   |           |           |          |         |   s2.12.3
+
+Framework          | S7-Immuno | S8-Feder  | S9-Surv         | S10-Close
+-------------------+-----------+-----------+-----------------+----------
+21 CFR Part 312    |[v] s312.32|[v]s312.52 |[>] s312.85      |[ ]
+                   |    s312.62|   s312.120|    s312.87      |
+                   |    s312.64|   s312.130|    s312.88      |
+                   |           |   s312.58 |                 |
+-------------------+-----------+-----------+-----------------+----------
+21 CFR Part 50     |[v] s50.30 |[v] s50.33 |[>] s50.32       |[ ]
+                   |    s50.33 |           |                 |
+-------------------+-----------+-----------+-----------------+----------
+ICH E6(R3)         |[v] s2.10  |[v] s3.1.1 |[>] s2.11        |[ ]
+                   |    s2.3   |           |    s2.9         |
+-------------------+-----------+-----------+-----------------+----------
+
+STAGE 9 KEY SECTIONS (6 new):
+  s312.85 ... Phase 4 / Post-Marketing Surveillance Requirements
+  s312.87 ... Active Safety Surveillance / Signal Detection (imaging)
+  s312.88 ... Long-Term Follow-Up Safety Monitoring (late effects)
+  s2.11 ..... Follow-Up Procedures and Retention (surveillance schedule)
+  s50.32 .... Ongoing Consent / Participant Notification (completion notice)
+  s2.9 ...... Records and Reports / PRO Collection (EORTC QLQ-C30 + LC13)
+
+STAGE 8 SECTIONS (from federation):
+  s50.33 .... Data Protection for Physical AI Investigations
+  s312.52 ... Transfer of Obligations to CRO (SMPC aggregation)
+  s312.120 .. Foreign Clinical Studies (cross-border federation)
+  s312.130 .. Availability of Regulatory Records (federated analytics)
+  s312.58 ... Inspection of Investigator's Records (audit trail)
+  s3.1.1 .... Data Governance and Integrity
+
+CUMULATIVE: ~73 regulatory sections addressed (7+12+7+11+10+6+8+6+6)

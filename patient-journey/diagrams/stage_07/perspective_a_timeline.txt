@@ -1,0 +1,44 @@
+PAT-2026-0042 JOURNEY TIMELINE — Through Stage 7: Adjuvant Immunotherapy
+═════════════════════════════════════════════════════════════════════════════
+
+Day -30     Day -14      Day 0       Day 7       Day 14      Day 15-27   Day 28 ──────────────────────────── Month 24
+  │           │            │           │           │           │           │                                    │
+  ▼           ▼            ▼           ▼           ▼           ▼           ▼                                    ▼
+┌─────────┐ ┌─────────┐ ┌─────────┐ ┌─────────┐ ┌─────────┐ ┌─────────┐ ┌──────────────────────────────────────┐
+│ STAGE 1 │ │ STAGE 2 │ │ STAGE 3 │ │ STAGE 4 │ │ STAGE 5 │ │ STAGE 6 │ │            STAGE 7                   │
+│ [DONE]  │→│ [DONE]  │→│ [DONE]  │→│ [DONE]  │→│ [DONE]  │→│ [DONE]  │→│           [ACTIVE]                   │
+│Pre-Scrn │ │Enrollmt │ │Dig Twin │ │Robot Ql │ │Surgery  │ │Recovery │ │  Adjuvant Immunotherapy               │
+└─────────┘ └─────────┘ └─────────┘ └─────────┘ └─────────┘ └─────────┘ └──────────────────────────────────────┘
+ PHI scan    Eligible     Twin cal    DV USL 7.9   168 min     Wound OK    Pembrolizumab 200 mg IV q3w
+ FHIR map    Consent v1   V&V 40      FP USL 7.2   Neg margins Path final  35 cycles (Day 28 to Month 24)
+ DICOM val   Arm A        4 models    Cyber OK     18 LN       ECOG 0-1    2 AEs: hypothyroid C6, rash C12
+                                      Safety OK    pT2aN2M0    Twin recal  Risk: 35% -> 28% -> 18% -> 12% -> 8%
+
+┌──────────┐ ┌──────────┐ ┌──────────┐
+│ STAGE 8  │ │ STAGE 9  │ │ STAGE 10 │
+│[PENDING] │ │[PENDING] │ │[PENDING] │
+│Federation│ │Surveill. │ │ Closeout │
+└──────────┘ └──────────┘ └──────────┘
+
+KEY MILESTONES — Stage 7 (Day 28 to Month 24):
+  Cycle 1 ..... Treatment initiation: pembrolizumab 200 mg IV
+  Cycle 4 ..... First imaging: NED, recurrence risk 35%
+  Cycle 6 ..... AE: immune-related hypothyroidism (Grade 1), patient notified § 50.32
+  Cycle 8 ..... Imaging: NED, recurrence risk 28%
+  Cycle 12 .... AE: immune-related rash (Grade 1), patient notified § 50.32
+  Cycle 12 .... Imaging: NED, recurrence risk 18%
+  Cycle 17 .... Imaging: NED, recurrence risk 12%
+  Cycle 23 .... Imaging: NED, recurrence risk 8%
+  Annual ...... IND report per § 312.33 with Physical AI data
+  Cycle 35 .... Treatment completion, NED, recurrence risk 3%
+
+CUMULATIVE PROGRESS:
+  Elapsed ............. ~24 months (Day -30 to Month 24)
+  Stages .............. 7 of 10 (6 done, 1 active)
+  Status .............. ON_IMMUNOTHERAPY
+  Treatment Cycles .... 35 of 35 completed
+  Adverse Events ...... 2 (Grade 1 hypothyroidism, Grade 1 rash)
+  Tumor Volume ........ 0.0 cm3 (NED)
+  Recurrence Risk ..... 3% (from 35% at start)
+  MCP Conformance ..... ROBOT_PROCEDURE
+  Modules Activated ... ~40 of 51

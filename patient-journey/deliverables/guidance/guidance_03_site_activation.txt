@@ -1,0 +1,116 @@
+==============================================================================
+GUIDANCE 03: SITE ACTIVATION CHECKLIST
+FOR PHYSICAL AI TRIALS
+==============================================================================
+
+1. PURPOSE AND SCOPE
+
+This checklist defines the requirements for activating a clinical trial
+site to conduct Physical AI-augmented oncology trials. All items must be
+completed and documented before first patient enrollment at the site.
+
+------------------------------------------------------------------------------
+2. INFRASTRUCTURE REQUIREMENTS
+------------------------------------------------------------------------------
+
+2.1 Robotic Systems
+    [ ] Physical AI robotic system installed and operational
+    [ ] ROS 2 (Robot Operating System 2) middleware deployed and configured
+    [ ] Robot-to-network communication verified (latency under 50ms)
+    [ ] Emergency stop hardware installed and tested at all operator stations
+    [ ] Backup power supply (UPS) connected to robotic systems
+    [ ] Physical workspace meets robotic system clearance specifications
+
+2.2 MCP Server Infrastructure
+    [ ] MCP (Model Context Protocol) servers deployed on-site or via
+        approved cloud infrastructure
+    [ ] MCP server connectivity to robotic systems verified
+    [ ] MCP server connectivity to digital twin platform verified
+    [ ] Server redundancy and failover mechanisms tested
+    [ ] Data throughput capacity validated for expected trial volume
+
+2.3 Digital Twin Compute
+    [ ] Digital twin compute platform provisioned (GPU-accelerated)
+    [ ] Patient digital twin generation pipeline tested end-to-end
+    [ ] Digital twin model validation against reference datasets completed
+    [ ] Compute capacity sufficient for concurrent patient modeling
+    [ ] Data input/output pipelines to clinical data systems verified
+
+2.4 Network and Connectivity
+    [ ] Dedicated network segment for Physical AI systems established
+    [ ] Network bandwidth meets minimum requirements for real-time operations
+    [ ] VPN or secure tunnel to sponsor data systems configured and tested
+    [ ] Federated learning node deployed and connected to aggregation server
+
+------------------------------------------------------------------------------
+3. STAFF TRAINING REQUIREMENTS
+------------------------------------------------------------------------------
+
+    [ ] Principal investigator completed Physical AI trial conduct training
+    [ ] Sub-investigators completed Physical AI system overview training
+    [ ] Clinical research coordinators trained on Physical AI data capture
+    [ ] Nursing staff trained on patient monitoring during robot procedures
+    [ ] Field observers trained per Guidance 02 (Field Observer Guide)
+    [ ] IT staff trained on ROS 2, MCP server, and digital twin maintenance
+    [ ] All staff completed emergency procedures training for robot events
+    [ ] Training records documented and filed in the trial master file
+    [ ] Competency assessments completed for all trained personnel
+
+------------------------------------------------------------------------------
+4. ROBOT QUALIFICATION PROCESS
+------------------------------------------------------------------------------
+
+    [ ] Installation Qualification (IQ) completed and documented
+        - System installed per manufacturer specifications
+        - All components verified against shipping manifest
+        - Environmental conditions within operating parameters
+    [ ] Operational Qualification (OQ) completed and documented
+        - All system functions tested across specified operating ranges
+        - Safety interlocks and emergency stops verified
+        - Communication interfaces tested with site infrastructure
+    [ ] Performance Qualification (PQ) completed and documented
+        - System performance verified under simulated trial conditions
+        - Accuracy and precision metrics meet protocol specifications
+        - End-to-end workflow tested including data capture and upload
+    [ ] Qualification reports reviewed and approved by sponsor QA
+
+------------------------------------------------------------------------------
+5. CYBERSECURITY ASSESSMENT
+------------------------------------------------------------------------------
+
+    [ ] Cybersecurity risk assessment completed per FDA premarket guidance
+    [ ] Network penetration testing performed on Physical AI network segment
+    [ ] Access controls implemented (role-based, multi-factor authentication)
+    [ ] Data encryption verified at rest and in transit
+    [ ] Intrusion detection system deployed and monitored
+    [ ] Software bill of materials (SBOM) obtained from all AI/robot vendors
+    [ ] Vulnerability management plan established with patch cadence defined
+    [ ] Cybersecurity incident response plan documented and tested
+    [ ] Third-party security audit completed (if required by sponsor)
+
+------------------------------------------------------------------------------
+6. IRB PHYSICAL AI SUPPLEMENT
+------------------------------------------------------------------------------
+
+    [ ] IRB submission includes Physical AI system description and role
+    [ ] Informed consent form includes Physical AI-specific language
+        per 21 CFR Part 50 requirements
+    [ ] Patient information sheet (Guidance 04) approved by IRB
+    [ ] IRB reviewed and approved risk assessment for Physical AI components
+    [ ] IRB approved data privacy protections for federated learning
+    [ ] IRB continuing review plan includes Physical AI performance metrics
+    [ ] IRB approval letter on file with Physical AI supplement reference
+
+------------------------------------------------------------------------------
+7. FINAL ACTIVATION SIGN-OFF
+------------------------------------------------------------------------------
+
+    [ ] All checklist items completed and documented
+    [ ] Site initiation visit conducted by sponsor
+    [ ] Sponsor confirmation of site readiness received
+    [ ] Site activation date recorded in trial management system
+
+==============================================================================
+RESEARCH USE ONLY - Not for clinical decision-making.
+LICENSE: MIT
+==============================================================================

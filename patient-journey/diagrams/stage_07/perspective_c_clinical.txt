@@ -1,0 +1,57 @@
+PAT-2026-0042 CLINICAL & TECHNICAL DASHBOARD — Through Stage 7
+════════════════════════════════════════════════════════════════════════════════
+
+┌─ PATIENT ──────────────────────────┐  ┌─ TRIAL STATUS ──────────────────┐
+│ ID:      PAT-2026-0042             │  │ Stage:    IMMUNOTHERAPY (7/10)  │
+│ Age:     58F                       │  │ Status:   ON_IMMUNOTHERAPY      │
+│ Dx:      Stage IIIB NSCLC          │  │ Arm:      A (Experimental)      │
+│ ECOG:    0-1                       │  │ Day:      ~740 (Month 24)       │
+│ PD-L1:   65%   TMB: 14 mut/Mb     │  │ Site:     SITE-003              │
+└────────────────────────────────────┘  └─────────────────────────────────┘
+
+┌─ IMMUNOTHERAPY RECORD ────────────────────────────────────────────────────┐
+│ Drug:        Pembrolizumab 200 mg IV q3w                                 │
+│ Cycles:      35 of 35 completed (Day 28 to Month 24)                    │
+│ Duration:    ~22 months of active treatment                              │
+│ Dose Mods:   None required                                               │
+│ Response:    NED (No Evidence of Disease) at all imaging time-points     │
+│ Final Risk:  3% recurrence (down from 35% at cycle 4)                   │
+└───────────────────────────────────────────────────────────────────────────┘
+
+┌─ RECURRENCE RISK TRAJECTORY ─────────────────────────────────────────────┐
+│ Cycle 4  (Day  91): 35% ████████████████████████████████████             │
+│ Cycle 8  (Day 175): 28% ████████████████████████████                     │
+│ Cycle 12 (Day 259): 18% ██████████████████                               │
+│ Cycle 17 (Day 364): 12% ████████████                                     │
+│ Cycle 23 (Day 490):  8% ████████                                         │
+│ Cycle 29 (Day 616):  5% █████                                            │
+│ Cycle 35 (Day 742):  3% ███                                              │
+└───────────────────────────────────────────────────────────────────────────┘
+
+┌─ ADVERSE EVENTS (CUMULATIVE) ────────┐  ┌─ DIGITAL TWIN ─────────────────┐
+│ Total AEs:     3                     │  │ Imaging Updates:  7 time-points │
+│   Pre-Immuno:  1 (surgical)          │  │ Twin Recalibrated: 7 times      │
+│   Cycle 6:     Hypothyroidism (Gr 1) │  │ TME Model:    Active            │
+│   Cycle 12:    Rash (Gr 1)          │  │ PK/PD Model:  Steady state      │
+│ Max Grade:     1                     │  │ Validation:   ALL PASSED        │
+│ Treatment Held: No                   │  │ Sim-vs-Real:  Within threshold  │
+│ Dose Modified:  No                   │  │ Risk Trend:   Monotone decrease │
+│ Patient Notified: Yes (§ 50.32)     │  │ Last Risk:    3%                │
+└──────────────────────────────────────┘  └─────────────────────────────────┘
+
+┌─ PHYSICAL AI SYSTEMS ────────────────────────────────────────────────────┐
+│ Adaptive Agent:  9 recommendations issued, 0 overrides                   │
+│ Simulation:      What-if rash analysis at cycle 12+                     │
+│ Digital Twin:    7 recalibrations, all validations passed               │
+│ Annual Report:   Physical AI performance data per § 312.33              │
+│ System Uptime:   99.7%                                                   │
+└───────────────────────────────────────────────────────────────────────────┘
+
+┌─ SAFETY & COMPLIANCE ─────────────┐  ┌─ DATA METRICS ──────────────────┐
+│ Adverse Events:  3 total           │  │ Audit Entries:     ~450         │
+│ Max AE Grade:    1                 │  │ MCP Conformance:   ROBOT_PROC.  │
+│ Device AEs:      0                 │  │ Data Lock:         OPEN         │
+│ Consent:         OBTAINED v1       │  │ Modules Active:    ~40 of 51    │
+│ IRB:             APPROVED          │  │ Regulatory Sects:  ~61 addressed│
+│ IND Report:      SUBMITTED         │  │ Treatment Cycles:  35 completed │
+└────────────────────────────────────┘  └─────────────────────────────────┘

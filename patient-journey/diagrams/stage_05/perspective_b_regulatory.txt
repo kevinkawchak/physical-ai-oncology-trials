@@ -1,0 +1,39 @@
+PAT-2026-0042 REGULATORY COMPLIANCE — Through Stage 5: Surgery
+════════════════════════════════════════════════════════════════════════════════
+
+Framework          │ S1-PreScr │ S2-Enroll │ S3-DTwin │ S4-Robot │ S5-Surg
+───────────────────┼───────────┼───────────┼──────────┼─────────┼──────────
+21 CFR Part 312    │[✓] §312.1 │[✓] §312.20│[✓]§312.21│[✓]§312.401[→]§312.62
+                   │    §312.3 │    §312.23│   §312.23│   §312.402   §312.57
+                   │    §312.57│           │   §312.402   §312.403
+                   │           │           │          │   §312.404
+                   │           │           │          │   §312.405
+───────────────────┼───────────┼───────────┼──────────┼─────────┼──────────
+21 CFR Part 50     │[✓] §50.1  │[✓] §50.20 │[✓] §50.32│[✓]§50.30│[→]§50.30
+                   │    §50.3  │    §50.25 │          │         │   §50.33
+                   │    §50.33 │    §50.27 │          │         │
+                   │           │    §50.30 │          │         │
+                   │           │    §50.31 │          │         │
+                   │           │    §50.34 │          │         │
+───────────────────┼───────────┼───────────┼──────────┼─────────┼──────────
+ICH E6(R3)         │[✓] §2.9   │[✓] §2.4   │[✓] §1.4  │[✓] §1.5 │[→] §2.3
+                   │           │    §2.7   │    §1.4.1│    §1.4.1    §2.10
+                   │           │    §2.8   │    §1.4.2│    §2.6 │    §2.12
+                   │           │           │          │         │    §2.12.3
+───────────────────┼───────────┼───────────┼──────────┼─────────┼──────────
+
+Framework          │ S6-Recov  │ S7-Immuno │ S8-Feder │ S9-Surv │ S10-Close
+───────────────────┼───────────┼───────────┼──────────┼─────────┼──────────
+(all pending)      │[ ]        │[ ]        │[ ]       │[ ]      │[ ]
+
+STAGE 5 KEY SECTIONS:
+  §312.62 .. Investigator Recordkeeping — robot telemetry, AI decision logs
+  §312.57 .. Recordkeeping — 21 CFR Part 11 electronic records
+  §50.30 ... Runtime Safety — 1 kHz monitoring, task-order lifecycle
+  §50.33 ... MCP conformance upgraded to ROBOT_PROCEDURE
+  §2.3 ..... Medical Care — physician responsibility for robotic procedures
+  §2.10 .... Safety Reporting — 5 Physical AI AE categories
+  §2.12 .... Investigator Oversight — systematic review items (a)-(e)
+  §2.12.3 .. Oversight review: performance, safety, accuracy, compliance
+
+CUMULATIVE: 47 regulatory sections addressed (7+12+7+11+10)

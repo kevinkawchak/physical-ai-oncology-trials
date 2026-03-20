@@ -1,0 +1,130 @@
+==============================================================================
+GUIDANCE 02: FIELD OBSERVER GUIDE
+FOR PHYSICAL AI CLINICAL TRIAL SITES
+==============================================================================
+
+1. PURPOSE AND SCOPE
+
+This guidance document defines the role, responsibilities, and procedures
+for field observers assigned to clinical trial sites deploying Physical AI
+systems in oncology trials. Field observers serve as independent monitors
+of robot-assisted procedures, safety events, and data integrity at the
+point of care.
+
+This guidance is applicable to all personnel designated as field observers
+under the trial monitoring plan, operating under ICH E6(R2) Good Clinical
+Practice and 21 CFR Part 312 requirements.
+
+------------------------------------------------------------------------------
+2. ROLE OF THE FIELD OBSERVER
+------------------------------------------------------------------------------
+
+2.1 The field observer is an independent, trained individual responsible for
+    on-site observation of Physical AI system operations during clinical
+    trial activities.
+
+2.2 Primary responsibilities include:
+    a. Observing robot-assisted clinical procedures in real time
+    b. Documenting Physical AI system performance and any anomalies
+    c. Monitoring patient safety during and after robot interactions
+    d. Verifying that Physical AI operations conform to the trial protocol
+    e. Reporting safety events and technology-related incidents
+    f. Serving as a liaison between the site, sponsor, and data safety
+       monitoring board (DSMB) for Physical AI-specific observations
+
+2.3 The field observer does not direct clinical care, operate Physical AI
+    systems, or make clinical decisions. Their role is observational and
+    documentary.
+
+------------------------------------------------------------------------------
+3. WHAT TO OBSERVE DURING ROBOT-ASSISTED PROCEDURES
+------------------------------------------------------------------------------
+
+3.1 Pre-Procedure Observations:
+    a. Confirm system startup and self-check completion
+    b. Verify calibration status of robotic instruments
+    c. Confirm patient identity verification by the clinical team
+    d. Observe informed consent confirmation for Physical AI procedures
+    e. Document environmental conditions (room setup, equipment placement)
+
+3.2 Intra-Procedure Observations:
+    a. Robot movement accuracy and smoothness
+    b. Response time of the system to operator commands
+    c. Any unexpected system behaviors (pauses, alerts, error messages)
+    d. Patient physiological response during robot interaction
+    e. Communication between the clinical team and the system interface
+    f. Any manual overrides of automated functions
+
+3.3 Post-Procedure Observations:
+    a. System shutdown and data upload confirmation
+    b. Patient condition assessment following robot interaction
+    c. Clinical team debriefing notes regarding system performance
+    d. Any system maintenance or recalibration activities
+
+------------------------------------------------------------------------------
+4. SAFETY MONITORING CHECKLIST
+------------------------------------------------------------------------------
+
+The field observer must complete the following checklist for each observed
+procedure. All items require documented yes/no/NA responses with comments.
+
+    [ ] Physical AI system passed pre-procedure self-check
+    [ ] Emergency stop mechanisms verified as functional
+    [ ] Clinical team confirmed readiness for robot-assisted procedure
+    [ ] Patient monitoring equipment active and displaying correctly
+    [ ] No unexpected system alerts during procedure
+    [ ] No unplanned manual overrides required
+    [ ] Patient vital signs remained within acceptable ranges
+    [ ] No unanticipated contact between robot and patient or staff
+    [ ] System data successfully uploaded to trial database
+    [ ] Post-procedure patient assessment completed by clinical team
+
+------------------------------------------------------------------------------
+5. ADVERSE EVENT RECOGNITION SPECIFIC TO PHYSICAL AI
+------------------------------------------------------------------------------
+
+5.1 Technology-related adverse events include but are not limited to:
+    a. Unintended robot movement causing patient contact or injury
+    b. System failure during an active clinical procedure
+    c. Incorrect data capture leading to erroneous clinical decisions
+    d. Cybersecurity breach affecting patient data or system operation
+    e. Digital twin model output that deviates significantly from actual
+       patient response, leading to inappropriate clinical action
+    f. Communication failure between robotic system and MCP server
+
+5.2 Severity classification for Physical AI adverse events:
+    - Minor: System anomaly with no patient impact, resolved by restart
+    - Moderate: System event requiring manual intervention, no patient harm
+    - Serious: System event resulting in patient harm or potential harm
+    - Critical: System event resulting in serious injury or death
+
+5.3 All adverse events must be reported within 24 hours to the sponsor and
+    within the timeframes specified in 21 CFR 312.32 for serious adverse
+    events. Technology-related events must also be reported to the
+    Physical AI system manufacturer.
+
+------------------------------------------------------------------------------
+6. DOCUMENTATION REQUIREMENTS
+------------------------------------------------------------------------------
+
+6.1 Field observers must maintain the following documentation:
+    a. Observation logs for each witnessed procedure (date, time, duration)
+    b. Completed safety monitoring checklists
+    c. Adverse event reports with Physical AI-specific detail
+    d. Photographic or video documentation where permitted by protocol
+    e. Field notes on system performance trends across multiple procedures
+    f. Communication logs with the sponsor and DSMB
+
+6.2 All documentation must comply with 21 CFR Part 11 requirements for
+    electronic records where applicable.
+
+6.3 Source documents must be retained for the duration specified in the
+    trial protocol and in accordance with 21 CFR 312.62.
+
+6.4 Field observers should submit weekly summary reports to the sponsor's
+    clinical operations team and flag any emerging safety patterns.
+
+==============================================================================
+RESEARCH USE ONLY - Not for clinical decision-making.
+LICENSE: MIT
+==============================================================================

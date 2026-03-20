@@ -1,0 +1,57 @@
+PAT-2026-0042 CLINICAL & TECHNICAL DASHBOARD — Through Stage 9
+════════════════════════════════════════════════════════════════════════════════
+
++- PATIENT --------------------+  +- TRIAL STATUS ------------------+
+| ID:      PAT-2026-0042       |  | Stage:    SURVEILLANCE (9/10)   |
+| Age:     58F                 |  | Status:   SURVEILLANCE          |
+| Dx:      Stage IIIB NSCLC    |  | Arm:      A (Experimental)      |
+| ECOG:    0 (improved)       |  | Day:      ~1096 (Month 36)      |
+| PD-L1:   72% (specimen)     |  | Site:     SITE-003              |
+| TMB:     14 mut/Mb           |  |                                 |
++------------------------------+  +---------------------------------+
+
++- TREATMENT COMPLETION -------- -------------------------------------------+
+| Cycles Completed:      35 of 35 (100%)                                    |
+| Drug:                  Pembrolizumab 200 mg IV q3w                        |
+| Best Response:         CR (Complete Response)                             |
+| Recurrence Status:     NED (No Evidence of Disease)                       |
+| Event-Free:            YES                                                |
+| Patient Notified:      YES (per 21 CFR 50.32 ongoing consent)            |
++----------------------------------------------------------------------------+
+
++- SURVEILLANCE IMAGING (Month 24 to Month 36) ----------------------------+
+| Month 27:  CT — NED, recurrence risk 4.0%                                |
+| Month 30:  CT — NED, recurrence risk 5.0%  (per § 312.87)               |
+| Month 33:  CT — NED, recurrence risk 2.5%                                |
+| Month 36:  CT — NED, recurrence risk 3.0%  (per § 312.87)               |
+| Trajectory: Declining (35% at cycle 4 -> 3% at Month 36)                |
++----------------------------------------------------------------------------+
+
++- LONG-TERM SAFETY (per § 312.88) ----------------------------------------+
+| Thyroid Function:      MANAGED (Grade 1 hypothyroidism, levothyroxine)   |
+| Pulmonary Function:    STABLE (no late effects)                           |
+| Cardiac Function:      STABLE (no late effects)                           |
+| Hepatic Function:      STABLE (no late effects)                           |
+| Immune Late Effects:   STABLE (no new events)                             |
+| Secondary Malignancy:  SCREENED (negative)                                |
+| Device-Related AEs:    0 (lifetime)                                       |
+| Max Toxicity Grade:    2                                                  |
++----------------------------------------------------------------------------+
+
++- PATIENT-REPORTED OUTCOMES ----+  +- OUTCOME SUMMARY ---------------+
+| Instruments:                   |  | PFS:     730 days (~24 months)  |
+|   EORTC QLQ-C30               |  | OS:      1095 days (~36 months) |
+|   EORTC QLQ-LC13              |  | Response: CR                    |
+| Global Health Status: 75-80   |  | Censored: YES (event-free)      |
+| Physical Functioning: 85      |  | Recurrence: NO                  |
+| Compliance Rate:      100%    |  | Max Tox Grade: 2                |
++--------------------------------+  +---------------------------------+
+
++- DATA METRICS ---------------------+
+| Audit Entries:     ~600+           |
+| MCP Conformance:   FEDERATED_SITE |
+| Data Lock:         OPEN            |
+| Modules Active:    ~42 of 51      |
+| Regulatory Sects:  ~73 addressed  |
+| Digital Twin Mode: RECURRENCE_DET |
++-------------------------------------+

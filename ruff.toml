@@ -39,3 +39,5 @@ ignore = ["F841", "E741", "E501"]
 "images/**/*.py" = ["F401"]
 # Patient illustration generators use cairo imports
 "patients/**/*.py" = ["F401"]
+# Patient journey orchestration uses conditional imports and cross-module references
+"patient-journey/**/*.py" = ["F401", "F402"]

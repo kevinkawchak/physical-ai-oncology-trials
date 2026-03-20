@@ -1,15 +1,17 @@
 # End-to-End Physical AI Unification of Oncology Clinical Trials
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Release](https://img.shields.io/badge/Release-v2.5.0-brightgreen.svg)]()
+[![Release](https://img.shields.io/badge/Release-v2.6.0-brightgreen.svg)]()
 [![Last Updated](https://img.shields.io/badge/Updated-March%202026-blue.svg)]()
 [![Python 3.10+](https://img.shields.io/badge/Python-3.10+-green.svg)]()
-[![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.18445179-blue)](https://doi.org/10.5281/zenodo.18445179)
+[![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.19119939-blue)](https://doi.org/10.5281/zenodo.19119939)
 
 **Practical tools for integrating physical AI into oncology clinical trials, by Claude Code Opus 4.6/4.5, Cowork; ChatGPT 5.4/5.2 Thinking**
 
 This repository provides production-ready configurations, validated pipelines, and integration guides for deploying robotic systems, digital twins, and embodied AI agents in oncology. Referenced frameworks and tools have been added primarily from Oct. 2025 to Jan. 2026.
 
+
+📄 **3/20: v2.6.0 (Patient Journey)** *End-to-End Physical AI Oncology Clinical Trial Unification: Single-Patient Journey Orchestration* - 10-stage patient journey for PAT-2026-0042 (58F, Stage IIIB NSCLC) [![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.19119939-blue)](https://doi.org/10.5281/zenodo.19119939)
 
 📄 **3/18: v2.5.0 (Regulatory Adaptation)** *End-to-End Physical AI Oncology Clinical Trial Unification: Adaption of 21 CFR Part 312 - Investigational New Drug Application* - Adaptation of 21 CFR Part 312 Regulation [![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.19057628-blue)](https://doi.org/10.5281/zenodo.19057628)
 
@@ -21,7 +23,9 @@ This repository provides production-ready configurations, validated pipelines, a
 
 📄 **2/26: New Paper (USL)** *Unification Standard Level for Physical AI Oncology Trials. Standardizing and Evaluating Robot Unification Readiness for Multi-Site Clinical Trials. USL scores range from 1.0 to 10.0* [![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.18778219-blue)](https://doi.org/10.5281/zenodo.18778219)
 
-> **v2.5.0** - Adaption of 21 CFR Part 312 (Investigational New Drug Application) for Physical AI oncology clinical trials. 94-page document covering all 10 subparts (A-J) with Physical AI adaptations woven into the existing regulatory text. New Subpart J establishes Physical AI system classification, validation, cybersecurity, human oversight, and lifecycle management requirements. 
+> **v2.6.0** - Single-patient journey orchestration for PAT-2026-0042 (58F, Stage IIIB NSCLC, ECOG 1, PD-L1 65%, TMB 14 mut/Mb, SITE-003). 10-stage pipeline from pre-screening through trial closeout with 12 Python orchestrators, 30 ASCII progress diagrams, 10 Plotly chart generators, 6 text tables, FDA cost-savings analysis, 4 guidance documents, and 262 tests. Three regulatory frameworks: 21 CFR Part 312 Subpart J, 21 CFR Part 50 Subpart C, ICH E6(R3).
+
+> **v2.5.0** - Adaption of 21 CFR Part 312 (Investigational New Drug Application) for Physical AI oncology clinical trials. 94-page document covering all 10 subparts (A-J) with Physical AI adaptations woven into the existing regulatory text. New Subpart J establishes Physical AI system classification, validation, cybersecurity, human oversight, and lifecycle management requirements.
 
 > **v1.0.0** — First stable release. 51 Python modules (40,526 LOC), 69 documentation files, 28 examples, 5 CLI tools, and complete privacy/regulatory infrastructure. CI-validated on Python 3.10, 3.11, and 3.12. See [V1_RELEASE.md](V1_RELEASE.md) for full release documentation.
 
@@ -56,6 +60,23 @@ physical-ai-oncology-trials/
 ├── V1_RELEASE.md
 ├── LICENSE
 ├── requirements.txt
+│
+├── patient-journey/                   # ★ Single-Patient Journey Orchestration (v2.6.0)
+│   ├── patient_state.py               # Central data model (10 enums, 14 dataclasses)
+│   ├── stage_01_prescreening.py       # Stage 1: Pre-Screening & Referral Intake
+│   ├── stage_02_enrollment.py         # Stage 2: Enrollment & Informed Consent
+│   ├── stage_03_digital_twin.py       # Stage 3: Digital Twin Construction
+│   ├── stage_04_robot_qualification.py # Stage 4: Robot Qualification
+│   ├── stage_05_surgery.py            # Stage 5: Robot-Assisted Surgery
+│   ├── stage_06_recovery.py           # Stage 6: Post-Operative Recovery
+│   ├── stage_07_immunotherapy.py      # Stage 7: Immunotherapy Treatment
+│   ├── stage_08_federation.py         # Stage 8: Federated Learning
+│   ├── stage_09_surveillance.py       # Stage 9: Long-Term Surveillance
+│   ├── stage_10_closeout.py           # Stage 10: Trial Closeout
+│   ├── master_journey.py             # Master orchestrator (all 10 stages)
+│   ├── diagrams/                      # 30 ASCII progress diagrams (3 x 10)
+│   ├── deliverables/                  # Charts, tables, FDA analysis, guidance
+│   └── prompts.md                     # Development prompts archive
 │
 ├── patients/                          # ★ Patient Instructions (v2.1.0)
 │   ├── README.md                      # Paper content, instructions, text diagrams
