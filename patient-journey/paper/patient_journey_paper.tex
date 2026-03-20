@@ -370,7 +370,274 @@ The \texttt{patient\_state.py} module (18 KB) defines the complete data model fo
 \end{itemize}
 
 %% ========================================================================
-%% RESULTS will follow in the next commit
+\section{Results}
+\label{sec:results}
+%% ========================================================================
+
+\subsection{Complete Patient Journey Outcomes}
+
+The fully autonomous workflow produced a complete 10-stage patient journey spanning approximately 1,120 days (Day $-$30 through Day 1090+). Table~\ref{tab:treatment-outcomes} presents the primary efficacy outcomes as documented in \texttt{deliverables/tables/table\_06\_treatment\_outcomes.txt}:
+
+\begin{table}[H]
+\centering
+\caption{Treatment outcome summary for PAT-2026-0042.}
+\label{tab:treatment-outcomes}
+\small
+\begin{tabularx}{\textwidth}{@{}L{5cm}L{7cm}@{}}
+\toprule
+\textbf{Parameter} & \textbf{Value} \\
+\midrule
+Best Overall Response (RECIST v1.1) & CR (Complete Response) \\
+Pathological Staging (post-surgery) & pT2aN2M0 \\
+Major Pathological Response (MPR) & Yes (viable tumor $<$ 10\%) \\
+Surgical Margin Status & R0 (negative margins) \\
+Neoadjuvant Cycles Completed & 4 of 4 planned \\
+Adjuvant Cycles Completed & 35 of 35 planned \\
+Baseline Recurrence Risk & 35\% \\
+Final Recurrence Risk (model) & 3\% \\
+Absolute Risk Reduction & 32 percentage points \\
+Event-Free Survival & 36 months \\
+Hazard Ratio (treatment vs control) & 0.62 (95\% CI: 0.45--0.85) \\
+Overall Survival Status & Alive, no evidence of disease \\
+Data Lock Status & HARD\_LOCK \\
+Source Data Verification & 100\% verified \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\subsection{Surgical Outcomes and Robotic Performance}
+
+Stage 5 (Robotic Surgery, \texttt{stage\_05\_surgery.py}, 18 KB) produced the following surgical outcomes through the da Vinci Xi robotic platform, as documented in the Stage 5 timeline perspective (\texttt{diagrams/stage\_05/perspective\_a\_timeline.txt}):
+
+\begin{itemize}[leftmargin=*]
+\item \textbf{Procedure}: Robotic-assisted lobectomy, 168 minutes total duration.
+\item \textbf{Estimated blood loss}: 85 mL.
+\item \textbf{Margins}: Negative (R0 resection).
+\item \textbf{Lymph nodes}: 18 sampled, 3 positive.
+\item \textbf{Autonomy level}: Level 2 (human-in-the-loop with robotic assistance).
+\item \textbf{Safety events}: One force spike at 12.1N (T+45 min), warning issued, resolved in 200ms.
+\end{itemize}
+
+The surgical procedure followed a structured ROS2 deployment sequence: IDLE $\rightarrow$ SETUP $\rightarrow$ DOCKED $\rightarrow$ READY, with a pre-procedure safety matrix passing all checks. The digital twin overlay was activated with 0.9mm registration accuracy, and sensor fusion integrated endoscope, RGBD, tracking, and force/torque data streams. Post-operative investigator review items (a) through (e) were all approved, and specimen chain-of-custody was maintained under 21 CFR Part 11 electronic signatures.
+
+The following diagram shows the Stage 5 cumulative timeline, demonstrating how the autonomous workflow tracked surgical milestones alongside prior stage completions:
+
+\begin{figure}[H]
+\begin{verbatim}
+  Day -30     Day -14      Day 0       Day 7       Day 14
+    |           |            |           |           |
+    v           v            v           v           v
+  +---------+ +---------+ +---------+ +---------+ +----------+
+  | STAGE 1 | | STAGE 2 | | STAGE 3 | | STAGE 4 | | STAGE 5  |
+  | [DONE]  |>| [DONE]  |>| [DONE]  |>| [DONE]  |>| [ACTIVE] |
+  |Pre-Scrn | |Enrollmt | |Dig Twin | |Robot Ql | | Surgery  |
+  +---------+ +---------+ +---------+ +---------+ +----------+
+   PHI scan    Eligible     Twin cal    DV USL 7.9  168 min
+   FHIR map    Consent v1   V&V 40      FP USL 7.2  85 mL EBL
+   DICOM val   Arm A        4 models    Cyber OK    Neg margins
+
+  Elapsed: 44 days | Modules Activated: 38 of 51
+\end{verbatim}
+\caption{Stage 5 cumulative timeline from \texttt{diagrams/stage\_05/perspective\_a\_timeline.txt}, showing completed stages 1--4 and active surgical stage with key metrics.}
+\label{fig:stage5-timeline}
+\end{figure}
+
+\subsection{Adverse Event Profile}
+
+Three adverse events were recorded during the patient journey, all Grade 1--2 with no serious adverse events. Table~\ref{tab:adverse-events} presents the complete adverse event log from \texttt{deliverables/tables/table\_04\_adverse\_events.txt}:
+
+\begin{table}[H]
+\centering
+\caption{Adverse events log for PAT-2026-0042 (CTCAE v5.0 grading).}
+\label{tab:adverse-events}
+\scriptsize
+\begin{tabularx}{\textwidth}{@{}C{0.5cm}L{1.2cm}L{2.2cm}C{0.7cm}L{1.8cm}L{1.8cm}L{1.8cm}@{}}
+\toprule
+\textbf{AE} & \textbf{Day/Cycle} & \textbf{Event} & \textbf{Grade} & \textbf{Causality} & \textbf{Action} & \textbf{Outcome} \\
+\midrule
+1 & Day 16 & Atrial fibrillation & 2 & Possibly related & Dose held; cardio consult & Resolved Day 22 \\
+2 & Cycle 6 & Hypothyroidism & 1 & Probably related & Levothyroxine started & Ongoing; managed \\
+3 & Cycle 12 & Maculopapular rash & 1 & Possibly related & Topical corticosteroid & Resolved in 2 weeks \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+No device-related adverse events were recorded. The atrial fibrillation event triggered an ORANGE-level alert in the safety monitoring architecture (\texttt{deliverables/diagrams/diagram\_05\_safety\_architecture.txt}), resulting in a temporary dose hold and cardiology consultation. The hypothyroidism and rash events triggered YELLOW-level alerts and were managed with standard clinical interventions. All events were reported to the IRB and Data Safety Monitoring Board (DSMB) per protocol requirements under \S312.404 and ICH E6(R3) \S2.10.
+
+\subsection{Regulatory Compliance Coverage}
+
+The autonomous workflow addressed 84+ regulatory sections across all 10 stages. The following diagram from \texttt{deliverables/diagrams/diagram\_02\_regulatory\_mapping.txt} shows the regulatory framework-to-stage mapping:
+
+\begin{figure}[H]
+\begin{verbatim}
+  Regulatory Section        |S1 |S2 |S3 |S4 |S5 |S6 |S7 |S8 |S9 |S10|
+                            |Scr|Con|Bas|Neo|Sur|Pos|Adj|Fed|Sur|Loc|
+  --------------------------+---+---+---+---+---+---+---+---+---+---+
+  21 CFR 312 Subpart J      |   |   |   |   |   |   |   |   |   |   |
+    s312.400 General provs  |XX |   |   |   |   |   |   |   |XX |   |
+    s312.401 Definitions    |XX |XX |   |   |   |   |   |   |   |   |
+    s312.402 Eligibility    |XX |   |XX |   |XX |   |   |   |   |   |
+    s312.403 Protocol sub.  |   |   |   |   |   |   |   |   |   |XX |
+    s312.404 Safeguards     |   |   |   |XX |   |XX |XX |   |   |   |
+    s312.405 Charging       |   |   |   |   |   |   |   |XX |   |   |
+  --------------------------+---+---+---+---+---+---+---+---+---+---+
+  21 CFR 50 Subpart C       |   |   |   |   |   |   |   |   |   |   |
+    s50.30 IRB review       |   |XX |   |   |   |   |   |   |   |   |
+    s50.32 Consent doc      |   |XX |   |   |   |XX |   |   |   |   |
+    s50.33 Additional elem  |   |XX |   |   |   |   |   |   |   |   |
+  --------------------------+---+---+---+---+---+---+---+---+---+---+
+  ICH E6(R3)                |   |   |   |   |   |   |   |   |   |   |
+    1.2 GCP principles      |XX |XX |   |   |   |   |   |   |   |   |
+    2.8 Quality management  |   |   |XX |   |XX |   |   |   |   |   |
+    2.9 Data integrity      |   |   |XX |   |   |   |   |XX |   |XX |
+    2.10 Safety reporting   |   |   |   |XX |   |   |XX |   |   |   |
+    2.12 Essential docs     |   |   |   |   |   |   |   |XX |XX |XX |
+  XX = Primary regulatory applicability for this stage
+\end{verbatim}
+\caption{Regulatory framework-to-stage mapping from \texttt{deliverables/diagrams/diagram\_02\_regulatory\_mapping.txt}, showing which regulatory sections govern each of the 10 patient journey stages.}
+\label{fig:reg-mapping}
+\end{figure}
+
+The cumulative regulatory coverage, tracked through the Stage 10 regulatory perspective (\texttt{diagrams/stage\_10/perspective\_b\_regulatory.txt}), confirmed that all 84+ sections received verification marks across the three frameworks: 21 CFR Part 312 (33 section-stage citations), 21 CFR Part 50 (14 section-stage citations), and ICH E6(R3) (37 section-stage citations).
+
+\subsection{Physical AI Ecosystem}
+
+The Physical AI ecosystem architecture, documented in \texttt{deliverables/diagrams/diagram\_04\_physical\_ai\_ecosystem.txt}, integrates three primary components with an MCP conformance layer:
+
+\begin{figure}[H]
+\begin{verbatim}
+            PHYSICAL AI ECOSYSTEM
+            Trial Infrastructure Layer
+                     |
+    +----------------+----------------+
+    |                |                |
+    v                v                v
+  +-----------+ +-----------+ +-----------+
+  | SURGICAL  | | DIGITAL   | | FEDERATED |
+  | ROBOT     | | TWIN      | | LEARNING  |
+  | da Vinci  | | ENGINE    | | NETWORK   |
+  +-----------+ +-----------+ +-----------+
+  |USL: 87.5  | |Risk: 35%  | |12 sites   |
+  |DEPLOYED   | |  --> 3%   | |70 rounds  |
+  |510(k)     | |94.2% fidel| |DP e=1.0   |
+  +-----------+ +-----------+ +-----------+
+    |                |                |
+    +-------+--------+--------+-------+
+            |                 |
+     +------v------+  +------v------+
+     |MCP CONFORM. |  |LAB/PHARMACY |
+     |Level 1-3: OK|  |Franka Emika |
+     |Level 4: WIP |  |USL: 88.75   |
+     +-------------+  +-------------+
+\end{verbatim}
+\caption{Physical AI ecosystem architecture from \texttt{deliverables/diagrams/diagram\_04\_physical\_ai\_ecosystem.txt}, showing the surgical robot, digital twin, federated learning, MCP conformance, and laboratory automation components.}
+\label{fig:pai-ecosystem}
+\end{figure}
+
+The ecosystem demonstrates the integration points between components: the surgical robot provides intraoperative telemetry to the digital twin, which in turn exchanges model parameters with the federated learning network. The MCP conformance layer validates interoperability across systems, while the lab automation component synchronizes dosing protocols. All components maintain immutable event logging through the audit trail system.
+
+\subsection{Data Flow Across Stages}
+
+The complete data flow architecture is documented in \texttt{deliverables/diagrams/diagram\_03\_data\_flow.txt}. Each stage consumes data artifacts from previous stages and produces structured outputs for downstream stages. Key data flow highlights include:
+
+\begin{itemize}[leftmargin=*]
+\item \textbf{Stage 1 $\rightarrow$ 2}: Eligibility checklist, medical history, genomic panel, and PD-L1/TMB results flow from screening to enrollment.
+\item \textbf{Stage 3 $\rightarrow$ 4}: Digital twin v1.0 model, baseline imaging, and lab panels flow from baseline assessment to neoadjuvant therapy.
+\item \textbf{Stage 5 $\rightarrow$ 6}: Surgical log, robot telemetry, and pathology (pT2aN2M0) flow from surgery to post-operative recovery.
+\item \textbf{Stage 7 $\rightarrow$ 8}: Treatment cycle logs (35 cycles), adverse event records, and CR confirmation flow from adjuvant therapy to surveillance.
+\item \textbf{Stage 8 $\rightarrow$ 9}: Updated risk model (35\% $\rightarrow$ 3\%), federated model weights, and quarterly imaging results flow from surveillance to long-term follow-up.
+\item \textbf{Stage 10}: Consumes all prior stage data and produces HARD\_LOCK, archived dataset, complete audit trail, and final hazard ratio (0.62).
+\end{itemize}
+
+\subsection{FDA Cost-Savings Results}
+
+The FDA cost-savings analysis, generated by \texttt{fda\_cost\_savings\_analysis.py} and summarized in \texttt{fda\_cost\_savings\_summary.txt}, projects the following financial impacts for Physical AI-augmented oncology trials:
+
+\begin{table}[H]
+\centering
+\caption{FDA cost-savings projections for Physical AI oncology trials.}
+\label{tab:cost-savings}
+\small
+\begin{tabularx}{\textwidth}{@{}L{4cm}R{2cm}R{2cm}R{2cm}@{}}
+\toprule
+\textbf{Category} & \textbf{Reduction} & \textbf{Savings Low} & \textbf{Savings High} \\
+\midrule
+Digital Twin Simulation & 15--25\% & \$195M & \$325M \\
+Federated Learning & 10--15\% & \$130M & \$195M \\
+Automated Monitoring & 5--10\% & \$65M & \$130M \\
+\midrule
+\textbf{Combined} & \textbf{30--50\%} & \textbf{\$390M} & \textbf{\$650M} \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+Per-patient costs are projected to decrease from \$40,000--\$50,000 (traditional) to \$30,000--\$38,000 (Physical AI-augmented), representing an average savings of \$11,000 per patient (24.4\% reduction). Timeline acceleration of 18--30 months was projected through two mechanisms: enrollment acceleration (12--18 months faster through digital twin-based eligibility prescreening) and safety signal detection (6--12 months faster through real-time adverse event monitoring via robotic sensor arrays and federated signal detection).
+
+Quality improvements were projected at three levels: 30\% reduction in protocol deviations through automated procedure guidance, 25\% faster adverse event detection through continuous sensor-based monitoring, and 15\% improvement in data completeness through automated data capture from robotic systems and digital twins.
+
+\subsection{Trial Timeline and Milestone Tracking}
+
+The complete trial timeline, documented in \texttt{deliverables/diagrams/diagram\_06\_trial\_timeline.txt}, tracks the patient from Day $-$30 through Day 1858+ across four phases:
+
+\begin{figure}[H]
+\begin{verbatim}
+  MILESTONE SUMMARY BAR:
+
+  Day: -30       0       84    90     128    798     1528     1858
+        |        |        |     |      |      |        |        |
+  ------+--------+--------+-----+------+------+--------+--------+-->
+        |        |        |     |      |      |        |        |
+      Screen   Enroll  Restage Surg  Clear   CR     Risk=3%   LOCK
+                                R0    Adj   Confirmed
+
+  Key Statistics at Close-Out:
+    - Total duration on study:     ~1888 days (5.2 years)
+    - Total treatment cycles:      39 (4 neo + 35 adj)
+    - Event-free survival:         36 months
+    - Final recurrence risk:       3% (from 35% baseline)
+    - Hazard ratio:                0.62 (95% CI: 0.45-0.85)
+    - Best response:               Complete Response (CR)
+\end{verbatim}
+\caption{Trial milestone summary from \texttt{deliverables/diagrams/diagram\_06\_trial\_timeline.txt}, showing key events from screening through data lock over approximately 5.2 years.}
+\label{fig:trial-timeline}
+\end{figure}
+
+The recurrence risk trajectory across the surveillance phase (Stages 8--9) showed progressive decline through federated learning model updates: 35\% $\rightarrow$ 22\% (update 1) $\rightarrow$ 12\% (update 2) $\rightarrow$ 7\% (update 3) $\rightarrow$ 3\% (update 4). The federated model was trained across 12 sites (SITE-001 through SITE-012) over 70 federation rounds using secure multi-party computation (SMPC) with differential privacy ($\epsilon = 1.0$).
+
+\subsection{Final Closeout Metrics}
+
+The Stage 10 closeout (\texttt{stage\_10\_closeout.py}, 29 KB) produced the following final metrics as documented in the Stage 10 timeline perspective (\texttt{diagrams/stage\_10/perspective\_a\_timeline.txt}):
+
+\begin{itemize}[leftmargin=*]
+\item \textbf{Data lock}: HARD\_LOCK applied with 21 CFR Part 11 electronic signatures.
+\item \textbf{De-identification review}: Final risk 0.012 $<$ 0.04\% threshold.
+\item \textbf{Clinical Study Report}: Generated covering 84+ regulatory sections.
+\item \textbf{Physical AI device performance}: Addenda included in CSR.
+\item \textbf{GCP audit}: COMPLIANT: PASS across all 10 domains.
+\item \textbf{Subpart J compliance}: Physical AI compliance verified.
+\item \textbf{Archival}: 8 data categories, 15-year retention policy.
+\item \textbf{Bayesian posterior}: P(experimental superior) = 0.97.
+\item \textbf{Federated HR}: 0.62 (95\% CrI: 0.44--0.87).
+\item \textbf{Modules activated}: 51 of 51 (100\%).
+\item \textbf{Regulatory sections}: 84+ addressed and verified.
+\end{itemize}
+
+\subsection{Guidance Documents}
+
+Four guidance documents were generated in \texttt{deliverables/guidance/} to support different stakeholders in Physical AI oncology trials:
+
+\begin{enumerate}[leftmargin=*]
+\item \textbf{Guidance 01---Pharmaceutical Industry} (\texttt{guidance\_01\_pharmaceutical\_industry.txt}, 6.6 KB): Covers trial design considerations, Physical AI system selection criteria (including FDA clearance status, ROS 2 compatibility, and cybersecurity posture), regulatory submission requirements under \S312 Subpart J, data management with federated learning, and a cost-benefit analysis framework recommending phased Physical AI deployment from Phase I digital twin prescreening through Phase III full automated monitoring.
+
+\item \textbf{Guidance 02---Field Observer} (\texttt{guidance\_02\_field\_observer.txt}, 6.5 KB): Defines the field observer role for monitoring robotic procedures, including safety monitoring protocols, adverse event recognition specific to Physical AI systems, and documentation checklists.
+
+\item \textbf{Guidance 03---Site Activation} (\texttt{guidance\_03\_site\_activation.txt}, 6.2 KB): Provides a 7-section activation checklist covering infrastructure requirements, staff training, robot qualification protocols (IQ/OQ/PQ), cybersecurity assessment, IRB supplementary requirements, and site sign-off procedures.
+
+\item \textbf{Guidance 04---Patient Information} (\texttt{guidance\_04\_patient\_information.txt}, 5.8 KB): Presents patient-friendly explanations of Physical AI systems, robotic assistance, digital twin modeling, federated data analysis, data protection measures, and patient rights under 21 CFR Part 50.
+\end{enumerate}
+
+%% ========================================================================
+%% DISCUSSION will follow in the next commit
 %% ========================================================================
 
 \end{document}
