@@ -171,4 +171,110 @@ This paper is organized as follows. Section~\ref{sec:methods} describes the deve
 
 {\footnotesize This work was adapted from original CFR documents in the public domain. The original ICH document is copyrighted and may be used, reproduced, incorporated into other works, adapted, modified, translated or distributed under a public license. This current work is not endorsed or sponsored by CFR, ICH, or FDA; and was adapted using Claude Code Opus 4.6.}
 
+%% ========================================================================
+\section{Methods}
+\label{sec:methods}
+%% ========================================================================
+
+\subsection{Development Process and Autonomous Execution}
+
+The patient journey orchestration system and all associated deliverables were constructed using a fully autonomous AI-assisted development methodology. Kevin Kawchak served as the prompt creator and system architect, providing a single comprehensive prompt (archived in \texttt{patient-journey/prompts.md}) that specified the complete ten-stage pipeline, file structure, regulatory requirements, and quality constraints. The primary AI system used for all code generation, deliverable creation, and testing was Anthropic Claude Code Opus 4.6.
+
+The autonomous execution proceeded as follows: Claude Code received the v2.6.0 prompt and executed 13 sequential commits over 72 minutes in a single pull request, with no user intervention at any point during the generation process. Each commit created new files without overwriting any previously committed files, ensuring the complete build history remained accessible and auditable in the branch.
+
+\subsubsection{Repository Context}
+
+The patient journey was built on top of the existing \texttt{physical-ai-oncology-trials} repository (v2.5.0 at the time of execution), which already contained 51 Python modules (40,526 lines of code), 69 documentation files, 28 examples, and 5 CLI tools. The patient journey orchestrators reference and call existing repository modules across multiple directories:
+
+\begin{itemize}[leftmargin=*]
+\item \texttt{privacy/phi-pii-management/} and \texttt{privacy/de-identification/} for PHI detection and HIPAA Safe Harbor de-identification in Stage~1
+\item \texttt{federation/data\_harmonization.py} and \texttt{federation/site\_enrollment.py} for data harmonization and enrollment management in Stages~1--2
+\item \texttt{digital-twins/patient-modeling/} and \texttt{digital-twins/treatment-simulation/} for tumor twin construction and treatment simulation in Stage~3
+\item \texttt{unification/usl/surgical/} and \texttt{unification/usl/cobots/} for USL scoring of the da Vinci Xi and Franka Panda in Stage~4
+\item \texttt{unification/simulation\_physics/} for cross-framework validation (Isaac Sim and MuJoCo) in Stage~4
+\item \texttt{regulatory/ich-gcp/} and \texttt{regulatory/irb-management/} for GCP compliance and IRB review across all stages
+\end{itemize}
+
+\subsubsection{Commit Structure}
+
+Table~\ref{tab:commit-structure} summarizes the 13-commit autonomous execution sequence. The first 10 commits correspond to the 10 patient journey stages, each creating a stage orchestrator, three progress diagrams, and a test module. Commits 11--12 created the master orchestrator, deliverables, and cross-stage tests. Commit 13 finalized documentation and repository updates.
+
+\begin{table}[H]
+\centering
+\caption{Autonomous commit sequence for the patient journey (72 minutes, 13 commits, single PR).}
+\label{tab:commit-structure}
+\scriptsize
+\begin{tabularx}{\textwidth}{@{}C{0.6cm}L{4.0cm}R{1.0cm}R{1.0cm}L{5.0cm}@{}}
+\toprule
+\textbf{C\#} & \textbf{Scope} & \textbf{Files} & \textbf{Tests} & \textbf{Key Artifacts Created} \\
+\midrule
+1 & Stage 1: Pre-Screening & 8 & 15 & \texttt{patient\_state.py}, \texttt{stage\_01}, 3 diagrams \\
+2 & Stage 2: Enrollment & 5 & 13 & \texttt{stage\_02}, consent with 6 AI elements \\
+3 & Stage 3: Digital Twin & 5 & 14 & \texttt{stage\_03}, 4 growth models, V\&V 40 \\
+4 & Stage 4: Robot Qualification & 5 & 15 & \texttt{stage\_04}, USL scoring, safety matrix \\
+5 & Stage 5: Surgery & 5 & 14 & \texttt{stage\_05}, ROS 2 deployment, 1~kHz safety \\
+6 & Stage 6: Recovery & 5 & 13 & \texttt{stage\_06}, AE tracking, pathology \\
+7 & Stage 7: Immunotherapy & 5 & 14 & \texttt{stage\_07}, 35 cycles, annual reporting \\
+8 & Stage 8: Federation & 5 & 14 & \texttt{stage\_08}, 70 rounds, SMPC, DSMB \\
+9 & Stage 9: Surveillance & 5 & 13 & \texttt{stage\_09}, risk 35\%$\rightarrow$3\%, PROs \\
+10 & Stage 10: Closeout & 5 & 15 & \texttt{stage\_10}, HARD\_LOCK, CSR, GCP audit \\
+11 & Master Orchestrator & 3 & 57 & \texttt{master\_journey.py}, cross-stage tests \\
+12 & Deliverables & 27 & 54 & 6 tables, 6 diagrams, charts, FDA analysis, guidance \\
+13 & Documentation & 5 & -- & README updates, prompts, releases, changelog \\
+\midrule
+\textbf{Total} & & \textbf{88} & \textbf{262} & \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\subsection{Prompt Engineering Methodology}
+
+The v2.6.0 prompt followed a structured pattern consistent with prior repository versions (v2.2.0 through v2.5.0). The prompt specified:
+
+\begin{enumerate}[leftmargin=*]
+\item \textbf{Clinical context} for each stage, defining the patient's state, the clinical procedures to be modeled, and the expected outcomes.
+\item \textbf{Governing regulations} per stage, citing specific sections from the three adapted frameworks (e.g., ``\S~312.401 Physical AI System Classification'' for Stage~4).
+\item \textbf{File specifications} including file paths, class names, method signatures, and expected method behaviors with references to existing repository modules.
+\item \textbf{Diagram requirements} mandating three cumulative perspectives per stage, with specific layout and content guidelines.
+\item \textbf{Test requirements} specifying minimum test counts and specific test scenarios per stage.
+\item \textbf{Repository conventions} including header format, docstring structure, import ordering, logging patterns, line length (120 characters), Python 3.10+ target, and ruff linting configuration.
+\end{enumerate}
+
+The prompt was approximately 26,000 tokens in length and was processed within Claude Code's 1M-token Opus 4.6 context window, allowing the AI to maintain full awareness of all previously created files while generating subsequent commits.
+
+\subsection{Central Data Model Architecture}
+
+The \texttt{patient\_state.py} module (546 lines) serves as the central data model for the entire patient journey. It was designed from the start to span all 10 stages without requiring modification after initial creation. The module defines:
+
+\begin{itemize}[leftmargin=*]
+\item \textbf{10 enumerations}: \texttt{PatientStage} (10 stages), \texttt{PatientStatus} (13 statuses), \texttt{TreatmentArm}, \texttt{ResponseCategory} (RECIST 1.1: CR, PR, SD, PD), \texttt{AESeverity} (CTCAE v5.0), \texttt{ConsentStatus}, \texttt{DataLockStatus}, \texttt{PhysicalAIClassification} (7 robot types per ICH E6(R3) \S~1.2 and \S~312.401), \texttt{USLReadinessLevel} (4 tiers per ICH E6(R3) \S~1.5), and \texttt{MCPConformanceLevel} (5 levels per \S~50.33).
+
+\item \textbf{14 dataclasses}: \texttt{PatientDemographics}, \texttt{TumorProfile}, \texttt{Biomarkers}, \texttt{OrganFunction}, \texttt{AdverseEvent}, \texttt{TreatmentCycle}, \texttt{SurgicalRecord}, \texttt{ImagingTimepoint}, \texttt{DigitalTwinState}, \texttt{RobotQualification}, \texttt{FederationContribution}, \texttt{RegulatoryEvent}, \texttt{ConsentRecord}, and \texttt{AuditEntry}.
+
+\item \textbf{Master state class} \texttt{PatientJourneyState}: Aggregates all dataclasses with helper methods for \texttt{advance\_stage()} (validates legal transitions), \texttt{add\_adverse\_event()} (auto-checks reporting thresholds per \S~312.32), \texttt{add\_regulatory\_event()} (appends with CFR section citation), \texttt{add\_audit\_entry()} (creates timestamped 21 CFR Part 11-compliant entries), and \texttt{summary()} (returns compact state summary).
+\end{itemize}
+
+\subsection{Master Journey Orchestrator}
+
+The \texttt{master\_journey.py} module (793 lines) coordinates execution of all ten stages. It defines a \texttt{STAGE\_REGULATORY\_MAP} linking each stage to its governing regulatory sections (21 CFR and ICH references), and a \texttt{STAGE\_MODULE\_MAP} linking each stage to the repository modules it activates. The \texttt{MasterJourneyOrchestrator} class provides:
+
+\begin{itemize}[leftmargin=*]
+\item \texttt{run\_full\_journey()}: Sequential execution of all 10 stages, passing the evolving \texttt{PatientJourneyState} from each stage to the next.
+\item \texttt{generate\_journey\_report()}: Comprehensive clinical summary including patient demographics, treatment history, adverse events, regulatory compliance, and Physical AI system performance.
+\item Individual stage runners (\texttt{run\_stage\_1()} through \texttt{run\_stage\_10()}): Each instantiates the appropriate stage orchestrator and executes it with the current patient state.
+\end{itemize}
+
+\subsection{Testing Infrastructure}
+
+The test suite comprises 262 tests across 13 test modules in \texttt{tests/test\_patient\_journey/}. Tests use \texttt{importlib.util.spec\_from\_file\_location()} for loading modules from the hyphenated \texttt{patient-journey/} directory (following the existing \texttt{tests/conftest.py} pattern). Each test module includes:
+
+\begin{itemize}[leftmargin=*]
+\item A \texttt{@pytest.fixture(autouse=True)} seeding \texttt{np.random.seed(42)} for reproducibility.
+\item Stage-specific fixtures providing synthetic patient data matching PAT-2026-0042's profile.
+\item End-to-end tests validating the complete stage orchestration pipeline.
+\item Regulatory compliance tests verifying CFR section citations and audit trail entries.
+\end{itemize}
+
+The cross-stage consistency test module (\texttt{test\_cross\_stage\_consistency.py}) contains 57 tests validating enum completeness, legal stage transitions, orchestrator interface consistency, demographic data consistency across stages, data model field coverage, full journey progression, diagram file existence (30 files across 10 stage directories), and module file existence (12 Python files).
+
 \end{document}
