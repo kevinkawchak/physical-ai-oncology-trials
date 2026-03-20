@@ -1,7 +1,7 @@
 # End-to-End Physical AI Unification of Oncology Clinical Trials
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Release](https://img.shields.io/badge/Release-v2.6.0-brightgreen.svg)]()
+[![Release](https://img.shields.io/badge/Release-v2.7.0-brightgreen.svg)]()
 [![Last Updated](https://img.shields.io/badge/Updated-March%202026-blue.svg)]()
 [![Python 3.10+](https://img.shields.io/badge/Python-3.10+-green.svg)]()
 [![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.19119939-blue)](https://doi.org/10.5281/zenodo.19119939)
@@ -10,6 +10,8 @@
 
 This repository provides production-ready configurations, validated pipelines, and integration guides for deploying robotic systems, digital twins, and embodied AI agents in oncology. Referenced frameworks and tools have been added primarily from Oct. 2025 to Jan. 2026.
 
+
+📄 **3/20: v2.7.0 (Patient Journey Paper)** *A Cancer Patient's Journey Through a Regulated and Autonomous Physical AI Oncology Trial Illustration* - Comprehensive paper documenting the fully autonomous patient journey [![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.19119939-blue)](https://doi.org/10.5281/zenodo.19119939)
 
 📄 **3/20: v2.6.0 (Patient Journey)** *End-to-End Physical AI Oncology Clinical Trial Unification: Single-Patient Journey Orchestration* - 10-stage patient journey for PAT-2026-0042 (58F, Stage IIIB NSCLC) [![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.19119939-blue)](https://doi.org/10.5281/zenodo.19119939)
 
@@ -22,6 +24,8 @@ This repository provides production-ready configurations, validated pipelines, a
 📄 **3/2: v2.1.0 (Patient Instructions)** *Patient Instructions: Physical AI Oncology Trials* - Paper content documentation with page-by-page instructions, text diagrams, and quantitative patient data [![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.18810541-blue)](https://doi.org/10.5281/zenodo.18810541)
 
 📄 **2/26: New Paper (USL)** *Unification Standard Level for Physical AI Oncology Trials. Standardizing and Evaluating Robot Unification Readiness for Multi-Site Clinical Trials. USL scores range from 1.0 to 10.0* [![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.18778219-blue)](https://doi.org/10.5281/zenodo.18778219)
+
+> **v2.7.0** - Patient journey paper: *A Cancer Patient's Journey Through a Regulated and Autonomous Physical AI Oncology Trial Illustration*. Comprehensive LaTeX paper documenting the fully autonomous single-patient journey, with treatment outcomes (CR, R0 resection, HR 0.62, 36-month EFS), regulatory coverage (84+ sections), FDA cost-savings analysis (\$390M--\$650M), and Physical AI ecosystem architecture. Paper available in `patient-journey/paper/`.
 
 > **v2.6.0** - Single-patient journey orchestration for PAT-2026-0042 (58F, Stage IIIB NSCLC, ECOG 1, PD-L1 65%, TMB 14 mut/Mb, SITE-003). 10-stage pipeline from pre-screening through trial closeout with 12 Python orchestrators, 30 ASCII progress diagrams, 10 Plotly chart generators, 6 text tables, FDA cost-savings analysis, 4 guidance documents, and 262 tests. Three regulatory frameworks: 21 CFR Part 312 Subpart J, 21 CFR Part 50 Subpart C, ICH E6(R3).
 
@@ -76,6 +80,14 @@ physical-ai-oncology-trials/
 │   ├── master_journey.py             # Master orchestrator (all 10 stages)
 │   ├── diagrams/                      # 30 ASCII progress diagrams (3 x 10)
 │   ├── deliverables/                  # Charts, tables, FDA analysis, guidance
+│   ├── paper/                         # ★ Patient Journey Paper (v2.7.0)
+│   │   ├── patient_journey_paper.tex  # LaTeX source
+│   │   ├── patient_journey_paper.pdf  # Compiled PDF (compile from .tex)
+│   │   ├── Latex_Source_Code.zip      # Source archive
+│   │   ├── arxiv.sty                  # Style file
+│   │   ├── orcid_icon.png             # ORCID icon
+│   │   ├── README.md                  # Paper documentation
+│   │   └── template/                  # Formatting template
 │   └── prompts.md                     # Development prompts archive
 │
 ├── patients/                          # ★ Patient Instructions (v2.1.0)

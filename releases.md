@@ -4,6 +4,41 @@ Release notes for the physical-ai-oncology-trials repository.
 
 ---
 
+A Cancer Patient's Journey Through a Regulated and Autonomous Physical AI Oncology Trial Illustration
+v2.7.0 - Patient Journey Paper
+
+Released on 20 March 2026
+CEO Kevin Kawchak, ChemicalQDevice
+
+## Summary
+
+Publishes **A Cancer Patient's Journey Through a Regulated and Autonomous Physical AI Oncology Trial Illustration**, a comprehensive LaTeX paper documenting the first fully autonomous single-patient journey through a regulated Physical AI oncology clinical trial illustration. The paper covers the complete 10-stage journey of PAT-2026-0042 (58F, Stage IIIB NSCLC) orchestrated by Claude Code Opus 4.6 in 13 commits over 72 minutes. Includes treatment outcomes (CR, R0 resection, HR 0.62, 36-month EFS), regulatory coverage (84+ sections across 21 CFR Part 312, 21 CFR Part 50, ICH E6(R3)), FDA cost-savings projections ($390M-$650M), Physical AI ecosystem architecture (da Vinci Xi USL 87.5, Franka Emika USL 88.75), and 4 guidance documents.
+
+## Features
+
+- **Complete LaTeX paper** (`patient-journey/paper/patient_journey_paper.tex`): Abstract, Introduction with regulatory disclaimer, Table of Contents, Methods, Results, Discussion, Limitations and Future Work, Conclusions, References (18 citations), Acknowledgments, Ethical Disclosures, Rights and Permissions (CC BY 4.0), and Citation
+- **Treatment outcomes**: Complete Response (CR), R0 resection via da Vinci Xi (168-min lobectomy), 35 pembrolizumab cycles, 36-month event-free survival, recurrence risk 35% to 3%, HR 0.62 (95% CI: 0.45-0.85)
+- **Regulatory coverage**: 84+ sections across three adapted frameworks with regulatory-to-stage mapping diagrams
+- **FDA cost-savings analysis**: 30-50% total cost reduction ($390M-$650M), 18-30 months timeline acceleration, 15-30% quality improvements
+- **6 text-based diagrams**: Journey overview, regulatory mapping, data flow, Physical AI ecosystem, safety architecture, trial timeline
+- **6 regulatory tables**: Patient demographics, regulatory framework, stage summary, adverse events, robot qualifications, treatment outcomes
+- **Paper README** (`patient-journey/paper/README.md`): Compilation instructions and key results summary
+- **Source archive** (`patient-journey/paper/Latex_Source_Code.zip`): Complete LaTeX source package
+
+## Contributors
+@kevinkawchak
+@claude
+@openai
+
+## Notes
+
+- Paper based on 3 Physical AI regulatory adaptations conducted by the author
+- Not to be considered a new or approved regulatory paper
+- Development by Claude Code Opus 4.6
+- License: MIT (repository code), CC BY 4.0 (paper)
+
+---
+
 End-to-End Physical AI Oncology Clinical Trial Unification: Single-Patient Journey Orchestration
 v2.6.0 - Draft release
 

@@ -14,7 +14,7 @@ This paper presents the first fully autonomous, single-patient journey through a
 | File | Description |
 |------|-------------|
 | `patient_journey_paper.tex` | LaTeX source file |
-| `patient_journey_paper.pdf` | Compiled PDF document |
+| `patient_journey_paper.pdf` | Compiled PDF document (compile from .tex) |
 | `Latex_Source_Code.zip` | Complete LaTeX source package |
 | `arxiv.sty` | LaTeX style file (arxiv format) |
 | `orcid_icon.png` | ORCID icon for author identification |
