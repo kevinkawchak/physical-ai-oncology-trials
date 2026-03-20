@@ -1268,3 +1268,7 @@ Text tables	6
 Guidance documents	4
 FDA cost-savings documents	2
 Total tests	185+
+
+## Meta-Prompt: Single-Patient Journey Orchestration
+
+Create a new comprehensive prompt that now uses 10 stages defined as Stage 1: -30 to -14 days, … Stage 10: month 36+. It is important that each stage be based on the processing requirements of a single substantial Claude Code commit to the repository (files made available in appropriate repo directories), and continues that pattern for each of the 9 remaining stages, without overwriting the prior commits’ files (it’s proper if some files grow in size for each commit, just don’t overwrite prior commit files). After Stage 10, all files should be fully complete, and combined, where necessary. A final 11th commit to double check and fix: all relevant content has been properly inserted into the final files, all content is correct, and any other needed fixes be performed in the 11th commit. This all will run in Claude Code Opus 4.6 1M tokens based solely on your single new prompt, and should run fully autonomously without stopping, providing updates along the way for each of the 11 commits that were sent to the repository.
