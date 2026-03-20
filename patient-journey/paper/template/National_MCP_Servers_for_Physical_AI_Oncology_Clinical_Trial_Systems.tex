@@ -1,0 +1,1011 @@
+\documentclass{article}
+\usepackage{arxiv}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{url}
+\usepackage[hidelinks]{hyperref}
+\usepackage{booktabs}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{enumitem}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{tabularx}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{textcomp}
+\usepackage{microtype}
+\usepackage{float}
+
+% Fix fancyhdr headheight warning
+\setlength{\headheight}{16pt}
+
+% Make running header title fit on one line with smaller font
+\renewcommand{\shorttitle}{\scriptsize\scshape National MCP Servers for Physical AI Oncology Clinical Trial Systems}
+
+% Justified text (remove raggedright for proper word spacing)
+\usepackage{ragged2e}
+
+% Code listing style
+\lstdefinestyle{pythonstyle}{
+  language=Python,
+  basicstyle=\ttfamily\scriptsize,
+  keywordstyle=\color[rgb]{0.13,0.29,0.53}\bfseries,
+  stringstyle=\color[rgb]{0.31,0.60,0.02},
+  commentstyle=\color[rgb]{0.56,0.56,0.56}\itshape,
+  numbers=left,
+  numberstyle=\tiny\color{gray},
+  stepnumber=1,
+  numbersep=5pt,
+  backgroundcolor=\color[rgb]{0.97,0.97,0.97},
+  frame=single,
+  rulecolor=\color[rgb]{0.8,0.8,0.8},
+  breaklines=true,
+  breakatwhitespace=false,
+  tabsize=4,
+  showstringspaces=false,
+  columns=flexible
+}
+\lstset{style=pythonstyle}
+
+% ORCID icon command
+\newcommand{\orcidicon}[1]{%
+\href{https://orcid.org/#1}{%
+\raisebox{-1pt}{\includegraphics[height=9pt]{orcid_icon.png}}}}
+
+% Compact table column type
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
+\newcolumntype{C}[1]{>{\centering\arraybackslash}p{#1}}
+\newcolumntype{R}[1]{>{\raggedleft\arraybackslash}p{#1}}
+
+\title{National MCP Servers for Physical AI\\Oncology Clinical Trial Systems}
+
+\author{
+  Kevin Kawchak\hspace{2pt}\orcidicon{0009-0007-5457-8667} \\
+  CEO ChemicalQDevice\\
+  \href{https://doi.org/10.5281/zenodo.18916731}{10.5281/zenodo.18916731} \\
+  \texttt{kevink@chemicalqdevice.com}
+}
+
+\date{March 9, 2026}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+Prior oncology clinical trial infrastructure has been fragmented, site-specific, and inefficient across the critical dimensions of interoperability, auditability, privacy, and deployment. Each trial site has historically operated its own isolated systems for electronic health records, imaging archives, and audit logging, resulting in inconsistent data formats, duplicated regulatory effort, and limited cross-site collaboration. This paper presents the National MCP Physical AI Oncology Trials system, a proposed end-to-end architecture comprising five Model Context Protocol (MCP) servers that address these gaps through standardized, federated, and safety-governed capabilities. The five servers (Authorization, FHIR Clinical Data, DICOM Imaging, Audit Ledger, and Provenance) expose 23 tools across five hierarchical conformance levels, validated by 668 test functions. The system integrates AI and robotics advances intended to improve patient safety and clinical effectiveness, including emergency stop coordination, procedure state machines, and multi-party approval checkpoints. Quantitative analysis of the repository demonstrates 381 files across 88 directories, 34 integration adapters, 8 safety modules, 13 JSON schemas, and dual-language SDKs in Python and TypeScript. This end-to-end MCP Physical AI oncology trial system provides the foundation for national-scale standardization of robotic oncology clinical trials.
+\end{abstract}
+
+\keywords{Model Context Protocol \and Physical AI \and Oncology Clinical Trials \and Federated Learning \and Robotic Surgery}
+
+
+
+%% ========================================================================
+\section{Introduction}
+\label{sec:introduction}
+%% ========================================================================
+
+\vspace{-0.2cm}
+
+Oncology clinical trials represent one of the most complex operational domains in modern healthcare, requiring coordination among clinical sites, sponsors, contract research organizations (CROs), regulatory agencies, and increasingly, autonomous robotic systems. The prior trial infrastructure evolved organically over decades, producing a patchwork of site-specific implementations that created significant barriers to interoperability, auditability, and scalability.
+
+\vspace{-0.1cm}
+
+\subsection{Fragmentation in Prior Trial Systems}
+
+The previous oncology trial infrastructure suffered from several structural limitations that hindered efficiency and safety:
+
+\begin{enumerate}[leftmargin=*]
+\item \textbf{Site-specific data silos.} Each clinical site maintained its own electronic health record (EHR) system, picture archiving and communication system (PACS), and audit logging mechanism. Data exchange between sites required custom point-to-point integrations that were expensive to build and maintain.
+
+\item \textbf{Inconsistent interoperability.} While standards such as HL7 FHIR R4~\cite{fhir2019r4} and DICOM~\cite{dicom2024standard} existed, adoption was uneven. Many sites used proprietary data formats or older HL7 v2 interfaces, requiring complex translation layers.
+
+\item \textbf{Manual audit processes.} Regulatory compliance with 21 CFR Part 11~\cite{fda2003part11} and HIPAA~\cite{hipaa1996} was largely manual, relying on paper-based or spreadsheet-driven audit trails that were difficult to verify and vulnerable to tampering.
+
+\item \textbf{Limited privacy controls.} De-identification of protected health information (PHI) was inconsistently applied, and cross-site data sharing lacked standardized privacy-preserving mechanisms such as federated learning~\cite{mcmahan2017fedavg} or differential privacy.
+
+\item \textbf{No Physical AI integration standard.} As autonomous robotic systems entered oncology clinical settings for procedures such as biopsy, ablation, and radiation therapy, no standardized protocol existed for robot-to-clinical-system communication, safety governance, or audit logging of autonomous actions.
+\end{enumerate}
+
+\tableofcontents
+
+
+\vspace{0.05cm}
+
+\subsection{The Model Context Protocol Opportunity}
+
+The Model Context Protocol (MCP)~\cite{mcp2024protocol} introduced in 2024 by Anthropic provides a standardized, open protocol for communication between AI agents and tool servers. MCP defines a structured interface where agents invoke named tools with typed parameters and receive typed responses, with built-in support for capability discovery, error handling, and extensibility.
+
+This protocol architecture presents a natural fit for oncology clinical trials, where multiple actors (clinicians, robots, auditors, sponsors) need controlled access to clinical data through well-defined interfaces. The prior system lacked such a unifying protocol layer, forcing each integration to be built as a custom, bilateral connection.
+
+\subsection{Contributions of This Work}
+
+This paper presents the National MCP Physical AI Oncology Trials system (repository version 1.2.0), a proposed end-to-end architecture that addresses the limitations of prior trial infrastructure through five key contributions:
+
+\begin{enumerate}[leftmargin=*]
+\item A five-server MCP architecture (\texttt{trialmcp-authz}, \texttt{trialmcp-fhir}, \texttt{trialmcp-dicom}, \texttt{trialmcp-ledger}, \texttt{trialmcp-provenance}) exposing 23 standardized tools.
+\item Five hierarchical conformance levels enabling incremental adoption from basic authorization through full robotic procedure orchestration.
+\item Eight safety modules specifically designed for Physical AI systems in clinical environments, including emergency stop coordination and procedure state machines.
+\item A federated architecture supporting cross-site collaboration without centralized patient data, with privacy-preserving aggregation via FedAvg, FedProx, and SCAFFOLD~\cite{mcmahan2017fedavg,kairouz2021federated}.
+\item Comprehensive validation infrastructure comprising 668 test functions across unit, conformance, adversarial, security, and interoperability categories.
+\end{enumerate}
+
+The system was developed iteratively across four repositories, progressing from single-site Physical AI frameworks~\cite{kawchak2026physicalai} through federated learning~\cite{kawchak2026paifl} and MCP server prototyping~\cite{kawchak2026trialmcp} to the current national-scale standard~\cite{kawchak2026national}.
+
+\subsection{Prior System Architecture}
+
+To understand why the national MCP system is necessary, it is helpful to examine the architecture that the prior trial infrastructure imposed. The following text diagram illustrates the point-to-point integration model that characterized the previous system:
+
+\begin{figure}[H]
+\begin{verbatim}
+  PRIOR ONCOLOGY TRIAL ARCHITECTURE
+  (Point-to-Point Integrations)
+
+    Site A            Site B            Site C
+  +--------+        +--------+        +--------+
+  | EHR-A  |<------>| EHR-B  |        | EHR-C  |
+  +--------+   ^    +--------+   ^    +--------+
+  | PACS-A |   |    | PACS-B |   |    | PACS-C |
+  +--------+   |    +--------+   |    +--------+
+  | Audit-A|   |    | Audit-B|   |    | Audit-C|
+  +--------+   |    +--------+   |    +--------+
+       ^       |         ^       |         ^
+       |   Custom    Custom     Custom  Custom
+       +-- APIs --+-- APIs --+-- APIs --+
+                  |          |
+            +----------+  +----------+
+            | Sponsor  |  |   CRO    |
+            +----------+  +----------+
+
+  Each arrow = custom bilateral integration
+  N sites x M systems = O(N*M) integrations
+\end{verbatim}
+\end{figure}
+
+In this model, every clinical site maintained its own EHR, PACS, and audit system with proprietary interfaces. Cross-site communication required custom API development for each pair of systems, creating a combinatorial explosion of integration effort. A trial spanning 50 sites with 3 systems each required up to $50 \times 3 = 150$ unique integration endpoints, each requiring individual maintenance, testing, and regulatory validation.
+
+The national MCP system replaces this with a hub-and-spoke model where each site implements the same five MCP servers, and all actors (robots, clinicians, sponsors, CROs, auditors) interact through the standardized 23-tool interface. This reduces the integration complexity from $O(n \times m)$ to $O(n + m)$, where $n$ is the number of sites and $m$ is the number of actor types.
+
+\subsection{Regulatory Context}
+
+The prior trial infrastructure was designed before autonomous robotic systems became a practical reality in oncology. Existing regulatory frameworks, including ICH-GCP E6(R2)~\cite{ichgcp2016}, 21 CFR Part 11~\cite{fda2003part11}, and HIPAA~\cite{hipaa1996}, were developed for human-operated clinical systems. The introduction of Physical AI systems creates new requirements for:
+
+\begin{itemize}[leftmargin=*]
+\item Audit logging of autonomous decisions and actions
+\item Safety governance for robotic procedures in clinical settings
+\item Privacy-preserving cross-site learning from robotic procedure outcomes
+\item Standardized capability declaration and validation for robotic systems
+\end{itemize}
+
+The national MCP system addresses these requirements through its five-server architecture, safety modules, and conformance framework, providing the infrastructure necessary for FDA-regulated oncology trials incorporating Physical AI systems.
+
+%% ========================================================================
+\section{Methods}
+\label{sec:methods}
+%% ========================================================================
+
+\subsection{Development Process and Timeline}
+
+The repository and this paper were constructed using an AI-assisted development methodology. Kevin Kawchak served as the prompt creator, system architect, and provided edits to the generated paper, directing AI code generation through structured prompts documented in \texttt{prompts.md}.
+
+The primary AI system used for repository generation and this paper was \textbf{Anthropic Claude Code Opus 4.6}. Peer review was conducted using \textbf{OpenAI ChatGPT 5.4 Thinking}, with review documents archived under the \texttt{peer-review/} directory.
+
+\subsubsection{Repository Evolution}
+
+The system was developed across four repositories in sequence. Table~\ref{tab:repo-timeline} summarizes the development timeline:
+
+\begin{table}[H]
+\centering
+\caption{Repository development timeline and evolution.}
+\label{tab:repo-timeline}
+\scriptsize
+\begin{tabularx}{\textwidth}{@{}L{4.7cm}L{1.6cm}R{0.7cm}L{5.2cm}@{}}
+\toprule
+\textbf{Repository} & \textbf{Date Range} & \textbf{Days} & \textbf{Focus} \\
+\midrule
+\texttt{physical-ai-oncology-trials}~\cite{kawchak2026physicalai} & Feb 2026 & 14 & USL scoring, patient instructions, single-site Physical AI framework \\
+\texttt{pai-oncology-trial-fl}~\cite{kawchak2026paifl} & Feb--Mar 2026 & 10 & Federated learning, privacy modules, regulatory compliance \\
+\texttt{mcp-pai-oncology-trials}~\cite{kawchak2026trialmcp} & Mar 2026 & 7 & MCP server proof of concept, 5-server architecture, 23 tools \\
+\texttt{national-mcp-pai-oncology-trials}~\cite{kawchak2026national} & Mar 2026 & 5 & National standard, SDKs, conformance suite, governance \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\subsubsection{Version History and AI Contributions}
+
+The national repository progressed through the following versions, each driven by AI-assisted code generation:
+
+\begin{itemize}[leftmargin=*]
+\item \textbf{v0.5.0 (March 5, 2026):} Initial repository scaffold with 5 MCP server implementations, 13 JSON schemas, 8 conformance profiles, 44 unit tests, and deployment configurations. Generated by Claude Code Opus 4.6 from a structured prompt.
+
+\item \textbf{v0.5.1 (March 6, 2026):} Added 34 integration adapters, 8 safety modules, interoperability testbed with 8 scenarios, benchmark suite, and expanded test coverage to 331 conformance tests plus 293 additional unit tests. This version addressed gaps identified by OpenAI ChatGPT 5.4 Thinking peer review.
+
+\item \textbf{v0.5.2 (March 6, 2026):} Incorporated peer review feedback: full server implementations with transport, routing, and middleware; persistent storage adapters (SQLite, PostgreSQL); Docker deployment stack; and Kubernetes manifests. AI fixes were applied across 2 days.
+
+\item \textbf{v1.0.0 (March 7, 2026):} Phase 5 release with Python and TypeScript SDKs, CLI tooling, code generation pipeline, stakeholder guides, operational documentation, and governance framework. Total: 381 files, 88 directories, approximately 69,800 lines.
+
+\item \textbf{v1.0.1 (March 8, 2026):} Documentation accuracy corrections: badge updates, test count reconciliation, CI pipeline documentation alignment (14 jobs).
+
+\item \textbf{v1.1.0 (March 9, 2026):} Initial paper, updated documentation, and release notes. Revised paper with formatting corrections: running header sizing, introduction restructuring, table column overlap fixes, and diagram pagination.
+\end{itemize}
+
+\subsubsection{Development Metrics}
+
+Table~\ref{tab:dev-metrics} presents quantitative development metrics derived from release dates and version identifiers. Earlier v0.1.0 through v0.4.0 developments are also available in the repository. 
+
+\begin{table}[H]
+\centering
+\caption{Development metrics for the national repository (v0.5.0 through v1.1.0).}
+\label{tab:dev-metrics}
+\small
+\begin{tabular}{@{}lr@{}}
+\toprule
+\textbf{Metric} & \textbf{Value} \\
+\midrule
+Total span (v0.5.0 to v1.1.0) & 5 days \\
+Days with an AI update & 5 days \\
+Number of AI code generation sessions & 7 versions \\
+Days of AI code recommendations & 4 days \\
+Days of AI fixes (v0.5.2, v1.0.1) & 2 days \\
+Total span across all 4 repositories & 36 days \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Prompt Engineering Methodology}
+
+Each version was generated from a structured prompt that specified the target architecture, file structure, and quality requirements. The prompts are archived in \texttt{prompts.md} and follow a consistent pattern:
+
+\begin{enumerate}[leftmargin=*]
+\item Define the target state (e.g., ``implement 5 MCP servers with 23 tools'').
+\item Specify file paths and module structure.
+\item List quality constraints (linting, testing, documentation).
+\item Request CI/CD compatibility (ruff, pytest, GitHub Actions).
+\end{enumerate}
+
+This paper was generated from a prompt specifying the 20-page structure, LaTeX template (arxiv-style~\cite{arxivstyle}), section requirements, and formatting constraints. The prompt is archived in \texttt{prompts.md} under the v1.1.0 entry.
+
+\subsection{Peer Review Process}
+
+Peer review was conducted using OpenAI ChatGPT 5.4 Thinking, which analyzed the repository structure and provided recommendations documented in the \texttt{peer-review/} directory. Two recommendations by OpenAI (\texttt{openai-1-2026-03-06.md}, \texttt{openai-2-2026-03-06.md}), and five resulting new prompts by Claude (\texttt{claude-1-2026-03-06.md} through \texttt{claude-5-2026-03-06.md}) addressed gaps in:
+
+\begin{itemize}[leftmargin=*]
+\item Server implementation completeness (transport, routing, persistence)
+\item Deployment readiness (Docker, Kubernetes, Helm)
+\item Test coverage expansion (adversarial, security, interoperability)
+\item SDK and developer tooling
+\end{itemize}
+
+A response document (\texttt{response-A-2026-03-06.md}) tracked how each recommendation was addressed in subsequent versions.
+
+%% ========================================================================
+\section{Results}
+\label{sec:results}
+%% ========================================================================
+
+\subsection{Five-Server MCP Architecture}
+
+The system implements five domain-specific MCP servers, each encapsulating a distinct responsibility within the oncology trial workflow. Together, they provide the complete protocol surface required for Physical AI integration with clinical trial systems.
+
+\begin{table}[H]
+\centering
+\caption{Five MCP servers, their tools, and conformance levels.}
+\label{tab:five-servers}
+\footnotesize
+\begin{tabularx}{\textwidth}{@{}L{3.2cm}C{0.8cm}C{1.0cm}L{6.8cm}@{}}
+\toprule
+\textbf{Server} & \textbf{Tools} & \textbf{Level} & \textbf{Primary Function} \\
+\midrule
+\texttt{trialmcp-authz} & 5 & 1 & Deny-by-default RBAC, SHA-256 token lifecycle, policy evaluation \\
+\texttt{trialmcp-fhir} & 4 & 2 & FHIR R4 clinical data with HIPAA Safe Harbor de-identification \\
+\texttt{trialmcp-dicom} & 4 & 3 & DICOM imaging queries, RECIST~\cite{eisenhauer2009recist} measurements \\
+\texttt{trialmcp-ledger} & 5 & 1 & Hash-chained 21 CFR Part 11 audit trail \\
+\texttt{trialmcp-provenance} & 5 & 4 & DAG-based data lineage, SHA-256 fingerprinting \\
+\midrule
+\textbf{Total} & \textbf{23} & & \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\subsubsection{Authorization Server}
+
+The authorization server (\texttt{servers/trialmcp\_authz/}) implements deny-by-default role-based access control (RBAC) as defined in ADR-007 (\texttt{docs/adr/007-deny-by-default-rbac.md}). It exposes five tools:
+
+\begin{enumerate}[leftmargin=*]
+\item \texttt{authz\_evaluate}: Evaluates whether a given role is permitted to invoke a specific tool.
+\item \texttt{authz\_issue\_token}: Issues a scoped, time-limited token with SHA-256 hashing.
+\item \texttt{authz\_validate\_token}: Validates a token's authenticity and expiration.
+\item \texttt{authz\_revoke\_token}: Revokes a previously issued token.
+\item \texttt{authz\_list\_policies}: Lists active policies for a given role or server.
+\end{enumerate}
+
+The server is implemented in \texttt{servers/trialmcp\_authz/server.py} (134 lines) with a policy engine (\texttt{policy\_engine.py}) and token store (\texttt{token\_store.py}).
+
+\subsubsection{FHIR Clinical Data Server}
+
+The FHIR server (\texttt{servers/trialmcp\_fhir/}) provides clinical data access with mandatory HIPAA Safe Harbor de-identification. The de-identification pipeline (\texttt{deid\_pipeline.py}) implements HMAC-SHA256 pseudonymization to maintain referential integrity across de-identified records. The four tools are:
+
+\begin{itemize}[leftmargin=*]
+\item \texttt{fhir\_read}: Read a single FHIR R4 resource by type and ID.
+\item \texttt{fhir\_search}: Search FHIR resources with parameter filtering (limit: 100).
+\item \texttt{fhir\_patient\_lookup}: Look up a patient by pseudonymized identifier.
+\item \texttt{fhir\_study\_status}: Retrieve the status of a clinical study.
+\end{itemize}
+
+\subsubsection{Audit Ledger Server}
+
+The ledger server (\texttt{servers/trialmcp\_ledger/}) implements a hash-chained immutable audit trail satisfying 21 CFR Part 11 requirements~\cite{fda2003part11}. The chain implementation in \texttt{chain.py} uses SHA-256 hashing with canonical JSON serialization. The following code excerpt shows the core hashing mechanism:
+
+\begin{lstlisting}[caption={Hash-chained audit record computation from \texttt{servers/trialmcp\_ledger/chain.py}.},label={lst:chain}]
+GENESIS_HASH = "0" * 64
+
+def canonical_json(record: dict[str, Any]) -> str:
+    filtered = {k: v for k, v in sorted(record.items())
+                if k != "hash"}
+    return json.dumps(filtered, sort_keys=True,
+                      ensure_ascii=True)
+
+def compute_audit_hash(record, prev_hash: str) -> str:
+    canonical = canonical_json(record)
+    payload = prev_hash + canonical
+    return hashlib.sha256(
+        payload.encode("utf-8")).hexdigest()
+\end{lstlisting}
+
+Each audit record contains: \texttt{audit\_id}, \texttt{timestamp}, \texttt{server}, \texttt{tool}, \texttt{caller}, \texttt{parameters}, \texttt{result\_summary}, \texttt{previous\_hash}, and \texttt{hash}. The chain is verified by recomputing each hash and comparing it against the stored value.
+
+\subsubsection{Provenance Server}
+
+The provenance server (\texttt{servers/trialmcp\_provenance/}) maintains a directed acyclic graph (DAG) of data lineage records, enabling both forward and backward lineage queries. The DAG implementation in \texttt{dag.py} supports five source types (\texttt{fhir}, \texttt{dicom}, \texttt{computed}, \texttt{external}, \texttt{federated}) and five action types (\texttt{read}, \texttt{transform}, \texttt{aggregate}, \texttt{transfer}, \texttt{derive}).
+
+\subsubsection{DICOM Imaging Server}
+
+The DICOM server (\texttt{servers/trialmcp\_dicom/}) provides imaging data access with role-based permissions and support for RECIST 1.1~\cite{eisenhauer2009recist} measurements critical to oncology trial response evaluation. The server exposes four tools: \texttt{dicom\_query} for searching imaging studies by patient or accession number, \texttt{dicom\_retrieve\_pointer} for obtaining secure references to image data without transferring pixel data, \texttt{dicom\_study\_metadata} for retrieving study-level DICOM metadata, and \texttt{dicom\_recist\_measurements} for querying tumor measurement data used in treatment response assessment.
+
+The DICOM adapter (\texttt{dicom\_adapter.py}) supports integration with industry-standard PACS systems through the 9 DICOM integration adapters in \texttt{integrations/dicom/}, including dcm4chee, Orthanc, and DICOMweb connectors.
+
+\subsubsection{Server Architecture Diagram}
+
+The following text diagram shows the complete five-server deployment topology with data flow paths:
+
+\begin{figure}[H]
+\begin{verbatim}
+  NATIONAL MCP FIVE-SERVER DEPLOYMENT
+  +---------------------------------------------------+
+  |                  SITE DEPLOYMENT                  |
+  |                                                   |
+  |    +-----------+  +-----------+  +-----------+    |
+  |    | trialmcp  |  | trialmcp  |  | trialmcp  |    |
+  |    | authz     |  | fhir      |  | dicom     |    |
+  |    | (5 tools) |  | (4 tools) |  | (4 tools) |    |
+  |    | RBAC,     |  | FHIR R4,  |  | DICOMweb, |    |
+  |    | Tokens    |  | HIPAA     |  | RECIST    |    |
+  |    +-----+-----+  +-----+-----+  +-----+-----+    |
+  |          |              |              |          |
+  |          +------+-------+------+-------+          |
+  |                 |              |                  |
+  |          +------v------+ +-----v-------+          |
+  |          | trialmcp    | | trialmcp    |          |
+  |          | ledger      | | provenance  |          |
+  |          | (5 tools)   | | (5 tools)   |          |
+  |          | SHA-256     | | DAG, W3C    |          |
+  |          | 21 CFR 11   | | PROV        |          |
+  |          +-------------+ +-------------+          |
+  |                                                   |
+  |  23 tools total across 5 servers                  |
+  +---------------------------------------------------+
+\end{verbatim}
+\end{figure}
+
+\subsubsection{Complete Tool Inventory}
+
+Table~\ref{tab:tool-inventory} provides the complete inventory of all 23 tools with their input parameters and response types:
+
+\begin{table}[H]
+\centering
+\caption{Complete 23-tool inventory across all five MCP servers.}
+\label{tab:tool-inventory}
+\footnotesize
+\begin{tabularx}{\textwidth}{@{}L{4.2cm}L{3.5cm}L{4.1cm}@{}}
+\toprule
+\textbf{Tool} & \textbf{Key Parameters} & \textbf{Response Type} \\
+\midrule
+\texttt{authz\_evaluate} & role, tool & ALLOW/DENY decision \\
+\texttt{authz\_issue\_token} & role, expires\_in & Token with SHA-256 hash \\
+\texttt{authz\_validate\_token} & token\_hash & Valid/invalid status \\
+\texttt{authz\_revoke\_token} & token\_hash & Revocation confirmation \\
+\texttt{authz\_list\_policies} & role, server & Policy list \\
+\midrule
+\texttt{fhir\_read} & resource\_type, id & De-identified FHIR resource \\
+\texttt{fhir\_search} & resource\_type, params & De-identified bundle \\
+\texttt{fhir\_patient\_lookup} & pseudonym & De-identified patient \\
+\texttt{fhir\_study\_status} & study\_id & Study status object \\
+\midrule
+\texttt{dicom\_query} & patient\_id, modality & Study result list \\
+\texttt{dicom\_retrieve\_pointer} & study\_uid & Secure image pointer \\
+\texttt{dicom\_study\_metadata} & study\_uid & DICOM metadata \\
+\texttt{dicom\_recist\_measurements} & study\_uid & RECIST measurements \\
+\midrule
+\texttt{ledger\_append} & server, tool, caller & Audit record with hash \\
+\texttt{ledger\_verify} & (none) & Chain validity status \\
+\texttt{ledger\_query} & server, tool, caller & Filtered audit records \\
+\texttt{ledger\_replay} & start\_index, count & Record sequence \\
+\texttt{ledger\_export} & format & Full chain export \\
+\midrule
+\texttt{provenance\_record} & source\_id, action, actor & Provenance record \\
+\texttt{provenance\_query\_forward} & record\_id, depth & Downstream lineage \\
+\texttt{provenance\_query\_backward} & record\_id, depth & Upstream lineage \\
+\texttt{provenance\_fingerprint} & data & SHA-256 fingerprint \\
+\texttt{provenance\_lineage} & source\_id & Full lineage graph \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\subsection{Conformance Levels and Profiles}
+
+The standard defines five hierarchical conformance levels, each building upon the previous:
+
+\begin{table}[H]
+\centering
+\caption{Five hierarchical conformance levels with required servers and use cases.}
+\label{tab:conformance-levels}
+\small
+\begin{tabularx}{\textwidth}{@{}C{0.7cm}L{2.2cm}L{3.8cm}L{5cm}@{}}
+\toprule
+\textbf{Level} & \textbf{Name} & \textbf{Required Servers} & \textbf{Use Case} \\
+\midrule
+1 & Core & authz + ledger & Basic authorization and audit \\
+2 & Clinical Read & Level 1 + fhir & FHIR clinical data access \\
+3 & Imaging & Level 2 + dicom & DICOM imaging queries \\
+4 & Federated Site & Level 3 + provenance & Multi-site data lineage \\
+5 & Robot Procedure & All 5 servers & Full autonomous clinical workflow \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+Eight conformance profiles are defined in \texttt{profiles/}, including five hierarchical profiles and three regulatory overlays (\texttt{country-us-fda.md}, \texttt{state-us-ca.md}, \texttt{state-us-ny.md}).
+
+\subsection{Safety Modules for Physical AI}
+
+The system provides eight safety modules in \texttt{safety/} specifically designed for robotic systems operating in clinical environments:
+
+\begin{table}[H]
+\centering
+\caption{Safety modules for Physical AI systems.}
+\label{tab:safety-modules}
+\footnotesize
+\begin{tabularx}{\textwidth}{@{}L{3.8cm}L{8.2cm}@{}}
+\toprule
+\textbf{Module} & \textbf{Purpose} \\
+\midrule
+\texttt{estop.py} & Emergency stop signal propagation, abort workflow, post-abort evidence capture, recovery with re-authorization \\
+\texttt{procedure\_state.py} & Procedure state machine enforcement (IDLE, PREPARING, ACTIVE, PAUSED, COMPLETING, ABORTED) \\
+\texttt{robot\_registry.py} & Robot registration, capability validation, firmware version tracking \\
+\texttt{task\_validator.py} & Task order validation against safety constraints and robot capabilities \\
+\texttt{gate\_service.py} & Safety gate evaluation before procedure transitions \\
+\texttt{approval\_checkpoint.py} & Multi-party approval checkpoints (clinician + system + regulatory) \\
+\texttt{site\_verifier.py} & Site capability verification against conformance requirements \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+The emergency stop controller in \texttt{safety/estop.py} implements a four-state lifecycle (IDLE, TRIGGERED, ACKNOWLEDGED, RECOVERING) with signal propagation to all registered servers. This ensures that any authorized party can halt a robotic procedure immediately, with full state preservation and evidence capture.
+
+\subsection{Test Coverage and Validation}
+
+The repository contains 668 test functions across two test suites:
+
+\begin{table}[H]
+\centering
+\caption{Test coverage summary across unit and conformance suites.}
+\label{tab:test-coverage}
+\small
+\begin{tabularx}{\textwidth}{@{}L{3cm}R{1.5cm}L{7cm}@{}}
+\toprule
+\textbf{Category} & \textbf{Tests} & \textbf{Validates} \\
+\midrule
+Unit (integrations) & 205 & All 34 integration adapters \\
+Unit (safety) & 88 & All 8 safety modules \\
+Unit (core server) & 32 & 5 MCP server implementations \\
+Unit (infrastructure) & 12 & Conformance harness, schema validator \\
+Positive conformance & 69 & Correct behavior at Levels 1--3 \\
+Adversarial & 57 & AuthZ bypass, chain tampering, PHI leakage, replay attacks \\
+Blackbox & 63 & Per-server external conformance \\
+Security & 39 & SSRF prevention, token lifecycle, chain integrity \\
+Interoperability & 32 & Cross-server trace, schema validation \\
+Negative & 26 & Invalid input rejection, unauthorized access \\
+Integration & 13 & Multi-server integration scenarios \\
+\midrule
+\textbf{Total} & \textbf{668} & \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\subsection{Integration Adapters}
+
+The repository implements 34 integration adapter modules across six categories in \texttt{integrations/}:
+
+\begin{table}[H]
+\centering
+\caption{Integration adapter categories and module counts.}
+\label{tab:integration-adapters}
+\small
+\begin{tabularx}{\textwidth}{@{}L{2cm}R{1.2cm}L{8.5cm}@{}}
+\toprule
+\textbf{Category} & \textbf{Count} & \textbf{Key Adapters} \\
+\midrule
+FHIR & 9 & HAPI FHIR, SMART on FHIR, de-identification, terminology, patient filter \\
+DICOM & 9 & dcm4chee, Orthanc, DICOMweb, RECIST, modality filter \\
+Clinical & 3 & Scheduling, e-consent, provenance export \\
+Federation & 4 & Coordinator, policy enforcement, secure aggregation \\
+Identity & 5 & OIDC, mTLS, KMS, policy engine \\
+Privacy & 4 & De-identification pipeline, privacy budget, data residency \\
+\midrule
+\textbf{Total} & \textbf{34} & \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\subsection{Repository Scale}
+
+Table~\ref{tab:repo-scale} summarizes the quantitative scope of the national repository at version 1.2.0:
+
+\begin{table}[H]
+\centering
+\caption{Repository quantitative summary (v1.1.0).}
+\label{tab:repo-scale}
+\small
+\begin{tabular}{@{}lr|lr@{}}
+\toprule
+\textbf{Category} & \textbf{Count} & \textbf{Category} & \textbf{Count} \\
+\midrule
+MCP servers & 5 & Safety modules & 8 \\
+Tools (total) & 23 & Benchmark modules & 5 \\
+JSON schemas & 13 & Certification tools & 4 \\
+Conformance profiles & 8 & Deployment modes & 6 \\
+Test functions & 668 & Interop scenarios & 8 \\
+Integration adapters & 34 & Actor personas & 6 \\
+Specification docs & 9 & Stakeholder guides & 5 \\
+ADRs & 7 & Operational docs & 5 \\
+Total files & 381 & Total directories & 88 \\
+Lines of code (approx.) & 69,800 & Regulatory overlays & 7 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Deployment Infrastructure}
+
+The system supports six deployment configurations, enabling evaluation at any scale:
+
+\begin{enumerate}[leftmargin=*]
+\item \arraybackslash \raggedright \textbf{Individual Docker containers:} Five Dockerfiles in \texttt{deploy/docker/} (e.g., \texttt{Dockerfile.authz}, \texttt{Dockerfile.fhir}).
+\item \textbf{All-in-one Docker:} \texttt{Dockerfile.allinone} for single-container evaluation.
+\item \textbf{Docker Compose (single-site):} \texttt{deploy/docker-compose.yml} for local deployment.
+\item \textbf{Docker Compose (multi-site):} \texttt{deploy/docker-compose.multi-site.yml} for federated testing.
+\item \textbf{Kubernetes manifests:} 7 manifests in \texttt{deploy/kubernetes/} for production clusters.
+\item \textbf{Helm chart:} \texttt{deploy/helm/trialmcp/} with \texttt{Chart.yaml} and \texttt{values.yaml}.
+\end{enumerate} \raggedright
+
+Server configuration is managed through YAML files in \texttt{deploy/config/} (one per server), enabling site-specific customization of storage backends, authentication providers, and privacy settings.
+
+\subsection{SDK and Developer Tooling}
+
+The repository provides dual-language SDKs and developer tools to facilitate adoption:
+
+\begin{itemize}[leftmargin=*]
+\item \textbf{Python SDK} (\texttt{sdk/python/trialmcp\_client/}): 8 client modules with 4 middleware components (audit, auth, circuit breaker, retry). Installable via \texttt{pip install -e .} with \texttt{pyproject.toml}.
+
+\item \textbf{TypeScript SDK} (\texttt{sdk/typescript/src/}): 8 client modules with matching middleware stack. Configured via \texttt{package.json} and \texttt{tsconfig.json}.
+
+\item \textbf{CLI} (\texttt{tools/cli/trialmcp\_cli.py}): Commands for \texttt{init}, \texttt{scaffold}, \texttt{validate}, \texttt{certify}, \texttt{schema diff}, and \texttt{config generate}.
+
+\item \textbf{Code generation} (\texttt{tools/codegen/}): Generators for Python models, TypeScript interfaces, and OpenAPI specifications from JSON schemas.
+\end{itemize}
+
+Both SDKs include role-scoped example scripts for all six actor types: robot agent, trial coordinator, data monitor, auditor, sponsor, and CRO.
+
+\subsection{Schema and Specification Infrastructure}
+
+The repository defines 13 machine-readable JSON schemas in \texttt{schemas/} using JSON Schema Draft 2020-12. These schemas serve as the normative contract between MCP server implementations and clients, enabling automated validation and code generation:
+
+\begin{table}[H]
+\centering
+\caption{JSON schemas organized by domain category.}
+\label{tab:schemas}
+\scriptsize
+\begin{tabularx}{\textwidth}{@{}L{4.5cm}L{1.5cm}L{5.5cm}@{}}
+\toprule
+\textbf{Schema File} & \textbf{Category} & \textbf{Validates} \\
+\midrule
+\texttt{audit-record.schema.json} & Audit & Audit trail entries \\
+\texttt{authz-decision.schema.json} & AuthZ & RBAC evaluation results \\
+\texttt{capability-descriptor.schema.json} & Infra & Server capability declarations \\
+\texttt{consent-status.schema.json} & Privacy & Patient consent state \\
+\texttt{dicom-query.schema.json} & Imaging & DICOM query parameters \\
+\texttt{error-response.schema.json} & Infra & Standardized error envelopes \\
+\texttt{fhir-read.schema.json} & Clinical & FHIR resource read responses \\
+\texttt{fhir-search.schema.json} & Clinical & FHIR search bundle responses \\
+\texttt{health-status.schema.json} & Infra & Server health check responses \\
+\texttt{provenance-record.schema.json} & Prov & DAG lineage records \\
+\texttt{robot-capability-profile} & Robotics & Robot system capabilities \\
+\texttt{site-capability-profile} & Infra & Site-level capabilities \\
+\texttt{task-order.schema.json} & Robotics & Procedure task orders \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+Nine normative specification documents in \texttt{spec/} define the complete protocol surface, including \texttt{core.md} (protocol scope, design principles, 5 conformance levels), \texttt{actor-model.md} (6 actors with permission matrices), \texttt{tool-contracts.md} (23 tool signatures with input/output contracts), \texttt{security.md} (RBAC, mTLS, OIDC, SSRF prevention), and \texttt{privacy.md} (HIPAA Safe Harbor, de-identification, consent, data residency).
+
+\subsection{Emergency Stop Implementation}
+
+The emergency stop controller is a critical safety component. The following code excerpt from \texttt{safety/estop.py} shows the four-state lifecycle and signal propagation:
+
+\begin{lstlisting}[caption={Emergency stop lifecycle from \texttt{safety/estop.py}.},label={lst:estop}]
+class EStopStatus(Enum):
+    IDLE = "IDLE"
+    TRIGGERED = "TRIGGERED"
+    ACKNOWLEDGED = "ACKNOWLEDGED"
+    RECOVERING = "RECOVERING"
+
+class EStopController:
+    def trigger_estop(self, procedure_id, reason,
+                      triggered_by, current_state=None):
+        if self._status == EStopStatus.TRIGGERED:
+            raise RuntimeError(
+                "E-stop already active")
+        signal = EStopSignal(
+            signal_id=str(uuid.uuid4()),
+            procedure_id=procedure_id,
+            reason=reason,
+            triggered_by=triggered_by,
+            affected_servers=list(
+                self._active_servers),
+            preserved_state=current_state or {})
+        self._active_signal = signal
+        self._status = EStopStatus.TRIGGERED
+        return signal
+\end{lstlisting}
+
+The e-stop lifecycle ensures: (1) only one e-stop can be active at a time, (2) all registered servers receive the stop signal, (3) procedure state is preserved for post-incident analysis, and (4) recovery requires explicit re-authorization. These properties are validated by 88 unit tests in \texttt{tests/test\_safety.py}.
+
+\subsection{Interoperability Testbed}
+
+The interoperability testbed in \texttt{interop-testbed/} provides a multi-site simulation environment with 8 scenarios and 6 actor personas. Each scenario validates a specific cross-site interaction pattern:
+
+\begin{enumerate}[leftmargin=*]
+\item \texttt{audit\_replay.py}: Verifies audit trail replay across sites
+\item \texttt{cross\_site\_provenance.py}: Validates cross-site provenance chain integrity
+\item \texttt{partial\_outage.py}: Tests graceful degradation during partial failures
+\item \texttt{robot\_workflow.py}: End-to-end robotic procedure workflow across servers
+\item \texttt{schema\_drift.py}: Tests schema version compatibility under evolution
+\item \texttt{site\_onboarding.py}: Validates new site onboarding workflow
+\item \texttt{state\_overlay.py}: Tests state-level regulatory overlay application
+\item \texttt{token\_exchange.py}: Validates cross-site token exchange protocols
+\end{enumerate}
+
+The testbed uses Docker Compose (\texttt{interop-testbed/docker-compose.yml}) with mock services for EHR (\texttt{mock\_ehr.py}), PACS (\texttt{mock\_pacs.py}), and identity (\texttt{mock\_identity.py}) to simulate realistic clinical environments.
+
+%% ========================================================================
+\section{Discussion}
+\label{sec:discussion}
+%% ========================================================================
+
+\subsection{The Five-Server Architecture as a National Standard}
+
+The five-server MCP architecture represents a fundamental shift from the prior point-to-point integration model to a standardized, protocol-driven approach. Each server addresses a distinct domain concern, and together they provide a complete protocol surface for Physical AI oncology trials.
+
+The architecture's significance lies in several properties:
+
+\textbf{Separation of concerns.} By isolating authorization, clinical data, imaging, audit, and provenance into distinct servers, the architecture enables independent scaling, deployment, and upgrade of each capability. A site that only needs clinical data access (Level 2) can deploy the authorization, ledger, and FHIR servers without the imaging or provenance infrastructure.
+
+\textbf{Deny-by-default security.} The authorization server implements explicit ALLOW rules evaluated against a permission matrix covering all 23 tools and 6 actor roles. Any request not matching an explicit rule is denied. This approach, formalized in ADR-007 (\texttt{docs/adr/007-deny-by-default-rbac.md}), provides defense in depth against unauthorized access to clinical data or robotic controls.
+
+\textbf{Immutable audit trail.} The hash-chained ledger provides tamper-evident audit logging that satisfies 21 CFR Part 11 requirements for electronic records in clinical trials~\cite{fda2003part11}. Every tool invocation across all five servers produces an audit record. The chain can be verified by any authorized party by recomputing hashes from the genesis block forward.
+
+\textbf{Privacy by design.} The FHIR server enforces mandatory HIPAA Safe Harbor de-identification~\cite{hipaa1996} before any clinical data leaves the server boundary. HMAC-SHA256 pseudonymization maintains referential integrity across records while preventing re-identification. The privacy integration adapters (\texttt{integrations/privacy/}) add privacy budget tracking and data residency enforcement.
+
+\subsection{Cross-Trial and Cross-Robot Interoperability}
+
+The standardized MCP interface enables interoperability along three dimensions:
+
+\begin{enumerate}[leftmargin=*]
+\item \textbf{Between clinical sites.} Sites deploying the same five-server architecture can exchange audit chain summaries, provenance queries, and federated learning updates through standardized tool calls. The interoperability testbed (\texttt{interop-testbed/}) validates eight cross-site scenarios including \texttt{cross\_site\_provenance.py}, \texttt{token\_exchange.py}, and \texttt{partial\_outage.py}.
+
+\item \textbf{Between robotic systems.} Any robot vendor implementing the MCP client interface can interact with any conforming trial site. The robot capability profile schema (\texttt{schemas/robot-capability-profile.schema.json}) and task order schema (\texttt{schemas/task-order.schema.json}) provide machine-readable contracts. The robot vendor guide (\texttt{docs/guides/robot-vendor.md}) documents the integration path.
+
+\item \textbf{Between clinical trials.} Multiple trials at the same site share the same MCP server infrastructure, with RBAC policies scoping access per trial. This eliminates the prior model where each trial required its own isolated data access layer.
+\end{enumerate}
+
+\subsection{Patient Safety Through AI and Robotics Governance}
+
+The system's safety architecture is designed to protect patients at every stage of the robotic procedure lifecycle. The eight safety modules provide layered protection:
+
+The \textbf{emergency stop controller} (\texttt{safety/estop.py}) enables any authorized party to halt a robotic procedure immediately. The e-stop signal propagates to all registered MCP servers, preserving the procedure state for post-incident analysis. Recovery requires explicit re-authorization by an authorized clinician.
+
+The \textbf{procedure state machine} (\texttt{safety/procedure\_state.py}) enforces valid transitions through six states: IDLE, PREPARING, ACTIVE, PAUSED, COMPLETING, and ABORTED. Invalid transitions (e.g., IDLE to ACTIVE without passing through PREPARING) are rejected, preventing unsafe procedure initiation.
+
+The \textbf{multi-party approval checkpoints} (\texttt{safety/approval\_checkpoint.py}) require concurrent approval from multiple parties (clinician, system, regulatory) before critical procedure transitions. This ensures that no single actor can authorize a high-risk robotic action unilaterally.
+
+\subsection{Federated Learning and Multi-Site Collaboration}
+
+The provenance server and federation integration adapters enable cross-site model training without centralizing patient data. The system supports three federated aggregation strategies:
+
+\begin{itemize}[leftmargin=*]
+\item \textbf{FedAvg}~\cite{mcmahan2017fedavg}: Weighted averaging of model updates proportional to local dataset size.
+\item \textbf{FedProx}: Proximal term regularization for heterogeneous data distributions.
+\item \textbf{SCAFFOLD}: Variance reduction through control variates for improved convergence.
+\end{itemize}
+
+The federation adapters in \texttt{integrations/federation/} (coordinator, policy enforcement, secure aggregation, site harmonization) manage the cross-site coordination workflow while the privacy adapters enforce differential privacy budgets per query.
+
+\subsection{Robot Procedure Data Flow}
+
+The following text diagram illustrates the complete data flow for a Physical AI robot agent executing a clinical procedure within the national standard. Each numbered step corresponds to a specific MCP tool invocation, producing an audit record in the hash-chained ledger:
+
+\begin{figure}[H]
+\begin{verbatim}
+  ROBOT AGENT         MCP SERVERS         CLINICAL SYSTEMS
+  -----------         -----------         ----------------
+  +--------+
+  | START  |
+  +---+----+
+      |  1. Request Token
+      v
+  +--------+        +--------------+
+  | AuthZ  |------->| trialmcp-    |       Issue scoped token
+  | Phase  |<-------| authz        |       (role + expiry)
+  +---+----+        +--------------+
+      |  2. Query Patient Data
+      v
+  +--------+        +--------------+       +-----------+
+  | FHIR   |------->| trialmcp-    |------>| EHR       |
+  | Phase  |<-------| fhir         |<------| (FHIR R4) |
+  +---+----+        +--------------+       +-----------+
+      |  3. Retrieve Imaging
+      v
+  +--------+        +--------------+       +-----------+
+  | DICOM  |------->| trialmcp-    |------>| PACS      |
+  | Phase  |<-------| dicom        |<------| (DICOM)   |
+  +---+----+        +--------------+       +-----------+
+      |  4. Execute Procedure
+      v
+  +--------+
+  | ROBOT  |                               Physical AI performs task
+  | ACTION |                               under safety constraints
+  +---+----+
+      |  5. Record Audit
+      v
+  +--------+        +--------------+
+  | Audit  |------->| trialmcp-    |       Hash-chained record
+  | Phase  |<-------| ledger       |       (21 CFR Part 11)
+  +---+----+        +--------------+
+      |  6. Record Provenance
+      v
+  +--------+        +--------------+
+  | Prov.  |------->| trialmcp-    |       DAG lineage entry
+  | Phase  |<-------| provenance   |       (SHA-256)
+  +---+----+        +--------------+
+      v
+  +--------+
+  |  DONE  |
+  +--------+
+\end{verbatim}
+\end{figure}
+
+This six-step workflow ensures that every robotic action is authorized (step 1), informed by clinical data (steps 2--3), executed under safety governance (step 4), and fully auditable (steps 5--6).
+
+\subsection{National Deployment Topology}
+
+The national standard envisions a three-tier deployment topology that scales from individual sites to regional aggregations to a national governance layer:
+
+\begin{figure}[H]
+\begin{verbatim}
+  NATIONAL GOVERNANCE LAYER
+  +-----------------------------------------------------+
+  | Standards Body   | Conformance Registry             |
+  | Extension Mgmt   | Version Compatibility Policy     |
+  | Schema Registry  | Validation Services              |
+  +--------+---------+---------+--------+--------+------+
+           |                   |                 |
+  +--------v------+  +---------v-----+  +--------v-----+
+  | REGION 1      |  | REGION 2      |  | REGION N     |
+  | (East)        |  | (Central)     |  | (West)       |
+  | 200+ Sites    |  | 300+ Sites    |  | 250+ Sites   |
+  | 5 Svrs/Site   |  | 5 Svrs/Site   |  | 5 Svrs/Site  |
+  +-------+-------+  +-------+-------+  +-------+------+
+          |                  |                  |
+          +------------------+------------------+
+                             |
+                    +--------v-----------+
+                    | FEDERATED LAYER    |
+                    | Aggregation        |
+                    | Differential Priv. |
+                    | Audit Merge        |
+                    +--------------------+
+\end{verbatim}
+\end{figure}
+
+Each site operates its own five-server deployment. The federated layer aggregates model updates using privacy-preserving techniques with differential privacy budgets, while audit chains are verified cross-site without exposing patient data. This architecture enables national-scale oncology trials while preserving patient privacy at each individual institution.
+
+\subsection{Governance and Standards Framework}
+
+The repository includes a comprehensive governance framework with 11 documents across \texttt{governance/} and \texttt{docs/governance/}. Key governance artifacts include:
+
+\begin{itemize}[leftmargin=*]
+\item \textbf{Charter} (\texttt{governance/CHARTER.md}): Defines the standard's scope, decision-making process, and stakeholder roles.
+\item \textbf{Extension namespace} (\texttt{governance/EXTENSIONS.md}): Defines the \texttt{x-\{vendor\}} namespace for vendor-specific extensions that do not affect conformance.
+\item \textbf{Version compatibility} (\texttt{governance/VERSION\_COMPATIBILITY.md}): Specifies SemVer rules, deprecation lifecycle, and backward compatibility guarantees.
+\item \textbf{Decision log} (\texttt{docs/governance/decision-log.md}): Records all architectural decisions with rationale and alternatives considered.
+\item \textbf{Roadmap} (\texttt{docs/governance/roadmap.md}): Tracks planned features and enhancements for future versions.
+\end{itemize}
+
+Seven architectural decision records (ADRs) in \texttt{docs/adr/} document the rationale behind key design choices, from the MCP protocol boundary (ADR-001) through the deny-by-default RBAC policy (ADR-007).
+
+\subsection{Comparison with Prior Infrastructure}
+
+Table~\ref{tab:comparison} contrasts the prior oncology trial infrastructure with the proposed national MCP system:
+
+\begin{table}[H]
+\centering
+\caption{Comparison of prior trial infrastructure with the proposed national MCP system.}
+\label{tab:comparison}
+\small
+\begin{tabularx}{\textwidth}{@{}L{2.5cm}L{4.5cm}L{4.5cm}@{}}
+\toprule
+\textbf{Dimension} & \textbf{Prior System} & \textbf{National MCP System} \\
+\midrule
+Architecture & Point-to-point custom integrations & 5 standardized MCP servers, 23 tools \\
+Interoperability & Site-specific, vendor-locked & Vendor-neutral MCP protocol \\
+Audit trail & Manual, spreadsheet-driven & Hash-chained, tamper-evident (21 CFR 11) \\
+Privacy & Inconsistent de-identification & Mandatory HIPAA Safe Harbor + HMAC-SHA256 \\
+Robot integration & No standard protocol & MCP tool contracts + safety modules \\
+Cross-site learning & Central data repositories & Federated learning (FedAvg, FedProx) \\
+Conformance & Ad hoc validation & 5 levels, 668 test functions \\
+Deployment & Custom per site & 6 deployment modes (Docker to Helm) \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\subsection{CI/CD and Quality Assurance}
+
+The repository maintains quality through a comprehensive CI pipeline defined in \texttt{.github/workflows/ci.yml} with 14 jobs:
+
+\begin{enumerate}[leftmargin=*]
+\item \texttt{lint-and-format}: Ruff linting and formatting across Python 3.10, 3.11, and 3.12
+\item \texttt{integration-tests}: Multi-server integration validation
+\item \texttt{adversarial-tests}: Security attack resistance
+\item \texttt{schema-validation}: JSON Schema Draft 2020-12 validation
+\item \texttt{schema-compatibility}: Schema metadata and field consistency
+\item \texttt{contract-consistency}: Generated model alignment with schemas
+\item \texttt{benchmark-smoke}: Performance benchmark verification
+\item \texttt{sdk-python}: Python SDK import verification
+\item \texttt{sdk-typescript}: TypeScript SDK compilation
+\item \texttt{cli-smoke}: CLI command validation
+\item \texttt{codegen-consistency}: Code generation pipeline verification
+\item \texttt{security-scan}: Dependency audit and secret detection
+\item \texttt{typescript-build}: Reference TypeScript compilation
+\item \texttt{docs-lint}: Documentation completeness and link integrity
+\end{enumerate}
+
+%% ========================================================================
+\section{Limitations and Future Work}
+\label{sec:limitations}
+%% ========================================================================
+
+\subsection{Human Limitations}
+
+The prompt-driven development methodology, while efficient for generating large-scale repository structure, has inherent limitations:
+
+\begin{itemize}[leftmargin=*]
+\item \textbf{Domain expertise concentration.} The system was designed by a single author, which limits the breadth of clinical, regulatory, and engineering perspectives incorporated into the design.
+\item \textbf{Clinical validation gap.} While the architecture is designed to support real clinical workflows, it has not been deployed in an actual clinical trial setting. Validation with clinical stakeholders is required.
+\item \textbf{Prompt iteration overhead.} Each version required careful prompt construction and review of generated output. The prompt engineering process, while productive, required significant human attention to detail.
+\end{itemize}
+
+\subsection{Claude Code Limitations}
+
+The Anthropic Claude Code Opus 4.6 system, while highly capable at code generation, exhibited several limitations:
+
+\begin{itemize}[leftmargin=*]
+\item \textbf{Badge and count accuracy.} Version v1.0.0 contained incorrect badge counts (e.g., Unit Tests showing 44 instead of 337) that required manual identification and correction in v1.0.1.
+\item \textbf{Version string propagation.} Some files retained earlier version strings (v0.1.0) when the repository had advanced to v1.0.1, requiring systematic correction.
+\item \textbf{Documentation consistency.} Generated documentation sometimes contained internal inconsistencies (e.g., CI pipeline job counts) that required cross-referencing and correction.
+\item \textbf{Context window management.} Large repositories approach context window limits, requiring strategic prompt decomposition across multiple sessions.
+\end{itemize}
+
+\subsection{OpenAI Limitations}
+
+The OpenAI ChatGPT 5.4 Thinking system used for peer review identified important architectural gaps but also exhibited limitations:
+
+\begin{itemize}[leftmargin=*]
+\item \textbf{Repository access scope.} Peer review was conducted based on repository browsing rather than local execution, limiting the depth of code-level analysis.
+\item \textbf{Implementation specificity.} Some recommendations were architectural in nature without specific implementation guidance, requiring translation into actionable prompts.
+\end{itemize}
+
+\subsection{Future Work}
+
+Future work for the author and industry includes increasing MCP Physical AI trial automation along several dimensions:
+
+\begin{enumerate}[leftmargin=*]
+\item \textbf{Clinical pilot deployment.} Deploy the five-server architecture at one or more NCI-designated cancer centers to validate real-world interoperability with existing EHR and PACS systems.
+
+\item \textbf{Robot vendor certification.} Develop a formal certification program for robotic systems seeking conformance with the national standard, including test harness integration and evidence package generation.
+
+\item \textbf{Regulatory engagement.} Submit the standard specification to FDA for review as a recognized consensus standard under the FDA Voluntary Consensus Standards Recognition Program.
+
+\item \textbf{Multi-site federated trials.} Conduct a proof-of-concept multi-site federated learning trial using the system's federation adapters to train tumor response prediction models across institutions.
+
+\item \textbf{Real-time safety monitoring.} Extend the safety modules with real-time telemetry ingestion from robotic systems, enabling predictive safety interventions based on sensor data patterns.
+
+\item \textbf{International expansion.} Extend the regulatory overlay framework to support EU MDR, UK MHRA, and other international regulatory regimes.
+
+\item \textbf{Autonomous workflow expansion.} Increase the scope of automated procedures beyond the current safety-governed framework, incorporating advances in surgical robotics and AI-guided therapy.
+\end{enumerate}
+
+%% ========================================================================
+\section{Conclusion}
+\label{sec:conclusion}
+%% ========================================================================
+
+This paper presents the National MCP Physical AI Oncology Trials system, a proposed end-to-end architecture for standardizing robotic oncology clinical trials at the national scale. The system addresses the fundamental limitations of prior oncology trial infrastructure, which relied on fragmented, site-specific, and inefficient point-to-point integrations that could not scale to meet the demands of modern AI-driven clinical research.
+
+The prior system's inability to scale stemmed from its architectural foundation: each new site, each new robotic system, and each new clinical trial required custom integrations that multiplied complexity geometrically. With $n$ sites and $m$ robotic systems, the prior model required $O(n \times m)$ custom integrations. The national MCP system reduces this to $O(n + m)$ by providing a standardized protocol layer that both sites and robots implement against.
+
+The five MCP servers (Authorization, FHIR, DICOM, Ledger, Provenance) provide the necessary capabilities organized by domain concern:
+
+\begin{itemize}[leftmargin=*]
+\item \textbf{Interoperability} is achieved through standardized MCP tool contracts, 13 JSON schemas, and dual-language SDKs that enable any conforming implementation to communicate with any other.
+\item \textbf{Auditability} is provided by the hash-chained ledger server satisfying 21 CFR Part 11, with every tool invocation producing an immutable, tamper-evident audit record.
+\item \textbf{Privacy} is enforced through mandatory HIPAA Safe Harbor de-identification, HMAC-SHA256 pseudonymization, and federated learning architectures that keep patient data at the originating site.
+\item \textbf{Deployment} flexibility is supported through six configurations from single-container evaluation to Helm-templated Kubernetes clusters.
+\end{itemize}
+
+The system integrates AI and robotics advances intended to improve patient safety and clinical effectiveness. Eight safety modules govern the robotic procedure lifecycle, from emergency stop coordination through multi-party approval checkpoints. The five hierarchical conformance levels enable incremental adoption, allowing sites to begin with basic authorization and audit (Level 1) and progress to full robotic procedure orchestration (Level 5) as their capabilities mature.
+
+Quantitative validation through 668 test functions across eight categories (including 57 adversarial tests and 39 security tests) demonstrates the system's commitment to safety-critical quality assurance. The 34 integration adapters spanning FHIR, DICOM, clinical, federation, identity, and privacy domains provide concrete interoperability with existing healthcare IT infrastructure.
+
+The development process itself demonstrates the potential of AI-assisted software engineering for healthcare infrastructure, with the entire national repository (381 files, approximately 69,800 lines) generated through structured prompts to Anthropic Claude Code Opus 4.6 and peer-reviewed by OpenAI ChatGPT 5.4 Thinking over a span of 5 days (v0.5.0 through v1.1.0) and 36 days across all four repositories.
+
+Patient benefit remains the central motivation for this work. By standardizing the infrastructure that governs how autonomous systems interact with clinical data, how audit trails are maintained, and how safety constraints are enforced, the national MCP system provides the foundation for oncology clinical trials that are safer, more transparent, and more effective than those conducted under prior fragmented infrastructure.
+
+The repositories that contributed to this work are publicly available:
+\begin{itemize}[leftmargin=*]
+\item \texttt{national-mcp-pai-oncology-trials}~\cite{kawchak2026national}
+\item \texttt{mcp-pai-oncology-trials}~\cite{kawchak2026trialmcp}
+\item \texttt{physical-ai-oncology-trials}~\cite{kawchak2026physicalai}
+\item \texttt{pai-oncology-trial-fl}~\cite{kawchak2026paifl}
+\end{itemize}
+
+%% ========================================================================
+%% REFERENCES
+%% ========================================================================
+\bibliographystyle{unsrt}
+\bibliography{references}
+
+
+%% ========================================================================
+\section*{Acknowledgments}
+%% ========================================================================
+
+The author would like to acknowledge Anthropic for providing access to Claude Code for repository and paper generations; and OpenAI for providing access to ChatGPT for peer-review.
+
+%% ========================================================================
+\section*{Ethical Disclosures}
+%% ========================================================================
+
+The author of the article declares no competing interests.
+
+%% ========================================================================
+\section*{Rights and Permissions}
+%% ========================================================================
+
+This article is distributed under the terms of the Creative Commons Attribution 4.0 International License (CC BY 4.0), which permits unrestricted use, distribution, and reproduction in any medium, provided the original author(s) and source are properly credited, a link to the Creative Commons license is provided, and any modifications made are indicated. To view a copy of this license, visit \url{https://creativecommons.org/licenses/by/4.0/}.
+
+%% ========================================================================
+\section*{Cite This Article}
+%% ========================================================================
+
+Kawchak K. National MCP Servers for Physical AI Oncology Clinical Trial Systems. Zenodo. 2026; \href{https://doi.org/10.5281/zenodo.18916731}{10.5281/zenodo.18916731}.
+
+\end{document}
