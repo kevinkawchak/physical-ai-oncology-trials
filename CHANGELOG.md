@@ -5,6 +5,30 @@ Format follows [Keep a Changelog](https://keepachangelog.com/).
 
 ## [Unreleased]
 
+## [2.7.0] - 2026-03-20
+
+### Added
+- `patient-journey/paper/patient_journey_paper.tex`: Comprehensive LaTeX paper documenting the fully autonomous single-patient journey through a regulated Physical AI oncology trial illustration
+- `patient-journey/paper/patient_journey_paper.pdf`: Compiled PDF document
+- `patient-journey/paper/Latex_Source_Code.zip`: Complete LaTeX source archive
+- `patient-journey/paper/arxiv.sty`: LaTeX style file for paper formatting
+- `patient-journey/paper/orcid_icon.png`: ORCID author identification icon
+- `patient-journey/paper/README.md`: Paper documentation with compilation instructions and key results
+- `patient-journey/prompts.md`: Updated with v2.7.0 development prompt
+
+### Changed
+- `README.md`: Updated version badge to v2.7.0, added patient journey paper entry and repository structure
+- `releases.md`: Added v2.7.0 release notes
+- `CHANGELOG.md`: Added v2.7.0 changelog entry
+
+### Notes
+- Paper covers: Abstract, Introduction, Table of Contents, Methods, Results, Discussion, Limitations and Future Work, Conclusions, References (18 citations), Acknowledgments, Ethical Disclosures, Rights and Permissions, Citation
+- Treatment outcomes: CR, R0 resection, HR 0.62, 36-month EFS, risk reduction 35% to 3%
+- FDA cost-savings: $390M-$650M projected savings (30-50% reduction)
+- Regulatory coverage: 84+ sections across 21 CFR Part 312, 21 CFR Part 50, ICH E6(R3)
+- Paper based on 3 Physical AI regulatory adaptations conducted by the author
+- Development by Claude Code Opus 4.6
+
 ## [2.6.0] - 2026-03-20
 
 ### Added

@@ -1,3 +1,92 @@
+# v2.7.0 Development Prompt
+
+## Prompt: Patient Journey Paper
+
+Your goal is to create a new paper based on kevinkawchak/physical-ai-oncology-trials/tree/main/patient-journey. Be led by the patient-journey data, files, and subdirectories. The project is considered fully autonomous due to Claude Code running the core single prompt workflow with 13 commits in 72 minutes in one PR without user intervention. Additionally, the autonomous project was made more explainable and credible due to each commit's python script(s) being accessible in real time in the branch; and especially due to the multiple text diagram outputs that were viewable for relevancy, correctness, and monitorable by timestamps by the user - giving the Claude Code final results more credibility.
+
+You are responsible for comprehensive understanding and application of all aspects of the patient-journey directory for your new paper. This includes, where relevant: all code, all code types, machine learning and AI types, different robot types and characteristics, digital twins, examples, patients, physical ai unification, unification standard level (USL), tools, etc. The cancer patient journey must be high quality throughout the entire new paper. Be sure to refer to the work as a publication of a patient journey based on 3 physical ailments regulatory adaptions conducted by the author, and not to be considered a new and approved regulatory paper. Do not use the deliverables/charts/ directory. Use the full 1M Opus 4.6 context length throughout the output. A balance of directory names, version numbers, and file names should be utilized strategically throughout the paper. Don't ask questions or go into plan mode throughout this prompt.
+
+Split your new .tex file into 6 commits in one PR. This must be performed autonomously, with updates stating which commit has been pushed throughout the process. Have the final LaTeX source files, the LaTeX zip, and .pdf being prominently available in physical-ai-oncology-trials/tree/main/patient-journey/paper, along with a descriptive README. The 7th commit should fix any issues affecting the context and formatting quality of the final pdf, and then performing repository updates.
+
+The template for the paper is: physical-ai-oncology-trials/tree/main/patient-journey/paper/template (don't use any contextual information from the template .tex or .sty; only use the template files formatting, and for being an example for making the final paper look polished). Make sure each of the following sections are completed correctly:
+-Abstract
+-Keywords = Cancer Patient Journey, Physical AI Oncology Trials, Regulations, Fully Autonomous AI Workflow,
+-Introduction (Start partially on the first page; and finishes after the toc)
+-Table of Contents (Starts at the top of the second page)
+-Methods
+-Results
+-Discussion
+-Limitations and Future Work (Future will continue with fully autonomous workflows in physical ai oncology trials)
+-Conclusions
+- References (include regulatory, new physical ai regulatory, and the main GitHub repository)
+- Acknowledgments (see below)
+- Ethical disclosures (see below)
+- Rights and permissions (see below)
+- Cite this article (see below)
+
+The paper must focus on the following where appropriate:
+A) A comprehensive coverage of the single patient journey.
+- What the patient journey in this project is, and who the cancer patient is.
+- What the master_journey, patient_state and the 10 Python scripts for each stage represent (how they can be use); how groundbreaking the study was, etc.
+- What the results of the project mean in a clinical sense, the new physical AI sense, and how this changes the future of oncology clinical trials, now using advanced AI and robotics.
+- It is important to make the connection where appropriate that the adapted Physical AI regulations by Claude Code based on the original ICH/CFR were necessary in order for the single patient journey to make the paper have substance.
+B) Relevant patient-journey/diagrams should be utilized strategically.
+- Make sure the evolution of key diagrams is shown according to the LaTEX template style. The evolution shows clinical and Physical AI proficiency; and especially the explainability of Claude Code to humans quickly, due consistently high quality diagrams over time throughout project progressions.
+- Also use properly formatted diagrams at appropriate sections of the paper to provide easy visual access to top relevant aspects of the project. Make sure all processes and diagrams across the paper properly align within other aspects of the same diagram.
+C) The deliverables directory diagrams/ and tables/ should also be implemented according to the LaTeX template, as they are the largest and most comprehensive for the project.
+- The guidance directory should be implemented through the paper where appropriately.
+- It is important that all aspects of patient-journey/deliverables/fda_cost_savings be incorporated where appropriate. Explain what the py script purpose was and what it enabled. The time, cost, hours, and worker savings in patient-journey/deliverables/fda_cost_savings/fda_cost_savings_summary.txt must be comprehensively detailed.
+
+"FIRST PAGE"
+"A Cancer Patient's Journey Through a Regulated and Autonomous Physical AI Oncology Trial Illustration" (Centered with properly distributed words over each line)
+"Kevin Kawchak"
+"CEO ChemicalQDevice"
+"10.5281/zenodo.19119939" with hyperlink __https://doi.org/10.5281/zenodo.__19119939
+"kevink@chemicalqdevice.com"
+"March 20 2026"
+[1st Part of Introduction Goes Here]
+"This work was adapted from original CFR documents in the public domain. The original ICH document is copyrighted and may be used, reproduced, incorporated into other works, adapted, modified, translated or distributed under a public license. This current work is not endorsed or sponsored by CFR, ICH, or FDA; and was adapted using Claude Code Opus 4.6." (Bottom of First Page)
+"FIRST PAGE"
+
+Avoid large white empty spaces without text. Where large spacing between words exist throughout: modify raggedright spacing to make positioning between words look equally and properly spaced. Make sure text doesn't run off the right side of the page anywhere. Avoid lines with a single word. Avoid single lines separate form the paragraph on the next page. Perform the final formatting steps that a senior author would take by correcting white space formatting (shown in the LaTeX template) removing and/or adding relevant text to make each section and page look properly formatted and self standing by itself. (Don't overcrowd the page with text, some white space formatting is ok). Make sure to correct all incorrect symbols such as SS into "§" where relevant. Only use em dashes for the CFR titles.
+
+Update physical-ai-oncology-trials main readme documentation, repository structures, text diagrams and toc, a link and explanation to this new paper, and other affected areas in the repository (this is the only repository that needs to be edited). Make sure the repository is fully up to date with this work regarding badges, content, and context.
+
+Provide a copy of this v2.7.0 prompt as the first entry under physical-ai-oncology-trials/blob/main/patient-journey/prompts.md. Be sure to fix and address errors that would cause failed checks for the single pull request (such as for lint and Python environment issues to avoid the following error during final checks): "3 failing checks
+x Cl / lint-and-format (3.10) (pull...
+x Cl / lint-and-format (3.11) (pull...
+x Cl / lint-and-format (3.12) (pull... " Place the new release notes in releases.md under main using the format below. Update other relevant documentation such as project structures. Update the main Readme diagrams, repository structure, etc. where necessary. Provide an updated changelog (v2.7.0).
+
+"FORMAT"
+Release title
+v2.7.0 - [Fill in Title Here]
+
+## Summary
+
+## Features
+
+## Contributors
+@kevinkawchak
+@claude
+@openai
+
+## Notes
+
+"REMAINING PAPER SECTIONS"
+Acknowledgments
+The author would like to acknowledge Anthropic for providing access to Claude Code for project and paper generations; OpenAI for providing access to ChatGPT for detailed summaries, and Google Gemini for additional clarifications.
+
+Ethical disclosures
+The author of the article declares no competing interests.
+
+Rights and permissions
+This article is distributed under the terms of the Creative Commons Attribution 4.0 International License (CC BY 4.0), which permits unrestricted use, distribution, and reproduction in any medium, provided the original author(s) and source are properly credited, a link to the Creative Commons license is provided, and any modifications made are indicated. To view a copy of this license, visit https://creativecommons.org/licenses/by/4.0/.
+
+Cite this article
+Kawchak K. A Cancer Patient's Journey Through a Regulated and Autonomous Physical AI Oncology Trial Illustration. Zenodo. 2026; 10.5281/zenodo.19119939.
+
+---
+
 # v2.6.0 Development Prompts
 
 ## Prompt 1: Single-Patient Journey Orchestration
