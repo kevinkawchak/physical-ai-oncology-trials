@@ -5,6 +5,21 @@ Format follows [Keep a Changelog](https://keepachangelog.com/).
 
 ## [Unreleased]
 
+## [2.7.1] - 2026-03-21
+
+### Changed
+- `README.md`: Updated version badge to v2.7.1, added v2.7.1 documentation update entry, corrected repository structure (added `regulatory-submit/`, removed deleted `unification/industry/`), updated citation version to 2.7.1, expanded engineering examples table, updated Core Technologies date range to March 2026
+- `CITATION.cff`: Updated version to 2.7.1, date-released to 2026-03-21
+- `requirements.txt`: Updated header date to March 2026
+- `releases.md`: Added v2.7.1 release notes
+- `CHANGELOG.md`: Added v2.7.1 changelog entry
+- 38 README files updated with v2.7.1 version badges and March 2026 dates across all modules: agentic-ai, digital-twins (+ 4 sub-modules), examples, examples-new, federation, images, patients, privacy (+ 5 sub-modules), q1-2026-standards (+ 7 sub-modules), regulatory (+ 4 sub-modules), regulatory-submit, tests, tools, unification, unification/usl
+
+### Notes
+- No Python code changes -- documentation-only release
+- All 242 Python files pass ruff lint and format checks on Python 3.10, 3.11, 3.12
+- Development by Claude Code Opus 4.6
+
 ## [2.7.0] - 2026-03-20
 
 ### Added
