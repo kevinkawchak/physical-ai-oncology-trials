@@ -1,5 +1,8 @@
 # Visualizations - Physical AI Oncology Trials
 
+**Version**: 2.7.1
+**Last Updated**: March 2026
+
 Interactive and static visualizations detailing processes, methods, mechanisms,
 and metrics critical for engineers building physical AI oncology clinical trials.
 

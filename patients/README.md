@@ -4,6 +4,9 @@
 [![License: CC BY 4.0](https://img.shields.io/badge/License-CC%20BY%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by/4.0/)
 [![Pages](https://img.shields.io/badge/Pages-10-green.svg)]()
 
+**Version**: 2.7.1
+**Last Updated**: March 2026
+
 ## Overview
 
 This directory documents the **10-page patient-facing instructional PDF** titled *Patient Instructions: Physical AI Oncology Trials*. Each page is a self-contained instruction sheet for one robot type, designed so that an upcoming patient can visualize, read, and feel comfortable regarding how to correctly interact with a specific robot during a physical AI oncology clinical trial.

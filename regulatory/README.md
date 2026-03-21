@@ -2,7 +2,7 @@
 
 *FDA, IRB, and ICH-GCP compliance tools for AI-enabled clinical trial management (February 2026)*
 
-**Version**: 2.5.0
+**Version**: 2.7.1
 **Status**: Active Development
 **Last Updated**: March 2026
 

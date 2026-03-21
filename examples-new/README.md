@@ -2,9 +2,9 @@
 
 *Comprehensive code for engineers working directly on robot hardware for oncology clinical trials*
 
-**Version**: 1.0.0
+**Version**: 2.7.1
 **Status**: Active Development
-**Last Updated**: February 2026
+**Last Updated**: March 2026
 
 ---
 

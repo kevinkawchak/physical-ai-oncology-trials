@@ -1,6 +1,14 @@
 # Tools: Command-Line Helpers for Physical AI Oncology Trials
 
-Command-line utilities for engineers working on physical AI systems in oncology clinical trials. Each tool operates as a standalone CLI script with no required external service dependencies.
+*Command-line utilities for engineers working on physical AI systems in oncology clinical trials*
+
+**Version**: 2.7.1
+**Status**: Active Development
+**Last Updated**: March 2026
+
+---
+
+Each tool operates as a standalone CLI script with no required external service dependencies.
 
 ## Directory Structure
 

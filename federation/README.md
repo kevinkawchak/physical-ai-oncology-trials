@@ -1,5 +1,9 @@
 # Multi-Site Federated Oncology Trial Coordination Platform
 
+**Version**: 2.7.1
+**Status**: Active Development
+**Last Updated**: March 2026
+
 A federated learning and trial coordination platform for orchestrating multi-site oncology clinical trials without sharing raw patient data. Supports federated model training, differential privacy, secure aggregation, enrollment synchronization, cross-site data harmonization, and privacy-preserving analytics.
 
 ## Architecture

@@ -2,9 +2,9 @@
 
 *Patient-specific virtual replicas for treatment simulation and clinical decision support (January 2026)*
 
-**Version**: 1.0.0
+**Version**: 2.7.1
 **Status**: Active Development
-**Last Updated**: February 2026
+**Last Updated**: March 2026
 
 ---
 

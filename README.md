@@ -1,7 +1,7 @@
 # End-to-End Physical AI Unification of Oncology Clinical Trials
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Release](https://img.shields.io/badge/Release-v2.7.0-brightgreen.svg)]()
+[![Release](https://img.shields.io/badge/Release-v2.7.1-brightgreen.svg)]()
 [![Last Updated](https://img.shields.io/badge/Updated-March%202026-blue.svg)]()
 [![Python 3.10+](https://img.shields.io/badge/Python-3.10+-green.svg)]()
 [![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.19119939-blue)](https://doi.org/10.5281/zenodo.19119939)
@@ -11,7 +11,9 @@
 This repository provides production-ready configurations, validated pipelines, and integration guides for deploying robotic systems, digital twins, and embodied AI agents in oncology. Referenced frameworks and tools have been added primarily from Oct. 2025 to Jan. 2026.
 
 
-📄 **3/20: v2.7.0 (Patient Journey Paper)** *A Cancer Patient's Journey Through a Regulated and Autonomous Physical AI Oncology Trial Illustration* - Comprehensive paper documenting the 
+📄 **3/21: v2.7.1 (Documentation Update)** *Repository-wide documentation refresh* - Updated READMEs, version badges, project structure, framework versions, and release notes across all modules
+
+📄 **3/20: v2.7.0 (Patient Journey Paper)** *A Cancer Patient's Journey Through a Regulated and Autonomous Physical AI Oncology Trial Illustration* - Comprehensive paper documenting the
 patient journey [![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.19119939-blue)](https://doi.org/10.5281/zenodo.19119939)
 
 📄 **3/20: v2.6.0 (Patient Journey)** *End-to-End Physical AI Oncology Clinical Trial Unification: Single-Patient Journey Orchestration* - 10-stage patient journey for PAT-2026-0042 (58F, Stage IIIB NSCLC) [![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.19123890-blue)](https://github.com/kevinkawchak/physical-ai-oncology-trials/tree/main/patient-journey)
@@ -25,6 +27,8 @@ patient journey [![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.191199
 📄 **3/2: v2.1.0 (Patient Instructions)** *Patient Instructions: Physical AI Oncology Trials* - Paper content documentation with page-by-page instructions, text diagrams, and quantitative patient data [![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.18810541-blue)](https://doi.org/10.5281/zenodo.18810541)
 
 📄 **2/26: New Paper (USL)** *Unification Standard Level for Physical AI Oncology Trials. Standardizing and Evaluating Robot Unification Readiness for Multi-Site Clinical Trials. USL scores range from 1.0 to 10.0* [![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.18778219-blue)](https://doi.org/10.5281/zenodo.18778219)
+
+> **v2.7.1** - Documentation structure update: repository-wide README refresh with updated version badges, project structure reflecting all 25 top-level directories, current framework version numbers (MuJoCo 3.4.0, Isaac Lab 2.3.1, LangGraph 1.1.0, CrewAI 1.6.1), consistent "Last Updated: March 2026" dates across all modules, and v2.7.1 release notes. Updated 242 Python modules across 14 directories, 6 LaTeX papers, and 60+ documentation files.
 
 > **v2.7.0** - Patient journey paper: *A Cancer Patient's Journey Through a Regulated and Autonomous Physical AI Oncology Trial Illustration*. Comprehensive LaTeX paper documenting the fully autonomous single-patient journey, with treatment outcomes (CR, R0 resection, HR 0.62, 36-month EFS), regulatory coverage (84+ sections), FDA cost-savings analysis (\$390M--\$650M), and Physical AI ecosystem architecture. Paper available in `patient-journey/paper/`.
 
@@ -163,13 +167,6 @@ physical-ai-oncology-trials/
 │
 ├── unification/
 │   ├── README.md
-│   ├── industry/                        # ★ PAIOTIS v1.0 (v2.3.0)
-│   │   ├── paiotis_v1.tex               # Main LaTeX document (8 parts)
-│   │   ├── paiotis.sty                  # Custom style package
-│   │   ├── references.bib               # Bibliography (24 references)
-│   │   ├── paiotis_v1.pdf               # Compiled PDF (25 pages)
-│   │   ├── paiotis_v1.zip               # Source archive
-│   │   └── prompts.md                   # Development prompts
 │   ├── simulation_physics/
 │   │   ├── challenges.md
 │   │   ├── opportunities.md
@@ -314,6 +311,16 @@ physical-ai-oncology-trials/
 │       ├── README.md
 │       └── regulatory_tracker.py
 │
+├── regulatory-submit/                    # FDA Submission Automation (v1.0.0)
+│   ├── README.md
+│   ├── presub_generator.py              # Pre-Submission (Q-Sub) package generation
+│   ├── pccp_engine.py                   # PCCP document authoring
+│   ├── classification_advisor.py        # 510(k)/De Novo/PMA pathway classification
+│   ├── iec62304_generator.py            # IEC 62304 lifecycle documentation
+│   ├── clinical_evidence.py             # Clinical evidence reports
+│   ├── audit_trail.py                   # 21 CFR Part 11 audit trails
+│   └── examples-regulatory-submit/      # 6 submission workflow examples
+│
 ├── federation/
 │   ├── README.md
 │   ├── federated_coordinator.py
@@ -382,7 +389,7 @@ The new `q1-2026-standards/` directory contains **proposed standards** for meeti
 
 ---
 
-## Core Technologies (Updated October 2025 - January 2026)
+## Core Technologies (Updated October 2025 - March 2026)
 
 ### Simulation & Physics
 
@@ -656,6 +663,7 @@ Detailed engineering examples are documented in their respective directories:
 | [`examples-new/`](examples-new/README.md) | 6 examples | Safety monitoring, sensor fusion, ROS 2 deployment, calibration |
 | [`tools/`](tools/README.md) | 5 CLI tools | DICOM inspection, dose calculation, trial monitoring, simulation, deployment |
 | [`federation/`](federation/README.md) | 6 examples | Multi-site federation, differential privacy, secure aggregation |
+| [`regulatory-submit/`](regulatory-submit/README.md) | 6 examples | Pre-Sub packages, PCCP plans, pathway classification, IEC 62304 |
 
 ---
 
@@ -932,7 +940,7 @@ If you use this repository in your research, please cite:
 @software{kawchak2026physicalai,
   author = {Kawchak, Kevin},
   title = {Physical AI for Oncology Clinical Trials},
-  version = {2.4.0},
+  version = {2.7.1},
   year = {2026},
   publisher = {GitHub},
   url = {https://github.com/kevinkawchak/physical-ai-oncology-trials}
