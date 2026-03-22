@@ -1,0 +1,876 @@
+\documentclass{article}
+\usepackage{arxiv}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{url}
+\usepackage[hidelinks]{hyperref}
+\usepackage{booktabs}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{enumitem}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{tabularx}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{textcomp}
+\usepackage{microtype}
+\usepackage{float}
+
+% Fix fancyhdr headheight warning
+\setlength{\headheight}{16pt}
+
+% Make running header title fit on one line with smaller font
+\renewcommand{\shorttitle}{\scriptsize\scshape A Cancer Patient's Journey Through a Regulated Physical AI Oncology Trial}
+
+% Justified text
+\usepackage{ragged2e}
+
+% Code listing style
+\lstdefinestyle{pythonstyle}{
+  language=Python,
+  basicstyle=\ttfamily\scriptsize,
+  keywordstyle=\color[rgb]{0.13,0.29,0.53}\bfseries,
+  stringstyle=\color[rgb]{0.31,0.60,0.02},
+  commentstyle=\color[rgb]{0.56,0.56,0.56}\itshape,
+  numbers=left,
+  numberstyle=\tiny\color{gray},
+  stepnumber=1,
+  numbersep=5pt,
+  backgroundcolor=\color[rgb]{0.97,0.97,0.97},
+  frame=single,
+  rulecolor=\color[rgb]{0.8,0.8,0.8},
+  breaklines=true,
+  breakatwhitespace=false,
+  tabsize=4,
+  showstringspaces=false,
+  columns=flexible
+}
+\lstset{style=pythonstyle}
+
+% ORCID icon command
+\newcommand{\orcidicon}[1]{%
+\href{https://orcid.org/#1}{%
+\raisebox{-1pt}{\includegraphics[height=9pt]{orcid_icon.png}}}}
+
+% Compact table column type
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
+\newcolumntype{C}[1]{>{\centering\arraybackslash}p{#1}}
+\newcolumntype{R}[1]{>{\raggedleft\arraybackslash}p{#1}}
+
+\title{A Cancer Patient's Journey Through\\a Regulated Physical AI Oncology Trial}
+
+\author{
+  Kevin Kawchak\hspace{2pt}\orcidicon{0009-0007-5457-8667} \\
+  CEO ChemicalQDevice\\
+  \href{https://doi.org/10.5281/zenodo.19119939}{10.5281/zenodo.19119939} \\
+  \texttt{kevink@chemicalqdevice.com}
+}
+
+\date{March 21, 2026}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+This simulation presents the first fully autonomous, single-patient journey through a regulated Physical AI oncology clinical trial, orchestrated end-to-end by Claude Code Opus 4.6 in a single pull request comprising 13 commits completed in 72 minutes without user intervention. The patient journey follows PAT-2026-0042, a 58-year-old female with Stage IIIB non-small cell lung cancer (NSCLC) adenocarcinoma (ECOG 1, PD-L1 65\%, TMB 14 mut/Mb), through 10 sequential clinical stages: pre-screening, enrollment, digital twin initialization, robot qualification, robotic surgery, post-operative recovery, immunotherapy, federated learning, surveillance, and trial closeout. The journey is governed by three adapted regulatory frameworks: 21 CFR Part 312 Subpart J, 21 CFR Part 50 Subpart C, and ICH E6(R3) - which were previously adapted by the author for Physical AI systems. The orchestration infrastructure comprises 12 Python modules (\texttt{master\_journey.py}, \texttt{patient\_state.py}, and 10 stage-specific scripts), 30 ASCII progress diagrams across three perspectives (timeline, regulatory, clinical), 6 text-based deliverable diagrams, 6 regulatory tables, 4 guidance documents, and an FDA cost-savings analysis projecting 30--50\% trial cost reductions (\$390M--\$650M savings against a \$1.3B baseline).\ The da Vinci Xi surgical robot (USL 87.5) performed a 168-minute robotic lobectomy achieving R0 resection with negative margins, while the Franka Emika (USL 88.75) managed laboratory automation and pharmacy dosing. Across 35 pembrolizumab immunotherapy cycles, the patient achieved complete response (CR) with recurrence risk declining from 35\% to 3\% over 36 months of event-free survival.\ The project demonstrates that fully autonomous AI workflows can produce clinically coherent, regulatory-compliant trial illustrations with real-time human monitorability through timestamped text diagrams and accessible Python scripts at each commit. This publication should not be considered a new or approved standard or regulation.
+\end{abstract}
+
+\keywords{Cancer Patient Journey \and Physical AI Oncology Trials \and Regulations \and Fully Autonomous AI Workflow}
+
+\vspace{-0.2cm}
+
+%% ========================================================================
+\section{Introduction}
+\label{sec:introduction}
+%% ========================================================================
+
+\vspace{-0.1cm}
+
+The integration of Physical AI systems - surgical robots, digital twins, and federated learning networks - into oncology clinical trials represents a paradigm shift in how cancer treatment is evaluated, delivered, and monitored. Traditional oncology trials have relied on manual data collection, site-specific implementations, and human-operated procedures that limit scalability, introduce variability, and constrain the pace of therapeutic discovery. The emergence of Physical AI offers the potential to transform every stage of the patient journey, from pre-screening through trial closeout, by introducing autonomous systems that operate under regulatory governance with continuous digital oversight.
+
+This paper documents the first fully autonomous single-patient journey through a Physical AI oncology clinical trial illustration, constructed entirely by Claude Code Opus 4.6 in a single pull request of 13 commits completed in 72 minutes. The work builds upon three regulatory adaptations previously conducted by the author: an adaptation of 21 CFR Part 312 Subpart J for Physical AI treatment use of investigational drugs, an adaptation of 21 CFR Part 50 Subpart C for Physical AI human subject protections, and an adaptation of ICH E6(R3) for Physical AI good clinical practice. These adapted regulations provided the necessary framework within which the autonomous patient journey could operate with clinical substance and regulatory grounding.
+
+% \vspace{0.3cm}
+
+% \noindent\rule{\textwidth}{0.0pt}
+
+% \vspace{0.15cm}
+
+{\footnotesize \textit{This work was adapted from original CFR documents in the public domain. The original ICH document is copyrighted and may be used, reproduced, incorporated into other works, adapted, modified, translated or distributed under a public license. This current work is not endorsed or sponsored by CFR, ICH, or FDA; and was adapted using Claude Code Opus 4.6.}}
+
+
+The patient at the center of this illustration is PAT-2026-0042, a 58-year-old female diagnosed with Stage IIIB NSCLC adenocarcinoma. Her clinical profile - ECOG performance status 1, PD-L1 TPS 65\%, and tumor mutational burden of 14 mut/Mb - places her in a category where robotic-assisted surgery combined with immunotherapy represents a treatment approach warranting investigation. The journey spans 10 stages across approximately 1,120 days, from initial referral through data lock and archival, with each stage governed by specific sections of the three adapted regulatory frameworks.
+
+The project is considered fully autonomous because Claude Code executed the core single-prompt workflow - generating 12 Python orchestrator modules, 30 progress diagrams, 6 deliverable diagrams, 6 tables, 4 guidance documents, an FDA cost-savings analysis module, and 262 tests - across 13 sequential commits without user intervention. The autonomous nature of this work was made more explainable and credible through two key mechanisms: first, each commit's Python scripts were accessible in real time in the branch, enabling inspection of the generated code at every step; and second, the multiple text diagram outputs produced at each stage were viewable for relevancy and correctness, and were monitorable by their timestamps by the user, giving the Claude Code final results substantially greater credibility than a single monolithic output would have provided.
+
+Patient Journey Data Availability: \url{https://github.com/kevinkawchak/physical-ai-oncology-trials/tree/main/patient-journey}.
+ 
+
+%% ========================================================================
+\tableofcontents
+%% ========================================================================
+
+\newpage
+
+\subsection{Regulatory Foundation}
+
+The adapted regulatory frameworks that underpin this patient journey are documented in the \texttt{regulatory/} directory of the \texttt{physical-ai-oncology-trials} repository (v2.6.0). The three frameworks are:
+
+\begin{enumerate}[leftmargin=*]
+\item \textbf{21 CFR Part 312 Subpart J} (\texttt{regulatory/Adaption-21-CFR-Part-312/}): A 94-page adaptation covering \S312.400 through \S312.405, addressing general provisions, definitions, eligibility, protocol submission, safeguards, and charging for Physical AI treatment use of investigational drugs. Generated with 42 references.
+
+\item \textbf{21 CFR Part 50 Subpart C} (\texttt{regulatory/Adaption-21-CFR-Part-50/}): A 37-page adaptation covering \S50.30 through \S50.34, addressing IRB review, children protections, consent documentation, additional consent elements, and waiver conditions for Physical AI clinical investigations. Generated with 19 references.
+
+\item \textbf{ICH E6(R3)} (\texttt{regulatory/adaption-ich-e6r3/}): An adaptation of the International Council for Harmonisation guideline on Good Clinical Practice, covering principles, quality management, data integrity, safety reporting, and essential document requirements for trials incorporating Physical AI systems.
+\end{enumerate}
+
+Together, these frameworks provided 84+ regulatory sections that were addressed across the 10 stages of the patient journey. The connection between the adapted regulations and the patient journey is foundational: without the regulatory adaptations establishing how Physical AI systems should be governed in clinical trials, the patient journey would lack the substance needed for clinical and regulatory credibility.
+
+\subsection{Repository Architecture}
+
+The patient journey resides within the \texttt{patient-journey/} directory of the repository, organized as follows:
+
+\begin{itemize}[leftmargin=*]
+\item \texttt{master\_journey.py} (26 KB): The central orchestrator containing \texttt{STAGE\_REGULATORY\_MAP} (84+ regulatory citations) and \texttt{STAGE\_MODULE\_MAP} (51 repository modules activated across stages).
+\item \texttt{patient\_state.py} (18 KB): The data model defining 10 enums (\texttt{PatientStage}, \texttt{PatientStatus}, \texttt{TreatmentArm}, \texttt{ResponseCategory}, and others), 14 dataclasses (\texttt{PatientDemographics}, \texttt{TumorProfile}, \texttt{DigitalTwinState}, \texttt{RobotQualification}, and others), and the master \texttt{PatientJourneyState}.
+\item \texttt{stage\_01\_prescreening.py} through \texttt{stage\_10\_closeout.py}: Ten stage-specific scripts ranging from 18 to 29 KB, each implementing the clinical and Physical AI operations for its stage with full regulatory citations, audit trail generation, and 21 CFR Part 11 electronic signature support.
+\item \texttt{diagrams/}: 30 ASCII progress diagrams (10 stages, 3 perspectives each---timeline, regulatory compliance, and clinical dashboard).
+\item \texttt{deliverables/}: Tables, diagrams, guidance documents, FDA cost-savings analysis, and chart generators.
+\item \texttt{paper/}: This paper and the formatting template.
+\end{itemize}
+
+The total Python codebase comprises approximately 8,500 lines of code across 13 modules, with each module implementing detailed clinical workflows, regulatory compliance checks, and Physical AI system integration logic.
+
+%% ========================================================================
+\section{Methods}
+\label{sec:methods}
+%% ========================================================================
+
+\subsection{Development Process and Autonomous Workflow}
+
+The patient journey was constructed using a fully autonomous AI-assisted development methodology. Kevin Kawchak served as the meta-prompt/prompt creator, the system architect, paper editor, and author of the three prerequisite regulatory adaptations (all assisted by AI). The autonomous workflow was executed by \textbf{Anthropic Claude Code Opus 4.6}, which generated the complete patient journey infrastructure in a single pull request of 13 commits in 72 minutes.
+
+The development followed a single-prompt workflow where the complete specification for all 10 stages---including Python orchestrators, progress diagrams, deliverables, tests, and documentation---was provided in a single prompt (archived in \texttt{patient-journey/prompts.md} as the v2.6.0 entry). Claude Code interpreted this prompt and autonomously produced each commit in sequence, with no user edits or interventions between commits.
+
+\subsubsection{Commit Structure and Monitorability}
+
+The 13-commit structure was designed to maximize human monitorability of the autonomous process. Each commit introduced specific artifacts that could be inspected in real time as they appeared in the branch:
+
+\begin{enumerate}[leftmargin=*]
+\item \textbf{Commits 1--10}: Each commit corresponded to one of the 10 patient journey stages, generating the stage-specific Python script (\texttt{stage\_01\_prescreening.py} through \texttt{stage\_10\_closeout.py}) along with 3 progress diagrams (timeline, regulatory, clinical perspectives).
+
+\item \textbf{Commit 11}:\ Generated the \texttt{master\_journey.py} orchestrator, the \texttt{STAGE\_REGULATORY\_MAP}, and \texttt{STAGE\_MODULE\_MAP}. Also generated: \texttt{patient\_state.py} data model with all enums and dataclasses.
+
+\item \textbf{Commit 12}: Generated the \texttt{deliverables/} directory including 6 text tables, 6 diagrams, 4 guidance documents, the FDA cost-savings analysis module, and 10 Plotly chart generators.
+
+\item \textbf{Commit 13}: Generated 262 tests in \texttt{tests/test\_patient\_journey/} and updated repository documentation.
+\end{enumerate}
+
+The text diagram outputs were particularly valuable for monitorability. Each of the 30 stage progress diagrams (located in \texttt{patient-journey/diagrams/stage\_01/} through \texttt{stage\_10/}) provided an ASCII representation of the patient's cumulative progress, regulatory compliance status, and clinical metrics at that point in the journey. These diagrams were viewable directly in the GitHub branch interface without requiring any code execution, enabling the user to verify relevancy and correctness of the generated content through visual inspection and timestamp comparison.
+
+\subsubsection{Three-Perspective Diagram System}
+
+Each of the 10 stages produced three progress diagram perspectives, stored in the \texttt{diagrams/} subdirectory:
+
+\begin{itemize}[leftmargin=*]
+\item \textbf{Perspective A---Timeline and Milestone Tracker} (\texttt{perspective\_a\_timeline.txt}): Shows the complete stage pipeline with completed, active, and pending stages, plus key milestones for the current stage with necessary specific day markers.
+
+\item \textbf{Perspective B---Regulatory Compliance Tracker} (\texttt{perspective\_b\_regulatory.txt}): Tracks cumulative regulatory section coverage across all three frameworks (21 CFR Part 312, 21 CFR Part 50, ICH E6(R3)), showing which specific sections were addressed at each stage.
+
+\item \textbf{Perspective C---Clinical Progress Summary} (\texttt{perspective\_c\_clinical.txt}): Presents patient demographics, treatment status, Physical AI system metrics, adverse events, and compliance dashboards with quantitative values.
+\end{itemize}
+
+The following diagram illustrates the Stage 1 timeline perspective as generated by the autonomous workflow, showing the initial pre-screening pipeline state:
+
+\newpage
+
+\begin{figure}[H]
+\begin{verbatim}
+  PAT-2026-0042 JOURNEY TIMELINE - Stage 1: Pre-Screening
+  ========================================================
+
+  Day -30                              Day -14
+    |                                    |
+    v                                    v
+  +------------------------------------------+
+  |            STAGE 1: PRE-SCREENING        |
+  |               [ACTIVE]                   |
+  |    PHI Detection & De-identification     |
+  |    Data Harmonization (FHIR/SNOMED)      |
+  |    DICOM Validation                      |
+  |    Patient Record Creation               |
+  |    Access Provisioning                   |
+  +------------------------------------------+
+    |
+    v
+  +----------+  +----------+  +----------+
+  | STAGE 2  |  | STAGE 3  |  | STAGE 4  |
+  |[PENDING] |  |[PENDING] |  |[PENDING] |
+  |Enrollment|  |Dig. Twin |  |Robot Qual|
+  +----------+  +----------+  +----------+
+  ... (6 more pending stages)
+
+  KEY MILESTONES - Stage 1:
+    Day -30 .. Referral received
+    Day -28 .. PHI scan (18 HIPAA identifiers)
+    Day -26 .. Records de-identified per 21 CFR 50.33
+    Day -22 .. FHIR R4 resources mapped
+    Day -20 .. ICD-10 C34.1 mapped to SNOMED 254637007
+    Day -18 .. DICOM validated (512x512, 1mm, Lung)
+    Day -16 .. PAT-2026-0042 record created
+    Day -14 .. Access provisioned, Part 11 signatures
+
+  Modules Activated: 6 of 51
+\end{verbatim}
+\caption{Stage 1 timeline perspective from \texttt{diagrams/stage\_01/perspective\_a\_timeline.txt}, showing the pre-screening pipeline with PHI detection, FHIR harmonization, and DICOM validation milestones.}
+\label{fig:stage1-timeline}
+\end{figure}
+
+\subsection{Patient Selection and Clinical Profile}
+
+The patient modeled in this illustration, PAT-2026-0042, was defined with clinically representative characteristics for a Physical AI oncology trial candidate. Table~\ref{tab:demographics} presents the baseline demographics as specified in \texttt{deliverables/tables/table\_01\_patient\_demographics.txt}:
+
+\begin{table}[H]
+\centering
+\caption{Patient demographics and baseline characteristics (PAT-2026-0042).}
+\label{tab:demographics}
+\small
+\begin{tabularx}{\textwidth}{@{}L{4.5cm}L{7.5cm}@{}}
+\toprule
+\textbf{Parameter} & \textbf{Value} \\
+\midrule
+Patient ID & PAT-2026-0042 \\
+Age & 58 years \\
+Sex & Female \\
+Smoking Status & Former \\
+Tumor Type & NSCLC adenocarcinoma \\
+Disease Stage & IIIB \\
+ECOG Performance Status & 1 \\
+PD-L1 TPS & 65\% \\
+Tumor Mutational Burden & 14 mut/Mb \\
+Investigational Site & SITE-003 \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+The patient profile was designed to represent a clinical scenario where Physical AI systems provide meaningful benefit: Stage IIIB disease requiring multimodal treatment (surgery plus immunotherapy), high PD-L1 expression suggesting immunotherapy responsiveness, and adequate performance status for robotic-assisted surgery.
+
+\subsection{Regulatory Framework Mapping}
+
+Each of the 10 total stages were mapped to specific regulatory sections from the three previously adapted frameworks.\ The \texttt{master\_journey.py} orchestrator contains the \texttt{STAGE\_REGULATORY\_MAP} dictionary that defines these mappings programmatically.\ Table~\ref{tab:reg-framework} summarizes the regulatory coverage as documented in \texttt{deliverables/tables/table\_02\_regulatory\_framework.txt}:
+
+\begin{table}[H]
+\centering
+\caption{Regulatory framework sections governing the patient journey.}
+\label{tab:reg-framework}
+\scriptsize
+\begin{tabularx}{\textwidth}{@{}L{1.8cm}L{1.5cm}L{8.5cm}@{}}
+\toprule
+\textbf{Framework} & \textbf{Section} & \textbf{Description} \\
+\midrule
+21 CFR 312 & \S312.400 & General provisions for treatment use of investigational new drugs \\
+ & \S312.401 & Definitions and terminology for treatment use protocols \\
+ & \S312.402 & Eligibility criteria and conditions for treatment use \\
+ & \S312.403 & Treatment protocol submission and FDA review requirements \\
+ & \S312.404 & Safeguards and monitoring requirements for patients \\
+ & \S312.405 & Charging for investigational drugs under treatment use \\
+\midrule
+21 CFR 50 & \S50.30 & General requirements for IRB review \\
+ & \S50.31 & Additional protections for children \\
+ & \S50.32 & Requirements for informed consent documentation \\
+ & \S50.33 & Additional elements of informed consent \\
+ & \S50.34 & Waiver or alteration of informed consent \\
+\midrule
+ICH E6(R3) & \S1.2 & Principles of GCP; ethical conduct \\
+ & \S2.8 & Quality management systems \\
+ & \S2.9 & Data integrity and traceability \\
+ & \S2.10 & Safety reporting obligations \\
+ & \S2.11 & Protocol amendments and deviations \\
+ & \S2.12 & Essential documents; archival and retention \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+The regulatory mapping demonstrates how each adapted Physical AI regulation was necessary for the patient journey to have substance. For example, \S312.402 (eligibility) governs Stages 1, 3, and 5 where patient screening, baseline assessment, and surgical eligibility are evaluated. The adapted \S312.404 (safeguards) governs Stages 4, 6, and 7 where active treatment monitoring and adverse event reporting occur under Physical AI supervision.
+
+\subsection{10-Stage Pipeline Architecture}
+
+The patient journey follows a 10-stage sequential pipeline, with each stage implemented as an independent Python module that consumes the output of previous stages and produces structured artifacts for downstream consumption. Table~\ref{tab:stage-summary} presents the stage summary from \texttt{deliverables/tables/table\_03\_stage\_summary.txt}:
+
+\begin{table}[H]
+\centering
+\caption{10-stage patient journey summary for PAT-2026-0042.}
+\label{tab:stage-summary}
+\scriptsize
+\begin{tabularx}{\textwidth}{@{}C{0.5cm}L{2.5cm}L{1.5cm}L{4cm}L{2.8cm}@{}}
+\toprule
+\textbf{\#} & \textbf{Stage Name} & \textbf{Day Range} & \textbf{Key Outcome} & \textbf{Regulatory} \\
+\midrule
+1 & Screening and Eligibility & Day $-$30 to $-$1 & Meets all inclusion criteria & \S312.400; ICH 1.2, 1.5 \\
+2 & Informed Consent and Enrollment & Day $-$14 to 0 & Consent obtained; IRB approved & \S50.30--34; ICH 1.2 \\
+3 & Baseline and Digital Twin Init & Day 0 to 7 & Digital twin initialized & \S312.402; ICH 2.8, 2.9 \\
+4 & Neoadjuvant Therapy & Day 8 to 84 & 4 cycles completed; partial response & \S312.404; ICH 2.10 \\
+5 & Robotic Surgery & Day 85 to 99 & da Vinci Xi lobectomy; R0 resection & \S312.402; ICH 2.8 \\
+6 & Post-Operative Recovery & Day 100 to 128 & Recovery complete; AF resolved & \S312.404; \S50.32 \\
+7 & Adjuvant Therapy & Day 129 to 798 & 35 cycles; CR confirmed & \S312.404; ICH 2.10, 2.11 \\
+8 & Surveillance and Federation & Day 799 to 1528 & No recurrence; federated updates & ICH 2.9, 2.12; \S312.405 \\
+9 & Long-Term Follow-Up & Day 1529 to 1858 & EFS 36 months; risk 3\% & ICH 2.12; \S312.400 \\
+10 & Data Lock and Archival & Day 1858+ & HARD\_LOCK; CSR generated & ICH 2.9, 2.12; \S312.403 \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\subsection{Physical AI System Qualification}
+
+Two Physical AI robotic systems were qualified for the trial using the Unification Standard Level (USL) scoring framework, as documented in \texttt{deliverables/tables/table\_05\_robot\_qualifications.txt} and implemented in \texttt{stage\_04\_robot\_qualification.py} (18 KB):
+
+\begin{table}[H]
+\centering
+\caption{Physical AI robot qualification results with USL scoring dimensions.}
+\label{tab:robot-qual}
+\small
+\begin{tabularx}{\textwidth}{@{}L{4cm}C{3cm}C{3cm}@{}}
+\toprule
+\textbf{USL Dimension} & \textbf{da Vinci Xi (Surgical)} & \textbf{Franka Emika (Lab/Pharmacy)} \\
+\midrule
+Autonomy (20\% weight) & 78 & 82 \\
+\hspace{0.3cm}Task planning & 74 & 85 \\
+\hspace{0.3cm}Adaptive decision-making & 82 & 79 \\
+Dexterity (30\% weight) & 95 & 88 \\
+\hspace{0.3cm}Sub-mm precision & 97 & 90 \\
+\hspace{0.3cm}Force feedback & 93 & 86 \\
+Safety (30\% weight) & 92 & 94 \\
+\hspace{0.3cm}Fault detection response & 90 & 96 \\
+\hspace{0.3cm}Emergency stop reliability & 94 & 92 \\
+Interoperability (20\% weight) & 85 & 91 \\
+\hspace{0.3cm}HL7 FHIR integration & 88 & 93 \\
+\hspace{0.3cm}MCP conformance & 82 & 89 \\
+\midrule
+\textbf{Composite USL Score} & \textbf{87.5} & \textbf{88.75} \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+The USL scoring framework evaluates robotic systems across four weighted dimensions: Autonomy (20\%), Dexterity (30\%), Safety (30\%), and Interoperability (20\%). The minimum composite threshold for deployment is 75.0, which both systems exceeded. The da Vinci Xi (Intuitive Surgical, 510(k) cleared) was qualified for robotic-assisted thoracic surgery, while the Franka Emika (Franka Emika GmbH, Class I exempt) was qualified for laboratory automation and pharmacy dosing verification.
+
+\subsection{FDA Cost-Savings Analysis Methodology}
+
+The FDA cost-savings part was implemented as a module (\texttt{fda\_cost\_savings/fda\_cost\_savings\_analysis.py}, 14 KB) with a summary report (\texttt{fda\_cost\_savings\_summary.txt}, 11 KB). The \texttt{calculate\_cost\_savings()} function returns a structured dictionary containing traditional trial cost baselines, Physical AI cost reduction projections, per-patient comparisons, time savings estimates, and quality improvement metrics.
+
+The methodology employs a comparative cost-modeling approach using baseline cost estimates derived from published literature (Tufts Center for the Study of Drug Development data, FDA public filings, peer-reviewed pharmaceutical economics studies). The average total cost baseline of \$1.3 billion for Phase I--III oncology programs represents a weighted mean across solid tumor and hematologic malignancy indications. Cost reduction projections were developed through analysis of three Physical AI intervention categories: digital twin simulation (15--25\% reduction), federated learning infrastructure (10--15\% reduction), and automated monitoring systems (5--10\% reduction).
+
+\subsection{Data Model and State Management}
+
+The \texttt{patient\_state.py} module (18 KB) defines the complete data model for tracking patient state across all 10 stages. The model comprises:
+
+\begin{itemize}[leftmargin=*]
+\item \textbf{10 Enums}: \raggedright \arraybackslash \texttt{PatientStage}, \texttt{PatientStatus}, \texttt{TreatmentArm}, \texttt{ResponseCategory}, \texttt{AESeverity}, \texttt{ConsentStatus}, \texttt{DataLockStatus}, \texttt{PhysicalAIClassification}, \texttt{USLReadinessLevel}, and \texttt{MCPConformanceLevel}.
+
+\item \textbf{14 Dataclasses}: \texttt{PatientDemographics}, \texttt{TumorProfile}, \texttt{Biomarkers}, \texttt{OrganFunction}, \texttt{AdverseEvent}, \texttt{TreatmentCycle}, \texttt{SurgicalRecord}, \texttt{ImagingTimepoint}, \texttt{DigitalTwinState}, \texttt{RobotQualification}, \texttt{FederationContribution}, \texttt{RegulatoryEvent}, \texttt{ConsentRecord}, and \texttt{AuditEntry}.
+
+\item \textbf{Master State}: \texttt{PatientJourneyState} with 20+ fields tracking the patient's position in the pipeline and 4 helper methods for state transitions.
+\end{itemize}
+
+%% ========================================================================
+\section{Results}
+\label{sec:results}
+%% ========================================================================
+
+\subsection{Complete Patient Journey Outcomes}
+
+The fully autonomous workflow produced a complete 10-stage patient journey spanning approximately 1,120 days throughout the illustration (Day $-$30 through Day 1090+). Table~\ref{tab:treatment-outcomes} presents the primary efficacy outcomes as documented in \texttt{deliverables/tables/table\_06\_treatment\_outcomes.txt}:
+
+\begin{table}[H]
+\centering
+\caption{Treatment outcome summary for PAT-2026-0042.}
+\label{tab:treatment-outcomes}
+\small
+\begin{tabularx}{\textwidth}{@{}L{5cm}L{7cm}@{}}
+\toprule
+\textbf{Parameter} & \textbf{Value} \\
+\midrule
+Best Overall Response (RECIST v1.1) & CR (Complete Response) \\
+Pathological Staging (post-surgery) & pT2aN2M0 \\
+Major Pathological Response (MPR) & Yes (viable tumor $<$ 10\%) \\
+Surgical Margin Status & R0 (negative margins) \\
+Neoadjuvant Cycles Completed & 4 of 4 planned \\
+Adjuvant Cycles Completed & 35 of 35 planned \\
+Baseline Recurrence Risk & 35\% \\
+Final Recurrence Risk (model) & 3\% \\
+Absolute Risk Reduction & 32 percentage points \\
+Event-Free Survival & 36 months \\
+Hazard Ratio (treatment vs control) & 0.62 (95\% CI: 0.45--0.85) \\
+Overall Survival Status & Alive, no evidence of disease \\
+Data Lock Status & HARD\_LOCK \\
+Source Data Verification & 100\% verified \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\subsection{Surgical Outcomes and Robotic Performance}
+
+Stage 5 (Robotic Surgery, \texttt{stage\_05\_surgery.py}, 18 KB) produced the following surgical outcomes through the da Vinci Xi robotic platform, as documented in the Stage 5 timeline perspective (\texttt{diagrams/stage\_05/perspective\_a\_timeline.txt}):
+
+\begin{itemize}[leftmargin=*]
+\item \textbf{Procedure}: Robotic-assisted lobectomy, 168 minutes total duration.
+\item \textbf{Estimated blood loss}: 85 mL.
+\item \textbf{Margins}: Negative (R0 resection).
+\item \textbf{Lymph nodes}: 18 sampled, 3 positive.
+\item \textbf{Autonomy level}: Level 2 (human-in-the-loop with robotic assistance).
+\item \textbf{Safety events}: One force spike at 12.1N (T+45 min), warning issued, resolved in 200ms.
+\end{itemize}
+
+The surgical procedure followed a structured ROS2 deployment sequence: IDLE $\rightarrow$ SETUP $\rightarrow$ DOCKED $\rightarrow$ READY, with a pre-procedure safety matrix passing all checks. The digital twin overlay was activated with 0.9mm registration accuracy, and sensor fusion integrated endoscope, RGBD, tracking, and force/torque data streams. Post-operative investigator review items (a) through (e) were all approved, and specimen chain-of-custody was maintained under 21 CFR Part 11 electronic signatures.
+
+The following diagram shows the Stage 5 cumulative timeline, demonstrating how the autonomous workflow tracked surgical milestones alongside prior stage completions:
+
+\newpage
+
+\begin{figure}[H]
+\begin{verbatim}
+  Day -30     Day -14      Day 0       Day 7       Day 14
+    |           |            |           |           |
+    v           v            v           v           v
+  +---------+ +---------+ +---------+ +---------+ +----------+
+  | STAGE 1 | | STAGE 2 | | STAGE 3 | | STAGE 4 | | STAGE 5  |
+  | [DONE]  |>| [DONE]  |>| [DONE]  |>| [DONE]  |>| [ACTIVE] |
+  |Pre-Scrn | |Enrollmt | |Dig Twin | |Robot Ql | | Surgery  |
+  +---------+ +---------+ +---------+ +---------+ +----------+
+   PHI scan    Eligible     Twin cal    DV USL 7.9  168 min
+   FHIR map    Consent v1   V&V 40      FP USL 7.2  85 mL EBL
+   DICOM val   Arm A        4 models    Cyber OK    Neg margins
+
+  Elapsed: 44 days | Modules Activated: 38 of 51
+\end{verbatim}
+\caption{Stage 5 cumulative timeline from \texttt{diagrams/stage\_05/perspective\_a\_timeline.txt}, showing completed stages 1--4 and active surgical stage with key metrics.}
+\label{fig:stage5-timeline}
+\end{figure}
+
+\subsection{Adverse Event Profile}
+
+Three adverse events were recorded during the patient journey, all Grade 1--2 with no serious adverse events. Table~\ref{tab:adverse-events} presents the complete adverse event log from \texttt{deliverables/tables/table\_04\_adverse\_events.txt}:
+
+\begin{table}[H]
+\centering
+\caption{Adverse events log for PAT-2026-0042 (CTCAE v5.0 grading).}
+\label{tab:adverse-events}
+\scriptsize
+\begin{tabularx}{\textwidth}{@{}C{0.5cm}L{1.2cm}L{2.2cm}C{0.7cm}L{1.8cm}L{1.8cm}L{1.8cm}@{}}
+\toprule
+\textbf{AE} & \textbf{Day/Cycle} & \textbf{Event} & \textbf{Grade} & \textbf{Causality} & \textbf{Action} & \textbf{Outcome} \\
+\midrule
+1 & Day 16 & Atrial fibrillation & 2 & Possibly related & Dose held; cardio consult & Resolved Day 22 \\
+2 & Cycle 6 & Hypothyroidism & 1 & Probably related & Levothyroxine started & Ongoing; managed \\
+3 & Cycle 12 & Maculopapular rash & 1 & Possibly related & Topical corticosteroid & Resolved in 2 weeks \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+No device-related adverse events were recorded. The atrial fibrillation event triggered an ORANGE-level alert in the safety monitoring architecture (\texttt{deliverables/diagrams/diagram\_05\_safety\_architecture.txt}), resulting in a temporary dose hold and cardiology consultation. The hypothyroidism and rash events triggered YELLOW-level alerts and were managed with standard clinical interventions. All events were reported to the IRB and Data Safety Monitoring Board (DSMB) per protocol requirements under \S312.404 and ICH E6(R3) \S2.10.
+
+\newpage
+
+\subsection{Regulatory Compliance Coverage}
+
+The autonomous workflow addressed 84+ regulatory sections across all 10 stages. The following diagram from \texttt{deliverables/diagrams/diagram\_02\_regulatory\_mapping.txt} shows the regulatory framework-to-stage mapping:
+
+
+
+\begin{figure}[H]
+\begin{verbatim}
+  Regulatory Section        |S1 |S2 |S3 |S4 |S5 |S6 |S7 |S8 |S9 |S10|
+                            |Scr|Con|Bas|Neo|Sur|Pos|Adj|Fed|Sur|Loc|
+  --------------------------+---+---+---+---+---+---+---+---+---+---+
+  21 CFR 312 Subpart J      |   |   |   |   |   |   |   |   |   |   |
+    s312.400 General provs  |XX |   |   |   |   |   |   |   |XX |   |
+    s312.401 Definitions    |XX |XX |   |   |   |   |   |   |   |   |
+    s312.402 Eligibility    |XX |   |XX |   |XX |   |   |   |   |   |
+    s312.403 Protocol sub.  |   |   |   |   |   |   |   |   |   |XX |
+    s312.404 Safeguards     |   |   |   |XX |   |XX |XX |   |   |   |
+    s312.405 Charging       |   |   |   |   |   |   |   |XX |   |   |
+  --------------------------+---+---+---+---+---+---+---+---+---+---+
+  21 CFR 50 Subpart C       |   |   |   |   |   |   |   |   |   |   |
+    s50.30 IRB review       |   |XX |   |   |   |   |   |   |   |   |
+    s50.32 Consent doc      |   |XX |   |   |   |XX |   |   |   |   |
+    s50.33 Additional elem  |   |XX |   |   |   |   |   |   |   |   |
+  --------------------------+---+---+---+---+---+---+---+---+---+---+
+  ICH E6(R3)                |   |   |   |   |   |   |   |   |   |   |
+    1.2 GCP principles      |XX |XX |   |   |   |   |   |   |   |   |
+    2.8 Quality management  |   |   |XX |   |XX |   |   |   |   |   |
+    2.9 Data integrity      |   |   |XX |   |   |   |   |XX |   |XX |
+    2.10 Safety reporting   |   |   |   |XX |   |   |XX |   |   |   |
+    2.12 Essential docs     |   |   |   |   |   |   |   |XX |XX |XX |
+  XX = Primary regulatory applicability for this stage
+\end{verbatim}
+\caption{Framework-to-stage mapping from \texttt{deliverables/diagrams/diagram\_02\_regulatory\_mapping.txt}, showing which regulatory sections govern each of the 10 patient journey stages.}
+\label{fig:reg-mapping}
+\end{figure}
+
+The cumulative regulatory coverage, tracked through the Stage 10 regulatory perspective documentation (\texttt{diagrams/stage\_10/perspective\_b\_regulatory.txt}), confirmed that all 84+ sections received verification marks across the three frameworks: 21 CFR Part 312 (33 section-stage citations), 21 CFR Part 50 (14 section-stage citations), and ICH E6(R3) (37 section-stage citations).
+
+\newpage
+
+\subsection{Physical AI Ecosystem}
+
+The Physical AI ecosystem architecture in \texttt{deliverables/diagrams/diagram\_04\_physical\_ai\_ecosystem.txt}, integrates three primary components with an MCP conformance layer:
+
+
+
+\begin{figure}[H]
+\begin{verbatim}
+            PHYSICAL AI ECOSYSTEM
+            Trial Infrastructure Layer
+                     |
+    +----------------+----------------+
+    |                |                |
+    v                v                v
+  +-----------+ +-----------+ +-----------+
+  | SURGICAL  | | DIGITAL   | | FEDERATED |
+  | ROBOT     | | TWIN      | | LEARNING  |
+  | da Vinci  | | ENGINE    | | NETWORK   |
+  +-----------+ +-----------+ +-----------+
+  |USL: 87.5  | |Risk: 35%  | |12 sites   |
+  |DEPLOYED   | |  --> 3%   | |70 rounds  |
+  |510(k)     | |94.2% fidel| |DP e=1.0   |
+  +-----------+ +-----------+ +-----------+
+    |                |                |
+    +-------+--------+--------+-------+
+            |                 |
+     +------v------+  +------v------+
+     |MCP CONFORM. |  |LAB/PHARMACY |
+     |Level 1-3: OK|  |Franka Emika |
+     |Level 4: WIP |  |USL: 88.75   |
+     +-------------+  +-------------+
+\end{verbatim}
+\caption{Physical AI architecture from \texttt{deliverables/diagrams/diagram\_04\_physical\_ai\_ecosystem.txt}, showing the surgical robot, digital twin, federated learning, MCP conformance, and laboratory automation components.}
+\label{fig:pai-ecosystem}
+\end{figure}
+
+The ecosystem demonstrates the integration points between components: the surgical robot provides intraoperative telemetry to the digital twin, which in turn exchanges model parameters with the federated learning network. The MCP conformance layer validates interoperability across systems, while the lab automation component synchronizes dosing protocols. All components maintain immutable event logging through the audit trail system.
+
+\subsection{Data Flow Across Stages}
+
+The complete data flow architecture is documented in \texttt{deliverables/diagrams/diagram\_03\_data\_flow.txt}. Each stage consumes data artifacts from previous stages and produces structured outputs for downstream stages. Key data flow highlights include:
+
+\begin{itemize}[leftmargin=*]
+\item \textbf{Stage 1 $\rightarrow$ 2}: Eligibility checklist, medical history, genomic panel, and PD-L1/TMB results flow from screening to enrollment.
+\item \textbf{Stage 3 $\rightarrow$ 4}: Digital twin v1.0 model, baseline imaging, and lab panels flow from baseline assessment to neoadjuvant therapy.
+\item \textbf{Stage 5 $\rightarrow$ 6}: Surgical log, robot telemetry, and pathology (pT2aN2M0) flow from surgery to post-operative recovery.
+\item \textbf{Stage 7 $\rightarrow$ 8}: Treatment cycle logs (35 cycles), adverse event records, and CR confirmation flow from adjuvant therapy to surveillance.
+\item \textbf{Stage 8 $\rightarrow$ 9}: Updated risk model (35\% $\rightarrow$ 3\%), federated model weights, and quarterly imaging results flow from surveillance to long-term follow-up.
+\item \textbf{Stage 10}: Consumes all prior stage data and produces HARD\_LOCK, archived dataset, complete audit trail, and final hazard ratio (0.62).
+\end{itemize}
+
+\subsection{FDA Cost-Savings Results}
+
+The FDA cost-savings analysis, generated by \texttt{fda\_cost\_savings\_analysis.py} and summarized in \texttt{fda\_cost\_savings\_summary.txt}, projects the following financial impacts for Physical AI-augmented oncology trials:
+
+\begin{table}[H]
+\centering
+\caption{FDA cost-savings projections for Physical AI oncology trials.}
+\label{tab:cost-savings}
+\small
+\begin{tabularx}{\textwidth}{@{}L{4cm}R{2cm}R{2cm}R{2cm}@{}}
+\toprule
+\textbf{Category} & \textbf{Reduction} & \textbf{Savings Low} & \textbf{Savings High} \\
+\midrule
+Digital Twin Simulation & 15--25\% & \$195M & \$325M \\
+Federated Learning & 10--15\% & \$130M & \$195M \\
+Automated Monitoring & 5--10\% & \$65M & \$130M \\
+\midrule
+\textbf{Combined} & \textbf{30--50\%} & \textbf{\$390M} & \textbf{\$650M} \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+Per-patient costs are projected to decrease from \$40,000--\$50,000 (traditional) to \$30,000--\$38,000 (Physical AI-augmented), representing an average savings of \$11,000 per patient (24.4\% reduction). Timeline acceleration of 18--30 months was projected through two mechanisms: enrollment acceleration (12--18 months faster through digital twin-based eligibility prescreening) and safety signal detection (6--12 months faster through real-time adverse event monitoring via robotic sensor arrays and federated signal detection).
+
+Quality improvements were projected at three levels: 30\% reduction in protocol deviations through automated procedure guidance, 25\% faster adverse event detection through continuous sensor-based monitoring, and 15\% improvement in data completeness through automated data capture from robotic systems and digital twins.
+
+\subsection{Trial Timeline and Milestone Tracking}
+
+The complete trial timeline, documented in \texttt{deliverables/diagrams/diagram\_06\_trial\_timeline.txt}, tracks the patient from Day $-$30 through Day 1858+ across four phases:
+
+\begin{figure}[H]
+\begin{verbatim}
+  MILESTONE SUMMARY BAR:
+
+  Day: -30       0       84    90     128    798     1528     1858
+        |        |        |     |      |      |        |        |
+  ------+--------+--------+-----+------+------+--------+--------+-->
+        |        |        |     |      |      |        |        |
+      Screen   Enroll  Restage Surg  Clear   CR     Risk=3%   LOCK
+                                R0    Adj   Confirmed
+
+  Key Statistics at Close-Out:
+    - Total duration on study:     ~1888 days (5.2 years)
+    - Total treatment cycles:      39 (4 neo + 35 adj)
+    - Event-free survival:         36 months
+    - Final recurrence risk:       3% (from 35% baseline)
+    - Hazard ratio:                0.62 (95% CI: 0.45-0.85)
+    - Best response:               Complete Response (CR)
+\end{verbatim}
+\caption{Trial milestone summary from \texttt{deliverables/diagrams/diagram\_06\_trial\_timeline.txt}, showing key events from screening through data lock over approximately 5.2 years.}
+\label{fig:trial-timeline}
+\end{figure}
+
+The recurrence risk trajectory across the surveillance phase (Stages 8--9) showed progressive decline through federated learning model updates: 35\% $\rightarrow$ 22\% (update 1) $\rightarrow$ 12\% (update 2) $\rightarrow$ 7\% (update 3) $\rightarrow$ 3\% (update 4). The federated model was trained across 12 sites (SITE-001 through SITE-012) over 70 federation rounds using secure multi-party computation (SMPC) with differential privacy ($\epsilon = 1.0$).
+
+\newpage
+
+\subsection{Final Closeout Metrics}
+
+The Stage 10 closeout (\texttt{stage\_10\_closeout.py}, 29 KB) produced the following final metrics as documented in the Stage 10 timeline perspective (\texttt{diagrams/stage\_10/perspective\_a\_timeline.txt}):
+
+\begin{itemize}[leftmargin=*]
+\item \textbf{Data lock}: HARD\_LOCK applied with 21 CFR Part 11 electronic signatures.
+\item \textbf{De-identification review}: Final risk 0.012 $<$ 0.04\% threshold.
+\item \textbf{Clinical Study Report}: Generated covering 84+ regulatory sections.
+\item \textbf{Physical AI device performance}: Addenda included in CSR.
+\item \textbf{GCP audit}: COMPLIANT: PASS across all 10 domains.
+\item \textbf{Subpart J compliance}: Physical AI compliance verified.
+\item \textbf{Archival}: 8 data categories, 15-year retention policy.
+\item \textbf{Bayesian posterior}: P(experimental superior) = 0.97.
+\item \textbf{Federated HR}: 0.62 (95\% CrI: 0.44--0.87).
+\item \textbf{Modules activated}: 51 of 51 (100\%).
+\item \textbf{Regulatory sections}: 84+ addressed and verified.
+\end{itemize}
+
+\subsection{Guidance Documents}
+
+Four guidance documents were generated in \texttt{deliverables/guidance/} to support different stakeholders in Physical AI oncology trials:
+
+\begin{enumerate}[leftmargin=*]
+\item \textbf{Guidance 01 - Pharmaceutical Industry} (\texttt{guidance\_01\_pharmaceutical\_industry.txt}, 6.6 KB): Covers trial design considerations, Physical AI system selection criteria (including FDA clearance status, ROS 2 compatibility, and cybersecurity posture), regulatory submission requirements under \S312 Subpart J, data management with federated learning, and a cost-benefit analysis framework recommending phased Physical AI deployment from Phase I digital twin prescreening through Phase III full automated monitoring.
+
+\item \textbf{Guidance 02 - Field Observer} (\texttt{guidance\_02\_field\_observer.txt}, 6.5 KB): Defines the field observer role for monitoring robotic procedures, including safety monitoring protocols, adverse event recognition specific to Physical AI systems, and documentation checklists.
+
+\item \textbf{Guidance 03 - Site Activation} (\texttt{guidance\_03\_site\_activation.txt}, 6.2 KB): Provides a 7-section activation checklist covering infrastructure requirements, staff training, robot qualification protocols (IQ/OQ/PQ), cybersecurity assessment, IRB supplementary requirements, and site sign-off procedures.
+
+\item \textbf{Guidance 04 - Patient Information} (\texttt{guidance\_04\_patient\_information.txt}, 5.8 KB): Presents patient-friendly explanations of Physical AI systems, robotic assistance, digital twin modeling, federated data analysis, data protection measures, and patient rights under 21 CFR Part 50.
+\end{enumerate}
+
+%% ========================================================================
+\section{Discussion}
+\label{sec:discussion}
+%% ========================================================================
+
+\subsection{Significance of the Fully Autonomous Workflow}
+
+The patient journey presented in this paper represents a milestone in autonomous AI-driven clinical trial illustration. The 13-commit, 72-minute workflow executed by Claude Code Opus 4.6 produced approximately 8,500 lines of Python code, 30 progress diagrams, 6 deliverable diagrams, 6 regulatory tables, 4 guidance documents, an FDA cost-savings analysis module, and 262 tests - all without user intervention between commits. This level of autonomous output generation in a regulated healthcare domain has not been previously demonstrated.
+
+The significance extends beyond the volume of generated artifacts. Each artifact maintains clinical coherence with every other artifact in the system. The \texttt{patient\_state.py} data model provides the shared vocabulary that ensures patient demographics remain consistent across all 10 stage scripts. The \texttt{master\_journey.py} orchestrator's \texttt{STAGE\_REGULATORY\_MAP} and \texttt{STAGE\_MODULE\_MAP} dictionaries enforce systematic regulatory coverage and module activation across stages. The 30 progress diagrams each show the cumulative state of the patient journey at that point, creating a verifiable chain of clinical progress that any reviewer can inspect stage-by-stage.
+
+The explainability of the autonomous workflow is particularly noteworthy. Unlike a monolithic code generation that produces a single large output, the commit-by-commit approach enabled real-time monitoring of the AI's work product. The text-based diagrams played a critical role in this monitorability: because they are rendered as plain ASCII art, they are immediately viewable in any GitHub branch interface without requiring code execution, specialized rendering tools, or local development environment setup. A clinical reviewer could observe the Stage 3 clinical perspective diagram showing digital twin initialization with four growth models and V\&V 40 validation status, and assess whether the generated content was clinically relevant, without needing to read any Python code.
+
+\subsection{Connection Between Regulatory Adaptations and Patient Journey}
+
+The three regulatory adaptations previously conducted by the author - 21 CFR Part 312 Subpart J (94 pages, 42 references), 21 CFR Part 50 Subpart C (37 pages, 19 references), and ICH E6(R3) - were essential prerequisites for the patient journey to have clinical substance. Without these adapted regulations establishing how Physical AI systems should be governed in oncology clinical trials, the patient journey would have been a technical exercise without regulatory grounding.
+
+The connection is explicit in the codebase. The \texttt{STAGE\_REGULATORY\_MAP} in \texttt{master\_journey.py} maps each stage to specific regulatory sections from all three frameworks. For example, Stage 5 (Robotic Surgery) references \S312.402 for surgical eligibility assessment and ICH E6(R3) \S2.8 for quality management of the robotic procedure. Stage 7 (Adjuvant Therapy) references \S312.404 for treatment safeguards and monitoring, ICH \S2.10 for safety reporting of the three adverse events, and ICH \S2.11 for protocol amendments related to dose modifications. Stage 10 (Data Lock and Archival) references \S312.403 for protocol submission, ICH \S2.9 for data integrity verification at HARD\_LOCK, and ICH \S2.12 for essential document archival with 15-year retention.
+
+This regulatory mapping demonstrates that the adapted Physical AI regulations by Claude Code, based on the original ICH/CFR documents, were necessary for the single patient journey to provide the paper with clinical and regulatory substance. The 84+ regulatory sections addressed across all 10 stages show comprehensive coverage that would not have been possible without the prior regulatory adaptation work.
+
+\subsection{Clinical Implications}
+
+The patient journey illustrates how Physical AI systems can transform each stage of an oncology clinical trial:
+
+\textbf{Pre-screening and enrollment} (Stages 1--2): Digital prescreening with PHI detection, de-identification per \S50.33, FHIR R4 harmonization, and DICOM validation accelerates the traditional screening pipeline. The autonomous workflow generated stage scripts that implement 18 HIPAA identifier checks, ICD-10 to SNOMED mapping, and automated access provisioning with Part 11 signatures.
+
+\textbf{Digital twin and robot qualification} (Stages 3--4): The digital twin engine, initialized with patient-specific tumor models and achieving 94.2\% fidelity, provides treatment response simulation and risk trajectory prediction throughout the journey. Robot qualification via USL scoring (da Vinci Xi: 87.5, Franka Emika: 88.75) ensures that deployed systems meet minimum thresholds across autonomy, dexterity, safety, and interoperability dimensions before first patient contact.
+
+\textbf{Surgery and recovery} (Stages 5--6): The 168-minute robotic lobectomy with 85 mL estimated blood loss, negative margins, and 18 lymph nodes sampled demonstrates the precision capabilities of Physical AI surgical systems. The single safety event (12.1N force spike, resolved in 200ms) shows the real-time monitoring capabilities operating within the safety architecture defined in \texttt{deliverables/diagrams/diagram\_05\_safety\_architecture.txt}.
+
+\textbf{Immunotherapy and federation} (Stages 7--8): The 35-cycle pembrolizumab treatment achieving CR, combined with 70 federated learning rounds across 12 sites using SMPC with differential privacy ($\epsilon = 1.0$), illustrates the integration of active treatment with multi-site collaborative analytics. The federated hazard ratio of 0.62 (95\% CrI: 0.44--0.87) and DSMB recommendation to CONTINUE demonstrate the real-time safety governance operating throughout treatment.
+
+\textbf{Surveillance and closeout} (Stages 9--10): The progressive risk reduction from 35\% to 3\% over four federated model updates, 36-month event-free survival, and comprehensive closeout with HARD\_LOCK, CSR generation, and GCP COMPLIANT audit across all 10 domains show how the journey completes with full regulatory compliance and data integrity.
+
+\subsection{Role of the Diagram Evolution}
+
+The 30-diagram progression across 10 stages demonstrates both clinical and Physical AI proficiency. As the patient advances through each stage, the diagrams evolve to show increasing complexity:
+
+\begin{itemize}[leftmargin=*]
+\item \textbf{Stage 1 diagrams}: Show 6 of 51 modules activated, 7 regulatory sections addressed, and MCP conformance at CLINICAL\_READ level.
+\item \textbf{Stage 5 diagrams}: Show 38 of 51 modules activated, accumulated surgical metrics (168 min, 85 mL EBL, negative margins, 18 LN), and MCP conformance elevated to ROBOT\_PROCEDURE level.
+\item \textbf{Stage 10 diagrams}: Show 51 of 51 modules activated, all 84+ regulatory sections verified, HARD\_LOCK applied, and final patient status COMPLETED with CR, 36-month EFS, and 0 device-related adverse events.
+\end{itemize}
+
+This evolution demonstrates the explainability of Claude Code to humans. A reviewer examining the diagrams in sequence can quickly assess whether the autonomous workflow produced clinically coherent progressions. The consistent format across all 30 diagrams - with standardized sections for milestones, cumulative progress, status indicators, and key metrics - enables rapid pattern recognition and anomaly detection, contributing to the credibility of the autonomous process.
+
+\subsection{Safety Architecture and Monitoring}
+
+The monitoring architecture, detailed in \texttt{deliverables/diagrams/diagram\_05\_safety\_architecture.txt}, implements a three-pillar approach: real-time monitoring (vital signs, digital twin state, robot telemetry), adverse event reporting (detection, classification, documentation, expedited reports), and oversight bodies (DSMB, IRB/IEC, FDA). The three-tier alert threshold system (YELLOW: warning deviation, ORANGE: action required, RED: immediate intervention/e-stop) provides graduated escalation appropriate to event severity.
+
+For PAT-2026-0042, the safety architecture managed all three adverse events appropriately: the Grade 2 atrial fibrillation triggered an ORANGE alert leading to dose hold and cardiology consultation, while the Grade 1 hypothyroidism and rash triggered YELLOW alerts managed with standard clinical interventions. The absence of any RED alerts or device-related adverse events throughout the 35-cycle treatment and 36-month follow-up demonstrates the robustness of the Physical AI safety monitoring integration.
+
+\subsection{Comparison with Traditional Trial Conduct}
+
+The Physical AI-augmented trial conduct illustrated in this patient journey differs from traditional approaches in several ways. The \texttt{fda\_cost\_savings\_analysis.py} module quantifies these differences across four dimensions:
+
+\begin{enumerate}[leftmargin=*]
+\item \textbf{Cost}: 30--50\% total reduction (\$390M--\$650M), with digital twin simulation contributing the largest savings (15--25\%) through virtual patient cohort optimization, in-silico dose-response modeling, and predictive toxicity simulations.
+
+\item \textbf{Time}: 18--30 months total acceleration, comprising 12--18 months from enrollment acceleration through digital prescreening and AI-driven patient matching, plus 6--12 months from faster safety signal detection via continuous robotic monitoring and federated cross-site analysis.
+
+\item \textbf{Quality}: 30\% reduction in protocol deviations, 25\% faster adverse event detection, and 15\% improvement in data completeness, driven by automated procedure guidance, continuous sensor monitoring, and digital twin data capture.
+
+\item \textbf{Per-patient}: Average savings of \$11,000 per patient (24.4\% reduction from \$45,000 to \$34,000), stemming from reduced screen failures, fewer monitoring visits, and decreased protocol deviation remediation costs.
+\end{enumerate}
+
+These projections are subject to variability based on trial design, disease indication, Physical AI system maturity, and regulatory requirements under 21 CFR Part 312 Subpart J, as noted in the cost-savings summary report.
+
+%% ========================================================================
+\section{Limitations and Future Work}
+\label{sec:limitations}
+%% ========================================================================
+
+\subsection{Limitations}
+
+This work has several inherent limitations that should be considered when interpreting the results:
+
+\textbf{Illustrative nature.} The patient journey is a simulated illustration, not a report from an actual clinical trial. PAT-2026-0042 is a modeled patient with representative but synthetic clinical characteristics. No real patient data was used, and no actual robotic procedures, digital twin computations, or federated learning rounds were executed. The clinical outcomes (CR, HR 0.62, 36-month EFS) represent illustrative projections, not empirical results. This publication is based on 3 Physical AI regulatory adaptations conducted by the author and should not be considered a new or approved regulation.
+
+\textbf{Single-patient scope.} The journey follows a single patient through 10 stages. Real oncology trials involve hundreds to thousands of patients with diverse clinical profiles, treatment responses, and adverse event patterns. Extrapolating from a single illustrative journey to trial-level conclusions requires validation with multi-patient simulations and, ultimately, real clinical data.
+
+\textbf{Autonomous generation constraints.} While the 72-minute, 13-commit autonomous workflow demonstrated the capability of Claude Code Opus 4.6 to produce coherent clinical trial infrastructure, the generated code has not been clinically validated. The Python modules implement simulated clinical workflows with placeholder computations rather than validated medical algorithms. The cost-savings projections, while based on published literature baselines, represent modeled estimates subject to significant variability.
+
+\textbf{Regulatory adaptation scope.} The three adapted regulatory frameworks (21 CFR Part 312 Subpart J, 21 CFR Part 50 Subpart C, ICH E6(R3)) were adapted by the author for Physical AI systems but have not undergone formal regulatory review. The adaptations provide a framework for illustrating how existing regulations might be extended to govern Physical AI clinical trials, but they do not carry regulatory authority.
+
+\textbf{Technology readiness.} The Physical AI ecosystem described (da Vinci Xi, Franka Emika, digital twin engine, federated learning network) represents a composite of commercially available and conceptual capabilities. Full integration of these systems at the level described in the patient journey will also require additional engineering, validation, and regulatory clearance.
+
+\subsection{Future Work}
+
+Future work will continue with fully autonomous workflows in Physical AI oncology trials along several dimensions:
+
+\begin{enumerate}[leftmargin=*]
+\item \textbf{Multi-patient journey expansion.} Extend the autonomous workflow to generate multi-patient cohort journeys with diverse clinical profiles, treatment arms, and outcome trajectories. This would demonstrate the scalability of the autonomous approach from single-patient illustration to trial-level simulation.
+
+\item \textbf{Enhanced autonomous workflow capabilities.} Increase the sophistication of autonomous code generation to include executable digital twin computations, validated pharmacokinetic/pharmacodynamic models, and functional federated learning implementations with real model training across synthetic datasets.
+
+\item \textbf{Clinical validation partnerships.} Engage with NCI-designated cancer centers and robotic surgery programs to validate the patient journey pipeline against real clinical workflows, identifying gaps between the illustrated pipeline and actual clinical practice.
+
+\item \textbf{Regulatory engagement.} Submit the adapted regulatory frameworks and patient journey illustration to FDA for informal feedback, potentially through the Pre-Submission (Q-Sub) process, to assess alignment between the adapted regulations and the agency's evolving perspective on Physical AI in clinical trials.
+
+\item \textbf{Extended cost-savings validation.} Refine the cost-savings projections in \texttt{fda\_cost\_savings\_analysis.py} with real-world cost data from trials incorporating robotic assistance, digital twin platforms, or federated learning infrastructure.
+
+\item \textbf{International regulatory expansion.} Extend the regulatory mapping in \texttt{master\_journey.py} to include EU MDR, UK MHRA, and Health Canada frameworks, enabling multi-jurisdictional patient journey illustrations.
+
+\item \textbf{Real-time diagram generation.} Develop capabilities for generating progress diagrams in real time during actual real-life trial execution, extending the monitoring framework from retrospective illustration to prospective clinical trial oversight.
+\end{enumerate}
+
+%% ========================================================================
+\section{Conclusions}
+\label{sec:conclusions}
+%% ========================================================================
+
+This paper presents the first fully autonomous single-patient journey through a regulated Physical AI oncology clinical trial illustration, demonstrating that advanced AI systems can produce clinically coherent, regulatory-compliant trial infrastructure without human intervention. The journey of PAT-2026-0042 through 10 stages - from pre-screening through trial closeout  - was orchestrated by Claude Code Opus 4.6 in a single pull request of 13 commits completed in 72 minutes, producing 12 Python modules (approximately 8,500 lines), 30 progress diagrams, 6 deliverable diagrams, 6 regulatory tables, 4 guidance documents, an FDA cost-savings analysis, and 262 tests.
+
+The clinical outcomes illustrated for the patient - complete response to treatment, R0 surgical resection via da Vinci Xi robotic lobectomy, 35 completed pembrolizumab immunotherapy cycles, 36-month event-free survival, and recurrence risk reduction from 35\% to 3\% - demonstrate the comprehensive scope of the illustrated journey. The three adapted regulatory frameworks (21 CFR Part 312 Subpart J, 21 CFR Part 50 Subpart C, ICH E6(R3)) provided the regulatory grounding necessary for clinical substance, with 84+ regulatory sections systematically addressed across all 10 stages through the \texttt{STAGE\_REGULATORY\_MAP} in \texttt{master\_journey.py}.
+
+The FDA cost-savings analysis projects 30--50\% total cost reduction (\$390M--\$650M savings) for Physical AI-augmented oncology trials, with 18 - 30 months of timeline acceleration and quality improvements of 15 - 30\% across protocol compliance, adverse event detection, and data completeness. The USL-scored robotic systems (da Vinci Xi: 87.5, Franka Emika: 88.75), digital twin engine (94.2\% fidelity), and federated learning network (70 rounds across 12 sites with differential privacy) illustrate the Physical AI ecosystem that could enable these improvements.
+
+The autonomous workflow's credibility was enhanced by two mechanisms that distinguish it from traditional AI-generated outputs: the commit-by-commit structure enabling real-time inspection of each stage's artifacts, and the text-based diagram system providing human-readable visual summaries viewable directly in the GitHub branch interface without code execution. These mechanisms demonstrate that fully autonomous AI workflows can be made explainable and monitorable, a requirement for any application in regulated clinical domains.
+
+The patient journey represents a convergence of Physical AI technology, adapted clinical trial regulations, and autonomous AI code generation capabilities. As these three domains continue to advance, the framework established in this work - Python-based stage orchestration, regulatory mapping, USL scoring, cost-savings modeling, and multi-perspective progress tracking - provides a foundation for increasingly sophisticated autonomous clinical trial illustrations that can inform the design and conduct of real Physical AI oncology trials. The complete codebase is publicly available in the \texttt{physical-ai-oncology-trials} repository at version 2.7.0.
+
+%% ========================================================================
+%% REFERENCES
+%% ========================================================================
+
+\begin{thebibliography}{20}
+
+\bibitem{kawchak2026physicalai}
+K.~Kawchak, ``Physical AI Oncology Trials,'' GitHub repository, 2026.
+\url{https://github.com/kevinkawchak/physical-ai-oncology-trials}. Patient Journey: \url{https://github.com/kevinkawchak/physical-ai-oncology-trials/tree/main/patient-journey}.
+
+\bibitem{kawchak2026cfr312}
+K.~Kawchak, ``Adaptation of 21 CFR Part 312 for Physical AI Oncology Clinical Trials,'' Zenodo, 2026.
+\url{https://doi.org/10.5281/zenodo.19057628}
+
+\bibitem{kawchak2026cfr50}
+K.~Kawchak, ``Adaptation of 21 CFR Part 50 for Physical AI Human Subject Protections,'' Zenodo, 2026.
+\url{https://doi.org/10.5281/zenodo.19040707}
+
+\bibitem{kawchak2026iche6r3}
+K.~Kawchak, ``Adaptation of ICH E6(R3) for Physical AI Good Clinical Practice,'' Zenodo, 2026.
+\url{https://doi.org/10.5281/zenodo.18973368}
+
+\bibitem{kawchak2026usl}
+K.~Kawchak, ``Unification Standard Level for Physical AI Oncology Trials,'' Zenodo, 2026.
+\url{https://doi.org/10.5281/zenodo.18778220}
+
+\bibitem{kawchak2026national}
+K.~Kawchak, ``National MCP Servers for Physical AI Oncology Clinical Trial Systems,'' Zenodo, 2026.
+\url{https://doi.org/10.5281/zenodo.18916731}
+
+\bibitem{cfr312}
+U.S. Food and Drug Administration, ``21 CFR Part 312 - Investigational New Drug Application,'' Code of Federal Regulations, Title 21, 2024.
+
+\bibitem{cfr50}
+U.S. Food and Drug Administration, ``21 CFR Part 50 - Protection of Human Subjects,'' Code of Federal Regulations, Title 21, 2024.
+
+\bibitem{cfr11}
+U.S. Food and Drug Administration, ``21 CFR Part 11 - Electronic Records; Electronic Signatures,'' Code of Federal Regulations, Title 21, 2003.
+
+\bibitem{ichgcp2023}
+International Council for Harmonisation, ``ICH E6(R3) Guideline for Good Clinical Practice,'' ICH Harmonised Guideline, 2023.
+
+\bibitem{fhir2019r4}
+HL7 International, ``Fast Healthcare Interoperability Resources (FHIR) R4,'' HL7 Standard, 2019.
+\url{https://www.hl7.org/fhir/}
+
+\bibitem{dicom2024standard}
+NEMA, ``Digital Imaging and Communications in Medicine (DICOM) Standard,'' National Electrical Manufacturers Association, 2024.
+
+\bibitem{mcmahan2017fedavg}
+B.~McMahan, E.~Moore, D.~Ramage, S.~Hampson, and B.~A.~y~Arcas, ``Communication-Efficient Learning of Deep Networks from Decentralized Data,'' in \textit{Proceedings of AISTATS}, 2017.
+
+\bibitem{eisenhauer2009recist}
+E.~A.~Eisenhauer et al., ``New response evaluation criteria in solid tumours: Revised RECIST guideline (version 1.1),'' \textit{European Journal of Cancer}, vol.~45, no.~2, pp.~228--247, 2009.
+
+\bibitem{hipaa1996}
+U.S. Congress, ``Health Insurance Portability and Accountability Act of 1996 (HIPAA),'' Law 104-191, 1996.
+
+\bibitem{mcp2024protocol}
+Anthropic, ``What is the Model Context Protocol (MCP)?'' Open Protocol Specification, 2024.
+\url{https://modelcontextprotocol.io/}
+
+\bibitem{tufts2020cost}
+Tufts Center for the Study of Drug Development, ``Cost of Clinical Trials by Phase and Therapeutic Area,'' Tufts CSDD Impact Report, 2020.
+
+\bibitem{fda2019adaptive}
+U.S. Food and Drug Administration, ``Adaptive Designs for Clinical Trials of Drugs and Biologics: Guidance for Industry,'' FDA Guidance Document, 2019.
+
+\end{thebibliography}
+
+\vspace{-0.15cm}
+
+%% ========================================================================
+\section*{Acknowledgments}
+%% ========================================================================
+\vspace{-0.2cm}
+The author would like to acknowledge Anthropic for providing access to Claude Code for project and paper generations; OpenAI for providing access to ChatGPT for detailed summaries, and Google Gemini for additional clarifications.
+\vspace{-0.2cm}
+%% ========================================================================
+\section*{Ethical Disclosures}
+%% ========================================================================
+\vspace{-0.2cm}
+The author of the article declares no competing interests.
+\vspace{-0.2cm}
+%% ========================================================================
+\section*{Rights and Permissions}
+%% ========================================================================
+\vspace{-0.2cm}
+This article is distributed under the terms of the Creative Commons Attribution 4.0 International License (CC BY 4.0), which permits unrestricted use, distribution, and reproduction in any medium, provided the original author(s) and source are properly credited, a link to the Creative Commons license is provided, and any modifications made are indicated. To view a copy of this license, visit \url{https://creativecommons.org/licenses/by/4.0/}.
+\vspace{-0.2cm}
+%% ========================================================================
+\section*{Cite This Article}
+%% ========================================================================
+\vspace{-0.2cm}
+Kawchak K. A Cancer Patient's Journey Through a Regulated Physical AI Oncology Trial. Zenodo. 2026; \href{https://doi.org/10.5281/zenodo.19119939}{10.5281/zenodo.19119939}.
+
+% \vspace{3cm}
+
+\end{document}
