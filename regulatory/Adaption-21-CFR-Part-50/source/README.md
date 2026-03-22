@@ -1,3 +1,7 @@
+## Paper PDF and Latex Source Files
+
+
+
 # Physical AI Adaptation of 21 CFR Part 50 -- Protection of Human Subjects
 
 **Version:** v2.4.0
