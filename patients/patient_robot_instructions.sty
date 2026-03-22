@@ -1,0 +1,84 @@
+% patient_robot_instructions.sty — Custom style for Patient-Robot Instructions PDF
+% v1.9.1 — March 1, 2026
+% License: CC BY 4.0
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{patient_robot_instructions}[2026/03/01 Patient-Robot Instructions Style v1.9.1]
+
+% ── Page geometry ──────────────────────────────────────────────
+\RequirePackage[
+  a4paper,
+  portrait,
+  top=2.0cm,
+  bottom=1.8cm,
+  left=2.0cm,
+  right=2.0cm,
+  headheight=14pt,
+  footskip=1.2cm
+]{geometry}
+
+% ── Fonts and encoding ────────────────────────────────────────
+\RequirePackage[T1]{fontenc}
+\RequirePackage[utf8]{inputenc}
+\RequirePackage{mathptmx}          % Times Roman font family
+\RequirePackage{microtype}         % Microtypographic enhancements
+
+% ── Color and graphics ────────────────────────────────────────
+\RequirePackage[dvipsnames]{xcolor}
+\RequirePackage{graphicx}
+
+% ── Lists and formatting ─────────────────────────────────────
+\RequirePackage{enumitem}
+\setlist{nosep, leftmargin=1.8em, topsep=2pt, itemsep=1pt}
+\setlist[enumerate]{label=\arabic*.}
+\setlist[itemize]{label=\textbullet}
+
+% ── Hyperlinks ────────────────────────────────────────────────
+\RequirePackage[
+  colorlinks=true,
+  linkcolor=black,
+  citecolor=black,
+  urlcolor=blue,
+  bookmarks=true,
+  bookmarksnumbered=true
+]{hyperref}
+
+% ── Headers and footers ──────────────────────────────────────
+\RequirePackage{fancyhdr}
+\RequirePackage{lastpage}
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0.4pt}
+
+% Header: author info (small)
+\fancyhead[C]{\scriptsize Kevin Kawchak, CEO ChemicalQDevice, https://orcid.org/0009-0007-5457-8667, kevink@chemicalqdevice.com}
+
+% Footer: date, DOI (clickable), model, page
+\fancyfoot[L]{\scriptsize March 1, 2026 \enspace|\enspace \href{https://doi.org/10.5281/zenodo.18810541}{10.5281/zenodo.18810541}}
+\fancyfoot[R]{\scriptsize ChatGPT / Claude Code \enspace|\enspace Page \thepage\ of \pageref{LastPage}}
+
+% ── Section formatting ────────────────────────────────────────
+\RequirePackage{titlesec}
+\titleformat{\section}
+  {\normalfont\large\bfseries}
+  {\thesection}{0.8em}{}
+\titlespacing*{\section}{0pt}{1.0ex plus 0.2ex minus 0.1ex}{0.4ex plus 0.1ex}
+\titleformat{\subsection}
+  {\normalfont\normalsize\bfseries}
+  {\thesubsection}{0.8em}{}
+\titlespacing*{\subsection}{0pt}{0.8ex plus 0.2ex minus 0.1ex}{0.3ex plus 0.1ex}
+
+% ── Captions ──────────────────────────────────────────────────
+\RequirePackage[font=small,labelfont=bf]{caption}
+
+% ── Misc ──────────────────────────────────────────────────────
+\RequirePackage{float}
+\RequirePackage{parskip}
+
+% ── Custom commands ───────────────────────────────────────────
+% Dashed rule command
+\newcommand{\dashrule}[1]{%
+  \noindent\makebox[\textwidth]{\leaders\hbox{\rule[0.5ex]{3pt}{0.4pt}\hskip 2pt}\hfill}%
+}
+
+\endinput
