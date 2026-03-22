@@ -1,12 +1,6 @@
 ## Paper PDF and Latex Source Files
 
-
-
-# Physical AI Adaptation of 21 CFR Part 50 -- Protection of Human Subjects
-
-**Version:** v2.4.0
-**Released:** 16 March 2026
-**DOI:** [10.5281/zenodo.19040707](https://doi.org/10.5281/zenodo.19040707)
+📄 **3/16: v2.4.0 (Regulatory Adaptation)** *End-to-End Physical AI Oncology Clinical Trial Unification: Adaption of 21 CFR Part 50 - Protection of Human Subjects* - Adaptation of 21 CFR Part 50 Regulation [![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.19040707-blue)](https://doi.org/10.5281/zenodo.19040707)
 
 ## Overview
 
