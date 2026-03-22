@@ -1,11 +1,7 @@
-# Patient Instructions: Physical AI Oncology Trials
+## Paper PDF and LaTeX Source Files
 
-[![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.18810541-blue)](https://doi.org/10.5281/zenodo.18810541)
-[![License: CC BY 4.0](https://img.shields.io/badge/License-CC%20BY%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by/4.0/)
-[![Pages](https://img.shields.io/badge/Pages-10-green.svg)]()
+📄 **3/2: v2.1.0 (Patient Instructions)** *Patient Instructions: Physical AI Oncology Trials* - Paper content documentation with page-by-page instructions, text diagrams, and quantitative patient data [![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.18810541-blue)](https://doi.org/10.5281/zenodo.18810541)
 
-**Version**: 2.7.1
-**Last Updated**: March 2026
 
 ## Overview
 
