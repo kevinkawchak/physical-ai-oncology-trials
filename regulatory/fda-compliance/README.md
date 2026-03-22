@@ -2,8 +2,8 @@
 
 *Submission tracking and documentation for AI/ML-enabled medical devices*
 
-**Version**: 1.0.0
-**Last Updated**: February 2026
+**Version**: 2.7.1
+**Last Updated**: March 2026
 
 ---
 

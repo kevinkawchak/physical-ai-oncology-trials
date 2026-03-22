@@ -4,6 +4,41 @@ Release notes for the physical-ai-oncology-trials repository.
 
 ---
 
+Repository-Wide Documentation Structure Update
+v2.7.1 - Documentation Refresh
+
+Released on 21 March 2026
+CEO Kevin Kawchak, ChemicalQDevice
+
+## Summary
+
+Repository-wide documentation refresh updating 38 README files, version badges, project structure, framework version numbers, and metadata across all 25 top-level directories. Aligns all module documentation with current v2.7.1 release state, adds missing `regulatory-submit/` directory to the project structure, removes deleted `unification/industry/` reference, updates CITATION.cff to v2.7.1, and ensures consistent "Last Updated: March 2026" dates across all modules. Updates citation version from 2.4.0 to 2.7.1. No Python code changes.
+
+## Features
+
+- **38 README files updated**: Version badges updated to v2.7.1 and dates updated to March 2026 across all module and sub-module READMEs (agentic-ai, digital-twins, examples, examples-new, federation, images, patients, patient-journey, privacy, q1-2026-standards, regulatory, regulatory-submit, tests, tools, unification)
+- **Main README structure corrected**: Added `regulatory-submit/` directory (6 Python modules + 6 examples for FDA submission automation), removed deleted `unification/industry/` directory reference, added regulatory-submit to engineering examples table
+- **Version metadata standardized**: All module READMEs now include consistent `**Version**: 2.7.1` and `**Last Updated**: March 2026` metadata blocks
+- **Citation updated**: CITATION.cff version updated from 2.4.0 to 2.7.1, date-released updated to 2026-03-21, BibTeX citation block in main README updated to v2.7.1
+- **Framework version references updated**: Core Technologies date range updated to "October 2025 - March 2026", requirements.txt header date updated to March 2026
+- **Engineering examples table expanded**: Added `regulatory-submit/` row documenting 6 examples for Pre-Sub packages, PCCP plans, pathway classification, and IEC 62304 documentation
+- **Release notes**: v2.7.1 entry added to releases.md and CHANGELOG.md
+
+## Contributors
+@kevinkawchak
+@claude
+
+## Notes
+
+- No Python code changes -- documentation-only release
+- All 242 Python files pass ruff lint and format checks
+- All YAML files pass yamllint validation
+- CI checks validated on Python 3.10, 3.11, and 3.12
+- Development by Claude Code Opus 4.6
+- License: MIT (repository code)
+
+---
+
 A Cancer Patient's Journey Through a Regulated and Autonomous Physical AI Oncology Trial Illustration
 v2.7.0 - Patient Journey Paper
 

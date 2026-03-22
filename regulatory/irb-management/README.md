@@ -2,8 +2,8 @@
 
 *AI-specific IRB protocol submission, review, and compliance tracking*
 
-**Version**: 1.0.0
-**Last Updated**: February 2026
+**Version**: 2.7.1
+**Last Updated**: March 2026
 
 ---
 

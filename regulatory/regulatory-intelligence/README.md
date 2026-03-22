@@ -2,8 +2,8 @@
 
 *Multi-jurisdiction regulatory landscape monitoring and analysis*
 
-**Version**: 1.0.0
-**Last Updated**: February 2026
+**Version**: 2.7.1
+**Last Updated**: March 2026
 
 ---
 

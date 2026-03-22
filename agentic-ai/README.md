@@ -1,5 +1,8 @@
 # Agentic AI for Physical AI Oncology Trials
 
+**Version**: 2.7.1
+**Last Updated**: March 2026
+
 LLM-based robot control, multi-agent systems, and autonomous clinical workflows for oncology trials.
 
 ## Overview
