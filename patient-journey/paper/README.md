@@ -1,9 +1,7 @@
-# A Cancer Patient's Journey Through a Regulated and Autonomous Physical AI Oncology Trial Illustration
+## Paper PDF and LaTeX Source Files
 
-**Author:** Kevin Kawchak, CEO ChemicalQDevice
-**Date:** March 20, 2026
-**DOI:** [10.5281/zenodo.19119939](https://doi.org/10.5281/zenodo.19119939)
-**Version:** v2.7.0
+📄 **3/20: v2.7.0 (Patient Journey Paper)** *A Cancer Patient's Journey Through a Regulated and Autonomous Physical AI Oncology Trial Illustration* - Comprehensive paper documenting the
+patient journey [![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.19119939-blue)](https://doi.org/10.5281/zenodo.19119939)
 
 ## Paper Overview
 
