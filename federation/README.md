@@ -1,10 +1,6 @@
-# Multi-Site Federated Oncology Trial Coordination Platform
+## Paper PDF and LaTeX Source Files
 
-**Version**: 2.7.1
-**Status**: Active Development
-**Last Updated**: March 2026
-
-A federated learning and trial coordination platform for orchestrating multi-site oncology clinical trials without sharing raw patient data. Supports federated model training, differential privacy, secure aggregation, enrollment synchronization, cross-site data harmonization, and privacy-preserving analytics.
+📄 **3/12: v2.2.0 (Regulatory Guidance)** *End-to-End Physical AI Oncology Clinical Trial Unification.* Comprehensive guidance adapted from prior ICH E6(R3), with Sections 1-4, Appendices A-C, and Glossary [![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.18973368-blue)](https://doi.org/10.5281/zenodo.18973368)
 
 ## Architecture
 
