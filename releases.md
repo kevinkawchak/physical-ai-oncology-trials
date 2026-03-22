@@ -36,7 +36,8 @@ Repository-wide documentation refresh updating 38 README files, version badges, 
 - CI checks validated on Python 3.10, 3.11, and 3.12
 - Development by Claude Code Opus 4.6
 - License: MIT (repository code)
-
+- @kevinkawchak PDF and LaTeX source code cleanup for recent works. Added corresponding DOI links in README files for access on Zenodo.
+  
 ---
 
 A Cancer Patient's Journey Through a Regulated and Autonomous Physical AI Oncology Trial Illustration
