@@ -1,13 +1,6 @@
-Unification Standard Level for Physical AI Oncology Trials
-==========================================================
+## Paper PDF and LaTeX Source Files
 
-LaTeX Source Code
------------------
-
-This archive contains the LaTeX source files for the paper:
-
-  Kawchak K. Unification Standard Level for Physical AI Oncology Trial.
-  Zenodo. 2026; DOI: 10.5281/zenodo.18778220
+📄 **2/26: New Paper (USL)** *Unification Standard Level for Physical AI Oncology Trials. Standardizing and Evaluating Robot Unification Readiness for Multi-Site Clinical Trials. USL scores range from 1.0 to 10.0* [![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.18778219-blue)](https://doi.org/10.5281/zenodo.18778219)
 
 Files
 -----
