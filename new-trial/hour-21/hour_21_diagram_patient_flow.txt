@@ -1,0 +1,100 @@
++============================================================================+
+|              PATIENT FLOW DIAGRAM - Hour 21: 21:00-21:59                  |
++============================================================================+
+|                                                                            |
+| TIME  ENTRANCE    CHECK-IN     WAITING     PROCEDURE    RECOVERY  EXIT    |
+| ----  --------    --------     -------     ---------    --------  ----    |
+|                                                                            |
+| 21:00                                      [P0154:SurgSuite2]             |
+|   |                                         Surgery final phase            |
+|   |                                         (started 20:20)               |
+|   |                                                                       |
+| 21:05                                      [P0154:closing]                |
+|   |                                                                       |
+| 21:08 P0167 ---> [Kiosk-2] --+                                           |
+|   |    (45M,NSCLC  21:08     |                                           |
+|   |     IIB)                 |                                           |
+| 21:10                        |             P0154 --> [RecBay2]            |
+|   |                          |             Surgery COMPLETE               |
+|   |                          |             R0, 190mL, 110 min             |
+|   |                          +--> [Adult Wait]                            |
+|   |                                    |                                  |
+| 21:15                                  +--> [Vault 3: TRACK-03]          |
+|   |                                         RT motion tracking            |
+|   |                                         PAT-ODMND-0167               |
+|   |                                         NSCLC calibration             |
+| 21:20                                       |                [P0154:Rec2] |
+|   |                                         |                 post-op     |
+| 21:22 P0168 ---> [Kiosk-3] --+             |                             |
+|   |    (59F,Parotid 21:22    |             |                             |
+|   |     Stage I)             |             |                             |
+| 21:24                        +--> [Adult Wait]                            |
+|   |                                    |   |                             |
+| 21:25                                  |   |                             |
+|   |                                    |   |                             |
+| 21:30                                  +--> [CT Suite 1: NEEDLE-01]      |
+|   |                                         Parotid FNA biopsy            |
+|   |                                         PAT-ODMND-0168               |
+|   |                                    |                                  |
+| 21:35 P0169 ---> [Kiosk-1] --+        |                                  |
+|   |    (14M,Osteo   21:35    |        |                                  |
+|   |     Pediatric)           |        |                                  |
+| 21:37                        +--> [Ped Wait]                             |
+|   |                                    |   |                             |
+| 21:40                                  +--> [Therapy 1: HUMAN-01]        |
+|   |                                         Humanoid therapy              |
+|   |                                         PAT-ODMND-0169               |
+|   |                                    |   |                             |
+| 21:45                             [Complete]|                             |
+|   |                          P0167 --> Observation                        |
+|   |                                    |   |                             |
+| 21:48 P0170 ---> [Kiosk-4] --+        |   |                             |
+|   |    (71M,Femur   21:48    |        |   |                             |
+|   |     Osteo)               |        |   |                             |
+| 21:50                        +--> [Adult Wait]                            |
+|   |                                    |   |   |                         |
+| 21:55                                  +--> [Rehab Bay 2: REHAB-02]      |
+|   |                                         Exoskeleton rehab             |
+|   |                                         PAT-ODMND-0170               |
+|   |                                    |   |   |                         |
+| 21:59                                  |   |   |         [P0154:Rec2]    |
+|   |                               [NEEDLE-01] [HUMAN-01] [REHAB-02]     |
+|   |                               continuing  continuing  continuing     |
+|   |                               into Hr 22  into Hr 22  into Hr 22    |
+|                                                                            |
++============================================================================+
+| PATIENT FLOW SUMMARY - Hour 21                                            |
+|                                                                            |
+| Arrivals: 4 patients                                                      |
+|   PAT-ODMND-0167 (45M, NSCLC IIB) --> RT tracking --> Observation        |
+|   PAT-ODMND-0168 (59F, Parotid I) --> Needle biopsy --> continuing       |
+|   PAT-ODMND-0169 (14M, Ped osteo) --> Humanoid therapy --> continuing    |
+|   PAT-ODMND-0170 (71M, Femur osteo) --> Rehab exoskeleton --> continuing |
+|                                                                            |
+| Surgery Completions: 1                                                    |
+|   PAT-ODMND-0154 --> R0 resection, 110 min, 190 mL blood loss            |
+|                  --> Recovery Bay 2                                        |
+|                                                                            |
+| Late Evening Scheduling:                                                  |
+|   P0167: Daytime employment obligations --> selected 21:08 slot           |
+|   P0168: Daytime caregiving obligations --> selected 21:22 slot           |
+|                                                                            |
+| Departures: 0 (no patients discharged this hour)                          |
+|                                                                            |
+| Procedures continuing into Hour 22: 3                                     |
+|   NEEDLE-01 + P0168 (needle biopsy, est. completion 22:05)               |
+|   HUMAN-01 + P0169 (humanoid therapy, est. completion 22:10)             |
+|   REHAB-02 + P0170 (rehabilitation, est. completion 22:25)               |
+|                                                                            |
+| End of hour on-site: ~8 patients                                         |
+|                                                                            |
+| Cancer types active this hour:                                            |
+|   Prior surgery patient (P0154) - post-surgical recovery                  |
+|   NSCLC adenocarcinoma (P0167) - RT tracking calibration                 |
+|   Parotid tumor (P0168) - CT-guided FNA biopsy                           |
+|   Pediatric osteosarcoma (P0169) - humanoid therapy                      |
+|   Femur osteosarcoma (P0170) - rehabilitation                            |
+|                                                                            |
+| Wait times: P0167=7min P0168=8min P0169=5min P0170=7min                  |
+| Average wait: 6.8 minutes                                                |
++============================================================================+
