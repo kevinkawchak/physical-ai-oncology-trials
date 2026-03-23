@@ -1,0 +1,80 @@
++============================================================================+
+|              ROBOT STATUS TIMELINE - Hour 04: 04:00-04:59                 |
++============================================================================+
+|                                                                            |
+| Robot Instance   |00  05  10  15  20  25  30  35  40  45  50  55| Util%   |
+| -----------------+----------------------------------------------+-------  |
+|                  |                                              |         |
+| SURGICAL ROBOTS  |                                              |         |
+| SURG-01          |[I] [I] [I] [I] [I] [I] [K] [K] [K] [K] [K] [K]| 50.0%|
+|                  |                         calibration 04:30--->|         |
+| SURG-02          |[I] [I] [I] [I] [I] [I] [K] [K] [K] [K] [K] [K]| 50.0%|
+|                  |                         calibration 04:30--->|         |
+| SURG-03          |[I] [I] [I] [I] [I] [I] [K] [K] [K] [K] [K] [K]| 50.0%|
+|                  |                         calibration 04:30--->|         |
+|                  |                                              |         |
+| COBOTS           |                                              |         |
+| COBOT-01         |[I] [I] [I] [I] [I] [I] [I] [I] [I] [I] [I] [I]| 0.0% |
+| COBOT-02         |[I] [I] [I] [I] [I] [I] [I] [I] [I] [I] [I] [I]| 0.0% |
+| COBOT-03         |[I] [I] [I] [I] [I] [I] [I] [I] [I] [I] [I] [I]| 0.0% |
+| COBOT-04         |[I] [I] [I] [I] [I] [I] [I] [I] [I] [I] [I] [I]| 0.0% |
+|                  |                                              |         |
+| RT POSITIONING   |                                              |         |
+| RTPOS-01         |[I] [I] [I] [I] [I] [I] [I] [I] [I] [I] [I] [I]| 0.0% |
+| RTPOS-02         |[I] [I] [I] [I] [I] [I] [I] [I] [I] [I] [I] [I]| 0.0% |
+| RTPOS-03         |[I] [I] [I] [I] [I] [I] [I] [I] [I] [I] [I] [I]| 0.0% |
+|                  |                                              |         |
+| NEEDLE-PLACEMENT |                                              |         |
+| NEEDLE-01        |[I] [I] [I] [A] [A] [A] [A] [A] [A] [C] [I] [I]| 41.7%|
+|                  |         PAT-ODMND-0010 (biopsy)       clng   |         |
+| NEEDLE-02        |[I] [I] [I] [I] [I] [I] [I] [I] [I] [I] [I] [I]| 0.0% |
+|                  |                                              |         |
+| SOCIAL COMPANION |                                              |         |
+| COMPN-01         |[I] [I] [I] [I] [I] [I] [I] [I] [I] [I] [I] [I]| 0.0% |
+| COMPN-02         |[I] [I] [I] [I] [I] [I] [I] [I] [I] [I] [I] [I]| 0.0% |
+| COMPN-03         |[A] [A] [A] [A] [A] [A] [A] [A] [A] [A] [A] [A]| 100% |
+|                  | PAT-ODMND-0005 (passive overnight monitoring)  |       |
+| COMPN-04         |[I] [I] [I] [I] [I] [I] [I] [I] [I] [I] [I] [I]| 0.0% |
+| COMPN-05         |[I] [I] [I] [I] [I] [I] [I] [I] [I] [I] [I] [I]| 0.0% |
+|                  |                                              |         |
+| HUMANOIDS        |                                              |         |
+| HUMAN-01         |[I] [I] [I] [I] [I] [I] [I] [I] [I] [I] [I] [I]| 0.0% |
+| HUMAN-02         |[I] [I] [I] [I] [I] [I] [I] [I] [I] [I] [I] [I]| 0.0% |
+| HUMAN-03         |[I] [I] [I] [I] [I] [I] [I] [I] [I] [I] [I] [I]| 0.0% |
+|                  |                                              |         |
+| RT MOTION-TRACK  |                                              |         |
+| TRACK-01         |[I] [I] [I] [I] [I] [I] [I] [I] [I] [I] [I] [I]| 0.0% |
+| TRACK-02         |[I] [I] [I] [I] [I] [I] [I] [I] [I] [I] [I] [I]| 0.0% |
+| TRACK-03         |[I] [I] [I] [I] [I] [I] [I] [I] [I] [I] [I] [I]| 0.0% |
+|                  |                                              |         |
+| IMAGING ASST     |                                              |         |
+| IMAGE-01         |[I] [I] [I] [I] [I] [I] [A] [A] [A] [A] [C] [I]| 25.0%|
+|                  |                     PAT-ODMND-0011      clng  |         |
+| IMAGE-02         |[I] [I] [I] [I] [I] [I] [I] [I] [I] [I] [I] [I]| 0.0% |
+| IMAGE-03         |[I] [I] [I] [I] [I] [I] [I] [I] [I] [I] [I] [I]| 0.0% |
+| IMAGE-04         |[I] [I] [I] [I] [I] [I] [I] [I] [I] [I] [I] [I]| 0.0% |
+|                  |                                              |         |
+| STEERABLE NEEDLE |                                              |         |
+| STEER-01         |[I] [I] [I] [I] [I] [I] [I] [I] [I] [I] [I] [I]| 0.0% |
+| STEER-02         |[I] [I] [I] [I] [I] [I] [I] [I] [I] [I] [I] [I]| 0.0% |
+|                  |                                              |         |
+| REHAB EXOSKEL    |                                              |         |
+| REHAB-01         |[I] [I] [I] [I] [I] [I] [I] [I] [I] [I] [A] [A]| 16.7%|
+|                  |                                    PAT-0012-->|         |
+| REHAB-02         |[I] [I] [I] [I] [I] [I] [I] [I] [I] [I] [I] [I]| 0.0% |
+| REHAB-03         |[I] [I] [I] [I] [I] [I] [I] [I] [I] [I] [I] [I]| 0.0% |
+|                  |                                              |         |
++============================================================================+
+| LEGEND: [A]=Active [I]=Idle [C]=Cleaning [K]=Calibration [E]=Error        |
+|                                                                            |
+| UTILIZATION BY ROBOT TYPE (patient-serving activity only)                  |
+| Surgical:    0.0% | Cobots:      0.0% | RT Position: 0.0%                |
+| Needle:     20.8% | Companion:  20.0% | Humanoids:   0.0%                |
+| RT Tracking: 0.0% | Imaging:     6.3% | Steerable:   0.0%                |
+| Rehab:       5.6%                                                         |
+|                                                                            |
+| Note: SURG-01/02/03 calibration (50% timeline) is maintenance activity,  |
+| not patient-serving utilization. Excluded from site utilization metric.    |
+|                                                                            |
+| OVERALL SITE UTILIZATION: ~8% (overnight low-volume period)               |
++============================================================================+
