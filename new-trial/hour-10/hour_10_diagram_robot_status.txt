@@ -1,0 +1,85 @@
++============================================================================+
+|              ROBOT STATUS TIMELINE - Hour 10: 10:00-10:59                 |
++============================================================================+
+|                                                                            |
+| Robot Instance   |00  05  10  15  20  25  30  35  40  45  50  55| Util%   |
+| -----------------+----------------------------------------------+-------  |
+|                  |                                              |         |
+| SURGICAL ROBOTS  |                                              |         |
+| SURG-01          |[I] [I] [I] [I] [I] [A] [A] [A] [A] [A] [A] [A]| 58.3%|
+|                  |                    P0065 surgery begins       |         |
+| SURG-02          |[A] [C] [I] [I] [I] [I] [I] [I] [I] [I] [I] [I]| 8.3% |
+|                  |P0032 end clng                                |         |
+| SURG-03          |[A] [A] [A] [A] [A] [A] [A] [A] [A] [A] [C] [I]| 83.3%|
+|                  |P0044 surgery continues                  clng |         |
+|                  |                                              |         |
+| COBOTS           |                                              |         |
+| COBOT-01         |[I] [A] [A] [C] [I] [I] [I] [I] [I] [I] [I] [I]| 16.7%|
+|                  |    P0060                                     |         |
+| COBOT-02         |[I] [I] [I] [I] [I] [I] [I] [I] [A] [A] [C] [I]| 16.7%|
+|                  |                                P0069         |         |
+| COBOT-03         |[I] [I] [I] [I] [I] [I] [I] [I] [I] [I] [I] [I]| 0.0% |
+| COBOT-04         |[I] [I] [I] [I] [I] [I] [I] [I] [I] [I] [I] [I]| 0.0% |
+|                  |                                              |         |
+| RT POSITIONING   |                                              |         |
+| RTPOS-01         |[I] [I] [A] [A] [A] [A] [A] [C] [I] [I] [I] [I]| 41.7%|
+|                  |         P0061 brain RT                       |         |
+| RTPOS-02         |[I] [I] [I] [I] [I] [I] [I] [I] [I] [A] [A] [A]| 25.0%|
+|                  |                                    P0070     |         |
+| RTPOS-03         |[I] [I] [I] [I] [I] [I] [I] [I] [I] [I] [I] [I]| 0.0% |
+|                  |                                              |         |
+| NEEDLE-PLACEMENT |                                              |         |
+| NEEDLE-01        |[I] [I] [I] [A] [A] [A] [A] [A] [C] [I] [I] [I]| 41.7%|
+|                  |           P0063 parotid biopsy               |         |
+| NEEDLE-02        |[I] [I] [I] [I] [I] [I] [I] [I] [I] [I] [I] [I]| 0.0% |
+|                  |                                              |         |
+| SOCIAL COMPANION |                                              |         |
+| COMPN-01         |[I] [I] [I] [I] [I] [I] [I] [I] [I] [I] [I] [I]| 0.0% |
+| COMPN-02         |[I] [I] [I] [A] [A] [A] [C] [I] [I] [I] [I] [I]| 25.0%|
+|                  |           P0062 pediatric ALL                |         |
+| COMPN-03         |[I] [I] [I] [I] [I] [I] [I] [I] [I] [I] [A] [A]| 16.7%|
+|                  |                                       P0072 |         |
+| COMPN-04         |[I] [I] [I] [I] [I] [I] [I] [I] [I] [I] [I] [I]| 0.0% |
+| COMPN-05         |[I] [I] [I] [I] [I] [I] [I] [I] [I] [I] [I] [I]| 0.0% |
+|                  |                                              |         |
+| HUMANOIDS        |                                              |         |
+| HUMAN-01         |[I] [I] [I] [I] [I] [I] [I] [I] [I] [I] [I] [I]| 0.0% |
+| HUMAN-02         |[I] [I] [I] [I] [I] [I] [A] [A] [A] [A] [C] [I]| 33.3%|
+|                  |                         P0066 pediatric     |         |
+| HUMAN-03         |[I] [I] [I] [I] [I] [I] [I] [I] [I] [I] [I] [I]| 0.0% |
+|                  |                                              |         |
+| RT MOTION-TRACK  |                                              |         |
+| TRACK-01         |[I] [I] [I] [I] [I] [I] [I] [A] [A] [A] [A] [C]| 33.3%|
+|                  |                            P0068 NSCLC      |         |
+| TRACK-02         |[I] [I] [I] [I] [I] [I] [I] [I] [I] [I] [I] [I]| 0.0% |
+| TRACK-03         |[A] [A] [A] [C] [I] [I] [I] [I] [I] [I] [I] [I]| 16.7%|
+|                  |P0059 NSCLC                                  |         |
+|                  |                                              |         |
+| IMAGING ASST     |                                              |         |
+| IMAGE-01         |[I] [I] [I] [I] [I] [I] [I] [I] [I] [I] [I] [I]| 0.0% |
+| IMAGE-02         |[I] [I] [I] [I] [I] [I] [I] [I] [I] [I] [I] [I]| 0.0% |
+| IMAGE-03         |[I] [I] [I] [I] [I] [I] [I] [A] [A] [A] [C] [I]| 25.0%|
+|                  |                            P0067 liver      |         |
+| IMAGE-04         |[I] [I] [I] [I] [I] [I] [I] [I] [I] [I] [I] [I]| 0.0% |
+|                  |                                              |         |
+| STEERABLE NEEDLE |                                              |         |
+| STEER-01         |[I] [I] [I] [I] [A] [A] [A] [A] [A] [A] [A] [A]| 66.7%|
+|                  |                P0064 ablation                |         |
+| STEER-02         |[I] [I] [I] [I] [I] [I] [I] [I] [I] [I] [I] [I]| 0.0% |
+|                  |                                              |         |
+| REHAB EXOSKEL    |                                              |         |
+| REHAB-01         |[I] [I] [I] [I] [I] [I] [I] [I] [I] [I] [I] [I]| 0.0% |
+| REHAB-02         |[I] [I] [I] [I] [I] [I] [I] [I] [I] [I] [I] [I]| 0.0% |
+| REHAB-03         |[I] [I] [I] [I] [I] [I] [I] [I] [I] [I] [A] [A]| 16.7%|
+|                  |                                       P0071 |         |
++============================================================================+
+| LEGEND: [A]=Active [I]=Idle [C]=Cleaning [M]=Maintenance [E]=Error        |
+|                                                                            |
+| UTILIZATION BY ROBOT TYPE                                                  |
+| Surgical:   50.0% | Cobots:     11.1% | RT Position: 22.2%               |
+| Needle:     20.8% | Companion:  13.9% | Humanoids:  11.1%                |
+| RT Tracking: 16.7% | Imaging:    6.3% | Steerable:  33.3%                |
+| Rehab:       5.6%                                                         |
+|                                                                            |
+| OVERALL SITE UTILIZATION: 68% (peak morning sustained)                    |
++============================================================================+
