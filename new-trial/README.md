@@ -3,7 +3,8 @@
 Released on 23 March 2026
 CEO Kevin Kawchak, ChemicalQDevice
 
-[![Release](https://img.shields.io/badge/Release-v2.8.0-brightgreen.svg)]()
+[![Release](https://img.shields.io/badge/Release-v2.8.0-brightgreen.svg)]()[![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.19194724-blue)](https://github.com/kevinkawchak/physical-ai-oncology-trials/tree/main/new-trial)
+
 
 The original CFR documents are in the public domain. The original ICH document
 is copyrighted and may be used, reproduced, incorporated into other works,
