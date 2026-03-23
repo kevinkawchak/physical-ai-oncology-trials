@@ -1,0 +1,119 @@
++============================================================================+
+|              PATIENT FLOW DIAGRAM - Hour 18: 18:00-18:59                  |
+|              Evening Peak - 9 Arrivals - Post-Work Wave                   |
++============================================================================+
+|                                                                            |
+| TIME  ENTRANCE    CHECK-IN     WAITING     PROCEDURE    RECOVERY  EXIT    |
+| ----  --------    --------     -------     ---------    --------  ----    |
+|                                                                            |
+| 18:00                                      [P0134:SurgSuite2 ongoing]    |
+|   |                                        [~12 continuing patients]      |
+|   |                                                                       |
+| 18:05 P0145 ---> [Kiosk-1] --+                                           |
+|   |   (NSCLC)     18:05      |  (post-work patient)                      |
+|   |                          |                                            |
+| 18:08                        +--> [Adult Wait]                            |
+|   |                                    |                                  |
+| 18:10 P0146 ---> [Kiosk-2] --+        |                                  |
+|   |   (Sarcoma)   18:10      |  (post-work patient)                      |
+|   |                          |        |                                   |
+| 18:12                        +--> [Adult Wait]                            |
+|   |                                    |   |                              |
+| 18:15                                  |   +--> [Vault 2: TRACK-02]     |
+|   |                                    |        VMAT Resp Gating          |
+|   |                                    |        PAT-0145 NSCLC adeno     |
+| 18:16 P0147 ---> [Kiosk-3] --+        |        Fraction 12/30           |
+|   |   (Meningioma) 18:16     |        |        |                         |
+|   |                          |        |        |                         |
+| 18:18                        +--> [Wait]      |                          |
+|   |                                |   +------+--> [Biopsy 1: COBOT-01] |
+|   |                                |              Core Needle Biopsy     |
+|   |                                |              PAT-0146 forearm sarc  |
+| 18:22 P0148 ---> [Kiosk-1] --+    |              |                      |
+|   |   (Ped Osteo)  18:22     |    |              |        |              |
+|   |   + father               |    |              |        |              |
+| 18:24                        +--> [Ped Wait]     |        |              |
+|   |                                |   |         |        |              |
+| 18:25                              |   +--> [Vault 3: RTPOS-03]        |
+|   |                                |        Mask Fitting + CT Sim        |
+|   |                                |        PAT-0147 meningioma          |
+| 18:28 P0149 ---> [Kiosk-2] --+    |        |              |             |
+|   |   (Parotid)    18:28      |    |        |              |             |
+|   |                           |    |        |              |             |
+| 18:30                         +--> [Wait]   |    [P0146 complete]       |
+|   |                                |   +----+--> [Ped Therapy 3]        |
+|   |                                |        HUMAN-03 coaching            |
+|   |                                |        PAT-0148 ped osteo           |
+| 18:34 P0150 ---> [Kiosk-3] --+    |        |              |             |
+|   |   (HCC)        18:34      |    |        |   P0146 --> Recovery Bay   |
+|   |                           |    |        |                            |
+| 18:36                         +--> [Wait]   |                            |
+|   |                                |   +----+--> [CT Suite 2: NEEDLE-02]|
+|   |                                |        CT-Guided FNA                 |
+|   |                                |        PAT-0149 parotid             |
+|   |                                |        |                            |
+| 18:40 P0151 ---> [Kiosk-4] --+    |   [P0148 --> Rehab Bay 3]          |
+|   |   (NSCLC sq)   18:40     |    |        REHAB-03 exoskeleton          |
+|   |                          |    |        PAT-0148 gait training         |
+| 18:42                        +--> [Wait]   |        |                    |
+|   |                                |   +---+--> [Img Bay 4: IMAGE-04]   |
+|   |                                |        Liver Ultrasound              |
+|   |                                |        PAT-0150 HCC                  |
+| 18:45                              |        |   [P0145 complete]         |
+|   |                                |        |   P0145 --> Recovery Bay    |
+| 18:46 P0152 ---> [Kiosk-1] --+    |        |        |                   |
+|   |   (Liver met)  18:46      |    |        |        |                   |
+|   |                           |    |        |        |                   |
+| 18:48                         +--> [Wait]   |   [Vault 3: TRACK-03]    |
+|   |                                |        |   VMAT Resp Gating         |
+|   |                                |        |   PAT-0151 NSCLC sq        |
+|   |                                |        |        |                   |
+| 18:52 P0153 ---> [Kiosk-2] --+    |   [P0149 complete]                  |
+|   |   (Ped ALL)    18:52     |    |   P0149 --> Recovery Bay             |
+|   |   + mother               |    |        |                             |
+| 18:54                        +--> [Ped Wait]                             |
+|   |                                |   +---+--> [Ablation 1: STEER-01]  |
+|   |                                |        CT-Guided RFA                 |
+|   |                                |        PAT-0152 liver mets          |
+|   |                                |        Cabozantinib IND             |
+| 18:56                              +------> [Play 1: COMPN-01]          |
+|   |                                         Companion Session            |
+|   |                                         PAT-0153 ped ALL             |
+| 18:57                              [P0150 complete]                      |
+|   |                                P0150 --> Recovery Bay                 |
+| 18:58                              [P0148 rehab complete]                |
+|   |                                P0148 --> Pediatric Ward              |
+| 18:59                              [P0151 RT continuing -->H19]         |
+|   |                                [P0152 RFA continuing -->H19]         |
+|   |                                [P0153 companion continuing -->H19]   |
+|                                                                            |
++============================================================================+
+| PATIENT FLOW SUMMARY - Hour 18                                            |
+|                                                                            |
+| Arrivals: 9 patients (evening peak)                                      |
+|   PAT-0145 (60M, NSCLC adeno)  --> RT VMAT       --> Recovery Bay        |
+|   PAT-0146 (39F, Forearm sarc) --> Cobot Biopsy   --> Recovery Bay       |
+|   PAT-0147 (72M, Meningioma)   --> RT Sim/Mask    --> Recovery Bay       |
+|   PAT-0148 (10M, Ped osteo)    --> Humanoid+Rehab --> Pediatric Ward     |
+|   PAT-0149 (55F, Parotid)      --> Needle FNA     --> Recovery Bay       |
+|   PAT-0150 (67M, HCC)          --> Liver Imaging  --> Recovery Bay       |
+|   PAT-0151 (44F, NSCLC sq)     --> RT VMAT        --> Continuing H19     |
+|   PAT-0152 (73M, Liver mets)   --> Steerable RFA  --> Continuing H19     |
+|   PAT-0153 (16F, Ped ALL)      --> Companion      --> Continuing H19     |
+|                                                                            |
+| Continuing: P0134 surgery ongoing + ~12 other patients                   |
+| Departures: 0 full discharges (patients in observation/continuing)       |
+|                                                                            |
+| Post-work patients: P0145, P0146 (evening scheduling)                   |
+| Pediatric patients: P0148 (10M, father), P0153 (16F, mother)            |
+| Dual-vault RT: P0145 (Vault 2), P0151 (Vault 3)                         |
+| IND drug: P0152 cabozantinib per 21 CFR Part 312                        |
+|                                                                            |
+| Wait times: P0145=7, P0146=8, P0147=7, P0148=8, P0149=8,               |
+|             P0150=8, P0151=8, P0152=8, P0153=4 min                       |
+| Average wait: 7.3 minutes                                                |
+|                                                                            |
+| End-of-hour census: ~22 patients on-site                                 |
+| Robot utilization: ~55% (16 of 29 active at peak)                        |
+| Site PSL: 65.5 (RT Tracking Dim C +0.1)                                  |
++============================================================================+
