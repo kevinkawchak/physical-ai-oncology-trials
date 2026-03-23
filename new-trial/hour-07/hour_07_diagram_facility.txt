@@ -1,0 +1,122 @@
++============================================================================+
+|              ON-DEMAND PHYSICAL AI ONCOLOGY TRIAL FACILITY                 |
+|                    Hour 07: 07:00-07:59 Status                            |
+|  Released on 23 March 2026 | CEO Kevin Kawchak | ChemicalQDevice         |
++============================================================================+
+|                                                                            |
+|  Morning ramp-up: 8 arrivals, 1 discharge, first surgery of the day       |
+|  SSO-D1 on duty (day shift, replaced SSO-N1 at 07:00)                    |
+|  Adverse event: P0029 Grade 1 nausea (resolved with ondansetron)          |
+|  Site PSL: 64.1 | Robot utilization: ~35%                                 |
+|  Refs: ICH E6(R3), 21 CFR 50, 21 CFR 312                                |
+|  USL: DOI 10.5281/zenodo.18778220 | DOI 10.5281/zenodo.19119939          |
+|                                                                            |
+|  ENTRANCE / CHECK-IN (1,500 sq ft)                                        |
+|  +--------------------------------------------------------------------+   |
+|  | [KIOSK-1: busy] [KIOSK-2: busy] [KIOSK-3: busy] [KIOSK-4: idle]   |   |
+|  | Patients checked in this hour: 8 (P0024-P0031)                     |   |
+|  +--------------------------------------------------------------------+   |
+|                                                                            |
+|  WAITING AREAS                                                            |
+|  +-------------------------------+  +-------------------+                 |
+|  | ADULT WAITING (2,000 sq ft)   |  | PEDIATRIC WAITING |                 |
+|  | Occupancy: 2/50               |  | (800 sq ft)       |                 |
+|  | [morning arrivals staging]    |  | Occ: 1/15         |                 |
+|  +-------------------------------+  +-------------------+                 |
+|                                                                            |
+|  SURGICAL WING                                                            |
+|  +-------------------+-------------------+-------------------+            |
+|  | SUITE 1 (600)     | SUITE 2 (600)     | SUITE 3 (600)     |            |
+|  | SURG-01: *ACTIVE* | SURG-02: standby  | SURG-03: standby  |            |
+|  | PAT-0024 (59M)    | Patient: none     | Patient: none     |            |
+|  | Mediastinal resec  |                   |                   |            |
+|  | 3-port, 07:40-    |                   |                   |            |
+|  +-------------------+-------------------+-------------------+            |
+|                                                                            |
+|  BIOPSY WING                                                              |
+|  +------------+------------+------------+------------+                    |
+|  | STN 1(200) | STN 2(200) | STN 3(200) | STN 4(200) |                    |
+|  | COBOT-01   | COBOT-02   | COBOT-03   | COBOT-04   |                    |
+|  | standby    | standby    | standby    | *ACTIVE*   |                    |
+|  |            |            |            | PAT-0027   |                    |
+|  |            |            |            | Biopsy     |                    |
+|  +------------+------------+------------+------------+                    |
+|                                                                            |
+|  RADIOTHERAPY VAULTS (shielded)                                           |
+|  +---------------------+---------------------+---------------------+     |
+|  | VAULT 1 (1,200)     | VAULT 2 (1,200)     | VAULT 3 (1,200)     |     |
+|  | RTPOS-01: standby   | RTPOS-02: standby   | RTPOS-03: *ACTIVE*  |     |
+|  | TRACK-01: standby   | TRACK-01: *ACTIVE*  | TRACK-03: standby   |     |
+|  | Patient: none       | PAT-0028 (53M)      | PAT-0026 (66M)      |     |
+|  |                     | RT frac (07:36-)    | CT sim (07:25-)     |     |
+|  +---------------------+---------------------+---------------------+     |
+|                                                                            |
+|  CT-GUIDED / NEEDLE WING                                                  |
+|  +---------------------+---------------------+                           |
+|  | CT SUITE 1 (400)    | CT SUITE 2 (400)    |                           |
+|  | NEEDLE-01: standby  | NEEDLE-02: *ACTIVE* |                           |
+|  |                     | PAT-0031 (62F)      |                           |
+|  |                     | FNA parotid 07:55-  |                           |
+|  +---------------------+---------------------+                           |
+|                                                                            |
+|  PEDIATRIC WING                                                           |
+|  +---------+---------+---------+---------+---------+                      |
+|  | PLAY 1  | PLAY 2  | PLAY 3  | PLAY 4  | PLAY 5  |                      |
+|  | COMPN-01| COMPN-02| COMPN-03| COMPN-04| COMPN-05|                      |
+|  | standby |*ACTIVE* | standby | standby | standby |                      |
+|  |         |PAT-0025 |(done    |         |         |                      |
+|  |         |(14F ALL)|07:30)   |         |         |                      |
+|  +---------+---------+---------+---------+---------+                      |
+|  +-------------+-------------+-------------+                             |
+|  | THERAPY 1   | THERAPY 2   | THERAPY 3   |                             |
+|  | HUMAN-01    | HUMAN-02    | HUMAN-03    |                             |
+|  | standby     | *ACTIVE*    | standby     |                             |
+|  |             | PAT-0030    |             |                             |
+|  |             | (9M osteo)  |             |                             |
+|  +-------------+-------------+-------------+                             |
+|                                                                            |
+|  IMAGING WING                                                             |
+|  +------------+------------+------------+------------+                    |
+|  | BAY 1(300) | BAY 2(300) | BAY 3(300) | BAY 4(300) |                    |
+|  | IMAGE-01   | IMAGE-02   | IMAGE-03   | IMAGE-04   |                    |
+|  | standby    | *ACTIVE*   | standby    | standby    |                    |
+|  |            | PAT-0029   |            |            |                    |
+|  |            | (77F,AE!)  |            |            |                    |
+|  +------------+------------+------------+------------+                    |
+|                                                                            |
+|  INTERVENTIONAL WING                                                      |
+|  +---------------------+---------------------+                           |
+|  | ABLATION 1 (500)    | ABLATION 2 (500)    |                           |
+|  | STEER-01: standby   | STEER-02: *PREP*    |                           |
+|  | (P0022 done 07:25)  | PAT-0029 (pending)  |                           |
+|  +---------------------+---------------------+                           |
+|                                                                            |
+|  REHABILITATION WING                                                      |
+|  +---------------+---------------+---------------+                        |
+|  | BAY 1 (400)   | BAY 2 (400)   | BAY 3 (400)   |                        |
+|  | REHAB-01      | REHAB-02      | REHAB-03      |                        |
+|  | standby       | standby       | standby       |                        |
+|  +---------------+---------------+---------------+                        |
+|                                                                            |
+|  RECOVERY / OBSERVATION                                                   |
+|  +------------------------------------------------------------------+    |
+|  | BAY 3: PAT-0022 (post-ablation recovery, 07:25 onward)           |    |
+|  | BAY 5: PAT-0027 (post-biopsy observation, 07:50 onward)          |    |
+|  | INFUSION: PAT-0005 (vincristine/prednisone, 07:35 onward)        |    |
+|  | Additional recovery patients from prior hours                     |    |
+|  +------------------------------------------------------------------+    |
+|                                                                            |
+|  DISCHARGE                                                                |
+|  +------------------------------------------------------------------+    |
+|  | PAT-0003 discharged 07:15 (post-surgical recovery complete)      |    |
+|  | PAT-0026 discharged 07:58 (CT sim/mask complete)                 |    |
+|  | PAT-0028 discharged 07:58 (RT fraction complete)                 |    |
+|  +------------------------------------------------------------------+    |
+|                                                                            |
++============================================================================+
+| HOUR 07 FACILITY SUMMARY                                                  |
+| Total patients on-site (peak): 14  | Arrivals: 8  | Discharges: 3        |
+| Active robot instances: 11 of 29   | Utilization: ~35%                   |
+| Active procedures: up to 6 concurrent at peak (07:40-07:55)              |
+| Adverse events: 1 (Grade 1 nausea, P0029, resolved)                      |
++============================================================================+

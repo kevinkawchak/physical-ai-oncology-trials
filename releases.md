@@ -4,6 +4,48 @@ Release notes for the physical-ai-oncology-trials repository.
 
 ---
 
+24-Hour On-Demand Physical AI Oncology Clinical Trial Simulation
+v2.8.0 - On-Demand Trial Simulation
+
+## Summary
+
+Full 24-hour simulation of an autonomous, patient-centric Physical AI oncology
+clinical trial at a single site with 1-minute resolution. Introduces the
+Physical AI Standard Level (PSL) framework, a new scoring system evaluating
+each of 10 robot types on three regulatory dimensions: Omniscient (ICH E6(R3)),
+Omnipresent (21 CFR Part 50), and Omnipotent (21 CFR Part 312). The simulation
+demonstrates 168 patients across 15 cancer types served by 29 robot instances
+in a 24/7 on-demand format, achieving a cumulative site PSL of 63.4 to 64.4
+(Advanced Site band).
+
+## Features
+
+- 178 output files across 25 sequential commits
+- PSL framework with three regulatory dimensions (0.0 to 10.0 per robot)
+- 168 unique patients with minute-level vital sign simulation
+- 15 cancer types treated simultaneously
+- 10 robot types (29 instances) with detailed telemetry
+- 72 ASCII text diagrams (3 per hour from 3 perspectives)
+- 7 adverse events (all Grade 1-2, managed successfully)
+- Site specification with building, staffing, and infrastructure requirements
+- Format comparison document (on-demand vs. traditional trials)
+- Error review and cumulative 24-hour summaries
+
+## Contributors
+@kevinkawchak
+@claude
+@openai
+@google-gemini
+
+## Notes
+
+- PSL scores complement USL scores (DOI: 10.5281/zenodo.18778220)
+- Extends single-patient journey work (DOI: 10.5281/zenodo.19119939)
+- Governed by 3 adapted regulatory frameworks
+- Development by Claude Code Opus 4.6
+
+---
+
 Repository-Wide Documentation Structure Update
 v2.7.1 - Documentation Refresh
 

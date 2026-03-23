@@ -1,0 +1,127 @@
++============================================================================+
+|              PATIENT FLOW DIAGRAM - Hour 16: 16:00-16:59                  |
+|              Evening Peak Begins - 10 New Arrivals                        |
++============================================================================+
+|                                                                            |
+| TIME  ENTRANCE    CHECK-IN     WAITING     PROCEDURE       RECOV/EXIT    |
+| ----  --------    --------     -------     ---------       ----------    |
+|                                                                            |
+| 16:00                                      [P0116:SURG-02 ongoing]       |
+|   |                                        (surgery from Hr 15)           |
+|   |                                                                       |
+| 16:02 P0124 ---> [Kiosk-1] --+                                           |
+|   |    (NSCLC)     16:02      |                                           |
+|   |    post-work              |                                           |
+|   |                           +--> [Adult Wait]                           |
+|   |                                    |                                  |
+| 16:08 P0125 ---> [Kiosk-2] --+        |                                  |
+|   |    (sarcoma)   16:08      |        |                                  |
+|   |    teacher                |        |                                  |
+|   |                           +--> [Adult Wait]                           |
+|   |                                    |   |                              |
+| 16:10                                  |   +--> [Vault 1: TRACK-01]      |
+|   |                                    |        RT Motion-Tracking        |
+| 16:12 P0126 ---> [Kiosk-1] --+        |        PAT-ODMND-0124            |
+|   |    (glioblastoma) 16:12   |        |                                  |
+|   |    TMZ (IND)              +--> [Adult Wait]                           |
+|   |                                    |   |                              |
+| 16:16                                  |   +--> [Stn 2: COBOT-02]       |
+|   |                                    |        Biopsy                    |
+| 16:18 P0127 ---> [Kiosk-2] --+        |        PAT-ODMND-0125            |
+|   |    (osteosar)  16:18      |        |                                  |
+|   |    after-school           +--> [Pedi Wait]                            |
+|   |                                    |   |                              |
+| 16:20                                  |   +--> [Vault 1: RTPOS-01]     |
+|   |                                    |        Cranial RT + TMZ (IND)    |
+|   |                                    |        PAT-ODMND-0126            |
+| 16:24 P0128 ---> [Kiosk-1] --+        |                                  |
+|   |    (parotid)   16:24      |        |                                  |
+|   |                           +--> [Adult Wait]                           |
+|   |                                    |   |                              |
+| 16:26                                  |   +--> [Therapy1: HUMAN-01]    |
+|   |                                    |        Humanoid session          |
+| 16:28                                  |        PAT-ODMND-0127            |
+|   |                               [P0124: RT Complete] --> Discharge     |
+|   |                                    |                    16:35        |
+| 16:30 P0129 ---> [Kiosk-2] --+        |                                  |
+|   |    (HCC)       16:30      |        |                                  |
+|   |                           +--> [Adult Wait]                           |
+|   |                                    |   |                              |
+| 16:32                                  |   +--> [CT Ste2: NEEDLE-02]    |
+|   |                                    |        Parotid FNA              |
+|   |                               [P0125: Biopsy Complete]               |
+|   |                                    |        PAT-ODMND-0128            |
+|   |                                    |   --> Recovery --> Dischg 16:45 |
+| 16:36 P0130 ---> [Kiosk-1] --+        |                                  |
+|   |    (ALL,8F)    16:36      |        |                                  |
+|   |    after-school           +--> [Pedi Wait]                            |
+|   |                                    |   |                              |
+| 16:38                                  |   +--> [ImgBay3: IMAGE-03]     |
+|   |                                    |        HCC staging scan         |
+|   |                                    |        PAT-ODMND-0129            |
+| 16:40                            [P0127: HUMAN-01 end]                   |
+|   |                                    |                                  |
+| 16:42 P0131 ---> [Kiosk-2] --+   [P0127 --> Rehab Bay1: REHAB-01]      |
+|   |    (liver mets) 16:42     |        Gait training                     |
+|   |    Cabo (IND)             +--> [Adult Wait]                           |
+|   |                                    |                                  |
+| 16:44                                  +--> [Play4: COMPN-04]            |
+|   |                                         Companion session            |
+|   |                                         PAT-ODMND-0130               |
+| 16:45                            [P0116: Surgery Complete]               |
+|   |                                    --> Recovery Bay 2                 |
+|   |                                                                       |
+| 16:48 P0132 ---> [Kiosk-1] --+   [P0128: FNA Complete]                  |
+|   |    (SCLC)      16:48      |        --> Recovery --> Dischg 16:55     |
+|   |    post-work              +--> [Adult Wait]                           |
+|   |                                    |                                  |
+| 16:50                                  +--> [ImgBay1: IMAGE-01]          |
+|   |                                         Liver mapping                |
+|   |                                         PAT-ODMND-0131               |
+| 16:52                            [P0126: RT Complete] --> Recovery       |
+|   |                              [P0129: Scan Complete] --> Dischg 16:58 |
+|   |                                                                       |
+| 16:54 P0133 ---> [Kiosk-2] --+                                           |
+|   |    (sarcoma)   16:54      +--> [Adult Wait]                           |
+|   |                                    |                                  |
+| 16:56                                  +--> [Vault 2: TRACK-02]         |
+|   |                              [P0127: Rehab Complete] --> Dischg 16:59|
+|   |                                         PAT-ODMND-0132               |
+| 16:58                            [P0131 --> Ablation1: STEER-01]         |
+|   |                                    +--> [Stn 3: COBOT-03]            |
+|   |                                         Biopsy PAT-ODMND-0133        |
+| 16:59                            [P0130: Companion continuing]           |
+|   |                              [P0131: Needle continuing]              |
+|   |                              [P0132: RT continuing]                  |
+|   |                              [P0133: Biopsy continuing]              |
+|                                                                            |
++============================================================================+
+| PATIENT FLOW SUMMARY - Hour 16                                            |
+|                                                                            |
+| Arrivals: 10 patients (evening peak begins)                               |
+|   PAT-ODMND-0124 (50M, NSCLC)      --> RT Tracking   --> Discharged      |
+|   PAT-ODMND-0125 (41F, Sarcoma)    --> Cobot Biopsy  --> Discharged      |
+|   PAT-ODMND-0126 (73M, Glioblast)  --> RT Position   --> Recovery        |
+|   PAT-ODMND-0127 (15M, Osteosar)   --> Humanoid+Rehab--> Discharged     |
+|   PAT-ODMND-0128 (58F, Parotid)    --> Needle FNA    --> Discharged      |
+|   PAT-ODMND-0129 (64M, HCC)        --> Imaging       --> Discharged      |
+|   PAT-ODMND-0130 (8F, ALL)         --> Companion     --> Continuing      |
+|   PAT-ODMND-0131 (69F, Liver mets) --> Img+Needle    --> Continuing      |
+|   PAT-ODMND-0132 (46M, SCLC)       --> RT Tracking   --> Continuing      |
+|   PAT-ODMND-0133 (55F, Sarcoma)    --> Cobot Biopsy  --> Continuing      |
+|                                                                            |
+| Departures: 5 patients                                                    |
+|   PAT-ODMND-0124 --> Discharged 16:35 (RT complete)                      |
+|   PAT-ODMND-0125 --> Discharged 16:45 (biopsy complete)                  |
+|   PAT-ODMND-0127 --> Discharged 16:59 (rehab complete)                   |
+|   PAT-ODMND-0128 --> Discharged 16:55 (FNA complete)                     |
+|   PAT-ODMND-0129 --> Discharged 16:58 (imaging complete)                 |
+|                                                                            |
+| Continuing into Hour 17: P0116 (recovery), P0126 (recovery),             |
+|   P0130 (companion), P0131 (needle), P0132 (RT), P0133 (biopsy)         |
+|                                                                            |
+| On-demand advantage: P0124, P0125, P0132 used post-work slots            |
+| After-school wave: P0127, P0130                                          |
+| Average wait time: 6.2 minutes                                           |
+| Concurrent patients on-site: ~20                                         |
++============================================================================+

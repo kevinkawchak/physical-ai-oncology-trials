@@ -1,0 +1,135 @@
++============================================================================+
+|              PATIENT FLOW DIAGRAM - Hour 14: 14:00-14:59                  |
++============================================================================+
+|                                                                            |
+| TIME  ENTRANCE    CHECK-IN     WAITING     PROCEDURE    RECOVERY  EXIT    |
+| ----  --------    --------     -------     ---------    --------  ----    |
+|                                                                            |
+| 14:00                                      [P0097:SurgSuite2 ongoing]    |
+|   |                                        [~11 carryover patients]       |
+|   |                                                                       |
+| 14:03 P0107 ---> [Kiosk-1] --+                                           |
+|   |    (NSCLC)     14:03      |                                           |
+|   |                           |                                           |
+| 14:04                        +--> [Adult Wait]                            |
+|   |                                    |                                  |
+| 14:08 P0108 ---> [Kiosk-2] --+        |                                  |
+|   |    (Sarcoma)   14:08      |        |                                  |
+|   |                           |        |                                  |
+| 14:09                        +--> [Adult Wait]                            |
+|   |                                    |   |                              |
+| 14:10                                  |   +--> [Vault 2: TRACK-02]     |
+|   |                                    |        RT Motion-Tracking        |
+|   |                                    |        PAT-ODMND-0107            |
+| 14:14 P0109 ---> [Kiosk-3] --+        |        Fraction 8/33            |
+|   |    (GBM)       14:14      |        |        |                        |
+|   |                           |        |        |                        |
+| 14:15                        +--> [Adult Wait]  |                        |
+|   |                                    |   +--> [Biopsy Stn4: COBOT-04] |
+|   |                                    |        PAT-ODMND-0108            |
+| 14:18 P0110 ---> [Kiosk-4] --+        |        Core Needle Biopsy       |
+|   |    (Ped AML)   14:18      |        |        |                        |
+|   |                           |        |        |                        |
+| 14:19                   +--> [Ped Wait]|        |                        |
+|   |                           |        |        |                        |
+| 14:22                         |   +--> [Vault 2: RTPOS-02]              |
+|   |                           |        PAT-ODMND-0109                    |
+|   |                           |        Stereotactic RT (GBM)             |
+| 14:24 P0111 ---> [Kiosk-1] --+        Bevacizumab IND                   |
+|   |    (HCC)       14:24      |        |                                 |
+|   |                           |        |                                 |
+| 14:25                   +--> [Adult Wait]                                |
+|   |                     |     +--> [PlayArea3: COMPN-03]                 |
+|   |                     |          PAT-ODMND-0110                        |
+|   |                     |          Companion session                     |
+| 14:28                   |          |  [P0107: Complete]                  |
+|   |                     |          |  P0107 --> Discharge --> EXIT 14:35 |
+|   |                     |          |                                     |
+| 14:30 P0112 ---> [Kiosk-2] --+    |  +--> [ImgBay4: IMAGE-04]         |
+|   |    (Parotid)   14:30      |    |       PAT-ODMND-0111               |
+|   |                           |    |       Liver Ultrasound              |
+| 14:31                   +--> [Adult Wait]  |                             |
+|   |                           |    |       |                             |
+| 14:32                         |    |  [P0108: Biopsy Complete]          |
+|   |                           |    |  P0108 --> RecBay5 --> EXIT 14:48  |
+|   |                           |    |       |                             |
+| 14:36 P0113 ---> [Kiosk-3] --+    |       |                             |
+|   |    (Ped Osteo) 14:36      |    |       |                             |
+|   |                           |    |       |                             |
+| 14:37                   +--> [Ped Wait]    |                             |
+|   |                           |    |       |                             |
+| 14:38                         |    |  +--> [CTSuite1: NEEDLE-01]        |
+|   |                           |    |       PAT-ODMND-0112               |
+|   |                           |    |       Parotid FNA                   |
+| 14:40                         |    |  [P0111: Imaging Complete]         |
+|   |                           |    |  P0111 --> [Ablation1: STEER-01]  |
+|   |                           |    |            HCC Microwave Ablation   |
+| 14:42 P0114 ---> [Kiosk-4] --+    |            Lenvatinib IND          |
+|   |    (Liver Mets) 14:42     |    |            |                       |
+|   |                           |    +--> [Therapy1: HUMAN-01]            |
+| 14:43                   +--> [Adult Wait]  PAT-ODMND-0113               |
+|   |                           |    |       Gait Training                 |
+|   |                           |    |       |                             |
+| 14:48                         |    |       |  [P0112: FNA Complete]     |
+|   |                    +--> [ImgBay1: IMAGE-01]  P0112 --> RecBay6      |
+|   |                         PAT-ODMND-0114   |                           |
+|   |                         Liver Mets Scan  |                           |
+| 14:50 P0115 ---> [Kiosk-1] --+              |                           |
+|   |    (Fem Osteo) 14:50      |              |                           |
+|   |                           |              |                           |
+| 14:51                   +--> [Adult Wait]    |                           |
+|   |                           |              |                           |
+| 14:52                         |         [P0109: RT Complete]            |
+|   |                           |         P0109 --> RecBay8                |
+|   |                           |              |                           |
+| 14:55                    +--> [RehabBay1: REHAB-01]                     |
+|   |                           PAT-ODMND-0115 |                           |
+|   |                           Exoskeleton    [P0110: Session Complete]  |
+|   |                           Gait Training  P0110 --> PedWard          |
+| 14:56                         |         [P0113: Gait Complete]          |
+|   |                           |         P0113 --> Discharge --> EXIT    |
+| 14:58                         |         [P0111: Ablation Complete]     |
+|   |                           |         P0111 --> RecBay2               |
+| 14:59                         |                                         |
+|   |                      [ongoing]   [P0114: Scan ongoing]              |
+|   |                                  [P0097: Surgery ongoing]            |
+|                                                                            |
++============================================================================+
+| PATIENT FLOW SUMMARY - Hour 14                                            |
+|                                                                            |
+| Arrivals: 9 patients                                                      |
+|   PAT-ODMND-0107 (53M, NSCLC)     --> RT Tracking    --> Discharged 14:35|
+|   PAT-ODMND-0108 (37F, Sarcoma)   --> Cobot Biopsy   --> Discharged 14:48|
+|   PAT-ODMND-0109 (74M, GBM)       --> RT Positioning --> Recovery        |
+|   PAT-ODMND-0110 (7M, AML)        --> Companion      --> Pediatric Ward  |
+|   PAT-ODMND-0111 (62F, HCC)       --> Imaging+Abltn  --> Recovery        |
+|   PAT-ODMND-0112 (46M, Parotid)   --> Needle FNA     --> Recovery        |
+|   PAT-ODMND-0113 (13F, Osteo)     --> Humanoid Rehab --> Discharged      |
+|   PAT-ODMND-0114 (68M, Liver Mets)--> Imaging        --> Ongoing         |
+|   PAT-ODMND-0115 (71F, Fem Osteo) --> Exo Rehab      --> Ongoing         |
+|                                                                            |
+| Departures: 3 patients                                                    |
+|   PAT-ODMND-0107 (53M, NSCLC)     --> Discharged 14:35 (RT complete)    |
+|   PAT-ODMND-0108 (37F, Sarcoma)   --> Discharged 14:48 (biopsy done)    |
+|   PAT-ODMND-0113 (13F, Osteo)     --> Discharged 14:58 (gait session)   |
+|                                                                            |
+| Ongoing from prior hours: ~11 patients (including P0097 surgery)          |
+| Concurrent patients on-site: ~20 (peak)                                   |
+|                                                                            |
+| Cancer types active this hour:                                            |
+|   NSCLC adenocarcinoma (P0107) - RT treatment                             |
+|   Forearm sarcoma (P0108) - core needle biopsy                            |
+|   Glioblastoma (P0109) - stereotactic RT + bevacizumab IND               |
+|   Pediatric AML (P0110) - companion pre-chemo session                     |
+|   HCC (P0111) - imaging + ablation + lenvatinib IND                       |
+|   Parotid tumor (P0112) - fine needle aspiration                          |
+|   Pediatric osteosarcoma (P0113) - humanoid gait training                 |
+|   Liver metastases (P0114) - diagnostic imaging                           |
+|   Femur osteosarcoma (P0115) - exoskeleton rehabilitation                 |
+|                                                                            |
+| IND drugs administered: Bevacizumab (P0109), Lenvatinib (P0111)          |
+|                                                                            |
+| Wait times: P0107=7, P0108=7, P0109=8, P0110=7, P0111=6, P0112=8,      |
+|             P0113=6, P0114=6, P0115=5 minutes                             |
+| Average wait: 6.7 minutes                                                 |
++============================================================================+

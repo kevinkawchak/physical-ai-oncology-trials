@@ -1,0 +1,124 @@
++============================================================================+
+|              PATIENT FLOW DIAGRAM - Hour 06: 06:00-06:59                  |
++============================================================================+
+|                                                                            |
+| TIME  ENTRANCE    CHECK-IN     WAITING     PROCEDURE    RECOVERY  EXIT    |
+| ----  --------    --------     -------     ---------    --------  ----    |
+|                                                                            |
+| 06:00                                                   [P0003:RecBay3]   |
+|   |                                                     [P0005:PedWard]   |
+|   |                                                     [P0013:on-site]   |
+|   |                                                     [P0014:on-site]   |
+|   |                                                     [P0015:on-site]   |
+|   |                                                     [P0016:on-site]   |
+|   |                                                     [P0017:on-site]   |
+|   |                                                                       |
+| 06:05 P0018 ---> [Kiosk-1] --+                         [P0013:Discharged] |
+|   |  (meningioma)  06:05     |                              ---> EXIT     |
+|   |                          |                                            |
+| 06:06                        +--> [Adult Wait]                            |
+|   |                                    |                                  |
+| 06:08                                  +--> [Vault 2: RTPOS-02]          |
+|   |                                         Brain RT Positioning          |
+|   |                                         PAT-ODMND-0018               |
+|   |                                         1.8 Gy meningioma             |
+| 06:10                                       |           [P0015:Discharged]|
+|   |                                         |               ---> EXIT     |
+| 06:12 P0019 ---> [Kiosk-2] --+              |                             |
+|   |    (SCLC)      06:12     |              |                             |
+|   |   [IND drug]             |              |                             |
+| 06:15                        +--> [Adult Wait]          [P0016:Discharged]|
+|   |                                    |    |               ---> EXIT     |
+|   |                                    |    |                             |
+|   |                          [P0005 wakes, COMPN-03 morning mode]        |
+|   |                                    |    |                             |
+| 06:18                                  +--> [Vault 3: TRACK-03]          |
+|   |                                         RT Motion-Tracking            |
+|   |                                         PAT-ODMND-0019               |
+|   |                                         2 Gy SCLC + atezo            |
+| 06:20 P0020 ---> [Kiosk-3] --+              |         |                   |
+|   |  (osteosar)    06:20     |              |         |                   |
+|   |  [pediatric]             |              |         |                   |
+| 06:21                        +--> [Ped Wait] |         |                   |
+|   |                                |         |         |                   |
+| 06:25                              +--> [Therapy 1: HUMAN-01]            |
+|   |                                     Humanoid PT session               |
+|   |                                     PAT-ODMND-0020                   |
+|   |                                     grip/balance/coord                |
+| 06:28                                       |  [P0018: RT complete]      |
+|   |                                         |  P0018 --> Discharge proc   |
+| 06:30 P0021 ---> [Kiosk-4] --+              |         |                   |
+|   |  (sarcoma)     06:30     |              |         |                   |
+|   |                          |   [P0003: Physician assessment 06:30]     |
+|   |                          |              |         |                   |
+| 06:33                        +--> [Adult Wait]        |                   |
+|   |                                    |    |         |                   |
+| 06:34                                  +--> [Stn 3: COBOT-03]            |
+|   |                                         Biopsy                        |
+|   |                                         PAT-ODMND-0021               |
+|   |                                         4 cores, Grade A              |
+| 06:36                                       | [P0019: RT complete]       |
+|   |                                         | P0019 --> Discharge proc    |
+|   |                                         |    |                        |
+| 06:40 P0022 ---> [Kiosk-5] --+              |    |                        |
+|   |    (HCC)       06:40     |              |    |                        |
+|   |                          |              |    |                        |
+| 06:42                        +-------> [Ablation 1: STEER-01]            |
+|   |                                    CT-guided ablation                 |
+|   |                                    PAT-ODMND-0022                    |
+|   |                                    45 min procedure                   |
+| 06:45                         [P0020: HUMAN-01 complete]                  |
+|   |                            |        |    |                            |
+| 06:46                          |  [P0021: Biopsy complete]               |
+|   |                            |  P0021 --> [RecBay7: observation]       |
+|   |                            |             |                            |
+| 06:48                          +--> [Rehab 2: REHAB-02]                  |
+|   |                                 Gait training        |                |
+|   |                                 PAT-ODMND-0020       |                |
+|   |                                         |            |                |
+|   |                          [P0022: VASOVAGAL 06:48 - HR 72->52]        |
+|   |                          [Auto-lock. Legs elevated. Recovered 06:50] |
+|   |                                         |            |                |
+| 06:52 P0023 ---> [Kiosk-6] --+              |            |                |
+|   |  (NSCLC IV)    06:52     |              |            |                |
+|   |                          |              |            |                |
+| 06:55                        +-------> [Img Bay 1: IMAGE-01]             |
+|   |                                    Liver scan         |               |
+|   |                                    PAT-ODMND-0023    |               |
+|   |                                         |            |                |
+| 06:59                                  [In progress]  [In progress]      |
+|   |                                    STEER-01(P0022) REHAB-02(P0020)   |
+|   |                                    IMAGE-01(P0023)                    |
+|                                                                            |
++============================================================================+
+| PATIENT FLOW SUMMARY - Hour 06                                            |
+|                                                                            |
+| Arrivals: 6 patients (ramp-up period)                                    |
+|   PAT-ODMND-0018 (42F, meningioma)   --> RT Positioning   --> Discharge   |
+|   PAT-ODMND-0019 (56M, SCLC+IND)    --> RT Motion-Track   --> Discharge   |
+|   PAT-ODMND-0020 (11M, osteosarcoma) --> Humanoid+Rehab   --> In progress |
+|   PAT-ODMND-0021 (29F, sarcoma)      --> Cobot Biopsy     --> Recovery    |
+|   PAT-ODMND-0022 (68M, HCC)         --> Steerable Needle  --> In progress |
+|   PAT-ODMND-0023 (73F, NSCLC IV)     --> Imaging          --> In progress |
+|                                                                            |
+| Departures: 3 patients                                                    |
+|   PAT-ODMND-0013 --> Discharged 06:05 (post-RT)                          |
+|   PAT-ODMND-0015 --> Discharged 06:10 (procedure complete)               |
+|   PAT-ODMND-0016 --> Discharged 06:15 (procedure complete)               |
+|                                                                            |
+| Continuing patients: P0003 (recovery), P0005 (pediatric, woke 06:15),    |
+|   P0014 (on-site), P0017 (on-site)                                       |
+|                                                                            |
+| Near-miss event: P0022 vasovagal at 06:48, resolved in 2 min             |
+|                                                                            |
+| Cancer types active this hour: 8                                          |
+|   Mediastinal (P0003), ALL (P0005), Meningioma (P0018), SCLC (P0019),   |
+|   Osteosarcoma (P0020), Forearm sarcoma (P0021), HCC (P0022),           |
+|   NSCLC adenocarcinoma (P0023)                                            |
+|                                                                            |
+| Wait times: P0018=3m, P0019=6m, P0020=5m, P0021=4m, P0022=2m, P0023=3m |
+| Average wait: 3.8 minutes                                                |
+|                                                                            |
+| IND drug: Atezolizumab combination for P0019 (21 CFR 312.62)            |
+| Patients at end of hour: 9                                                |
++============================================================================+

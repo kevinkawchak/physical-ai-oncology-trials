@@ -1,0 +1,144 @@
++============================================================================+
+|          24-HOUR ROBOT UTILIZATION HEATMAP                                |
+|          On-Demand Physical AI Oncology Trial - 23 March 2026             |
+|          29 Robot Instances | 10 Types | 99.7% Fleet Uptime              |
++============================================================================+
+|                                                                            |
+|  LEGEND:  . = standby   # = active (procedure)   M = maintenance          |
+|           C = calibrating   * = active (monitoring)   - = idle             |
+|                                                                            |
+|  Instance   00 01 02 03 04 05 06 07 08 09 10 11 12 13 14 15 16 17 18 19 20 21 22 23 |
+|  ---------  -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- |
+|                                                                            |
+|  SURGICAL ROBOTS (3 instances)                                            |
+|  SURG-01    .  .  .  .  .  .  .  #  #  #  .  .  .  .  #  #  #  .  .  .  .  .  M  M  |
+|  SURG-02    .  .  .  .  .  .  .  #  #  #  #  .  .  #  #  #  .  .  .  .  .  .  .  .  |
+|  SURG-03    .  .  .  .  .  .  .  .  .  #  #  #  .  .  .  .  .  #  .  .  .  .  .  .  |
+|             Util: 24%                 Peak: Hr 09 (3/3 active)            |
+|                                                                            |
+|  COBOTS (4 instances)                                                     |
+|  COBOT-01   .  .  .  .  .  #  #  #  #  #  #  #  #  #  .  .  .  .  .  .  .  .  .  .  |
+|  COBOT-02   .  .  .  .  .  .  #  #  #  #  #  #  #  #  #  .  .  .  .  .  .  .  .  .  |
+|  COBOT-03   .  .  .  .  .  .  .  #  #  #  #  #  #  .  .  #  #  .  .  .  .  .  .  .  |
+|  COBOT-04   .  .  .  .  .  .  .  .  #  #  #  #  .  .  .  .  #  #  .  .  .  .  .  .  |
+|             Util: 35%                 Peak: Hr 09-11 (4/4 active)         |
+|                                                                            |
+|  RT POSITIONING (3 instances)                                             |
+|  RTPOS-01   .  .  .  .  #  #  #  #  #  #  #  #  #  #  #  #  #  .  .  .  .  .  .  .  |
+|  RTPOS-02   .  .  .  .  .  .  #  #  #  #  #  #  #  #  #  #  .  #  .  .  .  .  .  .  |
+|  RTPOS-03   .  .  .  .  .  .  .  .  #  #  #  #  #  .  #  .  .  .  #  .  .  .  .  .  |
+|             Util: 38%                 Peak: Hr 09-12 (3/3 active)         |
+|                                                                            |
+|  NEEDLE-PLACEMENT (2 instances)                                           |
+|  NEEDLE-01  .  .  .  #  #  #  #  #  #  #  #  #  .  .  .  #  .  .  .  .  .  .  .  .  |
+|  NEEDLE-02  .  .  .  .  .  .  #  #  #  #  #  #  #  #  .  .  .  .  .  #  .  .  .  .  |
+|             Util: 33%                 Peak: Hr 08-11 (2/2 active)         |
+|                                                                            |
+|  SOCIAL COMPANION (5 instances)                                           |
+|  COMPN-01   .  .  .  .  .  .  .  .  #  #  #  *  *  #  #  *  .  .  .  .  #  .  .  .  |
+|  COMPN-02   *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  |
+|  COMPN-03   .  .  .  .  #  .  .  #  #  #  #  #  .  .  #  #  .  .  .  .  .  .  .  .  |
+|  COMPN-04   .  .  .  .  .  .  #  .  .  #  #  #  #  #  .  .  #  .  .  .  #  .  .  .  |
+|  COMPN-05   .  .  .  .  .  .  .  .  .  #  #  #  #  .  .  .  .  #  #  .  .  .  .  .  |
+|             Util: 28% (excl monitor)  COMPN-02: 100% (overnight P0005/P0173) |
+|                                                                            |
+|  HUMANOIDS (3 instances)                                                  |
+|  HUMAN-01   .  .  .  .  .  .  .  #  #  #  #  #  #  #  .  .  .  .  .  .  .  .  .  .  |
+|  HUMAN-02   .  .  .  .  .  .  .  .  #  #  #  #  #  .  #  #  .  .  .  .  .  .  .  .  |
+|  HUMAN-03   .  .  .  .  .  .  .  .  .  .  #  #  #  #  .  .  #  #  .  .  .  .  .  .  |
+|             Util: 26%                 Peak: Hr 10-12 (3/3 active)         |
+|                                                                            |
+|  RT MOTION-TRACKING (3 instances)                                         |
+|  TRACK-01   #  .  .  .  #  #  #  #  #  #  #  #  #  #  #  #  .  .  .  .  .  .  .  .  |
+|  TRACK-02   .  .  .  .  .  .  #  #  #  #  #  #  #  #  .  #  #  .  .  .  .  .  .  #  |
+|  TRACK-03   .  .  .  .  .  .  .  .  #  #  #  #  #  .  #  .  .  #  #  .  .  .  .  .  |
+|             Util: 37%                 Peak: Hr 09-12 (3/3 active)         |
+|                                                                            |
+|  IMAGING ASSISTANT (4 instances)                                          |
+|  IMAGE-01   .  .  #  #  #  #  #  #  #  #  #  #  #  .  .  .  #  .  .  .  .  .  .  .  |
+|  IMAGE-02   #  .  .  .  #  #  #  #  #  #  #  #  .  #  #  .  .  .  .  .  .  .  .  #  |
+|  IMAGE-03   .  .  .  .  .  .  #  #  #  #  #  #  #  #  .  #  .  .  .  .  .  #  .  .  |
+|  IMAGE-04   .  .  .  .  .  .  .  #  #  #  #  #  .  .  #  #  .  .  .  #  .  .  .  .  |
+|             Util: 38%                 Peak: Hr 09-11 (4/4 active)         |
+|                                                                            |
+|  STEERABLE NEEDLE (2 instances)                                           |
+|  STEER-01   .  .  .  .  .  .  .  #  #  #  .  #  .  .  .  .  .  .  .  .  .  .  .  .  |
+|  STEER-02   .  .  .  .  .  .  .  .  .  #  #  .  #  .  #  .  .  .  .  .  .  .  .  .  |
+|             Util: 15%                 Peak: Hr 09-10 (2/2 active)         |
+|                                                                            |
+|  REHAB EXOSKELETONS (2 instances)                                         |
+|  REHAB-01   .  .  .  .  .  .  .  .  .  .  #  #  .  .  #  .  .  .  #  .  .  .  .  .  |
+|  REHAB-02   .  .  .  .  .  .  .  .  .  #  .  #  .  .  .  #  .  .  .  .  .  .  .  .  |
+|             Util: 10%                 Peak: Hr 11 (2/2 active)            |
+|                                                                            |
++----------------------------------------------------------------------------+
+|  FLEET UTILIZATION SUMMARY BY HOUR                                        |
+|                                                                            |
+|  Hour   Active/29   Util%    Bar                                          |
+|  ----   ---------   -----    ---                                          |
+|   00       1/29      3.4%    |#                                           |
+|   01       1/29      3.4%    |#                                           |
+|   02       1/29      3.4%    |#                                           |
+|   03       1/29      3.4%    |#                                           |
+|   04       4/29     13.8%    |####                                        |
+|   05       4/29     13.8%    |####                                        |
+|   06       7/29     24.1%    |#######                                     |
+|   07      12/29     41.4%    |############                                |
+|   08      17/29     58.6%    |#################                           |
+|   09      21/29     72.4%    |#####################  <-- PEAK             |
+|   10      20/29     69.0%    |####################                        |
+|   11      19/29     65.5%    |###################                         |
+|   12      17/29     58.6%    |#################                           |
+|   13      13/29     44.8%    |#############                               |
+|   14      12/29     41.4%    |############                                |
+|   15      11/29     37.9%    |###########                                 |
+|   16       8/29     27.6%    |########                                    |
+|   17       6/29     20.7%    |######                                      |
+|   18       4/29     13.8%    |####                                        |
+|   19       2/29      6.9%    |##                                          |
+|   20       3/29     10.3%    |###                                         |
+|   21       1/29      3.4%    |#                                           |
+|   22       1/29      3.4%    |#  (SURG-01 in maintenance, not counted)    |
+|   23       2/29      6.9%    |##                                          |
+|                                                                            |
+|  Daily average utilization: 27.8%                                         |
+|  Peak utilization: 72.4% (Hour 09)                                        |
+|  Minimum utilization: 3.4% (Hours 00-03, 21-22)                          |
+|                                                                            |
++----------------------------------------------------------------------------+
+|  UTILIZATION BY ROBOT TYPE (24-hour average)                              |
+|                                                                            |
+|  Robot Type          Avg Util   Procedures   Procs/Instance               |
+|  ------------------  --------   ----------   --------------               |
+|  RT Positioning        38%         22           7.3                       |
+|  Imaging Assistant     38%         30           7.5                       |
+|  RT Motion-Tracking    37%         26           8.7                       |
+|  Cobots                35%         24           6.0                       |
+|  Needle-Placement      33%         16           8.0                       |
+|  Social Companion      28%         28           5.6                       |
+|  Humanoids             26%         18           6.0                       |
+|  Surgical Robots       24%          7           2.3                       |
+|  Steerable Needle      15%          8           4.0                       |
+|  Rehab Exoskeletons    10%          6           3.0                       |
+|                                                                            |
+|  Highest per-instance: RT Motion-Tracking (8.7 procedures/instance)       |
+|  Lowest per-instance: Surgical Robots (2.3 - long procedure duration)     |
+|                                                                            |
++----------------------------------------------------------------------------+
+|  MAINTENANCE LOG                                                           |
+|                                                                            |
+|  SURG-01: Preventive maintenance 22:15-01:59 (3 hr 44 min)               |
+|           - Instrument tip inspection and replacement                      |
+|           - Force sensor recalibration                                     |
+|           - Sterile drape mechanism service                                |
+|           - Automated self-test sequence                                   |
+|           - Impact: Zero (SURG-02 and SURG-03 available; no surgical      |
+|             demand during overnight hours)                                 |
+|                                                                            |
+|  All other instances: No maintenance required during 24-hour cycle        |
+|  Fleet uptime: 99.7% (692 of 696 instance-hours operational)             |
+|                                                                            |
++============================================================================+
+|  29 INSTANCES | 10 TYPES | 99.7% UPTIME | ~185 PROCEDURES                |
+|  Peak: 21/29 active (Hour 09) | Avg: 8.1/29 active | PSL: 64.4           |
++============================================================================+

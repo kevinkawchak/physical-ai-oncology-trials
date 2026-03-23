@@ -1,0 +1,137 @@
++============================================================================+
+|              PATIENT FLOW DIAGRAM - Hour 13: 13:00-13:59                  |
++============================================================================+
+|                                                                            |
+| TIME  ENTRANCE    CHECK-IN     WAITING     PROCEDURE    RECOVERY  EXIT    |
+| ----  --------    --------     -------     ---------    --------  ----    |
+|                                                                            |
+| 13:00                                      [P0079:SurgSuite1]             |
+|   |                                        (completing surgery)           |
+|   |                                        [~12 carried-over patients     |
+|   |                                         in various stages]            |
+|   |                                                                       |
+| 13:05 P0097 ---> [Kiosk-1] --+                                           |
+|   |    (Mediastinal)  13:05   |                                           |
+|   |                           |                                           |
+| 13:07                         +--> [Pre-op]                               |
+|   |                                    |                                  |
+| 13:10 P0098 ---> [Kiosk-2] --+   [P0079:Surgery COMPLETE]               |
+|   |    (Sarcoma)     13:10    |    R0 resection, 110 min                  |
+|   |                           |        |                                  |
+| 13:11                         +--> [Adult Wait]                           |
+|   |                                    |                                  |
+| 13:12                    P0097 ------> [Suite 3: SURG-03]                |
+|   |                                    Mediastinal excision               |
+|   |                                    (nivolumab pre-op per IND)         |
+| 13:15 P0099 ---> [Kiosk-1] --+        |       [P0079 --> Recovery]       |
+|   |    (Brain mets)   13:15   |        |                                  |
+|   |                           |        |                                  |
+| 13:16                         +--> [Adult Wait]                           |
+|   |                                    |                                  |
+| 13:18                    P0098 ------> [Station 3: COBOT-03]             |
+|   |                                    Forearm sarcoma biopsy             |
+| 13:20 P0100 ---> [Kiosk-2] --+        |                                  |
+|   |    (Ped ALL)      13:20   |        |                                  |
+|   |    (parent)               |        |                                  |
+| 13:21                         +--> [Ped Wait]                             |
+|   |                                    |                                  |
+| 13:24                    P0099 ------> [Vault 1: RTPOS-01]               |
+|   |                                    SRS brain mets, Fr 1/3             |
+| 13:25 P0101 ---> [Kiosk-1] --+        |                                  |
+|   |    (NSCLC adeno)  13:25   |        |                                  |
+|   |                           |        |                                  |
+| 13:26                         +--> [Adult Wait]                           |
+|   |                                    |                                  |
+| 13:28                    P0100 ------> [Play 1: COMPN-01]                |
+|   |                                    Companion anxiety mgmt             |
+| 13:30 P0102 ---> [Kiosk-2] --+        |                                  |
+|   |    (Parotid)      13:30   |        |                                  |
+|   |                           |        |                                  |
+| 13:31                         +--> [Adult Wait]                           |
+|   |                                    |                                  |
+| 13:33                    P0101 ------> [Vault 3: TRACK-03]               |
+|   |                                    RT NSCLC Fr 8/30                   |
+| 13:35 P0103 ---> [Kiosk-1] --+        |                                  |
+|   |    (HCC)          13:35   |        |                                  |
+|   |                           |        |                                  |
+| 13:36                         +--> [Adult Wait]                           |
+|   |                                    |                                  |
+| 13:38                    P0102 ------> [CT Suite 2: NEEDLE-02]           |
+|   |                                    Parotid needle biopsy              |
+| 13:40 P0104 ---> [Kiosk-2] --+        |                                  |
+|   |    (Ped Osteo)    13:40   |        |                                  |
+|   |    (parent)               |        |                                  |
+| 13:41                         +--> [Ped Wait]                             |
+|   |                                    |                                  |
+| 13:42                    P0098 ------> [Recovery] (biopsy done)          |
+|   |                                    |                                  |
+| 13:43                    P0103 ------> [Img Bay 3: IMAGE-03]             |
+|   |                                    HCC liver ultrasound               |
+| 13:45 P0105 ---> [Kiosk-1] --+   [P0079 --> Discharge --> EXIT]         |
+|   |    (Liver mets)   13:45   |        |                                  |
+|   |    (regorafenib per IND)  |        |                                  |
+|   |                           |        |                                  |
+| 13:47                         +--> [Pre-proc]                             |
+|   |                                    |                                  |
+| 13:48                    P0104 ------> [Therapy 2: HUMAN-02]             |
+|   |                                    then [Rehab 2: REHAB-02]           |
+| 13:50 P0106 ---> [Kiosk-2] --+        |                                  |
+|   |    (NSCLC squa)   13:50   |        |                                  |
+|   |                           |        |                                  |
+| 13:51                         +--> [Adult Wait]                           |
+|   |                                    |                                  |
+| 13:52                    P0099 ------> [Discharge --> EXIT]              |
+|   |                             P0101 --> [Discharge --> EXIT]            |
+|   |                                    |                                  |
+| 13:53                    P0105 ------> [Ablation 2: STEER-02]            |
+|   |                                    Liver met ablation (MRI)           |
+| 13:55                    P0098 ------> [Discharge --> EXIT]              |
+|   |                                    |                                  |
+| 13:56                    P0102 ------> [Discharge --> EXIT]              |
+|   |                                    |                                  |
+| 13:57                    P0106 ------> [Vault 1: TRACK-01]               |
+|   |                                    RT NSCLC Fr 15/30 (cal.)           |
+| 13:58                    P0103 ------> [Discharge pending]               |
+|   |                                    |                                  |
+| 13:59                                  [4 procedures ongoing:            |
+|                                         P0097 surgery SURG-03            |
+|                                         P0100 companion COMPN-01         |
+|                                         P0104 rehab REHAB-02             |
+|                                         P0105 ablation STEER-02          |
+|                                         P0106 RT cal. TRACK-01]          |
+|                                                                            |
++============================================================================+
+| PATIENT FLOW SUMMARY - Hour 13                                            |
+|                                                                            |
+| Arrivals: 10 patients (sustained high volume)                             |
+|   P0097 (61M, Mediastinal)    --> Surgery SURG-03 --> ongoing             |
+|   P0098 (43F, Sarcoma)        --> Biopsy COBOT-03 --> Discharged          |
+|   P0099 (66M, Brain mets)     --> SRS RTPOS-01    --> Discharged          |
+|   P0100 (9F, Ped ALL)         --> Companion COMPN-01 --> ongoing          |
+|   P0101 (54M, NSCLC adeno)    --> RT TRACK-03     --> Discharged          |
+|   P0102 (47F, Parotid)        --> Needle NEEDLE-02 --> Discharged         |
+|   P0103 (70M, HCC)            --> Imaging IMAGE-03 --> Pending discharge  |
+|   P0104 (12M, Ped Osteosarc)  --> HUMAN-02/REHAB-02 --> ongoing          |
+|   P0105 (59F, Liver mets)     --> Ablation STEER-02 --> ongoing           |
+|   P0106 (65M, NSCLC squa)     --> RT TRACK-01     --> calibration         |
+|                                                                            |
+| Completions this hour:                                                    |
+|   P0079 surgery complete (R0, 110 min) --> discharged to recovery         |
+|   P0098 biopsy complete --> discharged                                    |
+|   P0099 SRS fraction 1 complete --> discharged                            |
+|   P0101 RT fraction 8 complete --> discharged                             |
+|   P0102 parotid biopsy complete --> discharged                            |
+|   P0103 imaging complete --> pending discharge                            |
+|                                                                            |
+| Cancer types active this hour: 8 distinct types                           |
+|   Mediastinal tumor, Forearm sarcoma, Brain metastases, Pediatric ALL,    |
+|   NSCLC adenocarcinoma, Parotid tumor, HCC, Pediatric osteosarcoma,       |
+|   Liver metastases, NSCLC squamous                                        |
+|                                                                            |
+| Wait times: P0097=2m, P0098=7m, P0099=8m, P0100=7m, P0101=7m,           |
+|             P0102=7m, P0103=7m, P0104=7m, P0105=2m, P0106=6m             |
+| Average wait: 6.0 minutes                                                 |
+|                                                                            |
+| IND drugs: nivolumab (P0097), regorafenib (P0105)                        |
+| Adverse events: 0                                                         |
++============================================================================+

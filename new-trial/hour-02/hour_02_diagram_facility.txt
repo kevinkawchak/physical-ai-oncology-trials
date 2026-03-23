@@ -1,0 +1,102 @@
++============================================================================+
+|              ON-DEMAND PHYSICAL AI ONCOLOGY TRIAL FACILITY                 |
+|                    Hour 02: 02:00-02:59 Status                            |
+|  Released on 23 March 2026 | CEO Kevin Kawchak | ChemicalQDevice          |
++============================================================================+
+|                                                                            |
+|  ENTRANCE / CHECK-IN (1,500 sq ft)                                        |
+|  +--------------------------------------------------------------------+   |
+|  | [KIOSK-1: idle] [KIOSK-2: idle] [KIOSK-3: idle] [KIOSK-4: idle]   |   |
+|  | Patients checked in this hour: 1 (PAT-ODMND-0007 at 02:35)        |   |
+|  +--------------------------------------------------------------------+   |
+|                                                                            |
+|  WAITING AREAS                                                            |
+|  +-------------------------------+  +-------------------+                 |
+|  | ADULT WAITING (2,000 sq ft)   |  | PEDIATRIC WAITING |                 |
+|  | Occupancy: 0/50               |  | (800 sq ft)       |                 |
+|  | [empty - overnight]           |  | Occ: 0/15         |                 |
+|  +-------------------------------+  +-------------------+                 |
+|                                                                            |
+|  SURGICAL WING                                                            |
+|  +-------------------+-------------------+-------------------+            |
+|  | SUITE 1 (600)     | SUITE 2 (600)     | SUITE 3 (600)     |            |
+|  | SURG-01: standby  | SURG-02: standby  | SURG-03: standby  |            |
+|  | Patient: none     | Patient: none     | Patient: none     |            |
+|  +-------------------+-------------------+-------------------+            |
+|                                                                            |
+|  BIOPSY WING                                                              |
+|  +------------+------------+------------+------------+                    |
+|  | STN 1(200) | STN 2(200) | STN 3(200) | STN 4(200) |                    |
+|  | COBOT-01   | COBOT-02   | COBOT-03   | COBOT-04   |                    |
+|  | standby    | standby    | *maint*    | standby    |                    |
+|  |            |            | 02:00-02:30|            |                    |
+|  +------------+------------+------------+------------+                    |
+|                                                                            |
+|  RADIOTHERAPY VAULTS (shielded)                                           |
+|  +---------------------+---------------------+---------------------+     |
+|  | VAULT 1 (1,200)     | VAULT 2 (1,200)     | VAULT 3 (1,200)     |     |
+|  | RTPOS-01: standby   | RTPOS-02: *active*  | RTPOS-03: standby   |     |
+|  | TRACK-01: standby   | TRACK-02: *active*  | TRACK-03: standby   |     |
+|  | Patient: none       | PAT-ODMND-0007 (RT) | Patient: none       |     |
+|  |                     | 02:40-02:58         |                     |     |
+|  +---------------------+---------------------+---------------------+     |
+|                                                                            |
+|  CT-GUIDED / NEEDLE WING                                                  |
+|  +---------------------+---------------------+                           |
+|  | CT SUITE 1 (400)    | CT SUITE 2 (400)    |                           |
+|  | NEEDLE-01: standby  | NEEDLE-02: standby  |                           |
+|  +---------------------+---------------------+                           |
+|                                                                            |
+|  PEDIATRIC WING                                                           |
+|  +---------+---------+---------+---------+---------+                      |
+|  | PLAY 1  | PLAY 2  | PLAY 3  | PLAY 4  | PLAY 5  |                      |
+|  | COMPN-01| COMPN-02| COMPN-03| COMPN-04| COMPN-05|                      |
+|  | standby | standby | monitor | standby | standby |                      |
+|  |         |         |PAT-0005 |         |         |                      |
+|  +---------+---------+---------+---------+---------+                      |
+|  +-------------+-------------+-------------+                             |
+|  | THERAPY 1   | THERAPY 2   | THERAPY 3   |                             |
+|  | HUMAN-01    | HUMAN-02    | HUMAN-03    |                             |
+|  | standby     | *charging*  | standby     |                             |
+|  |             | 91%->95.8%  |             |                             |
+|  +-------------+-------------+-------------+                             |
+|                                                                            |
+|  IMAGING WING                                                             |
+|  +------------+------------+------------+------------+                    |
+|  | BAY 1(300) | BAY 2(300) | BAY 3(300) | BAY 4(300) |                    |
+|  | IMAGE-01   | IMAGE-02   | IMAGE-03   | IMAGE-04   |                    |
+|  | standby    | standby    | standby    | standby    |                    |
+|  +------------+------------+------------+------------+                    |
+|                                                                            |
+|  INTERVENTIONAL WING                                                      |
+|  +---------------------+---------------------+                           |
+|  | ABLATION 1 (500)    | ABLATION 2 (500)    |                           |
+|  | STEER-01: standby   | STEER-02: standby   |                           |
+|  +---------------------+---------------------+                           |
+|                                                                            |
+|  REHABILITATION WING                                                      |
+|  +---------------+---------------+---------------+                        |
+|  | BAY 1 (400)   | BAY 2 (400)   | BAY 3 (400)   |                        |
+|  | REHAB-01      | REHAB-02      | REHAB-03      |                        |
+|  | standby       | standby       | standby       |                        |
+|  +---------------+---------------+---------------+                        |
+|                                                                            |
+|  RECOVERY WING (12 bays, 120 sq ft each)                                 |
+|  +-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+--+--+   |
+|  | B1  | B2  | B3  | B4  | B5  | B6  | B7  | B8  | B9  |B10 |11|12|   |
+|  |empty|empty|P0003|empty|empty|empty|empty|empty|empty|empt|  |  |   |
+|  +-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+--+--+   |
+|  Note: P0006 discharged from B5 at 02:10                                 |
+|                                                                            |
+|  SUPPORT AREAS                                                            |
+|  +----------------+----------+--------------+----------+-----------+      |
+|  | PHARMACY (800) | SERVER   | ROBOT MAINT  | EMERG    | STAFF     |      |
+|  | Drug inventory | ROOM(600)| BAY (1,000)  | (400)    | AREA(1200)|      |
+|  | secure/locked  | AI comp  | COBOT-03 cal | Standby  | Night SSO |      |
+|  +----------------+----------+--------------+----------+-----------+      |
+|                                                                            |
++============================================================================+
+| Legend: *active* = robot serving patient | *maint* = maintenance           |
+|         *charging* = battery charge cycle | standby = ready, no patient    |
+| Hour 02 Summary: 3 patients on-site (end), 2 robots active, 1 maint       |
++============================================================================+

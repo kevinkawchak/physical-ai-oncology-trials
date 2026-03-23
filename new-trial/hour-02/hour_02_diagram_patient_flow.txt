@@ -1,0 +1,80 @@
++============================================================================+
+|              PATIENT FLOW DIAGRAM - Hour 02: 02:00-02:59                  |
+|  Released on 23 March 2026 | CEO Kevin Kawchak | ChemicalQDevice          |
++============================================================================+
+|                                                                            |
+| TIME  ENTRANCE    CHECK-IN     WAITING     PROCEDURE    RECOVERY  EXIT    |
+| ----  --------    --------     -------     ---------    --------  ----    |
+|                                                                            |
+| 02:00                                                   [P0003:RecBay3]   |
+|   |                                                     [P0005:PedWard]   |
+|   |                                                     [P0006:RecBay5]   |
+|   |                                                                       |
+| 02:05                                                   [P0003:RecBay3]   |
+|   |                                                     [P0005:PedWard]   |
+|   |                                                     [P0006:RecBay5]   |
+|   |                                                      results review   |
+|   |                                                                       |
+| 02:10                                                   [P0003:RecBay3]   |
+|   |                                                     [P0005:PedWard]   |
+|   |                                                     [P0006:Discharged]|
+|   |                                                         ---> EXIT     |
+|   |                                                                       |
+| 02:15                                                   [P0003:RecBay3]   |
+|   |                                                     [P0005:PedWard]   |
+|   |                                                                       |
+| 02:20                                                   [P0003:RecBay3]   |
+|   |                                                     [P0005:PedWard]   |
+|   |                                                                       |
+| 02:25                                                   [P0003:RecBay3]   |
+|   |                                                     [P0005:PedWard]   |
+|   |                                                                       |
+| 02:30                                                   [P0003:RecBay3]   |
+|   |                                                     [P0005:PedWard]   |
+|   |                                                                       |
+| 02:35 P0007 ---> [Kiosk-1] --+                         [P0003:RecBay3]   |
+|   |    (NSCLC)     02:35      |                         [P0005:PedWard]   |
+|   |                           |                                           |
+| 02:36                         +--> [Adult Wait]                           |
+|   |                                    |                                  |
+| 02:39                                  |                                  |
+|   |                                    |                                  |
+| 02:40                                  +--> [Vault 2: RTPOS-02/TRACK-02] |
+|   |                                         RT Motion-Tracking            |
+|   |                                         PAT-ODMND-0007               |
+|   |                                         Fraction 8/30                |
+| 02:45                                       |                             |
+|   |                                         |                             |
+| 02:50                                       |                             |
+|   |                                         |                             |
+| 02:55                                       |                             |
+|   |                                         |                             |
+| 02:58                                  [Complete]                         |
+|   |                                    P0007 --> Post-treatment            |
+|   |                                    (discharge pending Hour 03)        |
+| 02:59                                                                     |
+|                                                                            |
++============================================================================+
+| PATIENT FLOW SUMMARY - Hour 02                                            |
+|                                                                            |
+| Arrivals: 1 patient                                                       |
+|   PAT-ODMND-0007 (58F, NSCLC sq) --> RT Motion-Tracking --> Pending disch |
+|                                                                            |
+| Departures: 1 patient                                                     |
+|   PAT-ODMND-0006 (45M, Liver mets) --> Discharged 02:10 (imaging review) |
+|                                                                            |
+| Overnight patients continuing: 2                                          |
+|   PAT-ODMND-0003 (61M, mediastinal) - recovery, improving vitals         |
+|   PAT-ODMND-0005 (8M, ALL) - pediatric ward, sleeping                    |
+|                                                                            |
+| Cancer types active this hour:                                            |
+|   NSCLC squamous cell (P0007) - RT treatment                              |
+|   Mediastinal tumor (P0003) - post-surgical recovery                      |
+|   Liver metastases (P0006) - discharged post-imaging                      |
+|   Pediatric ALL (P0005) - overnight monitoring                            |
+|                                                                            |
+| Wait times: P0007 = 4 min (02:36-02:40)                                  |
+| Average wait: 4.0 minutes                                                 |
+|                                                                            |
+| End of hour: 3 patients on-site (P0003, P0005, P0007)                    |
++============================================================================+

@@ -1,0 +1,91 @@
++============================================================================+
+|              ROBOT STATUS TIMELINE - Hour 17: 17:00-17:59                 |
+|              Evening Peak - 62% Utilization (2nd Highest)                 |
++============================================================================+
+|                                                                            |
+| Robot Instance   |00  05  10  15  20  25  30  35  40  45  50  55| Util%   |
+| -----------------+----------------------------------------------+-------  |
+|                  |                                              |         |
+| SURGICAL ROBOTS  |                                              |         |
+| SURG-01          |[A] [C] [C] [C] [C] [C] [C] [C] [I] [I] [I] [I]| 8.3% |
+|                  |P0116    cleaning/sterilization                |         |
+| SURG-02          |[I] [I] [I] [A] [A] [A] [A] [A] [A] [A] [A] [A]| 75.0%|
+|                  |         P0134 mediastinal resection (ongoing)  |        |
+| SURG-03          |[I] [I] [I] [I] [I] [I] [I] [I] [I] [I] [I] [I]| 0.0% |
+|                  |                                              |         |
+| COBOTS           |                                              |         |
+| COBOT-01         |[I] [I] [I] [I] [I] [I] [I] [I] [I] [I] [I] [I]| 0.0% |
+| COBOT-02         |[I] [I] [I] [I] [I] [I] [I] [I] [I] [I] [I] [I]| 0.0% |
+| COBOT-03         |[I] [I] [I] [I] [I] [I] [I] [I] [I] [I] [I] [I]| 0.0% |
+| COBOT-04         |[I] [I] [A] [A] [A] [A] [C] [I] [I] [I] [I] [I]| 26.7%|
+|                  |     P0135 forearm biopsy    cln               |        |
+|                  |                                              |         |
+| RT POSITIONING   |                                              |         |
+| RTPOS-01         |[I] [I] [I] [I] [I] [I] [I] [I] [I] [I] [I] [I]| 0.0% |
+| RTPOS-02         |[I] [I] [I] [A] [A] [A] [A] [A] [A] [A] [C] [I]| 58.3%|
+|                  |         P0136 SRS mask + CT sim         cln   |        |
+| RTPOS-03         |[I] [I] [I] [I] [I] [I] [I] [I] [I] [I] [I] [I]| 0.0% |
+|                  |                                              |         |
+| NEEDLE-PLACEMENT |                                              |         |
+| NEEDLE-01        |[I] [I] [I] [I] [I] [I] [A] [A] [A] [A] [C] [I]| 33.3%|
+|                  |                     P0139 parotid biopsy cln   |        |
+| NEEDLE-02        |[I] [I] [I] [I] [I] [I] [I] [I] [I] [I] [I] [I]| 0.0% |
+|                  |                                              |         |
+| SOCIAL COMPANION |                                              |         |
+| COMPN-01         |[I] [I] [I] [I] [I] [I] [I] [I] [I] [I] [I] [I]| 0.0% |
+| COMPN-02         |[I] [I] [I] [I] [I] [I] [I] [I] [I] [I] [I] [I]| 0.0% |
+| COMPN-03         |[I] [I] [I] [I] [I] [I] [I] [I] [I] [I] [I] [I]| 0.0% |
+| COMPN-04         |[I] [I] [I] [I] [I] [I] [I] [I] [I] [I] [I] [I]| 0.0% |
+| COMPN-05         |[I] [I] [I] [I] [A] [A] [A] [A] [A] [A] [A] [I]| 58.3%|
+|                  |              P0137 pediatric AML companion     |        |
+|                  |                                              |         |
+| HUMANOIDS        |                                              |         |
+| HUMAN-01         |[I] [I] [I] [I] [I] [I] [I] [I] [I] [I] [I] [I]| 0.0% |
+| HUMAN-02         |[I] [I] [I] [I] [I] [I] [I] [I] [A] [A] [A] [A]| 26.7%|
+|                  |                              P0141 ped osteo   |        |
+| HUMAN-03         |[I] [I] [I] [I] [I] [I] [I] [I] [I] [I] [I] [I]| 0.0% |
+|                  |                                              |         |
+| RT MOTION-TRACK  |                                              |         |
+| TRACK-01         |[I] [I] [I] [I] [I] [I] [I] [I] [I] [I] [A] [A]| 16.7%|
+|                  |                                    P0143 frac  |        |
+| TRACK-02         |[I] [I] [I] [I] [I] [I] [I] [I] [I] [I] [I] [I]| 0.0% |
+| TRACK-03         |[I] [I] [I] [I] [I] [A] [A] [A] [A] [A] [A] [C]| 50.0%|
+|                  |              P0138 RT frac 3/5              cln|        |
+|                  |                                              |         |
+| IMAGING ASST     |                                              |         |
+| IMAGE-01         |[I] [I] [I] [I] [I] [I] [I] [I] [I] [I] [I] [I]| 0.0% |
+| IMAGE-02         |[I] [I] [I] [I] [I] [I] [I] [A] [A] [A] [A] [A]| 33.3%|
+|                  |                        P0140 HCC MRI + CT     |        |
+| IMAGE-03         |[I] [I] [I] [I] [I] [I] [I] [I] [I] [I] [I] [I]| 0.0% |
+| IMAGE-04         |[I] [I] [I] [I] [I] [I] [I] [I] [I] [I] [I] [I]| 0.0% |
+|                  |                                              |         |
+| STEERABLE NEEDLE |                                              |         |
+| STEER-01         |[I] [I] [I] [I] [I] [I] [I] [I] [I] [I] [I] [I]| 0.0% |
+| STEER-02         |[I] [I] [I] [I] [I] [I] [I] [I] [I] [A] [A] [A]| 25.0%|
+|                  |                                 P0142 ablation |        |
+|                  |                                 AE:SpO2 17:48 |        |
+|                  |                                              |         |
+| REHAB EXOSKEL    |                                              |         |
+| REHAB-01         |[I] [I] [I] [I] [I] [I] [I] [I] [I] [I] [I] [I]| 0.0% |
+| REHAB-02         |[I] [I] [I] [I] [I] [I] [I] [I] [I] [I] [I] [A]| 8.3% |
+|                  |                                         P0144 |        |
+| REHAB-03         |[I] [I] [I] [I] [I] [I] [I] [I] [I] [I] [I] [I]| 0.0% |
+|                  |                                              |         |
++============================================================================+
+| LEGEND: [A]=Active [I]=Idle [C]=Cleaning [M]=Maintenance [E]=Error        |
+|                                                                            |
+| Note: Additional robots from prior hours serving continuing patients       |
+| are counted toward the ~62% site utilization but are logged in their       |
+| respective hourly files. This timeline shows Hour 17 new assignments.      |
+|                                                                            |
+| UTILIZATION BY ROBOT TYPE (Hour 17 new assignments)                       |
+| Surgical:   27.8% | Cobots:     6.7% | RT Position: 19.4%                |
+| Needle:     16.7% | Companion: 11.7% | Humanoids:   8.9%                 |
+| RT Tracking: 22.2% | Imaging:   8.3% | Steerable:  12.5%                 |
+| Rehab:       2.8%                                                         |
+|                                                                            |
+| OVERALL SITE UTILIZATION: ~62% (evening peak, 2nd highest of day)        |
+| Active robot instances this hour: 18 of 29                                |
+| Adverse event: P0142 STEER-02, SpO2 91% at 17:48 (Grade 1, resolved)    |
+| Per 21 CFR 312.32 and 21 CFR 812.150                                     |
++============================================================================+

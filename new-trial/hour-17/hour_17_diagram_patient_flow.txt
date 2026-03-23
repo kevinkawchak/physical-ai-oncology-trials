@@ -1,0 +1,132 @@
++============================================================================+
+|              PATIENT FLOW DIAGRAM - Hour 17: 17:00-17:59                  |
+|              Evening Peak - 11 New Arrivals                               |
++============================================================================+
+|                                                                            |
+| TIME  ENTRANCE    CHECK-IN     WAITING     PROCEDURE    RECOVERY  EXIT    |
+| ----  --------    --------     -------     ---------    --------  ----    |
+|                                                                            |
+| 17:00 P0134 ---> [Kiosk-1] --+           [P0116:Suite1 closing]           |
+|   |    (57M       17:00      |            [Prior patients active]         |
+|   |     mediastin)           |                                            |
+| 17:02                        +--> [Pre-Op Hold]                           |
+|   |                                    |                                  |
+| 17:05 P0135 ---> [Kiosk-2] --+        |   [P0116: COMPLETE]             |
+|   |    (34F       17:05      |        |    R0 resection, 105 min         |
+|   |     sarcoma)             |        |    EBL 160 mL                    |
+|   |                          |        |    P0116 --> [RecBay1]           |
+| 17:08                        +-->Wait |                                  |
+|   |                               |   |                                  |
+| 17:10 P0136 ---> [Kiosk-1] --+   |   |                                  |
+|   |    (71M       17:10      |   |   |                                   |
+|   |     brain met)           |   |   |                                   |
+| 17:12                        +-->Wait|                                   |
+|   |                           |  |   +--> [Suite2: SURG-02]             |
+|   |                           |  |        P0134 surgery begins           |
+|   |                           |  +--> [BiopsyStn4: COBOT-04]            |
+|   |                           |       P0135 forearm biopsy               |
+| 17:15 P0137 ---> [PedKiosk]--+                                          |
+|   |    (6M        17:15      |                                           |
+|   |     ped AML)             |                                           |
+| 17:16                        +--> [Ped Wait]                             |
+|   |                                |                                     |
+| 17:18                              |  +--> [Vault2: RTPOS-02]           |
+|   |                                |  |    P0136 SRS positioning         |
+| 17:20 P0138 ---> [Kiosk-3] --+    |  |                                  |
+|   |    (49F       17:20      |    |  |                                   |
+|   |     NSCLC)               |    |  |                                   |
+| 17:22                        +-->Wait|  +--> [PlayRm5: COMPN-05]        |
+|   |                           |      |       P0137 companion session     |
+| 17:25 P0139 ---> [Kiosk-1] --+      |                                   |
+|   |    (62M       17:25      |      |                                    |
+|   |     parotid)             |      |                                    |
+| 17:27                        +-->Wait                                    |
+|   |                           |                                          |
+| 17:28                         |  P0135 biopsy [Complete]                 |
+|   |                           |  P0135 --> [RecBay4]                     |
+|   |                           +--> [Vault3: TRACK-03]                    |
+|   |                                P0138 RT fraction 3/5                 |
+| 17:30 P0140 ---> [Kiosk-2] --+                                          |
+|   |    (68F       17:30      |                                           |
+|   |     HCC)                 |                                           |
+| 17:32                        +-->Wait                                    |
+|   |                           |  +--> [CTSuite1: NEEDLE-01]             |
+|   |                           |       P0139 parotid needle biopsy        |
+| 17:35 P0141 ---> [PedKiosk]--+                                          |
+|   |    (11F       17:35      |                                           |
+|   |     ped osteo)           |                                           |
+| 17:37                        +--> [Ped Wait]                             |
+|   |                                |                                     |
+| 17:38                              |  +--> [ImgBay2: IMAGE-02]          |
+|   |                                |       P0140 HCC MRI+CT              |
+| 17:40 P0142 ---> [Kiosk-3] --+    |                                     |
+|   |    (76M       17:40      |    |                                      |
+|   |     liver met)           |    |                                      |
+| 17:42                        +-->Wait                                    |
+|   |                           |  +--> [TherapyRm2: HUMAN-02]            |
+|   |                           |       P0141 humanoid rehab orient        |
+| 17:45 P0143 ---> [Kiosk-1] --+                                          |
+|   |    (52F       17:45      |                                           |
+|   |     NSCLC sq)            |  +--> [Ablation2: STEER-02]              |
+|   |                          |       P0142 liver ablation                |
+| 17:47                        +-->Wait                                    |
+|   |                           |                                          |
+| 17:48                         |  P0136 positioning [Complete]            |
+|   |                           |  P0136 --> [Waiting: discharge]          |
+|   |                           |  **P0142 AE: SpO2 91%**                 |
+|   |                           |  Repositioned, O2 increased             |
+| 17:50                         |  P0139 needle [Complete]                |
+|   |                           |  P0139 --> [RecBay8]                    |
+|   |                           |  P0142 SpO2 recovered to 96%            |
+|   |                           +--> [Vault1: TRACK-01]                   |
+|   |                                P0143 RT fraction 18/30               |
+| 17:52 P0144 ---> [Kiosk-2] --+                                          |
+|   |    (64M       17:52      |   P0138 RT [Complete]                    |
+|   |     femur)               |   P0138 --> [RecBay6]                    |
+| 17:54                        +-->Wait                                    |
+|   |                           |                                          |
+| 17:55                         |  P0137 companion [Complete]              |
+|   |                           |  P0137 --> [PedWard]                    |
+|   |                           +--> [RehabBay2: REHAB-02]                |
+|   |                                P0144 exoskeleton gait training       |
+| 17:58                            P0140 imaging [Complete]                |
+|   |                              P0140 --> [Waiting: results]            |
+|   |                              P0141 humanoid [Complete]               |
+|   |                              P0141 --> [PedWard]                    |
+| 17:59                            [4 procedures continuing to Hour 18]    |
+|                                  P0134 surgery (SURG-02)                 |
+|                                  P0142 ablation (STEER-02)               |
+|                                  P0143 RT (TRACK-01)                     |
+|                                  P0144 rehab (REHAB-02)                  |
+|                                                                            |
++============================================================================+
+| PATIENT FLOW SUMMARY - Hour 17                                            |
+|                                                                            |
+| Arrivals: 11 patients (evening peak, second highest volume)               |
+|   PAT-ODMND-0134 (57M, Mediastinal)   --> Surgery (continuing)           |
+|   PAT-ODMND-0135 (34F, Sarcoma)       --> Biopsy --> Recovery Bay 4      |
+|   PAT-ODMND-0136 (71M, Brain mets)    --> RT Positioning --> Waiting     |
+|   PAT-ODMND-0137 (6M, Ped AML)        --> Companion --> Ped Ward         |
+|   PAT-ODMND-0138 (49F, NSCLC adeno)   --> RT Treatment --> Recovery 6    |
+|   PAT-ODMND-0139 (62M, Parotid)       --> Needle Biopsy --> Recovery 8   |
+|   PAT-ODMND-0140 (68F, HCC)           --> Imaging --> Waiting            |
+|   PAT-ODMND-0141 (11F, Ped Osteo)     --> Humanoid --> Ped Ward          |
+|   PAT-ODMND-0142 (76M, Liver mets)    --> Ablation (continuing, AE)     |
+|   PAT-ODMND-0143 (52F, NSCLC sq)      --> RT Treatment (continuing)     |
+|   PAT-ODMND-0144 (64M, Femur osteo)   --> Rehab (continuing)            |
+|                                                                            |
+| Completed this hour: P0116 surgery (R0, 105 min, EBL 160 mL)            |
+|                                                                            |
+| Adverse events: 1 (P0142 SpO2 91%, Grade 1, resolved)                   |
+|   Per 21 CFR 312.32 (IND safety) and 21 CFR 812.150 (device reporting)  |
+|                                                                            |
+| Concurrent patients at peak: ~24                                          |
+| Robot utilization: ~62% (18 of 29 instances active)                      |
+|                                                                            |
+| IND drugs: Atezolizumab (P0134), Sorafenib (P0142)                      |
+|   Per 21 CFR 312.23 and 21 CFR 312.62                                   |
+|                                                                            |
+| Wait times: P0134=2m, P0135=5m, P0136=6m, P0137=5m, P0138=5m,          |
+|   P0139=5m, P0140=5m, P0141=5m, P0142=3m, P0143=3m, P0144=3m           |
+| Average wait: 4.3 minutes                                                |
++============================================================================+

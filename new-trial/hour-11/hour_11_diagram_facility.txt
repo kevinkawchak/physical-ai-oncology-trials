@@ -1,0 +1,109 @@
++============================================================================+
+|              ON-DEMAND PHYSICAL AI ONCOLOGY TRIAL FACILITY                 |
+|                    Hour 11: 11:00-11:59 Status                            |
+|  Released on 23 March 2026 | CEO Kevin Kawchak | ChemicalQDevice         |
++============================================================================+
+|                                                                            |
+|  ENTRANCE / CHECK-IN (1,500 sq ft)                                        |
+|  +--------------------------------------------------------------------+   |
+|  | [KIOSK-1: active] [KIOSK-2: active] [KIOSK-3: active] [KIOSK-4]   |   |
+|  | Patients checked in this hour: 13    Avg wait: 6 min               |   |
+|  +--------------------------------------------------------------------+   |
+|                                                                            |
+|  WAITING AREAS                                                            |
+|  +-------------------------------+  +-------------------+                 |
+|  | ADULT WAITING (2,000 sq ft)   |  | PEDIATRIC WAITING |                 |
+|  | Occupancy: 8/50               |  | (800 sq ft)       |                 |
+|  | Queue: 2 avg                  |  | Occ: 3/15         |                 |
+|  | [P0073-P0085 rotating]        |  | [P0076,P0080,fam] |                 |
+|  +-------------------------------+  +-------------------+                 |
+|                                                                            |
+|  SURGICAL WING                                                            |
+|  +-------------------+-------------------+-------------------+            |
+|  | SUITE 1 (600)     | SUITE 2 (600)     | SUITE 3 (600)     |            |
+|  | SURG-01: *active*  | SURG-02: *active*  | SURG-03: standby  |            |
+|  | PAT-0065 (surg)   | PAT-0079 (surg)   | Patient: none     |            |
+|  | ongoing from H10  | started 11:30     |                   |            |
+|  +-------------------+-------------------+-------------------+            |
+|                                                                            |
+|  BIOPSY WING                                                              |
+|  +------------+------------+------------+------------+                    |
+|  | STN 1(200) | STN 2(200) | STN 3(200) | STN 4(200) |                    |
+|  | COBOT-01   | COBOT-02   | COBOT-03   | COBOT-04   |                    |
+|  | active     | active     | *active*   | *active*   |                    |
+|  | prior pt   | prior pt   | PAT-0074   | PAT-0083   |                    |
+|  +------------+------------+------------+------------+                    |
+|                                                                            |
+|  RADIOTHERAPY VAULTS (shielded)                                           |
+|  +---------------------+---------------------+---------------------+     |
+|  | VAULT 1 (1,200)     | VAULT 2 (1,200)     | VAULT 3 (1,200)     |     |
+|  | RTPOS-01: *active*   | RTPOS-02: standby   | RTPOS-03: *active*   |     |
+|  | TRACK-01: standby   | TRACK-02: *active*   | TRACK-03: standby   |     |
+|  | PAT-0084 (mask)     | PAT-0073 (RT)       | PAT-0075 (RT)       |     |
+|  | PAT-0082 (RT/TRK3) |                     |                     |     |
+|  +---------------------+---------------------+---------------------+     |
+|                                                                            |
+|  CT-GUIDED / NEEDLE WING                                                  |
+|  +---------------------+---------------------+                           |
+|  | CT SUITE 1 (400)    | CT SUITE 2 (400)    |                           |
+|  | NEEDLE-01: active   | NEEDLE-02: *active*  |                           |
+|  | prior pt            | PAT-0077 (FNA)      |                           |
+|  +---------------------+---------------------+                           |
+|                                                                            |
+|  PEDIATRIC WING                                                           |
+|  +---------+---------+---------+---------+---------+                      |
+|  | PLAY 1  | PLAY 2  | PLAY 3  | PLAY 4  | PLAY 5  |                      |
+|  | COMPN-01| COMPN-02| COMPN-03| COMPN-04| COMPN-05|                      |
+|  | active  | standby | active  |*active* | standby |                      |
+|  |prior pt |         |prior pt |PAT-0076 |         |                      |
+|  +---------+---------+---------+---------+---------+                      |
+|  +-------------+-------------+-------------+                             |
+|  | THERAPY 1   | THERAPY 2   | THERAPY 3   |                             |
+|  | HUMAN-01    | HUMAN-02    | HUMAN-03    |                             |
+|  | active      | standby     | *active*    |                             |
+|  | prior pt    |             | PAT-0080    |                             |
+|  +-------------+-------------+-------------+                             |
+|                                                                            |
+|  IMAGING WING                                                             |
+|  +------------+------------+------------+------------+                    |
+|  | BAY 1(300) | BAY 2(300) | BAY 3(300) | BAY 4(300) |                    |
+|  | IMAGE-01   | IMAGE-02   | IMAGE-03   | IMAGE-04   |                    |
+|  | active     | active     | standby    | *active*   |                    |
+|  | prior pt   | prior pt   |            | PAT-0078   |                    |
+|  +------------+------------+------------+------------+                    |
+|                                                                            |
+|  INTERVENTIONAL WING                                                      |
+|  +---------------------+---------------------+                           |
+|  | ABLATION 1 (500)    | ABLATION 2 (500)    |                           |
+|  | STEER-01: active    | STEER-02: *active*   |                           |
+|  | prior pt            | PAT-0081 (AE 11:45) |                           |
+|  +---------------------+---------------------+                           |
+|                                                                            |
+|  REHABILITATION WING                                                      |
+|  +---------------+---------------+---------------+                        |
+|  | BAY 1 (400)   | BAY 2 (400)   | BAY 3 (400)   |                        |
+|  | REHAB-01      | REHAB-02      | REHAB-03      |                        |
+|  | *active*      | *active*      | standby       |                        |
+|  | PAT-0080      | PAT-0085      |               |                        |
+|  +---------------+---------------+---------------+                        |
+|                                                                            |
+|  RECOVERY WING (12 bays, 120 sq ft each)                                 |
+|  +-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+--+--+   |
+|  | B1  | B2  | B3  | B4  | B5  | B6  | B7  | B8  | B9  |B10 |11|12|   |
+|  |prior|prior|prior|P0044|prior|P0081|prior|prior|prior|prio|  |  |   |
+|  +-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+--+--+   |
+|                                                                            |
+|  SUPPORT AREAS                                                            |
+|  +----------------+----------+--------------+----------+-----------+      |
+|  | PHARMACY (800) | SERVER   | ROBOT MAINT  | EMERG    | STAFF     |      |
+|  | IND: pembroli- | ROOM(600)| BAY (1,000)  | (400)    | AREA(1200)|      |
+|  | zumab disp.    | AI comp  | All clear    | Standby  | Day SSO-D2|      |
+|  | Lidocaine disp | 19 active| No maint     |          |           |      |
+|  +----------------+----------+--------------+----------+-----------+      |
+|                                                                            |
++============================================================================+
+| Legend: *active* = robot serving new H11 patient | active = continuing     |
+| Hour 11 Summary: ~28 patients, 19 robots active, 8 standby, 2 cleaning   |
+| Adverse Event: AE-011-001 (P0081, STEER-02, Grade 2, resolved)           |
+| Site PSL: 64.7 | Robot utilization: ~65%                                  |
++============================================================================+

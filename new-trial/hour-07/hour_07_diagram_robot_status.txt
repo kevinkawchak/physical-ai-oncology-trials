@@ -1,0 +1,95 @@
++============================================================================+
+|              ROBOT STATUS TIMELINE - Hour 07: 07:00-07:59                 |
+|  Released on 23 March 2026 | CEO Kevin Kawchak | ChemicalQDevice         |
+|  Refs: ICH E6(R3), 21 CFR 50, 21 CFR 312                                |
+|  USL: DOI 10.5281/zenodo.18778220 | DOI 10.5281/zenodo.19119939          |
++============================================================================+
+|                                                                            |
+| Robot Instance   |00  05  10  15  20  25  30  35  40  45  50  55| Util%   |
+| -----------------+----------------------------------------------+-------  |
+|                  |                                              |         |
+| SURGICAL ROBOTS  |                                              |         |
+| SURG-01          |[I] [I] [I] [I] [I] [I] [P] [P] [A] [A] [A] [A]| 33.3%|
+|                  |                          prep prep PAT-ODMND-0024     |
+|                  |                               mediastinal resection   |
+| SURG-02          |[I] [I] [I] [I] [I] [I] [I] [I] [I] [I] [I] [I]| 0.0% |
+| SURG-03          |[I] [I] [I] [I] [I] [I] [I] [I] [I] [I] [I] [I]| 0.0% |
+|                  |                                              |         |
+| COBOTS           |                                              |         |
+| COBOT-01         |[I] [I] [I] [I] [I] [I] [I] [I] [I] [I] [I] [I]| 0.0% |
+| COBOT-02         |[I] [I] [I] [I] [I] [I] [I] [I] [I] [I] [I] [I]| 0.0% |
+| COBOT-03         |[I] [I] [I] [I] [I] [I] [I] [I] [I] [I] [I] [I]| 0.0% |
+| COBOT-04         |[I] [I] [I] [I] [I] [I] [A] [A] [A] [A] [C] [I]| 33.3%|
+|                  |                     PAT-ODMND-0027 biopsy  clng       |
+|                  |                                              |         |
+| RT POSITIONING   |                                              |         |
+| RTPOS-01         |[I] [I] [I] [I] [I] [I] [I] [I] [I] [I] [I] [I]| 0.0% |
+| RTPOS-02         |[I] [I] [I] [I] [I] [I] [I] [I] [I] [I] [I] [I]| 0.0% |
+| RTPOS-03         |[I] [I] [I] [I] [I] [A] [A] [A] [A] [A] [A] [C]| 50.0%|
+|                  |              PAT-ODMND-0026 CT sim/mask fitting  clng  |
+|                  |                                              |         |
+| NEEDLE-PLACEMENT |                                              |         |
+| NEEDLE-01        |[I] [I] [I] [I] [I] [I] [I] [I] [I] [I] [I] [I]| 0.0% |
+| NEEDLE-02        |[I] [I] [I] [I] [I] [I] [I] [I] [I] [I] [I] [A]| 8.3% |
+|                  |                                         PAT-0031 FNA  |
+|                  |                                              |         |
+| SOCIAL COMPANION |                                              |         |
+| COMPN-01         |[I] [I] [I] [I] [I] [I] [I] [I] [I] [I] [I] [I]| 0.0% |
+| COMPN-02         |[I] [I] [I] [A] [A] [A] [A] [A] [A] [A] [A] [A]| 75.0%|
+|                  |         PAT-ODMND-0025 adolescent companion session   |
+| COMPN-03         |[A] [A] [A] [A] [A] [A] [I] [I] [I] [I] [I] [I]| 50.0%|
+|                  | PAT-ODMND-0005 morning companion session              |
+| COMPN-04         |[I] [I] [I] [I] [I] [I] [I] [I] [I] [I] [I] [I]| 0.0% |
+| COMPN-05         |[I] [I] [I] [I] [I] [I] [I] [I] [I] [I] [I] [I]| 0.0% |
+|                  |                                              |         |
+| HUMANOIDS        |                                              |         |
+| HUMAN-01         |[I] [I] [I] [I] [I] [I] [I] [I] [I] [I] [I] [I]| 0.0% |
+| HUMAN-02         |[I] [I] [I] [I] [I] [I] [I] [I] [I] [I] [A] [A]| 16.7%|
+|                  |                                    PAT-0030 ped PT    |
+| HUMAN-03         |[I] [I] [I] [I] [I] [I] [I] [I] [I] [I] [I] [I]| 0.0% |
+|                  |                                              |         |
+| RT MOTION-TRACK  |                                              |         |
+| TRACK-01         |[I] [I] [I] [I] [I] [I] [I] [A] [A] [A] [A] [C]| 33.3%|
+|                  |                      PAT-ODMND-0028 RT frac      clng  |
+| TRACK-02         |[I] [I] [I] [I] [I] [I] [I] [I] [I] [I] [I] [I]| 0.0% |
+| TRACK-03         |[I] [I] [I] [I] [I] [I] [I] [I] [I] [I] [I] [I]| 0.0% |
+|                  |                                              |         |
+| IMAGING ASST     |                                              |         |
+| IMAGE-01         |[I] [I] [I] [I] [I] [I] [I] [I] [I] [I] [I] [I]| 0.0% |
+| IMAGE-02         |[I] [I] [I] [I] [I] [I] [I] [I] [A] [A!][A] [C]| 25.0%|
+|                  |                           PAT-0029 (AE 07:45) clng    |
+| IMAGE-03         |[I] [I] [I] [I] [I] [I] [I] [I] [I] [I] [I] [I]| 0.0% |
+| IMAGE-04         |[I] [I] [I] [I] [I] [I] [I] [I] [I] [I] [I] [I]| 0.0% |
+|                  |                                              |         |
+| STEERABLE NEEDLE |                                              |         |
+| STEER-01         |[A] [A] [A] [A] [A] [C] [I] [I] [I] [I] [I] [I]| 41.7%|
+|                  | PAT-ODMND-0022 ablation completion  clng               |
+| STEER-02         |[I] [I] [I] [I] [I] [I] [I] [I] [I] [I] [I] [P]| 8.3% |
+|                  |                                         PAT-0029 prep |
+|                  |                                              |         |
+| REHAB EXOSKEL    |                                              |         |
+| REHAB-01         |[I] [I] [I] [I] [I] [I] [I] [I] [I] [I] [I] [I]| 0.0% |
+| REHAB-02         |[I] [I] [I] [I] [I] [I] [I] [I] [I] [I] [I] [I]| 0.0% |
+| REHAB-03         |[I] [I] [I] [I] [I] [I] [I] [I] [I] [I] [I] [I]| 0.0% |
+|                  |                                              |         |
++============================================================================+
+| LEGEND: [A]=Active [I]=Idle [C]=Cleaning [P]=Prep [M]=Maint [!]=AE       |
+|                                                                            |
+| UTILIZATION BY ROBOT TYPE (% of instance-hours active or prep)            |
+| Surgical:   11.1% | Cobots:      8.3% | RT Position: 16.7%              |
+| Needle:      4.2% | Companion:  25.0% | Humanoids:    5.6%              |
+| RT Tracking: 11.1% | Imaging:    6.3% | Steerable:   25.0%              |
+| Rehab:       0.0%                                                         |
+|                                                                            |
+| OVERALL SITE UTILIZATION: ~35% (morning ramp-up, 11 of 29 activated)     |
+|                                                                            |
+| PEAK CONCURRENT ACTIVITY: 07:40-07:55                                     |
+|   SURG-01 (surgery), TRACK-01 (RT), RTPOS-03 (CT sim),                  |
+|   COBOT-04 (biopsy), COMPN-02 (companion), IMAGE-02 (imaging)           |
+|   = 6 robots active simultaneously                                        |
+|                                                                            |
+| ADVERSE EVENT FLAG: IMAGE-02 paused at 07:45 for P0029 Grade 1 nausea   |
+|   Resumed at 07:50 after ondansetron per IND protocol                    |
+|                                                                            |
+| SITE PSL: 64.1 (+0.1 Surgical Dim C for first surgery initiation)       |
++============================================================================+

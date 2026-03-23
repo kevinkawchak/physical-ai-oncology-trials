@@ -5,6 +5,32 @@ Format follows [Keep a Changelog](https://keepachangelog.com/).
 
 ## [Unreleased]
 
+## [2.8.0] - 2026-03-23
+
+### Added
+- new-trial/ - 24-hour on-demand Physical AI oncology clinical trial simulation
+- new-trial/psl_framework.md - Physical AI Standard Level (PSL) scoring framework
+- new-trial/site_specification.md - Facility, staffing, and infrastructure specifications
+- new-trial/format_comparison.md - On-demand vs. traditional trial comparison
+- new-trial/prompts.md - v2.8.0 development prompt archive
+- new-trial/hour-00/ through hour-23/ - 24 hourly simulation directories (7 files each)
+- new-trial/final-commit/ - Error review and cumulative 24-hour summaries (6 files)
+- PSL framework: three regulatory dimensions (Omniscient, Omnipresent, Omnipotent)
+- 168 unique patients across 15 cancer types with minute-level resolution
+- 72 ASCII text diagrams from 3 perspectives (facility, patient flow, robot status)
+- 7 adverse events documented per ICH E6(R3), 21 CFR Part 50, 21 CFR Part 312
+
+### Changed
+- README.md: Updated version badge to v2.8.0, added v2.8.0 simulation summary, updated repository structure with new-trial/ directory
+- releases.md: Added v2.8.0 release notes
+- CHANGELOG.md: Added v2.8.0 changelog entry
+
+### Notes
+- PSL scores complement USL scores (DOI: 10.5281/zenodo.18778220)
+- Extends single-patient journey (DOI: 10.5281/zenodo.19119939) to multi-patient simulation
+- 178 total output files across 25 commits
+- Development by Claude Code Opus 4.6
+
 ## [2.7.1] - 2026-03-21
 
 ### Changed
