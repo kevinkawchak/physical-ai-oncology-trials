@@ -5,6 +5,37 @@ Format follows [Keep a Changelog](https://keepachangelog.com/).
 
 ## [Unreleased]
 
+## [2.9.0] - 2026-03-24
+
+### Added
+- new-trial/site/ - Physical AI oncology clinical trial site documentation (11 LaTeX documents)
+- new-trial/site/01-legislation-authorization/ - SB 1042 California Physical AI Trial Authorization Act
+- new-trial/site/02-legislation-patient-rights/ - AB 2847 California Physical AI Patient Rights and Robotic Safety Act
+- new-trial/site/03-legislation-data-transparency/ - SB 892 California Physical AI Clinical Data Protection Act
+- new-trial/site/04-city-regulations/ - San Francisco municipal code update for Physical AI trial sites
+- new-trial/site/05-state-regulations/ - California Title 22 Chapter 14 Physical AI trial site regulations
+- new-trial/site/06-national-regulations/ - FDA Physical AI oncology trial site national compliance guide
+- new-trial/site/07-building-code/ - Physical AI trial facility building code standards
+- new-trial/site/08-premises-code/ - Physical AI trial site premises code (security, access, robot zones)
+- new-trial/site/09-parking-transportation/ - Parking facility and patient transportation standards
+- new-trial/site/10-site-operations/ - Site activation checklist and standard operating procedures
+- new-trial/site/11-emergency-preparedness/ - Emergency preparedness plan with four-level classification
+- new-trial/site/zips/ - LaTeX source archives for all 11 documents plus combined archive
+- Each document includes .tex, .bib, .sty, and README files
+
+### Changed
+- README.md: Updated version badge to v2.9.0, added v2.9.0 site documentation entry, updated repository structure with new-trial/site/ directory tree
+- releases.md: Added v2.9.0 release notes
+- CHANGELOG.md: Added v2.9.0 changelog entry
+
+### Notes
+- 11 documents collectively provide legislation, regulations, and building/premises code for California's first Physical AI oncology clinical trial site
+- Three legislation drafts reference existing California AI bills (AB 489, AB 3030, SB 1120, SB 243, AB 2013)
+- All documents implement adapted ICH E6(R3), 21 CFR Part 50, and 21 CFR Part 312 frameworks
+- PSL and USL scoring standards applied throughout
+- Evidence base: 24-hour simulation (168 patients, 29 robots, 99.7% uptime, zero patient harm)
+- Development by Claude Code Opus 4.6
+
 ## [2.8.0] - 2026-03-23
 
 ### Added

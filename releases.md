@@ -4,6 +4,51 @@ Release notes for the physical-ai-oncology-trials repository.
 
 ---
 
+Physical AI Oncology Clinical Trial Site Documentation
+v2.9.0 - Trial Site Documentation
+
+## Summary
+
+11 LaTeX documents providing everything needed for California's first Physical
+AI oncology clinical trial site in a new building with a new parking lot in a
+prominent and safe San Francisco location. Covers legislation drafts (SB 1042,
+AB 2847, SB 892), city regulations (San Francisco municipal code), state
+regulations (California Title 22), national regulations (FDA compliance guide),
+building code, premises code, parking and transportation, site operations, and
+emergency preparedness.
+
+## Features
+
+- 3 legislation drafts: trial authorization, patient rights, data protection
+- 3 regulatory updates: San Francisco city, California state, FDA national
+- 2 code standards: building code and premises code
+- 1 parking and transportation standards document
+- 1 site operations manual with activation checklist and SOPs
+- 1 emergency preparedness plan with four-level classification
+- 12 zip archives (11 individual + 1 combined with all source files)
+- Each document includes .tex, .bib, .sty, and README
+- Combined .tex file with all 11 documents in one source
+- All documents implement adapted ICH E6(R3), 21 CFR Part 50, 21 CFR Part 312
+- PSL and USL scoring frameworks applied throughout
+- References 10 robot types, 24-hour simulation data, patient journey
+
+## Contributors
+@kevinkawchak
+@claude
+@openai
+
+## Notes
+
+- Evidence base: 24-hour simulation (168 patients, 29 robots, 99.7% uptime)
+- Patient-centric: on-demand 24/7 scheduling, expanded patient rights
+- More patients treated with more robots and fewer workers (8-10 FTE vs 80-120)
+- Both minute-level detail and 24-hour operations handled correctly by AI
+- References existing California AI legislation (AB 489, AB 3030, SB 1120, SB 243, AB 2013)
+- Statewide applicability with San Francisco as first authorized site
+- Development by Claude Code Opus 4.6
+
+---
+
 24-Hour On-Demand Physical AI Oncology Clinical Trial Simulation
 v2.8.0 - On-Demand Trial Simulation
 
