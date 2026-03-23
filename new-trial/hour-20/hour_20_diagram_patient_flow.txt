@@ -1,0 +1,102 @@
++============================================================================+
+|              PATIENT FLOW DIAGRAM - Hour 20: 20:00-20:59                  |
+|              Wind-Down Period - 5 New Arrivals                             |
++============================================================================+
+|                                                                            |
+| TIME  ENTRANCE    CHECK-IN     WAITING     PROCEDURE    RECOVERY  EXIT    |
+| ----  --------    --------     -------     ---------    --------  ----    |
+|                                                                            |
+| 20:00                                      [P0154:SurgSuite1]             |
+|   |                                        (ongoing surgery)              |
+|   |                                        SURG-01 active                 |
+|   |                                                                       |
+| 20:05 P0162 ---> [Kiosk-1] --+                                           |
+|   |    (53M       20:05      |                                            |
+|   |     NSCLC)               |                                            |
+| 20:08                        +--> [Adult Wait]                            |
+|   |                                    |                                  |
+| 20:12                                  +--> [Vault 2: TRACK-02]          |
+|   |                                         RT Motion Tracking            |
+|   |                                         PAT-ODMND-0162               |
+|   |                                         8 Gy fraction 3/5            |
+| 20:15 P0163 ---> [Kiosk-2] --+              |                             |
+|   |    (47F       20:15      |              |                             |
+|   |     sarcoma)             |              |                             |
+| 20:17                        +--> [Adult Wait]                            |
+|   |                                    |    |                             |
+| 20:20                                  |    |                             |
+|   |                                    |    |                             |
+| 20:22                                  +--> [Biopsy Stn 3: COBOT-03]    |
+|   |                                         US-guided core biopsy        |
+|   |                                         PAT-ODMND-0163              |
+| 20:25 P0164 ---> [Kiosk-3] --+              |    |                        |
+|   |    (70M       20:25      |              |    |                        |
+|   |     GBM)                 |              |    |                        |
+| 20:27                        +--> [Adult Wait]   |                        |
+|   |                                    |    |    |                        |
+| 20:30                                  |    |    |                        |
+|   |                                    |    |    |                        |
+| 20:32                                  +--> [Vault 2: RTPOS-02]          |
+|   |                                         RT Positioning               |
+|   |                                         PAT-ODMND-0164              |
+|   |                                         GBM mask + CT sim            |
+| 20:35 P0165 ---> [Kiosk-5] --+              |    |    |                   |
+|   |    (62F       20:35      |              |    |    |                   |
+|   |     HCC)                 |              |    |    |                   |
+| 20:37                        +--> [Adult Wait]   |    |                   |
+|   |                                    |    |    |    |                   |
+| 20:40                                  |   [Complete] |                   |
+|   |                                    |   P0163 --> [RecBay4]            |
+|   |                                    |    (post-biopsy obs)   |        |
+| 20:42                                  |    |         |         |        |
+|   |                                    +--> [ImgBay3: IMAGE-03] |        |
+|   |                                    |    HCC CT imaging      |        |
+|   |                                    |    PAT-ODMND-0165     |         |
+|   |                              [Complete: P0162]              |        |
+|   |                              P0162 --> [RecBay2]            |        |
+|   |                                   (post-RT obs)             |        |
+| 20:45                                       |         |         |        |
+|   |                                         |         |         |        |
+| 20:48 P0166 ---> [Kiosk-6] --+              |         |         |        |
+|   |    (68M       20:48      |              |         |         |        |
+|   |     liver mets)          |              |         |         |        |
+| 20:50                        +--> [Adult Wait]        |         |        |
+|   |                                    |    |         |         |        |
+| 20:55                                  |   [Complete] |  [Complete]      |
+|   |                                    |   P0165 --> [RecBay8]           |
+|   |                                    |   P0164 --> [RecBay6]           |
+|   |                                    |    (post-img obs)               |
+|   |                                    +--> [ImgBay4: IMAGE-04]          |
+|   |                                         Liver mets CT imaging        |
+|   |                                         PAT-ODMND-0166              |
+|   |                                         (continues to Hour 21)      |
+| 20:59                                       |                            |
+|   |                                    [P0154:SurgSuite1 ongoing]        |
+|                                                                            |
++============================================================================+
+| PATIENT FLOW SUMMARY - Hour 20                                            |
+|                                                                            |
+| Arrivals: 5 patients                                                      |
+|   PAT-ODMND-0162 (53M, NSCLC sq)  --> RT Tracking  --> Recovery Bay 2    |
+|   PAT-ODMND-0163 (47F, Sarcoma)   --> Cobot Biopsy --> Recovery Bay 4    |
+|   PAT-ODMND-0164 (70M, GBM)       --> RT Position  --> Recovery Bay 6    |
+|   PAT-ODMND-0165 (62F, HCC)       --> Imaging CT   --> Recovery Bay 8    |
+|   PAT-ODMND-0166 (68M, Liver mets)--> Imaging CT   --> In progress       |
+|                                                                            |
+| Ongoing from prior hour:                                                  |
+|   PAT-ODMND-0154 - Surgery (SURG-01), started ~19:20, est. done ~21:00   |
+|                                                                            |
+| Departures: Multiple evening discharges (recovery patients from earlier)  |
+|                                                                            |
+| Patients at end of hour: ~10                                              |
+|   PAT-ODMND-0154 - Surgical Suite 1 (ongoing)                            |
+|   PAT-ODMND-0162 - Recovery Bay 2 (post-RT, approaching discharge)       |
+|   PAT-ODMND-0163 - Recovery Bay 4 (post-biopsy, approaching discharge)   |
+|   PAT-ODMND-0164 - Recovery Bay 6 (post-positioning)                     |
+|   PAT-ODMND-0165 - Recovery Bay 8 (post-imaging)                         |
+|   PAT-ODMND-0166 - Imaging Bay 4 (scan in progress)                      |
+|   Plus ~4 remaining evening recovery patients discharging                 |
+|                                                                            |
+| Concurrent patients peak: ~12 | Robot utilization: ~30%                  |
+| Regulatory: 21 CFR 50, 21 CFR 820, IEC 60601-2-1, AAPM TG-76/142       |
++============================================================================+
