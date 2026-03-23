@@ -1,0 +1,59 @@
++============================================================================+
+|              PATIENT FLOW DIAGRAM - Hour 15: 15:00-15:59                  |
++============================================================================+
+|                                                                            |
+| TIME  ENTRANCE    CHECK-IN     WAITING     PROCEDURE    RECOVERY  EXIT    |
+| ----  --------    --------     -------     ---------    --------  ----    |
+|                                                                            |
+| 15:00 [Shift change: SSO-E1 on duty]       [P0097 surgery completing]    |
+|   |                                                                       |
+| 15:05 P0116 ---> [Kiosk-1] --+             P0097 --> [Recovery Bay 5]    |
+|   |   (Mediastinal)           |                                           |
+|   |                           +--> [Pre-op]                               |
+|   |                                   |                                   |
+| 15:10 P0117 ---> [Kiosk-2] --+--> [Biopsy: COBOT-01]                    |
+|   |   (Sarcoma)                     P0117 biopsy                          |
+|   |                                   |                                   |
+| 15:15                         P0116 --> [Surg Suite 1: SURG-01]          |
+|   |                                   P0116 surgery begins               |
+| 15:18 P0118 ---> [Kiosk-3] --+--> [Wait]                                |
+|   |   (NSCLC sq)                    |                                    |
+| 15:22 P0119 ---> [Kiosk-4] --+--> [Pediatric: COMPN-02]                 |
+|   |   (Ped ALL, 5F)          P0118 --> [Vault 3: TRACK-03]              |
+|   |                                   P0118 RT session                    |
+| 15:28                         [P0117 biopsy complete] ---------> EXIT    |
+|   |                                                                       |
+| 15:30 P0120 ---> [Kiosk-1] --+--> [Vault 3: RTPOS-03]                   |
+|   |   (Meningioma)                  P0120 RT positioning                  |
+|   |                                                                       |
+| 15:35                         [P0118: *COUGH AE* - 2 min pause]         |
+|   |                                                                       |
+| 15:38 P0121 ---> [Kiosk-2] --+--> [Wait]                                |
+|   |   (HCC)                         |                                    |
+| 15:40                         [P0119 companion done]                     |
+|   |                           P0121 --> [Img Bay 2: IMAGE-02]            |
+|   |                                   P0121 liver scan                    |
+| 15:42                         [P0118 RT complete] ---------> EXIT        |
+|   |                                                                       |
+| 15:44 P0122 ---> [Kiosk-3] --+--> [Ped: HUMAN-03]                       |
+|   |   (Ped osteo, 10F)             P0122 humanoid therapy                |
+|   |                                                                       |
+| 15:45                         [P0117 discharged] ---------> EXIT         |
+|   |                                                                       |
+| 15:52 P0123 ---> [Kiosk-4] --+--> [Wait]                                |
+|   |   (Liver mets)                  |                                    |
+| 15:55                         P0123 --> [Ablation 2: STEER-02]           |
+|   |                           [P0120 RT complete] ---------> EXIT        |
+|   |                                                                       |
+| 15:59                         [P0116 surgery ongoing]                    |
+|   |                           [P0121 imaging ongoing]                    |
+|   |                           [P0122 humanoid ongoing]                   |
+|   |                           [P0123 ablation ongoing]                   |
+|                                                                            |
++============================================================================+
+| FLOW SUMMARY                                                               |
+| Arrivals: 8 | Departures: 3 | On-site at 15:59: 18                       |
+| Average wait time: 6 minutes | Concurrent procedures: 4-6                |
+| Cancer types active: Mediastinal, sarcoma, NSCLC, ALL, meningioma,        |
+|   HCC, osteosarcoma, liver mets                                           |
++============================================================================+
