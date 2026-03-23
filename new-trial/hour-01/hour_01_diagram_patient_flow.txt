@@ -1,0 +1,80 @@
++============================================================================+
+|              PATIENT FLOW DIAGRAM - Hour 01: 01:00-01:59                  |
++============================================================================+
+|                                                                            |
+| TIME  ENTRANCE    CHECK-IN     WAITING     PROCEDURE    RECOVERY  EXIT    |
+| ----  --------    --------     -------     ---------    --------  ----    |
+|                                                                            |
+| 01:00                                                   [P0003:RecBay3]   |
+|   |                                      [P0002:pending discharge]        |
+|   |                                                     [P0005:PedWard]   |
+|   |                                                                       |
+| 01:05                                                                     |
+|   |                                      P0002 --> Discharged --> EXIT    |
+|   |                                                  01:05                |
+|   |                                                                       |
+| 01:10                                                   [P0003:RecBay3]   |
+|   |                                                     [P0005:PedWard]   |
+|   |                                                                       |
+| 01:15                                                   [P0003:RecBay3]   |
+|   |                                                     [P0005:PedWard]   |
+|   |                                                                       |
+| 01:20                                                   [P0003:RecBay3]   |
+|   |                                                     [P0005:PedWard]   |
+|   |                                                                       |
+| 01:22 P0006 ---> [Kiosk-3] --+                                           |
+|   |    (CRC/Liver  01:22     |                                           |
+|   |     mets)                |                                           |
+| 01:23                        +--> [Adult Wait]                            |
+|   |                                    |                                  |
+| 01:25                                  |             [P0003:RecBay3]     |
+|   |                                    |             [P0005:PedWard]     |
+|   |                                    |                                  |
+| 01:28                                  +--> [Img Bay 3: IMAGE-03]        |
+|   |                                         CT Liver Imaging              |
+|   |                                         PAT-ODMND-0006               |
+|   |                                         Metastasis assessment         |
+| 01:30                                       |                             |
+|   |                                         |                             |
+| 01:35                                       |                             |
+|   |                                         |                             |
+| 01:40                                       |                             |
+|   |                                         |                             |
+| 01:45                                       |                             |
+|   |                                         |                             |
+| 01:48                                  [Complete]                         |
+|   |                                    P0006 --> Observation area         |
+|   |                                                                       |
+| 01:50                                                   [P0003:RecBay3]   |
+|   |                                                     [P0005:PedWard]   |
+|   |                                                     [P0006:Obs area]  |
+| 01:55                                                                     |
+|   |                                                                       |
+| 01:59                                                   [P0003:RecBay3]   |
+|   |                                                     [P0005:PedWard]   |
+|   |                                                     [P0006:Obs area]  |
+|                                                                            |
++============================================================================+
+| PATIENT FLOW SUMMARY - Hour 01                                            |
+|                                                                            |
+| Arrivals: 1 patient                                                       |
+|   PAT-ODMND-0006 (45M, CRC liver mets) --> CT Imaging --> Observation    |
+|                                                                            |
+| Departures: 1 patient                                                     |
+|   PAT-ODMND-0002 (67F, HCC) --> Discharged 01:05 (post-imaging complete) |
+|                                                                            |
+| Overnight patients continuing: 2                                          |
+|   PAT-ODMND-0003 (61M, mediastinal) - post-surgical recovery Bay 3      |
+|   PAT-ODMND-0005 (8M, pediatric ALL) - overnight monitoring Ped Ward     |
+|                                                                            |
+| End of hour on-site: 3 (P0003, P0005, P0006)                             |
+|                                                                            |
+| Cancer types active this hour:                                            |
+|   HCC (P0002) - discharged post-imaging                                   |
+|   Mediastinal tumor (P0003) - post-surgical recovery                      |
+|   Pediatric ALL (P0005) - overnight monitoring                            |
+|   Colorectal liver metastases (P0006) - CT imaging assessment             |
+|                                                                            |
+| Wait times: P0006 = 6 min                                                 |
+| Average wait: 6.0 minutes                                                 |
++============================================================================+
