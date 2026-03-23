@@ -1,7 +1,7 @@
 # End-to-End Physical AI Unification of Oncology Clinical Trials
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Release](https://img.shields.io/badge/Release-v2.7.1-brightgreen.svg)]()
+[![Release](https://img.shields.io/badge/Release-v2.8.0-brightgreen.svg)]()
 [![Last Updated](https://img.shields.io/badge/Updated-March%202026-blue.svg)]()
 [![Python 3.10+](https://img.shields.io/badge/Python-3.10+-green.svg)]()
 [![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.18445179-blue)](https://doi.org/10.5281/zenodo.18445179)
@@ -10,8 +10,9 @@
 
 This repository provides production-ready configurations, validated pipelines, and integration guides for deploying robotic systems, digital twins, and embodied AI agents in oncology. 
 
-📄 **3/20: v2.7.0 (Patient Journey Paper)** *A Cancer Patient's Journey Through a Regulated and Autonomous Physical AI Oncology Trial Illustration* - Comprehensive paper documenting the
-patient journey [![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.19119939-blue)](https://doi.org/10.5281/zenodo.19119939)
+**3/23: v2.8.0 (On-Demand Trial Simulation)** *24-Hour On-Demand Physical AI Oncology Clinical Trial Simulation* - Full 24-hour simulation of an autonomous, patient-centric oncology trial serving 168 patients across 15 cancer types with 10 robot types. Introduces the Physical AI Standard Level (PSL) framework scoring robots on omniscience (ICH E6(R3)), omnipresence (21 CFR Part 50), and omnipotence (21 CFR Part 312). Cumulative site PSL: 63.4 to 64.4 (Advanced Site). 178 output files across 25 sequential commits with 1-minute resolution.
+
+**3/20: v2.7.0 (Patient Journey Paper)** *A Cancer Patient's Journey Through a Regulated and Autonomous Physical AI Oncology Trial Illustration* - Comprehensive paper documenting the patient journey [![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.19119939-blue)](https://doi.org/10.5281/zenodo.19119939)
 
 📄 **3/20: v2.6.0 (Patient Journey)** *End-to-End Physical AI Oncology Clinical Trial Unification: Single-Patient Journey Orchestration* - 10-stage patient journey for PAT-2026-0042 (58F, Stage IIIB NSCLC) [![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.19123890-blue)](https://github.com/kevinkawchak/physical-ai-oncology-trials/tree/main/patient-journey)
 
@@ -58,6 +59,26 @@ physical-ai-oncology-trials/
 ├── V1_RELEASE.md
 ├── LICENSE
 ├── requirements.txt
+│
+├── new-trial/                         # ★ 24-Hour On-Demand Trial Simulation (v2.8.0)
+│   ├── README.md                      # Simulation overview and results
+│   ├── psl_framework.md               # PSL scoring framework definition
+│   ├── site_specification.md          # Facility and staffing specifications
+│   ├── format_comparison.md           # On-demand vs. traditional comparison
+│   ├── prompts.md                     # v2.8.0 development prompt
+│   ├── hour-00/ through hour-23/      # 24 hourly simulation directories
+│   │   ├── hour_XX_simulation.md      # Master simulation log
+│   │   ├── hour_XX_robot_logs.md      # Per-robot telemetry
+│   │   ├── hour_XX_patient_records.md # Patient vitals and records
+│   │   ├── hour_XX_psl_scores.md      # PSL scores for all 10 robots
+│   │   ├── hour_XX_diagram_facility.txt    # Facility layout diagram
+│   │   ├── hour_XX_diagram_patient_flow.txt # Patient flow diagram
+│   │   └── hour_XX_diagram_robot_status.txt # Robot status timeline
+│   └── final-commit/                  # Error review and 24-hour summaries
+│       ├── final_error_review.md      # Consistency check
+│       ├── final_24h_summary.md       # Performance summary
+│       ├── final_psl_cumulative.md    # PSL trajectory analysis
+│       └── final_diagram_*.txt        # Summary diagrams (3 files)
 │
 ├── patient-journey/                   # ★ Single-Patient Journey Orchestration (v2.6.0)
 │   ├── patient_state.py               # Central data model (10 enums, 14 dataclasses)

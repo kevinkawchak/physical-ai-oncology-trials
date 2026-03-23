@@ -1,377 +1,368 @@
-# Hour 18: 18:00-18:59 - Evening Peak Operations
+# Hour 18: 18:00-18:59 - Evening Wave Operations
 
 Released on 23 March 2026 | CEO Kevin Kawchak | ChemicalQDevice
 
 ## Hour Summary
 
-Hour 18 marks the evening peak period with 9 new patient arrivals, the
-highest single-hour intake of the simulation. Post-work patients P0145 and
-P0146 arrive first, taking advantage of evening scheduling for minimal
-disruption to employment. Pediatric patients P0148 and P0153 receive
-multidisciplinary support including humanoid-assisted rehabilitation and
-companion robot engagement. P0134 surgery (started approximately 17:15)
-remains ongoing in Surgical Suite 2 with SURG-02. Dual-vault radiotherapy
-operations proceed with TRACK-02 and TRACK-03 serving P0145 and P0151
-respectively. No adverse events occur. Site PSL advances to 65.5.
+Hour 18 represents the evening wave period with 9 new patient arrivals
+(PAT-ODMND-0145 through PAT-ODMND-0153), characterized by post-work patients
+seeking on-demand access. Concurrent patient census is approximately 22
+patients on-site with robot utilization at approximately 55%, reflecting the
+tapering from the earlier evening peak. PAT-ODMND-0134's robotic mediastinal
+tumor resection (begun Hour 17 via SURG-02) continues and completes at 18:25,
+achieving R0 resection with 95 mL total blood loss. No adverse events are
+recorded this hour. PAT-ODMND-0152 receives cabozantinib per IND protocol
+(21 CFR 312.23) prior to steerable needle ablation. The PSL framework records
+an improvement in RT Tracking Dim C (+0.1), bringing cumulative site PSL to
+65.5.
 
 ## Site Status at 18:00
 
-- Total patients on-site: approximately 22 (concurrent)
-- Active procedures: 6 (P0134 surgery ongoing, plus 5 new procedures initiating)
-- Robots in active mode: 16 (approximately 55% utilization)
+- Total patients on-site: approximately 22 (concurrent census)
+- Active procedures: multiple across surgical, RT, biopsy, imaging, and rehab
+- Robots in active mode: 16 of 29 instances (55% utilization)
 - Robots in standby mode: 13
 - Robots in maintenance: 0
-- Queue length: 0 across all stations (evening staffing adequate)
-- Site safety officer on duty: SSO-E2 (evening shift)
+- Queue length: 1-2 across stations (evening wave demand)
+- Site safety officer on duty: SSO-E1 (evening shift)
+
+## Continuing From Hour 17
+
+- PAT-ODMND-0134: SURG-02 mediastinal resection (95% mobilization at 17:59,
+  continuing to completion)
+- PAT-ODMND-0142: STEER-02 liver ablation (continuing, Grade 1 AE resolved)
+- PAT-ODMND-0143: TRACK-01 RT fraction 18/30 (continuing)
+- PAT-ODMND-0144: REHAB-02 exoskeleton session (continuing)
+- PAT-ODMND-0116: Recovery Bay 1 (post-surgical monitoring)
 
 ## New Patient Arrivals
 
 | Patient ID | Time | Age | Sex | Cancer Type | Stage | ECOG | Robot Assigned |
-|-----------|------|-----|-----|-------------|-------|------|----------------|
-| PAT-ODMND-0145 | 18:05 | 60 | M | NSCLC adenocarcinoma | IIB | 1 | RT Motion-Tracking (TRACK-02) |
-| PAT-ODMND-0146 | 18:10 | 39 | F | Forearm sarcoma | II | 0 | Cobot (COBOT-01) |
-| PAT-ODMND-0147 | 18:16 | 72 | M | Meningioma | I | 0 | RT Positioning (RTPOS-03) |
-| PAT-ODMND-0148 | 18:22 | 10 | M | Pediatric osteosarcoma | - | 1 | Humanoid (HUMAN-03), Rehab (REHAB-03) |
-| PAT-ODMND-0149 | 18:28 | 55 | F | Parotid tumor | II | 0 | Needle-Placement (NEEDLE-02) |
-| PAT-ODMND-0150 | 18:34 | 67 | M | HCC | III | 1 | Imaging Assistant (IMAGE-04) |
-| PAT-ODMND-0151 | 18:40 | 44 | F | NSCLC squamous | IIIB | 1 | RT Motion-Tracking (TRACK-03) |
-| PAT-ODMND-0152 | 18:46 | 73 | M | Liver metastases | IV | 2 | Steerable Needle (STEER-01) |
-| PAT-ODMND-0153 | 18:52 | 16 | F | Pediatric ALL | - | 1 | Social Companion (COMPN-01) |
+|------------|------|-----|-----|-------------|-------|------|----------------|
+| PAT-ODMND-0145 | 18:05 | 60 | M | NSCLC adenocarcinoma | IIB | 1 | TRACK-02 |
+| PAT-ODMND-0146 | 18:10 | 39 | F | Forearm sarcoma | II | 0 | COBOT-01 |
+| PAT-ODMND-0147 | 18:16 | 72 | M | Meningioma | I | 0 | RTPOS-03 |
+| PAT-ODMND-0148 | 18:22 | 10 | M | Pediatric osteosarcoma | - | 1 | HUMAN-03 + REHAB-03 |
+| PAT-ODMND-0149 | 18:28 | 55 | F | Parotid tumor | II | 0 | NEEDLE-02 |
+| PAT-ODMND-0150 | 18:34 | 67 | M | HCC | III | 1 | IMAGE-04 |
+| PAT-ODMND-0151 | 18:40 | 44 | F | NSCLC squamous | IIIB | 1 | TRACK-03 |
+| PAT-ODMND-0152 | 18:46 | 73 | M | Liver metastases | IV | 2 | STEER-01 |
+| PAT-ODMND-0153 | 18:52 | 16 | F | Pediatric ALL | - | 1 | COMPN-01 |
 
 Patient PAT-ODMND-0145 is a 60-year-old male with Stage IIB NSCLC
-adenocarcinoma presenting for evening radiotherapy with real-time motion
-tracking. He is a post-work patient who selected the 18:00 window to avoid
-absence from employment. ECOG performance status 1. Procedure plan:
-TRACK-02-guided volumetric modulated arc therapy (VMAT) with respiratory
-gating in Vault 2.
+adenocarcinoma presenting for RT treatment with real-time respiratory motion
+tracking. ECOG performance status 1. Assigned to TRACK-02 in Radiotherapy
+Vault 2. Treatment plan: 55 Gy in 20 fractions, fraction 12 of 20. Per
+ICH E6(R3) Section 4, the investigator ensures adequate resources for
+trial-related activities during the evening wave period.
 
-Patient PAT-ODMND-0146 is a 39-year-old female with Stage II forearm sarcoma
-presenting for cobot-assisted tissue sampling. She is a post-work patient
-arriving directly from her workplace. ECOG performance status 0. Procedure
-plan: COBOT-01-guided core needle biopsy of left forearm mass under local
-anesthesia.
+Patient PAT-ODMND-0146 is a 39-year-old female with Grade II forearm sarcoma
+presenting for robotic-assisted core needle biopsy. ECOG performance status 0.
+Assigned to COBOT-01 for ultrasound-guided tissue sampling. Biopsy target:
+24 mm mass in the left forearm flexor compartment. Informed consent obtained
+per 21 CFR 50.25 with documentation of all required elements.
 
-Patient PAT-ODMND-0147 is a 72-year-old male with Grade I meningioma
-presenting for stereotactic radiotherapy positioning. ECOG performance
-status 0. Procedure plan: RTPOS-03-assisted custom mask fitting and CT
-simulation for subsequent stereotactic radiosurgery. Per standard meningioma
-protocol, no investigational drug administration.
+Patient PAT-ODMND-0147 is a 72-year-old male with Grade I meningioma presenting
+for RT positioning and mask fitting session for fractionated stereotactic
+radiotherapy planning. ECOG performance status 0. Assigned to RTPOS-03 in
+Radiotherapy Vault 3. Treatment plan: 54 Gy in 30 fractions.
 
 Patient PAT-ODMND-0148 is a 10-year-old male with pediatric osteosarcoma
-presenting for humanoid-assisted rehabilitation and exoskeleton gait
-training. ECOG performance status 1. Procedure plan: HUMAN-03 provides
-motivational coaching and movement demonstration, followed by REHAB-03
-exoskeleton-assisted walking. Parent/guardian consent obtained per 21 CFR
-Part 50 Subpart D pediatric protections. Assent obtained from patient.
+presenting for humanoid robot-assisted rehabilitation and exoskeleton gait
+training. ECOG performance status 1. Parent/guardian consent obtained per
+21 CFR Part 50 Subpart D (additional protections for children). Assent
+obtained per institutional pediatric assent protocol for age 10. Assigned to
+HUMAN-03 in Pediatric Therapy Room 3 for psychosocial orientation, followed
+by REHAB-03 in Rehabilitation Bay 3 for exoskeleton gait training session 1
+of 12. Dual-robot assignment coordinated per ICH E6(R3) protocol requirements.
 
 Patient PAT-ODMND-0149 is a 55-year-old female with Stage II parotid tumor
-presenting for CT-guided needle biopsy. ECOG performance status 0. Procedure
-plan: NEEDLE-02-guided fine needle aspiration of right parotid mass.
+presenting for CT-guided needle placement for biopsy of superficial lobe mass.
+ECOG performance status 0. Assigned to NEEDLE-02 in CT Suite 2. Target:
+18 mm superficial lobe mass requiring image-guided access with facial nerve
+monitoring. Informed consent per 21 CFR 50.25.
 
 Patient PAT-ODMND-0150 is a 67-year-old male with Stage III hepatocellular
-carcinoma presenting for robotic imaging assessment. ECOG performance
-status 1. Procedure plan: IMAGE-04-guided ultrasound liver assessment for
-treatment response monitoring and digital twin update.
+carcinoma (HCC) presenting for diagnostic imaging session (contrast-enhanced
+MRI and triphasic CT). ECOG performance status 1. Assigned to IMAGE-04 in
+Imaging Bay 4. Imaging protocol: liver-specific gadoxetic acid MRI followed
+by triphasic CT for surgical planning and staging confirmation.
 
-Patient PAT-ODMND-0151 is a 44-year-old female with Stage IIIB NSCLC
-squamous cell carcinoma presenting for evening radiotherapy with motion
-tracking. ECOG performance status 1. Procedure plan: TRACK-03-guided VMAT
-with respiratory gating in Vault 3. Dual-vault RT operations with P0145
-in Vault 2.
+Patient PAT-ODMND-0151 is a 44-year-old female with Stage IIIB NSCLC squamous
+cell carcinoma presenting for RT treatment with real-time motion tracking.
+ECOG performance status 1. Assigned to TRACK-03 in Radiotherapy Vault 3.
+Treatment plan: 60 Gy in 30 fractions, fraction 8 of 30.
 
 Patient PAT-ODMND-0152 is a 73-year-old male with Stage IV liver metastases
-(colorectal primary) presenting for steerable needle ablation. ECOG
-performance status 2. Procedure plan: STEER-01-guided radiofrequency
-ablation of two hepatic metastases under CT guidance. Cabozantinib
-administered per IND protocol (see Investigational Drug Administrations).
+(colorectal primary, 2 hepatic lesions) presenting for steerable needle
+microwave ablation of a 28 mm segment VII lesion. ECOG performance status 2.
+Cabozantinib 60 mg PO administered per IND protocol (21 CFR 312.23) as
+concurrent antiangiogenic therapy. Per 21 CFR 312.62, IND drug administration
+documented in case report form with lot number, dose, route, and time.
+Informed consent per 21 CFR 50.25 includes specific disclosure of
+investigational drug-ablation combination risks, potential hepatotoxicity,
+and palmar-plantar erythrodysesthesia. Assigned to STEER-01 in Ablation
+Suite 1.
 
-Patient PAT-ODMND-0153 is a 16-year-old female with pediatric ALL presenting
-for companion robot emotional support session before evening chemotherapy
-preparation. ECOG performance status 1. Procedure plan: COMPN-01 interactive
-session for anxiety reduction. Parental consent and patient assent obtained
-per 21 CFR Part 50 Subpart D.
+Patient PAT-ODMND-0153 is a 16-year-old female with pediatric acute
+lymphoblastic leukemia (ALL) presenting for companion robot support during
+pre-chemotherapy anxiety management and treatment education. ECOG performance
+status 1. Parent/guardian consent obtained per 21 CFR Part 50 Subpart D.
+Adolescent assent obtained per institutional protocol for age 16. Assigned to
+COMPN-01 in Pediatric Play Room 1.
 
-## Continuing Patients at 18:00
+## Completed Procedures This Hour
 
-| Patient ID | Age | Sex | Cancer Type | Status | Since |
-|-----------|-----|-----|-------------|--------|-------|
-| PAT-ODMND-0134 | - | - | - | Surgery ongoing (SURG-02) | ~17:15 |
-| Plus approximately 12 additional patients in various stages of treatment, recovery, and observation |
+### PAT-ODMND-0134 Surgery Completion (17:15-18:25)
 
-Note: Full continuing patient roster maintained in hour_18_patient_records.md.
-P0134 surgical procedure began approximately 17:15 and continues through
-this hour with estimated completion at 19:30.
+- Patient: PAT-ODMND-0134
+- Robot: SURG-02 (Surgical Suite 2) [procedure began Hour 17]
+- Duration: 70 minutes total
+- Procedure: Robotic-assisted thoracoscopic mediastinal tumor resection
+- Pre-operative atezolizumab: Administered at 15:30 per IND protocol
+  (21 CFR 312.23). No perioperative complications attributable to IND drug.
+- Outcome: Successful, R0 resection (negative margins confirmed by frozen
+  section per institutional pathology protocol)
+- Estimated blood loss: 95 mL total (within acceptable range)
+- Complications: None
+- Anesthesia time: 85 minutes (induction to emergence)
+- Patient transferred to Recovery Bay 2 at 18:30
+- Surgical instrument sterilization and suite turnover initiated at 18:32
+- Per 21 CFR 11 (electronic records), operative notes digitally signed by
+  attending surgeon and archived to trial database
+- Per ICH E6(R3) Section 5.18.6, source data verified against CRF entries
+
+Minute-by-minute summary (surgical procedure, continuation from Hour 17):
+- 18:00 - Final posterior attachments divided. Tumor mobilization 97%
+- 18:02 - Inferior pedicle identified and isolated
+- 18:04 - Inferior pedicle clipped and divided
+- 18:06 - Tumor fully mobilized. AI margin check initiated
+- 18:08 - AI tumor margin prediction v4.1: margins clear, 98.2% confidence
+- 18:10 - Specimen placed in retrieval bag
+- 18:12 - Tumor bed inspected. Hemostasis confirmed
+- 18:14 - Nerve integrity check: phrenic nerve response confirmed by
+          stimulation, recurrent laryngeal nerve function preserved
+- 18:16 - Chest tube placed (24 Fr, anterior and posterior)
+- 18:18 - Wound closure initiated. Trocar sites closed in layers
+- 18:20 - Final sponge and instrument count: correct
+- 18:22 - Closure complete. Dressing applied
+- 18:24 - Robotic arms undocked. SURG-02 instruments removed and counted
+- 18:25 - Patient emergence from anesthesia. Extubation at 18:26
+- 18:28 - Patient responsive, oriented x2 (name, place)
+- 18:30 - Patient transferred to Recovery Bay 2
+
+### PAT-ODMND-0142 Steerable Needle Completion (17:45-18:18)
+
+- Patient: PAT-ODMND-0142
+- Robot: STEER-02 (Ablation Suite 2) [procedure began Hour 17]
+- Duration: 33 minutes total
+- Procedure: Steerable needle microwave ablation of segment VI liver lesion
+- Outcome: Complete ablation achieved (35 mm lesion, 5 mm ablation margin
+  confirmed on post-procedure CT)
+- Grade 1 AE from Hour 17 (SpO2 desaturation): Fully resolved, SpO2 97%
+  at procedure completion. No recurrence of desaturation event.
+- Complications: None this hour
+- Patient transferred to Recovery Bay 6 at 18:22
+- Per 21 CFR 312.32, prior Grade 1 AE documented in safety report;
+  no escalation required
+
+### PAT-ODMND-0143 RT Fraction Completion (17:50-18:12)
+
+- Patient: PAT-ODMND-0143
+- Robot: TRACK-01 (Radiotherapy Vault 1)
+- Duration: 22 minutes
+- Procedure: RT fraction 18 of 30 (60 Gy total, 2 Gy/fraction)
+- Beam-on time: 4.8 minutes
+- Motion tracking duty cycle: 95.2%
+- PTV coverage: 98.4%
+- Patient discharged at 18:18
+
+### PAT-ODMND-0144 Rehab Session Completion (17:55-18:35)
+
+- Patient: PAT-ODMND-0144
+- Robot: REHAB-02 (Rehabilitation Bay 2)
+- Duration: 40 minutes
+- Procedure: Exoskeleton-assisted gait training, session 6 of 12
+- Steps completed: 185
+- Weight-bearing progression: 65% body weight (increase from 60% last session)
+- Pain score: 3/10 max during session (acceptable per rehab protocol)
+- Patient discharged at 18:42
 
 ## Active Procedures This Hour
 
-### P0134 Surgery (Continuing from Hour 17)
-- Patient: PAT-ODMND-0134
-- Robot: SURG-02 (Surgical Robot, Instance 2)
-- Bay: Surgical Suite 2
-- Status: Surgery ongoing, estimated completion 19:30
-- Procedure minutes this hour: 60 (full hour)
-- No complications reported. Telemetry nominal.
+### PAT-ODMND-0145 RT Motion Tracking (18:12-18:36)
 
-### RT Motion-Tracking Session - P0145 (18:15-18:45)
 - Patient: PAT-ODMND-0145
-- Robot: TRACK-02 (RT Motion-Tracking, Instance 2)
-- Bay: Vault 2
-- Procedure: VMAT with respiratory gating for NSCLC adenocarcinoma
-- Duration: 30 minutes (positioning 5 min, imaging 3 min, treatment 18 min,
-  verification 4 min)
-- Respiratory tracking accuracy: 0.8 mm (within 1.5 mm specification)
-- Beam-on time: 18 minutes (planned 18 min)
-- Gating efficiency: 94% (beam paused during irregular breathing cycles)
-- Fraction dose delivered: 2.0 Gy (prescribed 2.0 Gy)
-- Treatment interruptions: 0
-- Outcome: Successful completion. Fraction 12 of 30.
+- Robot: TRACK-02 (Radiotherapy Vault 2)
+- Procedure: RT fraction 12 of 20 (55 Gy total, 2.75 Gy/fraction)
+- Check-in: 18:05, consent verified, patient positioned at 18:10
+- CBCT acquired at 18:11 for setup verification
+- Beam-on: 18:12-18:17 (5.1 minutes beam-on time)
+- Motion tracking duty cycle: 96.1%
+- Respiratory gating: 4DCT-based, 3 mm gating window
+- PTV coverage: 98.6% (exceeds 95% protocol threshold)
+- Beam-off: 18:17. Post-treatment imaging at 18:18
+- Patient discharged at 18:36
+- No complications
 
-Minute-by-minute summary (active procedure):
-- 18:15 - Patient positioned supine. TRACK-02 optical markers placed on chest.
-- 18:16 - Immobilization devices applied. Position verified against reference.
-- 18:17 - CBCT acquired. Registration to planning CT: 0.4 mm shift applied.
-- 18:18 - CBCT verification complete. Treatment plan loaded.
-- 18:19 - Respiratory baseline established. Gating window set.
-- 18:20 - Beam-on initiated. Arc 1 of 3.
-- 18:24 - Arc 1 complete. 0.67 Gy delivered.
-- 18:25 - Arc 2 initiated. Gating efficiency 95%.
-- 18:30 - Arc 2 complete. Cumulative 1.34 Gy delivered.
-- 18:31 - Arc 3 initiated. Patient breathing stable.
-- 18:36 - Irregular breathing detected. Beam paused 4 seconds. Resumed.
-- 18:38 - Arc 3 complete. Cumulative 2.0 Gy delivered. Fraction complete.
-- 18:39 - Verification CBCT acquired. Post-treatment anatomy confirmed.
-- 18:41 - Immobilization devices removed. Patient assisted off couch.
-- 18:45 - Patient transferred to observation area. No acute toxicity noted.
+### PAT-ODMND-0146 Cobot Biopsy (18:18-18:32)
 
-### Cobot-Assisted Biopsy - P0146 (18:18-18:35)
 - Patient: PAT-ODMND-0146
-- Robot: COBOT-01 (Cobot, Instance 1)
-- Bay: Biopsy Station 1
-- Procedure: Core needle biopsy of left forearm sarcoma
-- Duration: 17 minutes (positioning 2 min, ultrasound localization 3 min,
-  local anesthetic 2 min, biopsy 5 min, hemostasis 3 min, dressing 2 min)
-- Needle placement accuracy: 1.1 mm (within 2 mm specification)
-- Tissue cores obtained: 4 (adequate for histopathology and molecular testing)
-- Bleeding: Minimal, controlled with direct pressure
-- Treatment interruptions: 0
-- Outcome: Successful completion. Specimens sent to pathology.
+- Robot: COBOT-01 (Biopsy Station 1)
+- Procedure: Ultrasound-guided core needle biopsy of forearm sarcoma
+- Duration: 14 minutes
+- Check-in: 18:10, consent verified, patient positioned at 18:16
+- Procedure start: 18:18 (ultrasound localization)
+- Core samples: 4 obtained (Grade A quality, adequate cellularity)
+- Needle trajectory deviation: 0.3 mm from planned path
+- Complications: None. Hemostasis achieved at 18:31
+- Patient to Recovery Bay 4 at 18:32
+- Per 21 CFR 58 (GLP), tissue samples accessioned and chain of custody
+  documented
 
-### RT Positioning Session - P0147 (18:25-18:55)
+### PAT-ODMND-0147 RT Positioning (18:24-18:54)
+
 - Patient: PAT-ODMND-0147
-- Robot: RTPOS-03 (RT Positioning, Instance 3)
-- Bay: Vault 3 (simulation mode, no beam)
-- Procedure: Custom thermoplastic mask fitting and CT simulation for
-  stereotactic radiosurgery planning
-- Duration: 30 minutes (mask fabrication 10 min, CT simulation 8 min,
-  registration 5 min, verification 7 min)
-- Mask fit tolerance: 1.0 mm (within 1.5 mm specification)
-- CT simulation coverage: Complete cranial volume acquired
-- Fiducial registration accuracy: 0.3 mm (within 0.5 mm specification)
-- Treatment interruptions: 0
-- Outcome: Successful. Mask stored. CT dataset sent to planning system.
-- Note: Per standard meningioma protocol. No investigational drug.
+- Robot: RTPOS-03 (Radiotherapy Vault 3)
+- Procedure: Stereotactic RT mask fitting and CT simulation for meningioma
+- Duration: 30 minutes
+- Check-in: 18:16, consent verified, patient positioned at 18:22
+- Mask fitting: 18:24-18:34 (thermoplastic molding, 97.1% conformity)
+- CT simulation: 18:35-18:45 (axial 1 mm slices, full cranial coverage)
+- AI lesion detection: Meningioma (32 mm convexity, left parietal) confirmed,
+  dural tail identified
+- Verification images: 18:46-18:48
+- Procedure complete: 18:54
+- Patient discharged at 18:58
+- No complications
 
-### Humanoid and Rehab Session - P0148 (18:30-18:58)
+### PAT-ODMND-0148 Humanoid Rehab + Exoskeleton (18:30-18:59)
+
 - Patient: PAT-ODMND-0148
-- Robot: HUMAN-03 (Humanoid, Instance 3) 18:30-18:40
-- Robot: REHAB-03 (Rehabilitation Exoskeleton, Instance 3) 18:42-18:58
-- Bay: Pediatric Therapy 3 then Rehab Bay 3
-- Procedure: Motivational coaching followed by exoskeleton gait training
-- HUMAN-03 session (10 min): Movement demonstrations, exercise coaching,
-  verbal encouragement. Patient engagement score: 8.2/10.
-- REHAB-03 session (16 min): Strap-up 3 min, walking 11 min, removal 2 min.
-  Walking speed 0.25 m/s. Distance 165 meters. Gait symmetry 0.68.
-  Weight-bearing compliance 78% on affected limb (target 75-100%).
-  Pain reported: 3/10 during walking, 1/10 at rest.
-- Treatment interruptions: 0
-- Outcome: Successful. Patient tolerated both sessions well.
-- Pediatric protections: Parent present throughout per 21 CFR Part 50 Subpart D.
+- Robots: HUMAN-03 (Pediatric Therapy Room 3) + REHAB-03 (Rehab Bay 3)
+- Procedure: Humanoid-assisted psychosocial orientation (18:30-18:46)
+  followed by exoskeleton gait training session 1 of 12 (18:48-18:59,
+  continuing into Hour 19)
+- HUMAN-03 session: Age-appropriate rehabilitation introduction, exercise
+  demonstration via humanoid movement modeling, patient engagement 8/10
+- REHAB-03 session: Initial fitting and calibration, 45% body weight
+  bearing, 42 steps completed before hour end
+- Per 21 CFR Part 50 Subpart D: Pediatric protections maintained throughout
+  dual-robot session
 
-### Needle Biopsy - P0149 (18:36-18:55)
+### PAT-ODMND-0149 Needle Placement Biopsy (18:36-18:54)
+
 - Patient: PAT-ODMND-0149
-- Robot: NEEDLE-02 (Needle-Placement, Instance 2)
-- Bay: CT Suite 2
-- Procedure: CT-guided fine needle aspiration of right parotid mass
-- Duration: 19 minutes (positioning 3 min, CT scan 2 min, local anesthetic
-  2 min, needle placement 3 min, aspiration 4 min, verification CT 2 min,
-  needle removal 1 min, hemostasis 2 min)
-- Needle placement accuracy: 1.0 mm (within 2 mm specification)
-- Aspiration passes: 3 (adequate for cytopathology)
-- Tissue sample quality: Grade A
-- Bleeding: Minimal
-- Treatment interruptions: 0
-- Outcome: Successful completion. Sample sent to pathology.
+- Robot: NEEDLE-02 (CT Suite 2)
+- Procedure: CT-guided needle placement for parotid superficial lobe biopsy
+- Duration: 18 minutes
+- Check-in: 18:28, consent verified, patient positioned at 18:34
+- Planning CT: 18:36. Mass localized (18 mm superficial lobe)
+- Trajectory planned: 4.2 mm facial nerve clearance
+- Cores obtained: 3 (adequate cellularity confirmed by rapid on-site
+  evaluation)
+- Facial nerve EMG monitoring: Continuous, no activation events
+- Procedure complete: 18:54. Patient to Recovery Bay 8 at 18:56
+- Per 21 CFR 58 (GLP): Samples accessioned, chain of custody documented
 
-### Imaging Assessment - P0150 (18:42-18:57)
+### PAT-ODMND-0150 Diagnostic Imaging (18:42-18:59)
+
 - Patient: PAT-ODMND-0150
-- Robot: IMAGE-04 (Imaging Assistant, Instance 4)
-- Bay: Imaging Bay 4
-- Procedure: Robotic ultrasound liver assessment for HCC
-- Duration: 15 minutes
-- Probe pressure: 1.6 N steady (within 1-3 N range)
-- Image quality score: 8.1/10
-- Tumor measurements: Primary HCC lesion 48 mm x 36 mm (stable from prior)
-- Scan coverage: 96%
-- Motion artifact count: 0
-- Outcome: Successful. Images uploaded to DICOM server.
+- Robot: IMAGE-04 (Imaging Bay 4)
+- Procedure: Contrast-enhanced MRI and triphasic CT for HCC staging
+- Check-in: 18:34, consent verified, IV access at 18:38
+- MRI: 18:42-18:55 (gadoxetic acid contrast, hepatobiliary phase pending)
+- CT: Scheduled post-MRI (continuing into Hour 19)
+- AI inference: Lesion detection active, preliminary LI-RADS assessment
+  in progress
+- Procedure continuing into Hour 19
 
-### RT Motion-Tracking Session - P0151 (18:48-18:59+)
+### PAT-ODMND-0151 RT Motion Tracking (18:48-18:59)
+
 - Patient: PAT-ODMND-0151
-- Robot: TRACK-03 (RT Motion-Tracking, Instance 3)
-- Bay: Vault 3 (P0147 completed, vault transitioned)
-- Procedure: VMAT with respiratory gating for NSCLC squamous
-- Duration: 30 minutes estimated (extends into Hour 19)
-- Status at 18:59: Arc 2 of 3 in progress
-- Respiratory tracking accuracy: 0.9 mm (within 1.5 mm specification)
-- Partial dose delivered this hour: 1.2 Gy of 2.0 Gy planned
-- Treatment interruptions: 0
-- Note: Dual-vault evening RT operations with P0145 in Vault 2 (completed)
-  and P0151 in Vault 3 (continuing).
+- Robot: TRACK-03 (Radiotherapy Vault 3)
+- Procedure: RT fraction 8 of 30 (60 Gy total, 2 Gy/fraction)
+- Check-in: 18:40, consent verified, patient positioned at 18:46
+- CBCT acquired at 18:47 for setup verification
+- Beam-on: 18:48 (in progress at hour end)
+- Respiratory gating active, 3 mm gating window
+- Procedure continuing into Hour 19
 
-### Steerable Needle Ablation - P0152 (18:54-18:59+)
+### PAT-ODMND-0152 Steerable Needle Ablation (18:55-18:59)
+
 - Patient: PAT-ODMND-0152
-- Robot: STEER-01 (Steerable Needle, Instance 1)
-- Bay: Ablation Suite 1
-- Procedure: CT-guided radiofrequency ablation of hepatic metastases
-- Duration: 45 minutes estimated (extends into Hour 19)
-- Status at 18:59: Initial CT mapping complete, first needle insertion in progress
-- Cabozantinib 40 mg administered orally at 18:50 per IND protocol
-- Treatment interruptions: 0
-- Note: Extended procedure continues into Hour 19.
+- Robot: STEER-01 (Ablation Suite 1)
+- Procedure: Steerable needle microwave ablation of segment VII liver lesion
+- IND drug: Cabozantinib 60 mg PO administered at 16:00 (2 hr 55 min prior
+  to procedure start) per IND protocol (21 CFR 312.23). Per 21 CFR 312.62,
+  administration time, lot number, and dose documented in CRF.
+- Check-in: 18:46, consent verified, IV sedation initiated at 18:52
+- Planning CT: 18:55. Lesion localized (28 mm, segment VII)
+- Needle insertion initiated at 18:58
+- Procedure continuing into Hour 19
+- Per ICH E6(R3) Section 4.8, informed consent documented investigational
+  drug-device combination risks
 
-### Companion Robot Session - P0153 (18:56-18:59+)
+### PAT-ODMND-0153 Companion Session (18:56-18:59)
+
 - Patient: PAT-ODMND-0153
-- Robot: COMPN-01 (Social Companion, Instance 1)
-- Bay: Pediatric Play Room 1
-- Procedure: Interactive emotional support session before chemotherapy prep
-- Status at 18:59: Session in progress. Initial anxiety score 6/10,
-  current score 4/10 (decreasing). Engagement level: high.
-- Treatment interruptions: 0
-- Note: Session continues into Hour 19.
-
-## Patient Departures This Hour
-
-| Patient ID | Time | Outcome | Notes |
-|-----------|------|---------|-------|
-| PAT-ODMND-0145 | 18:55 | Completed RT, observation | Post-RT monitoring 15 min then discharge |
-| PAT-ODMND-0146 | 18:50 | Post-biopsy observation | Awaiting hemostasis confirmation |
-
-Note: No full discharges from the facility this hour. Patients completing
-procedures transition to observation areas.
+- Robot: COMPN-01 (Pediatric Play Room 1)
+- Procedure: Pre-chemotherapy anxiety management and treatment education
+- Check-in: 18:52, consent and assent verified
+- Session initialization: 18:56. Patient profile loaded (16F, ALL).
+  Adolescent interaction mode selected. Language set to English.
+- Session in progress at hour end (continuing into Hour 19)
+- Per 21 CFR Part 50 Subpart D: Pediatric protections active
 
 ## Adverse Events
 
-None this hour.
+None recorded during Hour 18.
 
-## Investigational Drug Administrations
+Prior AE status: PAT-ODMND-0142 Grade 1 SpO2 desaturation (Hour 17)
+fully resolved. SpO2 stable at 97% throughout recovery. No recurrence.
+Per 21 CFR 312.32, no new safety signals identified. Per ICH E6(R3)
+Section 4.11, adverse event resolution documented in source records.
 
-### PAT-ODMND-0152 - Cabozantinib (IND)
-- Drug: Cabozantinib 40 mg tablet, oral
-- IND protocol: Per 21 CFR Part 312, IND application on file
-- Administration time: 18:50
-- Indication: Stage IV colorectal liver metastases, in combination with
-  radiofrequency ablation per protocol-specified combination therapy arm
+## Investigational Drug Administration
+
+### PAT-ODMND-0152 - Cabozantinib
+
+- Drug: Cabozantinib 60 mg PO
+- IND status: Active (IND application per 21 CFR 312.23)
+- Administration time: 16:00 (pre-procedure, 2 hr 55 min before ablation)
 - Lot number: CAB-2026-0412
-- Dispensed by: Site pharmacist (PharmD, verified against IND drug
-  accountability log)
-- Pre-dose labs: Hepatic function within protocol-specified thresholds
-  (AST 42 U/L, ALT 38 U/L, total bilirubin 1.1 mg/dL)
-- Adverse event monitoring: 4-hour post-dose observation per protocol
-- Documentation: IND drug accountability form completed per 21 CFR 312.62
+- Route: Oral
+- Prescribing investigator: PI-003
+- Adverse reactions: None observed through end of Hour 18
+- Per 21 CFR 312.62, drug accountability log updated
+- Per 21 CFR 312.32, no safety concerns to report
+- Rationale: Antiangiogenic pretreatment to reduce tumor vascularity prior
+  to thermal ablation, per study protocol arm C
 
-### PAT-ODMND-0147 - Standard Meningioma Protocol
-- No investigational drug administered. CT simulation and mask fitting
-  conducted per standard meningioma protocol. Procedure is non-drug,
-  positioning and planning only.
+## Regulatory Compliance
 
-## Evening Wave Observations
+- ICH E6(R3): Section 4 (investigator responsibilities) maintained
+  throughout evening wave operations. Section 5.18.6 (source data
+  verification) completed for P0134 surgical CRF. Section 4.8 (informed
+  consent) documented for all 9 new arrivals with specific IND disclosures
+  for P0152.
+- 21 CFR Part 50: Informed consent obtained for all new arrivals (50.25).
+  Pediatric protections (Subpart D) maintained for P0148 (10M) and
+  P0153 (16F) with age-appropriate assent documentation.
+- 21 CFR Part 312: IND drug accountability maintained for cabozantinib
+  (P0152, 312.62). Prior IND drug (atezolizumab, P0134) perioperative
+  safety confirmed at surgery completion. Safety reporting current (312.32).
+- 21 CFR Part 11: Electronic records for all procedures signed and archived
+  with audit trail.
 
-The 18:00-18:59 period represents the evening peak with 9 arrivals, driven
-by post-work patients and families scheduling after school and employment
-hours. P0145 and P0146 are explicitly post-work patients who selected
-evening slots to minimize occupational disruption. P0148 and P0153
-(pediatric) arrive with families after school hours.
+## Hour 18 Census Summary
 
-Dual-vault radiotherapy operations (Vault 2 for P0145, Vault 3 for P0151)
-demonstrate the site's capacity to deliver concurrent motion-tracked RT
-sessions during high-demand periods. This operational mode supports the
-PSL Dimension C increase for RT Motion-Tracking.
-
-## Site Utilization
-
-- Overall robot utilization: approximately 55% (16 of 29 robots active at peak)
-- Queue lengths: 0 across all stations
-- Average wait time: 6 minutes (range 4-8 min across 9 arrivals)
-- Robot cleaning cycles: 4 (TRACK-02, COBOT-01, NEEDLE-02, IMAGE-04 post-procedure)
-- Concurrent patients on-site: approximately 22
-
-## End-of-Hour Census
-
-| Patient ID | Age | Sex | Cancer Type | Status | Location |
-|-----------|-----|-----|-------------|--------|----------|
-| PAT-ODMND-0134 | - | - | - | Surgery ongoing | Surgical Suite 2 |
-| PAT-ODMND-0145 | 60 | M | NSCLC adenocarcinoma | Post-RT observation | Recovery Bay |
-| PAT-ODMND-0146 | 39 | F | Forearm sarcoma | Post-biopsy observation | Recovery Bay |
-| PAT-ODMND-0147 | 72 | M | Meningioma | Post-simulation observation | Recovery Bay |
-| PAT-ODMND-0148 | 10 | M | Pediatric osteosarcoma | Post-rehab observation | Pediatric Ward |
-| PAT-ODMND-0149 | 55 | F | Parotid tumor | Post-biopsy observation | CT Suite 2 area |
-| PAT-ODMND-0150 | 67 | M | HCC | Post-imaging observation | Imaging Bay 4 |
-| PAT-ODMND-0151 | 44 | F | NSCLC squamous | Active RT (continuing) | Vault 3 |
-| PAT-ODMND-0152 | 73 | M | Liver metastases | Active ablation (continuing) | Ablation Suite 1 |
-| PAT-ODMND-0153 | 16 | F | Pediatric ALL | Active companion (continuing) | Pediatric Play 1 |
-| Plus approximately 12 continuing patients from prior hours in recovery/observation |
-
-Total patients on-site at 18:59: approximately 22
-
-## Regulatory Compliance Notes
-
-### ICH E6(R3) - Adaption
-- Section 1.1.1: All procedures conducted in accordance with ethical principles
-  and applicable GCP requirements. Evening operations maintained identical
-  safety standards to daytime operations. Post-work patient scheduling
-  accommodated per on-demand protocol design.
-- Section 2.9.1: Complete audit trails maintained for all 9 procedures
-  initiated this hour, including robot telemetry, imaging data, tissue
-  chain-of-custody documentation, and drug accountability records.
-- Section 4.2.1: Data capture across all active robots included synchronized
-  UTC timestamps, sensor fusion records, and procedure outcome metrics.
-  Dual-vault RT operations captured independent gating logs for concurrent
-  patient safety verification.
-
-### 21 CFR Part 50 - Adaption
-- Section 50.25: All nine new patients completed informed consent including
-  Physical AI system disclosure, USL readiness scores, and right to
-  non-Physical AI alternatives.
-- Section 50.30: Pre-procedure safety matrix completed for all procedures.
-- Subpart D: Pediatric patients P0148 (10M) and P0153 (16F) treated under
-  additional protections. Parental consent and patient assent documented.
-  Independent pediatric advocate available. IRB-approved pediatric protocol
-  followed for both humanoid interaction and companion robot engagement.
-
-### 21 CFR Part 312 - Adaption
-- Section 312.32: Safety reporting systems active. No reportable events.
-- Section 312.62: Investigator recordkeeping maintained for all patients.
-  IND drug accountability log updated for cabozantinib dispensed to P0152.
-  Drug storage temperature verification documented.
-- Section 312.50: Sponsor obligations met for IND compound monitoring.
-  P0152 cabozantinib administration documented with lot number, dose,
-  route, time, and pre-dose laboratory values.
-
-## Complementary Framework References
-
-The Unification Standard Level (USL) framework (Kawchak, 2026;
-DOI: 10.5281/zenodo.18778220) provides complementary robot technical
-interoperability scoring. TRACK-02 and TRACK-03 dual-vault operations
-demonstrate platform-level capabilities evaluated at USL scores consistent
-with the Advanced band, reflecting strong real-time sensor fusion for
-concurrent respiratory-gated radiotherapy delivery.
-See physical-ai-oncology-trials/unification/usl/paper/usl_oncology_trials.tex.
-
-The single-patient cancer journey framework (Kawchak, 2026;
-DOI: 10.5281/zenodo.19119939) demonstrated autonomous Physical AI trial
-orchestration for an individual patient. P0148's sequential humanoid
-coaching followed by exoskeleton rehabilitation represents a multi-robot
-coordinated care pathway within the on-demand multi-patient context,
-extending the journey framework's single-patient model to concurrent
-evening peak operations.
-See physical-ai-oncology-trials/patient-journey/paper/patient_journey_paper.tex.
+- Arrivals this hour: 9
+- Discharges this hour: 5 (P0116 recovery discharge, P0143, P0144,
+  P0145, P0147)
+- Procedures completed: 7 (P0134 surgery, P0142 ablation, P0143 RT,
+  P0144 rehab, P0145 RT, P0146 biopsy, P0149 needle biopsy)
+- Procedures continuing into Hour 19: 5 (P0148 rehab, P0150 imaging,
+  P0151 RT, P0152 ablation, P0153 companion)
+- End-of-hour census: approximately 22 patients on-site
+- End-of-hour utilization: approximately 55%
