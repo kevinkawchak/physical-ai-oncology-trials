@@ -1,0 +1,120 @@
++============================================================================+
+|              ON-DEMAND PHYSICAL AI ONCOLOGY TRIAL FACILITY                 |
+|                    Hour 17: 17:00-17:59 Status                            |
+|              Evening Peak - Second Highest Utilization                     |
++============================================================================+
+|                                                                            |
+|  ENTRANCE / CHECK-IN (1,500 sq ft)                                        |
+|  +--------------------------------------------------------------------+   |
+|  | [KIOSK-1: active] [KIOSK-2: active] [KIOSK-3: active] [KIOSK-4]  |   |
+|  | Patients checked in this hour: 11 (evening peak)                   |   |
+|  | Average check-in time: 2.5 minutes                                 |   |
+|  +--------------------------------------------------------------------+   |
+|                                                                            |
+|  WAITING AREAS                                                            |
+|  +-------------------------------+  +-------------------+                 |
+|  | ADULT WAITING (2,000 sq ft)   |  | PEDIATRIC WAITING |                 |
+|  | Occupancy: 8/50               |  | (800 sq ft)       |                 |
+|  | [Evening peak queue]          |  | Occ: 2/15         |                 |
+|  | P0136, P0140 discharge wait   |  | P0137, P0141      |                 |
+|  +-------------------------------+  +-------------------+                 |
+|                                                                            |
+|  SURGICAL WING                                                            |
+|  +-------------------+-------------------+-------------------+            |
+|  | SUITE 1 (600)     | SUITE 2 (600)     | SUITE 3 (600)     |            |
+|  | SURG-01: cleaning | SURG-02: *active* | SURG-03: standby  |            |
+|  | then standby      | PAT-ODMND-0134    | Patient: none     |            |
+|  | P0116 completed   | (mediastinal      |                   |            |
+|  | R0, 105 min       |  resection)       |                   |            |
+|  +-------------------+-------------------+-------------------+            |
+|                                                                            |
+|  BIOPSY WING                                                              |
+|  +------------+------------+------------+------------+                    |
+|  | STN 1(200) | STN 2(200) | STN 3(200) | STN 4(200) |                    |
+|  | COBOT-01   | COBOT-02   | COBOT-03   | COBOT-04   |                    |
+|  | standby    | standby    | standby    | *active*   |                    |
+|  |            |            |            | then clean |                    |
+|  |            |            |            | PAT-0135   |                    |
+|  +------------+------------+------------+------------+                    |
+|                                                                            |
+|  RADIOTHERAPY VAULTS (shielded)                                           |
+|  +---------------------+---------------------+---------------------+     |
+|  | VAULT 1 (1,200)     | VAULT 2 (1,200)     | VAULT 3 (1,200)     |     |
+|  | RTPOS-01: standby   | RTPOS-02: *active*  | RTPOS-03: standby   |     |
+|  | TRACK-01: *active*  | TRACK-02: standby   | TRACK-03: *active*  |     |
+|  | PAT-ODMND-0143      | PAT-ODMND-0136      | PAT-ODMND-0138      |     |
+|  | (RT frac 18/30)     | (SRS positioning)   | (RT frac 3/5)       |     |
+|  | 17:50 ongoing       | 17:18-17:48         | 17:28-17:52         |     |
+|  +---------------------+---------------------+---------------------+     |
+|                                                                            |
+|  CT-GUIDED / NEEDLE WING                                                  |
+|  +---------------------+---------------------+                           |
+|  | CT SUITE 1 (400)    | CT SUITE 2 (400)    |                           |
+|  | NEEDLE-01: *active* | NEEDLE-02: standby  |                           |
+|  | PAT-ODMND-0139      |                     |                           |
+|  | (parotid biopsy)    |                     |                           |
+|  | 17:32-17:50         |                     |                           |
+|  +---------------------+---------------------+                           |
+|                                                                            |
+|  PEDIATRIC WING                                                           |
+|  +---------+---------+---------+---------+---------+                      |
+|  | PLAY 1  | PLAY 2  | PLAY 3  | PLAY 4  | PLAY 5  |                      |
+|  | COMPN-01| COMPN-02| COMPN-03| COMPN-04| COMPN-05|                      |
+|  | standby | standby | standby | standby | *active*|                      |
+|  |         |         |         |         |PAT-0137 |                      |
+|  +---------+---------+---------+---------+---------+                      |
+|  +-------------+-------------+-------------+                             |
+|  | THERAPY 1   | THERAPY 2   | THERAPY 3   |                             |
+|  | HUMAN-01    | HUMAN-02    | HUMAN-03    |                             |
+|  | standby     | *active*    | standby     |                             |
+|  |             | PAT-0141    |             |                             |
+|  +-------------+-------------+-------------+                             |
+|                                                                            |
+|  IMAGING WING                                                             |
+|  +------------+------------+------------+------------+                    |
+|  | BAY 1(300) | BAY 2(300) | BAY 3(300) | BAY 4(300) |                    |
+|  | IMAGE-01   | IMAGE-02   | IMAGE-03   | IMAGE-04   |                    |
+|  | standby    | *active*   | standby    | standby    |                    |
+|  |            | PAT-0140   |            |            |                    |
+|  |            | (HCC MRI+CT)|           |            |                    |
+|  +------------+------------+------------+------------+                    |
+|                                                                            |
+|  INTERVENTIONAL WING                                                      |
+|  +---------------------+---------------------+                           |
+|  | ABLATION 1 (500)    | ABLATION 2 (500)    |                           |
+|  | STEER-01: standby   | STEER-02: *active*  |                           |
+|  |                     | PAT-ODMND-0142      |                           |
+|  |                     | (liver ablation)    |                           |
+|  |                     | AE 17:48 SpO2 91%  |                           |
+|  |                     | Resolved -> 96%    |                           |
+|  +---------------------+---------------------+                           |
+|                                                                            |
+|  REHABILITATION WING                                                      |
+|  +---------------+---------------+---------------+                        |
+|  | BAY 1 (400)   | BAY 2 (400)   | BAY 3 (400)   |                        |
+|  | REHAB-01      | REHAB-02      | REHAB-03      |                        |
+|  | standby       | *active*      | standby       |                        |
+|  |               | PAT-0144      |               |                        |
+|  |               | (gait train)  |               |                        |
+|  +---------------+---------------+---------------+                        |
+|                                                                            |
+|  RECOVERY WING (12 bays, 120 sq ft each)                                 |
+|  +-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+--+--+   |
+|  | B1  | B2  | B3  | B4  | B5  | B6  | B7  | B8  | B9  |B10 |11|12|   |
+|  |P0116|occup|occup|P0135|occup|P0138|occup|P0139|occup|occu|  |  |   |
+|  +-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+--+--+   |
+|                                                                            |
+|  SUPPORT AREAS                                                            |
+|  +----------------+----------+--------------+----------+-----------+      |
+|  | PHARMACY (800) | SERVER   | ROBOT MAINT  | EMERG    | STAFF     |      |
+|  | Drug inventory | ROOM(600)| BAY (1,000)  | (400)    | AREA(1200)|      |
+|  | IND: atezo,    | AI comp  | All clear    | Standby  | SSO-D2    |      |
+|  | sorafenib      | peak load|              |          | extended  |      |
+|  +----------------+----------+--------------+----------+-----------+      |
+|                                                                            |
++============================================================================+
+| Legend: *active* = robot serving patient | standby = ready, no patient     |
+| Hour 17: ~24 patients on-site, 18 robots active (62%), 11 standby         |
+| Second highest robot utilization of the 24-hour simulation day             |
+| AE: P0142 Grade 1 desaturation (resolved) per 21 CFR 312.32              |
++============================================================================+
