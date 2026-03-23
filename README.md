@@ -1,9 +1,9 @@
 # End-to-End Physical AI Unification of Oncology Clinical Trials
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Release](https://img.shields.io/badge/Release-v2.8.0-brightgreen.svg)]()
-[![Last Updated](https://img.shields.io/badge/Updated-March%202026-blue.svg)]()
-[![Protocol](https://img.shields.io/badge/Protocol-MCP-purple.svg)](https://modelcontextprotocol.io/)
+[![Release](https://img.shields.io/badge/Release-v2.8.0-brightgreen.svg)](https://github.com/kevinkawchak/physical-ai-oncology-trials)
+[![Last Updated](https://img.shields.io/badge/Updated-March%202026-blue.svg)](https://github.com/kevinkawchak/physical-ai-oncology-trials)
+[![Protocol](https://img.shields.io/badge/Protocol-MCP-purple.svg)](https://github.com/kevinkawchak/physical-ai-oncology-trials)
 [![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.18445179-blue)](https://doi.org/10.5281/zenodo.18445179)
 [![Python](https://img.shields.io/badge/Python-3.10%20|%203.11%20|%203.12-blue.svg)](https://www.python.org/)
 [![Contributors](https://img.shields.io/badge/Contributors-4-blue.svg)](releases.md)
