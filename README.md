@@ -10,7 +10,7 @@
 
 This repository provides production-ready configurations, validated pipelines, and integration guides for deploying robotic systems, digital twins, and embodied AI agents in oncology. 
 
-**3/23: v2.8.0 (On-Demand Trial Simulation)** *24-Hour On-Demand Physical AI Oncology Clinical Trial Simulation* - Full 24-hour simulation of an autonomous, patient-centric oncology trial serving 168 patients across 15 cancer types with 10 robot types. Introduces the Physical AI Standard Level (PSL) framework scoring robots on omniscience (ICH E6(R3)), omnipresence (21 CFR Part 50), and omnipotence (21 CFR Part 312). Cumulative site PSL: 63.4 to 64.4 (Advanced Site). 178 output files across 25 sequential commits with 1-minute resolution.
+**3/23: v2.8.0 (On-Demand Trial Simulation)** *24-Hour On-Demand Physical AI Oncology Clinical Trial Simulation* - Full 24-hour simulation of an autonomous, patient-centric oncology trial serving 168 patients across 15 cancer types with 10 robot types. 
 
 **3/20: v2.7.0 (Patient Journey Paper)** *A Cancer Patient's Journey Through a Regulated and Autonomous Physical AI Oncology Trial Illustration* - Comprehensive paper documenting the patient journey [![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.19119939-blue)](https://doi.org/10.5281/zenodo.19119939)
 
