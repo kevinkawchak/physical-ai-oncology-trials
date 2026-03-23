@@ -10,7 +10,8 @@
 
 This repository provides production-ready configurations, validated pipelines, and integration guides for deploying robotic systems, digital twins, and embodied AI agents in oncology. 
 
-**3/23: v2.8.0 (On-Demand Trial Simulation)** *24-Hour On-Demand Physical AI Oncology Clinical Trial Simulation* - Full 24-hour simulation of an autonomous, patient-centric oncology trial serving 168 patients across 15 cancer types with 10 robot types. 
+**3/23: v2.8.0 (On-Demand Trial Simulation)** *24-Hour On-Demand Physical AI Oncology Clinical Trial Simulation* - Full 24-hour simulation of an autonomous, patient-centric oncology trial serving 168 patients. [![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.19194724-blue)](https://github.com/kevinkawchak/physical-ai-oncology-trials/tree/main/new-trial)
+
 
 **3/20: v2.7.0 (Patient Journey Paper)** *A Cancer Patient's Journey Through a Regulated and Autonomous Physical AI Oncology Trial Illustration* - Comprehensive paper documenting the patient journey [![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.19119939-blue)](https://doi.org/10.5281/zenodo.19119939)
 
