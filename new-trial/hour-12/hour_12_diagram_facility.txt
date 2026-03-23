@@ -1,0 +1,106 @@
++============================================================================+
+|              ON-DEMAND PHYSICAL AI ONCOLOGY TRIAL FACILITY                 |
+|                    Hour 12: 12:00-12:59 Status                            |
++============================================================================+
+|                                                                            |
+|  ENTRANCE / CHECK-IN (1,500 sq ft)                                        |
+|  +--------------------------------------------------------------------+   |
+|  | [KIOSK-1: active] [KIOSK-2: active] [KIOSK-3: idle] [KIOSK-4: idle]|   |
+|  | Patients checked in this hour: 11                                   |   |
+|  +--------------------------------------------------------------------+   |
+|                                                                            |
+|  WAITING AREAS                                                            |
+|  +-------------------------------+  +-------------------+                 |
+|  | ADULT WAITING (2,000 sq ft)   |  | PEDIATRIC WAITING |                 |
+|  | Occupancy: 4/50               |  | (800 sq ft)       |                 |
+|  | [morning wave clearing]       |  | Occ: 2/15         |                 |
+|  +-------------------------------+  +-------------------+                 |
+|                                                                            |
+|  SURGICAL WING                                                            |
+|  +-------------------+-------------------+-------------------+            |
+|  | SUITE 1 (600)     | SUITE 2 (600)     | SUITE 3 (600)     |            |
+|  | SURG-01: standby  | SURG-02: *active* | SURG-03: standby  |            |
+|  | P0065 complete    | PAT-0079 surgery  | Patient: none     |            |
+|  | at 12:15, cleaned | Whipple ongoing   |                   |            |
+|  +-------------------+-------------------+-------------------+            |
+|                                                                            |
+|  BIOPSY WING                                                              |
+|  +------------+------------+------------+------------+                    |
+|  | STN 1(200) | STN 2(200) | STN 3(200) | STN 4(200) |                    |
+|  | COBOT-01   | COBOT-02   | COBOT-03   | COBOT-04   |                    |
+|  | *active*   | *active*   | standby    | standby    |                    |
+|  | PAT-0087   | PAT-0095   |            |            |                    |
+|  +------------+------------+------------+------------+                    |
+|                                                                            |
+|  RADIOTHERAPY VAULTS (shielded)                                           |
+|  +---------------------+---------------------+---------------------+     |
+|  | VAULT 1 (1,200)     | VAULT 2 (1,200)     | VAULT 3 (1,200)     |     |
+|  | RTPOS-01: standby   | RTPOS-02: *active*  | RTPOS-03: standby   |     |
+|  | TRACK-01: *active*  | TRACK-02: standby   | TRACK-02: *active*  |     |
+|  | PAT-0086 RT track   | PAT-0088 RT pos/sim | PAT-0094 RT track   |     |
+|  +---------------------+---------------------+---------------------+     |
+|                                                                            |
+|  CT-GUIDED / NEEDLE WING                                                  |
+|  +---------------------+---------------------+                           |
+|  | CT SUITE 1 (400)    | CT SUITE 2 (400)    |                           |
+|  | NEEDLE-01: *active* | NEEDLE-02: standby  |                           |
+|  | PAT-0090 parotid Bx |                     |                           |
+|  +---------------------+---------------------+                           |
+|                                                                            |
+|  PEDIATRIC WING                                                           |
+|  +---------+---------+---------+---------+---------+                      |
+|  | PLAY 1  | PLAY 2  | PLAY 3  | PLAY 4  | PLAY 5  |                      |
+|  | COMPN-01| COMPN-02| COMPN-03| COMPN-04| COMPN-05|                      |
+|  | standby | standby | monitor | monitor | *active*|                      |
+|  |         |         |ped cont |ped cont | PAT-0089|                      |
+|  +---------+---------+---------+---------+---------+                      |
+|  +-------------+-------------+-------------+                             |
+|  | THERAPY 1   | THERAPY 2   | THERAPY 3   |                             |
+|  | HUMAN-01    | HUMAN-02    | HUMAN-03    |                             |
+|  | *active*    | standby     | standby     |                             |
+|  | PAT-0092    |             |             |                             |
+|  +-------------+-------------+-------------+                             |
+|                                                                            |
+|  IMAGING WING                                                             |
+|  +------------+------------+------------+------------+                    |
+|  | BAY 1(300) | BAY 2(300) | BAY 3(300) | BAY 4(300) |                    |
+|  | IMAGE-01   | IMAGE-02   | IMAGE-03   | IMAGE-04   |                    |
+|  | standby    | cleaning   | standby    | standby    |                    |
+|  | (post-0091)| (post-0093)|            |            |                    |
+|  +------------+------------+------------+------------+                    |
+|                                                                            |
+|  INTERVENTIONAL WING                                                      |
+|  +---------------------+---------------------+                           |
+|  | ABLATION 1 (500)    | ABLATION 2 (500)    |                           |
+|  | STEER-01: *active*  | STEER-02: standby   |                           |
+|  | PAT-0091 HCC ablat  |                     |                           |
+|  +---------------------+---------------------+                           |
+|                                                                            |
+|  REHABILITATION WING                                                      |
+|  +---------------+---------------+---------------+                        |
+|  | BAY 1 (400)   | BAY 2 (400)   | BAY 3 (400)   |                        |
+|  | REHAB-01      | REHAB-02      | REHAB-03      |                        |
+|  | standby       | standby       | *active*      |                        |
+|  |               |               | PAT-0096 gait |                        |
+|  +---------------+---------------+---------------+                        |
+|                                                                            |
+|  RECOVERY WING (12 bays, 120 sq ft each)                                 |
+|  +-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+--+--+   |
+|  | B1  | B2  | B3  | B4  | B5  | B6  | B7  | B8  | B9  |B10 |11|12|   |
+|  |P0065|occpd|occpd|P0093|occpd|occpd|empty|occpd|empty|empt|  |  |   |
+|  |recov|prior|prior|obsrv|prior|prior|     |prior|     |    |  |  |   |
+|  +-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+--+--+   |
+|                                                                            |
+|  SUPPORT AREAS                                                            |
+|  +----------------+----------+--------------+----------+-----------+      |
+|  | PHARMACY (800) | SERVER   | ROBOT MAINT  | EMERG    | STAFF     |      |
+|  | IND drugs:     | ROOM(600)| BAY (1,000)  | (400)    | AREA(1200)|      |
+|  | TMZ, sorafenib | AI comp  | All clear    | Standby  | Day SSO   |      |
+|  | dispensed      | 25 pts   |              |          | on duty   |      |
+|  +----------------+----------+--------------+----------+-----------+      |
+|                                                                            |
++============================================================================+
+| Legend: *active* = robot serving patient | standby = ready, no patient     |
+| monitor = passive pediatric monitoring | cleaning = post-procedure cycle   |
+| Hour 12 Summary: ~25 patients on-site, 16 robots active, ~55% utilization |
++============================================================================+
