@@ -1,0 +1,56 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{physical_ai_legislation}[2026/03/24 Physical AI Legislation Style]
+
+% Page layout
+\RequirePackage[margin=1in]{geometry}
+\RequirePackage{setspace}
+\onehalfspacing
+
+% Typography
+\RequirePackage[T1]{fontenc}
+\RequirePackage{lmodern}
+\RequirePackage{microtype}
+
+% Section formatting
+\RequirePackage{titlesec}
+\titleformat{\section}{\large\bfseries}{\thesection.}{0.5em}{}
+\titleformat{\subsection}{\normalsize\bfseries}{\thesubsection.}{0.5em}{}
+
+% Lists
+\RequirePackage{enumitem}
+\setlist[enumerate]{itemsep=2pt,parsep=2pt}
+\setlist[itemize]{itemsep=2pt,parsep=2pt}
+
+% Headers and footers
+\RequirePackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small Physical AI Oncology Trial Site Documentation}
+\fancyhead[R]{\small March 2026}
+\fancyfoot[C]{\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% Links
+\RequirePackage[colorlinks=true,linkcolor=blue!60!black,citecolor=blue!60!black,urlcolor=blue!60!black]{hyperref}
+
+% Table of contents
+\RequirePackage{tocloft}
+\setlength{\cftsecnumwidth}{2.5em}
+\setlength{\cftsubsecnumwidth}{3.2em}
+
+% Tables
+\RequirePackage{booktabs}
+\RequirePackage{longtable}
+
+% Colors
+\RequirePackage{xcolor}
+
+% Paragraph formatting
+\tolerance=200
+\emergencystretch=2em
+\hyphenpenalty=50
+\widowpenalty=10000
+\clubpenalty=10000
+
+\endinput

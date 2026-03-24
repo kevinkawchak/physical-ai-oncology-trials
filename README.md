@@ -1,7 +1,7 @@
 # End-to-End Physical AI Unification of Oncology Clinical Trials
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Release](https://img.shields.io/badge/Release-v2.8.0-brightgreen.svg)](https://github.com/kevinkawchak/physical-ai-oncology-trials)
+[![Release](https://img.shields.io/badge/Release-v2.9.0-brightgreen.svg)](https://github.com/kevinkawchak/physical-ai-oncology-trials)
 [![Last Updated](https://img.shields.io/badge/Updated-March%202026-blue.svg)](https://github.com/kevinkawchak/physical-ai-oncology-trials)
 [![Protocol](https://img.shields.io/badge/Protocol-MCP-purple.svg)](https://github.com/kevinkawchak/physical-ai-oncology-trials)
 [![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.18445179-blue)](https://doi.org/10.5281/zenodo.18445179)
@@ -14,6 +14,8 @@
 **Comprehensive developments for integrating physical AI into oncology clinical trials, by Claude Code Opus 4.6, Cowork; with Assistance from ChatGPT 5.4 Thinking and Google Gemini Search.**
 
 This repository provides production-ready configurations, validated pipelines, and integration guides for deploying robotic systems, digital twins, and embodied AI agents in oncology. 
+
+**3/24: v2.9.0 (Trial Site Documentation)** *Physical AI Oncology Clinical Trial Site Documentation* - 11 LaTeX documents for California's first Physical AI oncology trial site: legislation drafts, city/state/national regulations, building code, premises code, parking, operations, and emergency preparedness. [![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.19194724-blue)](https://github.com/kevinkawchak/physical-ai-oncology-trials/tree/main/new-trial/site)
 
 **3/23: v2.8.0 (On-Demand Trial Simulation)** *24-Hour On-Demand Physical AI Oncology Clinical Trial Simulation* - Full 24-hour simulation of an autonomous, patient-centric oncology trial serving 168 patients. [![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.19194724-blue)](https://github.com/kevinkawchak/physical-ai-oncology-trials/tree/main/new-trial)
 
@@ -80,11 +82,25 @@ physical-ai-oncology-trials/
 │   │   ├── hour_XX_diagram_facility.txt    # Facility layout diagram
 │   │   ├── hour_XX_diagram_patient_flow.txt # Patient flow diagram
 │   │   └── hour_XX_diagram_robot_status.txt # Robot status timeline
-│   └── final-commit/                  # Error review and 24-hour summaries
-│       ├── final_error_review.md      # Consistency check
-│       ├── final_24h_summary.md       # Performance summary
-│       ├── final_psl_cumulative.md    # PSL trajectory analysis
-│       └── final_diagram_*.txt        # Summary diagrams (3 files)
+│   ├── final-commit/                  # Error review and 24-hour summaries
+│   │   ├── final_error_review.md      # Consistency check
+│   │   ├── final_24h_summary.md       # Performance summary
+│   │   ├── final_psl_cumulative.md    # PSL trajectory analysis
+│   │   └── final_diagram_*.txt        # Summary diagrams (3 files)
+│   └── site/                          # ★ Trial Site Documentation (v2.9.0)
+│       ├── README.md                  # Site documentation overview
+│       ├── 01-legislation-authorization/  # SB 1042 authorization act
+│       ├── 02-legislation-patient-rights/ # AB 2847 patient rights act
+│       ├── 03-legislation-data-transparency/ # SB 892 data protection act
+│       ├── 04-city-regulations/       # SF municipal code update
+│       ├── 05-state-regulations/      # CA Title 22 Chapter 14
+│       ├── 06-national-regulations/   # FDA compliance guide
+│       ├── 07-building-code/          # Facility construction standards
+│       ├── 08-premises-code/          # Site safety and access
+│       ├── 09-parking-transportation/ # Parking and transit standards
+│       ├── 10-site-operations/        # Activation and SOPs
+│       ├── 11-emergency-preparedness/ # Emergency response plan
+│       └── zips/                      # LaTeX source archives (12 zips)
 │
 ├── patient-journey/                   # ★ Single-Patient Journey Orchestration (v2.6.0)
 │   ├── patient_state.py               # Central data model (10 enums, 14 dataclasses)

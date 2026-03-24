@@ -1,0 +1,362 @@
+\documentclass[11pt,letterpaper]{article}
+\usepackage{physical_ai_legislation}
+\usepackage[backend=biber,style=numeric,sorting=none]{biblatex}
+\addbibresource{ca_state_regulations.bib}
+
+\title{%
+  \textbf{California Code of Regulations, Title 22}\\[6pt]
+  \large Division 5, Chapter 14 (New)\\
+  Physical AI Oncology Clinical Trial Site Regulations\\[6pt]
+  \normalsize Proposed regulations implementing the California Physical AI\\
+  Oncology Clinical Trial Authorization and Site Establishment Act (SB 1042).
+}
+\author{%
+  Kevin Kawchak\\
+  CEO, ChemicalQDevice\\
+  \texttt{kevink@chemicalqdevice.com}
+}
+\date{March 24, 2026}
+
+\begin{document}
+\maketitle
+\thispagestyle{fancy}
+
+\begin{center}
+\footnotesize
+\textit{This draft is independent and is not endorsed, sponsored, or approved
+by any trial sponsor, CRO, site, IRB, regulator, or medical society;
+and was adapted using Claude Code Opus 4.6.}
+\end{center}
+
+\vspace{0.5em}
+
+\begin{center}
+\footnotesize
+\textit{This work was adapted from original CFR documents in the public domain.
+The original ICH document is copyrighted and may be used, reproduced,
+incorporated into other works, adapted, modified, translated or distributed
+under a public license. This current work is not endorsed or sponsored by
+CFR, ICH, or FDA; and was adapted using Claude Code Opus 4.6.}
+\end{center}
+
+\vspace{1em}
+\tableofcontents
+\newpage
+
+\section{General Provisions}
+
+\subsection{\S~75000. Authority and Purpose}
+
+\begin{enumerate}[label=(\alph*)]
+\item These regulations are adopted pursuant to the authority granted to the
+  California Department of Public Health (hereinafter ``the department'') under
+  the California Physical AI Oncology Clinical Trial Authorization and Site
+  Establishment Act of 2026 (Health and Safety Code \S~1399.900 et seq.).
+
+\item The purpose of these regulations is to establish standards and procedures
+  for the authorization, inspection, and oversight of Physical AI oncology
+  clinical trial sites throughout California.
+
+\item These regulations apply uniformly across the State of California. The
+  first authorized site shall be established in San Francisco, and subsequent
+  sites may be authorized in any California jurisdiction that meets the
+  requirements of these regulations.
+\end{enumerate}
+
+\subsection{\S~75001. Definitions}
+
+In addition to the definitions established in Health and Safety Code
+\S~1399.901, the following definitions apply:
+
+\begin{enumerate}[label=(\alph*)]
+\item ``Authorization certificate'' means the document issued by the department
+  to a qualified entity permitting the operation of a Physical AI oncology
+  clinical trial site.
+
+\item ``Graduated autonomy'' means the phased approach to Physical AI system
+  deployment in which autonomy levels increase from teleoperation in Phase 1
+  to supervised autonomy in Phase 2 to full autonomy range in Phase 3, as
+  established in the adapted 21 CFR Part 312 \S~312.21~\cite{cfr312adapt}.
+
+\item ``Pre-procedure safety matrix'' means the checklist of safety
+  verifications that shall be completed before initiating any Physical
+  AI-assisted clinical procedure, as defined in the adapted 21 CFR Part 50
+  \S~50.3~\cite{cfr50adapt}.
+
+\item ``Robot capability profile'' means the formal documentation of a Physical
+  AI system's validated task capabilities, performance envelope, and safety
+  constraints.
+
+\item ``Site safety officer'' means a human staff member certified by the
+  department to supervise Physical AI system operations during a shift, with
+  authority to initiate emergency stop procedures and override autonomous
+  operations.
+\end{enumerate}
+
+\section{Authorization Process}
+
+\subsection{\S~75010. Application Requirements}
+
+\begin{enumerate}[label=(\alph*)]
+\item An entity seeking authorization to operate a Physical AI oncology
+  clinical trial site shall submit an application to the department on forms
+  prescribed by the department, including the following:
+  \begin{enumerate}[label=(\arabic*)]
+  \item Identification of the applicant entity, including ownership structure,
+    officers, and any parent organizations.
+  \item Site location and facility description, including architectural plans,
+    engineering specifications, and evidence of compliance with applicable
+    building codes.
+  \item Physical AI System Deployment Plan identifying all robot types and
+    instances, with current USL scores for each system~\cite{usl2026}.
+  \item Phase 0 simulation validation results for each Physical AI system
+    type, demonstrating cross-framework validation using two or more
+    frameworks~\cite{iche6r3adapt}.
+  \item Staffing plan identifying all positions, qualifications, training
+    requirements, and shift schedules for the 24-hour operating model.
+  \item Quality management system documentation addressing Physical AI-specific
+    processes.
+  \item Emergency response plan addressing Physical AI system failures,
+    cybersecurity incidents, natural disasters, and medical emergencies.
+  \item Patient flow projections based on the simulation data showing capacity
+    for 150 to 180 patients per day across 15 or more cancer
+    types~\cite{newtrial2026}.
+  \item Financial documentation demonstrating adequate resources to sustain
+    operations for a minimum of 24 months.
+  \item Evidence of compliance with adapted ICH E6(R3), 21 CFR Part 50, and
+    21 CFR Part 312 regulatory frameworks~\cite{iche6r3adapt,cfr50adapt,cfr312adapt}.
+  \end{enumerate}
+
+\item The application shall be accompanied by a nonrefundable filing fee of
+  twenty-five thousand dollars (\$25,000).
+\end{enumerate}
+
+\subsection{\S~75011. Review Process}
+
+\begin{enumerate}[label=(\alph*)]
+\item The department shall assign a review team consisting of specialists in
+  robotic engineering, oncology, clinical trial regulation, facility safety,
+  and cybersecurity.
+
+\item The review team shall complete an initial completeness review within 30
+  days of application receipt and notify the applicant of any deficiencies.
+
+\item The department shall conduct a substantive review of the complete
+  application and issue a decision within 120 days of receiving a complete
+  application.
+
+\item The department may conduct a pre-authorization site inspection as part
+  of the review process.
+\end{enumerate}
+
+\subsection{\S~75012. Authorization Certificate}
+
+\begin{enumerate}[label=(\alph*)]
+\item An authorization certificate shall specify the following:
+  \begin{enumerate}[label=(\arabic*)]
+  \item The authorized Physical AI system types and maximum number of instances.
+  \item The maximum number of concurrent patients.
+  \item The authorized operating schedule.
+  \item The minimum staffing requirements.
+  \item Any conditions or limitations specific to the site.
+  \end{enumerate}
+
+\item The authorization certificate shall be valid for a period of three years,
+  subject to annual compliance verification.
+
+\item The certificate shall be prominently displayed at the site entrance and
+  available for public inspection.
+\end{enumerate}
+
+\section{Physical AI System Standards}
+
+\subsection{\S~75020. System Registration}
+
+\begin{enumerate}[label=(\alph*)]
+\item Each Physical AI system instance deployed at an authorized site shall be
+  registered with the department, including the following information:
+  \begin{enumerate}[label=(\arabic*)]
+  \item System type, manufacturer, model, and serial number.
+  \item Current USL score with dimension-level breakdown (simulation framework
+    switching, AI integration, cross-robot progress sharing, clinical trial
+    collaboration)~\cite{usl2026}.
+  \item Current PSL scores across three regulatory dimensions (Omniscient,
+    Omnipresent, Omnipotent)~\cite{pslframework2026}.
+  \item Robot capability profile documenting validated task capabilities.
+  \item Phase 0 simulation validation results.
+  \item Installation date and commissioning records.
+  \end{enumerate}
+
+\item Registration shall be updated within 14 days of any change to system
+  configuration, USL score, or capability profile.
+\end{enumerate}
+
+\subsection{\S~75021. Minimum USL Thresholds}
+
+Physical AI systems shall meet the following minimum USL score thresholds,
+consistent with the MCP-PAI standard~\cite{cfr50adapt}:
+
+\begin{center}
+\begin{tabular}{lc}
+\toprule
+\textbf{System Category} & \textbf{Minimum USL Score} \\
+\midrule
+Surgical robots & 7.0 \\
+Radiotherapy positioning robots & 6.0 \\
+Robotic needle-placement systems & 6.0 \\
+Radiotherapy motion-tracking robots & 6.0 \\
+Imaging assistant robots & 6.0 \\
+Steerable needle robots & 6.0 \\
+Collaborative robots (cobots) & 5.0 \\
+Rehabilitation exoskeletons & 4.0 \\
+Humanoid robots & 4.0 \\
+Social companion robots & 3.0 \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\subsection{\S~75022. Maintenance and Calibration}
+
+\begin{enumerate}[label=(\alph*)]
+\item Each Physical AI system shall undergo scheduled maintenance at intervals
+  specified by the manufacturer and documented in the robot capability profile.
+
+\item Maintenance windows shall be coordinated to maintain continuous clinical
+  capability across all system categories, as demonstrated in the simulation
+  where SURG-01 maintenance (22:15 to 01:59) was scheduled during low-demand
+  hours with SURG-02 and SURG-03 remaining
+  available~\cite{newtrial2026}.
+
+\item Calibration records shall include date, calibration parameters, results,
+  and the identity of the person or system performing the calibration.
+
+\item A Physical AI system shall not be used for patient procedures until
+  post-maintenance verification demonstrates performance within specified
+  tolerances.
+\end{enumerate}
+
+\section{Staffing and Training Standards}
+
+\subsection{\S~75030. Minimum Staffing Requirements}
+
+\begin{enumerate}[label=(\alph*)]
+\item An authorized Physical AI oncology clinical trial site operating on a
+  24-hour schedule shall maintain the following minimum staffing:
+  \begin{enumerate}[label=(\arabic*)]
+  \item Two to three site safety officers per shift, with three shifts covering
+    the 24-hour operating period.
+  \item One on-call emergency physician available within 15 minutes at all
+    times.
+  \item One on-call pharmacist available within 15 minutes at all times.
+  \item One facility maintenance technician on-site per shift.
+  \item One cybersecurity operations specialist on-call at all times.
+  \end{enumerate}
+
+\item Total full-time equivalent staffing shall be a minimum of 8 and a maximum
+  of 10, reflecting the Physical AI model in which more patients are treated
+  with more robots and fewer workers~\cite{sitespec2026}.
+
+\item The site shall maintain a staffing contingency plan for situations
+  requiring additional human personnel, such as multiple simultaneous
+  adverse events or extended system outages.
+\end{enumerate}
+
+\subsection{\S~75031. Training and Certification}
+
+\begin{enumerate}[label=(\alph*)]
+\item Site safety officers shall complete a department-approved training program
+  of not less than 160 hours covering the following:
+  \begin{enumerate}[label=(\arabic*)]
+  \item Physical AI system operation and capabilities for all 10 robot
+    categories deployed at the site.
+  \item Emergency stop procedures and manual override protocols.
+  \item Adverse event recognition, documentation, and reporting.
+  \item Patient interaction protocols, including patient rights under AB 2847.
+  \item Cybersecurity awareness and incident response.
+  \item Regulatory compliance including ICH E6(R3), 21 CFR Part 50, and
+    21 CFR Part 312 as adapted for Physical AI~\cite{iche6r3adapt,cfr50adapt,cfr312adapt}.
+  \end{enumerate}
+
+\item Certification shall be valid for two years, with 40 hours of continuing
+  education required for renewal.
+
+\item The department shall develop and maintain the training curriculum in
+  consultation with Physical AI system manufacturers, oncology professional
+  organizations, and patient advocacy groups.
+\end{enumerate}
+
+\section{Inspection and Enforcement}
+
+\subsection{\S~75040. Routine Inspections}
+
+\begin{enumerate}[label=(\alph*)]
+\item The department shall conduct routine inspections of authorized sites at
+  least quarterly, without prior notice.
+
+\item Inspections shall assess compliance with authorization conditions,
+  Physical AI system registration and maintenance, staffing requirements,
+  patient rights protections, adverse event reporting, data protection, and
+  facility condition.
+
+\item The department shall publish inspection reports on its website within 30
+  days of the inspection.
+\end{enumerate}
+
+\subsection{\S~75041. Enforcement Actions}
+
+\begin{enumerate}[label=(\alph*)]
+\item The department may take the following enforcement actions for
+  noncompliance:
+  \begin{enumerate}[label=(\arabic*)]
+  \item Written notice of deficiency with required corrective action plan.
+  \item Administrative penalty of up to ten thousand dollars (\$10,000) per
+    day per violation.
+  \item Suspension of authorization to use specific Physical AI system types.
+  \item Suspension of site authorization.
+  \item Revocation of site authorization.
+  \end{enumerate}
+
+\item Before suspending or revoking authorization, the department shall provide
+  written notice and an opportunity for hearing in accordance with the
+  Administrative Procedure Act (Government Code \S~11500 et seq.).
+
+\item In cases of imminent danger to patient safety, the department may issue
+  an immediate suspension order, with a hearing to be held within 15 days.
+\end{enumerate}
+
+\section{Reporting Requirements}
+
+\subsection{\S~75050. Monthly Reports}
+
+\begin{enumerate}[label=(\alph*)]
+\item Authorized sites shall submit monthly reports to the department including:
+  \begin{enumerate}[label=(\arabic*)]
+  \item Total patients served and procedures performed, disaggregated by
+    cancer type and Physical AI system type.
+  \item Current PSL scores for all robot types and cumulative site PSL score.
+  \item All adverse events with grade, resolution, and root cause analysis.
+  \item Physical AI system utilization rates and maintenance records.
+  \item Staffing levels and any departures from minimum requirements.
+  \end{enumerate}
+\end{enumerate}
+
+\subsection{\S~75051. Annual Reports}
+
+\begin{enumerate}[label=(\alph*)]
+\item Authorized sites shall submit annual reports including all elements
+  required under the adapted 21 CFR Part 312 \S~312.33, plus the following
+  state-specific elements~\cite{cfr312adapt}:
+  \begin{enumerate}[label=(\arabic*)]
+  \item Year-over-year comparison of patient outcomes and throughput.
+  \item Updated USL scores for all Physical AI systems with trend analysis.
+  \item Community benefits achieved, including local workforce development.
+  \item Patient satisfaction data and complaint resolution statistics.
+  \item Comparison of site performance to the baseline established by the
+    24-hour simulation (168 patients, 99.7 percent uptime, 8-minute average
+    wait, 4.7 out of 5.0 satisfaction)~\cite{newtrial2026}.
+  \end{enumerate}
+\end{enumerate}
+
+\printbibliography[title={References}]
+
+\end{document}

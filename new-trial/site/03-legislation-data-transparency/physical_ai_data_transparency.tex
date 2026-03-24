@@ -1,0 +1,348 @@
+\documentclass[11pt,letterpaper]{article}
+\usepackage{physical_ai_legislation}
+\usepackage[backend=biber,style=numeric,sorting=none]{biblatex}
+\addbibresource{physical_ai_data_transparency.bib}
+
+\title{%
+  \textbf{Senate Bill 892}\\[6pt]
+  \large California Physical AI Clinical Data Protection\\
+  and Transparency Act of 2026\\[6pt]
+  \normalsize An act to add Chapter 3.5 (commencing with Section 1798.300)\\
+  to Title 1.81.5 of Part 4 of Division 3 of the Civil Code,\\
+  relating to data protection in physical AI clinical trials.
+}
+\author{%
+  Kevin Kawchak\\
+  CEO, ChemicalQDevice\\
+  \texttt{kevink@chemicalqdevice.com}
+}
+\date{March 24, 2026}
+
+\begin{document}
+\maketitle
+\thispagestyle{fancy}
+
+\begin{center}
+\footnotesize
+\textit{Unofficial independent draft derived from prior legislation;
+no third-party endorsement, sponsorship, affiliation, or authorization
+is expressed or implied; and was adapted using Claude Code Opus 4.6.}
+\end{center}
+
+\vspace{0.5em}
+
+\begin{center}
+\footnotesize
+\textit{This work was adapted from original CFR documents in the public domain.
+The original ICH document is copyrighted and may be used, reproduced,
+incorporated into other works, adapted, modified, translated or distributed
+under a public license. This current work is not endorsed or sponsored by
+CFR, ICH, or FDA; and was adapted using Claude Code Opus 4.6.}
+\end{center}
+
+\vspace{1em}
+\tableofcontents
+\newpage
+
+\section{Legislative Findings and Declarations}
+
+The Legislature finds and declares all of the following:
+
+\begin{enumerate}[label=(\alph*)]
+\item Physical AI oncology clinical trials generate unprecedented volumes of
+  patient data, including robotic telemetry, AI decision logs, digital twin
+  state data, medical imaging, vital signs captured at minute-level resolution,
+  and federated learning model parameters~\cite{newtrial2026}.
+
+\item The 24-hour on-demand simulation generated 178 output files across 25
+  sequential commits, including hourly patient records with minute-level vital
+  sign data for 168 patients, detailed robot telemetry for 29 instances across
+  24 hours, and PSL scoring data for all 10 robot
+  types~\cite{newtrial2026}.
+
+\item The MCP-PAI standard establishes a five-server interoperability topology
+  (authorization, FHIR, DICOM, ledger, provenance) with 23 tools, six actor
+  roles, five conformance levels, and hash-chained audit trails, providing a
+  comprehensive data governance architecture~\cite{iche6r3adapt}.
+
+\item Training data transparency requirements established by AB 2013 (2024)
+  apply to the generative AI and VLA models integrated into Physical AI
+  systems, and additional transparency requirements specific to robotic
+  telemetry and clinical decision data are needed.
+
+\item The cancer patient journey demonstrated federated learning across 12 sites
+  using secure multi-party computation with differential privacy at epsilon
+  equals 1.0, providing a model for privacy-preserving multi-site data
+  sharing~\cite{patientjourney2026}.
+
+\item Both specific details by the minute and details over 24 hours were
+  captured and managed correctly by AI systems, creating a data governance
+  challenge that requires clear rules for data retention, access, sharing, and
+  deletion across multiple timescales.
+\end{enumerate}
+
+\section{Definitions}
+
+For purposes of this chapter, the following definitions apply:
+
+\begin{enumerate}[label=(\alph*)]
+\item ``Physical AI clinical data'' means any data generated, collected,
+  processed, or stored by Physical AI systems during oncology clinical trials,
+  including robotic telemetry data, AI decision logs, digital twin state data,
+  patient vital signs, medical imaging data, procedural records, adverse event
+  records, and PSL and USL scoring data.
+
+\item ``Robotic telemetry data'' means real-time operational data from Physical
+  AI systems including position, force, velocity, temperature, power
+  consumption, active or standby status, and performance metrics.
+
+\item ``AI decision log'' means a record of decisions made by AI algorithms
+  integrated into Physical AI systems, including treatment recommendations,
+  scheduling decisions, resource allocation, and safety interventions.
+
+\item ``Digital twin data'' means patient-specific computational model data
+  including anatomical models, treatment simulation parameters, procedure
+  rehearsal records, and predictive model outputs.
+
+\item ``Hash-chained audit trail'' means an immutable, cryptographically linked
+  sequence of data access and modification records using SHA-256 or equivalent
+  algorithms, as specified in the adapted ICH E6(R3)~\cite{iche6r3adapt}.
+
+\item ``Federated learning data'' means model parameters, gradient updates, and
+  aggregated statistics shared between Physical AI systems across multiple
+  clinical trial sites using privacy-preserving computation methods.
+
+\item ``De-identification'' means the process of removing or obscuring personal
+  health information using the HIPAA Safe Harbor methodology with 18
+  identifier categories, as required by the adapted regulatory
+  frameworks~\cite{cfr50adapt}.
+\end{enumerate}
+
+\section{Data Collection Transparency}
+
+\subsection{Notice Requirements}
+
+\begin{enumerate}[label=(\alph*)]
+\item Before enrollment, each patient shall receive a comprehensive data
+  collection notice specifying all categories of Physical AI clinical data that
+  will be generated during their participation, the purposes for which each
+  category will be used, and the retention period for each category.
+
+\item The notice shall identify the five MCP-PAI servers that will process
+  patient data (authorization, FHIR, DICOM, ledger, provenance) and describe
+  the role of each server in plain language~\cite{iche6r3adapt}.
+
+\item The notice shall disclose whether patient data will be used for federated
+  learning and, if so, describe the differential privacy protections applied,
+  including the privacy budget (epsilon value)~\cite{patientjourney2026}.
+
+\item The notice shall be updated whenever new categories of data collection are
+  introduced or existing categories are materially changed.
+\end{enumerate}
+
+\subsection{Real-Time Data Access}
+
+\begin{enumerate}[label=(\alph*)]
+\item Patients shall have the right to access their Physical AI clinical data
+  in real time through a secure patient portal, including current vital signs,
+  procedure status, robot telemetry relevant to their care, and digital twin
+  visualizations.
+
+\item The site shall provide data access in standardized formats, including
+  FHIR for clinical data and DICOM for medical imaging data.
+
+\item Data access requests shall be fulfilled within 24 hours for historical
+  data not available through the real-time portal.
+\end{enumerate}
+
+\section{Data Protection Standards}
+
+\subsection{Encryption and Access Control}
+
+\begin{enumerate}[label=(\alph*)]
+\item All Physical AI clinical data shall be encrypted at rest using AES-256 or
+  equivalent and in transit using TLS 1.3 or later.
+
+\item Access to Physical AI clinical data shall follow deny-by-default
+  authorization policies, meaning no access is permitted unless explicitly
+  authorized for a specific purpose, role, and time period~\cite{iche6r3adapt}.
+
+\item The six MCP-PAI actor roles (patient, clinician, investigator, sponsor,
+  regulator, system) shall define the maximum data access scope for each
+  role, with no role having unrestricted access to all data
+  categories~\cite{iche6r3adapt}.
+
+\item Multi-factor authentication shall be required for all human access to
+  Physical AI clinical data systems.
+\end{enumerate}
+
+\subsection{Audit Trail Requirements}
+
+\begin{enumerate}[label=(\alph*)]
+\item Hash-chained audit trails shall be maintained for all Physical AI clinical
+  data transactions, providing cryptographic proof of data integrity and an
+  immutable record of who accessed what data, when, and for what
+  purpose~\cite{iche6r3adapt}.
+
+\item Audit trail records shall be retained for a minimum of 15 years following
+  the completion of the clinical trial, or longer if required by applicable
+  regulations.
+
+\item The site shall conduct quarterly audit trail integrity verification using
+  cryptographic chain validation.
+
+\item Audit trail data shall be stored in a separate system from clinical data
+  to prevent simultaneous compromise.
+\end{enumerate}
+
+\subsection{De-identification Standards}
+
+\begin{enumerate}[label=(\alph*)]
+\item All Physical AI clinical data shared outside the treating site shall be
+  de-identified using the HIPAA Safe Harbor methodology, removing all 18
+  categories of identifiers~\cite{cfr50adapt}.
+
+\item Robotic telemetry data shall be assessed for re-identification risk
+  before sharing, as movement patterns and procedural signatures may
+  constitute quasi-identifiers.
+
+\item Digital twin data shall be fully de-identified before any use in
+  federated learning, research, or quality improvement activities.
+
+\item The site shall employ a qualified statistician or privacy officer to
+  verify that de-identified data sets meet the threshold for non-identifiability.
+\end{enumerate}
+
+\section{Federated Learning and Multi-Site\\Data Sharing}
+
+\begin{enumerate}[label=(\alph*)]
+\item Physical AI oncology clinical trial sites that participate in federated
+  learning shall implement the privacy-preserving computation methods
+  demonstrated in the cancer patient journey, including secure multi-party
+  computation with differential privacy~\cite{patientjourney2026}.
+
+\item The privacy budget (epsilon value) for differential privacy shall not
+  exceed 1.0 per federated learning round without explicit patient consent and
+  IRB approval.
+
+\item Model parameters shared through federated learning shall be verified to
+  not contain memorized patient data through membership inference testing.
+
+\item Federated learning participants shall maintain data harmonization
+  standards using DICOM, FHIR, ICD-10 to SNOMED CT mapping, and LOINC
+  coding~\cite{iche6r3adapt}.
+
+\item The simulation demonstrated that 70 federated learning rounds across 12
+  sites achieved clinically significant model improvements while maintaining
+  patient privacy, providing evidence that multi-site Physical AI data sharing
+  can be conducted safely~\cite{patientjourney2026}.
+\end{enumerate}
+
+\section{Data Retention and Deletion}
+
+\begin{enumerate}[label=(\alph*)]
+\item Physical AI clinical data shall be retained for the duration required by
+  applicable federal and state regulations, including a minimum of 2 years
+  following investigational drug approval or 2 years after investigation
+  discontinuation, consistent with 21 CFR Part 312~\cite{cfr312adapt}.
+
+\item Upon trial completion and satisfaction of regulatory retention
+  requirements, patients shall have the right to request deletion of their
+  digital twin data and patient-specific data from Physical AI system local
+  storage.
+
+\item Deletion requests shall be fulfilled within 30 days using secure data
+  erasure methods that comply with HIPAA Safe Harbor requirements, and the
+  site shall provide written confirmation of deletion~\cite{cfr312adapt}.
+
+\item Aggregated, de-identified data may be retained indefinitely for research
+  purposes, provided it meets the de-identification standards established in
+  Section 4.3.
+
+\item When a site's authorization is revoked or a trial is terminated, all
+  patient-specific data shall be securely erased from Physical AI system local
+  storage within 30 days of decommissioning, consistent with the IND
+  withdrawal requirements of the adapted 21 CFR Part 312
+  \S~312.38~\cite{cfr312adapt}.
+\end{enumerate}
+
+\section{Cybersecurity Incident Reporting}
+
+\begin{enumerate}[label=(\alph*)]
+\item Any cybersecurity incident affecting Physical AI clinical data shall be
+  reported to the department, to affected patients, and to the FDA in
+  accordance with the following timelines:
+  \begin{enumerate}[label=(\arabic*)]
+  \item Within 7 days if the incident involves potential patient harm or
+    breach of protected health information for 500 or more individuals.
+  \item Within 15 days for all other cybersecurity incidents affecting Physical
+    AI systems~\cite{cfr312adapt}.
+  \end{enumerate}
+
+\item The site shall maintain a cybersecurity incident response plan that
+  addresses Physical AI-specific threats including robot control system
+  compromise, AI model poisoning, digital twin data manipulation, and
+  MCP-PAI server infrastructure attacks.
+
+\item Annual cybersecurity assessments shall include penetration testing of
+  Physical AI system interfaces, MCP-PAI server infrastructure, and network
+  segmentation between clinical and administrative systems.
+
+\item The simulation demonstrated continuous operation across 24 hours with no
+  cybersecurity incidents, including secure management of 10 gigabits per
+  second internal network traffic supporting 29 robot instances and patient
+  data systems~\cite{sitespec2026}.
+\end{enumerate}
+
+\section{AI Model Transparency}
+
+\begin{enumerate}[label=(\alph*)]
+\item In accordance with the principles of AB 2013 (2024), sites shall maintain
+  and make available upon request documentation of the AI models integrated
+  into Physical AI systems, including model architecture, training data
+  sources, validation methodology, and performance benchmarks.
+
+\item The five categories of AI recognized in the adapted ICH E6(R3) -
+  generative AI (VLA models, diffusion policies), agentic AI (LLM-based
+  assistants), reinforcement learning, self-supervised learning, and
+  supervised learning - shall each have category-specific transparency
+  requirements~\cite{iche6r3adapt}.
+
+\item Pre-determined change control plans (PCCPs) for AI model updates shall be
+  filed with the department and made available to patients upon request,
+  specifying which model changes require protocol amendments versus those
+  within the PCCP scope~\cite{cfr312adapt}.
+
+\item AI model performance shall be reported in the site's annual report
+  alongside PSL and USL scores, providing a comprehensive transparency
+  record~\cite{cfr312adapt}.
+\end{enumerate}
+
+\section{Enforcement and Penalties}
+
+\begin{enumerate}[label=(\alph*)]
+\item Violations of data protection standards established under this chapter
+  shall be subject to civil penalties of not less than two thousand five
+  hundred dollars (\$2,500) and not more than seven thousand five hundred
+  dollars (\$7,500) per violation per patient affected.
+
+\item Intentional or reckless failure to maintain hash-chained audit trails or
+  to report cybersecurity incidents within required timelines shall constitute
+  an aggravated violation subject to penalties of up to twenty-five thousand
+  dollars (\$25,000) per violation.
+
+\item The Attorney General may bring an action to enforce this chapter on behalf
+  of the people of the state.
+
+\item Nothing in this chapter shall be construed to limit any private right of
+  action available to patients under the California Consumer Privacy Act or
+  the California Privacy Rights Act.
+\end{enumerate}
+
+\section{Effective Date}
+
+This act shall take effect on January 1, 2027.
+
+\printbibliography[title={References}]
+
+\end{document}
