@@ -15,7 +15,7 @@
 
 This repository provides production-ready configurations, validated pipelines, and integration guides for deploying robotic systems, digital twins, and embodied AI agents in oncology. 
 
-**3/24: v2.9.0 (Trial Site Documentation)** *Physical AI Oncology Clinical Trial Site Documentation* - 11 LaTeX documents for California's first Physical AI oncology trial site: legislation drafts, city/state/national regulations, building code, premises code, parking, operations, and emergency preparedness. [![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.19194724-blue)](https://github.com/kevinkawchak/physical-ai-oncology-trials/tree/main/new-trial/site)
+**3/24: v2.9.0 (Trial Site Documentation)** *Physical AI Oncology Clinical Trial Site Documentation* - 11 LaTeX documents for California's first Physical AI oncology trial site: legislation drafts, regulations. [![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.19176370-blue)](https://doi.org/10.5281/zenodo.19176370)
 
 **3/23: v2.8.0 (On-Demand Trial Simulation)** *24-Hour On-Demand Physical AI Oncology Clinical Trial Simulation* - Full 24-hour simulation of an autonomous, patient-centric oncology trial serving 168 patients. [![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.19194724-blue)](https://github.com/kevinkawchak/physical-ai-oncology-trials/tree/main/new-trial)
 
