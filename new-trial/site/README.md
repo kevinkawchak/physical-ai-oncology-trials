@@ -1,7 +1,6 @@
 # Physical AI Oncology Clinical Trial Site Documentation
 
-**Version**: 2.9.0
-**Last Updated**: March 2026
+**PDF 3/24: v2.9.0 (Trial Site Documentation)** *Physical AI Oncology Clinical Trial Site Documentation* - 11 LaTeX documents for California's first Physical AI oncology trial site: legislation drafts, regulations. [![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.19176370-blue)](https://doi.org/10.5281/zenodo.19176370)
 
 ## Overview
 
