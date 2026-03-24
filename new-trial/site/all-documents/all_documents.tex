@@ -1,0 +1,3370 @@
+\documentclass[11pt,letterpaper]{article}
+\usepackage{physical_ai_legislation}
+\usepackage[backend=biber,style=numeric,sorting=none]{biblatex}
+\addbibresource{all_documents.bib}
+
+% Redefine \part to avoid blank pages - just a large centered heading
+\makeatletter
+\renewcommand\part{%
+  \@afterindentfalse
+  \secdef\@part\@spart}
+\renewcommand\@part[2][]{%
+  \addcontentsline{toc}{part}{#2}%
+  \markboth{}{}%
+  {\centering
+   \interlinepenalty \@M
+   \normalfont
+   \huge\bfseries #2\par}%
+  \nobreak
+  \vskip 1em
+  \@afterheading}
+\renewcommand\@spart[1]{%
+  {\centering
+   \interlinepenalty \@M
+   \normalfont
+   \huge\bfseries #1\par}%
+  \nobreak
+  \vskip 1em
+  \@afterheading}
+\makeatother
+
+\title{%
+  \textbf{Physical AI Oncology Clinical Trial Site}\\
+  \textbf{Complete Documentation Package}\\[6pt]
+  \large 11 Documents for California's First Physical AI\\
+  Oncology Clinical Trial Site\\[6pt]
+  \normalsize Legislation, Regulations, Building Code,\\
+  Premises Code, and Operations
+}
+\author{%
+  Kevin Kawchak\\
+  CEO, ChemicalQDevice\\
+  \texttt{kevink@chemicalqdevice.com}
+}
+\date{March 24, 2026}
+
+\begin{document}
+\maketitle
+\thispagestyle{fancy}
+
+\begin{center}
+\footnotesize
+\textit{Unofficial independent draft derived from prior legislation;
+no third-party endorsement, sponsorship, affiliation, or authorization
+is expressed or implied; and was adapted using Claude Code Opus 4.6.}
+\end{center}
+
+\vspace{0.3em}
+
+\begin{center}
+\footnotesize
+\textit{This work was adapted from original CFR documents in the public domain.
+The original ICH document is copyrighted and may be used, reproduced,
+incorporated into other works, adapted, modified, translated or distributed
+under a public license. This current work is not endorsed or sponsored by
+CFR, ICH, or FDA; and was adapted using Claude Code Opus 4.6.}
+\end{center}
+
+\vspace{0.3em}
+
+\begin{center}
+\footnotesize
+\textit{This draft is independent and is not endorsed, sponsored, or approved
+by any trial sponsor, CRO, site, IRB, regulator, or medical society;
+and was adapted using Claude Code Opus 4.6.}
+\end{center}
+
+\vspace{1em}
+\tableofcontents
+
+
+% ============================================================================
+% DOCUMENT 1: SB 1042 - California Physical AI Oncology Clinical Trial Authorization and Site Establishment Act of 2026
+% ============================================================================
+
+\part{SB 1042 - California Physical AI Oncology Clinical Trial Authorization and Site Establishment Act of 2026}
+\setcounter{section}{0}
+
+\section{Legislative Findings and Declarations}
+
+The Legislature finds and declares all of the following:
+
+\begin{enumerate}[label=(\alph*)]
+\item Physical artificial intelligence, including robotic surgical systems,
+  collaborative robots, radiotherapy positioning systems, imaging assistants,
+  rehabilitation exoskeletons, and companion robots, represents a transformative
+  advancement in oncology clinical care delivery.
+
+\item A 24-hour on-demand Physical AI oncology clinical trial simulation
+  conducted on March 23, 2026, demonstrated that a single facility equipped
+  with 10 robot types and 29 robot instances successfully served 168 unique
+  patients across 15 cancer types in 24 hours, compared to 5 to 15 patients per
+  day in traditional trial formats~\cite{newtrial2026}.
+
+\item The simulation achieved a cumulative site Physical AI Standard Level (PSL)
+  score of 63.4 to 64.4, within the Advanced Site band, with 99.7 percent
+  facility uptime and an average patient wait time of 8 minutes.
+
+\item All seven adverse events documented during the simulation were Grade 1 or
+  Grade 2, all were resolved within the same hour they occurred, and zero
+  patient harm resulted, demonstrating that Physical AI systems can manage
+  both minute-level clinical details and sustained 24-hour
+  operations~\cite{newtrial2026}.
+
+\item The Physical AI trial format shifts control toward the patient by enabling
+  patient-chosen scheduling on a 24/7 basis, increasing patient throughput by a
+  factor of 10, reducing per-patient costs by 75 to 85 percent, and improving
+  retention rates from 70 to 80 percent in traditional formats to 85 to
+  95 percent~\cite{formatcomparison2026}.
+
+\item Staffing requirements are reduced from 80 to 120 full-time equivalents in
+  traditional trial sites to 8 to 10 full-time equivalents in a Physical AI
+  trial site, with the majority of clinical procedures, monitoring,
+  documentation, and regulatory compliance tasks performed
+  autonomously~\cite{sitespec2026}.
+
+\item The Unification Standard Level (USL) framework provides a standardized
+  1.0 to 10.0 scoring system for evaluating physical AI robot readiness across
+  four dimensions: simulation framework switching, AI integration, cross-robot
+  progress sharing, and clinical trial collaboration~\cite{usl2026}.
+
+\item Three adapted regulatory frameworks, covering ICH E6(R3) good clinical
+  practice, 21 CFR Part 50 human subjects protection, and 21 CFR Part 312
+  investigational new drug applications, provide comprehensive governance for
+  Physical AI oncology trials~\cite{iche6r3adapt,cfr50adapt,cfr312adapt}.
+
+\item The cancer patient journey through a regulated Physical AI oncology trial
+  has been documented across 10 sequential stages from pre-screening through
+  data lock, demonstrating complete Response outcomes and a reduction in
+  recurrence risk from 35 percent to 3 percent~\cite{patientjourney2026}.
+
+\item California has an opportunity to lead the nation in establishing safe,
+  regulated, and patient-centric Physical AI oncology clinical trial sites that
+  serve more patients with more robots and fewer workers while maintaining the
+  highest standards of clinical care.
+\end{enumerate}
+
+\section{Definitions}
+
+For purposes of this chapter, the following definitions apply:
+
+\begin{enumerate}[label=(\alph*)]
+\item ``Physical AI system'' means a robotic or embodied artificial intelligence
+  system that physically interacts with patients, clinical specimens, or medical
+  equipment in the context of an oncology clinical trial. Physical AI systems
+  include, but are not limited to, the following 10 categories:
+  \begin{enumerate}[label=(\arabic*)]
+  \item Surgical robots that perform tumor resection through minimally invasive
+    procedures.
+  \item Collaborative robots (cobots) that stabilize patient limbs and assist
+    with needle biopsy procedures.
+  \item Radiotherapy patient-positioning robots that align patients with
+    submillimeter precision for radiation delivery.
+  \item Robotic needle-placement systems that use imaging guidance to place
+    biopsy or ablation needles with high accuracy.
+  \item Social companion robots that provide emotional support and
+    anxiety reduction for patients, including pediatric patients.
+  \item Humanoid robots that conduct rehabilitation exercises and patient
+    engagement activities.
+  \item Radiotherapy motion-management and tracking robots that monitor
+    patient breathing and gate radiation beams accordingly.
+  \item Imaging assistant robots that perform automated ultrasound and
+    diagnostic imaging procedures.
+  \item Steerable needle and needle-steering robots that guide flexible
+    needles through tissue for targeted ablation.
+  \item Rehabilitation exoskeletons and robotic gait trainers that support
+    post-surgical mobility recovery.
+  \end{enumerate}
+
+\item ``Physical AI Standard Level'' or ``PSL'' means the scoring framework
+  that evaluates each robot type on three regulatory dimensions: Omniscient
+  (ICH E6(R3) compliance), Omnipresent (21 CFR Part 50 compliance), and
+  Omnipotent (21 CFR Part 312 compliance), with each dimension scored from
+  0.0 to 10.0 per robot type.
+
+\item ``Unification Standard Level'' or ``USL'' means the 1.0 to 10.0
+  scoring framework evaluating physical AI robot readiness across four equally
+  weighted dimensions: simulation framework switching, AI integration,
+  cross-robot progress sharing, and clinical trial
+  collaboration~\cite{usl2026}.
+
+\item ``On-demand trial format'' means a clinical trial structure in which
+  patients may schedule procedures at any time during a 24-hour period, 7 days
+  per week, with Physical AI systems providing continuous clinical care.
+
+\item ``Digital twin'' means a patient-specific computational model calibrated
+  to individual anatomy and treatment parameters, used for procedure planning,
+  rehearsal, and intraoperative guidance.
+
+\item ``MCP-PAI standard'' means the Model Context Protocol for Physical AI,
+  a five-server interoperability topology providing authorization, FHIR, DICOM,
+  ledger, and provenance services with hash-chained audit trails.
+
+\item ``Qualified site'' means a facility that has met all building, premises,
+  parking, staffing, equipment, and regulatory requirements established under
+  this chapter and has received authorization from the department to conduct
+  Physical AI oncology clinical trials.
+
+\item ``Department'' means the California Department of Public Health.
+
+\item ``Sim-to-real validation'' means the process of verifying that a Physical
+  AI system's performance in simulated environments transfers to real clinical
+  settings within specified tolerances, including trajectory deviation below
+  2 millimeters and force discrepancy below 0.5 Newtons.
+\end{enumerate}
+
+\section{Authorization to Establish Physical AI\\Oncology Clinical Trial Sites}
+
+\subsection{Site Authorization}
+
+\begin{enumerate}[label=(\alph*)]
+\item The department shall establish a process for authorizing Physical AI
+  oncology clinical trial sites in California, beginning with the first site
+  in a prominent and safe San Francisco location.
+
+\item A qualified entity may apply to the department for authorization to
+  establish and operate a Physical AI oncology clinical trial site in a new
+  building with dedicated parking facilities.
+
+\item The authorization process shall include review of the following:
+  \begin{enumerate}[label=(\arabic*)]
+  \item Facility design and construction plans meeting the Physical AI
+    oncology trial facility building code standards established under
+    this chapter.
+  \item Equipment specifications for all 10 Physical AI system categories
+    to be deployed at the site.
+  \item Staffing plans demonstrating adequate human oversight with a minimum
+    of 8 to 10 full-time equivalent positions across three shifts.
+  \item USL scores for each Physical AI system, with minimum thresholds of
+    7.0 for surgical systems, 6.0 for therapeutic positioning systems, 6.0 for
+    diagnostic systems, 4.0 for rehabilitative systems, and 3.0 for companion
+    systems.
+  \item Phase 0 simulation validation results demonstrating cross-framework
+    consistency using two or more simulation frameworks.
+  \item Compliance plans for ICH E6(R3), 21 CFR Part 50, and 21 CFR Part 312
+    as adapted for Physical AI systems.
+  \item Emergency response and cybersecurity plans.
+  \item Parking and patient transportation accessibility plans.
+  \end{enumerate}
+
+\item The department shall act on a complete application within 120 days of
+  receipt.
+\end{enumerate}
+
+\subsection{Statewide Applicability}
+
+\begin{enumerate}[label=(\alph*)]
+\item The authorization requirements and standards established under this
+  chapter shall apply uniformly to Physical AI oncology clinical trial sites
+  throughout the State of California.
+
+\item A city, county, or city and county may adopt additional requirements for
+  Physical AI oncology clinical trial sites, provided those requirements do not
+  conflict with or impose lesser standards than those established under this
+  chapter.
+
+\item The department shall publish model guidelines to assist local
+  jurisdictions in integrating Physical AI oncology clinical trial site
+  requirements into existing land use, building, and health facility
+  permitting processes.
+\end{enumerate}
+
+\section{Physical AI System Requirements}
+
+\subsection{USL and PSL Compliance}
+
+\begin{enumerate}[label=(\alph*)]
+\item Each Physical AI system deployed at an authorized site shall maintain a
+  USL score at or above the minimum threshold for its system category as
+  specified in Section 3.1(c)(4).
+
+\item The site shall maintain a cumulative PSL score that places it within the
+  Advanced Site band (60.0 or above on the 0 to 100 scale) as a condition of
+  continued authorization.
+
+\item PSL scores shall be calculated and reported monthly using the three
+  regulatory dimensions established in the PSL framework, with changes limited
+  to a maximum of 0.3 per hour per dimension per robot type to ensure scoring
+  stability~\cite{pslframework2026}.
+
+\item A site whose cumulative PSL score falls below the Advanced Site band for
+  two consecutive monthly reporting periods shall submit a corrective action
+  plan to the department within 30 days.
+\end{enumerate}
+
+\subsection{Simulation Validation Requirements}
+
+\begin{enumerate}[label=(\alph*)]
+\item Before deployment at a qualified site, each Physical AI system shall
+  complete Phase 0 simulation validation using two or more validated
+  frameworks, which may include NVIDIA Isaac Lab, MuJoCo, Gazebo Sim, and
+  PyBullet~\cite{iche6r3adapt}.
+
+\item Cross-framework validation shall demonstrate trajectory deviation below
+  2 millimeters and force discrepancy below 0.5 Newtons.
+
+\item Digital twin models shall achieve a minimum fidelity of 90 percent when
+  compared to patient-specific imaging and anatomical data.
+
+\item Failure mode analysis shall be conducted across a minimum of 1,000
+  simulated procedures per Physical AI system type before clinical
+  deployment~\cite{cfr312adapt}.
+\end{enumerate}
+
+\subsection{Informed Consent and Patient Rights}
+
+\begin{enumerate}[label=(\alph*)]
+\item Physical AI oncology clinical trial sites shall comply with all informed
+  consent requirements established in the adapted 21 CFR Part 50 for Physical
+  AI systems, including disclosure of robotic system roles, USL scores in plain
+  language, safety records, and emergency stop provisions~\cite{cfr50adapt}.
+
+\item Patients shall have the right to schedule procedures at any time during
+  the 24-hour operating period, consistent with the on-demand trial format.
+
+\item Patients shall have the right to request human intervention or oversight
+  at any point during a Physical AI-assisted procedure.
+
+\item Pediatric patients shall receive age-appropriate robotic demonstrations
+  and assent procedures as specified in the adapted 21 CFR Part 50
+  \S~50.50 through \S~50.56~\cite{cfr50adapt}.
+
+\item Each patient shall be informed of the specific robots that will be
+  involved in their care, the role of each robot (autonomous, assistive, or
+  shared-autonomy), and the qualifications of human oversight
+  personnel~\cite{patientinstructions2026}.
+\end{enumerate}
+
+\section{Safety and Reporting Requirements}
+
+\subsection{Adverse Event Reporting}
+
+\begin{enumerate}[label=(\alph*)]
+\item The site shall report all Physical AI-related adverse events to the
+  department and to the Food and Drug Administration in accordance with the
+  timelines established in the adapted 21 CFR Part 312 \S~312.32, including
+  7-day reporting for fatal or life-threatening events and 15-day reporting for
+  serious events~\cite{cfr312adapt}.
+
+\item Seven categories of reportable Physical AI adverse events shall be
+  tracked: serious Physical AI adverse events, Physical AI-drug interaction
+  events, cybersecurity incidents, AI model performance degradation,
+  sim-to-real divergence, digital twin discrepancy, and safety review committee
+  findings.
+
+\item The site shall maintain a Physical AI Safety Review Committee with
+  expertise in robotic engineering, AI and machine learning, oncology, and
+  cybersecurity, meeting at intervals not exceeding 90 days.
+\end{enumerate}
+
+\subsection{Data Protection and Audit Trails}
+
+\begin{enumerate}[label=(\alph*)]
+\item All Physical AI systems shall maintain hash-chained audit trails using
+  SHA-256 or equivalent cryptographic standards, as required by the adapted
+  ICH E6(R3) and 21 CFR Part 11~\cite{iche6r3adapt}.
+
+\item Patient data processed through MCP-PAI servers shall be de-identified
+  using HIPAA Safe Harbor methodology with deny-by-default authorization
+  policies.
+
+\item The site shall implement federated learning protocols with differential
+  privacy protections for multi-site data sharing, as validated in the
+  simulation where 70 federated learning rounds across 12 sites used secure
+  multi-party computation with differential privacy at epsilon equals
+  1.0~\cite{patientjourney2026}.
+\end{enumerate}
+
+\section{Facility and Infrastructure Standards}
+
+\begin{enumerate}[label=(\alph*)]
+\item Physical AI oncology clinical trial sites shall be constructed in
+  accordance with the building code standards established under this chapter,
+  including a minimum floor area of 85,000 to 100,000 square feet, HEPA
+  filtration in surgical suites, shielded radiotherapy vaults, and dedicated
+  server rooms for AI computation infrastructure~\cite{sitespec2026}.
+
+\item The site shall provide dedicated parking facilities meeting the standards
+  established under this chapter, including accessible parking, patient
+  drop-off zones, and emergency vehicle access.
+
+\item Power infrastructure shall support 800 to 1,200 kilowatts of sustained
+  electrical load with redundant power supply and uninterruptible power systems
+  for all critical clinical areas.
+
+\item Network infrastructure shall provide a minimum of 10 gigabits per second
+  internal bandwidth with cybersecurity protections meeting the requirements of
+  the MCP-PAI standard~\cite{sitespec2026}.
+\end{enumerate}
+
+\section{Workforce Transition and Training}
+
+\begin{enumerate}[label=(\alph*)]
+\item The department, in consultation with the Employment Development Department
+  and the California Workforce Development Board, shall establish programs to
+  assist clinical trial workers in transitioning to roles in Physical AI trial
+  sites or related fields.
+
+\item Each authorized site shall provide comprehensive training for all human
+  staff in Physical AI system operation, emergency response, patient
+  interaction, and regulatory compliance.
+
+\item Training requirements shall include demonstrated competency in
+  understanding Physical AI system capabilities, limitations, and failure modes,
+  as well as the ability to intervene manually when necessary.
+
+\item The Legislature recognizes that while Physical AI trial sites require
+  fewer workers (8 to 10 full-time equivalents compared to 80 to 120 in
+  traditional formats), the transition enables more patients to be treated,
+  with the simulation demonstrating 168 patients served in 24 hours
+  compared to approximately 5 to 15 per day traditionally.
+\end{enumerate}
+
+\section{Relationship to Existing California Law}
+
+This chapter is intended to complement and operate in conjunction with
+existing California laws governing health care and artificial intelligence,
+including but not limited to the following:
+
+\begin{enumerate}[label=(\alph*)]
+\item AB 489 (2025), concerning health care professions and deceptive terms
+  related to artificial intelligence, which ensures clear communication about
+  AI involvement in clinical care.
+
+\item AB 3030 (2024), concerning health care services and artificial
+  intelligence, which establishes transparency requirements for AI in health
+  care delivery.
+
+\item SB 1120 (2024), concerning health care coverage and utilization review,
+  which addresses AI-assisted clinical decision-making.
+
+\item SB 243 (2025), concerning companion chatbots, which establishes safety
+  standards for AI companion systems relevant to social companion robots used
+  in Physical AI oncology trials.
+
+\item AB 2013 (2024), concerning generative artificial intelligence and
+  training data transparency, which applies to the generative AI and VLA
+  models integrated into Physical AI systems.
+\end{enumerate}
+
+\section{Appropriation}
+
+The sum of fifty million dollars (\$50,000,000) is hereby appropriated from the
+General Fund to the department for the purposes of implementing this chapter,
+including the establishment of the site authorization process, development of
+model guidelines, workforce transition programs, and ongoing oversight of
+authorized Physical AI oncology clinical trial sites.
+
+\section{Effective Date}
+
+This act shall take effect on January 1, 2027.
+
+
+% ============================================================================
+% DOCUMENT 2: AB 2847 - California Physical AI Patient Rights and Robotic Safety Act of 2026
+% ============================================================================
+
+\part{AB 2847 - California Physical AI Patient Rights and Robotic Safety Act of 2026}
+\setcounter{section}{0}
+
+\section{Legislative Findings and Declarations}
+
+The Legislature finds and declares all of the following:
+
+\begin{enumerate}[label=(\alph*)]
+\item Physical AI oncology clinical trials represent a fundamental shift in the
+  relationship between patients and clinical care systems, in which control has
+  now shifted towards the patient's side, with more patient rights than
+  traditional clinical trial formats provide.
+
+\item The 24-hour on-demand Physical AI oncology trial simulation demonstrated
+  that patients can choose their own scheduling across a full 24-hour period,
+  experience average wait times of 8 minutes, and achieve patient satisfaction
+  scores of 4.7 out of 5.0, compared to the rigid scheduling and extended
+  wait times typical of traditional oncology trials~\cite{newtrial2026}.
+
+\item More patients will be treated with more robots and fewer workers, with the
+  simulation demonstrating 168 patients served by 29 robot instances staffed
+  by 8 to 10 human full-time equivalents across three shifts, compared to 5 to
+  15 patients per day in traditional formats requiring 80 to 120
+  staff~\cite{formatcomparison2026}.
+
+\item The cancer patient journey through a regulated Physical AI oncology trial
+  documented a complete patient trajectory from pre-screening through data
+  lock across 10 stages, achieving complete Response, R0 resection, and
+  reduction in recurrence risk from 35 percent to 3 percent, demonstrating
+  that patient outcomes improve under Physical AI
+  care~\cite{patientjourney2026}.
+
+\item Pediatric patients require special protections, including age-appropriate
+  demonstrations of robotic systems, parental consent provisions, and dedicated
+  companion robot interactions, as established in the adapted 21 CFR Part 50
+  \S~50.50 through \S~50.56~\cite{cfr50adapt}.
+
+\item Patient-facing robot instructions for all 10 robot types have been
+  developed and validated, providing step-by-step guidance for patients
+  interacting with surgical robots, cobots, radiotherapy positioning systems,
+  needle-placement systems, social companions, humanoids, motion-tracking
+  systems, imaging assistants, steerable needles, and rehabilitation
+  exoskeletons~\cite{patientinstructions2026}.
+
+\item The simulation demonstrated that both specific details by the minute and
+  details over 24 hours were handled correctly by AI, with minute-level vital
+  sign monitoring, real-time adverse event detection and resolution, and
+  sustained clinical operations across all 24 hours.
+
+\item Seven adverse events occurred across 168 patients (4.2 percent incidence
+  rate), all Grade 1 or Grade 2, all resolved within the same hour,
+  demonstrating a safety profile that supports expanding patient access to
+  Physical AI oncology care~\cite{newtrial2026}.
+\end{enumerate}
+
+\section{Patient Bill of Rights for Physical AI\\Oncology Clinical Trials}
+
+\subsection{Right to On-Demand Scheduling}
+
+\begin{enumerate}[label=(\alph*)]
+\item Every patient enrolled in a Physical AI oncology clinical trial at an
+  authorized California site shall have the right to schedule procedures,
+  consultations, and follow-up visits at any time during the site's 24-hour
+  operating period, 7 days per week, subject only to clinical safety
+  constraints and equipment availability.
+
+\item The site shall provide scheduling systems that enable patients to select
+  appointment times without requiring approval from clinical staff, with the
+  Physical AI systems managing patient flow and resource allocation
+  autonomously.
+
+\item Maximum wait times from arrival to procedure initiation shall not exceed
+  30 minutes under normal operating conditions. The simulation demonstrated
+  an average wait time of 8 minutes across 168
+  patients~\cite{newtrial2026}.
+\end{enumerate}
+
+\subsection{Right to Full Disclosure}
+
+\begin{enumerate}[label=(\alph*)]
+\item Before any Physical AI-assisted procedure, the patient shall receive clear
+  and complete disclosure of the following:
+  \begin{enumerate}[label=(\arabic*)]
+  \item The specific Physical AI system or systems that will be involved in
+    their care, identified by type, model, and the role each system will
+    perform (primary, secondary, or ancillary).
+  \item Whether the system will operate in autonomous, assistive, or
+    shared-autonomy mode.
+  \item The system's current USL score presented in plain language, with an
+    explanation of what the score means for the patient's
+    procedure~\cite{usl2026}.
+  \item The system's safety record, including any prior adverse events involving
+    the specific system instance.
+  \item Emergency stop provisions and how they will be activated if needed.
+  \item The identity and qualifications of the human oversight personnel
+    responsible for supervising the procedure.
+  \item Simulation validation results relevant to the patient's specific
+    procedure type.
+  \item Digital twin usage and the patient's right to request deletion of their
+    digital twin data at any time.
+  \end{enumerate}
+
+\item Disclosure materials shall be available in the patient's preferred
+  language and in formats accessible to patients with visual, auditory, or
+  cognitive impairments.
+
+\item The site shall provide patient-facing robot instructions consistent with
+  those developed for each of the 10 Physical AI system
+  categories~\cite{patientinstructions2026}.
+\end{enumerate}
+
+\subsection{Right to Human Intervention}
+
+\begin{enumerate}[label=(\alph*)]
+\item A patient shall have the right to request human intervention or oversight
+  at any point during a Physical AI-assisted procedure, and the site shall be
+  staffed to accommodate such requests within 2 minutes of the request.
+
+\item A patient may withdraw consent for Physical AI involvement at any time and
+  request that the remainder of their procedure be completed by human
+  clinicians, to the extent that such transition is clinically safe.
+
+\item The site shall maintain at least one on-call emergency physician and one
+  on-call pharmacist at all times during the 24-hour operating period, in
+  addition to the site safety officers present on each shift.
+
+\item Emergency stop mechanisms shall be accessible to both clinical staff and
+  patients where clinically appropriate, with clear instructions provided in
+  advance.
+\end{enumerate}
+
+\subsection{Right to Privacy and Data Control}
+
+\begin{enumerate}[label=(\alph*)]
+\item All patient data collected, processed, or stored by Physical AI systems
+  shall be protected in accordance with HIPAA, the California Consumer Privacy
+  Act, the California Privacy Rights Act, and the data governance requirements
+  of the adapted ICH E6(R3)~\cite{iche6r3adapt}.
+
+\item Patient data processed through MCP-PAI servers shall use deny-by-default
+  authorization policies, meaning no data access is permitted unless
+  explicitly authorized for a specific purpose~\cite{iche6r3adapt}.
+
+\item Patients shall have the right to request a complete record of all
+  Physical AI system interactions involving their care, including robotic
+  telemetry logs, AI decision logs, and digital twin state data.
+
+\item Patients shall have the right to request deletion of their digital twin
+  and associated patient-specific data from Physical AI system local storage,
+  subject to regulatory data retention requirements under 21 CFR Part 312.
+
+\item Hash-chained audit trails (SHA-256) shall be maintained for all patient
+  data transactions, providing an immutable record of data access and
+  modification~\cite{iche6r3adapt}.
+\end{enumerate}
+
+\subsection{Right to Equitable Access}
+
+\begin{enumerate}[label=(\alph*)]
+\item Physical AI oncology clinical trial sites shall not discriminate in
+  enrollment, scheduling, or treatment on the basis of race, ethnicity, sex,
+  gender identity, sexual orientation, age, disability, socioeconomic status,
+  insurance status, or geographic location.
+
+\item The on-demand 24/7 scheduling format shall accommodate patients who work
+  non-traditional hours, have caregiving responsibilities, or face
+  transportation barriers, consistent with the patient-centric design
+  demonstrated in the simulation~\cite{formatcomparison2026}.
+
+\item The site shall provide transportation assistance, including accessible
+  parking, patient drop-off zones, and coordination with public transit and
+  ride-share services.
+
+\item The per-patient cost reduction of 75 to 85 percent demonstrated in the
+  simulation format comparison shall be reflected in reduced financial barriers
+  for patients~\cite{formatcomparison2026}.
+\end{enumerate}
+
+\subsection{Pediatric Patient Protections}
+
+\begin{enumerate}[label=(\alph*)]
+\item Pediatric patients (under 18 years of age) shall receive age-appropriate
+  explanations and demonstrations of all Physical AI systems involved in their
+  care, consistent with the assent requirements of the adapted 21 CFR Part 50
+  \S~50.50 through \S~50.56~\cite{cfr50adapt}.
+
+\item Social companion robots used with pediatric patients shall follow the
+  interaction protocols established in the patient robot instructions,
+  including gentle high-fives, interactive games, calm-breathing prompts, and
+  virtual sticker rewards~\cite{patientinstructions2026}.
+
+\item Humanoid robots conducting rehabilitation exercises with pediatric
+  patients shall follow established protocols including slow count-in and
+  count-out breathing, posture cues, and interaction durations appropriate for
+  the child's age and condition~\cite{patientinstructions2026}.
+
+\item A parent or guardian shall be present or immediately available during all
+  Physical AI-assisted procedures involving pediatric patients, and an advocate
+  shall be appointed for wards of the state consistent with \S~50.56 of the
+  adapted regulations~\cite{cfr50adapt}.
+
+\item The simulation demonstrated successful management of pediatric patients
+  including pediatric ALL (acute lymphoblastic leukemia) and AML (acute
+  myeloid leukemia) cases, with companion robot-assisted anxiety reduction
+  achieving 95 percent effectiveness~\cite{newtrial2026}.
+\end{enumerate}
+
+\section{Robotic Safety Standards}
+
+\subsection{Physical AI System Safety Certification}
+
+\begin{enumerate}[label=(\alph*)]
+\item Before deployment at an authorized California site, each Physical AI
+  system shall obtain safety certification through a process administered by
+  the department, demonstrating the following:
+  \begin{enumerate}[label=(\arabic*)]
+  \item Completion of Phase 0 simulation validation across two or more
+    validated simulation frameworks with cross-framework trajectory deviation
+    below 2 millimeters and force discrepancy below 0.5
+    Newtons~\cite{iche6r3adapt}.
+  \item Achievement of minimum USL scores: 7.0 for surgical robots, 6.0 for
+    therapeutic positioning and diagnostic systems, 4.0 for rehabilitative
+    systems, and 3.0 for companion systems~\cite{cfr50adapt}.
+  \item Completion of failure mode analysis across a minimum of 1,000
+    simulated procedures~\cite{cfr312adapt}.
+  \item Functional emergency stop mechanisms tested and verified.
+  \item Force-limiting capabilities appropriate to the system type, including
+    maximum 250 millimeters per second approach speed and force-limited contact
+    for cobots~\cite{patientinstructions2026}.
+  \end{enumerate}
+
+\item Safety certification shall be renewed annually and following any
+  significant hardware or software modification.
+\end{enumerate}
+
+\subsection{Continuous Safety Monitoring}
+
+\begin{enumerate}[label=(\alph*)]
+\item Each Physical AI system shall maintain continuous telemetry recording
+  during all patient interactions, as demonstrated in the hourly robot logs of
+  the 24-hour simulation where all 29 robot instances were tracked with
+  active and standby status, performance metrics, and state
+  transitions~\cite{newtrial2026}.
+
+\item Real-time safety monitoring shall include automated detection of force
+  limit exceedances, positioning errors beyond specified tolerances, AI model
+  performance degradation, and cybersecurity anomalies.
+
+\item The simulation demonstrated 99.7 percent fleet uptime across 29 robot
+  instances over 24 hours, with one planned maintenance event (SURG-01
+  maintenance window from 22:15 to 01:59) managed without patient
+  impact~\cite{newtrial2026}.
+
+\item Sim-to-real divergence exceeding 4 millimeters in trajectory or 1.0
+  Newton in force shall trigger an automatic safety review and potential
+  suspension of the affected system~\cite{cfr312adapt}.
+\end{enumerate}
+
+\subsection{Adverse Event Response}
+
+\begin{enumerate}[label=(\alph*)]
+\item Every Physical AI-related adverse event shall be documented, reported, and
+  resolved in accordance with the timelines and categories established in the
+  adapted 21 CFR Part 312 \S~312.32~\cite{cfr312adapt}.
+
+\item The site shall achieve a target of resolving all Grade 1 and Grade 2
+  adverse events within the same hour of occurrence, consistent with the
+  performance demonstrated in the simulation where all seven adverse events
+  (ranging from nausea and hypotension to pain, cough, desaturation, and
+  anxiety) were resolved within the hour~\cite{newtrial2026}.
+
+\item A Physical AI Safety Review Committee shall convene within 24 hours of any
+  Grade 3 or higher adverse event and within 7 days of any fatal or
+  life-threatening event.
+
+\item The committee shall include expertise in robotic engineering, AI and
+  machine learning, oncology, and cybersecurity, meeting at regular intervals
+  not exceeding 90 days~\cite{cfr312adapt}.
+\end{enumerate}
+
+\section{Patient Complaint and Grievance Process}
+
+\begin{enumerate}[label=(\alph*)]
+\item Each authorized site shall establish a patient complaint and grievance
+  process that is accessible 24 hours per day, 7 days per week, consistent
+  with the site's operating schedule.
+
+\item Complaints involving Physical AI system malfunctions or safety concerns
+  shall be investigated within 48 hours and the patient shall be notified of
+  the investigation outcome within 14 days.
+
+\item The department shall maintain a public registry of Physical AI-related
+  patient complaints and their resolutions, with appropriate de-identification
+  of patient information.
+
+\item Patients shall have the right to file complaints directly with the
+  department if they believe the site's internal grievance process has not
+  adequately addressed their concerns.
+\end{enumerate}
+
+\section{Enforcement}
+
+\begin{enumerate}[label=(\alph*)]
+\item The department shall have authority to inspect authorized Physical AI
+  oncology clinical trial sites without prior notice to verify compliance
+  with this article.
+
+\item Violations of patient rights established under this article shall be
+  subject to civil penalties of not less than one thousand dollars (\$1,000)
+  and not more than twenty-five thousand dollars (\$25,000) per violation.
+
+\item The department may suspend or revoke site authorization for repeated or
+  serious violations of patient rights or robotic safety standards.
+
+\item Nothing in this article shall be construed to limit any other remedy
+  available to patients under California law.
+\end{enumerate}
+
+\section{Effective Date}
+
+This act shall take effect on January 1, 2027.
+
+
+% ============================================================================
+% DOCUMENT 3: SB 892 - California Physical AI Clinical Data Protection and Transparency Act of 2026
+% ============================================================================
+
+\part{SB 892 - California Physical AI Clinical Data Protection and Transparency Act of 2026}
+\setcounter{section}{0}
+
+\section{Legislative Findings and Declarations}
+
+The Legislature finds and declares all of the following:
+
+\begin{enumerate}[label=(\alph*)]
+\item Physical AI oncology clinical trials generate unprecedented volumes of
+  patient data, including robotic telemetry, AI decision logs, digital twin
+  state data, medical imaging, vital signs captured at minute-level resolution,
+  and federated learning model parameters~\cite{newtrial2026}.
+
+\item The 24-hour on-demand simulation generated 178 output files across 25
+  sequential commits, including hourly patient records with minute-level vital
+  sign data for 168 patients, detailed robot telemetry for 29 instances across
+  24 hours, and PSL scoring data for all 10 robot
+  types~\cite{newtrial2026}.
+
+\item The MCP-PAI standard establishes a five-server interoperability topology
+  (authorization, FHIR, DICOM, ledger, provenance) with 23 tools, six actor
+  roles, five conformance levels, and hash-chained audit trails, providing a
+  comprehensive data governance architecture~\cite{iche6r3adapt}.
+
+\item Training data transparency requirements established by AB 2013 (2024)
+  apply to the generative AI and VLA models integrated into Physical AI
+  systems, and additional transparency requirements specific to robotic
+  telemetry and clinical decision data are needed.
+
+\item The cancer patient journey demonstrated federated learning across 12 sites
+  using secure multi-party computation with differential privacy at epsilon
+  equals 1.0, providing a model for privacy-preserving multi-site data
+  sharing~\cite{patientjourney2026}.
+
+\item Both specific details by the minute and details over 24 hours were
+  captured and managed correctly by AI systems, creating a data governance
+  challenge that requires clear rules for data retention, access, sharing, and
+  deletion across multiple timescales.
+\end{enumerate}
+
+\section{Definitions}
+
+For purposes of this chapter, the following definitions apply:
+
+\begin{enumerate}[label=(\alph*)]
+\item ``Physical AI clinical data'' means any data generated, collected,
+  processed, or stored by Physical AI systems during oncology clinical trials,
+  including robotic telemetry data, AI decision logs, digital twin state data,
+  patient vital signs, medical imaging data, procedural records, adverse event
+  records, and PSL and USL scoring data.
+
+\item ``Robotic telemetry data'' means real-time operational data from Physical
+  AI systems including position, force, velocity, temperature, power
+  consumption, active or standby status, and performance metrics.
+
+\item ``AI decision log'' means a record of decisions made by AI algorithms
+  integrated into Physical AI systems, including treatment recommendations,
+  scheduling decisions, resource allocation, and safety interventions.
+
+\item ``Digital twin data'' means patient-specific computational model data
+  including anatomical models, treatment simulation parameters, procedure
+  rehearsal records, and predictive model outputs.
+
+\item ``Hash-chained audit trail'' means an immutable, cryptographically linked
+  sequence of data access and modification records using SHA-256 or equivalent
+  algorithms, as specified in the adapted ICH E6(R3)~\cite{iche6r3adapt}.
+
+\item ``Federated learning data'' means model parameters, gradient updates, and
+  aggregated statistics shared between Physical AI systems across multiple
+  clinical trial sites using privacy-preserving computation methods.
+
+\item ``De-identification'' means the process of removing or obscuring personal
+  health information using the HIPAA Safe Harbor methodology with 18
+  identifier categories, as required by the adapted regulatory
+  frameworks~\cite{cfr50adapt}.
+\end{enumerate}
+
+\section{Data Collection Transparency}
+
+\subsection{Notice Requirements}
+
+\begin{enumerate}[label=(\alph*)]
+\item Before enrollment, each patient shall receive a comprehensive data
+  collection notice specifying all categories of Physical AI clinical data that
+  will be generated during their participation, the purposes for which each
+  category will be used, and the retention period for each category.
+
+\item The notice shall identify the five MCP-PAI servers that will process
+  patient data (authorization, FHIR, DICOM, ledger, provenance) and describe
+  the role of each server in plain language~\cite{iche6r3adapt}.
+
+\item The notice shall disclose whether patient data will be used for federated
+  learning and, if so, describe the differential privacy protections applied,
+  including the privacy budget (epsilon value)~\cite{patientjourney2026}.
+
+\item The notice shall be updated whenever new categories of data collection are
+  introduced or existing categories are materially changed.
+\end{enumerate}
+
+\subsection{Real-Time Data Access}
+
+\begin{enumerate}[label=(\alph*)]
+\item Patients shall have the right to access their Physical AI clinical data
+  in real time through a secure patient portal, including current vital signs,
+  procedure status, robot telemetry relevant to their care, and digital twin
+  visualizations.
+
+\item The site shall provide data access in standardized formats, including
+  FHIR for clinical data and DICOM for medical imaging data.
+
+\item Data access requests shall be fulfilled within 24 hours for historical
+  data not available through the real-time portal.
+\end{enumerate}
+
+\section{Data Protection Standards}
+
+\subsection{Encryption and Access Control}
+
+\begin{enumerate}[label=(\alph*)]
+\item All Physical AI clinical data shall be encrypted at rest using AES-256 or
+  equivalent and in transit using TLS 1.3 or later.
+
+\item Access to Physical AI clinical data shall follow deny-by-default
+  authorization policies, meaning no access is permitted unless explicitly
+  authorized for a specific purpose, role, and time period~\cite{iche6r3adapt}.
+
+\item The six MCP-PAI actor roles (patient, clinician, investigator, sponsor,
+  regulator, system) shall define the maximum data access scope for each
+  role, with no role having unrestricted access to all data
+  categories~\cite{iche6r3adapt}.
+
+\item Multi-factor authentication shall be required for all human access to
+  Physical AI clinical data systems.
+\end{enumerate}
+
+\subsection{Audit Trail Requirements}
+
+\begin{enumerate}[label=(\alph*)]
+\item Hash-chained audit trails shall be maintained for all Physical AI clinical
+  data transactions, providing cryptographic proof of data integrity and an
+  immutable record of who accessed what data, when, and for what
+  purpose~\cite{iche6r3adapt}.
+
+\item Audit trail records shall be retained for a minimum of 15 years following
+  the completion of the clinical trial, or longer if required by applicable
+  regulations.
+
+\item The site shall conduct quarterly audit trail integrity verification using
+  cryptographic chain validation.
+
+\item Audit trail data shall be stored in a separate system from clinical data
+  to prevent simultaneous compromise.
+\end{enumerate}
+
+\subsection{De-identification Standards}
+
+\begin{enumerate}[label=(\alph*)]
+\item All Physical AI clinical data shared outside the treating site shall be
+  de-identified using the HIPAA Safe Harbor methodology, removing all 18
+  categories of identifiers~\cite{cfr50adapt}.
+
+\item Robotic telemetry data shall be assessed for re-identification risk
+  before sharing, as movement patterns and procedural signatures may
+  constitute quasi-identifiers.
+
+\item Digital twin data shall be fully de-identified before any use in
+  federated learning, research, or quality improvement activities.
+
+\item The site shall employ a qualified statistician or privacy officer to
+  verify that de-identified data sets meet the threshold for non-identifiability.
+\end{enumerate}
+
+\section{Federated Learning and Multi-Site\\Data Sharing}
+
+\begin{enumerate}[label=(\alph*)]
+\item Physical AI oncology clinical trial sites that participate in federated
+  learning shall implement the privacy-preserving computation methods
+  demonstrated in the cancer patient journey, including secure multi-party
+  computation with differential privacy~\cite{patientjourney2026}.
+
+\item The privacy budget (epsilon value) for differential privacy shall not
+  exceed 1.0 per federated learning round without explicit patient consent and
+  IRB approval.
+
+\item Model parameters shared through federated learning shall be verified to
+  not contain memorized patient data through membership inference testing.
+
+\item Federated learning participants shall maintain data harmonization
+  standards using DICOM, FHIR, ICD-10 to SNOMED CT mapping, and LOINC
+  coding~\cite{iche6r3adapt}.
+
+\item The simulation demonstrated that 70 federated learning rounds across 12
+  sites achieved clinically significant model improvements while maintaining
+  patient privacy, providing evidence that multi-site Physical AI data sharing
+  can be conducted safely~\cite{patientjourney2026}.
+\end{enumerate}
+
+\section{Data Retention and Deletion}
+
+\begin{enumerate}[label=(\alph*)]
+\item Physical AI clinical data shall be retained for the duration required by
+  applicable federal and state regulations, including a minimum of 2 years
+  following investigational drug approval or 2 years after investigation
+  discontinuation, consistent with 21 CFR Part 312~\cite{cfr312adapt}.
+
+\item Upon trial completion and satisfaction of regulatory retention
+  requirements, patients shall have the right to request deletion of their
+  digital twin data and patient-specific data from Physical AI system local
+  storage.
+
+\item Deletion requests shall be fulfilled within 30 days using secure data
+  erasure methods that comply with HIPAA Safe Harbor requirements, and the
+  site shall provide written confirmation of deletion~\cite{cfr312adapt}.
+
+\item Aggregated, de-identified data may be retained indefinitely for research
+  purposes, provided it meets the de-identification standards established in
+  Section 4.3.
+
+\item When a site's authorization is revoked or a trial is terminated, all
+  patient-specific data shall be securely erased from Physical AI system local
+  storage within 30 days of decommissioning, consistent with the IND
+  withdrawal requirements of the adapted 21 CFR Part 312
+  \S~312.38~\cite{cfr312adapt}.
+\end{enumerate}
+
+\section{Cybersecurity Incident Reporting}
+
+\begin{enumerate}[label=(\alph*)]
+\item Any cybersecurity incident affecting Physical AI clinical data shall be
+  reported to the department, to affected patients, and to the FDA in
+  accordance with the following timelines:
+  \begin{enumerate}[label=(\arabic*)]
+  \item Within 7 days if the incident involves potential patient harm or
+    breach of protected health information for 500 or more individuals.
+  \item Within 15 days for all other cybersecurity incidents affecting Physical
+    AI systems~\cite{cfr312adapt}.
+  \end{enumerate}
+
+\item The site shall maintain a cybersecurity incident response plan that
+  addresses Physical AI-specific threats including robot control system
+  compromise, AI model poisoning, digital twin data manipulation, and
+  MCP-PAI server infrastructure attacks.
+
+\item Annual cybersecurity assessments shall include penetration testing of
+  Physical AI system interfaces, MCP-PAI server infrastructure, and network
+  segmentation between clinical and administrative systems.
+
+\item The simulation demonstrated continuous operation across 24 hours with no
+  cybersecurity incidents, including secure management of 10 gigabits per
+  second internal network traffic supporting 29 robot instances and patient
+  data systems~\cite{sitespec2026}.
+\end{enumerate}
+
+\section{AI Model Transparency}
+
+\begin{enumerate}[label=(\alph*)]
+\item In accordance with the principles of AB 2013 (2024), sites shall maintain
+  and make available upon request documentation of the AI models integrated
+  into Physical AI systems, including model architecture, training data
+  sources, validation methodology, and performance benchmarks.
+
+\item The five categories of AI recognized in the adapted ICH E6(R3) -
+  generative AI (VLA models, diffusion policies), agentic AI (LLM-based
+  assistants), reinforcement learning, self-supervised learning, and
+  supervised learning - shall each have category-specific transparency
+  requirements~\cite{iche6r3adapt}.
+
+\item Pre-determined change control plans (PCCPs) for AI model updates shall be
+  filed with the department and made available to patients upon request,
+  specifying which model changes require protocol amendments versus those
+  within the PCCP scope~\cite{cfr312adapt}.
+
+\item AI model performance shall be reported in the site's annual report
+  alongside PSL and USL scores, providing a comprehensive transparency
+  record~\cite{cfr312adapt}.
+\end{enumerate}
+
+\section{Enforcement and Penalties}
+
+\begin{enumerate}[label=(\alph*)]
+\item Violations of data protection standards established under this chapter
+  shall be subject to civil penalties of not less than two thousand five
+  hundred dollars (\$2,500) and not more than seven thousand five hundred
+  dollars (\$7,500) per violation per patient affected.
+
+\item Intentional or reckless failure to maintain hash-chained audit trails or
+  to report cybersecurity incidents within required timelines shall constitute
+  an aggravated violation subject to penalties of up to twenty-five thousand
+  dollars (\$25,000) per violation.
+
+\item The Attorney General may bring an action to enforce this chapter on behalf
+  of the people of the state.
+
+\item Nothing in this chapter shall be construed to limit any private right of
+  action available to patients under the California Consumer Privacy Act or
+  the California Privacy Rights Act.
+\end{enumerate}
+
+\section{Effective Date}
+
+This act shall take effect on January 1, 2027.
+
+
+% ============================================================================
+% DOCUMENT 4: San Francisco Municipal Code Update - Physical AI Oncology Clinical Trial Site Requirements
+% ============================================================================
+
+\part{San Francisco Municipal Code Update - Physical AI Oncology Clinical Trial Site Requirements}
+\setcounter{section}{0}
+
+\section{Purpose and Scope}
+
+\subsection{Purpose}
+
+This regulation establishes the municipal permit, zoning, and operational
+requirements for Physical AI oncology clinical trial sites within the City and
+County of San Francisco, in furtherance of the California Physical AI Oncology
+Clinical Trial Authorization and Site Establishment Act (SB 1042). San
+Francisco shall be the location of the first Physical AI oncology clinical trial
+site in California, situated in a prominent and safe location that provides
+accessible care to oncology patients throughout the city and surrounding Bay
+Area communities.
+
+\subsection{Scope}
+
+These requirements apply to the permitting, construction, and operation of
+new-construction facilities specifically designed as Physical AI oncology
+clinical trial sites, including the associated parking facilities required under
+this regulation. These requirements supplement but do not replace existing San
+Francisco Planning Code, Building Code, and Health Code requirements for medical
+facilities.
+
+\subsection{Evidence Base}
+
+The 24-hour on-demand Physical AI oncology clinical trial simulation conducted
+on March 23, 2026, provides the primary evidence base for these regulations,
+demonstrating that a single 85,000 to 100,000 square-foot facility equipped
+with 10 robot types (29 total instances) served 168 unique patients across 15
+cancer types with 99.7 percent facility uptime and zero patient
+harm~\cite{newtrial2026}. The simulation demonstrated that both specific
+clinical details at minute-level resolution and sustained operations across a
+full 24-hour cycle were managed correctly by Physical AI
+systems~\cite{newtrial2026}.
+
+\section{Zoning Requirements}
+
+\subsection{Permitted Zones}
+
+\begin{enumerate}[label=(\alph*)]
+\item Physical AI oncology clinical trial sites shall be a conditionally
+  permitted use in the following San Francisco zoning districts:
+  \begin{enumerate}[label=(\arabic*)]
+  \item Neighborhood Commercial (NC) districts with parcels of 20,000 square
+    feet or larger.
+  \item Mixed Use-General (MUG) districts.
+  \item Production, Distribution, and Repair (PDR) districts adjacent to
+    residential or commercial zones with transit access.
+  \item Downtown General (DTG) and Downtown Office (C-3) districts.
+  \item Medical Use Districts and Health Care Services Districts.
+  \end{enumerate}
+
+\item Preference shall be given to locations within one-quarter mile of a Bay
+  Area Rapid Transit (BART) station or San Francisco Municipal Railway (Muni)
+  stop to maximize patient accessibility consistent with the on-demand 24/7
+  scheduling model~\cite{formatcomparison2026}.
+
+\item The site shall be located in a prominent and safe location, defined as a
+  parcel with frontage on a street classified as an arterial or collector in
+  the San Francisco General Plan, with adequate street lighting, pedestrian
+  infrastructure, and proximity to emergency services.
+\end{enumerate}
+
+\subsection{Setback and Height Requirements}
+
+\begin{enumerate}[label=(\alph*)]
+\item The minimum lot size for a Physical AI oncology clinical trial site shall
+  be 40,000 square feet, accommodating the 85,000 to 100,000 square-foot
+  building footprint across multiple stories plus dedicated parking
+  facilities~\cite{sitespec2026}.
+
+\item Building height shall comply with the applicable district height limit
+  but shall not exceed 65 feet unless a variance is obtained through the
+  Planning Commission conditional use process.
+
+\item Street-level setbacks shall provide a minimum 15-foot pedestrian zone
+  along all public street frontages.
+
+\item The site shall include a dedicated patient drop-off and pick-up zone
+  accessible from the public right-of-way, with a covered canopy extending a
+  minimum of 20 feet from the building entrance.
+\end{enumerate}
+
+\section{Conditional Use Permit Requirements}
+
+\subsection{Application Contents}
+
+An application for a conditional use permit for a Physical AI oncology clinical
+trial site shall include, in addition to standard Planning Code requirements,
+the following:
+
+\begin{enumerate}[label=(\alph*)]
+\item A Physical AI System Deployment Plan identifying all 10 robot types to be
+  deployed, the number of instances of each type, and the USL and PSL scores
+  for each system, demonstrating compliance with the minimum thresholds
+  established by state law~\cite{usl2026,pslframework2026}.
+
+\item A Patient Flow Analysis based on the simulation data, including projected
+  daily patient volumes (up to 168 patients per 24 hours), arrival and
+  departure patterns, peak utilization periods (the simulation showed a peak
+  of 15 arrivals in hour 09 with 72.4 percent utilization and 28 concurrent
+  patients on-site), and measures to manage queuing and
+  wait times~\cite{newtrial2026}.
+
+\item A Neighborhood Impact Assessment addressing noise, traffic, parking
+  demand, emergency vehicle access, and the visual impact of the facility on
+  the surrounding neighborhood.
+
+\item A Community Benefits Plan describing workforce development programs,
+  local hiring commitments, and patient access programs for San Francisco
+  residents.
+
+\item A Transportation Demand Management (TDM) Plan meeting the requirements
+  of San Francisco Planning Code Section 169, reflecting the 24/7 operating
+  schedule and the reduced staffing model (8 to 10 full-time equivalents
+  versus 80 to 120 in traditional trial sites)~\cite{sitespec2026}.
+\end{enumerate}
+
+\subsection{Public Notice and Hearing}
+
+\begin{enumerate}[label=(\alph*)]
+\item The Planning Department shall provide notice of the conditional use
+  permit application to all owners and occupants of property within 300 feet
+  of the proposed site.
+
+\item A public hearing before the Planning Commission shall be held not fewer
+  than 30 days after notice is provided.
+
+\item The applicant shall hold at least one community meeting in the
+  neighborhood where the site is proposed, at least 14 days before the
+  Planning Commission hearing.
+\end{enumerate}
+
+\section{Building Permit Requirements}
+
+\subsection{Structural and Mechanical Systems}
+
+\begin{enumerate}[label=(\alph*)]
+\item Building permit applications for Physical AI oncology clinical trial
+  sites shall demonstrate compliance with the California Building Standards
+  Code (Title 24) as supplemented by the San Francisco Building Code, with
+  the following additional requirements specific to Physical AI operations:
+
+\item Surgical suites shall incorporate HEPA filtration (ISO Class 7 or better),
+  positive-pressure air handling, and floor load capacity of at least 150
+  pounds per square foot to support surgical robot systems and associated
+  equipment~\cite{sitespec2026}.
+
+\item Radiotherapy vaults shall include radiation shielding meeting the
+  requirements of the California Radiologic Health Branch, with additional
+  structural reinforcement to support the weight of radiotherapy positioning
+  robot systems~\cite{sitespec2026}.
+
+\item Server rooms for AI computation infrastructure shall be located on a
+  separate HVAC zone with redundant cooling capable of rejecting a minimum
+  heat load of 200 kilowatts.
+
+\item The building shall accommodate 800 to 1,200 kilowatts of sustained
+  electrical load with redundant utility feeds, automatic transfer switches,
+  and uninterruptible power systems covering all critical clinical and
+  data systems~\cite{sitespec2026}.
+\end{enumerate}
+
+\subsection{Accessibility}
+
+\begin{enumerate}[label=(\alph*)]
+\item The site shall exceed the minimum accessibility requirements of the
+  Americans with Disabilities Act and California Building Code Chapter 11B
+  to ensure that the on-demand patient scheduling model is fully accessible
+  to patients with mobility, visual, auditory, or cognitive impairments.
+
+\item All patient circulation routes shall be designed to accommodate hospital
+  beds, wheelchairs, and rehabilitation exoskeletons simultaneously.
+
+\item Wayfinding systems shall include visual, auditory, and tactile elements
+  appropriate for a facility where patients interact with 10 categories of
+  robotic systems~\cite{patientinstructions2026}.
+\end{enumerate}
+
+\section{Health Code Requirements}
+
+\subsection{Operating License}
+
+\begin{enumerate}[label=(\alph*)]
+\item A Physical AI oncology clinical trial site shall obtain a San Francisco
+  Health Care Facility Operating License in addition to the state authorization
+  required under SB 1042.
+
+\item The operating license shall specify the 10 categories of Physical AI
+  systems authorized for use at the site, the maximum number of concurrent
+  patients, and the operating schedule (24 hours per day, 7 days per week).
+
+\item The license shall be renewed annually, contingent upon maintaining a
+  cumulative PSL score within the Advanced Site band (60.0 or above) and
+  submitting the annual safety and performance
+  reports~\cite{pslframework2026}.
+\end{enumerate}
+
+\subsection{Inspection Requirements}
+
+\begin{enumerate}[label=(\alph*)]
+\item The San Francisco Department of Public Health shall conduct an initial
+  pre-operational inspection of the facility before the first patient is
+  enrolled.
+
+\item Routine inspections shall occur at least quarterly, with additional
+  inspections triggered by adverse event reports, cybersecurity incidents, or
+  patient complaints.
+
+\item Inspections shall include verification of Physical AI system safety
+  certifications, review of adverse event logs and resolution records, audit
+  trail integrity checks, and observation of at least one active procedure.
+
+\item Inspection findings shall be posted on the department's public website
+  within 30 days of the inspection date.
+\end{enumerate}
+
+\section{Noise and Environmental Standards}
+
+\begin{enumerate}[label=(\alph*)]
+\item The site shall comply with the San Francisco Noise Ordinance (Article 29
+  of the Police Code) with the following additional provisions for 24-hour
+  Physical AI operations:
+  \begin{enumerate}[label=(\arabic*)]
+  \item HVAC and mechanical equipment noise at the property line shall not
+    exceed 45 dBA during nighttime hours (10:00 PM to 7:00 AM).
+  \item Loading and delivery activities shall be restricted to daytime hours
+    (7:00 AM to 8:00 PM) except for emergency medical supply deliveries.
+  \item Robot maintenance and testing activities generating noise above ambient
+    levels shall be conducted in acoustically isolated maintenance bays.
+  \end{enumerate}
+
+\item Emergency generator testing shall be limited to daytime hours and shall
+  not exceed one test per month lasting no more than 30 minutes.
+
+\item The site shall implement a stormwater management plan compliant with San
+  Francisco's Green Infrastructure Ordinance, incorporating the parking
+  facility's impervious surface area.
+\end{enumerate}
+
+\section{Relationship to State Requirements}
+
+\begin{enumerate}[label=(\alph*)]
+\item These municipal requirements supplement and do not replace the
+  state-level requirements established under SB 1042, AB 2847, and SB 892.
+
+\item Where a municipal requirement exceeds the corresponding state requirement,
+  the municipal requirement shall apply. Where a state requirement exceeds the
+  corresponding municipal requirement, the state requirement shall apply.
+
+\item The three adapted regulatory frameworks (ICH E6(R3), 21 CFR Part 50, and
+  21 CFR Part 312) apply to Physical AI oncology clinical trial sites in San
+  Francisco as they apply throughout the state~\cite{iche6r3adapt,cfr50adapt,cfr312adapt}.
+\end{enumerate}
+
+
+% ============================================================================
+% DOCUMENT 5: California Code of Regulations, Title 22 - Physical AI Oncology Trial Site Regulations
+% ============================================================================
+
+\part{California Code of Regulations, Title 22 - Physical AI Oncology Trial Site Regulations}
+\setcounter{section}{0}
+
+\section{General Provisions}
+
+\subsection{\S~75000. Authority and Purpose}
+
+\begin{enumerate}[label=(\alph*)]
+\item These regulations are adopted pursuant to the authority granted to the
+  California Department of Public Health (hereinafter ``the department'') under
+  the California Physical AI Oncology Clinical Trial Authorization and Site
+  Establishment Act of 2026 (Health and Safety Code \S~1399.900 et seq.).
+
+\item The purpose of these regulations is to establish standards and procedures
+  for the authorization, inspection, and oversight of Physical AI oncology
+  clinical trial sites throughout California.
+
+\item These regulations apply uniformly across the State of California. The
+  first authorized site shall be established in San Francisco, and subsequent
+  sites may be authorized in any California jurisdiction that meets the
+  requirements of these regulations.
+\end{enumerate}
+
+\subsection{\S~75001. Definitions}
+
+In addition to the definitions established in Health and Safety Code
+\S~1399.901, the following definitions apply:
+
+\begin{enumerate}[label=(\alph*)]
+\item ``Authorization certificate'' means the document issued by the department
+  to a qualified entity permitting the operation of a Physical AI oncology
+  clinical trial site.
+
+\item ``Graduated autonomy'' means the phased approach to Physical AI system
+  deployment in which autonomy levels increase from teleoperation in Phase 1
+  to supervised autonomy in Phase 2 to full autonomy range in Phase 3, as
+  established in the adapted 21 CFR Part 312 \S~312.21~\cite{cfr312adapt}.
+
+\item ``Pre-procedure safety matrix'' means the checklist of safety
+  verifications that shall be completed before initiating any Physical
+  AI-assisted clinical procedure, as defined in the adapted 21 CFR Part 50
+  \S~50.3~\cite{cfr50adapt}.
+
+\item ``Robot capability profile'' means the formal documentation of a Physical
+  AI system's validated task capabilities, performance envelope, and safety
+  constraints.
+
+\item ``Site safety officer'' means a human staff member certified by the
+  department to supervise Physical AI system operations during a shift, with
+  authority to initiate emergency stop procedures and override autonomous
+  operations.
+\end{enumerate}
+
+\section{Authorization Process}
+
+\subsection{\S~75010. Application Requirements}
+
+\begin{enumerate}[label=(\alph*)]
+\item An entity seeking authorization to operate a Physical AI oncology
+  clinical trial site shall submit an application to the department on forms
+  prescribed by the department, including the following:
+  \begin{enumerate}[label=(\arabic*)]
+  \item Identification of the applicant entity, including ownership structure,
+    officers, and any parent organizations.
+  \item Site location and facility description, including architectural plans,
+    engineering specifications, and evidence of compliance with applicable
+    building codes.
+  \item Physical AI System Deployment Plan identifying all robot types and
+    instances, with current USL scores for each system~\cite{usl2026}.
+  \item Phase 0 simulation validation results for each Physical AI system
+    type, demonstrating cross-framework validation using two or more
+    frameworks~\cite{iche6r3adapt}.
+  \item Staffing plan identifying all positions, qualifications, training
+    requirements, and shift schedules for the 24-hour operating model.
+  \item Quality management system documentation addressing Physical AI-specific
+    processes.
+  \item Emergency response plan addressing Physical AI system failures,
+    cybersecurity incidents, natural disasters, and medical emergencies.
+  \item Patient flow projections based on the simulation data showing capacity
+    for 150 to 180 patients per day across 15 or more cancer
+    types~\cite{newtrial2026}.
+  \item Financial documentation demonstrating adequate resources to sustain
+    operations for a minimum of 24 months.
+  \item Evidence of compliance with adapted ICH E6(R3), 21 CFR Part 50, and
+    21 CFR Part 312 regulatory frameworks~\cite{iche6r3adapt,cfr50adapt,cfr312adapt}.
+  \end{enumerate}
+
+\item The application shall be accompanied by a nonrefundable filing fee of
+  twenty-five thousand dollars (\$25,000).
+\end{enumerate}
+
+\subsection{\S~75011. Review Process}
+
+\begin{enumerate}[label=(\alph*)]
+\item The department shall assign a review team consisting of specialists in
+  robotic engineering, oncology, clinical trial regulation, facility safety,
+  and cybersecurity.
+
+\item The review team shall complete an initial completeness review within 30
+  days of application receipt and notify the applicant of any deficiencies.
+
+\item The department shall conduct a substantive review of the complete
+  application and issue a decision within 120 days of receiving a complete
+  application.
+
+\item The department may conduct a pre-authorization site inspection as part
+  of the review process.
+\end{enumerate}
+
+\subsection{\S~75012. Authorization Certificate}
+
+\begin{enumerate}[label=(\alph*)]
+\item An authorization certificate shall specify the following:
+  \begin{enumerate}[label=(\arabic*)]
+  \item The authorized Physical AI system types and maximum number of instances.
+  \item The maximum number of concurrent patients.
+  \item The authorized operating schedule.
+  \item The minimum staffing requirements.
+  \item Any conditions or limitations specific to the site.
+  \end{enumerate}
+
+\item The authorization certificate shall be valid for a period of three years,
+  subject to annual compliance verification.
+
+\item The certificate shall be prominently displayed at the site entrance and
+  available for public inspection.
+\end{enumerate}
+
+\section{Physical AI System Standards}
+
+\subsection{\S~75020. System Registration}
+
+\begin{enumerate}[label=(\alph*)]
+\item Each Physical AI system instance deployed at an authorized site shall be
+  registered with the department, including the following information:
+  \begin{enumerate}[label=(\arabic*)]
+  \item System type, manufacturer, model, and serial number.
+  \item Current USL score with dimension-level breakdown (simulation framework
+    switching, AI integration, cross-robot progress sharing, clinical trial
+    collaboration)~\cite{usl2026}.
+  \item Current PSL scores across three regulatory dimensions (Omniscient,
+    Omnipresent, Omnipotent)~\cite{pslframework2026}.
+  \item Robot capability profile documenting validated task capabilities.
+  \item Phase 0 simulation validation results.
+  \item Installation date and commissioning records.
+  \end{enumerate}
+
+\item Registration shall be updated within 14 days of any change to system
+  configuration, USL score, or capability profile.
+\end{enumerate}
+
+\subsection{\S~75021. Minimum USL Thresholds}
+
+Physical AI systems shall meet the following minimum USL score thresholds,
+consistent with the MCP-PAI standard~\cite{cfr50adapt}:
+
+\begin{center}
+\begin{tabular}{lc}
+\toprule
+\textbf{System Category} & \textbf{Minimum USL Score} \\
+\midrule
+Surgical robots & 7.0 \\
+Radiotherapy positioning robots & 6.0 \\
+Robotic needle-placement systems & 6.0 \\
+Radiotherapy motion-tracking robots & 6.0 \\
+Imaging assistant robots & 6.0 \\
+Steerable needle robots & 6.0 \\
+Collaborative robots (cobots) & 5.0 \\
+Rehabilitation exoskeletons & 4.0 \\
+Humanoid robots & 4.0 \\
+Social companion robots & 3.0 \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\subsection{\S~75022. Maintenance and Calibration}
+
+\begin{enumerate}[label=(\alph*)]
+\item Each Physical AI system shall undergo scheduled maintenance at intervals
+  specified by the manufacturer and documented in the robot capability profile.
+
+\item Maintenance windows shall be coordinated to maintain continuous clinical
+  capability across all system categories, as demonstrated in the simulation
+  where SURG-01 maintenance (22:15 to 01:59) was scheduled during low-demand
+  hours with SURG-02 and SURG-03 remaining
+  available~\cite{newtrial2026}.
+
+\item Calibration records shall include date, calibration parameters, results,
+  and the identity of the person or system performing the calibration.
+
+\item A Physical AI system shall not be used for patient procedures until
+  post-maintenance verification demonstrates performance within specified
+  tolerances.
+\end{enumerate}
+
+\section{Staffing and Training Standards}
+
+\subsection{\S~75030. Minimum Staffing Requirements}
+
+\begin{enumerate}[label=(\alph*)]
+\item An authorized Physical AI oncology clinical trial site operating on a
+  24-hour schedule shall maintain the following minimum staffing:
+  \begin{enumerate}[label=(\arabic*)]
+  \item Two to three site safety officers per shift, with three shifts covering
+    the 24-hour operating period.
+  \item One on-call emergency physician available within 15 minutes at all
+    times.
+  \item One on-call pharmacist available within 15 minutes at all times.
+  \item One facility maintenance technician on-site per shift.
+  \item One cybersecurity operations specialist on-call at all times.
+  \end{enumerate}
+
+\item Total full-time equivalent staffing shall be a minimum of 8 and a maximum
+  of 10, reflecting the Physical AI model in which more patients are treated
+  with more robots and fewer workers~\cite{sitespec2026}.
+
+\item The site shall maintain a staffing contingency plan for situations
+  requiring additional human personnel, such as multiple simultaneous
+  adverse events or extended system outages.
+\end{enumerate}
+
+\subsection{\S~75031. Training and Certification}
+
+\begin{enumerate}[label=(\alph*)]
+\item Site safety officers shall complete a department-approved training program
+  of not less than 160 hours covering the following:
+  \begin{enumerate}[label=(\arabic*)]
+  \item Physical AI system operation and capabilities for all 10 robot
+    categories deployed at the site.
+  \item Emergency stop procedures and manual override protocols.
+  \item Adverse event recognition, documentation, and reporting.
+  \item Patient interaction protocols, including patient rights under AB 2847.
+  \item Cybersecurity awareness and incident response.
+  \item Regulatory compliance including ICH E6(R3), 21 CFR Part 50, and
+    21 CFR Part 312 as adapted for Physical AI~\cite{iche6r3adapt,cfr50adapt,cfr312adapt}.
+  \end{enumerate}
+
+\item Certification shall be valid for two years, with 40 hours of continuing
+  education required for renewal.
+
+\item The department shall develop and maintain the training curriculum in
+  consultation with Physical AI system manufacturers, oncology professional
+  organizations, and patient advocacy groups.
+\end{enumerate}
+
+\section{Inspection and Enforcement}
+
+\subsection{\S~75040. Routine Inspections}
+
+\begin{enumerate}[label=(\alph*)]
+\item The department shall conduct routine inspections of authorized sites at
+  least quarterly, without prior notice.
+
+\item Inspections shall assess compliance with authorization conditions,
+  Physical AI system registration and maintenance, staffing requirements,
+  patient rights protections, adverse event reporting, data protection, and
+  facility condition.
+
+\item The department shall publish inspection reports on its website within 30
+  days of the inspection.
+\end{enumerate}
+
+\subsection{\S~75041. Enforcement Actions}
+
+\begin{enumerate}[label=(\alph*)]
+\item The department may take the following enforcement actions for
+  noncompliance:
+  \begin{enumerate}[label=(\arabic*)]
+  \item Written notice of deficiency with required corrective action plan.
+  \item Administrative penalty of up to ten thousand dollars (\$10,000) per
+    day per violation.
+  \item Suspension of authorization to use specific Physical AI system types.
+  \item Suspension of site authorization.
+  \item Revocation of site authorization.
+  \end{enumerate}
+
+\item Before suspending or revoking authorization, the department shall provide
+  written notice and an opportunity for hearing in accordance with the
+  Administrative Procedure Act (Government Code \S~11500 et seq.).
+
+\item In cases of imminent danger to patient safety, the department may issue
+  an immediate suspension order, with a hearing to be held within 15 days.
+\end{enumerate}
+
+\section{Reporting Requirements}
+
+\subsection{\S~75050. Monthly Reports}
+
+\begin{enumerate}[label=(\alph*)]
+\item Authorized sites shall submit monthly reports to the department including:
+  \begin{enumerate}[label=(\arabic*)]
+  \item Total patients served and procedures performed, disaggregated by
+    cancer type and Physical AI system type.
+  \item Current PSL scores for all robot types and cumulative site PSL score.
+  \item All adverse events with grade, resolution, and root cause analysis.
+  \item Physical AI system utilization rates and maintenance records.
+  \item Staffing levels and any departures from minimum requirements.
+  \end{enumerate}
+\end{enumerate}
+
+\subsection{\S~75051. Annual Reports}
+
+\begin{enumerate}[label=(\alph*)]
+\item Authorized sites shall submit annual reports including all elements
+  required under the adapted 21 CFR Part 312 \S~312.33, plus the following
+  state-specific elements~\cite{cfr312adapt}:
+  \begin{enumerate}[label=(\arabic*)]
+  \item Year-over-year comparison of patient outcomes and throughput.
+  \item Updated USL scores for all Physical AI systems with trend analysis.
+  \item Community benefits achieved, including local workforce development.
+  \item Patient satisfaction data and complaint resolution statistics.
+  \item Comparison of site performance to the baseline established by the
+    24-hour simulation (168 patients, 99.7 percent uptime, 8-minute average
+    wait, 4.7 out of 5.0 satisfaction)~\cite{newtrial2026}.
+  \end{enumerate}
+\end{enumerate}
+
+
+% ============================================================================
+% DOCUMENT 6: FDA Physical AI Oncology Trial Site National Compliance Guide
+% ============================================================================
+
+\part{FDA Physical AI Oncology Trial Site National Compliance Guide}
+\setcounter{section}{0}
+
+\section{Scope and Purpose}
+
+\subsection{Scope}
+
+This compliance guide identifies the federal regulations applicable to
+Physical AI oncology clinical trial sites and specifies where corrections,
+additions, and adaptations should be applied to existing regulatory text.
+Because a comprehensive amendment of each federal regulation is beyond the
+scope of a single document, this guide uses a reference-and-correction approach:
+for each applicable regulation, the specific sections requiring updates are
+identified, and the nature of the required changes is described.
+
+\subsection{Purpose}
+
+The purpose is to provide Physical AI oncology clinical trial site operators,
+sponsors, and regulators with a consolidated roadmap for federal compliance.
+This guide is informed by three detailed regulatory adaptations already
+completed:
+
+\begin{enumerate}[label=(\arabic*)]
+\item Adaptation of ICH E6(R3) for Physical AI oncology clinical trials
+  (1,301 lines, 50+ defined terms), covering good clinical practice,
+  investigator responsibilities, sponsor responsibilities, and data
+  governance~\cite{iche6r3adapt}.
+\item Adaptation of 21 CFR Part 50 for Physical AI oncology clinical trials
+  (748 lines, 18 Physical AI-specific definitions), covering human subjects
+  protection and informed consent~\cite{cfr50adapt}.
+\item Adaptation of 21 CFR Part 312 for Physical AI oncology clinical trials
+  (1,700 lines, 22 Physical AI definitions), covering IND applications,
+  graduated autonomy, safety reporting, and
+  decommissioning~\cite{cfr312adapt}.
+\end{enumerate}
+
+\subsection{Evidence Base}
+
+The evidence for a Physical AI oncology trial transition is overwhelmingly
+based on the most recent simulation~\cite{newtrial2026}, which demonstrated:
+
+\begin{itemize}
+\item 168 unique patients across 15 cancer types served in 24 hours by 29
+  robot instances of 10 types.
+\item Patient throughput 10 times greater than traditional trials (150 to 180
+  patients per day versus 5 to 15).
+\item Per-patient cost reduction of 75 to 85 percent.
+\item Patient retention improvement from 70 to 80 percent (traditional) to
+  85 to 95 percent (Physical AI).
+\item 99.7 percent facility uptime across 24 continuous hours.
+\item Average patient wait time of 8 minutes.
+\item 7 adverse events (all Grade 1 or 2, all resolved same hour).
+\item Patient satisfaction of 4.7 out of 5.0.
+\item Cumulative site PSL of 63.4 to 64.4 (Advanced Site band).
+\item Both minute-level clinical detail and 24-hour operational continuity
+  handled correctly by AI systems.
+\item Staffing reduced from 80 to 120 FTE to 8 to 10 FTE.
+\item All clinical procedures, monitoring, documentation, and regulatory
+  compliance performed autonomously.
+\item Seven surgical procedures with 100 percent R0 resection rate.
+\item Peak utilization of 72.4 percent in hour 09 with 28 concurrent patients.
+\end{itemize}
+
+\section{21 CFR Part 50 -- Protection of Human Subjects}
+
+\subsection{Sections Requiring Update}
+
+The adapted 21 CFR Part 50 (DOI: 10.5281/zenodo.19040707) provides the
+comprehensive text~\cite{cfr50adapt}. The following sections of the original
+regulation require corrections:
+
+\begin{enumerate}[label=(\alph*)]
+\item \textbf{\S~50.1 (Scope):} Add Physical AI system categories and
+  applicability criteria. Specify that the regulation applies to all clinical
+  investigations where Physical AI systems perform, assist, or monitor
+  procedures. Add minimum USL thresholds by robot type.
+
+\item \textbf{\S~50.3 (Definitions):} Add 18 Physical AI-specific definitions
+  including robot agent, USL, digital twin, simulation framework, MCP,
+  hash-chained audit trail, HIPAA Safe Harbor de-identification, PCCP,
+  federated learning, pre-procedure safety matrix, and conformance levels.
+
+\item \textbf{\S~50.20 (General Requirements for Informed Consent):} Extend
+  to require disclosure of robotic system role, autonomy mode, USL score in
+  plain language, safety record, emergency stop provisions, digital twin usage,
+  and MCP data processing pipeline.
+
+\item \textbf{\S~50.25 (Elements of Informed Consent):} Add Physical AI
+  elements as additional required elements, including all 10 robot categories
+  and their patient-facing instruction formats~\cite{patientinstructions2026}.
+
+\item \textbf{\S~50.50 through \S~50.56 (Pediatric Protections):} Add
+  age-appropriate robotic demonstration requirements, parental consent
+  provisions for Physical AI procedures, and advocate appointments.
+\end{enumerate}
+
+\subsection{Implementation Notes}
+
+Sites should apply the full adapted text from the Physical AI 21 CFR Part 50
+document~\cite{cfr50adapt}. Where the adapted text extends the original
+regulation, the extended provisions are additive and do not replace the
+original human subjects protection requirements.
+
+\section{21 CFR Part 312 -- Investigational New Drug Application}
+
+\subsection{Sections Requiring Update}
+
+The adapted 21 CFR Part 312 (DOI: 10.5281/zenodo.19057628) provides the
+comprehensive text~\cite{cfr312adapt}. Key sections requiring corrections:
+
+\begin{enumerate}[label=(\alph*)]
+\item \textbf{\S~312.1-312.2 (Scope):} Extend to cover clinical investigations
+  where Physical AI systems perform, assist, or monitor investigational drug
+  administration. Define when IND coverage is required based on Physical AI
+  risk introduction.
+
+\item \textbf{\S~312.3 (Definitions):} Add 22 Physical AI definitions
+  including robot agents, USL scoring (9 platforms evaluated), digital twins,
+  simulation frameworks, robot capability profiles, task orders, emergency
+  stop, human oversight, MCP, and VLA models.
+
+\item \textbf{\S~312.21 (Phases of Investigation):} Add Phase 0 simulation
+  validation requirements. Establish graduated autonomy: Phase 1 teleoperation
+  only, Phase 2 graduated autonomy with safety data review, Phase 3 full
+  autonomy range with accumulated evidence~\cite{cfr312adapt}.
+
+\item \textbf{\S~312.23 (IND Content):} Add Physical AI System Description
+  requirements: system identification, USL score, role in drug administration,
+  hardware and software specifications, PCCP, Phase 0 results, digital twin
+  specifications, safety architecture, cybersecurity assessment, MCP
+  integration, human-robot interaction protocols, and maintenance procedures.
+
+\item \textbf{\S~312.30 (Protocol Amendments):} Define Physical AI-specific
+  amendments: new robot type, autonomy level change, significant AI model
+  update, simulation framework change, human oversight change, digital twin
+  methodology change, and MCP architecture change.
+
+\item \textbf{\S~312.32 (Safety Reporting):} Add seven Physical AI adverse
+  event categories: serious Physical AI adverse events, Physical AI-drug
+  interactions, cybersecurity incidents (7-day or 15-day reporting), AI model
+  performance degradation, sim-to-real divergence (trajectory above 4mm or
+  force above 1.0N), digital twin discrepancy, and Physical AI Safety Review
+  Committee findings.
+
+\item \textbf{\S~312.33 (Annual Reports):} Add Physical AI elements: USL
+  score updates, AI model updates, simulation results, digital twin metrics,
+  cybersecurity events, and safety committee findings.
+
+\item \textbf{\S~312.38 (Withdrawal of IND):} Add decommissioning
+  requirements: safe deactivation, log preservation, secure patient data
+  erasure, 30-day decommissioning timeline, 60-day technical
+  analysis~\cite{cfr312adapt}.
+
+\item \textbf{\S~312.40 (Requirements for Use):} Add Physical AI readiness
+  requirements: system description submitted, USL threshold met, pre-procedure
+  safety matrix verified, training completed, MCP infrastructure configured.
+
+\item \textbf{\S~312.42 (Clinical Holds):} Add eight Physical AI-specific
+  grounds: robotic safety failures, AI model degradation, simulation-reality
+  divergence (above 2x tolerance), cybersecurity compromise, USL score
+  decline, inadequate system description, digital twin failure, and
+  inadequate human oversight.
+\end{enumerate}
+
+\section{ICH E6(R3) -- Good Clinical Practice}
+
+\subsection{Sections Requiring Update}
+
+The adapted ICH E6(R3) (DOI: 10.5281/zenodo.18973368) provides the
+comprehensive text~\cite{iche6r3adapt}. Key sections requiring corrections:
+
+\begin{enumerate}[label=(\alph*)]
+\item \textbf{Section 1 (Principles):} Extend foundational principles to
+  encompass robotic surgical systems, AI algorithms, and digital twins.
+  Add Physical AI system classification (seven robot categories) and the USL
+  scoring framework (v1.4.0 through v1.8.0)~\cite{usl2026}.
+
+\item \textbf{Section 2 (Investigator Responsibilities):} Add robotic system
+  oversight, AI model monitoring, digital twin validation, and cybersecurity
+  incident management to investigator duties.
+
+\item \textbf{Section 3 (Sponsor Responsibilities):} Add quality management
+  for Physical AI components: robotic system selection, AI lifecycle
+  management, simulation validation, digital twin deployment, and federated
+  multi-site coordination.
+
+\item \textbf{Section 4 (Data Governance):} Add full lifecycle governance for
+  Physical AI data: robotic telemetry, AI decision logs, digital twin state
+  data. Mandate hash-chained audit trails (SHA-256) and HIPAA Safe Harbor
+  de-identification. Address five AI categories: generative AI (VLA, diffusion
+  policies), agentic AI (LLM-based), reinforcement learning, self-supervised
+  learning, and supervised learning.
+
+\item \textbf{Appendix A (Physical AI System Documentation):} Add requirements
+  analogous to Investigator's Brochure for Physical AI system descriptions.
+
+\item \textbf{Appendix B (Protocol Templates):} Add Physical AI-specific
+  protocol elements including simulation validation, robot deployment plans,
+  and graduated autonomy phases.
+
+\item \textbf{Glossary:} Add 50+ terms defined including agentic AI,
+  calibration, cobots, digital twins, federated learning, sim-to-real
+  transfer, and USL framework.
+\end{enumerate}
+
+\section{21 CFR Part 11 -- Electronic Records}
+
+\subsection{Sections Requiring Update}
+
+\begin{enumerate}[label=(\alph*)]
+\item \textbf{\S~11.10 (Controls for Closed Systems):} Specify that Physical
+  AI system telemetry, AI decision logs, and digital twin records are
+  electronic records subject to Part 11 requirements. Hash-chained audit
+  trails (SHA-256) satisfy the audit trail requirement when cryptographic
+  chain integrity is verified quarterly~\cite{iche6r3adapt}.
+
+\item \textbf{\S~11.30 (Controls for Open Systems):} Apply to federated
+  learning data exchanges between Physical AI systems at different sites,
+  requiring encryption and digital signature verification.
+
+\item \textbf{\S~11.50 (Signature Manifestations):} Extend to include
+  automated system signatures from Physical AI systems that generate,
+  modify, or transmit electronic records during clinical procedures.
+\end{enumerate}
+
+\section{21 CFR Part 820 -- Quality System Regulation}
+
+\subsection{Sections Requiring Update}
+
+\begin{enumerate}[label=(\alph*)]
+\item \textbf{\S~820.30 (Design Controls):} Apply to Physical AI systems
+  classified as medical devices, including Phase 0 simulation validation as
+  part of design verification and validation.
+
+\item \textbf{\S~820.70 (Production and Process Controls):} Apply to the
+  deployment and configuration of Physical AI systems at trial sites,
+  including calibration, maintenance, and software update processes.
+
+\item \textbf{\S~820.90 (Nonconforming Product):} Apply to Physical AI
+  systems that fall below minimum USL thresholds or exhibit performance
+  degradation, with corrective action timelines aligned with the adapted
+  21 CFR Part 312 safety reporting requirements~\cite{cfr312adapt}.
+
+\item \textbf{\S~820.198 (Complaint Files):} Extend to include Physical AI
+  system malfunction reports, patient complaints involving robotic systems,
+  and AI model performance complaints.
+\end{enumerate}
+
+\section{Additional Federal Requirements}
+
+\subsection{HIPAA (45 CFR Parts 160 and 164)}
+
+Physical AI oncology clinical trial sites shall comply with HIPAA Privacy,
+Security, and Breach Notification Rules with additional attention to the
+following Physical AI-specific considerations:
+
+\begin{enumerate}[label=(\alph*)]
+\item Robotic telemetry data that can be linked to specific patients
+  constitutes protected health information (PHI) under HIPAA.
+\item Digital twin data constitutes PHI when it contains or is derived from
+  individually identifiable health information.
+\item MCP-PAI server architectures shall implement the HIPAA Security Rule
+  administrative, physical, and technical safeguards~\cite{iche6r3adapt}.
+\item The five MCP-PAI servers (authorization, FHIR, DICOM, ledger,
+  provenance) shall each maintain individual HIPAA compliance
+  documentation.
+\end{enumerate}
+
+\subsection{Nuclear Regulatory Commission (10 CFR Part 35)}
+
+Physical AI oncology clinical trial sites operating radiotherapy systems
+shall comply with NRC radiation safety requirements, with the following
+Physical AI-specific considerations:
+
+\begin{enumerate}[label=(\alph*)]
+\item Radiotherapy positioning robots and motion-tracking robots shall be
+  included in the site's radiation safety program as radiation-producing
+  equipment accessories.
+\item The radiation safety officer shall be trained in Physical AI system
+  radiation safety implications.
+\item Radiation dose calculations shall account for the precision of Physical
+  AI positioning systems, which demonstrated submillimeter accuracy and 94.2
+  percent beam gating efficiency in the
+  simulation~\cite{newtrial2026}.
+\end{enumerate}
+
+\section{Cross-Reference Matrix}
+
+The following table maps Physical AI system categories to the primary federal
+regulations that apply to each:
+
+\begin{center}
+\footnotesize
+\begin{tabular}{lccccc}
+\toprule
+\textbf{System Type} & \textbf{Part 50} & \textbf{Part 312} &
+\textbf{E6(R3)} & \textbf{Part 11} & \textbf{Part 820} \\
+\midrule
+Surgical robots       & Yes & Yes & Yes & Yes & Yes \\
+Cobots                & Yes & Yes & Yes & Yes & Yes \\
+RT positioning        & Yes & Yes & Yes & Yes & Yes \\
+Needle-placement      & Yes & Yes & Yes & Yes & Yes \\
+Social companion      & Yes & --  & Yes & Yes & -- \\
+Humanoids             & Yes & --  & Yes & Yes & -- \\
+RT motion-tracking    & Yes & Yes & Yes & Yes & Yes \\
+Imaging assistants    & Yes & Yes & Yes & Yes & Yes \\
+Steerable needles     & Yes & Yes & Yes & Yes & Yes \\
+Rehab exoskeletons    & Yes & --  & Yes & Yes & Yes \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+
+% ============================================================================
+% DOCUMENT 7: Physical AI Oncology Clinical Trial Facility Building Code Standards
+% ============================================================================
+
+\part{Physical AI Oncology Clinical Trial Facility Building Code Standards}
+\setcounter{section}{0}
+
+\section{General Requirements}
+
+\subsection{Scope}
+
+These building code standards supplement the California Building Standards Code
+(Title 24, Parts 1 through 12) with additional requirements specific to Physical
+AI oncology clinical trial facilities. These standards apply to new construction
+of facilities designed to house 10 categories of Physical AI robotic systems
+operating autonomously on a 24-hour, 7-day-per-week schedule serving up to 180
+oncology patients per day~\cite{sitespec2026}.
+
+\subsection{Facility Size and Configuration}
+
+\begin{enumerate}[label=(\alph*)]
+\item The minimum gross floor area shall be 85,000 square feet, with a maximum
+  of 100,000 square feet, distributed across the clinical wings, support areas,
+  and infrastructure spaces specified in these standards~\cite{sitespec2026}.
+
+\item The facility shall accommodate nine clinical wings corresponding to the
+  following Physical AI system deployment zones:
+  \begin{enumerate}[label=(\arabic*)]
+  \item Three surgical suites for surgical robots (SURG-01, SURG-02, SURG-03).
+  \item Four cobot stations for collaborative biopsy robots.
+  \item Three radiotherapy vaults for RT positioning robots.
+  \item Two needle-placement suites for robotic needle-placement systems.
+  \item Five social companion stations for pediatric and adult companion
+    interactions.
+  \item Three humanoid stations for rehabilitation engagement.
+  \item Three RT motion-tracking vaults (co-located with RT positioning).
+  \item Four imaging bays for imaging assistant robots.
+  \item Two steerable needle suites.
+  \item One rehabilitation exoskeleton bay with two active stations and one
+    reserved station.
+  \end{enumerate}
+
+\item Support areas shall include a robot-accessible pharmacy, server room,
+  maintenance bay, and decontamination area~\cite{newtrial2026}.
+\end{enumerate}
+
+\section{Structural Requirements}
+
+\subsection{Floor Load Capacity}
+
+\begin{enumerate}[label=(\alph*)]
+\item Surgical suites shall be designed for a minimum floor live load of 150
+  pounds per square foot to support surgical robot systems (including the
+  da Vinci Xi surgical system at approximately 1,800 pounds), instrument carts,
+  patient tables, and support equipment~\cite{patientinstructions2026}.
+
+\item Radiotherapy vaults shall be designed for a minimum floor live load of
+  200 pounds per square foot to support linear accelerator systems,
+  radiotherapy positioning robots, and radiation shielding components.
+
+\item Imaging bays shall be designed for a minimum floor live load of 125
+  pounds per square foot to support imaging equipment, robotic ultrasound
+  systems, and CT scanners used for needle-placement guidance.
+
+\item Rehabilitation exoskeleton areas shall include floor-mounted parallel
+  bars with anchorage rated for 500 pounds lateral force, supporting patients
+  during exoskeleton-assisted gait
+  training~\cite{patientinstructions2026}.
+
+\item Server rooms shall be designed for a minimum floor live load of 250
+  pounds per square foot to support server rack installations for AI
+  computation infrastructure.
+
+\item General clinical circulation areas shall maintain a minimum floor live
+  load of 100 pounds per square foot, accommodating hospital beds,
+  wheelchairs, and mobile robot systems simultaneously.
+\end{enumerate}
+
+\subsection{Vibration Control}
+
+\begin{enumerate}[label=(\alph*)]
+\item Surgical suites and needle-placement suites shall meet VC-E vibration
+  criteria (peak velocity 3.1 micrometers per second) to support the
+  submillimeter precision required by surgical robots and needle-placement
+  systems~\cite{newtrial2026}.
+
+\item Imaging bays shall meet VC-D vibration criteria (peak velocity 6.3
+  micrometers per second) to support diagnostic imaging quality.
+
+\item Radiotherapy vaults shall meet VC-C vibration criteria (peak velocity
+  12.5 micrometers per second) to support accurate beam alignment.
+
+\item Vibration isolation joints shall separate clinical wings from building
+  mechanical systems, loading areas, and parking structures.
+\end{enumerate}
+
+\section{Mechanical Systems (HVAC)}
+
+\subsection{Surgical Suite Air Handling}
+
+\begin{enumerate}[label=(\alph*)]
+\item Surgical suites shall maintain ISO Class 7 (10,000 particles per cubic
+  foot) or better air cleanliness using HEPA filtration with a minimum of 20
+  air changes per hour~\cite{sitespec2026}.
+
+\item Surgical suites shall maintain positive pressure of at least 2.5 Pascals
+  relative to adjacent spaces.
+
+\item Temperature control shall maintain 68 to 73 degrees Fahrenheit with
+  humidity between 30 and 60 percent relative humidity.
+
+\item Independent air handling units shall serve each surgical suite to prevent
+  cross-contamination and allow maintenance without affecting other suites.
+\end{enumerate}
+
+\subsection{Radiotherapy Vault Ventilation}
+
+\begin{enumerate}[label=(\alph*)]
+\item Radiotherapy vaults shall have dedicated exhaust systems capable of
+  removing ozone generated by high-energy radiation beams.
+
+\item A minimum of 6 air changes per hour shall be maintained during treatment
+  operations, with 10 air changes per hour during purge cycles between patients.
+
+\item Exhaust air from radiotherapy vaults shall not be recirculated to other
+  building areas.
+\end{enumerate}
+
+\subsection{Server Room Cooling}
+
+\begin{enumerate}[label=(\alph*)]
+\item Server rooms supporting AI computation infrastructure shall maintain
+  temperature between 64 and 75 degrees Fahrenheit with redundant cooling
+  systems providing N+1 capacity~\cite{sitespec2026}.
+
+\item Cooling systems shall reject a minimum heat load of 200 kilowatts,
+  calculated from the server room's portion of the facility's total 800 to
+  1,200 kilowatt electrical load.
+
+\item Server room cooling shall be on a dedicated HVAC zone independent of
+  clinical space climate control.
+
+\item Hot aisle and cold aisle containment shall be used to maximize cooling
+  efficiency.
+\end{enumerate}
+
+\section{Electrical Systems}
+
+\subsection{Power Supply}
+
+\begin{enumerate}[label=(\alph*)]
+\item The facility shall be served by dual utility power feeds from separate
+  substations or feeders, providing full redundancy for the 800 to 1,200
+  kilowatt total electrical load~\cite{sitespec2026}.
+
+\item Automatic transfer switches shall provide seamless transition between
+  utility feeds, with a maximum transfer time of 10 milliseconds for critical
+  clinical systems.
+
+\item Emergency generator capacity shall be sufficient to power all critical
+  clinical systems (surgical suites, radiotherapy vaults, server rooms,
+  life safety systems) for a minimum of 72 hours at full load.
+
+\item Generator fuel storage shall accommodate 96 hours of operation with
+  automatic fuel management and monitoring.
+\end{enumerate}
+
+\subsection{Uninterruptible Power Supply (UPS)}
+
+\begin{enumerate}[label=(\alph*)]
+\item All surgical suites shall be served by dedicated UPS systems providing a
+  minimum of 30 minutes of battery backup at full surgical robot operating
+  load, sufficient to safely complete or abort any procedure in progress.
+
+\item Server rooms shall be served by UPS systems providing a minimum of 15
+  minutes of battery backup, sufficient for orderly shutdown of AI computation
+  systems and data preservation.
+
+\item All Physical AI system charging and standby stations shall be served by
+  UPS-backed circuits to maintain robot readiness during power transitions.
+
+\item UPS systems shall be tested monthly under load, with results recorded
+  in the facility maintenance log.
+\end{enumerate}
+
+\subsection{Electrical Distribution}
+
+\begin{enumerate}[label=(\alph*)]
+\item Dedicated electrical panels shall serve each clinical wing, with
+  sufficient circuit capacity for all Physical AI system types deployed in
+  that wing plus 25 percent spare capacity.
+
+\item Isolated ground circuits shall serve all Physical AI systems and medical
+  imaging equipment to prevent electromagnetic interference.
+
+\item Power quality monitoring systems shall continuously track voltage, current,
+  frequency, harmonics, and transients on all circuits serving Physical AI
+  systems, with automated alerting for out-of-specification conditions.
+\end{enumerate}
+
+\section{Radiation Shielding}
+
+\begin{enumerate}[label=(\alph*)]
+\item Radiotherapy vault shielding shall comply with NCRP Report 151 and
+  California Radiologic Health Branch requirements, designed for the maximum
+  beam energy and workload planned for the facility.
+
+\item Shielding design shall account for the Physical AI positioning robot's
+  range of motion, ensuring that all achievable patient positions result in
+  adequate shielding of adjacent spaces.
+
+\item The primary barrier shall be designed for the full workload of the
+  radiotherapy system, and secondary barriers shall account for leakage and
+  scatter radiation.
+
+\item Maze entrances shall be designed to reduce radiation levels at the maze
+  entrance to below 0.02 milliSieverts per hour during beam-on conditions.
+
+\item Shielding calculations shall be reviewed and certified by a qualified
+  medical physicist before construction begins.
+\end{enumerate}
+
+\section{Technology Infrastructure}
+
+\subsection{Network Architecture}
+
+\begin{enumerate}[label=(\alph*)]
+\item The facility shall provide a minimum of 10 gigabits per second internal
+  network bandwidth using redundant fiber-optic backbone
+  infrastructure~\cite{sitespec2026}.
+
+\item Clinical networks, administrative networks, and Physical AI system control
+  networks shall be physically or logically segmented with firewall separation
+  between segments.
+
+\item Each clinical wing shall have dedicated network switches with redundant
+  uplinks to the core network.
+
+\item Wireless coverage (Wi-Fi 6E or later) shall be provided throughout all
+  patient-accessible areas for patient portal access and companion robot
+  connectivity.
+\end{enumerate}
+
+\subsection{Robot Charging and Docking Infrastructure}
+
+\begin{enumerate}[label=(\alph*)]
+\item Each clinical wing shall include dedicated robot charging and docking
+  stations rated for the specific power requirements of the Physical AI
+  systems deployed in that wing.
+
+\item Charging stations shall include automated connection systems to minimize
+  human intervention during shift changes and standby periods.
+
+\item Floor-mounted guide paths or ceiling-mounted positioning references shall
+  facilitate autonomous robot navigation between clinical stations, charging
+  stations, and maintenance areas.
+
+\item The facility layout shall support the patient flow demonstrated in the
+  simulation, where peak utilization reached 21 of 29 robots active
+  simultaneously during hour 09, with an average of 8.1 of 29 active across
+  24 hours~\cite{newtrial2026}.
+\end{enumerate}
+
+\section{Life Safety and Egress}
+
+\begin{enumerate}[label=(\alph*)]
+\item The facility shall comply with California Fire Code (Title 24, Part 9)
+  and NFPA 101 Life Safety Code requirements for health care occupancies.
+
+\item Emergency egress paths shall be designed to accommodate patients on
+  hospital beds and in wheelchairs, with corridor widths of at least 8 feet
+  in primary clinical circulation areas.
+
+\item Physical AI systems shall be designed to move to designated safe positions
+  during fire alarm activation, clearing egress paths and de-energizing
+  non-essential systems.
+
+\item Fire suppression systems in surgical suites shall use clean agent (FM-200
+  or Novec 1230) to protect sensitive robotic equipment while maintaining
+  patient safety.
+
+\item Fire suppression in server rooms shall use clean agent systems with
+  pre-action activation to prevent accidental discharge damage to computing
+  equipment.
+\end{enumerate}
+
+
+% ============================================================================
+% DOCUMENT 8: Physical AI Oncology Clinical Trial Site Premises Code
+% ============================================================================
+
+\part{Physical AI Oncology Clinical Trial Site Premises Code}
+\setcounter{section}{0}
+
+\section{Scope and Application}
+
+These premises standards govern the physical site, grounds, security systems,
+environmental controls, and operational conditions for Physical AI oncology
+clinical trial facilities authorized under California law. The standards address
+the unique premises requirements created by 24-hour autonomous robot operation,
+patient-centric on-demand scheduling, and the deployment of 29 Physical AI
+system instances across a 85,000 to 100,000 square-foot clinical
+facility~\cite{sitespec2026}.
+
+The premises code complements the building code standards (structural,
+mechanical, electrical, technology) by addressing how the facility and its
+grounds are maintained, secured, and operated during continuous clinical
+operations. The 24-hour simulation demonstrated that sustained operations
+require premises management that handles both minute-level details (individual
+patient movements, robot state transitions, adverse event responses) and
+facility-wide patterns across a full 24-hour cycle~\cite{newtrial2026}.
+
+\section{Site Security}
+
+\subsection{Physical Security Systems}
+
+\begin{enumerate}[label=(\alph*)]
+\item The premises shall be equipped with a comprehensive security system
+  including the following components:
+  \begin{enumerate}[label=(\arabic*)]
+  \item Video surveillance covering all exterior entrances, parking areas,
+    patient drop-off zones, lobby and reception areas, clinical wing corridors,
+    and robot maintenance areas.
+  \item Electronic access control on all exterior doors, all clinical wing
+    entries, server rooms, pharmacy, robot maintenance bay, and any area
+    housing controlled substances or sensitive equipment.
+  \item Intrusion detection systems on all exterior doors, ground-floor windows,
+    and roof access points.
+  \item Duress alarm stations at the reception desk, each shift supervisor
+    station, and the security monitoring room.
+  \end{enumerate}
+
+\item Security systems shall operate continuously during the 24-hour operating
+  period without interruption.
+
+\item Security camera recordings shall be retained for a minimum of 90 days
+  and made available to the department and law enforcement upon request.
+\end{enumerate}
+
+\subsection{Access Control Zones}
+
+The premises shall be divided into the following access control zones:
+
+\begin{enumerate}[label=(\alph*)]
+\item \textbf{Public Zone:} Lobby, reception area, patient waiting areas,
+  restrooms, and the covered patient drop-off canopy. Accessible to patients,
+  visitors, and the public during operating hours.
+
+\item \textbf{Patient Zone:} Clinical wings, examination rooms, procedure
+  suites, recovery areas, and patient circulation corridors. Accessible to
+  enrolled patients with valid credentials and accompanying persons.
+
+\item \textbf{Clinical Zone:} Areas where Physical AI systems perform clinical
+  procedures, including surgical suites, RT vaults, needle-placement suites,
+  and steerable needle suites. Restricted to authorized clinical personnel,
+  site safety officers, and patients undergoing procedures.
+
+\item \textbf{Technical Zone:} Server rooms, robot maintenance bay,
+  decontamination area, and equipment storage. Restricted to authorized
+  technical personnel and site safety officers.
+
+\item \textbf{Administrative Zone:} Staff offices, break rooms, training rooms,
+  and supply storage. Restricted to site personnel.
+\end{enumerate}
+
+\subsection{Cybersecurity of Physical Premises}
+
+\begin{enumerate}[label=(\alph*)]
+\item Physical AI system control networks shall be accessible only from within
+  the Technical Zone, with no wireless access points connected to robot control
+  systems.
+
+\item The MCP-PAI server infrastructure shall be housed in the Technical Zone
+  server room with physical access limited to authorized cybersecurity and
+  system administration personnel~\cite{iche6r3adapt}.
+
+\item Network infrastructure components (switches, routers, fiber distribution
+  panels) shall be housed in locked enclosures within the Technical Zone.
+
+\item Visitor and patient wireless networks shall be physically isolated from
+  clinical and Physical AI system networks.
+\end{enumerate}
+
+\section{Patient Access and Flow}
+
+\subsection{Arrival and Reception}
+
+\begin{enumerate}[label=(\alph*)]
+\item The main patient entrance shall be accessible 24 hours per day, 7 days
+  per week, consistent with the on-demand scheduling model that demonstrated
+  patient arrivals across all 24 hours of the simulation, including 15
+  arrivals during the peak hour (hour 09) and continued arrivals during
+  overnight hours~\cite{newtrial2026}.
+
+\item A covered patient drop-off zone shall accommodate a minimum of three
+  vehicles simultaneously, with a covered walkway extending at least 20 feet
+  to the building entrance.
+
+\item The reception area shall include automated check-in kiosks that verify
+  patient identity, confirm scheduled procedures, and direct patients to the
+  appropriate clinical wing.
+
+\item The reception area shall include seating for a minimum of 20 patients and
+  accompanying persons, reflecting the simulation's peak concurrent on-site
+  population of 28 patients~\cite{newtrial2026}.
+\end{enumerate}
+
+\subsection{Internal Patient Circulation}
+
+\begin{enumerate}[label=(\alph*)]
+\item Primary patient circulation corridors shall be a minimum of 8 feet wide
+  to accommodate hospital beds, wheelchairs, rehabilitation exoskeletons, and
+  mobile Physical AI systems simultaneously.
+
+\item Wayfinding shall use a combination of visual signage, floor markings,
+  digital displays, and optional auditory guidance compatible with the 10
+  Physical AI system categories that patients may
+  encounter~\cite{patientinstructions2026}.
+
+\item Patient flow through the facility shall follow the patterns validated in
+  the simulation, with separate intake, procedure, and recovery pathways to
+  minimize cross-traffic and wait times~\cite{newtrial2026}.
+
+\item Recovery areas adjacent to each procedure zone shall accommodate patients
+  during the post-procedure observation periods specified in the patient robot
+  instructions (ranging from 2 minutes for imaging to 60 minutes for steerable
+  needle and surgical procedures)~\cite{patientinstructions2026}.
+\end{enumerate}
+
+\section{Environmental Standards}
+
+\subsection{Exterior Grounds}
+
+\begin{enumerate}[label=(\alph*)]
+\item The site shall maintain landscaping and hardscaping consistent with the
+  character of the surrounding neighborhood and the San Francisco Planning
+  Code requirements for the applicable zoning district.
+
+\item Exterior lighting shall provide a minimum of 5 foot-candles at all
+  pedestrian pathways, parking areas, and building entrances, ensuring patient
+  safety during the 24-hour operating period.
+
+\item A minimum of 10 percent of the total lot area shall be dedicated to
+  landscaped open space, which may include patient garden areas accessible from
+  the Public Zone.
+
+\item Signage shall clearly identify the facility as a Physical AI oncology
+  clinical trial site, with the authorization certificate number displayed at
+  the main entrance.
+\end{enumerate}
+
+\subsection{Interior Environment}
+
+\begin{enumerate}[label=(\alph*)]
+\item Patient waiting areas and recovery spaces shall maintain interior
+  temperatures between 68 and 74 degrees Fahrenheit with ambient noise levels
+  not exceeding 45 dBA.
+
+\item Lighting in patient areas shall be adjustable between 200 and 500 lux to
+  accommodate different times of day and patient comfort needs during 24-hour
+  operations.
+
+\item Clinical procedure areas shall maintain lighting appropriate to the
+  specific Physical AI system requirements, ranging from high-intensity surgical
+  lighting in surgical suites to reduced ambient lighting in imaging bays and
+  RT vaults.
+
+\item Air quality in all patient-accessible areas shall be maintained at a
+  minimum of MERV 13 filtration with continuous monitoring of CO2, temperature,
+  and humidity.
+\end{enumerate}
+
+\section{Robot Operational Zones}
+
+\subsection{Robot Movement Corridors}
+
+\begin{enumerate}[label=(\alph*)]
+\item Designated robot movement corridors shall connect clinical wings to the
+  robot maintenance bay, charging stations, and decontamination area.
+
+\item Robot corridors shall be separated from primary patient circulation
+  pathways where possible, using time-of-day scheduling where physical
+  separation is not feasible.
+
+\item Floor surfaces in robot corridors shall be smooth, level (maximum slope
+  1:48), and free of thresholds or transitions that could impede autonomous
+  robot navigation.
+
+\item Robot corridors shall be equipped with proximity sensors and visual
+  warning indicators (flashing lights) to alert human occupants when robots
+  are in transit.
+\end{enumerate}
+
+\subsection{Robot Maintenance Bay}
+
+\begin{enumerate}[label=(\alph*)]
+\item The robot maintenance bay shall accommodate a minimum of three Physical
+  AI systems simultaneously for scheduled maintenance, calibration, or repair.
+
+\item The bay shall include dedicated workstations with electrical, compressed
+  air, and network connections appropriate for each Physical AI system
+  category.
+
+\item Spare parts storage shall be maintained for critical components of all
+  10 Physical AI system types, with inventory levels sufficient to support
+  the maintenance schedule demonstrated in the simulation (where SURG-01
+  maintenance was conducted from 22:15 to 01:59 without disrupting clinical
+  operations)~\cite{newtrial2026}.
+
+\item The maintenance bay shall be acoustically isolated from patient areas to
+  allow maintenance activities during nighttime hours without disturbing
+  patients in adjacent recovery areas.
+\end{enumerate}
+
+\section{Emergency Access and Evacuation}
+
+\begin{enumerate}[label=(\alph*)]
+\item Emergency vehicle access shall be provided from at least two directions,
+  with a minimum 26-foot-wide fire access lane along the full length of the
+  building.
+
+\item A dedicated ambulance bay shall accommodate a minimum of two ambulances
+  simultaneously, separate from the patient drop-off zone.
+
+\item Evacuation plans shall account for the specific needs of oncology patients
+  who may be connected to treatment equipment, recovering from procedures, or
+  using rehabilitation exoskeletons at the time of evacuation.
+
+\item Physical AI systems shall execute automated safe-shutdown and position
+  procedures upon receiving evacuation signals, including retracting surgical
+  arms, lowering treatment couches, and moving to designated safe positions
+  to clear evacuation routes~\cite{patientinstructions2026}.
+
+\item Evacuation drills shall be conducted quarterly, including scenarios
+  specific to Physical AI system emergencies such as robot control system
+  failure, surgical suite power loss during a procedure, and cybersecurity
+  incidents requiring physical network isolation.
+\end{enumerate}
+
+\section{Waste Management}
+
+\begin{enumerate}[label=(\alph*)]
+\item Medical waste generated by Physical AI-assisted oncology procedures shall
+  be managed in accordance with the California Medical Waste Management Act
+  (Health and Safety Code \S~117600 et seq.).
+
+\item Radioactive waste from radiotherapy operations shall be managed in
+  accordance with applicable NRC and California Radiologic Health Branch
+  requirements.
+
+\item Robot decontamination waste shall be classified and managed based on the
+  type of contamination (biological, chemical, or radioactive).
+
+\item Dedicated waste staging areas shall be located in the Technical Zone with
+  separate containers for biohazardous, radioactive, pharmaceutical, and
+  general waste.
+
+\item Waste collection shall be scheduled to avoid conflicts with patient
+  arrival and departure patterns, using the patient flow data from the
+  simulation to identify optimal collection windows~\cite{newtrial2026}.
+\end{enumerate}
+
+
+% ============================================================================
+% DOCUMENT 9: Physical AI Oncology Clinical Trial Site Parking and Patient Transportation Standards
+% ============================================================================
+
+\part{Physical AI Oncology Clinical Trial Site Parking and Patient Transportation Standards}
+\setcounter{section}{0}
+
+\section{Scope and Purpose}
+
+These standards govern the design, construction, and operation of dedicated
+parking facilities and patient transportation infrastructure for Physical AI
+oncology clinical trial sites authorized in California. The parking facility
+is a new-construction structure purpose-built to serve the trial site, designed
+to accommodate the unique patient flow patterns of a 24-hour, on-demand
+oncology clinical trial.
+
+The 24-hour simulation demonstrated arrival patterns ranging from 2 patients
+during overnight hours (hours 02 through 04) to 15 patients during peak hour
+(hour 09), with a total of 168 unique patients in 24 hours and a peak
+concurrent on-site population of 28 patients~\cite{newtrial2026}. The parking
+facility must accommodate these variable demand patterns while maintaining the
+8-minute average wait time and the 24/7 accessibility that define the Physical
+AI trial format~\cite{formatcomparison2026}.
+
+\section{Parking Facility Design}
+
+\subsection{Capacity Requirements}
+
+\begin{enumerate}[label=(\alph*)]
+\item The parking facility shall provide a minimum of 120 parking spaces,
+  calculated as follows:
+  \begin{enumerate}[label=(\arabic*)]
+  \item 80 patient and visitor spaces, based on the peak concurrent on-site
+    population of 28 patients plus accompanying persons and a turnover factor
+    reflecting variable procedure durations (15 minutes for imaging to 180
+    minutes for surgery)~\cite{newtrial2026,patientinstructions2026}.
+  \item 15 staff spaces for the 8 to 10 full-time equivalent staff plus
+    on-call personnel across three shifts~\cite{sitespec2026}.
+  \item 10 accessible spaces (8.3 percent of total), exceeding the minimum
+    ADA and California Building Code Chapter 11B requirements for medical
+    facilities.
+  \item 5 short-term patient drop-off and pick-up spaces adjacent to the
+    building entrance.
+  \item 10 spaces designated for ride-share and medical transport vehicle
+    staging.
+  \end{enumerate}
+
+\item The facility shall accommodate future expansion of up to 50 percent
+  additional capacity through structural design that supports the addition
+  of one parking level.
+\end{enumerate}
+
+\subsection{Structure and Configuration}
+
+\begin{enumerate}[label=(\alph*)]
+\item The parking facility shall be a new-construction structure, which may be
+  either a surface lot or a multi-level structure (not to exceed three levels
+  above grade), depending on the site constraints and zoning requirements.
+
+\item If a multi-level structure is constructed, all patient parking levels
+  shall be served by a minimum of two elevators and one ramp system meeting
+  ADA accessibility standards.
+
+\item The facility shall provide a covered pedestrian connection from the
+  parking structure to the clinical building entrance, with a maximum walking
+  distance of 300 feet from the most distant parking space to the building
+  entrance.
+
+\item Clear ceiling height shall be a minimum of 8 feet 2 inches on all
+  levels to accommodate medical transport vehicles and passenger vans.
+
+\item Drive aisles shall be a minimum of 24 feet wide for two-way traffic,
+  with parking spaces a minimum of 9 feet wide by 18 feet deep.
+\end{enumerate}
+
+\subsection{Accessible Parking}
+
+\begin{enumerate}[label=(\alph*)]
+\item Accessible parking spaces shall be located at the level closest to the
+  building entrance, with a maximum distance of 100 feet from the space to
+  the building entry.
+
+\item A minimum of two van-accessible spaces (8 feet wide with 8-foot access
+  aisle) shall be provided.
+
+\item Accessible routes from parking to the building entrance shall be covered,
+  illuminated to a minimum of 10 foot-candles, and free of steps, steep grades
+  (maximum slope 1:20), or other barriers.
+
+\item Accessible parking signage shall include the international symbol of
+  accessibility and shall note that the facility operates 24 hours per day
+  for on-demand oncology care.
+\end{enumerate}
+
+\section{Patient Drop-Off Zone}
+
+\begin{enumerate}[label=(\alph*)]
+\item A dedicated patient drop-off and pick-up zone shall be located immediately
+  adjacent to the main building entrance, separated from the parking facility
+  access drive.
+
+\item The drop-off zone shall accommodate a minimum of three vehicles
+  simultaneously under a covered canopy extending at least 20 feet from the
+  building facade.
+
+\item The drop-off zone shall include a level, non-slip surface, curb cuts,
+  and seating for patients waiting for transportation.
+
+\item A call button or intercom shall allow patients to request assistance
+  from site safety officers for transfer from vehicles to the building
+  entrance.
+
+\item The drop-off zone shall be operational 24 hours per day, with adequate
+  lighting (minimum 10 foot-candles) and weather protection for all hours of
+  operation, consistent with the simulation's demonstrated overnight patient
+  arrivals and departures~\cite{newtrial2026}.
+\end{enumerate}
+
+\section{Transportation Demand Management}
+
+\subsection{Public Transit Integration}
+
+\begin{enumerate}[label=(\alph*)]
+\item The site shall be located within one-quarter mile of a BART station or
+  Muni stop, or the site operator shall provide a shuttle service connecting
+  the site to the nearest transit hub at intervals not exceeding 30 minutes
+  during all operating hours.
+
+\item Real-time transit information displays shall be installed in the patient
+  waiting area and the parking facility lobby, showing schedules for BART,
+  Muni, and site shuttle services.
+
+\item The site shall participate in the Clipper card program or equivalent
+  regional transit payment system to facilitate patient transit use.
+\end{enumerate}
+
+\subsection{Ride-Share and Medical Transport}
+
+\begin{enumerate}[label=(\alph*)]
+\item The site shall designate a minimum of 10 parking spaces for ride-share
+  and medical transport vehicle staging, located near the patient drop-off
+  zone but not blocking drop-off lane traffic flow.
+
+\item The site shall coordinate with ride-share services to establish a
+  designated pick-up and drop-off geofence that directs drivers to the
+  correct facility entrance.
+
+\item For patients who require medical transport following procedures (such as
+  those recovering from anesthesia after surgical robot procedures lasting
+  90 to 180 minutes), the site shall coordinate discharge scheduling with
+  transport providers to minimize patient wait
+  times~\cite{patientinstructions2026}.
+\end{enumerate}
+
+\subsection{Bicycle and Pedestrian Access}
+
+\begin{enumerate}[label=(\alph*)]
+\item The site shall provide a minimum of 20 Class I (enclosed and secured)
+  bicycle parking spaces and 10 Class II (outdoor rack) bicycle parking spaces.
+
+\item Bicycle parking shall be located within 100 feet of the building entrance
+  and shall include electric bicycle charging capability for at least 4 spaces.
+
+\item Pedestrian access from the public sidewalk to the building entrance shall
+  be clearly marked, well-lit (minimum 5 foot-candles), and separated from
+  vehicle traffic.
+\end{enumerate}
+
+\section{24-Hour Parking Operations}
+
+\subsection{Staffing and Monitoring}
+
+\begin{enumerate}[label=(\alph*)]
+\item The parking facility shall be monitored 24 hours per day through video
+  surveillance and emergency call stations, consistent with the 24-hour
+  operating schedule of the clinical facility.
+
+\item Emergency call stations shall be located at each elevator lobby, at each
+  stairwell entrance, and at intervals not exceeding 200 feet in the parking
+  area.
+
+\item A parking management system shall track occupancy in real time and display
+  available spaces at the facility entrance, directing arriving patients to
+  available spaces efficiently.
+
+\item During overnight hours (10:00 PM to 6:00 AM), the parking facility may
+  reduce lighting to 75 percent of daytime levels in unoccupied areas while
+  maintaining full lighting in occupied areas, pedestrian routes, and the
+  patient drop-off zone.
+\end{enumerate}
+
+\subsection{Electric Vehicle Support}
+
+\begin{enumerate}[label=(\alph*)]
+\item A minimum of 20 percent of parking spaces (24 spaces) shall be equipped
+  with Level 2 electric vehicle charging stations (240V, 32A minimum).
+
+\item A minimum of 4 parking spaces shall be equipped with Level 3 DC fast
+  charging stations (minimum 50 kW), enabling patients to charge during shorter
+  procedures such as imaging (10 to 20 minutes) or companion robot sessions
+  (10 to 20 minutes)~\cite{patientinstructions2026}.
+
+\item An additional 20 percent of parking spaces (24 spaces) shall be designed
+  as EV-capable, with conduit and panel capacity installed during construction
+  to support future charging station installation.
+
+\item EV charging shall be available 24 hours per day, consistent with the
+  facility's operating schedule.
+\end{enumerate}
+
+\section{Emergency Vehicle Access}
+
+\begin{enumerate}[label=(\alph*)]
+\item A dedicated ambulance bay shall be provided separate from both the parking
+  facility and the patient drop-off zone, accommodating a minimum of two
+  ambulances simultaneously.
+
+\item Fire department access lanes shall be maintained along the full perimeter
+  of both the clinical building and the parking facility, with a minimum width
+  of 26 feet and a minimum vertical clearance of 13 feet 6 inches.
+
+\item Emergency vehicle access routes shall be clearly marked and kept
+  unobstructed at all times, with automatic enforcement through surveillance
+  and notification systems.
+
+\item The parking facility design shall not impede emergency vehicle access to
+  the clinical building from any direction.
+\end{enumerate}
+
+\section{Sustainability}
+
+\begin{enumerate}[label=(\alph*)]
+\item The parking facility shall include a stormwater management system
+  compliant with the San Francisco Green Infrastructure Ordinance,
+  incorporating bioretention areas, permeable pavement, or equivalent
+  green infrastructure techniques.
+
+\item Rooftop areas of the parking structure, if applicable, shall incorporate
+  either solar photovoltaic panels or a green roof system covering a minimum
+  of 50 percent of the roof area.
+
+\item Parking facility lighting shall use LED fixtures with occupancy sensors
+  and daylight harvesting to minimize energy consumption during the 24-hour
+  operating period.
+
+\item Construction materials shall meet the CalGreen (Title 24, Part 11)
+  requirements for recycled content and low-emission materials.
+\end{enumerate}
+
+
+% ============================================================================
+% DOCUMENT 10: Physical AI Oncology Clinical Trial Site Activation and Standard Operating Procedures
+% ============================================================================
+
+\part{Physical AI Oncology Clinical Trial Site Activation and Standard Operating Procedures}
+\setcounter{section}{0}
+
+\section{Site Activation Checklist}
+
+\subsection{Pre-Activation Requirements}
+
+The following requirements shall be completed before the first patient is
+enrolled at a Physical AI oncology clinical trial site:
+
+\begin{enumerate}[label=(\alph*)]
+\item \textbf{Regulatory Approvals:}
+  \begin{enumerate}[label=(\arabic*)]
+  \item State authorization certificate issued by CDPH (per SB 1042).
+  \item San Francisco conditional use permit and health care facility operating
+    license (or equivalent local permits for non-San Francisco sites).
+  \item IRB approval for the Physical AI oncology trial protocol.
+  \item IND clearance with Physical AI System Description accepted by
+    FDA~\cite{cfr312adapt}.
+  \item All Physical AI systems registered with CDPH with current USL scores
+    meeting minimum thresholds~\cite{usl2026}.
+  \end{enumerate}
+
+\item \textbf{Facility Readiness:}
+  \begin{enumerate}[label=(\arabic*)]
+  \item Building occupancy permit issued.
+  \item All Physical AI systems installed, commissioned, and verified.
+  \item Phase 0 simulation validation completed for all system types with
+    cross-framework consistency documented~\cite{iche6r3adapt}.
+  \item Network infrastructure operational with MCP-PAI five-server topology
+    configured to the required conformance level.
+  \item Power systems tested including UPS and generator transfer.
+  \item HVAC systems verified for all clinical zones.
+  \item Security systems operational with access control zones configured.
+  \end{enumerate}
+
+\item \textbf{Staffing Readiness:}
+  \begin{enumerate}[label=(\arabic*)]
+  \item All site safety officers trained and CDPH-certified.
+  \item On-call emergency physician and pharmacist agreements executed.
+  \item Maintenance technician assigned and trained.
+  \item Cybersecurity operations specialist on-call roster established.
+  \item All staff completed competency assessments for Physical AI systems.
+  \end{enumerate}
+
+\item \textbf{Documentation:}
+  \begin{enumerate}[label=(\arabic*)]
+  \item Standard operating procedures finalized for all 10 robot types.
+  \item Patient-facing robot instructions available in English and
+    the most common languages spoken in the service
+    area~\cite{patientinstructions2026}.
+  \item Informed consent documents approved by IRB with Physical AI
+    disclosures~\cite{cfr50adapt}.
+  \item Emergency response plan posted and distributed.
+  \item Adverse event reporting workflows tested.
+  \end{enumerate}
+\end{enumerate}
+
+\section{Shift Management}
+
+\subsection{Three-Shift Structure}
+
+\begin{enumerate}[label=(\alph*)]
+\item The site shall operate on a three-shift schedule covering 24 continuous
+  hours:
+  \begin{enumerate}[label=(\arabic*)]
+  \item Day shift: 06:00 to 14:00.
+  \item Evening shift: 14:00 to 22:00.
+  \item Night shift: 22:00 to 06:00.
+  \end{enumerate}
+
+\item Each shift shall be staffed by a minimum of two site safety officers, with
+  a third officer added during peak demand periods (typically 08:00 to 16:00
+  based on the simulation's patient arrival patterns showing 15 arrivals
+  during hour 09)~\cite{newtrial2026}.
+
+\item Shift handoff procedures shall include a structured briefing covering:
+  \begin{enumerate}[label=(\arabic*)]
+  \item Current patient census and active procedures.
+  \item Physical AI system status (active, standby, maintenance) for all 29
+    instances.
+  \item Any open adverse events or safety concerns.
+  \item Scheduled maintenance windows (such as the SURG-01 22:15 to 01:59
+    maintenance demonstrated in the simulation)~\cite{newtrial2026}.
+  \item Pending patient arrivals and departures.
+  \end{enumerate}
+\end{enumerate}
+
+\subsection{Shift Performance Metrics}
+
+Each shift shall track and report the following metrics, consistent with the
+hourly data structure validated in the 24-hour simulation:
+
+\begin{enumerate}[label=(\alph*)]
+\item Patient arrivals, procedures completed, and departures during the shift.
+\item Physical AI system utilization rates per type (the simulation averaged
+  8.1 of 29 active, with peak of 21 of 29 active)~\cite{newtrial2026}.
+\item Average patient wait time (target: 8 minutes or less).
+\item Adverse events with grade, resolution time, and root cause.
+\item PSL score changes per robot type per regulatory dimension (maximum
+  0.3 change per hour per dimension)~\cite{pslframework2026}.
+\item Any emergency stop activations or manual overrides.
+\end{enumerate}
+
+\section{Patient Processing Workflow}
+
+\subsection{Arrival to Procedure}
+
+\begin{enumerate}[label=(\alph*)]
+\item Patient arrival and check-in via automated kiosk (estimated 2 minutes).
+\item Identity verification and informed consent confirmation. Physical AI
+  disclosures reviewed for any system changes since enrollment.
+\item Pre-procedure safety matrix completed, including verification that all
+  assigned Physical AI systems meet USL thresholds and have passed daily
+  calibration checks~\cite{cfr50adapt}.
+\item Patient escorted or directed to the appropriate clinical wing based on
+  scheduled procedure type.
+\item Patient-facing robot instructions reviewed with the patient for the
+  specific systems involved in their procedure. For example, surgical robot
+  patients receive the three-step surgical robot instruction sheet covering
+  anesthesia induction, robot-assisted procedure, and post-operative
+  recovery~\cite{patientinstructions2026}.
+\item Procedure initiated under Physical AI system autonomous control with
+  site safety officer oversight.
+\end{enumerate}
+
+\subsection{Procedure to Departure}
+
+\begin{enumerate}[label=(\alph*)]
+\item Procedure completed; Physical AI system performs automated post-procedure
+  protocols (retracting instruments, lowering couches, generating procedure
+  reports).
+\item Patient transferred to recovery area; recovery duration determined by
+  procedure type (2 minutes for imaging to 60 minutes for surgical or
+  steerable needle procedures)~\cite{patientinstructions2026}.
+\item Post-procedure vital sign monitoring by Physical AI systems until
+  discharge criteria met.
+\item Discharge documentation generated automatically; patient receives
+  procedure summary and follow-up instructions.
+\item Patient exits via reception area; transportation coordination if needed.
+\end{enumerate}
+
+\section{Physical AI System Daily Operations}
+
+\subsection{Daily System Checks}
+
+\begin{enumerate}[label=(\alph*)]
+\item Each Physical AI system shall undergo an automated daily verification
+  check before the first patient procedure, including:
+  \begin{enumerate}[label=(\arabic*)]
+  \item Mechanical calibration verification (positioning accuracy, force
+    limits, range of motion).
+  \item Software system integrity check (AI model version, parameter
+    verification, hash validation).
+  \item Network connectivity and MCP-PAI server communication test.
+  \item Emergency stop functionality test.
+  \item Sensor calibration verification (cameras, force sensors, proximity
+    sensors).
+  \end{enumerate}
+
+\item Systems that fail any daily verification check shall be placed in
+  maintenance status and shall not be used for patient procedures until
+  the issue is resolved and the check is passed.
+
+\item Daily check results shall be recorded in the system's audit trail with
+  timestamp and pass or fail status for each verification element.
+\end{enumerate}
+
+\subsection{System Utilization Management}
+
+\begin{enumerate}[label=(\alph*)]
+\item The site's scheduling system shall manage Physical AI system utilization
+  to balance patient demand against system availability, following the
+  utilization patterns validated in the simulation:
+  \begin{enumerate}[label=(\arabic*)]
+  \item RT positioning robots: 38 percent average utilization.
+  \item Imaging assistants: 38 percent average utilization.
+  \item RT motion-tracking robots: 37 percent average utilization.
+  \item Surgical robots: scheduled with appropriate intervals between
+    procedures for decontamination and preparation.
+  \item Companion robots and humanoids: flexible scheduling to accommodate
+    patient emotional support needs~\cite{newtrial2026}.
+  \end{enumerate}
+
+\item When utilization approaches 80 percent for any system type, the
+  scheduling system shall extend appointment intervals to prevent queue
+  buildup and maintain the target 8-minute average wait time.
+
+\item Maintenance windows shall be scheduled during periods of historically
+  low demand (typically 22:00 to 06:00), using the simulation data as the
+  baseline demand model~\cite{newtrial2026}.
+\end{enumerate}
+
+\section{Quality Assurance}
+
+\subsection{Continuous Quality Monitoring}
+
+\begin{enumerate}[label=(\alph*)]
+\item The site shall maintain a quality management system compliant with the
+  adapted ICH E6(R3) requirements for Physical AI
+  trials~\cite{iche6r3adapt}.
+
+\item Key quality indicators shall be tracked continuously:
+  \begin{enumerate}[label=(\arabic*)]
+  \item Patient throughput versus the 168-patient 24-hour baseline.
+  \item Adverse event rate versus the 4.2 percent baseline (7 events across
+    168 patients)~\cite{newtrial2026}.
+  \item Same-hour adverse event resolution rate versus the 100 percent
+    baseline.
+  \item Fleet uptime versus the 99.7 percent baseline.
+  \item Patient satisfaction versus the 4.7 out of 5.0 baseline.
+  \item Cumulative PSL score versus the 63.4 to 64.4 baseline range.
+  \end{enumerate}
+
+\item Deviations from baseline quality indicators shall trigger root cause
+  analysis and corrective action within 7 days.
+\end{enumerate}
+
+\subsection{Regulatory Compliance Monitoring}
+
+\begin{enumerate}[label=(\alph*)]
+\item Compliance with the three adapted regulatory frameworks shall be
+  monitored continuously:
+  \begin{enumerate}[label=(\arabic*)]
+  \item ICH E6(R3): GCP compliance for Physical AI systems, data governance,
+    audit trail integrity~\cite{iche6r3adapt}.
+  \item 21 CFR Part 50: Informed consent completeness, patient rights
+    adherence, pediatric protections~\cite{cfr50adapt}.
+  \item 21 CFR Part 312: IND compliance, safety reporting timelines, annual
+    report preparation~\cite{cfr312adapt}.
+  \end{enumerate}
+
+\item Monthly compliance reports shall be submitted to CDPH as required by
+  the state regulations.
+
+\item The Physical AI Safety Review Committee shall meet at intervals not
+  exceeding 90 days to review all safety data, quality metrics, and
+  compliance status~\cite{cfr312adapt}.
+\end{enumerate}
+
+\section{Adverse Event Management}
+
+\begin{enumerate}[label=(\alph*)]
+\item Adverse event detection, documentation, and initial response shall be
+  automated by Physical AI systems, with site safety officer notification
+  within 1 minute of detection.
+
+\item The seven adverse event categories defined in the adapted 21 CFR Part 312
+  shall be used for classification: serious Physical AI adverse events,
+  Physical AI-drug interactions, cybersecurity incidents, AI model degradation,
+  sim-to-real divergence, digital twin discrepancy, and safety committee
+  findings~\cite{cfr312adapt}.
+
+\item The site shall target same-hour resolution for all Grade 1 and Grade 2
+  events, matching the simulation performance where all seven adverse events
+  (nausea Grade 1, hypotension Grade 1, bleeding Grade 1, pain Grade 2,
+  cough Grade 1, desaturation Grade 1, anxiety Grade 1) were resolved within
+  the hour of occurrence~\cite{newtrial2026}.
+
+\item Grade 3 or higher events shall trigger immediate escalation to the
+  on-call emergency physician and the Physical AI Safety Review Committee.
+
+\item All adverse events shall be reported to CDPH and FDA within the timelines
+  specified in the adapted 21 CFR Part 312 \S~312.32 (7 days for fatal or
+  life-threatening, 15 days for serious)~\cite{cfr312adapt}.
+\end{enumerate}
+
+
+% ============================================================================
+% DOCUMENT 11: Physical AI Oncology Clinical Trial Site Emergency Preparedness Plan
+% ============================================================================
+
+\part{Physical AI Oncology Clinical Trial Site Emergency Preparedness Plan}
+\setcounter{section}{0}
+
+\section{Emergency Classification System}
+
+Physical AI oncology clinical trial sites shall classify emergencies into four
+levels, each with defined response protocols:
+
+\subsection{Level 1 -- Minor Incident}
+
+\begin{enumerate}[label=(\alph*)]
+\item Definition: An event affecting a single Physical AI system or a single
+  patient without immediate risk of serious harm. Examples include a single
+  robot entering fault mode, a Grade 1 adverse event, or a minor network
+  disruption affecting non-critical systems.
+
+\item Response: The affected Physical AI system is automatically placed in safe
+  mode. The site safety officer assesses the situation and determines whether
+  the system can be restarted or requires maintenance. Patient care continues
+  using alternative systems. The simulation demonstrated that the fleet of 29
+  robot instances provides redundancy within each system category, allowing
+  continued operations when individual systems are
+  unavailable~\cite{newtrial2026}.
+
+\item Reporting: Documented in the shift log and included in the monthly report
+  to CDPH.
+\end{enumerate}
+
+\subsection{Level 2 -- Moderate Emergency}
+
+\begin{enumerate}[label=(\alph*)]
+\item Definition: An event affecting multiple Physical AI systems, multiple
+  patients, or requiring activation of emergency medical response. Examples
+  include multiple simultaneous robot faults, a Grade 2 or Grade 3 adverse
+  event, a localized power failure, or a cybersecurity anomaly.
+
+\item Response: The site safety officer activates the emergency response team.
+  The on-call emergency physician is notified. Affected clinical areas are
+  secured. Patient procedures in unaffected areas may continue. All active
+  procedures in affected areas are safely concluded or aborted using the
+  emergency stop protocols described in the patient robot
+  instructions~\cite{patientinstructions2026}.
+
+\item Reporting: Reported to CDPH within 72 hours. If a cybersecurity incident
+  with potential patient harm, reported within 7 days per the adapted 21 CFR
+  Part 312 \S~312.32~\cite{cfr312adapt}.
+\end{enumerate}
+
+\subsection{Level 3 -- Major Emergency}
+
+\begin{enumerate}[label=(\alph*)]
+\item Definition: An event requiring partial or complete facility evacuation,
+  affecting the majority of Physical AI systems, or involving a serious
+  adverse event (Grade 4 or higher). Examples include building-wide power
+  failure exceeding UPS capacity, structural damage, confirmed cybersecurity
+  breach affecting patient safety, or a mass casualty event.
+
+\item Response: The site administrator activates the facility emergency plan.
+  All Physical AI systems execute automated safe-shutdown procedures. Patient
+  evacuation begins per the evacuation plan. External emergency services are
+  activated. The Physical AI Safety Review Committee is convened within 24
+  hours~\cite{cfr312adapt}.
+
+\item Reporting: Reported to CDPH and FDA immediately. Fatal or
+  life-threatening events reported within 7 days per \S~312.32. Serious
+  events reported within 15 days~\cite{cfr312adapt}.
+\end{enumerate}
+
+\subsection{Level 4 -- Catastrophic Event}
+
+\begin{enumerate}[label=(\alph*)]
+\item Definition: An event rendering the facility completely non-operational,
+  such as a major earthquake, widespread infrastructure failure, or complete
+  cybersecurity compromise.
+
+\item Response: Complete facility evacuation. All Physical AI systems
+  de-energized. Business continuity plan activated. Patient care transferred
+  to partner facilities. IND sponsor notified for potential clinical
+  hold assessment~\cite{cfr312adapt}.
+
+\item Reporting: Immediate notification to CDPH, FDA, and local emergency
+  management. Full incident report within 30 days.
+\end{enumerate}
+
+\section{Physical AI System Emergency Procedures}
+
+\subsection{Emergency Stop Protocol}
+
+\begin{enumerate}[label=(\alph*)]
+\item Every Physical AI system shall have a clearly marked, accessible emergency
+  stop mechanism that can be activated by site safety officers, clinical
+  personnel, or patients where clinically appropriate.
+
+\item Upon emergency stop activation, the system shall:
+  \begin{enumerate}[label=(\arabic*)]
+  \item Immediately cease all autonomous motion.
+  \item Retract any instruments or probes that are in contact with or
+    inside the patient, using a controlled withdrawal sequence.
+  \item Lower treatment couches to the lowest safe position.
+  \item De-energize radiation sources (RT systems).
+  \item Maintain essential monitoring and life safety functions.
+  \item Generate an emergency stop event record in the audit trail with
+    timestamp, trigger source, and system state at the time of
+    activation~\cite{iche6r3adapt}.
+  \end{enumerate}
+
+\item The patient robot instructions for each system type include specific
+  emergency behavior; for example, surgical robots retract arms through chest
+  ports, RT positioning systems lower couches to exit height, and
+  exoskeletons return to standing rest position~\cite{patientinstructions2026}.
+\end{enumerate}
+
+\subsection{Cybersecurity Incident Response}
+
+\begin{enumerate}[label=(\alph*)]
+\item The cybersecurity incident response plan shall address Physical
+  AI-specific threats:
+  \begin{enumerate}[label=(\arabic*)]
+  \item Robot control system compromise (unauthorized commands to Physical AI
+    systems).
+  \item AI model poisoning (manipulation of AI model parameters or training
+    data).
+  \item Digital twin data manipulation (alteration of patient-specific models).
+  \item MCP-PAI server infrastructure attack (compromise of authorization,
+    FHIR, DICOM, ledger, or provenance servers).
+  \item Network segmentation breach (traffic between isolated network
+    zones).
+  \end{enumerate}
+
+\item Upon detection of a cybersecurity incident:
+  \begin{enumerate}[label=(\arabic*)]
+  \item All affected Physical AI systems are immediately isolated from the
+    network.
+  \item Active procedures on affected systems are safely concluded or aborted.
+  \item The cybersecurity operations specialist assesses the scope and
+    severity.
+  \item Patient data integrity is verified using hash-chained audit trail
+    validation~\cite{iche6r3adapt}.
+  \item The incident is classified and reported per the adapted 21 CFR
+    Part 312 timelines~\cite{cfr312adapt}.
+  \end{enumerate}
+
+\item The site shall conduct annual penetration testing and quarterly
+  vulnerability assessments of all Physical AI system interfaces and
+  MCP-PAI infrastructure.
+\end{enumerate}
+
+\section{Natural Disaster Preparedness}
+
+\subsection{Seismic Preparedness}
+
+\begin{enumerate}[label=(\alph*)]
+\item The facility shall be designed to Seismic Design Category D or higher
+  per ASCE 7 and the California Building Code, appropriate for San Francisco's
+  seismic zone.
+
+\item Physical AI systems shall be seismically anchored to their mounting
+  surfaces with anchorage rated for the systems' operating weight plus 50
+  percent margin.
+
+\item Automated seismic sensors shall trigger Physical AI system safe-mode
+  procedures when ground acceleration exceeds 0.1g, including retracting
+  surgical instruments, lowering couches, and pausing radiation delivery.
+
+\item Post-earthquake inspection protocols shall verify Physical AI system
+  calibration before resuming patient procedures.
+\end{enumerate}
+
+\subsection{Power Failure}
+
+\begin{enumerate}[label=(\alph*)]
+\item The dual utility feed design provides primary power redundancy. If both
+  feeds fail, the automatic transfer switch engages emergency generators
+  within 10 seconds.
+
+\item UPS systems bridge the transfer gap, providing 30 minutes for surgical
+  suites (sufficient to complete or safely abort any procedure) and 15 minutes
+  for server rooms (sufficient for orderly AI system shutdown and data
+  preservation).
+
+\item If generator fuel is projected to be exhausted before utility power
+  restoration, the site shall begin controlled patient discharge and Physical
+  AI system shutdown, prioritizing completion of active procedures.
+
+\item The 72-hour generator fuel capacity provides sufficient time for
+  coordinated patient transfer to partner facilities in extended outage
+  scenarios.
+\end{enumerate}
+
+\section{Clinical Emergency Procedures}
+
+\subsection{Medical Emergency During Physical AI Procedure}
+
+\begin{enumerate}[label=(\alph*)]
+\item If a patient experiences a medical emergency during a Physical AI-assisted
+  procedure:
+  \begin{enumerate}[label=(\arabic*)]
+  \item The Physical AI system's vital sign monitoring detects the emergency
+    and initiates automated response protocols.
+  \item Emergency stop is activated automatically or by the site safety officer.
+  \item The on-call emergency physician is notified immediately.
+  \item The Physical AI system retracts instruments and positions the patient
+    for emergency access.
+  \item Resuscitation equipment is deployed from the emergency station located
+    within each clinical wing.
+  \item The event is documented in real time through the Physical AI system's
+    audit trail and the patient's electronic health record.
+  \end{enumerate}
+
+\item The simulation demonstrated that real-time vital sign monitoring at
+  minute-level resolution enables early detection of adverse events; all
+  seven adverse events in the simulation were detected, graded, and managed
+  through the automated monitoring
+  system~\cite{newtrial2026}.
+\end{enumerate}
+
+\subsection{Multiple Simultaneous Adverse Events}
+
+\begin{enumerate}[label=(\alph*)]
+\item If multiple adverse events occur simultaneously (which did not occur in
+  the simulation but is planned for), the site shall:
+  \begin{enumerate}[label=(\arabic*)]
+  \item Triage events by severity grade, prioritizing the highest-grade event.
+  \item Activate the staffing contingency plan to bring additional personnel
+    on-site within 30 minutes.
+  \item Suspend new patient intake until the simultaneous events are resolved.
+  \item Notify the Physical AI Safety Review Committee if the events suggest
+    a systemic issue affecting multiple Physical AI systems or patients.
+  \end{enumerate}
+\end{enumerate}
+
+\section{Business Continuity}
+
+\begin{enumerate}[label=(\alph*)]
+\item The site shall maintain mutual aid agreements with at least two hospital
+  or clinical facilities within 30 minutes travel time for patient transfer
+  during extended emergencies.
+
+\item Critical Physical AI system configuration data, patient records, and audit
+  trails shall be backed up to a geographically remote data center with
+  recovery point objective (RPO) of 15 minutes and recovery time objective
+  (RTO) of 4 hours.
+
+\item The business continuity plan shall include provisions for resuming
+  Physical AI operations following a major emergency, including system
+  recalibration, Phase 0 re-validation if systems were physically damaged,
+  and regulatory notification of operational restart.
+
+\item Annual business continuity exercises shall test the full emergency
+  response chain from emergency detection through patient transfer, Physical
+  AI system shutdown, data preservation, and operational restart.
+\end{enumerate}
+
+\section{Training and Drills}
+
+\begin{enumerate}[label=(\alph*)]
+\item All site personnel shall complete emergency preparedness training as part
+  of the 160-hour site safety officer certification program.
+
+\item Emergency drills shall be conducted quarterly, rotating through the
+  following scenarios:
+  \begin{enumerate}[label=(\arabic*)]
+  \item Quarter 1: Physical AI system failure during active procedure
+    (emergency stop, patient safety, system recovery).
+  \item Quarter 2: Cybersecurity incident (network isolation, data integrity
+    verification, incident reporting).
+  \item Quarter 3: Building evacuation (Physical AI safe-shutdown, patient
+    evacuation, external emergency services coordination).
+  \item Quarter 4: Extended power failure (generator operation, controlled
+    patient discharge, business continuity activation).
+  \end{enumerate}
+
+\item Drill performance shall be documented and reviewed by the Physical AI
+  Safety Review Committee, with corrective actions for any deficiencies
+  identified.
+
+\item The patient journey demonstrated that 10 distinct stages of care, from
+  pre-screening through data lock, require coordinated emergency response
+  capabilities at each stage~\cite{patientjourney2026}.
+\end{enumerate}
+
+\printbibliography[title={References}]
+
+\end{document}
