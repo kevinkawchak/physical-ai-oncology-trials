@@ -1,0 +1,228 @@
+\section{DATA GOVERNANCE FOR PHYSICAL AI TRIALS -- INVESTIGATOR AND SPONSOR}
+
+This section provides guidance to the responsible parties (investigators and sponsors) on appropriate management of data integrity, traceability, and security for physical AI oncology trials, thereby allowing the accurate reporting, verification, and interpretation of trial-related information. This section adapts the prior ICH E6(R3) data governance framework (Section 4) to address the specialized data requirements of robotic telemetry, AI model inference records, digital twin state data, and federated multi-site data sharing.
+
+The quality and amount of information generated in a physical AI clinical trial should be sufficient to address trial objectives, provide confidence in the trial's results, and support good decision making. Physical AI data sources include traditional clinical data, robotic system telemetry, AI decision logs, digital twin models, simulation records, and sensor measurements.
+
+The systems and processes that help ensure this quality should be designed and implemented in a way that is proportionate to the risks to participants and the reliability of trial results, with additional considerations for the volume, velocity, and complexity of physical AI data streams.
+
+The following key processes should address the full data lifecycle for physical AI trials, with a focus on the criticality of the data, and should be implemented proportionately and documented appropriately:
+
+\begin{description}[leftmargin=2.5cm,style=sameline]
+
+\item[(a)] Processes to ensure the protection of the confidentiality of trial participants' data collected by physical AI systems, including robotic imaging, force telemetry, physiological measurements, and AI-processed biomarkers. The privacy framework (v1.0.0) provides HIPAA-compliant tools for PHI/PII detection, de-identification using Safe Harbor and Expert Determination methods, role-based access control with 21 CFR Part 11 audit trails, and automated breach response protocols.
+
+\item[(b)] Processes for managing computerised systems, including robotic controllers, AI inference engines, digital twin platforms, and simulation environments, to ensure that they are fit for purpose and used appropriately.
+
+\item[(c)] Processes to safeguard essential elements of the clinical trial, such as randomisation, dose adjustments, blinding, and physical AI system parameters that affect treatment delivery.
+
+\item[(d)] Processes to support key decision making, including data finalisation prior to analysis, unblinding, allocation to analysis data sets, changes in trial design, and the activities of the IDMC or Physical AI Safety Monitoring Committee.
+
+\end{description}
+
+\subsection{4.1 Safeguard Blinding in Physical AI Data Governance}
+
+\paragraph{4.1.1} Maintaining the integrity of the blinding is important in the design of physical AI systems, management of user accounts for robotic controllers and AI platforms, delegation of responsibilities with respect to physical AI data handling, and provision of data access at sites. Physical AI systems may inadvertently reveal treatment assignments through differences in robotic behavior, AI model outputs, or digital twin configurations. The sponsor should assess and mitigate these risks.
+
+\paragraph{4.1.2} Roles, responsibilities, and procedures for access to unblinded information in physical AI systems should be defined and documented by all relevant parties according to the protocol. In blinded trials, robotic system operators and AI engineers who interact with investigator site staff should not have access to unblinding information except when justified by the trial design.
+
+\paragraph{4.1.3} Suitable mitigation strategies should be implemented to reduce the risk of inadvertent unblinding through physical AI system data, including masking of treatment-specific robotic parameters in system displays, anonymisation of AI model variant identifiers, and restriction of digital twin configuration details.
+
+\paragraph{4.1.4} The potential for unblinding through physical AI data should be part of the risk assessment of a blinded trial. Any planned or unplanned unblinding, including inadvertent exposure of physical AI system configurations, should be documented and assessed for its impact on the trial results.
+
+\subsection{4.2 Data Lifecycle Elements for Physical AI Trials}
+
+Procedures should be in place to cover the full data lifecycle for all physical AI data, from initial capture during clinical procedures through analysis and long-term retention.
+
+\subsubsection{4.2.1 Data Capture}
+
+\begin{description}[leftmargin=2.5cm,style=sameline]
+
+\item[(a)] Physical AI data capture encompasses multiple modalities: robotic joint positions, velocities, and torques captured at control frequencies (typically 50 to 1000 Hz); force and torque measurements from instrument-tissue interactions; imaging data from endoscopic, ultrasound, or CT guidance systems; AI model inputs, outputs, and confidence scores; digital twin state vectors and prediction outputs; and environmental sensor data including temperature, humidity, and electromagnetic interference levels.
+
+\item[(b)] Acquired data from physical AI systems should be accompanied by relevant metadata, including timestamps synchronized to coordinated universal time (UTC), system identifiers, software versions, calibration status, and operator identifiers.
+
+\item[(c)] At the point of data capture, automated validation checks should be implemented to detect sensor malfunctions, data transmission errors, and physical AI system anomalies. These checks should be proportionate to the criticality of the data being captured.
+
+\end{description}
+
+\subsubsection{4.2.2 Relevant Metadata, Including Audit Trails}
+
+The approach used by the responsible party for implementing, evaluating, accessing, managing, and reviewing relevant metadata associated with physical AI data of higher criticality should include:
+
+\begin{description}[leftmargin=2.5cm,style=sameline]
+
+\item[(a)] Evaluating the physical AI system for the types and content of metadata available to ensure that:
+
+\item[(i)] Robotic control systems maintain logs of operator account creation, permission changes, and access events.
+
+\end{description}
+
+(ii) AI inference engines record model version, input data characteristics, output predictions, confidence scores, and any human override actions.
+
+(iii) Digital twin platforms maintain complete state histories, parameter changes, calibration events, and prediction records.
+
+(iv) All physical AI systems record workflow actions, configuration changes, and safety-relevant events in addition to direct data entries.
+
+\begin{description}[leftmargin=2.5cm,style=sameline]
+
+\item[(b)] Ensuring that audit trails for physical AI systems are not disabled. Robotic system logs, AI inference records, and digital twin state histories should be immutable and tamper-evident. Audit trail modifications should occur only in documented exceptional circumstances.
+
+\item[(c)] Ensuring that physical AI audit trails are interpretable by qualified reviewers, with appropriate documentation of data formats, units of measurement, coordinate systems, and reference frames.
+
+\item[(d)] Ensuring that automatic capture of date and time for all physical AI data entries and transfers is unambiguous, using coordinated universal time (UTC) with sufficient precision for the data type (millisecond precision for robotic telemetry, second precision for administrative records).
+
+\item[(e)] Determining which physical AI metadata require review and long-term retention, based on the criticality of the data and its role in supporting trial conclusions.
+
+\end{description}
+
+\subsubsection{4.2.3 Review of Physical AI Data and Metadata}
+
+Procedures for review of physical AI trial data, audit trails, and other relevant metadata should be in place. Review should be a planned activity, and the extent and nature should be risk-based, adapted to the individual trial, and adjusted based on experience during the trial. Physical AI data review should include periodic assessment of robotic system performance trends, AI model drift detection, and digital twin prediction accuracy tracking.
+
+\subsubsection{4.2.4 Data Corrections}
+
+There should be processes to correct errors in physical AI data that could impact the reliability of the trial results. Corrections should be attributed to the person or computerised system making the correction, justified, and supported by source records. For robotic telemetry data, corrections should document the original sensor reading, the corrected value, and the technical justification for the correction (e.g., sensor calibration offset, known measurement artifact).
+
+\subsubsection{4.2.5 Data Transfer, Exchange, and Migration}
+
+Validated processes should be in place to ensure that physical AI data, including relevant metadata, transferred between systems retains its integrity and preserves its confidentiality. This includes:
+
+\begin{description}[leftmargin=2.5cm,style=sameline]
+
+\item[(a)] Transfer of robotic telemetry from surgical systems to data management platforms.
+
+\item[(b)] Transfer of AI model inference records from edge computing devices to centralised analysis systems.
+
+\item[(c)] Synchronisation of digital twin state data between clinical sites and centralised twin computation platforms.
+
+\item[(d)] Federated data exchange between trial sites using the federation framework (v1.0.0), including differential privacy mechanisms, secure aggregation protocols, and data harmonization procedures for DICOM, FHIR, ICD-10 to SNOMED CT, and LOINC tumor marker standardisation.
+
+\end{description}
+
+The data exchange and transfer process should be documented to ensure traceability, and data reconciliation should be implemented to avoid data loss and unintended modifications.
+
+\subsubsection{4.2.6 Finalisation of Data Sets Prior to Analysis}
+
+\begin{description}[leftmargin=2.5cm,style=sameline]
+
+\item[(a)] Data of sufficient quality for interim and final analysis should be defined and are achieved by implementing timely and reliable processes for physical AI data capture, verification, validation, review, and rectification of errors. Physical AI data quality assessment should include verification of sensor calibration status, AI model version consistency, and digital twin synchronisation integrity.
+
+\item[(b)] Activities undertaken to finalise the physical AI data sets prior to analysis should be confirmed and documented. These activities may include reconciliation of robotic telemetry with clinical outcome records, verification of AI model version logs, reconciliation of digital twin predictions with observed outcomes, and resolution of data quality flags raised during monitoring.
+
+\item[(c)] Data extraction from physical AI systems and determination of analysis data sets should take place in accordance with the planned statistical analysis and should be documented, including the data extraction queries, filtering criteria, and any transformations applied.
+
+\end{description}
+
+\subsubsection{4.2.7 Retention and Access}
+
+Physical AI trial data and relevant metadata should be archived in a way that allows for their retrieval and readability and should be protected from unauthorised access and alterations throughout the retention period. For physical AI data, retention should address the preservation of data format specifications, coordinate system definitions, and software tools needed to interpret archived robotic telemetry, AI model records, and digital twin state data.
+
+\subsubsection{4.2.8 Destruction}
+
+Physical AI trial data and metadata may be permanently destroyed when no longer required as determined by applicable regulatory requirements. Destruction of physical AI data should follow secure erasure procedures, particularly for data stored on robotic controllers, edge computing devices, and AI inference platforms that may retain cached data.
+
+\subsection{4.3 Computerised Systems for Physical AI Trials}
+
+As described in sections 2 and 3, the responsibilities of the sponsor, investigator, and other parties with respect to computerised systems used in physical AI clinical trials should be clear and documented. Physical AI trials involve a broader range of computerised systems than traditional clinical trials, including robotic control systems, AI inference engines, digital twin computation platforms, simulation environments, and federated learning infrastructure.
+
+The responsible party should ensure that those developing or configuring physical AI systems for clinical trials are aware of the intended clinical purpose and the regulatory requirements that apply.
+
+It is recommended that representatives of intended participant populations and healthcare professionals are involved in the design and evaluation of physical AI systems intended for direct patient interaction, to ensure that these systems are suitable for use by the intended patient population.
+
+\subsubsection{4.3.1 Procedures for the Use of Physical AI Systems}
+
+Documented procedures should be in place to ensure the appropriate use of physical AI systems in clinical trials. These procedures should cover:
+
+\begin{description}[leftmargin=2.5cm,style=sameline]
+
+\item[(a)] Robotic system startup, calibration verification, and operational readiness checks before each clinical use.
+
+\item[(b)] AI model deployment, version verification, and performance validation before clinical inference.
+
+\item[(c)] Digital twin initialisation, patient data loading, calibration, and prediction generation.
+
+\item[(d)] Simulation environment setup, parameter configuration, and cross-framework validation execution.
+
+\item[(e)] Federated learning round initiation, model aggregation, and privacy budget management.
+
+\end{description}
+
+\subsubsection{4.3.2 Training}
+
+The responsible party should ensure that those using physical AI systems are appropriately trained in their use. Training should cover system-specific operation, safety procedures, emergency response, data handling, and the clinical context of the trial. Training records should be maintained and should demonstrate competency, not merely attendance. Refresher training should be provided when system updates alter the user interface or operational procedures.
+
+\subsubsection{4.3.3 Security}
+
+\begin{description}[leftmargin=2.5cm,style=sameline]
+
+\item[(a)] The security of physical AI trial data and records should be managed throughout the data lifecycle, with particular attention to the expanded attack surface created by networked robotic systems, edge computing devices, and cloud-based AI inference services.
+
+\item[(b)] The responsible party should ensure that security controls are implemented and maintained for all physical AI systems. These controls should include network segmentation between robotic control networks and clinical data networks, encryption of data in transit and at rest, multi-factor authentication for system access, and continuous monitoring for anomalous activity. Cybersecurity measures should align with the NIST Cybersecurity Framework and FDA premarket cybersecurity guidance.
+
+\item[(c)] The responsible party should maintain adequate backup of all physical AI data, including robotic configuration data, AI model artifacts, and digital twin state histories.
+
+\item[(d)] Procedures should cover disaster recovery for physical AI systems, including documented procedures for restoring robotic systems, AI inference capabilities, and digital twin platforms following system failure. Recovery time objectives should be defined based on clinical impact.
+
+\end{description}
+
+\subsubsection{4.3.4 Validation}
+
+\begin{description}[leftmargin=2.5cm,style=sameline]
+
+\item[(a)] The responsible party is responsible for the validation status of physical AI systems throughout their lifecycle. The approach to validation should be based on a risk assessment that considers the intended clinical use, the criticality of the data generated, and the potential of the system to affect the well-being, rights, and safety of trial participants and the reliability of trial results.
+
+\item[(b)] Validation of physical AI systems should demonstrate that each system conforms to established requirements for completeness, accuracy, and reliability. For robotic systems, this includes positional accuracy, force control precision, and safety response time. For AI models, this includes prediction accuracy, calibration, fairness across demographic subgroups, and robustness to input perturbations. For digital twins, this includes prediction accuracy relative to observed outcomes.
+
+\item[(c)] Physical AI systems should be validated prior to clinical use. Subsequent changes, including software updates, hardware replacements, and AI model retraining, should be validated based on risk and should consider both previously collected and new data in line with change control procedures.
+
+\item[(d)] Periodic review should be conducted to ensure that physical AI systems remain in a validated state, including monitoring for performance degradation, hardware wear, and AI model drift.
+
+\item[(e)] Cross-framework validation should verify that policies trained in one simulation environment (e.g., NVIDIA Isaac Lab v2.3.1) produce equivalent behaviors when transferred to a validation environment (e.g., MuJoCo v3.4.0), with documented tolerance thresholds.
+
+\item[(f)] Validation documentation for physical AI systems should be maintained and retained, including test plans, test results, acceptance criteria, and any deviations or waivers.
+
+\end{description}
+
+\subsubsection{4.3.5 System Release}
+
+Physical AI systems, including robotic configurations, AI model deployments, and digital twin templates, should only be released for clinical use after all necessary approvals for the clinical trial relevant to that investigator site have been received and after validation has been completed.
+
+\subsubsection{4.3.6 System Failure}
+
+Contingency procedures should be in place to prevent loss of data or loss of accessibility to data essential to participant safety, trial decisions, or trial outcomes in the event of physical AI system failure. These procedures should address:
+
+\begin{description}[leftmargin=2.5cm,style=sameline]
+
+\item[(a)] Robotic system failure during a clinical procedure, including safe shutdown sequences, data preservation, and clinical fallback procedures.
+
+\item[(b)] AI inference engine failure, including reversion to human-only decision making and documentation of the period during which AI assistance was unavailable.
+
+\item[(c)] Digital twin platform failure, including procedures for continuing clinical care without twin-based guidance and retroactive twin synchronisation when service is restored.
+
+\item[(d)] Network failure affecting federated learning or multi-site data exchange, including local data buffering and deferred synchronisation.
+
+\end{description}
+
+\subsubsection{4.3.7 Technical Support}
+
+\begin{description}[leftmargin=2.5cm,style=sameline]
+
+\item[(a)] Mechanisms should be in place to document, evaluate, and manage issues with physical AI systems raised by clinical users, including robotic system operators, AI tool users, and digital twin managers. Periodic review of cumulative issues should identify repeated and systemic problems.
+
+\item[(b)] Physical AI system defects and issues should be resolved according to their clinical criticality, with safety-critical issues requiring immediate resolution and documented root cause analysis.
+
+\end{description}
+
+\subsubsection{4.3.8 User Management}
+
+\begin{description}[leftmargin=2.5cm,style=sameline]
+
+\item[(a)] Access controls for physical AI systems used in clinical trials should limit system access to authorised users and ensure attributability to an individual. For robotic systems, this includes operator authentication before each clinical use session. For AI systems, this includes role-based access to model configuration and inference parameters. Security measures should achieve the intended level of protection without impeding clinical workflow.
+
+\item[(b)] Procedures should ensure that user access permissions for physical AI systems are appropriately assigned based on the user's documented qualifications, clinical duties, and blinding arrangements. Access permissions should be revoked when they are no longer needed, including when personnel rotate off the trial or when specific physical AI systems are decommissioned.
+
+\item[(c)] Authorised users and access permissions for all physical AI systems should be clearly documented, maintained, and retained. Records should include time-stamped grant and revocation of permissions.
+
+\end{description}
+

@@ -1,0 +1,276 @@
+
+% ============================================================================
+% DOCUMENT 8: Physical AI Oncology Clinical Trial Site Premises Code
+% ============================================================================
+
+\part{Physical AI Oncology Clinical Trial Site Premises Code}
+\setcounter{section}{0}
+
+\section{Scope and Application}
+
+These premises standards govern the physical site, grounds, security systems,
+environmental controls, and operational conditions for Physical AI oncology
+clinical trial facilities authorized under California law. The standards address
+the unique premises requirements created by 24-hour autonomous robot operation,
+patient-centric on-demand scheduling, and the deployment of 29 Physical AI
+system instances across a 85,000 to 100,000 square-foot clinical
+facility~\cite{sitespec2026}.
+
+The premises code complements the building code standards (structural,
+mechanical, electrical, technology) by addressing how the facility and its
+grounds are maintained, secured, and operated during continuous clinical
+operations. The 24-hour simulation demonstrated that sustained operations
+require premises management that handles both minute-level details (individual
+patient movements, robot state transitions, adverse event responses) and
+facility-wide patterns across a full 24-hour cycle~\cite{newtrial2026}.
+
+\section{Site Security}
+
+\subsection{Physical Security Systems}
+
+\begin{enumerate}[label=(\alph*)]
+\item The premises shall be equipped with a comprehensive security system
+  including the following components:
+  \begin{enumerate}[label=(\arabic*)]
+  \item Video surveillance covering all exterior entrances, parking areas,
+    patient drop-off zones, lobby and reception areas, clinical wing corridors,
+    and robot maintenance areas.
+  \item Electronic access control on all exterior doors, all clinical wing
+    entries, server rooms, pharmacy, robot maintenance bay, and any area
+    housing controlled substances or sensitive equipment.
+  \item Intrusion detection systems on all exterior doors, ground-floor windows,
+    and roof access points.
+  \item Duress alarm stations at the reception desk, each shift supervisor
+    station, and the security monitoring room.
+  \end{enumerate}
+
+\item Security systems shall operate continuously during the 24-hour operating
+  period without interruption.
+
+\item Security camera recordings shall be retained for a minimum of 90 days
+  and made available to the department and law enforcement upon request.
+\end{enumerate}
+
+\subsection{Access Control Zones}
+
+The premises shall be divided into the following access control zones:
+
+\begin{enumerate}[label=(\alph*)]
+\item \textbf{Public Zone:} Lobby, reception area, patient waiting areas,
+  restrooms, and the covered patient drop-off canopy. Accessible to patients,
+  visitors, and the public during operating hours.
+
+\item \textbf{Patient Zone:} Clinical wings, examination rooms, procedure
+  suites, recovery areas, and patient circulation corridors. Accessible to
+  enrolled patients with valid credentials and accompanying persons.
+
+\item \textbf{Clinical Zone:} Areas where Physical AI systems perform clinical
+  procedures, including surgical suites, RT vaults, needle-placement suites,
+  and steerable needle suites. Restricted to authorized clinical personnel,
+  site safety officers, and patients undergoing procedures.
+
+\item \textbf{Technical Zone:} Server rooms, robot maintenance bay,
+  decontamination area, and equipment storage. Restricted to authorized
+  technical personnel and site safety officers.
+
+\item \textbf{Administrative Zone:} Staff offices, break rooms, training rooms,
+  and supply storage. Restricted to site personnel.
+\end{enumerate}
+
+\subsection{Cybersecurity of Physical Premises}
+
+\begin{enumerate}[label=(\alph*)]
+\item Physical AI system control networks shall be accessible only from within
+  the Technical Zone, with no wireless access points connected to robot control
+  systems.
+
+\item The MCP-PAI server infrastructure shall be housed in the Technical Zone
+  server room with physical access limited to authorized cybersecurity and
+  system administration personnel~\cite{iche6r3adapt}.
+
+\item Network infrastructure components (switches, routers, fiber distribution
+  panels) shall be housed in locked enclosures within the Technical Zone.
+
+\item Visitor and patient wireless networks shall be physically isolated from
+  clinical and Physical AI system networks.
+\end{enumerate}
+
+\section{Patient Access and Flow}
+
+\subsection{Arrival and Reception}
+
+\begin{enumerate}[label=(\alph*)]
+\item The main patient entrance shall be accessible 24 hours per day, 7 days
+  per week, consistent with the on-demand scheduling model that demonstrated
+  patient arrivals across all 24 hours of the simulation, including 15
+  arrivals during the peak hour (hour 09) and continued arrivals during
+  overnight hours~\cite{newtrial2026}.
+
+\item A covered patient drop-off zone shall accommodate a minimum of three
+  vehicles simultaneously, with a covered walkway extending at least 20 feet
+  to the building entrance.
+
+\item The reception area shall include automated check-in kiosks that verify
+  patient identity, confirm scheduled procedures, and direct patients to the
+  appropriate clinical wing.
+
+\item The reception area shall include seating for a minimum of 20 patients and
+  accompanying persons, reflecting the simulation's peak concurrent on-site
+  population of 28 patients~\cite{newtrial2026}.
+\end{enumerate}
+
+\subsection{Internal Patient Circulation}
+
+\begin{enumerate}[label=(\alph*)]
+\item Primary patient circulation corridors shall be a minimum of 8 feet wide
+  to accommodate hospital beds, wheelchairs, rehabilitation exoskeletons, and
+  mobile Physical AI systems simultaneously.
+
+\item Wayfinding shall use a combination of visual signage, floor markings,
+  digital displays, and optional auditory guidance compatible with the 10
+  Physical AI system categories that patients may
+  encounter~\cite{patientinstructions2026}.
+
+\item Patient flow through the facility shall follow the patterns validated in
+  the simulation, with separate intake, procedure, and recovery pathways to
+  minimize cross-traffic and wait times~\cite{newtrial2026}.
+
+\item Recovery areas adjacent to each procedure zone shall accommodate patients
+  during the post-procedure observation periods specified in the patient robot
+  instructions (ranging from 2 minutes for imaging to 60 minutes for steerable
+  needle and surgical procedures)~\cite{patientinstructions2026}.
+\end{enumerate}
+
+\section{Environmental Standards}
+
+\subsection{Exterior Grounds}
+
+\begin{enumerate}[label=(\alph*)]
+\item The site shall maintain landscaping and hardscaping consistent with the
+  character of the surrounding neighborhood and the San Francisco Planning
+  Code requirements for the applicable zoning district.
+
+\item Exterior lighting shall provide a minimum of 5 foot-candles at all
+  pedestrian pathways, parking areas, and building entrances, ensuring patient
+  safety during the 24-hour operating period.
+
+\item A minimum of 10 percent of the total lot area shall be dedicated to
+  landscaped open space, which may include patient garden areas accessible from
+  the Public Zone.
+
+\item Signage shall clearly identify the facility as a Physical AI oncology
+  clinical trial site, with the authorization certificate number displayed at
+  the main entrance.
+\end{enumerate}
+
+\subsection{Interior Environment}
+
+\begin{enumerate}[label=(\alph*)]
+\item Patient waiting areas and recovery spaces shall maintain interior
+  temperatures between 68 and 74 degrees Fahrenheit with ambient noise levels
+  not exceeding 45 dBA.
+
+\item Lighting in patient areas shall be adjustable between 200 and 500 lux to
+  accommodate different times of day and patient comfort needs during 24-hour
+  operations.
+
+\item Clinical procedure areas shall maintain lighting appropriate to the
+  specific Physical AI system requirements, ranging from high-intensity surgical
+  lighting in surgical suites to reduced ambient lighting in imaging bays and
+  RT vaults.
+
+\item Air quality in all patient-accessible areas shall be maintained at a
+  minimum of MERV 13 filtration with continuous monitoring of CO2, temperature,
+  and humidity.
+\end{enumerate}
+
+\section{Robot Operational Zones}
+
+\subsection{Robot Movement Corridors}
+
+\begin{enumerate}[label=(\alph*)]
+\item Designated robot movement corridors shall connect clinical wings to the
+  robot maintenance bay, charging stations, and decontamination area.
+
+\item Robot corridors shall be separated from primary patient circulation
+  pathways where possible, using time-of-day scheduling where physical
+  separation is not feasible.
+
+\item Floor surfaces in robot corridors shall be smooth, level (maximum slope
+  1:48), and free of thresholds or transitions that could impede autonomous
+  robot navigation.
+
+\item Robot corridors shall be equipped with proximity sensors and visual
+  warning indicators (flashing lights) to alert human occupants when robots
+  are in transit.
+\end{enumerate}
+
+\subsection{Robot Maintenance Bay}
+
+\begin{enumerate}[label=(\alph*)]
+\item The robot maintenance bay shall accommodate a minimum of three Physical
+  AI systems simultaneously for scheduled maintenance, calibration, or repair.
+
+\item The bay shall include dedicated workstations with electrical, compressed
+  air, and network connections appropriate for each Physical AI system
+  category.
+
+\item Spare parts storage shall be maintained for critical components of all
+  10 Physical AI system types, with inventory levels sufficient to support
+  the maintenance schedule demonstrated in the simulation (where SURG-01
+  maintenance was conducted from 22:15 to 01:59 without disrupting clinical
+  operations)~\cite{newtrial2026}.
+
+\item The maintenance bay shall be acoustically isolated from patient areas to
+  allow maintenance activities during nighttime hours without disturbing
+  patients in adjacent recovery areas.
+\end{enumerate}
+
+\section{Emergency Access and Evacuation}
+
+\begin{enumerate}[label=(\alph*)]
+\item Emergency vehicle access shall be provided from at least two directions,
+  with a minimum 26-foot-wide fire access lane along the full length of the
+  building.
+
+\item A dedicated ambulance bay shall accommodate a minimum of two ambulances
+  simultaneously, separate from the patient drop-off zone.
+
+\item Evacuation plans shall account for the specific needs of oncology patients
+  who may be connected to treatment equipment, recovering from procedures, or
+  using rehabilitation exoskeletons at the time of evacuation.
+
+\item Physical AI systems shall execute automated safe-shutdown and position
+  procedures upon receiving evacuation signals, including retracting surgical
+  arms, lowering treatment couches, and moving to designated safe positions
+  to clear evacuation routes~\cite{patientinstructions2026}.
+
+\item Evacuation drills shall be conducted quarterly, including scenarios
+  specific to Physical AI system emergencies such as robot control system
+  failure, surgical suite power loss during a procedure, and cybersecurity
+  incidents requiring physical network isolation.
+\end{enumerate}
+
+\section{Waste Management}
+
+\begin{enumerate}[label=(\alph*)]
+\item Medical waste generated by Physical AI-assisted oncology procedures shall
+  be managed in accordance with the California Medical Waste Management Act
+  (Health and Safety Code \S~117600 et seq.).
+
+\item Radioactive waste from radiotherapy operations shall be managed in
+  accordance with applicable NRC and California Radiologic Health Branch
+  requirements.
+
+\item Robot decontamination waste shall be classified and managed based on the
+  type of contamination (biological, chemical, or radioactive).
+
+\item Dedicated waste staging areas shall be located in the Technical Zone with
+  separate containers for biohazardous, radioactive, pharmaceutical, and
+  general waste.
+
+\item Waste collection shall be scheduled to avoid conflicts with patient
+  arrival and departure patterns, using the patient flow data from the
+  simulation to identify optimal collection windows~\cite{newtrial2026}.
+\end{enumerate}
+

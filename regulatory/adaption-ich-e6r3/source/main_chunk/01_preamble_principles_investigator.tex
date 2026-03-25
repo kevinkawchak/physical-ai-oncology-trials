@@ -1,0 +1,337 @@
+\documentclass[11pt]{article}
+\usepackage{ich_guideline_style}
+\addbibresource{references.bib}
+\title{End-to-End Physical AI Oncology Clinical Trial Unification}
+\author{Kevin Kawchak, ChemicalQDevice}
+\date{12 March 2026}
+\begin{document}
+
+\begin{titlepage}
+\centering
+{\Large END-TO-END PHYSICAL AI ONCOLOGY CLINICAL TRIAL UNIFICATION\par}
+\vspace{1.5cm}
+{\Huge\bfseries Adaption: ICH Harmonised Guideline\par}
+\vspace{0.5cm}
+{\LARGE\bfseries Guideline for Good Physical AI Clinical Practice\par}
+\vspace{0.3cm}
+{\Large Modified E6(R3)\par}
+\vspace{0.8cm}
+{\large Draft release\par}
+\vspace{0.2cm}
+{\large Released on 12 March 2026\par}
+\vspace{0.2cm}
+{\large \href{https://doi.org/10.5281/zenodo.18973368}{10.5281/zenodo.18973368}\par}
+\vspace{0.2cm}
+{\large CEO Kevin Kawchak, ChemicalQDevice\par}
+\vfill
+{\small The original ICH E6(R3) document is protected by copyright and may be used, reproduced, incorporated into other works, adapted, modified, translated or distributed under a public license. ICH HARMONISED GUIDELINE: GUIDELINE FOR GOOD CLINICAL PRACTICE E6(R3) \href{https://database.ich.org/sites/default/files/ICH_E6\%28R3\%29_Step4_FinalGuideline_2025_0106.pdf}{(Source PDF)}. This current work is not endorsed or sponsored by ICH. The original PDF formatting was reconstructed into LaTeX, and adapted further using Claude Code Opus 4.6.\par}
+\end{titlepage}
+
+\pagenumbering{roman}
+\tableofcontents
+\clearpage
+\section*{Prefatory Note}
+
+This guidance has been adapted from the prior ICH E6(R3) regulation (adopted 06 January 2025) to address the end-to-end integration of physical AI, advanced robotics, and digital twin systems into oncology clinical trials. The prior ICH E6(R3) guideline established foundational principles for good clinical practice in traditional pharmaceutical trials. This current document extends those principles to encompass the specialized requirements of physical AI oncology clinical trial unification, including robotic surgical systems, collaborative robots (cobots), humanoid assistants, AI-driven monitoring, simulation-based validation, and federated multi-site trial coordination.
+
+The Unification Standard Level (USL) scoring framework (v1.4.0 through v1.8.0) provides quantitative readiness assessments for robotic platforms across four dimensions: simulation switching, AI integration, cross-robot sharing, and clinical trial collaboration. USL scores range from 1.0 to 10.0 and are referenced throughout this guidance to establish minimum readiness thresholds for clinical deployment.
+
+This guidance should be read in conjunction with the physical-ai-oncology-trials repository (v2.2.0), which provides production-ready configurations, validated pipelines, and integration guides for deploying robotic systems, digital twins, and embodied AI agents in oncology settings.
+
+\section*{Document History}
+
+\begin{description}[leftmargin=4cm,style=sameline]
+\item[Prior Regulation] ICH E6(R3) Guideline for Good Clinical Practice, adopted 06 January 2025. The prior ICH E6(R3) regulation established the baseline framework for good clinical practice.
+\item[Current Guidance] End-to-End Physical AI Oncology Clinical Trial Unification, released 12 March 2026. This guidance supersedes the prior ICH E6(R3) regulation for physical AI oncology trial contexts.
+\item[Repository Reference] physical-ai-oncology-trials v2.2.0 (March 2026). Provides validated code, tools, and documentation supporting this guidance.
+\end{description}
+
+\clearpage
+\pagenumbering{arabic}
+
+\section*{Prior ICH E6(R3): Legal Notice}
+
+This section preserves the legal notice from the prior ICH E6(R3) regulation. The original ICH E6(R3) document is protected by copyright and may be used, reproduced, incorporated into other works, adapted, modified, translated or distributed under a public license provided that ICH's copyright in the document is acknowledged at all times. In case of any adaptation, modification or translation of the document, reasonable steps must be taken to clearly label, demarcate or otherwise identify that changes were made to or based on the original document. Any impression that the adaptation, modification or translation of the original document is endorsed or sponsored by the ICH must be avoided. The document is provided ``as is'' without warranty of any kind. In no event shall the ICH or the authors of the original document be liable for any claim, damages or other liability arising from the use of the document. The above-mentioned permissions do not apply to content supplied by third parties. Therefore, for documents where the copyright vests in a third party, permission for reproduction must be obtained from this copyright holder.
+
+\section{PRINCIPLES OF PHYSICAL AI CLINICAL PRACTICE}
+
+The following principles establish the foundation for conducting oncology clinical trials that incorporate physical AI systems, advanced robotics, digital twins, and AI-driven decision support. These principles adapt and extend the prior ICH E6(R3) regulation to address the unique requirements of end-to-end physical AI unification in clinical settings.
+
+\subsection{1.1 Foundational Principles}
+
+\paragraph{1.1.1} Clinical trials involving physical AI systems should be conducted in accordance with the ethical principles that have their origin in the Declaration of Helsinki and that are consistent with good clinical practice (GCP) and the applicable regulatory requirements. Robotic interventions, AI-assisted diagnostics, and automated treatment delivery must preserve participant autonomy and welfare above all other considerations.
+
+\paragraph{1.1.2} Before a physical AI clinical trial is initiated, foreseeable risks and inconveniences arising from robotic systems, AI algorithms, and automated processes should be weighed against the anticipated benefit for the individual trial participant and for oncology patients broadly. A trial should be initiated and continued only if the anticipated benefits justify the risks, including risks specific to robotic malfunction, AI prediction error, and cyber-physical system failure.
+
+\paragraph{1.1.3} The rights, safety, and well-being of the trial participants are the most important considerations and should prevail over interests of science and society. This principle extends to interactions with all physical AI systems, including surgical robots (e.g., Intuitive da Vinci, Medtronic Hugo RAS, CMR Versius), cobots (e.g., Franka Emika Panda, Kinova Gen3, UFACTORY xArm 7), humanoid robots (e.g., Boston Dynamics Atlas, Tesla Optimus, Agility Digit), and all categories of therapeutic, diagnostic, assistive, and rehabilitative robotic systems.
+
+\paragraph{1.1.4} Each individual involved in conducting a physical AI oncology trial should be qualified by education, training, and experience to perform their respective tasks, including operation and oversight of robotic systems, AI model interpretation, digital twin management, and simulation validation. Specialized training in physical AI systems must supplement traditional clinical trial training as defined by the prior ICH E6(R3) regulation.
+
+\paragraph{1.1.5} Physical AI clinical trials should be scientifically sound and described in a clear, detailed protocol that incorporates specifications for all robotic systems, AI models, simulation frameworks, and digital twin configurations to be used. The protocol should reference applicable USL scores (v1.4.0 through v1.8.0) for each robotic platform and establish minimum readiness thresholds.
+
+\paragraph{1.1.6} A trial should be conducted in compliance with the protocol that has received prior institutional review board (IRB) or independent ethics committee (IEC) approval, with specific review of physical AI components including robotic safety parameters, AI model validation evidence, human-robot interaction protocols, and cybersecurity measures.
+
+\paragraph{1.1.7} The medical care given to and medical decisions made on behalf of participants should always be the responsibility of a qualified physician or, when appropriate, of a qualified dentist. Physical AI systems serve as tools under human oversight; autonomous robotic actions in clinical settings require continuous human monitoring and intervention capability as specified in the human oversight quality management framework (v1.2.0).
+
+\paragraph{1.1.8} Freely given informed consent should be obtained from every trial participant prior to clinical trial participation and prior to any interaction with physical AI systems. Informed consent materials must clearly describe the nature, purpose, and risks of robotic interactions, AI-assisted decision making, and digital twin-based treatment planning. The consent process should include visual aids or demonstrations of robotic systems where practical.
+
+\subsection{1.2 Physical AI System Classification for Clinical Trials}
+
+For the purposes of this guidance, physical AI systems deployed in oncology clinical trials are classified according to the following categories, consistent with the patient instructions framework (v1.9.0 through v2.1.0) and USL scoring methodology:
+
+\begin{description}[leftmargin=2.5cm,style=sameline]
+
+\item[Surgical Robots] Teleoperated and semi-autonomous systems for tumor resection, biopsy, and surgical intervention. Evaluated platforms include da Vinci (dVRK, USL 7.1), Hugo RAS (USL 4.5), and Versius (USL 3.4). Minimum recommended USL for clinical deployment: 5.0 (Functional level).
+
+\item[Cobots] Collaborative robots operating alongside clinical staff for sample handling, drug preparation, and laboratory automation. Evaluated platforms include Franka Emika Panda (USL 7.4), Kinova Gen3 (USL 5.7), and UFACTORY xArm 7 (USL 3.4). These systems must comply with ISO/TS 15066 collaborative workspace safety requirements.
+
+\item[Humanoid Robots] Full-body robotic systems for patient assistance, logistics, and pediatric companionship. Evaluated platforms include Boston Dynamics Atlas (USL 5.8), Agility Digit (USL 4.2), and Tesla Optimus (USL 3.6). Clinical deployment requires additional human-robot interaction safety validation.
+
+\item[Therapeutic Robots] Radiotherapy patient-positioning systems and motion-tracking robots for precise treatment delivery. These systems integrate with linear accelerator control and require real-time position verification within sub-millimeter tolerances.
+
+\item[Diagnostic Robots] Robotic needle-placement systems, imaging assistant robots, and steerable needle systems for biopsy and tissue sampling. Integration with DICOM imaging pipelines and real-time ultrasound guidance is required.
+
+\item[Assistive Robots] Social companion robots for pediatric oncology patients and logistical support systems. These systems prioritize psychological comfort and require age-appropriate interaction protocols.
+
+\item[Rehabilitative Robots] Exoskeletons and robotic gait trainers for post-surgical recovery and functional restoration. These systems must accommodate patient-specific biomechanical parameters.
+
+\end{description}
+
+\subsection{1.3 AI and Machine Learning Framework Requirements}
+
+Physical AI oncology trials utilize multiple categories of artificial intelligence and machine learning, each with distinct validation requirements. The following frameworks, referenced in the physical-ai-oncology-trials repository (v2.2.0), establish the computational foundation:
+
+\begin{description}[leftmargin=2.5cm,style=sameline]
+
+\item[Generative AI] Vision-Language-Action (VLA) models such as NVIDIA GR00T N1.6 for humanoid robot control, diffusion policies for surgical trajectory generation, and synthetic data generation via NVIDIA Cosmos Predict 2.5 for rare oncology scenarios. World models including Cosmos Reason 2 provide physics-aware simulation and reasoning through dual-system architecture.
+
+\item[Agentic AI] LLM-based surgical assistants with multimodal perception, multi-agent coordination via CrewAI (v1.6.1) and LangGraph (v1.1.0) for multi-site trial management, natural language robot programming via ROS 2 Jazzy/Kilted integration, and standardized tool communication via Model Context Protocol (MCP) under the Linux Foundation AAIF.
+
+\item[Reinforcement Learning] Sim-to-real transfer with domain randomization for surgical autonomy, hierarchical RL for complex surgical procedures, multi-agent RL for cooperative surgical assistance, and GPU-accelerated training via NVIDIA Isaac Lab (v2.3.1) reducing training time from days to hours.
+
+\item[Self-Supervised Learning] Contrastive learning and foundation model pretraining for medical imaging feature extraction, enabling transfer learning across oncology imaging modalities without extensive manual annotation.
+
+\item[Supervised Learning] Segmentation, detection, and classification models for tumor identification, surgical instrument tracking, and treatment response assessment. Integration with MONAI for medical imaging AI provides validated preprocessing and model architectures.
+
+\end{description}
+
+\subsection{1.4 Simulation and Digital Twin Requirements}
+
+\subsubsection{1.4.1 Simulation Frameworks}
+
+All physical AI systems intended for clinical deployment must undergo validated simulation testing prior to any patient contact. The following simulation frameworks, with established unification bridges (v1.0.0), are recognized for pre-clinical validation:
+
+\begin{description}[leftmargin=2.5cm,style=sameline]
+
+\item[(a)] NVIDIA Isaac Lab (v2.3.1) and Isaac Sim (v5.0.0) for GPU-accelerated robot training and high-fidelity physics simulation, with the Newton Physics Engine (Beta) for GPU physics co-developed by NVIDIA, DeepMind, and Disney.
+
+\item[(b)] MuJoCo (v3.4.0) and MuJoCo Warp (Beta) for precision physics simulation with GPU optimization, providing complementary validation to Isaac-based training.
+
+\item[(c)] Gazebo Sim (Jetty, v10.0.0) for ROS 2 integrated simulation with native sensor modeling, supporting hardware-in-the-loop testing.
+
+\item[(d)] PyBullet (v3.2.5) for rapid prototyping and initial feasibility assessment of robotic behaviors.
+
+\end{description}
+
+The validated integration path for surgical robot training follows: NVIDIA Isaac Lab (training) to MuJoCo (validation) to dVRK Hardware (deployment) to Clinical use. Cross-framework validation via the unification bridge must demonstrate behavioral consistency with trajectory deviations below 2mm and force discrepancies below 0.5N across simulation engines.
+
+\subsubsection{1.4.2 Digital Twin Systems}
+
+Patient-specific digital twins provide computational models for treatment planning, response prediction, and virtual trial design. The digital twins framework (v1.0.0 through v1.3.0) supports the following capabilities:
+
+\begin{description}[leftmargin=2.5cm,style=sameline]
+
+\item[(a)] Patient-specific tumor modeling using reaction-diffusion equations calibrated to longitudinal imaging data, enabling tumor growth prediction and treatment response simulation.
+
+\item[(b)] Treatment simulation using pharmacokinetic/pharmacodynamic (PK/PD) models for chemotherapy response prediction, radiation dose optimization, and immunotherapy modeling.
+
+\item[(c)] Real-time intraoperative guidance through sensor fusion of imaging data, force measurements, and robotic telemetry, synchronized with the digital twin model.
+
+\item[(d)] Virtual trial cohort generation for statistical power analysis and adaptive trial design, enabling in-silico pre-screening of protocol modifications.
+
+\item[(e)] Validation and verification (V\&V) of digital twin predictions against clinical outcomes, with documented accuracy metrics and confidence intervals.
+
+\end{description}
+
+\subsection{1.5 Unification Standard Level (USL) Framework}
+
+The USL framework (v1.4.0 through v1.8.0) provides a standardized scoring methodology for evaluating robotic platform readiness for unified, multi-site oncology clinical trials. USL scores are computed across four equally weighted dimensions:
+
+\begin{description}[leftmargin=2.5cm,style=sameline]
+
+\item[Dimension 1] Simulation Switching: Ability to transfer validated behaviors between simulation frameworks (Isaac, MuJoCo, Gazebo, PyBullet) using standardized model conversion (URDF, MJCF, SDF, USD).
+
+\item[Dimension 2] AI Integration: Compatibility with generative AI, agentic AI, reinforcement learning, and supervised learning pipelines for clinical task execution.
+
+\item[Dimension 3] Cross-Robot Sharing: Capability to share trained policies, calibration data, and operational procedures across different robot platforms within the same clinical category.
+
+\item[Dimension 4] Clinical Trial Collaboration: Readiness for multi-site deployment with federated learning support, standardized data collection, and regulatory compliance documentation.
+
+\end{description}
+
+USL scores map to ten levels: Level 1 (Minimal, 1.0), Level 2 (Elementary, 2.0), Level 3 (Basic, 3.0), Level 4 (Developing, 4.0), Level 5 (Functional, 5.0), Level 6 (Proficient, 6.0), Level 7 (Advanced, 7.0), Level 8 (Expert, 8.0), Level 9 (Leading, 9.0), and Level 10 (Reference, 10.0). Three bands categorize readiness: Foundational (Levels 1 through 4), Intermediate (Levels 5 through 6), and Advanced (Levels 7 through 10).
+
+\section{INVESTIGATOR RESPONSIBILITIES IN PHYSICAL AI TRIALS}
+
+The investigator is responsible for the conduct of the physical AI oncology clinical trial at the trial site. If the investigator delegates trial-related duties involving physical AI systems, the investigator retains ultimate responsibility for the safety and integrity of all robotic interactions, AI-assisted decisions, and digital twin-based treatment plans. This section adapts the prior ICH E6(R3) investigator responsibilities to incorporate physical AI system oversight.
+
+\subsection{2.1 Investigator Qualifications and Agreements}
+
+\paragraph{2.1.1} The investigator should be qualified by education, training, and experience to assume responsibility for the proper conduct of a physical AI oncology trial, including demonstrated competency with all robotic systems, AI tools, and simulation platforms specified in the protocol. The investigator should meet all qualifications specified by the applicable regulatory requirements and should provide evidence of training in physical AI clinical systems.
+
+\paragraph{2.1.2} The investigator should be thoroughly familiar with the appropriate use of the physical AI systems as described in the protocol, the Investigator's Brochure, and the Physical AI System Documentation package, including the current USL assessment, simulation validation reports, and safety parameter specifications for each robotic platform.
+
+\paragraph{2.1.3} The investigator should be aware of and should comply with GCP requirements, the applicable regulatory requirements, and all physical AI system safety standards, including ISO/TS 15066 for collaborative robots, IEC 62304 for medical device software lifecycle, and IEC 80601-2-77 for robotically assisted surgical equipment.
+
+\paragraph{2.1.4} The investigator and the sponsor should sign the protocol or an alternative document to confirm agreement, including specific provisions for physical AI system oversight, robotic safety monitoring, and AI model version control. The agreement should document the investigator's authority to pause or terminate robotic operations if participant safety concerns arise.
+
+\subsection{2.2 Adequate Resources for Physical AI Trials}
+
+\paragraph{2.2.1} The investigator should be able to demonstrate, at a minimum, the ability to recruit the required number of suitable trial participants within the agreed recruitment period, with consideration for participant acceptance of physical AI interactions.
+
+\paragraph{2.2.2} The investigator should have sufficient time to properly conduct and complete the trial within the agreed trial period, including time required for physical AI system setup, calibration, simulation validation, and post-procedure data collection.
+
+\paragraph{2.2.3} The investigator should have available an adequate number of qualified staff and adequate facilities for the foreseen duration of the trial, including:
+
+\begin{description}[leftmargin=2.5cm,style=sameline]
+
+\item[(a)] Trained robotic system operators certified on each platform specified in the protocol, with documented competency assessments and refresher training schedules.
+
+\item[(b)] AI systems engineers responsible for model deployment, version control, performance monitoring, and anomaly detection during clinical procedures.
+
+\item[(c)] Clinical engineering staff for hardware maintenance, calibration verification, and emergency response to robotic system failures.
+
+\item[(d)] Adequate physical infrastructure including robotic operating theaters, shielded computation facilities, and network infrastructure meeting cybersecurity requirements.
+
+\item[(e)] Backup systems and contingency procedures for all physical AI components, ensuring that no single point of failure can compromise participant safety.
+
+\end{description}
+
+\paragraph{2.2.4} The investigator should ensure that all persons assisting with the trial, including those operating physical AI systems, are adequately informed about the protocol, the investigational product(s), the robotic systems, and their trial-related duties and functions. A delegation log must document all physical AI system access permissions and operator qualifications.
+
+\subsection{2.3 Medical Care of Trial Participants}
+
+\paragraph{2.3.1} A qualified physician (or dentist, when appropriate) who is an investigator or a sub-investigator for the trial should be responsible for all trial-related medical decisions involving physical AI systems, including robotic procedure planning, AI-assisted diagnostic interpretation, and digital twin-based treatment optimization.
+
+\paragraph{2.3.2} During and following a trial participant's interaction with physical AI systems, the investigator should ensure that adequate medical care is provided, including monitoring for adverse events specific to robotic interactions such as mechanical injury, unexpected AI-driven treatment modifications, or digital twin prediction discrepancies. The investigator should ensure that the participant is informed when medical care is needed for symptoms that may be related to physical AI system interactions.
+
+\paragraph{2.3.3} The investigator should inform the trial participant's primary physician about the participant's involvement in the physical AI clinical trial, including the types of robotic systems encountered, if the participant agrees to such disclosure.
+
+\subsection{2.4 Communication with IRB/IEC}
+
+\paragraph{2.4.1} Before initiating a physical AI oncology trial, the investigator should have documented approval from the IRB/IEC for the trial protocol, informed consent forms, participant recruitment materials, and all Physical AI System Documentation packages. The IRB/IEC review should include evaluation of robotic safety data, AI model validation evidence, simulation test results, and human-robot interaction risk assessments.
+
+\paragraph{2.4.2} The investigator should provide the IRB/IEC with all documents subject to review, including updates to robotic system software, AI model versions, and digital twin calibration parameters that may affect participant safety or trial outcomes.
+
+\paragraph{2.4.3} The investigator should not implement any deviation from or changes to the protocol related to physical AI systems without agreement by the sponsor and prior review and documented approval from the IRB/IEC, except where necessary to eliminate an immediate hazard to trial participants arising from robotic system malfunction or AI system failure.
+
+\paragraph{2.4.4} The investigator should promptly report to the IRB/IEC all changes to physical AI system configurations, AI model updates, robotic safety incidents, and any events that affect the risk-benefit assessment of the trial.
+
+\subsection{2.5 Compliance with Protocol}
+
+\paragraph{2.5.1} The investigator should conduct the trial in compliance with the protocol agreed to by the sponsor and approved by the IRB/IEC, including all specifications for physical AI system operation, AI model parameters, simulation validation criteria, and robotic safety thresholds.
+
+\paragraph{2.5.2} The investigator should not implement a deviation from or a change of the protocol without agreement of the sponsor and prior review and documented approval from the IRB/IEC of an amendment, except where necessary to eliminate an immediate hazard to trial participants or when the change involves only logistical or administrative aspects that do not affect participant safety, the scientific integrity of the trial, or the physical AI system configurations.
+
+\paragraph{2.5.3} The investigator should document and explain any deviation from the approved protocol, particularly deviations involving physical AI system parameters such as robotic force limits, AI model confidence thresholds, or digital twin prediction boundaries. Deviations from robotic safety parameters require immediate documentation and sponsor notification.
+
+\subsection{2.6 Investigational Product and Physical AI Systems}
+
+\paragraph{2.6.1} Responsibility for investigational product(s) accountability at the trial site(s) rests with the investigator, extending to all physical AI systems, robotic consumables, and AI-specific computational resources deployed at the site.
+
+\paragraph{2.6.2} Where allowed by applicable regulatory requirements, the investigator may assign some or all of the physical AI system management duties to an appropriately trained clinical engineering team, such as a robotic systems pharmacist-equivalent or a clinical AI operations team. The investigator retains oversight responsibility.
+
+\paragraph{2.6.3} The investigator and designated staff should maintain records of the physical AI systems at the site, including robotic system serial numbers, software versions, AI model identifiers, calibration dates, maintenance logs, and any modifications or updates applied during the trial period.
+
+\subsection{2.7 Randomisation and Blinding in Physical AI Trials}
+
+\paragraph{2.7.1} The investigator should follow the trial's randomisation procedures, if any, and should ensure that the code is broken only in accordance with the protocol. Where physical AI systems are involved in treatment allocation or dose optimization, the AI-driven randomisation processes must be validated against statistical requirements and the blinding integrity must be maintained across all automated systems.
+
+\paragraph{2.7.2} In trials where robotic system type or AI algorithm variant is a blinded variable, the investigator should ensure that the blinding is maintained through appropriate physical and digital segregation of system identifiers, with documented procedures for emergency unblinding when participant safety requires knowledge of the specific system configuration.
+
+\subsection{2.8 Informed Consent for Physical AI Interactions}
+
+Informed consent for physical AI oncology trials must address additional elements beyond those specified in the prior ICH E6(R3) regulation. The following requirements supplement existing informed consent principles:
+
+\paragraph{2.8.1} The language used in the informed consent form and in any other documented information provided to the participant should be as non-technical as practical and should be understandable to the participant. Descriptions of robotic systems, AI algorithms, and digital twins should use plain language supported by visual aids, photographs, or video demonstrations where feasible.
+
+\paragraph{2.8.2} Before informed consent may be obtained, the participant should be given adequate time to review all physical AI system information, including the opportunity to observe robotic systems in non-clinical demonstration settings where available.
+
+\paragraph{2.8.3} Neither the investigator nor the investigator site staff should coerce or unduly influence a participant to participate in or to continue participation in a trial involving physical AI systems. Participants should be informed that declining robotic-assisted procedures does not affect their access to standard-of-care treatment.
+
+\paragraph{2.8.4} None of the information provided to the participant during the informed consent process should contain any language that causes the participant to waive or to appear to waive any legal rights, or that releases or appears to release the investigator, the institution, the sponsor, the robotic system manufacturer, or the AI model developer from liability for negligence.
+
+\paragraph{2.8.5} The informed consent form for physical AI oncology trials should include, in addition to standard elements from the prior ICH E6(R3) regulation, the following:
+
+\begin{description}[leftmargin=2.5cm,style=sameline]
+
+\item[(a)] A description of each physical AI system the participant may encounter, including the type of robot, its clinical function, and the level of autonomy involved (teleoperated, shared autonomy, or supervised autonomous).
+
+\item[(b)] An explanation of how AI algorithms contribute to treatment decisions, including the role of digital twin predictions in treatment planning and the possibility that AI recommendations may differ from standard clinical judgment.
+
+\item[(c)] A description of the data collected by physical AI systems, including imaging data, force and motion telemetry, physiological measurements, and any data shared with the digital twin model. The participant should understand how this data is stored, protected, and used.
+
+\item[(d)] A description of the safety measures in place, including human override capabilities, robotic system emergency stops, and the process for managing AI system failures or unexpected behaviors during clinical procedures.
+
+\item[(e)] Information about the participant's right to request human-only (non-robotic) alternatives for any procedure, where such alternatives exist and are clinically appropriate.
+
+\item[(f)] A description of any risks specific to physical AI systems, including mechanical risks from robotic contact, risks from AI prediction errors, cybersecurity risks, and any known limitations of the digital twin model being used.
+
+\end{description}
+
+\subsection{2.9 Records and Reports}
+
+\paragraph{2.9.1} The investigator should maintain adequate and accurate records of all physical AI system interactions, including robotic procedure logs, AI model inference records, digital twin simulation outputs, and sensor data captured during clinical procedures. Source records for physical AI trials include traditional clinical documentation supplemented by electronic logs from robotic systems, AI decision audit trails, and digital twin synchronization records.
+
+\paragraph{2.9.2} The investigator should ensure the accuracy, completeness, legibility, and timeliness of the data reported to the sponsor, including physical AI system performance metrics, robotic safety events, and any discrepancies between digital twin predictions and observed clinical outcomes.
+
+\paragraph{2.9.3} Data changes in physical AI system records should be traceable, should not obscure the original entry, and should be explained where necessary. This applies to robotic telemetry corrections, AI model version updates, and digital twin recalibrations. An audit trail should be maintained for all computerised physical AI records.
+
+\subsection{2.10 Safety Reporting in Physical AI Trials}
+
+\paragraph{2.10.1} The investigator should report to the sponsor all serious adverse events (SAEs) immediately, including those arising from physical AI system interactions. Physical AI-specific reportable events include:
+
+\begin{description}[leftmargin=2.5cm,style=sameline]
+
+\item[(a)] Mechanical injury from robotic system contact, including unexpected forces, unplanned instrument movements, or collision events.
+
+\item[(b)] Adverse outcomes attributable to AI-driven treatment decisions that deviated from clinical standard of care.
+
+\item[(c)] Digital twin prediction failures where the simulated outcome differed materially from the observed clinical outcome, potentially affecting treatment decisions.
+
+\item[(d)] Cybersecurity incidents affecting physical AI systems during clinical procedures, including unauthorized access, data corruption, or system compromise.
+
+\item[(e)] Physical AI system malfunctions that interrupted clinical procedures or required emergency intervention, even if no participant injury resulted.
+
+\end{description}
+
+\paragraph{2.10.2} For reported deaths related to or potentially related to physical AI system interactions, the investigator should supply the sponsor and the IRB/IEC with any additional requested information, including complete robotic system logs, AI decision records, and digital twin state data at the time of the event.
+
+\subsection{2.11 Premature Termination or Suspension of Physical AI Trial Components}
+
+If the trial or specific physical AI components are prematurely terminated or suspended for any reason, the investigator should promptly inform the trial participants and should ensure that appropriate therapy and follow-up are provided. The investigator should inform the IRB/IEC and provide a detailed explanation, including whether the termination was caused by physical AI system safety concerns, AI model performance issues, or regulatory actions.
+
+\subsection{2.12 Investigator Oversight of Physical AI Systems}
+
+\paragraph{2.12.1} The investigator is responsible for the oversight of all physical AI activities at the investigator site. This oversight extends beyond traditional clinical trial supervision to encompass robotic system operations, AI model performance monitoring, digital twin accuracy assessment, and simulation validation verification.
+
+\paragraph{2.12.2} The investigator should maintain a current delegation log that identifies all qualified personnel authorized to operate physical AI systems, interpret AI model outputs, manage digital twin configurations, and access robotic system controls. Delegated individuals must have documented training and competency assessment for each specific system.
+
+\paragraph{2.12.3} The investigator should implement a systematic approach to physical AI system oversight, including:
+
+\begin{description}[leftmargin=2.5cm,style=sameline]
+
+\item[(a)] Regular review of robotic system performance metrics, including positional accuracy, force control precision, and procedure completion rates compared to simulation predictions.
+
+\item[(b)] Periodic verification that AI models in clinical use match the validated versions specified in the protocol, with documented change control for any model updates.
+
+\item[(c)] Ongoing assessment of digital twin prediction accuracy against observed clinical outcomes, with thresholds for triggering recalibration or model updates.
+
+\item[(d)] Review of cybersecurity logs and access control records for all physical AI systems, with immediate investigation of any anomalous activity.
+
+\item[(e)] Maintenance of emergency response protocols for physical AI system failures, including power loss, network disruption, and robotic system mechanical failure.
+
+\end{description}
+
+\paragraph{2.12.4} The investigator should ensure that the trial participants are informed of any significant changes to the physical AI systems used in their care, including software updates, hardware modifications, or changes to AI model versions, to the extent that such changes may affect the participant's willingness to continue in the trial.
+

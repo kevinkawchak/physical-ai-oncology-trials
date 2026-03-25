@@ -1,0 +1,389 @@
+\section{APPENDICES}
+
+\section{Appendix A. PHYSICAL AI SYSTEM DOCUMENTATION}
+
+A.1 Introduction
+
+The Physical AI System Documentation package is a compilation of the technical, safety, and clinical data on the physical AI systems that are relevant to their use in oncology clinical trials with human participants. This documentation serves a purpose analogous to the Investigator's Brochure described in the prior ICH E6(R3) regulation Appendix A, extended to address robotic systems, AI models, digital twins, and simulation environments. Its purpose is to provide investigators and other trial personnel with the information needed to understand the capabilities, limitations, safety profiles, and proper use of each physical AI system specified in the protocol.
+
+\paragraph{A.1.1} Development of the Physical AI System Documentation
+
+The sponsor is responsible for ensuring that comprehensive Physical AI System Documentation is developed and maintained for each system used in the trial. This documentation should be reviewed at least annually and revised as significant new information becomes available, including software updates, hardware revisions, AI model retraining results, safety incident analyses, and new clinical experience data. The USL assessment (v1.4.0 through v1.8.0) should be updated when platform capabilities change materially.
+
+\paragraph{A.1.2} Risk-Benefit Assessment for Physical AI Systems
+
+The Physical AI System Documentation should include a balanced risk-benefit assessment for each system, covering mechanical risks, AI prediction risks, cybersecurity risks, and the anticipated clinical benefits. This assessment should be updated as new safety data and clinical evidence accumulate during the trial.
+
+A.2 General Considerations
+
+These considerations delineate the minimum information that should be included in the Physical AI System Documentation. The type and extent of information available will vary with the maturity of the physical AI system, its USL score, and the stage of clinical development.
+
+The Physical AI System Documentation should include:
+
+\paragraph{A.2.1} Title Page
+
+This should provide the sponsor's name, the identity of each physical AI system (manufacturer, model designation, software version), the USL score with version reference, and the release date of the documentation. An edition number and the date of data inclusion cut-off should be provided.
+
+\paragraph{A.2.2} Confidentiality Statement
+
+The sponsor may include a statement instructing the investigator and other recipients to treat the Physical AI System Documentation as confidential, for the sole information and use of authorised trial personnel, regulatory authorities, and the IRB/IEC.
+
+A.3 Contents of the Physical AI System Documentation
+
+The documentation should contain the following sections:
+
+\paragraph{A.3.1} Table of Contents
+
+\paragraph{A.3.2} Summary
+
+A brief summary (preferably not exceeding three pages) should highlight the significant technical, safety, and clinical information for each physical AI system, including its intended clinical use, key performance specifications, USL score summary, and known limitations.
+
+\paragraph{A.3.3} System Description and Specifications
+
+For each robotic system, the documentation should include:
+
+\begin{description}[leftmargin=2.5cm,style=sameline]
+
+\item[(a)] Mechanical specifications: degrees of freedom, workspace volume, payload capacity, positional repeatability, maximum speed, and weight.
+
+\item[(b)] Control specifications: control frequency (Hz), force/torque sensing capabilities, collision detection parameters, and safety-rated monitored stop response time.
+
+\item[(c)] Software specifications: operating system, control software version, communication protocols (e.g., ROS 2 Jazzy, EtherCAT), and supported programming interfaces.
+
+\item[(d)] USL dimension scores: simulation switching (Dimension 1), AI integration (Dimension 2), cross-robot sharing (Dimension 3), and clinical trial collaboration (Dimension 4), with rationale for each score.
+
+\end{description}
+
+For each AI model, the documentation should include:
+
+\begin{description}[leftmargin=2.5cm,style=sameline]
+
+\item[(a)] Model architecture: type (e.g., vision-language-action, diffusion policy, transformer, convolutional neural network), parameter count, input and output specifications.
+
+\item[(b)] Training data: description of training datasets, including size, source, demographic composition, de-identification status, and any known biases or limitations.
+
+\item[(c)] Validation performance: metrics appropriate to the clinical task (e.g., accuracy, sensitivity, specificity, AUC, calibration error), evaluated on independent test sets representative of the target oncology population.
+
+\item[(d)] Intended use and limitations: clear statement of the clinical contexts in which the model is validated for use, and explicit documentation of conditions under which the model may produce unreliable results.
+
+\end{description}
+
+For each digital twin, the documentation should include:
+
+\begin{description}[leftmargin=2.5cm,style=sameline]
+
+\item[(a)] Mathematical model: governing equations (e.g., reaction-diffusion for glioblastoma invasion, logistic growth, Gompertz model, PK/PD models for chemotherapy response), numerical methods, and computational requirements.
+
+\item[(b)] Calibration methodology: patient data inputs required (e.g., longitudinal imaging, biomarker measurements), calibration algorithm, convergence criteria, and expected calibration time.
+
+\item[(c)] Validation evidence: comparison of twin predictions against observed clinical outcomes in representative patient cohorts, including prediction accuracy for tumor growth, treatment response, and surgical outcomes.
+
+\item[(d)] Clinical integration: data flow from clinical systems to the twin platform, prediction delivery to clinical decision makers, and human override mechanisms.
+
+\end{description}
+
+\paragraph{A.3.4} Safety Studies and Testing
+
+The documentation should provide a summary of all safety studies conducted for each physical AI system, including:
+
+\begin{description}[leftmargin=2.5cm,style=sameline]
+
+\item[(a)] Mechanical safety testing for robotic systems, including collision force measurements, emergency stop response testing, workspace boundary enforcement verification, and compliance with ISO/TS 15066 (collaborative workspace safety) and IEC 80601-2-77 (robotically assisted surgical equipment).
+
+\item[(b)] Software safety testing, including fault injection testing, graceful degradation verification, and compliance with IEC 62304 (medical device software lifecycle).
+
+\item[(c)] AI model safety testing, including adversarial robustness evaluation, out-of-distribution detection, and failure mode analysis for clinically relevant edge cases.
+
+\item[(d)] Cybersecurity testing, including penetration testing, vulnerability assessment, and compliance with FDA premarket cybersecurity guidance.
+
+\item[(e)] Simulation validation results, including cross-framework behavioral comparison using the unification bridge (v1.0.0), with documented trajectory deviations, force discrepancies, and task completion rate differences across NVIDIA Isaac Lab, MuJoCo, Gazebo, and PyBullet environments.
+
+\end{description}
+
+\paragraph{A.3.5} Clinical Experience
+
+The documentation should include a summary of all clinical experience with each physical AI system, including:
+
+\begin{description}[leftmargin=2.5cm,style=sameline]
+
+\item[(a)] Prior clinical trial experience: summary of completed and ongoing trials involving the system, including participant numbers, procedures performed, adverse events, and clinical outcomes.
+
+\item[(b)] Non-trial clinical use: for systems with prior clinical deployment (e.g., da Vinci surgical system with 14 million or more procedures in 69 countries; 9,000 or more installed systems), a summary of real-world performance data, safety reports, and any recalls or field safety actions.
+
+\item[(c)] Relevant research experience: summary of peer-reviewed research publications using the system, including the size and quality of the research evidence base (e.g., dVRK with 500 or more research publications across 45 or more institutions).
+
+\end{description}
+
+\paragraph{A.3.6} Summary of Data and Guidance
+
+This section should provide an overall assessment of each physical AI system's readiness for clinical trial deployment, integrating mechanical safety data, AI model validation evidence, digital twin accuracy assessments, simulation validation results, and clinical experience. The assessment should include specific recommendations for the clinical investigator regarding system operation, monitoring, and safety precautions.
+
+\section{Appendix B. CLINICAL TRIAL PROTOCOL FOR PHYSICAL AI TRIALS}
+
+Physical AI oncology trials should be described in a clear, concise, and operationally feasible protocol that incorporates all specifications for physical AI systems in addition to standard clinical trial elements. The protocol should be designed to minimise unnecessary complexity and to mitigate or eliminate important risks to the rights, safety, and well-being of trial participants and the reliability of data. This appendix adapts the prior ICH E6(R3) Appendix B protocol template to address physical AI trial requirements.
+
+The contents of a physical AI trial protocol should generally include the following topics:
+
+B.1 General Information
+
+B.1.1 Protocol title, unique protocol identifying number, and date. Any amendment(s) should also bear the amendment number(s) and date(s).
+
+B.1.2 Name and address of the sponsor.
+
+B.1.3 Name and title of the person(s) authorised to sign the protocol for the sponsor.
+
+B.1.4 Physical AI System Inventory: a complete list of all physical AI systems specified in the protocol, including manufacturer, model, software version, and USL score for each system.
+
+B.2 Background Information
+
+B.2.1 Name and description of the investigational product(s) and the physical AI systems to be used.
+
+B.2.2 A summary of findings from preclinical testing of physical AI systems, including simulation validation results, safety testing outcomes, and AI model performance data.
+
+B.2.3 Summary of the known and potential risks and benefits of physical AI system interactions for trial participants, including risks from the prior ICH E6(R3) protocol requirements and additional physical AI-specific risks.
+
+B.2.4 Description of the physical AI system configurations, operating parameters, and safety thresholds to be used in the trial.
+
+B.2.5 A statement that the trial will be conducted in compliance with the protocol, Good Clinical Practice (GCP), the applicable regulatory requirements, and all physical AI system safety standards.
+
+B.2.6 Description of the patient population, including any specific considerations for physical AI interactions (e.g., contraindications for robotic procedures, patient factors affecting digital twin calibration accuracy).
+
+B.3 Trial Objectives and Purpose
+
+A clear description of the scientific objectives and the purpose of the trial, including any objectives related to physical AI system performance evaluation, AI model validation, or digital twin methodology assessment.
+
+B.4 Trial Design
+
+B.4.1 Primary and secondary endpoints, including any physical AI system performance endpoints.
+
+B.4.2 Description of the trial design, including any physical AI-specific design elements such as robotic system randomisation, AI model comparison arms, or digital twin-guided adaptive dosing.
+
+B.4.3 Measures to minimise bias, including blinding of physical AI system configurations where appropriate.
+
+B.4.4 Physical AI system specifications: detailed description of each system's operating parameters, safety thresholds, and acceptable performance ranges for the trial.
+
+B.4.5 Schedule of events, including physical AI system calibration verification, AI model performance checks, and digital twin synchronisation points.
+
+B.4.6 Expected duration of participant involvement, including time for physical AI system interactions.
+
+B.5 Selection of Participants
+
+B.5.1 Inclusion criteria, including any physical AI-specific eligibility requirements.
+
+B.5.2 Exclusion criteria, including contraindications for physical AI system interactions.
+
+B.5.3 Screening procedures, including any physical AI-related assessments (e.g., patient suitability for robotic procedure, digital twin calibration feasibility).
+
+B.6 Discontinuation Criteria
+
+B.6.1 When and how to discontinue participants from specific physical AI system interactions.
+
+B.6.2 Physical AI system-specific stopping criteria (e.g., robotic safety limit breach, AI model confidence below threshold, digital twin prediction failure).
+
+B.6.3 Procedures for continuing clinical care when physical AI components are discontinued.
+
+B.7 Physical AI System Management
+
+B.7.1 Detailed operating procedures for each physical AI system, including startup, calibration, clinical operation, and shutdown.
+
+B.7.2 Acceptable and prohibited concurrent technologies or interventions during physical AI system operation.
+
+B.7.3 Strategies to monitor participant adherence to physical AI-related instructions and protocols.
+
+B.8 Assessment of Efficacy
+
+B.8.1 Specification of efficacy parameters, including any physical AI system performance metrics that serve as efficacy endpoints.
+
+B.8.2 Methods and timing for assessing efficacy, including integration of physical AI data with clinical outcome assessments.
+
+B.9 Assessment of Safety
+
+B.9.1 Specification of safety parameters, including physical AI system-specific safety metrics (e.g., robotic contact forces, AI prediction confidence, digital twin accuracy).
+
+B.9.2 Methods for recording and assessing physical AI safety events.
+
+B.9.3 Procedures for reporting physical AI system adverse events.
+
+B.9.4 Follow-up procedures for participants who experienced physical AI system-related adverse events.
+
+B.10 Statistical Considerations
+
+B.10.1 Statistical methods, including any methods specific to analysing physical AI system data (e.g., mixed-effects models accounting for robotic system variability, Bayesian updating of digital twin predictions).
+
+B.10.2 Sample size justification, including consideration of physical AI system variability.
+
+B.10.3 Analysis of physical AI covariates: pre-specified analyses examining the influence of robotic system type, AI model version, and digital twin calibration quality on primary and secondary endpoints.
+
+B.11 Direct Access to Source Records
+
+The protocol should specify that investigators provide direct access to source records for physical AI systems, including robotic telemetry, AI inference logs, and digital twin state data, for the purposes of monitoring, auditing, and regulatory inspection.
+
+B.12 Quality Control and Quality Assurance
+
+B.12.1 Description of critical to quality factors for physical AI system components.
+
+B.12.2 Monitoring approaches for physical AI systems.
+
+B.12.3 Noncompliance handling procedures for physical AI system specifications.
+
+B.13 Ethics
+
+Description of ethical considerations relating to the trial, including ethics of AI-assisted clinical decisions, participant autonomy in robotic procedures, and equitable access to physical AI-enabled care.
+
+B.14 Data Handling and Record Keeping for Physical AI Data
+
+B.14.1 Specification of physical AI data to be collected, including data types, sampling rates, and storage formats.
+
+B.14.2 Identification of physical AI data considered to be source records.
+
+B.14.3 Retention requirements for physical AI system records.
+
+B.15 Financing and Insurance
+
+Financing, insurance, and indemnification arrangements, including coverage for physical AI system-related injuries.
+
+B.16 Publication Policy
+
+Publication policy, including provisions for reporting physical AI system performance data.
+
+\section{Appendix C. ESSENTIAL RECORDS FOR PHYSICAL AI CLINICAL TRIALS}
+
+C.1 Introduction
+
+C.1.1 Physical AI oncology clinical trials generate essential records beyond those of traditional clinical trials, including robotic system documentation, AI model artifacts, digital twin models, simulation validation records, and federated learning logs. The nature and extent of these records are dependent on the trial design, the physical AI systems used, and the risk-proportionate approach applied.
+
+C.1.2 Determining which physical AI records are essential should follow the guidance in this appendix, supplementing the criteria from the prior ICH E6(R3) Appendix C.
+
+C.1.3 Essential physical AI records permit and contribute to the evaluation of the conduct of the trial in relation to the compliance of the investigator and sponsor with Good Clinical Practice, applicable regulatory requirements, and physical AI system safety standards. These records are used for monitoring, auditing, and regulatory inspection purposes.
+
+C.2 Management of Essential Physical AI Records
+
+C.2.1 Physical AI records should be identifiable, version controlled, and should include authors, reviewers, and approvers along with date and signature where necessary.
+
+C.2.2 For physical AI system activities delegated to service providers (e.g., robotic system maintenance, AI model training, digital twin development), arrangements should be made for access and management of essential records throughout the trial and for retention following trial completion.
+
+C.2.3 Essential physical AI records should be maintained in or referred to from the trial master file (TMF) and investigator site file (ISF), supplemented by physical AI system-specific repositories for robotic telemetry, AI model artifacts, and digital twin data.
+
+C.2.4 The storage systems used for physical AI records should provide for appropriate identification, version history, search, and retrieval, with attention to the large data volumes generated by robotic telemetry and sensor measurements.
+
+C.2.5 Physical AI records should be collected and filed in a timely manner. Some records (e.g., robotic system validation, AI model documentation, simulation validation reports) should be in place prior to the start of the trial.
+
+C.2.6 Physical AI records should be retained in a way that ensures they remain complete, readable, and readily available for the required retention period. Alteration should be traceable.
+
+C.3 Essentiality of Physical AI Trial Records
+
+C.3.1 In addition to the criteria from the prior ICH E6(R3) Appendix C, a physical AI trial record is essential if it:
+
+\begin{description}[leftmargin=2.5cm,style=sameline]
+
+\item[(a)] Documents the identity, configuration, calibration, and validation status of each physical AI system used in the trial.
+
+\item[(b)] Documents the version, training provenance, validation performance, and clinical deployment history of each AI model used in the trial.
+
+\item[(c)] Documents the mathematical basis, calibration methodology, validation evidence, and prediction record of each digital twin model used in the trial.
+
+\item[(d)] Documents simulation validation results, including cross-framework behavioral comparisons and identified discrepancies.
+
+\item[(e)] Documents physical AI system safety events, including robotic incidents, AI prediction failures, digital twin accuracy deviations, and cybersecurity incidents.
+
+\item[(f)] Documents training and competency assessments for all personnel operating or overseeing physical AI systems.
+
+\item[(g)] Documents federated learning participation, including aggregation rounds, privacy budget expenditure, and data harmonization actions.
+
+\item[(h)] Documents maintenance, calibration, and repair activities for robotic systems throughout the trial.
+
+\item[(i)] Documents the end-of-trial disposition of physical AI systems, including data extraction, secure erasure of participant data, and system return or decommissioning.
+
+\end{description}
+
+C.3.2 The following Physical AI Essential Records Table provides a non-exhaustive list of records that should be retained when produced:
+
+Physical AI Essential Records Table
+
+Note: An asterisk (*) identifies records that should generally be in place prior to the start of the trial.
+
+\begin{description}[leftmargin=0.5cm,style=sameline]
+
+\item[--] Physical AI System Documentation package for each system*
+\item[--] USL assessment report for each robotic platform*
+\item[--] Robotic system validation and calibration records*
+\item[--] AI model validation reports with performance metrics*
+\item[--] Digital twin validation reports with prediction accuracy data*
+\item[--] Simulation validation reports (cross-framework comparison)*
+\item[--] Cybersecurity assessment and penetration testing reports*
+\item[--] Physical AI system operator training and competency records*
+\item[--] Robotic system maintenance and calibration logs during trial
+\item[--] AI model version control logs and update documentation
+\item[--] Digital twin calibration and recalibration records
+\item[--] Robotic system telemetry and procedure logs
+\item[--] AI model inference logs and decision records
+\item[--] Digital twin state histories and prediction records
+\item[--] Physical AI safety event reports and root cause analyses
+\item[--] Cybersecurity incident logs and response records
+\item[--] Federated learning round logs, privacy budget records, and aggregation documentation
+\item[--] Physical AI monitoring reports (site and centralised)
+\item[--] Physical AI system decommissioning and data erasure records
+\item[--] Signed agreements with physical AI system service providers*
+
+\end{description}
+
+\section{GLOSSARY}
+
+The following definitions supplement the glossary from the prior ICH E6(R3) regulation with terms specific to physical AI oncology clinical trials. Standard clinical trial terms (Adverse Event, Audit, Blinding, Clinical Trial, Informed Consent, Investigator, Sponsor, etc.) retain their definitions from the prior ICH E6(R3) regulation and are not repeated here.
+
+Agentic AI: Artificial intelligence systems capable of autonomous reasoning, planning, and action execution with minimal human prompting. In oncology clinical trials, agentic AI includes LLM-based surgical assistants, multi-agent coordination systems (e.g., CrewAI v1.6.1, LangGraph v1.1.0), and autonomous simulation orchestrators. Agentic AI systems operate under human oversight as specified in the human oversight quality management framework (v1.2.0).
+
+AI Model Drift: The degradation of AI model performance over time due to changes in the input data distribution, population characteristics, or clinical context. Detection and management of drift is a critical monitoring activity in physical AI trials.
+
+Calibration (Robotic): The process of measuring and adjusting a robotic system's sensors, actuators, and coordinate systems to ensure that the system's internal model accurately represents its physical configuration. Calibration verification should be performed before each clinical use session.
+
+Calibration (AI Model): The degree to which an AI model's predicted probabilities match the observed frequencies of outcomes. A well-calibrated model produces predictions that are neither overconfident nor underconfident.
+
+Cobot (Collaborative Robot): A robotic system designed to operate alongside human workers in a shared workspace, equipped with safety features including force limiting, speed reduction, and collision detection. In oncology trials, cobots assist with sample handling, drug preparation, and laboratory automation. Evaluated cobots include Franka Emika Panda (USL 7.4), Kinova Gen3 (USL 5.7), and UFACTORY xArm 7 (USL 3.4).
+
+Cross-Framework Validation: The process of verifying that a robotic policy or behavior trained in one simulation framework produces equivalent results when executed in a different simulation framework. The unification bridge (v1.0.0) provides tools for cross-framework validation between NVIDIA Isaac Lab, MuJoCo, Gazebo, and PyBullet.
+
+Cybersecurity Incident: An event that compromises the confidentiality, integrity, or availability of a physical AI system or its data. In the context of clinical trials, cybersecurity incidents include unauthorized access to robotic controllers, tampering with AI model parameters, corruption of digital twin data, and network-based attacks on clinical infrastructure.
+
+Differential Privacy: A mathematical framework for quantifying and limiting the privacy loss when publishing statistical analyses of sensitive data. In federated oncology trials, differential privacy mechanisms (epsilon and delta parameters) are applied to gradient updates and aggregate statistics to protect individual patient data. The federation framework (v1.0.0) implements Gaussian and Laplacian mechanisms for differential privacy.
+
+Digital Twin: A computational model of a physical entity (patient, tumor, organ, or treatment process) that is continuously updated with real-world data to provide predictions, simulations, and decision support. In oncology trials, digital twins model patient-specific tumor growth, treatment response, and surgical anatomy. The digital twins framework (v1.0.0 through v1.3.0) provides tools for creating, calibrating, and validating patient-specific digital twins.
+
+Diffusion Policy: A generative AI technique that uses denoising diffusion probabilistic models to generate robotic trajectories, producing smooth, multi-modal action distributions for complex manipulation tasks such as tumor resection and needle insertion.
+
+Domain Randomization: A simulation training technique that varies environmental parameters (lighting, textures, physics properties, sensor noise) during training to produce robotic policies that transfer more reliably from simulation to real-world deployment.
+
+Edge Computing: Computation performed on devices located close to the data source (e.g., at the robotic system or in the operating room) rather than in a centralised data centre. Edge computing enables low-latency AI inference for real-time robotic control and is relevant to the deployment architecture of physical AI clinical trials.
+
+Federated Learning: A machine learning approach that trains models across multiple sites without centralising raw data. Each site trains on its local data and shares only model updates (gradients or weights) with a central aggregator. The federation framework (v1.0.0) supports FedAvg, FedProx, and SCAFFOLD algorithms for multi-site oncology trials.
+
+Force Limiting: A safety mechanism in robotic systems that restricts the maximum force the robot can exert on a person or object. Force limits are a critical safety parameter in clinical robotic procedures and must be validated and monitored throughout the trial.
+
+GR00T N1.6: NVIDIA's humanoid robot foundation model providing vision-language-action capabilities for general-purpose robotic control. GR00T N1.6 is referenced in the physical-ai-oncology-trials repository (v2.2.0) for humanoid robot integration.
+
+Humanoid Robot: A full-body robotic system with a form factor resembling the human body, typically including a torso, two arms, two legs, and a head. In oncology trials, humanoid robots may serve in patient assistance, logistics, and pediatric companionship roles. Evaluated humanoid robots include Boston Dynamics Atlas (USL 5.8), Agility Digit (USL 4.2), and Tesla Optimus (USL 3.6).
+
+Model Context Protocol (MCP): A standardized protocol for communication between AI agents and external tools, governed by the Linux Foundation AI and Data Foundation (AAIF). In physical AI oncology trials, MCP enables standardized integration between AI assistants and robotic systems, clinical databases, and simulation environments.
+
+Physical AI: The integration of artificial intelligence with physical robotic systems and sensor technologies to perform tasks in the real world. Physical AI encompasses the full pipeline from simulation-based training through real-world deployment of intelligent robotic systems.
+
+Physical AI System Documentation: The technical, safety, and clinical documentation package for a physical AI system, serving a purpose analogous to the Investigator's Brochure from the prior ICH E6(R3) regulation. See Appendix A.
+
+Reinforcement Learning (RL): A machine learning paradigm in which an agent learns to make decisions by taking actions in an environment and receiving rewards or penalties. In oncology clinical trials, RL is used for surgical autonomy training, treatment dose optimization, and adaptive protocol design. GPU-accelerated RL training via NVIDIA Isaac Lab (v2.3.1) enables training in parallel environments for surgical tasks.
+
+Secure Aggregation: A cryptographic protocol that allows multiple parties to compute the sum of their private inputs without revealing individual values. In federated oncology trials, secure aggregation protects site-specific model updates during the aggregation step. The federation framework (v1.0.0) implements additive secret sharing and pairwise masking protocols.
+
+Sim-to-Real Transfer: The process of deploying a robotic policy trained in simulation to a physical robot in the real world. The sim-to-real gap refers to the performance difference between simulation and real-world execution, which must be minimised and documented for clinical applications.
+
+Simulation Framework: A software platform for simulating robotic systems, physics interactions, and sensor observations. Recognized simulation frameworks include NVIDIA Isaac Lab (v2.3.1), Isaac Sim (v5.0.0), MuJoCo (v3.4.0), MuJoCo Warp (Beta), Gazebo Sim (Jetty, v10.0.0), and PyBullet (v3.2.5).
+
+Surgical Robot: A robotic system designed for use in surgical procedures, typically operated via teleoperation with surgical console controls. In oncology trials, surgical robots perform tumor resection, biopsy, and minimally invasive procedures. Evaluated surgical robots include da Vinci (dVRK, USL 7.1), Hugo RAS (USL 4.5), and Versius (USL 3.4).
+
+Unification Standard Level (USL): A scoring framework (v1.4.0 through v1.8.0) for evaluating robotic platform readiness for unified, multi-site oncology clinical trials. USL scores range from 1.0 to 10.0 across four dimensions: simulation switching, AI integration, cross-robot sharing, and clinical trial collaboration. Scores map to ten levels from Minimal (1.0) to Reference (10.0) and three bands: Foundational (1.0 to 4.9), Intermediate (5.0 to 6.9), and Advanced (7.0 to 10.0).
+
+Vision-Language-Action (VLA) Model: A multimodal AI model that takes visual observations and natural language instructions as input and produces robotic actions as output. VLA models such as NVIDIA GR00T N1.6 enable natural language programming of robotic behaviors in clinical settings.
+
+\clearpage
+\nocite{ich-e6-r3}
+\printbibliography[title={Bibliography}]
+\end{document}

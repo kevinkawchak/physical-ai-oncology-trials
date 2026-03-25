@@ -1,0 +1,289 @@
+
+% ============================================================================
+% DOCUMENT 11: Physical AI Oncology Clinical Trial Site Emergency Preparedness Plan
+% ============================================================================
+
+\part{Physical AI Oncology Clinical Trial Site Emergency Preparedness Plan}
+\setcounter{section}{0}
+
+\section{Emergency Classification System}
+
+Physical AI oncology clinical trial sites shall classify emergencies into four
+levels, each with defined response protocols:
+
+\subsection{Level 1 -- Minor Incident}
+
+\begin{enumerate}[label=(\alph*)]
+\item Definition: An event affecting a single Physical AI system or a single
+  patient without immediate risk of serious harm. Examples include a single
+  robot entering fault mode, a Grade 1 adverse event, or a minor network
+  disruption affecting non-critical systems.
+
+\item Response: The affected Physical AI system is automatically placed in safe
+  mode. The site safety officer assesses the situation and determines whether
+  the system can be restarted or requires maintenance. Patient care continues
+  using alternative systems. The simulation demonstrated that the fleet of 29
+  robot instances provides redundancy within each system category, allowing
+  continued operations when individual systems are
+  unavailable~\cite{newtrial2026}.
+
+\item Reporting: Documented in the shift log and included in the monthly report
+  to CDPH.
+\end{enumerate}
+
+\subsection{Level 2 -- Moderate Emergency}
+
+\begin{enumerate}[label=(\alph*)]
+\item Definition: An event affecting multiple Physical AI systems, multiple
+  patients, or requiring activation of emergency medical response. Examples
+  include multiple simultaneous robot faults, a Grade 2 or Grade 3 adverse
+  event, a localized power failure, or a cybersecurity anomaly.
+
+\item Response: The site safety officer activates the emergency response team.
+  The on-call emergency physician is notified. Affected clinical areas are
+  secured. Patient procedures in unaffected areas may continue. All active
+  procedures in affected areas are safely concluded or aborted using the
+  emergency stop protocols described in the patient robot
+  instructions~\cite{patientinstructions2026}.
+
+\item Reporting: Reported to CDPH within 72 hours. If a cybersecurity incident
+  with potential patient harm, reported within 7 days per the adapted 21 CFR
+  Part 312 \S~312.32~\cite{cfr312adapt}.
+\end{enumerate}
+
+\subsection{Level 3 -- Major Emergency}
+
+\begin{enumerate}[label=(\alph*)]
+\item Definition: An event requiring partial or complete facility evacuation,
+  affecting the majority of Physical AI systems, or involving a serious
+  adverse event (Grade 4 or higher). Examples include building-wide power
+  failure exceeding UPS capacity, structural damage, confirmed cybersecurity
+  breach affecting patient safety, or a mass casualty event.
+
+\item Response: The site administrator activates the facility emergency plan.
+  All Physical AI systems execute automated safe-shutdown procedures. Patient
+  evacuation begins per the evacuation plan. External emergency services are
+  activated. The Physical AI Safety Review Committee is convened within 24
+  hours~\cite{cfr312adapt}.
+
+\item Reporting: Reported to CDPH and FDA immediately. Fatal or
+  life-threatening events reported within 7 days per \S~312.32. Serious
+  events reported within 15 days~\cite{cfr312adapt}.
+\end{enumerate}
+
+\subsection{Level 4 -- Catastrophic Event}
+
+\begin{enumerate}[label=(\alph*)]
+\item Definition: An event rendering the facility completely non-operational,
+  such as a major earthquake, widespread infrastructure failure, or complete
+  cybersecurity compromise.
+
+\item Response: Complete facility evacuation. All Physical AI systems
+  de-energized. Business continuity plan activated. Patient care transferred
+  to partner facilities. IND sponsor notified for potential clinical
+  hold assessment~\cite{cfr312adapt}.
+
+\item Reporting: Immediate notification to CDPH, FDA, and local emergency
+  management. Full incident report within 30 days.
+\end{enumerate}
+
+\section{Physical AI System Emergency Procedures}
+
+\subsection{Emergency Stop Protocol}
+
+\begin{enumerate}[label=(\alph*)]
+\item Every Physical AI system shall have a clearly marked, accessible emergency
+  stop mechanism that can be activated by site safety officers, clinical
+  personnel, or patients where clinically appropriate.
+
+\item Upon emergency stop activation, the system shall:
+  \begin{enumerate}[label=(\arabic*)]
+  \item Immediately cease all autonomous motion.
+  \item Retract any instruments or probes that are in contact with or
+    inside the patient, using a controlled withdrawal sequence.
+  \item Lower treatment couches to the lowest safe position.
+  \item De-energize radiation sources (RT systems).
+  \item Maintain essential monitoring and life safety functions.
+  \item Generate an emergency stop event record in the audit trail with
+    timestamp, trigger source, and system state at the time of
+    activation~\cite{iche6r3adapt}.
+  \end{enumerate}
+
+\item The patient robot instructions for each system type include specific
+  emergency behavior; for example, surgical robots retract arms through chest
+  ports, RT positioning systems lower couches to exit height, and
+  exoskeletons return to standing rest position~\cite{patientinstructions2026}.
+\end{enumerate}
+
+\subsection{Cybersecurity Incident Response}
+
+\begin{enumerate}[label=(\alph*)]
+\item The cybersecurity incident response plan shall address Physical
+  AI-specific threats:
+  \begin{enumerate}[label=(\arabic*)]
+  \item Robot control system compromise (unauthorized commands to Physical AI
+    systems).
+  \item AI model poisoning (manipulation of AI model parameters or training
+    data).
+  \item Digital twin data manipulation (alteration of patient-specific models).
+  \item MCP-PAI server infrastructure attack (compromise of authorization,
+    FHIR, DICOM, ledger, or provenance servers).
+  \item Network segmentation breach (traffic between isolated network
+    zones).
+  \end{enumerate}
+
+\item Upon detection of a cybersecurity incident:
+  \begin{enumerate}[label=(\arabic*)]
+  \item All affected Physical AI systems are immediately isolated from the
+    network.
+  \item Active procedures on affected systems are safely concluded or aborted.
+  \item The cybersecurity operations specialist assesses the scope and
+    severity.
+  \item Patient data integrity is verified using hash-chained audit trail
+    validation~\cite{iche6r3adapt}.
+  \item The incident is classified and reported per the adapted 21 CFR
+    Part 312 timelines~\cite{cfr312adapt}.
+  \end{enumerate}
+
+\item The site shall conduct annual penetration testing and quarterly
+  vulnerability assessments of all Physical AI system interfaces and
+  MCP-PAI infrastructure.
+\end{enumerate}
+
+\section{Natural Disaster Preparedness}
+
+\subsection{Seismic Preparedness}
+
+\begin{enumerate}[label=(\alph*)]
+\item The facility shall be designed to Seismic Design Category D or higher
+  per ASCE 7 and the California Building Code, appropriate for San Francisco's
+  seismic zone.
+
+\item Physical AI systems shall be seismically anchored to their mounting
+  surfaces with anchorage rated for the systems' operating weight plus 50
+  percent margin.
+
+\item Automated seismic sensors shall trigger Physical AI system safe-mode
+  procedures when ground acceleration exceeds 0.1g, including retracting
+  surgical instruments, lowering couches, and pausing radiation delivery.
+
+\item Post-earthquake inspection protocols shall verify Physical AI system
+  calibration before resuming patient procedures.
+\end{enumerate}
+
+\subsection{Power Failure}
+
+\begin{enumerate}[label=(\alph*)]
+\item The dual utility feed design provides primary power redundancy. If both
+  feeds fail, the automatic transfer switch engages emergency generators
+  within 10 seconds.
+
+\item UPS systems bridge the transfer gap, providing 30 minutes for surgical
+  suites (sufficient to complete or safely abort any procedure) and 15 minutes
+  for server rooms (sufficient for orderly AI system shutdown and data
+  preservation).
+
+\item If generator fuel is projected to be exhausted before utility power
+  restoration, the site shall begin controlled patient discharge and Physical
+  AI system shutdown, prioritizing completion of active procedures.
+
+\item The 72-hour generator fuel capacity provides sufficient time for
+  coordinated patient transfer to partner facilities in extended outage
+  scenarios.
+\end{enumerate}
+
+\section{Clinical Emergency Procedures}
+
+\subsection{Medical Emergency During Physical AI Procedure}
+
+\begin{enumerate}[label=(\alph*)]
+\item If a patient experiences a medical emergency during a Physical AI-assisted
+  procedure:
+  \begin{enumerate}[label=(\arabic*)]
+  \item The Physical AI system's vital sign monitoring detects the emergency
+    and initiates automated response protocols.
+  \item Emergency stop is activated automatically or by the site safety officer.
+  \item The on-call emergency physician is notified immediately.
+  \item The Physical AI system retracts instruments and positions the patient
+    for emergency access.
+  \item Resuscitation equipment is deployed from the emergency station located
+    within each clinical wing.
+  \item The event is documented in real time through the Physical AI system's
+    audit trail and the patient's electronic health record.
+  \end{enumerate}
+
+\item The simulation demonstrated that real-time vital sign monitoring at
+  minute-level resolution enables early detection of adverse events; all
+  seven adverse events in the simulation were detected, graded, and managed
+  through the automated monitoring
+  system~\cite{newtrial2026}.
+\end{enumerate}
+
+\subsection{Multiple Simultaneous Adverse Events}
+
+\begin{enumerate}[label=(\alph*)]
+\item If multiple adverse events occur simultaneously (which did not occur in
+  the simulation but is planned for), the site shall:
+  \begin{enumerate}[label=(\arabic*)]
+  \item Triage events by severity grade, prioritizing the highest-grade event.
+  \item Activate the staffing contingency plan to bring additional personnel
+    on-site within 30 minutes.
+  \item Suspend new patient intake until the simultaneous events are resolved.
+  \item Notify the Physical AI Safety Review Committee if the events suggest
+    a systemic issue affecting multiple Physical AI systems or patients.
+  \end{enumerate}
+\end{enumerate}
+
+\section{Business Continuity}
+
+\begin{enumerate}[label=(\alph*)]
+\item The site shall maintain mutual aid agreements with at least two hospital
+  or clinical facilities within 30 minutes travel time for patient transfer
+  during extended emergencies.
+
+\item Critical Physical AI system configuration data, patient records, and audit
+  trails shall be backed up to a geographically remote data center with
+  recovery point objective (RPO) of 15 minutes and recovery time objective
+  (RTO) of 4 hours.
+
+\item The business continuity plan shall include provisions for resuming
+  Physical AI operations following a major emergency, including system
+  recalibration, Phase 0 re-validation if systems were physically damaged,
+  and regulatory notification of operational restart.
+
+\item Annual business continuity exercises shall test the full emergency
+  response chain from emergency detection through patient transfer, Physical
+  AI system shutdown, data preservation, and operational restart.
+\end{enumerate}
+
+\section{Training and Drills}
+
+\begin{enumerate}[label=(\alph*)]
+\item All site personnel shall complete emergency preparedness training as part
+  of the 160-hour site safety officer certification program.
+
+\item Emergency drills shall be conducted quarterly, rotating through the
+  following scenarios:
+  \begin{enumerate}[label=(\arabic*)]
+  \item Quarter 1: Physical AI system failure during active procedure
+    (emergency stop, patient safety, system recovery).
+  \item Quarter 2: Cybersecurity incident (network isolation, data integrity
+    verification, incident reporting).
+  \item Quarter 3: Building evacuation (Physical AI safe-shutdown, patient
+    evacuation, external emergency services coordination).
+  \item Quarter 4: Extended power failure (generator operation, controlled
+    patient discharge, business continuity activation).
+  \end{enumerate}
+
+\item Drill performance shall be documented and reviewed by the Physical AI
+  Safety Review Committee, with corrective actions for any deficiencies
+  identified.
+
+\item The patient journey demonstrated that 10 distinct stages of care, from
+  pre-screening through data lock, require coordinated emergency response
+  capabilities at each stage~\cite{patientjourney2026}.
+\end{enumerate}
+
+\printbibliography[title={References}]
+
+\end{document}

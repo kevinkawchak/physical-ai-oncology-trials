@@ -5,6 +5,34 @@ Format follows [Keep a Changelog](https://keepachangelog.com/).
 
 ## [Unreleased]
 
+## [2.9.1] - 2026-03-25
+
+### Added
+- new-trial/site/all-documents/all_documents_chunk/ - 11 chunk files for all_documents.tex (split by document)
+- regulatory/adaption-ich-e6r3/source/main_chunk/ - 4 chunk files for ICH E6(R3) adaptation
+- regulatory/Adaption-21-CFR-Part-50/source/Physical_AI_21_CFR_Part_50_chunk/ - 3 chunk files for 21 CFR Part 50
+- regulatory/Adaption-21-CFR-Part-312/source/Physical_AI_21_CFR_Part_312_chunk/ - 5 chunk files for 21 CFR Part 312
+- unification/usl/paper/usl_oncology_trials_chunk/ - 2 chunk files for USL paper
+- patient-journey/paper/patient_journey_paper_chunk/ - 3 chunk files for patient journey paper
+- patients/patient_robot_instructions_fixed_chunk/ - 2 chunk files for patient robot instructions
+- national-platform/RESEARCH-A-CHUNK/ - 2 chunk files for RESEARCH-A
+- national-platform/RESEARCH-B-CHUNK/ - 2 chunk files for RESEARCH-B
+- README.md in each chunk directory with reconstruction instructions
+
+### Changed
+- README.md: Updated version badge to v2.9.1, added chunk directories to repository structure
+- releases.md: Added v2.9.1 release notes
+- CHANGELOG.md: Added v2.9.1 changelog entry
+
+### Removed
+- Placeholder a.md files from all chunk directories
+
+### Notes
+- Chunking necessary to avoid Claude Code Opus 4.6 20,000 token-per-file processing errors
+- Original files preserved unmodified; chunks concatenate to reproduce originals exactly
+- All CI checks pass (ruff lint, ruff format, yamllint)
+- Development by Claude Code Opus 4.6
+
 ## [2.9.0] - 2026-03-24
 
 ### Added
