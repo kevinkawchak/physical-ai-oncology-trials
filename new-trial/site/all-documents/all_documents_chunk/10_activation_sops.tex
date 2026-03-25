@@ -1,0 +1,272 @@
+
+% ============================================================================
+% DOCUMENT 10: Physical AI Oncology Clinical Trial Site Activation and Standard Operating Procedures
+% ============================================================================
+
+\part{Physical AI Oncology Clinical Trial Site Activation and Standard Operating Procedures}
+\setcounter{section}{0}
+
+\section{Site Activation Checklist}
+
+\subsection{Pre-Activation Requirements}
+
+The following requirements shall be completed before the first patient is
+enrolled at a Physical AI oncology clinical trial site:
+
+\begin{enumerate}[label=(\alph*)]
+\item \textbf{Regulatory Approvals:}
+  \begin{enumerate}[label=(\arabic*)]
+  \item State authorization certificate issued by CDPH (per SB 1042).
+  \item San Francisco conditional use permit and health care facility operating
+    license (or equivalent local permits for non-San Francisco sites).
+  \item IRB approval for the Physical AI oncology trial protocol.
+  \item IND clearance with Physical AI System Description accepted by
+    FDA~\cite{cfr312adapt}.
+  \item All Physical AI systems registered with CDPH with current USL scores
+    meeting minimum thresholds~\cite{usl2026}.
+  \end{enumerate}
+
+\item \textbf{Facility Readiness:}
+  \begin{enumerate}[label=(\arabic*)]
+  \item Building occupancy permit issued.
+  \item All Physical AI systems installed, commissioned, and verified.
+  \item Phase 0 simulation validation completed for all system types with
+    cross-framework consistency documented~\cite{iche6r3adapt}.
+  \item Network infrastructure operational with MCP-PAI five-server topology
+    configured to the required conformance level.
+  \item Power systems tested including UPS and generator transfer.
+  \item HVAC systems verified for all clinical zones.
+  \item Security systems operational with access control zones configured.
+  \end{enumerate}
+
+\item \textbf{Staffing Readiness:}
+  \begin{enumerate}[label=(\arabic*)]
+  \item All site safety officers trained and CDPH-certified.
+  \item On-call emergency physician and pharmacist agreements executed.
+  \item Maintenance technician assigned and trained.
+  \item Cybersecurity operations specialist on-call roster established.
+  \item All staff completed competency assessments for Physical AI systems.
+  \end{enumerate}
+
+\item \textbf{Documentation:}
+  \begin{enumerate}[label=(\arabic*)]
+  \item Standard operating procedures finalized for all 10 robot types.
+  \item Patient-facing robot instructions available in English and
+    the most common languages spoken in the service
+    area~\cite{patientinstructions2026}.
+  \item Informed consent documents approved by IRB with Physical AI
+    disclosures~\cite{cfr50adapt}.
+  \item Emergency response plan posted and distributed.
+  \item Adverse event reporting workflows tested.
+  \end{enumerate}
+\end{enumerate}
+
+\section{Shift Management}
+
+\subsection{Three-Shift Structure}
+
+\begin{enumerate}[label=(\alph*)]
+\item The site shall operate on a three-shift schedule covering 24 continuous
+  hours:
+  \begin{enumerate}[label=(\arabic*)]
+  \item Day shift: 06:00 to 14:00.
+  \item Evening shift: 14:00 to 22:00.
+  \item Night shift: 22:00 to 06:00.
+  \end{enumerate}
+
+\item Each shift shall be staffed by a minimum of two site safety officers, with
+  a third officer added during peak demand periods (typically 08:00 to 16:00
+  based on the simulation's patient arrival patterns showing 15 arrivals
+  during hour 09)~\cite{newtrial2026}.
+
+\item Shift handoff procedures shall include a structured briefing covering:
+  \begin{enumerate}[label=(\arabic*)]
+  \item Current patient census and active procedures.
+  \item Physical AI system status (active, standby, maintenance) for all 29
+    instances.
+  \item Any open adverse events or safety concerns.
+  \item Scheduled maintenance windows (such as the SURG-01 22:15 to 01:59
+    maintenance demonstrated in the simulation)~\cite{newtrial2026}.
+  \item Pending patient arrivals and departures.
+  \end{enumerate}
+\end{enumerate}
+
+\subsection{Shift Performance Metrics}
+
+Each shift shall track and report the following metrics, consistent with the
+hourly data structure validated in the 24-hour simulation:
+
+\begin{enumerate}[label=(\alph*)]
+\item Patient arrivals, procedures completed, and departures during the shift.
+\item Physical AI system utilization rates per type (the simulation averaged
+  8.1 of 29 active, with peak of 21 of 29 active)~\cite{newtrial2026}.
+\item Average patient wait time (target: 8 minutes or less).
+\item Adverse events with grade, resolution time, and root cause.
+\item PSL score changes per robot type per regulatory dimension (maximum
+  0.3 change per hour per dimension)~\cite{pslframework2026}.
+\item Any emergency stop activations or manual overrides.
+\end{enumerate}
+
+\section{Patient Processing Workflow}
+
+\subsection{Arrival to Procedure}
+
+\begin{enumerate}[label=(\alph*)]
+\item Patient arrival and check-in via automated kiosk (estimated 2 minutes).
+\item Identity verification and informed consent confirmation. Physical AI
+  disclosures reviewed for any system changes since enrollment.
+\item Pre-procedure safety matrix completed, including verification that all
+  assigned Physical AI systems meet USL thresholds and have passed daily
+  calibration checks~\cite{cfr50adapt}.
+\item Patient escorted or directed to the appropriate clinical wing based on
+  scheduled procedure type.
+\item Patient-facing robot instructions reviewed with the patient for the
+  specific systems involved in their procedure. For example, surgical robot
+  patients receive the three-step surgical robot instruction sheet covering
+  anesthesia induction, robot-assisted procedure, and post-operative
+  recovery~\cite{patientinstructions2026}.
+\item Procedure initiated under Physical AI system autonomous control with
+  site safety officer oversight.
+\end{enumerate}
+
+\subsection{Procedure to Departure}
+
+\begin{enumerate}[label=(\alph*)]
+\item Procedure completed; Physical AI system performs automated post-procedure
+  protocols (retracting instruments, lowering couches, generating procedure
+  reports).
+\item Patient transferred to recovery area; recovery duration determined by
+  procedure type (2 minutes for imaging to 60 minutes for surgical or
+  steerable needle procedures)~\cite{patientinstructions2026}.
+\item Post-procedure vital sign monitoring by Physical AI systems until
+  discharge criteria met.
+\item Discharge documentation generated automatically; patient receives
+  procedure summary and follow-up instructions.
+\item Patient exits via reception area; transportation coordination if needed.
+\end{enumerate}
+
+\section{Physical AI System Daily Operations}
+
+\subsection{Daily System Checks}
+
+\begin{enumerate}[label=(\alph*)]
+\item Each Physical AI system shall undergo an automated daily verification
+  check before the first patient procedure, including:
+  \begin{enumerate}[label=(\arabic*)]
+  \item Mechanical calibration verification (positioning accuracy, force
+    limits, range of motion).
+  \item Software system integrity check (AI model version, parameter
+    verification, hash validation).
+  \item Network connectivity and MCP-PAI server communication test.
+  \item Emergency stop functionality test.
+  \item Sensor calibration verification (cameras, force sensors, proximity
+    sensors).
+  \end{enumerate}
+
+\item Systems that fail any daily verification check shall be placed in
+  maintenance status and shall not be used for patient procedures until
+  the issue is resolved and the check is passed.
+
+\item Daily check results shall be recorded in the system's audit trail with
+  timestamp and pass or fail status for each verification element.
+\end{enumerate}
+
+\subsection{System Utilization Management}
+
+\begin{enumerate}[label=(\alph*)]
+\item The site's scheduling system shall manage Physical AI system utilization
+  to balance patient demand against system availability, following the
+  utilization patterns validated in the simulation:
+  \begin{enumerate}[label=(\arabic*)]
+  \item RT positioning robots: 38 percent average utilization.
+  \item Imaging assistants: 38 percent average utilization.
+  \item RT motion-tracking robots: 37 percent average utilization.
+  \item Surgical robots: scheduled with appropriate intervals between
+    procedures for decontamination and preparation.
+  \item Companion robots and humanoids: flexible scheduling to accommodate
+    patient emotional support needs~\cite{newtrial2026}.
+  \end{enumerate}
+
+\item When utilization approaches 80 percent for any system type, the
+  scheduling system shall extend appointment intervals to prevent queue
+  buildup and maintain the target 8-minute average wait time.
+
+\item Maintenance windows shall be scheduled during periods of historically
+  low demand (typically 22:00 to 06:00), using the simulation data as the
+  baseline demand model~\cite{newtrial2026}.
+\end{enumerate}
+
+\section{Quality Assurance}
+
+\subsection{Continuous Quality Monitoring}
+
+\begin{enumerate}[label=(\alph*)]
+\item The site shall maintain a quality management system compliant with the
+  adapted ICH E6(R3) requirements for Physical AI
+  trials~\cite{iche6r3adapt}.
+
+\item Key quality indicators shall be tracked continuously:
+  \begin{enumerate}[label=(\arabic*)]
+  \item Patient throughput versus the 168-patient 24-hour baseline.
+  \item Adverse event rate versus the 4.2 percent baseline (7 events across
+    168 patients)~\cite{newtrial2026}.
+  \item Same-hour adverse event resolution rate versus the 100 percent
+    baseline.
+  \item Fleet uptime versus the 99.7 percent baseline.
+  \item Patient satisfaction versus the 4.7 out of 5.0 baseline.
+  \item Cumulative PSL score versus the 63.4 to 64.4 baseline range.
+  \end{enumerate}
+
+\item Deviations from baseline quality indicators shall trigger root cause
+  analysis and corrective action within 7 days.
+\end{enumerate}
+
+\subsection{Regulatory Compliance Monitoring}
+
+\begin{enumerate}[label=(\alph*)]
+\item Compliance with the three adapted regulatory frameworks shall be
+  monitored continuously:
+  \begin{enumerate}[label=(\arabic*)]
+  \item ICH E6(R3): GCP compliance for Physical AI systems, data governance,
+    audit trail integrity~\cite{iche6r3adapt}.
+  \item 21 CFR Part 50: Informed consent completeness, patient rights
+    adherence, pediatric protections~\cite{cfr50adapt}.
+  \item 21 CFR Part 312: IND compliance, safety reporting timelines, annual
+    report preparation~\cite{cfr312adapt}.
+  \end{enumerate}
+
+\item Monthly compliance reports shall be submitted to CDPH as required by
+  the state regulations.
+
+\item The Physical AI Safety Review Committee shall meet at intervals not
+  exceeding 90 days to review all safety data, quality metrics, and
+  compliance status~\cite{cfr312adapt}.
+\end{enumerate}
+
+\section{Adverse Event Management}
+
+\begin{enumerate}[label=(\alph*)]
+\item Adverse event detection, documentation, and initial response shall be
+  automated by Physical AI systems, with site safety officer notification
+  within 1 minute of detection.
+
+\item The seven adverse event categories defined in the adapted 21 CFR Part 312
+  shall be used for classification: serious Physical AI adverse events,
+  Physical AI-drug interactions, cybersecurity incidents, AI model degradation,
+  sim-to-real divergence, digital twin discrepancy, and safety committee
+  findings~\cite{cfr312adapt}.
+
+\item The site shall target same-hour resolution for all Grade 1 and Grade 2
+  events, matching the simulation performance where all seven adverse events
+  (nausea Grade 1, hypotension Grade 1, bleeding Grade 1, pain Grade 2,
+  cough Grade 1, desaturation Grade 1, anxiety Grade 1) were resolved within
+  the hour of occurrence~\cite{newtrial2026}.
+
+\item Grade 3 or higher events shall trigger immediate escalation to the
+  on-call emergency physician and the Physical AI Safety Review Committee.
+
+\item All adverse events shall be reported to CDPH and FDA within the timelines
+  specified in the adapted 21 CFR Part 312 \S~312.32 (7 days for fatal or
+  life-threatening, 15 days for serious)~\cite{cfr312adapt}.
+\end{enumerate}
+

@@ -1,0 +1,227 @@
+% 3. RESULTS
+% ══════════════════════════════════════════════════════════════
+\section{Results}
+\label{sec:results}
+
+\subsection{Complete USL Scores}
+Table~\ref{tab:allscores} presents the complete evaluation results for all nine robots.
+
+\begin{table}[H]
+\centering
+\caption{Complete USL Scores for All Nine Evaluated Robots}
+\label{tab:allscores}
+\small
+\begin{tabular}{l l r r r r r l}
+\toprule
+\textbf{Robot} & \textbf{Manufacturer} & \textbf{A} & \textbf{B} & \textbf{C} & \textbf{D} & \textbf{USL} & \textbf{Band} \\
+\midrule
+\multicolumn{8}{l}{\textit{Collaborative Robots (Cobots) --- v1.4.0}} \\
+Franka Panda & Franka Robotics & 8.0 & 7.7 & 8.5 & 5.5 & \textbf{7.4} & Advanced \\
+Kinova Gen3 & Kinova Robotics & 6.3 & 5.2 & 5.8 & 5.5 & \textbf{5.7} & Intermediate \\
+xArm 7 & UFACTORY & 4.6 & 3.2 & 3.8 & 2.1 & \textbf{3.4} & Foundational \\
+\midrule
+\multicolumn{8}{l}{\textit{Surgical Robots --- v1.5.0}} \\
+da Vinci dVRK & Intuitive Surgical & 7.5 & 7.2 & 6.8 & 7.0 & \textbf{7.1} & Advanced \\
+Hugo RAS & Medtronic & 4.5 & 4.0 & 3.5 & 5.8 & \textbf{4.5} & Foundational \\
+Versius & CMR Surgical & 3.2 & 2.8 & 2.5 & 5.2 & \textbf{3.4} & Foundational \\
+\midrule
+\multicolumn{8}{l}{\textit{Humanoid Robots --- v1.6.0}} \\
+Atlas Electric & Boston Dynamics & 7.0 & 7.4 & 4.5 & 4.2 & \textbf{5.8} & Intermediate \\
+Digit & Agility Robotics & 5.8 & 5.4 & 3.0 & 2.7 & \textbf{4.2} & Foundational \\
+Optimus Gen~2 & Tesla & 3.4 & 5.0 & 1.5 & 4.4 & \textbf{3.6} & Foundational \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Cobot Results and Score Rationale}
+
+\textbf{Franka Emika Panda --- USL 7.4 (Level 7: Advanced).} Highest-scoring robot across all categories.
+\begin{itemize}
+  \item \textbf{Dim A (8.0):} 5 frameworks (MuJoCo \cite{mujoco2024}, Isaac Lab \cite{isaaclab2024}, Gazebo, PyBullet, Isaac Sim). Official models in MuJoCo Menagerie \cite{menagerie2024} and Isaac Lab. GPU via MJX. Bidirectional policy transfer. All 4 model formats (URDF, MJCF, SDF, USD).
+  \item \textbf{Dim B (7.7):} 5 AI capabilities (VLA, diffusion policy, LLM planning, agentic AI, generative AI). Natural language control. AI safety constraints.
+  \item \textbf{Dim C (8.5):} 4 sharing methods (ONNX, ROS\,2 actions, checkpoints, shared state). Inter-org ONNX transfer with Kinova/UR5e/xArm. Skill library. Real-time sync.
+  \item \textbf{Dim D (5.5):} Federated compatible. ISO~13482 aligned. \emph{No multi-site trial deployment, HIPAA tools, or 21 CFR Part 11 audit trail.}
+\end{itemize}
+
+\textbf{Kinova Gen3 7DoF --- USL 5.7 (Level 5: Functional).} Lightest 7-DOF cobot (8.2\,kg) with Intel RealSense depth camera. \textit{A (6.3):} 4 frameworks, partial GPU. \textit{B (5.2):} LLM planning, no VLA/diffusion. \textit{C (5.8):} Intra-org Kortex API, ONNX. \textit{D (5.5):} Clinical workflow ready, ISO aligned. Heritage in assistive robotics (JACO arm).
+
+\textbf{UFACTORY xArm 7 --- USL 3.4 (Level 3: Basic).} Most affordable 7-DOF cobot with built-in collision detection, IP51 rating. \textit{A (4.6):} 3 frameworks, no GPU. \textit{B (3.2):} Basic AI only. \textit{C (3.8):} Intra-org SDK sharing across xArm family (5/6/7/Lite 6/850). \textit{D (2.1):} Remote monitoring only, no regulatory documentation.
+
+\subsection{Surgical Robot Results and Score Rationale}
+
+\textbf{da Vinci (dVRK) --- USL 7.1 (Level 7: Advanced).} FDA cleared, 9,000+ systems worldwide, 14M+ procedures across 69 countries \cite{dvrk2026}.
+\begin{itemize}
+  \item \textbf{Dim A (7.5):} 5 frameworks (ORBIT-Surgical/Isaac Lab \cite{orbitsurgical2024}, SurRoL/PyBullet \cite{surrol2024}, AMBF \cite{ambf2024}, Gazebo, MuJoCo). GPU surgical RL with tissue deformation and haptic feedback.
+  \item \textbf{Dim B (7.2):} 9 AI capabilities including surgical video AI, instrument segmentation, phase recognition, imitation learning, VLA compatibility.
+  \item \textbf{Dim C (6.8):} Open-source via JHU dVRK (45+ institutions). Inter-org transfer proven. Active community. ONNX export. Real-time state sync.
+  \item \textbf{Dim D (7.0):} FDA cleared. Remote proctoring. IEC~80601. Audit trail. \textbf{Highest clinical readiness score.}
+\end{itemize}
+
+\textbf{Hugo RAS --- USL 4.5 (Level 4: Developing).} \textit{A (4.5):} Limited open sim. \textit{B (4.0):} Developing AI. \textit{C (3.5):} Primarily proprietary. \textit{D (5.8):} CE marked, EU multi-center trials ongoing.
+
+\textbf{CMR Versius --- USL 3.4 (Level 3: Basic).} \textit{A (3.2):} Minimal framework support. \textit{B (2.8):} Basic AI. \textit{C (2.5):} Proprietary. \textit{D (5.2):} CE marked, NHS deployed, modular arm design supports scalable multi-site deployment.
+
+\subsection{Humanoid Robot Results and Score Rationale}
+
+\textbf{Atlas Electric --- USL 5.8 (Level 5: Functional)} \cite{atlas2024}.
+\begin{itemize}
+  \item \textbf{Dim A (7.0):} 4 frameworks (Isaac Lab, MuJoCo, Drake \cite{drake2024}, Gazebo). Full-body GPU sim. Terrain simulation.
+  \item \textbf{Dim B (7.4):} Highest humanoid AI score. Foundation model potential (GR00T). Whole-body control. Locomotion + manipulation policies. LLM planning (BDAII).
+  \item \textbf{Dim C (4.5):} Proprietary. Intra-org BD/TRI only. ONNX export available.
+  \item \textbf{Dim D (4.2):} No healthcare deployment. Safety cert potential.
+\end{itemize}
+
+\textbf{Agility Digit --- USL 4.2 (Level 4: Developing)} \cite{digit2024}. GR00T N1 \cite{groot2026} partnership with NVIDIA. First commercial humanoid deployed (Amazon). \textit{A (5.8)}, \textit{B (5.4)}, \textit{C (3.0)}, \textit{D (2.7):} no hospital deployment.
+
+\textbf{Tesla Optimus Gen~2 --- USL 3.6 (Level 3: Basic).} Most capable hands (11 DOF, 22 joints) and mass production potential. \textit{A (3.4):} proprietary, no public models. \textit{B (5.0):} FSD-derived perception, Dojo training. \textit{C (1.5):} \textbf{lowest sharing score of all 9 robots}---fully proprietary. \textit{D (4.4):} mass production projected 2027.
+
+\subsection{Cross-Category Visual Comparison}
+\begin{lstlisting}[language={},basicstyle=\ttfamily\scriptsize,numbers=none,caption={Dimension A and D scores across all nine robots}]
+Dim A: Simulation Framework Switching (25% weight)
+--------------------------------------------------
+Franka Panda  [========--] 8.0  5 fwks, GPU, transfer
+da Vinci dVRK [=======---] 7.5  ORBIT-Surgical, tissue
+Atlas Electric[=======---] 7.0  Drake, full-body GPU
+Kinova Gen3   [======----] 6.3  4 fwks, partial GPU
+Digit         [=====-----] 5.8  GR00T sim-to-real
+xArm 7        [====------] 4.6  3 fwks, basic models
+Hugo RAS      [====------] 4.5  Limited open sim
+Optimus Gen 2 [===-------] 3.4  Proprietary only
+Versius       [===-------] 3.2  Minimal framework
+
+Dim D: Clinical Trial Collaboration (25% weight)
+-------------------------------------------------
+da Vinci dVRK [=======---] 7.0  FDA, 14M+ procedures
+Hugo RAS      [=====-----] 5.8  CE marked, EU trials
+Franka Panda  [=====-----] 5.5  Federated, ISO aligned
+Kinova Gen3   [=====-----] 5.5  Clinical workflow
+Versius       [=====-----] 5.2  CE marked, NHS deployed
+Optimus Gen 2 [====------] 4.4  Mass production
+Atlas Electric[====------] 4.2  Safety cert potential
+Digit         [==--------] 2.7  Amazon warehouse only
+xArm 7        [==--------] 2.1  Monitoring only
+\end{lstlisting}
+
+\subsection{USL Impact on Future Trials}
+\begin{lstlisting}[language={},basicstyle=\ttfamily\scriptsize,numbers=none,caption={Phased timeline for physical AI oncology trials}]
+Phase 1 (2026): Category-specific single-site trials
+  Cobots  --> Lab automation (Franka leads)
+  Surgical --> dVRK-based research trials (45+ inst)
+  Humanoid --> Logistics pilots (Atlas, Digit)
+
+Phase 2 (2027): Cross-site policy transfer
+  Franka (train) --ONNX--> Kinova (validate)
+  dVRK (Site A)  --ONNX--> dVRK (Site B)
+  Standard action spaces enable multi-site
+
+Phase 3 (2028+): Cross-category integration
+  Surgical (dVRK) <--> Cobot (Franka)
+  Humanoid (logistics) supports surgical teams
+  Unified multi-site consortium operations
+\end{lstlisting}
+
+% ══════════════════════════════════════════════════════════════
+% 4. DISCUSSION
+% ══════════════════════════════════════════════════════════════
+\section{Discussion}
+\label{sec:discussion}
+
+\subsection{Open-Source Ecosystem Size Predicts USL Score}
+The strongest predictor of USL score is open-source ecosystem size and maturity. The two highest-scoring robots---Franka Panda (7.4) and da Vinci dVRK (7.1)---have the largest communities in their categories: Franka has 1,000+ GitHub stars across franka\_ros2, panda-gym, and libfranka; dVRK has 45+ institutions using the open-source platform. Larger ecosystems directly enable higher Dim~A (more framework support), Dim~B (more AI research), and Dim~C (more sharing infrastructure).
+
+\subsection{Hardware Excellence Does Not Equal Readiness}
+The xArm~7 has the best environmental protection (IP51) and built-in collision detection among cobots, yet scores lowest (3.4). Optimus Gen~2 has the most capable hands (11 DOF, 22 joints) and mass production potential, yet scores only 3.6. USL measures \emph{software interoperability}---simulation coverage, AI integration depth, and sharing infrastructure---not hardware quality alone.
+
+\subsection{Clinical Trial Readiness Lags Field-Wide}
+Dimension~D is the weakest dimension for 7 of 9 robots. Even Franka (7.4 overall) scores only 5.5 on Dim~D. Only da Vinci dVRK achieves Dim~D $\geq$ 7.0, reflecting FDA clearance and 20+ years of clinical deployment. This reveals a field-wide gap: robots mature rapidly in simulation and AI but clinical trial infrastructure (federated learning, regulatory docs, audit trails, HIPAA compliance) remains underdeveloped.
+
+\subsection{Why Scoring Differs Across Categories}
+Each scoring engine adapts USL dimensions to reflect fundamentally different clinical roles. Cobots focus on laboratory manipulation (needle insertion, pipetting, sample handling), emphasizing ONNX policy portability, ROS\,2 interfaces, and control frequency (250--1000\,Hz). Surgical robots focus on intraoperative procedures, adding tissue deformation, haptic feedback, surgical video AI, FDA/CE clearance \cite{fda2025aiml}, and remote proctoring. Humanoid robots focus on hospital logistics (supply delivery, specimen transport, decontamination), adding whole-body locomotion, foundation model integration, navigation safety, and hospital pilot testing.
+
+\subsection{Why Individual Robot Code Differs}
+Each robot's evaluation module differs due to unique: (1)~kinematic structures---Franka uses standard DH parameters with 7 revolute joints; Kinova uses modified DH with continuous rotation joints; Atlas has 28 DOF across 8 joint groups; Digit has backward-bending knees with spring energy models; (2)~control interfaces---libfranka C++ at 1\,kHz vs.\ Kortex API multi-mode vs.\ xArm Python SDK at 250\,Hz; (3)~oncology task definitions with different observation/action dimensions (Franka needle\_insertion: obs=26, act=7 vs.\ Kinova medication\_dispensing: obs=20, act=7 vs.\ Atlas supply\_transport: obs=48, act=12); and (4)~sharing ecosystems ranging from Franka's broad inter-org ONNX sharing to Optimus's fully proprietary platform with no public APIs.
+
+% ══════════════════════════════════════════════════════════════
+% 5. LIMITATIONS AND FUTURE WORK
+% ══════════════════════════════════════════════════════════════
+\section{Limitations and Future Work}
+\label{sec:limitations}
+
+\subsection{Human Limitations}
+\begin{itemize}
+  \item \textbf{Single evaluator}: All USL scores assigned by one researcher (Kawchak) with AI assistance, introducing potential evaluator bias. Multi-evaluator validation is needed.
+  \item \textbf{No physical robot access}: Evaluations based on documentation, code, and published research---not hands-on hardware testing.
+  \item \textbf{Limited clinical expertise}: Author is not a clinical oncologist; Dim~D assessments need input from practicing oncologists and clinical trial coordinators.
+  \item \textbf{Scope constraints}: Only 3 robots per category. Expansion to additional manufacturers (Universal Robots, ABB, Stryker Mako, Figure AI) would improve coverage.
+\end{itemize}
+
+\subsection{Claude Code Limitations}
+\begin{itemize}
+  \item \textbf{Knowledge cutoff}: Claude Code's training data cutoff (May 2025) means developments after that date required explicit web search verification.
+  \item \textbf{Static scoring}: Scoring functions are embedded in evaluation code rather than dynamic real-time scoring against live robot interfaces.
+  \item \textbf{Prompt dependency}: Generated code quality is bounded by prompt specificity. Under-specified prompts can lead to incomplete evaluations.
+  \item \textbf{Hallucination risk}: AI-generated content requires careful verification against primary sources. All scores and specifications were cross-referenced with manufacturer documentation and open-source repositories.
+  \item \textbf{Single-session generation}: Each version (v1.4.0--v1.8.0) was generated in a single Claude Code session, limiting iterative refinement within a version.
+\end{itemize}
+
+\subsection{USL Framework Limitations and Future Work}
+\begin{itemize}
+  \item \textbf{Equal weights}: The 25\% equal weighting may not reflect clinical priorities; Dim~D may warrant higher weight for deployment decisions.
+  \item \textbf{No real-world validation}: USL scores have not been validated against actual multi-site clinical trial outcomes.
+  \item \textbf{Rapidly evolving field}: Scores are a February 2026 snapshot requiring periodic re-evaluation.
+  \item \textbf{Binary criteria}: Many scoring criteria are yes/no, limiting nuance (e.g., partial FDA engagement vs.\ full clearance).
+\end{itemize}
+
+\textbf{Proposed future directions:}
+\begin{enumerate}
+  \item Multi-evaluator validation with inter-rater reliability assessment
+  \item Dynamic scoring querying live APIs, repositories, and regulatory databases
+  \item Expanded categories: AMRs, surgical navigation systems, telepresence robots
+  \item Context-specific weight profiles (research-focused vs.\ deployment-focused)
+  \item Clinical validation with oncology trial sites
+  \item International regulatory adaptation (EU MDR, PMDA Japan, NMPA China)
+\end{enumerate}
+
+% ══════════════════════════════════════════════════════════════
+% 6. CONCLUSION
+% ══════════════════════════════════════════════════════════════
+\section{Conclusion}
+\label{sec:conclusion}
+
+The Unification Standard Level (USL) provides the first standardized, quantitative framework for evaluating physical AI robot readiness for multi-site oncology clinical trials. Scoring nine robots across three categories on four dimensions reveals:
+
+\begin{enumerate}
+  \item \textbf{Open-source ecosystem maturity is the strongest predictor of unification readiness.} Franka Panda (7.4) and da Vinci dVRK (7.1) lead their categories because of their large, active open-source communities.
+  \item \textbf{Clinical trial readiness is the weakest dimension field-wide.} Seven of nine robots score lowest on Dim~D---regulatory compliance, federated learning, and multi-site deployment infrastructure are primary bottlenecks.
+  \item \textbf{Hardware quality alone does not determine unification readiness.} Robots with superior hardware (xArm IP51, Optimus 22-DOF hands) score low with immature software ecosystems.
+  \item \textbf{Category-specific scoring is essential.} Surgical robots require tissue deformation and FDA criteria; humanoids require locomotion and navigation safety; cobots require manipulation precision and lab automation criteria.
+\end{enumerate}
+
+The complete USL framework---scoring engines, robot evaluation modules, text diagrams, and documentation---is open-source at \url{https://github.com/kevinkawchak/physical-ai-oncology-trials} under the MIT license, enabling the community to evaluate additional robots, refine scoring criteria, and drive progress toward unified, multi-site physical AI oncology clinical trials.
+
+% ══════════════════════════════════════════════════════════════
+% REFERENCES
+% ══════════════════════════════════════════════════════════════
+\bibliographystyle{unsrt}
+\bibliography{references}
+
+% ══════════════════════════════════════════════════════════════
+% ACKNOWLEDGMENTS, ETHICS, RIGHTS, CITATION
+% ══════════════════════════════════════════════════════════════
+\section*{Acknowledgments}
+\addcontentsline{toc}{section}{Acknowledgments}
+The author would like to acknowledge Anthropic for providing access to Claude Code, Claude Cowork; and OpenAI for providing access to ChatGPT.
+
+\section*{Ethical Disclosures}
+\addcontentsline{toc}{section}{Ethical Disclosures}
+The author of the article declares no competing interests.
+
+\section*{Rights and Permissions}
+\addcontentsline{toc}{section}{Rights and Permissions}
+This article is distributed under the terms of the Creative Commons Attribution 4.0 International License (CC BY 4.0), which permits unrestricted use, distribution, and reproduction in any medium, provided the original author(s) and source are properly credited, a link to the Creative Commons license is provided, and any modifications made are indicated. To view a copy of this license, visit \url{https://creativecommons.org/licenses/by/4.0/}.
+
+\section*{Cite This Article}
+\addcontentsline{toc}{section}{Cite This Article}
+Kawchak K. Unification Standard Level for Physical AI Oncology Trial. Zenodo. 2026; \doi{10.5281/zenodo.18778220}.
+
+\end{document}

@@ -1,0 +1,287 @@
+
+% ============================================================================
+% DOCUMENT 7: Physical AI Oncology Clinical Trial Facility Building Code Standards
+% ============================================================================
+
+\part{Physical AI Oncology Clinical Trial Facility Building Code Standards}
+\setcounter{section}{0}
+
+\section{General Requirements}
+
+\subsection{Scope}
+
+These building code standards supplement the California Building Standards Code
+(Title 24, Parts 1 through 12) with additional requirements specific to Physical
+AI oncology clinical trial facilities. These standards apply to new construction
+of facilities designed to house 10 categories of Physical AI robotic systems
+operating autonomously on a 24-hour, 7-day-per-week schedule serving up to 180
+oncology patients per day~\cite{sitespec2026}.
+
+\subsection{Facility Size and Configuration}
+
+\begin{enumerate}[label=(\alph*)]
+\item The minimum gross floor area shall be 85,000 square feet, with a maximum
+  of 100,000 square feet, distributed across the clinical wings, support areas,
+  and infrastructure spaces specified in these standards~\cite{sitespec2026}.
+
+\item The facility shall accommodate nine clinical wings corresponding to the
+  following Physical AI system deployment zones:
+  \begin{enumerate}[label=(\arabic*)]
+  \item Three surgical suites for surgical robots (SURG-01, SURG-02, SURG-03).
+  \item Four cobot stations for collaborative biopsy robots.
+  \item Three radiotherapy vaults for RT positioning robots.
+  \item Two needle-placement suites for robotic needle-placement systems.
+  \item Five social companion stations for pediatric and adult companion
+    interactions.
+  \item Three humanoid stations for rehabilitation engagement.
+  \item Three RT motion-tracking vaults (co-located with RT positioning).
+  \item Four imaging bays for imaging assistant robots.
+  \item Two steerable needle suites.
+  \item One rehabilitation exoskeleton bay with two active stations and one
+    reserved station.
+  \end{enumerate}
+
+\item Support areas shall include a robot-accessible pharmacy, server room,
+  maintenance bay, and decontamination area~\cite{newtrial2026}.
+\end{enumerate}
+
+\section{Structural Requirements}
+
+\subsection{Floor Load Capacity}
+
+\begin{enumerate}[label=(\alph*)]
+\item Surgical suites shall be designed for a minimum floor live load of 150
+  pounds per square foot to support surgical robot systems (including the
+  da Vinci Xi surgical system at approximately 1,800 pounds), instrument carts,
+  patient tables, and support equipment~\cite{patientinstructions2026}.
+
+\item Radiotherapy vaults shall be designed for a minimum floor live load of
+  200 pounds per square foot to support linear accelerator systems,
+  radiotherapy positioning robots, and radiation shielding components.
+
+\item Imaging bays shall be designed for a minimum floor live load of 125
+  pounds per square foot to support imaging equipment, robotic ultrasound
+  systems, and CT scanners used for needle-placement guidance.
+
+\item Rehabilitation exoskeleton areas shall include floor-mounted parallel
+  bars with anchorage rated for 500 pounds lateral force, supporting patients
+  during exoskeleton-assisted gait
+  training~\cite{patientinstructions2026}.
+
+\item Server rooms shall be designed for a minimum floor live load of 250
+  pounds per square foot to support server rack installations for AI
+  computation infrastructure.
+
+\item General clinical circulation areas shall maintain a minimum floor live
+  load of 100 pounds per square foot, accommodating hospital beds,
+  wheelchairs, and mobile robot systems simultaneously.
+\end{enumerate}
+
+\subsection{Vibration Control}
+
+\begin{enumerate}[label=(\alph*)]
+\item Surgical suites and needle-placement suites shall meet VC-E vibration
+  criteria (peak velocity 3.1 micrometers per second) to support the
+  submillimeter precision required by surgical robots and needle-placement
+  systems~\cite{newtrial2026}.
+
+\item Imaging bays shall meet VC-D vibration criteria (peak velocity 6.3
+  micrometers per second) to support diagnostic imaging quality.
+
+\item Radiotherapy vaults shall meet VC-C vibration criteria (peak velocity
+  12.5 micrometers per second) to support accurate beam alignment.
+
+\item Vibration isolation joints shall separate clinical wings from building
+  mechanical systems, loading areas, and parking structures.
+\end{enumerate}
+
+\section{Mechanical Systems (HVAC)}
+
+\subsection{Surgical Suite Air Handling}
+
+\begin{enumerate}[label=(\alph*)]
+\item Surgical suites shall maintain ISO Class 7 (10,000 particles per cubic
+  foot) or better air cleanliness using HEPA filtration with a minimum of 20
+  air changes per hour~\cite{sitespec2026}.
+
+\item Surgical suites shall maintain positive pressure of at least 2.5 Pascals
+  relative to adjacent spaces.
+
+\item Temperature control shall maintain 68 to 73 degrees Fahrenheit with
+  humidity between 30 and 60 percent relative humidity.
+
+\item Independent air handling units shall serve each surgical suite to prevent
+  cross-contamination and allow maintenance without affecting other suites.
+\end{enumerate}
+
+\subsection{Radiotherapy Vault Ventilation}
+
+\begin{enumerate}[label=(\alph*)]
+\item Radiotherapy vaults shall have dedicated exhaust systems capable of
+  removing ozone generated by high-energy radiation beams.
+
+\item A minimum of 6 air changes per hour shall be maintained during treatment
+  operations, with 10 air changes per hour during purge cycles between patients.
+
+\item Exhaust air from radiotherapy vaults shall not be recirculated to other
+  building areas.
+\end{enumerate}
+
+\subsection{Server Room Cooling}
+
+\begin{enumerate}[label=(\alph*)]
+\item Server rooms supporting AI computation infrastructure shall maintain
+  temperature between 64 and 75 degrees Fahrenheit with redundant cooling
+  systems providing N+1 capacity~\cite{sitespec2026}.
+
+\item Cooling systems shall reject a minimum heat load of 200 kilowatts,
+  calculated from the server room's portion of the facility's total 800 to
+  1,200 kilowatt electrical load.
+
+\item Server room cooling shall be on a dedicated HVAC zone independent of
+  clinical space climate control.
+
+\item Hot aisle and cold aisle containment shall be used to maximize cooling
+  efficiency.
+\end{enumerate}
+
+\section{Electrical Systems}
+
+\subsection{Power Supply}
+
+\begin{enumerate}[label=(\alph*)]
+\item The facility shall be served by dual utility power feeds from separate
+  substations or feeders, providing full redundancy for the 800 to 1,200
+  kilowatt total electrical load~\cite{sitespec2026}.
+
+\item Automatic transfer switches shall provide seamless transition between
+  utility feeds, with a maximum transfer time of 10 milliseconds for critical
+  clinical systems.
+
+\item Emergency generator capacity shall be sufficient to power all critical
+  clinical systems (surgical suites, radiotherapy vaults, server rooms,
+  life safety systems) for a minimum of 72 hours at full load.
+
+\item Generator fuel storage shall accommodate 96 hours of operation with
+  automatic fuel management and monitoring.
+\end{enumerate}
+
+\subsection{Uninterruptible Power Supply (UPS)}
+
+\begin{enumerate}[label=(\alph*)]
+\item All surgical suites shall be served by dedicated UPS systems providing a
+  minimum of 30 minutes of battery backup at full surgical robot operating
+  load, sufficient to safely complete or abort any procedure in progress.
+
+\item Server rooms shall be served by UPS systems providing a minimum of 15
+  minutes of battery backup, sufficient for orderly shutdown of AI computation
+  systems and data preservation.
+
+\item All Physical AI system charging and standby stations shall be served by
+  UPS-backed circuits to maintain robot readiness during power transitions.
+
+\item UPS systems shall be tested monthly under load, with results recorded
+  in the facility maintenance log.
+\end{enumerate}
+
+\subsection{Electrical Distribution}
+
+\begin{enumerate}[label=(\alph*)]
+\item Dedicated electrical panels shall serve each clinical wing, with
+  sufficient circuit capacity for all Physical AI system types deployed in
+  that wing plus 25 percent spare capacity.
+
+\item Isolated ground circuits shall serve all Physical AI systems and medical
+  imaging equipment to prevent electromagnetic interference.
+
+\item Power quality monitoring systems shall continuously track voltage, current,
+  frequency, harmonics, and transients on all circuits serving Physical AI
+  systems, with automated alerting for out-of-specification conditions.
+\end{enumerate}
+
+\section{Radiation Shielding}
+
+\begin{enumerate}[label=(\alph*)]
+\item Radiotherapy vault shielding shall comply with NCRP Report 151 and
+  California Radiologic Health Branch requirements, designed for the maximum
+  beam energy and workload planned for the facility.
+
+\item Shielding design shall account for the Physical AI positioning robot's
+  range of motion, ensuring that all achievable patient positions result in
+  adequate shielding of adjacent spaces.
+
+\item The primary barrier shall be designed for the full workload of the
+  radiotherapy system, and secondary barriers shall account for leakage and
+  scatter radiation.
+
+\item Maze entrances shall be designed to reduce radiation levels at the maze
+  entrance to below 0.02 milliSieverts per hour during beam-on conditions.
+
+\item Shielding calculations shall be reviewed and certified by a qualified
+  medical physicist before construction begins.
+\end{enumerate}
+
+\section{Technology Infrastructure}
+
+\subsection{Network Architecture}
+
+\begin{enumerate}[label=(\alph*)]
+\item The facility shall provide a minimum of 10 gigabits per second internal
+  network bandwidth using redundant fiber-optic backbone
+  infrastructure~\cite{sitespec2026}.
+
+\item Clinical networks, administrative networks, and Physical AI system control
+  networks shall be physically or logically segmented with firewall separation
+  between segments.
+
+\item Each clinical wing shall have dedicated network switches with redundant
+  uplinks to the core network.
+
+\item Wireless coverage (Wi-Fi 6E or later) shall be provided throughout all
+  patient-accessible areas for patient portal access and companion robot
+  connectivity.
+\end{enumerate}
+
+\subsection{Robot Charging and Docking Infrastructure}
+
+\begin{enumerate}[label=(\alph*)]
+\item Each clinical wing shall include dedicated robot charging and docking
+  stations rated for the specific power requirements of the Physical AI
+  systems deployed in that wing.
+
+\item Charging stations shall include automated connection systems to minimize
+  human intervention during shift changes and standby periods.
+
+\item Floor-mounted guide paths or ceiling-mounted positioning references shall
+  facilitate autonomous robot navigation between clinical stations, charging
+  stations, and maintenance areas.
+
+\item The facility layout shall support the patient flow demonstrated in the
+  simulation, where peak utilization reached 21 of 29 robots active
+  simultaneously during hour 09, with an average of 8.1 of 29 active across
+  24 hours~\cite{newtrial2026}.
+\end{enumerate}
+
+\section{Life Safety and Egress}
+
+\begin{enumerate}[label=(\alph*)]
+\item The facility shall comply with California Fire Code (Title 24, Part 9)
+  and NFPA 101 Life Safety Code requirements for health care occupancies.
+
+\item Emergency egress paths shall be designed to accommodate patients on
+  hospital beds and in wheelchairs, with corridor widths of at least 8 feet
+  in primary clinical circulation areas.
+
+\item Physical AI systems shall be designed to move to designated safe positions
+  during fire alarm activation, clearing egress paths and de-energizing
+  non-essential systems.
+
+\item Fire suppression systems in surgical suites shall use clean agent (FM-200
+  or Novec 1230) to protect sensitive robotic equipment while maintaining
+  patient safety.
+
+\item Fire suppression in server rooms shall use clean agent systems with
+  pre-action activation to prevent accidental discharge damage to computing
+  equipment.
+\end{enumerate}
+

@@ -4,6 +4,43 @@ Release notes for the physical-ai-oncology-trials repository.
 
 ---
 
+Large File Chunking for Token-Limited Processing
+v2.9.1 - Large File Chunking
+
+## Summary
+
+Chunked 9 large files across the repository into smaller files to stay within the 20,000 token-per-file limit for Claude Code Opus 4.6 processing. Each chunk directory includes a README.md with reconstruction instructions. Original files are preserved unmodified.
+
+## Features
+
+- Chunked `new-trial/site/all-documents/all_documents.tex` (3,376 lines) into 11 files by document
+- Chunked `regulatory/adaption-ich-e6r3/source/main.tex` (1,300 lines) into 4 files by section
+- Chunked `regulatory/Adaption-21-CFR-Part-50/source/Physical_AI_21_CFR_Part_50.tex` (747 lines) into 3 files
+- Chunked `regulatory/Adaption-21-CFR-Part-312/source/Physical_AI_21_CFR_Part_312.tex` (2,275 lines) into 5 files
+- Chunked `unification/usl/paper/usl_oncology_trials.tex` (476 lines) into 2 files
+- Chunked `patient-journey/paper/patient_journey_paper.tex` (876 lines) into 3 files
+- Chunked `patients/patient_robot_instructions_fixed.tex` (370 lines) into 2 files
+- Chunked `national-platform/RESEARCH-A` (279 lines) into 2 text files
+- Chunked `national-platform/RESEARCH-B` (203 lines) into 2 text files
+- Each chunk directory contains a README.md with file descriptions and reconstruction commands
+- All original files preserved unmodified
+- All CI lint checks pass (ruff, yamllint)
+
+## Contributors
+@kevinkawchak
+@claude
+@openai
+
+## Notes
+
+- Chunk directories use the original file's programming language (.tex or .txt)
+- Files are split at logical section boundaries to maintain context
+- Concatenating chunk files in numerical order reconstructs the original file exactly
+- Removed placeholder a.md files from all chunk directories
+- Development by Claude Code Opus 4.6
+
+---
+
 Physical AI Oncology Clinical Trial Site Documentation
 v2.9.0 - Trial Site Documentation
 

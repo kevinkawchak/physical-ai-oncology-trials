@@ -1,7 +1,7 @@
 # End-to-End Physical AI Unification of Oncology Clinical Trials
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Release](https://img.shields.io/badge/Release-v2.9.0-brightgreen.svg)](https://github.com/kevinkawchak/physical-ai-oncology-trials)
+[![Release](https://img.shields.io/badge/Release-v2.9.1-brightgreen.svg)](https://github.com/kevinkawchak/physical-ai-oncology-trials)
 [![Last Updated](https://img.shields.io/badge/Updated-March%202026-blue.svg)](https://github.com/kevinkawchak/physical-ai-oncology-trials)
 [![Protocol](https://img.shields.io/badge/Protocol-MCP-purple.svg)](https://github.com/kevinkawchak/physical-ai-oncology-trials)
 [![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.18445179-blue)](https://doi.org/10.5281/zenodo.18445179)
@@ -100,6 +100,10 @@ physical-ai-oncology-trials/
 │       ├── 09-parking-transportation/ # Parking and transit standards
 │       ├── 10-site-operations/        # Activation and SOPs
 │       ├── 11-emergency-preparedness/ # Emergency response plan
+│       ├── all-documents/              # Combined 11-document source
+│       │   ├── all_documents.tex      # Full combined LaTeX source
+│       │   └── all_documents_chunk/   # ★ Chunked into 11 files (v2.9.1)
+│       │       └── README.md          # Reconstruction instructions
 │       └── zips/                      # LaTeX source archives (12 zips)
 │
 ├── patient-journey/                   # ★ Single-Patient Journey Orchestration (v2.6.0)
@@ -119,6 +123,8 @@ physical-ai-oncology-trials/
 │   ├── deliverables/                  # Charts, tables, FDA analysis, guidance
 │   ├── paper/                         # ★ Patient Journey Paper (v2.7.0)
 │   │   ├── patient_journey_paper.tex  # LaTeX source
+│   │   ├── patient_journey_paper_chunk/ # ★ Chunked into 3 files (v2.9.1)
+│   │   │   └── README.md             # Reconstruction instructions
 │   │   ├── patient_journey_paper.pdf  # Compiled PDF (compile from .tex)
 │   │   ├── Latex_Source_Code.zip      # Source archive
 │   │   ├── arxiv.sty                  # Style file
@@ -128,6 +134,9 @@ physical-ai-oncology-trials/
 │   └── prompts.md                     # Development prompts archive
 │
 ├── patients/                          # ★ Patient Instructions (v2.1.0)
+│   ├── patient_robot_instructions_fixed.tex  # LaTeX source
+│   ├── patient_robot_instructions_fixed_chunk/ # ★ Chunked into 2 files (v2.9.1)
+│   │   └── README.md                 # Reconstruction instructions
 │   ├── README.md                      # Paper content, instructions, text diagrams
 │   ├── research/                      # Archived generation scripts
 │   │   ├── v1.9.1/
@@ -222,6 +231,8 @@ physical-ai-oncology-trials/
 │   │   │   ├── Unification Standard Level for Physical AI Oncology Trials.pdf
 │   │   │   ├── Latex Source Code.zip # .tex, .sty, .bib, README
 │   │   │   ├── usl_oncology_trials.tex
+│   │   │   ├── usl_oncology_trials_chunk/ # ★ Chunked into 2 files (v2.9.1)
+│   │   │   │   └── README.md        # Reconstruction instructions
 │   │   │   ├── usl-oncology.sty
 │   │   │   ├── references.bib
 │   │   │   └── README
@@ -308,6 +319,8 @@ physical-ai-oncology-trials/
 │   ├── Adaption-21-CFR-Part-312/      # ★ Physical AI 21 CFR Part 312 Adaptation (v2.5.0)
 │   │   └── source/
 │   │       ├── Physical_AI_21_CFR_Part_312.tex  # LaTeX source (94 pages compiled)
+│   │       ├── Physical_AI_21_CFR_Part_312_chunk/ # ★ Chunked into 5 files (v2.9.1)
+│   │       │   └── README.md                    # Reconstruction instructions
 │   │       ├── Physical_AI_21_CFR_Part_312.sty  # Custom style package
 │   │       ├── Physical_AI_21_CFR_Part_312.bib  # Bibliography (42 references)
 │   │       ├── Physical_AI_21_CFR_Part_312.pdf  # Compiled PDF
@@ -316,6 +329,8 @@ physical-ai-oncology-trials/
 │   ├── Adaption-21-CFR-Part-50/       # ★ Physical AI 21 CFR Part 50 Adaptation (v2.4.0)
 │   │   └── source/
 │   │       ├── Physical_AI_21_CFR_Part_50.tex   # LaTeX source (37 pages compiled)
+│   │       ├── Physical_AI_21_CFR_Part_50_chunk/ # ★ Chunked into 3 files (v2.9.1)
+│   │       │   └── README.md                    # Reconstruction instructions
 │   │       ├── Physical_AI_21_CFR_Part_50.sty   # Custom style package
 │   │       ├── Physical_AI_21_CFR_Part_50.bib   # Bibliography (19 references)
 │   │       ├── Physical_AI_21_CFR_Part_50.pdf   # Compiled PDF
@@ -326,6 +341,8 @@ physical-ai-oncology-trials/
 │   │   ├── prompts.md                 # Development prompts archive
 │   │   └── source/
 │   │       ├── main.tex               # LaTeX source (Sections 1-4, Appendices, Glossary)
+│   │       ├── main_chunk/            # ★ Chunked into 4 files (v2.9.1)
+│   │       │   └── README.md          # Reconstruction instructions
 │   │       ├── ich_guideline_style.sty
 │   │       ├── references.bib
 │   │       ├── compiled.pdf
@@ -399,6 +416,14 @@ physical-ai-oncology-trials/
 │       ├── 1st/                     # 20 PNGs (10 light + 10 dark)
 │       ├── 2nd/                     # 20 PNGs (10 light + 10 dark)
 │       └── 3rd/                     # 20 PNGs (10 light + 10 dark)
+│
+├── national-platform/                 # National platform research documents
+│   ├── RESEARCH-A                     # Federal regulatory research (plain text)
+│   ├── RESEARCH-A-CHUNK/              # ★ Chunked into 2 files (v2.9.1)
+│   │   └── README.md                  # Reconstruction instructions
+│   ├── RESEARCH-B                     # State/federal comparative research (plain text)
+│   └── RESEARCH-B-CHUNK/              # ★ Chunked into 2 files (v2.9.1)
+│       └── README.md                  # Reconstruction instructions
 │
 ├── configs/
 │   └── training_config.yaml

@@ -1,0 +1,346 @@
+\section{SPONSOR RESPONSIBILITIES IN PHYSICAL AI TRIALS}
+
+The sponsor is responsible for implementing and maintaining quality assurance and quality control systems for all physical AI components of the trial. This section adapts the prior ICH E6(R3) sponsor responsibilities to address end-to-end physical AI oncology trial unification, including robotic system procurement, AI model lifecycle management, simulation validation, digital twin deployment, and federated multi-site coordination.
+
+\subsection{3.1 Quality Management for Physical AI Trials}
+
+\subsubsection{3.1.1 Critical to Quality Factors}
+
+The sponsor should identify those factors that are critical to quality in the physical AI oncology trial. Critical to quality factors in physical AI trials extend beyond traditional clinical trial parameters to include:
+
+\begin{description}[leftmargin=2.5cm,style=sameline]
+
+\item[(a)] Robotic system safety parameters including force limits, workspace boundaries, speed constraints, and emergency stop response times.
+
+\item[(b)] AI model performance thresholds including prediction accuracy, confidence calibration, inference latency, and drift detection sensitivity.
+
+\item[(c)] Digital twin fidelity metrics including prediction accuracy for tumor growth, treatment response, and surgical outcomes relative to observed clinical data.
+
+\item[(d)] Simulation validation criteria including cross-framework behavioral consistency as measured by trajectory deviation, force discrepancy, and task completion metrics.
+
+\item[(e)] Data integrity for physical AI records including robotic telemetry, sensor data, AI inference logs, and digital twin state histories.
+
+\item[(f)] Cybersecurity posture for all connected physical AI systems, including network segmentation, encryption standards, and intrusion detection capabilities.
+
+\end{description}
+
+\subsubsection{3.1.2 Risk Assessment and Proportionality}
+
+The sponsor should apply a risk-based approach to quality management that considers the probability and impact of physical AI system failures on participant safety and trial reliability. Risk assessment for physical AI trials should incorporate:
+
+\begin{description}[leftmargin=2.5cm,style=sameline]
+
+\item[(a)] Robotic system failure modes and effects analysis (FMEA) for each clinical procedure involving robotic interaction, with documented mitigation strategies for each identified failure mode.
+
+\item[(b)] AI model risk stratification based on the clinical consequence of prediction errors, with higher scrutiny for models that directly influence treatment decisions versus those used for monitoring or administrative purposes.
+
+\item[(c)] Digital twin validation risk assessment based on the degree to which treatment decisions depend on twin predictions, with independent clinical verification required for high-consequence decisions.
+
+\item[(d)] Cybersecurity threat modeling for the complete physical AI infrastructure, including robotic controllers, AI inference servers, digital twin computation platforms, and data communication networks.
+
+\end{description}
+
+\subsection{3.2 Regulatory Submission for Physical AI Components}
+
+\paragraph{3.2.1} The sponsor should submit all necessary documentation to the regulatory authority(ies) and obtain approval before initiating the trial. For physical AI oncology trials, regulatory submissions should include documentation from the regulatory compliance framework (v1.0.0), covering FDA AI/ML guidance (January 2025), IEC 62304 medical device software lifecycle documentation, and ICH-GCP E6(R3) compliance verification adapted for physical AI contexts.
+
+\paragraph{3.2.2} The sponsor should utilize the regulatory submission tools including the FDA submission tracker for 510(k), De Novo, PMA, and Breakthrough device pathways; the IRB protocol manager with AI-specific protocol elements; the GCP compliance checker (v1.0.0) for E6(R3) compliance verification; and the regulatory intelligence tracker for multi-jurisdiction monitoring.
+
+\paragraph{3.2.3} The sponsor should inform the investigator(s) about regulatory decisions that affect the use of physical AI systems in the trial, including any conditions, restrictions, or additional requirements imposed by regulatory authorities on specific robotic systems, AI models, or digital twin methodologies.
+
+\subsection{3.3 Confirmation of Review by IRB/IEC}
+
+\paragraph{3.3.1} The sponsor should obtain from the IRB/IEC documented confirmation that the IRB/IEC has reviewed and approved the trial protocol, informed consent materials, and all Physical AI System Documentation packages, including robotic safety validation reports, AI model performance data, and digital twin accuracy assessments.
+
+\paragraph{3.3.2} The IRB/IEC review for physical AI oncology trials should evaluate, at a minimum:
+
+\begin{description}[leftmargin=2.5cm,style=sameline]
+
+\item[(a)] The safety profile of each robotic system, including mechanical safety data, software reliability evidence, and USL score justification.
+
+\item[(b)] The validation evidence for each AI model, including training data provenance, performance on representative oncology populations, and documented limitations.
+
+\item[(c)] The accuracy and clinical relevance of digital twin predictions, including validation against independent clinical datasets.
+
+\item[(d)] The adequacy of human oversight mechanisms, including human-in-the-loop controls, override capabilities, and emergency procedures.
+
+\item[(e)] The cybersecurity measures protecting participant data and physical AI system integrity.
+
+\item[(f)] The informed consent process, including participant understanding of physical AI interactions.
+
+\end{description}
+
+\subsection{3.4 Information on Physical AI Systems}
+
+The sponsor should ensure that comprehensive documentation is developed and maintained for all physical AI systems used in the trial. The Physical AI System Documentation package is analogous to the Investigator's Brochure for investigational products, adapted from the prior ICH E6(R3) regulation Appendix A framework:
+
+\begin{description}[leftmargin=2.5cm,style=sameline]
+
+\item[(a)] For each robotic system: manufacturer, model, serial number, software version, USL score (with dimension-by-dimension breakdown), safety parameters, calibration records, maintenance schedule, and known limitations.
+
+\item[(b)] For each AI model: model architecture, training data description (including provenance and de-identification methods), validation performance metrics, intended clinical use, known failure modes, version history, and update procedures.
+
+\item[(c)] For each digital twin: computational model description, calibration methodology, validation evidence, prediction accuracy metrics, computational requirements, and data input specifications.
+
+\item[(d)] For the simulation validation: framework versions used, cross-framework consistency results, behavioral comparison metrics, and any discrepancies noted during validation testing.
+
+\item[(e)] For federated learning components: aggregation algorithm, differential privacy parameters (epsilon and delta values), secure aggregation protocol, and multi-site data harmonization procedures.
+
+\end{description}
+
+\subsection{3.5 Trial Design Considerations for Physical AI Trials}
+
+\paragraph{3.5.1} The sponsor should engage appropriate qualified individuals, including robotic systems engineers, AI/ML scientists, clinical informaticists, and digital twin modelers, in the design of the trial protocol and supporting documentation.
+
+\paragraph{3.5.2} Trial design for physical AI oncology trials should consider the following factors beyond traditional clinical trial design as described in the prior ICH E6(R3) regulation:
+
+\begin{description}[leftmargin=2.5cm,style=sameline]
+
+\item[(a)] Robot-specific variability: Different robotic platforms may exhibit different performance characteristics even when executing the same clinical task. The protocol should specify acceptable performance ranges and methods for controlling robot-specific confounding.
+
+\item[(b)] AI model versioning: The protocol should specify which AI model versions are authorized for use and define the process for evaluating and approving model updates during the trial. Uncontrolled model updates represent a significant source of bias and are not permitted.
+
+\item[(c)] Digital twin personalization: The protocol should specify the patient data required for digital twin calibration, the minimum acceptable prediction accuracy, and the process for handling cases where the digital twin cannot be adequately calibrated.
+
+\item[(d)] Simulation-to-reality gap: The protocol should acknowledge the inherent difference between simulated and real-world robotic performance, specify the maximum acceptable sim-to-real transfer gap, and document the domain randomization parameters used during simulation training.
+
+\item[(e)] Multi-site standardization: For multi-site trials, the protocol should specify standardization procedures for robotic system calibration, AI model deployment, and data collection to ensure cross-site comparability. Federated learning protocols should be documented in accordance with the federation framework (v1.0.0).
+
+\end{description}
+
+\subsection{3.6 Trial Management, Data Handling, and Record Keeping}
+
+\paragraph{3.6.1} The sponsor should utilise appropriately qualified individuals to supervise the overall conduct of the physical AI trial, to handle the data, and to verify the data.
+
+\paragraph{3.6.2} The sponsor should employ qualified robotic systems personnel, AI/ML engineers, and clinical data scientists to oversee the technical aspects of physical AI system deployment, monitoring, and data management.
+
+\paragraph{3.6.3} The sponsor may consider establishing an independent Physical AI Safety Monitoring Committee, analogous to the Independent Data Monitoring Committee (IDMC), with expertise in robotic surgery, AI safety, and digital twin validation, to provide ongoing safety oversight for the physical AI components of the trial.
+
+\subsection{3.7 Investigator Selection for Physical AI Trials}
+
+\paragraph{3.7.1} The sponsor should select investigators qualified by training, experience, and resources to conduct the physical AI oncology trial, including demonstrated competency with the specific robotic systems, AI tools, and simulation platforms specified in the protocol.
+
+\paragraph{3.7.2} Before entering an agreement with an investigator to conduct a physical AI trial, the sponsor should assess the investigator site's physical AI readiness, including:
+
+\begin{description}[leftmargin=2.5cm,style=sameline]
+
+\item[(a)] Robotic system infrastructure: availability, condition, and calibration status of required robotic platforms.
+
+\item[(b)] Computing infrastructure: GPU computation capacity for AI model inference, digital twin simulation, and data processing.
+
+\item[(c)] Network infrastructure: bandwidth, latency, and cybersecurity posture sufficient for physical AI system communications and federated learning participation.
+
+\item[(d)] Staff qualifications: documented training and competency for all personnel who will operate or oversee physical AI systems.
+
+\item[(e)] Emergency preparedness: documented procedures for managing physical AI system failures, including backup systems and manual fallback procedures.
+
+\end{description}
+
+\subsection{3.8 Allocation of Responsibilities}
+
+\paragraph{3.8.1} The sponsor may transfer or delegate any trial-related duties and functions related to physical AI systems to a service provider, but the ultimate responsibility for the quality and integrity of the trial data remains with the sponsor, consistent with the prior ICH E6(R3) regulation.
+
+\paragraph{3.8.2} Service providers performing physical AI system functions (e.g., robotic system maintenance, AI model training, digital twin development, simulation validation) should be selected, assessed, and overseen in accordance with the sponsor's quality management framework. Documentation of service provider qualifications should include demonstrated expertise in the specific physical AI technologies used in the trial.
+
+\paragraph{3.8.3} Any transfer of physical AI system responsibilities to a service provider should be documented in writing, with clear specification of the transferred duties, quality standards, reporting requirements, and the sponsor's oversight mechanisms.
+
+\subsection{3.9 Compensation to Participants and Investigators}
+
+\paragraph{3.9.1} If required by the applicable regulatory requirements, the sponsor should provide insurance or should indemnify the investigator and institution against claims arising from the trial, including claims arising from physical AI system interactions, robotic malfunction, AI-driven treatment decisions, or digital twin prediction errors.
+
+\paragraph{3.9.2} The sponsor's policies and procedures should address the costs of treatment of trial participants in the event of injuries related to physical AI systems, including injuries arising from robotic system contact, AI-guided treatment modifications, or medical device cybersecurity incidents.
+
+\subsection{3.10 Monitoring Physical AI Trial Conduct}
+
+\subsubsection{3.10.1 Purpose of Monitoring}
+
+The purpose of trial monitoring in physical AI oncology trials is to verify that the rights and well-being of trial participants are protected, that the reported trial data are accurate and complete, and that all physical AI systems are operating within their validated parameters. Monitoring extends the prior ICH E6(R3) monitoring framework to encompass robotic system performance, AI model behavior, digital twin accuracy, and simulation validation compliance.
+
+\subsubsection{3.10.2 Selection and Qualifications of Monitors}
+
+Monitors assigned to physical AI oncology trials should have the scientific and clinical knowledge, as well as the physical AI technical expertise, needed to provide adequate monitoring of the trial. This includes understanding of robotic system operations, AI model lifecycle management, digital twin methodology, and relevant cybersecurity principles.
+
+\subsubsection{3.10.3 Monitoring Plan for Physical AI Components}
+
+The sponsor should develop a monitoring plan that addresses the unique requirements of physical AI trial components. The monitoring plan should include:
+
+\begin{description}[leftmargin=2.5cm,style=sameline]
+
+\item[(a)] Robotic system monitoring: scheduled verification of calibration, safety parameter compliance, and maintenance adherence.
+
+\item[(b)] AI model monitoring: continuous or periodic assessment of model performance against validation benchmarks, including drift detection and performance degradation alerts.
+
+\item[(c)] Digital twin monitoring: comparison of twin predictions against accumulating clinical outcomes, with pre-specified recalibration triggers.
+
+\item[(d)] Centralised monitoring: use of data analytics tools from the physical-ai-oncology-trials repository (v2.2.0) for cross-site comparison of physical AI system performance, including the trial site monitor, deployment readiness checker, and simulation job runner.
+
+\item[(e)] Cybersecurity monitoring: ongoing assessment of physical AI system security posture, including intrusion detection, access control verification, and incident response readiness.
+
+\end{description}
+
+\subsubsection{3.10.4 Monitoring Activities}
+
+On-site and remote monitoring activities for physical AI trials should include, in addition to standard clinical trial monitoring from the prior ICH E6(R3) regulation:
+
+\begin{description}[leftmargin=2.5cm,style=sameline]
+
+\item[(a)] Verification that the correct robotic systems, with the validated software versions, are being used for each clinical procedure as specified in the protocol.
+
+\item[(b)] Review of robotic system logs to confirm that safety parameters were maintained throughout each procedure, including force limits, workspace boundaries, and speed constraints.
+
+\item[(c)] Verification that AI model versions in clinical use match the protocol-specified versions, with review of any model updates and their approval documentation.
+
+\item[(d)] Assessment of digital twin prediction accuracy by comparing recent predictions against observed outcomes.
+
+\item[(e)] Review of cybersecurity incident logs and verification that access controls are properly maintained for all physical AI systems.
+
+\item[(f)] Verification that investigator site staff maintain current qualifications for physical AI system operation.
+
+\end{description}
+
+\subsubsection{3.10.5 Monitoring Report}
+
+Reports of monitoring activities for physical AI trials should include a summary of what was reviewed for both traditional clinical and physical AI components, a description of significant findings, conclusions and actions required to resolve them, and follow-up on their resolution. Physical AI-specific monitoring report elements should include robotic system performance summaries, AI model status reports, digital twin accuracy assessments, and cybersecurity posture evaluations.
+
+\subsection{3.11 Noncompliance in Physical AI Trials}
+
+\paragraph{3.11.1} Noncompliance with the protocol, SOPs, GCP, the physical AI system specifications, or applicable regulatory requirements by an investigator or by the sponsor's staff should lead to appropriate and proportionate action by the sponsor to secure compliance. Physical AI-specific noncompliance events include operation of robotic systems outside validated parameters, use of unauthorized AI model versions, failure to maintain digital twin calibration, and cybersecurity standard violations.
+
+\paragraph{3.11.2} If noncompliance that significantly affects or has the potential to significantly affect the rights, safety, or well-being of trial participants or the reliability of trial results is discovered, including noncompliance related to physical AI system specifications, the sponsor should perform a root cause analysis, implement appropriate corrective and preventive actions, and confirm their adequacy. Where the sponsor identifies serious noncompliance, the sponsor should notify the regulatory authority and IRB/IEC in accordance with applicable regulatory requirements.
+
+\subsection{3.12 Safety Assessment and Reporting for Physical AI Systems}
+
+The sponsor is responsible for the ongoing safety evaluation of all physical AI systems used in the trial, in addition to the safety evaluation of the investigational product(s) as specified in the prior ICH E6(R3) regulation.
+
+\subsubsection{3.12.1 Sponsor Review of Physical AI Safety Information}
+
+The sponsor should aggregate and review in a timely manner all safety information related to physical AI system operations, including:
+
+\begin{description}[leftmargin=2.5cm,style=sameline]
+
+\item[(a)] Robotic system incident reports from all trial sites, aggregated to identify trends, common failure modes, and potential systemic issues across the robotic fleet.
+
+\item[(b)] AI model performance data across sites, with attention to site-specific performance variations that may indicate calibration issues, data quality problems, or population-specific model limitations.
+
+\item[(c)] Digital twin prediction accuracy trends, with analysis of whether prediction errors are systematic or random and whether recalibration is needed.
+
+\item[(d)] Cybersecurity threat intelligence relevant to the physical AI systems in use, including newly discovered vulnerabilities and recommended patches.
+
+\end{description}
+
+\subsubsection{3.12.2 Physical AI Safety Reporting}
+
+\begin{description}[leftmargin=2.5cm,style=sameline]
+
+\item[(a)] The sponsor should submit to the regulatory authority(ies) safety updates and periodic reports related to physical AI systems, including aggregate robotic safety data, AI model performance trends, and digital twin accuracy assessments.
+
+\item[(b)] The sponsor should expedite reporting of physical AI events that constitute suspected serious safety concerns, including robotic system malfunctions resulting in participant injury, AI-driven treatment decisions resulting in adverse outcomes, and cybersecurity breaches affecting clinical systems.
+
+\item[(c)] The sponsor should communicate relevant physical AI safety information to all investigators in a timely manner, including safety alerts for specific robotic system models, AI model recalls, and cybersecurity advisories.
+
+\end{description}
+
+\subsubsection{3.12.3 Managing Immediate Physical AI Hazards}
+
+The sponsor should take prompt action to address immediate hazards arising from physical AI systems, including ordering the suspension of specific robotic system operations, recalling specific AI model versions, or isolating affected digital twin systems. The sponsor should determine the root causes and take appropriate remedial actions. The information on the immediate hazard should be communicated to the IRB/IEC, regulatory authorities, and investigators in a timely manner.
+
+\subsection{3.13 Investigational Product and Physical AI System Supply}
+
+\subsubsection{3.13.1 Information on Physical AI Systems}
+
+The sponsor should ensure that a Physical AI System Documentation package is developed and updated as significant new information becomes available, analogous to the Investigator's Brochure requirements from the prior ICH E6(R3) regulation Appendix A.
+
+\subsubsection{3.13.2 Physical AI System Preparation and Deployment}
+
+\begin{description}[leftmargin=2.5cm,style=sameline]
+
+\item[(a)] The sponsor should ensure that all physical AI systems are manufactured, tested, and validated in accordance with applicable device standards, including ISO 13485 (quality management for medical devices), IEC 62304 (medical device software lifecycle), and IEC 80601-2-77 (robotically assisted surgical equipment).
+
+\item[(b)] The sponsor should determine acceptable operating parameters for each physical AI system, including environmental conditions, calibration requirements, and maintenance schedules. The sponsor should inform all involved parties of these requirements.
+
+\item[(c)] The sponsor should ensure that software updates for physical AI systems are managed through a documented change control process, with validation evidence for each update before deployment to clinical sites.
+
+\end{description}
+
+\subsubsection{3.13.3 Supplying and Maintaining Physical AI Systems}
+
+\begin{description}[leftmargin=2.5cm,style=sameline]
+
+\item[(a)] The sponsor is responsible for ensuring that investigator sites have access to properly maintained physical AI systems throughout the trial. For robotic systems, this includes timely provision of replacement parts, software updates, and technical support.
+
+\item[(b)] The sponsor should maintain records documenting the deployment, configuration, maintenance, and decommissioning of physical AI systems at each trial site, including system serial numbers, software version histories, and calibration records.
+
+\item[(c)] The sponsor should establish processes for managing the end-of-trial disposition of physical AI systems, including data extraction, secure erasure of participant data from robotic controllers and AI inference engines, and system return or repurposing procedures.
+
+\end{description}
+
+\subsection{3.14 Data and Records for Physical AI Trials}
+
+\subsubsection{3.14.1 Data Handling}
+
+\begin{description}[leftmargin=2.5cm,style=sameline]
+
+\item[(a)] The sponsor should ensure the integrity and confidentiality of all data generated by physical AI systems, including robotic telemetry, AI inference records, digital twin state data, and sensor measurements. The privacy framework (v1.0.0 through v1.3.0) provides HIPAA-compliant tools for PHI/PII detection, de-identification, access control, breach response, and data use agreement generation.
+
+\item[(b)] The sponsor should apply quality control at relevant stages of physical AI data handling to ensure that the data are of sufficient quality to generate reliable results. Quality control should focus on data of higher criticality, including safety-relevant robotic measurements, AI model decision records, and digital twin predictions that influenced treatment decisions.
+
+\item[(c)] The sponsor should pre-specify in the protocol what physical AI data will be collected and the method of collection, including the sampling rates for robotic telemetry, the granularity of AI decision logging, and the frequency of digital twin state captures.
+
+\item[(d)] The sponsor should ensure that physical AI data acquisition systems are validated and ready for use prior to their deployment in the trial, including robotic data loggers, AI inference monitoring tools, and digital twin synchronization systems.
+
+\item[(e)] The sponsor should ensure that documented processes are implemented to maintain data integrity for the full physical AI data lifecycle, from capture during clinical procedures through analysis and long-term archival.
+
+\end{description}
+
+\subsubsection{3.14.2 Statistical Programming and Data Analysis}
+
+This section should be read in conjunction with the prior ICH E6(R3) regulation section on statistical programming and ICH E9 Statistical Principles for Clinical Trials, with additional considerations for physical AI data:
+
+\begin{description}[leftmargin=2.5cm,style=sameline]
+
+\item[(a)] The statistical analysis plan should address how physical AI system data will be incorporated into the analysis, including robotic performance covariates, AI model prediction accuracy as a secondary endpoint, and digital twin calibration quality as a data quality indicator.
+
+\item[(b)] The sponsor should ensure appropriate quality control of statistical programming for physical AI data, including validation of data extraction pipelines from robotic systems, verification of AI decision log parsing algorithms, and reconciliation of digital twin prediction records with clinical outcome data.
+
+\item[(c)] The sponsor should ensure traceability of data transformations involving physical AI data, from raw sensor measurements through derived clinical variables.
+
+\end{description}
+
+\subsubsection{3.14.3 Record Keeping and Retention}
+
+\begin{description}[leftmargin=2.5cm,style=sameline]
+
+\item[(a)] The sponsor should retain all physical AI-specific essential records pertaining to the trial, including robotic system logs, AI model artifacts and version histories, digital twin models and calibration data, simulation validation reports, and cybersecurity incident records, in accordance with the applicable regulatory requirements.
+
+\item[(b)] The sponsor should inform investigators of the retention requirements for physical AI system records and should ensure that investigators can maintain access to physical AI data for the required retention period, even if the physical AI systems are decommissioned or returned.
+
+\end{description}
+
+\subsubsection{3.14.4 Record Access}
+
+\begin{description}[leftmargin=2.5cm,style=sameline]
+
+\item[(a)] The sponsor should ensure that direct access to physical AI system records is available for trial-related monitoring, audits, regulatory inspections, and IRB/IEC review. Physical AI records should be provided in accessible formats with appropriate documentation of data schemas and metadata.
+
+\item[(b)] The sponsor should ensure that trial participants have consented to direct access to physical AI system records that contain data from their clinical interactions.
+
+\end{description}
+
+\subsection{3.15 Clinical Trial Reports for Physical AI Trials}
+
+\subsubsection{3.15.1 Premature Termination or Suspension}
+
+If a trial or its physical AI components are prematurely terminated or suspended, the sponsor should promptly inform the investigators, institutions, and regulatory authorities of the termination or suspension and the reasons, including whether the termination was related to physical AI system safety concerns. The sponsor should provide investigators with information about alternative therapy and follow-up for participants.
+
+\subsubsection{3.15.2 Clinical Trial Reports}
+
+\begin{description}[leftmargin=2.5cm,style=sameline]
+
+\item[(a)] Whether the trial is completed or prematurely terminated, the sponsor should ensure that the clinical trial reports include comprehensive documentation of physical AI system performance, including aggregate robotic safety data, AI model performance summaries, digital twin prediction accuracy analyses, and simulation validation results.
+
+\item[(b)] The clinical trial report should document any physical AI system-related protocol deviations, safety events, or unexpected findings that may have affected trial outcomes.
+
+\item[(c)] Once the trial has been completed and relevant analyses finalized, the sponsor should make physical AI-specific trial results publicly available, including robotic system performance benchmarks and AI model validation results, in accordance with applicable regulatory requirements.
+
+\end{description}
+

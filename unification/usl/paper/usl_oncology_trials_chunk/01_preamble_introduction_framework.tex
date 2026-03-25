@@ -1,0 +1,249 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage{usl-oncology}
+
+\title{%
+  \vspace{-1.5cm}
+  {\Large\bfseries Unification Standard Level for Physical AI Oncology Trials}\\[0.4em]
+  {\large Standardizing and Evaluating Robot Unification Readiness\\for Multi-Site Physical AI Oncology Clinical Trials}
+}
+\author{%
+  Kevin Kawchak\thanks{Corresponding author. GitHub: \url{https://github.com/kevinkawchak/physical-ai-oncology-trials}}\\
+  \small DOI: \doi{10.5281/zenodo.18778220}\\[0.2em]
+  \small February 2026
+}
+\date{}
+
+\begin{document}
+
+\maketitle
+\thispagestyle{fancy}
+
+% ══════════════════════════════════════════════════════════════
+% ABSTRACT
+% ══════════════════════════════════════════════════════════════
+\begin{abstract}
+\noindent
+As physical AI systems advance toward clinical deployment in oncology, no standardized framework exists to evaluate how ready a robotic platform is for unified, multi-site clinical trials. Current technology readiness assessments (e.g., NASA TRL, MLTRL) do not capture the unique demands of cross-platform simulation switching, AI integration, inter-organizational robot progress sharing, and federated regulatory compliance required for multi-site oncology trials. This paper introduces the \textbf{Unification Standard Level (USL)}, a 1.0--10.0 scoring framework that evaluates physical AI robots across four equally weighted dimensions: (A)~Simulation Framework Switching, (B)~Generative/Agentic AI Integration, (C)~Cross-Robot Progress Sharing, and (D)~Multi-Site Clinical Trial Collaboration. We apply USL to nine robots across three categories---collaborative robots (cobots), surgical robots, and humanoid robots---finding per-dimension scores ranging from 1.5 to 8.5 and final composite scores from 3.4 to 7.4. The Franka Emika Panda (USL~7.4) and da Vinci dVRK (USL~7.1) lead their respective categories, both driven by large open-source ecosystems. Clinical trial readiness (Dimension~D) remains the weakest dimension for seven of nine robots evaluated, revealing a field-wide gap between research maturity and clinical deployment infrastructure. All scoring code, robot evaluation modules, and documentation are open-source at \url{https://github.com/kevinkawchak/physical-ai-oncology-trials} under MIT license.
+
+\vspace{0.4em}
+\noindent\textbf{Keywords:} Unification Standard Level, Physical AI, Oncology Clinical Trials, Robot Readiness, Technology Readiness Level, Collaborative Robots, Surgical Robots, Humanoid Robots
+\end{abstract}
+
+\vspace{0.3em}
+\hrule
+\vspace{0.3em}
+
+% ══════════════════════════════════════════════════════════════
+% TABLE OF CONTENTS
+% ══════════════════════════════════════════════════════════════
+{
+\small
+\tableofcontents
+}
+\vspace{0.5em}
+
+% ══════════════════════════════════════════════════════════════
+% 1. INTRODUCTION
+% ══════════════════════════════════════════════════════════════
+\section{Introduction}
+\label{sec:introduction}
+
+\subsection{The Need for Standardized Robot Readiness}
+Physical AI---the integration of embodied robotic systems with modern artificial intelligence---is poised to transform oncology clinical trials. Robotic systems now participate in surgical procedures, laboratory automation, patient logistics, and specimen handling. As multiple robot platforms from different manufacturers converge on clinical applications, no standard exists to evaluate whether a given robot is ready for \emph{unified}, multi-site deployment.
+
+Existing readiness frameworks address adjacent but different concerns:
+\begin{itemize}
+  \item \textbf{NASA/DOD TRL} \cite{mankins2004trl}: Evaluates hardware technology maturity (levels 1--9) from basic principles to flight-proven systems. Does not address software interoperability, AI integration, or multi-site clinical coordination.
+  \item \textbf{MLTRL} \cite{lavin2021mltrl}: Extends TRL to machine learning systems with levels covering data readiness, model development, and deployment. Does not address cross-robot sharing or simulation framework switching.
+  \item \textbf{TRL for Complex Systems} \cite{tomaschek2015trl}: Identifies challenges in applying TRL to integrated multi-technology systems---directly relevant but does not provide a scoring mechanism for robotic clinical trial readiness.
+  \item \textbf{LLM Recommendations for Oncology} \cite{kawchak2025oncology}: Recommends LLM usage for oncology trials and motivates the need for standardized AI-robot evaluation in clinical settings.
+\end{itemize}
+
+The Unification Standard Level (USL) fills this gap by providing a quantitative, reproducible scoring framework designed for evaluating robot unification readiness in multi-site oncology clinical trials.
+
+\subsection{Repository Overview}
+The USL framework is implemented within the \texttt{physical-ai-oncology-trials} repository \cite{kawchak2026repo}, a comprehensive open-source project for integrating physical AI into oncology. Key statistics (v1.7.0, February 2026):
+\begin{itemize}
+  \item \textbf{51 Python modules} (40,526 LOC), CI-validated on Python 3.10, 3.11, 3.12
+  \item \textbf{69 documentation files}, 28 examples, 5 CLI tools, 1,414+ automated tests
+  \item \textbf{18 text diagrams} documenting USL results, meaning, and impact per category
+\end{itemize}
+
+\begin{lstlisting}[language={},basicstyle=\ttfamily\scriptsize,numbers=none]
+physical-ai-oncology-trials/
++-- unification/              # Core unification framework
+|   +-- usl/                  # USL scoring + 9 robot evaluations
+|   |   +-- cobots/           # Franka, Kinova, xArm (v1.4.0)
+|   |   +-- surgical/         # dVRK, Hugo, Versius (v1.5.0)
+|   |   +-- humanoids/        # Atlas, Digit, Optimus (v1.6.0)
+|   +-- simulation_physics/   # Isaac <-> MuJoCo bridge (Dim A)
+|   +-- agentic_generative_ai/ # LLM/VLA interfaces (Dim B)
+|   +-- cross_platform_tools/ # ONNX export, validation (Dim C)
++-- federation/               # Multi-site federated learning (Dim D)
++-- regulatory/               # FDA, IRB, ISO compliance (Dim D)
++-- digital-twins/            # Patient-specific tumor modeling
++-- privacy/                  # HIPAA, de-identification
+\end{lstlisting}
+
+\subsection{The Unification Directory and Path to USL}
+The \texttt{unification/} directory implements seamless interoperability across four pillars, each mapping directly to a USL dimension:
+\begin{enumerate}
+  \item \textbf{Simulation Physics} (\texttt{simulation\_physics/}) $\rightarrow$ \textbf{Dimension A}: Bridges between Isaac Lab \cite{isaaclab2024}, MuJoCo \cite{mujoco2024}, Gazebo, and PyBullet; URDF/SDF/MJCF model conversion; physics parameter mapping.
+  \item \textbf{Agentic/Generative AI} (\texttt{agentic\_generative\_ai/}) $\rightarrow$ \textbf{Dimension B}: Unified agent interfaces for CrewAI \cite{crewai2026}, LangGraph \cite{langgraph2026}, MCP \cite{mcp2025}; VLA model integration (GR00T \cite{groot2026}); LLM task planning.
+  \item \textbf{Cross-Platform Tools} (\texttt{cross\_platform\_tools/}) $\rightarrow$ \textbf{Dimension C}: Framework detection, cross-platform validation suites, ONNX policy export.
+  \item \textbf{Federation \& Regulatory} (\texttt{federation/}, \texttt{regulatory/}) $\rightarrow$ \textbf{Dimension D}: Federated learning, differential privacy, FDA submission tracking, ISO/IEC compliance \cite{iso13482,iec62304,iec80601}.
+\end{enumerate}
+
+These pillars matured through v1.0.0 (Feb 8, 2026) to v1.3.0 (Feb 16, 2026), establishing the infrastructure upon which USL scoring was built starting with v1.4.0 (Feb 23, 2026).
+
+% ══════════════════════════════════════════════════════════════
+% 2. METHODS
+% ══════════════════════════════════════════════════════════════
+\section{Methods}
+\label{sec:methods}
+
+\subsection{Development Process and AI Tools}
+This paper and the underlying USL framework were developed collaboratively between Kevin Kawchak and \textbf{Anthropic Claude Code Opus 4.6}, with acknowledgment to OpenAI ChatGPT for supplementary assistance. The primary development tool was Claude Code operating within the Claude Cowork environment, which generated code, documentation, scoring frameworks, and this paper based on structured prompts from Mr.\ Kawchak. Each version was generated through prompts archived in \texttt{unification/usl/prompts.md}.
+
+\textbf{AI manufacturer and model:} Primary---Anthropic Claude Code Opus 4.6 (autonomous file creation, git operations, web search, code execution). Secondary---OpenAI ChatGPT 5.2 Thinking.
+
+\textbf{Development timeline and versions:}
+
+\begin{table}[H]
+\centering
+\caption{Development Timeline (USL-relevant versions)}
+\label{tab:timeline}
+\small
+\begin{tabularx}{\textwidth}{l l X}
+\toprule
+\textbf{Version} & \textbf{Date} & \textbf{Milestone} \\
+\midrule
+v1.0.0 & Feb 8, 2026 & Initial release: 51 modules, 40,526 LOC \\
+v1.3.0 & Feb 16, 2026 & Visualization suite: 30 interactive charts \\
+v1.4.0 & Feb 23, 2026 & \textbf{USL for Cobots}: Franka, Kinova, xArm evaluated \\
+v1.5.0 & Feb 24, 2026 & \textbf{USL for Surgical}: dVRK, Hugo, Versius evaluated \\
+v1.6.0 & Feb 24, 2026 & \textbf{USL for Humanoids}: Atlas, Digit, Optimus evaluated \\
+v1.7.0 & Feb 24, 2026 & USL Restructure: 18 diagrams, category READMEs \\
+v1.8.0 & Feb 26, 2026 & \textbf{This paper}: comprehensive USL publication \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+This paper (v1.8.0) was primarily generated by Claude Code Opus 4.6 based on Mr.\ Kawchak's prompt(s) and prior Claude Code pull requests (v1.4.0--v1.7.0).
+
+\subsection{USL Scoring Methodology}
+
+\subsubsection{Dimension Definitions and Weights}
+USL evaluates robots across four equally weighted dimensions (25\% each):
+
+\begin{table}[H]
+\centering
+\caption{USL Dimension Definitions and Weights}
+\label{tab:dimensions}
+\small
+\begin{tabularx}{\textwidth}{c l c X}
+\toprule
+\textbf{Dim} & \textbf{Name} & \textbf{Wt} & \textbf{What It Measures} \\
+\midrule
+A & Simulation Switching & 25\% & Ability to transfer policies between sim engines (Isaac Lab, MuJoCo, Gazebo, PyBullet, Drake) \\
+B & AI Integration & 25\% & Integration with LLMs, VLAs, diffusion policies, MCP, agentic frameworks \\
+C & Cross-Robot Sharing & 25\% & Intra- and inter-organization progress sharing via ONNX, ROS\,2, federated learning \\
+D & Clinical Trial Collab & 25\% & Regulatory compliance, federated deployment, audit trails across clinical sites \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\subsubsection{Score Computation}
+The final USL score is the weighted average, clamped to $[1.0, 10.0]$ and rounded to nearest 0.1:
+\begin{equation}
+\text{USL}_{\text{final}} = \text{clamp}\!\left(\frac{w_A \cdot S_A + w_B \cdot S_B + w_C \cdot S_C + w_D \cdot S_D}{w_A + w_B + w_C + w_D},\; 1.0,\; 10.0\right)
+\label{eq:usl}
+\end{equation}
+where each $w_X = 0.25$. Scores map to five bands (Table~\ref{tab:bands}) and ten granular levels (Table~\ref{tab:levels}).
+
+\begin{table}[H]
+\centering
+\caption{USL Score Bands}
+\label{tab:bands}
+\begin{tabular}{c l l}
+\toprule
+\textbf{Score} & \textbf{Band} & \textbf{Description} \\
+\midrule
+9.0--10.0 & Exemplary & Fully unified, multi-site clinical trial ready \\
+7.0--8.9 & Advanced & Strong unification, near clinical-trial ready \\
+5.0--6.9 & Intermediate & Partial unification, significant work remaining \\
+3.0--4.9 & Foundational & Basic interoperability, major gaps exist \\
+1.0--2.9 & Initial & Minimal unification capability \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[H]
+\centering
+\caption{USL Level Definitions (1--10)}
+\label{tab:levels}
+\small
+\begin{tabularx}{\textwidth}{c l X}
+\toprule
+\textbf{Lvl} & \textbf{Name} & \textbf{Description} \\
+\midrule
+1 & Conceptual & Robot exists; no simulation or AI integration attempted \\
+2 & Exploratory & Single framework tested; basic model available \\
+3 & Basic & 2+ frameworks; initial AI experiments conducted \\
+4 & Developing & Cross-framework transfer demonstrated; AI planning tested \\
+5 & Functional & 3+ frameworks; agentic AI operational; intra-org sharing \\
+6 & Integrated & Multi-framework validated; LLM planning; inter-org sharing \\
+7 & Advanced & GPU sim + policy transfer; MCP/VLA; skill sharing \\
+8 & Clinical-Ready & Multi-site tested; regulatory docs; federated learning \\
+9 & Validated & Full regulatory compliance; multi-site trials active \\
+10 & Exemplary & Production deployment; open consortium; continuous improvement \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\subsection{Category-Specific Scoring Engines}
+Each category uses a specialized Python scoring engine that adapts USL dimensions with category-specific criteria.
+
+\textbf{Cobot Scoring} (\texttt{usl\_scoring\_framework.py}, 865 lines): The foundational engine defines Python dataclasses for each dimension with enumerated criteria. Dimension A scores per-framework support (official models, URDF/MJCF/SDF availability, ROS\,2, GPU capability, examples, bidirectional transfer), then adds breadth, transfer testing, and format coverage bonuses:
+
+\begin{lstlisting}[caption={USL Dimension A computation from the cobot scoring engine},label={lst:dima}]
+def compute_score(self) -> float:
+    """Compute dimension A score (0.0-10.0)."""
+    if not self.framework_scores:
+        self.score = 1.0
+        return self.score
+    avg_fw = sum(fs.compute_score()
+                 for fs in self.framework_scores
+                 ) / len(self.framework_scores)
+    breadth_bonus = min(
+        self.num_frameworks_supported / 6.0, 1.0) * 2.0
+    transfer_bonus = (1.0
+        if self.cross_framework_transfer_tested else 0.0)
+    format_bonus = min(
+        len(self.model_format_coverage) / 4.0, 1.0)
+    raw = (avg_fw * 0.5 + breadth_bonus
+           + transfer_bonus + format_bonus)
+    self.score = round(max(1.0, min(raw, 10.0)), 1)
+    return self.score
+\end{lstlisting}
+
+\textbf{Surgical Scoring} (\texttt{usl\_surgical\_scoring.py}, 852 lines): Extends with surgical-specific criteria per dimension:
+\begin{itemize}
+  \item \textbf{Dim A:} tissue deformation simulation, haptic feedback, instrument model coverage
+  \item \textbf{Dim B:} surgical video AI, imitation learning, instrument segmentation, phase recognition
+  \item \textbf{Dim C:} open-source platform availability, instrument interchangeability, community activity
+  \item \textbf{Dim D:} FDA clearance, CE marking, remote proctoring, IEC~80601 \cite{iec80601}
+\end{itemize}
+
+\textbf{Humanoid Scoring} (\texttt{usl\_humanoid\_scoring.py}, 896 lines): Extends with:
+\begin{itemize}
+  \item \textbf{Dim A:} full-body model fidelity, locomotion/manipulation sim, terrain simulation
+  \item \textbf{Dim B:} foundation model integration (GR00T \cite{groot2026}), whole-body learning
+  \item \textbf{Dim C:} standardized morphology, locomotion/manipulation transferability
+  \item \textbf{Dim D:} autonomous navigation safety, hospital pilot testing, ISO~13482 \cite{iso13482}
+\end{itemize}
+
+\subsection{Individual Robot Evaluation Modules}
+Each of the nine robots has a dedicated Python module (400--650 lines) containing hardware specifications, kinematic models (DH parameters, joint limits), framework configurations, oncology-specific task definitions (observation/action spaces, force limits), cross-organization sharing interfaces, and a USL evaluation function returning scores with strengths, gaps, and recommendations.
+
+% ══════════════════════════════════════════════════════════════

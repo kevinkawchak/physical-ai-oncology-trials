@@ -1,0 +1,73 @@
+\clearpage
+\section{GLOSSARY}
+
+The following definitions supplement the standard regulatory definitions in \S~50.3 with terms specific to Physical AI oncology clinical investigations. Standard 21 CFR Part 50 definitions (Act, Application for research or marketing permit, Clinical investigation, Investigator, Sponsor, Human subject, Institution, IRB, Test article, Minimal risk, Legally authorized representative, Family member, Assent, Children, Parent, Ward, Permission, Guardian) retain their definitions from \S~50.3 and are not repeated here.
+
+\textbf{Agentic AI:} Artificial intelligence systems capable of autonomous reasoning, planning, and action execution with minimal human prompting. In oncology clinical trials, agentic AI includes LLM-based surgical assistants, multi-agent coordination systems (CrewAI v1.6.1, LangGraph v1.1.0), and autonomous simulation orchestrators operating under human oversight.
+
+\textbf{AI Model Drift:} The degradation of AI model performance over time due to changes in the input data distribution, population characteristics, or clinical context. Detection and management of drift is a critical ongoing monitoring activity in Physical AI investigations.
+
+\textbf{Calibration (Robotic):} The process of measuring and adjusting a robotic system's sensors, actuators, and coordinate systems to ensure accurate physical operation. Calibration verification should be performed before each clinical use session as part of the pre-procedure safety matrix.
+
+\textbf{Calibration (AI Model):} The degree to which an AI model's predicted probabilities match the observed frequencies of outcomes. Well-calibrated models produce predictions that are neither systematically overconfident nor underconfident.
+
+\textbf{Cobot (Collaborative Robot):} A robotic system designed to operate alongside human workers in a shared workspace, equipped with force limiting, speed reduction, and collision detection. Evaluated cobots: Franka Emika Panda (USL 7.4), Kinova Gen3 (USL 5.7), UFACTORY xArm 7 (USL 3.4).
+
+\textbf{Conformance Level:} One of five cumulative levels defined in the national MCP-PAI standard: Core (Level 1), Clinical Read (Level 2), Imaging (Level 3), Federated Site (Level 4), and Robot Procedure (Level 5). Each level builds upon the requirements of the previous level.
+
+\textbf{Cross-Framework Validation:} Verification that robotic behaviors trained in one simulation framework produce equivalent results in a different framework. The unification bridge (v1.0.0) enables validation across NVIDIA Isaac Lab, MuJoCo, Gazebo, and PyBullet.
+
+\textbf{Cybersecurity Incident:} An event that compromises the confidentiality, integrity, or availability of a Physical AI system or its data, including unauthorized access, parameter tampering, data corruption, and network-based attacks.
+
+\textbf{Differential Privacy:} A mathematical framework for quantifying and limiting privacy loss when publishing statistical analyses. In federated oncology trials, epsilon and delta parameters govern the noise added to gradient updates and aggregate statistics.
+
+\textbf{Digital Twin:} A patient-specific computational model continuously updated with real-world data to provide predictions, simulations, and decision support. The digital twins framework (v1.0.0 through v1.3.0) supports tumor modeling, treatment simulation, and clinical integration via FHIR/DICOM.
+
+\textbf{Diffusion Policy:} A generative AI technique using denoising diffusion probabilistic models to generate robotic trajectories for complex manipulation tasks.
+
+\textbf{Domain Randomization:} A simulation training technique that varies environmental parameters during training to produce robotic policies that transfer more reliably from simulation to real-world deployment.
+
+\textbf{Federated Learning:} Multi-site AI model training without centralizing raw data, using FedAvg, FedProx, or SCAFFOLD algorithms with differential privacy and secure aggregation (DOI: 10.5281/zenodo.18840880).
+
+\textbf{Force Limiting:} A safety mechanism restricting the maximum force a robot can exert on a person or object, critical for clinical robotic procedures and validated throughout the investigation.
+
+\textbf{Hash-Chained Audit Trail:} An immutable, tamper-evident record using SHA-256 hash chains where each record links to the previous via cryptographic hash, satisfying 21 CFR Part 11 requirements.
+
+\textbf{Human Oversight:} The requirement that qualified clinical personnel maintain continuous supervisory authority over Physical AI systems during all phases of clinical investigation, with the ability to intervene, override, or terminate operations at any time.
+
+\textbf{Humanoid Robot:} A full-body robotic system with human-like form factor for patient assistance, logistics, and companionship. Evaluated humanoids: Boston Dynamics Atlas (USL 5.8), Agility Digit (USL 4.2), Tesla Optimus (USL 3.6).
+
+\textbf{Model Context Protocol (MCP):} An open protocol for connecting AI agents to external tools and data sources, implemented through five standardized servers (authz, fhir, dicom, ledger, provenance) with 23 tools under Linux Foundation AAIF governance.
+
+\textbf{MCP Server:} One of five domain-specific servers in the national MCP-PAI standard: trialmcp-authz (authorization and RBAC), trialmcp-fhir (FHIR R4 clinical data with de-identification), trialmcp-dicom (DICOM imaging with role-based restrictions), trialmcp-ledger (hash-chained audit), and trialmcp-provenance (DAG-based data lineage).
+
+\textbf{Physical AI:} The integration of artificial intelligence with physical robotic systems and sensor technologies to perform tasks in the real world, encompassing the full pipeline from simulation-based training through real-world clinical deployment.
+
+\textbf{Pre-Procedure Safety Matrix:} The set of eight verification checks (authorization, identity, clinical data, imaging, robot readiness/USL, environment, simulation validation, digital twin sync) that must all pass before a Physical AI system may begin a clinical procedure.
+
+\textbf{Predetermined Change Control Plan (PCCP):} A documented plan for managing modifications to adaptive Physical AI systems, specifying anticipated changes, validation methodology, acceptance criteria, and safety impact assessment per FDA AI/ML guidance.
+
+\textbf{Reinforcement Learning (RL):} A machine learning paradigm for learning through environment interaction and reward signals. In oncology trials, RL trains surgical autonomy, dose optimization, and adaptive protocols via GPU-accelerated training in NVIDIA Isaac Lab (v2.3.1).
+
+\textbf{Robot Agent:} An autonomous Physical AI system executing clinical procedures through the six-step MCP workflow: authenticate, retrieve clinical data, access imaging, execute procedure, record audit, and record provenance.
+
+\textbf{Robot Capability Profile:} A machine-readable JSON specification of a Physical AI platform's capabilities, safety prerequisites, USL score, and required MCP tools, registered with the authorization server before clinical use.
+
+\textbf{Secure Aggregation:} A cryptographic protocol allowing multiple parties to compute sums of private inputs without revealing individual values, protecting site-specific model updates during federated aggregation.
+
+\textbf{Sim-to-Real Transfer:} The deployment of simulation-trained robotic policies to physical hardware. The sim-to-real gap (performance difference between simulation and reality) must be minimized and documented for clinical applications.
+
+\textbf{Simulation Framework:} A physics-based computational environment for validating Physical AI behavior. Recognized frameworks: NVIDIA Isaac Lab (v2.3.1), MuJoCo (v3.4.0), Gazebo Sim (v10.0.0), PyBullet (v3.2.5).
+
+\textbf{Surgical Robot:} A robotic system for surgical procedures, typically teleoperated. Evaluated surgical robots: da Vinci dVRK (USL 7.1), Hugo RAS (USL 4.5), Versius (USL 3.4).
+
+\textbf{Task Order:} A scheduled clinical trial task assigned to a Physical AI system with defined lifecycle states: scheduled, safety\_check, in\_progress, completed, cancelled, or failed.
+
+\textbf{Unification Standard Level (USL):} A scoring framework (v1.4.0 through v1.8.0) evaluating robotic platform readiness across four dimensions (simulation switching, AI integration, cross-robot sharing, clinical trial collaboration), with scores from 1.0 (Minimal) to 10.0 (Reference) in three bands: Foundational (1.0 to 4.9), Intermediate (5.0 to 6.9), Advanced (7.0 to 10.0).
+
+\textbf{Vision-Language-Action (VLA) Model:} A multimodal AI model taking visual observations and natural language instructions as input to produce robotic actions, enabling natural language programming of clinical robotic behaviors (NVIDIA GR00T N1.6).
+
+\clearpage
+\nocite{cfr-part-50}
+\printbibliography[title={Bibliography}]
+\end{document}

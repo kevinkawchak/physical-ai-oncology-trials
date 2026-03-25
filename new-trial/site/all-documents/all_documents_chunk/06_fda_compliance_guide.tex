@@ -1,0 +1,317 @@
+
+% ============================================================================
+% DOCUMENT 6: FDA Physical AI Oncology Trial Site National Compliance Guide
+% ============================================================================
+
+\part{FDA Physical AI Oncology Trial Site National Compliance Guide}
+\setcounter{section}{0}
+
+\section{Scope and Purpose}
+
+\subsection{Scope}
+
+This compliance guide identifies the federal regulations applicable to
+Physical AI oncology clinical trial sites and specifies where corrections,
+additions, and adaptations should be applied to existing regulatory text.
+Because a comprehensive amendment of each federal regulation is beyond the
+scope of a single document, this guide uses a reference-and-correction approach:
+for each applicable regulation, the specific sections requiring updates are
+identified, and the nature of the required changes is described.
+
+\subsection{Purpose}
+
+The purpose is to provide Physical AI oncology clinical trial site operators,
+sponsors, and regulators with a consolidated roadmap for federal compliance.
+This guide is informed by three detailed regulatory adaptations already
+completed:
+
+\begin{enumerate}[label=(\arabic*)]
+\item Adaptation of ICH E6(R3) for Physical AI oncology clinical trials
+  (1,301 lines, 50+ defined terms), covering good clinical practice,
+  investigator responsibilities, sponsor responsibilities, and data
+  governance~\cite{iche6r3adapt}.
+\item Adaptation of 21 CFR Part 50 for Physical AI oncology clinical trials
+  (748 lines, 18 Physical AI-specific definitions), covering human subjects
+  protection and informed consent~\cite{cfr50adapt}.
+\item Adaptation of 21 CFR Part 312 for Physical AI oncology clinical trials
+  (1,700 lines, 22 Physical AI definitions), covering IND applications,
+  graduated autonomy, safety reporting, and
+  decommissioning~\cite{cfr312adapt}.
+\end{enumerate}
+
+\subsection{Evidence Base}
+
+The evidence for a Physical AI oncology trial transition is overwhelmingly
+based on the most recent simulation~\cite{newtrial2026}, which demonstrated:
+
+\begin{itemize}
+\item 168 unique patients across 15 cancer types served in 24 hours by 29
+  robot instances of 10 types.
+\item Patient throughput 10 times greater than traditional trials (150 to 180
+  patients per day versus 5 to 15).
+\item Per-patient cost reduction of 75 to 85 percent.
+\item Patient retention improvement from 70 to 80 percent (traditional) to
+  85 to 95 percent (Physical AI).
+\item 99.7 percent facility uptime across 24 continuous hours.
+\item Average patient wait time of 8 minutes.
+\item 7 adverse events (all Grade 1 or 2, all resolved same hour).
+\item Patient satisfaction of 4.7 out of 5.0.
+\item Cumulative site PSL of 63.4 to 64.4 (Advanced Site band).
+\item Both minute-level clinical detail and 24-hour operational continuity
+  handled correctly by AI systems.
+\item Staffing reduced from 80 to 120 FTE to 8 to 10 FTE.
+\item All clinical procedures, monitoring, documentation, and regulatory
+  compliance performed autonomously.
+\item Seven surgical procedures with 100 percent R0 resection rate.
+\item Peak utilization of 72.4 percent in hour 09 with 28 concurrent patients.
+\end{itemize}
+
+\section{21 CFR Part 50 -- Protection of Human Subjects}
+
+\subsection{Sections Requiring Update}
+
+The adapted 21 CFR Part 50 (DOI: 10.5281/zenodo.19040707) provides the
+comprehensive text~\cite{cfr50adapt}. The following sections of the original
+regulation require corrections:
+
+\begin{enumerate}[label=(\alph*)]
+\item \textbf{\S~50.1 (Scope):} Add Physical AI system categories and
+  applicability criteria. Specify that the regulation applies to all clinical
+  investigations where Physical AI systems perform, assist, or monitor
+  procedures. Add minimum USL thresholds by robot type.
+
+\item \textbf{\S~50.3 (Definitions):} Add 18 Physical AI-specific definitions
+  including robot agent, USL, digital twin, simulation framework, MCP,
+  hash-chained audit trail, HIPAA Safe Harbor de-identification, PCCP,
+  federated learning, pre-procedure safety matrix, and conformance levels.
+
+\item \textbf{\S~50.20 (General Requirements for Informed Consent):} Extend
+  to require disclosure of robotic system role, autonomy mode, USL score in
+  plain language, safety record, emergency stop provisions, digital twin usage,
+  and MCP data processing pipeline.
+
+\item \textbf{\S~50.25 (Elements of Informed Consent):} Add Physical AI
+  elements as additional required elements, including all 10 robot categories
+  and their patient-facing instruction formats~\cite{patientinstructions2026}.
+
+\item \textbf{\S~50.50 through \S~50.56 (Pediatric Protections):} Add
+  age-appropriate robotic demonstration requirements, parental consent
+  provisions for Physical AI procedures, and advocate appointments.
+\end{enumerate}
+
+\subsection{Implementation Notes}
+
+Sites should apply the full adapted text from the Physical AI 21 CFR Part 50
+document~\cite{cfr50adapt}. Where the adapted text extends the original
+regulation, the extended provisions are additive and do not replace the
+original human subjects protection requirements.
+
+\section{21 CFR Part 312 -- Investigational New Drug Application}
+
+\subsection{Sections Requiring Update}
+
+The adapted 21 CFR Part 312 (DOI: 10.5281/zenodo.19057628) provides the
+comprehensive text~\cite{cfr312adapt}. Key sections requiring corrections:
+
+\begin{enumerate}[label=(\alph*)]
+\item \textbf{\S~312.1-312.2 (Scope):} Extend to cover clinical investigations
+  where Physical AI systems perform, assist, or monitor investigational drug
+  administration. Define when IND coverage is required based on Physical AI
+  risk introduction.
+
+\item \textbf{\S~312.3 (Definitions):} Add 22 Physical AI definitions
+  including robot agents, USL scoring (9 platforms evaluated), digital twins,
+  simulation frameworks, robot capability profiles, task orders, emergency
+  stop, human oversight, MCP, and VLA models.
+
+\item \textbf{\S~312.21 (Phases of Investigation):} Add Phase 0 simulation
+  validation requirements. Establish graduated autonomy: Phase 1 teleoperation
+  only, Phase 2 graduated autonomy with safety data review, Phase 3 full
+  autonomy range with accumulated evidence~\cite{cfr312adapt}.
+
+\item \textbf{\S~312.23 (IND Content):} Add Physical AI System Description
+  requirements: system identification, USL score, role in drug administration,
+  hardware and software specifications, PCCP, Phase 0 results, digital twin
+  specifications, safety architecture, cybersecurity assessment, MCP
+  integration, human-robot interaction protocols, and maintenance procedures.
+
+\item \textbf{\S~312.30 (Protocol Amendments):} Define Physical AI-specific
+  amendments: new robot type, autonomy level change, significant AI model
+  update, simulation framework change, human oversight change, digital twin
+  methodology change, and MCP architecture change.
+
+\item \textbf{\S~312.32 (Safety Reporting):} Add seven Physical AI adverse
+  event categories: serious Physical AI adverse events, Physical AI-drug
+  interactions, cybersecurity incidents (7-day or 15-day reporting), AI model
+  performance degradation, sim-to-real divergence (trajectory above 4mm or
+  force above 1.0N), digital twin discrepancy, and Physical AI Safety Review
+  Committee findings.
+
+\item \textbf{\S~312.33 (Annual Reports):} Add Physical AI elements: USL
+  score updates, AI model updates, simulation results, digital twin metrics,
+  cybersecurity events, and safety committee findings.
+
+\item \textbf{\S~312.38 (Withdrawal of IND):} Add decommissioning
+  requirements: safe deactivation, log preservation, secure patient data
+  erasure, 30-day decommissioning timeline, 60-day technical
+  analysis~\cite{cfr312adapt}.
+
+\item \textbf{\S~312.40 (Requirements for Use):} Add Physical AI readiness
+  requirements: system description submitted, USL threshold met, pre-procedure
+  safety matrix verified, training completed, MCP infrastructure configured.
+
+\item \textbf{\S~312.42 (Clinical Holds):} Add eight Physical AI-specific
+  grounds: robotic safety failures, AI model degradation, simulation-reality
+  divergence (above 2x tolerance), cybersecurity compromise, USL score
+  decline, inadequate system description, digital twin failure, and
+  inadequate human oversight.
+\end{enumerate}
+
+\section{ICH E6(R3) -- Good Clinical Practice}
+
+\subsection{Sections Requiring Update}
+
+The adapted ICH E6(R3) (DOI: 10.5281/zenodo.18973368) provides the
+comprehensive text~\cite{iche6r3adapt}. Key sections requiring corrections:
+
+\begin{enumerate}[label=(\alph*)]
+\item \textbf{Section 1 (Principles):} Extend foundational principles to
+  encompass robotic surgical systems, AI algorithms, and digital twins.
+  Add Physical AI system classification (seven robot categories) and the USL
+  scoring framework (v1.4.0 through v1.8.0)~\cite{usl2026}.
+
+\item \textbf{Section 2 (Investigator Responsibilities):} Add robotic system
+  oversight, AI model monitoring, digital twin validation, and cybersecurity
+  incident management to investigator duties.
+
+\item \textbf{Section 3 (Sponsor Responsibilities):} Add quality management
+  for Physical AI components: robotic system selection, AI lifecycle
+  management, simulation validation, digital twin deployment, and federated
+  multi-site coordination.
+
+\item \textbf{Section 4 (Data Governance):} Add full lifecycle governance for
+  Physical AI data: robotic telemetry, AI decision logs, digital twin state
+  data. Mandate hash-chained audit trails (SHA-256) and HIPAA Safe Harbor
+  de-identification. Address five AI categories: generative AI (VLA, diffusion
+  policies), agentic AI (LLM-based), reinforcement learning, self-supervised
+  learning, and supervised learning.
+
+\item \textbf{Appendix A (Physical AI System Documentation):} Add requirements
+  analogous to Investigator's Brochure for Physical AI system descriptions.
+
+\item \textbf{Appendix B (Protocol Templates):} Add Physical AI-specific
+  protocol elements including simulation validation, robot deployment plans,
+  and graduated autonomy phases.
+
+\item \textbf{Glossary:} Add 50+ terms defined including agentic AI,
+  calibration, cobots, digital twins, federated learning, sim-to-real
+  transfer, and USL framework.
+\end{enumerate}
+
+\section{21 CFR Part 11 -- Electronic Records}
+
+\subsection{Sections Requiring Update}
+
+\begin{enumerate}[label=(\alph*)]
+\item \textbf{\S~11.10 (Controls for Closed Systems):} Specify that Physical
+  AI system telemetry, AI decision logs, and digital twin records are
+  electronic records subject to Part 11 requirements. Hash-chained audit
+  trails (SHA-256) satisfy the audit trail requirement when cryptographic
+  chain integrity is verified quarterly~\cite{iche6r3adapt}.
+
+\item \textbf{\S~11.30 (Controls for Open Systems):} Apply to federated
+  learning data exchanges between Physical AI systems at different sites,
+  requiring encryption and digital signature verification.
+
+\item \textbf{\S~11.50 (Signature Manifestations):} Extend to include
+  automated system signatures from Physical AI systems that generate,
+  modify, or transmit electronic records during clinical procedures.
+\end{enumerate}
+
+\section{21 CFR Part 820 -- Quality System Regulation}
+
+\subsection{Sections Requiring Update}
+
+\begin{enumerate}[label=(\alph*)]
+\item \textbf{\S~820.30 (Design Controls):} Apply to Physical AI systems
+  classified as medical devices, including Phase 0 simulation validation as
+  part of design verification and validation.
+
+\item \textbf{\S~820.70 (Production and Process Controls):} Apply to the
+  deployment and configuration of Physical AI systems at trial sites,
+  including calibration, maintenance, and software update processes.
+
+\item \textbf{\S~820.90 (Nonconforming Product):} Apply to Physical AI
+  systems that fall below minimum USL thresholds or exhibit performance
+  degradation, with corrective action timelines aligned with the adapted
+  21 CFR Part 312 safety reporting requirements~\cite{cfr312adapt}.
+
+\item \textbf{\S~820.198 (Complaint Files):} Extend to include Physical AI
+  system malfunction reports, patient complaints involving robotic systems,
+  and AI model performance complaints.
+\end{enumerate}
+
+\section{Additional Federal Requirements}
+
+\subsection{HIPAA (45 CFR Parts 160 and 164)}
+
+Physical AI oncology clinical trial sites shall comply with HIPAA Privacy,
+Security, and Breach Notification Rules with additional attention to the
+following Physical AI-specific considerations:
+
+\begin{enumerate}[label=(\alph*)]
+\item Robotic telemetry data that can be linked to specific patients
+  constitutes protected health information (PHI) under HIPAA.
+\item Digital twin data constitutes PHI when it contains or is derived from
+  individually identifiable health information.
+\item MCP-PAI server architectures shall implement the HIPAA Security Rule
+  administrative, physical, and technical safeguards~\cite{iche6r3adapt}.
+\item The five MCP-PAI servers (authorization, FHIR, DICOM, ledger,
+  provenance) shall each maintain individual HIPAA compliance
+  documentation.
+\end{enumerate}
+
+\subsection{Nuclear Regulatory Commission (10 CFR Part 35)}
+
+Physical AI oncology clinical trial sites operating radiotherapy systems
+shall comply with NRC radiation safety requirements, with the following
+Physical AI-specific considerations:
+
+\begin{enumerate}[label=(\alph*)]
+\item Radiotherapy positioning robots and motion-tracking robots shall be
+  included in the site's radiation safety program as radiation-producing
+  equipment accessories.
+\item The radiation safety officer shall be trained in Physical AI system
+  radiation safety implications.
+\item Radiation dose calculations shall account for the precision of Physical
+  AI positioning systems, which demonstrated submillimeter accuracy and 94.2
+  percent beam gating efficiency in the
+  simulation~\cite{newtrial2026}.
+\end{enumerate}
+
+\section{Cross-Reference Matrix}
+
+The following table maps Physical AI system categories to the primary federal
+regulations that apply to each:
+
+\begin{center}
+\footnotesize
+\begin{tabular}{lccccc}
+\toprule
+\textbf{System Type} & \textbf{Part 50} & \textbf{Part 312} &
+\textbf{E6(R3)} & \textbf{Part 11} & \textbf{Part 820} \\
+\midrule
+Surgical robots       & Yes & Yes & Yes & Yes & Yes \\
+Cobots                & Yes & Yes & Yes & Yes & Yes \\
+RT positioning        & Yes & Yes & Yes & Yes & Yes \\
+Needle-placement      & Yes & Yes & Yes & Yes & Yes \\
+Social companion      & Yes & --  & Yes & Yes & -- \\
+Humanoids             & Yes & --  & Yes & Yes & -- \\
+RT motion-tracking    & Yes & Yes & Yes & Yes & Yes \\
+Imaging assistants    & Yes & Yes & Yes & Yes & Yes \\
+Steerable needles     & Yes & Yes & Yes & Yes & Yes \\
+Rehab exoskeletons    & Yes & --  & Yes & Yes & Yes \\
+\bottomrule
+\end{tabular}
+\end{center}
+
