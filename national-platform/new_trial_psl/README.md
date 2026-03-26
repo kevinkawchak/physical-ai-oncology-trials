@@ -25,16 +25,16 @@ These are chunks of `all_documents.tex` split into smaller `.tex` files for proc
 To reconstruct the full `all_documents.tex`, concatenate all `.tex` files in numerical order:
 
 ```bash
-cat 01_preamble_and_sb1042.tex \\
-    02_ab2847_patient_rights.tex \\
-    03_sb892_data_protection.tex \\
-    04_sf_municipal_code.tex \\
-    05_title22_regulations.tex \\
-    06_fda_compliance_guide.tex \\
-    07_building_code.tex \\
-    08_premises_code.tex \\
-    09_parking_transportation.tex \\
-    10_activation_sops.tex \\
+cat 01_preamble_and_sb1042.tex \
+    02_ab2847_patient_rights.tex \
+    03_sb892_data_protection.tex \
+    04_sf_municipal_code.tex \
+    05_title22_regulations.tex \
+    06_fda_compliance_guide.tex \
+    07_building_code.tex \
+    08_premises_code.tex \
+    09_parking_transportation.tex \
+    10_activation_sops.tex \
     11_emergency_preparedness.tex > all_documents_reconstructed.tex
 ```
 
