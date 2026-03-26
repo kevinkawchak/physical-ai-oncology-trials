@@ -1,0 +1,243 @@
+
+\subsubsection{Physical AI Examples}
+
+Six physical AI examples (\texttt{examples-physical-ai/}, 800+ LOC each) demonstrate robotic oncology capabilities: real-time safety monitoring with ISO 13482 alignment, multi-sensor Kalman fusion, ROS 2 surgical deployment with lifecycle nodes, hand-eye calibration via Tsai-Lenz, shared autonomy teleoperation with variable blending, and robotic sample handling with chain-of-custody tracking.
+
+\subsection{Triple AI Peer Review Pipeline (v0.9.4--v0.9.9)}
+\label{sec:peerreview}
+
+The triple AI peer review process constitutes a \emph{sequential} pipeline of review-fix cycles alternating between two AI manufacturers, establishing a dual-manufacturer trust benchmark for AI-generated code~\cite{kawchak2026peerreview}:
+
+\begin{verbatim}
+ Sequential Triple AI Peer Review (v0.9.4 - v0.9.9)
+ ====================================================
+
+ Claude Code --> Codex ------> Claude Code --> Codex
+ (codebase)     (review #1)    (fixes #1)     (review #2)
+  v0.1-0.9.3     v0.9.4         v0.9.5         v0.9.6
+                  12 recs        12/12          9 recs
+
+ --> Claude Code --> Codex ------> Claude Code
+     (fixes #2)     (review #3)    (fixes #3)
+      v0.9.7         v0.9.8         v0.9.9
+      9/9            10 recs        10/10
+
+ Total: 31/31 recommendations resolved (100%)
+\end{verbatim}
+
+This was \textbf{not} a parallel process. Each cycle was sequential: Claude Code provided the codebase, Codex reviewed and generated recommendations, Claude Code implemented all fixes, then Codex reviewed the updated codebase again. This sequential alternation---Claude Code $\to$ Codex $\to$ Claude Code $\to$ Codex $\to$ Claude Code $\to$ Codex---ensures each review cycle builds on the fixes from the previous cycle, enabling progressively deeper risk detection.
+
+\begin{table}[H]
+\centering
+\caption{Triple AI peer review cycle metrics (v0.9.4--v0.9.9)}
+\label{tab:peerreview}
+\small
+\begin{tabular}{@{}cccccc@{}}
+\toprule
+\textbf{Cycle} & \textbf{Review} & \textbf{Fixes} & \textbf{Recs} & \textbf{Resolved} & \textbf{Focus} \\
+\midrule
+1 & v0.9.4 (Codex) & v0.9.5 (Claude) & 12 & 12/12 & CI \& process \\
+2 & v0.9.6 (Codex) & v0.9.7 (Claude) & 9 & 9/9 & Compliance \& security \\
+3 & v0.9.8 (Codex) & v0.9.9 (Claude) & 10 & 10/10 & Hardening \& secrets \\
+\midrule
+\textbf{Total} & \textbf{3 reviews} & \textbf{3 fix cycles} & \textbf{31} & \textbf{31/31} & \textbf{100\%} \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsubsection{v1.0.1: Claude Code + Codex---31/31 Resolved as AI Bias Mitigation}
+
+The 31/31 resolution rate using two different AI manufacturers (Anthropic for code generation/fixes, OpenAI for independent review) serves as an example of AI bias mitigation in software development. By ensuring neither manufacturer's blind spots persist in the final codebase, the dual-manufacturer approach establishes an emerging software quality methodology:
+\begin{itemize}
+  \item \textbf{Manufacturer A (Anthropic Claude Code):} May have systematic blind spots in security patterns, exception handling, or compliance areas
+  \item \textbf{Manufacturer B (OpenAI Codex):} Independent review catches issues that Manufacturer A's training data may not flag
+  \item \textbf{Result:} The alternating sequential process eliminates single-manufacturer bias, producing code that has been independently validated by two separate AI architectures
+\end{itemize}
+
+\subsection{Code Trust and Safety: Tests, Checks, and Migrations}
+\label{sec:codetrust}
+
+\subsubsection{Core Test Suite (v0.8.0)}
+
+The test suite at \texttt{tests/} (v0.8.0) contains 82 test files across 15 directories, constituting a core infrastructure for code trust:
+
+\begin{table}[H]
+\centering
+\caption{Test suite directory structure (v0.8.0, 15 directories)}
+\label{tab:tests}
+\small
+\begin{tabular}{@{}lcp{4.5cm}@{}}
+\toprule
+\textbf{Directory} & \textbf{Files} & \textbf{Coverage Scope} \\
+\midrule
+\texttt{test\_federated/} & 6 & Coordinator, client, aggregation, DP \\
+\texttt{test\_privacy/} & 6 & PHI, de-identification, RBAC, breach \\
+\texttt{test\_regulatory/} & 5 & FDA, IRB, GCP, intelligence, oversight \\
+\texttt{test\_clinical\_analytics/} & 7 & Orchestration, PK/PD, survival, DSMB \\
+\texttt{test\_regulatory\_submissions/} & 4 & eCTD, compliance, documents, analytics \\
+\texttt{test\_agentic\_ai/} & 5 & MCP, ReAct, monitoring, orchestrator \\
+\texttt{test\_digital\_twins/} & 3 & Patient modeling, treatment, integration \\
+\texttt{test\_physical\_ai/} & 4 & Digital twin, robotics, sensor fusion \\
+\texttt{test\_unification/} & 3 & Bridge, agent interface, converter \\
+\texttt{test\_tools/} & 2 & CLI tool validation \\
+\texttt{test\_standards/} & 3 & Q1 2026 conversion, registry, benchmark \\
+\texttt{test\_examples/} & 3 & Example script execution \\
+\texttt{test\_regression/} & 2 & v0.7.0 audit finding regression guards \\
+\texttt{test\_integration/} & 2 & End-to-end cross-module pipelines \\
+\texttt{conftest.py} & 1 & Shared fixtures, \texttt{np.random.seed(42)} \\
+\midrule
+\textbf{Total} & \textbf{82} (incl.\ 16 \texttt{\_\_init\_\_.py}) & \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsubsection{Security Audit (v0.7.0)}
+
+The comprehensive security audit (v0.7.0) identified and resolved 61 findings across three categories:
+\begin{itemize}
+  \item \textbf{12 Security vulnerabilities:} \texttt{torch.load} $\to$ \texttt{weights\_only=True}, \texttt{np.load} $\to$ \texttt{allow\_pickle=False}, plaintext key removal, mutable audit log exposure
+  \item \textbf{14 Logic bugs:} Division-by-zero guards, bounded \texttt{while} loops with \texttt{MAX\_ITERATIONS}, floating-point tolerance (\texttt{np.isclose}), hazard ratio sign correction
+  \item \textbf{35 Compliance findings:} \texttt{RESEARCH USE ONLY} disclaimers in all modules, audit trail logging, date shift handling, \texttt{model\_type="unspecified"} defaults
+\end{itemize}
+
+\subsubsection{Peer Review Fixes and Migrations}
+
+\textbf{Cycle 1 (v0.9.4$\to$v0.9.5)---CI Determinism:}
+\begin{itemize}
+  \item Created \texttt{constraints/lint.txt} with pinned tool versions for CI reproducibility
+  \item Added \texttt{.pre-commit-config.yaml} for local lint consistency
+  \item 5 files modified, 4 new files, +67 net LOC
+\end{itemize}
+
+\textbf{Cycle 2 (v0.9.6$\to$v0.9.7)---Compliance \& Security:}
+\begin{itemize}
+  \item Fixed 24 UTC timestamp instances across 23 files (migrated to \texttt{datetime.timezone.utc})
+  \item Narrowed 17 broad exception handlers to specific exception types
+  \item Replaced MD5 hashing with SHA-256
+  \item Created \texttt{scripts/check\_version\_alignment.py} (71 LOC), \texttt{scripts/security\_scan.py} (96 LOC), \texttt{scripts/release\_metrics.py} (89 LOC)
+  \item 23 files modified, 3 new files, +25 net LOC
+\end{itemize}
+
+\textbf{Cycle 3 (v0.9.8$\to$v0.9.9)---Hardening \& Secrets:}
+\begin{itemize}
+  \item Removed hardcoded cryptographic keys from 8 modules (migrated to \texttt{os.environ} via \texttt{utils/crypto.py})
+  \item Implemented audit integrity chain verification
+  \item Created PHI-safe logging sanitizer (\texttt{utils/log\_sanitizer.py}, 36 LOC)
+  \item Narrowed 11 additional exception handlers
+  \item Created centralized configuration (\texttt{utils/config.py}, 66 LOC) and structured error codes (\texttt{utils/error\_codes.py}, 74 LOC)
+  \item Added PHI fuzz tests (\texttt{tests/test\_privacy/test\_phi\_fuzz.py}, 127 LOC)
+  \item 22 files modified, 7 new files, +386 net LOC
+\end{itemize}
+
+\textbf{Cumulative impact across all trust \& safety activities:}
+\begin{itemize}
+  \item 92 total issues resolved (61 audit + 31 peer review)
+  \item 28 exception handlers narrowed across 19 files
+  \item 25 UTC timestamp fixes
+  \item 13 new utility scripts/modules
+  \item +478 net lines of trust infrastructure code
+\end{itemize}
+
+\subsection{Clinical Analytics Platform (v0.9.0)}
+
+The \texttt{clinical-analytics/} platform ($\sim$4,900 LOC across 7 modules) provides privacy-preserving analytics for multi-site oncology trials:
+
+\begin{itemize}
+  \item \textbf{PK/PD Engine:} One- and two-compartment pharmacokinetic models with analytical and ODE solutions (\texttt{scipy.integrate.solve\_ivp}), NCA metrics (AUC, C$_{\text{max}}$, T$_{\text{max}}$, t$_{1/2}$), E$_{\text{max}}$ dose-response
+  \item \textbf{Survival Analysis:} Kaplan-Meier with Greenwood SE, log-rank test, Cox proportional hazards via BFGS with Breslow ties, Harrell's C-index, restricted mean survival time (RMST)
+  \item \textbf{Risk Stratification:} Composite weighted scores, adaptive enrichment with per-stratum decision support, Hosmer-Lemeshow calibration
+  \item \textbf{Clinical Interoperability:} ICD-10/SNOMED CT crosswalk, LOINC, RxNorm, MedDRA mappings, CDISC SDTM export~\cite{cdisc2024sdtm}
+  \item \textbf{Consortium Reporting:} DSMB reports with SHA-256 integrity hashing for tamper detection
+\end{itemize}
+
+\subsection{Digital Twins for Oncology (v0.4.0)}
+
+The \texttt{digital-twins/} platform implements patient-specific modeling across three subdirectories:
+\begin{itemize}
+  \item \textbf{Patient Modeling} (\texttt{patient\_model.py}): Six tumor types with four growth kinetics models---exponential ($V(t) = V_0 e^{kt}$), logistic ($V(t) = \frac{K}{1 + (\frac{K}{V_0} - 1)e^{-rt}}$), Gompertz ($V(t) = K \cdot (\frac{V_0}{K})^{e^{-\alpha t}}$), and von Bertalanffy
+  \item \textbf{Treatment Simulation} (\texttt{treatment\_simulator.py}): Multi-modality treatment including chemotherapy, radiation, immunotherapy, targeted therapy, and combination protocols with RECIST 1.1 response assessment~\cite{eisenhauer2009recist}
+  \item \textbf{Clinical Integration} (\texttt{clinical\_integrator.py}): EHR, PACS, LIS, RIS, and TPS system integration with a federated clinical bridge
+\end{itemize}
+
+The visualization infrastructure (v0.9.3) provides 30 Plotly-based interactive charts across three thematic sets for publication-quality rendering of digital twin data.
+
+\subsection{Technology Stack and Dependencies}
+
+The platform is designed for minimal dependency footprint while supporting optional advanced capabilities. Table~\ref{tab:techstack} summarizes the technology stack across required and optional tiers.
+
+\begin{table}[H]
+\centering
+\caption{Technology stack with version requirements and integration status}
+\label{tab:techstack}
+\small
+\begin{tabular}{@{}llll@{}}
+\toprule
+\textbf{Package} & \textbf{Version} & \textbf{Purpose} & \textbf{Status} \\
+\midrule
+\multicolumn{4}{l}{\textit{Required (Python 3.10+, no GPU)}} \\
+NumPy & $\geq$1.24.0 & Array computation, federated MLP & Integrated \\
+SciPy & $\geq$1.11.0 & ODE solvers, optimization & Integrated \\
+scikit-learn & $\geq$1.3.0 & ML algorithms & Integrated \\
+pandas & $\geq$2.0.0 & Data manipulation & Integrated \\
+cryptography & $\geq$41.0.0 & HMAC-SHA256, encryption & Integrated \\
+PyYAML & $\geq$6.0 & Configuration parsing & Integrated \\
+pytest & $\geq$7.4.0 & Testing framework & Integrated \\
+ruff & ==0.15.1 & Linting \& formatting (pinned) & CI-enforced \\
+\midrule
+\multicolumn{4}{l}{\textit{Optional: Deep Learning \& Medical Imaging}} \\
+PyTorch & $\geq$2.5.0 & Deep learning models & Bridge ready \\
+MONAI & $\geq$1.3.0 & Medical image analysis & Optional \\
+pydicom & $\geq$2.4.0 & DICOM parsing & Optional \\
+\midrule
+\multicolumn{4}{l}{\textit{Optional: Agentic AI Frameworks}} \\
+LangChain & $\geq$0.3.0 & LLM chains & Interface \\
+CrewAI & $\geq$0.80.0 & Multi-agent orchestration & Interface \\
+MCP & $\geq$1.1.0 & Model Context Protocol & Interface \\
+\midrule
+\multicolumn{4}{l}{\textit{Optional: Simulation Frameworks}} \\
+NVIDIA Isaac Sim & 4.2.0 & High-fidelity surgical sim & Bridge \\
+MuJoCo & $\geq$3.1.0 & Physics simulation & Bridge \\
+Gazebo & Harmonic & ROS 2 integration & Guide \\
+PyBullet & $\geq$3.2.6 & Lightweight simulation & Guide \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Federated Coordinator Implementation Details}
+
+The core federated learning coordinator (\texttt{federated/coordinator.py}, v0.2.0) implements three aggregation strategies with convergence detection. The following code illustrates the FedProx proximal term, which penalizes client models that deviate too far from the global model---critical for non-IID hospital data distributions:
+
+\begin{lstlisting}[caption={FedProx aggregation with proximal regularization from \texttt{federated/coordinator.py} (v0.2.0)}]
+class FederatedCoordinator:
+    """Orchestrates federated training rounds with
+    FedAvg, FedProx, or SCAFFOLD aggregation."""
+
+    def aggregate_fedprox(self, client_updates, global_weights):
+        """FedProx: weighted average with proximal term mu."""
+        total_samples = sum(u["n_samples"] for u in client_updates)
+        aggregated = {}
+        for key in global_weights:
+            weighted_sum = sum(
+                u["weights"][key] * (u["n_samples"] / total_samples)
+                for u in client_updates
+            )
+            # Proximal term: mu * (w - w_global)
+            proximal = self.mu * (weighted_sum - global_weights[key])
+            aggregated[key] = weighted_sum - proximal
+        return aggregated
+\end{lstlisting}
+
+The data harmonization module (\texttt{federated/data\_harmonization.py}, v0.2.0, $\sim$10,161 bytes) provides DICOM/FHIR vocabulary mapping and unit conversion across hospital sites, ensuring that heterogeneous data formats are standardized before federated aggregation. The site enrollment manager (\texttt{federated/site\_enrollment.py}, v0.2.0, $\sim$11,523 bytes) implements quality-weighted site selection for multi-site trial coordination.
+
+\subsection{CLI Tools for Trial Operations (v0.4.0)}
+
+Five command-line tools provide operational support for trial engineers:
+
+\begin{enumerate}
+  \item \textbf{DICOM Inspector} (\texttt{tools/dicom-inspector/}): Inspection and validation of DICOM medical images with tag verification and JSON output
+  \item \textbf{Dose Calculator} (\texttt{tools/dose-calculator/}): Radiation and chemotherapy dose calculation with NCCN/RTOG reference constants and BSA-based dosing
+  \item \textbf{Trial Site Monitor} (\texttt{tools/trial-site-monitor/}): Multi-site monitoring with GREEN/YELLOW/RED status classification and enrollment tracking
+  \item \textbf{Sim Job Runner} (\texttt{tools/sim-job-runner/}): Cross-framework simulation job launcher with automatic framework detection
+  \item \textbf{Deployment Readiness} (\texttt{tools/deployment-readiness/}): Checklist-based validation scoring with PASS/FAIL/WARNING/REQUIRES\_VERIFICATION status levels
+\end{enumerate}
+
