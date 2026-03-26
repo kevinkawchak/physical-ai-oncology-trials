@@ -1,0 +1,27 @@
+\pagestyle{appendix}
+\appendix
+\renewcommand{\thesubsection}{\Alph{subsection}}
+
+\lipsum[2]
+
+\subsection{Detailed descriptions that don't fit in the main text}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{example-image-b}
+    \caption{Example of an image in the appendix}
+    \label{fig:appendix_a}
+\end{figure}
+
+\newpage    % I wanted each new appendix to start on a new page
+
+\subsection{Tables and figures that are supplementary}
+
+\lipsum[3]
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{example-image-c}
+    \caption{Example of an image in the appendix}
+    \label{fig:appendix_b}
+\end{figure}
