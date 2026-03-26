@@ -1,0 +1,317 @@
+\section{Results}
+\label{sec:results}
+% =================================================================
+
+\subsection{Platform Architecture Overview}
+
+The PAI Oncology Trial FL platform follows a layered architecture where five infrastructure pillars support the end-to-end clinical trial workflow. Table~\ref{tab:architecture} maps each pillar to its codebase location, version of introduction, and quantitative scope.
+
+\begin{table}[H]
+\centering
+\caption{Five-pillar architecture with codebase metrics}
+\label{tab:architecture}
+\small
+\begin{tabular}{@{}clcrl@{}}
+\toprule
+\textbf{\#} & \textbf{Pillar} & \textbf{Directory} & \textbf{LOC} & \textbf{Version} \\
+\midrule
+1 & Privacy Infrastructure & \texttt{privacy/} & $\sim$5,400 & v0.6.0 \\
+2 & Regulatory Infrastructure & \texttt{regulatory/}, \texttt{reg-sub/} & $\sim$10,000 & v0.6.0, v0.9.1 \\
+3 & Cross-Framework Unification & \texttt{unification/} & $\sim$8,200 & v0.3.0 \\
+4 & Standards \& Benchmarking & \texttt{q1-2026-standards/} & $\sim$3,800 & v0.3.0 \\
+5 & Multi-Org Cooperation & \texttt{federated/} & $\sim$12,000 & v0.1.0--v0.2.0 \\
+\midrule
+  & Supporting: Clinical Analytics & \texttt{clinical-analytics/} & $\sim$4,900 & v0.9.0 \\
+  & Supporting: Digital Twins & \texttt{digital-twins/} & $\sim$4,500 & v0.4.0 \\
+  & Supporting: Physical AI & \texttt{physical\_ai/} & $\sim$6,200 & v0.1.0 \\
+  & Supporting: Agentic AI & \texttt{agentic-ai/} & $\sim$6,700 & v0.5.0 \\
+  & Infrastructure: Tests & \texttt{tests/} & $\sim$15,000 & v0.8.0 \\
+  & Infrastructure: CLI Tools & \texttt{tools/} & $\sim$5,100 & v0.4.0 \\
+  & Infrastructure: Utilities & \texttt{utils/}, \texttt{scripts/} & $\sim$500 & v0.9.7--v0.9.9 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{verbatim}
+  PAI Oncology Trial FL - End-to-End Architecture (v1.1.0)
+  ========================================================
+
+  +-- Multi-Organization Cooperation (Pillar 5) ----------+
+  |  FedAvg | FedProx | SCAFFOLD | Secure Aggregation     |
+  |  Site Enrollment | Data Harmonization | DP Budget      |
+  +-------+------+------+------+------+------+------------+
+          |      |      |      |      |
+  +-------+--+ +-+------+-+ +--+------+--+ +-+----------+
+  | Privacy  | | Regulatory | | Unification | | Standards |
+  | (Pillar  | | (Pillar 2) | | (Pillar 3)  | | (Pillar  |
+  |  1)      | |            | |             | |  4)       |
+  | PHI Det. | | FDA Track  | | Isaac-MuJo  | | Model     |
+  | De-ID    | | IRB Mgmt   | | Bridge      | | Registry  |
+  | RBAC     | | GCP Check  | | Agent Unif. | | Benchmark |
+  | Breach   | | eCTD Comp. | | Format Conv | | Convert   |
+  +----+-----+ +-----+------+ +------+------+ +-----+----+
+       |             |               |               |
+  +----+-------------+---------------+---------------+----+
+  |        Supporting Platform Modules                     |
+  | Digital Twins | Clinical Analytics | Agentic AI | CLI  |
+  | PK/PD | Survival | Risk | DSMB | MCP | ReAct | RAG   |
+  +-------------------------------------------------------+
+          |
+  +-------+-----------------------------------------------+
+  |              Tests & Quality Infrastructure            |
+  | 82 test files | 15 directories | Security Audit       |
+  | Triple AI Peer Review | CI (3.10/3.11/3.12)           |
+  +-------------------------------------------------------+
+\end{verbatim}
+
+\subsection{Pillar 1: Privacy Infrastructure (v0.6.0)}
+\label{sec:privacy}
+
+The privacy framework implements comprehensive HIPAA Safe Harbor compliance across five modules totaling $\sim$5,400 LOC within the \texttt{privacy/} directory.
+
+\subsubsection{PHI/PII Detection and Management}
+
+The \texttt{phi\_detector.py} module (v0.6.0) implements all 18 HIPAA Safe Harbor identifiers per 45 CFR 164.514(b)(2)~\cite{hipaa_safeharbor}:
+
+\begin{lstlisting}[caption={PHI detection categories from \texttt{privacy/phi-pii-management/phi\_detector.py} (v0.6.0)}]
+class PHICategory(Enum):
+    NAME = "name"
+    GEOGRAPHIC = "geographic_subdivision"
+    DATE = "dates"
+    PHONE = "phone_number"
+    FAX = "fax_number"
+    EMAIL = "email_address"
+    SSN = "social_security_number"
+    MEDICAL_RECORD = "medical_record_number"
+    HEALTH_PLAN = "health_plan_beneficiary"
+    ACCOUNT = "account_number"
+    LICENSE = "certificate_license"
+    VEHICLE = "vehicle_identifier"
+    DEVICE = "device_identifier"
+    URL = "web_url"
+    IP_ADDRESS = "ip_address"
+    BIOMETRIC = "biometric_identifier"
+    PHOTO = "full_face_photo"
+    OTHER = "other_unique_identifier"
+\end{lstlisting}
+
+\subsubsection{De-identification Pipeline}
+
+The de-identification module provides six transformation methods with HMAC-SHA256 pseudonymization using cryptographically random salts (\texttt{os.urandom(32)}), as hardened during peer review cycle 3 (v0.9.8/v0.9.9):
+
+\begin{itemize}
+  \item \textbf{REDACT:} Complete value removal
+  \item \textbf{HASH:} HMAC-SHA256 pseudonymization (environment-driven keys post-v0.9.9)
+  \item \textbf{GENERALIZE:} Geographic data to 3-digit ZIP codes
+  \item \textbf{SUPPRESS:} Selective field suppression
+  \item \textbf{PSEUDONYMIZE:} Consistent patient-level token generation
+  \item \textbf{DATE\_SHIFT:} Consistent patient-level date offsets
+\end{itemize}
+
+\subsubsection{Access Control and Audit}
+
+Role-based access control (RBAC) implements 21 CFR Part 11 compliant audit trails~\cite{cfr_part11} with five role tiers, time-limited access with fail-closed expiration (v0.6.0), and immutable audit log copies returned by \texttt{get\_audit\_log()} (v0.7.0 security fix).
+
+\subsubsection{Breach Response and Data Use Agreements}
+
+The breach response protocol implements four-factor risk assessment per 45 CFR 164.402 with 60-day notification tracking. The DUA generator supports five agreement types (research, clinical, vendor, multi-institutional, pediatric) with security tiers and configurable retention policies.
+
+\subsection{Pillar 2: Regulatory Infrastructure (v0.6.0, v0.9.1)}
+\label{sec:regulatory}
+
+\subsubsection{Core Regulatory Framework (v0.6.0)}
+
+The \texttt{regulatory/} directory implements five compliance domains:
+
+\begin{table}[H]
+\centering
+\caption{Regulatory infrastructure modules and compliance alignment}
+\label{tab:regulatory}
+\small
+\begin{tabular}{@{}lll@{}}
+\toprule
+\textbf{Module} & \textbf{Version} & \textbf{Standards} \\
+\midrule
+\texttt{fda\_submission\_tracker.py} & v0.6.0 & FDA 510(k), De Novo, PMA \\
+\texttt{irb\_protocol\_manager.py} & v0.6.0 & ICH E6(R3), 21 CFR Part 11 \\
+\texttt{gcp\_compliance\_checker.py} & v0.6.0 & ICH E6(R3) 13 principles \\
+\texttt{regulatory\_tracker.py} & v0.6.0 & FDA, EMA, PMDA, TGA, HC \\
+\texttt{HUMAN\_OVERSIGHT\_QMS.md} & v0.6.0 & CRF risk tiers, AE boundaries \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The FDA submission tracker supports five regulatory pathways---510(k), De Novo, PMA, Breakthrough, and Pre-Submission---referencing FDA AI/ML Device Guidance (January 2025)~\cite{fda2025aiml}, PCCP Guidance (August 2025)~\cite{fda2025pccp}, and QMSR (February 2026). The GCP compliance checker scores 13 ICH E6(R3) principles~\cite{ich2025e6r3} excluding \texttt{NOT\_ASSESSED} findings from the denominator (v0.7.0 logic fix).
+
+\subsubsection{Regulatory Submissions Platform (v0.9.1)}
+
+The \texttt{regulatory-submissions/} platform ($\sim$4,600 LOC across 6 modules) complements clinical analytics with downstream regulatory packaging:
+
+\begin{enumerate}
+  \item \textbf{Submission Orchestrator:} Lifecycle management for FDA submission workflows
+  \item \textbf{eCTD Compiler:} Module structure generation per FDA Technical Conformance Guide with SHA-256 checksums
+  \item \textbf{Compliance Validator:} Multi-regulation validation across 9 frameworks (HIPAA, GDPR, FDA 21 CFR 820, Part 11, ISO 14971, IEC 62304, ICH E6(R3)/E9(R1), MDR 2017/745)
+  \item \textbf{Document Generator:} Automated CSR, SAP, PCCP, ISO 14971, IEC 62304 documents
+  \item \textbf{Regulatory Intelligence:} 7-jurisdiction guidance tracking (FDA, EMA, PMDA, TGA, Health Canada, MHRA, NMPA)
+  \item \textbf{Submission Analytics:} KPIs, trend analysis, FDA MDUFA benchmarking
+\end{enumerate}
+
+\subsection{Pillar 3: Cross-Framework Unification (v0.3.0)}
+\label{sec:unification}
+
+The \texttt{unification/} directory (v0.3.0) enables seamless interoperability across four simulation frameworks for surgical robotics:
+
+\begin{verbatim}
+  Cross-Framework Unification Architecture (v0.3.0)
+  ==================================================
+
+  +------------------+       +------------------+
+  | NVIDIA Isaac Sim |<----->|     MuJoCo       |
+  | (High-fidelity)  |       |  (Fast physics)  |
+  +--------+---------+       +--------+---------+
+           |    Bidirectional Bridge   |
+           +----------+  +------------+
+                      |  |
+               +------+--+------+
+               | Unified State   |
+               | Representation  |
+               +------+--+------+
+                      |  |
+           +----------+  +------------+
+           |                          |
+  +--------+---------+       +--------+---------+
+  |     Gazebo       |       |    PyBullet      |
+  |   (ROS 2)        |       | (Lightweight)    |
+  +------------------+       +------------------+
+\end{verbatim}
+
+Key unification components include:
+\begin{itemize}
+  \item \textbf{Isaac-MuJoCo Bridge} (\texttt{simulation\_physics/}): Bidirectional state conversion with parameter mapping, enabling policy transfer between high-fidelity and fast physics engines
+  \item \textbf{Unified Agent Interface} (\texttt{agentic\_generative\_ai/}): Tool format conversion for CrewAI, LangGraph, AutoGen, and custom backends
+  \item \textbf{Cross-Platform Tools} (\texttt{cross\_platform\_tools/}): Framework detection (Isaac Lab, MuJoCo, Gazebo, PyBullet), model format conversion (URDF, MJCF, SDF, USD), and policy export with validation
+  \item \textbf{Standards Protocols} (\texttt{standards\_protocols/}): Data format standards, communication protocols, and safety compliance
+\end{itemize}
+
+\subsection{Pillar 4: Standards \& Benchmarking (v0.3.0)}
+\label{sec:standards}
+
+The \texttt{q1-2026-standards/} directory implements three Q1 2026 objectives:
+
+\begin{enumerate}
+  \item \textbf{Objective 1---Model Conversion Pipeline:} Cross-framework model format conversion with validation, supporting URDF$\leftrightarrow$MJCF$\leftrightarrow$SDF$\leftrightarrow$USD bidirectional transforms
+  \item \textbf{Objective 2---Model Registry:} Federated model registry with validation gates, version tracking, and compliance metadata
+  \item \textbf{Objective 3---Cross-Platform Benchmarking:} Standardized benchmark runner enabling reproducible comparison across simulation frameworks
+\end{enumerate}
+
+The implementation guide includes a timeline (\texttt{timeline.md}) and compliance checklist (\texttt{compliance\_checklist.md}) aligned with IEC 80601-2-77~\cite{iec80601} and ISO 14971~\cite{iso14971}.
+
+\subsection{Pillar 5: Multi-Organization Cooperation (v0.1.0--v1.0.1)}
+\label{sec:cooperation}
+
+The federated architecture enables multi-organization cooperation across the oncology trial ecosystem:
+
+\begin{table}[H]
+\centering
+\caption{Multi-organization cooperation model with platform integration points}
+\label{tab:cooperation}
+\small
+\begin{tabular}{@{}p{3.2cm}p{3.8cm}l@{}}
+\toprule
+\textbf{Organization} & \textbf{Integration Points} & \textbf{Version} \\
+\midrule
+Academic Medical Centers & Federated training, IRB, digital twins & v0.1.0+ \\
+Community Hospitals & Site enrollment, data harmonization & v0.2.0+ \\
+Pharmaceutical Cos. & Treatment simulation, regulatory & v0.6.0+ \\
+Robotics Manufacturers & Simulation frameworks, surgical tasks & v0.3.0+ \\
+Regulatory Bodies & Submission tracking, compliance & v0.9.1+ \\
+Standards Organizations & IEC/ISO/ICH alignment & v0.3.0+ \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The federated learning core (\texttt{federated/}) implements three aggregation strategies with privacy guarantees:
+\begin{itemize}
+  \item \textbf{FedAvg} (v0.1.0)~\cite{mcmahan2017fedavg}: Standard federated averaging for IID data distributions
+  \item \textbf{FedProx} (v0.2.0)~\cite{li2020fedprox}: Proximal term regularization for non-IID heterogeneous hospital data
+  \item \textbf{SCAFFOLD} (v0.2.0)~\cite{karimireddy2020scaffold}: Control variate correction for client drift across sites
+  \item \textbf{Differential Privacy} (v0.1.0)~\cite{dwork2014dp}: Gaussian mechanism with gradient clipping and privacy budget ($\varepsilon$, $\delta$) tracking
+  \item \textbf{Secure Aggregation} (v0.1.0): Mask-based protocol ensuring no raw model weights are exchanged
+\end{itemize}
+
+\subsection{Workflow Demonstrations: Domain Examples (v0.5.0)}
+\label{sec:examples}
+
+Version 0.5.0 introduced 31 production-quality example scripts across five domains, demonstrating end-to-end workflow capabilities. These examples serve as reference implementations that clinicians, engineers, and regulators can use to evaluate the platform.
+
+\subsubsection{Core Federated Learning Examples}
+
+Five core examples (\texttt{examples/}, 4,924 LOC total) demonstrate progressive complexity:
+\begin{enumerate}
+  \item \texttt{01\_federated\_training\_workflow.py} (881 LOC): Multi-site FedAvg/FedProx pipeline with DP integration, secure aggregation, and convergence monitoring
+  \item \texttt{02\_digital\_twin\_planning.py} (924 LOC): Patient digital twin construction with exponential, logistic, Gompertz, and von Bertalanffy tumor growth models
+  \item \texttt{03\_cross\_framework\_validation.py} (865 LOC): Policy validation across Isaac Sim, MuJoCo, PyBullet, and Gazebo with kinematic drift analysis
+  \item \texttt{04\_agentic\_clinical\_workflow.py} (917 LOC): Multi-agent clinical decision support with oncologist, radiologist, safety, and data agents
+  \item \texttt{05\_outcome\_prediction\_pipeline.py} (982 LOC): Federated outcome prediction with survival analysis, biomarker integration, and fairness auditing
+\end{enumerate}
+
+\subsubsection{Agentic AI Examples---Production Architecture}
+
+Six agentic AI examples (\texttt{agentic-ai/examples-agentic-ai/}, $\sim$6,700 LOC total) provide production-grade implementations:
+
+\begin{table}[H]
+\centering
+\caption{Agentic AI example scripts with architecture patterns (v0.5.0)}
+\label{tab:agentic}
+\small
+\begin{tabular}{@{}clp{5cm}@{}}
+\toprule
+\textbf{\#} & \textbf{Script} & \textbf{Architecture Pattern} \\
+\midrule
+01 & \texttt{mcp\_oncology\_server.py} & Model Context Protocol server with tool registration, patient lookup, treatment simulation, protocol compliance, robotic telemetry \\
+02 & \texttt{react\_treatment\_planner.py} & ReAct reasoning loops with thought-action-observation cycles, 10+ step traces \\
+03 & \texttt{realtime\_adaptive\_monitoring.py} & Streaming multi-modal data, adaptive thresholds, CTCAE v5.0 grading \\
+04 & \texttt{autonomous\_simulation\_orchestrator.py} & Multi-framework job coordination with Pareto optimization \\
+05 & \texttt{safety\_constrained\_executor.py} & IEC 80601-2-77 safety gates, human-in-the-loop, emergency stop \\
+06 & \texttt{oncology\_rag\_compliance.py} & RAG with semantic chunking, cross-encoder reranking, citation tracking \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\textbf{MCP Oncology Server (\texttt{01\_mcp\_oncology\_server.py}).} This script implements a Model Context Protocol server~\cite{mcp2025} exposing five oncology domain tools for LLM agents:
+
+\begin{lstlisting}[caption={MCP tool registration pattern from \texttt{01\_mcp\_oncology\_server.py} (v0.5.0)}]
+# Tool definitions with JSON Schema input validation
+TOOLS = [
+    {"name": "patient_lookup",
+     "description": "Retrieve de-identified patient record",
+     "inputSchema": {"type": "object",
+       "properties": {"patient_id": {"type": "string"}}}},
+    {"name": "treatment_simulation",
+     "description": "Run digital twin treatment simulation",
+     "inputSchema": {"type": "object",
+       "properties": {"patient_id": {"type": "string"},
+                      "modality": {"type": "string"}}}},
+    {"name": "protocol_compliance",
+     "description": "Verify ICH E6(R3) compliance",
+     "inputSchema": {"type": "object",
+       "properties": {"protocol_id": {"type": "string"}}}},
+]
+\end{lstlisting}
+
+The MCP server integrates with the broader platform by:
+\begin{itemize}
+  \item Querying the \texttt{privacy/} de-identification pipeline before returning patient records
+  \item Invoking the \texttt{digital-twins/} patient modeling engine for treatment simulation
+  \item Validating against the \texttt{regulatory/} GCP compliance checker for protocol verification
+  \item Logging all tool invocations to 21 CFR Part 11 compliant audit trails with hash-chain integrity
+  \item Ingesting robotic procedure telemetry from physical AI surgical systems
+\end{itemize}
+
+\textbf{Synergistic inter-script operation.} The six agentic AI scripts function both independently and synergistically:
+\begin{itemize}
+  \item Scripts 01 (MCP) + 05 (Safety) combine to provide safety-constrained tool execution for LLM agents operating robotic systems
+  \item Scripts 02 (ReAct) + 06 (RAG) combine reasoning with regulatory evidence grounding
+  \item Scripts 03 (Monitoring) + 04 (Orchestration) enable real-time adaptive simulation campaigns where monitoring alerts trigger simulation parameter adjustments
+  \item All six scripts share the platform's audit logging infrastructure, differential privacy protections, and HIPAA-compliant data handling
+\end{itemize}
