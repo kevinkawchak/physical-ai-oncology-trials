@@ -1,0 +1,278 @@
+\subsection{Workflow Demonstrations: Domain Examples (v0.5.0)}
+\label{sec:examples}
+
+Version 0.5.0 introduced 31 production-quality example scripts across five domains, demonstrating end-to-end workflow capabilities. These examples serve as reference implementations that clinicians, engineers, and regulators can use to evaluate the platform.
+
+\begin{table}[H]
+\centering
+\caption{Example scripts by domain category}
+\label{tab:examples}
+\small
+\begin{tabular}{@{}llr@{}}
+\toprule
+\textbf{Domain} & \textbf{Directory} & \textbf{Scripts} \\
+\midrule
+Federated Learning & \texttt{examples/federation/} & 6 \\
+Privacy \& Security & \texttt{examples/privacy/} & 6 \\
+Digital Twins & \texttt{examples/digital\_twins/} & 6 \\
+Robotics Integration & \texttt{examples/robotics/} & 7 \\
+Clinical Analytics & \texttt{examples/clinical/} & 6 \\
+\midrule
+\textbf{Total} & & \textbf{31} \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsubsection{Agentic AI Production Examples (v0.5.0)}
+
+Six agentic AI examples in \texttt{agentic-ai/examples-agentic-ai/} demonstrate production-grade AI agent patterns for oncology clinical trial operations:
+
+\begin{enumerate}
+  \item \texttt{01\_mcp\_clinical\_robotics\_server.py}: A Model Context Protocol server implementing a clinical robotics tool interface with 5 MCP tools---\texttt{get\_patient\_data()}, \texttt{plan\_procedure()}, \texttt{execute\_robot\_action()}, \texttt{record\_outcome()}, and \texttt{check\_compliance()}---each with full JSON schema validation, error handling, and audit logging via \texttt{AuditLogger}.
+
+  \item \texttt{02\_react\_procedure\_planner.py}: A ReAct (Reasoning + Acting) agent for surgical procedure planning. Implements a thought-action-observation cycle across 6 tools (\texttt{analyze\_imaging}, \texttt{check\_patient\_history}, \texttt{compute\_risk\_score}, \texttt{generate\_plan}, \texttt{validate\_plan}, \texttt{submit\_for\_review}) with explicit chain-of-thought reasoning and an iteration limit of 10 steps.
+
+  \item \texttt{03\_realtime\_adaptive\_treatment\_agent.py}: A real-time monitoring agent that processes sensor streams (vitals, imaging, robot telemetry) through a \texttt{SensorStreamProcessor} with configurable alert thresholds. Supports 4 adaptation strategies: dose adjustment, schedule modification, protocol switching, and emergency intervention.
+
+  \item \texttt{04\_autonomous\_simulation\_orchestrator.py}: An autonomous agent for orchestrating digital twin simulations. Manages a simulation lifecycle (initialize, configure, execute, validate, report) with automatic parameter optimization across 3 simulation engines (Isaac, MuJoCo, PyBullet).
+
+  \item \texttt{05\_safety\_constrained\_agent\_executor.py}: A safety-constrained agent executor with pre- and post-condition checks for every action. Implements 3 safety layers: static constraint validation, dynamic boundary checking (patient proximity, force limits, thermal thresholds), and human-in-the-loop approval gates for high-risk actions.
+
+  \item \texttt{06\_protocol\_rag\_compliance\_agent.py}: A Retrieval-Augmented Generation (RAG) agent for protocol compliance verification. Maintains a vector store of regulatory documents (ICH E6(R3), 21 CFR Part 11, HIPAA) and performs semantic search with citation-backed answers. Implements confidence scoring with a 0.7 threshold for automated compliance checks.
+\end{enumerate}
+
+\subsection{Triple AI Peer Review Pipeline (v0.9.4--v0.9.9)}
+\label{sec:peer-review}
+
+A triple AI peer review process was conducted across three cycles, with OpenAI ChatGPT-5.2-Codex performing senior engineering reviews and Anthropic Claude Code implementing fixes:
+
+\begin{table}[H]
+\centering
+\caption{Triple AI peer review resolution across three cycles}
+\label{tab:peer-review}
+\small
+\begin{tabular}{@{}lllrr@{}}
+\toprule
+\textbf{Cycle} & \textbf{Review Ver.} & \textbf{Fix Ver.} & \textbf{Recs} & \textbf{Resolved} \\
+\midrule
+1 & v0.9.4 (Codex) & v0.9.5 (Claude) & 12 & 12 (100\%) \\
+2 & v0.9.6 (Codex) & v0.9.7 (Claude) & 9 & 9 (100\%) \\
+3 & v0.9.8 (Codex) & v0.9.9 (Claude) & 10 & 10 (100\%) \\
+\midrule
+\textbf{Total} & & & \textbf{31} & \textbf{31 (100\%)} \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\textbf{Review Cycle 1 (v0.9.4$\rightarrow$v0.9.5):} Codex identified 12 issues including missing \texttt{try/except} blocks in 5 network I/O paths, inconsistent \texttt{\_\_all\_\_} export declarations in 8 modules, a race condition in \texttt{FederatedCoordinator.aggregate()}, and incorrect type hints in 3 clinical analytics functions. Claude Code resolved all 12 with verified fixes.
+
+\textbf{Review Cycle 2 (v0.9.6$\rightarrow$v0.9.7):} Codex identified 9 issues including missing input validation in 4 privacy pipeline functions, inconsistent error message formats across 6 modules, and incomplete docstrings in 3 public APIs. All 9 were resolved.
+
+\textbf{Review Cycle 3 (v0.9.8$\rightarrow$v0.9.9):} Codex identified 10 issues including 4 potential memory leaks in streaming data processors, 3 edge cases in differential privacy noise calibration, and 3 configuration validation gaps. All 10 were resolved.
+
+The 100\% resolution rate across 31 recommendations from an independent AI system (Codex) provides a dual-manufacturer trust benchmark for the codebase. Each review-fix cycle is archived in the repository for audit purposes~\cite{kawchak2026peerreview}.
+
+\subsection{Code Trust and Safety: Tests, Checks, and Migrations}
+\label{sec:code-trust}
+
+The platform implements multi-layered quality assurance:
+
+\subsubsection{Test Suite (v0.8.0)}
+
+The test infrastructure comprises 82 test files across 15 directories:
+
+\begin{table}[H]
+\centering
+\caption{Test suite coverage by module category}
+\label{tab:tests}
+\small
+\begin{tabular}{@{}lrrl@{}}
+\toprule
+\textbf{Category} & \textbf{Files} & \textbf{Tests} & \textbf{Key Validation} \\
+\midrule
+Core Federation & 8 & $\sim$85 & FedAvg, FedProx, SCAFFOLD, aggregation \\
+Privacy & 7 & $\sim$65 & HIPAA identifiers, DP noise, de-identification \\
+Security & 6 & $\sim$55 & Auth, encryption, access control \\
+Regulatory & 8 & $\sim$70 & FDA, IRB, ICH-GCP compliance \\
+Digital Twins & 6 & $\sim$50 & Tumor models, treatment response \\
+Robotics & 5 & $\sim$40 & Physical AI, calibration, safety \\
+Clinical Analytics & 7 & $\sim$60 & Survival, endpoints, reporting \\
+Integration & 5 & $\sim$45 & Cross-module, end-to-end \\
+Unification & 6 & $\sim$50 & Framework bridge, conversion \\
+Infrastructure & 4 & $\sim$30 & Config, logging, utilities \\
+Examples & 10 & $\sim$80 & Smoke tests for all 31 examples \\
+Tools \& CLI & 5 & $\sim$40 & CLI commands, tool validation \\
+Submissions & 5 & $\sim$35 & Regulatory submission modules \\
+\midrule
+\textbf{Total} & \textbf{82} & $\sim$\textbf{705} & \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsubsection{CI/CD Pipeline (v0.3.0+)}
+
+GitHub Actions CI pipeline (\texttt{.github/workflows/ci.yml}) validates every commit across Python 3.10, 3.11, and 3.12:
+
+\begin{enumerate}
+  \item \textbf{Lint and format:} \texttt{ruff check} and \texttt{ruff format --check} (configured via \texttt{ruff.toml} with per-directory \texttt{F401}/\texttt{F402} ignores for conditional imports)
+  \item \textbf{Type checking:} \texttt{mypy} with \texttt{--ignore-missing-imports} for optional dependencies
+  \item \textbf{Security:} \texttt{bandit} static analysis, dependency audit via \texttt{pip-audit}
+  \item \textbf{Tests:} Full pytest suite with coverage reporting
+  \item \textbf{YAML:} \texttt{yamllint} for configuration files
+\end{enumerate}
+
+\subsubsection{Security Audit (v0.7.0)}
+
+A dedicated security audit resolved 61 findings across 5 categories:
+
+\begin{table}[H]
+\centering
+\caption{Security audit findings and resolutions (v0.7.0)}
+\label{tab:security}
+\small
+\begin{tabular}{@{}lrl@{}}
+\toprule
+\textbf{Category} & \textbf{Count} & \textbf{Resolution} \\
+\midrule
+Authentication hardening & 12 & Token rotation, session management \\
+Encryption at rest & 8 & AES-256-GCM for stored PHI \\
+Input validation & 15 & Schema validation on all API inputs \\
+Access control & 11 & RBAC with deny-by-default \\
+Logging \& monitoring & 15 & Structured audit logging, anomaly detection \\
+\midrule
+\textbf{Total} & \textbf{61} & \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsubsection{Import Migration (v0.3.0+)}
+
+To maintain clean imports across 235 modules with heavy use of optional dependencies, the platform implements a systematic import strategy:
+
+\begin{lstlisting}[caption={Conditional import pattern used across 235 modules}]
+# Pattern used in all modules with optional deps
+try:
+    import torch
+    import torch.nn as nn
+    HAS_TORCH = True
+except ImportError:
+    HAS_TORCH = False
+
+def federated_train(model, data, config):
+    if not HAS_TORCH:
+        raise RuntimeError(
+            "torch required: pip install torch")
+    # ... training logic
+\end{lstlisting}
+
+This pattern enables the full test suite and CI pipeline to run on minimal installations (\texttt{numpy}, \texttt{scipy}, \texttt{pytest}, \texttt{pyyaml}) without requiring GPU-dependent packages.
+
+\subsection{Clinical Analytics Platform (v0.9.0)}
+\label{sec:clinical}
+
+The clinical analytics module (\texttt{clinical\_analytics/}) provides 7 analysis engines:
+
+\begin{enumerate}
+  \item \texttt{survival\_analysis.py}: Kaplan-Meier estimation, Cox proportional hazards, log-rank tests
+  \item \texttt{endpoint\_calculator.py}: Primary/secondary endpoint computation (ORR, PFS, OS, DOR)
+  \item \texttt{adverse\_event\_tracker.py}: CTCAE v5.0 grading, causality assessment, SAE reporting
+  \item \texttt{biomarker\_analysis.py}: Biomarker-stratified subgroup analysis with multiplicity correction
+  \item \texttt{enrollment\_forecaster.py}: Bayesian enrollment prediction with site-level granularity
+  \item \texttt{data\_quality\_monitor.py}: Real-time data quality metrics, missing data imputation
+  \item \texttt{report\_generator.py}: Automated DSMB and regulatory report generation
+\end{enumerate}
+
+\subsection{Digital Twins for Oncology (v0.4.0)}
+\label{sec:digital-twins}
+
+The digital twin module (\texttt{digital\_twins/}) implements 4 tumor growth models:
+\begin{itemize}
+  \item \textbf{Exponential:} $V(t) = V_0 \cdot e^{\lambda t}$ (early-stage growth)
+  \item \textbf{Gompertz:} $V(t) = K \cdot \exp\left(\frac{V_0}{K} \cdot (1 - e^{-\alpha t})\right)$ (growth saturation)
+  \item \textbf{Logistic:} $V(t) = \frac{K}{1 + \left(\frac{K - V_0}{V_0}\right) e^{-r t}}$ (carrying capacity)
+  \item \textbf{Reaction-diffusion:} $\frac{\partial u}{\partial t} = D\nabla^2 u + \rho u(1-u)$ (spatial tumor evolution)
+\end{itemize}
+
+The \texttt{TumorTwinPipeline} integrates imaging data, tumor segmentation, and longitudinal scans to create patient-specific digital twins for treatment response prediction. Treatment simulation supports chemotherapy, radiation, and immunotherapy response modeling with configurable pharmacokinetic parameters.
+
+\subsection{Technology Stack and Dependencies}
+\label{sec:tech-stack}
+
+Table~\ref{tab:dependencies} summarizes the platform's dependency structure:
+
+\begin{table}[H]
+\centering
+\caption{Platform dependency categories}
+\label{tab:dependencies}
+\small
+\begin{tabular}{@{}lll@{}}
+\toprule
+\textbf{Category} & \textbf{Key Packages} & \textbf{Purpose} \\
+\midrule
+Core & numpy, scipy & Numerical computation \\
+ML & torch, scikit-learn & Model training, FL algorithms \\
+Privacy & pycryptodome, hmac & Encryption, pseudonymization \\
+Data & pandas, pyarrow & Clinical data processing \\
+Clinical & lifelines, statsmodels & Survival analysis, statistics \\
+Robotics & mujoco, pybullet & Physics simulation \\
+NVIDIA & isaac-sim, isaac-lab & GPU simulation \\
+Agent & langchain, crewai & Agentic AI frameworks \\
+Medical & monai, pydicom, fhir & Medical imaging, clinical data \\
+Regulatory & pyyaml, jsonschema & Compliance validation \\
+CI/CD & ruff, pytest, mypy & Linting, testing, type checking \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+All heavy/optional dependencies use the conditional import pattern (Section~\ref{sec:code-trust}), enabling the full CI pipeline to run on Python 3.10--3.12 with only \texttt{numpy}, \texttt{scipy}, \texttt{pytest}, and \texttt{pyyaml} installed.
+
+\subsection{Federated Coordinator Implementation Details}
+\label{sec:fed-coordinator}
+
+The \texttt{FederatedCoordinator} class orchestrates multi-site model training:
+
+\begin{lstlisting}[caption={Federated coordinator aggregation logic}]
+class FederatedCoordinator:
+    def __init__(self, strategy="fedavg",
+                 num_rounds=100,
+                 min_sites=3):
+        self.strategy = strategy
+        self.num_rounds = num_rounds
+        self.min_sites = min_sites
+        self.site_registry = {}
+        self.global_model = None
+
+    def aggregate(self, site_updates):
+        if len(site_updates) < self.min_sites:
+            raise ValueError(
+                f"Need {self.min_sites} sites, "
+                f"got {len(site_updates)}")
+        if self.strategy == "fedavg":
+            return self._fedavg(site_updates)
+        elif self.strategy == "fedprox":
+            return self._fedprox(site_updates)
+        elif self.strategy == "scaffold":
+            return self._scaffold(site_updates)
+\end{lstlisting}
+
+Supported aggregation strategies:
+\begin{itemize}
+  \item \textbf{FedAvg:} Weighted averaging by dataset size~\cite{mcmahan2017fedavg}
+  \item \textbf{FedProx:} Proximal term regularization ($\mu = 0.01$) for heterogeneous data~\cite{li2020fedprox}
+  \item \textbf{SCAFFOLD:} Server and client control variates for variance reduction~\cite{karimireddy2020scaffold}
+\end{itemize}
+
+\subsection{CLI Tools for Trial Operations (v0.4.0)}
+\label{sec:cli}
+
+Five CLI tools in \texttt{tools/} support operational workflows:
+
+\begin{enumerate}
+  \item \texttt{dicom\_inspector.py}: DICOM file inspection, metadata extraction, anonymization verification
+  \item \texttt{dose\_calculator.py}: Radiation dose computation with DVH analysis and plan comparison
+  \item \texttt{trial\_site\_monitor.py}: Real-time site enrollment, compliance, and data quality monitoring
+  \item \texttt{sim\_job\_runner.py}: Simulation job submission and management across Isaac/MuJoCo/PyBullet
+  \item \texttt{deployment\_readiness.py}: Pre-deployment validation checklist (52 items across 8 categories)
+\end{enumerate}
+
+% =================================================================
