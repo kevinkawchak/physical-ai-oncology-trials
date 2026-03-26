@@ -1,0 +1,407 @@
+\section{Results}
+\label{sec:results}
+%% ========================================================================
+
+\subsection{Five-Server MCP Architecture}
+
+The system implements five domain-specific MCP servers, each encapsulating a distinct responsibility within the oncology trial workflow. Together, they provide the complete protocol surface required for Physical AI integration with clinical trial systems.
+
+\begin{table}[H]
+\centering
+\caption{Five MCP servers, their tools, and conformance levels.}
+\label{tab:five-servers}
+\footnotesize
+\begin{tabularx}{\textwidth}{@{}L{3.2cm}C{0.8cm}C{1.0cm}L{6.8cm}@{}}
+\toprule
+\textbf{Server} & \textbf{Tools} & \textbf{Level} & \textbf{Primary Function} \\
+\midrule
+\texttt{trialmcp-authz} & 5 & 1 & Deny-by-default RBAC, SHA-256 token lifecycle, policy evaluation \\
+\texttt{trialmcp-fhir} & 4 & 2 & FHIR R4 clinical data with HIPAA Safe Harbor de-identification \\
+\texttt{trialmcp-dicom} & 4 & 3 & DICOM imaging queries, RECIST~\cite{eisenhauer2009recist} measurements \\
+\texttt{trialmcp-ledger} & 5 & 1 & Hash-chained 21 CFR Part 11 audit trail \\
+\texttt{trialmcp-provenance} & 5 & 4 & DAG-based data lineage, SHA-256 fingerprinting \\
+\midrule
+\textbf{Total} & \textbf{23} & & \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\subsubsection{Authorization Server}
+
+The authorization server (\texttt{servers/trialmcp\_authz/}) implements deny-by-default role-based access control (RBAC) as defined in ADR-007 (\texttt{docs/adr/007-deny-by-default-rbac.md}). It exposes five tools:
+
+\begin{enumerate}[leftmargin=*]
+\item \texttt{authz\_evaluate}: Evaluates whether a given role is permitted to invoke a specific tool.
+\item \texttt{authz\_issue\_token}: Issues a scoped, time-limited token with SHA-256 hashing.
+\item \texttt{authz\_validate\_token}: Validates a token's authenticity and expiration.
+\item \texttt{authz\_revoke\_token}: Revokes a previously issued token.
+\item \texttt{authz\_list\_policies}: Lists active policies for a given role or server.
+\end{enumerate}
+
+The server is implemented in \texttt{servers/trialmcp\_authz/server.py} (134 lines) with a policy engine (\texttt{policy\_engine.py}) and token store (\texttt{token\_store.py}).
+
+\subsubsection{FHIR Clinical Data Server}
+
+The FHIR server (\texttt{servers/trialmcp\_fhir/}) provides clinical data access with mandatory HIPAA Safe Harbor de-identification. The de-identification pipeline (\texttt{deid\_pipeline.py}) implements HMAC-SHA256 pseudonymization to maintain referential integrity across de-identified records. The four tools are:
+
+\begin{itemize}[leftmargin=*]
+\item \texttt{fhir\_read}: Read a single FHIR R4 resource by type and ID.
+\item \texttt{fhir\_search}: Search FHIR resources with parameter filtering (limit: 100).
+\item \texttt{fhir\_patient\_lookup}: Look up a patient by pseudonymized identifier.
+\item \texttt{fhir\_study\_status}: Retrieve the status of a clinical study.
+\end{itemize}
+
+\subsubsection{Audit Ledger Server}
+
+The ledger server (\texttt{servers/trialmcp\_ledger/}) implements a hash-chained immutable audit trail satisfying 21 CFR Part 11 requirements~\cite{fda2003part11}. The chain implementation in \texttt{chain.py} uses SHA-256 hashing with canonical JSON serialization. The following code excerpt shows the core hashing mechanism:
+
+\begin{lstlisting}[caption={Hash-chained audit record computation from \texttt{servers/trialmcp\_ledger/chain.py}.},label={lst:chain}]
+GENESIS_HASH = "0" * 64
+
+def canonical_json(record: dict[str, Any]) -> str:
+    filtered = {k: v for k, v in sorted(record.items())
+                if k != "hash"}
+    return json.dumps(filtered, sort_keys=True,
+                      ensure_ascii=True)
+
+def compute_audit_hash(record, prev_hash: str) -> str:
+    canonical = canonical_json(record)
+    payload = prev_hash + canonical
+    return hashlib.sha256(
+        payload.encode("utf-8")).hexdigest()
+\end{lstlisting}
+
+Each audit record contains: \texttt{audit\_id}, \texttt{timestamp}, \texttt{server}, \texttt{tool}, \texttt{caller}, \texttt{parameters}, \texttt{result\_summary}, \texttt{previous\_hash}, and \texttt{hash}. The chain is verified by recomputing each hash and comparing it against the stored value.
+
+\subsubsection{Provenance Server}
+
+The provenance server (\texttt{servers/trialmcp\_provenance/}) maintains a directed acyclic graph (DAG) of data lineage records, enabling both forward and backward lineage queries. The DAG implementation in \texttt{dag.py} supports five source types (\texttt{fhir}, \texttt{dicom}, \texttt{computed}, \texttt{external}, \texttt{federated}) and five action types (\texttt{read}, \texttt{transform}, \texttt{aggregate}, \texttt{transfer}, \texttt{derive}).
+
+\subsubsection{DICOM Imaging Server}
+
+The DICOM server (\texttt{servers/trialmcp\_dicom/}) provides imaging data access with role-based permissions and support for RECIST 1.1~\cite{eisenhauer2009recist} measurements critical to oncology trial response evaluation. The server exposes four tools: \texttt{dicom\_query} for searching imaging studies by patient or accession number, \texttt{dicom\_retrieve\_pointer} for obtaining secure references to image data without transferring pixel data, \texttt{dicom\_study\_metadata} for retrieving study-level DICOM metadata, and \texttt{dicom\_recist\_measurements} for querying tumor measurement data used in treatment response assessment.
+
+The DICOM adapter (\texttt{dicom\_adapter.py}) supports integration with industry-standard PACS systems through the 9 DICOM integration adapters in \texttt{integrations/dicom/}, including dcm4chee, Orthanc, and DICOMweb connectors.
+
+\subsubsection{Server Architecture Diagram}
+
+The following text diagram shows the complete five-server deployment topology with data flow paths:
+
+\begin{figure}[H]
+\begin{verbatim}
+  NATIONAL MCP FIVE-SERVER DEPLOYMENT
+  +---------------------------------------------------+
+  |                  SITE DEPLOYMENT                  |
+  |                                                   |
+  |    +-----------+  +-----------+  +-----------+    |
+  |    | trialmcp  |  | trialmcp  |  | trialmcp  |    |
+  |    | authz     |  | fhir      |  | dicom     |    |
+  |    | (5 tools) |  | (4 tools) |  | (4 tools) |    |
+  |    | RBAC,     |  | FHIR R4,  |  | DICOMweb, |    |
+  |    | Tokens    |  | HIPAA     |  | RECIST    |    |
+  |    +-----+-----+  +-----+-----+  +-----+-----+    |
+  |          |              |              |          |
+  |          +------+-------+------+-------+          |
+  |                 |              |                  |
+  |          +------v------+ +-----v-------+          |
+  |          | trialmcp    | | trialmcp    |          |
+  |          | ledger      | | provenance  |          |
+  |          | (5 tools)   | | (5 tools)   |          |
+  |          | SHA-256     | | DAG, W3C    |          |
+  |          | 21 CFR 11   | | PROV        |          |
+  |          +-------------+ +-------------+          |
+  |                                                   |
+  |  23 tools total across 5 servers                  |
+  +---------------------------------------------------+
+\end{verbatim}
+\end{figure}
+
+\subsubsection{Complete Tool Inventory}
+
+Table~\ref{tab:tool-inventory} provides the complete inventory of all 23 tools with their input parameters and response types:
+
+\begin{table}[H]
+\centering
+\caption{Complete 23-tool inventory across all five MCP servers.}
+\label{tab:tool-inventory}
+\footnotesize
+\begin{tabularx}{\textwidth}{@{}L{4.2cm}L{3.5cm}L{4.1cm}@{}}
+\toprule
+\textbf{Tool} & \textbf{Key Parameters} & \textbf{Response Type} \\
+\midrule
+\texttt{authz\_evaluate} & role, tool & ALLOW/DENY decision \\
+\texttt{authz\_issue\_token} & role, expires\_in & Token with SHA-256 hash \\
+\texttt{authz\_validate\_token} & token\_hash & Valid/invalid status \\
+\texttt{authz\_revoke\_token} & token\_hash & Revocation confirmation \\
+\texttt{authz\_list\_policies} & role, server & Policy list \\
+\midrule
+\texttt{fhir\_read} & resource\_type, id & De-identified FHIR resource \\
+\texttt{fhir\_search} & resource\_type, params & De-identified bundle \\
+\texttt{fhir\_patient\_lookup} & pseudonym & De-identified patient \\
+\texttt{fhir\_study\_status} & study\_id & Study status object \\
+\midrule
+\texttt{dicom\_query} & patient\_id, modality & Study result list \\
+\texttt{dicom\_retrieve\_pointer} & study\_uid & Secure image pointer \\
+\texttt{dicom\_study\_metadata} & study\_uid & DICOM metadata \\
+\texttt{dicom\_recist\_measurements} & study\_uid & RECIST measurements \\
+\midrule
+\texttt{ledger\_append} & server, tool, caller & Audit record with hash \\
+\texttt{ledger\_verify} & (none) & Chain validity status \\
+\texttt{ledger\_query} & server, tool, caller & Filtered audit records \\
+\texttt{ledger\_replay} & start\_index, count & Record sequence \\
+\texttt{ledger\_export} & format & Full chain export \\
+\midrule
+\texttt{provenance\_record} & source\_id, action, actor & Provenance record \\
+\texttt{provenance\_query\_forward} & record\_id, depth & Downstream lineage \\
+\texttt{provenance\_query\_backward} & record\_id, depth & Upstream lineage \\
+\texttt{provenance\_fingerprint} & data & SHA-256 fingerprint \\
+\texttt{provenance\_lineage} & source\_id & Full lineage graph \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\subsection{Conformance Levels and Profiles}
+
+The standard defines five hierarchical conformance levels, each building upon the previous:
+
+\begin{table}[H]
+\centering
+\caption{Five hierarchical conformance levels with required servers and use cases.}
+\label{tab:conformance-levels}
+\small
+\begin{tabularx}{\textwidth}{@{}C{0.7cm}L{2.2cm}L{3.8cm}L{5cm}@{}}
+\toprule
+\textbf{Level} & \textbf{Name} & \textbf{Required Servers} & \textbf{Use Case} \\
+\midrule
+1 & Core & authz + ledger & Basic authorization and audit \\
+2 & Clinical Read & Level 1 + fhir & FHIR clinical data access \\
+3 & Imaging & Level 2 + dicom & DICOM imaging queries \\
+4 & Federated Site & Level 3 + provenance & Multi-site data lineage \\
+5 & Robot Procedure & All 5 servers & Full autonomous clinical workflow \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+Eight conformance profiles are defined in \texttt{profiles/}, including five hierarchical profiles and three regulatory overlays (\texttt{country-us-fda.md}, \texttt{state-us-ca.md}, \texttt{state-us-ny.md}).
+
+\subsection{Safety Modules for Physical AI}
+
+The system provides eight safety modules in \texttt{safety/} specifically designed for robotic systems operating in clinical environments:
+
+\begin{table}[H]
+\centering
+\caption{Safety modules for Physical AI systems.}
+\label{tab:safety-modules}
+\footnotesize
+\begin{tabularx}{\textwidth}{@{}L{3.8cm}L{8.2cm}@{}}
+\toprule
+\textbf{Module} & \textbf{Purpose} \\
+\midrule
+\texttt{estop.py} & Emergency stop signal propagation, abort workflow, post-abort evidence capture, recovery with re-authorization \\
+\texttt{procedure\_state.py} & Procedure state machine enforcement (IDLE, PREPARING, ACTIVE, PAUSED, COMPLETING, ABORTED) \\
+\texttt{robot\_registry.py} & Robot registration, capability validation, firmware version tracking \\
+\texttt{task\_validator.py} & Task order validation against safety constraints and robot capabilities \\
+\texttt{gate\_service.py} & Safety gate evaluation before procedure transitions \\
+\texttt{approval\_checkpoint.py} & Multi-party approval checkpoints (clinician + system + regulatory) \\
+\texttt{site\_verifier.py} & Site capability verification against conformance requirements \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+The emergency stop controller in \texttt{safety/estop.py} implements a four-state lifecycle (IDLE, TRIGGERED, ACKNOWLEDGED, RECOVERING) with signal propagation to all registered servers. This ensures that any authorized party can halt a robotic procedure immediately, with full state preservation and evidence capture.
+
+\subsection{Test Coverage and Validation}
+
+The repository contains 668 test functions across two test suites:
+
+\begin{table}[H]
+\centering
+\caption{Test coverage summary across unit and conformance suites.}
+\label{tab:test-coverage}
+\small
+\begin{tabularx}{\textwidth}{@{}L{3cm}R{1.5cm}L{7cm}@{}}
+\toprule
+\textbf{Category} & \textbf{Tests} & \textbf{Validates} \\
+\midrule
+Unit (integrations) & 205 & All 34 integration adapters \\
+Unit (safety) & 88 & All 8 safety modules \\
+Unit (core server) & 32 & 5 MCP server implementations \\
+Unit (infrastructure) & 12 & Conformance harness, schema validator \\
+Positive conformance & 69 & Correct behavior at Levels 1--3 \\
+Adversarial & 57 & AuthZ bypass, chain tampering, PHI leakage, replay attacks \\
+Blackbox & 63 & Per-server external conformance \\
+Security & 39 & SSRF prevention, token lifecycle, chain integrity \\
+Interoperability & 32 & Cross-server trace, schema validation \\
+Negative & 26 & Invalid input rejection, unauthorized access \\
+Integration & 13 & Multi-server integration scenarios \\
+\midrule
+\textbf{Total} & \textbf{668} & \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\subsection{Integration Adapters}
+
+The repository implements 34 integration adapter modules across six categories in \texttt{integrations/}:
+
+\begin{table}[H]
+\centering
+\caption{Integration adapter categories and module counts.}
+\label{tab:integration-adapters}
+\small
+\begin{tabularx}{\textwidth}{@{}L{2cm}R{1.2cm}L{8.5cm}@{}}
+\toprule
+\textbf{Category} & \textbf{Count} & \textbf{Key Adapters} \\
+\midrule
+FHIR & 9 & HAPI FHIR, SMART on FHIR, de-identification, terminology, patient filter \\
+DICOM & 9 & dcm4chee, Orthanc, DICOMweb, RECIST, modality filter \\
+Clinical & 3 & Scheduling, e-consent, provenance export \\
+Federation & 4 & Coordinator, policy enforcement, secure aggregation \\
+Identity & 5 & OIDC, mTLS, KMS, policy engine \\
+Privacy & 4 & De-identification pipeline, privacy budget, data residency \\
+\midrule
+\textbf{Total} & \textbf{34} & \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\subsection{Repository Scale}
+
+Table~\ref{tab:repo-scale} summarizes the quantitative scope of the national repository at version 1.2.0:
+
+\begin{table}[H]
+\centering
+\caption{Repository quantitative summary (v1.1.0).}
+\label{tab:repo-scale}
+\small
+\begin{tabular}{@{}lr|lr@{}}
+\toprule
+\textbf{Category} & \textbf{Count} & \textbf{Category} & \textbf{Count} \\
+\midrule
+MCP servers & 5 & Safety modules & 8 \\
+Tools (total) & 23 & Benchmark modules & 5 \\
+JSON schemas & 13 & Certification tools & 4 \\
+Conformance profiles & 8 & Deployment modes & 6 \\
+Test functions & 668 & Interop scenarios & 8 \\
+Integration adapters & 34 & Actor personas & 6 \\
+Specification docs & 9 & Stakeholder guides & 5 \\
+ADRs & 7 & Operational docs & 5 \\
+Total files & 381 & Total directories & 88 \\
+Lines of code (approx.) & 69,800 & Regulatory overlays & 7 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Deployment Infrastructure}
+
+The system supports six deployment configurations, enabling evaluation at any scale:
+
+\begin{enumerate}[leftmargin=*]
+\item \arraybackslash \raggedright \textbf{Individual Docker containers:} Five Dockerfiles in \texttt{deploy/docker/} (e.g., \texttt{Dockerfile.authz}, \texttt{Dockerfile.fhir}).
+\item \textbf{All-in-one Docker:} \texttt{Dockerfile.allinone} for single-container evaluation.
+\item \textbf{Docker Compose (single-site):} \texttt{deploy/docker-compose.yml} for local deployment.
+\item \textbf{Docker Compose (multi-site):} \texttt{deploy/docker-compose.multi-site.yml} for federated testing.
+\item \textbf{Kubernetes manifests:} 7 manifests in \texttt{deploy/kubernetes/} for production clusters.
+\item \textbf{Helm chart:} \texttt{deploy/helm/trialmcp/} with \texttt{Chart.yaml} and \texttt{values.yaml}.
+\end{enumerate} \raggedright
+
+Server configuration is managed through YAML files in \texttt{deploy/config/} (one per server), enabling site-specific customization of storage backends, authentication providers, and privacy settings.
+
+\subsection{SDK and Developer Tooling}
+
+The repository provides dual-language SDKs and developer tools to facilitate adoption:
+
+\begin{itemize}[leftmargin=*]
+\item \textbf{Python SDK} (\texttt{sdk/python/trialmcp\_client/}): 8 client modules with 4 middleware components (audit, auth, circuit breaker, retry). Installable via \texttt{pip install -e .} with \texttt{pyproject.toml}.
+
+\item \textbf{TypeScript SDK} (\texttt{sdk/typescript/src/}): 8 client modules with matching middleware stack. Configured via \texttt{package.json} and \texttt{tsconfig.json}.
+
+\item \textbf{CLI} (\texttt{tools/cli/trialmcp\_cli.py}): Commands for \texttt{init}, \texttt{scaffold}, \texttt{validate}, \texttt{certify}, \texttt{schema diff}, and \texttt{config generate}.
+
+\item \textbf{Code generation} (\texttt{tools/codegen/}): Generators for Python models, TypeScript interfaces, and OpenAPI specifications from JSON schemas.
+\end{itemize}
+
+Both SDKs include role-scoped example scripts for all six actor types: robot agent, trial coordinator, data monitor, auditor, sponsor, and CRO.
+
+\subsection{Schema and Specification Infrastructure}
+
+The repository defines 13 machine-readable JSON schemas in \texttt{schemas/} using JSON Schema Draft 2020-12. These schemas serve as the normative contract between MCP server implementations and clients, enabling automated validation and code generation:
+
+\begin{table}[H]
+\centering
+\caption{JSON schemas organized by domain category.}
+\label{tab:schemas}
+\scriptsize
+\begin{tabularx}{\textwidth}{@{}L{4.5cm}L{1.5cm}L{5.5cm}@{}}
+\toprule
+\textbf{Schema File} & \textbf{Category} & \textbf{Validates} \\
+\midrule
+\texttt{audit-record.schema.json} & Audit & Audit trail entries \\
+\texttt{authz-decision.schema.json} & AuthZ & RBAC evaluation results \\
+\texttt{capability-descriptor.schema.json} & Infra & Server capability declarations \\
+\texttt{consent-status.schema.json} & Privacy & Patient consent state \\
+\texttt{dicom-query.schema.json} & Imaging & DICOM query parameters \\
+\texttt{error-response.schema.json} & Infra & Standardized error envelopes \\
+\texttt{fhir-read.schema.json} & Clinical & FHIR resource read responses \\
+\texttt{fhir-search.schema.json} & Clinical & FHIR search bundle responses \\
+\texttt{health-status.schema.json} & Infra & Server health check responses \\
+\texttt{provenance-record.schema.json} & Prov & DAG lineage records \\
+\texttt{robot-capability-profile} & Robotics & Robot system capabilities \\
+\texttt{site-capability-profile} & Infra & Site-level capabilities \\
+\texttt{task-order.schema.json} & Robotics & Procedure task orders \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+Nine normative specification documents in \texttt{spec/} define the complete protocol surface, including \texttt{core.md} (protocol scope, design principles, 5 conformance levels), \texttt{actor-model.md} (6 actors with permission matrices), \texttt{tool-contracts.md} (23 tool signatures with input/output contracts), \texttt{security.md} (RBAC, mTLS, OIDC, SSRF prevention), and \texttt{privacy.md} (HIPAA Safe Harbor, de-identification, consent, data residency).
+
+\subsection{Emergency Stop Implementation}
+
+The emergency stop controller is a critical safety component. The following code excerpt from \texttt{safety/estop.py} shows the four-state lifecycle and signal propagation:
+
+\begin{lstlisting}[caption={Emergency stop lifecycle from \texttt{safety/estop.py}.},label={lst:estop}]
+class EStopStatus(Enum):
+    IDLE = "IDLE"
+    TRIGGERED = "TRIGGERED"
+    ACKNOWLEDGED = "ACKNOWLEDGED"
+    RECOVERING = "RECOVERING"
+
+class EStopController:
+    def trigger_estop(self, procedure_id, reason,
+                      triggered_by, current_state=None):
+        if self._status == EStopStatus.TRIGGERED:
+            raise RuntimeError(
+                "E-stop already active")
+        signal = EStopSignal(
+            signal_id=str(uuid.uuid4()),
+            procedure_id=procedure_id,
+            reason=reason,
+            triggered_by=triggered_by,
+            affected_servers=list(
+                self._active_servers),
+            preserved_state=current_state or {})
+        self._active_signal = signal
+        self._status = EStopStatus.TRIGGERED
+        return signal
+\end{lstlisting}
+
+The e-stop lifecycle ensures: (1) only one e-stop can be active at a time, (2) all registered servers receive the stop signal, (3) procedure state is preserved for post-incident analysis, and (4) recovery requires explicit re-authorization. These properties are validated by 88 unit tests in \texttt{tests/test\_safety.py}.
+
+\subsection{Interoperability Testbed}
+
+The interoperability testbed in \texttt{interop-testbed/} provides a multi-site simulation environment with 8 scenarios and 6 actor personas. Each scenario validates a specific cross-site interaction pattern:
+
+\begin{enumerate}[leftmargin=*]
+\item \texttt{audit\_replay.py}: Verifies audit trail replay across sites
+\item \texttt{cross\_site\_provenance.py}: Validates cross-site provenance chain integrity
+\item \texttt{partial\_outage.py}: Tests graceful degradation during partial failures
+\item \texttt{robot\_workflow.py}: End-to-end robotic procedure workflow across servers
+\item \texttt{schema\_drift.py}: Tests schema version compatibility under evolution
+\item \texttt{site\_onboarding.py}: Validates new site onboarding workflow
+\item \texttt{state\_overlay.py}: Tests state-level regulatory overlay application
+\item \texttt{token\_exchange.py}: Validates cross-site token exchange protocols
+\end{enumerate}
+
+The testbed uses Docker Compose (\texttt{interop-testbed/docker-compose.yml}) with mock services for EHR (\texttt{mock\_ehr.py}), PACS (\texttt{mock\_pacs.py}), and identity (\texttt{mock\_identity.py}) to simulate realistic clinical environments.
+
+%% ========================================================================
