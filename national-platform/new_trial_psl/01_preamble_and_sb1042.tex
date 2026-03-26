@@ -1,0 +1,38 @@
+\documentclass[11pt,letterpaper]{article}
+\usepackage{physical_ai_legislation}
+\usepackage[backend=biber,style=numeric,sorting=none]{biblatex}
+\addbibresource{all_documents.bib}
+
+% Redefine \part to avoid blank pages - just a large centered heading
+\makeatletter
+\newcounter{docpart}
+\renewcommand\part{%
+  \@afterindentfalse
+  \secdef\@part\@spart}
+\renewcommand\@part[2][]{%
+  \stepcounter{docpart}%
+  \addcontentsline{toc}{part}{#2}%
+  \markboth{}{}%
+  {\centering
+   \interlinepenalty \@M
+   \normalfont
+   \huge\bfseries #2\par}%
+  \nobreak
+  \vskip 1em
+  \@afterheading}
+\renewcommand\@spart[1]{%
+  {\centering
+   \interlinepenalty \@M
+   \normalfont
+   \huge\bfseries #1\par}%
+  \nobreak
+  \vskip 1em
+  \@afterheading}
+\makeatother
+
+% Fix duplicate hyperref anchors by giving unique names per part
+\renewcommand{\theHsection}{\arabic{docpart}.\arabic{section}}
+\renewcommand{\theHsubsection}{\arabic{docpart}.\arabic{section}.\arabic{subsection}}
+
+\title{%
+  \textbf{Physical AI Oncology Clinical Trial Site}\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
