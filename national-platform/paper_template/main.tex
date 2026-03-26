@@ -1,0 +1,83 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Official template for the Master's Thesis of the Master AI          %%
+%% Master CCS of the University of Groningen (NL).                     %%
+%% With many thanks to Manvi Agarwal for creating the first version    %%
+%% in 2020.                                                            %%
+%%                                                                     %%
+%% Current version: March 2026                                         %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[a4paper,12pt,twoside]{article}
+
+\usepackage{lipsum}     % to create filler text for the template
+\usepackage{subcaption} % to be able give nested captions in figures
+\usepackage{amsmath}    % for the correct formatting of formulaes
+\usepackage{wrapfig}    % for text to be wrapped around figures
+\usepackage{graphicx}   % to use figures in your document
+\usepackage{fancyhdr}   % to have fancy headers and footers
+\usepackage{float}      % used for placement of figures in the page
+\usepackage[top=1.5cm, bottom=1.80cm, left=2.00cm, right=2.00cm, includeheadfoot]{geometry} % margins
+\usepackage[nottoc]{tocbibind}          % include bibliography in table of contents
+\renewcommand{\refname}{Bibliography}   % This is the name that appears in the ToC
+
+%%% DEFINE PAGE STYLES %%%
+\input{page_styles}
+
+%%% START OF ACTUAL DOCUMENT %%%
+\begin{document}
+\pagestyle{body}
+
+%%% TITLE PAGES %%%
+\input{chapters/title_pages}
+
+%%% TABLE OF CONTENTS %%%
+\input{chapters/contents}
+\newpage
+
+%%% OPTIONAL: ACKNOWLEDGMENTS %%%
+% \section*{Acknowledgments}
+% \addcontentsline{toc}{section}{Acknowledgements}
+% \input{chapters/acknowledgements} 
+
+\section*{Abstract}
+\addcontentsline{toc}{section}{Abstract}
+\input{chapters/abstract}
+\newpage
+
+\pagestyle{body}
+
+\section{Introduction}
+\input{chapters/introduction}
+\newpage
+
+\section{Theoretical framework}
+\input{chapters/theoretical_framework}
+\newpage
+
+\section{Methods}
+\input{chapters/methods}
+\newpage
+
+\section{Results}
+\input{chapters/results}
+\newpage
+
+\section{Discussion}
+\input{chapters/discussion}
+\newpage
+
+\section{Conclusion}
+\input{chapters/conclusion}
+\newpage
+
+\pagestyle{contents}
+
+\bibliographystyle{ieeetr}
+\bibliography{biblio}
+\newpage
+
+\section*{Appendices}
+\addcontentsline{toc}{section}{Appendices}
+\input{chapters/appendix}
+
+\end{document}

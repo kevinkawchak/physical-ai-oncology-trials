@@ -1,0 +1,29 @@
+%%% PAGE STYLES %%%
+\fancypagestyle{titlepage}{
+	\fancyhf{}
+	\fancyhead[C]{\includegraphics[width=\textwidth]{images/banner.png}}
+	\renewcommand{\headrulewidth}{0pt}
+}
+
+\fancypagestyle{body}{
+    \fancyhf{}
+    \fancyhead[LE,RO]{\thepage}
+    \fancyhead[RE,LO]{Chapter \leftmark}
+}
+
+\fancypagestyle{contents}{
+    \fancyhf{}
+    \fancyhead[LE,RO]{\thepage}
+    \fancyhead[RE,LO]{\leftmark}
+}
+
+\fancypagestyle{appendix}{
+    \fancyhf{}
+    \fancyhead[LE,RO]{\thepage}
+    \fancyhead[RE,LO]{APPENDICES}
+}
+
+\fancypagestyle{acknowledgements}{
+    \fancyhf{}
+    \fancyhead[LE,RO]{\thepage}
+}
