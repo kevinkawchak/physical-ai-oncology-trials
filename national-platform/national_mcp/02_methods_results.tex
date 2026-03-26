@@ -1,0 +1,33 @@
+\section{Methods}
+\label{sec:methods}
+%% ========================================================================
+
+\subsection{Development Process and Timeline}
+
+The repository and this paper were constructed using an AI-assisted development methodology. Kevin Kawchak served as the prompt creator, system architect, and provided edits to the generated paper, directing AI code generation through structured prompts documented in \texttt{prompts.md}.
+
+The primary AI system used for repository generation and this paper was \textbf{Anthropic Claude Code Opus 4.6}. Peer review was conducted using \textbf{OpenAI ChatGPT 5.4 Thinking}, with review documents archived under the \texttt{peer-review/} directory.
+
+\subsubsection{Repository Evolution}
+
+The system was developed across four repositories in sequence. Table~\ref{tab:repo-timeline} summarizes the development timeline:
+
+\begin{table}[H]
+\centering
+\caption{Repository development timeline and evolution.}
+\label{tab:repo-timeline}
+\scriptsize
+\begin{tabularx}{\textwidth}{@{}L{4.7cm}L{1.6cm}R{0.7cm}L{5.2cm}@{}}
+\toprule
+\textbf{Repository} & \textbf{Date Range} & \textbf{Days} & \textbf{Focus} \\
+\midrule
+\texttt{physical-ai-oncology-trials}~\cite{kawchak2026physicalai} & Feb 2026 & 14 & USL scoring, patient instructions, single-site Physical AI framework \\
+\texttt{pai-oncology-trial-fl}~\cite{kawchak2026paifl} & Feb--Mar 2026 & 10 & Federated learning, privacy modules, regulatory compliance \\
+\texttt{mcp-pai-oncology-trials}~\cite{kawchak2026trialmcp} & Mar 2026 & 7 & MCP server proof of concept, 5-server architecture, 23 tools \\
+\texttt{national-mcp-pai-oncology-trials}~\cite{kawchak2026national} & Mar 2026 & 5 & National standard, SDKs, conformance suite, governance \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+%% NOTE: This is chunk 02 of 03 - see README.md for reconstruction instructions
+%% Content continues from 01_preamble_introduction.tex and continues in 03_discussion_conclusion.tex
