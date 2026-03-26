@@ -1,4 +1,4 @@
-The most impactful set of results in my career came from a recent 24-Hour on-demand Physical AI oncology trial simulation. Hourly results of patients and robots were updated throughout the project with high proficiency. I demoed these Claude Code outputs to two online audiences, with favorable feedback.
+In a recent 24-Hour on-demand Physical AI oncology trial simulation, hourly results of patients and robots were updated throughout the project with high proficiency. I demoed these Claude Code outputs to two audiences, with favorable feedback.
 
 This patient-centric single site simulation with 1 minute resolution (1,440 total minutes):
 1) Demonstrated how 29 robot instances served 175 unique patients across 15 cancer types autonomously with minimal human staff. 
