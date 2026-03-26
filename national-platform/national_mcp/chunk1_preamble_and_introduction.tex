@@ -1,0 +1,181 @@
+\documentclass{article}
+\usepackage{arxiv}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{url}
+\usepackage[hidelinks]{hyperref}
+\usepackage{booktabs}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{enumitem}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{tabularx}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{textcomp}
+\usepackage{microtype}
+\usepackage{float}
+
+% Fix fancyhdr headheight warning
+\setlength{\headheight}{16pt}
+
+% Make running header title fit on one line with smaller font
+\renewcommand{\shorttitle}{\scriptsize\scshape National MCP Servers for Physical AI Oncology Clinical Trial Systems}
+
+% Justified text (remove raggedright for proper word spacing)
+\usepackage{ragged2e}
+
+% Code listing style
+\lstdefinestyle{pythonstyle}{
+  language=Python,
+  basicstyle=\ttfamily\scriptsize,
+  keywordstyle=\color[rgb]{0.13,0.29,0.53}\bfseries,
+  stringstyle=\color[rgb]{0.31,0.60,0.02},
+  commentstyle=\color[rgb]{0.56,0.56,0.56}\itshape,
+  numbers=left,
+  numberstyle=\tiny\color{gray},
+  stepnumber=1,
+  numbersep=5pt,
+  backgroundcolor=\color[rgb]{0.97,0.97,0.97},
+  frame=single,
+  rulecolor=\color[rgb]{0.8,0.8,0.8},
+  breaklines=true,
+  breakatwhitespace=false,
+  tabsize=4,
+  showstringspaces=false,
+  columns=flexible
+}
+\lstset{style=pythonstyle}
+
+% ORCID icon command
+\newcommand{\orcidicon}[1]{%
+\href{https://orcid.org/#1}{%
+\raisebox{-1pt}{\includegraphics[height=9pt]{orcid_icon.png}}}}
+
+% Compact table column type
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
+\newcolumntype{C}[1]{>{\centering\arraybackslash}p{#1}}
+\newcolumntype{R}[1]{>{\raggedleft\arraybackslash}p{#1}}
+
+\title{National MCP Servers for Physical AI\\Oncology Clinical Trial Systems}
+
+\author{
+  Kevin Kawchak\hspace{2pt}\orcidicon{0009-0007-5457-8667} \\
+  CEO ChemicalQDevice\\
+  \href{https://doi.org/10.5281/zenodo.18916731}{10.5281/zenodo.18916731} \\
+  \texttt{kevink@chemicalqdevice.com}
+}
+
+\date{March 9, 2026}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+Prior oncology clinical trial infrastructure has been fragmented, site-specific, and inefficient across the critical dimensions of interoperability, auditability, privacy, and deployment. Each trial site has historically operated its own isolated systems for electronic health records, imaging archives, and audit logging, resulting in inconsistent data formats, duplicated regulatory effort, and limited cross-site collaboration. This paper presents the National MCP Physical AI Oncology Trials system, a proposed end-to-end architecture comprising five Model Context Protocol (MCP) servers that address these gaps through standardized, federated, and safety-governed capabilities. The five servers (Authorization, FHIR Clinical Data, DICOM Imaging, Audit Ledger, and Provenance) expose 23 tools across five hierarchical conformance levels, validated by 668 test functions. The system integrates AI and robotics advances intended to improve patient safety and clinical effectiveness, including emergency stop coordination, procedure state machines, and multi-party approval checkpoints. Quantitative analysis of the repository demonstrates 381 files across 88 directories, 34 integration adapters, 8 safety modules, 13 JSON schemas, and dual-language SDKs in Python and TypeScript. This end-to-end MCP Physical AI oncology trial system provides the foundation for national-scale standardization of robotic oncology clinical trials.
+\end{abstract}
+
+\keywords{Model Context Protocol \and Physical AI \and Oncology Clinical Trials \and Federated Learning \and Robotic Surgery}
+
+
+
+%% ========================================================================
+\section{Introduction}
+\label{sec:introduction}
+%% ========================================================================
+
+\vspace{-0.2cm}
+
+Oncology clinical trials represent one of the most complex operational domains in modern healthcare, requiring coordination among clinical sites, sponsors, contract research organizations (CROs), regulatory agencies, and increasingly, autonomous robotic systems. The prior trial infrastructure evolved organically over decades, producing a patchwork of site-specific implementations that created significant barriers to interoperability, auditability, and scalability.
+
+\vspace{-0.1cm}
+
+\subsection{Fragmentation in Prior Trial Systems}
+
+The previous oncology trial infrastructure suffered from several structural limitations that hindered efficiency and safety:
+
+\begin{enumerate}[leftmargin=*]
+\item \textbf{Site-specific data silos.} Each clinical site maintained its own electronic health record (EHR) system, picture archiving and communication system (PACS), and audit logging mechanism. Data exchange between sites required custom point-to-point integrations that were expensive to build and maintain.
+
+\item \textbf{Inconsistent interoperability.} While standards such as HL7 FHIR R4~\cite{fhir2019r4} and DICOM~\cite{dicom2024standard} existed, adoption was uneven. Many sites used proprietary data formats or older HL7 v2 interfaces, requiring complex translation layers.
+
+\item \textbf{Manual audit processes.} Regulatory compliance with 21 CFR Part 11~\cite{fda2003part11} and HIPAA~\cite{hipaa1996} was largely manual, relying on paper-based or spreadsheet-driven audit trails that were difficult to verify and vulnerable to tampering.
+
+\item \textbf{Limited privacy controls.} De-identification of protected health information (PHI) was inconsistently applied, and cross-site data sharing lacked standardized privacy-preserving mechanisms such as federated learning~\cite{mcmahan2017fedavg} or differential privacy.
+
+\item \textbf{No Physical AI integration standard.} As autonomous robotic systems entered oncology clinical settings for procedures such as biopsy, ablation, and radiation therapy, no standardized protocol existed for robot-to-clinical-system communication, safety governance, or audit logging of autonomous actions.
+\end{enumerate}
+
+\tableofcontents
+
+
+\vspace{0.05cm}
+
+\subsection{The Model Context Protocol Opportunity}
+
+The Model Context Protocol (MCP)~\cite{mcp2024protocol} introduced in 2024 by Anthropic provides a standardized, open protocol for communication between AI agents and tool servers. MCP defines a structured interface where agents invoke named tools with typed parameters and receive typed responses, with built-in support for capability discovery, error handling, and extensibility.
+
+This protocol architecture presents a natural fit for oncology clinical trials, where multiple actors (clinicians, robots, auditors, sponsors) need controlled access to clinical data through well-defined interfaces. The prior system lacked such a unifying protocol layer, forcing each integration to be built as a custom, bilateral connection.
+
+\subsection{Contributions of This Work}
+
+This paper presents the National MCP Physical AI Oncology Trials system (repository version 1.2.0), a proposed end-to-end architecture that addresses the limitations of prior trial infrastructure through five key contributions:
+
+\begin{enumerate}[leftmargin=*]
+\item A five-server MCP architecture (\texttt{trialmcp-authz}, \texttt{trialmcp-fhir}, \texttt{trialmcp-dicom}, \texttt{trialmcp-ledger}, \texttt{trialmcp-provenance}) exposing 23 standardized tools.
+\item Five hierarchical conformance levels enabling incremental adoption from basic authorization through full robotic procedure orchestration.
+\item Eight safety modules specifically designed for Physical AI systems in clinical environments, including emergency stop coordination and procedure state machines.
+\item A federated architecture supporting cross-site collaboration without centralized patient data, with privacy-preserving aggregation via FedAvg, FedProx, and SCAFFOLD~\cite{mcmahan2017fedavg,kairouz2021federated}.
+\item Comprehensive validation infrastructure comprising 668 test functions across unit, conformance, adversarial, security, and interoperability categories.
+\end{enumerate}
+
+The system was developed iteratively across four repositories, progressing from single-site Physical AI frameworks~\cite{kawchak2026physicalai} through federated learning~\cite{kawchak2026paifl} and MCP server prototyping~\cite{kawchak2026trialmcp} to the current national-scale standard~\cite{kawchak2026national}.
+
+\subsection{Prior System Architecture}
+
+To understand why the national MCP system is necessary, it is helpful to examine the architecture that the prior trial infrastructure imposed. The following text diagram illustrates the point-to-point integration model that characterized the previous system:
+
+\begin{figure}[H]
+\begin{verbatim}
+  PRIOR ONCOLOGY TRIAL ARCHITECTURE
+  (Point-to-Point Integrations)
+
+    Site A            Site B            Site C
+  +--------+        +--------+        +--------+
+  | EHR-A  |<------>| EHR-B  |        | EHR-C  |
+  +--------+   ^    +--------+   ^    +--------+
+  | PACS-A |   |    | PACS-B |   |    | PACS-C |
+  +--------+   |    +--------+   |    +--------+
+  | Audit-A|   |    | Audit-B|   |    | Audit-C|
+  +--------+   |    +--------+   |    +--------+
+       ^       |         ^       |         ^
+       |   Custom    Custom     Custom  Custom
+       +-- APIs --+-- APIs --+-- APIs --+
+                  |          |
+            +----------+  +----------+
+            | Sponsor  |  |   CRO    |
+            +----------+  +----------+
+
+  Each arrow = custom bilateral integration
+  N sites x M systems = O(N*M) integrations
+\end{verbatim}
+\end{figure}
+
+In this model, every clinical site maintained its own EHR, PACS, and audit system with proprietary interfaces. Cross-site communication required custom API development for each pair of systems, creating a combinatorial explosion of integration effort. A trial spanning 50 sites with 3 systems each required up to $50 \times 3 = 150$ unique integration endpoints, each requiring individual maintenance, testing, and regulatory validation.
+
+The national MCP system replaces this with a hub-and-spoke model where each site implements the same five MCP servers, and all actors (robots, clinicians, sponsors, CROs, auditors) interact through the standardized 23-tool interface. This reduces the integration complexity from $O(n \times m)$ to $O(n + m)$, where $n$ is the number of sites and $m$ is the number of actor types.
+
+\subsection{Regulatory Context}
+
+The prior trial infrastructure was designed before autonomous robotic systems became a practical reality in oncology. Existing regulatory frameworks, including ICH-GCP E6(R2)~\cite{ichgcp2016}, 21 CFR Part 11~\cite{fda2003part11}, and HIPAA~\cite{hipaa1996}, were developed for human-operated clinical systems. The introduction of Physical AI systems creates new requirements for:
+
+\begin{itemize}[leftmargin=*]
+\item Audit logging of autonomous decisions and actions
+\item Safety governance for robotic procedures in clinical settings
+\item Privacy-preserving cross-site learning from robotic procedure outcomes
+\item Standardized capability declaration and validation for robotic systems
+\end{itemize}
+
+The national MCP system addresses these requirements through its five-server architecture, safety modules, and conformance framework, providing the infrastructure necessary for FDA-regulated oncology trials incorporating Physical AI systems.
