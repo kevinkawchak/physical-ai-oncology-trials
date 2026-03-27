@@ -287,3 +287,89 @@ Physical AI operator on duty. By establishing these definitions in the adapted
 ICH E6(R3) and cross-referencing them in the other two adapted standards, the
 National Platform creates a unified vocabulary for the entire Physical AI
 oncology trial ecosystem.
+
+\subsection{Quality Management Systems for Physical AI}
+\label{subsec:ich-quality-management}
+
+The adapted ICH E6(R3) establishes a quality management framework that extends
+traditional GCP quality assurance to address the unique requirements of Physical
+AI systems in clinical trials. This framework operates at three levels: sponsor
+quality management (ensuring overall trial quality), site quality management
+(ensuring local operational quality), and system quality management (ensuring
+individual Physical AI system quality).
+
+Sponsor-level quality management requires sponsors to maintain a Physical AI
+Quality Management Plan (QMP) that identifies all Physical AI systems in the
+trial, establishes quality indicators for each system, defines monitoring
+frequencies and methods, and specifies corrective action procedures when quality
+indicators deviate from acceptable ranges. The QMP must be approved by the
+sponsor's quality assurance unit and reviewed by the IRB as part of the
+Physical AI safety plan evaluation.
+
+Site-level quality management requires each trial site to implement the
+sponsor's QMP locally, including assigning quality responsibilities to specific
+personnel, conducting regular Physical AI system audits per the QMP schedule,
+documenting all quality findings and corrective actions, and reporting quality
+trends to the sponsor. The PSL framework (Section~\ref{sec:psl-usl}) Dimension
+3 (Operational Readiness) encompasses site-level quality management as a
+prerequisite for site activation.
+
+System-level quality management operates continuously at each Physical AI
+system, encompassing automated self-checks (power-on diagnostics, sensor
+calibration verification, software version confirmation), real-time performance
+monitoring (throughput, accuracy, error rates, response times), scheduled
+maintenance per manufacturer specifications and site SOPs, and calibration
+management ensuring all sensors and actuators operate within specified
+tolerances.
+
+\begin{table}[H]
+\centering
+\caption{Quality Management Hierarchy for Physical AI Trials}
+\label{tab:ich-quality}
+\small
+\begin{tabularx}{\textwidth}{l X X}
+\toprule
+\textbf{Level} & \textbf{Responsibility} & \textbf{Key Activities} \\
+\midrule
+Sponsor & Overall trial quality management & QMP development, monitoring oversight, corrective action review, regulatory reporting \\
+Site & Local operational quality & QMP implementation, Physical AI system audits, personnel training, local corrective actions \\
+System & Individual Physical AI quality & Automated self-checks, real-time monitoring, scheduled maintenance, calibration management \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\subsection{Investigator Responsibilities Detailed Mapping}
+\label{subsec:ich-investigator-detail}
+
+\begin{table}[H]
+\centering
+\caption{Complete Mapping of Investigator Responsibilities for Physical AI}
+\label{tab:ich-investigator-map}
+\small
+\begin{tabularx}{\textwidth}{c l X}
+\toprule
+\textbf{No.} & \textbf{Category} & \textbf{Physical AI-Specific Requirements} \\
+\midrule
+2.1 & Qualifications and training & Physical AI system oversight certification; minimum 40 hours Physical AI training \\
+2.2 & Adequate resources & Robot maintenance budget, calibration equipment, technical support contracts \\
+2.3 & Medical care & Human oversight for all robot-assisted treatments; physician override capability \\
+2.4 & IRB/IEC communication & Quarterly Physical AI performance reports; immediate notification of system failures \\
+2.5 & Protocol compliance & Robot operational parameters within approved ranges; AI model versions per protocol \\
+2.6 & Informed consent & Physical AI-specific consent elements per adapted 21 CFR Part 50 \\
+2.7 & Record keeping & Robot telemetry logs, AI decision records, sensor data, maintenance records \\
+2.8 & Safety reporting & Physical AI adverse events per four-category system; cybersecurity incidents \\
+2.9 & Premature termination & Physical AI system failure criteria for trial pause or termination \\
+2.10 & Progress reports & Physical AI performance metrics in periodic reports \\
+2.11 & Financial compliance & Physical AI procurement and maintenance costs documented \\
+2.12 & Final reporting & Complete Physical AI experience documented with lessons learned \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+The twelve responsibility categories create a comprehensive framework that
+ensures investigators are accountable for every aspect of Physical AI system
+management within their trials. Categories 2.1 and 2.2 address preparation
+(qualified personnel and adequate resources). Categories 2.3 through 2.6
+address conduct (medical care, communication, compliance, and consent).
+Categories 2.7 through 2.10 address documentation and reporting. Categories
+2.11 and 2.12 address administrative and final obligations.
