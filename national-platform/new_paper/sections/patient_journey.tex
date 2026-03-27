@@ -223,3 +223,114 @@ clinical observations. These limitations are partially addressed by the
 Full validation requires real-world clinical trials, which this National
 Platform is designed to enable through its comprehensive regulatory, standards,
 infrastructure, and documentation framework.
+
+\subsection{Detailed Stage Timeline and Physical AI Systems}
+\label{subsec:journey-detailed-timeline}
+
+\begin{longtable}{c l l p{6cm}}
+\caption{Detailed Stage Timeline with Physical AI Systems Involved}
+\label{tab:journey-timeline} \\
+\toprule
+\textbf{Stage} & \textbf{Duration} & \textbf{Physical AI Systems} & \textbf{Key Deliverables} \\
+\midrule
+\endfirsthead
+\toprule
+\textbf{Stage} & \textbf{Duration} & \textbf{Physical AI Systems} & \textbf{Key Deliverables} \\
+\midrule
+\endhead
+\bottomrule
+\endfoot
+1 & Days 1-14 & AI screening algorithms, imaging robots & Eligibility determination, baseline imaging \\
+2 & Days 15-28 & Needle-placement robot, cobots & Biopsy results, biomarker analysis, staging confirmation \\
+3 & Days 29-35 & Companion robots, AI consent system & Signed Physical AI-specific consent, patient education \\
+4 & Days 36-42 & Cobots, data management AI & Enrollment confirmed, baseline data collection complete \\
+5 & Days 43-70 & Digital twin AI, treatment planning AI & Personalized treatment plan, simulation validation \\
+6 & Days 71-85 & Surgical robot (da Vinci), monitoring cobots & Tumor resection, procedure documentation \\
+7 & Days 86-120 & Rehab exoskeleton, companion robots, cobots & Post-surgical recovery milestones, wound healing \\
+8 & Days 121-365 & Cobots (drug prep), imaging robots, AI monitoring & Adjuvant therapy delivery, response assessment \\
+9 & Days 366-1050 & Imaging robots, AI surveillance, companion robots & Long-term monitoring, recurrence screening \\
+10 & Days 1051-1120 & AI documentation, data management systems & Final analysis, regulatory closeout, data archive \\
+\end{longtable}
+
+The total journey spans 1,120 days (approximately 3 years), consistent with
+typical oncology trial timelines for Stage IIIB NSCLC. Physical AI system
+involvement is continuous from Day 1 through Day 1,120, with different robot
+categories taking primary roles at different stages. The surgical robot is
+active for a concentrated period (Days 71-85), while companion robots provide
+support across nearly all stages. Imaging robots are involved in prescreening
+(Stage 1), treatment monitoring (Stages 7-9), and surveillance (Stage 9),
+demonstrating their utility across the complete trial lifecycle.
+
+\subsection{Cost-Savings Detail by Stage}
+\label{subsec:journey-cost-detail}
+
+\begin{table}[H]
+\centering
+\caption{Physical AI Cost Impact by Journey Stage}
+\label{tab:journey-cost-stage}
+\small
+\begin{tabularx}{\textwidth}{c l X}
+\toprule
+\textbf{Stage} & \textbf{Primary Savings Mechanism} & \textbf{Impact} \\
+\midrule
+1-2 & Automated screening & Reduced coordinator time per patient, faster eligibility determination \\
+3 & AI-enhanced consent & Streamlined consent process with automated documentation \\
+4 & Automated enrollment & Reduced data entry time, fewer transcription errors \\
+5 & Digital twin planning & Reduced planning iterations, optimized treatment strategy first time \\
+6 & Robotic precision & Shorter procedure duration, reduced complication rate, shorter hospital stay \\
+7 & Automated monitoring & Reduced nursing surveillance hours, earlier complication detection \\
+8 & AI-guided therapy & Optimized dosing reducing waste, fewer dose modifications needed \\
+9 & Automated surveillance & Reduced follow-up visits through remote monitoring, faster imaging analysis \\
+10 & Automated closeout & Reduced administrative burden, faster regulatory submission \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+The cumulative effect of cost savings across all ten stages compounds as the
+number of patients increases. At the single-patient level, each stage
+contributes incremental savings. At the 168-patient level demonstrated in the
+24-hour simulation \cite{site-docs}, the per-stage savings multiply across the
+patient cohort while fixed costs (infrastructure, robot procurement) remain
+constant, creating the favorable scale economics analyzed in
+Section~\ref{sec:financial}.
+
+\subsection{Safety Performance Across Stages}
+\label{subsec:journey-safety}
+
+The patient journey documents safety performance at each stage using metrics
+aligned with the adapted ICH E6(R3) \cite{ich-adapt} adverse event
+classification. Stage 6 (Surgical Intervention) carries the highest inherent
+risk due to direct Physical AI involvement in an invasive procedure, with the
+surgical robot classified as Tier 3 under the adapted 21 CFR Part 50
+\cite{cfr50-adapt} classification system. The safety matrix was completed
+before surgery, runtime monitoring tracked force, position, and vital signs
+continuously, and post-procedure documentation captured all surgical
+parameters.
+
+Stages 1-4 and 9-10 carry lower risk profiles (primarily Tier 1 and Tier 2
+Physical AI interactions) but still require documentation per the adapted
+standards. The companion robot interactions throughout the journey represent
+Tier 1 activities with standard monitoring. The overall safety record across
+all ten stages supports the conclusion that Physical AI can manage the
+complete trial lifecycle without compromising patient safety.
+
+\subsection{Comparison with Traditional Oncology Trial Timelines}
+\label{subsec:journey-traditional-comparison}
+
+Traditional oncology trials for Stage IIIB NSCLC typically require 4-6 months
+for enrollment (compared to 42 days in the Physical AI journey), 6-12 months
+for active treatment (compared to approximately 11 months), and 2-3 years for
+follow-up (comparable to the Physical AI timeline). The most significant
+timeline compression occurs in the pre-treatment stages (screening, consent,
+enrollment, treatment planning) where Physical AI automation reduces weeks of
+manual coordination to days of AI-assisted processing. Treatment stage
+compression comes primarily from 24-hour robot availability rather than
+shift-limited human scheduling, and from AI-optimized treatment planning
+reducing the number of plan iterations.
+
+The Phase 0 simulation validation required by the adapted 21 CFR Part 312
+\cite{cfr312-adapt} adds time before patient contact. However, Phase 0
+validation can proceed in parallel with traditional preclinical and regulatory
+preparation, and the thorough pre-validation it provides may reduce the time
+needed for early clinical phases by demonstrating safety upfront rather than
+through gradual dose escalation.

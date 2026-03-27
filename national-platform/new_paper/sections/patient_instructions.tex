@@ -189,3 +189,87 @@ implement the patient rights provisions of the adapted 21 CFR Part 50
 Clinical Trial Site Complete Documentation \cite{site-docs}, creating a
 comprehensive patient communication framework that supports informed,
 empowered participation in Physical AI oncology trials.
+
+\subsection{Robot Type Summary Table}
+\label{subsec:instructions-summary-table}
+
+Table~\ref{tab:robot-summary} provides a comprehensive reference summarizing all
+ten robot types with their primary clinical functions, representative
+manufacturers, USL-relevant readiness information, and patient interaction
+characteristics.
+
+\begin{longtable}{c p{2.2cm} p{2.5cm} p{2.5cm} p{3cm} l}
+\caption{Summary of All Ten Robot Types for Physical AI Oncology Trials}
+\label{tab:robot-summary} \\
+\toprule
+\textbf{No.} & \textbf{Robot Type} & \textbf{Representative Models} & \textbf{Primary Function} & \textbf{Patient Interaction} & \textbf{Tier} \\
+\midrule
+\endfirsthead
+\toprule
+\textbf{No.} & \textbf{Robot Type} & \textbf{Representative Models} & \textbf{Primary Function} & \textbf{Patient Interaction} & \textbf{Tier} \\
+\midrule
+\endhead
+\bottomrule
+\endfoot
+1 & Surgical & da Vinci, Hugo, Versius & Tumor resection, biopsy guidance & Direct invasive contact & 3 \\
+2 & Cobots & Franka, Kinova, xArm & Lab automation, med prep & Indirect, material handling & 1-2 \\
+3 & RT Positioning & Specialty systems & Radiation therapy alignment & Direct positioning contact & 2 \\
+4 & Needle-Placement & Image-guided systems & Biopsy, drug delivery & Direct invasive contact & 3 \\
+5 & Companion & Social robots & Emotional support, info & Non-contact interaction & 1 \\
+6 & Humanoid & Optimus, Digit, Atlas & Logistics, guidance & Proximity, non-contact & 1 \\
+7 & RT Tracking & Motion systems & Real-time motion tracking & Non-contact monitoring & 2 \\
+8 & Imaging & Robotic scan systems & Diagnostic, monitoring & Positioning contact & 2 \\
+9 & Steerable Needle & Advanced guidance & Complex target access & Direct invasive contact & 3 \\
+10 & Rehab Exoskeleton & Wearable robots & Post-treatment recovery & Full-body wearable contact & 2 \\
+\end{longtable}
+
+The tier classification in the rightmost column directly determines the
+regulatory requirements, consent elements, monitoring intensity, and operator
+qualifications for each robot type as detailed in the adapted 21 CFR Part 50
+\cite{cfr50-adapt} three-tier framework. Tier 3 robots (surgical, needle-
+placement, steerable needle) require the most comprehensive informed consent
+with procedure-specific elements, real-time multi-channel monitoring, and
+qualified physician presence. Tier 2 robots (RT positioning, RT tracking,
+imaging, rehabilitation) require enhanced consent and continuous telemetry.
+Tier 1 robots (cobots in non-contact roles, companion, humanoid logistics)
+require standard Physical AI disclosure with periodic monitoring.
+
+\subsection{Benefits by Robot Category}
+\label{subsec:instructions-category-benefits}
+
+Each robot category offers distinct patient benefits that collectively create
+a comprehensive care experience unavailable in traditional oncology trials.
+
+Surgical robots provide precision benefits: sub-millimeter accuracy in tumor
+targeting, reduced blood loss through minimally invasive approaches, smaller
+incisions resulting in less post-operative pain, and shorter hospital stays.
+The da Vinci platform's track record of 14 million procedures across 69
+countries \cite{usl-standard} provides extensive safety data supporting
+patient confidence.
+
+Cobots provide efficiency benefits: faster medication preparation reducing
+wait times, error-free sample labeling and tracking, consistent specimen
+handling that preserves sample integrity, and around-the-clock availability
+that eliminates delays from staff shift changes. The Franka Panda's highest
+overall USL score (7.4) reflects the operational readiness that translates to
+reliable patient service.
+
+Companion robots provide psychological benefits that are unique to Physical AI
+trials. Cancer patients experience anxiety, isolation, and information
+overload. Companion robots provide on-demand emotional support, consistent and
+patient responses to repeated questions, relaxation exercises tailored to
+individual preferences, and a non-judgmental presence during difficult
+treatment sessions. These benefits complement but do not replace human
+emotional support from family, friends, and counselors.
+
+Humanoid robots provide logistics benefits that improve the patient
+experience: reliable supply delivery ensuring that treatment materials are
+available when needed, specimen transport that maintains chain-of-custody
+without human error, patient guidance through facility areas reducing
+confusion, and environmental monitoring that maintains comfortable conditions.
+
+Rehabilitation exoskeletons provide recovery benefits: personalized mobility
+assistance that adapts to the patient's current capabilities, progressive
+strength training with quantified progress tracking, motivation through
+visible improvement metrics, and reduced dependency on physical therapy
+staff for routine exercises.
