@@ -295,3 +295,204 @@ Part 50. Where the same concept appears in multiple standards (such as
 prevent inconsistency. Where a concept appears only in one standard (such as
 ``Phase 0 Simulation Validation'' which is unique to Part 312), the definition
 is included in that standard alone but cross-referenced in the others.
+
+\subsection{Expanded Adverse Event Reporting Requirements}
+\label{subsec:cfr312-ae-expanded}
+
+The four-category adverse event framework summarized in
+Table~\ref{tab:ae-categories} warrants expanded examination because it creates
+the first structured classification system for Physical AI-related events in
+clinical trials. Traditional adverse event reporting under the original Part
+312 addresses drug-related events using seriousness criteria (death,
+life-threatening, hospitalization, disability, congenital anomaly, or other
+medically important condition). The Physical AI adaptation retains these
+seriousness criteria while adding the four system-specific categories that
+capture unique failure modes of robotic and AI systems in clinical settings.
+Table~\ref{tab:ae-categories-expanded} presents the detailed adverse event
+reporting framework with expanded definitions, escalation procedures,
+documentation requirements, and root cause analysis mandates for each category.
+
+\begin{table}[H]
+\centering
+\caption{Physical AI Adverse Event Categories: Expanded Definitions, Documentation, and Root Cause Requirements}
+\label{tab:ae-categories-expanded}
+\small
+\begin{tabularx}{\textwidth}{l X}
+\toprule
+\textbf{Attribute} & \textbf{Details} \\
+\midrule
+\multicolumn{2}{l}{\textbf{Category A: Physical AI System Malfunctions Affecting Patient Safety}} \\
+\midrule
+Expanded definition & Any failure, degradation, or unexpected behavior of a Physical AI system that directly affects or has the potential to directly affect patient safety during a clinical procedure or interaction. Includes mechanical failures, actuator malfunctions, control system errors, power system anomalies, and emergency stop system failures. \\
+\midrule
+Serious event timeline & 7 calendar days from investigator awareness to initial FDA report; 15 calendar days for complete follow-up report with root cause analysis. \\
+\midrule
+Expedited trigger & 24 hours for events during active surgical procedures, active radiation delivery, or any event resulting in documented patient injury. \\
+\midrule
+Expanded examples & Surgical robot instrument arm loses position calibration during active procedure; force sensor malfunction causes excessive contact pressure during patient positioning; emergency stop system fails to activate within the specified 200-millisecond response time; robot actuator overheats during patient interaction causing unplanned procedure pause; end-effector detachment or unexpected tool release during surgical operation; robotic arm exceeds workspace boundary during patient-proximate operation; hydraulic or pneumatic leak in systems operating near patient. \\
+\midrule
+Required documentation & Robot telemetry logs for 30 minutes before and after event; video recording of event if available; patient vital signs during event; operator actions taken and timeline; system error codes and diagnostic output; maintenance history for preceding 90 days; environmental conditions (temperature, humidity, vibration) at time of event. \\
+\midrule
+Root cause analysis & Must determine whether malfunction was caused by hardware wear, software error, calibration drift, environmental conditions, operator error, or manufacturing defect. Root cause report due within 30 calendar days of initial event report. \\
+\midrule
+\multicolumn{2}{l}{\textbf{Category B: AI Decision Errors Affecting Treatment}} \\
+\midrule
+Expanded definition & Any error, bias, or unexpected output from an AI algorithm that results in incorrect treatment delivery, incorrect monitoring assessment, or inappropriate clinical recommendation that is acted upon or could have been acted upon by clinical staff. Includes model inference errors, training data bias manifestations, and algorithm logic failures. \\
+\midrule
+Standard timeline & 15 calendar days from investigator awareness to FDA report for all Category B events. \\
+\midrule
+Expedited trigger & 7 calendar days if the AI decision error resulted in actual incorrect drug administration, confirmed dosing error, or treatment plan deviation that affected measurable patient outcomes. \\
+\midrule
+Expanded examples & AI treatment planning algorithm recommends dosage outside protocol-specified range; AI eligibility screening algorithm incorrectly clears ineligible patient for enrollment; AI monitoring system fails to detect adverse physiological change that would trigger clinical intervention; AI-guided needle placement algorithm calculates trajectory exceeding specified tolerance; digital twin model produces simulation results inconsistent with actual patient anatomy; AI system produces different outputs for clinically identical inputs suggesting instability; AI confidence score exceeds threshold but recommendation is clinically incorrect. \\
+\midrule
+Required documentation & AI model version and configuration at time of error; complete input data provided to AI system; AI output including confidence scores, alternative recommendations, and reasoning trace; ground truth or correct output for comparison; model performance metrics for preceding 30 days; any recent model updates, retraining events, or configuration changes; validation dataset performance at time of error. \\
+\midrule
+Root cause analysis & Must examine AI model architecture, training data quality and representativeness, input data quality and preprocessing, algorithm logic and edge cases, and model drift since last validation. Root cause report due within 45 calendar days of initial event report. \\
+\midrule
+\multicolumn{2}{l}{\textbf{Category C: Sensor Failures Compromising Data Integrity or Safety}} \\
+\midrule
+Expanded definition & Any failure, degradation, or inaccuracy in Physical AI system sensors that compromises the integrity of clinical data, safety monitoring capability, or the ability of the Physical AI system to operate within specified parameters. Includes sensor hardware failures, calibration drift, environmental interference, and data processing pipeline errors. \\
+\midrule
+Standard timeline & 15 calendar days from investigator awareness to FDA report for all Category C events. \\
+\midrule
+Expedited trigger & 7 calendar days if sensor failure occurred during an active patient procedure and was not detected by redundant systems within the specified maximum detection time. \\
+\midrule
+Expanded examples & Force-torque sensor drift causing inaccurate contact force readings exceeding 5 percent of full-scale range; position sensor failure causing robot to report incorrect spatial coordinates; vital sign monitoring sensor providing erroneous patient data to Physical AI control systems; temperature sensor malfunction in sterilization monitoring; proximity sensor failure allowing robot to enter restricted patient zone without detection; image sensor degradation affecting AI visual processing accuracy; encoder failure causing joint angle measurement error. \\
+\midrule
+Required documentation & Sensor calibration records for preceding 90 days; sensor output data showing deviation from expected values with statistical analysis; redundant sensor data for comparison if available; environmental conditions at time of failure including electromagnetic interference measurements; impact assessment quantifying the effect on clinical data collected during the affected period. \\
+\midrule
+Root cause analysis & Must distinguish between sensor hardware failure, calibration drift, environmental interference, connector or wiring degradation, and data processing pipeline errors. Root cause report due within 30 calendar days of initial event report. \\
+\midrule
+\multicolumn{2}{l}{\textbf{Category D: Cybersecurity Incidents Affecting Physical AI Integrity}} \\
+\midrule
+Expanded definition & Any unauthorized access, disruption, modification, or attempted compromise of Physical AI system hardware, software, network connections, or data that affects or may affect system integrity, patient safety, or data confidentiality. Includes external attacks, insider threats, and accidental security breaches. \\
+\midrule
+Active breach timeline & 24 hours from detection to initial FDA report; 7 calendar days for preliminary investigation report; 30 calendar days for complete incident report with remediation verification. \\
+\midrule
+Vulnerability timeline & 7 calendar days from detection to FDA report with remediation plan and interim mitigation measures; 30 calendar days for remediation completion report. \\
+\midrule
+Immediate escalation trigger & Within 4 hours if the incident involves active unauthorized control of any Physical AI system during patient interaction, active exfiltration of patient data, or compromise of safety-critical control systems. \\
+\midrule
+Expanded examples & Unauthorized access to robot control systems through network vulnerability; malware detected on Physical AI computing infrastructure; man-in-the-middle attack on robot-to-server communication; unauthorized modification of AI model parameters or training data; ransomware affecting Physical AI data storage; physical tampering with robot hardware or network connections; credential theft enabling unauthorized Physical AI system access; denial-of-service attack targeting Physical AI communication infrastructure. \\
+\midrule
+Required documentation & Incident detection method, timeline, and initial indicators of compromise; complete list of systems affected and scope of compromise; patient data potentially exposed with risk assessment; containment actions taken with timestamps; root cause analysis including attack vector identification; remediation steps implemented with verification testing; third-party forensic analysis report if warranted by incident severity. \\
+\midrule
+Root cause analysis & Must follow established cybersecurity incident investigation methodology including forensic evidence preservation, attack vector identification, vulnerability assessment, and determination of whether the incident was targeted or opportunistic. Root cause report due within 30 calendar days of incident containment. \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+The reporting timeline structure across all four categories follows a principle
+of proportional urgency. Category D active breaches require the fastest
+reporting (24 hours) because cybersecurity incidents may be ongoing and
+escalating, requiring immediate coordinated response. Category A serious events
+during active procedures require 24-hour expedited reporting because patient
+safety may be immediately at risk. Category B and C standard timelines of 15
+calendar days allow adequate time for investigation of complex technical
+failures where the root cause may not be immediately apparent. The escalation
+triggers within each category ensure that the most consequential events receive
+the most urgent attention regardless of the base category timeline.
+
+Each category integrates with the three-tier classification system from the
+adapted Part 50 (Section~\ref{sec:cfr50}). Tier 3 systems (surgical and
+invasive robots) are subject to the most stringent reporting: all Category A
+events are reported on expedited timelines regardless of seriousness
+classification, and Category B events involving treatment delivery errors
+trigger 7-day expedited reporting. Tier 1 systems (logistics and support
+robots) follow standard timelines for most events, with expedited reporting
+reserved for events resulting in actual patient injury. This tier-based
+modulation prevents reporting burden from overwhelming clinical sites while
+ensuring that high-risk events receive immediate attention.
+
+\subsection{Expanded Subpart J Analysis}
+\label{subsec:cfr312-subpart-j-expanded}
+
+The six sections of Subpart J summarized in Table~\ref{tab:subpart-j} follow a
+logical lifecycle progression that governs Physical AI systems from entry into
+the regulatory framework through ongoing operation to eventual
+decommissioning. The following analysis expands on each section's requirements,
+implementation considerations, and connections to other regulatory provisions.
+
+\S~312.400 (Physical AI System Registration) creates a capability that does
+not exist in the current FDA regulatory framework: a centralized, real-time
+database of all robotic systems operating in clinical trials nationwide.
+Registration data includes manufacturer identification, model designation,
+software version with hash verification, hardware serial number, current USL
+score with evaluation date, tier classification, deploying institution with
+site identification number, assigned trial protocol number, and deployment
+date. Registration must be updated within 15 calendar days of any change to
+system configuration, software version, or deployment status. This database
+enables FDA to identify cross-trial patterns, such as a specific robot model
+generating disproportionate adverse events across multiple sites, that would
+be difficult to detect through traditional site-level reporting. The
+registration requirement also supports the federated learning framework
+\cite{fl-paper} by providing a registry of systems that may participate in
+cross-site model improvement initiatives.
+
+\S~312.401 (Physical AI Validation Standards) establishes quantitative
+thresholds that create clear, objective standards for Physical AI system
+readiness. The simulation hour requirements are tiered: Tier 1 systems require
+a minimum of 100 hours of validated simulation, Tier 2 systems require 250
+hours, and Tier 3 systems require 500 hours. These hours must be accumulated
+on FDA-recognized simulation platforms, with performance metrics meeting
+category-specific benchmark thresholds. Validation renewal occurs annually or
+upon any major software update that alters operational parameters. The
+standardized validation report format includes simulation environment
+description, test scenario enumeration, performance metrics with statistical
+analysis, failure mode documentation, and an independent reviewer attestation.
+These requirements connect to the Phase 0 simulation validation concept in
+\S~312.21, ensuring that the Phase 0 stage has defined, measurable completion
+criteria.
+
+\S~312.402 (Cybersecurity Requirements) addresses a threat landscape unique to
+Physical AI trials. Requirements include AES-256 encryption for all data at
+rest, TLS 1.3 or higher for all data in transit, role-based access control
+with multi-factor authentication for all system access, network segmentation
+isolating Physical AI systems from general hospital networks, penetration
+testing by qualified third parties at least annually, automated vulnerability
+scanning at least monthly, and a documented incident response plan with a
+designated cybersecurity officer. The network segmentation requirement is
+particularly important because Physical AI systems often connect to both
+clinical networks (for patient data) and operational technology networks (for
+robot control), creating potential cross-domain attack paths that must be
+mitigated through architectural controls.
+
+\S~312.403 (Interoperability Requirements) reflects the practical reality that
+Physical AI trial sites deploy robots from multiple manufacturers. Mandatory
+protocol support includes MCP \cite{mcp-protocol} for AI-tool communication,
+FHIR \cite{hl7-fhir} for health data exchange, and DICOM \cite{dicom} for
+medical imaging data. Recommended protocol support includes ROS 2 for
+inter-robot communication, ONNX for AI model portability across platforms, and
+HL7 v2 for legacy healthcare system integration. Interoperability compliance
+must be demonstrated through conformance testing against published test suites
+before system deployment. The conformance testing results are included in the
+IND submission Physical AI System Description and reviewed by the IRB as part
+of the technical evaluation.
+
+\S~312.404 (Personnel Training Requirements) establishes tiered training that
+ensures operator preparation matches system complexity and risk. Tier 1
+operations require 8-hour general Physical AI awareness training covering robot
+identification, basic safety procedures, emergency stop activation, and
+patient communication. Tier 2 operations require 40-hour specialized operator
+certification including hands-on robot operation with supervised patient
+interactions, patient interaction protocols, troubleshooting procedures, and
+emergency response drills. Tier 3 operations require 80-hour advanced
+certification plus a minimum of 10 proctored cases demonstrating competency in
+console operation, instrument exchange, emergency conversion to manual
+procedures, and team communication protocols. All certifications require annual
+renewal with a minimum of 8 hours of continuing education specific to Physical
+AI advances and safety updates.
+
+\S~312.405 (Decommissioning Standards) addresses the end-of-life stage that is
+frequently overlooked in regulatory frameworks. The formal decommissioning plan
+must be approved by the site Physical AI safety committee before any
+decommissioning activities begin. Requirements include complete data extraction
+from all local storage with verification of archival integrity, patient
+notification when decommissioning directly affects their care plan, hardware
+sanitization using NIST SP 800-88 guidelines to remove all patient data before
+disposal or transfer, regulatory notification to FDA updating the system
+registration status, and documentation retention for the duration specified by
+the applicable records retention schedule with a minimum of 2 years after trial
+completion. The decommissioning standards ensure that patient data is protected
+throughout the complete system lifecycle, including after the system is no
+longer operational in the clinical trial.
