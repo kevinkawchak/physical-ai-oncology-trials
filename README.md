@@ -452,18 +452,6 @@ physical-ai-oncology-trials/
 
 ---
 
-## ★ Q1 2026 Standards
-
-The new `q1-2026-standards/` directory contains **proposed standards** for meeting the Q1 2026 unification objectives:
-
-| Objective | Description | Status |
-|-----------|-------------|--------|
-| **1** | Complete Isaac ↔ MuJoCo bidirectional conversion | Standards defined |
-| **2** | Publish unified robot model repository (50+ models) | Registry created |
-| **3** | Release validation benchmark suite v1.0 | Suite implemented |
-
----
-
 ## Core Technologies (Updated October 2025 - March 2026)
 
 ### Simulation & Physics
@@ -498,36 +486,9 @@ The new `q1-2026-standards/` directory contains **proposed standards** for meeti
 | dVRK 2.4.0 | JHU | Jan 2026 | da Vinci research platform (ROS 2 Jazzy) | ✓ Bridge available |
 | dVRK-Si | JHU | 2025 | Next-gen da Vinci Si/S support | ✓ Bridge available |
 | SurgicalGym | - | 2025 | GPU-based surgical RL | ◐ In progress |
-| Isaac Lab-Arena | NVIDIA | Jan 2026 | Large-scale policy evaluation | ✓ Benchmark integration |
+| Isaac Lab-Arena | NVIDIA | Jan 2026 | Large-scale policy evaluation | ✓ Benchmark integration 
 
 ---
-
-## ★ Patient Instructions (v2.1.0)
-
-The `patients/` directory documents a **10-page patient-facing instructional PDF** titled *Patient Instructions: Physical AI Oncology Trials*. Each page is a self-contained instruction sheet for one robot type, with a 1-sentence introduction and 3 clear numbered instructions covering arrival, interaction, and conclusion. Pages cover 10 robot types across surgical, therapeutic, diagnostic, assistive, and rehabilitative categories, each paired with a specific cancer type.
-
-> **[Paper (PDF) — Zenodo](https://doi.org/10.5281/zenodo.18810541)** | **[LaTeX Source Files — Zenodo](https://doi.org/10.5281/zenodo.18810541)** | **[Images — Google Drive](https://drive.google.com/drive/folders/1Cpe7fz3KlaERIfd6LQz2wmSBQNmB00Ax)**
-
-
-```
-Robot Categories (5 Clinical Categories)
-=========================================
-  Surgical: Surgical Robots, Cobots
-  Therapeutic: RT Positioning, RT Motion-Tracking
-  Diagnostic: Needle-Placement, Imaging, Steerable Needle
-  Assistive: Companion Robots, Humanoids (Pediatric)
-  Rehabilitative: Rehab Exoskeletons
-```
-
-See [`patients/README.md`](patients/README.md) for page-by-page instructions, text diagrams, quantitative patient data, and image descriptions.
-
----
-
-## ★ Unification Standard Level (USL)
-
-The `unification/usl/` directory implements the **Unification Standard Level (USL)** — a scoring framework for evaluating robot readiness for unified, multi-site oncology clinical trials. USL scores range from **1.0 to 10.0** across four dimensions: simulation switching, AI integration, cross-robot sharing, and clinical trial collaboration.
-
-> **★ USL Paper (v1.8.0)** — See [`unification/usl/paper/`](unification/usl/paper/) for the comprehensive 9-page paper: *Unification Standard Level for Physical AI Oncology Trials* (DOI: [10.5281/zenodo.18778220](https://doi.org/10.5281/zenodo.18778220)). Includes LaTeX source code, complete scoring methodology, all 9 robot evaluations with dimension-by-dimension rationale, cross-category analysis, and discussion.
 
 ### Humanoid Robot Evaluations (v1.6.0)
 
