@@ -26,9 +26,20 @@
 \usepackage{textcomp}
 \usepackage[top=1.5cm, bottom=1.80cm, left=2.00cm, right=2.00cm, includeheadfoot]{geometry}
 \usepackage[nottoc]{tocbibind}
+\usepackage[hyphens]{url}
 \usepackage[hidelinks, colorlinks=false, pdfborder={0 0 0}]{hyperref}
-\usepackage{url}
+
+% Allow URL line breaks at more characters
+\def\UrlBreaks{\do\/\do-\do.\do=\do_\do?\do\&\do\%\do\a\do\b\do\c\do\d\do\e%
+\do\f\do\g\do\h\do\i\do\j\do\k\do\l\do\m\do\n\do\o\do\p\do\q\do\r\do\s\do\t%
+\do\u\do\v\do\w\do\x\do\y\do\z\do\A\do\B\do\C\do\D\do\E\do\F\do\G\do\H\do\I%
+\do\J\do\K\do\L\do\M\do\N\do\O\do\P\do\Q\do\R\do\S\do\T\do\U\do\V\do\W\do\X%
+\do\Y\do\Z}
 \usepackage{xcolor}
+
+% Prevent overfull hbox warnings from long paths and URLs
+\sloppy
+\emergencystretch=3em
 
 % Force all text to black
 \color{black}
