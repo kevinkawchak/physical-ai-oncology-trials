@@ -280,8 +280,43 @@ simulated malfunction and power failure scenarios.
 The PSL framework scores achieved during the simulation confirmed that the
 documentation package is sufficient for real-world site establishment.
 Simulation data identified areas for refinement in several documents, leading
-to revisions that strengthened the overall package. These results, combined
-with the single-patient journey evidence \cite{patient-journey-paper}, provide
-the empirical foundation for Physical AI oncology trial site establishment
-nationwide. The economic analysis of simulation results is presented in
-Section~\ref{sec:financial}.
+to revisions that strengthened the overall package.
+
+\begin{table}[H]
+\centering
+\caption{24-Hour Simulation Robot Deployment by Category}
+\label{tab:simulation-robots}
+\small
+\begin{tabularx}{\textwidth}{l X c}
+\toprule
+\textbf{Robot Category} & \textbf{Functions Performed} & \textbf{Count} \\
+\midrule
+Surgical robots & Tumor resection, biopsy guidance & Multiple \\
+Collaborative robots & Medication prep, sample handling, positioning & Multiple \\
+RT positioning robots & Patient alignment for radiation therapy & Multiple \\
+Needle-placement robots & Biopsy and targeted drug delivery & Multiple \\
+Social companion robots & Emotional support, information delivery & Multiple \\
+Humanoid robots & Patient guidance, supply transport & Multiple \\
+RT motion-tracking robots & Real-time motion compensation & Multiple \\
+Imaging robots & Diagnostic scanning, monitoring imaging & Multiple \\
+Steerable needle robots & Complex anatomy targeting & Multiple \\
+Rehabilitation exoskeletons & Post-treatment mobility support & Multiple \\
+\midrule
+\textbf{Total} & \textbf{All Physical AI functions} & \textbf{29} \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+The 29 robots deployed in the simulation covered all ten robot categories
+documented in Patient Instructions: Physical AI Trials
+\cite{patient-instructions-paper}. Each category contributed to the overall
+99.7 percent uptime, with the seven documented adverse events distributed
+across categories and managed through the adapted ICH E6(R3) safety reporting
+procedures. No single category contributed disproportionately to adverse
+events, supporting the conclusion that the multi-robot Physical AI model is
+operationally viable.
+
+These results, combined with the single-patient journey evidence
+\cite{patient-journey-paper}, provide the empirical foundation for Physical AI
+oncology trial site establishment nationwide. The economic analysis of
+simulation results is presented in Section~\ref{sec:financial}.
