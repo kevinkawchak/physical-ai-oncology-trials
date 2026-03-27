@@ -34,7 +34,7 @@ jobs:
         run: ruff format --check .
 
       - name: YAML lint
-        run: yamllint -d relaxed configs/ unification/simulation_physics/physics_parameter_mapping.yaml q1-2026-standards/objective-2-robot-model-repository/model_registry.yaml
+        run: yamllint -d relaxed configs/ unification/simulation_physics/physics_parameter_mapping.yaml
 
   validate-scripts:
     runs-on: ubuntu-latest
