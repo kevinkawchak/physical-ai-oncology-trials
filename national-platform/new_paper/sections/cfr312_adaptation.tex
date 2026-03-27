@@ -238,3 +238,60 @@ requirements through targeted adaptation of existing subparts, but certain
 aspects are sufficiently novel to warrant their own provisions. This approach
 maintains regulatory continuity with established practice while acknowledging
 the unique characteristics of Physical AI systems.
+
+\begin{table}[H]
+\centering
+\caption{Physical AI Adverse Event Reporting Categories and Timelines}
+\label{tab:ae-categories}
+\small
+\begin{tabularx}{\textwidth}{c l l X}
+\toprule
+\textbf{Cat} & \textbf{Event Type} & \textbf{Timeline} & \textbf{Examples} \\
+\midrule
+A & System malfunction affecting safety & 7 days (serious), 15 days (non-serious) & Robot arm position error during surgery, actuator failure during procedure, end-effector malfunction \\
+B & AI decision error & 15 calendar days & Incorrect dosing recommendation, wrong treatment plan selection, misclassified imaging result \\
+C & Sensor failure & 15 calendar days & Force sensor drift beyond calibration, vital sign monitor data loss, position encoder failure \\
+D & Cybersecurity incident & 24 hours (active), 7 days (vulnerability) & Unauthorized system access, data exfiltration attempt, ransomware detection, authentication bypass \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\begin{table}[H]
+\centering
+\caption{Subpart J: Physical AI Systems Provisions (\S~312.400-312.405)}
+\label{tab:subpart-j}
+\small
+\begin{tabularx}{\textwidth}{l l X}
+\toprule
+\textbf{Section} & \textbf{Title} & \textbf{Scope} \\
+\midrule
+\S~312.400 & System Registration & Centralized FDA database of all Physical AI systems in IND trials \\
+\S~312.401 & Validation Standards & Minimum simulation hours, benchmark thresholds, renewal schedule \\
+\S~312.402 & Cybersecurity Requirements & Encryption, access control, incident response, penetration testing \\
+\S~312.403 & Interoperability Requirements & MCP protocol support, FHIR/DICOM data formats, cross-platform standards \\
+\S~312.404 & Training Requirements & Tier-based certification for operators, maintenance, and oversight personnel \\
+\S~312.405 & Decommissioning Standards & Data preservation, hardware disposal, participant notification \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\subsection{Cross-Reference with Other Adapted Standards}
+\label{subsec:cfr312-cross-ref}
+
+The adapted 21 CFR Part 312 operates in coordination with the other two
+adapted standards to create a comprehensive regulatory framework. Sponsor and
+investigator responsibilities in Part 312 (\S~312.50-312.70) complement those
+defined in Section 3 of the adapted ICH E6(R3) \cite{ich-adapt}. Informed
+consent requirements referenced in Part 312 IND submissions are detailed in
+the adapted 21 CFR Part 50 \cite{cfr50-adapt}. The Phase 0 simulation
+validation requirement connects to the PSL and USL standards frameworks
+(Section~\ref{sec:psl-usl}) for quantitative assessment of simulation
+adequacy.
+
+The 22 definitions in Part 312 \S~312.3 are deliberately harmonized with the
+30 definitions in the adapted ICH E6(R3) and the 17 definitions in the adapted
+Part 50. Where the same concept appears in multiple standards (such as
+``Physical AI Adverse Event''), the definitions use identical language to
+prevent inconsistency. Where a concept appears only in one standard (such as
+``Phase 0 Simulation Validation'' which is unique to Part 312), the definition
+is included in that standard alone but cross-referenced in the others.

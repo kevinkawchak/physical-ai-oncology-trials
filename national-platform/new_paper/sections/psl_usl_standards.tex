@@ -294,3 +294,81 @@ Physical AI ecosystem matures, Dimension D scores should improve as robots gain
 regulatory clearance, federated learning compatibility, audit trail
 capabilities, and multi-site deployment experience. The PSL and USL frameworks
 provide the measurement infrastructure to track this progress over time.
+
+\subsection{USL Level Definitions}
+\label{subsec:usl-levels}
+
+The USL framework maps composite scores to ten granular levels, each
+representing a distinct stage of robot readiness for clinical trial deployment.
+These levels provide more precise guidance than the five-band classification by
+identifying specific capabilities and gaps at each stage.
+
+\begin{longtable}{c l p{10cm}}
+\caption{USL Level Definitions (1-10)}
+\label{tab:usl-levels} \\
+\toprule
+\textbf{Lvl} & \textbf{Name} & \textbf{Description} \\
+\midrule
+\endfirsthead
+\toprule
+\textbf{Lvl} & \textbf{Name} & \textbf{Description} \\
+\midrule
+\endhead
+\bottomrule
+\endfoot
+1 & Conceptual & Robot exists as a prototype or concept; no simulation or AI integration has been attempted; no clinical applicability demonstrated \\
+2 & Exploratory & Single simulation framework tested with basic robot model available; initial feasibility studies conducted \\
+3 & Basic & Two or more simulation frameworks supported; initial AI experiments conducted; basic model formats available \\
+4 & Developing & Cross-framework policy transfer demonstrated; AI planning capabilities tested; intra-organization sharing initiated \\
+5 & Functional & Three or more simulation frameworks validated; agentic AI operational; intra-organization sharing established with ONNX or equivalent \\
+6 & Integrated & Multi-framework validation complete; LLM-based task planning operational; inter-organization sharing demonstrated \\
+7 & Advanced & GPU-accelerated simulation with validated policy transfer; MCP and VLA integration; skill sharing across organizations \\
+8 & Clinical-Ready & Multi-site deployment tested; regulatory documentation prepared; federated learning compatibility demonstrated \\
+9 & Validated & Full regulatory compliance achieved; multi-site clinical trials active; continuous improvement pipeline operational \\
+10 & Exemplary & Production deployment at multiple sites; open consortium participation; continuous federated improvement with demonstrated clinical outcomes \\
+\end{longtable}
+
+\subsection{Dimension Score Analysis by Category}
+\label{subsec:dimension-analysis}
+
+Analysis of USL dimension scores across the three robot categories reveals
+systematic patterns that inform deployment strategy and investment priorities.
+
+\begin{table}[H]
+\centering
+\caption{Average USL Dimension Scores by Robot Category}
+\label{tab:dim-averages}
+\small
+\begin{tabular}{l r r r r r}
+\toprule
+\textbf{Category} & \textbf{Dim A} & \textbf{Dim B} & \textbf{Dim C} & \textbf{Dim D} & \textbf{Avg USL} \\
+\midrule
+Cobots (3 robots) & 6.3 & 5.4 & 6.0 & 4.4 & 5.5 \\
+Surgical (3 robots) & 5.1 & 4.7 & 4.3 & 6.0 & 5.0 \\
+Humanoid (3 robots) & 5.4 & 5.9 & 3.0 & 3.8 & 4.5 \\
+\midrule
+\textbf{All 9 robots} & \textbf{5.6} & \textbf{5.3} & \textbf{4.4} & \textbf{4.7} & \textbf{5.0} \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Cobots lead in Dimensions A (Simulation Switching) and C (Cross-Robot Sharing)
+with averages of 6.3 and 6.0 respectively, reflecting the mature open-source
+ecosystems of platforms like Franka Panda. Surgical robots lead in Dimension D
+(Clinical Trial Collaboration) with an average of 6.0, driven by the da Vinci
+platform's FDA clearance and extensive clinical deployment history. Humanoid
+robots lead in Dimension B (AI Integration) with an average of 5.9, reflecting
+advanced foundation model integration (GR00T) and whole-body control
+capabilities. However, humanoids score lowest on both Dimensions C (3.0) and D
+(3.8), indicating the youngest category with the most limited sharing
+infrastructure and clinical deployment experience.
+
+The overall field average of 5.0 places the collective Physical AI ecosystem at
+the Functional level (Level 5), indicating that while individual capabilities
+are demonstrated, significant work remains before multi-site clinical trial
+readiness is achieved across all categories. The strongest individual scores
+(Franka Panda Dim C at 8.5, da Vinci Dim A at 7.5, Atlas Dim B at 7.4)
+demonstrate that excellence is achievable in specific dimensions, but no single
+robot achieves Advanced band or above across all four dimensions
+simultaneously. This finding reinforces the need for multi-robot strategies
+where different robot categories complement each other's strengths.

@@ -399,3 +399,209 @@ described in Section~\ref{sec:implementation}. Sites in states with existing
 legislative frameworks for AI in healthcare may proceed through earlier phases
 more quickly, while sites in states requiring new legislation may follow the
 later phases of the timeline.
+
+\subsection{Detailed Tool Specifications and Operational Parameters}
+\label{subsec:mcp-tool-specs}
+
+Beyond the inventory presented in Table~\ref{tab:mcp-all-tools}, each of the
+23 MCP tools operates within defined performance parameters that ensure
+consistent behavior across deployment sites. Table~\ref{tab:mcp-tool-specs}
+provides operational specifications for all tools organized by server,
+including latency requirements, data throughput expectations, and
+fault-tolerance characteristics.
+
+\begin{longtable}{l l p{2.8cm} p{2.2cm} p{3.5cm}}
+\caption{Operational Specifications for All 23 MCP Tools}
+\label{tab:mcp-tool-specs} \\
+\toprule
+\textbf{Server} & \textbf{Tool} & \textbf{Max Latency} & \textbf{Throughput} & \textbf{Fault Tolerance} \\
+\midrule
+\endfirsthead
+\toprule
+\textbf{Server} & \textbf{Tool} & \textbf{Max Latency} & \textbf{Throughput} & \textbf{Fault Tolerance} \\
+\midrule
+\endhead
+\midrule
+\multicolumn{5}{r}{\textit{Continued on next page}} \\
+\bottomrule
+\endfoot
+\bottomrule
+\endlastfoot
+Governance & Protocol Manager & 500 ms response & 100 req/min & Active-passive failover with state replication \\
+Governance & Compliance Tracker & 1 s response & 200 req/min & Eventual consistency with 5 s recovery \\
+Governance & Access Controller & 100 ms response & 500 req/min & Active-active with distributed token cache \\
+Governance & Audit Logger & 200 ms write & 1000 events/min & Write-ahead log with guaranteed delivery \\
+Governance & Consent Verifier & 250 ms response & 150 req/min & Cached verification with real-time fallback \\
+\midrule
+Data Flow & Data Ingester & 50 ms per record & 5000 records/min & Buffer queue with 10 min retention \\
+Data Flow & Format Transformer & 100 ms per transform & 2000 transforms/min & Stateless with automatic retry \\
+Data Flow & Data Validator & 75 ms per validation & 3000 validations/min & Parallel validation with majority consensus \\
+Data Flow & Storage Coordinator & 200 ms per route & 1000 routes/min & Multi-path routing with acknowledgment \\
+Data Flow & Stream Router & 25 ms per message & 10000 msg/min & Priority queuing with overflow management \\
+\midrule
+Safety & Emergency Stop & 10 ms propagation & Unlimited burst & Triple-redundant with hardware fallback \\
+Safety & Interlock Manager & 50 ms state check & 500 checks/min & Fail-safe default (all interlocks engaged) \\
+Safety & Anomaly Detector & 100 ms detection & 2000 samples/min & Redundant detectors with voting \\
+Safety & Incident Reporter & 500 ms report gen & 50 reports/min & Guaranteed delivery with offline queue \\
+\midrule
+Interop & Device Registrar & 1 s registration & 20 reg/min & Distributed registry with sync replication \\
+Interop & Protocol Translator & 75 ms per translation & 1000 trans/min & Fallback to raw passthrough on failure \\
+Interop & Capability Negotiator & 2 s per negotiation & 30 neg/min & Cached capability profiles with refresh \\
+Interop & Standards Enforcer & 50 ms per check & 2000 checks/min & Strict mode rejects on enforcer failure \\
+Interop & Integration Adapter & 150 ms per exchange & 500 exchanges/min & Adapter pool with circuit breaker \\
+\midrule
+Analytics & Dashboard Generator & 2 s refresh & 10 dashboards/min & Cached views with graceful degradation \\
+Analytics & Trend Analyzer & 5 s computation & 5 analyses/min & Incremental computation with checkpoints \\
+Analytics & Outcome Aggregator & 3 s aggregation & 10 aggregations/min & Partial results on timeout \\
+Analytics & Performance Scorer & 1 s scoring & 20 scores/min & Last-known-good score on failure \\
+\end{longtable}
+
+The latency requirements reflect the operational criticality of each tool.
+Safety Server tools have the most stringent latency requirements, with the
+Emergency Stop tool requiring signal propagation within 10 milliseconds to
+ensure that patient safety events trigger immediate system-wide responses. This
+10-millisecond threshold was established through analysis of Physical AI
+response times documented in the 24-hour simulation \cite{site-docs}, where
+robot deceleration profiles require stop signal receipt within this window to
+guarantee safe cessation of motion. The Interlock Manager operates at 50
+milliseconds because interlock state checks occur before each procedure step,
+and excessive latency would create unacceptable delays in treatment delivery
+without corresponding safety benefit.
+
+Data Flow Server tools prioritize throughput because Physical AI systems
+generate continuous high-volume data streams. The Stream Router, handling the
+highest message volume at 10,000 messages per minute, implements priority
+queuing that ensures safety-critical messages receive immediate routing while
+lower-priority telemetry data is queued for batch processing. The Data
+Ingester's 50-millisecond latency target ensures that real-time sensor data
+from Physical AI robots reaches monitoring systems without perceptible delay,
+supporting the continuous monitoring capabilities demonstrated in the 24-hour
+simulation.
+
+Governance Server tools operate at moderate latency because their functions
+are invoked at procedure initiation and completion rather than continuously
+during operations. The Access Controller is the exception, requiring 100
+millisecond response times because authentication checks occur frequently as
+different system components request access to protected resources. The Audit
+Logger's guaranteed delivery mechanism uses write-ahead logging to ensure that
+no audit event is lost even during server failures, supporting the 21 CFR
+Part 11 requirements for complete and tamper-evident electronic records.
+
+Analytics Server tools have the most relaxed latency requirements because
+their outputs support management decisions rather than real-time operations.
+Dashboard refresh at 2-second intervals provides near-real-time visibility
+without imposing excessive computational load. The Trend Analyzer's 5-second
+computation window allows for analysis across larger datasets spanning
+multiple patients and time periods. All Analytics tools implement graceful
+degradation, providing cached or partial results when computational resources
+are constrained, ensuring that analytics never compete with safety-critical
+functions for server resources.
+
+\subsection{Deployment Topology Network Architecture}
+\label{subsec:mcp-network-arch}
+
+The hub-and-spoke deployment topology described in
+Section~\ref{subsec:mcp-deployment} requires specific network architecture
+configurations at each level. Table~\ref{tab:mcp-network-config} details the
+network requirements for spoke servers at individual trial sites, regional hub
+servers that aggregate multiple sites, and the national coordination layer that
+connects all regional hubs.
+
+\begin{longtable}{l p{3.5cm} p{3.5cm} p{4.0cm}}
+\caption{Network Architecture Requirements by Deployment Level}
+\label{tab:mcp-network-config} \\
+\toprule
+\textbf{Parameter} & \textbf{Spoke (Site)} & \textbf{Regional Hub} & \textbf{National Coordination} \\
+\midrule
+\endfirsthead
+\toprule
+\textbf{Parameter} & \textbf{Spoke (Site)} & \textbf{Regional Hub} & \textbf{National Coordination} \\
+\midrule
+\endhead
+\bottomrule
+\endfoot
+\bottomrule
+\endlastfoot
+Bandwidth (minimum) & 1 Gbps internal, 100 Mbps uplink & 10 Gbps internal, 1 Gbps per spoke link & 10 Gbps backbone, 1 Gbps per hub link \\
+\midrule
+Latency (max, one-way) & 5 ms internal & 20 ms to any spoke & 50 ms to any regional hub \\
+\midrule
+Redundancy & Dual uplink to regional hub & Dual backbone connections, N+1 spoke links & Geographically distributed with automatic failover \\
+\midrule
+Encryption & TLS 1.3 for all external, IPSec for inter-server & TLS 1.3 for all links, hardware security modules & TLS 1.3 with mutual authentication, HSM-backed certificates \\
+\midrule
+Data residency & All patient data retained locally & De-identified aggregates only & Fully de-identified national aggregates only \\
+\midrule
+Firewall rules & Outbound to regional hub only, no direct cross-site & Outbound to national and inbound from spokes & Inbound from regional hubs only \\
+\midrule
+Monitoring & Local SNMP and syslog & Regional network operations center & National network operations center with 24/7 staffing \\
+\midrule
+Disaster recovery & 4-hour RTO, 1-hour RPO & 2-hour RTO, 30-minute RPO & 1-hour RTO, 15-minute RPO \\
+\midrule
+Load balancing & Round-robin across local server instances & Weighted distribution based on spoke load & Geographic routing with health-aware failover \\
+\midrule
+Compliance monitoring & Automated HIPAA scan daily & Regional compliance dashboard & National compliance aggregation with alert escalation \\
+\end{longtable}
+
+The network architecture enforces the data residency requirements described in
+Section~\ref{subsec:mcp-deployment}. Patient-identified data never traverses
+the uplink from spoke servers to regional hubs. The Data Flow Server's Storage
+Coordinator tool enforces this boundary by classifying each data element and
+routing accordingly. De-identified aggregate data flows from spoke to regional
+hub for regional analytics, and fully de-identified national aggregates flow
+from regional hubs to the national coordination layer.
+
+The disaster recovery parameters (Recovery Time Objective and Recovery Point
+Objective) reflect the criticality of each deployment level. Spoke servers at
+individual trial sites have a 4-hour RTO because local Physical AI operations
+can continue using the Safety Server's autonomous safety functions even if
+network connectivity to the regional hub is lost. Regional hub servers have a
+stricter 2-hour RTO because cross-site coordination functions, including
+federated learning round management and cross-site safety signal aggregation,
+depend on hub availability. The national coordination layer has the strictest
+1-hour RTO because nationwide analytics and regulatory reporting functions
+require continuous operation to meet submission deadlines and provide real-time
+visibility to regulatory authorities.
+
+The encryption requirements ensure that all data in transit is protected using
+current best-practice cryptographic standards. TLS 1.3 provides forward secrecy
+and strong cipher suites for all network communications. Hardware security
+modules at the regional hub and national coordination levels store cryptographic
+keys in tamper-resistant hardware, preventing key extraction even if server
+software is compromised. IPSec tunnels between servers at the spoke level
+provide an additional encryption layer for inter-server communication within a
+trial site, ensuring that Physical AI data remains encrypted even on the local
+network.
+
+The monitoring architecture provides visibility at each deployment level. Local
+monitoring at spoke servers uses standard SNMP and syslog protocols that
+integrate with existing hospital IT monitoring systems. Regional network
+operations centers aggregate monitoring data from all spokes within a region,
+providing a unified view of regional infrastructure health. The national
+network operations center, staffed 24 hours a day and 7 days a week, monitors
+all regional hubs and the national coordination layer, with escalation
+procedures that route critical alerts to on-call engineering teams within
+minutes. This three-level monitoring architecture ensures that infrastructure
+issues are detected and addressed at the appropriate level, preventing local
+problems from escalating to regional or national impact.
+
+Load balancing strategies differ by deployment level. Spoke servers use simple
+round-robin distribution because all local server instances have equivalent
+capability and access to the same local data. Regional hubs implement weighted
+distribution that accounts for the varying load generated by spokes with
+different patient volumes and Physical AI system counts. The national
+coordination layer uses geographic routing that directs requests to the nearest
+healthy regional hub, with health-aware failover that automatically redirects
+traffic away from hubs experiencing degraded performance.
+
+The firewall rule architecture implements a defense-in-depth strategy. Spoke
+servers can only communicate outbound to their assigned regional hub, preventing
+any direct cross-site data exchange that would bypass the hub's data residency
+enforcement. Regional hubs accept inbound connections only from their assigned
+spokes and communicate outbound only to the national coordination layer. The
+national coordination layer accepts inbound connections only from authenticated
+regional hubs. This layered firewall architecture ensures that a compromise at
+any single level cannot propagate laterally across the infrastructure, limiting
+the blast radius of potential security incidents as required by the
+cybersecurity provisions of the adapted 21 CFR Part 312 \cite{cfr312-adapt}
+Subpart J.

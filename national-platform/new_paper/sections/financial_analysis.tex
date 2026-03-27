@@ -194,3 +194,72 @@ individual trial economics. FDA guidance documents
 \cite{fda-clinical-trials-guidance} and NCI resources
 \cite{nci-clinical-trials} provide valuable but narrower economic perspectives
 that this analysis extends to the full Physical AI context.
+
+\subsection{Financial Projections by Implementation Phase}
+\label{subsec:financial-projections}
+
+Table~\ref{tab:financial-projections} presents estimated financial parameters
+for each implementation phase, providing a framework for investment planning.
+
+\begin{table}[H]
+\centering
+\caption{Financial Projections by Implementation Phase}
+\label{tab:financial-projections}
+\small
+\begin{tabularx}{\textwidth}{l X X X}
+\toprule
+\textbf{Parameter} & \textbf{Phase 1 (California)} & \textbf{Phase 2 (Multi-site)} & \textbf{Phase 3 (Nationwide)} \\
+\midrule
+Number of sites & 1 & 5-10 & 50 or more \\
+Robots per site & 20-30 & 20-30 & 15-30 \\
+Annual patients per site & Up to 61,000 & Up to 61,000 & Variable \\
+Infrastructure investment & Site construction, robot procurement, MCP servers & Incremental per site, shared MCP hubs & Regional hub infrastructure, standardized deployment \\
+Staffing model & Mixed traditional and Physical AI & Evolving toward Physical AI-primary & Physical AI-primary with specialized human roles \\
+Timeline to break-even & 18-24 months projected & 12-18 months (economies of learning) & 6-12 months (standardized deployment) \\
+Open-source savings & Full platform available & Shared improvements across sites & Community-maintained platform \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+The projections assume that each site operates at throughput levels demonstrated
+in the 24-hour simulation \cite{site-docs}, with 168 patients per 24-hour
+period representing the demonstrated operational capability. Actual throughput
+will depend on site size, cancer type mix, and local staffing conditions.
+Phase 1 investment is highest per site due to first-mover costs including
+site construction customization, initial staff training, and regulatory
+pathway development. Phase 2 and Phase 3 benefit from economies of learning
+as standardized processes, shared training materials, and community-maintained
+open-source code \cite{main-repo, mcp-repo, fl-repo} reduce per-site costs.
+
+\subsection{Return on Investment Analysis}
+\label{subsec:financial-roi}
+
+\begin{table}[H]
+\centering
+\caption{Return on Investment Framework for Physical AI Trial Sites}
+\label{tab:roi-analysis}
+\small
+\begin{tabularx}{\textwidth}{l X}
+\toprule
+\textbf{ROI Component} & \textbf{Description} \\
+\midrule
+Direct cost savings & Reduced per-patient costs through automation, 24-hour operations, and fewer staff \\
+Time-value savings & Earlier drug approval per Tufts CSDD data on value of reduced delays \\
+Quality improvement & Reduced adverse events, better data quality, fewer regulatory deficiencies \\
+Multi-trial leverage & Same infrastructure supporting multiple concurrent trials \\
+Training efficiency & AI-assisted training reducing time-to-competency for new staff \\
+Data asset value & Federated learning models improving with each trial, creating compounding value \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+The ROI analysis demonstrates that Physical AI trial site investment is
+financially justified across multiple return dimensions. The most significant
+return comes from time-value savings: if Physical AI enables even modest
+acceleration of drug approval timelines, the value per day of acceleration as
+quantified by Tufts CSDD \cite{tufts-delay} exceeds the per-day amortized
+cost of Physical AI infrastructure. The compounding value of federated learning
+models represents a unique ROI dimension: each trial conducted at a Physical AI
+site contributes to model improvement that benefits all future trials across
+the network, creating increasing returns to scale that traditional trial
+infrastructure cannot match.
