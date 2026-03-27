@@ -1,7 +1,7 @@
 # End-to-End Physical AI Unification of Oncology Clinical Trials
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Release](https://img.shields.io/badge/Release-v2.9.1-brightgreen.svg)](https://github.com/kevinkawchak/physical-ai-oncology-trials)
+[![Release](https://img.shields.io/badge/Release-v2.9.2-brightgreen.svg)](https://github.com/kevinkawchak/physical-ai-oncology-trials)
 [![Last Updated](https://img.shields.io/badge/Updated-March%202026-blue.svg)](https://github.com/kevinkawchak/physical-ai-oncology-trials)
 [![Protocol](https://img.shields.io/badge/Protocol-MCP-purple.svg)](https://github.com/kevinkawchak/physical-ai-oncology-trials)
 [![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.18445179-blue)](https://doi.org/10.5281/zenodo.18445179)
@@ -417,13 +417,31 @@ physical-ai-oncology-trials/
 │       ├── 2nd/                     # 20 PNGs (10 light + 10 dark)
 │       └── 3rd/                     # 20 PNGs (10 light + 10 dark)
 │
-├── national-platform/                 # National platform research documents
+├── national-platform/                 # ★ National Platform for Physical AI Oncology Trials
 │   ├── RESEARCH-A                     # Federal regulatory research (plain text)
 │   ├── RESEARCH-A-CHUNK/              # ★ Chunked into 2 files (v2.9.1)
 │   │   └── README.md                  # Reconstruction instructions
 │   ├── RESEARCH-B                     # State/federal comparative research (plain text)
-│   └── RESEARCH-B-CHUNK/              # ★ Chunked into 2 files (v2.9.1)
-│       └── README.md                  # Reconstruction instructions
+│   ├── RESEARCH-B-CHUNK/              # ★ Chunked into 2 files (v2.9.1)
+│   │   └── README.md                  # Reconstruction instructions
+│   ├── 21cfr312_adapt/                # 21 CFR Part 312 adaptation chunks (5 files)
+│   ├── 21cfr50_adapt/                 # 21 CFR Part 50 adaptation chunks (3 files)
+│   ├── ich_e6r3_adapt/                # ICH E6(R3) adaptation chunks (4 files)
+│   ├── federated_learning/            # Federated learning paper chunks (4 files)
+│   ├── national_mcp/                  # National MCP servers paper chunks (4 files)
+│   ├── new_trial_psl/                 # Trial site PSL documentation chunks (11 files)
+│   ├── patient_journey/               # Patient journey paper chunks (3 files)
+│   ├── patient_robot/                 # Patient robot instructions chunks (2 files)
+│   ├── usl_standard/                  # USL standard paper chunks (2 files)
+│   ├── research_a/                    # Research A analysis chunks (2 files)
+│   ├── research_b/                    # Research B analysis chunks (2 files)
+│   ├── paper_template/                # Original Groningen LaTeX template
+│   └── new_template/                  # ★ National Platform LaTeX template (v2.9.2)
+│       ├── main.tex                   # Main document (16 sections)
+│       ├── page_styles.tex            # Page styles with attribution
+│       ├── references.bib             # Bibliography (35 sources)
+│       ├── README.md                  # Template documentation
+│       └── sections/                  # 20 section .tex files
 │
 ├── configs/
 │   └── training_config.yaml

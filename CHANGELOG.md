@@ -5,6 +5,34 @@ Format follows [Keep a Changelog](https://keepachangelog.com/).
 
 ## [Unreleased]
 
+## [2.9.2] - 2026-03-28
+
+### Added
+- national-platform/new_template/ - National Platform for Physical AI Oncology Trials LaTeX template
+- national-platform/new_template/main.tex - Main document with 16 sections, cover page, TOC, appendices
+- national-platform/new_template/page_styles.tex - Page style definitions with Groningen template attribution
+- national-platform/new_template/references.bib - Complete bibliography with 35 sources
+- national-platform/new_template/README.md - Template documentation and compilation instructions
+- national-platform/new_template/sections/ - 20 section .tex files with detailed processing instructions
+- Sections cover: introduction, U.S. government framework, California/federal regulatory landscape, ICH E6(R3) adaptation, 21 CFR Part 50 adaptation, 21 CFR Part 312 adaptation, PSL/USL standards, site establishment, patient journey, patient instructions, MCP servers, federated learning, financial analysis, implementation strategy, discussion, and conclusion
+- Five appendices: source file directory, glossary, cross-reference matrix, scoring reference, simulation summary
+- Source documents overview defining significance of each paper in the National Platform
+
+### Changed
+- README.md: Updated version badge to v2.9.2, expanded national-platform directory tree with all subdirectories
+- releases.md: Added v2.9.2 release notes
+- CHANGELOG.md: Added v2.9.2 changelog entry
+
+### Removed
+- national-platform/new_template/a.md placeholder file
+
+### Notes
+- Template designed for future Claude Code processing to produce 175-page final paper
+- Each section .tex file contains bracketed instructions referencing specific source files
+- All 35 bibliography sources include DOIs and URLs for repositories
+- Template adapted from University of Groningen MSc AI/CCS template (CC BY 4.0)
+- Development by Claude Code Opus 4.6
+
 ## [2.9.1] - 2026-03-25
 
 ### Added
