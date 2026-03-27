@@ -32,6 +32,7 @@ Format follows [Keep a Changelog](https://keepachangelog.com/).
 - All 35 bibliography sources include DOIs and URLs for repositories
 - Template adapted from University of Groningen MSc AI/CCS template (CC BY 4.0)
 - Development by Claude Code Opus 4.6
+- @kevinkawchak condensed main README to make more machine readable; and relocated main q1-2026-standards to physical-ai-oncology-trials/tree/main/unification as a zip due to upcoming q2-2026 on 2026-03-28.
 
 ## [2.9.1] - 2026-03-25
 
