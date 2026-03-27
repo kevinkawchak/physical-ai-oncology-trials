@@ -1,0 +1,240 @@
+%%% SECTION 6: ADAPTED 21 CFR PART 312 FOR PHYSICAL AI IND %%%
+
+The Physical AI Adaption: 21 CFR Part 312 \cite{cfr312-adapt} provides a
+comprehensive framework for Investigational New Drug applications in the context
+of Physical AI oncology trials, building on the existing regulation
+\cite{cfr-part-312}. This is the most extensive of the three regulatory
+adaptations, spanning ten subparts (A through J) including a new Subpart J
+dedicated entirely to Physical AI systems. The adaptation demonstrates that
+Physical AI can be integrated into the IND process without requiring entirely
+new legislation, while acknowledging through the creation of Subpart J that
+certain aspects of Physical AI are sufficiently novel to warrant their own
+regulatory provisions.
+
+\subsection{Scope and Physical AI Definitions}
+\label{subsec:cfr312-scope}
+
+Subpart A (General Provisions, \S~312.1-312.10) establishes the scope and
+applicability of the adapted regulation. The scope (\S~312.1) extends the
+original Part 312 to cover clinical investigations of new drugs that
+incorporate Physical AI systems in drug administration, monitoring, or trial
+conduct. Applicability (\S~312.2) clarifies which types of Physical AI
+involvement trigger IND requirements.
+
+Section 312.3 provides 22 Physical AI definitions, the most comprehensive set
+across all three adapted standards. Key definitions include: \textit{Physical
+AI Clinical Trial} (a clinical investigation that uses Physical AI systems for
+drug administration, patient monitoring, data collection, or trial
+coordination); \textit{Phase 0 Simulation Validation} (a mandatory
+pre-enrollment phase where Physical AI systems demonstrate safety and
+preliminary efficacy through simulation); \textit{Physical AI IND Content} (the
+Physical AI-specific information required in an IND submission);
+\textit{Cybersecurity Incident} (any unauthorized access, disruption, or
+modification of Physical AI systems that may affect patient safety or data
+integrity); and \textit{Physical AI Decommissioning} (the process of safely
+removing Physical AI systems from clinical trial operations).
+
+Additional provisions in Subpart A address Physical AI labeling (\S~312.6),
+requiring clear identification of Physical AI involvement in drug labeling
+during investigation; Physical AI promotion restrictions (\S~312.7),
+prohibiting promotion of investigational Physical AI drug delivery capabilities;
+Physical AI charging provisions (\S~312.8), governing charges for
+investigational drugs administered by Physical AI systems; and waiver
+procedures (\S~312.10), establishing conditions under which specific Physical
+AI requirements may be waived.
+
+\subsection{IND Requirements and Physical AI Content}
+\label{subsec:cfr312-ind}
+
+\subsubsection{IND Requirement for Physical AI Trials}
+
+Section 312.20 establishes when an IND is required for Physical AI trials. An
+IND is required whenever Physical AI systems are integral to drug
+administration (such as robotic IV drug delivery or automated dosing) or when
+Physical AI monitoring systems generate data used for safety or efficacy
+determinations. The determination of IND requirement considers the Physical AI
+system's role in the drug's mechanism of action, the degree to which Physical
+AI affects drug exposure or distribution, and whether Physical AI decisions
+directly influence dosing or treatment modifications.
+
+\subsubsection{Phases of Investigation}
+
+Section 312.21 adapts the clinical trial phases to include a Phase 0 simulation
+validation stage. This is a significant innovation: Physical AI trials include
+a mandatory simulation phase before any human subjects are enrolled. Phase 0
+requires demonstration that Physical AI systems can safely perform their
+intended functions through validated simulations, with performance metrics
+meeting established thresholds.
+
+\begin{table}[H]
+\centering
+\caption{Adapted Clinical Trial Phases for Physical AI}
+\label{tab:trial-phases}
+\small
+\begin{tabularx}{\textwidth}{l X X}
+\toprule
+\textbf{Phase} & \textbf{Traditional Objective} & \textbf{Physical AI Addition} \\
+\midrule
+Phase 0 & Not applicable & Simulation validation of Physical AI systems \\
+Phase 1 & Safety, dosing & Physical AI system safety with human subjects \\
+Phase 2 & Efficacy, side effects & Physical AI-assisted treatment efficacy \\
+Phase 3 & Large-scale confirmation & Multi-site Physical AI deployment \\
+Phase 4 & Post-approval monitoring & Ongoing Physical AI performance tracking \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+The Phase 0 requirement is directly supported by the evidence from both A
+Cancer Patient's Journey, Physical AI \cite{patient-journey-paper}
+(single-patient simulation across ten stages) and the 24-hour simulation from
+the Clinical Trial Site Complete Documentation \cite{site-docs} (168 patients,
+29 robots, 99.7 percent uptime). These completed simulations demonstrate that
+Physical AI systems can be thoroughly validated before real patient contact,
+providing a model for how Phase 0 validation should be conducted.
+
+\subsubsection{IND Content and Format}
+
+Section 312.23 adds the Physical AI System Description requirement for IND
+submissions. This must include: a complete inventory of all Physical AI systems
+to be used, with manufacturer, model, software version, and USL score
+\cite{usl-standard}; a description of how each Physical AI system interacts
+with the investigational drug (administration, monitoring, safety); validation
+evidence including Phase 0 simulation results; a safety analysis addressing
+Physical AI-specific risks; and cybersecurity documentation describing
+protections for Physical AI systems against unauthorized access or manipulation.
+
+\subsubsection{Protocol Amendments}
+
+Section 312.30 establishes Physical AI amendment triggers: changes to Physical
+AI systems that require protocol amendments include replacement of a robot with
+a different model or manufacturer, software updates that alter robot behavior
+or decision-making, changes to the degree of autonomy (from supervised to
+autonomous or vice versa), addition of new Physical AI system types not in the
+original protocol, and modifications to safety monitoring parameters.
+
+\subsection{Safety Reporting for Physical AI}
+\label{subsec:cfr312-safety}
+
+\subsubsection{Information Amendments}
+
+Section 312.31 on information amendments requires notification to FDA when
+Physical AI system updates occur that do not constitute protocol amendments but
+that change system characteristics, performance, or safety profile. This
+includes routine software patches, firmware updates, calibration adjustments,
+and hardware component replacements that fall within pre-approved specifications.
+
+\subsubsection{IND Safety Reporting}
+
+Section 312.32 establishes Physical AI adverse event reporting and cybersecurity
+incident reporting. The adaptation creates specific reporting categories for
+Physical AI events: Category A covers Physical AI system malfunctions that
+directly affect patient safety (reporting within 7 calendar days for serious
+events, 15 days for non-serious); Category B covers AI decision errors that
+result in incorrect treatment delivery or monitoring failure (reporting within
+15 calendar days); Category C covers sensor failures that compromise data
+integrity or safety monitoring (reporting within 15 calendar days); and
+Category D covers cybersecurity incidents that affect or may affect Physical AI
+system integrity (reporting within 24 hours for active breaches, 7 days for
+detected vulnerabilities).
+
+\subsubsection{Annual Reports}
+
+Section 312.33 requires that annual reports include a Physical AI performance
+summary covering: system uptime and availability statistics, total Physical AI
+adverse events by category, software updates and version changes, robot
+maintenance and calibration records, cybersecurity assessment results, and
+trends in Physical AI system performance over the reporting period.
+
+\subsubsection{IND Withdrawal}
+
+Section 312.38 establishes Physical AI system decommissioning procedures when
+an IND is withdrawn. These procedures require safe shutdown of all Physical AI
+systems, secure archival of all Physical AI-generated data, notification to
+participants about cessation of Physical AI interactions, and physical removal
+or secure storage of robot hardware.
+
+\subsection{Administrative Actions for Physical AI Trials}
+\label{subsec:cfr312-admin}
+
+Subpart C addresses general administration of Physical AI trials. Section 312.40
+establishes general requirements including Physical AI system registration.
+Section 312.44 adds Physical AI-specific grounds for IND termination including
+repeated Physical AI adverse events demonstrating systemic safety issues,
+failure to maintain Physical AI system validation status, and cybersecurity
+compromise that cannot be remediated while maintaining patient safety.
+
+Section 312.45 addresses inactive status and Physical AI dormancy, establishing
+procedures for placing Physical AI systems in dormant mode during trial pauses
+and reactivation procedures ensuring systems meet current safety standards
+before resuming operations. Section 312.47 on meetings includes Physical AI
+system review as a standing agenda item for pre-IND and end-of-phase meetings.
+Section 312.48 provides dispute resolution procedures for Physical AI technical
+disputes between sponsors and FDA.
+
+\subsection{Sponsor and Investigator Responsibilities}
+\label{subsec:cfr312-responsibilities}
+
+Subpart D (\S~312.50-312.70) adapts sponsor and investigator responsibilities
+to Physical AI contexts. Sponsors must ensure Physical AI system procurement
+from qualified manufacturers (\S~312.50), maintain Physical AI system
+validation status throughout the trial (\S~312.53), and select investigators
+with Physical AI competencies (\S~312.55). Investigators must ensure proper
+Physical AI system operation (\S~312.60), report Physical AI adverse events
+promptly (\S~312.64), and maintain Physical AI system records (\S~312.68).
+These responsibilities complement the requirements in the adapted ICH E6(R3)
+\cite{ich-adapt} by providing the specific regulatory framework within which
+those responsibilities operate.
+
+\subsection{Life-Threatening Illness Provisions}
+\label{subsec:cfr312-life-threatening}
+
+Subpart E (\S~312.80-312.88) addresses accelerated approval and expanded access
+provisions for Physical AI oncology treatments for life-threatening cancers.
+Many cancer patients face conditions where Physical AI may offer faster or
+better treatment options, making these provisions particularly relevant. The
+adaptation ensures that Physical AI components do not create barriers to
+accelerated access when safety data support their use.
+
+\subsection{Expanded Access for Physical AI}
+\label{subsec:cfr312-expanded-access}
+
+Subpart I (\S~312.300-312.320) adapts expanded access provisions for Physical
+AI, establishing conditions under which Physical AI systems can be made
+available outside of clinical trials when sufficient evidence supports their
+safety and effectiveness. Expanded access for Physical AI requires
+demonstration that the Physical AI system has been validated through Phase 0
+simulation, that sufficient clinical trial data support its safety, that no
+comparable therapy is available without Physical AI assistance, and that the
+requesting site meets minimum PSL requirements.
+
+\subsection{Subpart J: Physical AI Systems}
+\label{subsec:cfr312-subpart-j}
+
+Subpart J (\S~312.400-312.405) is entirely new and dedicated to Physical AI
+systems. This subpart establishes Physical AI-specific regulatory requirements
+that do not fit within the existing subpart structure.
+
+Section 312.400 establishes Physical AI system registration requirements,
+requiring all Physical AI systems used in IND trials to be registered in a
+centralized database maintained by FDA. Section 312.401 establishes Physical AI
+validation standards, including minimum simulation hours, benchmark performance
+thresholds, and validation renewal requirements. Section 312.402 establishes
+cybersecurity requirements specific to Physical AI systems in clinical trials,
+including encryption standards, access control requirements, incident response
+procedures, and penetration testing schedules.
+
+Section 312.403 establishes Physical AI interoperability requirements, requiring
+systems to support standardized communication protocols (including MCP
+\cite{mcp-protocol}) and data formats (including FHIR \cite{hl7-fhir} and
+DICOM \cite{dicom}). Section 312.404 establishes Physical AI training
+requirements for all personnel who operate, maintain, or oversee Physical AI
+systems in clinical trials. Section 312.405 establishes Physical AI
+decommissioning standards, including data preservation requirements, hardware
+disposal procedures, and participant notification obligations.
+
+The creation of Subpart J demonstrates the balanced approach of this platform:
+the existing CFR Part 312 framework can accommodate most Physical AI
+requirements through targeted adaptation of existing subparts, but certain
+aspects are sufficiently novel to warrant their own provisions. This approach
+maintains regulatory continuity with established practice while acknowledging
+the unique characteristics of Physical AI systems.

@@ -1,0 +1,253 @@
+%%% SECTION 5: ADAPTED 21 CFR PART 50 FOR PHYSICAL AI PROTECTION %%%
+
+The Physical AI Adaption: 21 CFR Part 50 \cite{cfr50-adapt} provides
+comprehensive human subjects protection specifically designed for Physical AI
+oncology trials, building on the existing federal regulation \cite{cfr-part-50}.
+By adapting a well-established regulation rather than proposing new legislation,
+this work adds immediate credibility and practical applicability. A critical
+theme throughout this adaptation is that control has shifted towards the
+patient's side, with expanded patient rights including new protections specific
+to robotic and AI-assisted medical procedures that have no precedent in
+traditional clinical trial regulation.
+
+\subsection{Scope and Physical AI Definitions}
+\label{subsec:cfr50-scope}
+
+The adapted Part 50 applies to all clinical investigations regulated by FDA that
+involve Physical AI systems interacting with human subjects. Subpart A (General
+Provisions) establishes the scope and provides 17 Physical AI-specific
+definitions that standardize terminology for robotic and AI-assisted clinical
+procedures.
+
+Key definitions include: \textit{Physical AI System}, encompassing any robotic
+platform integrated with artificial intelligence that interacts directly with
+trial participants; \textit{Physical AI Adverse Event}, any untoward occurrence
+during a clinical investigation that is attributable to Physical AI system
+operation; \textit{Physical AI Operator}, a qualified individual who monitors
+and controls Physical AI systems during clinical procedures; \textit{Robotic
+Procedure}, any clinical intervention performed wholly or partly by a Physical
+AI system; \textit{Autonomous Mode}, operation of a Physical AI system where AI
+algorithms direct robotic actions without real-time human input;
+\textit{Supervised Mode}, operation where human operators maintain continuous
+control; and \textit{Physical AI Safety Matrix}, a pre-procedure verification
+checklist ensuring all safety systems are operational.
+
+These definitions create the foundation for all subsequent protections in the
+regulation. The distinction between autonomous and supervised modes is
+particularly important because it determines the level of informed consent
+detail required and the intensity of ongoing monitoring. Cross-referencing with
+the 22 definitions in the adapted 21 CFR Part 312 \cite{cfr312-adapt} and
+the 30 definitions in the adapted ICH E6(R3) \cite{ich-adapt} ensures
+terminological consistency across the entire regulatory framework.
+
+\subsection{Informed Consent for Physical AI Procedures}
+\label{subsec:cfr50-consent}
+
+Subpart B adapts the general requirements for informed consent to Physical AI
+contexts. Traditional informed consent requires disclosure of trial purpose,
+procedures, risks, benefits, alternatives, and confidentiality protections. The
+Physical AI adaptation adds specific consent elements required for any trial
+involving robotic systems.
+
+The additional consent elements include: a description of each Physical AI
+system type and its role in the participant's care, including the robot
+manufacturer, model, and general capabilities; an explanation of how AI
+algorithms participate in treatment planning, monitoring, and decision-making;
+a clear statement of the participant's right to request human-only care at any
+point during the trial, including during active robotic procedures; a
+description of data collection specific to Physical AI systems, including robot
+telemetry, video recording, sensor data, and AI decision logs, with associated
+privacy protections; an explanation of emergency stop procedures and how
+participants can signal distress or discomfort during robotic interactions; and
+a description of the safety monitoring systems in place, including who monitors
+robot performance and how deviations are detected and addressed.
+
+These consent elements represent a fundamental shift in the informed consent
+paradigm. In traditional trials, consent primarily addresses drug or device
+risks and benefits. In Physical AI trials, consent must address a new category
+of risk: the interaction between a human patient and an autonomous or
+semi-autonomous robotic system that physically touches, manipulates, or
+occupies space near the patient. Patient Instructions: Physical AI Trials
+\cite{patient-instructions-paper} provides the patient-facing implementation
+of these consent requirements, translating regulatory language into accessible
+information for each of the ten robot types.
+
+\subsection{Physical AI System Safety Requirements}
+\label{subsec:cfr50-safety}
+
+Subpart C is a new subpart created specifically for Physical AI trials,
+establishing additional protections for subjects in Physical AI clinical
+investigations. This subpart has no precedent in the original 21 CFR Part 50
+and represents the most significant structural addition to the adapted
+regulation.
+
+\subsubsection{Pre-Procedure Safety Matrix}
+
+Before any Physical AI procedure begins, the Physical AI Safety Matrix must be
+completed and documented. This matrix verifies: robot system power and
+mechanical status (all joints responsive, actuators calibrated, end-effector
+functional); sensor calibration status (force sensors, position sensors,
+proximity sensors, temperature sensors all within specification); emergency stop
+system verification (hardware E-stop functional, software E-stop responsive,
+wireless E-stop paired); communication system verification (robot-to-server
+connection active, data logging operational, alert system functional); patient
+identification confirmation (biometric or badge-based patient ID matched to
+protocol records); workspace clearance verification (operating zone free of
+unauthorized objects, personnel positioned safely, barriers in place); and AI
+model status verification (approved model version loaded, performance within
+specification, no pending updates requiring validation).
+
+\subsubsection{Runtime Safety Monitoring}
+
+During Physical AI procedures, continuous monitoring requirements include:
+real-time force and torque monitoring at all patient contact points, with
+automatic procedure pause when force exceeds protocol-specified limits;
+position deviation monitoring comparing actual robot position to planned
+trajectory, with alerts when deviation exceeds tolerance; vital sign
+integration connecting patient monitoring systems to Physical AI control
+systems, enabling automatic response to physiological changes; AI decision
+monitoring logging all autonomous decisions with confidence scores and
+alternative actions considered; and video recording of all patient-robot
+interactions for post-procedure review and adverse event investigation.
+
+\subsubsection{Post-Procedure Requirements}
+
+After Physical AI procedures, required documentation includes: a complete
+Physical AI procedure report recording all robot actions, parameters, and
+outcomes; patient follow-up specific to Physical AI interactions, including
+assessment of any physical marks, discomfort, or psychological responses to
+robotic interaction; data archival ensuring all telemetry, sensor, video, and
+decision log data are properly stored with appropriate retention periods; and
+system reset verification confirming the Physical AI system is properly reset
+and ready for the next procedure.
+
+\subsubsection{Task-Order Lifecycle}
+
+The adaptation establishes a formal lifecycle for Physical AI task orders from
+initiation through completion. Each task order must be authorized by a
+qualified Physical AI operator, with the authorization level matched to the
+task complexity and risk. Task execution must be monitored against approved
+parameters, with any deviation triggering documentation and potential
+escalation. Task completion must be verified through both automated system
+checks and human confirmation before the system is released for the next task.
+
+\subsubsection{Forbidden Operations}
+
+The adapted regulation explicitly prohibits Physical AI systems from performing
+certain operations without human authorization: initiating surgical incisions
+or tissue removal without real-time surgeon oversight; modifying medication
+dosages or administration schedules without pharmacist or physician
+confirmation; altering treatment plans based solely on AI recommendations
+without clinical team review; performing emergency medical interventions
+without qualified human medical staff present; and accessing or modifying
+patient records beyond the specific data required for the current authorized
+task.
+
+\subsection{IRB Review of Physical AI Investigations}
+\label{subsec:cfr50-irb}
+
+The adapted regulation establishes specific requirements for IRB review of
+Physical AI trials that extend beyond traditional IRB evaluation criteria.
+IRBs must evaluate: the technical qualifications of Physical AI system
+operators and maintenance staff; the adequacy of Physical AI system validation
+evidence, including simulation results and bench testing data; the
+appropriateness of Physical AI safety monitoring plans; the completeness of
+Physical AI-specific informed consent elements; and the adequacy of contingency
+plans for Physical AI system failures.
+
+Ongoing monitoring requirements specify that IRBs must receive periodic reports
+on Physical AI system performance, including uptime, adverse events, near-miss
+incidents, and maintenance activities. Protocol modification triggers specific
+to Physical AI include: Physical AI system software updates that change
+operational parameters, introduction of new Physical AI system types not covered
+in the original protocol, changes to Physical AI safety monitoring procedures,
+and changes to the degree of autonomy granted to Physical AI systems. The NCI
+CIRB \cite{nci-cirb} provides a model for centralized Physical AI review that
+could enable consistent evaluation across multiple trial sites.
+
+\subsection{Ongoing Consent and Subject Notification}
+\label{subsec:cfr50-ongoing}
+
+Unlike traditional trials where informed consent is primarily a one-time event,
+Physical AI trials require ongoing consent processes because the technology may
+be updated, new robots may be introduced, and AI algorithms may be refined
+during the trial period. Participants must be informed about: Physical AI system
+software updates that change system behavior or capabilities; introduction of
+new robot types at the trial site; changes to safety monitoring procedures;
+results of periodic Physical AI system safety reviews; and any Physical AI
+adverse events that occurred at the trial site that may affect the
+participant's risk assessment.
+
+This ongoing consent process gives patients continuous agency over their
+participation. A patient who consented to interact with a da Vinci surgical
+robot may reconsider if a humanoid robot is later added to the trial site for
+logistics support. A patient who accepted a specific AI algorithm for treatment
+planning may want to reconsider if the algorithm is updated. The adapted
+regulation ensures that patients are never surprised by changes to the Physical
+AI systems involved in their care.
+
+\subsection{Data Protection and Privacy}
+\label{subsec:cfr50-data}
+
+The adapted regulation establishes protections for the additional categories of
+data generated by Physical AI systems. Robot telemetry data recording position,
+force, speed, and environmental readings constitutes a new category of health
+information that was not contemplated by the original Part 50. Video recordings
+of Physical AI procedures create visual records of patient interactions with
+robotic systems. Sensor data from patient-robot interactions may include
+biometric measurements beyond those collected in traditional trials. AI decision
+logs that document the reasoning behind automated treatment decisions create
+records that may have implications for patient rights and legal accountability.
+
+All these data categories are subject to HIPAA \cite{hipaa} protections when
+they constitute protected health information. The federated learning framework
+\cite{fl-paper} and the broader literature on federated learning in healthcare
+\cite{federated-learning-healthcare} provide approaches for utilizing these
+data for model improvement while maintaining patient privacy through
+decentralized processing.
+
+\subsection{Physical AI System Classification}
+\label{subsec:cfr50-classification}
+
+The adapted regulation establishes a classification framework organizing
+Physical AI systems by risk level into three tiers. Tier 1 (Standard Risk)
+encompasses Physical AI systems with minimal direct patient contact, such as
+logistics robots and specimen handling cobots, which require standard informed
+consent and monitoring. Tier 2 (Elevated Risk) encompasses systems with
+moderate patient interaction, such as positioning robots and imaging robots,
+requiring enhanced consent elements and continuous monitoring. Tier 3 (High
+Risk) encompasses systems with direct therapeutic interaction, such as surgical
+robots and needle-placement robots, requiring comprehensive consent with
+procedure-specific elements, real-time safety monitoring, and qualified
+operator presence. The classification tier determines the regulatory pathway,
+monitoring intensity, and consent detail required, connecting to the USL
+scoring framework in Section~\ref{sec:psl-usl} for quantitative assessment.
+
+\subsection{Pediatric Protections in Physical AI Trials}
+\label{subsec:cfr50-pediatric}
+
+Subpart D adapts existing pediatric protections for Physical AI contexts.
+Modified consent and assent procedures address minors interacting with robots,
+requiring age-appropriate explanations of robotic systems. Additional safety
+requirements for pediatric Physical AI procedures include reduced force limits,
+smaller workspace boundaries, and enhanced human oversight. IRB duties specific
+to pediatric Physical AI investigations include evaluation of whether robotic
+interactions may cause additional psychological distress in pediatric patients.
+Pediatric oncology is a particularly important application where Physical AI may
+reduce treatment burden on young patients through faster procedures, reduced
+need for repeated positioning, and companion robot support during treatment.
+
+\subsection{Glossary of Physical AI Terms}
+\label{subsec:cfr50-glossary}
+
+The adapted Part 50 concludes with a supplementary glossary of 35 Physical AI
+terms that complement the regulatory definitions in Subpart A. Terms include
+Agentic AI (AI systems capable of autonomous multi-step task execution),
+Calibration (the process of adjusting Physical AI system parameters to meet
+specified accuracy standards), Digital Twin (a computational model replicating a
+physical patient or system for simulation and prediction), MCP Server (a Model
+Context Protocol server providing standardized AI-tool communication), and USL
+(Unification Standard Level, a quantitative robot readiness scoring framework).
+These terms are cross-referenced with the ICH glossary
+(Section~\ref{subsec:ich-glossary}) to ensure consistency across all adapted
+standards in the National Platform.
