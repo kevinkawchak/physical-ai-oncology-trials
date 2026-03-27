@@ -5,6 +5,40 @@ Format follows [Keep a Changelog](https://keepachangelog.com/).
 
 ## [Unreleased]
 
+## [3.0.0] - 2026-03-28
+
+### Added
+- national-platform/new_paper/ - Complete compiled National Platform for Physical AI Oncology Trials
+- national-platform/new_paper/main.tex - Main document producing 191-page compiled paper
+- national-platform/new_paper/main.pdf - Compiled PDF (191 pages, 16 sections, 5 appendices)
+- national-platform/new_paper/page_styles.tex - Page style definitions
+- national-platform/new_paper/references.bib - Bibliography with 34 sources, all with clickable URLs and DOIs
+- national-platform/new_paper/latex_source.zip - Complete LaTeX source archive
+- national-platform/new_paper/README.md - Paper documentation and compilation instructions
+- national-platform/new_paper/sections/ - 21 section .tex files with complete content
+- 16 main sections: Introduction, U.S. Government Framework, Regulatory Landscape, ICH E6(R3), 21 CFR Part 50, 21 CFR Part 312, PSL/USL Standards, Site Establishment, Patient Journey, Patient Instructions, MCP Servers, Federated Learning, Financial Analysis, Implementation Strategy, Discussion, Conclusion
+- 5 appendices: Source File Directory, Glossary (23 terms), Regulatory Cross-Reference Matrix, PSL/USL Scoring Reference, Simulation Evidence Summary
+- Comprehensive tables throughout: USL scores for 9 robots, PSL dimensions, three-tier classification, adverse event categories, financial projections, implementation timeline, workforce transition roles
+- national-platform/new_paper/.gitignore - LaTeX auxiliary file exclusions
+
+### Changed
+- README.md: Updated version badge to v3.0.0, added v3.0.0 news entry, updated repository structure with new_paper directory
+- .github/workflows/ci.yml: Fixed yamllint path for relocated q1-2026-standards directory
+- ruff.toml: Commented out q1-2026-standards per-file-ignore for relocated directory
+- CHANGELOG.md: Added v3.0.0 changelog entry
+- releases.md: Added v3.0.0 release notes
+
+### Fixed
+- CI lint-and-format checks failing due to stale q1-2026-standards yamllint path reference
+- ruff.toml referencing non-existent q1-2026-standards directory at repository root
+
+### Notes
+- The 191-page document exceeds the 175-page target, providing comprehensive coverage of all 16 sections
+- All 34 bibliography references include clickable URLs and DOI numbers
+- Document uses only single dashes (no em dashes, double dashes, or triple dashes)
+- All text is black throughout the document
+- Paper adapted using Claude Code Opus 4.6
+
 ## [2.9.2] - 2026-03-28
 
 ### Added
