@@ -599,37 +599,6 @@ results = validator.validate_policy(
     frameworks=["isaac", "mujoco", "pybullet"]
 )
 ```
-
----
-
-## Key Capabilities
-
-### 1. Generative AI for Physical Systems
-- **Vision-Language-Action (VLA) models** for surgical instrument manipulation (GR00T N1.6)
-- **Diffusion policies** for trajectory generation in tumor resection
-- **Synthetic data generation** for rare oncology scenarios (Cosmos Predict 2.5)
-- **World models** (NVIDIA Cosmos) for physics-aware simulation and reasoning (Cosmos Reason 2)
-- **Physical reasoning** via dual-system architecture (System 1 fast + System 2 deliberate)
-
-### 2. Agentic AI for Clinical Workflows
-- **LLM-based surgical assistants** with multimodal perception
-- **Multi-agent coordination** for multi-site clinical trials (CrewAI 1.6.1, LangGraph 1.1.0)
-- **Natural language robot programming** via ROS 2 Jazzy/Kilted integration
-- **Autonomous task planning** for drug infusion and sample handling
-- **Standardized tool integration** via Model Context Protocol (MCP) under Linux Foundation AAIF
-
-### 3. Reinforcement Learning for Surgical Autonomy
-- **Sim2real transfer** with domain randomization
-- **Hierarchical RL** for complex surgical procedures
-- **Multi-agent RL** for cooperative surgical assistance
-- **GPU-accelerated training** reducing training time from days to hours
-
-### 4. Digital Twin Integration
-- **Patient-specific tumor models** from imaging data
-- **Treatment response simulation** for chemotherapy/radiation
-- **Real-time intraoperative guidance** with sensor fusion
-- **Predictive outcome modeling** for trial design
-
 ---
 
 ## ★ Digital Twins for Oncology
@@ -799,29 +768,6 @@ See `unification/README.md` for the complete cooperation model.
 
 ---
 
-### Quick Start with Q1 2026 Tools
-
-```python
-# Bidirectional conversion (Objective 1)
-from q1_2026_standards.objective_1 import IsaacToMuJoCoConverter
-converter = IsaacToMuJoCoConverter()
-converter.convert_urdf("robot.urdf", "robot.xml")
-
-# Model validation (Objective 2)
-from q1_2026_standards.objective_2 import ModelValidator
-validator = ModelValidator()
-report = validator.validate_model("models/dvrk_psm/", level=4)
-
-# Benchmark suite (Objective 3)
-from q1_2026_standards.objective_3 import BenchmarkRunner
-runner = BenchmarkRunner()
-results = runner.run("needle_insertion", model_path="robot.xml")
-```
-
-See `q1-2026-standards/README.md` for complete documentation and implementation timeline.
-
----
-
 ## ★ Privacy Framework
 
 The new `privacy/` directory provides **HIPAA-compliant patient data protection** tools for AI-enabled oncology clinical trials.
@@ -903,68 +849,6 @@ updates = tracker.get_recent_updates(days=90)
 ```
 
 See `regulatory/README.md` for complete documentation.
-
----
-
-## ★ Regulatory Guidance: Physical AI Clinical Trial Unification (v2.2.0)
-
-The `regulatory/adaption-ich-e6r3/` directory contains the **End-to-End Physical AI Oncology Clinical Trial Unification** guidance, a comprehensive LaTeX document adapting the prior ICH E6(R3) regulation for physical AI oncology trials.
-
-> **[Guidance (PDF) -- Zenodo](https://doi.org/10.5281/zenodo.18973368)** | **[LaTeX Source Files](regulatory/adaption-ich-e6r3/source/)**
-
-```
-Guidance Structure
-==================
-  Section 1: Principles of Physical AI Clinical Practice
-  Section 2: Investigator Responsibilities in Physical AI Trials
-  Section 3: Sponsor Responsibilities in Physical AI Trials
-  Section 4: Data Governance for Physical AI Trials
-  Appendix A: Physical AI System Documentation
-  Appendix B: Clinical Trial Protocol for Physical AI Trials
-  Appendix C: Essential Records for Physical AI Clinical Trials
-  Glossary:   30 Physical AI-Specific Definitions
-```
-
-Key features: 7 robot categories, 5 AI/ML types, 4 simulation frameworks, USL scoring for 9 robots, digital twin integration, federated learning, privacy/cybersecurity requirements. All content adapted from the prior ICH E6(R3) regulation (adopted 06 January 2025).
-
-See [`regulatory/adaption-ich-e6r3/source/README.md`](regulatory/adaption-ich-e6r3/source/README.md) for build instructions.
-
----
-
-## ★ Regulatory Adaptation: 21 CFR Part 50 -- Protection of Human Subjects (v2.4.0)
-
-The `regulatory/Adaption-21-CFR-Part-50/` directory contains the **End-to-End Physical AI Oncology Clinical Trial Unification: Adaption of 21 CFR Part 50 -- Protection of Human Subjects**, a 37-page LaTeX document that modifies the prior 21 CFR Part 50 regulation in-place to incorporate Physical AI requirements throughout.
-
-> **[Adaptation (PDF) -- Zenodo](https://doi.org/10.5281/zenodo.19040707)** | **[LaTeX Source Files](regulatory/Adaption-21-CFR-Part-50/source/)**
-
-```
-Document Structure
-===================
-  Subpart A: General Provisions
-    §50.1  Scope (with Physical AI expansion)
-    §50.3  Definitions (18 original + 17 Physical AI definitions)
-  Subpart B: Informed Consent of Human Subjects
-    §50.20  General Requirements (with Physical AI adaptation)
-    §50.22  Exception for Minimal Risk (with Physical AI risk mapping)
-    §50.23  Exception from General Requirements (with Physical AI emergency/military)
-    §50.24  Exception for Emergency Research (with Physical AI community consultation)
-    §50.25  Elements of Informed Consent (8 basic + 6 additional + 8 Physical AI)
-    §50.27  Documentation of Informed Consent (with MCP consent tracking)
-  Subpart C: Additional Protections for Subjects in Physical AI Investigations
-    §50.30  Physical AI System Safety Requirements
-    §50.31  IRB Review of Physical AI Investigations
-    §50.32  Ongoing Consent and Subject Notification
-    §50.33  Data Protection for Physical AI Investigations
-    §50.34  Physical AI System Classification and Regulatory Pathways
-  Subpart D: Additional Safeguards for Children in Clinical Investigations
-    §50.50-§50.56 (with Physical AI adaptations for pediatric populations)
-  Glossary: 30 Physical AI-Specific Definitions
-  Bibliography: 19 References
-```
-
-Key features: 5 robot types (surgical, therapeutic positioning, diagnostic needle-placement, rehabilitative exoskeletons, companion monitoring), USL minimum thresholds per procedure type, MCP consent tracking (5 servers, 23 tools), HIPAA Safe Harbor de-identification, hash-chained audit trails, pre-procedure safety matrix, task-order lifecycle, and FDA regulatory pathways (510(k), De Novo, PMA, Breakthrough). All content adapted from the prior 21 CFR Part 50 regulation (public domain under 17 U.S.C. §105).
-
-See [`regulatory/Adaption-21-CFR-Part-50/source/README.md`](regulatory/Adaption-21-CFR-Part-50/source/README.md) for build instructions.
 
 ---
 
