@@ -211,3 +211,191 @@ requirements before deployment to Physical AI systems. This creates a closed
 loop from data collection through model improvement to deployment, all managed
 through standardized MCP infrastructure that supports federated learning in
 healthcare \cite{federated-learning-healthcare}.
+
+\subsection{Complete Tool Inventory by Server}
+\label{subsec:mcp-tool-inventory}
+
+Table~\ref{tab:mcp-all-tools} provides the complete inventory of all 23 MCP
+tools organized by their parent server, with each tool's name and functional
+description. This inventory serves as the authoritative reference for
+implementers deploying the five-server architecture at trial sites.
+
+\begin{longtable}{c l l p{6.5cm}}
+\caption{Complete Inventory of 23 MCP Tools Organized by Server}
+\label{tab:mcp-all-tools} \\
+\toprule
+\textbf{No.} & \textbf{Server} & \textbf{Tool Name} & \textbf{Description} \\
+\midrule
+\endfirsthead
+\toprule
+\textbf{No.} & \textbf{Server} & \textbf{Tool Name} & \textbf{Description} \\
+\midrule
+\endhead
+\midrule
+\multicolumn{4}{r}{\textit{Continued on next page}} \\
+\bottomrule
+\endfoot
+\bottomrule
+\endlastfoot
+1 & Governance & Protocol Manager & Manages trial protocol configurations, version control, and distribution to connected systems \\
+2 & Governance & Compliance Tracker & Monitors regulatory compliance status across all three adapted standards in real time \\
+3 & Governance & Access Controller & Enforces role-based access control policies aligned with HIPAA requirements and 21 CFR Part 11 \\
+4 & Governance & Audit Logger & Records all system operations with timestamps, user identities, and action details for regulatory audit trails \\
+5 & Governance & Consent Verifier & Validates patient informed consent status before authorizing Physical AI procedures \\
+\midrule
+6 & Data Flow & Data Ingester & Receives and normalizes incoming data streams from Physical AI systems, sensors, and clinical databases \\
+7 & Data Flow & Format Transformer & Converts data between FHIR, DICOM, HL7 v2, and internal Physical AI data schemas \\
+8 & Data Flow & Data Validator & Applies range checks, consistency validation, and completeness verification to all incoming data elements \\
+9 & Data Flow & Storage Coordinator & Routes validated data to appropriate storage systems based on data type, retention policy, and access requirements \\
+10 & Data Flow & Stream Router & Manages real-time data routing based on urgency level, data type, and destination system requirements \\
+\midrule
+11 & Safety & Emergency Stop & Propagates emergency stop signals from any source to all connected Physical AI systems within latency threshold \\
+12 & Safety & Interlock Manager & Manages safety interlock states ensuring that Physical AI systems cannot perform restricted operations without authorization \\
+13 & Safety & Anomaly Detector & Monitors Physical AI telemetry streams for anomalous patterns indicating potential safety concerns \\
+14 & Safety & Incident Reporter & Generates structured incident reports for safety events compliant with adapted ICH E6(R3) adverse event requirements \\
+\midrule
+15 & Interopertic & Device Registrar & Registers Physical AI devices with capability profiles, communication protocols, and safety certifications \\
+16 & Interopertic & Protocol Translator & Translates commands and data between different Physical AI device communication protocols \\
+17 & Interopertic & Capability Negotiator & Negotiates operational parameters between systems with different capabilities and performance characteristics \\
+18 & Interopertic & Standards Enforcer & Validates that all cross-platform communications conform to MCP protocol specifications and conformance levels \\
+19 & Interopertic & Integration Adapter & Provides connectivity adapters for FHIR, DICOM, HL7 v2, and RESTful API integration with external systems \\
+\midrule
+20 & Analytics & Dashboard Generator & Creates real-time operational dashboards displaying trial status, system health, and safety metrics \\
+21 & Analytics & Trend Analyzer & Computes trend analyses across patient outcomes, system performance, and adverse event patterns \\
+22 & Analytics & Outcome Aggregator & Aggregates treatment outcome data across patients and procedures for regulatory reporting and quality improvement \\
+23 & Analytics & Performance Scorer & Calculates performance scores for Physical AI systems based on operational metrics and clinical outcomes \\
+\end{longtable}
+
+Each tool operates at a defined conformance level that specifies the minimum
+requirements for compliant implementations. Level 1 conformance requires basic
+data exchange capability with standard message formats. Level 2 conformance
+adds bidirectional communication, error handling, retry logic, and basic audit
+trail support. Level 3 conformance, the highest level, requires full
+bidirectional integration with comprehensive audit trail generation, safety
+interlock participation, and real-time monitoring integration. The reference
+implementations in the MCP repository \cite{mcp-repo} achieve Level 2 or above
+for all 23 tools, with the Safety Server tools (Emergency Stop, Interlock
+Manager, Anomaly Detector, Incident Reporter) all implemented at Level 3 given
+their critical role in patient safety.
+
+The tool inventory reflects a deliberate design decision to distribute
+functionality across servers rather than centralizing it. This distribution
+provides fault isolation: a failure in the Analytics Server does not affect
+safety operations managed by the Safety Server. It also supports independent
+scaling, allowing sites with higher data volumes to scale Data Flow Server
+resources without modifying other server components. The Governance Server tools
+(Protocol Manager, Compliance Tracker, Access Controller, Audit Logger, Consent
+Verifier) interact with every other server, making the Governance Server the
+coordination hub of the architecture. The five tools on the Governance Server
+collectively ensure that no Physical AI operation proceeds without proper
+authorization, consent verification, and audit documentation.
+
+The Interoperability Server carries five tools because cross-platform
+translation is the most complex operational challenge in a multi-vendor Physical
+AI environment. The Device Registrar maintains a registry of all connected
+Physical AI systems with their capability profiles, enabling the Protocol
+Translator to select appropriate translation strategies for each device pair.
+The Capability Negotiator resolves conflicts when two systems have different
+performance characteristics, such as when a high-frequency telemetry source
+connects to a lower-bandwidth monitoring system. The Standards Enforcer
+validates all cross-platform communications against MCP protocol specifications,
+rejecting non-conformant messages before they reach destination systems. The
+Integration Adapter provides the bridge to external healthcare systems,
+supporting FHIR \cite{hl7-fhir} for electronic health records, DICOM
+\cite{dicom} for medical imaging, HL7 v2 for legacy hospital systems, and
+RESTful APIs for modern web-based platforms.
+
+\subsection{National Deployment Phases}
+\label{subsec:mcp-deployment-phases}
+
+The national deployment of MCP server infrastructure proceeds through four
+phases, each expanding geographic coverage and operational capability. The
+phased approach ensures that lessons learned at each stage inform subsequent
+deployments, reducing risk and improving deployment efficiency.
+
+\begin{longtable}{l p{2.2cm} p{2.5cm} p{2.2cm} p{4.0cm}}
+\caption{National MCP Server Deployment Phases}
+\label{tab:mcp-deployment-phases} \\
+\toprule
+\textbf{Phase} & \textbf{Timeline} & \textbf{Geographic Scope} & \textbf{Sites} & \textbf{Infrastructure Configuration} \\
+\midrule
+\endfirsthead
+\toprule
+\textbf{Phase} & \textbf{Timeline} & \textbf{Geographic Scope} & \textbf{Sites} & \textbf{Infrastructure Configuration} \\
+\midrule
+\endhead
+\bottomrule
+\endfoot
+\bottomrule
+\endlastfoot
+Phase A: Prototype & Months 1-6 & California only & 1-2 sites & Single hub server, local spoke servers, direct connections \\
+\midrule
+Phase B: Regional & Months 7-18 & West Coast states & 5-10 sites & Regional hub server for West Coast, spoke servers at each site, federated learning node activation \\
+\midrule
+Phase C: Multi-Regional & Months 19-36 & Four U.S. regions (West, South, Midwest, Northeast) & 20-50 sites & Four regional hub servers, national coordination layer, cross-regional safety signal aggregation \\
+\midrule
+Phase D: Nationwide & Months 37-60 & All 50 states plus territories & 100+ sites & Full hub-and-spoke topology, redundant national coordination, complete federated learning network \\
+\end{longtable}
+
+Phase A (Prototype) deploys the five-server architecture at the initial
+California trial site or sites described in
+Section~\ref{sec:implementation}. This phase validates the MCP infrastructure
+under real operational conditions, comparing actual performance against the
+metrics established during the 24-hour simulation \cite{site-docs}. A single
+hub server manages all local spoke servers, and direct connections between
+servers minimize network complexity during initial validation. The prototype
+phase produces operational metrics including message latency, data throughput,
+safety signal propagation time, and system availability that inform subsequent
+deployment phases.
+
+Phase B (Regional) expands MCP infrastructure to additional West Coast sites,
+deploying a regional hub server that aggregates data from all sites within the
+region. This phase introduces the hub-and-spoke topology at regional scale,
+validating the architecture's ability to coordinate multiple sites through a
+shared hub. Federated learning nodes activate at each site, enabling cross-site
+model improvement through the framework described in
+Section~\ref{sec:federated-learning}. Network requirements increase
+significantly in Phase B as inter-site communication adds bandwidth and latency
+constraints that were absent in the single-site prototype.
+
+Phase C (Multi-Regional) establishes four regional hub servers covering the
+major U.S. geographic regions. The national coordination layer connects all
+regional hubs, enabling nationwide analytics, cross-regional safety signal
+aggregation, and centralized regulatory reporting. This phase introduces the
+most complex operational challenge: managing data routing across multiple
+regional boundaries while maintaining compliance with varying state privacy
+laws. The Data Flow Server's Storage Coordinator tool becomes critical in
+Phase C, enforcing data residency requirements that differ across states. HIPAA
+\cite{hipaa} provides a federal baseline, but states such as California (CMIA,
+CCPA) impose additional requirements that the MCP infrastructure must respect
+at the routing level.
+
+Phase D (Nationwide) achieves full geographic coverage with MCP infrastructure
+deployed in all 50 states plus U.S. territories. The infrastructure supports
+100 or more connected trial sites with redundant national coordination ensuring
+continuity even if individual regional hubs experience outages. The complete
+federated learning network enables model improvement across the full national
+dataset while preserving patient privacy at every level. Phase D represents the
+steady-state operational configuration described in the hub-and-spoke model,
+with ongoing expansion accommodating new trial sites as they achieve PSL
+compliance and activate Physical AI operations.
+
+Each deployment phase includes validation gates that must be passed before
+proceeding to the next phase. Phase A requires demonstration of all 23 tools
+operating at Level 2 conformance or above under operational conditions. Phase B
+requires successful cross-site data exchange with latency within specified
+thresholds and federated learning round completion across all participating
+sites. Phase C requires cross-regional safety signal propagation within latency
+requirements and compliance with all applicable state privacy laws. Phase D
+requires sustained operation at nationwide scale with 99.5 percent minimum
+uptime across all regional hubs and the national coordination layer.
+
+The deployment timeline is conservative by design, allocating five years for
+full nationwide coverage. This timeline accommodates the legislative processes
+required in each state (analogous to California's SB 1042, AB 2847, and SB 892
+from the site documentation \cite{site-docs}), the infrastructure construction
+and validation activities at each site, and the workforce training requirements
+described in Section~\ref{sec:implementation}. Sites in states with existing
+legislative frameworks for AI in healthcare may proceed through earlier phases
+more quickly, while sites in states requiring new legislation may follow the
+later phases of the timeline.

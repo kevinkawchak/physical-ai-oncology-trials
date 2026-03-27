@@ -251,3 +251,239 @@ Context Protocol server providing standardized AI-tool communication), and USL
 These terms are cross-referenced with the ICH glossary
 (Section~\ref{subsec:ich-glossary}) to ensure consistency across all adapted
 standards in the National Platform.
+
+\subsection{Three-Tier Physical AI Classification System}
+\label{subsec:cfr50-three-tier}
+
+The three-tier classification introduced in
+Section~\ref{subsec:cfr50-classification} warrants detailed examination because
+it determines the regulatory pathway, monitoring intensity, consent complexity,
+and reporting obligations for every Physical AI system deployed in an oncology
+clinical trial. Table~\ref{tab:three-tier-detail} presents the complete
+classification framework with representative robot types, regulatory
+requirements, and consent elements for each tier.
+
+\begin{table}[H]
+\centering
+\caption{Three-Tier Physical AI Classification System: Requirements and Consent Elements}
+\label{tab:three-tier-detail}
+\small
+\begin{tabularx}{\textwidth}{l X X X}
+\toprule
+\textbf{Attribute} & \textbf{Tier 1 - Standard Risk} & \textbf{Tier 2 - Elevated Risk} & \textbf{Tier 3 - High Risk} \\
+\midrule
+Representative robots & Logistics humanoids (Digit, Optimus), social companion robots, specimen-handling cobots & RT positioning robots, imaging robots, rehabilitation exoskeletons, RT motion-tracking robots & Surgical robots (da Vinci, Hugo RAS, Versius), needle-placement robots, steerable needle robots \\
+\midrule
+Patient contact level & Minimal or no direct physical contact; robot operates in shared space & Moderate direct contact; robot touches or repositions patient under supervision & Direct therapeutic contact; robot performs invasive or semi-invasive procedures \\
+\midrule
+Autonomy permitted & Supervised or semi-autonomous for logistics tasks; autonomous navigation in designated corridors & Supervised mode required during patient contact; autonomous calibration permitted & Supervised mode mandatory at all times; autonomous incision or tissue manipulation prohibited \\
+\midrule
+Minimum USL band & Foundational (3.0 or higher) & Intermediate (5.0 or higher) & Advanced (7.0 or higher) \\
+\midrule
+Operator requirement & Trained staff member within radio or network contact & Certified Physical AI operator present in the room & Board-certified physician plus certified Physical AI operator at console \\
+\midrule
+Safety matrix scope & Abbreviated matrix covering power, communication, and identification checks & Standard matrix covering all seven verification categories & Extended matrix with procedure-specific additions, dual-operator sign-off, and anesthesia integration \\
+\midrule
+Monitoring during operation & Periodic status checks via dashboard at 15-minute intervals & Continuous telemetry with automated alerts for parameter exceedance & Real-time multi-channel monitoring including force, position, vital signs, and AI decision confidence \\
+\midrule
+Adverse event reporting & Category B or C timelines (15 calendar days) for most events & Category A timelines (7 calendar days serious, 15 days non-serious) for contact events & Category A expedited timelines (7 calendar days) for all events; 24-hour reporting for serious surgical events \\
+\midrule
+IRB review depth & Standard review with Physical AI addendum & Enhanced review with Physical AI safety plan evaluation & Full board review with independent Physical AI technical expert consultation \\
+\midrule
+Consent elements & General Physical AI disclosure, right to refuse robotic logistics, data collection notice & All Tier 1 elements plus robot-specific interaction description, positioning procedure walkthrough, sensor data explanation & All Tier 1 and 2 elements plus surgical procedure details, autonomous decision-making disclosure, emergency conversion plan, tissue interaction risks \\
+\midrule
+Post-procedure documentation & System log summary and patient feedback form & Complete telemetry archive, patient assessment, and 24-hour follow-up & Full procedure report, video archive, force-torque analysis, pathology correlation, and 72-hour follow-up \\
+\midrule
+Re-consent triggers & New robot type added to logistics fleet & Software update changing positioning algorithm; new imaging modality introduced & Any change to surgical robot model, software version, or autonomy level \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+The tier system creates proportional regulatory burden: Tier 1 systems that
+pose minimal risk to patients face streamlined requirements, while Tier 3
+systems performing invasive procedures face the most rigorous oversight. This
+proportionality is essential for practical deployment because applying Tier 3
+requirements to every logistics robot would create unnecessary burden without
+improving patient safety, while applying Tier 1 requirements to surgical robots
+would provide insufficient protection. The tier classification is determined at
+the protocol level during IND submission and reviewed by the IRB as part of the
+Physical AI safety plan evaluation.
+
+When a robot's function spans multiple tiers, the higher tier governs. For
+example, a cobot that both handles specimens (Tier 1) and assists with patient
+positioning (Tier 2) is classified as Tier 2 for all regulatory purposes. This
+conservative approach ensures that no Physical AI interaction falls below the
+protection level warranted by its highest-risk function.
+
+The tier system also governs training requirements for site personnel. Tier 1
+operations require general Physical AI awareness training (minimum 8 hours)
+covering robot identification, basic safety procedures, and emergency stop
+activation. Tier 2 operations require specialized Physical AI operator
+certification (minimum 40 hours) covering robot-specific operation, patient
+interaction protocols, and troubleshooting. Tier 3 operations require advanced
+Physical AI surgical team certification (minimum 80 hours plus proctored cases)
+covering console operation, instrument exchange, emergency conversion, and
+team communication protocols.
+
+\subsection{Comprehensive Informed Consent Elements for Physical AI Trials}
+\label{subsec:cfr50-consent-comprehensive}
+
+Section~\ref{subsec:cfr50-consent} introduced the Physical AI-specific consent
+elements required by the adapted Part 50. The following comprehensive itemized
+list specifies every consent element that must be addressed in the informed
+consent document for Physical AI oncology trials, organized by category.
+
+\subsubsection{General Physical AI Disclosure Elements}
+
+All Physical AI trial consent forms must include the following general
+disclosure elements regardless of tier classification:
+
+\begin{itemize}
+    \item A statement that the clinical trial involves Physical AI systems
+    (robots with integrated artificial intelligence) that will participate in
+    some or all aspects of the participant's care during the trial period.
+
+    \item An enumeration of every Physical AI system type that the participant
+    may encounter during the trial, identified by category (surgical robot,
+    cobot, humanoid, companion robot, etc.), manufacturer name, model
+    designation, and general functional description.
+
+    \item A plain-language explanation of how artificial intelligence
+    participates in treatment planning, monitoring, decision support, and
+    operational coordination, including a statement about the role of human
+    oversight in AI-assisted decisions.
+
+    \item A description of the Physical AI safety monitoring infrastructure,
+    including who monitors robot performance, how deviations from expected
+    behavior are detected, what automated safety systems are in place, and
+    how the participant will be protected in the event of a system malfunction.
+
+    \item A clear statement that the participant has the right to request
+    human-only care at any point during the trial, including during active
+    robotic procedures, and that exercising this right will not affect the
+    participant's eligibility for continued trial participation or standard
+    medical care.
+
+    \item A description of the emergency stop procedures available to the
+    participant, including how to verbally signal distress, how to activate
+    patient-accessible stop mechanisms where available, and the expected
+    response time from clinical staff.
+
+    \item A statement identifying the Principal Investigator, Physical AI
+    Safety Officer, and patient advocate who can be contacted with questions
+    or concerns about Physical AI interactions at any time.
+\end{itemize}
+
+\subsubsection{Data Collection and Privacy Elements}
+
+All Physical AI trial consent forms must include the following data-related
+elements:
+
+\begin{itemize}
+    \item A comprehensive list of all data types collected by Physical AI
+    systems, including but not limited to: robot telemetry data (position,
+    force, speed, torque, temperature), video recordings of patient-robot
+    interactions, audio recordings if applicable, sensor data from
+    patient-mounted or room-mounted sensors, AI decision logs documenting
+    automated recommendations, and biometric data collected through
+    robot-integrated sensors.
+
+    \item An explanation of how each data type is stored, who has access to
+    it, how long it is retained, and under what circumstances it may be
+    shared with parties outside the immediate clinical team.
+
+    \item A statement that all Physical AI-generated data is protected under
+    HIPAA and applicable state privacy laws (including SB 892 provisions for
+    California sites), with specific protections for video and audio
+    recordings that may capture identifiable patient images or voices.
+
+    \item A description of the federated learning framework, if applicable,
+    explaining that de-identified data may be used to improve AI models
+    across trial sites without the participant's raw data leaving the local
+    site.
+
+    \item A statement of the participant's right to access all Physical AI
+    data generated during their care, to receive copies of such data in a
+    readable format, and to request correction of data errors.
+
+    \item A description of cybersecurity protections for Physical AI data,
+    including encryption standards, access controls, and incident response
+    procedures in the event of a data breach.
+\end{itemize}
+
+\subsubsection{Tier-Specific Consent Elements}
+
+In addition to the general and data elements, the following tier-specific
+consent elements must be included based on the Physical AI systems involved
+in the participant's care:
+
+\begin{itemize}
+    \item \textbf{Tier 2 additional elements:} A description of the specific
+    physical interactions the participant will experience with each Tier 2
+    robot, including what body parts will be contacted, the nature of the
+    contact (positioning, support, imaging), the expected duration of contact,
+    and any sensations the participant may experience (pressure, warmth,
+    vibration). A description of the operator qualifications and the
+    operator's role during the interaction. An explanation of the real-time
+    monitoring systems active during contact and the thresholds that trigger
+    automatic safety responses.
+
+    \item \textbf{Tier 3 additional elements:} A detailed description of
+    each surgical or invasive procedure involving Physical AI systems,
+    including the specific role of the robot (instrument guidance, tissue
+    manipulation, needle placement), the degree of autonomous operation
+    permitted, and the surgeon's real-time control capabilities. A
+    description of the emergency conversion plan detailing how the procedure
+    transitions from robotic to manual if a system failure occurs. A
+    statement of the risks specific to robotic surgical procedures, including
+    mechanical failure during tissue interaction, sensor error leading to
+    positional inaccuracy, and extended procedure time due to system
+    recalibration. A description of the post-procedure Physical AI
+    assessment, including the 72-hour follow-up schedule and the specific
+    evaluations performed to detect robot-related complications.
+\end{itemize}
+
+\subsubsection{Ongoing Consent and Notification Elements}
+
+The consent form must also address the ongoing consent requirements unique to
+Physical AI trials:
+
+\begin{itemize}
+    \item A statement that Physical AI systems may be updated, replaced, or
+    supplemented during the trial period, and that the participant will be
+    notified in writing before any such change takes effect.
+
+    \item A description of the specific changes that trigger re-consent,
+    including introduction of new robot types, software updates that alter
+    robot behavior or decision-making, changes to the degree of autonomy,
+    and changes to safety monitoring procedures.
+
+    \item A statement that the participant will receive periodic summary
+    reports of Physical AI system performance at the trial site, including
+    any adverse events that may affect the participant's risk assessment.
+
+    \item An explanation that the participant may withdraw consent for
+    Physical AI interactions at any time without withdrawing from the
+    clinical trial itself, and a description of how the trial protocol
+    accommodates continued participation with human-only care delivery.
+
+    \item A statement that the participant's consent preferences will be
+    documented in the electronic health record and communicated to all
+    Physical AI systems through the MCP server infrastructure, ensuring
+    that robots are automatically informed of any restrictions on their
+    interaction with the participant.
+\end{itemize}
+
+\subsubsection{Comprehension Verification}
+
+The adapted Part 50 requires that informed consent for Physical AI trials
+include a comprehension verification step beyond the standard consent
+signature. This verification must confirm that the participant understands:
+the types of robots involved in their care and their general functions, the
+participant's right to refuse any robotic interaction, how to activate
+emergency stop procedures, what data is collected by Physical AI systems and
+how it is protected, and whom to contact with questions or concerns about
+Physical AI interactions. Comprehension may be verified through a brief
+questionnaire, a teach-back conversation with the consent coordinator, or
+another method approved by the IRB. The verification results must be
+documented in the participant's trial record.
