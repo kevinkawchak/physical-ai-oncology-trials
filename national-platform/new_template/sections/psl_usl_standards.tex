@@ -1,0 +1,158 @@
+%%% SECTION 7: PHYSICAL AI STANDARD LEVEL AND UNIFICATION STANDARD LEVEL %%%
+
+[This section should be approximately 10-12 pages. The major theme is that the
+PSL (Physical AI Standard Level) and USL (Unification Standard Level) frameworks
+complement each other to create a comprehensive, quantitative standards system
+for responsible robot usage in oncology clinical trials. PSL provides the
+regulatory compliance dimensions for trial site operations, while USL evaluates
+individual robot readiness. Together, they ensure that both the site
+infrastructure and the robots operating within it meet the standards required
+for safe, effective Physical AI oncology trials.]
+
+[PRIMARY SOURCES: national-platform/usl\_standard/ directory containing
+01\_preamble\_introduction\_framework.tex and 02\_results\_discussion\_closing.tex
+for the USL framework; and national-platform/new\_trial\_psl/ directory
+containing all 11 files (01\_preamble\_and\_sb1042.tex through
+11\_emergency\_preparedness.tex) for the PSL framework embedded within the
+clinical trial site documentation.]
+
+\subsection{Overview: Complementary Standards}
+\label{subsec:standards-overview}
+
+[Explain how PSL and USL serve different but complementary purposes:
+PSL evaluates site-level regulatory compliance across 3 dimensions, while
+USL evaluates individual robot readiness across 4 dimensions. Together, a
+trial site can only operate when both PSL requirements are met (site is
+compliant) and USL scores are sufficient (robots are ready). This dual-layer
+approach is unique to this National Platform and more thorough than any
+existing FDA guidance on robot or AI evaluation.]
+
+[MAJOR THEME: PSL and USL together enable a quantitative, reproducible
+assessment of Physical AI trial readiness that replaces subjective evaluation
+with objective scoring. This is essential for scaling Physical AI oncology
+trials nationwide, as each new site can be evaluated against the same
+standards.]
+
+\subsection{Physical AI Standard Level (PSL) Framework}
+\label{subsec:psl-framework}
+
+[Build from national-platform/new\_trial\_psl/ files, particularly
+01\_preamble\_and\_sb1042.tex which establishes the PSL framework context.
+The PSL framework was developed in conjunction with the 24-hour clinical trial
+simulation evidence.]
+
+\subsubsection{The Three PSL Dimensions}
+[Detail the three regulatory dimensions of PSL and explain what each
+dimension measures. Draw from the PSL framework as embedded in the clinical
+trial site documentation. Each dimension should be defined with its scope,
+measurement criteria, and passing thresholds.]
+
+[MAJOR THEME: The three PSL dimensions are important for responsible robot
+usage because they ensure that a trial site's regulatory environment,
+operational procedures, and safety infrastructure all meet minimum standards
+before any Physical AI procedures are performed. This prevents scenarios where
+technically capable robots operate in insufficiently prepared environments.]
+
+\subsubsection{PSL Scoring Methodology}
+[Explain how PSL scores are computed, including the weighting of each
+dimension, the criteria for each score level, and the minimum overall score
+required for trial site activation. Reference the 24-hour simulation
+evidence from Clinical Trial Site Complete Documentation \cite{site-docs}
+as validation of the PSL framework.]
+
+\subsubsection{PSL and Site Activation}
+[Explain how PSL scores determine whether a trial site can be activated for
+Physical AI operations. Cover the relationship between PSL compliance and
+the site activation procedures detailed in
+national-platform/new\_trial\_psl/10\_activation\_sops.tex.]
+
+\subsection{Unification Standard Level (USL) Framework}
+\label{subsec:usl-framework}
+
+[Build from national-platform/usl\_standard/01\_preamble\_introduction\_framework.tex,
+covering the introduction, need for standardized robot readiness, and the
+USL scoring methodology.]
+
+\subsubsection{The Four USL Dimensions}
+[Detail each of the four USL dimensions: regulatory compliance, clinical
+integration, technical maturity, and safety architecture. For each dimension,
+provide the definition, measurement criteria, scoring range, and significance
+for Physical AI oncology trials.]
+
+[MAJOR THEME: The four USL dimensions are important for responsible robot usage
+because they evaluate each robot type holistically rather than on a single
+criterion. A robot may be technically advanced but lack regulatory compliance
+documentation, or may have excellent safety features but insufficient clinical
+integration capabilities. USL ensures all four dimensions are evaluated.]
+
+\subsubsection{USL Scoring Methodology}
+[Build from national-platform/usl\_standard/01\_preamble\_introduction\_framework.tex,
+Section 2 (Methods). Cover the development process, dimension definitions,
+score computation formulas, bands and levels, category-specific scoring
+engines, and individual robot evaluation modules.]
+
+\subsubsection{USL Score Computation}
+[Detail the mathematical framework for USL score computation, including how
+individual dimension scores are combined into an overall USL score, the
+band/level classification system, and the interpretation of results.]
+
+\subsection{USL Results Across Robot Categories}
+\label{subsec:usl-results}
+
+[Build from national-platform/usl\_standard/02\_results\_discussion\_closing.tex,
+Section 3 (Results). Present the complete USL scores table covering all ten
+robot categories evaluated. Include:]
+
+\subsubsection{Surgical Robot Results}
+[Cover USL scores for surgical robots. Reference A Cancer Patient's Journey,
+Physical AI \cite{patient-journey-paper} for clinical context of surgical
+robot usage.]
+
+\subsubsection{Cobot and Humanoid Results}
+[Cover USL scores for cobots and humanoid robots. Reference Patient
+Instructions: Physical AI Trials \cite{patient-instructions-paper} for patient
+interaction context.]
+
+\subsubsection{Specialized Robot Results}
+[Cover USL scores for radiotherapy positioning robots, needle-placement robots,
+social companion robots, imaging robots, steerable needle robots, and
+rehabilitation exoskeletons. Reference the patient robot instructions from
+national-platform/patient\_robot/ files for detailed descriptions of each
+robot type.]
+
+\subsubsection{Cross-Category Comparison}
+[Present the cross-category comparison of USL scores, identifying which robot
+types score highest on each dimension and overall. Discuss what the variation
+in scores means for Physical AI trial readiness and where targeted improvement
+is needed.]
+
+\subsection{How PSL and USL Complement Each Other}
+\label{subsec:psl-usl-complement}
+
+[MAJOR THEME: Synthesize how the 3 PSL dimensions and 4 USL dimensions work
+together. PSL ensures the environment is ready; USL ensures the robots are
+ready. A Physical AI trial site requires both: a compliant, well-prepared
+facility (PSL) populated with properly qualified robots (USL). Provide examples
+of how a site might pass PSL but fail USL for certain robot types, or how a
+robot might have high USL scores but be unable to operate at a site that fails
+PSL. This complementary relationship makes the standards framework more robust
+than either standard alone.]
+
+[Reference Clinical Trial Site Complete Documentation \cite{site-docs} and
+Physical AI Unification Standard Level \cite{usl-standard} as the primary
+implementations of PSL and USL respectively. Connect to the MCP conformance
+levels from Physical AI National MCP Servers \cite{national-mcp-paper} as an
+additional interoperability standard that interfaces with both PSL and USL.]
+
+\subsection{Impact on Nationwide Deployment}
+\label{subsec:standards-impact}
+
+[Build from national-platform/usl\_standard/02\_results\_discussion\_closing.tex,
+Section 4 (Discussion). Cover the open-source ecosystem, hardware vs.
+readiness distinctions, clinical trial readiness implications, and category
+differences. Explain how standardized PSL and USL scores enable efficient
+nationwide scaling of Physical AI oncology trials by providing a common
+evaluation framework that all sites and robots must meet.]
+
+[Reference the three code repositories \cite{main-repo, mcp-repo, fl-repo}
+as open-source implementations that support PSL and USL assessment.]

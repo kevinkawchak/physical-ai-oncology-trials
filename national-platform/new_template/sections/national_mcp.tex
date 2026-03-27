@@ -1,0 +1,127 @@
+%%% SECTION 11: NATIONAL MCP SERVER INFRASTRUCTURE %%%
+
+[This section should be approximately 10-12 pages. The major theme is that
+Physical AI National MCP Servers \cite{national-mcp-paper} provides the
+national-scale infrastructure for connecting Physical AI oncology trial
+systems across sites using the Model Context Protocol \cite{mcp-protocol}.
+The five-server architecture addresses the fragmentation problem that prevents
+current clinical trial systems from interoperating, and establishes
+standardized communication pathways for Physical AI operations at scale.]
+
+[PRIMARY SOURCE: national-platform/national\_mcp/ directory containing four
+chunked files: chunk1\_preamble\_and\_introduction.tex (lines 1-181),
+chunk2\_methods\_and\_results\_part1.tex (lines 182-465),
+chunk3\_results\_part2.tex (lines 466-689), and
+chunk4\_discussion\_and\_conclusion.tex (lines 690-1011). All four files must
+be used together to build this section.]
+
+\subsection{The Fragmentation Problem}
+\label{subsec:mcp-fragmentation}
+
+[Build from national-platform/national\_mcp/chunk1\_preamble\_and\_introduction.tex,
+the introduction section on fragmentation. Detail how current clinical trial
+systems operate in silos with incompatible data formats, disconnected
+communication channels, and no standardized protocol for real-time inter-system
+coordination. Explain how this fragmentation is magnified in Physical AI
+trials where robots, AI systems, clinical databases, and regulatory reporting
+tools must all communicate seamlessly.]
+
+[Reference the current trial infrastructure from ClinicalTrials.gov
+\cite{clinicaltrials-gov} and FDA clinical trials guidance
+\cite{fda-clinical-trials-guidance} to show the status quo. Explain how
+FHIR \cite{hl7-fhir} and DICOM \cite{dicom} address part of the problem
+but do not provide a complete solution for Physical AI systems.]
+
+\subsection{Model Context Protocol for Physical AI}
+\label{subsec:mcp-protocol}
+
+[Build from national-platform/national\_mcp/chunk1\_preamble\_and\_introduction.tex
+on the MCP opportunity and prior architecture. Explain how the Model Context
+Protocol \cite{mcp-protocol} provides a standardized framework for AI
+systems to communicate with tools and data sources, and how this framework is
+adapted for Physical AI oncology trial operations. Detail the prior
+architecture that the five-server design builds upon.]
+
+\subsection{Five-Server Architecture}
+\label{subsec:mcp-architecture}
+
+[Build from national-platform/national\_mcp/chunk2\_methods\_and\_results\_part1.tex,
+the five-server architecture section. Detail each of the five servers, their
+roles, capabilities, and interrelationships. Include the tool inventories for
+each server and explain how tools are organized to support different aspects of
+Physical AI trial operations.]
+
+[MAJOR THEME: The five-server architecture provides national-scale
+infrastructure that can be replicated at each trial site while maintaining
+centralized coordination. This architecture supports the goal of scaling
+Physical AI oncology trials nationwide by providing standardized infrastructure
+that any site can deploy.]
+
+\subsection{Tool Inventories and Conformance Levels}
+\label{subsec:mcp-tools}
+
+[Build from national-platform/national\_mcp/chunk2\_methods\_and\_results\_part1.tex
+on tool inventories and conformance levels. Detail the complete set of tools
+available across all five servers, the conformance level requirements for each
+tool category, and how conformance is verified. Reference the MCP repository
+\cite{mcp-repo} for implementation details.]
+
+\subsection{Safety Modules and Emergency Systems}
+\label{subsec:mcp-safety}
+
+[Build from national-platform/national\_mcp/chunk3\_results\_part2.tex on
+safety modules. Cover the safety architecture embedded in the MCP server
+infrastructure, including emergency stop capabilities, automatic failover,
+safety interlock protocols, and the emergency stop code listing. Cross-reference
+with the emergency preparedness requirements in
+Section~\ref{sec:site-establishment}.]
+
+\subsection{Integration and Interoperability}
+\label{subsec:mcp-integration}
+
+[Build from national-platform/national\_mcp/chunk3\_results\_part2.tex on
+integration adapters, test coverage, deployment infrastructure, SDK/tooling,
+and schemas. Cover the interoperability testbed and how it validates that
+MCP servers can communicate with existing healthcare systems using FHIR
+\cite{hl7-fhir} and DICOM \cite{dicom}.]
+
+\subsection{National Deployment Topology}
+\label{subsec:mcp-deployment}
+
+[Build from national-platform/national\_mcp/chunk4\_discussion\_and\_conclusion.tex,
+the national deployment topology section. Detail the planned deployment
+architecture for nationwide Physical AI trial operations, including hub-and-spoke
+models, regional server clusters, data routing, and redundancy provisions.]
+
+\subsection{Governance and Compliance}
+\label{subsec:mcp-governance}
+
+[Build from national-platform/national\_mcp/chunk4\_discussion\_and\_conclusion.tex
+on governance and comparison table. Cover the governance framework for national
+MCP server operations, including who manages the servers, how updates are
+deployed, compliance monitoring, and dispute resolution. Reference HIPAA
+\cite{hipaa} for data governance requirements and the three adapted regulatory
+standards for trial-specific governance.]
+
+\subsection{CI/CD and Operational Excellence}
+\label{subsec:mcp-cicd}
+
+[Build from national-platform/national\_mcp/chunk4\_discussion\_and\_conclusion.tex
+on CI/CD. Cover the continuous integration and deployment pipeline for MCP
+servers, including automated testing, deployment procedures, rollback
+capabilities, and version management. Reference the main repository
+\cite{main-repo} and MCP repository \cite{mcp-repo} for implementation.]
+
+\subsection{Patient Safety and Data Flow}
+\label{subsec:mcp-patient-safety}
+
+[Build from national-platform/national\_mcp/chunk4\_discussion\_and\_conclusion.tex
+on patient safety and robot procedure data flow. Detail how MCP servers ensure
+patient safety through real-time monitoring, data validation, and automated
+safety checks. Cover the complete data flow from robot procedures through
+MCP servers to clinical databases and regulatory reporting systems.]
+
+[Connect to Physical AI Federated Learning \cite{fl-paper} and federated
+learning in healthcare \cite{federated-learning-healthcare} for how MCP
+servers interface with the federated learning framework to enable multi-site
+coordination while preserving patient privacy.]

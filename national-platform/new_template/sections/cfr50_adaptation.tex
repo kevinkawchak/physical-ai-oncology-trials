@@ -1,0 +1,155 @@
+%%% SECTION 5: ADAPTED 21 CFR PART 50 FOR PHYSICAL AI HUMAN SUBJECTS PROTECTION %%%
+
+[This section should be approximately 8-10 pages. The major theme is that
+Physical AI Adaption: 21 CFR Part 50 \cite{cfr50-adapt} provides comprehensive
+human subjects protection specifically designed for Physical AI oncology trials,
+building on the existing federal regulation \cite{cfr-part-50}. By adapting
+a well-established regulation rather than proposing new legislation, this work
+adds immediate credibility and practical applicability to Physical AI
+implementations. A critical theme is that control has shifted towards the
+patient's side, with more patient rights, including new protections specific
+to robotic and AI-assisted medical procedures.]
+
+[PRIMARY SOURCE: national-platform/21cfr50\_adapt/ directory containing three
+chunked files: 01\_preamble\_scope\_definitions\_consent.tex (lines 1-438),
+02\_irb\_review\_pediatric.tex (lines 439-674), and
+03\_additional\_safeguards\_closing.tex (lines 675-747). All three files must
+be used together to build this section.]
+
+\subsection{Scope and Physical AI Definitions}
+\label{subsec:cfr50-scope}
+
+[Build from national-platform/21cfr50\_adapt/01\_preamble\_scope\_definitions\_consent.tex,
+Subpart A (General Provisions). Cover the scope of the adapted regulation and
+all Physical AI definitions. The original Part 50 contains 17 Physical AI-specific
+definitions that standardize terminology for robotic and AI-assisted clinical
+procedures. These definitions are foundational to the entire National Platform.]
+
+[Include key definitions such as Physical AI system, Physical AI adverse event,
+Physical AI operator, robotic procedure, autonomous mode, supervised mode,
+Physical AI safety matrix, and others. Cross-reference with definitions in the
+ICH adaptation (Section~\ref{sec:ich-e6r3}) and the CFR 312 adaptation
+(Section~\ref{sec:cfr312}).]
+
+\subsection{Informed Consent for Physical AI Procedures}
+\label{subsec:cfr50-consent}
+
+[Build from national-platform/21cfr50\_adapt/01\_preamble\_scope\_definitions\_consent.tex,
+Subpart B (Informed Consent of Human Subjects). Cover the adapted general
+requirements for informed consent, Physical AI-specific consent elements,
+exceptions to informed consent requirements, and documentation requirements.]
+
+[MAJOR THEME: Informed consent for Physical AI procedures is more comprehensive
+than traditional consent because patients must understand their interactions
+with robotic systems, the AI decision-making processes involved in their care,
+the safety monitoring systems in place, and their rights to refuse or pause
+robotic procedures at any time. This represents a fundamental shift of control
+towards the patient. Reference Patient Instructions: Physical AI Trials
+\cite{patient-instructions-paper} as the patient-facing implementation of these
+consent requirements.]
+
+[Detail the specific additional consent elements required for Physical AI trials,
+such as: description of each robot type and its role, explanation of AI
+decision-making in treatment planning, patient's right to request human-only
+care at any point, data collection and privacy protections for robot-generated
+data, and emergency stop procedures.]
+
+\subsection{Physical AI System Safety Requirements}
+\label{subsec:cfr50-safety}
+
+[Build from national-platform/21cfr50\_adapt/02\_irb\_review\_pediatric.tex,
+Subpart C (Additional Protections for Subjects in Physical AI Clinical
+Investigations). This is a new subpart created specifically for Physical AI
+trials. Cover:]
+
+\subsubsection{Pre-Procedure Safety Matrix}
+[Detail the safety matrix requirements that must be completed before any
+Physical AI procedure begins, including robot system verification, sensor
+calibration checks, emergency stop verification, and patient identification
+confirmation.]
+
+\subsubsection{Runtime Safety Monitoring}
+[Cover continuous monitoring requirements during Physical AI procedures,
+including real-time sensor data analysis, deviation detection thresholds,
+automatic pause triggers, and human oversight requirements.]
+
+\subsubsection{Post-Procedure Requirements}
+[Cover post-procedure documentation, patient follow-up specific to Physical AI
+interactions, and adverse event reporting for robot-related incidents.]
+
+\subsubsection{Task-Order Lifecycle}
+[Cover the lifecycle management of Physical AI task orders from initiation
+through completion, including authorization requirements, execution monitoring,
+and completion verification.]
+
+\subsubsection{Forbidden Operations}
+[List and explain the operations that Physical AI systems are explicitly
+prohibited from performing without human authorization, including certain
+surgical decisions, medication administration changes, and emergency
+treatment modifications.]
+
+\subsection{IRB Review of Physical AI Investigations}
+\label{subsec:cfr50-irb}
+
+[Continue building from national-platform/21cfr50\_adapt/02\_irb\_review\_pediatric.tex.
+Cover the specific requirements for IRB review of Physical AI trials, including:
+evaluation criteria for Physical AI systems, ongoing monitoring requirements,
+protocol modification triggers specific to Physical AI performance, and
+criteria for suspending Physical AI operations. Reference the NCI CIRB
+\cite{nci-cirb} as a model for centralized Physical AI review.]
+
+\subsection{Ongoing Consent and Subject Notification}
+\label{subsec:cfr50-ongoing}
+
+[Build from national-platform/21cfr50\_adapt/02\_irb\_review\_pediatric.tex on
+ongoing consent requirements. Cover how participants must be continuously
+informed about Physical AI system updates, performance changes, new robot
+deployments, and any safety-relevant modifications to the Physical AI systems
+they interact with.]
+
+[MAJOR THEME: Unlike traditional trials where informed consent is primarily a
+one-time event, Physical AI trials require ongoing consent processes because
+the technology may be updated, new robots may be introduced, and AI algorithms
+may be refined during the trial. This ongoing consent process gives patients
+continuous agency over their participation.]
+
+\subsection{Data Protection and Privacy}
+\label{subsec:cfr50-data}
+
+[Build from national-platform/21cfr50\_adapt/02\_irb\_review\_pediatric.tex on
+data protection provisions. Cover protections for the additional categories of
+data generated by Physical AI systems: robot telemetry, video recordings of
+procedures, sensor data from patient-robot interactions, and AI decision logs.
+Reference HIPAA \cite{hipaa} and federated learning \cite{fl-paper,
+federated-learning-healthcare} as complementary privacy frameworks.]
+
+\subsection{Physical AI System Classification}
+\label{subsec:cfr50-classification}
+
+[Build from national-platform/21cfr50\_adapt/02\_irb\_review\_pediatric.tex on
+system classification and regulatory pathways. Cover the classification
+framework for Physical AI systems by risk level, the corresponding regulatory
+pathway for each classification tier, and the criteria for determining which
+tier applies. Connect to the USL scoring framework in
+Section~\ref{sec:psl-usl}.]
+
+\subsection{Pediatric Protections in Physical AI Trials}
+\label{subsec:cfr50-pediatric}
+
+[Build from national-platform/21cfr50\_adapt/02\_irb\_review\_pediatric.tex,
+Subpart D (Additional Safeguards for Children). Cover how existing pediatric
+protections are adapted for Physical AI contexts, including modified consent
+and assent procedures for minors interacting with robots, additional safety
+requirements for pediatric Physical AI procedures, and IRB duties specific to
+pediatric Physical AI investigations. Note that pediatric oncology is a
+particularly important application where Physical AI may reduce treatment
+burden on young patients.]
+
+\subsection{Glossary of Physical AI Terms}
+\label{subsec:cfr50-glossary}
+
+[Build from national-platform/21cfr50\_adapt/03\_additional\_safeguards\_closing.tex,
+Glossary section. Include the supplementary Physical AI terms that complement
+the regulatory definitions. Cross-reference with the ICH glossary
+(Section~\ref{subsec:ich-glossary}) to ensure consistency across all adapted
+standards.]
