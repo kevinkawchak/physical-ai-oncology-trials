@@ -1,0 +1,125 @@
+%%% SECTION 12: FEDERATED LEARNING FOR PHYSICAL AI ONCOLOGY TRIALS %%%
+
+[This section should be approximately 8-10 pages. The major theme is that
+Physical AI Federated Learning \cite{fl-paper} provides a privacy-preserving
+framework for unifying Physical AI oncology trials across multiple sites,
+enabling coordinated learning and continuous improvement without centralizing
+sensitive patient data. This framework addresses a fundamental challenge of
+nationwide Physical AI deployment: how to leverage data from all trial sites
+for model improvement while maintaining strict patient privacy under HIPAA
+\cite{hipaa} and state privacy laws.]
+
+[PRIMARY SOURCE: national-platform/federated\_learning/ directory containing
+four chunked files: main\_chunk1\_preamble\_intro\_methods.tex (lines 1-215),
+main\_chunk2\_results\_architecture\_pillars\_examples.tex (lines 216-533),
+main\_chunk3\_results\_peerreview\_trust\_analytics.tex (lines 534-776), and
+main\_chunk4\_discussion\_limitations\_conclusion.tex (lines 777-930). All four
+files must be used together to build this section.]
+
+\subsection{The Privacy Challenge in Multi-Site Physical AI Trials}
+\label{subsec:fl-privacy}
+
+[Build from national-platform/federated\_learning/main\_chunk1\_preamble\_intro\_methods.tex,
+the introduction section. Detail the privacy challenge: Physical AI systems
+generate vast amounts of patient data (robot telemetry, sensor readings,
+imaging data, treatment outcomes) that could dramatically improve AI models
+if pooled, but centralized data collection creates unacceptable privacy risks
+and regulatory compliance challenges. Reference federated learning in
+healthcare \cite{federated-learning-healthcare} for the broader context of
+privacy-preserving machine learning in medical settings.]
+
+\subsection{Development Process and Methodology}
+\label{subsec:fl-methods}
+
+[Build from national-platform/federated\_learning/main\_chunk1\_preamble\_intro\_methods.tex,
+Section 2 (Methods). Cover the development process, prompt-driven development
+methodology, and how the federated learning framework was designed and
+validated. Reference Claude Opus 4.6 \cite{claude-opus} and the development
+tools used.]
+
+\subsection{Architecture Overview}
+\label{subsec:fl-architecture}
+
+[Build from national-platform/federated\_learning/main\_chunk2\_results\_architecture\_pillars\_examples.tex,
+the Architecture Overview section. Detail the complete federated learning
+architecture including client nodes, aggregation servers, communication
+protocols, and security layers. Explain how the architecture maps to the
+Physical AI trial site structure from Section~\ref{sec:site-establishment}.]
+
+\subsection{Five Foundational Pillars}
+\label{subsec:fl-pillars}
+
+[Build from national-platform/federated\_learning/main\_chunk2\_results\_architecture\_pillars\_examples.tex,
+Pillars 1-5. Detail each of the five foundational pillars of the federated
+learning framework. For each pillar, explain its role in supporting
+Physical AI oncology trials and how it interacts with the other pillars.]
+
+[MAJOR THEME: The five pillars ensure that federated learning in Physical AI
+trials is not just technically sound but also regulatory-compliant,
+clinically meaningful, privacy-preserving, and operationally practical.
+This comprehensive pillar structure differentiates the framework from
+generic federated learning implementations.]
+
+\subsection{Workflow Demonstrations}
+\label{subsec:fl-workflows}
+
+[Build from national-platform/federated\_learning/main\_chunk2\_results\_architecture\_pillars\_examples.tex,
+the Workflow Demonstrations section covering domain, agentic AI, and Physical AI
+examples. Detail the three categories of workflow demonstrations showing how
+the framework operates in practice. The Physical AI examples are most relevant
+to this National Platform and should be given the most emphasis.]
+
+\subsection{Triple AI Peer Review Pipeline}
+\label{subsec:fl-peer-review}
+
+[Build from national-platform/federated\_learning/main\_chunk3\_results\_peerreview\_trust\_analytics.tex,
+Section 3.7 (Triple AI Peer Review Pipeline). Detail the three-stage AI
+peer review process that validates federated learning model updates before
+deployment. This mechanism ensures that model improvements are safe and
+clinically valid before being applied to Physical AI systems across trial sites.
+Reference Claude Opus 4.6 \cite{claude-opus}, GPT-5.4 \cite{gpt-5-4}, and
+Gemini \cite{gemini} as the AI systems involved in peer review.]
+
+\subsection{Code Trust and Safety}
+\label{subsec:fl-trust}
+
+[Build from national-platform/federated\_learning/main\_chunk3\_results\_peerreview\_trust\_analytics.tex,
+the Code Trust and Safety section. Cover how the federated learning framework
+ensures code integrity, prevents malicious model updates, and maintains
+audit trails for all model changes. Connect to the safety requirements in
+Physical AI Adaption: 21 CFR Part 50 \cite{cfr50-adapt} and Physical AI
+Adaption: 21 CFR Part 312 \cite{cfr312-adapt}.]
+
+\subsection{Clinical Analytics and Digital Twins}
+\label{subsec:fl-analytics}
+
+[Build from national-platform/federated\_learning/main\_chunk3\_results\_peerreview\_trust\_analytics.tex,
+the Clinical Analytics and Digital Twins sections. Cover how federated
+learning enables cross-site clinical analytics without data centralization,
+and how digital twin models are improved through federated updates. Reference
+the main repository \cite{main-repo} for digital twin implementations.]
+
+\subsection{Technology Stack and CLI Tools}
+\label{subsec:fl-tech-stack}
+
+[Build from national-platform/federated\_learning/main\_chunk3\_results\_peerreview\_trust\_analytics.tex,
+the Technology Stack and CLI Tools sections. Detail the software infrastructure
+supporting the federated learning framework. Reference the FL repository
+\cite{fl-repo} for implementation details.]
+
+\subsection{Integration with National MCP Infrastructure}
+\label{subsec:fl-mcp-integration}
+
+[Synthesize how federated learning integrates with the Physical AI National
+MCP Servers \cite{national-mcp-paper} described in Section~\ref{sec:national-mcp}.
+Cover data flow between MCP servers and federated learning clients, model
+update distribution through MCP channels, and coordinated monitoring across
+both infrastructure layers. Reference the MCP repository \cite{mcp-repo} for
+integration implementations.]
+
+\subsection{Limitations and Future Work}
+\label{subsec:fl-limitations}
+
+[Build from national-platform/federated\_learning/main\_chunk4\_discussion\_limitations\_conclusion.tex,
+Section 5 (Limitations and Future Work). Cover acknowledged limitations and
+planned improvements to the federated learning framework.]
