@@ -1,0 +1,568 @@
+%%% SECTION 7: PHYSICAL AI STANDARD LEVEL AND UNIFICATION STANDARD %%%
+
+The Physical AI Standard Level (PSL) and Unification Standard Level (USL)
+frameworks complement each other to create a comprehensive, quantitative
+standards system for responsible robot usage in oncology clinical trials. PSL
+provides the regulatory compliance dimensions for trial site operations, while
+USL evaluates individual robot readiness. Together, they ensure that both the
+site infrastructure and the robots operating within it meet the standards
+required for safe, effective Physical AI oncology trials. This dual-layer
+quantitative assessment replaces subjective evaluation with reproducible,
+objective scoring that enables standardized nationwide deployment.
+
+\subsection{Overview: Complementary Standards}
+\label{subsec:standards-overview}
+
+PSL and USL serve different but complementary purposes. PSL evaluates
+site-level regulatory compliance across three dimensions, determining whether a
+trial site has met the legislative, regulatory, and operational requirements
+for Physical AI trial operations. USL evaluates individual robot readiness
+across four dimensions, determining whether a specific robot platform is
+sufficiently mature for clinical trial deployment. A trial site can only
+operate when both conditions are satisfied: the site must achieve passing PSL
+scores (site is compliant) and the robots deployed at that site must achieve
+sufficient USL scores (robots are ready).
+
+This dual-layer approach is unique to this National Platform and more thorough
+than any existing FDA guidance on robot or AI evaluation. Existing readiness
+frameworks such as NASA Technology Readiness Levels (TRL 1-9) evaluate hardware
+maturity but do not address clinical regulatory compliance, and existing AI
+evaluation frameworks do not capture the physical embodiment requirements of
+robotic systems in clinical settings.
+
+\subsection{Physical AI Standard Level (PSL) Framework}
+\label{subsec:psl-framework}
+
+The PSL framework was developed in conjunction with the Clinical Trial Site
+Complete Documentation \cite{site-docs} and validated through the 24-hour
+clinical trial simulation that treated 168 patients with 29 robots.
+
+\subsubsection{The Three PSL Dimensions}
+
+PSL evaluates site-level compliance across three regulatory dimensions that
+correspond to the three layers of authorization required for Physical AI trial
+site operation.
+
+\begin{table}[H]
+\centering
+\caption{Physical AI Standard Level (PSL) Three Dimensions}
+\label{tab:psl-dimensions}
+\small
+\begin{tabularx}{\textwidth}{c l X}
+\toprule
+\textbf{Dim} & \textbf{Name} & \textbf{Scope} \\
+\midrule
+1 & Legislative Authorization & State legislation enabling Physical AI trials (SB 1042, AB 2847, SB 892), federal statutory authority, municipal code compliance \\
+2 & Regulatory Compliance & Title 22 state regulations, FDA compliance guide, building and premises codes, 21 CFR Part compliance \\
+3 & Operational Readiness & Activation SOPs, emergency preparedness, staff training, equipment verification, PSL score verification \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+Dimension 1 (Legislative Authorization) measures whether the required
+legislative framework exists and applies to the trial site. For California,
+this includes SB 1042 (Physical AI Oncology Clinical Trial Authorization Act),
+AB 2847 (Patient Rights and Robotic Safety Act), and SB 892 (Data Protection
+and Transparency Act). Each legislative instrument is scored on completeness,
+applicability, and enforcement readiness.
+
+Dimension 2 (Regulatory Compliance) measures whether the site meets all
+regulatory requirements across state and federal jurisdictions. This includes
+Title 22 regulations for healthcare facility operations, FDA compliance with
+the three adapted standards \cite{ich-adapt, cfr50-adapt, cfr312-adapt},
+building code standards for robot operations, and premises code requirements
+for robot storage, charging, and maintenance areas.
+
+Dimension 3 (Operational Readiness) measures whether the site has completed all
+preparatory activities required for safe Physical AI operations. This includes
+activation standard operating procedures, emergency preparedness plans, staff
+training and certification, equipment verification and calibration, and formal
+PSL score verification by an independent assessor.
+
+\subsubsection{PSL Scoring Methodology}
+
+PSL scores are computed on a pass-fail basis for each dimension, with granular
+sub-scores for individual requirements within each dimension. A site must
+achieve passing status on all three dimensions before activation. Within each
+dimension, individual requirements are scored as: Compliant (requirement fully
+met with documentation), Partially Compliant (requirement substantially met
+with documented plan for completion), or Non-Compliant (requirement not met).
+A dimension passes when all critical requirements are Compliant and all
+non-critical requirements are at least Partially Compliant.
+
+\subsubsection{PSL and Site Activation}
+
+PSL scores determine whether a trial site can be activated for Physical AI
+operations. The activation process follows the procedures detailed in the site
+establishment documentation (Section~\ref{sec:site-establishment}), with PSL
+score verification serving as a gate before operational launch. The 24-hour
+simulation \cite{site-docs} validated this activation process by demonstrating
+that a site meeting PSL requirements could safely operate 29 robots serving 168
+patients continuously.
+
+\subsection{Unification Standard Level (USL) Framework}
+\label{subsec:usl-framework}
+
+The USL framework \cite{usl-standard} provides a 1.0 to 10.0 scoring system
+for evaluating robot readiness across four equally weighted dimensions. USL was
+developed collaboratively using Claude Code Opus 4.6 \cite{claude-opus} with
+scoring engines implemented in Python across three category-specific modules
+(cobots, surgical robots, humanoid robots) totaling over 2,600 lines of code.
+
+\subsubsection{The Four USL Dimensions}
+
+\begin{table}[H]
+\centering
+\caption{Unification Standard Level (USL) Four Dimensions}
+\label{tab:usl-dimensions}
+\small
+\begin{tabularx}{\textwidth}{c l c X}
+\toprule
+\textbf{Dim} & \textbf{Name} & \textbf{Wt} & \textbf{What It Measures} \\
+\midrule
+A & Simulation Switching & 25\% & Transfer of policies between simulation engines (Isaac Lab, MuJoCo, Gazebo, PyBullet, Drake) \\
+B & AI Integration & 25\% & Integration with LLMs, VLAs, diffusion policies, MCP, agentic AI frameworks \\
+C & Cross-Robot Sharing & 25\% & Intra- and inter-organization progress sharing via ONNX, ROS 2, federated learning \\
+D & Clinical Trial Collab & 25\% & Regulatory compliance, federated deployment, audit trails across clinical trial sites \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+Dimension A (Simulation Framework Switching) evaluates a robot's ability to
+transfer trained policies between simulation engines. Robots that operate in
+only one simulation environment score lower than those with validated
+multi-engine support. This dimension captures the practical reality that
+different trial sites may use different simulation platforms, and robots must
+function reliably across these environments.
+
+Dimension B (AI Integration) evaluates the depth and breadth of AI system
+integration. This encompasses large language model planning capabilities,
+vision-language-action (VLA) model support, diffusion policy compatibility,
+Model Context Protocol \cite{mcp-protocol} support, and agentic AI framework
+integration. Higher scores indicate robots that can leverage the full spectrum
+of modern AI capabilities.
+
+Dimension C (Cross-Robot Sharing) evaluates the ability to share learned
+behaviors, trained models, and operational data across robots within and
+between organizations. ONNX model export, ROS 2 action interfaces, checkpoint
+sharing, and federated learning compatibility are key scoring factors. This
+dimension is essential for scaling Physical AI across multiple trial sites.
+
+Dimension D (Clinical Trial Collaboration) evaluates regulatory compliance
+status, clinical deployment history, federated learning readiness, audit trail
+capabilities, and multi-site deployment infrastructure. This is the most
+directly relevant dimension for Physical AI oncology trials and was found to
+be the weakest dimension for seven of nine robots evaluated.
+
+\subsubsection{USL Score Computation}
+
+The final USL score is computed as the weighted average of all four dimension
+scores, clamped to the range 1.0 to 10.0 and rounded to the nearest 0.1:
+
+$$\text{USL}_{\text{final}} = \text{clamp}\left(\frac{0.25 \cdot S_A + 0.25 \cdot S_B + 0.25 \cdot S_C + 0.25 \cdot S_D}{1.0},\; 1.0,\; 10.0\right)$$
+
+Scores map to five bands: Exemplary (9.0-10.0), Advanced (7.0-8.9),
+Intermediate (5.0-6.9), Foundational (3.0-4.9), and Initial (1.0-2.9). Each
+band corresponds to a set of qualitative descriptors for clinical trial
+readiness, from fully unified multi-site deployment capability (Exemplary) to
+minimal unification capability (Initial).
+
+\subsection{USL Results Across Robot Categories}
+\label{subsec:usl-results}
+
+Table~\ref{tab:usl-all-scores} presents the complete USL evaluation results for
+all nine robots across three categories, providing the quantitative foundation
+for robot selection in Physical AI oncology trials.
+
+\begin{table}[H]
+\centering
+\caption{Complete USL Scores for All Nine Evaluated Robots}
+\label{tab:usl-all-scores}
+\small
+\begin{tabular}{l l r r r r r l}
+\toprule
+\textbf{Robot} & \textbf{Manufacturer} & \textbf{A} & \textbf{B} & \textbf{C} & \textbf{D} & \textbf{USL} & \textbf{Band} \\
+\midrule
+\multicolumn{8}{l}{\textit{Collaborative Robots (Cobots)}} \\
+Franka Panda & Franka Robotics & 8.0 & 7.7 & 8.5 & 5.5 & \textbf{7.4} & Advanced \\
+Kinova Gen3 & Kinova Robotics & 6.3 & 5.2 & 5.8 & 5.5 & \textbf{5.7} & Intermediate \\
+xArm 7 & UFACTORY & 4.6 & 3.2 & 3.8 & 2.1 & \textbf{3.4} & Foundational \\
+\midrule
+\multicolumn{8}{l}{\textit{Surgical Robots}} \\
+da Vinci dVRK & Intuitive Surgical & 7.5 & 7.2 & 6.8 & 7.0 & \textbf{7.1} & Advanced \\
+Hugo RAS & Medtronic & 4.5 & 4.0 & 3.5 & 5.8 & \textbf{4.5} & Foundational \\
+Versius & CMR Surgical & 3.2 & 2.8 & 2.5 & 5.2 & \textbf{3.4} & Foundational \\
+\midrule
+\multicolumn{8}{l}{\textit{Humanoid Robots}} \\
+Atlas Electric & Boston Dynamics & 7.0 & 7.4 & 4.5 & 4.2 & \textbf{5.8} & Intermediate \\
+Digit & Agility Robotics & 5.8 & 5.4 & 3.0 & 2.7 & \textbf{4.2} & Foundational \\
+Optimus Gen 2 & Tesla & 3.4 & 5.0 & 1.5 & 4.4 & \textbf{3.6} & Foundational \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsubsection{Surgical Robot Results}
+
+The da Vinci dVRK leads surgical robots with USL 7.1 (Advanced band) and
+achieves the highest Dimension D score (7.0) of any robot evaluated. This
+reflects FDA clearance, deployment at over 9,000 systems worldwide, 14 million
+procedures across 69 countries, and an open-source research platform used by
+45 institutions. Franka Panda (USL 7.4) outperforms da Vinci overall due to
+superior simulation switching (8.0 vs 7.5) and cross-robot sharing (8.5 vs
+6.8), reflecting its broader open-source ecosystem.
+
+Hugo RAS (USL 4.5, Foundational) and Versius (USL 3.4, Foundational) score
+lower primarily due to proprietary ecosystems that limit simulation switching,
+AI integration, and cross-robot sharing. Both achieve relatively higher
+Dimension D scores (5.8 and 5.2 respectively) reflecting CE marking and active
+clinical deployment in European markets.
+
+\subsubsection{Cobot and Humanoid Results}
+
+Among cobots, the Franka Panda's dominance (USL 7.4) is driven by support
+across five simulation frameworks, five AI capabilities, and four sharing
+methods including inter-organizational ONNX transfer. Kinova Gen3 (USL 5.7,
+Intermediate) offers strong clinical workflow compatibility but lacks
+VLA/diffusion policy support. The xArm 7 (USL 3.4, Foundational) demonstrates
+that hardware excellence (IP51 protection, built-in collision detection) does
+not compensate for limited software ecosystem maturity.
+
+Among humanoids, Atlas Electric (USL 5.8, Intermediate) achieves the highest AI
+integration score (7.4) of any humanoid, driven by foundation model potential
+and whole-body control capabilities. Digit (USL 4.2, Foundational) benefits
+from the NVIDIA GR00T partnership but lacks healthcare deployment. Optimus
+Gen 2 (USL 3.6, Foundational) has the most capable hands (11 DOF, 22 joints)
+and mass production potential but scores the lowest cross-robot sharing score
+(1.5) of all nine robots due to its fully proprietary platform.
+
+\subsubsection{Cross-Category Comparison}
+
+The cross-category comparison reveals two key findings. First, open-source
+ecosystem size is the strongest predictor of USL score. The two highest-scoring
+robots (Franka 7.4, da Vinci 7.1) have the largest open-source communities.
+Second, Dimension D (Clinical Trial Collaboration) is the weakest dimension for
+seven of nine robots, revealing a field-wide gap between research maturity and
+clinical deployment infrastructure. Even the highest-scoring robot (Franka,
+7.4 overall) scores only 5.5 on Dimension D.
+
+\subsection{How PSL and USL Complement Each Other}
+\label{subsec:psl-usl-complement}
+
+The three PSL dimensions and four USL dimensions work together as a dual-layer
+assessment. PSL ensures the environment is ready (site compliance); USL ensures
+the robots are ready (platform readiness). A Physical AI trial site requires
+both: a compliant, well-prepared facility (passing PSL) populated with properly
+qualified robots (sufficient USL scores).
+
+A site might pass PSL on all three dimensions (legislation in place, regulatory
+compliance achieved, operations prepared) but be unable to deploy certain robot
+types because their USL scores are insufficient. For example, a California
+trial site meeting all PSL requirements could deploy da Vinci dVRK (USL 7.1,
+Advanced) for surgical procedures but might need to defer deployment of xArm 7
+(USL 3.4, Foundational) until its software ecosystem matures. Conversely, a
+robot with excellent USL scores cannot operate at a site that fails PSL
+requirements, regardless of the robot's individual capabilities.
+
+This complementary relationship is connected to the MCP conformance levels from
+Physical AI National MCP Servers \cite{national-mcp-paper}, which provide an
+additional interoperability standard. MCP conformance levels interface with
+both PSL (ensuring site infrastructure supports MCP communication) and USL
+(evaluating whether robots support standardized MCP protocols). The Clinical
+Trial Site Complete Documentation \cite{site-docs} and Physical AI Unification
+Standard Level \cite{usl-standard} serve as the primary reference
+implementations for PSL and USL respectively.
+
+\subsection{Impact on Nationwide Deployment}
+\label{subsec:standards-impact}
+
+Standardized PSL and USL scores enable efficient nationwide scaling of Physical
+AI oncology trials. When a new site seeks to establish Physical AI trial
+operations, the PSL framework provides a clear checklist of legislative,
+regulatory, and operational requirements that must be met. When a sponsor
+evaluates which robots to deploy at a new site, USL scores provide objective
+data on each robot's readiness.
+
+The open-source nature of both frameworks, available through the three code
+repositories \cite{main-repo, mcp-repo, fl-repo}, ensures that any institution
+can access, evaluate, and apply the scoring methodology. This transparency
+supports the broader goal of democratizing Physical AI oncology trial access
+rather than limiting it to institutions with proprietary evaluation processes.
+
+The field-wide weakness in Dimension D (Clinical Trial Collaboration) identified
+by USL scoring highlights a critical area for targeted improvement. As the
+Physical AI ecosystem matures, Dimension D scores should improve as robots gain
+regulatory clearance, federated learning compatibility, audit trail
+capabilities, and multi-site deployment experience. The PSL and USL frameworks
+provide the measurement infrastructure to track this progress over time.
+
+\subsection{USL Level Definitions}
+\label{subsec:usl-levels}
+
+The USL framework maps composite scores to ten granular levels, each
+representing a distinct stage of robot readiness for clinical trial deployment.
+These levels provide more precise guidance than the five-band classification by
+identifying specific capabilities and gaps at each stage.
+
+\begin{longtable}{c l p{10cm}}
+\caption{USL Level Definitions (1-10)}
+\label{tab:usl-levels} \\
+\toprule
+\textbf{Lvl} & \textbf{Name} & \textbf{Description} \\
+\midrule
+\endfirsthead
+\toprule
+\textbf{Lvl} & \textbf{Name} & \textbf{Description} \\
+\midrule
+\endhead
+\bottomrule
+\endfoot
+1 & Conceptual & Robot exists as a prototype or concept; no simulation or AI integration has been attempted; no clinical applicability demonstrated \\
+2 & Exploratory & Single simulation framework tested with basic robot model available; initial feasibility studies conducted \\
+3 & Basic & Two or more simulation frameworks supported; initial AI experiments conducted; basic model formats available \\
+4 & Developing & Cross-framework policy transfer demonstrated; AI planning capabilities tested; intra-organization sharing initiated \\
+5 & Functional & Three or more simulation frameworks validated; agentic AI operational; intra-organization sharing established with ONNX or equivalent \\
+6 & Integrated & Multi-framework validation complete; LLM-based task planning operational; inter-organization sharing demonstrated \\
+7 & Advanced & GPU-accelerated simulation with validated policy transfer; MCP and VLA integration; skill sharing across organizations \\
+8 & Clinical-Ready & Multi-site deployment tested; regulatory documentation prepared; federated learning compatibility demonstrated \\
+9 & Validated & Full regulatory compliance achieved; multi-site clinical trials active; continuous improvement pipeline operational \\
+10 & Exemplary & Production deployment at multiple sites; open consortium participation; continuous federated improvement with demonstrated clinical outcomes \\
+\end{longtable}
+
+\subsection{Dimension Score Analysis by Category}
+\label{subsec:dimension-analysis}
+
+Analysis of USL dimension scores across the three robot categories reveals
+systematic patterns that inform deployment strategy and investment priorities.
+
+\begin{table}[H]
+\centering
+\caption{Average USL Dimension Scores by Robot Category}
+\label{tab:dim-averages}
+\small
+\begin{tabular}{l r r r r r}
+\toprule
+\textbf{Category} & \textbf{Dim A} & \textbf{Dim B} & \textbf{Dim C} & \textbf{Dim D} & \textbf{Avg USL} \\
+\midrule
+Cobots (3 robots) & 6.3 & 5.4 & 6.0 & 4.4 & 5.5 \\
+Surgical (3 robots) & 5.1 & 4.7 & 4.3 & 6.0 & 5.0 \\
+Humanoid (3 robots) & 5.4 & 5.9 & 3.0 & 3.8 & 4.5 \\
+\midrule
+\textbf{All 9 robots} & \textbf{5.6} & \textbf{5.3} & \textbf{4.4} & \textbf{4.7} & \textbf{5.0} \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Cobots lead in Dimensions A (Simulation Switching) and C (Cross-Robot Sharing)
+with averages of 6.3 and 6.0 respectively, reflecting the mature open-source
+ecosystems of platforms like Franka Panda. Surgical robots lead in Dimension D
+(Clinical Trial Collaboration) with an average of 6.0, driven by the da Vinci
+platform's FDA clearance and extensive clinical deployment history. Humanoid
+robots lead in Dimension B (AI Integration) with an average of 5.9, reflecting
+advanced foundation model integration (GR00T) and whole-body control
+capabilities. However, humanoids score lowest on both Dimensions C (3.0) and D
+(3.8), indicating the youngest category with the most limited sharing
+infrastructure and clinical deployment experience.
+
+The overall field average of 5.0 places the collective Physical AI ecosystem at
+the Functional level (Level 5), indicating that while individual capabilities
+are demonstrated, significant work remains before multi-site clinical trial
+readiness is achieved across all categories. The strongest individual scores
+(Franka Panda Dim C at 8.5, da Vinci Dim A at 7.5, Atlas Dim B at 7.4)
+demonstrate that excellence is achievable in specific dimensions, but no single
+robot achieves Advanced band or above across all four dimensions
+simultaneously. This finding reinforces the need for multi-robot strategies
+where different robot categories complement each other's strengths.
+
+\subsection{USL Level Progression and Deployment Implications}
+\label{subsec:usl-level-progression}
+
+The ten USL levels defined in Table~\ref{tab:usl-levels} are not merely
+descriptive labels; they carry specific implications for what a robot platform
+can and cannot do within a Physical AI oncology trial. Understanding the
+progression from Level 1 (Conceptual) through Level 10 (Exemplary) provides
+sponsors, investigators, and regulators with a common vocabulary for discussing
+robot readiness and a clear framework for planning deployment timelines.
+
+Table~\ref{tab:usl-level-implications} maps each USL level to its clinical
+trial deployment implications, including permitted roles, required oversight,
+and the advancement criteria that must be satisfied to progress to the next
+level.
+
+\begin{longtable}{c l p{5.5cm} p{5.5cm}}
+\caption{USL Level Deployment Implications and Advancement Criteria}
+\label{tab:usl-level-implications} \\
+\toprule
+\textbf{Lvl} & \textbf{Name} & \textbf{Deployment Implication} & \textbf{Advancement Criteria} \\
+\midrule
+\endfirsthead
+\toprule
+\textbf{Lvl} & \textbf{Name} & \textbf{Deployment Implication} & \textbf{Advancement Criteria} \\
+\midrule
+\endhead
+\bottomrule
+\endfoot
+1 & Conceptual & Not deployable in any clinical trial capacity. Robot exists only as prototype or design concept. No patient interaction permitted under any circumstances. & Demonstrate basic functionality in at least one simulation framework with stable physics model and reproducible behavior. \\
+2 & Exploratory & Not deployable in clinical trials. May be used in non-patient research environments for feasibility studies with appropriate safety controls. & Achieve validated operation in two or more simulation frameworks with demonstrated policy transfer between frameworks. \\
+3 & Basic & Eligible for observation-only deployment at clinical trial sites with no patient interaction. May be used for non-clinical logistics tasks under direct supervision in controlled areas. & Demonstrate AI integration with at least one planning framework; establish intra-organization model sharing capability. \\
+4 & Developing & Eligible for Tier 1 non-contact roles under continuous direct supervision. May perform tasks such as supply transport in designated corridors with human escort. & Validate cross-framework policy transfer with quantified performance metrics; demonstrate agentic AI task execution in simulation. \\
+5 & Functional & Eligible for Tier 1 roles with standard monitoring. May perform logistics, specimen handling, and non-patient-contact support tasks independently within designated operational zones. & Complete multi-framework validation; demonstrate inter-organization sharing; achieve initial regulatory documentation. \\
+6 & Integrated & Eligible for Tier 1 roles and limited Tier 2 roles under enhanced monitoring. May assist with patient-proximate tasks such as equipment positioning and indirect care support. & Achieve MCP protocol integration; demonstrate federated learning compatibility; complete preliminary regulatory compliance assessment. \\
+7 & Advanced & Eligible for Tier 1 and Tier 2 roles with standard tier-appropriate monitoring. Eligible for Tier 3 roles under enhanced monitoring with additional safety review. & Complete multi-site deployment testing; achieve full regulatory documentation; demonstrate continuous improvement pipeline. \\
+8 & Clinical-Ready & Eligible for all tier roles with standard tier-appropriate monitoring. Multi-site deployment permitted. Suitable for Phase 1 and Phase 2 Physical AI clinical trials. & Achieve full regulatory compliance; demonstrate successful multi-site clinical trial participation; establish federated improvement with outcome tracking. \\
+9 & Validated & Eligible for all roles including Phase 3 multi-site trials. Full regulatory compliance demonstrated through active trial participation with documented safety and efficacy data. & Achieve open consortium participation; demonstrate production-scale deployment; publish clinical outcome data supporting continued use. \\
+10 & Exemplary & Eligible for all roles at all phases including Phase 4 post-approval monitoring. Represents the standard of excellence for the robot category with demonstrated clinical outcomes. & Maintain continuous improvement with published updates; contribute to field-wide standards development; demonstrate sustained safety performance across multiple trial cycles. \\
+\end{longtable}
+
+The level progression reveals that robot platforms must cross several critical
+thresholds before clinical deployment becomes viable. The transition from Level
+4 to Level 5 represents the first threshold at which independent operation
+(without continuous direct supervision) is permitted, but only for non-contact
+Tier 1 tasks. The transition from Level 6 to Level 7 represents the threshold
+for Tier 2 patient-contact roles with standard monitoring. The transition from
+Level 7 to Level 8 represents the threshold for unrestricted deployment across
+all tiers, marking the point at which a robot platform is considered
+clinical-ready.
+
+Currently, none of the nine evaluated robots achieves Level 8 or above. The
+highest-scoring robots, Franka Panda (USL 7.4) and da Vinci dVRK (USL 7.1),
+fall within Level 7 (Advanced), indicating they are eligible for Tier 1 and
+Tier 2 roles and conditionally eligible for Tier 3 roles. The majority of
+evaluated robots fall within Levels 3 through 5, indicating that substantial
+development is needed before broad clinical deployment. This finding does not
+preclude clinical trials; rather, it means that early trials must carefully
+match robot assignments to USL-qualified roles and provide enhanced monitoring
+for robots operating near the lower boundary of their eligible tier.
+
+\subsection{Dimension Strength and Weakness Patterns}
+\label{subsec:dimension-patterns}
+
+The dimension score analysis in Table~\ref{tab:dim-averages} reveals
+systematic patterns that reflect the development history and market focus of
+each robot category. A deeper examination of these patterns provides actionable
+insights for targeted improvement.
+
+\subsubsection{Dimension A: Simulation Framework Switching}
+
+Cobots lead Dimension A (average 6.3) because the collaborative robotics
+research community has invested heavily in simulation infrastructure over the
+past decade. The Franka Panda's score of 8.0 reflects validated support across
+Isaac Lab, MuJoCo, Gazebo, PyBullet, and Drake, representing the broadest
+simulation coverage of any evaluated robot. Surgical robots score moderately
+(average 5.1), with the da Vinci dVRK achieving 7.5 through its open-source
+research platform that has been integrated into multiple simulation
+environments by the 45 institutions using it. Humanoid robots score comparably
+(average 5.4), with Atlas Electric achieving 7.0 through Boston Dynamics'
+investment in simulation infrastructure for whole-body control development.
+
+The weakest Dimension A scores belong to the most proprietary platforms: xArm 7
+(4.6), Hugo RAS (4.5), Versius (3.2), and Optimus Gen 2 (3.4). These scores
+reflect restricted access to simulation models, limited third-party simulation
+support, and closed-source robot descriptions that prevent community
+development of simulation tools. The correlation between open-source ecosystem
+size and Dimension A score is strong, suggesting that simulation framework
+switching capability is primarily a function of community access rather than
+inherent technical limitation.
+
+\subsubsection{Dimension B: AI Integration}
+
+Humanoid robots lead Dimension B (average 5.9) because their anthropomorphic
+form factor demands sophisticated AI for locomotion, manipulation, and
+human-like interaction. Atlas Electric's score of 7.4 reflects foundation model
+integration potential, whole-body neural network control, and advanced
+perception systems. Cobots score moderately (average 5.4), with the Franka
+Panda at 7.7 reflecting extensive integration with LLM planners, VLA models,
+and diffusion policy frameworks through the research community. Surgical robots
+score lowest (average 4.7), reflecting the conservative approach of surgical
+robotics companies that prioritize validated, deterministic control over
+experimental AI capabilities.
+
+The Dimension B pattern reveals a tension between AI capability and clinical
+conservatism. Humanoid and cobot platforms with the highest AI integration
+scores are not necessarily the platforms closest to clinical deployment; they
+are the platforms with the most active research communities exploring AI
+capabilities. Surgical robots with lower AI integration scores may actually be
+closer to clinical deployment because their existing control systems are
+validated for surgical precision. This tension will likely resolve as AI
+capabilities mature and gain regulatory acceptance, enabling surgical platforms
+to incorporate AI features that have been validated through the experimental
+platforms.
+
+\subsubsection{Dimension C: Cross-Robot Sharing}
+
+Cobots lead Dimension C (average 6.0) with the Franka Panda achieving 8.5, the
+highest single-dimension score of any evaluated robot. This score reflects
+comprehensive ONNX model export, ROS 2 action interfaces, checkpoint sharing
+infrastructure, and inter-organizational transfer capabilities. Surgical robots
+score moderately (average 4.3), with the da Vinci dVRK at 6.8 reflecting its
+open-source research platform's sharing capabilities partially offset by
+proprietary clinical system restrictions. Humanoid robots score lowest (average
+3.0), with Optimus Gen 2 achieving only 1.5, the lowest single score across
+all evaluations.
+
+The Dimension C weakness in humanoid robots is primarily structural. Humanoid
+robot platforms are developed by companies (Tesla, Agility Robotics, Boston
+Dynamics) that treat their platforms as competitive products with proprietary
+architectures. Cross-robot sharing requires standardized interfaces, open model
+formats, and willingness to enable interoperability, which conflicts with
+proprietary platform strategies. The NVIDIA GR00T initiative may partially
+address this gap for humanoids by providing a shared foundation model framework,
+but physical hardware interoperability remains limited.
+
+\subsubsection{Dimension D: Clinical Trial Collaboration}
+
+Surgical robots lead Dimension D (average 6.0), driven by the da Vinci dVRK's
+score of 7.0 reflecting FDA clearance, deployment at over 9,000 systems
+worldwide, and extensive clinical trial participation. Hugo RAS (5.8) and
+Versius (5.2) also score relatively well on Dimension D due to CE marking and
+active European clinical deployment. Cobots score moderately (average 4.4),
+with Franka Panda and Kinova Gen3 both at 5.5 reflecting research deployment
+at medical institutions but limited formal clinical trial participation.
+Humanoid robots score lowest (average 3.8), reflecting the near-complete
+absence of clinical deployment history.
+
+Dimension D is the weakest overall dimension (field average 4.7) and the
+dimension most directly relevant to Physical AI oncology trials. This weakness
+represents the fundamental gap between robotic technology development (where
+simulation, AI, and sharing capabilities are advancing rapidly) and clinical
+deployment infrastructure (where regulatory compliance, audit trails, and
+multi-site coordination remain underdeveloped). Closing this gap is the
+primary objective of the National Platform's regulatory adaptation work,
+which creates the frameworks needed for robots to advance their Dimension D
+scores through structured clinical trial participation.
+
+\subsection{Scoring Engine Architecture and Reproducibility}
+\label{subsec:scoring-engine}
+
+The USL scoring engine was implemented as three category-specific Python
+modules totaling over 2,600 lines of code, developed collaboratively using
+Claude Code Opus 4.6 \cite{claude-opus}. The architecture separates scoring
+logic into three modules: a cobot scoring engine evaluating collaborative
+robots against dimension-specific criteria weighted for the cobot operational
+profile, a surgical robot scoring engine with criteria weighted for surgical
+precision and clinical deployment requirements, and a humanoid robot scoring
+engine with criteria weighted for locomotion, human interaction, and
+multi-functional capability.
+
+Each module follows a consistent scoring methodology. Raw data for each
+dimension is collected from public documentation, published specifications,
+research publications, and manufacturer disclosures. Each data point is mapped
+to a dimension-specific rubric with defined score thresholds. Dimension scores
+are computed as weighted sums of sub-criterion scores, normalized to the 1.0
+to 10.0 range. The final USL score is computed as the equally weighted average
+of all four dimension scores.
+
+The open-source availability of the scoring engines through the main
+repository \cite{main-repo} ensures complete reproducibility. Any institution
+can download the scoring code, examine the rubrics, verify the scoring logic,
+and apply the methodology to additional robot platforms not included in the
+initial nine-robot evaluation. This transparency is essential for the
+credibility of USL as a nationwide standard: scores are not assigned by
+subjective expert judgment but computed through documented, auditable
+algorithms that any qualified assessor can independently verify.
+
+Future versions of the scoring engine may incorporate automated data collection
+from robot platforms through standardized APIs, real-time USL score updates as
+robots gain new capabilities through software updates, and community-submitted
+scoring data for robots not covered by the initial evaluation. The scoring
+engine architecture was designed to accommodate these extensions without
+requiring fundamental restructuring of the scoring methodology.

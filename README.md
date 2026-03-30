@@ -1,7 +1,7 @@
 # End-to-End Physical AI Unification of Oncology Clinical Trials
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Release](https://img.shields.io/badge/Release-v2.9.2-brightgreen.svg)](https://github.com/kevinkawchak/physical-ai-oncology-trials)
+[![Release](https://img.shields.io/badge/Release-v3.0.0-brightgreen.svg)](https://github.com/kevinkawchak/physical-ai-oncology-trials)
 [![Last Updated](https://img.shields.io/badge/Updated-March%202026-blue.svg)](https://github.com/kevinkawchak/physical-ai-oncology-trials)
 [![Protocol](https://img.shields.io/badge/Protocol-MCP-purple.svg)](https://github.com/kevinkawchak/physical-ai-oncology-trials)
 [![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.18445179-blue)](https://doi.org/10.5281/zenodo.18445179)
@@ -14,6 +14,8 @@
 **Comprehensive developments for integrating physical AI into oncology clinical trials, by Claude Code Opus 4.6, Cowork; with Assistance from ChatGPT 5.4 Thinking and Google Gemini Search.**
 
 This repository provides production-ready configurations, validated pipelines, and integration guides for deploying robotic systems, digital twins, and embodied AI agents in oncology. 
+
+**3/28: v3.0.0 (National Platform Paper)** *National Platform for Physical AI Oncology Trials* - Comprehensive 191-page paper serving as an end-to-end resource for the pharmaceutical and regulatory industries. Adapts three regulatory standards (ICH E6(R3), 21 CFR Part 50, 21 CFR Part 312), defines PSL/USL quantitative standards, and provides complete site establishment documentation. [![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.19244918-blue)](https://doi.org/10.5281/zenodo.19244918)
 
 **3/24: v2.9.0 (Trial Site Documentation)** *Physical AI Oncology Clinical Trial Site Documentation* - 11 LaTeX documents for California's first Physical AI oncology trial site: legislation drafts, regulations. [![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.19176370-blue)](https://doi.org/10.5281/zenodo.19176370)
 
@@ -436,12 +438,20 @@ physical-ai-oncology-trials/
 │   ├── research_a/                    # Research A analysis chunks (2 files)
 │   ├── research_b/                    # Research B analysis chunks (2 files)
 │   ├── paper_template/                # Original Groningen LaTeX template
-│   └── new_template/                  # ★ National Platform LaTeX template (v2.9.2)
-│       ├── main.tex                   # Main document (16 sections)
-│       ├── page_styles.tex            # Page styles with attribution
-│       ├── references.bib             # Bibliography (35 sources)
-│       ├── README.md                  # Template documentation
-│       └── sections/                  # 20 section .tex files
+│   ├── new_template/                  # National Platform LaTeX template (v2.9.2)
+│   │   ├── main.tex                   # Template entry point (16 sections)
+│   │   ├── page_styles.tex            # Page styles with attribution
+│   │   ├── references.bib             # Bibliography (35 sources)
+│   │   ├── README.md                  # Template documentation
+│   │   └── sections/                  # 20 section .tex files
+│   └── new_paper/                     # ★ Compiled National Platform Paper (v3.0.0)
+│       ├── main.tex                   # Main document (191 pages)
+│       ├── main.pdf                   # Compiled PDF
+│       ├── page_styles.tex            # Page styles
+│       ├── references.bib             # Bibliography (34 sources, clickable URLs/DOIs)
+│       ├── latex_source.zip           # Complete LaTeX source archive
+│       ├── README.md                  # Paper documentation
+│       └── sections/                  # 21 section .tex files
 │
 ├── configs/
 │   └── training_config.yaml

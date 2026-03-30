@@ -4,6 +4,39 @@ Release notes for the physical-ai-oncology-trials repository.
 
 ---
 
+National Platform for Physical AI Oncology Trials
+v3.0.0 - National Platform Complete Paper
+
+## Summary
+
+Compiled the complete 191-page National Platform for Physical AI Oncology Trials document, serving as an end-to-end resource for the pharmaceutical and regulatory industries. The paper adapts three core regulatory standards (ICH E6(R3), 21 CFR Part 50, 21 CFR Part 312) to Physical AI contexts, defines quantitative PSL and USL scoring frameworks for site compliance and robot readiness, presents validated simulation evidence from both a single-patient journey and a 24-hour multi-patient trial, designs national MCP server and federated learning infrastructure, and provides a three-phase implementation strategy for nationwide deployment.
+
+## Features
+
+- 191-page compiled PDF with 16 main sections and 5 appendices
+- 34 bibliography references with clickable URLs and DOI numbers
+- Complete USL scores table for 9 robots across 3 categories (cobots, surgical, humanoid)
+- Three-tier Physical AI classification system with detailed requirements
+- Physical AI adverse event reporting framework with 4 categories and timelines
+- Financial projections table with cost estimates across all 3 implementation phases
+- Quantified ROI analysis demonstrating break-even by end of Phase 2
+- Implementation timeline with granular milestones and success criteria
+- Workforce transition framework with 6 new roles and 6 evolved roles
+- Comprehensive comparison table: National Platform vs. existing FDA approach across 12 dimensions
+- LaTeX source archive (zip) included for reproducibility
+
+## Contributors
+@kevinkawchak
+@claude
+@openai
+@google-gemini
+
+## Notes
+
+The document was adapted using Claude Code Opus 4.6 in a single session with 40+ commits. All source files from the national-platform directory were processed according to the template instructions. The paper uses only single dashes, black text, and no images throughout. CI lint checks were fixed by removing references to the relocated q1-2026-standards directory.
+
+---
+
 National Platform for Physical AI Oncology Trials Template
 v2.9.2 - National Platform Template
 

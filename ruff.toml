@@ -18,8 +18,8 @@ ignore = ["F841", "E741", "E501"]
 "digital-twins/**/*.py" = ["F401"]
 # Framework integration code uses conditional imports
 "unification/**/*.py" = ["F401", "F402"]
-# Standards pipelines use conditional imports for optional frameworks
-"q1-2026-standards/**/*.py" = ["F401", "F402"]
+# Standards pipelines use conditional imports for optional frameworks (relocated to unification/)
+# "q1-2026-standards/**/*.py" = ["F401", "F402"]
 # Utility scripts use try/except to probe optional packages
 "scripts/*.py" = ["F401"]
 # Physical robot engineering examples use conditional imports
