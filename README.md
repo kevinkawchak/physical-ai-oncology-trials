@@ -15,7 +15,7 @@
 
 This repository provides production-ready configurations, validated pipelines, and integration guides for deploying robotic systems, digital twins, and embodied AI agents in oncology. 
 
-**3/28 PDF: v3.0.0 (National Platform Paper)** *National Platform for Physical AI Oncology Trials* - Comprehensive 191-page paper serving as an end-to-end resource for the pharmaceutical and regulatory industries. [![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.19244918-blue)](https://doi.org/10.5281/zenodo.19244918)
+**3/28 PDF: v3.0.0 (National Platform Paper)** *National Platform for Physical AI Oncology Trials* - Comprehensive 186-page paper serving as an end-to-end resource for the pharmaceutical and regulatory industries. [![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.19244918-blue)](https://doi.org/10.5281/zenodo.19244918)
 
 **3/24: v2.9.0 (Trial Site Documentation)** *Physical AI Oncology Clinical Trial Site Documentation* - 11 LaTeX documents for California's first Physical AI oncology trial site: legislation drafts, regulations. [![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.19176370-blue)](https://doi.org/10.5281/zenodo.19176370)
 
