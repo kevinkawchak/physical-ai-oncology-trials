@@ -87,6 +87,41 @@ This paper synthesizes content from:
 }
 ```
 
+## Table Index
+
+| Table | Title | Section |
+|-------|-------|---------|
+| 1 | Governance Agent Mapping | Section 2 |
+| 2 | Decision Gate Framework | Section 2 |
+| 3 | Trial Design Pattern Comparison | Section 3 |
+| 4 | Estimand Framework Components | Section 3 |
+| 5 | Study Startup Automation Workflow | Section 4 |
+| 6 | Failure Mode Mitigation Matrix | Section 4 |
+| 7 | Safety Reporting Timeline | Section 5 |
+| 8 | Robotic Safety Event Classification | Section 5 |
+| 9 | Global Regulatory Filing Matrix | Section 6 |
+| 10 | Accelerated Pathway Comparison | Section 6 |
+| 11 | QTL/KRI Framework | Section 7 |
+| 12 | Electronic Systems Validation | Section 7 |
+| 13 | IMP Supply Chain Automation | Section 8 |
+| 14 | Robotic Pharmacy Operations | Section 8 |
+| 15 | Data Supply Chain Pipeline | Section 9 |
+| 16 | Federated Data Architecture | Section 9 |
+| 17 | Robotic System Registry | Section 10 |
+| 18 | Procedure Safety Gate Protocol | Section 10 |
+| 19 | Site Systems Integration Matrix | Section 11 |
+| 20 | Site Readiness Assessment | Section 11 |
+| 21 | Trust Layer Architecture | Section 12 |
+| 22 | Safety Gate Classification | Section 12 |
+| 23 | Sponsor vs. CRO Accountability | Section 13 |
+| 24 | Vendor SLA Framework | Section 13 |
+| 25 | Document Generation Pipeline | Section 14 |
+| 26 | Disclosure Timeline Requirements | Section 14 |
+| 27 | Traditional vs. Autonomous Cost | Section 15 |
+| 28 | Timeline Compression Analysis | Section 15 |
+| 29 | Implementation Phase Timeline | Section 16 |
+| 30 | Implementation Risk Matrix | Section 16 |
+
 ## License
 
 This article is distributed under CC BY 4.0. The style file is adapted from arxiv.sty
