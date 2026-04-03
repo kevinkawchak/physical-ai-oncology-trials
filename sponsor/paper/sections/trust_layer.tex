@@ -140,7 +140,15 @@ reconstruction of exactly what happened during any robotic procedure, which is e
 for safety event investigation and regulatory review.
 
 Model provenance tracks the lifecycle of machine learning models used within the autonomous
-sponsor system. For each model, the provenance chain records the training data (with
+sponsor system. This provenance domain is particularly important for Physical AI trials
+because the robotic execution systems rely on machine learning models for perception (object
+recognition, tissue classification), planning (trajectory optimization, dose calculation),
+and adaptation (real-time response to changing conditions). When a model update improves
+robotic performance, the provenance chain documents the training data, validation results,
+and deployment decision. When a model-related incident occurs (a classification error
+affecting patient care, a trajectory prediction error requiring emergency intervention),
+the provenance chain enables rapid identification of the model version, its training
+context, and any known limitations that may have contributed to the incident. For each model, the provenance chain records the training data (with
 privacy-preserving references to federated data sources), training parameters, validation
 methodology, performance metrics, deployment version, and inference log. This provenance
 domain addresses the emerging regulatory expectation that AI/ML systems used in clinical
