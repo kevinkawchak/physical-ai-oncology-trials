@@ -4,6 +4,8 @@
 
 This directory contains the compiled LaTeX source files and PDF for the **National Platform for Physical AI Oncology Trials** (Draft 1.0, March 2026). The document serves as an end-to-end resource for the pharmaceutical and regulatory industries, providing adapted clinical trial regulation and guidelines to aid the process of oncology drugs being approved significantly faster with state-of-the-art AI and robotics.
 
+[Images](https://drive.google.com/drive/folders/1E6lWyrVqCiGe97oKIUI2sIxG3xbh51tT)
+
 ## File Structure
 
 ```
