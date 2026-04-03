@@ -156,6 +156,24 @@ recovery, and scalability through hierarchical aggregation and bandwidth optimiz
 outputs, with consensus requirements before model updates are propagated to clinical
 decision support systems \cite{claude-opus, gpt-5-4, gemini}.
 
+The digital twin interface enables the autonomous sponsor to provide simulation data
+to site-level digital twin systems. Patient-specific digital twins, constructed from
+imaging data (FHIR ImagingStudy resources and DICOM studies), laboratory results, genomic
+profiles, and treatment history, support pre-procedural planning and outcome prediction
+for robotic procedures. The data management agent coordinates the de-identification and
+transfer of simulation input data to the digital twin platform, ensuring that
+patient privacy is maintained per HIPAA Safe Harbor de-identification standards while
+providing the clinical detail needed for accurate simulation.
+
+The data architecture supports the inspection-ready data package concept: at any point
+during the trial, the data management agent can generate a complete data package suitable
+for regulatory inspection. This package includes the current database snapshot, complete
+audit trail, data management documentation (data management plan, CRF completion
+guidelines, edit check specifications, coding dictionaries), query logs, and data
+quality metrics. The ability to produce this package on demand eliminates the weeks of
+preparation typically required before a regulatory inspection, as the autonomous system
+maintains inspection-ready data continuously rather than preparing it retrospectively.
+
 The MCP server infrastructure \cite{mcp-repo, mcp-protocol} provides the standardized
 communication layer for federated data exchange. The five-server MCP architecture
 (Governance Server, Data Flow Server, Safety Server, Interoperability Server, and

@@ -143,6 +143,27 @@ Operational & Insufficient qualified sites for national scale & Low & High & PSL
 Safety & Robotic procedure safety event during pilot & Low & High & Multi-gate safety system, mandatory human oversight, emergency protocols & robot\_execution\_gateway \\
 \end{longtable}
 
+The implementation strategy accounts for the workforce transition required at each phase.
+Phase 1 requires the smallest workforce adjustment: the existing site staff at the
+California pilot continues in their roles while the autonomous sponsor system operates in
+shadow mode, generating recommendations that the human team reviews. During the transition
+to autonomous mode, site staff training shifts from sponsor interaction procedures to
+autonomous system interaction procedures. Phase 2 introduces the concept of autonomous
+sponsor liaison roles: site personnel who specialize in monitoring the autonomous system's
+activities and serving as the primary human contact point for system-generated queries and
+escalations. Phase 3 formalizes the workforce model for national-scale autonomous
+sponsorship, with defined career paths for roles such as agent performance analyst, trust
+infrastructure specialist, regulatory AI compliance officer, and Physical AI safety monitor.
+
+The technology stack for the autonomous sponsor builds on established, validated components
+wherever possible. The agent framework uses a microservices architecture with container
+orchestration, enabling independent deployment, scaling, and updating of individual agents.
+Inter-agent communication uses event-driven messaging with guaranteed delivery and
+configurable persistence. Data storage combines relational databases for structured clinical
+data with graph databases for provenance chains and document stores for regulatory
+submissions. The trust layer uses established cryptographic libraries and protocols rather
+than custom implementations, reducing the validation burden for security-critical components.
+
 Risk mitigation follows the principle of progressive de-risking: each phase addresses the
 highest-priority risks from the preceding phase assessment. The shadow mode period in
 Phase 1 specifically mitigates regulatory and safety risks by generating evidence of

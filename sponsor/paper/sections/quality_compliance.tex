@@ -133,6 +133,24 @@ meaning of the signature (such as review, approval, or responsibility). Electron
 signatures are linked to their respective electronic records such that the records cannot
 be altered without invalidating the signature.
 
+The validation lifecycle for each agent system follows a structured approach. Installation
+Qualification (IQ) verifies that the agent software is installed correctly in the production
+environment with all required dependencies, configurations, and connectivity. Operational
+Qualification (OQ) verifies that the agent performs its specified functions correctly across
+the range of expected operating conditions, including boundary conditions and error handling.
+Performance Qualification (PQ) verifies that the agent performs correctly under
+representative production workload conditions with realistic data volumes and concurrent
+operations. Each qualification phase produces documented evidence that is maintained in the
+quality agent's validation repository.
+
+Periodic revalidation ensures that agent systems remain in a validated state throughout
+the trial lifecycle. The quality agent schedules revalidation activities based on a
+risk-informed calendar: critical systems (safety database, IRT, robot telemetry)
+undergo quarterly revalidation, standard systems (EDC, document management) undergo
+semi-annual revalidation, and supporting systems (communication, reporting)
+undergo annual revalidation. Change-triggered revalidation occurs whenever an agent
+system is updated, reconfigured, or receives a software patch.
+
 The Computer Software Assurance (CSA) approach, replacing the traditional Computer System
 Validation (CSV) methodology, provides a risk-based validation framework for the autonomous
 sponsor software. Critical thinking and risk assessment determine the level of validation

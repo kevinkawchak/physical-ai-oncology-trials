@@ -162,6 +162,30 @@ affecting primary endpoints, safety reporting requirements, or submission timeli
 escalated immediately. Low-impact changes enter the standard regulatory intelligence queue
 for periodic review.
 
+The regulatory intelligence subsystem maintains a knowledge graph of regulatory requirements
+that represents the relationships between regulations, guidance documents, and operational
+requirements. When a new guidance document is detected, the system identifies which nodes in
+the knowledge graph are affected and propagates the impact assessment to all connected
+operational requirements. This structured approach ensures that regulatory changes are not
+evaluated in isolation but are assessed in the context of the complete regulatory environment.
+
+For Physical AI trials specifically, the regulatory intelligence subsystem tracks the
+evolving regulatory landscape for AI/ML in clinical trials, robotic surgical devices, digital
+health technologies, and federated data sharing. These regulatory domains are developing
+rapidly, and changes in any one domain may affect the autonomous sponsor's operations. The
+agent maintains separate tracking channels for FDA, EMA, PMDA, Health Canada, and TGA
+positions on these topics, enabling the system to anticipate regulatory convergence or
+divergence across jurisdictions.
+
+The regulatory agent also manages the interface between the investigational drug regulatory
+pathway and the device regulatory pathway. Physical AI trials involve both investigational
+drugs (regulated under 21 CFR Part 312 \cite{cfr-part-312}) and medical devices (regulated
+under 21 CFR Parts 510(k), De Novo, or PMA pathways). When a trial involves a
+combination product (drug plus device), the regulatory agent coordinates with both CDER
+(or CBER) and CDRH divisions of the FDA, managing the dual submission pathway and ensuring
+that device-specific requirements (biocompatibility testing, electromagnetic compatibility,
+software validation) are integrated with the drug development program.
+
 Compliance calendar management tracks all regulatory deadlines across programs and
 jurisdictions. The calendar integrates IND annual report deadlines, DSUR deadlines, CTIS
 submission windows, E2B(R3) transmission deadlines, ClinicalTrials.gov results posting

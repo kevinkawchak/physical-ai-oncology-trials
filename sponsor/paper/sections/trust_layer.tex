@@ -186,6 +186,25 @@ enforced even when the system encounters situations not anticipated during polic
 development. When an action is denied by policy, the agent receives a structured denial
 response including the specific rule that triggered the denial, enabling targeted remediation.
 
+The escalation policies encoded in the policy engine follow a graduated model. Level 1
+escalation (informational) logs the decision and continues execution. Level 2 escalation
+(confirmation) pauses execution pending peer agent validation, with a five-minute timeout
+that defaults to hold. Level 3 escalation (clinical) requires supervising clinician
+approval, with a 30-minute timeout that escalates to the medical monitor. Level 4
+escalation (regulatory) requires sponsor-of-record electronic signature, with a four-hour
+timeout that holds the action pending approval. Level 5 escalation (safety-critical)
+requires mandatory human approval with no timeout; the system waits indefinitely for
+human authorization. This graduated model ensures that routine operations proceed
+efficiently while safety-critical decisions always involve human judgment.
+
+The policy engine supports policy versioning, enabling the system to maintain multiple
+active policy versions simultaneously. This capability is essential when regulatory
+requirements change during a trial: the new policy applies to activities initiated
+after the change date, while activities initiated before the change continue under the
+previous policy version. Policy version management creates a complete audit trail of
+which policy version governed each agent action, enabling regulators to verify compliance
+against the applicable regulatory requirements at the time of each decision.
+
 Continuous validation extends the initial system validation into ongoing operation. The
 trust layer monitors system behavior against expected patterns and flags anomalies that
 may indicate system degradation, configuration drift, or security events. Validation
