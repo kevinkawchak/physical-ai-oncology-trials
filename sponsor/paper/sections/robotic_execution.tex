@@ -221,3 +221,20 @@ procedure provenance requirements defined in the adapted 21 CFR Part 312 \cite{c
 and provides the evidence base for regulatory submission of robotic procedure outcomes.
 The provenance chain integrates with the trust layer (\S\ref{sec:trust}) for immutable
 storage and cryptographic integrity verification.
+
+The device telemetry system also supports predictive maintenance for robotic systems. By
+analyzing telemetry trends (increasing force variability, drift in position accuracy,
+changes in response latency), the system can predict when a robotic system will require
+maintenance before a failure occurs. Predictive maintenance scheduling is coordinated with
+the site gateway to minimize impact on patient scheduling: maintenance is scheduled during
+low-utilization periods when no procedures are planned. This approach maintains the 99.7\%
+facility uptime demonstrated in the 24-hour simulation \cite{main-repo} while ensuring
+that all robotic systems remain within their validated operating parameters.
+
+The robot execution gateway maintains a comprehensive performance database that tracks
+every procedure performed by every robot across all trial sites. This database enables
+cross-site comparison of robotic system performance, identification of best practices for
+procedure optimization, and detection of site-level performance variations that may
+indicate training needs or equipment issues. The performance database feeds back into the
+PSL and USL scoring systems, enabling dynamic updates to site and robot readiness scores
+based on actual operational performance rather than static qualification assessments.
