@@ -1,0 +1,307 @@
+% ======================================================================
+% APPENDICES
+% File: sections/appendices.tex
+% ======================================================================
+
+% ======================================================================
+\section*{Appendix A: Complete Agent Specification Registry}
+\addcontentsline{toc}{section}{Appendix A: Agent Specification Registry}
+% ======================================================================
+
+This appendix provides the complete specification for each of the twelve functional agents
+in the autonomous sponsor system. Each entry documents the agent's identity, traditional
+role equivalent, layer assignment, interfaces, regulatory basis, safety gates, and
+associated Python scripts.
+
+\begin{longtable}{L{2.2cm} L{1.8cm} L{1.5cm} L{2.5cm} L{3.5cm}}
+\caption{Agent Specification Registry (Part 1: Governance and Execution Agents 1 to 6)}
+\label{tab:agent-registry-1} \\
+\toprule
+\textbf{Agent} & \textbf{Traditional Role} & \textbf{Layer} & \textbf{Input Interfaces} & \textbf{Output Interfaces and Safety Gates} \\
+\midrule
+\endfirsthead
+\toprule
+\textbf{Agent} & \textbf{Traditional Role} & \textbf{Layer} & \textbf{Input Interfaces} & \textbf{Output Interfaces and Safety Gates} \\
+\midrule
+\endhead
+\midrule
+\multicolumn{5}{r}{\textit{Continued on next page}} \\
+\endfoot
+\bottomrule
+\endlastfoot
+portfolio\_agent & VP R\&D, Portfolio Committee & Governance & Competitive intelligence feeds, clinical data summaries, financial models & Go/no-go recommendations, resource allocation orders. Safety gate: escalate when confidence $<$ 85\% \\
+asset\_lead\_agent & Clinical Development Head & Governance & Portfolio strategy, program-level clinical data, vendor performance & Asset strategy memos, vendor RFPs, KPI reports. Safety gate: escalate investment decisions $>$ \$5M \\
+clinical\_accountability\_agent & Study Physician, Clinical Lead & Execution & Protocol specifications, biomarker data, dose-response models, safety signals & Protocol documents, eligibility rules, dose schedules, medical monitoring rules. Safety gate: dose escalation decisions \\
+study\_orchestrator & Cross-functional Study Team Lead & Execution & Status events from all agents, study plan, dependency graph & Task assignments, escalation alerts, governance forum routing. Safety gate: critical issue triage $<$ 30 minutes \\
+clinops\_agent & Clinical Operations Director & Execution & Site performance data, enrollment metrics, monitoring findings & Site activation orders, monitoring plans, query assignments, deviation reports. Safety gate: site suspension recommendations \\
+safety\_agent & Safety/PV Team Director & Execution & AE/SAE reports, robot telemetry, ePRO data, wearable signals & Safety classifications, IND Safety Reports, DSURs, E2B(R3) ICSRs, signal evaluations. Safety gate: all expedited reports require sponsor-of-record review \\
+\end{longtable}
+
+\begin{longtable}{L{2.2cm} L{1.8cm} L{1.5cm} L{2.5cm} L{3.5cm}}
+\caption{Agent Specification Registry (Part 2: Execution, Site/Robotics, and Trust Agents 7 to 12)}
+\label{tab:agent-registry-2} \\
+\toprule
+\textbf{Agent} & \textbf{Traditional Role} & \textbf{Layer} & \textbf{Input Interfaces} & \textbf{Output Interfaces and Safety Gates} \\
+\midrule
+\endfirsthead
+\toprule
+\textbf{Agent} & \textbf{Traditional Role} & \textbf{Layer} & \textbf{Input Interfaces} & \textbf{Output Interfaces and Safety Gates} \\
+\midrule
+\endhead
+\midrule
+\multicolumn{5}{r}{\textit{Continued on next page}} \\
+\endfoot
+\bottomrule
+\endlastfoot
+regulatory\_agent & Regulatory Affairs Director & Execution & Protocol data, CMC data, safety data, regulatory intelligence & IND applications, amendments, annual reports, eCTD packages, authority correspondence. Safety gate: all submissions require sponsor-of-record signature \\
+quality\_agent & Quality Assurance Director & Execution & Audit trail data, SOP repository, monitoring findings, validation evidence & CAPA assignments, audit readiness scores, validation reports, QTL/KRI dashboards. Safety gate: critical finding escalation \\
+supply\_agent & CMC/Supply Chain Lead & Execution & Demand forecasts, inventory data, manufacturing records, IRT data & Lot release decisions, replenishment orders, temperature excursion dispositions, chain of custody records. Safety gate: out-of-spec release requires human QA review \\
+data\_biostats\_agent & Data Management and Biostatistics Lead & Execution & CRF data, EHR/FHIR data, lab results, safety data & SDTM/ADaM datasets, SAP execution, interim analysis results, Define.xml. Safety gate: database lock and unblinding require sponsor-of-record authorization \\
+site\_gateway & Site Relationship Manager & Site/Robotics & Site readiness data, PSL scores, training records, scheduling constraints & Site activation orders, training assignments, scheduling plans, data exchange configurations. Safety gate: none (operational agent) \\
+robot\_execution\_gateway & (No traditional equivalent) & Site/Robotics & Procedure requests, robot telemetry, safety gate approvals, patient data & Task orders, safety gate evaluations, procedure state transitions, emergency stop commands. Safety gate: Tier 2/3 procedures require clinician/mandatory human authorization \\
+\end{longtable}
+
+% ======================================================================
+\section*{Appendix B: Python Script Directory}
+\addcontentsline{toc}{section}{Appendix B: Python Script Directory}
+% ======================================================================
+
+This appendix catalogs all 49 Python scripts specified across the fourteen functional areas
+of the autonomous sponsor system. Each script is designed for the
+\texttt{sponsor/paper/scripts/} directory (to be generated in future Claude Code sessions),
+must pass ruff lint (line-length 120, E/F/W rules), and target Python 3.10 or later.
+
+\begin{longtable}{L{1.0cm} L{3.8cm} L{6.7cm}}
+\caption{Python Script Directory: 49 Scripts Across 14 Functional Areas}
+\label{tab:script-directory} \\
+\toprule
+\textbf{No.} & \textbf{Script File} & \textbf{Purpose and Key Outputs} \\
+\midrule
+\endfirsthead
+\toprule
+\textbf{No.} & \textbf{Script File} & \textbf{Purpose and Key Outputs} \\
+\midrule
+\endhead
+\midrule
+\multicolumn{3}{r}{\textit{Continued on next page}} \\
+\endfoot
+\bottomrule
+\endlastfoot
+\multicolumn{3}{l}{\textbf{1. Governance Scripts (3 scripts)}} \\
+\midrule
+1 & portfolio\_agent.py & Program prioritization, indication scoring, milestone tracking. Output: ranked program list with go/no-go. \\
+2 & asset\_lead\_agent.py & Asset strategy memos, competitive landscape, dose optimization. Output: strategy documents. \\
+3 & governance\_decision\_engine.py & Seven-gate decision framework with go-criteria, KPI thresholds, and escalation rules. \\
+\midrule
+\multicolumn{3}{l}{\textbf{2. Trial Design Scripts (4 scripts)}} \\
+\midrule
+4 & clinical\_accountability\_agent.py & Eligibility rules, dose-schedule optimization (Project Optimus), monitoring rules. \\
+5 & protocol\_generator.py & ICH M11 structured protocol generation from indication, phase, and design pattern inputs. \\
+6 & biostats\_agent.py & SAP generation, Bayesian adaptive methods, interim analysis boundaries, futility rules. \\
+7 & biomarker\_strategy\_engine.py & Biomarker qualification scoring, CDx timeline planning, ctDNA integration. \\
+\midrule
+\multicolumn{3}{l}{\textbf{3. Clinical Operations Scripts (4 scripts)}} \\
+\midrule
+8 & study\_orchestrator.py & Master orchestrator: study plan, dependencies, work queues, event-driven routing. \\
+9 & clinops\_agent.py & Site startup, monitoring plan generation, enrollment tracking, RBM per ICH E6(R3). \\
+10 & enrollment\_optimizer.py & Enrollment prediction, EHR pre-screening, diversity tracking per FDORA. \\
+11 & failure\_mode\_detector.py & Real-time detection of 5 failure modes with automated mitigation responses. \\
+\midrule
+\multicolumn{3}{l}{\textbf{4. Safety Scripts (4 scripts)}} \\
+\midrule
+12 & safety\_agent.py & AE/SAE intake, MedDRA coding, causality assessment (WHO-UMC, Naranjo, Bayesian). \\
+13 & safety\_signal\_detector.py & Disproportionality analysis: PRR, ROR, MGPS, BCPNN algorithms. \\
+14 & robot\_safety\_monitor.py & Robotic procedure safety monitoring, telemetry anomaly detection, emergency stop logic. \\
+15 & dsur\_generator.py & DSUR generation per ICH E2F with cumulative safety data aggregation. \\
+\midrule
+\multicolumn{3}{l}{\textbf{5. Regulatory Scripts (4 scripts)}} \\
+\midrule
+16 & regulatory\_agent.py & IND lifecycle: amendments (312.30), annual reports (312.33), authority correspondence. \\
+17 & ind\_filing\_engine.py & IND/CTA package assembly in eCTD v4.0 structure. CTIS-specific EU support. \\
+18 & accelerated\_pathway\_advisor.py & Pathway eligibility scoring for Breakthrough, Fast Track, PRIME, Orbis, RTOR. \\
+19 & regulatory\_intelligence\_scanner.py & Regulatory guidance monitoring, impact assessment, compliance calendar management. \\
+\midrule
+\multicolumn{3}{l}{\textbf{6. Quality Scripts (3 scripts)}} \\
+\midrule
+20 & quality\_agent.py & SOP enforcement, CAPA lifecycle, audit readiness scoring, QTL/KRI monitoring. \\
+21 & rbqm\_engine.py & RBQM engine: QTL definition, KRI tracking, centralized statistical monitoring. \\
+22 & validation\_evidence\_generator.py & IQ/OQ/PQ documentation, 21 CFR Part 11 compliance checks, CSV/CSA templates. \\
+\midrule
+\multicolumn{3}{l}{\textbf{7. Supply Chain Scripts (4 scripts)}} \\
+\midrule
+23 & supply\_agent.py & Lot release, inventory tracking, demand forecasting, chain of custody. \\
+24 & cmc\_lifecycle\_manager.py & CMC document management, manufacturing changes, GMP compliance tracking. \\
+25 & irt\_demand\_forecaster.py & IRT-driven demand forecasting, depot optimization, cold-chain logistics. \\
+26 & robotic\_pharmacy\_interface.py & Franka Emika pharmacy interface: dose calculation, preparation, dispensing. \\
+\midrule
+\multicolumn{3}{l}{\textbf{8. Data Management Scripts (4 scripts)}} \\
+\midrule
+27 & data\_management\_agent.py & eConsent tracking, eSource validation, EDC management, query automation. \\
+28 & cdisc\_generator.py & SDTM/ADaM dataset generation, Define.xml, P21 validation checks. \\
+29 & federated\_data\_interface.py & Federated learning integration, differential privacy, secure aggregation. \\
+30 & mcp\_data\_exchange.py & MCP server data exchange: FHIR queries, DICOM retrieval, structured exchange. \\
+\midrule
+\multicolumn{3}{l}{\textbf{9. Robotic Execution Scripts (5 scripts)}} \\
+\midrule
+31 & robot\_execution\_gateway.py & Task-order generation, site matching, safety gates, procedure state machine. \\
+32 & robotic\_capability\_registry.py & Robot registry with USL scoring, capability matching, maintenance tracking. \\
+33 & surgical\_robot\_interface.py & da Vinci Xi interface: procedure orchestration, telemetry, digital twin. \\
+34 & cobot\_interface.py & Franka Emika interface: lab automation, pharmacy dosing, calibration. \\
+35 & procedure\_provenance\_tracker.py & Immutable procedure records, telemetry integration, regulatory reports. \\
+\midrule
+\multicolumn{3}{l}{\textbf{10. Site Interface Scripts (4 scripts)}} \\
+\midrule
+36 & site\_gateway.py & Site qualification (PSL), training delivery, scheduling, robot-task authorization. \\
+37 & investigator\_interface.py & Protocol training, delegation log, AE reporting, medical monitoring. \\
+38 & site\_systems\_connector.py & FHIR R4 client, DICOM C-FIND/C-MOVE, HL7 v2, MCP tool endpoints. \\
+39 & patient\_interface.py & eConsent delivery, scheduling, ePRO deployment, patient education. \\
+\midrule
+\multicolumn{3}{l}{\textbf{11. Trust Layer Scripts (4 scripts)}} \\
+\midrule
+40 & trust\_layer\_core.py & Agent PKI identity, RBAC, audit trail recording, provenance construction. \\
+41 & audit\_trail\_manager.py & Immutable audit trails, Part 11 compliance, 25-year EU CTR archive. \\
+42 & provenance\_engine.py & Data, decision, procedure, and model provenance per W3C PROV-DM. \\
+43 & policy\_enforcement\_engine.py & Regulatory policy rules (OPA/Rego), safety gates, escalation enforcement. \\
+\midrule
+\multicolumn{3}{l}{\textbf{12. Vendor and Writing Scripts (5 scripts)}} \\
+\midrule
+44 & vendor\_manager\_agent.py & Contracting, SLA monitoring, data exchange validation, performance tracking. \\
+45 & cro\_oversight\_engine.py & 11-area accountability matrix, oversight reporting per ICH E6(R3). \\
+46 & writing\_disclosure\_agent.py & Protocol, IB, CSR (ICH E3), DSUR (ICH E2F), TLF automation. \\
+47 & disclosure\_manager.py & ClinicalTrials.gov posting, CTIS results/lay summaries, registry automation. \\
+48 & archive\_manager.py & 25-year EU CTR archive, digital preservation, format migration, integrity checks. \\
+\midrule
+\multicolumn{3}{l}{\textbf{13. Financial and Implementation Scripts (4 scripts)}} \\
+\midrule
+49a & financial\_model.py & Cost projections, ROI analysis, NPV calculations, Monte Carlo simulation. \\
+49b & timeline\_compression\_analyzer.py & Timeline comparison, daily delay cost savings, sensitivity analysis. \\
+49c & implementation\_planner.py & Phased deployment planning, site readiness scoring, resource requirements. \\
+49d & deployment\_validator.py & Pre-deployment validation: agent connections, integrations, safety gates. \\
+\midrule
+\multicolumn{3}{l}{\textbf{14. Utility Scripts (1 script)}} \\
+\midrule
+50 & generate\_introduction\_metrics.py & Parse source files, extract regulatory dates, cost figures, staffing numbers. \\
+\end{longtable}
+
+% ======================================================================
+\section*{Appendix C: Source File Cross-Reference}
+\addcontentsline{toc}{section}{Appendix C: Source File Cross-Reference}
+% ======================================================================
+
+This appendix maps each section of this paper to its primary source files in the
+physical-ai-oncology-trials repository.
+
+\begin{longtable}{L{1.5cm} L{3.0cm} L{3.5cm} L{3.5cm}}
+\caption{Source File Cross-Reference by Section}
+\label{tab:source-crossref} \\
+\toprule
+\textbf{Section} & \textbf{Paper Section Title} & \textbf{Primary Sources (sponsor/input\_files/)} & \textbf{Secondary Sources (national-platform/)} \\
+\midrule
+\endfirsthead
+\toprule
+\textbf{Section} & \textbf{Paper Section Title} & \textbf{Primary Sources (sponsor/input\_files/)} & \textbf{Secondary Sources (national-platform/)} \\
+\midrule
+\endhead
+\midrule
+\multicolumn{4}{r}{\textit{Continued on next page}} \\
+\endfoot
+\bottomrule
+\endlastfoot
+\S1 & Introduction & sponsor\_01, org\_01 & introduction.tex, executive\_summary.tex \\
+\S2 & Governance & sponsor\_01, org\_01, org\_02, org\_06 & introduction.tex \\
+\S3 & Trial Design & sponsor\_02, sponsor\_03, org\_03 & ich\_e6r3\_adaptation.tex, cfr312\_adaptation.tex \\
+\S4 & Clinical Ops & sponsor\_04, org\_02, org\_04 & site\_establishment.tex, patient\_journey.tex \\
+\S5 & Safety & sponsor\_05, org\_01, org\_05 & cfr50\_adaptation.tex, cfr312\_adaptation.tex \\
+\S6 & Regulatory & sponsor\_02, sponsor\_06, org\_01, org\_07 & regulatory\_landscape.tex, cfr312\_adaptation.tex \\
+\S7 & Quality & sponsor\_05, org\_01, org\_06, org\_07 & ich\_e6r3\_adaptation.tex \\
+\S8 & Supply Chain & sponsor\_04, sponsor\_06, org\_07 & patient\_journey.tex \\
+\S9 & Data Mgmt & sponsor\_03, sponsor\_05, org\_04, org\_06 & federated\_learning.tex, national\_mcp.tex \\
+\S10 & Robotics & (national platform primary) & psl\_usl\_standards.tex, patient\_journey.tex \\
+\S11 & Site Interface & sponsor\_04, org\_04, org\_07 & site\_establishment.tex, national\_mcp.tex \\
+\S12 & Trust & sponsor\_05, org\_01, org\_06 & national\_mcp.tex, federated\_learning.tex \\
+\S13 & Vendor Mgmt & org\_07, sponsor\_04, org\_01 & (none) \\
+\S14 & Writing & org\_05, org\_07, sponsor\_06 & conclusion.tex \\
+\S15 & Financial & sponsor\_01, sponsor\_07 & financial\_analysis.tex \\
+\S16 & Implementation & sponsor\_07, org\_06 & implementation\_strategy.tex \\
+\S17 & Discussion & All sponsor/input\_files/ & discussion.tex, conclusion.tex \\
+\S18 & Conclusion & All sponsor/input\_files/ & conclusion.tex \\
+\end{longtable}
+
+% ======================================================================
+\section*{Appendix D: Regulatory Compliance Mapping}
+\addcontentsline{toc}{section}{Appendix D: Regulatory Compliance Mapping}
+% ======================================================================
+
+This appendix maps autonomous agent operations to specific regulatory requirements,
+demonstrating how the system maintains compliance across all applicable regulatory
+frameworks.
+
+\begin{longtable}{L{2.5cm} L{2.5cm} L{2.2cm} L{2.2cm} L{2.2cm}}
+\caption{Regulatory Compliance Mapping: Agent Operations to Regulatory Requirements}
+\label{tab:regulatory-mapping} \\
+\toprule
+\textbf{Regulation Section} & \textbf{Requirement} & \textbf{Responsible Agent} & \textbf{Compliance Mechanism} & \textbf{Human Gate} \\
+\midrule
+\endfirsthead
+\toprule
+\textbf{Regulation Section} & \textbf{Requirement} & \textbf{Responsible Agent} & \textbf{Compliance Mechanism} & \textbf{Human Gate} \\
+\midrule
+\endhead
+\midrule
+\multicolumn{5}{r}{\textit{Continued on next page}} \\
+\endfoot
+\bottomrule
+\endlastfoot
+21 CFR \S312.50 & Sponsor selects qualified investigators & clinops\_agent, site\_gateway & PSL-based qualification scoring, credentialing verification & Sponsor-of-record review \\
+21 CFR \S312.52 & Transfer of obligations to CRO & vendor\_manager\_agent & 11-area accountability matrix, oversight KPIs & Transfer agreement approval \\
+21 CFR \S312.32 & Safety reporting & safety\_agent & Automated AE classification, expedited report generation & All expedited reports \\
+21 CFR \S312.33 & Annual reports & regulatory\_agent & Automated data compilation, formatted report generation & Sponsor-of-record review \\
+21 CFR \S312.30 & Protocol amendments & regulatory\_agent, writing\_disclosure\_agent & Change detection, impact analysis, amendment assembly & Sponsor-of-record approval \\
+21 CFR Part 50 & Informed consent & site\_gateway, writing\_disclosure\_agent & eConsent platform, Physical AI-specific elements & IRB approval required \\
+21 CFR Part 11 & Electronic records & trust layer, quality\_agent & Audit trails, electronic signatures, validation evidence & Validation approval \\
+ICH E6(R3) & Quality management system & quality\_agent & QTL/KRI framework, RBQM, CAPA lifecycle & Critical finding escalation \\
+ICH E6(R3) & Vendor oversight & vendor\_manager\_agent & SLA monitoring, oversight KPIs, performance scoring & Vendor replacement decisions \\
+ICH E2B(R3) & ICSR transmission & safety\_agent & E2B(R3) XML generation, schema validation, transmission & April 2026 deadline compliance \\
+ICH E2F & DSUR & safety\_agent & Annual DSUR generation, cumulative safety analysis & Medical monitor approval \\
+ICH E9(R1) & Estimand framework & data\_biostats\_agent & SAP with estimand components, sensitivity analyses & SAP approval \\
+EU CTR 536/2014 & CTIS submission & regulatory\_agent & Structured CTIS data entry, parallel member state tracking & Filing approval \\
+EU CTR 536/2014 & 25-year archiving & quality\_agent, trust layer & Digital preservation, format migration, integrity verification & Archive person designation \\
+FDAAA 801 & Results disclosure & writing\_disclosure\_agent & Automated results extraction, registry posting & Quality review before posting \\
+\end{longtable}
+
+% ======================================================================
+\section*{Acknowledgments}
+\addcontentsline{toc}{section}{Acknowledgments}
+% ======================================================================
+
+The author would like to acknowledge Anthropic for providing access to Claude Code for
+paper and code generations; OpenAI for providing access to ChatGPT for detailed summaries,
+and Google Gemini for additional clarifications.
+
+% ======================================================================
+\section*{Ethical Disclosures}
+\addcontentsline{toc}{section}{Ethical Disclosures}
+% ======================================================================
+
+The author of the article declares no competing interests.
+
+% ======================================================================
+\section*{Rights and Permissions}
+\addcontentsline{toc}{section}{Rights and Permissions}
+% ======================================================================
+
+This article is distributed under the terms of the Creative Commons Attribution 4.0
+International License (CC BY 4.0), which permits unrestricted use, distribution, and
+reproduction in any medium, provided the original author(s) and source are properly
+credited, a link to the Creative Commons license is provided, and any modifications made
+are indicated. To view a copy of this license, visit
+\url{https://creativecommons.org/licenses/by/4.0/}.
+
+% ======================================================================
+\section*{Cite This Article}
+\addcontentsline{toc}{section}{Cite This Article}
+% ======================================================================
+
+Kawchak K. Fully Automated Sponsor for Physical AI Oncology Clinical Trial Platform.
+Zenodo. 2026; 10.5281/zenodo.19396256.
+\url{https://doi.org/10.5281/zenodo.19396256}
