@@ -1,0 +1,301 @@
+\documentclass{article}
+\usepackage{sponsor_paper}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{url}
+\usepackage[hidelinks, colorlinks=false, pdfborder={0 0 0}]{hyperref}
+\usepackage{booktabs}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{enumitem}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{tabularx}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{textcomp}
+\usepackage{microtype}
+\usepackage{float}
+
+% Fix fancyhdr headheight warning
+\setlength{\headheight}{16pt}
+
+% Make running header title fit on one line with smaller font
+\renewcommand{\shorttitle}{\scriptsize\scshape Fully Automated Sponsor: Physical AI Oncology Clinical Trials}
+
+% Justified text with proper word spacing
+\usepackage{ragged2e}
+\tolerance=1000
+\emergencystretch=2em
+\hbadness=2000
+
+% Force all text to black
+\color{black}
+\hypersetup{
+  urlcolor=black,
+  linkcolor=black,
+  citecolor=black,
+  filecolor=black
+}
+
+% Allow URL line breaks at more characters
+\def\UrlBreaks{\do\/\do-\do.\do=\do_\do?\do\&\do\%\do\a\do\b\do\c\do\d\do\e%
+\do\f\do\g\do\h\do\i\do\j\do\k\do\l\do\m\do\n\do\o\do\p\do\q\do\r\do\s\do\t%
+\do\u\do\v\do\w\do\x\do\y\do\z\do\A\do\B\do\C\do\D\do\E\do\F\do\G\do\H\do\I%
+\do\J\do\K\do\L\do\M\do\N\do\O\do\P\do\Q\do\R\do\S\do\T\do\U\do\V\do\W\do\X%
+\do\Y\do\Z}
+
+% Prevent overfull hbox and ensure proper word spacing
+\sloppy
+
+% Code listing style
+\lstdefinestyle{pythonstyle}{
+  language=Python,
+  basicstyle=\ttfamily\scriptsize,
+  keywordstyle=\color[rgb]{0.13,0.29,0.53}\bfseries,
+  stringstyle=\color[rgb]{0.31,0.60,0.02},
+  commentstyle=\color[rgb]{0.56,0.56,0.56}\itshape,
+  numbers=left,
+  numberstyle=\tiny\color{gray},
+  stepnumber=1,
+  numbersep=5pt,
+  backgroundcolor=\color[rgb]{0.97,0.97,0.97},
+  frame=single,
+  rulecolor=\color[rgb]{0.8,0.8,0.8},
+  breaklines=true,
+  breakatwhitespace=false,
+  tabsize=4,
+  showstringspaces=false,
+  columns=flexible
+}
+\lstset{style=pythonstyle}
+
+% ORCID icon command
+\newcommand{\orcidicon}[1]{%
+\href{https://orcid.org/#1}{%
+\raisebox{-1pt}{\includegraphics[height=9pt]{orcid_icon.png}}}}
+
+% Compact table column types
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
+\newcolumntype{C}[1]{>{\centering\arraybackslash}p{#1}}
+\newcolumntype{R}[1]{>{\raggedleft\arraybackslash}p{#1}}
+
+% Raggedright for body text to avoid large inter-word spaces
+\raggedright
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5.5pt}
+
+% ======================================================================
+% TITLE (Two Lines)
+% ======================================================================
+\title{Fully Automated Sponsor:\\Physical AI Oncology Clinical Trials}
+
+\author{
+  Kevin Kawchak\hspace{2pt}\orcidicon{0009-0007-5457-8667} \\
+  CEO ChemicalQDevice\\
+  \href{https://doi.org/10.5281/zenodo.19396256}{10.5281/zenodo.19396256} \\
+}
+
+\date{April 4th, 2026}
+
+% ======================================================================
+% BEGIN DOCUMENT
+% ======================================================================
+\begin{document}
+\maketitle
+
+% ======================================================================
+% ABSTRACT
+% ======================================================================
+\begin{abstract}
+This paper presents a fully autonomous AI-native sponsor operating system
+for Physical AI oncology clinical trials, replacing traditional
+human-staffed pharmaceutical sponsor functions with a multi-agent
+software architecture. The system comprises twelve functional agents
+organized into four layers: governance, study execution, site and
+robotics interface, and trust infrastructure. Each agent automates a
+distinct sponsor responsibility, from portfolio management and protocol
+design through safety monitoring, regulatory submissions, and robotic
+procedure authorization, while maintaining compliance with adapted
+regulatory frameworks including 21 CFR Part 312, 21 CFR Part 50, and
+ICH E6(R3). The architecture integrates with national MCP server
+infrastructure, federated learning networks, and Physical AI trial
+sites equipped with ten categories of robotic systems. A human
+sponsor-of-record retains legal accountability and override authority
+for safety-critical decisions, ensuring that autonomous operation occurs
+within established regulatory boundaries.
+\end{abstract}
+
+\keywords{Autonomous Sponsor \and Physical AI \and Oncology Clinical Trials \and Multi-Agent System
+\and Regulatory Compliance \and Robotic Execution}
+
+\vspace{-0.2cm}
+
+% ======================================================================
+% SECTION 1: INTRODUCTION
+% ======================================================================
+\section{Introduction}
+\label{sec:introduction}
+\input{sections/introduction}
+
+% ======================================================================
+% TABLE OF CONTENTS
+% ======================================================================
+\newpage
+\tableofcontents
+\newpage
+
+% ======================================================================
+% SECTION 2: SPONSOR GOVERNANCE AND PORTFOLIO MANAGEMENT
+% ======================================================================
+\section{Autonomous Sponsor Governance and Portfolio Management}
+\label{sec:governance}
+\input{sections/governance}
+\newpage
+
+% ======================================================================
+% SECTION 3: TRIAL DESIGN AND STATISTICAL FRAMEWORK
+% ======================================================================
+\section{Autonomous Trial Design and Statistical Framework}
+\label{sec:trial-design}
+\input{sections/trial_design}
+\newpage
+
+% ======================================================================
+% SECTION 4: CLINICAL OPERATIONS AND SITE MANAGEMENT
+% ======================================================================
+\section{Autonomous Clinical Operations and Site Management}
+\label{sec:clinical-ops}
+\input{sections/clinical_operations}
+\newpage
+
+% ======================================================================
+% SECTION 5: SAFETY AND PHARMACOVIGILANCE
+% ======================================================================
+\section{Autonomous Safety and Pharmacovigilance}
+\label{sec:safety}
+\input{sections/safety_pharmacovigilance}
+\newpage
+
+% ======================================================================
+% SECTION 6: REGULATORY AFFAIRS AND SUBMISSIONS
+% ======================================================================
+\section{Autonomous Regulatory Affairs and Submissions}
+\label{sec:regulatory}
+\input{sections/regulatory_affairs}
+\newpage
+
+% ======================================================================
+% SECTION 7: QUALITY ASSURANCE AND COMPLIANCE
+% ======================================================================
+\section{Autonomous Quality Assurance and Compliance}
+\label{sec:quality}
+\input{sections/quality_compliance}
+\newpage
+
+% ======================================================================
+% SECTION 8: SUPPLY CHAIN AND IMP LOGISTICS
+% ======================================================================
+\section{Autonomous Supply Chain and IMP Logistics}
+\label{sec:supply}
+\input{sections/supply_chain}
+\newpage
+
+% ======================================================================
+% SECTION 9: DATA MANAGEMENT AND BIOSTATISTICS
+% ======================================================================
+\section{Autonomous Data Management and Biostatistics}
+\label{sec:data}
+\input{sections/data_management}
+\newpage
+
+% ======================================================================
+% SECTION 10: ROBOTIC EXECUTION AND PHYSICAL AI GATEWAY
+% ======================================================================
+\section{Robotic Execution and Physical AI Gateway}
+\label{sec:robotics}
+\input{sections/robotic_execution}
+\newpage
+
+% ======================================================================
+% SECTION 11: SITE INTERFACE AND INVESTIGATOR COORDINATION
+% ======================================================================
+\section{Site Interface Layer and Investigator Coordination}
+\label{sec:site-interface}
+\input{sections/site_interface}
+\newpage
+
+% ======================================================================
+% SECTION 12: TRUST, PROVENANCE, AND AUDIT INFRASTRUCTURE
+% ======================================================================
+\section{Trust, Provenance, and Audit Infrastructure}
+\label{sec:trust}
+\input{sections/trust_layer}
+\newpage
+
+% ======================================================================
+% SECTION 13: VENDOR MANAGEMENT AND CRO COORDINATION
+% ======================================================================
+\section{Vendor Management and CRO Coordination}
+\label{sec:vendor}
+\input{sections/vendor_management}
+\newpage
+
+% ======================================================================
+% SECTION 14: WRITING, DISCLOSURE, AND REGULATORY DOCUMENTS
+% ======================================================================
+\section{Autonomous Medical Writing and Disclosure}
+\label{sec:writing}
+\input{sections/writing_disclosure}
+\newpage
+
+% ======================================================================
+% SECTION 15: FINANCIAL ANALYSIS AND COST MODELING
+% ======================================================================
+\section{Financial Analysis and Cost Modeling}
+\label{sec:financial}
+\input{sections/financial_analysis}
+\newpage
+
+% ======================================================================
+% SECTION 16: NATIONAL IMPLEMENTATION STRATEGY
+% ======================================================================
+\section{National Implementation Strategy}
+\label{sec:implementation}
+\input{sections/implementation_strategy}
+\newpage
+
+% ======================================================================
+% SECTION 17: DISCUSSION
+% ======================================================================
+\section{Discussion}
+\label{sec:discussion}
+\input{sections/discussion}
+\newpage
+
+% ======================================================================
+% SECTION 18: CONCLUSION
+% ======================================================================
+\section{Conclusion}
+\label{sec:conclusion}
+\input{sections/conclusion}
+\newpage
+
+% ======================================================================
+% REFERENCES
+% ======================================================================
+\begingroup
+\raggedright
+\bibliographystyle{ieeetr}
+\bibliography{references}
+\endgroup
+\newpage
+
+% ======================================================================
+% APPENDICES
+% ======================================================================
+\appendix
+\input{sections/appendices}
+
+\end{document}
