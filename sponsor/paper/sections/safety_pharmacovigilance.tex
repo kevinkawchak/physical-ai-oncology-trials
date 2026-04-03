@@ -1,0 +1,188 @@
+% ======================================================================
+% SECTION 5: AUTONOMOUS SAFETY AND PHARMACOVIGILANCE
+% File: sections/safety_pharmacovigilance.tex
+% ======================================================================
+
+Safety and pharmacovigilance represent the most consequential sponsor responsibility: the
+obligation to protect trial participants from unreasonable risk while generating the safety
+evidence required for regulatory decision-making. Under 21 CFR \S312.32, sponsors must
+report serious and unexpected adverse reactions to the FDA within defined timelines
+\cite{cfr-part-312}. ICH E2B(R3) mandates electronic Individual Case Safety Report (ICSR)
+transmission, with the April 2026 deadline creating an immediate compliance requirement for
+all sponsors \cite{ich-e2br3}. The autonomous safety system addresses these obligations
+through a dedicated safety agent, an integrated safety management team interface, robotic
+procedure safety monitoring (unique to Physical AI trials), and decentralized safety data
+collection.
+
+\subsection{Safety Agent}
+
+The safety agent (safety\_agent) replaces the pharmacovigilance team for adverse event
+intake, medical coding, causality assessment, signal detection, and expedited reporting. It
+receives safety data from multiple sources: investigator site reports entered through the
+EDC system, patient-reported outcomes collected through ePRO platforms, wearable device
+telemetry transmitted through digital health technology integrations, and robotic procedure
+telemetry from the robot execution gateway (\S\ref{sec:robotics}).
+
+Adverse event intake and classification follows the MedDRA coding hierarchy. The agent
+automatically codes reported events to preferred terms and system organ classes, identifies
+seriousness criteria (death, life-threatening, hospitalization, disability, congenital
+anomaly, or other medically important condition), and determines expectedness by comparing
+the event against the Reference Safety Information in the current Investigator's Brochure.
+
+Causality assessment implements three complementary methods. The WHO-UMC system provides
+a structured categorical assessment (certain, probable, possible, unlikely, conditional,
+unassessable) based on temporal relationship, pharmacological plausibility, dechallenge and
+rechallenge evidence, and alternative explanations. The Naranjo algorithm provides a
+numerical probability score through a ten-question standardized questionnaire. A Bayesian
+causality model integrates prior probability from the known safety profile, likelihood
+based on temporal and mechanistic evidence, and posterior probability computed through
+Bayes' theorem. The three methods are applied in parallel, with discordant results
+flagged for medical monitor review.
+
+Signal detection uses statistical disproportionality analysis applied to the cumulative
+adverse event database. The agent implements four complementary methods: Proportional
+Reporting Ratio (PRR), Reporting Odds Ratio (ROR), Multi-item Gamma Poisson Shrinker
+(MGPS), and Bayesian Confidence Propagation Neural Network (BCPNN). Signals are defined
+as drug-event combinations where at least two of the four methods exceed their respective
+thresholds. Detected signals enter a structured evaluation workflow: initial triage,
+clinical review of individual cases, aggregate analysis, and determination of whether the
+signal represents a confirmed safety risk requiring regulatory action.
+
+Expedited reporting package generation automates compliance with 21 CFR \S312.32
+\cite{cfr-part-312} and ICH E2A timelines. Fatal or life-threatening unexpected suspected
+adverse reactions are reported within 7 calendar days, with follow-up within 8 additional
+days. All other serious unexpected suspected adverse reactions are reported within 15
+calendar days. The agent generates IND Safety Reports in the required format, routes them
+for sponsor-of-record review (mandatory human gate for all expedited reports), and
+transmits them electronically upon approval.
+
+E2B(R3) ICSR transmission generates XML-formatted individual case safety reports
+compliant with the ICH E2B(R3) standard \cite{ich-e2br3}. Each ICSR contains the
+complete case narrative, MedDRA-coded events, reporter information, suspect and
+concomitant medications, and relevant medical history. The agent validates each ICSR
+against the E2B(R3) schema before transmission and maintains a complete audit trail
+of all transmitted reports.
+
+\subsection{Safety Management Team and DMC Interface}
+
+The autonomous safety management team interface replaces the traditional safety review
+board structure with an automated system that produces the same outputs: periodic safety
+assessments, cumulative risk-benefit analysis, and safety-related recommendations for
+study conduct modification. The system generates Development Safety Update Reports
+(DSURs) per ICH E2F requirements \cite{ich-e2f}, producing annual comprehensive safety
+analyses that include cumulative subject exposure, individual and aggregate adverse event
+analysis, safety signal evaluation, and updated risk-benefit assessment.
+
+The independent Data Safety Monitoring Committee interface provides the autonomous system
+with a standardized mechanism for interacting with the external, independent DMC
+required for controlled trials with serious outcomes. The agent prepares interim analysis
+presentations in the format specified by the DMC charter, including efficacy and safety
+data in unblinded or partially blinded formats as required. The DMC retains full authority
+to recommend study modification, temporary suspension, or early termination. All DMC
+recommendations are implemented through the study orchestrator with mandatory
+sponsor-of-record notification.
+
+The dose escalation committee interface supports oncology dose-finding studies using
+established methods including the 3+3 design, modified toxicity probability interval
+(mTPI) design, and Bayesian Optimal Interval (BOIN) design. The agent presents
+dose-level safety data to the committee in standardized format, computes dose-limiting
+toxicity rates, and implements committee dose decisions through the clinical
+accountability agent. For Physical AI trials, the committee interface includes robotic
+procedure safety data alongside pharmacological safety data, enabling integrated
+dose and procedure risk assessment.
+
+\subsection{Robotic Procedure Safety Monitoring}
+
+Robotic procedure safety monitoring represents a capability unique to Physical AI trial
+sponsors. Traditional safety monitoring addresses adverse drug reactions; the autonomous
+sponsor must additionally monitor safety events arising from robotic clinical procedures,
+creating a dual safety monitoring requirement that has no precedent in conventional
+clinical trials.
+
+The robotic safety event classification system categorizes events arising from Physical
+AI procedures into four severity levels aligned with the adapted 21 CFR Part 312
+\cite{cfr312-adapt} adverse event framework. Table~\ref{tab:robot-safety} presents
+this classification.
+
+\begin{longtable}{L{1.5cm} L{1.8cm} L{2.5cm} L{3.0cm} L{2.8cm}}
+\caption{Robotic Safety Event Classification}
+\label{tab:robot-safety} \\
+\toprule
+\textbf{Category} & \textbf{Severity} & \textbf{Detection Method} & \textbf{Response Protocol} & \textbf{Human Gate} \\
+\midrule
+\endfirsthead
+\toprule
+\textbf{Category} & \textbf{Severity} & \textbf{Detection Method} & \textbf{Response Protocol} & \textbf{Human Gate} \\
+\midrule
+\endhead
+\midrule
+\multicolumn{5}{r}{\textit{Continued on next page}} \\
+\endfoot
+\bottomrule
+\endlastfoot
+Category A: No deviation & Normal operation & Continuous telemetry within all parameters & Log and archive; no intervention & None required \\
+Category B: Minor deviation & Low, self-correcting & Telemetry parameter outside normal range, auto-corrected within 5 seconds & Log deviation, continue procedure, increase monitoring frequency & None; automated logging \\
+Category C: Significant deviation & Moderate, requires intervention & Telemetry parameter exceeds action threshold, not self-correcting & Pause procedure, notify supervising clinician, await instruction & Clinician approval required to resume \\
+Category D: Critical event & High, potential patient harm & Emergency stop triggered, force limit exceeded, position deviation beyond safe envelope & Immediate procedure halt, secure patient, activate emergency protocol & Mandatory; no autonomous resumption \\
+\end{longtable}
+
+Robot telemetry integration ingests real-time data streams from surgical robots (da Vinci
+Xi force/torque sensors, instrument position tracking, insufflation pressure), collaborative
+robots (Franka Emika joint torque monitoring, end-effector force sensing, workspace boundary
+compliance), and all other robotic systems operating within the trial site. The safety agent
+correlates robotic telemetry with patient vital signs and clinical status to detect events
+where robot operation may affect patient safety. This correlation analysis enables detection
+of events that neither the robotic system nor the clinical monitoring system would identify
+independently.
+
+Table~\ref{tab:safety-timeline} presents the complete safety reporting timeline
+requirements.
+
+\begin{longtable}{L{2.2cm} L{2.2cm} L{1.8cm} L{2.8cm} L{2.5cm}}
+\caption{Safety Reporting Timeline Requirements}
+\label{tab:safety-timeline} \\
+\toprule
+\textbf{Report Type} & \textbf{Regulatory Basis} & \textbf{Timeline} & \textbf{Agent Responsibility} & \textbf{Output Format} \\
+\midrule
+\endfirsthead
+\toprule
+\textbf{Report Type} & \textbf{Regulatory Basis} & \textbf{Timeline} & \textbf{Agent Responsibility} & \textbf{Output Format} \\
+\midrule
+\endhead
+\midrule
+\multicolumn{5}{r}{\textit{Continued on next page}} \\
+\endfoot
+\bottomrule
+\endlastfoot
+IND Safety Report (fatal or life-threatening) & 21 CFR \S312.32(c)(1) & 7 calendar days (initial) & safety\_agent with mandatory sponsor-of-record gate & FDA Form 3500A with narrative \\
+IND Safety Report (serious, unexpected) & 21 CFR \S312.32(c)(1) & 15 calendar days & safety\_agent with mandatory sponsor-of-record gate & FDA Form 3500A with narrative \\
+Follow-up IND Safety Report & 21 CFR \S312.32(d) & 15 calendar days from new information & safety\_agent & Amended FDA Form 3500A \\
+E2B(R3) ICSR & ICH E2B(R3) & Per jurisdiction (typically 15 days) & safety\_agent & E2B(R3) XML \\
+DSUR & ICH E2F & Annual (within 60 days of DIBD) & safety\_agent & Formatted DSUR document \\
+IND Annual Report & 21 CFR \S312.33 & Within 60 days of anniversary & regulatory\_agent & Formatted annual report \\
+Robotic Safety Event Report & Adapted 21 CFR 312 & Category C: 24 hours; Category D: immediate & robot\_execution\_gateway & Structured event report with telemetry \\
+\end{longtable}
+
+\subsection{Decentralized Safety Monitoring}
+
+Decentralized safety monitoring extends the safety data collection beyond the investigator
+site through digital health technologies, wearable devices, and patient-reported outcome
+instruments. This capability is essential for Physical AI trials that incorporate
+decentralized elements such as remote follow-up visits, home-based rehabilitation with
+exoskeleton robots, and remote monitoring between in-person treatment visits.
+
+Digital health technology validation follows FDA guidance on digital health technologies for
+remote data acquisition. The safety agent validates that each DHT device meets the data
+quality requirements specified in the protocol, including measurement accuracy, data
+transmission reliability, and patient compliance monitoring. Wearable device data (heart
+rate, activity level, sleep patterns, temperature) is integrated into the safety monitoring
+stream with appropriate clinical context to enable detection of safety signals that might
+not be captured through periodic site visits.
+
+Patient-reported outcomes for safety use validated electronic instruments deployed through
+ePRO platforms. The agent configures PRO-CTCAE (Patient-Reported Outcomes version of the
+Common Terminology Criteria for Adverse Events) and other validated instruments appropriate
+for the trial indication and treatment modality. Responses are analyzed in real time with
+automated flagging of symptom severity increases that warrant clinical follow-up. This
+approach provides continuous patient safety monitoring between scheduled assessment visits,
+reducing the risk of undetected adverse events in the interval between site contacts.
