@@ -4,6 +4,40 @@ Release notes for the physical-ai-oncology-trials repository.
 
 ---
 
+Fully Automated Sponsor: Physical AI Oncology Clinical Trials
+v3.1.0 - Autonomous Sponsor Paper Template
+
+## Summary
+
+- Created LaTeX paper template for a fully autonomous AI-native pharmaceutical sponsor operating system
+- Defined 12 functional agents organized into 4 layers (governance, execution, site/robotics, trust) replacing traditional human sponsor functions
+- Specified 49 Python scripts across 14 functional areas for autonomous trial operations
+- Designed 30 tables covering agent specifications, regulatory compliance, cost analysis, and implementation strategy
+- All processing instructions embedded in bracket notation for future Claude Code Opus 4.6 generation
+
+## Features
+
+- 18-section paper template with main.tex, sponsor_paper.sty, references.bib (48 entries)
+- 19 section .tex files with detailed processing instructions referencing 60+ source files
+- Agent architecture: portfolio_agent, asset_lead_agent, clinical_accountability_agent, study_orchestrator, clinops_agent, safety_agent, regulatory_agent, quality_agent, supply_agent, vendor_manager_agent, site_gateway, robot_execution_gateway
+- Physical AI robotic execution gateway with capability registry, safety gates, and procedure provenance
+- Regulatory compliance mapping for 21 CFR 312, 21 CFR 50, 21 CFR Part 11, ICH E6(R3), E2B(R3), E2F, E9(R1), EU CTR, FDAAA 801
+- Financial analysis framework with Tufts CSDD cost benchmarks and timeline compression analysis
+- 3-phase national implementation strategy from single-site pilot to 20+ site network
+- Template README with file structure, source mapping, and table index
+
+## Contributors
+@kevinkawchak
+@claude
+@openai
+@google-gemini
+
+## Notes
+
+Template developed using Claude Code Opus 4.6 in a single session with 12+ commits. The template references all sponsor/input_files/ (16 markdown files) and national-platform/new_paper/final_paper/ (21 section files) as source material. When processed by Claude Code Opus 4.6 in the future, the template will produce a 40+ page paper with 49 Python scripts demonstrating fully autonomous sponsor operations for Physical AI oncology clinical trials.
+
+---
+
 National Platform for Physical AI Oncology Trials
 v3.0.0 - National Platform Complete Paper
 

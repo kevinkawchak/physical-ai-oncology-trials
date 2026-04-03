@@ -5,6 +5,39 @@ Format follows [Keep a Changelog](https://keepachangelog.com/).
 
 ## [Unreleased]
 
+## [3.1.0] - 2026-04-04
+
+### Added
+- sponsor/template/ - Fully Automated Sponsor: Physical AI Oncology Clinical Trials paper template
+- sponsor/template/main.tex - Main document with 18 sections, TOC, and 4 appendices
+- sponsor/template/sponsor_paper.sty - Style file adapted from arxiv.sty (CC BY 4.0)
+- sponsor/template/references.bib - Bibliography with 48 entries, all with DOIs and URLs
+- sponsor/template/orcid_icon.png - ORCID icon for author attribution
+- sponsor/template/README.md - Template documentation with file structure, source mapping, table index
+- sponsor/template/sections/ - 19 .tex files with detailed processing instructions for Claude Code Opus 4.6
+- 18 content sections: Introduction, Governance, Trial Design, Clinical Operations, Safety, Regulatory Affairs, Quality, Supply Chain, Data Management, Robotic Execution, Site Interface, Trust Layer, Vendor Management, Writing/Disclosure, Financial Analysis, Implementation Strategy, Discussion, Conclusion
+- 4 appendices: Agent Specification Registry (12 agents), Python Script Directory (49 scripts), Source File Cross-Reference, Regulatory Compliance Mapping
+- 30 table specifications across all sections
+- 49 Python script specifications organized by 14 functional areas
+- 12-agent 4-layer autonomous sponsor architecture: governance, execution, site/robotics, trust
+
+### Changed
+- README.md: Updated version badge to v3.1.0, added v3.1.0 news entry, added sponsor/ to repository structure
+- releases.md: Added v3.1.0 release notes
+- CHANGELOG.md: Added v3.1.0 changelog entry
+- ruff.toml: Added sponsor/ per-file-ignores for future Python scripts
+
+### Removed
+- sponsor/a - Placeholder file
+- sponsor/template/a.md - Placeholder file
+
+### Notes
+- Template designed for processing by Claude Code Opus 4.6 (1M token context)
+- All processing instructions in brackets within .tex files
+- Paper targets 40+ pages when fully generated
+- All source files from sponsor/input_files/ and national-platform/ are referenced
+- Uses single dashes only, black text, no em dashes
+
 ## [3.0.0] - 2026-03-28
 
 ### Added
