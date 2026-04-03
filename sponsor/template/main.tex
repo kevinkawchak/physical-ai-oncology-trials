@@ -46,8 +46,20 @@
 \do\J\do\K\do\L\do\M\do\N\do\O\do\P\do\Q\do\R\do\S\do\T\do\U\do\V\do\W\do\X%
 \do\Y\do\Z}
 
-% Prevent overfull hbox
+% Prevent overfull hbox and ensure proper word spacing
 \sloppy
+
+% [FORMATTING INSTRUCTION: When compiling the final paper, ensure:
+% 1. No text runs off the right margin anywhere
+% 2. No large white spaces between words (adjust tolerance if needed)
+% 3. No single-word lines (orphans) at the end of paragraphs
+% 4. No single lines separated from their paragraph on the next page (widows)
+% 5. No pages with excessive white space without text
+% 6. Only black text throughout the entire paper
+% 7. Use single dashes only, never em dashes, double dashes, or triple dashes
+% 8. Use the section symbol (\S) not SS for section references
+% 9. Compile with: pdflatex main.tex && bibtex main && pdflatex main.tex && pdflatex main.tex
+% Process with Claude Code Opus 4.6 (1M token context).]
 
 % Code listing style
 \lstdefinestyle{pythonstyle}{
@@ -92,7 +104,7 @@
   \href{https://doi.org/10.5281/zenodo.19396256}{10.5281/zenodo.19396256} \\
 }
 
-\date{April 4, 2026}
+\date{April 4th, 2026}
 
 % ======================================================================
 % BEGIN DOCUMENT
