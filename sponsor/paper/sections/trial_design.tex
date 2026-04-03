@@ -170,3 +170,38 @@ For interim analyses, the agent computes posterior predictive probabilities of t
 success to support futility stopping decisions, and uses Bayesian decision rules for
 adaptive randomization that allocate patients preferentially to better-performing arms
 while maintaining adequate data for comparative inference.
+
+The statistical analysis plan generator produces comprehensive SAPs that specify every
+analysis to be performed on the trial data. The SAP includes the primary analysis (method,
+population, handling of missing data, sensitivity analyses), secondary analyses (each with
+the same level of specification), subgroup analyses (predefined subgroups with interaction
+tests), safety analyses (exposure summaries, AE tabulations, laboratory shift tables), and
+interim analyses (timing, alpha spending function, decision boundaries). The generator
+produces SAPs that comply with ICH E9(R1) estimand requirements \cite{ich-e9r1} and
+align with the protocol-specified objectives.
+
+For oncology trials specifically, the agent incorporates therapeutic area conventions:
+overall survival analysis using Kaplan-Meier methods with stratified log-rank tests,
+progression-free survival analysis with appropriate censoring rules, objective response
+rate analysis using RECIST v1.1 criteria, duration of response, and time to response.
+The agent configures the analysis plan based on the primary endpoint specified in the
+protocol, selecting appropriate methods from a validated library of statistical procedures.
+
+Dataset lock procedures automate the transition from data collection to analysis. The agent
+coordinates the lock sequence: data query resolution (all open queries must be resolved or
+documented as unresolvable), medical coding completion (all AEs and medications coded to
+current dictionaries), data review (statistical and medical review of key data elements),
+external data integration (central lab data, ePRO data, imaging assessments), and formal
+lock authorization (requiring sponsor-of-record electronic signature). The CDISC mapping
+from raw data to SDTM and ADaM formats executes automatically upon lock completion, with
+P21 validation confirming dataset conformance before analysis begins.
+
+The integration of trial design with Physical AI-specific requirements creates unique
+considerations. Protocol designs must account for robotic procedure scheduling constraints,
+robot maintenance downtime windows, and the availability of qualified operators for Tier 2
+and Tier 3 procedures. The clinical accountability agent incorporates these operational
+constraints into the feasibility assessment for each design pattern, ensuring that the
+selected design is executable within the Physical AI trial site infrastructure. For
+adaptive designs with interim analyses, the agent must also account for the additional
+data complexity introduced by robotic telemetry, device safety events, and the
+multi-factorial causality assessment requirements unique to Physical AI trials.

@@ -181,6 +181,26 @@ Database Lock and CSR & Data cleaned, audit trail complete, CSR aligned with ICH
 Launch and Post-marketing & Confirmatory commitments funded, access dossier ready & Submission package validated, disclosure timeline confirmed & regulatory\_agent & Mandatory sponsor-of-record sign-off \\
 \end{longtable}
 
+The interaction between governance agents and execution-layer agents follows a publish-subscribe
+pattern mediated by the study orchestrator. When the portfolio agent approves a program for
+advancement through a decision gate, it publishes a gate-transition event. The study
+orchestrator consumes this event and distributes gate-specific instructions to each
+execution-layer agent: the regulatory agent initiates the appropriate regulatory submission,
+the supply agent adjusts demand forecasting parameters, the clinops agent activates the next
+phase of site startup, and the safety agent updates monitoring parameters for the new study
+phase. This event-driven coordination eliminates the sequential handoffs that create delays in
+traditional sponsor organizations, where a portfolio committee decision must be manually
+communicated to each functional team through meetings, emails, and document updates.
+
+The governance layer also manages the interface between the autonomous sponsor and external
+stakeholders. Investor communications, scientific advisory board interactions, and partnership
+discussions all require information synthesis from across the portfolio. The portfolio agent
+generates standardized portfolio reports that summarize program status, upcoming milestones,
+risk factors, and strategic positioning for each stakeholder audience. These reports draw on
+real-time data from all execution-layer agents, ensuring that external stakeholders receive
+current information without requiring the manual data compilation that consumes significant
+senior leadership time in traditional organizations.
+
 The escalation mechanism ensures that autonomous operation is bounded by human oversight at
 critical junctures. Three categories of escalation exist. Confidence-based escalation occurs
 when any agent's algorithmic confidence score drops below 85\% on a decision within its

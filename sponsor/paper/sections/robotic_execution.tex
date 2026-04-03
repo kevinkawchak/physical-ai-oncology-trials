@@ -163,6 +163,47 @@ g-force and duration control, aliquoting with volume verification, and storage i
 temperature-controlled repositories. Each workflow step generates provenance records
 that trace sample identity and handling conditions throughout the processing chain.
 
+Pharmacy dosing workflows automate the preparation of weight-based chemotherapy doses.
+The Franka Emika cobot receives a dose order from the supply agent (specifying patient
+weight, prescribed dose, drug formulation, and diluent), calculates the required
+preparation volume, selects the correct vial and diluent from the robotic pharmacy
+inventory, performs reconstitution and dilution under sterile conditions, verifies the
+final concentration through gravimetric measurement, applies a patient-specific label
+(verified by OCR), and stages the prepared dose for pharmacist verification before
+patient administration. The entire preparation sequence is recorded in the procedure
+provenance system, creating a complete audit trail from drug order through patient
+administration.
+
+The cobot safety features include force-limited operation (the robot halts immediately if
+contact force exceeds 50 Newtons), workspace boundary enforcement (the robot cannot operate
+outside its defined workspace envelope), and dual-channel monitoring (independent safety
+processors monitor the robot's primary control system). These safety features enable the
+Franka Emika to operate in close proximity to pharmacy staff without physical barriers,
+supporting the collaborative workflow model where robotic preparation is verified by human
+pharmacists before patient administration.
+
+Additional robotic categories operating within the trial site include radiation therapy
+positioning robots (USL 82.5) that align and immobilize patients for brain tumor radiation
+treatment, needle placement systems (USL 85.0) that guide percutaneous biopsies of parotid
+and liver tumors, social companion robots (USL 90.0, the highest among all categories) that
+reduce anxiety in pediatric leukemia patients, humanoid robots (USL 75.0) that assist with
+pediatric osteosarcoma rehabilitation, radiation therapy motion tracking robots (USL 86.25)
+that compensate for respiratory motion during lung tumor treatment, imaging assistant robots
+(USL 83.75) that optimize patient positioning and contrast timing for liver tumor imaging,
+steerable needle robots (USL 85.0) that guide ablation needles into liver tumors, and
+rehabilitation exoskeletons (USL 81.25) that support post-surgical mobility recovery for
+femur osteosarcoma patients.
+
+Each robotic category requires a distinct integration profile within the robot execution
+gateway. Surgical robots require the most extensive safety gate protocol (Tier 3: mandatory
+human authorization for every procedure), while social companion robots operate with the
+most autonomous profile (Tier 1: autonomous operation with logging). The gateway maintains
+category-specific configuration profiles that define the appropriate safety gates, telemetry
+parameters, emergency stop protocols, and documentation requirements for each robot type.
+This configurable architecture enables the same gateway infrastructure to manage the full
+spectrum of robotic systems, from high-autonomy companion robots to high-oversight surgical
+systems.
+
 \subsection{Device Telemetry and Procedure Provenance}
 
 Device telemetry ingestion collects real-time sensor data from all robotic systems during

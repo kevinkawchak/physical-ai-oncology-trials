@@ -179,6 +179,34 @@ rate, activity level, sleep patterns, temperature) is integrated into the safety
 stream with appropriate clinical context to enable detection of safety signals that might
 not be captured through periodic site visits.
 
+The integration of decentralized safety data with site-reported data creates a comprehensive
+safety monitoring environment that exceeds the capabilities of traditional pharmacovigilance.
+Traditional safety monitoring relies primarily on investigator-reported adverse events, which
+are subject to reporting delays (the time between event occurrence and investigator awareness),
+assessment variability (different investigators may classify the same event differently), and
+recall bias (patients may not report symptoms accurately at periodic visits). The autonomous
+safety system supplements investigator reporting with continuous data streams from wearable
+devices, ePRO instruments, and robotic telemetry, providing a multi-modal safety surveillance
+capability that detects events earlier and classifies them more consistently.
+
+The safety agent maintains a cumulative safety database that integrates all safety data
+sources into a unified repository. This repository enables longitudinal safety analysis across
+the trial lifecycle: from the first patient enrolled through database lock and beyond into
+post-marketing surveillance. The database supports the aggregate safety analyses required for
+DSURs, the signal detection analyses that run continuously during the trial, and the
+individual case narratives required for regulatory submissions. Data quality controls ensure
+that all entries are validated, coded to current MedDRA and WHODrug dictionaries, and linked
+to their source documentation.
+
+For Physical AI trials specifically, the safety agent must address the intersection of drug
+safety and device safety. When a patient experiences an adverse event during a robotic
+procedure, the safety agent must determine whether the event is related to the investigational
+drug, the robotic procedure, their interaction, the underlying disease, or other factors. This
+multi-factorial causality assessment extends beyond traditional pharmacovigilance methods and
+requires integration of pharmacological knowledge, device performance data, and procedural
+context. The safety agent implements a structured decision tree that evaluates each potential
+causal factor and documents the reasoning behind the causality determination.
+
 Patient-reported outcomes for safety use validated electronic instruments deployed through
 ePRO platforms. The agent configures PRO-CTCAE (Patient-Reported Outcomes version of the
 Common Terminology Criteria for Adverse Events) and other validated instruments appropriate

@@ -166,6 +166,48 @@ Patient dropout & Dropout rate exceeding protocol assumptions & Hybrid visit sch
 Supply interruption & Inventory below safety stock at any depot & Scenario-based re-forecasting, emergency depot transfers, alternative sourcing & Active patient treatment at risk of delay & Days of supply on hand by depot and site \\
 \end{longtable}
 
+The text-based Gantt timeline below illustrates the compressed autonomous sponsor timeline
+from target product profile through launch, showing the parallel processing advantages:
+
+\begin{verbatim}
+  Quarter:  Q1    Q2    Q3    Q4    Q5    Q6    Q7    Q8
+  Phase:    |--IND-Enabling--|--Phase I-------|
+            |---CMC Pilot----|--Scale-up------|--Commercial--|
+                  |--Reg Strategy--|--IND Filing--|
+                        |--Site ID--|--Startup-|--Enrollment-----|
+                              |--Monitoring Plan--|--RBM Active--|
+                                    |--Enrollment--|--Treatment--|
+                                          |--Data Mgmt Active-----------|
+                                                |--Interim Analysis--|
+                                                      |--CSR--|--Submit--|
+\end{verbatim}
+
+In the traditional model, many of these activities execute sequentially, with each activity
+waiting for the preceding activity to complete before beginning. The autonomous sponsor
+executes activities in parallel wherever dependency constraints permit, and the study
+orchestrator manages the dependency graph to identify and exploit every parallelization
+opportunity.
+
+The monitoring subsystem within the clinical operations agent implements the ICH E6(R3)
+principle of centralized statistical monitoring as the primary monitoring modality, with
+targeted on-site visits driven by centralized monitoring findings. The centralized monitoring
+algorithms apply statistical process control methods to detect sites that exhibit unusual
+patterns: sites with data distributions that differ significantly from the cross-site
+average, sites with temporal patterns suggesting data backfilling, sites with
+disproportionately low adverse event reporting rates, and sites with unusual patterns in
+protocol deviation classification. When centralized monitoring identifies a site requiring
+attention, the clinops agent generates a targeted monitoring plan that specifies the data
+elements to verify, the records to review, and the interviews to conduct during the site
+visit.
+
+The deviation tracking and CAPA generation subsystem categorizes protocol deviations by
+severity (critical, major, minor), determines whether each deviation represents a systemic
+or isolated issue, and generates appropriate corrective and preventive actions. For systemic
+issues (deviations that occur across multiple sites or result from protocol ambiguity), the
+agent escalates to the clinical accountability agent for potential protocol clarification or
+amendment. For site-specific issues, the agent works with the site gateway to implement
+targeted retraining, process improvements, or site-level corrective actions.
+
 The failure mode detection system operates continuously, analyzing data streams from all
 agent subsystems to identify early warning signals. When a failure mode is detected, the
 system implements the autonomous response immediately while generating an alert to the
