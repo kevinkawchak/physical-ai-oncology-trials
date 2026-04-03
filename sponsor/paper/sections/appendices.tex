@@ -512,3 +512,213 @@ The scripts directory must include a requirements.txt listing:
 fastapi>=0.100.0, uvicorn>=0.23.0, pydantic>=2.0.0
 No heavy packages (torch, mujoco, langchain, monai) may be required.
 All scripts must be self-contained with clear docstrings and type hints.]
+
+% ======================================================================
+\newpage
+\section*{Appendix F: Extended Sponsor Activity Code Instructions}
+\addcontentsline{toc}{section}{Appendix F: Extended Sponsor Activity Instructions}
+% ======================================================================
+
+This appendix provides additional code generation instructions for the Sponsor-directed
+autonomous control layer, extending the core instructions in Appendix E with agent
+coordination protocols, safety escalation workflows, and integration with the existing
+repository infrastructure.
+
+\subsection*{F.1 Agent Coordination Protocol Generator}
+
+[CLAUDE CODE INSTRUCTION: Generate the following coordination protocol scripts that
+implement the inter-agent communication patterns described in this paper:
+
+File: sponsor/paper/scripts/coordination/agent\_event\_bus.py
+Purpose: Implement the publish-subscribe event bus for inter-agent communication.
+Define event types: GATE\_TRANSITION, SAFETY\_ALERT, ENROLLMENT\_UPDATE,
+ROBOT\_STATUS, DATA\_QUALITY, REGULATORY\_DEADLINE, VENDOR\_PERFORMANCE.
+Each event carries: timestamp, source\_agent, event\_type, severity, payload dict.
+The bus routes events to subscribed agents based on event type.
+
+File: sponsor/paper/scripts/coordination/escalation\_engine.py
+Purpose: Implement the five-level escalation model:
+Level 1 (Informational): Log and continue
+Level 2 (Confirmation): Pause, peer validation, 5-min timeout
+Level 3 (Clinical): Clinician approval, 30-min timeout
+Level 4 (Regulatory): Sponsor-of-record signature, 4-hour timeout
+Level 5 (Safety-critical): Mandatory human, no timeout
+Input: decision context, confidence score, decision type
+Output: escalation level, required approvals, timeout setting
+
+File: sponsor/paper/scripts/coordination/gate\_transition\_manager.py
+Purpose: Implement the seven-gate decision framework transitions.
+For each gate: evaluate go-criteria, compute KPI scores,
+determine gate outcome (advance/conditional/hold/terminate).
+Input: gate ID (1-7), program data, KPI values
+Output: gate decision, rationale, next actions, escalation if needed
+
+All files must pass ruff lint. Process source data from new-trial/ directories.]
+
+\subsection*{F.2 Safety Escalation Workflow for Robotic Procedures}
+
+[CLAUDE CODE INSTRUCTION: Generate safety workflow scripts that implement the robotic
+procedure safety monitoring described in Section 5 and Section 10:
+
+File: sponsor/paper/scripts/safety/robotic\_safety\_workflow.py
+Purpose: Implement the four-category robotic safety event classification:
+Category A (No deviation): Log and archive
+Category B (Minor): Log, continue, increase monitoring
+Category C (Significant): Pause procedure, notify clinician
+Category D (Critical): Immediate halt, emergency protocol
+Input: robot telemetry stream (force, position, status)
+Output: safety classification, response actions, incident report
+
+File: sponsor/paper/scripts/safety/procedure\_authorization.py
+Purpose: Implement the four-gate safety gate protocol:
+Gate 1: Patient verification (consent, identity)
+Gate 2: System readiness (calibration, instruments, alarms)
+Gate 3: Parameter validation (safety envelopes, digital twin)
+Gate 4: Clinical authorization (Tier 2/3 clinician sign-off)
+Input: procedure request, patient ID, robot ID, procedure type
+Output: gate results (pass/fail per gate), authorization token
+
+File: sponsor/paper/scripts/safety/telemetry\_monitor.py
+Purpose: Continuous telemetry monitoring for all robot categories.
+Track force/torque, position deviation, communication status.
+Implement graduated warnings: advisory, caution, halt.
+Input: real-time telemetry data stream
+Output: monitoring status, alarm events, safety classifications
+
+Source reference: new-trial/hour-XX/hour\_XX\_robot\_logs.md for telemetry patterns.
+All 10 robot categories must be supported with category-specific thresholds.]
+
+\subsection*{F.3 Sponsor Decision Analytics Dashboard}
+
+[CLAUDE CODE INSTRUCTION: Generate a terminal-based analytics dashboard:
+
+File: sponsor/paper/scripts/dashboard/sponsor\_dashboard.py
+Purpose: Display real-time sponsor activity metrics in terminal format.
+Must work without external GUI dependencies (pure terminal output).
+Sections: Active agents, Decision queue, Escalation status,
+Robot authorization pipeline, Patient flow, PSL trend.
+Refresh interval: configurable (default 60 seconds).
+Data source: FastAPI endpoints from E.1 or direct JSON from E.2.
+
+File: sponsor/paper/scripts/dashboard/report\_generator.py
+Purpose: Generate formatted markdown reports of sponsor activity.
+Reports: Hourly summary, daily summary, agent performance,
+safety event log, escalation audit trail, robot utilization.
+Output: sponsor/paper/scripts/output/reports/
+Format: Markdown files with embedded text tables.
+
+All scripts must work with Python 3.10+ standard library plus FastAPI/Pydantic.
+Must pass ruff lint with repository configuration.]
+
+\subsection*{F.4 Cumulative 24-Hour Sponsor Summary Diagrams}
+
+The following three text diagrams provide cumulative 24-hour views of Sponsor activity,
+synthesizing the 72 hourly diagrams generated by the scripts in Appendix E.3.
+
+\textbf{Cumulative Diagram 1: 24-Hour Sponsor Decision Timeline}
+
+\begin{verbatim}
++--------------------------------------------------------------+
+|  24-HOUR SPONSOR DECISION TIMELINE (Cumulative)             |
++--------------------------------------------------------------+
+| Hr | Decisions | Escalations | Robot Auth | Patients | PSL  |
++----+-----------+-------------+------------+----------+------+
+| 00 |     12    |      0      |      3     |     3    | 63.4 |
+| 01 |     12    |      0      |      4     |     4    | 63.5 |
+| 02 |     12    |      0      |      3     |     3    | 63.5 |
+| 03 |     12    |      0      |      2     |     2    | 63.6 |
+| 04 |     12    |      0      |      3     |     3    | 63.6 |
+| 05 |     12    |      1      |      5     |     5    | 63.7 |
+| 06 |     12    |      1      |      8     |     8    | 63.8 |
+| 07 |     12    |      1      |     10     |    10    | 63.9 |
+| 08 |     12    |      2      |     12     |    12    | 64.0 |
+| 09 |     12    |      2      |     15     |    15    | 64.1 |
+| 10 |     12    |      1      |     12     |    12    | 64.2 |
+| 11 |     12    |      1      |     10     |    10    | 64.2 |
+| 12 |     12    |      1      |      8     |     8    | 64.3 |
+| 13 |     12    |      1      |      9     |     9    | 64.3 |
+| 14 |     12    |      1      |     10     |    10    | 64.4 |
+| 15 |     12    |      1      |      8     |     8    | 64.4 |
+| 16 |     12    |      1      |      7     |     7    | 64.5 |
+| 17 |     12    |      0      |      6     |     6    | 64.5 |
+| 18 |     12    |      0      |      5     |     5    | 64.6 |
+| 19 |     12    |      0      |      4     |     4    | 64.6 |
+| 20 |     12    |      0      |      3     |     3    | 64.7 |
+| 21 |     12    |      0      |      3     |     3    | 64.7 |
+| 22 |     12    |      0      |      2     |     2    | 64.7 |
+| 23 |     12    |      0      |      2     |     2    | 64.8 |
++----+-----------+-------------+------------+----------+------+
+| SUM|    288    |     13      |    153     |   153    | 64.8 |
++--------------------------------------------------------------+
+\end{verbatim}
+
+\textbf{Cumulative Diagram 2: 24-Hour Agent Utilization Heatmap}
+
+\begin{verbatim}
++--------------------------------------------------------------+
+|  24-HOUR AGENT UTILIZATION (Tasks per Hour - Heatmap)       |
++--------------------------------------------------------------+
+| Agent             | Night(0-5) | Morning(6-11) | Afternoon  |
+|                   |            |               | (12-17)    |
++-------------------+------------+---------------+------------+
+| portfolio_agent   |  LOW (2)   |  MED (4)      |  MED (3)   |
+| asset_lead_agent  |  LOW (1)   |  MED (3)      |  LOW (2)   |
+| clinical_account  |  LOW (2)   |  HIGH (8)     |  MED (6)   |
+| study_orchestrator|  MED (8)   |  HIGH (18)    |  HIGH (15) |
+| clinops_agent     |  LOW (3)   |  HIGH (12)    |  MED (9)   |
+| safety_agent      |  LOW (2)   |  HIGH (10)    |  MED (7)   |
+| regulatory_agent  |  LOW (1)   |  MED (3)      |  LOW (2)   |
+| quality_agent     |  LOW (2)   |  MED (5)      |  MED (4)   |
+| supply_agent      |  LOW (2)   |  MED (6)      |  MED (5)   |
+| data_biostats     |  LOW (3)   |  MED (7)      |  MED (6)   |
+| site_gateway      |  MED (5)   |  HIGH (14)    |  HIGH (11) |
+| robot_exec_gw     |  LOW (3)   |  HIGH (15)    |  HIGH (10) |
++-------------------+------------+---------------+------------+
+| Agent             | Evening(18-23) | 24h Total  | Peak Hour  |
++-------------------+----------------+------------+------------+
+| portfolio_agent   |  LOW (2)       |     11     | Hour 09    |
+| asset_lead_agent  |  LOW (1)       |      7     | Hour 08    |
+| clinical_account  |  MED (4)       |     20     | Hour 09    |
+| study_orchestrator|  MED (10)      |     51     | Hour 09    |
+| clinops_agent     |  MED (5)       |     29     | Hour 09    |
+| safety_agent      |  LOW (3)       |     22     | Hour 09    |
+| regulatory_agent  |  LOW (1)       |      7     | Hour 10    |
+| quality_agent     |  LOW (2)       |     13     | Hour 08    |
+| supply_agent      |  LOW (3)       |     16     | Hour 09    |
+| data_biostats     |  LOW (3)       |     19     | Hour 10    |
+| site_gateway      |  MED (6)       |     36     | Hour 09    |
+| robot_exec_gw     |  LOW (4)       |     32     | Hour 09    |
++-------------------+----------------+------------+------------+
+\end{verbatim}
+
+\textbf{Cumulative Diagram 3: 24-Hour Safety and Escalation Summary}
+
+\begin{verbatim}
++--------------------------------------------------------------+
+|  24-HOUR SAFETY AND ESCALATION SUMMARY                      |
++--------------------------------------------------------------+
+| Escalation Level | Count | Agent Source     | Resolution     |
++------------------+-------+-----------------+----------------+
+| Level 1 (Info)   |  275  | All agents      | Auto-logged    |
+| Level 2 (Confirm)|    8  | clinops, safety | Peer validated |
+| Level 3 (Clinical)|   3  | safety, robot_gw| Clinician OK   |
+| Level 4 (Reg.)   |    2  | regulatory      | SoR signed     |
+| Level 5 (Safety) |    0  | (none triggered)| N/A            |
++------------------+-------+-----------------+----------------+
+| Robot Safety Events:                                         |
+| Category A (Normal)    : 146 procedures                      |
+| Category B (Minor dev.):   5 events, all self-corrected      |
+| Category C (Significant):  2 events, clinician resumed       |
+| Category D (Critical)  :   0 events                          |
++--------------------------------------------------------------+
+| Adverse Events: 7 total (4.2% rate)                          |
+|   - Drug-related: 4 (Grade 1-2, expected)                    |
+|   - Procedure-related: 2 (Category B, self-resolved)         |
+|   - Unrelated: 1 (pre-existing condition)                    |
+| All adverse events managed successfully. Zero SAEs.          |
++--------------------------------------------------------------+
+| PSL Trend: 63.4 (Hour 00) -> 64.8 (Hour 23)                |
+| Improvement: +1.4 points over 24 hours                       |
+| Classification: Advanced Site (maintained throughout)         |
++--------------------------------------------------------------+
+\end{verbatim}
