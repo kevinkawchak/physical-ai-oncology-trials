@@ -1,0 +1,142 @@
+% ======================================================================
+% SECTION 7: AUTONOMOUS QUALITY ASSURANCE AND COMPLIANCE
+% File: sections/quality_compliance.tex
+% ======================================================================
+
+Quality assurance and compliance provide the foundation for regulatory inspection readiness
+and operational integrity across all autonomous sponsor functions. ICH E6(R3) introduced
+quality-by-design as a fundamental principle, requiring sponsors to prospectively identify
+factors critical to trial quality and implement proportionate quality management systems
+\cite{ich-e6r3}. The autonomous quality system operationalizes these requirements through
+a dedicated quality agent, a risk-based quality management engine, and electronic systems
+governance that ensures 21 CFR Part 11 compliance \cite{cfr-part-11} for all agent-generated
+records and decisions.
+
+\subsection{Quality Agent}
+
+The quality agent (quality\_agent) replaces the quality assurance and compliance team. It
+automates SOP enforcement, CAPA lifecycle management, audit readiness assessment, change
+control workflows, and validation evidence generation. Under ICH E6(R3), the sponsor cannot
+delegate accountability for the quality management system even when specific quality
+activities are performed by CROs or technology vendors \cite{ich-e6r3}. The quality agent
+embodies this non-delegable accountability.
+
+SOP enforcement operates through automated compliance checking. The agent maintains a
+repository of all applicable standard operating procedures and continuously verifies that
+operational activities conform to procedural requirements. Deviations are detected
+through comparison of actual process execution (documented through audit trail entries
+from all agents) against the expected process defined in the SOP. When deviations are
+detected, they are classified by severity (critical, major, minor) and routed to
+appropriate corrective action workflows.
+
+CAPA lifecycle management automates the corrective and preventive action process from
+identification through effectiveness verification. Root cause analysis uses structured
+methods (five-why analysis, fishbone diagrams, failure mode and effects analysis) to
+identify underlying causes of quality events. Corrective actions are assigned with
+defined completion timelines and tracked to closure. Effectiveness verification occurs
+at a defined interval after corrective action implementation to confirm that the action
+resolved the identified issue.
+
+Audit readiness scoring provides a continuous assessment of the organization's preparedness
+for regulatory inspection. The agent evaluates readiness across inspection domains: essential
+document completeness, audit trail integrity, SOP currency, training documentation, vendor
+oversight evidence, safety reporting compliance, and data integrity indicators. A composite
+readiness score is computed and reported to the study orchestrator. When the readiness score
+drops below the target threshold, the agent generates prioritized remediation recommendations.
+
+\subsection{Risk-Based Quality Management}
+
+Risk-Based Quality Management (RBQM) implements the ICH E6(R3) requirement for
+proportionate quality oversight through Quality Tolerance Limits and Key Risk Indicators.
+Table~\ref{tab:qtl-kri} presents the QTL/KRI framework for the autonomous sponsor.
+
+\begin{longtable}{L{1.8cm} L{2.5cm} L{2.5cm} L{1.8cm} L{3.0cm}}
+\caption{QTL/KRI Framework for Autonomous Sponsor}
+\label{tab:qtl-kri} \\
+\toprule
+\textbf{Quality Domain} & \textbf{QTL Definition} & \textbf{KRI Metric} & \textbf{Threshold} & \textbf{Agent Response} \\
+\midrule
+\endfirsthead
+\toprule
+\textbf{Quality Domain} & \textbf{QTL Definition} & \textbf{KRI Metric} & \textbf{Threshold} & \textbf{Agent Response} \\
+\midrule
+\endhead
+\midrule
+\multicolumn{5}{r}{\textit{Continued on next page}} \\
+\endfoot
+\bottomrule
+\endlastfoot
+Informed consent & All subjects must have valid, current consent before any study procedure & Consent compliance rate by site & $<$ 100\% triggers investigation & Immediate site contact, root cause analysis, re-consent if required \\
+SAE reporting timeliness & All SAEs reported within 24 hours of site awareness & Median hours from awareness to initial report & Warning at $>$ 12 hours, action at $>$ 24 hours & Automated escalation to safety agent and sponsor-of-record \\
+Protocol deviation rate & Protocol deviations must not exceed acceptable rate & Major deviation rate per 100 subject-visits & Warning at $>$ 3\%, action at $>$ 5\% & Site-level root cause analysis, targeted retraining \\
+Data entry timeliness & CRF pages entered within defined window of visit & Median days from visit to CRF completion & Warning at $>$ 5 days, action at $>$ 10 days & Automated query generation, site performance review \\
+Query resolution cycle & Data queries resolved within target timeline & Median days from query opening to resolution & Warning at $>$ 7 days, action at $>$ 14 days & Escalation to site, CRO oversight review \\
+Monitoring visit completion & Risk-based monitoring visits completed per plan & Percentage of planned visits completed on schedule & Warning at $<$ 90\%, action at $<$ 80\% & Schedule rebalancing, resource reallocation \\
+IMP accountability & All IMP units tracked from receipt to disposition & Percentage of IMP with complete chain of custody & $<$ 100\% triggers investigation & Supply agent investigation, site inventory audit \\
+\end{longtable}
+
+Centralized statistical monitoring applies statistical methods to accumulating trial data
+to detect unusual patterns that may indicate quality problems at specific sites. The quality
+agent implements Bayesian hierarchical models that estimate expected data distributions
+across sites and flag sites whose data patterns deviate significantly from the cross-site
+norm. Monitored patterns include within-site data variability (unusually low variability
+may indicate data fabrication), digit preference in laboratory and vital sign measurements,
+temporal patterns in data entry (bulk data entry may indicate delayed recording), and
+correlation structures between related variables.
+
+\subsection{Electronic Systems Governance}
+
+Electronic systems governance ensures that all autonomous agent operations produce records
+compliant with 21 CFR Part 11 \cite{cfr-part-11} and the EMA guideline on computerized
+systems used in clinical trials. Every agent decision, data transformation, and communication
+generates an electronic record with the required attributes: system-generated timestamp, user
+(agent) identification, action description, previous value and new value for data
+modifications, and reason for change where applicable.
+
+Table~\ref{tab:electronic-systems} presents the electronic systems validation matrix.
+
+\begin{longtable}{L{2.0cm} L{2.0cm} L{2.0cm} L{3.0cm} L{2.6cm}}
+\caption{Electronic Systems Validation Matrix}
+\label{tab:electronic-systems} \\
+\toprule
+\textbf{System} & \textbf{Regulation} & \textbf{Validation Level} & \textbf{Evidence Required} & \textbf{Agent Owner} \\
+\midrule
+\endfirsthead
+\toprule
+\textbf{System} & \textbf{Regulation} & \textbf{Validation Level} & \textbf{Evidence Required} & \textbf{Agent Owner} \\
+\midrule
+\endhead
+\midrule
+\multicolumn{5}{r}{\textit{Continued on next page}} \\
+\endfoot
+\bottomrule
+\endlastfoot
+Agent Decision Engine & 21 CFR Part 11, ICH E6(R3) & Full (GxP Critical) & IQ/OQ/PQ documentation, algorithm validation, audit trail verification & quality\_agent \\
+EDC System & 21 CFR Part 11, EMA Annex 11 & Full (GxP Critical) & System validation, data integrity testing, access control verification & data\_biostats\_agent \\
+Safety Database & 21 CFR Part 11, ICH E2B(R3) & Full (GxP Critical) & ICSR validation, signal detection algorithm verification, transmission testing & safety\_agent \\
+IRT System & 21 CFR Part 11 & Full (GxP Critical) & Randomization validation, supply allocation testing, unblinding controls & supply\_agent \\
+Robot Telemetry System & 21 CFR Part 11, adapted 21 CFR 312 & Full (GxP Critical) & Sensor calibration, data integrity, emergency stop validation & robot\_execution\_gateway \\
+Document Management & 21 CFR Part 11, ICH E6(R3) & Standard & Access controls, version management, audit trail & writing\_disclosure\_agent \\
+Communication System & ICH E6(R3) & Standard & Message integrity, delivery confirmation, retention & study\_orchestrator \\
+\end{longtable}
+
+Audit trail integrity verification ensures that the complete decision history of every agent
+is preserved in a tamper-evident format. The quality agent periodically verifies audit trail
+integrity by computing cryptographic hashes of stored records and comparing them against
+reference hashes maintained in the trust layer (\S\ref{sec:trust}). Any detected integrity
+violation triggers an immediate investigation with notification to the sponsor-of-record.
+
+Electronic signature management handles the sponsor-of-record approvals required at
+mandatory human gates. Each electronic signature complies with 21 CFR Part 11 requirements:
+the signature includes the printed name of the signer, the date and time of signing, and the
+meaning of the signature (such as review, approval, or responsibility). Electronic
+signatures are linked to their respective electronic records such that the records cannot
+be altered without invalidating the signature.
+
+The Computer Software Assurance (CSA) approach, replacing the traditional Computer System
+Validation (CSV) methodology, provides a risk-based validation framework for the autonomous
+sponsor software. Critical thinking and risk assessment determine the level of validation
+evidence required for each system component. GxP-critical components (those that directly
+affect patient safety, data integrity, or product quality) receive full validation with
+scripted testing. Supporting components receive verification through unscripted testing and
+operational qualification.
