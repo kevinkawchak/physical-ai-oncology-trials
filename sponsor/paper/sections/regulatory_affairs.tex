@@ -94,6 +94,25 @@ requirements for clinical trials of investigational medicinal products. The regu
 maintains UK-specific regulatory intelligence and generates UK-compliant documents when
 UK sites are included in the trial.
 
+The eCTD lifecycle management extends beyond initial filing to encompass the ongoing
+maintenance of the regulatory dossier throughout the trial lifecycle. Each protocol
+amendment triggers an eCTD sequence update. Each new safety report generates an IND
+safety report sequence. Manufacturing changes produce CMC supplement sequences. The
+regulatory agent maintains the complete eCTD sequence history, ensuring that the
+cumulative dossier accurately reflects the current state of the program at any point in
+time. This eCTD lifecycle management is essential for RTOR (Real-Time Oncology Review),
+which requires the submission of individual eCTD modules as they become available rather
+than waiting for the complete application.
+
+The EU CTIS requirements represent a particularly complex automation challenge because the
+system requires structured data entry (not document upload) for many application elements.
+The regulatory agent maps the protocol content, investigator information, and site details
+to CTIS data fields, validates the data against CTIS business rules before submission, and
+manages the parallel assessment process across member states. The Part I (common assessment)
+and Part II (member state-specific assessment) workflows are tracked independently, with
+cross-referencing to ensure consistency between the common and member state-specific
+elements.
+
 CDISC standards compliance \cite{cdisc-sdtm, cdisc-adam} ensures that all submission
 datasets meet FDA standardized study data requirements. The agent validates SDTM domains
 and ADaM datasets against current implementation guides and generates Define.xml metadata

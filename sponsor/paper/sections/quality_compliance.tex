@@ -158,3 +158,24 @@ evidence required for each system component. GxP-critical components (those that
 affect patient safety, data integrity, or product quality) receive full validation with
 scripted testing. Supporting components receive verification through unscripted testing and
 operational qualification.
+
+The quality agent also manages the interface between the autonomous sponsor and external
+auditors (FDA inspectors, EMA GCP inspectors, sponsor-initiated auditors). When an
+inspection or audit is announced, the agent generates an inspection readiness package that
+includes the current audit readiness score, any open CAPA items, recent quality trends,
+and the complete documentation index. During the inspection, the agent provides real-time
+document retrieval capabilities: inspectors can request any specific document by type,
+date range, or subject, and the agent retrieves the relevant records from the quality
+management system within seconds. This real-time retrieval capability replaces the
+traditional multi-day document gathering process that typically precedes regulatory
+inspections.
+
+For Physical AI-specific quality considerations, the quality agent evaluates robotic system
+calibration records, procedure provenance completeness, and safety gate compliance as
+additional quality domains. These domains have no precedent in traditional clinical trial
+quality management and require purpose-built quality metrics. Robotic calibration quality
+is assessed through calibration frequency compliance, calibration result trending, and
+post-calibration verification success rates. Procedure provenance quality is assessed
+through completeness of telemetry capture, accuracy of state transition documentation, and
+integrity of the provenance chain from procedure initiation through documentation
+finalization.
