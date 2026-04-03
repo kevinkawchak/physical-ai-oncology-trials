@@ -151,6 +151,23 @@ investigators, IRBs, and regulatory authorities), maintenance (version control a
 amendment tracking), and archival (transfer to long-term archive with integrity
 verification).
 
+The archiving system implements role-based access controls that distinguish between
+archive administrators (who manage the archive infrastructure), archive users (who
+retrieve records for regulatory inspection or legal proceedings), and archive auditors
+(who verify archive integrity and completeness). The EU CTR requirement for
+sponsor-appointed archive persons is satisfied through the designation of specific
+human individuals who hold archive administrator credentials and bear accountability
+for archive integrity throughout the 25-year retention period.
+
+The transition from active trial to archived trial follows a defined closeout procedure.
+Upon completion of all regulatory submissions and disclosure obligations, the quality
+agent initiates the archival process: active system data is migrated to the archive
+(with integrity verification at each step), active system access is restricted to
+read-only mode, the archived data is verified against the active system to confirm
+completeness, and the active system is decommissioned after successful archive
+verification. The entire closeout process generates audit trail documentation that
+becomes part of the archived record.
+
 Digital preservation implements three strategies to ensure long-term accessibility:
 format standardization (all documents archived in open formats: PDF/A-3 for documents
 with embedded attachments, XML for structured data, CSV for tabular datasets), media
