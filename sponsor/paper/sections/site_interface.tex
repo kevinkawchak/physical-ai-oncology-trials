@@ -1,0 +1,155 @@
+% ======================================================================
+% SECTION 11: SITE INTERFACE LAYER AND INVESTIGATOR COORDINATION
+% File: sections/site_interface.tex
+% ======================================================================
+
+The site interface layer manages all interactions between the autonomous sponsor and the
+physical trial sites where patients are enrolled and treated. Traditional sponsors interact
+with sites through clinical research associates, medical monitors, and project managers;
+the autonomous sponsor replaces these interactions with the site gateway agent, which
+provides standardized interfaces for site qualification, investigator coordination, systems
+integration, and patient-facing services. The site interface must accommodate both the
+conventional clinical trial activities (consent, data collection, monitoring visits) and
+the Physical AI-specific activities (robotic system authorization, digital twin
+synchronization, and telemetry data exchange).
+
+\subsection{Site Gateway}
+
+The site gateway (site\_gateway) manages all sponsor-to-site interactions through a unified
+interface. Site qualification and readiness assessment uses the Physical AI Standard Level
+(PSL) framework \cite{national-platform-paper} to evaluate sites across three dimensions:
+Legislative compliance (conformance with legislation authorization, patient rights, and
+data transparency requirements), Regulatory compliance (conformance with building codes,
+premises codes, parking and transportation requirements, site operations, and emergency
+preparedness standards), and Operational readiness (staff competency, system availability,
+and infrastructure capability).
+
+The 11-document site establishment package \cite{site-docs} provides the foundation for
+site readiness assessment. Each document category maps to specific PSL scoring criteria:
+legislation authorization, patient rights legislation, data transparency legislation,
+city regulations, state regulations, national regulations (FDA), building code, premises
+code, parking and transportation, site operations, and emergency preparedness. Sites must
+achieve passing scores across all PSL dimensions before activation for trial participation.
+
+Training module delivery automates the investigator and site staff training required before
+trial participation. The gateway generates role-specific training curricula: investigators
+receive protocol training, GCP training, and Physical AI system orientation; research
+coordinators receive protocol procedures training, EDC training, and safety reporting
+training; pharmacy staff receive IMP handling and robotic pharmacy interface training;
+nursing staff receive patient care procedures and decentralized visit support training.
+Competency assessments verify training effectiveness, with automated retraining triggers
+when competency scores fall below thresholds.
+
+Scheduling and resource allocation optimizes the use of limited trial site resources:
+robotic system time, treatment room availability, imaging equipment, pharmacy preparation
+capacity, and clinical staff availability. The gateway generates optimized schedules that
+minimize patient wait times while maximizing resource utilization. For the 24-hour
+simulation, this scheduling approach achieved an average patient wait time of 12 minutes
+from arrival to procedure start across 168 patients \cite{main-repo}.
+
+\subsection{Investigator Interface}
+
+The investigator interface provides the principal investigator and sub-investigators with
+visibility into and control over the trial activities at their site. Protocol training and
+certification automation delivers interactive protocol training, assesses comprehension
+through structured assessments, and maintains certification records. Annual recertification
+is triggered automatically with updated content reflecting protocol amendments and new
+safety information.
+
+Delegation of authority log management maintains the electronic record of which trial
+activities each investigator and qualified staff member is authorized to perform.
+Delegation updates are processed through the site gateway with electronic signatures from
+the principal investigator. The system prevents task assignment to staff without current
+delegation authority and training certification.
+
+Medical monitoring communication channels provide structured pathways for investigators to
+consult with the clinical accountability agent on medical questions arising during trial
+conduct. Urgent clinical questions (patient safety, eligibility exceptions, dose
+modifications) receive immediate routing with defined response timelines. Non-urgent
+questions enter a standard queue with periodic batch review.
+
+The investigator oversight dashboard provides real-time visibility into site-level trial
+metrics: enrollment status, data quality indicators, safety event summary, query status,
+and monitoring visit findings. The dashboard enables investigators to exercise their
+ICH E6(R3) responsibility for the conduct of the trial at their site while the autonomous
+sponsor manages operational coordination.
+
+\subsection{Site Systems Integration}
+
+Site systems integration connects the autonomous sponsor with the clinical information
+systems operating at each trial site. Table~\ref{tab:site-systems} presents the
+integration matrix.
+
+\begin{longtable}{L{1.8cm} L{1.5cm} L{2.0cm} L{1.5cm} L{2.5cm} L{2.2cm}}
+\caption{Site Systems Integration Matrix}
+\label{tab:site-systems} \\
+\toprule
+\textbf{System} & \textbf{Protocol} & \textbf{Data Type} & \textbf{Direction} & \textbf{Agent Handler} & \textbf{Security} \\
+\midrule
+\endfirsthead
+\toprule
+\textbf{System} & \textbf{Protocol} & \textbf{Data Type} & \textbf{Direction} & \textbf{Agent Handler} & \textbf{Security} \\
+\midrule
+\endhead
+\midrule
+\multicolumn{6}{r}{\textit{Continued on next page}} \\
+\endfoot
+\bottomrule
+\endlastfoot
+EHR & FHIR R4 & Demographics, history, labs, vitals, medications & Bidirectional & data\_biostats\_agent, site\_gateway & TLS 1.3, OAuth 2.0, SMART on FHIR \\
+PACS & DICOM & Imaging studies (CT, MRI, PET, X-ray) & Inbound & data\_biostats\_agent & TLS 1.3, DICOM TLS \\
+LIS & HL7 v2 & Laboratory orders and results & Bidirectional & data\_biostats\_agent & TLS 1.3, HL7 security \\
+Pharmacy & Custom API & IMP inventory, orders, dispensing records & Bidirectional & supply\_agent & TLS 1.3, mutual TLS \\
+MCP Server & MCP protocol & Structured tool invocations and responses & Bidirectional & All agents via MCP client & MCP authentication \\
+Robot Systems & ROS/API & Telemetry, commands, status & Bidirectional & robot\_execution\_gateway & TLS 1.3, certificate pinning \\
+\end{longtable}
+
+Table~\ref{tab:site-readiness} presents the site readiness assessment criteria.
+
+\begin{longtable}{L{2.0cm} L{3.0cm} L{2.2cm} L{1.5cm} L{3.0cm}}
+\caption{Site Readiness Assessment Criteria (PSL-Based)}
+\label{tab:site-readiness} \\
+\toprule
+\textbf{Category} & \textbf{Criterion} & \textbf{Scoring Method} & \textbf{Minimum} & \textbf{Evidence Required} \\
+\midrule
+\endfirsthead
+\toprule
+\textbf{Category} & \textbf{Criterion} & \textbf{Scoring Method} & \textbf{Minimum} & \textbf{Evidence Required} \\
+\midrule
+\endhead
+\midrule
+\multicolumn{5}{r}{\textit{Continued on next page}} \\
+\endfoot
+\bottomrule
+\endlastfoot
+Legislative & Trial authorization and patient rights compliance & Pass/fail per PSL legislative dimension & Pass all & Signed legislation compliance attestation \\
+Regulatory & Building, premises, and operational code compliance & Pass/fail per PSL regulatory dimension & Pass all & Inspection certificates, compliance documentation \\
+Infrastructure & Robotic system installation, calibration, and qualification & USL scoring per robot category & $\geq$ 75.0 & Calibration records, qualification protocols \\
+IT Systems & EHR, PACS, LIS connectivity and data exchange validation & Integration testing pass rate & $\geq$ 95\% & Integration test reports, data flow verification \\
+Staff & Investigator and staff training and competency & Assessment scores by role & $\geq$ 80\% & Training certificates, competency assessments \\
+Safety & Emergency preparedness and safety system validation & Emergency drill completion and safety gate testing & Pass all & Drill reports, safety system validation records \\
+\end{longtable}
+
+\subsection{Patient-Facing Interface}
+
+The patient-facing interface manages the trial participant experience from initial contact
+through study completion. eConsent platform management delivers the electronic informed
+consent process in compliance with FDA eConsent guidance \cite{fda-econsent} and the adapted
+21 CFR Part 50 requirements for Physical AI procedures \cite{cfr50-adapt}. The consent
+interface presents trial information in an accessible format, provides interactive elements
+for patient education about robotic procedures, captures comprehension verification, and
+records electronic consent signatures.
+
+Patient scheduling automation coordinates trial visits with the site scheduling system and
+the robot execution gateway to ensure that required resources (clinical staff, treatment
+rooms, robotic systems, imaging equipment) are available for each patient visit. The
+scheduling system manages protocol-defined visit windows, optimizes appointment clustering
+to reduce patient travel burden, and accommodates patient preferences where protocol
+flexibility permits.
+
+Electronic patient-reported outcome collection deploys validated instruments through
+mobile and web platforms. The agent configures instrument deployment schedules aligned
+with the protocol assessment windows, monitors completion rates, generates reminders for
+overdue assessments, and flags clinically significant responses for clinical review.
+Patient-reported safety data integrates with the safety agent (\S\ref{sec:safety}) for
+continuous safety monitoring between site visits.
