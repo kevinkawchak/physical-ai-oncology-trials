@@ -151,6 +151,25 @@ Final product labeling & Franka Emika cobot & Label content verification against
 Dispensing and handoff & Franka Emika cobot & Patient identity verification before release & Pharmacist or clinician sign-off & Recipient ID, handoff time, condition \\
 \end{longtable}
 
+The integration of robotic pharmacy systems with the supply chain creates new opportunities
+for dose preparation accuracy and traceability. In traditional pharmacy operations, dose
+preparation errors occur at a rate estimated at 1 to 5 percent, with the most common errors
+being incorrect dose calculation, wrong drug selection, and incorrect diluent volume. The
+robotic pharmacy system addresses these error modes through algorithmic dose calculation
+(eliminating mental arithmetic errors), barcode-verified drug selection (eliminating
+wrong-drug errors), and precision volumetric measurement (eliminating incorrect-volume
+errors). The residual error rate for robotic preparation systems is estimated at less than
+0.1 percent, representing a significant improvement in preparation accuracy.
+
+The supply chain agent coordinates the logistics for temperature-sensitive oncology drugs
+(biologics, immunotherapies, cell therapies) through end-to-end cold chain management.
+From the manufacturing facility through central warehouse, regional depot, site pharmacy,
+and robotic storage, the agent monitors temperature continuously through IoT sensors and
+maintains temperature compliance documentation for regulatory inspection. For cell
+therapies with ultra-cold storage requirements (minus 80 degrees Celsius or cryogenic
+storage), the agent manages the specialized logistics including dry ice replenishment,
+cryogenic shipper validation, and storage facility qualification.
+
 The robotic pharmacy interface manages the handoff between the supply chain agent (which
 determines what to prepare) and the robot execution gateway (which controls how the robot
 performs the preparation). This separation of concerns ensures that supply decisions and
