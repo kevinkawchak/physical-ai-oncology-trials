@@ -1,0 +1,514 @@
+%%% SECTION 8: CLINICAL TRIAL SITE ESTABLISHMENT, DOCUMENTATION %%%
+
+The Clinical Trial Site Complete Documentation \cite{site-docs} provides a
+comprehensive, ready-to-use package of eleven regulatory documents required for
+establishing the first Physical AI oncology clinical trial site in California.
+This documentation package is evidence-based, drawing from the 24-hour
+simulation that treated 168 patients with 29 robots at 99.7 percent uptime and
+zero patient harm events. The 24-hour simulation and A Cancer Patient's
+Journey, Physical AI \cite{patient-journey-paper} are pivotal completed
+examples demonstrating that state-of-the-art AI can understand, work with, and
+scale Physical AI applications beyond human and prior technology capabilities.
+
+\subsection{Overview of the Documentation Package}
+\label{subsec:site-overview}
+
+The eleven documents collectively address every aspect of trial site
+establishment, organized across four categories: state legislation (three
+bills), municipal and state regulations (two documents), federal compliance
+(one guide), physical infrastructure (three documents), and operational
+procedures (two documents). The relationship between these documents follows a
+logical hierarchy: state legislation provides the legal authorization, municipal
+and state regulations implement that authorization, federal compliance bridges
+state requirements with national standards, physical infrastructure ensures the
+built environment supports Physical AI operations, and operational procedures
+enable day-to-day trial conduct.
+
+\begin{table}[H]
+\centering
+\caption{Clinical Trial Site Documentation Package Overview}
+\label{tab:site-docs-overview}
+\small
+\begin{tabularx}{\textwidth}{c l X}
+\toprule
+\textbf{No.} & \textbf{Document} & \textbf{Purpose} \\
+\midrule
+1 & SB 1042 & Trial Authorization and Site Establishment Act \\
+2 & AB 2847 & Patient Rights and Robotic Safety Act \\
+3 & SB 892 & Data Protection and Transparency Act \\
+4 & SF Municipal Code & Municipal code updates for Physical AI trial sites \\
+5 & Title 22 Regulations & State regulations for Physical AI site operations \\
+6 & FDA Compliance Guide & National compliance bridging state and federal requirements \\
+7 & Building Code & Structural standards for Physical AI facilities \\
+8 & Premises Code & Operational space requirements for robot areas \\
+9 & Parking/Transportation & Patient logistics and accessibility standards \\
+10 & Activation SOPs & Pre-activation checklists and daily operations \\
+11 & Emergency Preparedness & Emergency response for Physical AI scenarios \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+This documentation package is more comprehensive than existing FDA site
+establishment guidance because it addresses not just regulatory compliance but
+also physical infrastructure, operational procedures, patient logistics, and
+emergency preparedness in an integrated framework designed specifically for
+Physical AI trial operations.
+
+\subsection{State Legislation for Physical AI Trial Sites}
+\label{subsec:site-legislation}
+
+\subsubsection{SB 1042: Physical AI Oncology Clinical Trial Authorization Act}
+
+SB 1042 provides the legislative framework authorizing Physical AI oncology
+clinical trial sites in California. The bill establishes findings that Physical
+AI integration into oncology clinical trials has the potential to improve
+patient outcomes, reduce treatment costs, and accelerate drug development. Key
+provisions include: authorization for qualified healthcare facilities to operate
+Physical AI systems in oncology clinical trials upon meeting specified
+conditions; establishment of a Physical AI Trial Site Certification process
+administered by the California Department of Public Health; requirements for
+ongoing monitoring and reporting of Physical AI trial outcomes to the state
+legislature; and a sunset provision requiring legislative reauthorization after
+an initial operating period.
+
+The authorization process requires demonstration of compliance with all federal
+regulatory requirements (including the three adapted standards
+\cite{ich-adapt, cfr50-adapt, cfr312-adapt}), evidence of adequate Physical AI
+system validation (including Phase 0 simulation results), qualified personnel
+with Physical AI-specific training, and adequate physical infrastructure meeting
+building and premises code requirements. This authorization framework directly
+corresponds to PSL Dimension 1 (Legislative Authorization).
+
+\subsubsection{AB 2847: Patient Rights and Robotic Safety Act}
+
+AB 2847 establishes legally enforceable patient rights specific to Physical AI
+interactions. This represents a fundamental shift of control towards the
+patient's side. The bill establishes: the right to complete information about
+all Physical AI systems involved in the patient's care, including robot type,
+manufacturer, capabilities, and safety record; the right to refuse any robotic
+procedure and receive equivalent human-delivered care; the right to request a
+pause in any active robotic procedure; the right to real-time information
+about robot operations during procedures; the right to access all data
+generated by Physical AI systems during the patient's care; the right to a
+human advocate present during all Physical AI interactions; and the right to
+file complaints about Physical AI system performance through an expedited
+review process.
+
+These rights go beyond traditional informed consent by creating affirmative
+obligations for trial sites and sponsors. A patient does not merely consent to
+robotic care; they retain ongoing, enforceable rights throughout their
+participation. Patient Instructions: Physical AI Trials
+\cite{patient-instructions-paper} implements these rights in accessible
+language for each of the ten robot types.
+
+\subsubsection{SB 892: Data Protection and Transparency Act}
+
+SB 892 addresses the unique data privacy challenges created by Physical AI
+clinical trials. The bill establishes specific protections for robot-generated
+health data including telemetry, video recordings, sensor data, and AI decision
+logs. Key provisions include: classification of Physical AI-generated data as
+protected medical information under CMIA; requirements for data minimization in
+Physical AI data collection; transparency requirements for AI decision-making
+processes that affect patient care; patient access rights for all Physical AI
+data associated with their treatment; data retention and destruction schedules
+specific to Physical AI records; and penalties for unauthorized use or
+disclosure of Physical AI trial data.
+
+\subsection{Municipal and State Regulations}
+\label{subsec:site-regulations}
+
+\subsubsection{San Francisco Municipal Code Update}
+
+The municipal code update addresses local requirements for Physical AI trial
+sites in San Francisco, covering zoning classification for Physical AI clinical
+facilities (permitted in medical and research zones with Physical AI
+supplemental use permit), permitting requirements including Physical AI-specific
+building permits, operational hours (24-hour operations permitted with noise
+mitigation for robot maintenance activities during overnight hours), community
+notification requirements (advance notice to neighboring properties when new
+Physical AI systems are deployed), and local emergency service coordination
+(fire department and emergency medical services briefed on Physical AI system
+locations and emergency procedures).
+
+\subsubsection{Title 22 Regulations}
+
+The California Code of Regulations, Title 22 requirements establish Physical AI
+oncology trial site operational standards. These regulations cover facility
+licensing standards adapted for Physical AI operations, Physical AI system
+staffing requirements including minimum operator-to-robot ratios, robot
+maintenance schedules with documented service intervals, quality assurance
+protocols for Physical AI system performance, infection control procedures for
+robot surfaces and components, patient-to-robot interaction standards, and
+data management requirements specific to Physical AI systems. Compliance with
+Title 22 requirements directly corresponds to PSL Dimension 2 (Regulatory
+Compliance).
+
+\subsection{Federal Compliance}
+\label{subsec:site-federal}
+
+\subsubsection{FDA Physical AI Oncology Trial Site National Compliance Guide}
+
+The national compliance guide bridges California-specific requirements with
+federal FDA regulations, providing a framework that can be adapted for Physical
+AI trial sites in any state. The guide establishes that sites must demonstrate
+compliance with the three adapted regulatory standards: the Adaption: ICH
+Harmonised Guideline \cite{ich-adapt} for good clinical practice, the Physical
+AI Adaption: 21 CFR Part 50 \cite{cfr50-adapt} for human subjects protection,
+and the Physical AI Adaption: 21 CFR Part 312 \cite{cfr312-adapt} for IND
+requirements.
+
+Compliance requirements include: IND submission with Physical AI System
+Description, Phase 0 simulation validation completion, IRB approval with
+Physical AI-specific review, Physical AI adverse event reporting procedures,
+electronic records compliance under 21 CFR Part 11, HIPAA \cite{hipaa}
+compliance for Physical AI-generated health data, and MCP server configuration
+meeting national interoperability standards \cite{national-mcp-paper}.
+
+\subsection{Physical Infrastructure Requirements}
+\label{subsec:site-infrastructure}
+
+\subsubsection{Building Code Standards}
+
+Building code standards address structural requirements for Physical AI trial
+facilities. Robot operations create specific building demands including
+reinforced flooring to support robot weight and dynamic forces during
+operation, power supply specifications providing dedicated circuits for robot
+charging and operation with uninterruptible power supply (UPS) backup, data
+network infrastructure supporting real-time data streaming from multiple robots
+simultaneously, HVAC requirements maintaining temperature and humidity within
+robot operational specifications, electromagnetic interference (EMI) shielding
+in areas where robot operations might affect sensitive medical equipment, and
+accessibility requirements ensuring that Physical AI trial areas comply with
+ADA standards for patients with disabilities.
+
+\clearpage
+
+\subsubsection{Premises Code}
+
+The premises code establishes requirements for the operational spaces within
+Physical AI trial facilities. Robot storage areas must provide secure,
+climate-controlled spaces for robots not in active use. Charging stations must
+be accessible to staff for routine maintenance while secured against
+unauthorized access. Maintenance bays must support robot servicing, calibration,
+and repair with appropriate tools and safety equipment. Patient interaction
+zones must be designed to accommodate robot movement paths while ensuring
+patient comfort and safety. Safety buffer zones must separate robot operational
+areas from non-trial spaces, with physical barriers and warning indicators.
+
+\subsubsection{Parking and Transportation Standards}
+
+Patient transportation logistics address the practical challenges of oncology
+patients accessing Physical AI trial sites. Requirements include accessible
+parking with spaces designated for patients with mobility limitations from
+oncology treatments, patient drop-off zones with covered areas designed for
+patients who may need wheelchair or gurney access, ride-share and medical
+transport accommodation areas, emergency vehicle access adjacent to robot
+operational areas, and wayfinding signage directing patients through Physical
+AI areas with clear, non-technical language. Patient convenience is a key
+benefit of Physical AI trials, and these infrastructure standards minimize
+patient burden while ensuring comfortable, accessible facilities.
+
+\subsection{Operational Procedures}
+\label{subsec:site-operations}
+
+\subsubsection{Activation and Standard Operating Procedures}
+
+The activation process follows a structured protocol. The pre-activation
+checklist covers building inspection completion, equipment installation
+verification, staff training certification, communication system testing, safety
+system verification, PSL score calculation and verification, and formal
+activation decision by the site director. Daily operations SOPs cover robot
+startup procedures (power-on sequence, self-test, calibration check, network
+registration), patient scheduling with Physical AI systems (coordinating robot
+availability with patient appointments), data management workflows (real-time
+data capture, quality checks, secure storage, regulatory reporting), and
+quality control checks (periodic robot performance verification during
+operations).
+
+\subsubsection{Emergency Preparedness}
+
+The emergency preparedness plan addresses Physical AI-specific emergency
+scenarios. Robot malfunction responses define escalation procedures from
+automatic pause through manual override to complete shutdown, with response
+time requirements for each level. Power failure procedures ensure safe robot
+shutdown, patient safety during power transitions, and system recovery after
+power restoration. Cybersecurity incident responses cover detection,
+containment, eradication, and recovery procedures for Physical AI system
+compromises. Natural disaster protocols address earthquake (California-specific),
+fire, and flood scenarios with Physical AI-specific considerations. Patient
+evacuation procedures account for active Physical AI systems, ensuring robots
+are safely deactivated before or during evacuation.
+
+\subsection{Evidence from the 24-Hour Simulation}
+\label{subsec:site-simulation}
+
+The evidence for Physical AI oncology trial site establishment is
+overwhelmingly based on the 24-hour simulation conducted within the Clinical
+Trial Site Complete Documentation framework \cite{site-docs}. The simulation
+demonstrated comprehensive operational capability across all eleven
+documentation areas.
+
+\begin{table}[H]
+\centering
+\caption{24-Hour Simulation Key Metrics}
+\label{tab:simulation-metrics}
+\small
+\begin{tabularx}{\textwidth}{l X}
+\toprule
+\textbf{Metric} & \textbf{Result} \\
+\midrule
+Patients treated & 168 patients across 15 cancer types \\
+Robots deployed & 29 robots across multiple categories \\
+System uptime & 99.7 percent continuous operation \\
+Patient harm events & Zero patient harm events \\
+Adverse events & 7 events documented per ICH E6(R3) \\
+Operating hours & 24 continuous hours \\
+Documentation & 72 ASCII diagrams documenting operations \\
+Regulatory coverage & Mapped to all three adapted standards \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+The simulation validated each component of the documentation package. SB 1042
+authorization requirements were tested through the certification process
+simulation. AB 2847 patient rights were exercised through simulated patient
+interactions where rights were invoked and honored. SB 892 data protection
+requirements were tested through data collection, storage, and access
+scenarios. Building and premises code requirements were validated against the
+simulated facility specifications. Activation SOPs were executed in sequence
+before simulation start. Emergency preparedness procedures were tested through
+simulated malfunction and power failure scenarios.
+
+The PSL framework scores achieved during the simulation confirmed that the
+documentation package is sufficient for real-world site establishment.
+Simulation data identified areas for refinement in several documents, leading
+to revisions that strengthened the overall package.
+
+\begin{table}[H]
+\centering
+\caption{24-Hour Simulation Robot Deployment by Category}
+\label{tab:simulation-robots}
+\small
+\begin{tabularx}{\textwidth}{l X c}
+\toprule
+\textbf{Robot Category} & \textbf{Functions Performed} & \textbf{Count} \\
+\midrule
+Surgical robots & Tumor resection, biopsy guidance & Multiple \\
+Collaborative robots & Medication prep, sample handling, positioning & Multiple \\
+RT positioning robots & Patient alignment for radiation therapy & Multiple \\
+Needle-placement robots & Biopsy and targeted drug delivery & Multiple \\
+Social companion robots & Emotional support, information delivery & Multiple \\
+Humanoid robots & Patient guidance, supply transport & Multiple \\
+RT motion-tracking robots & Real-time motion compensation & Multiple \\
+Imaging robots & Diagnostic scanning, monitoring imaging & Multiple \\
+Steerable needle robots & Complex anatomy targeting & Multiple \\
+Rehabilitation exoskeletons & Post-treatment mobility support & Multiple \\
+\midrule
+\textbf{Total} & \textbf{All Physical AI functions} & \textbf{29} \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\clearpage
+
+The 29 robots deployed in the simulation covered all ten robot categories
+documented in Patient Instructions: Physical AI Trials
+\cite{patient-instructions-paper}. Each category contributed to the overall
+99.7 percent uptime, with the seven documented adverse events distributed
+across categories and managed through the adapted ICH E6(R3) safety reporting
+procedures. No single category contributed disproportionately to adverse
+events, supporting the conclusion that the multi-robot Physical AI model is
+operationally viable.
+
+These results, combined with the single-patient journey evidence
+\cite{patient-journey-paper}, provide the empirical foundation for Physical AI
+oncology trial site establishment nationwide. The economic analysis of
+simulation results is presented in Section~\ref{sec:financial}.
+
+\subsection{Comprehensive Documentation Package Analysis}
+\label{subsec:site-docs-comprehensive}
+
+Each of the eleven documents in the Clinical Trial Site Complete Documentation
+package serves a specific regulatory function within the overall site
+establishment framework. Table~\ref{tab:site-docs-comprehensive} provides a
+detailed analysis of each document including its regulatory category, scope of
+coverage, approximate length, key provisions, and connections to the PSL
+framework dimensions.
+
+\begin{longtable}{c >{\raggedright\arraybackslash}p{4.5cm} >{\raggedright\arraybackslash}p{3cm} >{\raggedright\arraybackslash}p{6.5cm}}
+\caption{Clinical Trial Site Documentation Package: Comprehensive Analysis}
+\label{tab:site-docs-comprehensive} \\
+\toprule
+\textbf{No.} & \textbf{Document Title} & \textbf{Category} & \textbf{Provisions, PSL Connection} \\
+\midrule
+\endfirsthead
+\toprule
+\textbf{No.} & \textbf{Document Title} & \textbf{Category} & \textbf{Provisions, PSL Connection} \\
+\midrule
+\endhead
+\bottomrule
+\endfoot
+1 & SB 1042: Physical AI Oncology Clinical Trial Authorization Act & State Legislation (PSL Dim 1) & Establishes legislative authorization for Physical AI oncology trials in California. Key provisions: Physical AI Trial Site Certification process administered by CDPH; qualified healthcare facility designation criteria; ongoing monitoring and reporting requirements to state legislature; sunset provision requiring reauthorization; appropriation of funds for oversight infrastructure. Approximately 45 pages covering findings, definitions, authorization criteria, certification process, reporting, enforcement, and sunset provisions. \\
+2 & AB 2847: Patient Rights and Robotic Safety Act & State Legislation (PSL Dim 1) & Establishes legally enforceable patient rights for Physical AI interactions. Key provisions: seven enumerated patient rights (information, refusal, pause, real-time information, data access, human advocate, complaint); obligation framework for trial sites and sponsors; expedited complaint review process; penalties for rights violations; annual reporting on rights exercise patterns. Approximately 38 pages covering rights enumeration, obligation definitions, enforcement mechanisms, complaint procedures, and reporting requirements. \\
+3 & SB 892: Data Protection and Transparency Act & State Legislation (PSL Dim 1) & Addresses data privacy for Physical AI-generated health data. Key provisions: classification of Physical AI data as protected medical information under CMIA; data minimization requirements; AI decision transparency mandates; patient data access rights; retention and destruction schedules; penalties for unauthorized disclosure; cybersecurity baseline standards for Physical AI data systems. Approximately 42 pages covering data classification, protection standards, transparency requirements, patient rights, retention schedules, and enforcement provisions. \\
+4 & San Francisco Municipal Code Update & Municipal Regulation (PSL Dim 2) & Addresses local zoning and permitting for Physical AI trial sites. Key provisions: Physical AI supplemental use permit requirements for medical and research zones; 24-hour operations authorization with noise mitigation; community notification requirements for new Physical AI deployments; local emergency service coordination mandates; annual municipal inspection requirements; local tax and fee provisions. Approximately 28 pages covering zoning amendments, permit procedures, operational standards, community relations, and inspection protocols. \\
+5 & Title 22 Regulations for Physical AI Operations & State Regulation (PSL Dim 2) & Establishes state operational standards for Physical AI trial sites. Key provisions: facility licensing standards adapted for Physical AI; staffing requirements including minimum operator-to-robot ratios (1:3 for Tier 1, 1:1 for Tier 2, 2:1 for Tier 3); maintenance schedules with documented service intervals; quality assurance protocols; infection control procedures for robot surfaces; patient-to-robot interaction standards; data management requirements. Approximately 52 pages covering licensing, staffing, maintenance, quality, infection control, interaction standards, and data management. \\
+6 & FDA Physical AI Oncology Trial Site National Compliance Guide & Federal Compliance (PSL Dim 2) & Bridges California-specific and federal requirements. Key provisions: compliance mapping to all three adapted regulatory standards (ICH E6(R3), 21 CFR Part 50, 21 CFR Part 312); IND submission checklist with Physical AI System Description requirements; Phase 0 simulation validation acceptance criteria; IRB Physical AI review checklist; adverse event reporting procedures with category-specific workflows; 21 CFR Part 11 electronic records compliance for Physical AI data; HIPAA compliance for Physical AI-generated health information; MCP server configuration standards. Approximately 65 pages covering regulatory mapping, submission checklists, validation criteria, review procedures, reporting workflows, and compliance standards. \\
+7 & Building Code Standards for Physical AI Facilities & Infrastructure (PSL Dim 3) & Addresses structural requirements for Physical AI operations. Key provisions: reinforced flooring specifications (minimum load rating based on heaviest robot plus dynamic force multiplier); dedicated electrical circuits for robot charging and operation with UPS backup requirements; data network infrastructure specifications (minimum bandwidth, latency, redundancy); HVAC requirements for robot operational temperature and humidity ranges; EMI shielding standards for areas where robot operations may affect sensitive medical equipment; ADA accessibility compliance for Physical AI trial areas. Approximately 35 pages covering structural, electrical, network, environmental, shielding, and accessibility standards. \\
+8 & Premises Code for Physical AI Operational Spaces & Infrastructure (PSL Dim 3) & Establishes operational space requirements. Key provisions: robot storage area specifications (secure, climate-controlled, fire-rated); charging station requirements (accessible to staff, secured against unauthorized access, ventilated for heat dissipation); maintenance bay specifications (tools, safety equipment, diagnostic systems, clean room capability for surgical robot maintenance); patient interaction zone design standards (movement paths, comfort, sight lines, emergency egress); safety buffer zone specifications (physical barriers, warning indicators, access control, sensor-monitored boundaries). Approximately 30 pages covering storage, charging, maintenance, interaction, and buffer zone standards. \\
+9 & Parking and Patient Transportation Standards & Infrastructure (PSL Dim 3) & Addresses patient access logistics. Key provisions: accessible parking space requirements (minimum count, proximity to entrance, shelter coverage); patient drop-off zone design for wheelchair and gurney access; ride-share and medical transport accommodation areas; emergency vehicle access routes adjacent to Physical AI operational areas; wayfinding signage specifications using plain language and universal symbols; patient transportation assistance protocols; valet and assisted parking options for patients with treatment-related mobility limitations. Approximately 22 pages covering parking, drop-off, transport, emergency access, wayfinding, and assistance protocols. \\
+10 & Activation Standard Operating Procedures & Operations (PSL Dim 3) & Establishes pre-activation and daily operational procedures. Key provisions: 47-item pre-activation checklist covering building inspection, equipment installation, staff certification, communication testing, safety verification, PSL scoring, and activation decision; daily robot startup procedures (power-on, self-test, calibration, network registration); patient scheduling integration with Physical AI availability; real-time data management workflows; quality control check schedules (hourly dashboard review, shift-change comprehensive check, daily performance report); shift handover protocols for Physical AI operations. Approximately 40 pages covering pre-activation checklist, daily procedures, scheduling, data management, quality control, and handover protocols. \\
+11 & Emergency Preparedness Plan & Operations (PSL Dim 3) & Addresses Physical AI-specific emergency scenarios. Key provisions: robot malfunction response escalation (automatic pause within 200 ms, manual override within 2 seconds, complete shutdown within 10 seconds); power failure procedures (graceful robot shutdown, patient safety during transitions, system recovery sequence); cybersecurity incident response (detection, containment, eradication, recovery with designated response team); natural disaster protocols (earthquake securing procedures, fire suppression compatibility, flood protection for ground-level robot systems); patient evacuation with active Physical AI systems (robot deactivation sequence, manual override protocols, evacuation route clearance). Approximately 48 pages covering malfunction response, power failure, cybersecurity, natural disasters, and evacuation procedures. \\
+\end{longtable}
+
+The total documentation package spans approximately 445 pages across the eleven
+documents, representing the most comprehensive Physical AI clinical trial site
+establishment framework developed to date. The documents are organized to
+support a sequential site establishment process: state legislation (Documents
+1-3) provides the legal foundation, municipal and state regulations (Documents
+4-5) implement operational standards, the federal compliance guide (Document 6)
+bridges state and national requirements, infrastructure standards (Documents
+7-9) ensure the built environment supports Physical AI operations, and
+operational procedures (Documents 10-11) enable day-to-day trial conduct and
+emergency response.
+
+\subsection{Expanded Federal Compliance Requirements}
+\label{subsec:site-federal-expanded}
+
+The FDA Physical AI Oncology Trial Site National Compliance Guide (Document 6)
+serves a unique bridging function in the documentation package, connecting
+California-specific legislative and regulatory requirements with the federal
+FDA framework. This guide is designed to be adaptable for any state seeking to
+establish Physical AI trial sites, providing a template that can incorporate
+state-specific legislation while maintaining consistent federal compliance
+standards.
+
+\subsubsection{IND Submission Requirements for Physical AI Trial Sites}
+
+The compliance guide specifies the Physical AI-specific content required in IND
+submissions from Physical AI trial sites. Beyond the standard IND content
+requirements of 21 CFR Part 312 \S~312.23, Physical AI trial sites must submit:
+
+\begin{itemize}
+    \item A Physical AI System Description providing a complete inventory of
+    all Physical AI systems to be deployed, with manufacturer, model, software
+    version, hardware configuration, USL score and evaluation date, and tier
+    classification for each system.
+
+    \item A Phase 0 Simulation Validation Report documenting the simulation
+    hours completed for each Physical AI system (minimum hours as specified in
+    \S~312.401 of the adapted Part 312), the simulation platforms used, the
+    test scenarios executed, the performance metrics achieved, and the
+    independent reviewer attestation confirming that validation criteria were
+    met.
+
+    \item A Physical AI Safety Analysis identifying the risk profile for each
+    Physical AI system, the safety monitoring plan including continuous
+    monitoring parameters and alert thresholds, the emergency response
+    procedures for Physical AI-specific scenarios, and the contingency plans
+    for system failures including manual fallback procedures for each
+    Physical AI-assisted task.
+
+    \item A Cybersecurity Documentation Package including network architecture
+    diagrams showing Physical AI system placement, encryption and access
+    control specifications, penetration testing results from the most recent
+    assessment, vulnerability scan reports, and the incident response plan
+    with designated cybersecurity officer contact information.
+
+    \item An Interoperability Compliance Report documenting conformance testing
+    results for MCP protocol support, FHIR data exchange capability, DICOM
+    imaging standards compliance, and any additional interoperability standards
+    applicable to the specific Physical AI systems deployed.
+
+    \item A Personnel Qualification Summary listing all Physical AI operators,
+    maintenance staff, and oversight personnel with their certification levels,
+    training completion dates, proctored case counts (for Tier 3 operators),
+    and continuing education records.
+\end{itemize}
+
+\subsubsection{21 CFR Part 11 Compliance for Physical AI Records}
+
+Physical AI trial sites generate electronic records at a volume and variety
+that significantly exceeds traditional clinical trials. The compliance guide
+specifies how 21 CFR Part 11 requirements for electronic records and
+electronic signatures apply to Physical AI-generated data:
+
+\begin{itemize}
+    \item Robot telemetry records (position, force, speed, torque, temperature)
+    must be maintained in validated electronic systems with audit trails
+    documenting any modifications, access events, and system configuration
+    changes. The high-frequency nature of telemetry data (often captured at
+    1,000 Hz or higher) requires storage systems capable of maintaining data
+    integrity for millions of records per procedure.
+
+    \item AI decision logs must be maintained as electronic records with
+    complete audit trails. Each decision record must include the input data,
+    model version, confidence score, alternative recommendations considered,
+    and the final recommendation or action taken. These records must be
+    immutable once created, with any annotations or corrections maintained
+    as separate linked records.
+
+    \item Video recordings of Physical AI procedures must be stored in
+    validated systems with time-stamp integrity, access controls, and
+    retention management. Video records are subject to the same Part 11
+    requirements as other electronic records, including the requirement for
+    audit trails documenting access events.
+
+    \item Electronic signatures on Physical AI-related documents (safety
+    matrix sign-off, procedure reports, adverse event reports) must comply
+    with Part 11 signature requirements, including signature manifestation,
+    signature linking to the signed record, and signature verification
+    procedures.
+\end{itemize}
+
+\subsubsection{Multi-State Compliance Considerations}
+
+While the current documentation package is anchored in California law, the
+federal compliance guide addresses the framework for extending Physical AI
+trial sites to other states. The guide identifies three categories of
+requirements that must be addressed in each new state:
+
+\begin{itemize}
+    \item \textbf{State legislative authorization:} Each state requires
+    legislative authorization equivalent to SB 1042, AB 2847, and SB 892.
+    The compliance guide provides model legislation templates that can be
+    adapted to each state's legislative framework, incorporating the core
+    provisions (trial authorization, patient rights, data protection) while
+    accommodating state-specific legal structures.
+
+    \item \textbf{State regulatory implementation:} Each state requires
+    regulatory implementation equivalent to the Title 22 regulations,
+    adapted to the state's healthcare facility licensing framework. The
+    compliance guide identifies the regulatory domains that must be addressed
+    (licensing, staffing, maintenance, quality, infection control, data
+    management) regardless of the specific state regulatory structure.
+
+    \item \textbf{Municipal requirements:} Each trial site location requires
+    municipal code compliance equivalent to the San Francisco municipal code
+    update, adapted to local zoning, permitting, and community notification
+    requirements. The compliance guide provides a municipal requirements
+    checklist that can be applied to any municipality.
+\end{itemize}
+
+Federal requirements (the three adapted regulatory standards, 21 CFR Part 11,
+HIPAA) apply uniformly across all states and do not require state-specific
+adaptation. This creates a consistent federal compliance floor upon which
+state-specific requirements are layered, ensuring that all Physical AI trial
+sites nationwide meet minimum federal standards regardless of their state
+regulatory environment.
+
+The PSL framework accommodates multi-state deployment by evaluating Dimension 1
+(Legislative Authorization) against the specific legislation in effect at each
+trial site's jurisdiction. A site in California is evaluated against SB 1042,
+AB 2847, and SB 892; a future site in another state would be evaluated against
+that state's equivalent legislation. Dimensions 2 and 3 incorporate both
+state-specific and federal requirements, with the federal compliance guide
+providing the common requirements that apply across all jurisdictions. 
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\linewidth, trim={0 0 0 0}, clip]{Images/Motion.jpeg}
+    % \vspace{0.1cm}
+    \caption{Motion-management robot monitors breathing when lung tumor is aligned in chest.}
+    \label{Motion}
+\end{figure}

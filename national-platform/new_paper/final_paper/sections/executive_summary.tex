@@ -1,0 +1,154 @@
+%%% EXECUTIVE SUMMARY %%%
+\thispagestyle{acknowledgements}
+
+The National Platform for Physical AI Oncology Trials represents a paradigm
+shift in how oncology clinical trials are regulated, conducted, and scaled.
+Physical AI, defined as the integration of embodied robotic systems with
+advanced artificial intelligence for direct patient care in clinical trial
+settings, offers a transformative path to treat significantly more patients at
+lower cost and higher quality than traditional human-only trial operations. This
+platform provides a unified, end-to-end framework spanning regulatory
+adaptation, site establishment, patient care, national infrastructure, and
+economic analysis. Unlike existing FDA approaches that address AI and robotics
+through individual guidance documents issued in isolation, this National
+Platform simultaneously adapts three core regulatory standards, provides
+complete site establishment documentation, includes validated simulation
+evidence at both single-patient and multi-patient scales, defines quantitative
+robot readiness standards, and designs national infrastructure for multi-site
+coordination.
+
+\vspace{0.3cm}
+
+\noindent\textbf{Regulatory Foundation.}
+The platform adapts three internationally recognized regulatory standards to
+Physical AI oncology trial contexts. The Adaption: ICH Harmonised Guideline
+\cite{ich-adapt} establishes good clinical practice principles for Physical AI
+across four major sections covering principles, investigator responsibilities,
+sponsor responsibilities, and data governance, building on the ICH E6(R3)
+framework \cite{ich-e6r3} recognized across dozens of countries. The Physical
+AI Adaption: 21 CFR Part 50 \cite{cfr50-adapt} provides comprehensive human
+subjects protection with 17 Physical AI-specific definitions, new informed
+consent elements for robotic procedures, and a novel Subpart C dedicated to
+Physical AI safety requirements. The Physical AI Adaption: 21 CFR Part 312
+\cite{cfr312-adapt} spans ten subparts including a new Subpart J for Physical
+AI systems, introduces a Phase 0 simulation validation stage, and establishes
+reporting requirements for Physical AI adverse events and cybersecurity
+incidents. By building on existing, well-established regulatory frameworks
+rather than proposing entirely new legislation, these adaptations add immediate
+credibility and practical applicability to Physical AI implementations.
+
+\vspace{0.3cm}
+
+\noindent\textbf{Quantitative Standards.}
+Two complementary scoring frameworks ensure responsible robot usage. The
+Physical AI Standard Level (PSL), developed within the Clinical Trial Site
+Complete Documentation \cite{site-docs}, evaluates site-level regulatory
+compliance across three dimensions. The Unification Standard Level (USL)
+\cite{usl-standard} evaluates individual robot readiness across four dimensions:
+simulation framework switching, AI integration, cross-robot sharing, and
+clinical trial collaboration. Scores range from 1.0 to 10.0, with nine robots
+evaluated across three categories (cobots, surgical robots, humanoid robots).
+The Franka Emika Panda achieved the highest composite score (USL 7.4,
+Advanced), while the da Vinci dVRK led surgical robots (USL 7.1, Advanced) with
+the highest clinical trial readiness score of any robot evaluated. Together, PSL
+and USL create a dual-layer quantitative assessment that replaces subjective
+evaluation with reproducible, objective scoring.
+
+\vspace{0.3cm}
+
+\noindent\textbf{Simulation Evidence.}
+Two pivotal simulations demonstrate that state-of-the-art AI has the ability to
+understand, work with, and scale Physical AI applications beyond human and prior
+technology capabilities. A Cancer Patient's Journey, Physical AI
+\cite{patient-journey-paper} documents a single-patient journey through all ten
+stages of a regulated Physical AI oncology trial, from prescreening through
+closeout, for a Stage IIIB non-small cell lung cancer patient over 1,120 days.
+The ten-stage pipeline demonstrates end-to-end Physical AI capability with
+documented safety outcomes, regulatory compliance across all three adapted
+standards, and cost savings at each stage. The 24-hour clinical trial simulation
+from the Clinical Trial Site Complete Documentation \cite{site-docs} scaled
+operations to 168 patients treated with 29 robots across 15 cancer types,
+achieving 99.7 percent uptime with zero patient harm events and 7 adverse events
+documented per ICH E6(R3) standards. These simulations establish that more
+patients can be treated with more robots and fewer workers, validating the
+operational model that underpins the entire platform.
+
+\vspace{0.3cm}
+
+\noindent\textbf{Patient-Centered Design.}
+Control has shifted towards the patient's side. Patient Instructions: Physical
+AI Trials \cite{patient-instructions-paper} provides accessible documentation
+covering interactions with ten robot types. An example is illustrated in \autoref{Abdomen}. AB 2847 from the site documentation package establishes legally enforceable patient rights including the right to
+refuse robotic procedures, the right to human alternatives, and the right to
+real-time information about robot operations. The adapted 21 CFR Part 50
+\cite{cfr50-adapt} requires ongoing consent processes beyond the traditional
+one-time event, giving patients continuous agency over their participation as
+technology may be updated and new robots may be introduced during trials.
+Patients benefit from convenience through reduced wait times, lower cost of
+treatments through reduced staffing overhead, and higher quality of care through
+precision robotics and continuous monitoring.
+
+\vspace{0.3cm}
+
+\noindent\textbf{National Infrastructure.}
+Physical AI National MCP Servers \cite{national-mcp-paper} provide
+national-scale connectivity through five servers (Governance, Data Flow, Safety,
+Interoperability, Analytics) with 23 tools, standardized conformance levels, and
+emergency safety modules. Physical AI Federated Learning \cite{fl-paper}
+enables privacy-preserving multi-site coordination through five foundational
+pillars, a triple AI peer review pipeline using Claude Opus 4.6
+\cite{claude-opus}, GPT-5.4 \cite{gpt-5-4}, and Gemini \cite{gemini}, and 82
+test files ensuring code trust and safety. Together, these infrastructure
+components enable nationwide deployment while maintaining strict patient privacy
+under HIPAA \cite{hipaa} and state privacy laws.
+
+\vspace{0.3cm}
+
+\noindent\textbf{Economic Impact.}
+Physical AI trial operations offer substantial documented cost advantages. The
+single-patient journey documents per-patient cost reductions across all ten
+stages, while the 24-hour simulation demonstrates favorable scale economics at
+the 168-patient level. Tufts CSDD data \cite{tufts-delay} establishes that each
+day of delay in drug development has significant economic consequences. By
+compressing trial timelines through 24-hour robotic operations, automated
+documentation, and streamlined regulatory processes, Physical AI accelerates the
+time to drug approval, translating directly to earlier patient access to
+life-saving oncology treatments. The financial case extends beyond cost
+reduction to encompass faster approvals, improved data quality, and reduced
+regulatory review cycles.
+
+\vspace{0.3cm}
+
+\noindent\textbf{Governance Framework.}
+The platform is grounded in the constitutional and statutory framework of the
+three branches of U.S. government. Legislative authority through Congressional
+budget and oversight mechanisms, executive authority through FDA and HHS
+implementation of regulations, and judicial authority through administrative law
+review all apply to Physical AI oncology trial governance. Rather than creating
+new governance structures, this platform demonstrates how proven mechanisms
+ensure transparency, fiscal responsibility, and ethical conduct for Physical AI
+trial operations.
+
+\clearpage
+ 
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\linewidth, trim={0 0 0 0}, clip]{Images/Abdomen.jpeg}
+    % \vspace{0.1cm}
+    \caption{Imaging assistant robot scans liver tumor and guides treatment planning.}
+    \label{Abdomen}
+\end{figure}
+
+% \vspace{0.3cm}
+
+% This National Platform is more comprehensive than existing FDA approaches
+% because it: (a) adapts three core regulatory standards simultaneously rather
+% than issuing piecemeal guidance, (b) provides complete site establishment
+% documentation across eleven regulatory documents, (c) includes validated
+% simulation evidence at both single-patient and 168-patient scales, (d) defines
+% quantitative robot readiness standards through PSL and USL, and (e) designs
+% national infrastructure for multi-site coordination through MCP servers and
+% federated learning. All source code is available across three open-source
+% repositories \cite{main-repo, mcp-repo, fl-repo} under the MIT license,
+% enabling the pharmaceutical and regulatory industries to evaluate, adopt, and
+% extend this framework for the advancement of oncology drug development.
