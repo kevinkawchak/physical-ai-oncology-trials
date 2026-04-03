@@ -1,0 +1,177 @@
+% ======================================================================
+% APPENDICES
+% File: sections/appendices.tex
+% ======================================================================
+
+[PROCESSING INSTRUCTION: Generate the appendices (approximately 4-6 pages total) covering
+supplementary material for the autonomous sponsor system. Use the following source files:
+
+SOURCE FILES TO PROCESS:
+- All sponsor/input\_files/ documents
+- All national-platform/new\_paper/final\_paper/sections/ documents
+- patient-journey/ directory (all stage scripts and diagrams)
+- national-platform/new\_trial\_psl/ (11 trial site documents)
+- national-platform/21cfr312\_adapt/ (5 files)
+- national-platform/21cfr50\_adapt/ (3 files, if present)
+- national-platform/ich\_e6r3\_adapt/ (4 files)
+- national-platform/federated\_learning/ (4 files)
+- national-platform/national\_mcp/ (4 files)
+- national-platform/usl\_standard/ (2 files)
+
+Process with Claude Code Opus 4.6 (1M token context).]
+
+% ======================================================================
+\section*{Appendix A: Complete Agent Specification Registry}
+\addcontentsline{toc}{section}{Appendix A: Agent Specification Registry}
+% ======================================================================
+
+[PROCESSING INSTRUCTION: Generate a comprehensive registry of all 12 functional agents
+with their complete specifications. For each agent, include:
+- Agent name (snake\_case identifier)
+- Traditional human role equivalent
+- Layer assignment (governance / execution / site-robotics / trust)
+- Input interfaces (what data/events it consumes)
+- Output interfaces (what decisions/actions it produces)
+- Regulatory basis (which regulations govern its operation)
+- Safety gates (which decisions require human approval)
+- Python script file(s) that implement this agent
+
+Present as a series of structured entries, one per agent:
+1. portfolio\_agent
+2. asset\_lead\_agent
+3. clinical\_accountability\_agent
+4. study\_orchestrator
+5. clinops\_agent
+6. safety\_agent
+7. regulatory\_agent
+8. quality\_agent
+9. supply\_agent
+10. vendor\_manager\_agent
+11. site\_gateway
+12. robot\_execution\_gateway
+
+This appendix should be 2-3 pages. Process with Claude Code Opus 4.6 (1M token context).]
+
+% ======================================================================
+\section*{Appendix B: Python Script Directory}
+\addcontentsline{toc}{section}{Appendix B: Python Script Directory}
+% ======================================================================
+
+[PROCESSING INSTRUCTION: Generate a complete directory listing of all Python scripts
+specified throughout this paper. Organize by functional area. For each script, include:
+- File path: sponsor/template/scripts/[filename].py
+- Purpose (1-2 sentences)
+- Key inputs and outputs
+- Dependencies (external libraries needed)
+- Regulatory compliance requirements
+
+Organize into the following categories:
+1. Governance Scripts (3 scripts)
+   - portfolio\_agent.py, asset\_lead\_agent.py, governance\_decision\_engine.py
+2. Trial Design Scripts (4 scripts)
+   - clinical\_accountability\_agent.py, protocol\_generator.py, biostats\_agent.py,
+     biomarker\_strategy\_engine.py
+3. Clinical Operations Scripts (4 scripts)
+   - study\_orchestrator.py, clinops\_agent.py, enrollment\_optimizer.py,
+     failure\_mode\_detector.py
+4. Safety Scripts (4 scripts)
+   - safety\_agent.py, safety\_signal\_detector.py, robot\_safety\_monitor.py,
+     dsur\_generator.py
+5. Regulatory Scripts (4 scripts)
+   - regulatory\_agent.py, ind\_filing\_engine.py, accelerated\_pathway\_advisor.py,
+     regulatory\_intelligence\_scanner.py
+6. Quality Scripts (3 scripts)
+   - quality\_agent.py, rbqm\_engine.py, validation\_evidence\_generator.py
+7. Supply Chain Scripts (4 scripts)
+   - supply\_agent.py, cmc\_lifecycle\_manager.py, irt\_demand\_forecaster.py,
+     robotic\_pharmacy\_interface.py
+8. Data Management Scripts (4 scripts)
+   - data\_management\_agent.py, cdisc\_generator.py, federated\_data\_interface.py,
+     mcp\_data\_exchange.py
+9. Robotic Execution Scripts (5 scripts)
+   - robot\_execution\_gateway.py, robotic\_capability\_registry.py,
+     surgical\_robot\_interface.py, cobot\_interface.py, procedure\_provenance\_tracker.py
+10. Site Interface Scripts (4 scripts)
+    - site\_gateway.py, investigator\_interface.py, site\_systems\_connector.py,
+      patient\_interface.py
+11. Trust Layer Scripts (4 scripts)
+    - trust\_layer\_core.py, audit\_trail\_manager.py, provenance\_engine.py,
+      policy\_enforcement\_engine.py
+12. Vendor and Writing Scripts (5 scripts)
+    - vendor\_manager\_agent.py, cro\_oversight\_engine.py, writing\_disclosure\_agent.py,
+      disclosure\_manager.py, archive\_manager.py
+13. Financial and Implementation Scripts (4 scripts)
+    - financial\_model.py, timeline\_compression\_analyzer.py, implementation\_planner.py,
+      deployment\_validator.py
+14. Utility Scripts (1 script)
+    - generate\_introduction\_metrics.py
+
+Total: 49 Python scripts. All must pass ruff lint (line-length 120, E/F/W rules).
+All must be processable by Claude Code Opus 4.6 (1M token context).
+
+This appendix should be 2-3 pages. Process with Claude Code Opus 4.6 (1M token context).]
+
+% ======================================================================
+\section*{Appendix C: Source File Cross-Reference}
+\addcontentsline{toc}{section}{Appendix C: Source File Cross-Reference}
+% ======================================================================
+
+[PROCESSING INSTRUCTION: Generate a cross-reference table mapping each section of this
+paper to its source files in the repository. Include the following directories:
+
+1. sponsor/input\_files/ (16 markdown files):
+   - sponsor\_01\_executive\_strategy.md through sponsor\_08\_references.md
+   - org\_01\_executive\_regulatory.md through org\_07\_cro\_split\_references.md
+   - README.md
+
+2. national-platform/new\_paper/final\_paper/sections/ (21 tex files):
+   - cover\_page.tex, contents.tex, executive\_summary.tex, source\_documents.tex
+   - introduction.tex, gov\_framework.tex, regulatory\_landscape.tex
+   - ich\_e6r3\_adaptation.tex, cfr50\_adaptation.tex, cfr312\_adaptation.tex
+   - psl\_usl\_standards.tex, site\_establishment.tex, patient\_journey.tex
+   - patient\_instructions.tex, national\_mcp.tex, federated\_learning.tex
+   - financial\_analysis.tex, implementation\_strategy.tex
+   - discussion.tex, conclusion.tex, appendices.tex
+
+3. national-platform/new\_paper/final\_paper/ (non-section files):
+   - main.tex, page\_styles.tex, references.bib
+
+4. patient-journey/paper/:
+   - patient\_journey\_paper.tex, arxiv.sty, orcid\_icon.png
+
+5. national-platform/ regulatory adaptation directories:
+   - 21cfr312\_adapt/ (5 .tex files)
+   - ich\_e6r3\_adapt/ (4 .tex files)
+   - federated\_learning/ (4 .tex files)
+   - national\_mcp/ (4 .tex files)
+   - new\_trial\_psl/ (11 .tex files)
+   - usl\_standard/ (2 .tex files)
+
+Present as a table: Paper Section | Primary Source Files | Secondary Sources | Agent(s)
+
+This appendix should be 1-2 pages. Process with Claude Code Opus 4.6 (1M token context).]
+
+% ======================================================================
+\section*{Appendix D: Regulatory Compliance Mapping}
+\addcontentsline{toc}{section}{Appendix D: Regulatory Compliance Mapping}
+% ======================================================================
+
+[PROCESSING INSTRUCTION: Generate a compliance mapping table showing how each
+autonomous agent operation maps to specific regulatory requirements. Include:
+
+Regulations to map:
+- 21 CFR Part 312 (IND): Subparts A-J, especially 312.50 (sponsor responsibilities),
+  312.52 (transfer of obligations), 312.32 (safety reporting), 312.33 (annual reports)
+- 21 CFR Part 50 (Human Subjects): informed consent, IRB review
+- 21 CFR Part 11 (Electronic Records): audit trails, electronic signatures
+- ICH E6(R3): quality-by-design, risk-based monitoring, data governance, oversight
+- ICH E2B(R3): ICSR electronic transmission (April 2026 deadline)
+- ICH E2F: DSUR requirements
+- ICH E9(R1): estimand framework
+- EU CTR (Regulation 536/2014): CTIS, archiving, lay summaries
+- FDAAA 801: ClinicalTrials.gov results posting
+
+For each regulation section, identify: the responsible agent, the compliance mechanism,
+the evidence generated, and the human override requirement.
+
+This appendix should be 1-2 pages. Process with Claude Code Opus 4.6 (1M token context).]
