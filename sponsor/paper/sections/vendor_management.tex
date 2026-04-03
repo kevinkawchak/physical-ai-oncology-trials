@@ -147,6 +147,17 @@ about vendor retention, replacement, or scope modification. The analytics engine
 identifies cross-vendor dependencies and single points of failure, enabling proactive risk
 management of the vendor ecosystem.
 
+The vendor data exchange validation subsystem ensures that data flowing between the
+autonomous sponsor and vendor systems maintains integrity and compliance. When the CRO
+submits monitoring visit reports, the agent validates the report structure against the
+monitoring plan template, verifies that all required data elements are present, confirms
+that findings are coded consistently with the quality agent's deviation classification
+system, and routes the validated report to the clinops agent for review. When the central
+laboratory transmits results, the agent validates the result format against CDISC
+standards, verifies that quality control data accompanies the results, confirms that the
+turnaround time SLA was met, and routes the validated results to the data management
+agent for integration into the clinical database.
+
 Contract amendment management handles the inevitable scope changes that occur during
 trial conduct. When study requirements change (protocol amendments, site additions or
 closures, enrollment target adjustments), the agent evaluates the impact on existing
