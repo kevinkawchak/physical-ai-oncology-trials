@@ -31,6 +31,16 @@ safety profile into the structured IB format. IB updates are generated when new 
 information, clinical data, or manufacturing changes warrant revision, with version tracking
 and distribution documentation.
 
+The tables, listings, and figures (TLF) automation subsystem generates the statistical
+outputs that accompany the CSR and regulatory submissions. Tables include demographic
+summaries, efficacy endpoint analyses, adverse event summaries, laboratory shift tables,
+and concomitant medication summaries. Listings include subject disposition listings,
+protocol deviation listings, adverse event listings, and individual patient data listings.
+Figures include Kaplan-Meier survival curves, waterfall plots, spider plots, and forest
+plots. The TLF subsystem interfaces with the biostatistics agent's analysis outputs and
+formats them according to the sponsor's standard TLF templates, ensuring consistency
+across studies and regulatory submissions.
+
 Clinical Study Report generation follows the ICH E3 structure \cite{ich-e3} for the
 comprehensive report of a clinical trial. The agent produces all CSR sections from
 study-level data: synopsis, trial conduct summary, efficacy and safety results, statistical
