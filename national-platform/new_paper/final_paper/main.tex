@@ -1,0 +1,194 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% National Platform for Physical AI Oncology Trials                   %%
+%% Draft 1.0 - March 2026                                             %%
+%% Author: CEO Kevin Kawchak, ChemicalQDevice                         %%
+%%                                                                     %%
+%% Template adapted from University of Groningen MSc AI/CCS template   %%
+%% (Overleaf, CC BY 4.0). See page_styles.tex for attribution.        %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[a4paper,12pt,twoside]{article}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage{microtype}
+\usepackage{subcaption}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{fancyhdr}
+\usepackage{float}
+\usepackage{longtable}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{tabularx}
+\usepackage{enumitem}
+\usepackage{textcomp}
+\usepackage[top=1.5cm, bottom=1.80cm, left=2.00cm, right=2.00cm, includeheadfoot]{geometry}
+\usepackage[nottoc]{tocbibind}
+\usepackage[hyphens]{url}
+\usepackage[hidelinks, colorlinks=false, pdfborder={0 0 0}]{hyperref}
+
+% Allow URL line breaks at more characters
+\def\UrlBreaks{\do\/\do-\do.\do=\do_\do?\do\&\do\%\do\a\do\b\do\c\do\d\do\e%
+\do\f\do\g\do\h\do\i\do\j\do\k\do\l\do\m\do\n\do\o\do\p\do\q\do\r\do\s\do\t%
+\do\u\do\v\do\w\do\x\do\y\do\z\do\A\do\B\do\C\do\D\do\E\do\F\do\G\do\H\do\I%
+\do\J\do\K\do\L\do\M\do\N\do\O\do\P\do\Q\do\R\do\S\do\T\do\U\do\V\do\W\do\X%
+\do\Y\do\Z}
+\usepackage{xcolor}
+
+% Prevent overfull hbox warnings from long paths and URLs
+\sloppy
+\emergencystretch=3em
+
+% Force all text to black
+\color{black}
+\hypersetup{
+  urlcolor=black,
+  linkcolor=black,
+  citecolor=black,
+  filecolor=black
+}
+
+\renewcommand{\refname}{References}
+
+%%% DEFINE PAGE STYLES %%%
+\input{page_styles}
+
+%%% START OF ACTUAL DOCUMENT %%%
+\begin{document}
+\pagestyle{body}
+
+%%% COVER PAGE %%%
+\input{sections/cover_page}
+
+%%% TABLE OF CONTENTS %%%
+\input{sections/contents}
+\newpage
+
+%%% SOURCE DOCUMENTS OVERVIEW %%%
+\section*{Source Documents and Their Significance}
+\addcontentsline{toc}{section}{Source Documents and Their Significance}
+\input{sections/source_documents}
+\newpage
+
+%%% EXECUTIVE SUMMARY %%%
+\section*{Executive Summary}
+\addcontentsline{toc}{section}{Executive Summary}
+\input{sections/executive_summary}
+\newpage
+
+\pagestyle{body}
+
+%%% SECTION 1: INTRODUCTION %%%
+\section{Introduction to Physical AI Oncology Trials}
+\label{sec:introduction}
+\input{sections/introduction}
+\newpage
+
+%%% SECTION 2: U.S. GOVERNMENT FRAMEWORK %%%
+\section{U.S. Government Framework for Physical AI Trials}
+\label{sec:gov-framework}
+\input{sections/gov_framework}
+\newpage
+
+%%% SECTION 3: STATE AND FEDERAL REGULATORY LANDSCAPE %%%
+\section{California and Federal Regulatory Landscape}
+\label{sec:regulatory-landscape}
+\input{sections/regulatory_landscape}
+\newpage
+
+%%% SECTION 4: ADAPTED ICH E6(R3) FOR PHYSICAL AI %%%
+\section{Adapted ICH E6(R3) for Physical AI Clinical Practice}
+\label{sec:ich-e6r3}
+\input{sections/ich_e6r3_adaptation}
+\newpage
+
+%%% SECTION 5: ADAPTED 21 CFR PART 50 %%%
+\section{Adapted 21 CFR Part 50 for Physical AI Protection}
+\label{sec:cfr50}
+\input{sections/cfr50_adaptation}
+\newpage
+
+%%% SECTION 6: ADAPTED 21 CFR PART 312 %%%
+\section{Adapted 21 CFR Part 312 for Physical AI IND}
+\label{sec:cfr312}
+\input{sections/cfr312_adaptation}
+\newpage
+
+%%% SECTION 7: PHYSICAL AI STANDARD LEVEL AND UNIFICATION STANDARD LEVEL %%%
+\section{Physical AI Standard Level and Unification Standard}
+\label{sec:psl-usl}
+\input{sections/psl_usl_standards}
+\newpage
+
+%%% SECTION 8: CLINICAL TRIAL SITE ESTABLISHMENT %%%
+\section{Clinical Trial Site Establishment, Documentation}
+\label{sec:site-establishment}
+\input{sections/site_establishment}
+\newpage
+
+%%% SECTION 9: A CANCER PATIENT'S JOURNEY %%%
+\section{A Cancer Patient's Journey Through Physical AI}
+\label{sec:patient-journey}
+\input{sections/patient_journey}
+\newpage
+
+%%% SECTION 10: PATIENT INSTRUCTIONS FOR PHYSICAL AI TRIALS %%%
+\section{Patient Instructions for Physical AI Oncology Trials}
+\label{sec:patient-instructions}
+\input{sections/patient_instructions}
+\newpage
+
+%%% SECTION 11: NATIONAL MCP SERVER INFRASTRUCTURE %%%
+\section{National MCP Server Infrastructure}
+\label{sec:national-mcp}
+\input{sections/national_mcp}
+\newpage
+
+%%% SECTION 12: FEDERATED LEARNING FRAMEWORK %%%
+\section{Federated Learning for Physical AI Oncology Trials}
+\label{sec:federated-learning}
+\input{sections/federated_learning}
+\newpage
+
+%%% SECTION 13: FINANCIAL AND ECONOMIC IMPACT %%%
+\section{Financial and Economic Impact Analysis}
+\label{sec:financial}
+\input{sections/financial_analysis}
+\newpage
+
+%%% SECTION 14: NATIONAL IMPLEMENTATION STRATEGY %%%
+\section{National Implementation Strategy}
+\label{sec:implementation}
+\input{sections/implementation_strategy}
+\newpage
+
+%%% SECTION 15: DISCUSSION %%%
+\section{Discussion}
+\label{sec:discussion}
+\input{sections/discussion}
+\newpage
+
+%%% SECTION 16: CONCLUSION %%%
+\section{Conclusion}
+\label{sec:conclusion}
+\input{sections/conclusion}
+\newpage
+
+%%% REFERENCES %%%
+\pagestyle{contents}
+
+\begingroup
+\raggedright
+\bibliographystyle{ieeetr}
+\bibliography{references}
+\endgroup
+\newpage
+
+%%% APPENDICES %%%
+\section*{Appendices}
+\addcontentsline{toc}{section}{Appendices}
+\input{sections/appendices}
+
+\end{document}
