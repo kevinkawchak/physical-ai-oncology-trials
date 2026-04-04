@@ -1,4 +1,5 @@
 """Disclosure manager: ClinicalTrials.gov posting, CTIS results submission."""
+
 from __future__ import annotations
 
 from dataclasses import dataclass, field
@@ -66,8 +67,7 @@ class DisclosureManager:
         self.entries: dict[Registry, RegistryEntry] = {}
         self.results: list[ResultsSubmission] = []
 
-    def register_trial(self, registry: Registry, nct_id: str = "",
-                       eudract: str = "") -> RegistryEntry:
+    def register_trial(self, registry: Registry, nct_id: str = "", eudract: str = "") -> RegistryEntry:
         entry = RegistryEntry(registry=registry, nct_id=nct_id, eudract_number=eudract)
         self.entries[registry] = entry
         return entry
@@ -86,7 +86,8 @@ class DisclosureManager:
     def start_results_submission(self, registry: Registry) -> ResultsSubmission:
         submission = ResultsSubmission(
             submission_id=f"RES-{self.study_id}-{registry.value}",
-            registry=registry, study_id=self.study_id,
+            registry=registry,
+            study_id=self.study_id,
             sections={s: False for s in ResultsSection},
         )
         self.results.append(submission)
@@ -110,10 +111,13 @@ class DisclosureManager:
 
     def overdue_results(self) -> list[RegistryEntry]:
         today = date.today()
-        return [e for e in self.entries.values()
-                if e.results_due_date and e.results_due_date < today
-                and not any(r.status == DisclosureStatus.SUBMITTED
-                            for r in self.results if r.registry == e.registry)]
+        return [
+            e
+            for e in self.entries.values()
+            if e.results_due_date
+            and e.results_due_date < today
+            and not any(r.status == DisclosureStatus.SUBMITTED for r in self.results if r.registry == e.registry)
+        ]
 
     def disclosure_dashboard(self) -> dict[str, object]:
         return {

@@ -1,4 +1,5 @@
 """Enrollment optimizer: enrollment prediction, EHR pre-screening, diversity tracking."""
+
 from __future__ import annotations
 
 import math
@@ -88,20 +89,24 @@ class EnrollmentOptimizer:
     def enrollment_velocity(self) -> float:
         return sum(p.monthly_rate for p in self.projections.values())
 
-    def run_ehr_prescreen(self, patients: list[dict[str, object]], required_criteria: list[str]) -> list[EHRPreScreenHit]:
+    def run_ehr_prescreen(
+        self, patients: list[dict[str, object]], required_criteria: list[str]
+    ) -> list[EHRPreScreenHit]:
         hits: list[EHRPreScreenHit] = []
         for pt in patients:
             met = [c for c in required_criteria if pt.get(c)]
             unmet = [c for c in required_criteria if not pt.get(c)]
             score = len(met) / max(len(required_criteria), 1)
             if score >= 0.6:
-                hits.append(EHRPreScreenHit(
-                    patient_id=str(pt.get("id", "")),
-                    site_id=str(pt.get("site", "")),
-                    match_score=round(score, 2),
-                    criteria_met=met,
-                    criteria_unmet=unmet,
-                ))
+                hits.append(
+                    EHRPreScreenHit(
+                        patient_id=str(pt.get("id", "")),
+                        site_id=str(pt.get("site", "")),
+                        match_score=round(score, 2),
+                        criteria_met=met,
+                        criteria_unmet=unmet,
+                    )
+                )
         self.prescreened = hits
         return hits
 

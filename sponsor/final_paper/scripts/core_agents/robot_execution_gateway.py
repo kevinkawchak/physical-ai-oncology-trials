@@ -1,4 +1,5 @@
 """Robot execution gateway: task-order generation, site matching, safety gates, procedure state machine."""
+
 from __future__ import annotations
 
 import uuid
@@ -60,15 +61,11 @@ class RobotExecutionGateway:
         self.states: dict[str, ProcedureState] = {}
         self.gates: dict[str, list[SafetyGate]] = {}
 
-    def create_task_order(self, procedure_type: str, robot_id: str,
-                          site_id: str, subject_id: str) -> TaskOrder:
-        order = TaskOrder(procedure_type=procedure_type, robot_id=robot_id,
-                          site_id=site_id, subject_id=subject_id)
+    def create_task_order(self, procedure_type: str, robot_id: str, site_id: str, subject_id: str) -> TaskOrder:
+        order = TaskOrder(procedure_type=procedure_type, robot_id=robot_id, site_id=site_id, subject_id=subject_id)
         self.orders[order.order_id] = order
         self.states[order.order_id] = ProcedureState.IDLE
-        self.gates[order.order_id] = [
-            SafetyGate(gate_id=g["id"], description=g["desc"]) for g in STANDARD_GATES
-        ]
+        self.gates[order.order_id] = [SafetyGate(gate_id=g["id"], description=g["desc"]) for g in STANDARD_GATES]
         return order
 
     def check_safety_gate(self, order_id: str, gate_id: str, passed: bool) -> SafetyGateResult:
@@ -81,9 +78,7 @@ class RobotExecutionGateway:
         return result
 
     def all_gates_passed(self, order_id: str) -> bool:
-        return all(
-            g.result == SafetyGateResult.PASS for g in self.gates[order_id] if g.required
-        )
+        return all(g.result == SafetyGateResult.PASS for g in self.gates[order_id] if g.required)
 
     def transition(self, order_id: str, target: ProcedureState) -> bool:
         current = self.states[order_id]

@@ -1,4 +1,5 @@
 """Trust layer core: agent PKI identity, RBAC, audit trail."""
+
 from __future__ import annotations
 
 import hashlib
@@ -120,13 +121,19 @@ class TrustLayerCore:
 
     def audit_trail(self, agent_id: str | None = None, limit: int = 50) -> list[dict[str, str]]:
         entries = self.audit_log if agent_id is None else [e for e in self.audit_log if e.agent_id == agent_id]
-        return [{"agent": e.agent_id, "action": e.action, "outcome": e.outcome,
-                 "time": e.timestamp.isoformat()} for e in entries[-limit:]]
+        return [
+            {"agent": e.agent_id, "action": e.action, "outcome": e.outcome, "time": e.timestamp.isoformat()}
+            for e in entries[-limit:]
+        ]
 
     def summary(self) -> dict[str, object]:
         valid = sum(1 for i in self.identities.values() if i.is_valid)
-        return {"total_agents": len(self.identities), "valid": valid,
-                "revoked": len(self.identities) - valid, "audit_entries": len(self.audit_log)}
+        return {
+            "total_agents": len(self.identities),
+            "valid": valid,
+            "revoked": len(self.identities) - valid,
+            "audit_entries": len(self.audit_log),
+        }
 
 
 def main() -> None:

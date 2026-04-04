@@ -1,4 +1,5 @@
 """Audit trail manager: immutable audit trails, 21 CFR Part 11 compliance."""
+
 from __future__ import annotations
 
 import hashlib
@@ -61,21 +62,41 @@ class AuditTrailManager:
         self._counter = 0
 
     def _compute_hash(self, event: AuditEvent) -> str:
-        payload = json.dumps({
-            "id": event.event_id, "user": event.user_id, "category": event.category.value,
-            "resource": event.resource_id, "new": event.new_value, "prev": event.prev_hash,
-        }, sort_keys=True)
+        payload = json.dumps(
+            {
+                "id": event.event_id,
+                "user": event.user_id,
+                "category": event.category.value,
+                "resource": event.resource_id,
+                "new": event.new_value,
+                "prev": event.prev_hash,
+            },
+            sort_keys=True,
+        )
         return hashlib.sha256(payload.encode()).hexdigest()[:24]
 
-    def record(self, category: EventCategory, user_id: str, resource_type: str,
-               resource_id: str, old_value: str = "", new_value: str = "",
-               reason: str = "") -> AuditEvent:
+    def record(
+        self,
+        category: EventCategory,
+        user_id: str,
+        resource_type: str,
+        resource_id: str,
+        old_value: str = "",
+        new_value: str = "",
+        reason: str = "",
+    ) -> AuditEvent:
         self._counter += 1
         prev_hash = self.events[-1].event_hash if self.events else "genesis"
         event = AuditEvent(
-            event_id=f"AE-{self._counter:06d}", category=category, user_id=user_id,
-            resource_type=resource_type, resource_id=resource_id,
-            old_value=old_value, new_value=new_value, reason=reason, prev_hash=prev_hash,
+            event_id=f"AE-{self._counter:06d}",
+            category=category,
+            user_id=user_id,
+            resource_type=resource_type,
+            resource_id=resource_id,
+            old_value=old_value,
+            new_value=new_value,
+            reason=reason,
+            prev_hash=prev_hash,
         )
         event.event_hash = self._compute_hash(event)
         self.events.append(event)
@@ -90,8 +111,13 @@ class AuditTrailManager:
                 return False
         return True
 
-    def query(self, user_id: str | None = None, category: EventCategory | None = None,
-              resource_id: str | None = None, limit: int = 100) -> list[AuditEvent]:
+    def query(
+        self,
+        user_id: str | None = None,
+        category: EventCategory | None = None,
+        resource_id: str | None = None,
+        limit: int = 100,
+    ) -> list[AuditEvent]:
         results = self.events
         if user_id:
             results = [e for e in results if e.user_id == user_id]
@@ -112,10 +138,13 @@ class AuditTrailManager:
         return sum(1 for a in self.part11_assessments if a.implemented) / len(self.part11_assessments)
 
     def summary(self) -> dict[str, object]:
-        return {"system": self.system_name, "total_events": len(self.events),
-                "chain_valid": self.verify_chain(),
-                "part11_score": round(self.part11_compliance_score(), 3),
-                "users": len({e.user_id for e in self.events})}
+        return {
+            "system": self.system_name,
+            "total_events": len(self.events),
+            "chain_valid": self.verify_chain(),
+            "part11_score": round(self.part11_compliance_score(), 3),
+            "users": len({e.user_id for e in self.events}),
+        }
 
 
 def main() -> None:

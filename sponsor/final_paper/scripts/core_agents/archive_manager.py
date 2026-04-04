@@ -1,4 +1,5 @@
 """Archive manager: 25-year EU CTR archive, format migration, retention policies."""
+
 from __future__ import annotations
 
 import hashlib
@@ -78,23 +79,39 @@ class ArchiveManager:
         self.documents: dict[str, ArchivedDocument] = {}
         self.migrations: list[MigrationTask] = []
 
-    def archive_document(self, doc_id: str, title: str, fmt: ArchiveFormat,
-                         size_bytes: int, content_hash: str = "",
-                         policy: RetentionPolicy = RetentionPolicy.EU_CTR_25) -> ArchivedDocument:
+    def archive_document(
+        self,
+        doc_id: str,
+        title: str,
+        fmt: ArchiveFormat,
+        size_bytes: int,
+        content_hash: str = "",
+        policy: RetentionPolicy = RetentionPolicy.EU_CTR_25,
+    ) -> ArchivedDocument:
         if not content_hash:
             content_hash = hashlib.sha256(f"{doc_id}|{title}".encode()).hexdigest()[:16]
-        doc = ArchivedDocument(doc_id=doc_id, title=title, original_format=fmt,
-                               archive_format=fmt, checksum=content_hash, size_bytes=size_bytes,
-                               retention_policy=policy)
+        doc = ArchivedDocument(
+            doc_id=doc_id,
+            title=title,
+            original_format=fmt,
+            archive_format=fmt,
+            checksum=content_hash,
+            size_bytes=size_bytes,
+            retention_policy=policy,
+        )
         doc.compute_destruction_date()
         self.documents[doc_id] = doc
         return doc
 
     def schedule_migration(self, doc_id: str, target_format: ArchiveFormat) -> MigrationTask:
         doc = self.documents[doc_id]
-        task = MigrationTask(task_id=f"MIG-{len(self.migrations)+1:04d}", doc_id=doc_id,
-                             source_format=doc.archive_format, target_format=target_format,
-                             source_checksum=doc.checksum)
+        task = MigrationTask(
+            task_id=f"MIG-{len(self.migrations) + 1:04d}",
+            doc_id=doc_id,
+            source_format=doc.archive_format,
+            target_format=target_format,
+            source_checksum=doc.checksum,
+        )
         self.migrations.append(task)
         return task
 
@@ -112,8 +129,7 @@ class ArchiveManager:
 
     def documents_due_destruction(self, within_days: int = 365) -> list[ArchivedDocument]:
         cutoff = date.today() + timedelta(days=within_days)
-        return [d for d in self.documents.values()
-                if d.destruction_date and d.destruction_date <= cutoff]
+        return [d for d in self.documents.values() if d.destruction_date and d.destruction_date <= cutoff]
 
     def storage_summary(self) -> dict[str, object]:
         total_bytes = sum(d.size_bytes for d in self.documents.values())
@@ -121,10 +137,13 @@ class ArchiveManager:
         for d in self.documents.values():
             key = d.archive_format.value
             formats[key] = formats.get(key, 0) + 1
-        return {"study": self.study_id, "total_documents": len(self.documents),
-                "total_size_mb": round(total_bytes / (1024 * 1024), 2),
-                "formats": formats, "pending_migrations": sum(
-                    1 for m in self.migrations if m.status == MigrationStatus.PENDING)}
+        return {
+            "study": self.study_id,
+            "total_documents": len(self.documents),
+            "total_size_mb": round(total_bytes / (1024 * 1024), 2),
+            "formats": formats,
+            "pending_migrations": sum(1 for m in self.migrations if m.status == MigrationStatus.PENDING),
+        }
 
 
 def main() -> None:

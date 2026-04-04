@@ -3,6 +3,7 @@
 Exposes the clinops agent's functionality: site activation, enrollment
 tracking, monitoring scheduling, and hourly directive generation.
 """
+
 from __future__ import annotations
 
 from typing import Any

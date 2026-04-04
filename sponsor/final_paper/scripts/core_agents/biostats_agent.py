@@ -1,4 +1,5 @@
 """Biostats agent: SAP generation, Bayesian adaptive methods, futility rules."""
+
 from __future__ import annotations
 
 import math
@@ -94,7 +95,8 @@ class BiostatsAgent:
 
     def create_sap(self, study_id: str, endpoint: str, n: int, method: AdaptiveMethod) -> StatisticalAnalysisPlan:
         sap = StatisticalAnalysisPlan(
-            study_id=study_id, primary_endpoint=endpoint, sample_size=n, adaptive_method=method)
+            study_id=study_id, primary_endpoint=endpoint, sample_size=n, adaptive_method=method
+        )
         sap.sections = [
             SAPSection("Introduction"),
             SAPSection("Study Objectives and Endpoints"),
@@ -126,8 +128,9 @@ class BiostatsAgent:
         denominator = (p1 - p2) ** 2
         return math.ceil(numerator / denominator)
 
-    def bayesian_go_no_go(self, successes: int, trials: int,
-                          go_threshold: float = 0.2, prob_cutoff: float = 0.9) -> str:
+    def bayesian_go_no_go(
+        self, successes: int, trials: int, go_threshold: float = 0.2, prob_cutoff: float = 0.9
+    ) -> str:
         posterior = BayesianPosterior(successes=successes, trials=trials)
         prob = posterior.prob_greater_than(go_threshold)
         if prob >= prob_cutoff:

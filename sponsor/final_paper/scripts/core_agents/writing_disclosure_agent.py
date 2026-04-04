@@ -1,4 +1,5 @@
 """Writing and disclosure agent: Protocol, IB, CSR, DSUR, TLF automation."""
+
 from __future__ import annotations
 
 import uuid
@@ -60,11 +61,21 @@ class WritingProject:
 
 
 CSR_SECTIONS: list[tuple[str, str]] = [
-    ("1", "Title Page"), ("2", "Synopsis"), ("3", "Table of Contents"),
-    ("4", "List of Abbreviations"), ("5", "Ethics"), ("6", "Investigators"),
-    ("7", "Introduction"), ("8", "Study Objectives"), ("9", "Study Design"),
-    ("10", "Study Population"), ("11", "Study Treatment"), ("12", "Efficacy"),
-    ("13", "Safety"), ("14", "Discussion"), ("15", "Conclusions"),
+    ("1", "Title Page"),
+    ("2", "Synopsis"),
+    ("3", "Table of Contents"),
+    ("4", "List of Abbreviations"),
+    ("5", "Ethics"),
+    ("6", "Investigators"),
+    ("7", "Introduction"),
+    ("8", "Study Objectives"),
+    ("9", "Study Design"),
+    ("10", "Study Population"),
+    ("11", "Study Treatment"),
+    ("12", "Efficacy"),
+    ("13", "Safety"),
+    ("14", "Discussion"),
+    ("15", "Conclusions"),
     ("16", "Appendices"),
 ]
 
@@ -75,16 +86,16 @@ class WritingDisclosureAgent:
     def __init__(self) -> None:
         self.projects: dict[str, WritingProject] = {}
 
-    def create_project(self, doc_type: DocumentType, study_id: str,
-                       target_date: date | None = None) -> WritingProject:
+    def create_project(self, doc_type: DocumentType, study_id: str, target_date: date | None = None) -> WritingProject:
         project = WritingProject(document_type=doc_type, study_id=study_id, target_date=target_date)
         if doc_type == DocumentType.CSR:
             project.sections = [DocumentSection(sid, title) for sid, title in CSR_SECTIONS]
         self.projects[project.project_id] = project
         return project
 
-    def update_section(self, project_id: str, section_id: str, status: DocumentStatus,
-                       word_count: int = 0, author: str = "") -> None:
+    def update_section(
+        self, project_id: str, section_id: str, status: DocumentStatus, word_count: int = 0, author: str = ""
+    ) -> None:
         project = self.projects[project_id]
         for section in project.sections:
             if section.section_id == section_id:
@@ -101,8 +112,9 @@ class WritingDisclosureAgent:
         self.projects[project_id].sections.append(section)
         return section
 
-    def generate_tfl_shell(self, project_id: str, n_tables: int = 20, n_figures: int = 10,
-                           n_listings: int = 15) -> WritingProject:
+    def generate_tfl_shell(
+        self, project_id: str, n_tables: int = 20, n_figures: int = 10, n_listings: int = 15
+    ) -> WritingProject:
         tfl_project = self.create_project(DocumentType.TFL, self.projects[project_id].study_id)
         for i in range(1, n_tables + 1):
             tfl_project.sections.append(DocumentSection(f"T-{i:02d}", f"Table {i}"))
@@ -113,14 +125,26 @@ class WritingDisclosureAgent:
         return tfl_project
 
     def pipeline_status(self) -> list[dict[str, object]]:
-        return [{"id": p.project_id, "type": p.document_type.value, "study": p.study_id,
-                 "completion": p.completion_pct, "words": p.total_words}
-                for p in self.projects.values()]
+        return [
+            {
+                "id": p.project_id,
+                "type": p.document_type.value,
+                "study": p.study_id,
+                "completion": p.completion_pct,
+                "words": p.total_words,
+            }
+            for p in self.projects.values()
+        ]
 
     def summary(self) -> dict[str, object]:
-        return {"total_projects": len(self.projects),
-                "by_type": {t.value: sum(1 for p in self.projects.values() if p.document_type == t)
-                            for t in DocumentType if any(p.document_type == t for p in self.projects.values())}}
+        return {
+            "total_projects": len(self.projects),
+            "by_type": {
+                t.value: sum(1 for p in self.projects.values() if p.document_type == t)
+                for t in DocumentType
+                if any(p.document_type == t for p in self.projects.values())
+            },
+        }
 
 
 def main() -> None:

@@ -8,6 +8,7 @@ FastAPI/uvicorn is not installed.
 Usage:
     python run_sponsor_simulation.py
 """
+
 from __future__ import annotations
 
 import json
@@ -33,9 +34,30 @@ EXPECTED_TOTAL_ROBOT_AUTH = 153
 PATIENT_VOLUME = [2, 3, 3, 4, 4, 5, 8, 10, 12, 15, 12, 10, 8, 9, 10, 8, 7, 6, 5, 4, 3, 3, 2, 2]
 ESCALATION_COUNTS = [0, 0, 0, 0, 0, 1, 1, 1, 2, 2, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0]
 PSL_SCORES = [
-    63.4, 63.5, 63.5, 63.6, 63.6, 63.7, 63.8, 63.9, 64.0, 64.1,
-    64.2, 64.2, 64.3, 64.3, 64.4, 64.4, 64.5, 64.5, 64.6, 64.6,
-    64.7, 64.7, 64.7, 64.8,
+    63.4,
+    63.5,
+    63.5,
+    63.6,
+    63.6,
+    63.7,
+    63.8,
+    63.9,
+    64.0,
+    64.1,
+    64.2,
+    64.2,
+    64.3,
+    64.3,
+    64.4,
+    64.4,
+    64.5,
+    64.5,
+    64.6,
+    64.6,
+    64.7,
+    64.7,
+    64.7,
+    64.8,
 ]
 
 
@@ -72,29 +94,49 @@ def _generate_fallback_hour(hour: int) -> dict:
     psl = PSL_SCORES[hour]
 
     agents = [
-        "portfolio_agent", "asset_lead_agent", "clinical_accountability_agent",
-        "study_orchestrator", "clinops_agent", "safety_agent",
-        "regulatory_agent", "quality_agent", "supply_agent",
-        "data_biostats_agent", "site_gateway", "robot_execution_gateway",
+        "portfolio_agent",
+        "asset_lead_agent",
+        "clinical_accountability_agent",
+        "study_orchestrator",
+        "clinops_agent",
+        "safety_agent",
+        "regulatory_agent",
+        "quality_agent",
+        "supply_agent",
+        "data_biostats_agent",
+        "site_gateway",
+        "robot_execution_gateway",
     ]
     decision_types = [
-        "INIT", "ENROLL", "MONITOR", "AUTH", "SAFETY_CHECK", "SUPPLY",
-        "DATA_QUALITY", "ESCALATION", "STATUS", "PROCEDURE", "DISCHARGE", "REGULATORY",
+        "INIT",
+        "ENROLL",
+        "MONITOR",
+        "AUTH",
+        "SAFETY_CHECK",
+        "SUPPLY",
+        "DATA_QUALITY",
+        "ESCALATION",
+        "STATUS",
+        "PROCEDURE",
+        "DISCHARGE",
+        "REGULATORY",
     ]
 
     decisions = []
     for i in range(DECISIONS_PER_HOUR):
         minute = i * 5
         is_escalation = i < escalations
-        decisions.append({
-            "timestamp": f"{hour:02d}:{minute:02d}",
-            "decision_type": decision_types[i % len(decision_types)],
-            "agent_responsible": agents[i % len(agents)],
-            "confidence_score": max(85, min(99, 92 + (patients - 7))),
-            "action_taken": f"Hour {hour:02d} decision {i + 1} processed",
-            "escalation_required": is_escalation,
-            "rationale": f"Automated sponsor directive for interval {i + 1}",
-        })
+        decisions.append(
+            {
+                "timestamp": f"{hour:02d}:{minute:02d}",
+                "decision_type": decision_types[i % len(decision_types)],
+                "agent_responsible": agents[i % len(agents)],
+                "confidence_score": max(85, min(99, 92 + (patients - 7))),
+                "action_taken": f"Hour {hour:02d} decision {i + 1} processed",
+                "escalation_required": is_escalation,
+                "rationale": f"Automated sponsor directive for interval {i + 1}",
+            }
+        )
 
     return {
         "hour": hour,
@@ -190,6 +232,7 @@ def run_simulation() -> dict:
     try:
         sys.path.insert(0, str(SCRIPT_DIR))
         from generate_all_diagrams import generate_all_diagrams
+
         generate_all_diagrams()
         print("  72 hourly + 3 cumulative diagrams generated")
     except ImportError:

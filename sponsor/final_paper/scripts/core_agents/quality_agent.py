@@ -1,4 +1,5 @@
 """Quality agent: SOP enforcement, CAPA lifecycle, audit readiness."""
+
 from __future__ import annotations
 
 import uuid
@@ -99,8 +100,9 @@ class QualityAgent:
         return [s for s in self.sops.values() if s.needs_review]
 
     def open_capa(self, capa_type: CAPAType, description: str, due_days: int = 30) -> CAPARecord:
-        capa = CAPARecord(capa_type=capa_type, description=description,
-                          due_date=date.today() + timedelta(days=due_days))
+        capa = CAPARecord(
+            capa_type=capa_type, description=description, due_date=date.today() + timedelta(days=due_days)
+        )
         self.capas.append(capa)
         return capa
 

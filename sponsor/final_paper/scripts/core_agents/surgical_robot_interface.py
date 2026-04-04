@@ -1,4 +1,5 @@
 """Surgical robot interface: da Vinci Xi procedure orchestration, telemetry, digital twin."""
+
 from __future__ import annotations
 
 import uuid
@@ -92,7 +93,8 @@ class SurgicalRobotInterface:
 
     def get_twin_state(self) -> dict[str, object]:
         return {
-            "procedure_id": self.twin.procedure_id, "phase": self.twin.phase.value,
+            "procedure_id": self.twin.procedure_id,
+            "phase": self.twin.phase.value,
             "telemetry_frames": self.twin.telemetry_frames,
             "anomalies": self.twin.anomaly_count,
             "tissue_map_version": self.twin.tissue_map_version,

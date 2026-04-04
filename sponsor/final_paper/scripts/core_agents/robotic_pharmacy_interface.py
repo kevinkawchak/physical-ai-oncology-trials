@@ -1,4 +1,5 @@
 """Robotic pharmacy interface: Franka Emika pharmacy dose calculation, preparation, dispensing."""
+
 from __future__ import annotations
 
 import uuid
@@ -78,28 +79,45 @@ class RoboticPharmacyInterface:
         self.preparations: list[PreparationRecord] = []
         self.dispensing_log: list[dict[str, str]] = []
 
-    def calculate_dose(self, subject_id: str, weight_kg: float, height_cm: float,
-                       dose_mg_per_kg: float | None = None, dose_mg_per_m2: float | None = None,
-                       flat_dose_mg: float | None = None, concentration: float = 10.0) -> DoseCalculation:
-        bsa = round(0.007184 * (weight_kg ** 0.425) * (height_cm ** 0.725), 4)
-        calc = DoseCalculation(subject_id=subject_id, weight_kg=weight_kg, bsa_m2=bsa,
-                               dose_mg_per_kg=dose_mg_per_kg, dose_mg_per_m2=dose_mg_per_m2,
-                               flat_dose_mg=flat_dose_mg)
+    def calculate_dose(
+        self,
+        subject_id: str,
+        weight_kg: float,
+        height_cm: float,
+        dose_mg_per_kg: float | None = None,
+        dose_mg_per_m2: float | None = None,
+        flat_dose_mg: float | None = None,
+        concentration: float = 10.0,
+    ) -> DoseCalculation:
+        bsa = round(0.007184 * (weight_kg**0.425) * (height_cm**0.725), 4)
+        calc = DoseCalculation(
+            subject_id=subject_id,
+            weight_kg=weight_kg,
+            bsa_m2=bsa,
+            dose_mg_per_kg=dose_mg_per_kg,
+            dose_mg_per_m2=dose_mg_per_m2,
+            flat_dose_mg=flat_dose_mg,
+        )
         calc.compute(concentration)
         return calc
 
-    def initiate_preparation(self, calc: DoseCalculation, lot_number: str,
-                             formulation: DoseFormulation) -> PreparationRecord:
+    def initiate_preparation(
+        self, calc: DoseCalculation, lot_number: str, formulation: DoseFormulation
+    ) -> PreparationRecord:
         if self.state == RobotState.ERROR:
             msg = "Robot in error state; cannot prepare"
             raise RuntimeError(msg)
         self.state = RobotState.ACTIVE
         barcode = f"BC-{uuid.uuid4().hex[:10].upper()}"
         record = PreparationRecord(
-            subject_id=calc.subject_id, lot_number=lot_number,
-            formulation=formulation, dose_mg=calc.calculated_dose_mg,
-            volume_ml=calc.volume_ml, status=PreparationStatus.PREPARING,
-            robot_arm_id=self.robot_id, barcode=barcode,
+            subject_id=calc.subject_id,
+            lot_number=lot_number,
+            formulation=formulation,
+            dose_mg=calc.calculated_dose_mg,
+            volume_ml=calc.volume_ml,
+            status=PreparationStatus.PREPARING,
+            robot_arm_id=self.robot_id,
+            barcode=barcode,
         )
         self.preparations.append(record)
         return record
@@ -123,10 +141,13 @@ class RoboticPharmacyInterface:
                     msg = f"Preparation {prep_id} not ready: {record.status.value}"
                     raise ValueError(msg)
                 record.status = PreparationStatus.DISPENSED
-                self.dispensing_log.append({
-                    "prep_id": prep_id, "subject": record.subject_id,
-                    "pharmacist": pharmacist_id,
-                })
+                self.dispensing_log.append(
+                    {
+                        "prep_id": prep_id,
+                        "subject": record.subject_id,
+                        "pharmacist": pharmacist_id,
+                    }
+                )
                 self.state = RobotState.IDLE
                 return record
         msg = f"Preparation {prep_id} not found"
@@ -141,8 +162,13 @@ class RoboticPharmacyInterface:
     def production_summary(self) -> dict[str, object]:
         dispensed = sum(1 for p in self.preparations if p.status == PreparationStatus.DISPENSED)
         rejected = sum(1 for p in self.preparations if p.status == PreparationStatus.REJECTED)
-        return {"robot": self.robot_id, "state": self.state.value,
-                "total": len(self.preparations), "dispensed": dispensed, "rejected": rejected}
+        return {
+            "robot": self.robot_id,
+            "state": self.state.value,
+            "total": len(self.preparations),
+            "dispensed": dispensed,
+            "rejected": rejected,
+        }
 
 
 def main() -> None:

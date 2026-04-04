@@ -1,4 +1,5 @@
 """Accelerated pathway advisor: eligibility for Breakthrough, Fast Track, PRIME, etc."""
+
 from __future__ import annotations
 
 from dataclasses import dataclass, field
@@ -27,14 +28,22 @@ class EligibilityCriterion(Enum):
 
 PATHWAY_REQUIREMENTS: dict[Pathway, list[EligibilityCriterion]] = {
     Pathway.BREAKTHROUGH: [
-        EligibilityCriterion.SERIOUS_CONDITION, EligibilityCriterion.PRELIMINARY_CLINICAL_EVIDENCE,
-        EligibilityCriterion.SUBSTANTIAL_IMPROVEMENT],
+        EligibilityCriterion.SERIOUS_CONDITION,
+        EligibilityCriterion.PRELIMINARY_CLINICAL_EVIDENCE,
+        EligibilityCriterion.SUBSTANTIAL_IMPROVEMENT,
+    ],
     Pathway.FAST_TRACK: [EligibilityCriterion.SERIOUS_CONDITION, EligibilityCriterion.UNMET_NEED],
-    Pathway.ACCELERATED_APPROVAL: [EligibilityCriterion.SERIOUS_CONDITION, EligibilityCriterion.UNMET_NEED,
-                                    EligibilityCriterion.SURROGATE_ENDPOINT],
+    Pathway.ACCELERATED_APPROVAL: [
+        EligibilityCriterion.SERIOUS_CONDITION,
+        EligibilityCriterion.UNMET_NEED,
+        EligibilityCriterion.SURROGATE_ENDPOINT,
+    ],
     Pathway.PRIORITY_REVIEW: [EligibilityCriterion.SERIOUS_CONDITION, EligibilityCriterion.SUBSTANTIAL_IMPROVEMENT],
-    Pathway.PRIME: [EligibilityCriterion.UNMET_NEED, EligibilityCriterion.INNOVATIVE_THERAPY,
-                    EligibilityCriterion.NONCLINICAL_PROMISE],
+    Pathway.PRIME: [
+        EligibilityCriterion.UNMET_NEED,
+        EligibilityCriterion.INNOVATIVE_THERAPY,
+        EligibilityCriterion.NONCLINICAL_PROMISE,
+    ],
     Pathway.RMAT: [EligibilityCriterion.SERIOUS_CONDITION, EligibilityCriterion.PRELIMINARY_CLINICAL_EVIDENCE],
 }
 
@@ -96,8 +105,9 @@ class AcceleratedPathwayAdvisor:
         score = total_strength / max(len(required), 1)
         eligible = len(gaps) == 0 and score >= 0.6
         rec = "Recommend submission" if eligible else f"Address gaps: {[g.value for g in gaps]}"
-        assessment = PathwayAssessment(pathway=pathway, eligible=eligible, score=round(score, 3),
-                                       met_criteria=met, gaps=gaps, recommendation=rec)
+        assessment = PathwayAssessment(
+            pathway=pathway, eligible=eligible, score=round(score, 3), met_criteria=met, gaps=gaps, recommendation=rec
+        )
         self.assessments.append(assessment)
         return assessment
 

@@ -1,4 +1,5 @@
 """CMC lifecycle manager: CMC document management, manufacturing changes, GMP compliance."""
+
 from __future__ import annotations
 
 import uuid
@@ -83,19 +84,22 @@ class CMCLifecycleManager:
 
     def revise_document(self, doc_id: str, new_version: str, author: str) -> CMCDocument:
         original = self.documents[doc_id]
-        revised = CMCDocument(section=original.section, title=original.title,
-                              version=new_version, author=author)
+        revised = CMCDocument(section=original.section, title=original.title, version=new_version, author=author)
         self.documents[revised.doc_id] = revised
         return revised
 
-    def initiate_change(self, description: str, category: ChangeCategory,
-                        affected_doc_ids: list[str]) -> ManufacturingChange:
+    def initiate_change(
+        self, description: str, category: ChangeCategory, affected_doc_ids: list[str]
+    ) -> ManufacturingChange:
         filing_needed = category in (ChangeCategory.MAJOR, ChangeCategory.PRIOR_APPROVAL)
         impact = self._assess_change_impact(category, len(affected_doc_ids))
-        change = ManufacturingChange(description=description, category=category,
-                                     affected_documents=affected_doc_ids,
-                                     impact_assessment=impact,
-                                     regulatory_filing_needed=filing_needed)
+        change = ManufacturingChange(
+            description=description,
+            category=category,
+            affected_documents=affected_doc_ids,
+            impact_assessment=impact,
+            regulatory_filing_needed=filing_needed,
+        )
         self.changes.append(change)
         return change
 
@@ -106,10 +110,15 @@ class CMCLifecycleManager:
             return f"{base} risk - affects {doc_count} documents, cross-functional review required"
         return f"{base} risk - affects {doc_count} document(s)"
 
-    def record_gmp_audit(self, facility: str, status: GMPStatus,
-                         observations: list[str], reaudit_days: int = 730) -> GMPAudit:
-        audit = GMPAudit(facility=facility, status=status, observations=observations,
-                         next_audit_due=date.today() + timedelta(days=reaudit_days))
+    def record_gmp_audit(
+        self, facility: str, status: GMPStatus, observations: list[str], reaudit_days: int = 730
+    ) -> GMPAudit:
+        audit = GMPAudit(
+            facility=facility,
+            status=status,
+            observations=observations,
+            next_audit_due=date.today() + timedelta(days=reaudit_days),
+        )
         self.audits.append(audit)
         return audit
 

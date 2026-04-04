@@ -172,9 +172,7 @@ class AgentEventBus:
         with self._lock:
             for et in list(self._subscriptions):
                 before = len(self._subscriptions[et])
-                self._subscriptions[et] = [
-                    s for s in self._subscriptions[et] if s.subscriber_id != subscription_id
-                ]
+                self._subscriptions[et] = [s for s in self._subscriptions[et] if s.subscriber_id != subscription_id]
                 if len(self._subscriptions[et]) < before:
                     removed = True
         if removed:
@@ -265,4 +263,4 @@ class AgentEventBus:
         with self._lock:
             self._event_log.append(event)
             if len(self._event_log) > self._max_log_size:
-                self._event_log = self._event_log[-self._max_log_size:]
+                self._event_log = self._event_log[-self._max_log_size :]

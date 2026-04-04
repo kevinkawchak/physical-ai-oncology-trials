@@ -1,4 +1,5 @@
 """Implementation planner: three-phase deployment planning, site readiness scoring, resource allocation."""
+
 from __future__ import annotations
 
 import uuid
@@ -38,8 +39,7 @@ class SiteReadiness:
     overall: ReadinessLevel = ReadinessLevel.NOT_ASSESSED
 
     def compute_overall(self) -> ReadinessLevel:
-        avg = (self.infrastructure_score + self.training_score
-               + self.connectivity_score + self.regulatory_score) / 4
+        avg = (self.infrastructure_score + self.training_score + self.connectivity_score + self.regulatory_score) / 4
         if avg >= 0.8:
             self.overall = ReadinessLevel.GREEN
         elif avg >= 0.6:
@@ -81,18 +81,24 @@ class ImplementationPlanner:
         for phase, desc, weeks in plan:
             self.objectives.append(PhaseObjective(phase=phase, description=desc, duration_weeks=weeks))
 
-    def assess_site(self, site_id: str, infra: float, training: float,
-                    connectivity: float, regulatory: float) -> SiteReadiness:
-        site = SiteReadiness(site_id=site_id, infrastructure_score=infra, training_score=training,
-                             connectivity_score=connectivity, regulatory_score=regulatory)
+    def assess_site(
+        self, site_id: str, infra: float, training: float, connectivity: float, regulatory: float
+    ) -> SiteReadiness:
+        site = SiteReadiness(
+            site_id=site_id,
+            infrastructure_score=infra,
+            training_score=training,
+            connectivity_score=connectivity,
+            regulatory_score=regulatory,
+        )
         site.compute_overall()
         self.sites[site_id] = site
         return site
 
-    def allocate_resource(self, resource_type: str, phase: DeploymentPhase,
-                          fte_count: float, budget_usd: float) -> ResourceAllocation:
-        alloc = ResourceAllocation(resource_type=resource_type, phase=phase,
-                                   fte_count=fte_count, budget_usd=budget_usd)
+    def allocate_resource(
+        self, resource_type: str, phase: DeploymentPhase, fte_count: float, budget_usd: float
+    ) -> ResourceAllocation:
+        alloc = ResourceAllocation(resource_type=resource_type, phase=phase, fte_count=fte_count, budget_usd=budget_usd)
         self.resources.append(alloc)
         return alloc
 
@@ -109,13 +115,17 @@ class ImplementationPlanner:
         return by_phase
 
     def readiness_summary(self) -> dict[str, int]:
-        return {level.value: sum(1 for s in self.sites.values() if s.overall == level)
-                for level in ReadinessLevel}
+        return {level.value: sum(1 for s in self.sites.values() if s.overall == level) for level in ReadinessLevel}
 
     def summary(self) -> dict[str, object]:
-        return {"study_id": self.study_id, "objectives": len(self.objectives),
-                "sites_assessed": len(self.sites), "readiness": self.readiness_summary(),
-                "progress": self.phase_progress(), "budget": self.total_budget()}
+        return {
+            "study_id": self.study_id,
+            "objectives": len(self.objectives),
+            "sites_assessed": len(self.sites),
+            "readiness": self.readiness_summary(),
+            "progress": self.phase_progress(),
+            "budget": self.total_budget(),
+        }
 
 
 def main() -> None:

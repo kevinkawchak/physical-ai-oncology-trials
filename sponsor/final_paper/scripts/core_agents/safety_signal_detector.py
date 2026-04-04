@@ -1,4 +1,5 @@
 """Safety signal detector: disproportionality analysis - PRR, ROR, MGPS, BCPNN."""
+
 from __future__ import annotations
 
 import math
@@ -8,6 +9,7 @@ from dataclasses import dataclass, field
 @dataclass
 class ContingencyTable:
     """2x2 table: drug-event vs all-other."""
+
     a: int = 0  # target drug + target event
     b: int = 0  # target drug + other events
     c: int = 0  # other drugs + target event
@@ -72,8 +74,9 @@ class SafetySignalDetector:
         denom_num = table.a / max(table.a + table.b, 1)
         denom_den = table.c / max(table.c + table.d, 1)
         ratio = denom_num / max(denom_den, 1e-9)
-        se = math.sqrt(1 / max(table.a, 1) - 1 / max(table.a + table.b, 1)
-                       + 1 / max(table.c, 1) - 1 / max(table.c + table.d, 1))
+        se = math.sqrt(
+            1 / max(table.a, 1) - 1 / max(table.a + table.b, 1) + 1 / max(table.c, 1) - 1 / max(table.c + table.d, 1)
+        )
         lower = math.exp(math.log(max(ratio, 1e-9)) - 1.96 * se)
         upper = math.exp(math.log(max(ratio, 1e-9)) + 1.96 * se)
         return SignalScore("", "PRR", round(ratio, 3), round(lower, 3), round(upper, 3), lower > 1.0 and table.a >= 3)

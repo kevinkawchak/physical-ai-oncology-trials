@@ -1,4 +1,5 @@
 """Site systems connector: FHIR R4 client, DICOM, HL7 v2, MCP endpoints."""
+
 from __future__ import annotations
 
 import json
@@ -76,45 +77,54 @@ class SiteSystemsConnector:
         ep.last_connected = datetime.utcnow()
         return True
 
-    def query_fhir(self, endpoint_id: str, resource_type: str,
-                   params: dict[str, str]) -> list[FHIRResource]:
+    def query_fhir(self, endpoint_id: str, resource_type: str, params: dict[str, str]) -> list[FHIRResource]:
         ep = self.endpoints[endpoint_id]
         ep.message_count += 1
-        self.messages_sent.append({"protocol": "FHIR", "resource": resource_type,
-                                   "params": json.dumps(params)})
-        return [FHIRResource(resource_type=resource_type, resource_id=f"R-{i}",
-                             data={"status": "active"}) for i in range(min(3, len(params) + 1))]
+        self.messages_sent.append({"protocol": "FHIR", "resource": resource_type, "params": json.dumps(params)})
+        return [
+            FHIRResource(resource_type=resource_type, resource_id=f"R-{i}", data={"status": "active"})
+            for i in range(min(3, len(params) + 1))
+        ]
 
-    def send_hl7(self, endpoint_id: str, message_type: str, trigger: str,
-                 segments: list[str]) -> HL7Message:
+    def send_hl7(self, endpoint_id: str, message_type: str, trigger: str, segments: list[str]) -> HL7Message:
         ep = self.endpoints[endpoint_id]
         ep.message_count += 1
         raw = f"MSH|^~\\&|TRIAL|{self.site_id}|EHR|{ep.url}||{message_type}^{trigger}\n"
         raw += "\n".join(segments)
-        msg = HL7Message(message_type=message_type, trigger_event=trigger,
-                         segments=segments, raw=raw)
+        msg = HL7Message(message_type=message_type, trigger_event=trigger, segments=segments, raw=raw)
         self.messages_sent.append({"protocol": "HL7v2", "type": f"{message_type}^{trigger}"})
         return msg
 
-    def query_dicom(self, endpoint_id: str, patient_id: str,
-                    modality: str = "CT") -> list[DICOMStudy]:
+    def query_dicom(self, endpoint_id: str, patient_id: str, modality: str = "CT") -> list[DICOMStudy]:
         ep = self.endpoints[endpoint_id]
         ep.message_count += 1
-        return [DICOMStudy(study_uid=f"1.2.840.{uuid.uuid4().int % 10000}",
-                           patient_id=patient_id, modality=modality,
-                           series_count=3, instance_count=120)]
+        return [
+            DICOMStudy(
+                study_uid=f"1.2.840.{uuid.uuid4().int % 10000}",
+                patient_id=patient_id,
+                modality=modality,
+                series_count=3,
+                instance_count=120,
+            )
+        ]
 
-    def call_mcp_tool(self, endpoint_id: str, tool_name: str,
-                      arguments: dict[str, object]) -> dict[str, object]:
+    def call_mcp_tool(self, endpoint_id: str, tool_name: str, arguments: dict[str, object]) -> dict[str, object]:
         ep = self.endpoints[endpoint_id]
         ep.message_count += 1
-        return {"tool": tool_name, "status": "success",
-                "result": {"message": f"Executed {tool_name}", "args": arguments}}
+        return {
+            "tool": tool_name,
+            "status": "success",
+            "result": {"message": f"Executed {tool_name}", "args": arguments},
+        }
 
     def connectivity_report(self) -> dict[str, object]:
         connected = sum(1 for e in self.endpoints.values() if e.status == ConnectionStatus.CONNECTED)
-        return {"site_id": self.site_id, "endpoints": len(self.endpoints),
-                "connected": connected, "total_messages": sum(e.message_count for e in self.endpoints.values())}
+        return {
+            "site_id": self.site_id,
+            "endpoints": len(self.endpoints),
+            "connected": connected,
+            "total_messages": sum(e.message_count for e in self.endpoints.values()),
+        }
 
 
 def main() -> None:

@@ -4,6 +4,7 @@ Exposes the robot execution gateway's authorisation workflow: requesting
 authorisation, advancing individual gates, querying status, and managing
 global regulatory holds.
 """
+
 from __future__ import annotations
 
 from typing import Any

@@ -1,4 +1,5 @@
 """Generate introduction metrics: parse source files, extract regulatory dates, cost figures, staffing."""
+
 from __future__ import annotations
 
 import json
@@ -38,10 +39,13 @@ class IntroductionMetrics:
 
     def to_dict(self) -> dict[str, object]:
         return {
-            "regulatory_dates": [{"regulation": r.regulation, "date": r.date_str,
-                                  "description": r.description} for r in self.regulatory_dates],
-            "cost_figures": [{"category": c.category, "amount_usd": c.amount_usd,
-                              "source": c.source} for c in self.cost_figures],
+            "regulatory_dates": [
+                {"regulation": r.regulation, "date": r.date_str, "description": r.description}
+                for r in self.regulatory_dates
+            ],
+            "cost_figures": [
+                {"category": c.category, "amount_usd": c.amount_usd, "source": c.source} for c in self.cost_figures
+            ],
             "staffing": [{"role": s.role, "count": s.count, "source": s.source} for s in self.staffing],
             "source_files_parsed": self.source_files_parsed,
         }
@@ -74,12 +78,12 @@ class IntroductionMetricsGenerator:
     def load_known_references(self) -> None:
         for reg in KNOWN_REGULATIONS:
             self.metrics.regulatory_dates.append(
-                RegulatoryDate(regulation=reg["regulation"], date_str=reg["date"],
-                               description=reg["description"]))
+                RegulatoryDate(regulation=reg["regulation"], date_str=reg["date"], description=reg["description"])
+            )
         for cost in KNOWN_COSTS:
             self.metrics.cost_figures.append(
-                CostFigure(category=str(cost["category"]), amount_usd=float(cost["amount"]),
-                           source=str(cost["source"])))
+                CostFigure(category=str(cost["category"]), amount_usd=float(cost["amount"]), source=str(cost["source"]))
+            )
 
     def parse_source_files(self, pattern: str = "*.py") -> int:
         count = 0
@@ -119,10 +123,12 @@ class IntroductionMetricsGenerator:
         return text
 
     def summary(self) -> dict[str, int]:
-        return {"regulatory_dates": len(self.metrics.regulatory_dates),
-                "cost_figures": len(self.metrics.cost_figures),
-                "staffing_entries": len(self.metrics.staffing),
-                "files_parsed": self.metrics.source_files_parsed}
+        return {
+            "regulatory_dates": len(self.metrics.regulatory_dates),
+            "cost_figures": len(self.metrics.cost_figures),
+            "staffing_entries": len(self.metrics.staffing),
+            "files_parsed": self.metrics.source_files_parsed,
+        }
 
 
 def main() -> None:

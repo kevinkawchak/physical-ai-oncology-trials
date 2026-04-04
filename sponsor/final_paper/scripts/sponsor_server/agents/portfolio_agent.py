@@ -4,6 +4,7 @@ Evaluates pipeline assets, weighs clinical, regulatory, and commercial
 factors, and issues go / no-go / conditional / escalate decisions that
 flow into the study orchestrator.
 """
+
 from __future__ import annotations
 
 import logging
@@ -122,6 +123,5 @@ def _build_rationale(composite: float, scores: dict[str, float], outcome: Decisi
     """Produce a human-readable rationale string."""
     top_driver = max(scores, key=lambda k: SCORING_WEIGHTS[k] * scores[k])
     return (
-        f"Composite score {composite:.3f} -> {outcome.value}. "
-        f"Leading driver: {top_driver} ({scores[top_driver]:.2f})."
+        f"Composite score {composite:.3f} -> {outcome.value}. Leading driver: {top_driver} ({scores[top_driver]:.2f})."
     )

@@ -1,4 +1,5 @@
 """CDISC generator: SDTM/ADaM dataset generation, Define.xml, P21 validation checks."""
+
 from __future__ import annotations
 
 import json
@@ -78,7 +79,7 @@ class CDISCGenerator:
         domain.records.append(record)
 
     def generate_define_xml(self) -> str:
-        lines = ['<?xml version="1.0"?>', f'<!-- Define.xml for {self.study_id} -->']
+        lines = ['<?xml version="1.0"?>', f"<!-- Define.xml for {self.study_id} -->"]
         for code, domain in self.domains.items():
             lines.append(f'  <ItemGroupDef OID="IG.{code}" Name="{code}">')
             for var in domain.variables:
@@ -92,18 +93,27 @@ class CDISCGenerator:
             for rec in domain.records:
                 for var in domain.variables:
                     if var.core == "Req" and not rec.get(var.name):
-                        self.findings.append(P21Finding(
-                            rule_id="SD0001", severity=ValidationSeverity.ERROR,
-                            domain=code, variable=var.name,
-                            message=f"Required variable {var.name} missing in {code}"))
+                        self.findings.append(
+                            P21Finding(
+                                rule_id="SD0001",
+                                severity=ValidationSeverity.ERROR,
+                                domain=code,
+                                variable=var.name,
+                                message=f"Required variable {var.name} missing in {code}",
+                            )
+                        )
         return self.findings
 
     def export_dataset(self, domain_code: str, output_dir: Path) -> Path:
         domain = self.domains[domain_code]
         out_path = output_dir / f"{domain_code.lower()}.json"
         out_path.parent.mkdir(parents=True, exist_ok=True)
-        payload = {"study": self.study_id, "domain": domain_code,
-                   "generated": datetime.utcnow().isoformat(), "records": domain.records}
+        payload = {
+            "study": self.study_id,
+            "domain": domain_code,
+            "generated": datetime.utcnow().isoformat(),
+            "records": domain.records,
+        }
         out_path.write_text(json.dumps(payload, indent=2))
         return out_path
 

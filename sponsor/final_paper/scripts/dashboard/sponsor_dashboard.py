@@ -318,10 +318,7 @@ class SponsorDashboard:
         max_target = max((s.target for s in flow), default=1)
         for entry in flow:
             count_bar = _bar(entry.count, max_target, width=30)
-            line = (
-                f"  {entry.stage:<22} {count_bar} "
-                f"{entry.count:>5}/{entry.target:<5} ({entry.pct_of_target:>5.1f}%)"
-            )
+            line = f"  {entry.stage:<22} {count_bar} {entry.count:>5}/{entry.target:<5} ({entry.pct_of_target:>5.1f}%)"
             buf.write(f"{line}\n")
 
     # ------------------------------------------------------------------

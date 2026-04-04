@@ -15,6 +15,7 @@ Twelve agents collaborate to run the 24-hour simulated trial:
  11. site_gateway            - Site-level coordination
  12. robot_execution_gateway - Physical robot authorisation
 """
+
 from __future__ import annotations
 
 AGENT_NAMES: list[str] = [

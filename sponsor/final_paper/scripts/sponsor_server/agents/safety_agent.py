@@ -5,6 +5,7 @@ events by CTCAE grade, evaluates causality, detects aggregate safety
 signals, and generates E2B-compatible reports for expedited regulatory
 submission.
 """
+
 from __future__ import annotations
 
 import logging
@@ -130,13 +131,15 @@ def detect_safety_signals(hour_id: int) -> list[dict[str, Any]]:
     for term, events in term_counts.items():
         if len(events) >= SIGNAL_COUNT_THRESHOLD:
             max_grade = max(e["grade"] for e in events)
-            signals.append({
-                "ae_term": term,
-                "count": len(events),
-                "max_grade": max_grade,
-                "source": source_data_path(hour_id),
-                "flagged_at": _now_iso(),
-            })
+            signals.append(
+                {
+                    "ae_term": term,
+                    "count": len(events),
+                    "max_grade": max_grade,
+                    "source": source_data_path(hour_id),
+                    "flagged_at": _now_iso(),
+                }
+            )
             logger.warning("Safety signal: term=%s count=%d max_grade=%d", term, len(events), max_grade)
     return signals
 

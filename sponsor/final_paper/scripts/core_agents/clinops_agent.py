@@ -1,4 +1,5 @@
 """ClinOps agent: site startup, monitoring plan, enrollment tracking."""
+
 from __future__ import annotations
 
 from dataclasses import dataclass, field
@@ -105,12 +106,14 @@ class ClinOpsAgent:
                 base = site.activation_date or date.today()
                 for i in range(4):
                     visit_num += 1
-                    plan.visits.append(MonitoringVisit(
-                        visit_id=f"MV-{visit_num:04d}",
-                        site_id=site.site_id,
-                        visit_type=MonitoringType.RISK_BASED,
-                        scheduled_date=base + timedelta(weeks=freq_weeks * (i + 1)),
-                    ))
+                    plan.visits.append(
+                        MonitoringVisit(
+                            visit_id=f"MV-{visit_num:04d}",
+                            site_id=site.site_id,
+                            visit_type=MonitoringType.RISK_BASED,
+                            scheduled_date=base + timedelta(weeks=freq_weeks * (i + 1)),
+                        )
+                    )
         self.monitoring_plan = plan
         return plan
 

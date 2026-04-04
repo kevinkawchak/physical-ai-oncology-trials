@@ -1,4 +1,5 @@
 """Federated data interface: federated learning integration, differential privacy, secure aggregation."""
+
 from __future__ import annotations
 
 import hashlib
@@ -73,8 +74,7 @@ class FederatedDataInterface:
         rnd = self.rounds[-1]
         weights_json = json.dumps(weights, sort_keys=True)
         weights_hash = hashlib.sha256(weights_json.encode()).hexdigest()[:16]
-        model = SiteModel(site_id=site_id, round_id=rnd.round_id,
-                          weights_hash=weights_hash, sample_count=sample_count)
+        model = SiteModel(site_id=site_id, round_id=rnd.round_id, weights_hash=weights_hash, sample_count=sample_count)
         rnd.site_models.append(model)
         return model
 
@@ -106,9 +106,12 @@ class FederatedDataInterface:
         return aggregated
 
     def privacy_report(self) -> dict[str, object]:
-        return {"total_rounds": len(self.rounds), "epsilon_spent": self.budget.spent_epsilon,
-                "epsilon_remaining": self.budget.remaining,
-                "sites_per_round": [len(r.site_models) for r in self.rounds]}
+        return {
+            "total_rounds": len(self.rounds),
+            "epsilon_spent": self.budget.spent_epsilon,
+            "epsilon_remaining": self.budget.remaining,
+            "sites_per_round": [len(r.site_models) for r in self.rounds],
+        }
 
 
 def main() -> None:

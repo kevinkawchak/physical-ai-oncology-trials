@@ -1,4 +1,5 @@
 """IND filing engine: IND/CTA package assembly in eCTD v4.0 format."""
+
 from __future__ import annotations
 
 import hashlib
@@ -126,7 +127,7 @@ class INDFilingEngine:
     def generate_ectd_xml_stub(self, ind_number: str) -> str:
         pkg = self.packages[ind_number]
         header = '<ectd:ectd xmlns:ectd="urn:hl7-org:v3" version="4.0">'
-        lines = [header, f'  <ind-number>{pkg.ind_number}</ind-number>']
+        lines = [header, f"  <ind-number>{pkg.ind_number}</ind-number>"]
         for seq in pkg.sequences:
             lines.append(f'  <sequence number="{seq.sequence_number}">')
             for doc in seq.documents:

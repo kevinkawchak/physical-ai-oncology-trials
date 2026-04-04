@@ -1,4 +1,5 @@
 """Robot safety monitor: robotic procedure safety, telemetry anomaly detection, emergency stop."""
+
 from __future__ import annotations
 
 import math
@@ -77,8 +78,13 @@ class RobotSafetyMonitor:
         self._ewma_force: float = 0.0
 
     def start_procedure(self, procedure_id: str, subject_id: str) -> ProcedureLog:
-        log = ProcedureLog(procedure_id=procedure_id, robot_id=self.robot_id,
-                           subject_id=subject_id, start_time=datetime.utcnow(), state=RobotState.OPERATING)
+        log = ProcedureLog(
+            procedure_id=procedure_id,
+            robot_id=self.robot_id,
+            subject_id=subject_id,
+            start_time=datetime.utcnow(),
+            state=RobotState.OPERATING,
+        )
         self.procedures.append(log)
         return log
 
@@ -105,8 +111,11 @@ class RobotSafetyMonitor:
                 new_alerts.append(alert)
         for torque in reading.joint_torques_nm:
             if abs(torque) > self.thresholds["max_torque_nm"]:
-                alert = SafetyAlert(severity=AlertSeverity.CRITICAL, source=self.robot_id,
-                                    message=f"Joint torque {torque:.1f} Nm exceeds limit")
+                alert = SafetyAlert(
+                    severity=AlertSeverity.CRITICAL,
+                    source=self.robot_id,
+                    message=f"Joint torque {torque:.1f} Nm exceeds limit",
+                )
                 new_alerts.append(alert)
         if new_alerts:
             proc.alerts.extend(new_alerts)
@@ -133,9 +142,14 @@ class RobotSafetyMonitor:
     def procedure_summary(self, procedure_id: str) -> dict[str, object]:
         proc = self._find_procedure(procedure_id)
         crit = sum(1 for a in proc.alerts if a.severity in (AlertSeverity.CRITICAL, AlertSeverity.ESTOP))
-        return {"procedure_id": proc.procedure_id, "state": proc.state.value,
-                "telemetry_points": len(proc.telemetry), "alerts": len(proc.alerts),
-                "critical_alerts": crit, "anomaly_score": round(self.anomaly_score(procedure_id), 3)}
+        return {
+            "procedure_id": proc.procedure_id,
+            "state": proc.state.value,
+            "telemetry_points": len(proc.telemetry),
+            "alerts": len(proc.alerts),
+            "critical_alerts": crit,
+            "anomaly_score": round(self.anomaly_score(procedure_id), 3),
+        }
 
     def _find_procedure(self, procedure_id: str) -> ProcedureLog:
         for p in self.procedures:
@@ -150,8 +164,11 @@ def main() -> None:
     proc = monitor.start_procedure("PROC-001", "SUBJ-01")
     for i in range(5):
         reading = TelemetryReading(
-            timestamp=datetime.utcnow(), joint_torques_nm=[10.0 + i, 15.0, 12.0],
-            end_effector_force_n=20.0 + i * 8, position_error_mm=0.5 + i * 0.3, velocity_mps=0.1,
+            timestamp=datetime.utcnow(),
+            joint_torques_nm=[10.0 + i, 15.0, 12.0],
+            end_effector_force_n=20.0 + i * 8,
+            position_error_mm=0.5 + i * 0.3,
+            velocity_mps=0.1,
         )
         alerts = monitor.ingest_telemetry(proc.procedure_id, reading)
         if alerts:

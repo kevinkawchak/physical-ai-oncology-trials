@@ -22,24 +22,21 @@ def main() -> None:
 
     for hour in range(24):
         module_name = f"sponsor_hour_{hour:02d}"
-        module_path = (
-            Path(__file__).resolve().parent / f"{module_name}.py"
-        )
+        module_path = Path(__file__).resolve().parent / f"{module_name}.py"
 
         if not module_path.exists():
             print(
-                f"WARNING: {module_name}.py not found, "
-                f"skipping hour {hour:02d}",
+                f"WARNING: {module_name}.py not found, skipping hour {hour:02d}",
             )
             continue
 
         spec = importlib.util.spec_from_file_location(
-            module_name, module_path,
+            module_name,
+            module_path,
         )
         if spec is None or spec.loader is None:
             print(
-                f"WARNING: Could not load {module_name}.py, "
-                f"skipping hour {hour:02d}",
+                f"WARNING: Could not load {module_name}.py, skipping hour {hour:02d}",
             )
             continue
 
@@ -56,7 +53,8 @@ def main() -> None:
 
         hour_file = OUTPUT_DIR / f"sponsor_hour_{hour:02d}_output.json"
         hour_file.write_text(
-            json.dumps(result, indent=2), encoding="utf-8",
+            json.dumps(result, indent=2),
+            encoding="utf-8",
         )
         print(
             f"Hour {hour:02d}: {result['patient_count']} patients, "
@@ -77,7 +75,8 @@ def main() -> None:
 
     combined_file = OUTPUT_DIR / "sponsor_all_hours_combined.json"
     combined_file.write_text(
-        json.dumps(combined, indent=2), encoding="utf-8",
+        json.dumps(combined, indent=2),
+        encoding="utf-8",
     )
     print(f"\nCombined output written to {combined_file}")
     print(
@@ -89,8 +88,7 @@ def main() -> None:
 
     if total_patients != 168:
         print(
-            f"WARNING: Expected 168 total patients "
-            f"but got {total_patients}",
+            f"WARNING: Expected 168 total patients but got {total_patients}",
             file=sys.stderr,
         )
         sys.exit(1)

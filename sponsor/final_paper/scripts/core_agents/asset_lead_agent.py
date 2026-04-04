@@ -1,4 +1,5 @@
 """Asset lead agent: asset strategy memos, competitive landscape, dose optimization."""
+
 from __future__ import annotations
 
 import math
@@ -80,7 +81,7 @@ class AssetLeadAgent:
         return max(self.dose_levels, key=lambda d: d.therapeutic_index)
 
     def emax_model(self, dose: float, emax: float = 0.9, ec50: float = 100.0, hill: float = 1.5) -> float:
-        return emax * (dose ** hill) / (ec50 ** hill + dose ** hill)
+        return emax * (dose**hill) / (ec50**hill + dose**hill)
 
     def generate_strategy_memo(self, indication: str, rationale: str) -> StrategyMemo:
         landscape = self.competitive_landscape()

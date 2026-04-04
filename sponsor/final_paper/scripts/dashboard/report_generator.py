@@ -213,11 +213,13 @@ class ReportGenerator:
         for cat, count in sorted(data.safety_events_by_category.items()):
             lines.append(f"| {cat} | {count} |")
 
-        lines.extend([
-            "",
-            "## Key Events",
-            "",
-        ])
+        lines.extend(
+            [
+                "",
+                "## Key Events",
+                "",
+            ]
+        )
         for event in data.key_events:
             lines.append(f"- {event}")
 
@@ -261,31 +263,37 @@ class ReportGenerator:
         for outcome, count in sorted(data.gate_transitions.items()):
             lines.append(f"| {outcome} | {count} |")
 
-        lines.extend([
-            "",
-            "## Safety Summary",
-            "",
-            "| Category | Count |",
-            "|----------|-------|",
-        ])
+        lines.extend(
+            [
+                "",
+                "## Safety Summary",
+                "",
+                "| Category | Count |",
+                "|----------|-------|",
+            ]
+        )
         for cat, count in sorted(data.safety_summary.items()):
             lines.append(f"| {cat} | {count} |")
 
-        lines.extend([
-            "",
-            "## Escalation Summary",
-            "",
-            "| Level | Count |",
-            "|-------|-------|",
-        ])
+        lines.extend(
+            [
+                "",
+                "## Escalation Summary",
+                "",
+                "| Level | Count |",
+                "|-------|-------|",
+            ]
+        )
         for level, count in sorted(data.escalation_summary.items()):
             lines.append(f"| {level} | {count} |")
 
-        lines.extend([
-            "",
-            "## Highlights",
-            "",
-        ])
+        lines.extend(
+            [
+                "",
+                "## Highlights",
+                "",
+            ]
+        )
         for h in data.highlights:
             lines.append(f"- {h}")
 
@@ -317,10 +325,7 @@ class ReportGenerator:
             "",
             "## Agent Metrics",
             "",
-            (
-                "| Agent | Type | Decisions | Avg Conf | Esc Rate "
-                "| Errors | Avg RT (ms) | Uptime |"
-            ),
+            ("| Agent | Type | Decisions | Avg Conf | Esc Rate | Errors | Avg RT (ms) | Uptime |"),
             "|-------|------|-----------|----------|----------|--------|-------------|--------|",
         ]
         for a in agents:
@@ -336,15 +341,17 @@ class ReportGenerator:
             total_decisions = sum(a.decisions_made for a in agents)
             avg_confidence = sum(a.avg_confidence for a in agents) / len(agents)
             total_errors = sum(a.error_count for a in agents)
-            lines.extend([
-                "",
-                "## Summary",
-                "",
-                f"- **Total decisions:** {total_decisions}",
-                f"- **Average confidence:** {avg_confidence:.2f}",
-                f"- **Total errors:** {total_errors}",
-                f"- **Agent count:** {len(agents)}",
-            ])
+            lines.extend(
+                [
+                    "",
+                    "## Summary",
+                    "",
+                    f"- **Total decisions:** {total_decisions}",
+                    f"- **Average confidence:** {avg_confidence:.2f}",
+                    f"- **Total errors:** {total_errors}",
+                    f"- **Agent count:** {len(agents)}",
+                ]
+            )
 
         lines.append("")
         filename = f"agent_performance_{period_label}.md"
@@ -377,39 +384,45 @@ class ReportGenerator:
         for e in entries:
             cat_counts[e.category] = cat_counts.get(e.category, 0) + 1
 
-        lines.extend([
-            "## Category Breakdown",
-            "",
-            "| Category | Count | Pct |",
-            "|----------|-------|-----|",
-        ])
+        lines.extend(
+            [
+                "## Category Breakdown",
+                "",
+                "| Category | Count | Pct |",
+                "|----------|-------|-----|",
+            ]
+        )
         for cat in sorted(cat_counts):
             count = cat_counts[cat]
             pct = count / len(entries) * 100 if entries else 0
             lines.append(f"| {cat} | {count} | {pct:.1f}% |")
 
         # Event details
-        lines.extend([
-            "",
-            "## Event Details",
-            "",
-        ])
+        lines.extend(
+            [
+                "",
+                "## Event Details",
+                "",
+            ]
+        )
 
         for e in entries:
             human_flag = " **[HUMAN REQUIRED]**" if e.requires_human else ""
-            lines.extend([
-                f"### Event {e.event_id}{human_flag}",
-                "",
-                f"- **Timestamp:** {e.timestamp}",
-                f"- **Robot:** {e.robot_id} ({e.robot_category})",
-                f"- **Procedure:** {e.procedure_id}",
-                f"- **Category:** {e.category}",
-                f"- **Disposition:** {e.disposition}",
-                f"- **Force deviation:** {e.force_deviation:.4f}",
-                f"- **Position deviation:** {e.position_deviation_mm:.2f} mm",
-                f"- **Description:** {e.description}",
-                "",
-            ])
+            lines.extend(
+                [
+                    f"### Event {e.event_id}{human_flag}",
+                    "",
+                    f"- **Timestamp:** {e.timestamp}",
+                    f"- **Robot:** {e.robot_id} ({e.robot_category})",
+                    f"- **Procedure:** {e.procedure_id}",
+                    f"- **Category:** {e.category}",
+                    f"- **Disposition:** {e.disposition}",
+                    f"- **Force deviation:** {e.force_deviation:.4f}",
+                    f"- **Position deviation:** {e.position_deviation_mm:.2f} mm",
+                    f"- **Description:** {e.description}",
+                    "",
+                ]
+            )
 
         return self._write_report(
             ReportType.SAFETY_LOG,
@@ -444,12 +457,14 @@ class ReportGenerator:
         for e in entries:
             level_counts[e.level] = level_counts.get(e.level, 0) + 1
 
-        lines.extend([
-            "## Level Distribution",
-            "",
-            "| Level | Label | Count |",
-            "|-------|-------|-------|",
-        ])
+        lines.extend(
+            [
+                "## Level Distribution",
+                "",
+                "| Level | Label | Count |",
+                "|-------|-------|-------|",
+            ]
+        )
         for lvl in sorted(level_counts):
             label = entries[0].level_label if entries else ""
             for e in entries:
@@ -459,16 +474,15 @@ class ReportGenerator:
             lines.append(f"| L{lvl} | {label} | {level_counts[lvl]} |")
 
         # Full audit trail
-        lines.extend([
-            "",
-            "## Audit Trail",
-            "",
-            (
-                "| Decision ID | Timestamp | Level | Type | Source "
-                "| Confidence | Outcome |"
-            ),
-            "|-------------|-----------|-------|------|--------|------------|---------|",
-        ])
+        lines.extend(
+            [
+                "",
+                "## Audit Trail",
+                "",
+                ("| Decision ID | Timestamp | Level | Type | Source | Confidence | Outcome |"),
+                "|-------------|-----------|-------|------|--------|------------|---------|",
+            ]
+        )
         for e in entries:
             lines.append(
                 f"| {e.decision_id} | {e.timestamp} | L{e.level} "
@@ -477,23 +491,27 @@ class ReportGenerator:
             )
 
         # Detailed rationale section
-        lines.extend([
-            "",
-            "## Detailed Rationale",
-            "",
-        ])
+        lines.extend(
+            [
+                "",
+                "## Detailed Rationale",
+                "",
+            ]
+        )
         for e in entries:
             timeout_str = f"{e.timeout_seconds}s" if e.timeout_seconds else "none"
-            lines.extend([
-                f"### {e.decision_id} (L{e.level})",
-                "",
-                f"- **Type:** {e.decision_type}",
-                f"- **Source:** {e.source_agent}",
-                f"- **Approvals required:** {', '.join(e.required_approvals)}",
-                f"- **Timeout:** {timeout_str}",
-                f"- **Rationale:** {e.rationale}",
-                "",
-            ])
+            lines.extend(
+                [
+                    f"### {e.decision_id} (L{e.level})",
+                    "",
+                    f"- **Type:** {e.decision_type}",
+                    f"- **Source:** {e.source_agent}",
+                    f"- **Approvals required:** {', '.join(e.required_approvals)}",
+                    f"- **Timeout:** {timeout_str}",
+                    f"- **Rationale:** {e.rationale}",
+                    "",
+                ]
+            )
 
         return self._write_report(
             ReportType.ESCALATION_AUDIT,
@@ -523,14 +541,8 @@ class ReportGenerator:
             "",
             "## Fleet Overview",
             "",
-            (
-                "| Robot | Category | Completed | Aborted | Uptime (h) "
-                "| Util% | Safety | Halts | Status |"
-            ),
-            (
-                "|-------|----------|-----------|---------|------------ "
-                "|-------|--------|-------|--------|"
-            ),
+            ("| Robot | Category | Completed | Aborted | Uptime (h) | Util% | Safety | Halts | Status |"),
+            ("|-------|----------|-----------|---------|------------ |-------|--------|-------|--------|"),
         ]
         for r in robots:
             lines.append(
@@ -548,30 +560,34 @@ class ReportGenerator:
             avg_util = sum(r.utilization_pct for r in robots) / len(robots)
             total_safety = sum(r.safety_events for r in robots)
             total_halts = sum(r.halts for r in robots)
-            lines.extend([
-                "",
-                "## Fleet Summary",
-                "",
-                f"- **Total procedures completed:** {total_completed}",
-                f"- **Total procedures aborted:** {total_aborted}",
-                f"- **Average utilization:** {avg_util:.1f}%",
-                f"- **Total safety events:** {total_safety}",
-                f"- **Total halts:** {total_halts}",
-                f"- **Abort rate:** {total_aborted / max(total_completed + total_aborted, 1) * 100:.1f}%",
-            ])
+            lines.extend(
+                [
+                    "",
+                    "## Fleet Summary",
+                    "",
+                    f"- **Total procedures completed:** {total_completed}",
+                    f"- **Total procedures aborted:** {total_aborted}",
+                    f"- **Average utilization:** {avg_util:.1f}%",
+                    f"- **Total safety events:** {total_safety}",
+                    f"- **Total halts:** {total_halts}",
+                    f"- **Abort rate:** {total_aborted / max(total_completed + total_aborted, 1) * 100:.1f}%",
+                ]
+            )
 
             # Per-category breakdown
             cat_stats: dict[str, list[RobotUtilizationEntry]] = {}
             for r in robots:
                 cat_stats.setdefault(r.robot_category, []).append(r)
 
-            lines.extend([
-                "",
-                "## Category Breakdown",
-                "",
-                "| Category | Robots | Avg Util% | Total Procedures | Total Halts |",
-                "|----------|--------|-----------|------------------|-------------|",
-            ])
+            lines.extend(
+                [
+                    "",
+                    "## Category Breakdown",
+                    "",
+                    "| Category | Robots | Avg Util% | Total Procedures | Total Halts |",
+                    "|----------|--------|-----------|------------------|-------------|",
+                ]
+            )
             for cat in sorted(cat_stats):
                 group = cat_stats[cat]
                 avg_u = sum(r.utilization_pct for r in group) / len(group)

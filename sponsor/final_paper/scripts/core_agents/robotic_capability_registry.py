@@ -1,4 +1,5 @@
 """Robotic capability registry: USL scoring (10 categories, 29 instances), capability matching, maintenance."""
+
 from __future__ import annotations
 
 import uuid
@@ -73,9 +74,11 @@ class RoboticCapabilityRegistry:
                 if cap.category == category and cap.level >= min_level and cap.certified:
                     matched.append(robot)
                     break
-        return sorted(matched, key=lambda r: max(
-            (c.level for c in r.capabilities if c.category == category), default=0
-        ), reverse=True)
+        return sorted(
+            matched,
+            key=lambda r: max((c.level for c in r.capabilities if c.category == category), default=0),
+            reverse=True,
+        )
 
     def schedule_maintenance(self, robot_id: str) -> bool:
         robot = self.robots.get(robot_id)
@@ -96,8 +99,11 @@ class RoboticCapabilityRegistry:
         by_status = {s.value: 0 for s in MaintenanceStatus}
         for robot in self.robots.values():
             by_status[robot.maintenance_status.value] += 1
-        return {"total_robots": len(self.robots), "by_status": by_status,
-                "total_procedures": sum(r.total_procedures for r in self.robots.values())}
+        return {
+            "total_robots": len(self.robots),
+            "by_status": by_status,
+            "total_procedures": sum(r.total_procedures for r in self.robots.values()),
+        }
 
     def populate_fleet(self, sites: list[str]) -> None:
         """Populate registry with 29 robot instances across sites."""
@@ -113,8 +119,7 @@ class RoboticCapabilityRegistry:
 
 def main() -> None:
     registry = RoboticCapabilityRegistry()
-    sites = ["SITE-A", "SITE-B", "SITE-C", "SITE-D", "SITE-E",
-             "SITE-F", "SITE-G", "SITE-H", "SITE-I", "SITE-J"]
+    sites = ["SITE-A", "SITE-B", "SITE-C", "SITE-D", "SITE-E", "SITE-F", "SITE-G", "SITE-H", "SITE-I", "SITE-J"]
     registry.populate_fleet(sites)
     print(f"Fleet: {registry.fleet_summary()}")
     matches = registry.match_capability(USLCategory.MANIPULATION, min_level=3)

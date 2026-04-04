@@ -1,4 +1,5 @@
 """Regulatory intelligence scanner: guidance monitoring, impact assessment."""
+
 from __future__ import annotations
 
 import hashlib
@@ -75,9 +76,16 @@ class RegulatoryIntelligenceScanner:
         self.known_documents: dict[str, GuidanceDocument] = {}
         self.assessments: list[ImpactAssessment] = []
         self.watchlist_keywords: list[str] = [
-            "oncology", "robotics", "artificial intelligence", "adaptive design",
-            "companion diagnostic", "real-world evidence", "decentralized trial",
-            "cell therapy", "digital endpoint", "patient-reported outcome",
+            "oncology",
+            "robotics",
+            "artificial intelligence",
+            "adaptive design",
+            "companion diagnostic",
+            "real-world evidence",
+            "decentralized trial",
+            "cell therapy",
+            "digital endpoint",
+            "patient-reported outcome",
         ]
 
     def ingest_document(self, doc: GuidanceDocument) -> bool:
@@ -110,8 +118,9 @@ class RegulatoryIntelligenceScanner:
             actions.append("Schedule regulatory strategy meeting")
         if doc.category == GuidanceCategory.AI_ML:
             actions.append("Update AI/ML validation documentation")
-        assessment = ImpactAssessment(guidance_id=doc_id, product=product, impact_level=level,
-                                      affected_areas=affected_areas, action_items=actions)
+        assessment = ImpactAssessment(
+            guidance_id=doc_id, product=product, impact_level=level, affected_areas=affected_areas, action_items=actions
+        )
         self.assessments.append(assessment)
         return assessment
 
@@ -130,8 +139,11 @@ class RegulatoryIntelligenceScanner:
 def main() -> None:
     scanner = RegulatoryIntelligenceScanner()
     doc = GuidanceDocument(
-        "FDA-2026-001", "Artificial Intelligence in Oncology Clinical Trials",
-        GuidanceSource.FDA, GuidanceCategory.AI_ML, date(2026, 3, 1),
+        "FDA-2026-001",
+        "Artificial Intelligence in Oncology Clinical Trials",
+        GuidanceSource.FDA,
+        GuidanceCategory.AI_ML,
+        date(2026, 3, 1),
         summary="Guidance on use of artificial intelligence and adaptive design in oncology trials",
     )
     scanner.ingest_document(doc)

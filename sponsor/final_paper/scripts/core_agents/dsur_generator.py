@@ -1,4 +1,5 @@
 """DSUR generator: Development Safety Update Report per ICH E2F with cumulative aggregation."""
+
 from __future__ import annotations
 
 from dataclasses import dataclass, field
@@ -103,8 +104,12 @@ class DSURGenerator:
         period_end = self.dibr_date
         period_start = period_end - timedelta(days=365 if period_type == ReportingPeriod.ANNUAL else 182)
         report = DSURReport(
-            report_id=report_id, product_name=self.product_name, dibr_date=self.dibr_date,
-            period_start=period_start, period_end=period_end, period_type=period_type,
+            report_id=report_id,
+            product_name=self.product_name,
+            dibr_date=self.dibr_date,
+            period_start=period_start,
+            period_end=period_end,
+            period_type=period_type,
         )
         report.sections = [DSURSection(section_number=num, title=title) for num, title in ICH_E2F_SECTIONS]
         self.reports.append(report)
@@ -115,8 +120,10 @@ class DSURGenerator:
         report.cumulative = data
         for sec in report.sections:
             if sec.section_number == "5":
-                sec.content = (f"Cumulative exposure: {data.total_exposed} subjects, "
-                               f"{data.exposure_patient_years:.1f} patient-years")
+                sec.content = (
+                    f"Cumulative exposure: {data.total_exposed} subjects, "
+                    f"{data.exposure_patient_years:.1f} patient-years"
+                )
                 sec.completed = True
                 break
 
@@ -127,9 +134,11 @@ class DSURGenerator:
     def populate_safety_summary(self, report_id: str) -> None:
         report = self._find_report(report_id)
         cum = report.cumulative
-        summary = (f"Total AEs: {cum.total_aes}, SAEs: {cum.total_saes} "
-                   f"(rate: {cum.sae_rate:.2%}), Fatal: {cum.fatal_saes}, "
-                   f"Incidence: {cum.incidence_per_100py:.1f}/100 PY")
+        summary = (
+            f"Total AEs: {cum.total_aes}, SAEs: {cum.total_saes} "
+            f"(rate: {cum.sae_rate:.2%}), Fatal: {cum.fatal_saes}, "
+            f"Incidence: {cum.incidence_per_100py:.1f}/100 PY"
+        )
         for sec in report.sections:
             if sec.section_number == "14":
                 sec.content = summary
@@ -142,10 +151,13 @@ class DSURGenerator:
     def finalize_report(self, report_id: str) -> dict[str, object]:
         report = self._find_report(report_id)
         incomplete = [s.title for s in report.sections if not s.completed]
-        return {"report_id": report.report_id, "product": report.product_name,
-                "period": f"{report.period_start} to {report.period_end}",
-                "completion_pct": round(report.completion_pct * 100, 1),
-                "incomplete_sections": incomplete}
+        return {
+            "report_id": report.report_id,
+            "product": report.product_name,
+            "period": f"{report.period_start} to {report.period_end}",
+            "completion_pct": round(report.completion_pct * 100, 1),
+            "incomplete_sections": incomplete,
+        }
 
     def _find_report(self, report_id: str) -> DSURReport:
         for r in self.reports:
@@ -158,9 +170,18 @@ class DSURGenerator:
 def main() -> None:
     gen = DSURGenerator("PAI-101", date(2026, 3, 15))
     report = gen.create_report("DSUR-2026-001")
-    gen.populate_exposure("DSUR-2026-001", CumulativeSafetyData(
-        total_exposed=245, total_aes=512, total_saes=38, fatal_saes=2,
-        related_saes=12, discontinued_for_ae=18, exposure_patient_years=187.5))
+    gen.populate_exposure(
+        "DSUR-2026-001",
+        CumulativeSafetyData(
+            total_exposed=245,
+            total_aes=512,
+            total_saes=38,
+            fatal_saes=2,
+            related_saes=12,
+            discontinued_for_ae=18,
+            exposure_patient_years=187.5,
+        ),
+    )
     gen.add_soc_summary("DSUR-2026-001", SocSummary("Blood disorders", 85, 12, 45))
     gen.add_soc_summary("DSUR-2026-001", SocSummary("GI disorders", 120, 8, 78))
     gen.populate_safety_summary("DSUR-2026-001")

@@ -1,4 +1,5 @@
 """Procedure provenance tracker: immutable procedure records, telemetry integration, regulatory reports."""
+
 from __future__ import annotations
 
 import hashlib
@@ -55,14 +56,16 @@ class ProcedureProvenanceTracker:
         self.record_event(procedure_id, ProvenanceEventType.PROCEDURE_START, robot_id, "Procedure initiated")
         return trace
 
-    def record_event(self, procedure_id: str, event_type: ProvenanceEventType,
-                     actor: str, detail: str) -> ProvenanceEvent:
+    def record_event(
+        self, procedure_id: str, event_type: ProvenanceEventType, actor: str, detail: str
+    ) -> ProvenanceEvent:
         trace = self.traces[procedure_id]
         if trace.sealed:
             raise ValueError(f"Trace {procedure_id} is sealed")
         prev_hash = trace.events[-1].event_hash if trace.events else "genesis"
-        event = ProvenanceEvent(event_type=event_type, procedure_id=procedure_id,
-                                actor=actor, detail=detail, prev_hash=prev_hash)
+        event = ProvenanceEvent(
+            event_type=event_type, procedure_id=procedure_id, actor=actor, detail=detail, prev_hash=prev_hash
+        )
         event.event_hash = self._compute_hash(event)
         trace.events.append(event)
         return event
@@ -86,11 +89,16 @@ class ProcedureProvenanceTracker:
     def generate_regulatory_report(self, procedure_id: str) -> dict[str, object]:
         trace = self.traces[procedure_id]
         return {
-            "procedure_id": procedure_id, "robot_id": trace.robot_id,
-            "subject_id": trace.subject_id, "sealed": trace.sealed,
-            "total_events": len(trace.events), "chain_valid": self.verify_chain(procedure_id),
-            "events": [{"type": e.event_type.value, "actor": e.actor,
-                        "detail": e.detail, "hash": e.event_hash} for e in trace.events],
+            "procedure_id": procedure_id,
+            "robot_id": trace.robot_id,
+            "subject_id": trace.subject_id,
+            "sealed": trace.sealed,
+            "total_events": len(trace.events),
+            "chain_valid": self.verify_chain(procedure_id),
+            "events": [
+                {"type": e.event_type.value, "actor": e.actor, "detail": e.detail, "hash": e.event_hash}
+                for e in trace.events
+            ],
         }
 
     def summary(self) -> dict[str, object]:

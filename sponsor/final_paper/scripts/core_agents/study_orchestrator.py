@@ -1,4 +1,5 @@
 """Study orchestrator: master orchestrator, dependencies, work queues."""
+
 from __future__ import annotations
 
 import uuid
@@ -136,7 +137,9 @@ class StudyOrchestrator:
 def main() -> None:
     orch = StudyOrchestrator()
     orch.create_study("STU-001", "Phase II NSCLC Robotic Biopsy")
-    t1 = WorkItem(task_id="T1", name="Protocol Finalization", agent="protocol_generator", priority=TaskPriority.CRITICAL)
+    t1 = WorkItem(
+        task_id="T1", name="Protocol Finalization", agent="protocol_generator", priority=TaskPriority.CRITICAL
+    )
     t2 = WorkItem(task_id="T2", name="Site Selection", agent="site_gateway", dependencies=["T1"])
     t3 = WorkItem(task_id="T3", name="IND Submission", agent="ind_filing_engine", dependencies=["T1"])
     t1.status = TaskStatus.READY

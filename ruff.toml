@@ -42,4 +42,4 @@ ignore = ["F841", "E741", "E501"]
 # Patient journey orchestration uses conditional imports and cross-module references
 "patient-journey/**/*.py" = ["F401", "F402"]
 # Sponsor autonomous agent scripts use conditional imports and cross-module references
-"sponsor/**/*.py" = ["F401", "F402"]
+"sponsor/**/*.py" = ["F401", "F402", "E402"]

@@ -1,4 +1,5 @@
 """Investigator interface: protocol training, delegation log, AE reporting workflows."""
+
 from __future__ import annotations
 
 import uuid
@@ -68,8 +69,11 @@ class InvestigatorInterface:
     """Manages investigator training, delegation logs, and AE reporting workflows."""
 
     REQUIRED_MODULES: list[str] = [
-        "GCP Refresher", "Protocol-Specific Training", "EDC System Training",
-        "Safety Reporting Procedures", "Robotic Procedure Familiarization",
+        "GCP Refresher",
+        "Protocol-Specific Training",
+        "EDC System Training",
+        "Safety Reporting Procedures",
+        "Robotic Procedure Familiarization",
     ]
 
     def __init__(self, site_id: str, pi_name: str) -> None:
@@ -101,12 +105,9 @@ class InvestigatorInterface:
 
     def is_fully_trained(self, personnel_id: str) -> bool:
         recs = [r for r in self.training if r.personnel_id == personnel_id]
-        return len(recs) >= len(self.REQUIRED_MODULES) and all(
-            r.status == TrainingStatus.COMPLETED for r in recs
-        )
+        return len(recs) >= len(self.REQUIRED_MODULES) and all(r.status == TrainingStatus.COMPLETED for r in recs)
 
-    def add_delegation(self, personnel_id: str, name: str, role: DelegationRole,
-                       tasks: list[str]) -> DelegationEntry:
+    def add_delegation(self, personnel_id: str, name: str, role: DelegationRole, tasks: list[str]) -> DelegationEntry:
         entry = DelegationEntry(personnel_id=personnel_id, name=name, role=role, tasks=tasks)
         self.delegation_log.append(entry)
         return entry
@@ -121,11 +122,17 @@ class InvestigatorInterface:
     def active_delegation(self) -> list[DelegationEntry]:
         return [e for e in self.delegation_log if not e.revoked]
 
-    def submit_ae_report(self, subject_id: str, ae_term: str, severity: str,
-                         serious: bool, reporter: str) -> AEReport:
-        report = AEReport(subject_id=subject_id, ae_term=ae_term, severity=severity,
-                          serious=serious, reporter=reporter, onset_date=date.today(),
-                          status=AEReportStatus.SUBMITTED, submitted_at=datetime.utcnow())
+    def submit_ae_report(self, subject_id: str, ae_term: str, severity: str, serious: bool, reporter: str) -> AEReport:
+        report = AEReport(
+            subject_id=subject_id,
+            ae_term=ae_term,
+            severity=severity,
+            serious=serious,
+            reporter=reporter,
+            onset_date=date.today(),
+            status=AEReportStatus.SUBMITTED,
+            submitted_at=datetime.utcnow(),
+        )
         self.ae_reports.append(report)
         return report
 
@@ -135,7 +142,8 @@ class InvestigatorInterface:
     def summary(self) -> dict[str, object]:
         active_staff = len({e.personnel_id for e in self.active_delegation()})
         return {
-            "site_id": self.site_id, "pi": self.pi_name,
+            "site_id": self.site_id,
+            "pi": self.pi_name,
             "active_staff": active_staff,
             "training_complete": sum(1 for t in self.training if t.status == TrainingStatus.COMPLETED),
             "ae_reports": len(self.ae_reports),
@@ -148,10 +156,10 @@ def main() -> None:
     records = iface.assign_training("PI-001")
     for rec in records:
         iface.complete_training(rec.record_id, 92.0)
-    iface.add_delegation("PI-001", "Dr. Nakamura", DelegationRole.PRINCIPAL_INVESTIGATOR,
-                         ["consent", "ae_reporting", "oversight"])
-    iface.add_delegation("SC-001", "Jane Doe", DelegationRole.STUDY_COORDINATOR,
-                         ["data_entry", "scheduling"])
+    iface.add_delegation(
+        "PI-001", "Dr. Nakamura", DelegationRole.PRINCIPAL_INVESTIGATOR, ["consent", "ae_reporting", "oversight"]
+    )
+    iface.add_delegation("SC-001", "Jane Doe", DelegationRole.STUDY_COORDINATOR, ["data_entry", "scheduling"])
     iface.submit_ae_report("SUBJ-01", "Nausea", "Moderate", False, "PI-001")
     print(f"Fully trained: {iface.is_fully_trained('PI-001')}")
     print(f"Summary: {iface.summary()}")

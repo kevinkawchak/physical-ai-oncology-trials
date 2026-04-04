@@ -3,6 +3,7 @@
 Wraps the safety agent's classification, signal detection, and E2B stub
 generation behind FastAPI endpoints.
 """
+
 from __future__ import annotations
 
 from typing import Any

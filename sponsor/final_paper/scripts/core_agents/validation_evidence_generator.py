@@ -1,4 +1,5 @@
 """Validation evidence generator: IQ/OQ/PQ documentation, 21 CFR Part 11 compliance, CSV/CSA."""
+
 from __future__ import annotations
 
 import hashlib
@@ -104,8 +105,9 @@ class ValidationEvidenceGenerator:
         self.part11_checks = []
         for req_id, desc in PART_11_REQUIREMENTS:
             evidence = evidence_map.get(req_id, "")
-            check = Part11Check(check_id=req_id, requirement=desc,
-                                description=desc, compliant=bool(evidence), evidence=evidence)
+            check = Part11Check(
+                check_id=req_id, requirement=desc, description=desc, compliant=bool(evidence), evidence=evidence
+            )
             self.part11_checks.append(check)
         return self.part11_checks
 
@@ -119,8 +121,15 @@ class ValidationEvidenceGenerator:
         rows: list[dict[str, str]] = []
         for p in self.protocols:
             for tc in p.test_cases:
-                rows.append({"protocol": p.protocol_id, "phase": p.phase.value,
-                             "test": tc.test_id, "title": tc.title, "result": tc.result.value})
+                rows.append(
+                    {
+                        "protocol": p.protocol_id,
+                        "phase": p.phase.value,
+                        "test": tc.test_id,
+                        "title": tc.title,
+                        "result": tc.result.value,
+                    }
+                )
         return rows
 
     def summary_report(self) -> dict[str, object]:
@@ -128,9 +137,12 @@ class ValidationEvidenceGenerator:
         passed = sum(1 for t in all_tests if t.result == TestResult.PASS)
         failed = sum(1 for t in all_tests if t.result == TestResult.FAIL)
         return {
-            "system": self.system_name, "version": self.version,
-            "protocols": len(self.protocols), "total_tests": len(all_tests),
-            "passed": passed, "failed": failed,
+            "system": self.system_name,
+            "version": self.version,
+            "protocols": len(self.protocols),
+            "total_tests": len(all_tests),
+            "passed": passed,
+            "failed": failed,
             "part11_score": self.part11_compliance_score(),
         }
 
@@ -138,12 +150,15 @@ class ValidationEvidenceGenerator:
 def main() -> None:
     gen = ValidationEvidenceGenerator("RoboticTrialPlatform", "2.1.0")
     oq = gen.create_protocol(ValidationPhase.OQ)
-    for title, expected in [("Login auth", "access_granted"), ("Audit trail", "entry_logged"),
-                             ("RBAC", "restricted")]:
+    for title, expected in [("Login auth", "access_granted"), ("Audit trail", "entry_logged"), ("RBAC", "restricted")]:
         tc = gen.add_test_case(oq.protocol_id, title, expected)
         tc.execute(expected, "QA_Lead")
-    evidence = {"P11-01": "SSO integration verified", "P11-02": "Audit trail module tested",
-                "P11-03": "RBAC configured", "P11-04": "Role matrix approved"}
+    evidence = {
+        "P11-01": "SSO integration verified",
+        "P11-02": "Audit trail module tested",
+        "P11-03": "RBAC configured",
+        "P11-04": "Role matrix approved",
+    }
     gen.run_part11_assessment(evidence)
     print(f"Traceability: {gen.traceability_matrix()}")
     print(f"Report: {gen.summary_report()}")

@@ -1,4 +1,5 @@
 """Provenance engine: W3C PROV-DM provenance model implementation."""
+
 from __future__ import annotations
 
 import hashlib
@@ -62,39 +63,41 @@ class ProvenanceEngine:
         self.bundles[bundle_id] = bundle
         return bundle
 
-    def add_entity(self, bundle_id: str, entity_id: str, label: str,
-                   attributes: dict[str, str] | None = None) -> PROVNode:
-        node = PROVNode(node_id=entity_id, prov_type=PROVType.ENTITY, label=label,
-                        attributes=attributes or {})
+    def add_entity(
+        self, bundle_id: str, entity_id: str, label: str, attributes: dict[str, str] | None = None
+    ) -> PROVNode:
+        node = PROVNode(node_id=entity_id, prov_type=PROVType.ENTITY, label=label, attributes=attributes or {})
         self.bundles[bundle_id].nodes.append(node)
         return node
 
-    def add_activity(self, bundle_id: str, activity_id: str, label: str,
-                     attributes: dict[str, str] | None = None) -> PROVNode:
-        node = PROVNode(node_id=activity_id, prov_type=PROVType.ACTIVITY, label=label,
-                        attributes=attributes or {})
+    def add_activity(
+        self, bundle_id: str, activity_id: str, label: str, attributes: dict[str, str] | None = None
+    ) -> PROVNode:
+        node = PROVNode(node_id=activity_id, prov_type=PROVType.ACTIVITY, label=label, attributes=attributes or {})
         self.bundles[bundle_id].nodes.append(node)
         return node
 
-    def add_agent(self, bundle_id: str, agent_id: str, label: str,
-                  attributes: dict[str, str] | None = None) -> PROVNode:
-        node = PROVNode(node_id=agent_id, prov_type=PROVType.AGENT, label=label,
-                        attributes=attributes or {})
+    def add_agent(
+        self, bundle_id: str, agent_id: str, label: str, attributes: dict[str, str] | None = None
+    ) -> PROVNode:
+        node = PROVNode(node_id=agent_id, prov_type=PROVType.AGENT, label=label, attributes=attributes or {})
         self.bundles[bundle_id].nodes.append(node)
         return node
 
-    def add_relation(self, bundle_id: str, source: str, target: str,
-                     relation: PROVRelation) -> PROVEdge:
+    def add_relation(self, bundle_id: str, source: str, target: str, relation: PROVRelation) -> PROVEdge:
         edge = PROVEdge(source_id=source, target_id=target, relation=relation)
         self.bundles[bundle_id].edges.append(edge)
         return edge
 
     def seal_bundle(self, bundle_id: str) -> str:
         bundle = self.bundles[bundle_id]
-        content = json.dumps({
-            "nodes": [{"id": n.node_id, "type": n.prov_type.value} for n in bundle.nodes],
-            "edges": [{"src": e.source_id, "tgt": e.target_id, "rel": e.relation.value} for e in bundle.edges],
-        }, sort_keys=True)
+        content = json.dumps(
+            {
+                "nodes": [{"id": n.node_id, "type": n.prov_type.value} for n in bundle.nodes],
+                "edges": [{"src": e.source_id, "tgt": e.target_id, "rel": e.relation.value} for e in bundle.edges],
+            },
+            sort_keys=True,
+        )
         bundle.seal_hash = hashlib.sha256(content.encode()).hexdigest()[:24]
         bundle.sealed = True
         return bundle.seal_hash
@@ -125,10 +128,12 @@ class ProvenanceEngine:
         return sorted(visited)
 
     def summary(self) -> dict[str, object]:
-        return {"bundles": len(self.bundles),
-                "total_nodes": sum(len(b.nodes) for b in self.bundles.values()),
-                "total_edges": sum(len(b.edges) for b in self.bundles.values()),
-                "sealed": sum(1 for b in self.bundles.values() if b.sealed)}
+        return {
+            "bundles": len(self.bundles),
+            "total_nodes": sum(len(b.nodes) for b in self.bundles.values()),
+            "total_edges": sum(len(b.edges) for b in self.bundles.values()),
+            "sealed": sum(1 for b in self.bundles.values() if b.sealed),
+        }
 
 
 def main() -> None:

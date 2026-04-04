@@ -4,6 +4,7 @@ Manages the operational lifecycle of trial sites within the 24-hour
 simulation: activating sites, tracking patient enrollment against
 targets, scheduling monitoring visits, and flagging deviations.
 """
+
 from __future__ import annotations
 
 import logging

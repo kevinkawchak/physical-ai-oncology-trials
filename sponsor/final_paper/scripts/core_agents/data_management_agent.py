@@ -1,4 +1,5 @@
 """Data management agent: eConsent tracking, eSource validation, EDC management, query automation."""
+
 from __future__ import annotations
 
 import uuid
@@ -59,8 +60,9 @@ class DataManagementAgent:
         self.queries: list[DataQuery] = []
 
     def record_consent(self, subject_id: str, version: str) -> EConsentRecord:
-        rec = EConsentRecord(subject_id=subject_id, version=version,
-                             status=ConsentStatus.SIGNED, signed_at=datetime.utcnow())
+        rec = EConsentRecord(
+            subject_id=subject_id, version=version, status=ConsentStatus.SIGNED, signed_at=datetime.utcnow()
+        )
         self.consents[subject_id] = rec
         return rec
 
@@ -99,8 +101,12 @@ class DataManagementAgent:
 
     def summary(self) -> dict[str, object]:
         consented = sum(1 for c in self.consents.values() if c.status == ConsentStatus.SIGNED)
-        return {"study": self.study_id, "consented": consented, "fields": len(self.fields),
-                "queries": self.query_rate()}
+        return {
+            "study": self.study_id,
+            "consented": consented,
+            "fields": len(self.fields),
+            "queries": self.query_rate(),
+        }
 
 
 def main() -> None:

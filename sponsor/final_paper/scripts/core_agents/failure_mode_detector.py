@@ -1,4 +1,5 @@
 """Failure mode detector: real-time detection of 5 failure modes."""
+
 from __future__ import annotations
 
 from dataclasses import dataclass, field
@@ -68,12 +69,18 @@ class FailureModeDetector:
         self.alerts: list[FailureAlert] = []
         self._alert_counter = 0
 
-    def _make_alert(self, mode: FailureMode, severity: Severity, site_id: str, desc: str,
-                    value: float, threshold: float) -> FailureAlert:
+    def _make_alert(
+        self, mode: FailureMode, severity: Severity, site_id: str, desc: str, value: float, threshold: float
+    ) -> FailureAlert:
         self._alert_counter += 1
         alert = FailureAlert(
-            alert_id=f"FA-{self._alert_counter:05d}", mode=mode, severity=severity,
-            site_id=site_id, description=desc, metric_value=value, threshold=threshold,
+            alert_id=f"FA-{self._alert_counter:05d}",
+            mode=mode,
+            severity=severity,
+            site_id=site_id,
+            description=desc,
+            metric_value=value,
+            threshold=threshold,
         )
         self.alerts.append(alert)
         return alert
@@ -82,9 +89,12 @@ class FailureModeDetector:
         if metrics.enrollment_rate_monthly < self.thresholds.enrollment_rate_min:
             sev = Severity.CRITICAL if metrics.enrollment_rate_monthly == 0 else Severity.WARNING
             return self._make_alert(
-                FailureMode.ENROLLMENT_STALL, sev, metrics.site_id,
+                FailureMode.ENROLLMENT_STALL,
+                sev,
+                metrics.site_id,
                 f"Enrollment rate {metrics.enrollment_rate_monthly:.1f}/mo below minimum",
-                metrics.enrollment_rate_monthly, self.thresholds.enrollment_rate_min,
+                metrics.enrollment_rate_monthly,
+                self.thresholds.enrollment_rate_min,
             )
         return None
 
@@ -92,43 +102,60 @@ class FailureModeDetector:
         if metrics.deviation_rate > self.thresholds.deviation_rate_max:
             sev = Severity.CRITICAL if metrics.deviation_rate > 0.20 else Severity.WARNING
             return self._make_alert(
-                FailureMode.PROTOCOL_DEVIATION_SURGE, sev, metrics.site_id,
+                FailureMode.PROTOCOL_DEVIATION_SURGE,
+                sev,
+                metrics.site_id,
                 f"Deviation rate {metrics.deviation_rate:.1%} exceeds threshold",
-                metrics.deviation_rate, self.thresholds.deviation_rate_max,
+                metrics.deviation_rate,
+                self.thresholds.deviation_rate_max,
             )
         return None
 
     def check_data_quality(self, metrics: SiteMetrics) -> FailureAlert | None:
         if metrics.query_rate_per_page > self.thresholds.query_rate_max:
             return self._make_alert(
-                FailureMode.DATA_QUALITY_DEGRADATION, Severity.WARNING, metrics.site_id,
+                FailureMode.DATA_QUALITY_DEGRADATION,
+                Severity.WARNING,
+                metrics.site_id,
                 f"Query rate {metrics.query_rate_per_page:.1%} per page exceeds threshold",
-                metrics.query_rate_per_page, self.thresholds.query_rate_max,
+                metrics.query_rate_per_page,
+                self.thresholds.query_rate_max,
             )
         return None
 
     def check_safety_signal(self, metrics: SiteMetrics) -> FailureAlert | None:
         if metrics.sae_rate > self.thresholds.sae_rate_max:
             return self._make_alert(
-                FailureMode.SAFETY_SIGNAL_EMERGENCE, Severity.CRITICAL, metrics.site_id,
+                FailureMode.SAFETY_SIGNAL_EMERGENCE,
+                Severity.CRITICAL,
+                metrics.site_id,
                 f"SAE rate {metrics.sae_rate:.1%} above threshold",
-                metrics.sae_rate, self.thresholds.sae_rate_max,
+                metrics.sae_rate,
+                self.thresholds.sae_rate_max,
             )
         return None
 
     def check_site_performance(self, metrics: SiteMetrics) -> FailureAlert | None:
         if metrics.screen_fail_rate > self.thresholds.screen_fail_rate_max:
             return self._make_alert(
-                FailureMode.SITE_PERFORMANCE_DECLINE, Severity.WARNING, metrics.site_id,
+                FailureMode.SITE_PERFORMANCE_DECLINE,
+                Severity.WARNING,
+                metrics.site_id,
                 f"Screen fail rate {metrics.screen_fail_rate:.1%} exceeds threshold",
-                metrics.screen_fail_rate, self.thresholds.screen_fail_rate_max,
+                metrics.screen_fail_rate,
+                self.thresholds.screen_fail_rate_max,
             )
         return None
 
     def run_all_checks(self, metrics: SiteMetrics) -> list[FailureAlert]:
         results: list[FailureAlert] = []
-        for check in [self.check_enrollment_stall, self.check_deviation_surge,
-                       self.check_data_quality, self.check_safety_signal, self.check_site_performance]:
+        for check in [
+            self.check_enrollment_stall,
+            self.check_deviation_surge,
+            self.check_data_quality,
+            self.check_safety_signal,
+            self.check_site_performance,
+        ]:
             alert = check(metrics)
             if alert:
                 results.append(alert)
@@ -144,8 +171,14 @@ class FailureModeDetector:
 
 def main() -> None:
     detector = FailureModeDetector()
-    metrics = SiteMetrics("S01", enrollment_rate_monthly=0.5, deviation_rate=0.15, query_rate_per_page=0.08,
-                          sae_rate=0.07, screen_fail_rate=0.35)
+    metrics = SiteMetrics(
+        "S01",
+        enrollment_rate_monthly=0.5,
+        deviation_rate=0.15,
+        query_rate_per_page=0.08,
+        sae_rate=0.07,
+        screen_fail_rate=0.35,
+    )
     alerts = detector.run_all_checks(metrics)
     for a in alerts:
         print(f"[{a.severity.value}] {a.mode.value}: {a.description}")

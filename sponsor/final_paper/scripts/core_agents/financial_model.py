@@ -1,4 +1,5 @@
 """Financial model: cost projections, ROI analysis, NPV, Monte Carlo simulation."""
+
 from __future__ import annotations
 
 import math
@@ -61,8 +62,9 @@ class FinancialModel:
         self.costs: list[CostLineItem] = []
         self.revenues: list[RevenueProjection] = []
 
-    def add_cost(self, category: CostCategory, description: str, amount: float,
-                 year: int = 1, probability: float = 1.0) -> None:
+    def add_cost(
+        self, category: CostCategory, description: str, amount: float, year: int = 1, probability: float = 1.0
+    ) -> None:
         self.costs.append(CostLineItem(category, description, amount, year, probability))
 
     def add_revenue(self, year: int, revenue: float, pos: float = 1.0) -> None:
@@ -100,12 +102,17 @@ class FinancialModel:
             if cumulative >= 0 and payback > max_year:
                 payback = yr
         irr_approx = (total_rev / max(total_cost, 1)) ** (1 / max(max_year, 1)) - 1
-        return NPVResult(npv=round(npv, 2), irr_approx=round(irr_approx, 4),
-                         payback_year=payback, total_cost=round(total_cost, 2),
-                         total_revenue=round(total_rev, 2))
+        return NPVResult(
+            npv=round(npv, 2),
+            irr_approx=round(irr_approx, 4),
+            payback_year=payback,
+            total_cost=round(total_cost, 2),
+            total_revenue=round(total_rev, 2),
+        )
 
-    def monte_carlo_npv(self, n_simulations: int = 5000, cost_cv: float = 0.15,
-                        revenue_cv: float = 0.25, seed: int = 42) -> dict[str, float]:
+    def monte_carlo_npv(
+        self, n_simulations: int = 5000, cost_cv: float = 0.15, revenue_cv: float = 0.25, seed: int = 42
+    ) -> dict[str, float]:
         rng = random.Random(seed)
         npvs: list[float] = []
         for _ in range(n_simulations):
@@ -123,9 +130,13 @@ class FinancialModel:
         p5 = npvs[int(0.05 * len(npvs))]
         p95 = npvs[int(0.95 * len(npvs))]
         prob_positive = sum(1 for x in npvs if x > 0) / len(npvs)
-        return {"mean_npv": round(mean_npv, 2), "std_npv": round(std_npv, 2),
-                "p5": round(p5, 2), "p95": round(p95, 2),
-                "prob_positive": round(prob_positive, 4)}
+        return {
+            "mean_npv": round(mean_npv, 2),
+            "std_npv": round(std_npv, 2),
+            "p5": round(p5, 2),
+            "p95": round(p95, 2),
+            "prob_positive": round(prob_positive, 4),
+        }
 
     def roi(self) -> float:
         total_cost = sum(c.expected_value for c in self.costs)

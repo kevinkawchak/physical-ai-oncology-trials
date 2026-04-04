@@ -1,4 +1,5 @@
 """IRT demand forecaster: IRT-driven demand forecasting, depot optimization, cold-chain logistics."""
+
 from __future__ import annotations
 
 import math
@@ -50,8 +51,11 @@ class ColdChainShipment:
     temp_readings: list[float] = field(default_factory=list)
 
     def check_excursion(self) -> bool:
-        limits = {StorageCondition.AMBIENT: (15.0, 25.0), StorageCondition.REFRIGERATED: (2.0, 8.0),
-                  StorageCondition.FROZEN: (-25.0, -15.0)}
+        limits = {
+            StorageCondition.AMBIENT: (15.0, 25.0),
+            StorageCondition.REFRIGERATED: (2.0, 8.0),
+            StorageCondition.FROZEN: (-25.0, -15.0),
+        }
         lo, hi = limits.get(self.storage, (2.0, 8.0))
         for t in self.temp_readings:
             if t < lo or t > hi:
@@ -78,10 +82,12 @@ class IRTDemandForecaster:
         self.depots: dict[str, DepotProfile] = {}
         self.shipments: list[ColdChainShipment] = []
 
-    def register_depot(self, depot_id: str, region: str, capacity: int,
-                       storage: StorageCondition, lead_time_days: int = 14) -> DepotProfile:
-        depot = DepotProfile(depot_id=depot_id, region=region, capacity_units=capacity,
-                             storage=storage, lead_time_days=lead_time_days)
+    def register_depot(
+        self, depot_id: str, region: str, capacity: int, storage: StorageCondition, lead_time_days: int = 14
+    ) -> DepotProfile:
+        depot = DepotProfile(
+            depot_id=depot_id, region=region, capacity_units=capacity, storage=storage, lead_time_days=lead_time_days
+        )
         self.depots[depot_id] = depot
         return depot
 
@@ -99,16 +105,17 @@ class IRTDemandForecaster:
         reorder_point = weekly_demand * lead_time_weeks + safety_stock
         recommended = max(demand_4wk + safety_stock - depot.current_stock, 0)
         return DemandForecast(
-            depot_id=depot_id, projected_demand_4wk=round(demand_4wk, 1),
+            depot_id=depot_id,
+            projected_demand_4wk=round(demand_4wk, 1),
             reorder_point=round(reorder_point, 1),
             recommended_order=round(recommended, 1),
             safety_stock=round(safety_stock, 1),
         )
 
-    def create_shipment(self, origin: str, destination: str, units: int,
-                        storage: StorageCondition) -> ColdChainShipment:
-        shipment = ColdChainShipment(origin_depot=origin, destination=destination,
-                                     units=units, storage=storage)
+    def create_shipment(
+        self, origin: str, destination: str, units: int, storage: StorageCondition
+    ) -> ColdChainShipment:
+        shipment = ColdChainShipment(origin_depot=origin, destination=destination, units=units, storage=storage)
         self.shipments.append(shipment)
         return shipment
 
@@ -120,13 +127,13 @@ class IRTDemandForecaster:
         return False
 
     def depots_below_reorder(self) -> list[str]:
-        return [did for did in self.depots
-                if self.depots[did].current_stock <= self.forecast_depot(did).reorder_point]
+        return [did for did in self.depots if self.depots[did].current_stock <= self.forecast_depot(did).reorder_point]
 
     def supply_dashboard(self) -> dict[str, object]:
         excursions = sum(1 for s in self.shipments if s.status == ShipmentStatus.EXCURSION)
         return {
-            "study": self.study_id, "depots": len(self.depots),
+            "study": self.study_id,
+            "depots": len(self.depots),
             "total_stock": sum(d.current_stock for d in self.depots.values()),
             "below_reorder": len(self.depots_below_reorder()),
             "active_shipments": sum(1 for s in self.shipments if s.status == ShipmentStatus.IN_TRANSIT),

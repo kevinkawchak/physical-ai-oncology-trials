@@ -11,6 +11,7 @@ in the oncology trial simulation:
 All ten robot categories from the Physical-AI Oncology framework are
 supported.
 """
+
 from __future__ import annotations
 
 import logging
@@ -165,7 +166,10 @@ def advance_gate(authorization_id: str, gate_name: str, status: str) -> RobotAut
     _update_overall_status(auth)
     logger.info(
         "Gate advanced: auth=%s gate=%s -> %s overall=%s",
-        authorization_id, gate_name, status, auth.overall_status,
+        authorization_id,
+        gate_name,
+        status,
+        auth.overall_status,
     )
     return auth
 

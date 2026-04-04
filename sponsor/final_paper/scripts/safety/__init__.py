@@ -4,7 +4,7 @@ from __future__ import annotations
 
 from .procedure_authorization import AuthorizationResult, ProcedureAuthorizationGate, SafetyGateID
 from .robotic_safety_workflow import RoboticSafetyWorkflow, SafetyCategory, SafetyEvent
-from .telemetry_monitor import TelemetryMonitor, TelemetryReading, WarningLevel
+from .telemetry_monitor import AlarmLevel, TelemetryMonitor, TelemetryReading
 
 __all__ = [
     "AuthorizationResult",
@@ -15,5 +15,5 @@ __all__ = [
     "SafetyGateID",
     "TelemetryMonitor",
     "TelemetryReading",
-    "WarningLevel",
+    "AlarmLevel",
 ]

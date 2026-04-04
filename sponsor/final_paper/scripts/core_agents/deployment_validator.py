@@ -1,4 +1,5 @@
 """Deployment validator: pre-deployment validation of agent connections, integrations, safety gates."""
+
 from __future__ import annotations
 
 from dataclasses import dataclass, field
@@ -81,8 +82,7 @@ class DeploymentValidator:
 
     def load_standard_checks(self) -> None:
         for spec in STANDARD_CHECKS:
-            check = ValidationCheck(check_id=spec["id"], name=spec["name"],
-                                    category=CheckCategory(spec["cat"]))
+            check = ValidationCheck(check_id=spec["id"], name=spec["name"], category=CheckCategory(spec["cat"]))
             self.checks.append(check)
 
     def run_check(self, check_id: str, passed: bool, message: str = "") -> ValidationCheck:
@@ -100,8 +100,11 @@ class DeploymentValidator:
             passed = results.get(check.check_id, True)
             check.result = CheckResult.PASS if passed else CheckResult.FAIL
             check.checked_at = datetime.utcnow()
-        report = ValidationReport(report_id=f"VR-{self.environment}-{len(self.reports)+1}",
-                                  environment=self.environment, checks=list(self.checks))
+        report = ValidationReport(
+            report_id=f"VR-{self.environment}-{len(self.reports) + 1}",
+            environment=self.environment,
+            checks=list(self.checks),
+        )
         self.reports.append(report)
         return report
 
@@ -110,8 +113,12 @@ class DeploymentValidator:
 
     def summary(self) -> dict[str, object]:
         by_result = {r.value: sum(1 for c in self.checks if c.result == r) for r in CheckResult}
-        return {"environment": self.environment, "total_checks": len(self.checks),
-                "by_result": by_result, "reports_generated": len(self.reports)}
+        return {
+            "environment": self.environment,
+            "total_checks": len(self.checks),
+            "by_result": by_result,
+            "reports_generated": len(self.reports),
+        }
 
 
 def main() -> None:

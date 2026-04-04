@@ -1,4 +1,5 @@
 """Regulatory agent: IND lifecycle, amendments (312.30), annual reports (312.33), authority correspondence."""
+
 from __future__ import annotations
 
 import uuid
@@ -81,12 +82,20 @@ class RegulatoryAgent:
         self.inds[ind_number] = lifecycle
         return lifecycle
 
-    def file_submission(self, ind_number: str, sub_type: SubmissionType,
-                        authority: AuthorityType = AuthorityType.FDA,
-                        sections: list[str] | None = None) -> Submission:
+    def file_submission(
+        self,
+        ind_number: str,
+        sub_type: SubmissionType,
+        authority: AuthorityType = AuthorityType.FDA,
+        sections: list[str] | None = None,
+    ) -> Submission:
         lifecycle = self.inds[ind_number]
-        sub = Submission(sub_type=sub_type, authority=authority,
-                         sections=sections or [], serial_number=lifecycle.next_serial_number())
+        sub = Submission(
+            sub_type=sub_type,
+            authority=authority,
+            sections=sections or [],
+            serial_number=lifecycle.next_serial_number(),
+        )
         lifecycle.submissions.append(sub)
         return sub
 
@@ -104,31 +113,48 @@ class RegulatoryAgent:
         return self.file_submission(ind_number, SubmissionType.AMENDMENT_312_30, sections=sections)
 
     def create_annual_report(self, ind_number: str) -> Submission:
-        sections = ["summary_of_studies", "safety_report_summary", "protocol_amendments",
-                     "investigator_brochure_changes", "manufacturing_changes", "subject_disposition"]
+        sections = [
+            "summary_of_studies",
+            "safety_report_summary",
+            "protocol_amendments",
+            "investigator_brochure_changes",
+            "manufacturing_changes",
+            "subject_disposition",
+        ]
         return self.file_submission(ind_number, SubmissionType.ANNUAL_REPORT_312_33, sections=sections)
 
-    def log_correspondence(self, ind_number: str, authority: AuthorityType,
-                           subject: str, response_days: int = 30) -> Correspondence:
+    def log_correspondence(
+        self, ind_number: str, authority: AuthorityType, subject: str, response_days: int = 30
+    ) -> Correspondence:
         lifecycle = self.inds[ind_number]
-        corr = Correspondence(authority=authority, subject=subject, sent_date=date.today(),
-                               response_due=date.today() + timedelta(days=response_days))
+        corr = Correspondence(
+            authority=authority,
+            subject=subject,
+            sent_date=date.today(),
+            response_due=date.today() + timedelta(days=response_days),
+        )
         lifecycle.correspondence.append(corr)
         return corr
 
     def pending_actions(self, ind_number: str) -> dict[str, list[str]]:
         lifecycle = self.inds[ind_number]
-        pending_subs = [f"{s.sub_type.value} (serial {s.serial_number})"
-                        for s in lifecycle.submissions if s.status in (SubmissionStatus.DRAFT, SubmissionStatus.REVIEW)]
+        pending_subs = [
+            f"{s.sub_type.value} (serial {s.serial_number})"
+            for s in lifecycle.submissions
+            if s.status in (SubmissionStatus.DRAFT, SubmissionStatus.REVIEW)
+        ]
         open_corr = [f"{c.subject} (due {c.response_due})" for c in lifecycle.correspondence if not c.resolved]
         return {"pending_submissions": pending_subs, "open_correspondence": open_corr}
 
     def lifecycle_summary(self, ind_number: str) -> dict[str, object]:
         lc = self.inds[ind_number]
-        return {"ind_number": lc.ind_number, "product": lc.product_name,
-                "total_submissions": len(lc.submissions),
-                "submitted": sum(1 for s in lc.submissions if s.status == SubmissionStatus.SUBMITTED),
-                "open_correspondence": sum(1 for c in lc.correspondence if not c.resolved)}
+        return {
+            "ind_number": lc.ind_number,
+            "product": lc.product_name,
+            "total_submissions": len(lc.submissions),
+            "submitted": sum(1 for s in lc.submissions if s.status == SubmissionStatus.SUBMITTED),
+            "open_correspondence": sum(1 for c in lc.correspondence if not c.resolved),
+        }
 
 
 def main() -> None:

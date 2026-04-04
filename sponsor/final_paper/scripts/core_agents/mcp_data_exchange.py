@@ -1,4 +1,5 @@
 """MCP data exchange: FHIR queries, DICOM retrieval, structured data exchange via MCP server."""
+
 from __future__ import annotations
 
 import json
@@ -66,21 +67,29 @@ class MCPDataExchange:
         return list(self._tools.keys())
 
     def execute_fhir_query(self, query: FHIRQuery, site_id: str = "") -> ExchangeRecord:
-        rec = ExchangeRecord(exchange_type=ExchangeType.FHIR_QUERY, site_id=site_id,
-                             request_payload=json.dumps({"resource": query.resource_type,
-                                                         "params": query.parameters}))
+        rec = ExchangeRecord(
+            exchange_type=ExchangeType.FHIR_QUERY,
+            site_id=site_id,
+            request_payload=json.dumps({"resource": query.resource_type, "params": query.parameters}),
+        )
         rec.status = ExchangeStatus.COMPLETED
         rec.completed_at = datetime.utcnow()
-        rec.response_payload = json.dumps({"resourceType": "Bundle", "total": query.bundle_size,
-                                           "entry": [{"resource": {"id": f"res-{i}"}}
-                                                     for i in range(min(query.bundle_size, 3))]})
+        rec.response_payload = json.dumps(
+            {
+                "resourceType": "Bundle",
+                "total": query.bundle_size,
+                "entry": [{"resource": {"id": f"res-{i}"}} for i in range(min(query.bundle_size, 3))],
+            }
+        )
         self.exchanges.append(rec)
         return rec
 
     def retrieve_dicom(self, request: DICOMRequest, site_id: str = "") -> ExchangeRecord:
-        rec = ExchangeRecord(exchange_type=ExchangeType.DICOM_RETRIEVE, site_id=site_id,
-                             request_payload=json.dumps({"study_uid": request.study_uid,
-                                                         "modality": request.modality}))
+        rec = ExchangeRecord(
+            exchange_type=ExchangeType.DICOM_RETRIEVE,
+            site_id=site_id,
+            request_payload=json.dumps({"study_uid": request.study_uid, "modality": request.modality}),
+        )
         rec.status = ExchangeStatus.COMPLETED
         rec.completed_at = datetime.utcnow()
         rec.response_payload = json.dumps({"instances_retrieved": 42, "modality": request.modality})
@@ -88,8 +97,11 @@ class MCPDataExchange:
         return rec
 
     def send_structured(self, payload: dict[str, object], site_id: str = "") -> ExchangeRecord:
-        rec = ExchangeRecord(exchange_type=ExchangeType.STRUCTURED_DATA, site_id=site_id,
-                             request_payload=json.dumps(payload, default=str))
+        rec = ExchangeRecord(
+            exchange_type=ExchangeType.STRUCTURED_DATA,
+            site_id=site_id,
+            request_payload=json.dumps(payload, default=str),
+        )
         rec.status = ExchangeStatus.COMPLETED
         rec.completed_at = datetime.utcnow()
         self.exchanges.append(rec)

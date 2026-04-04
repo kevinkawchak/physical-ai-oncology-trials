@@ -13,6 +13,7 @@ Endpoints
 - POST /api/v1/sponsor/robot/authorize
 - GET  /api/v1/sponsor/simulation/summary
 """
+
 from __future__ import annotations
 
 import logging

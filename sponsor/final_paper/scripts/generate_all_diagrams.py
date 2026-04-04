@@ -9,6 +9,7 @@ Usage
     python generate_all_diagrams.py          # CLI
     from generate_all_diagrams import generate_all_diagrams; generate_all_diagrams()  # import
 """
+
 from __future__ import annotations
 
 import json
@@ -54,18 +55,84 @@ DECISION_TYPES: list[str] = [
 ]
 
 PATIENT_VOLUMES: list[int] = [
-    2, 3, 3, 4, 4, 5, 8, 10, 12, 15, 12, 10,
-    8, 9, 10, 8, 7, 6, 5, 4, 3, 3, 2, 2,
+    2,
+    3,
+    3,
+    4,
+    4,
+    5,
+    8,
+    10,
+    12,
+    15,
+    12,
+    10,
+    8,
+    9,
+    10,
+    8,
+    7,
+    6,
+    5,
+    4,
+    3,
+    3,
+    2,
+    2,
 ]
 
 ESCALATIONS: list[int] = [
-    0, 0, 0, 0, 0, 1, 1, 1, 2, 2, 1, 1,
-    1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    1,
+    1,
+    1,
+    2,
+    2,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
 ]
 
 ROBOT_AUTH: list[int] = [
-    2, 3, 3, 3, 4, 5, 8, 10, 12, 15, 12, 10,
-    8, 9, 10, 8, 7, 6, 5, 4, 3, 3, 2, 2,
+    2,
+    3,
+    3,
+    3,
+    4,
+    5,
+    8,
+    10,
+    12,
+    15,
+    12,
+    10,
+    8,
+    9,
+    10,
+    8,
+    7,
+    6,
+    5,
+    4,
+    3,
+    3,
+    2,
+    2,
 ]
 
 ROBOT_CATEGORIES: list[str] = [
@@ -220,9 +287,7 @@ def _render_sponsor_decision_flow(data: dict) -> str:
     h = data["hour"]
     lines: list[str] = []
     lines.append(_hline())
-    lines.append(
-        _center(f"SPONSOR DECISION FLOW - HOUR {h:02d} ({h:02d}:00-{h:02d}:59)")
-    )
+    lines.append(_center(f"SPONSOR DECISION FLOW - HOUR {h:02d} ({h:02d}:00-{h:02d}:59)"))
     lines.append(_hline())
     lines.append("")
     # Column header
@@ -239,10 +304,7 @@ def _render_sponsor_decision_flow(data: dict) -> str:
 
     lines.append("")
     total_esc = sum(1 for d in data["decisions"] if d["escalation"] == "Yes")
-    lines.append(
-        f"Summary: 12 decisions | {total_esc} escalation(s) | "
-        f"PSL {data['psl']}"
-    )
+    lines.append(f"Summary: 12 decisions | {total_esc} escalation(s) | PSL {data['psl']}")
     lines.append(_hline())
     return "\n".join(lines) + "\n"
 
@@ -252,9 +314,7 @@ def _render_agent_workload(data: dict) -> str:
     h = data["hour"]
     lines: list[str] = []
     lines.append(_hline())
-    lines.append(
-        _center(f"AGENT WORKLOAD DISTRIBUTION - HOUR {h:02d}")
-    )
+    lines.append(_center(f"AGENT WORKLOAD DISTRIBUTION - HOUR {h:02d}"))
     lines.append(_hline())
     lines.append("")
 
@@ -290,9 +350,7 @@ def _render_robot_auth_timeline(data: dict) -> str:
     h = data["hour"]
     lines: list[str] = []
     lines.append(_hline())
-    lines.append(
-        _center(f"ROBOT AUTHORIZATION TIMELINE - HOUR {h:02d}")
-    )
+    lines.append(_center(f"ROBOT AUTHORIZATION TIMELINE - HOUR {h:02d}"))
     lines.append(_hline())
     lines.append("")
 
@@ -302,10 +360,7 @@ def _render_robot_auth_timeline(data: dict) -> str:
 
     for r in data["robot_auths"]:
         gate_disp = f"{r['gate']}"
-        row = (
-            f"{r['time']:<6} {r['category']:<15} "
-            f"{r['patient']:<8} {gate_disp:<5} {r['status']:<9}"
-        )
+        row = f"{r['time']:<6} {r['category']:<15} {r['patient']:<8} {gate_disp:<5} {r['status']:<9}"
         lines.append(row)
 
     lines.append("")
@@ -315,10 +370,7 @@ def _render_robot_auth_timeline(data: dict) -> str:
     for r in data["robot_auths"]:
         gate_counts[r["gate"]] = gate_counts.get(r["gate"], 0) + 1
     gate_str = " ".join(f"{g}:{c}" for g, c in sorted(gate_counts.items()))
-    lines.append(
-        f"Total: {len(data['robot_auths'])} auth(s) | "
-        f"Approved: {approved} | Pending: {pending}"
-    )
+    lines.append(f"Total: {len(data['robot_auths'])} auth(s) | Approved: {approved} | Pending: {pending}")
     lines.append(f"Gates: {gate_str}")
     lines.append(_hline())
     return "\n".join(lines) + "\n"
@@ -355,10 +407,7 @@ def _render_cumulative_decision_timeline(all_data: list[dict]) -> str:
         lines.append(row)
 
     lines.append("-" * len(hdr))
-    lines.append(
-        f"{'TOT':>3} {cum_dec:>5} {cum_esc:>5} {cum_ra:>6} {cum_pts:>5} "
-        f"{all_data[-1]['psl']:>6}"
-    )
+    lines.append(f"{'TOT':>3} {cum_dec:>5} {cum_esc:>5} {cum_ra:>6} {cum_pts:>5} {all_data[-1]['psl']:>6}")
     lines.append("")
 
     # ASCII sparkline of decisions + escalations
@@ -412,10 +461,7 @@ def _render_cumulative_agent_utilization(all_data: list[dict]) -> str:
             if w["tasks"] > agent_peak.get(a, 0):
                 agent_peak[a] = w["tasks"]
 
-    hdr = (
-        f"{'Agent':<20} {'Night':>6} {'Morn':>6} "
-        f"{'Aftn':>6} {'Eve':>6} {'24h':>5} {'Pk':>4}"
-    )
+    hdr = f"{'Agent':<20} {'Night':>6} {'Morn':>6} {'Aftn':>6} {'Eve':>6} {'24h':>5} {'Pk':>4}"
     lines.append(hdr)
     lines.append("-" * len(hdr))
 
@@ -425,10 +471,7 @@ def _render_cumulative_agent_utilization(all_data: list[dict]) -> str:
         m = agent_shift[a].get("Morning", 0)
         af = agent_shift[a].get("Afternoon", 0)
         e = agent_shift[a].get("Evening", 0)
-        row = (
-            f"{short:<20} {n:>6} {m:>6} "
-            f"{af:>6} {e:>6} {agent_total[a]:>5} {agent_peak[a]:>4}"
-        )
+        row = f"{short:<20} {n:>6} {m:>6} {af:>6} {e:>6} {agent_total[a]:>5} {agent_peak[a]:>4}"
         lines.append(row)
 
     lines.append("")

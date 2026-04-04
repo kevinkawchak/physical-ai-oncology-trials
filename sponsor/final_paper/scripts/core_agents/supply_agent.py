@@ -1,4 +1,5 @@
 """Supply agent: lot release, inventory tracking, demand forecasting, chain of custody."""
+
 from __future__ import annotations
 
 import uuid
@@ -61,11 +62,14 @@ class SupplyAgent:
         self.lots: dict[str, DrugLot] = {}
         self.depots: dict[str, DepotInventory] = {}
 
-    def register_lot(self, lot_number: str, product: str, quantity: int,
-                     shelf_life_days: int = 365) -> DrugLot:
-        lot = DrugLot(lot_number=lot_number, product_name=product, quantity=quantity,
-                      units_available=quantity,
-                      expiry_date=date.today() + timedelta(days=shelf_life_days))
+    def register_lot(self, lot_number: str, product: str, quantity: int, shelf_life_days: int = 365) -> DrugLot:
+        lot = DrugLot(
+            lot_number=lot_number,
+            product_name=product,
+            quantity=quantity,
+            units_available=quantity,
+            expiry_date=date.today() + timedelta(days=shelf_life_days),
+        )
         lot.custody_chain.append(CustodyEvent(event_type=CustodyEventType.MANUFACTURED, location="CMO"))
         self.lots[lot_number] = lot
         return lot
@@ -73,8 +77,9 @@ class SupplyAgent:
     def release_lot(self, lot_number: str, released_by: str) -> DrugLot:
         lot = self.lots[lot_number]
         lot.status = LotStatus.RELEASED
-        lot.custody_chain.append(CustodyEvent(
-            event_type=CustodyEventType.QC_RELEASED, location="QC Lab", performed_by=released_by))
+        lot.custody_chain.append(
+            CustodyEvent(event_type=CustodyEventType.QC_RELEASED, location="QC Lab", performed_by=released_by)
+        )
         return lot
 
     def register_depot(self, depot_id: str, location: str) -> DepotInventory:
@@ -91,8 +96,7 @@ class SupplyAgent:
             msg = f"Insufficient units: {lot.units_available} available"
             raise ValueError(msg)
         lot.units_available -= units
-        lot.custody_chain.append(CustodyEvent(
-            event_type=CustodyEventType.SHIPPED, location=depot_id))
+        lot.custody_chain.append(CustodyEvent(event_type=CustodyEventType.SHIPPED, location=depot_id))
         depot = self.depots[depot_id]
         depot.lots[lot_number] = depot.lots.get(lot_number, 0) + units
 
@@ -103,33 +107,38 @@ class SupplyAgent:
             msg = f"Depot {depot_id} has {available} units of {lot_number}"
             raise ValueError(msg)
         depot.lots[lot_number] -= units
-        event = CustodyEvent(event_type=CustodyEventType.DISPENSED,
-                             location=depot_id, performed_by=subject_id)
+        event = CustodyEvent(event_type=CustodyEventType.DISPENSED, location=depot_id, performed_by=subject_id)
         self.lots[lot_number].custody_chain.append(event)
         return event
 
-    def forecast_demand(self, enrollment_rate: float, treatment_duration_weeks: int,
-                        doses_per_week: float) -> dict[str, float]:
+    def forecast_demand(
+        self, enrollment_rate: float, treatment_duration_weeks: int, doses_per_week: float
+    ) -> dict[str, float]:
         monthly_enrollment = enrollment_rate * 30
         active_subjects_steady = enrollment_rate * treatment_duration_weeks * 7
         monthly_demand = active_subjects_steady * doses_per_week * (30 / 7)
         buffer = monthly_demand * 0.2
-        return {"monthly_enrollment": round(monthly_enrollment, 1),
-                "active_subjects_steady_state": round(active_subjects_steady, 1),
-                "monthly_demand_units": round(monthly_demand, 1),
-                "recommended_buffer": round(buffer, 1),
-                "total_monthly_need": round(monthly_demand + buffer, 1)}
+        return {
+            "monthly_enrollment": round(monthly_enrollment, 1),
+            "active_subjects_steady_state": round(active_subjects_steady, 1),
+            "monthly_demand_units": round(monthly_demand, 1),
+            "recommended_buffer": round(buffer, 1),
+            "total_monthly_need": round(monthly_demand + buffer, 1),
+        }
 
     def expiring_lots(self, within_days: int = 90) -> list[DrugLot]:
         cutoff = date.today() + timedelta(days=within_days)
-        return [lot for lot in self.lots.values()
-                if lot.expiry_date and lot.expiry_date <= cutoff and lot.status == LotStatus.RELEASED]
+        return [
+            lot
+            for lot in self.lots.values()
+            if lot.expiry_date and lot.expiry_date <= cutoff and lot.status == LotStatus.RELEASED
+        ]
 
     def inventory_summary(self) -> dict[str, object]:
-        total_available = sum(lot.units_available for lot in self.lots.values()
-                              if lot.status == LotStatus.RELEASED)
+        total_available = sum(lot.units_available for lot in self.lots.values() if lot.status == LotStatus.RELEASED)
         return {
-            "study": self.study_id, "total_lots": len(self.lots),
+            "study": self.study_id,
+            "total_lots": len(self.lots),
             "released_lots": sum(1 for lt in self.lots.values() if lt.status == LotStatus.RELEASED),
             "total_units_available": total_available,
             "depots": len(self.depots),

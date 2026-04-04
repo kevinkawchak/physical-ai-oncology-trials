@@ -1,4 +1,5 @@
 """Protocol generator: ICH M11 structured protocol generation."""
+
 from __future__ import annotations
 
 import json

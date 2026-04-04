@@ -1,4 +1,5 @@
 """Patient interface: eConsent delivery, scheduling, ePRO collection."""
+
 from __future__ import annotations
 
 import uuid
@@ -100,20 +101,28 @@ class PatientInterface:
             return True
         return False
 
-    def schedule_visit(self, subject_id: str, visit_name: str, visit_date: date,
-                       site_id: str, window_days: int = 3) -> ScheduledVisit:
-        visit = ScheduledVisit(subject_id=subject_id, visit_name=visit_name,
-                               visit_date=visit_date, site_id=site_id, window_days=window_days)
+    def schedule_visit(
+        self, subject_id: str, visit_name: str, visit_date: date, site_id: str, window_days: int = 3
+    ) -> ScheduledVisit:
+        visit = ScheduledVisit(
+            subject_id=subject_id,
+            visit_name=visit_name,
+            visit_date=visit_date,
+            site_id=site_id,
+            window_days=window_days,
+        )
         self.visits.append(visit)
         return visit
 
     def upcoming_visits(self, subject_id: str, days: int = 14) -> list[ScheduledVisit]:
         cutoff = date.today() + timedelta(days=days)
-        return [v for v in self.visits if v.subject_id == subject_id
-                and v.status == VisitStatus.SCHEDULED and v.visit_date <= cutoff]
+        return [
+            v
+            for v in self.visits
+            if v.subject_id == subject_id and v.status == VisitStatus.SCHEDULED and v.visit_date <= cutoff
+        ]
 
-    def collect_pro(self, subject_id: str, instrument: PROInstrument,
-                    scores: dict[str, float]) -> PROResponse:
+    def collect_pro(self, subject_id: str, instrument: PROInstrument, scores: dict[str, float]) -> PROResponse:
         response = PROResponse(subject_id=subject_id, instrument=instrument, scores=scores)
         self.pro_responses.append(response)
         return response
@@ -126,9 +135,13 @@ class PatientInterface:
 
     def summary(self) -> dict[str, object]:
         signed = sum(1 for c in self.consents.values() if c.status == ConsentStatus.SIGNED)
-        return {"study": self.study_id, "consents_delivered": len(self.consents),
-                "signed": signed, "visits_scheduled": len(self.visits),
-                "pro_responses": len(self.pro_responses)}
+        return {
+            "study": self.study_id,
+            "consents_delivered": len(self.consents),
+            "signed": signed,
+            "visits_scheduled": len(self.visits),
+            "pro_responses": len(self.pro_responses),
+        }
 
 
 def main() -> None:

@@ -5,6 +5,7 @@ The study orchestrator is the central hub that receives hourly data from
 twelve specialised agents, aggregates results, and manages escalation
 paths when agents disagree or thresholds are breached.
 """
+
 from __future__ import annotations
 
 import logging
@@ -84,11 +85,16 @@ def ingest_hour(hour_id: int, payload: dict[str, Any] | None = None) -> HourlyDi
     )
     _hour_statuses[hour_id] = status
 
-    _emit_event(hour_id, "hour_ingested", "study_orchestrator", {
-        "phase": phase.value,
-        "agents_activated": len(target_agents),
-        "directives_count": len(directives),
-    })
+    _emit_event(
+        hour_id,
+        "hour_ingested",
+        "study_orchestrator",
+        {
+            "phase": phase.value,
+            "agents_activated": len(target_agents),
+            "directives_count": len(directives),
+        },
+    )
 
     logger.info(
         "Hour %d ingested: phase=%s agents=%d directives=%d",
@@ -202,12 +208,14 @@ def build_simulation_summary(trial_id: str = "SIM-001") -> SimulationSummary:
         if metrics_list:
             total_tasks = sum(m.tasks_completed for m in metrics_list)
             total_errors = sum(m.errors for m in metrics_list)
-            all_metrics.append({
-                "agent": agent_name,
-                "total_tasks_completed": total_tasks,
-                "total_errors": total_errors,
-                "hours_active": len(metrics_list),
-            })
+            all_metrics.append(
+                {
+                    "agent": agent_name,
+                    "total_tasks_completed": total_tasks,
+                    "total_errors": total_errors,
+                    "hours_active": len(metrics_list),
+                }
+            )
 
     phase_transitions: list[dict[str, Any]] = []
     prev_phase = ""
@@ -271,12 +279,17 @@ def _select_agents(phase: SimulationPhase) -> list[str]:
         SimulationPhase.STARTUP: ["clinops_agent", "regulatory_agent", "supply_agent", "site_gateway"],
         SimulationPhase.ENROLLMENT: ["clinops_agent", "site_gateway", "supply_agent", "quality_agent"],
         SimulationPhase.TREATMENT: [
-            "clinops_agent", "robot_execution_gateway", "supply_agent",
+            "clinops_agent",
+            "robot_execution_gateway",
+            "supply_agent",
             "clinical_accountability_agent",
         ],
         SimulationPhase.MONITORING: ["clinops_agent", "quality_agent", "regulatory_agent"],
         SimulationPhase.CLOSE_OUT: [
-            "regulatory_agent", "quality_agent", "portfolio_agent", "asset_lead_agent",
+            "regulatory_agent",
+            "quality_agent",
+            "portfolio_agent",
+            "asset_lead_agent",
         ],
     }
     selected = list(always_active)

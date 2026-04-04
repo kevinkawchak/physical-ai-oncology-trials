@@ -1,4 +1,5 @@
 """RBQM engine: QTL definition, KRI tracking, centralized statistical monitoring."""
+
 from __future__ import annotations
 
 import math
@@ -65,10 +66,12 @@ class RBQMEngine:
         self.observations: list[KRIObservation] = []
         self.actions: list[RiskAction] = []
 
-    def define_qtl(self, parameter: str, risk_category: RiskCategory,
-                   amber: float, red: float, unit: str = "%") -> QualityToleranceLimit:
-        qtl = QualityToleranceLimit(parameter=parameter, risk_category=risk_category,
-                                    threshold_amber=amber, threshold_red=red, unit=unit)
+    def define_qtl(
+        self, parameter: str, risk_category: RiskCategory, amber: float, red: float, unit: str = "%"
+    ) -> QualityToleranceLimit:
+        qtl = QualityToleranceLimit(
+            parameter=parameter, risk_category=risk_category, threshold_amber=amber, threshold_red=red, unit=unit
+        )
         self.qtls[parameter] = qtl
         return qtl
 
@@ -89,8 +92,9 @@ class RBQMEngine:
         return obs
 
     def _auto_action(self, site_id: str, parameter: str, value: float) -> RiskAction:
-        action = RiskAction(site_id=site_id, action_type=ActionType.TARGETED_SDV,
-                            reason=f"KRI breach: {parameter}={value}")
+        action = RiskAction(
+            site_id=site_id, action_type=ActionType.TARGETED_SDV, reason=f"KRI breach: {parameter}={value}"
+        )
         self.actions.append(action)
         return action
 
@@ -109,8 +113,13 @@ class RBQMEngine:
         reds = sum(1 for o in site_obs if o.status == KRIStatus.RED)
         ambers = sum(1 for o in site_obs if o.status == KRIStatus.AMBER)
         open_actions = sum(1 for a in self.actions if a.site_id == site_id and not a.resolved)
-        return {"site_id": site_id, "total_kris": len(site_obs),
-                "red": reds, "amber": ambers, "open_actions": open_actions}
+        return {
+            "site_id": site_id,
+            "total_kris": len(site_obs),
+            "red": reds,
+            "amber": ambers,
+            "open_actions": open_actions,
+        }
 
     def overall_quality_score(self) -> float:
         if not self.observations:
@@ -123,8 +132,10 @@ class RBQMEngine:
     def dashboard(self) -> dict[str, object]:
         sites = {o.site_id for o in self.observations}
         return {
-            "study": self.study_id, "qtls_defined": len(self.qtls),
-            "sites_monitored": len(sites), "total_observations": len(self.observations),
+            "study": self.study_id,
+            "qtls_defined": len(self.qtls),
+            "sites_monitored": len(sites),
+            "total_observations": len(self.observations),
             "open_actions": sum(1 for a in self.actions if not a.resolved),
             "quality_score": self.overall_quality_score(),
         }

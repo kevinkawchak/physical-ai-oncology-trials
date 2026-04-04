@@ -1,4 +1,5 @@
 """Policy enforcement engine: OPA/Rego-style policy rules, safety gates."""
+
 from __future__ import annotations
 
 from dataclasses import dataclass, field
@@ -83,13 +84,11 @@ class PolicyEnforcementEngine:
     def evaluate_rule(self, rule_id: str, context: dict[str, object]) -> PolicyEvaluation:
         rule = self.rules[rule_id]
         decision = rule.evaluate(context)
-        evaluation = PolicyEvaluation(rule_id=rule_id, decision=decision,
-                                      context_summary=str(list(context.keys())))
+        evaluation = PolicyEvaluation(rule_id=rule_id, decision=decision, context_summary=str(list(context.keys())))
         self.evaluations.append(evaluation)
         return evaluation
 
-    def define_gate(self, gate_id: str, name: str, rule_ids: list[str],
-                    all_must_pass: bool = True) -> SafetyGate:
+    def define_gate(self, gate_id: str, name: str, rule_ids: list[str], all_must_pass: bool = True) -> SafetyGate:
         gate = SafetyGate(gate_id=gate_id, name=name, rules=rule_ids, all_must_pass=all_must_pass)
         self.gates[gate_id] = gate
         return gate

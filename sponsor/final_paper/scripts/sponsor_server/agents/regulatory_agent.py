@@ -4,6 +4,7 @@ Tracks regulatory milestones across the 24-hour simulation, manages the
 IND application lifecycle, generates filing stubs, and maintains a
 compliance calendar so deadlines are never missed.
 """
+
 from __future__ import annotations
 
 import logging

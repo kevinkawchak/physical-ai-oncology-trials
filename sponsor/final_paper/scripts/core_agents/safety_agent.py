@@ -1,4 +1,5 @@
 """Safety agent: AE/SAE intake, MedDRA coding, causality assessment."""
+
 from __future__ import annotations
 
 import uuid
@@ -96,19 +97,30 @@ class SafetyAgent:
         key = verbatim.lower().strip()
         return MEDDRA_LOOKUP.get(key)
 
-    def intake_ae(self, subject_id: str, verbatim: str, severity: AESeverity,
-                  seriousness: list[Seriousness] | None = None) -> AdverseEvent:
-        ae = AdverseEvent(subject_id=subject_id, verbatim_term=verbatim, severity=severity,
-                          seriousness=seriousness or [Seriousness.NON_SERIOUS])
+    def intake_ae(
+        self, subject_id: str, verbatim: str, severity: AESeverity, seriousness: list[Seriousness] | None = None
+    ) -> AdverseEvent:
+        ae = AdverseEvent(
+            subject_id=subject_id,
+            verbatim_term=verbatim,
+            severity=severity,
+            seriousness=seriousness or [Seriousness.NON_SERIOUS],
+        )
         ae.meddra = self.code_verbatim(verbatim)
         self.events.append(ae)
         return ae
 
-    def assess_causality(self, ae_id: str, temporal: bool, dechallenge: bool,
-                         rechallenge: bool, known_class: bool) -> Causality:
+    def assess_causality(
+        self, ae_id: str, temporal: bool, dechallenge: bool, rechallenge: bool, known_class: bool
+    ) -> Causality:
         score = sum([temporal, dechallenge, rechallenge, known_class])
-        mapping = {0: Causality.UNRELATED, 1: Causality.UNLIKELY, 2: Causality.POSSIBLE,
-                   3: Causality.PROBABLE, 4: Causality.DEFINITE}
+        mapping = {
+            0: Causality.UNRELATED,
+            1: Causality.UNLIKELY,
+            2: Causality.POSSIBLE,
+            3: Causality.PROBABLE,
+            4: Causality.DEFINITE,
+        }
         result = mapping.get(score, Causality.POSSIBLE)
         for ev in self.events:
             if ev.ae_id == ae_id:

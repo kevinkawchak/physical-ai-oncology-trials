@@ -1,4 +1,5 @@
 """CRO oversight engine: 11-area accountability matrix."""
+
 from __future__ import annotations
 
 from dataclasses import dataclass, field
@@ -88,8 +89,7 @@ class CROOversightEngine:
     def set_kpis(self, area: OversightArea, kpis: list[str]) -> None:
         self.matrix[area].kpis = kpis
 
-    def assess_compliance(self, area: OversightArea, level: ComplianceLevel,
-                          findings: list[str] | None = None) -> None:
+    def assess_compliance(self, area: OversightArea, level: ComplianceLevel, findings: list[str] | None = None) -> None:
         entry = self.matrix[area]
         entry.compliance = level
         entry.last_reviewed = date.today()
@@ -98,27 +98,33 @@ class CROOversightEngine:
     def conduct_review(self, review_id: str) -> OversightReview:
         scores: dict[str, float] = {}
         action_items: list[str] = []
-        score_map = {ComplianceLevel.FULL: 1.0, ComplianceLevel.PARTIAL: 0.6,
-                     ComplianceLevel.NON_COMPLIANT: 0.2, ComplianceLevel.NOT_ASSESSED: 0.0}
+        score_map = {
+            ComplianceLevel.FULL: 1.0,
+            ComplianceLevel.PARTIAL: 0.6,
+            ComplianceLevel.NON_COMPLIANT: 0.2,
+            ComplianceLevel.NOT_ASSESSED: 0.0,
+        }
         for area, entry in self.matrix.items():
             score = score_map.get(entry.compliance, 0.0)
             scores[area.value] = score
             if entry.compliance in (ComplianceLevel.NON_COMPLIANT, ComplianceLevel.PARTIAL):
                 action_items.append(f"Address {area.value}: {', '.join(entry.findings)}")
         overall = sum(scores.values()) / max(len(scores), 1)
-        review = OversightReview(review_id=review_id, scores=scores,
-                                  overall_score=round(overall, 3), action_items=action_items)
+        review = OversightReview(
+            review_id=review_id, scores=scores, overall_score=round(overall, 3), action_items=action_items
+        )
         self.reviews.append(review)
         return review
 
     def compliance_heat_map(self) -> list[dict[str, str]]:
-        return [{"area": e.area.value, "responsibility": e.responsibility.value,
-                 "compliance": e.compliance.value} for e in self.matrix.values()]
+        return [
+            {"area": e.area.value, "responsibility": e.responsibility.value, "compliance": e.compliance.value}
+            for e in self.matrix.values()
+        ]
 
     def summary(self) -> dict[str, object]:
         full = sum(1 for e in self.matrix.values() if e.compliance == ComplianceLevel.FULL)
-        return {"cro": self.cro_name, "areas": len(self.matrix),
-                "fully_compliant": full, "reviews": len(self.reviews)}
+        return {"cro": self.cro_name, "areas": len(self.matrix), "fully_compliant": full, "reviews": len(self.reviews)}
 
 
 def main() -> None:

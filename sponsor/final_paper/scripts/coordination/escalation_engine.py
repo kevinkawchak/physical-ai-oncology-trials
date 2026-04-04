@@ -164,22 +164,26 @@ _CONF_MEDIUM = 0.70
 _CONF_LOW = 0.50
 
 # Decision types that always elevate
-_SAFETY_TYPES = frozenset({
-    "sae_review",
-    "dose_modification",
-    "study_halt",
-    "safety_signal",
-    "robot_halt",
-    "emergency_unblind",
-})
+_SAFETY_TYPES = frozenset(
+    {
+        "sae_review",
+        "dose_modification",
+        "study_halt",
+        "safety_signal",
+        "robot_halt",
+        "emergency_unblind",
+    }
+)
 
-_REGULATORY_TYPES = frozenset({
-    "ind_amendment",
-    "protocol_amendment",
-    "dmc_response",
-    "regulatory_filing",
-    "annual_report",
-})
+_REGULATORY_TYPES = frozenset(
+    {
+        "ind_amendment",
+        "protocol_amendment",
+        "dmc_response",
+        "regulatory_filing",
+        "annual_report",
+    }
+)
 
 
 # ---------------------------------------------------------------------------

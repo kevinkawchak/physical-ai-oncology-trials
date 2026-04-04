@@ -3,6 +3,7 @@
 Falls back to ``dataclasses`` when Pydantic is not installed so
 the module can be imported in lightweight / offline environments.
 """
+
 from __future__ import annotations
 
 import enum

@@ -6,9 +6,7 @@ import json
 from pathlib import Path
 
 HOUR = 19
-NEW_TRIAL_DIR = (
-    Path(__file__).resolve().parents[4] / "new-trial" / "hour-19"
-)
+NEW_TRIAL_DIR = Path(__file__).resolve().parents[4] / "new-trial" / "hour-19"
 PATIENT_COUNT = 5
 PERIOD = "evening_wind"
 
@@ -112,7 +110,7 @@ def _parse_patient_arrivals() -> list[dict]:
             "stage": "IIIB",
             "ecog": 3,
             "robot_category": "Surgical (da Vinci Xi)",
-        }
+        },
     ]
 
 
@@ -277,7 +275,7 @@ def generate_sponsor_directives(hour: int = HOUR) -> dict:
             "escalation_required": False,
             "safety_gate": "G4",
             "rationale": "GCP and 21 CFR Part 11 compliance snapshot",
-        }
+        },
     ]
 
     return {
@@ -293,16 +291,10 @@ def generate_sponsor_directives(hour: int = HOUR) -> dict:
         "trial_data_loaded": bool(trial_data["simulation"]),
         "summary": {
             "total_decisions": len(decisions),
-            "escalations": sum(
-                1 for d in decisions if d["escalation_required"]
-            ),
-            "safety_checks": sum(
-                1 for d in decisions
-                if d["decision_type"] == "SAFETY_CHECK"
-            ),
+            "escalations": sum(1 for d in decisions if d["escalation_required"]),
+            "safety_checks": sum(1 for d in decisions if d["decision_type"] == "SAFETY_CHECK"),
             "avg_confidence": round(
-                sum(d["confidence_score"] for d in decisions)
-                / len(decisions),
+                sum(d["confidence_score"] for d in decisions) / len(decisions),
                 1,
             ),
         },

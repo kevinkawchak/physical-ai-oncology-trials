@@ -7,6 +7,7 @@ thresholds for surgical robots, cobots, RT systems, and all other types.
 Usage:
     python telemetry_monitor.py
 """
+
 from __future__ import annotations
 
 import json
@@ -56,42 +57,78 @@ class CategoryThresholds:
 
 CATEGORY_THRESHOLDS: dict[str, CategoryThresholds] = {
     RobotCategory.SURGICAL.value: CategoryThresholds(
-        force_advisory_n=3.0, force_caution_n=8.0, force_halt_n=15.0,
-        position_advisory_mm=0.5, position_caution_mm=1.5, position_halt_mm=3.0,
-        comm_timeout_advisory_ms=50, comm_timeout_caution_ms=200, comm_timeout_halt_ms=500,
+        force_advisory_n=3.0,
+        force_caution_n=8.0,
+        force_halt_n=15.0,
+        position_advisory_mm=0.5,
+        position_caution_mm=1.5,
+        position_halt_mm=3.0,
+        comm_timeout_advisory_ms=50,
+        comm_timeout_caution_ms=200,
+        comm_timeout_halt_ms=500,
     ),
     RobotCategory.COBOT.value: CategoryThresholds(
-        force_advisory_n=5.0, force_caution_n=15.0, force_halt_n=25.0,
-        position_advisory_mm=1.0, position_caution_mm=3.0, position_halt_mm=5.0,
+        force_advisory_n=5.0,
+        force_caution_n=15.0,
+        force_halt_n=25.0,
+        position_advisory_mm=1.0,
+        position_caution_mm=3.0,
+        position_halt_mm=5.0,
     ),
     RobotCategory.RT_POSITIONING.value: CategoryThresholds(
-        position_advisory_mm=0.3, position_caution_mm=1.0, position_halt_mm=2.0,
+        position_advisory_mm=0.3,
+        position_caution_mm=1.0,
+        position_halt_mm=2.0,
     ),
     RobotCategory.NEEDLE_PLACEMENT.value: CategoryThresholds(
-        force_advisory_n=2.0, force_caution_n=5.0, force_halt_n=10.0,
-        position_advisory_mm=0.2, position_caution_mm=0.8, position_halt_mm=1.5,
+        force_advisory_n=2.0,
+        force_caution_n=5.0,
+        force_halt_n=10.0,
+        position_advisory_mm=0.2,
+        position_caution_mm=0.8,
+        position_halt_mm=1.5,
     ),
     RobotCategory.SOCIAL_COMPANION.value: CategoryThresholds(
-        force_advisory_n=10.0, force_caution_n=20.0, force_halt_n=30.0,
-        position_advisory_mm=5.0, position_caution_mm=15.0, position_halt_mm=25.0,
+        force_advisory_n=10.0,
+        force_caution_n=20.0,
+        force_halt_n=30.0,
+        position_advisory_mm=5.0,
+        position_caution_mm=15.0,
+        position_halt_mm=25.0,
     ),
     RobotCategory.REHAB_EXOSKELETON.value: CategoryThresholds(
-        force_advisory_n=8.0, force_caution_n=20.0, force_halt_n=35.0,
-        position_advisory_mm=2.0, position_caution_mm=5.0, position_halt_mm=10.0,
+        force_advisory_n=8.0,
+        force_caution_n=20.0,
+        force_halt_n=35.0,
+        position_advisory_mm=2.0,
+        position_caution_mm=5.0,
+        position_halt_mm=10.0,
     ),
     RobotCategory.RT_MOTION_TRACKING.value: CategoryThresholds(
-        position_advisory_mm=0.5, position_caution_mm=1.5, position_halt_mm=3.0,
+        position_advisory_mm=0.5,
+        position_caution_mm=1.5,
+        position_halt_mm=3.0,
     ),
     RobotCategory.IMAGING_ASSISTANT.value: CategoryThresholds(
-        position_advisory_mm=1.0, position_caution_mm=3.0, position_halt_mm=5.0,
+        position_advisory_mm=1.0,
+        position_caution_mm=3.0,
+        position_halt_mm=5.0,
     ),
     RobotCategory.TRANSPORT_LOGISTICS.value: CategoryThresholds(
-        force_advisory_n=15.0, force_caution_n=30.0, force_halt_n=50.0,
-        position_advisory_mm=10.0, position_caution_mm=25.0, position_halt_mm=50.0,
+        force_advisory_n=15.0,
+        force_caution_n=30.0,
+        force_halt_n=50.0,
+        position_advisory_mm=10.0,
+        position_caution_mm=25.0,
+        position_halt_mm=50.0,
     ),
     RobotCategory.ENVIRONMENTAL_MONITOR.value: CategoryThresholds(
-        force_advisory_n=20.0, force_caution_n=40.0, force_halt_n=60.0,
-        position_advisory_mm=15.0, position_caution_mm=30.0, position_halt_mm=50.0,
+        force_advisory_n=20.0,
+        force_caution_n=40.0,
+        force_halt_n=60.0,
+        position_advisory_mm=15.0,
+        position_caution_mm=30.0,
+        position_halt_mm=50.0,
     ),
 }
 
@@ -143,50 +180,85 @@ class TelemetryMonitor:
         alarms: list[AlarmEvent] = []
 
         if reading.force_n >= thresholds.force_halt_n:
-            alarms.append(AlarmEvent(
-                robot_id=reading.robot_id, category=reading.category, timestamp=reading.timestamp,
-                alarm_level=AlarmLevel.HALT.value, trigger_source="force",
-                measured_value=reading.force_n, threshold_value=thresholds.force_halt_n,
-                recommended_action="Immediate halt - force limit exceeded",
-            ))
+            alarms.append(
+                AlarmEvent(
+                    robot_id=reading.robot_id,
+                    category=reading.category,
+                    timestamp=reading.timestamp,
+                    alarm_level=AlarmLevel.HALT.value,
+                    trigger_source="force",
+                    measured_value=reading.force_n,
+                    threshold_value=thresholds.force_halt_n,
+                    recommended_action="Immediate halt - force limit exceeded",
+                )
+            )
         elif reading.force_n >= thresholds.force_caution_n:
-            alarms.append(AlarmEvent(
-                robot_id=reading.robot_id, category=reading.category, timestamp=reading.timestamp,
-                alarm_level=AlarmLevel.CAUTION.value, trigger_source="force",
-                measured_value=reading.force_n, threshold_value=thresholds.force_caution_n,
-                recommended_action="Reduce speed, notify clinician",
-            ))
+            alarms.append(
+                AlarmEvent(
+                    robot_id=reading.robot_id,
+                    category=reading.category,
+                    timestamp=reading.timestamp,
+                    alarm_level=AlarmLevel.CAUTION.value,
+                    trigger_source="force",
+                    measured_value=reading.force_n,
+                    threshold_value=thresholds.force_caution_n,
+                    recommended_action="Reduce speed, notify clinician",
+                )
+            )
         elif reading.force_n >= thresholds.force_advisory_n:
-            alarms.append(AlarmEvent(
-                robot_id=reading.robot_id, category=reading.category, timestamp=reading.timestamp,
-                alarm_level=AlarmLevel.ADVISORY.value, trigger_source="force",
-                measured_value=reading.force_n, threshold_value=thresholds.force_advisory_n,
-                recommended_action="Log and monitor - force approaching limit",
-            ))
+            alarms.append(
+                AlarmEvent(
+                    robot_id=reading.robot_id,
+                    category=reading.category,
+                    timestamp=reading.timestamp,
+                    alarm_level=AlarmLevel.ADVISORY.value,
+                    trigger_source="force",
+                    measured_value=reading.force_n,
+                    threshold_value=thresholds.force_advisory_n,
+                    recommended_action="Log and monitor - force approaching limit",
+                )
+            )
 
         if reading.position_deviation_mm >= thresholds.position_halt_mm:
-            alarms.append(AlarmEvent(
-                robot_id=reading.robot_id, category=reading.category, timestamp=reading.timestamp,
-                alarm_level=AlarmLevel.HALT.value, trigger_source="position",
-                measured_value=reading.position_deviation_mm, threshold_value=thresholds.position_halt_mm,
-                recommended_action="Immediate halt - position deviation critical",
-            ))
+            alarms.append(
+                AlarmEvent(
+                    robot_id=reading.robot_id,
+                    category=reading.category,
+                    timestamp=reading.timestamp,
+                    alarm_level=AlarmLevel.HALT.value,
+                    trigger_source="position",
+                    measured_value=reading.position_deviation_mm,
+                    threshold_value=thresholds.position_halt_mm,
+                    recommended_action="Immediate halt - position deviation critical",
+                )
+            )
         elif reading.position_deviation_mm >= thresholds.position_caution_mm:
-            alarms.append(AlarmEvent(
-                robot_id=reading.robot_id, category=reading.category, timestamp=reading.timestamp,
-                alarm_level=AlarmLevel.CAUTION.value, trigger_source="position",
-                measured_value=reading.position_deviation_mm, threshold_value=thresholds.position_caution_mm,
-                recommended_action="Pause and recalibrate if deviation persists",
-            ))
+            alarms.append(
+                AlarmEvent(
+                    robot_id=reading.robot_id,
+                    category=reading.category,
+                    timestamp=reading.timestamp,
+                    alarm_level=AlarmLevel.CAUTION.value,
+                    trigger_source="position",
+                    measured_value=reading.position_deviation_mm,
+                    threshold_value=thresholds.position_caution_mm,
+                    recommended_action="Pause and recalibrate if deviation persists",
+                )
+            )
 
         if reading.comm_latency_ms >= thresholds.comm_timeout_halt_ms:
-            alarms.append(AlarmEvent(
-                robot_id=reading.robot_id, category=reading.category, timestamp=reading.timestamp,
-                alarm_level=AlarmLevel.HALT.value, trigger_source="communication",
-                measured_value=float(reading.comm_latency_ms),
-                threshold_value=float(thresholds.comm_timeout_halt_ms),
-                recommended_action="Communication lost - initiate safe stop",
-            ))
+            alarms.append(
+                AlarmEvent(
+                    robot_id=reading.robot_id,
+                    category=reading.category,
+                    timestamp=reading.timestamp,
+                    alarm_level=AlarmLevel.HALT.value,
+                    trigger_source="communication",
+                    measured_value=float(reading.comm_latency_ms),
+                    threshold_value=float(thresholds.comm_timeout_halt_ms),
+                    recommended_action="Communication lost - initiate safe stop",
+                )
+            )
 
         self.alarm_history.extend(alarms)
         return alarms
@@ -219,10 +291,12 @@ def main() -> None:
         alarms = monitor.evaluate_reading(reading)
         if alarms:
             for alarm in alarms:
-                print(f"[{alarm.alarm_level.upper()}] {alarm.robot_id}: "
-                      f"{alarm.trigger_source} = {alarm.measured_value} (threshold: {alarm.threshold_value})")
+                print(
+                    f"[{alarm.alarm_level.upper()}] {alarm.robot_id}: "
+                    f"{alarm.trigger_source} = {alarm.measured_value} (threshold: {alarm.threshold_value})"
+                )
     summary = monitor.get_summary()
-    print(f"\nMonitoring Summary:")
+    print("\nMonitoring Summary:")
     print(json.dumps(summary, indent=2))
 
 

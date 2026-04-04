@@ -1,4 +1,5 @@
 """Governance decision engine: seven-gate decision framework."""
+
 from __future__ import annotations
 
 from dataclasses import dataclass, field
@@ -115,8 +116,7 @@ class GovernanceDecisionEngine:
     def history(self, gate: GateName | None = None) -> list[dict[str, object]]:
         filtered = self.reviews if gate is None else [r for r in self.reviews if r.gate == gate]
         return [
-            {"gate": r.gate.value, "outcome": r.outcome.value, "score": round(r.composite_score, 3)}
-            for r in filtered
+            {"gate": r.gate.value, "outcome": r.outcome.value, "score": round(r.composite_score, 3)} for r in filtered
         ]
 
 

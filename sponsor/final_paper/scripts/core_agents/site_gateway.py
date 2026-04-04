@@ -1,4 +1,5 @@
 """Site gateway: site qualification (PSL scoring), training delivery, scheduling, robot-task authorization."""
+
 from __future__ import annotations
 
 import uuid
@@ -73,11 +74,14 @@ class SiteGateway:
         self.sites[site.site_id] = site
         return site
 
-    def deliver_training(self, site_id: str, module: TrainingModule,
-                         personnel_id: str, score: float) -> TrainingRecord:
-        rec = TrainingRecord(module=module, personnel_id=personnel_id,
-                             completed=score >= 80.0, score=score,
-                             completed_at=datetime.utcnow() if score >= 80.0 else None)
+    def deliver_training(self, site_id: str, module: TrainingModule, personnel_id: str, score: float) -> TrainingRecord:
+        rec = TrainingRecord(
+            module=module,
+            personnel_id=personnel_id,
+            completed=score >= 80.0,
+            score=score,
+            completed_at=datetime.utcnow() if score >= 80.0 else None,
+        )
         self.sites[site_id].training.append(rec)
         return rec
 

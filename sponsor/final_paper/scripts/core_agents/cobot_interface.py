@@ -1,4 +1,5 @@
 """Cobot interface: Franka Emika lab automation, pharmacy dosing, calibration workflows."""
+
 from __future__ import annotations
 
 import uuid
@@ -76,12 +77,14 @@ class CobotInterface:
 
     def execute_task(self, task_type: TaskType) -> CobotTask:
         if self.state != CobotState.IDLE:
-            task = CobotTask(task_type=task_type, cobot_id=self.cobot_id, status=CobotState.ERROR,
-                             error_message="Cobot not idle")
+            task = CobotTask(
+                task_type=task_type, cobot_id=self.cobot_id, status=CobotState.ERROR, error_message="Cobot not idle"
+            )
             self.tasks.append(task)
             return task
-        task = CobotTask(task_type=task_type, cobot_id=self.cobot_id, status=CobotState.EXECUTING,
-                         started_at=datetime.utcnow())
+        task = CobotTask(
+            task_type=task_type, cobot_id=self.cobot_id, status=CobotState.EXECUTING, started_at=datetime.utcnow()
+        )
         self.state = CobotState.EXECUTING
         task.status = CobotState.IDLE
         task.completed_at = datetime.utcnow()
@@ -89,11 +92,15 @@ class CobotInterface:
         self.tasks.append(task)
         return task
 
-    def prepare_dose(self, subject_id: str, drug_code: str, target_mg: float,
-                     actual_mg: float) -> DosingRecord:
+    def prepare_dose(self, subject_id: str, drug_code: str, target_mg: float, actual_mg: float) -> DosingRecord:
         deviation = abs(actual_mg - target_mg) / target_mg * 100 if target_mg > 0 else 0.0
-        rec = DosingRecord(subject_id=subject_id, drug_code=drug_code, target_mg=target_mg,
-                           actual_mg=actual_mg, deviation_pct=round(deviation, 2))
+        rec = DosingRecord(
+            subject_id=subject_id,
+            drug_code=drug_code,
+            target_mg=target_mg,
+            actual_mg=actual_mg,
+            deviation_pct=round(deviation, 2),
+        )
         self.dosing_log.append(rec)
         if deviation > self.MAX_DOSE_DEVIATION_PCT:
             self.state = CobotState.ERROR
@@ -106,7 +113,8 @@ class CobotInterface:
 
     def summary(self) -> dict[str, object]:
         return {
-            "cobot_id": self.cobot_id, "state": self.state.value,
+            "cobot_id": self.cobot_id,
+            "state": self.state.value,
             "tasks_completed": sum(1 for t in self.tasks if t.completed_at),
             "calibrated": self.is_calibrated(),
             "doses_prepared": len(self.dosing_log),

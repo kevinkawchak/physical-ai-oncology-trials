@@ -202,7 +202,6 @@ class AuthorizationResult:
             "clinician_tier": self.clinician_tier,
             "clinician_id": self.clinician_id,
             "rationale": self.rationale,
-            "authorized": self.authorized,
             "evaluated_at": self.evaluated_at.isoformat(),
         }
 
@@ -361,13 +360,15 @@ class ProcedureAuthorizationGate:
                 passed = bool(raw_value) if raw_value is not None else False
                 detail = "passed" if passed else "not confirmed"
 
-            checks.append(CheckResult(
-                check_name=name,
-                description=description,
-                required=required,
-                passed=passed,
-                detail=detail,
-            ))
+            checks.append(
+                CheckResult(
+                    check_name=name,
+                    description=description,
+                    required=required,
+                    passed=passed,
+                    detail=detail,
+                )
+            )
 
             if required:
                 total_req += 1

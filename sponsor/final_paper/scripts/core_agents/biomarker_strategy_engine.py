@@ -1,4 +1,5 @@
 """Biomarker strategy engine: biomarker qualification scoring, CDx timeline."""
+
 from __future__ import annotations
 
 from dataclasses import dataclass, field
@@ -129,8 +130,16 @@ class BiomarkerStrategyEngine:
 def main() -> None:
     engine = BiomarkerStrategyEngine()
     bm = BiomarkerCandidate(
-        "BM-001", "PD-L1 TPS", BiomarkerType.PREDICTIVE, "CD274",
-        AssayPlatform.IHC, QualificationLevel.KNOWN_VALID, 0.9, 0.85, 0.7, 0.30,
+        "BM-001",
+        "PD-L1 TPS",
+        BiomarkerType.PREDICTIVE,
+        "CD274",
+        AssayPlatform.IHC,
+        QualificationLevel.KNOWN_VALID,
+        0.9,
+        0.85,
+        0.7,
+        0.30,
     )
     engine.register_biomarker(bm)
     print("Rankings:", engine.rank_candidates())
