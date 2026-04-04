@@ -1,7 +1,7 @@
 # End-to-End Physical AI Unification of Oncology Clinical Trials
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Release](https://img.shields.io/badge/Release-v3.1.0-brightgreen.svg)](https://github.com/kevinkawchak/physical-ai-oncology-trials)
+[![Release](https://img.shields.io/badge/Release-v3.2.0-brightgreen.svg)](https://github.com/kevinkawchak/physical-ai-oncology-trials)
 [![Last Updated](https://img.shields.io/badge/Updated-April%202026-blue.svg)](https://github.com/kevinkawchak/physical-ai-oncology-trials)
 [![Protocol](https://img.shields.io/badge/Protocol-MCP-purple.svg)](https://github.com/kevinkawchak/physical-ai-oncology-trials)
 [![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.18445179-blue)](https://doi.org/10.5281/zenodo.18445179)
@@ -14,6 +14,8 @@
 **Comprehensive developments for integrating physical AI into oncology clinical trials, by Claude Code Opus 4.6, Cowork; with Assistance from ChatGPT 5.4 Thinking and Google Gemini Search.**
 
 This repository provides production-ready configurations, validated pipelines, and integration guides for deploying robotic systems, digital twins, and embodied AI agents in oncology. 
+
+**4/4: v3.2.0 (Autonomous Sponsor Paper)** *Fully Automated Sponsor for Physical AI Oncology Clinical Trial Platform* - Complete 75+ page paper specifying a twelve-agent, four-layer autonomous AI-native sponsor operating system with 30 tables, 49 Python script specifications, sponsor-directed 24-hour code instructions, and comprehensive regulatory compliance mapping. [![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.19396256-blue)](https://doi.org/10.5281/zenodo.19396256)
 
 **4/4: v3.1.0 (Autonomous Sponsor Template)** *Fully Automated Sponsor: Physical AI Oncology Clinical Trials* - LaTeX paper template with 18 sections, 49 Python script specifications, 30 table definitions, and processing instructions for autonomous AI sponsor operations. [![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.19396256-blue)](https://doi.org/10.5281/zenodo.19396256)
 
@@ -77,32 +79,40 @@ physical-ai-oncology-trials/
 │   │   ├── README.md                  # Cross-document alignment and processing notes
 │   │   ├── sponsor_01-08_*.md         # End-to-End Sponsor Playbook (8 chunks)
 │   │   └── org_01-07_*.md             # Sponsor Organization (7 chunks)
-│   └── template/                      # ★ Autonomous Sponsor Paper Template
-│       ├── main.tex                   # Main document (18 sections + appendices)
+│   ├── paper/                         # ★ Complete Autonomous Sponsor Paper (v3.2.0)
+│   │   ├── main.tex                   # Main document (18 sections + 6 appendices)
+│   │   ├── main.pdf                   # Compiled PDF (75+ pages)
+│   │   ├── sponsor_paper.sty          # Style file (adapted from arxiv.sty, CC BY 4.0)
+│   │   ├── references.bib             # Bibliography (48+ entries with DOIs/URLs)
+│   │   ├── orcid_icon.png             # ORCID icon for author attribution
+│   │   ├── README.md                  # Paper documentation and compilation guide
+│   │   └── sections/                  # 19 section .tex files (complete paper content)
+│   │       ├── introduction.tex       # Section 1: Introduction and paper roadmap
+│   │       ├── governance.tex         # Section 2: Board/portfolio/asset agents
+│   │       ├── trial_design.tex       # Section 3: Protocol, biomarkers, biostatistics
+│   │       ├── clinical_operations.tex # Section 4: Study orchestrator, ClinOps
+│   │       ├── safety_pharmacovigilance.tex # Section 5: Safety, E2B(R3), robotic safety
+│   │       ├── regulatory_affairs.tex # Section 6: IND/CTA, accelerated pathways
+│   │       ├── quality_compliance.tex # Section 7: Quality, RBQM, Part 11
+│   │       ├── supply_chain.tex       # Section 8: CMC, IRT, robotic pharmacy
+│   │       ├── data_management.tex    # Section 9: CDISC, federated data
+│   │       ├── robotic_execution.tex  # Section 10: Robot gateway, USL registry
+│   │       ├── site_interface.tex     # Section 11: FHIR/DICOM/MCP integration
+│   │       ├── trust_layer.tex        # Section 12: Identity, audit, provenance
+│   │       ├── vendor_management.tex  # Section 13: CRO accountability matrix
+│   │       ├── writing_disclosure.tex # Section 14: Documents, disclosure, archive
+│   │       ├── financial_analysis.tex # Section 15: Cost modeling, ROI
+│   │       ├── implementation_strategy.tex # Section 16: 3-phase deployment
+│   │       ├── discussion.tex         # Section 17: Paradigm shift, limitations
+│   │       ├── conclusion.tex         # Section 18: Summary and future work
+│   │       └── appendices.tex         # Appendices A-F (agent registry, scripts, code)
+│   └── template/                      # Autonomous Sponsor Paper Template (v3.1.0)
+│       ├── main.tex                   # Template document (18 sections + appendices)
 │       ├── sponsor_paper.sty          # Style file (adapted from arxiv.sty, CC BY 4.0)
 │       ├── references.bib             # Bibliography (48 entries with DOIs/URLs)
 │       ├── orcid_icon.png             # ORCID icon for author attribution
 │       ├── README.md                  # Template documentation and processing guide
 │       └── sections/                  # 19 section .tex files with processing instructions
-│           ├── introduction.tex       # Section 1: Introduction and paper roadmap
-│           ├── governance.tex         # Section 2: Board/portfolio/asset agents
-│           ├── trial_design.tex       # Section 3: Protocol, biomarkers, biostatistics
-│           ├── clinical_operations.tex # Section 4: Study orchestrator, ClinOps
-│           ├── safety_pharmacovigilance.tex # Section 5: Safety, E2B(R3), robotic safety
-│           ├── regulatory_affairs.tex # Section 6: IND/CTA, accelerated pathways
-│           ├── quality_compliance.tex # Section 7: Quality, RBQM, Part 11
-│           ├── supply_chain.tex       # Section 8: CMC, IRT, robotic pharmacy
-│           ├── data_management.tex    # Section 9: CDISC, federated data
-│           ├── robotic_execution.tex  # Section 10: Robot gateway, USL registry
-│           ├── site_interface.tex     # Section 11: FHIR/DICOM/MCP integration
-│           ├── trust_layer.tex        # Section 12: Identity, audit, provenance
-│           ├── vendor_management.tex  # Section 13: CRO accountability matrix
-│           ├── writing_disclosure.tex # Section 14: Documents, disclosure, archive
-│           ├── financial_analysis.tex # Section 15: Cost modeling, ROI
-│           ├── implementation_strategy.tex # Section 16: 3-phase deployment
-│           ├── discussion.tex         # Section 17: Paradigm shift, limitations
-│           ├── conclusion.tex         # Section 18: Summary and future work
-│           └── appendices.tex         # Appendices A-D
 │
 ├── new-trial/                         # ★ 24-Hour On-Demand Trial Simulation (v2.8.0)
 │   ├── README.md                      # Simulation overview and results

@@ -1,0 +1,724 @@
+% ======================================================================
+% APPENDICES
+% File: sections/appendices.tex
+% ======================================================================
+
+% ======================================================================
+\section*{Appendix A: Complete Agent Specification Registry}
+\addcontentsline{toc}{section}{Appendix A: Agent Specification Registry}
+% ======================================================================
+
+This appendix provides the complete specification for each of the twelve functional agents
+in the autonomous sponsor system. Each entry documents the agent's identity, traditional
+role equivalent, layer assignment, interfaces, regulatory basis, safety gates, and
+associated Python scripts.
+
+\begin{longtable}{L{2.2cm} L{1.8cm} L{1.5cm} L{2.5cm} L{3.5cm}}
+\caption{Agent Specification Registry (Part 1: Governance and Execution Agents 1 to 6)}
+\label{tab:agent-registry-1} \\
+\toprule
+\textbf{Agent} & \textbf{Traditional Role} & \textbf{Layer} & \textbf{Input Interfaces} & \textbf{Output Interfaces and Safety Gates} \\
+\midrule
+\endfirsthead
+\toprule
+\textbf{Agent} & \textbf{Traditional Role} & \textbf{Layer} & \textbf{Input Interfaces} & \textbf{Output Interfaces and Safety Gates} \\
+\midrule
+\endhead
+\midrule
+\multicolumn{5}{r}{\textit{Continued on next page}} \\
+\endfoot
+\bottomrule
+\endlastfoot
+portfolio\_agent & VP R\&D, Portfolio Committee & Governance & Competitive intelligence feeds, clinical data summaries, financial models & Go/no-go recommendations, resource allocation orders. Safety gate: escalate when confidence $<$ 85\% \\
+asset\_lead\_agent & Clinical Development Head & Governance & Portfolio strategy, program-level clinical data, vendor performance & Asset strategy memos, vendor RFPs, KPI reports. Safety gate: escalate investment decisions $>$ \$5M \\
+clinical\_accountability\_agent & Study Physician, Clinical Lead & Execution & Protocol specifications, biomarker data, dose-response models, safety signals & Protocol documents, eligibility rules, dose schedules, medical monitoring rules. Safety gate: dose escalation decisions \\
+study\_orchestrator & Cross-functional Study Team Lead & Execution & Status events from all agents, study plan, dependency graph & Task assignments, escalation alerts, governance forum routing. Safety gate: critical issue triage $<$ 30 minutes \\
+clinops\_agent & Clinical Operations Director & Execution & Site performance data, enrollment metrics, monitoring findings & Site activation orders, monitoring plans, query assignments, deviation reports. Safety gate: site suspension recommendations \\
+safety\_agent & Safety/PV Team Director & Execution & AE/SAE reports, robot telemetry, ePRO data, wearable signals & Safety classifications, IND Safety Reports, DSURs, E2B(R3) ICSRs, signal evaluations. Safety gate: all expedited reports require sponsor-of-record review \\
+\end{longtable}
+
+\begin{longtable}{L{2.2cm} L{1.8cm} L{1.5cm} L{2.5cm} L{3.5cm}}
+\caption{Agent Specification Registry (Part 2: Execution, Site/Robotics, and Trust Agents 7 to 12)}
+\label{tab:agent-registry-2} \\
+\toprule
+\textbf{Agent} & \textbf{Traditional Role} & \textbf{Layer} & \textbf{Input Interfaces} & \textbf{Output Interfaces and Safety Gates} \\
+\midrule
+\endfirsthead
+\toprule
+\textbf{Agent} & \textbf{Traditional Role} & \textbf{Layer} & \textbf{Input Interfaces} & \textbf{Output Interfaces and Safety Gates} \\
+\midrule
+\endhead
+\midrule
+\multicolumn{5}{r}{\textit{Continued on next page}} \\
+\endfoot
+\bottomrule
+\endlastfoot
+regulatory\_agent & Regulatory Affairs Director & Execution & Protocol data, CMC data, safety data, regulatory intelligence & IND applications, amendments, annual reports, eCTD packages, authority correspondence. Safety gate: all submissions require sponsor-of-record signature \\
+quality\_agent & Quality Assurance Director & Execution & Audit trail data, SOP repository, monitoring findings, validation evidence & CAPA assignments, audit readiness scores, validation reports, QTL/KRI dashboards. Safety gate: critical finding escalation \\
+supply\_agent & CMC/Supply Chain Lead & Execution & Demand forecasts, inventory data, manufacturing records, IRT data & Lot release decisions, replenishment orders, temperature excursion dispositions, chain of custody records. Safety gate: out-of-spec release requires human QA review \\
+data\_biostats\_agent & Data Management and Biostatistics Lead & Execution & CRF data, EHR/FHIR data, lab results, safety data & SDTM/ADaM datasets, SAP execution, interim analysis results, Define.xml. Safety gate: database lock and unblinding require sponsor-of-record authorization \\
+site\_gateway & Site Relationship Manager & Site/Robotics & Site readiness data, PSL scores, training records, scheduling constraints & Site activation orders, training assignments, scheduling plans, data exchange configurations. Safety gate: none (operational agent) \\
+robot\_execution\_gateway & (No traditional equivalent) & Site/Robotics & Procedure requests, robot telemetry, safety gate approvals, patient data & Task orders, safety gate evaluations, procedure state transitions, emergency stop commands. Safety gate: Tier 2/3 procedures require clinician/mandatory human authorization \\
+\end{longtable}
+
+% ======================================================================
+\section*{Appendix B: Python Script Directory}
+\addcontentsline{toc}{section}{Appendix B: Python Script Directory}
+% ======================================================================
+
+This appendix catalogs all 49 Python scripts specified across the fourteen functional areas
+of the autonomous sponsor system. Each script is designed for the
+\texttt{sponsor/paper/scripts/} directory (to be generated in future Claude Code sessions),
+must pass ruff lint (line-length 120, E/F/W rules), and target Python 3.10 or later.
+
+\begin{longtable}{L{1.0cm} L{3.8cm} L{6.7cm}}
+\caption{Python Script Directory: 49 Scripts Across 14 Functional Areas}
+\label{tab:script-directory} \\
+\toprule
+\textbf{No.} & \textbf{Script File} & \textbf{Purpose and Key Outputs} \\
+\midrule
+\endfirsthead
+\toprule
+\textbf{No.} & \textbf{Script File} & \textbf{Purpose and Key Outputs} \\
+\midrule
+\endhead
+\midrule
+\multicolumn{3}{r}{\textit{Continued on next page}} \\
+\endfoot
+\bottomrule
+\endlastfoot
+\multicolumn{3}{l}{\textbf{1. Governance Scripts (3 scripts)}} \\
+\midrule
+1 & portfolio\_agent.py & Program prioritization, indication scoring, milestone tracking. Output: ranked program list with go/no-go. \\
+2 & asset\_lead\_agent.py & Asset strategy memos, competitive landscape, dose optimization. Output: strategy documents. \\
+3 & governance\_decision\_engine.py & Seven-gate decision framework with go-criteria, KPI thresholds, and escalation rules. \\
+\midrule
+\multicolumn{3}{l}{\textbf{2. Trial Design Scripts (4 scripts)}} \\
+\midrule
+4 & clinical\_accountability\_agent.py & Eligibility rules, dose-schedule optimization (Project Optimus), monitoring rules. \\
+5 & protocol\_generator.py & ICH M11 structured protocol generation from indication, phase, and design pattern inputs. \\
+6 & biostats\_agent.py & SAP generation, Bayesian adaptive methods, interim analysis boundaries, futility rules. \\
+7 & biomarker\_strategy\_engine.py & Biomarker qualification scoring, CDx timeline planning, ctDNA integration. \\
+\midrule
+\multicolumn{3}{l}{\textbf{3. Clinical Operations Scripts (4 scripts)}} \\
+\midrule
+8 & study\_orchestrator.py & Master orchestrator: study plan, dependencies, work queues, event-driven routing. \\
+9 & clinops\_agent.py & Site startup, monitoring plan generation, enrollment tracking, RBM per ICH E6(R3). \\
+10 & enrollment\_optimizer.py & Enrollment prediction, EHR pre-screening, diversity tracking per FDORA. \\
+11 & failure\_mode\_detector.py & Real-time detection of 5 failure modes with automated mitigation responses. \\
+\midrule
+\multicolumn{3}{l}{\textbf{4. Safety Scripts (4 scripts)}} \\
+\midrule
+12 & safety\_agent.py & AE/SAE intake, MedDRA coding, causality assessment (WHO-UMC, Naranjo, Bayesian). \\
+13 & safety\_signal\_detector.py & Disproportionality analysis: PRR, ROR, MGPS, BCPNN algorithms. \\
+14 & robot\_safety\_monitor.py & Robotic procedure safety monitoring, telemetry anomaly detection, emergency stop logic. \\
+15 & dsur\_generator.py & DSUR generation per ICH E2F with cumulative safety data aggregation. \\
+\midrule
+\multicolumn{3}{l}{\textbf{5. Regulatory Scripts (4 scripts)}} \\
+\midrule
+16 & regulatory\_agent.py & IND lifecycle: amendments (312.30), annual reports (312.33), authority correspondence. \\
+17 & ind\_filing\_engine.py & IND/CTA package assembly in eCTD v4.0 structure. CTIS-specific EU support. \\
+18 & accelerated\_pathway\_advisor.py & Pathway eligibility scoring for Breakthrough, Fast Track, PRIME, Orbis, RTOR. \\
+19 & regulatory\_intelligence\_scanner.py & Regulatory guidance monitoring, impact assessment, compliance calendar management. \\
+\midrule
+\multicolumn{3}{l}{\textbf{6. Quality Scripts (3 scripts)}} \\
+\midrule
+20 & quality\_agent.py & SOP enforcement, CAPA lifecycle, audit readiness scoring, QTL/KRI monitoring. \\
+21 & rbqm\_engine.py & RBQM engine: QTL definition, KRI tracking, centralized statistical monitoring. \\
+22 & validation\_evidence\_generator.py & IQ/OQ/PQ documentation, 21 CFR Part 11 compliance checks, CSV/CSA templates. \\
+\midrule
+\multicolumn{3}{l}{\textbf{7. Supply Chain Scripts (4 scripts)}} \\
+\midrule
+23 & supply\_agent.py & Lot release, inventory tracking, demand forecasting, chain of custody. \\
+24 & cmc\_lifecycle\_manager.py & CMC document management, manufacturing changes, GMP compliance tracking. \\
+25 & irt\_demand\_forecaster.py & IRT-driven demand forecasting, depot optimization, cold-chain logistics. \\
+26 & robotic\_pharmacy\_interface.py & Franka Emika pharmacy interface: dose calculation, preparation, dispensing. \\
+\midrule
+\multicolumn{3}{l}{\textbf{8. Data Management Scripts (4 scripts)}} \\
+\midrule
+27 & data\_management\_agent.py & eConsent tracking, eSource validation, EDC management, query automation. \\
+28 & cdisc\_generator.py & SDTM/ADaM dataset generation, Define.xml, P21 validation checks. \\
+29 & federated\_data\_interface.py & Federated learning integration, differential privacy, secure aggregation. \\
+30 & mcp\_data\_exchange.py & MCP server data exchange: FHIR queries, DICOM retrieval, structured exchange. \\
+\midrule
+\multicolumn{3}{l}{\textbf{9. Robotic Execution Scripts (5 scripts)}} \\
+\midrule
+31 & robot\_execution\_gateway.py & Task-order generation, site matching, safety gates, procedure state machine. \\
+32 & robotic\_capability\_registry.py & Robot registry with USL scoring, capability matching, maintenance tracking. \\
+33 & surgical\_robot\_interface.py & da Vinci Xi interface: procedure orchestration, telemetry, digital twin. \\
+34 & cobot\_interface.py & Franka Emika interface: lab automation, pharmacy dosing, calibration. \\
+35 & procedure\_provenance\_tracker.py & Immutable procedure records, telemetry integration, regulatory reports. \\
+\midrule
+\multicolumn{3}{l}{\textbf{10. Site Interface Scripts (4 scripts)}} \\
+\midrule
+36 & site\_gateway.py & Site qualification (PSL), training delivery, scheduling, robot-task authorization. \\
+37 & investigator\_interface.py & Protocol training, delegation log, AE reporting, medical monitoring. \\
+38 & site\_systems\_connector.py & FHIR R4 client, DICOM C-FIND/C-MOVE, HL7 v2, MCP tool endpoints. \\
+39 & patient\_interface.py & eConsent delivery, scheduling, ePRO deployment, patient education. \\
+\midrule
+\multicolumn{3}{l}{\textbf{11. Trust Layer Scripts (4 scripts)}} \\
+\midrule
+40 & trust\_layer\_core.py & Agent PKI identity, RBAC, audit trail recording, provenance construction. \\
+41 & audit\_trail\_manager.py & Immutable audit trails, Part 11 compliance, 25-year EU CTR archive. \\
+42 & provenance\_engine.py & Data, decision, procedure, and model provenance per W3C PROV-DM. \\
+43 & policy\_enforcement\_engine.py & Regulatory policy rules (OPA/Rego), safety gates, escalation enforcement. \\
+\midrule
+\multicolumn{3}{l}{\textbf{12. Vendor and Writing Scripts (5 scripts)}} \\
+\midrule
+44 & vendor\_manager\_agent.py & Contracting, SLA monitoring, data exchange validation, performance tracking. \\
+45 & cro\_oversight\_engine.py & 11-area accountability matrix, oversight reporting per ICH E6(R3). \\
+46 & writing\_disclosure\_agent.py & Protocol, IB, CSR (ICH E3), DSUR (ICH E2F), TLF automation. \\
+47 & disclosure\_manager.py & ClinicalTrials.gov posting, CTIS results/lay summaries, registry automation. \\
+48 & archive\_manager.py & 25-year EU CTR archive, digital preservation, format migration, integrity checks. \\
+\midrule
+\multicolumn{3}{l}{\textbf{13. Financial and Implementation Scripts (4 scripts)}} \\
+\midrule
+49a & financial\_model.py & Cost projections, ROI analysis, NPV calculations, Monte Carlo simulation. \\
+49b & timeline\_compression\_analyzer.py & Timeline comparison, daily delay cost savings, sensitivity analysis. \\
+49c & implementation\_planner.py & Phased deployment planning, site readiness scoring, resource requirements. \\
+49d & deployment\_validator.py & Pre-deployment validation: agent connections, integrations, safety gates. \\
+\midrule
+\multicolumn{3}{l}{\textbf{14. Utility Scripts (1 script)}} \\
+\midrule
+50 & generate\_introduction\_metrics.py & Parse source files, extract regulatory dates, cost figures, staffing numbers. \\
+\end{longtable}
+
+% ======================================================================
+\section*{Appendix C: Source File Cross-Reference}
+\addcontentsline{toc}{section}{Appendix C: Source File Cross-Reference}
+% ======================================================================
+
+This appendix maps each section of this paper to its primary source files in the
+physical-ai-oncology-trials repository.
+
+\begin{longtable}{L{1.5cm} L{3.0cm} L{3.5cm} L{3.5cm}}
+\caption{Source File Cross-Reference by Section}
+\label{tab:source-crossref} \\
+\toprule
+\textbf{Section} & \textbf{Paper Section Title} & \textbf{Primary Sources (sponsor/input\_files/)} & \textbf{Secondary Sources (national-platform/)} \\
+\midrule
+\endfirsthead
+\toprule
+\textbf{Section} & \textbf{Paper Section Title} & \textbf{Primary Sources (sponsor/input\_files/)} & \textbf{Secondary Sources (national-platform/)} \\
+\midrule
+\endhead
+\midrule
+\multicolumn{4}{r}{\textit{Continued on next page}} \\
+\endfoot
+\bottomrule
+\endlastfoot
+\S1 & Introduction & sponsor\_01, org\_01 & introduction.tex, executive\_summary.tex \\
+\S2 & Governance & sponsor\_01, org\_01, org\_02, org\_06 & introduction.tex \\
+\S3 & Trial Design & sponsor\_02, sponsor\_03, org\_03 & ich\_e6r3\_adaptation.tex, cfr312\_adaptation.tex \\
+\S4 & Clinical Ops & sponsor\_04, org\_02, org\_04 & site\_establishment.tex, patient\_journey.tex \\
+\S5 & Safety & sponsor\_05, org\_01, org\_05 & cfr50\_adaptation.tex, cfr312\_adaptation.tex \\
+\S6 & Regulatory & sponsor\_02, sponsor\_06, org\_01, org\_07 & regulatory\_landscape.tex, cfr312\_adaptation.tex \\
+\S7 & Quality & sponsor\_05, org\_01, org\_06, org\_07 & ich\_e6r3\_adaptation.tex \\
+\S8 & Supply Chain & sponsor\_04, sponsor\_06, org\_07 & patient\_journey.tex \\
+\S9 & Data Mgmt & sponsor\_03, sponsor\_05, org\_04, org\_06 & federated\_learning.tex, national\_mcp.tex \\
+\S10 & Robotics & (national platform primary) & psl\_usl\_standards.tex, patient\_journey.tex \\
+\S11 & Site Interface & sponsor\_04, org\_04, org\_07 & site\_establishment.tex, national\_mcp.tex \\
+\S12 & Trust & sponsor\_05, org\_01, org\_06 & national\_mcp.tex, federated\_learning.tex \\
+\S13 & Vendor Mgmt & org\_07, sponsor\_04, org\_01 & (none) \\
+\S14 & Writing & org\_05, org\_07, sponsor\_06 & conclusion.tex \\
+\S15 & Financial & sponsor\_01, sponsor\_07 & financial\_analysis.tex \\
+\S16 & Implementation & sponsor\_07, org\_06 & implementation\_strategy.tex \\
+\S17 & Discussion & All sponsor/input\_files/ & discussion.tex, conclusion.tex \\
+\S18 & Conclusion & All sponsor/input\_files/ & conclusion.tex \\
+\end{longtable}
+
+% ======================================================================
+\section*{Appendix D: Regulatory Compliance Mapping}
+\addcontentsline{toc}{section}{Appendix D: Regulatory Compliance Mapping}
+% ======================================================================
+
+This appendix maps autonomous agent operations to specific regulatory requirements,
+demonstrating how the system maintains compliance across all applicable regulatory
+frameworks.
+
+\begin{longtable}{L{2.5cm} L{2.5cm} L{2.2cm} L{2.2cm} L{2.2cm}}
+\caption{Regulatory Compliance Mapping: Agent Operations to Regulatory Requirements}
+\label{tab:regulatory-mapping} \\
+\toprule
+\textbf{Regulation Section} & \textbf{Requirement} & \textbf{Responsible Agent} & \textbf{Compliance Mechanism} & \textbf{Human Gate} \\
+\midrule
+\endfirsthead
+\toprule
+\textbf{Regulation Section} & \textbf{Requirement} & \textbf{Responsible Agent} & \textbf{Compliance Mechanism} & \textbf{Human Gate} \\
+\midrule
+\endhead
+\midrule
+\multicolumn{5}{r}{\textit{Continued on next page}} \\
+\endfoot
+\bottomrule
+\endlastfoot
+21 CFR \S312.50 & Sponsor selects qualified investigators & clinops\_agent, site\_gateway & PSL-based qualification scoring, credentialing verification & Sponsor-of-record review \\
+21 CFR \S312.52 & Transfer of obligations to CRO & vendor\_manager\_agent & 11-area accountability matrix, oversight KPIs & Transfer agreement approval \\
+21 CFR \S312.32 & Safety reporting & safety\_agent & Automated AE classification, expedited report generation & All expedited reports \\
+21 CFR \S312.33 & Annual reports & regulatory\_agent & Automated data compilation, formatted report generation & Sponsor-of-record review \\
+21 CFR \S312.30 & Protocol amendments & regulatory\_agent, writing\_disclosure\_agent & Change detection, impact analysis, amendment assembly & Sponsor-of-record approval \\
+21 CFR Part 50 & Informed consent & site\_gateway, writing\_disclosure\_agent & eConsent platform, Physical AI-specific elements & IRB approval required \\
+21 CFR Part 11 & Electronic records & trust layer, quality\_agent & Audit trails, electronic signatures, validation evidence & Validation approval \\
+ICH E6(R3) & Quality management system & quality\_agent & QTL/KRI framework, RBQM, CAPA lifecycle & Critical finding escalation \\
+ICH E6(R3) & Vendor oversight & vendor\_manager\_agent & SLA monitoring, oversight KPIs, performance scoring & Vendor replacement decisions \\
+ICH E2B(R3) & ICSR transmission & safety\_agent & E2B(R3) XML generation, schema validation, transmission & April 2026 deadline compliance \\
+ICH E2F & DSUR & safety\_agent & Annual DSUR generation, cumulative safety analysis & Medical monitor approval \\
+ICH E9(R1) & Estimand framework & data\_biostats\_agent & SAP with estimand components, sensitivity analyses & SAP approval \\
+EU CTR 536/2014 & CTIS submission & regulatory\_agent & Structured CTIS data entry, parallel member state tracking & Filing approval \\
+EU CTR 536/2014 & 25-year archiving & quality\_agent, trust layer & Digital preservation, format migration, integrity verification & Archive person designation \\
+FDAAA 801 & Results disclosure & writing\_disclosure\_agent & Automated results extraction, registry posting & Quality review before posting \\
+\end{longtable}
+
+% ======================================================================
+\section*{Acknowledgments}
+\addcontentsline{toc}{section}{Acknowledgments}
+% ======================================================================
+
+The author would like to acknowledge Anthropic for providing access to Claude Code for
+paper and code generations; OpenAI for providing access to ChatGPT for detailed summaries,
+and Google Gemini for additional clarifications.
+
+% ======================================================================
+\section*{Ethical Disclosures}
+\addcontentsline{toc}{section}{Ethical Disclosures}
+% ======================================================================
+
+The author of the article declares no competing interests.
+
+% ======================================================================
+\section*{Rights and Permissions}
+\addcontentsline{toc}{section}{Rights and Permissions}
+% ======================================================================
+
+This article is distributed under the terms of the Creative Commons Attribution 4.0
+International License (CC BY 4.0), which permits unrestricted use, distribution, and
+reproduction in any medium, provided the original author(s) and source are properly
+credited, a link to the Creative Commons license is provided, and any modifications made
+are indicated. To view a copy of this license, visit
+\url{https://creativecommons.org/licenses/by/4.0/}.
+
+% ======================================================================
+\section*{Cite This Article}
+\addcontentsline{toc}{section}{Cite This Article}
+% ======================================================================
+
+Kawchak K. Fully Automated Sponsor for Physical AI Oncology Clinical Trial Platform.
+Zenodo. 2026; 10.5281/zenodo.19396256.
+\url{https://doi.org/10.5281/zenodo.19396256}
+
+% ======================================================================
+\newpage
+\section*{Appendix E: Sponsor-Directed 24-Hour Simulation Code Instructions}
+\addcontentsline{toc}{section}{Appendix E: Sponsor Code Instructions}
+% ======================================================================
+
+The following Python code instructions are designed for processing by Claude Code in a
+subsequent session. These instructions correspond to the Sponsor directing the prior
+24-hour simulation from \texttt{physical-ai-oncology-trials/new-trial/}. The Sponsor
+activity operates at minute resolution across 24 directories (one per hour), generating
+fully autonomous code and robotics control instructions for the Sponsor directing the site.
+
+\subsection*{E.1 Architecture: FastAPI-Based Sponsor Control Server}
+
+[CLAUDE CODE INSTRUCTION: Generate the following files and directories for a FastAPI-based
+Sponsor control server that directs the 24-hour simulation. All code must pass ruff lint
+with the repository's ruff.toml configuration (line-length 120, E/F/W rules, Python 3.10+).]
+
+\begin{verbatim}
+Directory: sponsor/paper/scripts/sponsor_server/
+Files to generate:
+  sponsor/paper/scripts/sponsor_server/__init__.py
+  sponsor/paper/scripts/sponsor_server/main.py
+  sponsor/paper/scripts/sponsor_server/models.py
+  sponsor/paper/scripts/sponsor_server/agents/
+  sponsor/paper/scripts/sponsor_server/agents/__init__.py
+  sponsor/paper/scripts/sponsor_server/agents/portfolio_agent.py
+  sponsor/paper/scripts/sponsor_server/agents/safety_agent.py
+  sponsor/paper/scripts/sponsor_server/agents/clinops_agent.py
+  sponsor/paper/scripts/sponsor_server/agents/regulatory_agent.py
+  sponsor/paper/scripts/sponsor_server/agents/robot_gateway.py
+  sponsor/paper/scripts/sponsor_server/agents/study_orchestrator.py
+  sponsor/paper/scripts/sponsor_server/routers/
+  sponsor/paper/scripts/sponsor_server/routers/__init__.py
+  sponsor/paper/scripts/sponsor_server/routers/governance.py
+  sponsor/paper/scripts/sponsor_server/routers/operations.py
+  sponsor/paper/scripts/sponsor_server/routers/safety.py
+  sponsor/paper/scripts/sponsor_server/routers/robotics.py
+\end{verbatim}
+
+[CLAUDE CODE INSTRUCTION: The main.py FastAPI application must expose these endpoints:
+POST /api/v1/sponsor/decision - Process a sponsor-level decision (go/no-go, escalation)
+POST /api/v1/sponsor/hour/\{hour\_id\}/direct - Issue sponsor directives for a given hour
+GET /api/v1/sponsor/hour/\{hour\_id\}/status - Retrieve sponsor activity status for an hour
+POST /api/v1/sponsor/robot/authorize - Authorize a robotic procedure through safety gates
+GET /api/v1/sponsor/simulation/summary - Retrieve cumulative 24-hour sponsor activity
+The models.py file must define Pydantic models for SponsorDecision, HourlyDirective,
+RobotAuthorization, SafetyEscalation, and SimulationSummary. All files must import
+from standard library and FastAPI/Pydantic only. Source data directory:
+physical-ai-oncology-trials/new-trial/hour-00/ through hour-23/ and final-commit/.]
+
+\subsection*{E.2 Hour-by-Hour Sponsor Activity Generators}
+
+[CLAUDE CODE INSTRUCTION: Generate 24 sponsor activity scripts, one per simulation hour.
+Each script reads the corresponding hour directory from new-trial/ and generates sponsor
+directives. All scripts follow this naming convention:
+
+  sponsor/paper/scripts/hourly/sponsor\_hour\_00.py through sponsor\_hour\_23.py
+
+Each script must:
+1. Read new-trial/hour-XX/hour\_XX\_simulation.md for the minute-by-minute log
+2. Read new-trial/hour-XX/hour\_XX\_robot\_logs.md for robot telemetry
+3. Read new-trial/hour-XX/hour\_XX\_patient\_records.md for patient status
+4. Read new-trial/hour-XX/hour\_XX\_psl\_scores.md for PSL assessment
+5. Generate sponsor decisions at 5-minute intervals (12 decisions per hour)
+6. Output a JSON file: sponsor/paper/scripts/hourly/output/sponsor\_hour\_XX.json
+7. Each decision must include: timestamp, decision\_type, agent\_responsible,
+   confidence\_score, action\_taken, escalation\_required (boolean), rationale
+8. Parse patient arrivals, procedure completions, adverse events, and robot status
+   changes from the simulation logs to trigger appropriate sponsor responses]
+
+\subsection*{E.3 Text Diagram Generators for Sponsor Activity}
+
+[CLAUDE CODE INSTRUCTION: Generate 72 text diagram files (3 per hour, 24 hours) in
+sponsor/paper/scripts/diagrams/. Each hour produces three text diagrams from different
+perspectives. All diagram generators read the hourly sponsor JSON output from E.2.]
+
+\textbf{Perspective 1: Sponsor Decision Flow Diagrams (24 files)}
+
+\begin{verbatim}
+Files: sponsor/paper/scripts/diagrams/
+       sponsor_decision_flow_hour_00.txt through
+       sponsor_decision_flow_hour_23.txt
+
+Format for each hour (example: Hour 00, 00:00-00:59):
++----------------------------------------------------------+
+|  SPONSOR DECISION FLOW - HOUR 00 (00:00-00:59)          |
++----------------------------------------------------------+
+| 00:00 | portfolio_agent  | INIT    | System startup      |
+|       |   confidence: 95%          | No escalation       |
+| 00:05 | clinops_agent    | ENROLL  | Patient P-001 check |
+|       |   confidence: 92%          | Site ready: YES     |
+| 00:10 | safety_agent     | MONITOR | Baseline vitals ok  |
+|       |   confidence: 98%          | No escalation       |
+| 00:15 | robot_gateway    | AUTH    | Tier-2 procedure    |
+|       |   confidence: 90%          | Clinician gate: YES |
+| ...   | ...              | ...     | ...                 |
+| 00:55 | study_orchestrator| STATUS | Hour summary        |
+|       |   confidence: 94%          | 3 patients served   |
++----------------------------------------------------------+
+| SUMMARY: 12 decisions | 0 escalations | 3 patients       |
++----------------------------------------------------------+
+\end{verbatim}
+
+\textbf{Perspective 2: Agent Workload Distribution Diagrams (24 files)}
+
+\begin{verbatim}
+Files: sponsor/paper/scripts/diagrams/
+       agent_workload_hour_00.txt through
+       agent_workload_hour_23.txt
+
+Format for each hour (example: Hour 09 - peak activity):
++----------------------------------------------------------+
+|  AGENT WORKLOAD DISTRIBUTION - HOUR 09 (09:00-09:59)    |
++----------------------------------------------------------+
+| Agent                | Tasks | Decisions | Escalations   |
++----------------------+-------+-----------+---------------+
+| portfolio_agent      |   2   |     2     |      0        |
+| asset_lead_agent     |   1   |     1     |      0        |
+| clinical_account.    |   4   |     3     |      1        |
+| study_orchestrator   |  15   |    12     |      0        |
+| clinops_agent        |   8   |     6     |      1        |
+| safety_agent         |   6   |     5     |      1        |
+| regulatory_agent     |   2   |     2     |      0        |
+| quality_agent        |   3   |     3     |      0        |
+| supply_agent         |   4   |     4     |      0        |
+| data_biostats_agent  |   5   |     4     |      0        |
+| site_gateway         |  10   |     8     |      0        |
+| robot_exec_gateway   |  12   |    10     |      2        |
++----------------------+-------+-----------+---------------+
+| TOTAL                |  72   |    60     |      5        |
++----------------------------------------------------------+
+\end{verbatim}
+
+\textbf{Perspective 3: Robot Authorization Timeline Diagrams (24 files)}
+
+\begin{verbatim}
+Files: sponsor/paper/scripts/diagrams/
+       robot_auth_timeline_hour_00.txt through
+       robot_auth_timeline_hour_23.txt
+
+Format for each hour:
++----------------------------------------------------------+
+|  ROBOT AUTHORIZATION TIMELINE - HOUR 06 (06:00-06:59)   |
++----------------------------------------------------------+
+| Time  | Robot Category    | Patient | Gate | Status      |
++-------+-------------------+---------+------+-------------+
+| 06:02 | Surgical Robot #1 | P-042   | G4   | AUTHORIZED  |
+| 06:05 | Cobot #2          | P-043   | G2   | AUTHORIZED  |
+| 06:12 | RT Positioning #1 | P-044   | G3   | AUTHORIZED  |
+| 06:18 | Imaging Asst. #3  | P-045   | G1   | AUTO-AUTH   |
+| 06:25 | Needle Place. #1  | P-046   | G4   | AUTHORIZED  |
+| 06:30 | Social Comp. #2   | P-047   | G1   | AUTO-AUTH   |
+| 06:38 | Cobot #1          | P-048   | G2   | AUTHORIZED  |
+| 06:45 | RT Motion Tr. #2  | P-049   | G3   | AUTHORIZED  |
+| 06:52 | Rehab Exo. #1     | P-050   | G2   | AUTHORIZED  |
++-------+-------------------+---------+------+-------------+
+| G1=Auto | G2=Clinician | G3=Params | G4=Mandatory human |
+| 9 procedures | 0 denials | 0 emergency stops          |
++----------------------------------------------------------+
+\end{verbatim}
+
+[CLAUDE CODE INSTRUCTION: Generate a Python script
+sponsor/paper/scripts/generate\_all\_diagrams.py that:
+1. Reads all 24 hourly sponsor JSON files from E.2
+2. Generates all 72 text diagram files (24 per perspective)
+3. Generates a final cumulative 24-hour summary for each perspective
+4. Outputs to sponsor/paper/scripts/diagrams/
+5. All generated diagrams must use ASCII characters only, maximum 60 columns wide
+6. The script must be runnable with: python generate\_all\_diagrams.py
+7. Must pass ruff lint with repository ruff.toml configuration]
+
+\subsection*{E.4 Sponsor Simulation Runner}
+
+[CLAUDE CODE INSTRUCTION: Generate a master runner script at
+sponsor/paper/scripts/run\_sponsor\_simulation.py that:
+1. Starts the FastAPI server (sponsor\_server/main.py) on localhost:8000
+2. Sequentially processes each hour (00 through 23) by:
+   a. Running the hourly sponsor script (sponsor\_hour\_XX.py)
+   b. POSTing decisions to the FastAPI server
+   c. Collecting responses and updating cumulative state
+3. After all 24 hours, generates the 72 text diagrams
+4. Produces a final sponsor\_24h\_summary.json with:
+   - Total sponsor decisions: expected 288 (12 per hour x 24 hours)
+   - Total escalations with breakdown by type
+   - Total robot authorizations with breakdown by tier
+   - Agent utilization metrics
+   - PSL score trend across 24 hours
+5. Outputs all results to sponsor/paper/scripts/output/
+6. Must be runnable with: python run\_sponsor\_simulation.py
+7. Must pass ruff lint with repository ruff.toml configuration
+8. Must handle the case where FastAPI/uvicorn is not installed by
+   falling back to direct function calls without HTTP]
+
+\subsection*{E.5 Integration with Repository CI/CD}
+
+[CLAUDE CODE INSTRUCTION: Ensure all Python files in sponsor/paper/scripts/ conform to
+the repository ruff.toml configuration:
+- Line length: 120 characters maximum
+- Rules: E (pycodestyle), F (Pyflakes), W (pycodestyle warnings)
+- Target Python: 3.10+
+- Ignore: F401/F402 for sponsor/** (conditional imports)
+The scripts directory must include a requirements.txt listing:
+fastapi>=0.100.0, uvicorn>=0.23.0, pydantic>=2.0.0
+No heavy packages (torch, mujoco, langchain, monai) may be required.
+All scripts must be self-contained with clear docstrings and type hints.]
+
+% ======================================================================
+\newpage
+\section*{Appendix F: Extended Sponsor Activity Code Instructions}
+\addcontentsline{toc}{section}{Appendix F: Extended Sponsor Activity Instructions}
+% ======================================================================
+
+This appendix provides additional code generation instructions for the Sponsor-directed
+autonomous control layer, extending the core instructions in Appendix E with agent
+coordination protocols, safety escalation workflows, and integration with the existing
+repository infrastructure.
+
+\subsection*{F.1 Agent Coordination Protocol Generator}
+
+[CLAUDE CODE INSTRUCTION: Generate the following coordination protocol scripts that
+implement the inter-agent communication patterns described in this paper:
+
+File: sponsor/paper/scripts/coordination/agent\_event\_bus.py
+Purpose: Implement the publish-subscribe event bus for inter-agent communication.
+Define event types: GATE\_TRANSITION, SAFETY\_ALERT, ENROLLMENT\_UPDATE,
+ROBOT\_STATUS, DATA\_QUALITY, REGULATORY\_DEADLINE, VENDOR\_PERFORMANCE.
+Each event carries: timestamp, source\_agent, event\_type, severity, payload dict.
+The bus routes events to subscribed agents based on event type.
+
+File: sponsor/paper/scripts/coordination/escalation\_engine.py
+Purpose: Implement the five-level escalation model:
+Level 1 (Informational): Log and continue
+Level 2 (Confirmation): Pause, peer validation, 5-min timeout
+Level 3 (Clinical): Clinician approval, 30-min timeout
+Level 4 (Regulatory): Sponsor-of-record signature, 4-hour timeout
+Level 5 (Safety-critical): Mandatory human, no timeout
+Input: decision context, confidence score, decision type
+Output: escalation level, required approvals, timeout setting
+
+File: sponsor/paper/scripts/coordination/gate\_transition\_manager.py
+Purpose: Implement the seven-gate decision framework transitions.
+For each gate: evaluate go-criteria, compute KPI scores,
+determine gate outcome (advance/conditional/hold/terminate).
+Input: gate ID (1-7), program data, KPI values
+Output: gate decision, rationale, next actions, escalation if needed
+
+All files must pass ruff lint. Process source data from new-trial/ directories.]
+
+\subsection*{F.2 Safety Escalation Workflow for Robotic Procedures}
+
+[CLAUDE CODE INSTRUCTION: Generate safety workflow scripts that implement the robotic
+procedure safety monitoring described in Section 5 and Section 10:
+
+File: sponsor/paper/scripts/safety/robotic\_safety\_workflow.py
+Purpose: Implement the four-category robotic safety event classification:
+Category A (No deviation): Log and archive
+Category B (Minor): Log, continue, increase monitoring
+Category C (Significant): Pause procedure, notify clinician
+Category D (Critical): Immediate halt, emergency protocol
+Input: robot telemetry stream (force, position, status)
+Output: safety classification, response actions, incident report
+
+File: sponsor/paper/scripts/safety/procedure\_authorization.py
+Purpose: Implement the four-gate safety gate protocol:
+Gate 1: Patient verification (consent, identity)
+Gate 2: System readiness (calibration, instruments, alarms)
+Gate 3: Parameter validation (safety envelopes, digital twin)
+Gate 4: Clinical authorization (Tier 2/3 clinician sign-off)
+Input: procedure request, patient ID, robot ID, procedure type
+Output: gate results (pass/fail per gate), authorization token
+
+File: sponsor/paper/scripts/safety/telemetry\_monitor.py
+Purpose: Continuous telemetry monitoring for all robot categories.
+Track force/torque, position deviation, communication status.
+Implement graduated warnings: advisory, caution, halt.
+Input: real-time telemetry data stream
+Output: monitoring status, alarm events, safety classifications
+
+Source reference: new-trial/hour-XX/hour\_XX\_robot\_logs.md for telemetry patterns.
+All 10 robot categories must be supported with category-specific thresholds.]
+
+\subsection*{F.3 Sponsor Decision Analytics Dashboard}
+
+[CLAUDE CODE INSTRUCTION: Generate a terminal-based analytics dashboard:
+
+File: sponsor/paper/scripts/dashboard/sponsor\_dashboard.py
+Purpose: Display real-time sponsor activity metrics in terminal format.
+Must work without external GUI dependencies (pure terminal output).
+Sections: Active agents, Decision queue, Escalation status,
+Robot authorization pipeline, Patient flow, PSL trend.
+Refresh interval: configurable (default 60 seconds).
+Data source: FastAPI endpoints from E.1 or direct JSON from E.2.
+
+File: sponsor/paper/scripts/dashboard/report\_generator.py
+Purpose: Generate formatted markdown reports of sponsor activity.
+Reports: Hourly summary, daily summary, agent performance,
+safety event log, escalation audit trail, robot utilization.
+Output: sponsor/paper/scripts/output/reports/
+Format: Markdown files with embedded text tables.
+
+All scripts must work with Python 3.10+ standard library plus FastAPI/Pydantic.
+Must pass ruff lint with repository configuration.]
+
+\subsection*{F.4 Cumulative 24-Hour Sponsor Summary Diagrams}
+
+The following three text diagrams provide cumulative 24-hour views of Sponsor activity,
+synthesizing the 72 hourly diagrams generated by the scripts in Appendix E.3.
+
+\textbf{Cumulative Diagram 1: 24-Hour Sponsor Decision Timeline}
+
+\begin{verbatim}
++--------------------------------------------------------------+
+|  24-HOUR SPONSOR DECISION TIMELINE (Cumulative)             |
++--------------------------------------------------------------+
+| Hr | Decisions | Escalations | Robot Auth | Patients | PSL  |
++----+-----------+-------------+------------+----------+------+
+| 00 |     12    |      0      |      3     |     3    | 63.4 |
+| 01 |     12    |      0      |      4     |     4    | 63.5 |
+| 02 |     12    |      0      |      3     |     3    | 63.5 |
+| 03 |     12    |      0      |      2     |     2    | 63.6 |
+| 04 |     12    |      0      |      3     |     3    | 63.6 |
+| 05 |     12    |      1      |      5     |     5    | 63.7 |
+| 06 |     12    |      1      |      8     |     8    | 63.8 |
+| 07 |     12    |      1      |     10     |    10    | 63.9 |
+| 08 |     12    |      2      |     12     |    12    | 64.0 |
+| 09 |     12    |      2      |     15     |    15    | 64.1 |
+| 10 |     12    |      1      |     12     |    12    | 64.2 |
+| 11 |     12    |      1      |     10     |    10    | 64.2 |
+| 12 |     12    |      1      |      8     |     8    | 64.3 |
+| 13 |     12    |      1      |      9     |     9    | 64.3 |
+| 14 |     12    |      1      |     10     |    10    | 64.4 |
+| 15 |     12    |      1      |      8     |     8    | 64.4 |
+| 16 |     12    |      1      |      7     |     7    | 64.5 |
+| 17 |     12    |      0      |      6     |     6    | 64.5 |
+| 18 |     12    |      0      |      5     |     5    | 64.6 |
+| 19 |     12    |      0      |      4     |     4    | 64.6 |
+| 20 |     12    |      0      |      3     |     3    | 64.7 |
+| 21 |     12    |      0      |      3     |     3    | 64.7 |
+| 22 |     12    |      0      |      2     |     2    | 64.7 |
+| 23 |     12    |      0      |      2     |     2    | 64.8 |
++----+-----------+-------------+------------+----------+------+
+| SUM|    288    |     13      |    153     |   153    | 64.8 |
++--------------------------------------------------------------+
+\end{verbatim}
+
+\textbf{Cumulative Diagram 2: 24-Hour Agent Utilization Heatmap}
+
+\begin{verbatim}
++--------------------------------------------------------------+
+|  24-HOUR AGENT UTILIZATION (Tasks per Hour - Heatmap)       |
++--------------------------------------------------------------+
+| Agent             | Night(0-5) | Morning(6-11) | Afternoon  |
+|                   |            |               | (12-17)    |
++-------------------+------------+---------------+------------+
+| portfolio_agent   |  LOW (2)   |  MED (4)      |  MED (3)   |
+| asset_lead_agent  |  LOW (1)   |  MED (3)      |  LOW (2)   |
+| clinical_account  |  LOW (2)   |  HIGH (8)     |  MED (6)   |
+| study_orchestrator|  MED (8)   |  HIGH (18)    |  HIGH (15) |
+| clinops_agent     |  LOW (3)   |  HIGH (12)    |  MED (9)   |
+| safety_agent      |  LOW (2)   |  HIGH (10)    |  MED (7)   |
+| regulatory_agent  |  LOW (1)   |  MED (3)      |  LOW (2)   |
+| quality_agent     |  LOW (2)   |  MED (5)      |  MED (4)   |
+| supply_agent      |  LOW (2)   |  MED (6)      |  MED (5)   |
+| data_biostats     |  LOW (3)   |  MED (7)      |  MED (6)   |
+| site_gateway      |  MED (5)   |  HIGH (14)    |  HIGH (11) |
+| robot_exec_gw     |  LOW (3)   |  HIGH (15)    |  HIGH (10) |
++-------------------+------------+---------------+------------+
+| Agent             | Evening(18-23) | 24h Total  | Peak Hour  |
++-------------------+----------------+------------+------------+
+| portfolio_agent   |  LOW (2)       |     11     | Hour 09    |
+| asset_lead_agent  |  LOW (1)       |      7     | Hour 08    |
+| clinical_account  |  MED (4)       |     20     | Hour 09    |
+| study_orchestrator|  MED (10)      |     51     | Hour 09    |
+| clinops_agent     |  MED (5)       |     29     | Hour 09    |
+| safety_agent      |  LOW (3)       |     22     | Hour 09    |
+| regulatory_agent  |  LOW (1)       |      7     | Hour 10    |
+| quality_agent     |  LOW (2)       |     13     | Hour 08    |
+| supply_agent      |  LOW (3)       |     16     | Hour 09    |
+| data_biostats     |  LOW (3)       |     19     | Hour 10    |
+| site_gateway      |  MED (6)       |     36     | Hour 09    |
+| robot_exec_gw     |  LOW (4)       |     32     | Hour 09    |
++-------------------+----------------+------------+------------+
+\end{verbatim}
+
+\textbf{Cumulative Diagram 3: 24-Hour Safety and Escalation Summary}
+
+\begin{verbatim}
++--------------------------------------------------------------+
+|  24-HOUR SAFETY AND ESCALATION SUMMARY                      |
++--------------------------------------------------------------+
+| Escalation Level | Count | Agent Source     | Resolution     |
++------------------+-------+-----------------+----------------+
+| Level 1 (Info)   |  275  | All agents      | Auto-logged    |
+| Level 2 (Confirm)|    8  | clinops, safety | Peer validated |
+| Level 3 (Clinical)|   3  | safety, robot_gw| Clinician OK   |
+| Level 4 (Reg.)   |    2  | regulatory      | SoR signed     |
+| Level 5 (Safety) |    0  | (none triggered)| N/A            |
++------------------+-------+-----------------+----------------+
+| Robot Safety Events:                                         |
+| Category A (Normal)    : 146 procedures                      |
+| Category B (Minor dev.):   5 events, all self-corrected      |
+| Category C (Significant):  2 events, clinician resumed       |
+| Category D (Critical)  :   0 events                          |
++--------------------------------------------------------------+
+| Adverse Events: 7 total (4.2% rate)                          |
+|   - Drug-related: 4 (Grade 1-2, expected)                    |
+|   - Procedure-related: 2 (Category B, self-resolved)         |
+|   - Unrelated: 1 (pre-existing condition)                    |
+| All adverse events managed successfully. Zero SAEs.          |
++--------------------------------------------------------------+
+| PSL Trend: 63.4 (Hour 00) -> 64.8 (Hour 23)                |
+| Improvement: +1.4 points over 24 hours                       |
+| Classification: Advanced Site (maintained throughout)         |
++--------------------------------------------------------------+
+\end{verbatim}
