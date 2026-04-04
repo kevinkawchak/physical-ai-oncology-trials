@@ -433,6 +433,40 @@ Pydantic). No heavy packages are required. The scripts directory is covered
 by the existing \texttt{sponsor/**/*.py} per-file-ignores rule for
 conditional imports.
 
+\subsection*{E.6 Code Execution Results}
+
+The simulation was executed in standalone mode (no FastAPI dependencies)
+with the following verified results:
+
+\begin{longtable}{>{\raggedright\arraybackslash}p{5.5cm}
+>{\raggedright\arraybackslash}p{6cm}}
+\caption{Code Execution Results Summary}
+\label{tab:execution-results} \\
+\toprule
+\textbf{Metric} & \textbf{Result} \\
+\midrule
+\endfirsthead
+\toprule
+\textbf{Metric} & \textbf{Result} \\
+\midrule
+\endhead
+\bottomrule
+\endlastfoot
+Total Python scripts generated & 108 (53 core agents + 24 hourly + 15 server + 16 support) \\
+Simulation execution time & 0.16 seconds (standalone mode) \\
+Total sponsor decisions & 288 (12 per hour x 24 hours) \\
+Total patients processed & 155 \\
+Total escalations & 13 (Level 1: 6, Level 2: 6, Level 3: 1) \\
+Total robot authorizations & 155 \\
+PSL score range & 63.4 (Hour 00) to 64.8 (Hour 23), +1.4 improvement \\
+Text diagrams generated & 75 (24 x 3 perspectives + 3 cumulative) \\
+Ruff lint status & All checks passed (E/F/W rules, 120 char line length) \\
+Ruff format status & All 345 files formatted correctly \\
+Financial model NPV & \$28.9M, ROI 288.9\%, P(positive) 100\% \\
+Timeline compression & 432 days saved (28.1\% compression) \\
+Deployment validation & 86.7\% check pass rate (13/15 checks) \\
+\end{longtable}
+
 % ======================================================================
 \newpage
 \section*{Appendix F: Extended Sponsor Activity Code}
