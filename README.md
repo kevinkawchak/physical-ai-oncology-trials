@@ -15,9 +15,7 @@
 
 This repository provides production-ready configurations, validated pipelines, and integration guides for deploying robotic systems, digital twins, and embodied AI agents in oncology. 
 
-**4/4: v3.2.0 (Autonomous Sponsor Paper)** *Fully Automated Sponsor for Physical AI Oncology Clinical Trial Platform* - Complete 75+ page paper specifying a twelve-agent, four-layer autonomous AI-native sponsor operating system with 30 tables, 49 Python script specifications, sponsor-directed 24-hour code instructions, and comprehensive regulatory compliance mapping. [![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.19396256-blue)](https://doi.org/10.5281/zenodo.19396256)
-
-**4/4: v3.1.0 (Autonomous Sponsor Template)** *Fully Automated Sponsor: Physical AI Oncology Clinical Trials* - LaTeX paper template with 18 sections, 49 Python script specifications, 30 table definitions, and processing instructions for autonomous AI sponsor operations. [![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.19396256-blue)](https://doi.org/10.5281/zenodo.19396256)
+**4/4 PDF: v3.2.0 (Autonomous Sponsor Paper)** *Fully Automated Sponsor for Physical AI Oncology Clinical Trial Platform* - Complete 75+ page paper specifying a twelve-agent, four-layer autonomous AI-native sponsor operating system with 30 tables, 49 Python script specifications, sponsor-directed 24-hour code instructions, and comprehensive regulatory compliance mapping. [![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.19396256-blue)](https://doi.org/10.5281/zenodo.19396256)
 
 **3/28 PDF: v3.0.0 (National Platform Paper)** *National Platform for Physical AI Oncology Trials* - Comprehensive 186-page paper serving as an end-to-end resource for the pharmaceutical and regulatory industries. [![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.19244918-blue)](https://doi.org/10.5281/zenodo.19244918)
 
