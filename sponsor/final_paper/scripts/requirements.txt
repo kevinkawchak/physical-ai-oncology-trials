@@ -1,0 +1,7 @@
+# Sponsor simulation dependencies
+# Core simulation runs with Python 3.10+ standard library only.
+# FastAPI/Pydantic are optional - the simulation falls back to
+# direct function calls when these packages are not installed.
+fastapi>=0.100.0
+uvicorn>=0.23.0
+pydantic>=2.0.0

@@ -1,8 +1,12 @@
 # Fully Automated Sponsor: Physical AI Oncology Clinical Trials
 
-Complete LaTeX source and compiled PDF for the autonomous AI-native sponsor operating system
-paper. This paper specifies a twelve-agent, four-layer architecture that replaces traditional
+Complete LaTeX source for the autonomous AI-native sponsor operating system paper (v3.2.0).
+This paper specifies a twelve-agent, four-layer architecture that replaces traditional
 human-staffed pharmaceutical sponsor functions for Physical AI oncology clinical trials.
+
+**Note:** The final version with automated code generations, execution results, and updated
+appendices is in `sponsor/final_paper/` (v3.3.0). This directory contains the original
+v3.2.0 paper with the code generation instructions in Appendices E and F.
 
 ## File Structure
 
