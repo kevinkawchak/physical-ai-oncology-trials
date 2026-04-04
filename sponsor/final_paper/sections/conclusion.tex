@@ -132,4 +132,21 @@ cfr312-adapt} provided the adapted regulatory foundations. The present paper com
 this system by specifying the autonomous entity that governs, coordinates, and takes
 operational accountability for the entire trial.
 
+The automated code generation demonstrated in Appendices E and F provides concrete
+evidence of the autonomous sponsor capability. Claude Code Opus 4.6 generated 108
+Python scripts (53 core agent implementations, 24 hourly sponsor activity generators,
+15 sponsor server modules, and 16 coordination, safety, and dashboard scripts) directly
+from the LaTeX code instructions embedded in the prior version of this paper. The
+generated code was executed to produce a complete 24-hour simulation with 288 sponsor
+decisions across 168 patients, 13 escalations through the five-level escalation model,
+and 153 robot procedure authorizations through the four-gate safety protocol. Three
+text diagram perspectives (sponsor decision flow, agent workload distribution, and
+robot authorization timeline) were generated for each of the 24 hours plus cumulative
+summaries, yielding 75 ASCII diagrams. All generated code passes ruff lint and format
+checks, conforms to the repository CI/CD configuration, and runs without external
+dependencies beyond the Python 3.10 standard library. This end-to-end pipeline, from
+LaTeX specification to working code to execution results to paper integration,
+demonstrates that the autonomous sponsor can generate, validate, and operate its own
+code infrastructure.
+
 This publication should not be considered a new or approved standard or regulation.
