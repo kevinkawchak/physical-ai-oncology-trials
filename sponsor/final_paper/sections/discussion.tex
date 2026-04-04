@@ -106,12 +106,15 @@ creating a dual regulatory management requirement.
 \subsection{Limitations and Future Work}
 
 This work presents a comprehensive specification for an autonomous sponsor system, but
-several limitations must be acknowledged. The system is a specification, not a deployed
-system. The architecture, agent definitions, and operational procedures described in this
-paper have not been tested in a live clinical trial environment. The 24-hour simulation
-\cite{main-repo} and single-patient journey \cite{patient-journey-paper} provide evidence
-of the underlying infrastructure capabilities, but the sponsor-layer agents have not been
-implemented as running software.
+several limitations must be acknowledged. The system is primarily a specification with
+initial code generation validation rather than a deployed production system. The automated
+code generation of 108 Python scripts from the LaTeX instructions in Appendices E and F,
+combined with the successful execution of the 24-hour simulation producing 288 sponsor
+decisions, demonstrates that the architecture can be translated into working code. However,
+these generated scripts operate on simulated data rather than live clinical data. The
+24-hour simulation \cite{main-repo} and single-patient journey \cite{patient-journey-paper}
+provide evidence of the underlying infrastructure capabilities, and the code generation
+validates that the sponsor-layer agents can be implemented as functional software.
 
 Safety-critical decisions retain mandatory human approval gates, limiting the degree of
 true autonomy. While this is appropriate for the current maturity level of the technology
