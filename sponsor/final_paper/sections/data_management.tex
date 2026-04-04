@@ -1,0 +1,204 @@
+% ======================================================================
+% SECTION 9: AUTONOMOUS DATA MANAGEMENT AND BIOSTATISTICS
+% File: sections/data_management.tex
+% ======================================================================
+
+Data management and biostatistics represent the information backbone of the autonomous
+sponsor. Every agent generates, consumes, and transforms data; the data management
+infrastructure ensures that this data flows from source to submission in a manner that is
+compliant, traceable, and inspection-ready. The autonomous data management system
+implements the complete data supply chain from electronic consent through submission datasets,
+integrates with the national federated learning framework for privacy-preserving multi-site
+analytics, and maintains CDISC standards compliance throughout.
+
+\subsection{Data Supply Chain Automation}
+
+The data supply chain implements an end-to-end pipeline from patient consent through
+regulatory submission datasets. Each stage in the pipeline produces validated, auditable
+outputs that serve as inputs to the next stage.
+
+Electronic consent (eConsent) initiation marks the first data capture point. Following FDA
+guidance on electronic informed consent \cite{fda-econsent} and 21 CFR Part 50 requirements
+for informed consent \cite{cfr-part-50}, the eConsent platform presents the consent document
+in an interactive electronic format, captures participant acknowledgment of each consent
+element, records the electronic signature with 21 CFR Part 11 compliance, and generates
+a consent record with version tracking. The data management agent tracks consent status for
+every participant and flags any study procedures performed without valid current consent.
+
+Electronic source data capture (eSource) eliminates the transcription step between source
+documents and the electronic data capture system. Where site systems support direct data
+capture through EHR integration, the agent configures FHIR R4 \cite{hl7-fhir} resource
+queries to extract visit data, laboratory results, vital signs, and concomitant medications
+directly from the site EHR. Data validation rules execute at the point of capture, reducing
+downstream query volumes.
+
+Electronic data capture system management includes form design, edit check programming,
+medical coding configuration, and real-time data quality monitoring. The agent generates
+CRF forms from protocol specifications, implementing edit checks that enforce eligibility
+criteria, visit windows, dose modification rules, and data consistency requirements. Query
+management automation generates queries for data inconsistencies detected by edit checks or
+centralized monitoring, routes queries to appropriate site personnel, and tracks resolution
+through to closure.
+
+Table~\ref{tab:data-pipeline} presents the data supply chain pipeline.
+
+\begin{longtable}{L{1.8cm} L{2.0cm} L{2.0cm} L{2.5cm} L{3.2cm}}
+\caption{Data Supply Chain Pipeline}
+\label{tab:data-pipeline} \\
+\toprule
+\textbf{Stage} & \textbf{System} & \textbf{Data Standard} & \textbf{Validation} & \textbf{Agent Responsibility} \\
+\midrule
+\endfirsthead
+\toprule
+\textbf{Stage} & \textbf{System} & \textbf{Data Standard} & \textbf{Validation} & \textbf{Agent Responsibility} \\
+\midrule
+\endhead
+\midrule
+\multicolumn{5}{r}{\textit{Continued on next page}} \\
+\endfoot
+\bottomrule
+\endlastfoot
+eConsent & Consent platform & 21 CFR 50, Part 11 & Signature validation, version control & data\_biostats\_agent, site\_gateway \\
+eSource/EHR & Site EHR system & FHIR R4 resources & Source data verification, mapping validation & data\_biostats\_agent, site\_gateway \\
+EDC & Clinical data system & CDASH, protocol CRFs & Edit checks, range checks, consistency rules & data\_biostats\_agent \\
+Medical coding & Coding system & MedDRA 27.0, WHODrug & Auto-coding validation, manual review triggers & data\_biostats\_agent \\
+SDTM mapping & CDISC tools & SDTM IG v3.4 & P21 validation, domain conformance & data\_biostats\_agent \\
+ADaM generation & Analysis tools & ADaM IG v1.3 & Derivation verification, traceability & data\_biostats\_agent \\
+Submission package & eCTD tools & eCTD v4.0, Define.xml & FDA conformance checks, completeness review & regulatory\_agent \\
+\end{longtable}
+
+\subsection{Electronic Data Capture and Source Data}
+
+The EDC subsystem manages the clinical data collection infrastructure across all trial
+sites. Form design automation generates electronic case report forms from the protocol
+specification, mapping each protocol-required assessment to appropriate data collection
+fields with validation rules. The design process follows CDASH (Clinical Data Acquisition
+Standards Harmonization) conventions to facilitate downstream CDISC mapping.
+
+EHR integration through FHIR R4 APIs enables bi-directional data exchange between the
+trial data system and site electronic health records. Inbound data flows capture
+demographics, medical history, laboratory results, vital signs, medications, and
+procedure records. Outbound data flows return trial status information to the EHR for
+clinical decision support. All FHIR data exchanges include provenance resources that
+document the source, transformation, and destination of each data element.
+
+Real-world data integration follows FDA guidance on real-world data and real-world
+evidence \cite{fda-rwd-registries}. The agent evaluates external data sources (disease
+registries, claims databases, EHR-derived datasets) for relevance to active trials.
+For trials using external control arms, the agent implements propensity score methods
+to identify suitable comparator populations, assess comparability, and quantify
+residual confounding. The European DARWIN EU infrastructure provides access to
+European real-world data sources for trials with EU components.
+
+\subsection{CDISC Standards and Submission Datasets}
+
+CDISC standards automation ensures that all trial data is transformed into
+submission-ready formats that comply with FDA standardized study data requirements. The
+agent implements two levels of CDISC transformation: SDTM (Study Data Tabulation Model)
+for raw data tabulation and ADaM (Analysis Data Model) for analysis-ready datasets
+\cite{cdisc-sdtm, cdisc-adam}.
+
+SDTM domain creation parses collected clinical data and maps it to appropriate SDTM
+domains: Demographics (DM), Adverse Events (AE), Concomitant Medications (CM),
+Disposition (DS), Exposure (EX), Findings (VS, LB, EG, PE), Interventions, and
+Trial Design domains. The mapping is guided by the SDTM Implementation Guide with
+automated checks for required variables, controlled terminology compliance, and
+cross-domain consistency.
+
+ADaM dataset generation creates analysis-ready datasets from SDTM domains. The agent
+generates the ADSL (subject-level analysis dataset), ADAE (adverse event analysis
+dataset), ADTTE (time-to-event analysis dataset), ADLB (laboratory analysis dataset),
+and other ADaM datasets specified in the Statistical Analysis Plan. Each derivation is
+documented with traceability back to source SDTM variables. Define.xml metadata files
+describe the complete dataset structure, variable definitions, derivation methods, and
+controlled terminology for regulatory review.
+
+\subsection{Federated Data Architecture}
+
+The federated data architecture integrates the autonomous sponsor with the national
+federated learning framework \cite{fl-repo} for privacy-preserving multi-site analytics.
+This architecture enables cross-site analyses without requiring centralization of
+patient-level data, addressing HIPAA \cite{hipaa} privacy requirements and institutional
+data governance policies.
+
+Table~\ref{tab:federated-data} presents the federated data architecture components.
+
+\begin{longtable}{L{2.0cm} L{2.0cm} L{2.5cm} L{2.0cm} L{3.0cm}}
+\caption{Federated Data Architecture Components}
+\label{tab:federated-data} \\
+\toprule
+\textbf{Component} & \textbf{Protocol} & \textbf{Privacy Method} & \textbf{Data Type} & \textbf{Integration Point} \\
+\midrule
+\endfirsthead
+\toprule
+\textbf{Component} & \textbf{Protocol} & \textbf{Privacy Method} & \textbf{Data Type} & \textbf{Integration Point} \\
+\midrule
+\endhead
+\midrule
+\multicolumn{5}{r}{\textit{Continued on next page}} \\
+\endfoot
+\bottomrule
+\endlastfoot
+FL Client & gRPC/TLS & Differential privacy (epsilon $\leq$ 1.0) & Model gradients & Site-level training nodes at each trial site \\
+Aggregation Server & Secure aggregation protocol & Secure multi-party computation & Aggregated model updates & Central sponsor infrastructure \\
+Coordination Server & MCP protocol & Access control, audit logging & Orchestration commands & National MCP infrastructure \cite{mcp-repo} \\
+Analytics Engine & PyTorch distributed & Homomorphic encryption for sensitive queries & Inference results & Sponsor data analysis pipeline \\
+Digital Twin Interface & FHIR/DICOM & De-identification per HIPAA Safe Harbor & Simulation inputs & Site digital twin systems \\
+\end{longtable}
+
+The federated learning framework employs five foundational pillars: privacy preservation
+through differential privacy and secure aggregation, regulatory compliance through audit
+trails and consent verification, statistical validity through convergence monitoring and
+heterogeneity assessment, operational reliability through fault tolerance and checkpoint
+recovery, and scalability through hierarchical aggregation and bandwidth optimization
+\cite{fl-paper, federated-learning-healthcare}. The triple AI peer review pipeline
+(Claude Opus 4.6, GPT-5.4, Gemini) provides independent validation of federated model
+outputs, with consensus requirements before model updates are propagated to clinical
+decision support systems \cite{claude-opus, gpt-5-4, gemini}.
+
+The digital twin interface enables the autonomous sponsor to provide simulation data
+to site-level digital twin systems. Patient-specific digital twins, constructed from
+imaging data (FHIR ImagingStudy resources and DICOM studies), laboratory results, genomic
+profiles, and treatment history, support pre-procedural planning and outcome prediction
+for robotic procedures. The data management agent coordinates the de-identification and
+transfer of simulation input data to the digital twin platform, ensuring that
+patient privacy is maintained per HIPAA Safe Harbor de-identification standards while
+providing the clinical detail needed for accurate simulation.
+
+The data architecture supports the inspection-ready data package concept: at any point
+during the trial, the data management agent can generate a complete data package suitable
+for regulatory inspection. This package includes the current database snapshot, complete
+audit trail, data management documentation (data management plan, CRF completion
+guidelines, edit check specifications, coding dictionaries), query logs, and data
+quality metrics. The ability to produce this package on demand eliminates the weeks of
+preparation typically required before a regulatory inspection, as the autonomous system
+maintains inspection-ready data continuously rather than preparing it retrospectively.
+
+The data management architecture addresses the unique data complexity of Physical AI
+trials. Traditional oncology trials generate data from clinical assessments, laboratory
+tests, imaging studies, and patient-reported outcomes. Physical AI trials add robotic
+telemetry data (sensor readings at millisecond intervals), procedure provenance data
+(state transitions and safety gate events), digital twin simulation data (pre-operative
+predictions and intraoperative comparisons), and federated model update data (gradient
+vectors and aggregation results). The data management agent must handle all these data
+types within a unified quality management framework, ensuring that robotic telemetry is
+subject to the same data integrity controls as clinical laboratory data.
+
+The volume of data generated by Physical AI trials significantly exceeds traditional trial
+data volumes. A single da Vinci Xi surgical procedure generates approximately 500 megabytes
+of telemetry data; 168 patient procedures across 10 robot categories in a 24-hour period
+generate terabytes of raw data. The data management agent implements a tiered storage
+strategy: critical data (clinical assessments, safety events, regulatory submissions) is
+stored in the primary clinical database with full audit trail; telemetry data is stored
+in a time-series database optimized for high-volume sensor data; and archive data (completed
+procedures, historical analyses) is stored in cost-optimized long-term storage. All storage
+tiers maintain the same data integrity and access control standards.
+
+The MCP server infrastructure \cite{mcp-repo, mcp-protocol} provides the standardized
+communication layer for federated data exchange. The five-server MCP architecture
+(Governance Server, Data Flow Server, Safety Server, Interoperability Server, and
+Analytics Server) exposes 23 tools that enable structured data queries, safety alert
+distribution, cross-site coordination, and analytics pipeline execution. The sponsor
+data management agent interfaces with these MCP servers through standard tool invocations,
+maintaining the separation between sponsor-level data management and site-level data
+sovereignty.
