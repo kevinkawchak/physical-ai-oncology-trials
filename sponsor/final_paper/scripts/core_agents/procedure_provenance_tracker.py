@@ -103,7 +103,7 @@ class ProcedureProvenanceTracker:
 
 def main() -> None:
     tracker = ProcedureProvenanceTracker()
-    trace = tracker.start_trace("PROC-001", "DVX-001", "SUBJ-01")
+    tracker.start_trace("PROC-001", "DVX-001", "SUBJ-01")
     tracker.record_event("PROC-001", ProvenanceEventType.PHASE_CHANGE, "DVX-001", "Docking complete")
     tracker.record_event("PROC-001", ProvenanceEventType.TELEMETRY_SNAPSHOT, "DVX-001", "Frame 100 captured")
     tracker.record_event("PROC-001", ProvenanceEventType.HUMAN_OVERRIDE, "SURG-01", "Manual correction applied")

@@ -78,7 +78,7 @@ class CDISCGenerator:
         domain.records.append(record)
 
     def generate_define_xml(self) -> str:
-        lines = [f'<?xml version="1.0"?>', f'<!-- Define.xml for {self.study_id} -->']
+        lines = ['<?xml version="1.0"?>', f'<!-- Define.xml for {self.study_id} -->']
         for code, domain in self.domains.items():
             lines.append(f'  <ItemGroupDef OID="IG.{code}" Name="{code}">')
             for var in domain.variables:

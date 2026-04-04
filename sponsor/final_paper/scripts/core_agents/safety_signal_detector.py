@@ -92,7 +92,6 @@ class SafetySignalDetector:
         expected = table.expected
         if expected == 0:
             return SignalScore("", "MGPS", 0.0)
-        ebgm = observed / expected
         shrunk = (observed + 0.5) / (expected + 0.5)
         return SignalScore("", "MGPS", round(shrunk, 3), is_signal=shrunk >= 2.0)
 

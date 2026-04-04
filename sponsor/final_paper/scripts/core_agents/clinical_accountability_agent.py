@@ -55,7 +55,9 @@ class DoseOption:
 
     @property
     def utility(self) -> float:
-        return self.predicted_efficacy * 0.5 + (1 - self.predicted_toxicity_grade3_plus) * 0.3 + self.convenience_score * 0.2
+        eff = self.predicted_efficacy * 0.5
+        tox = (1 - self.predicted_toxicity_grade3_plus) * 0.3
+        return eff + tox + self.convenience_score * 0.2
 
 
 @dataclass
@@ -87,7 +89,9 @@ class ClinicalAccountabilityAgent:
                 passed.append(c.criterion_id)
             else:
                 failed.append(c.criterion_id)
-        return ScreeningResult(patient_id=patient_id, eligible=len(failed) == 0, failed_criteria=failed, passed_criteria=passed)
+        return ScreeningResult(
+            patient_id=patient_id, eligible=len(failed) == 0,
+            failed_criteria=failed, passed_criteria=passed)
 
     def add_dose_option(self, option: DoseOption) -> None:
         self.dose_options.append(option)
@@ -105,7 +109,8 @@ class ClinicalAccountabilityAgent:
             EligibilityCriterion("INC-02", CriterionType.INCLUSION, "ECOG PS 0-1", "ecog", "<=", 1),
             EligibilityCriterion("INC-03", CriterionType.INCLUSION, "Adequate hepatic", "alt_iu_l", "<=", 150),
             EligibilityCriterion("INC-04", CriterionType.INCLUSION, "Adequate renal", "creatinine_clearance", ">=", 60),
-            EligibilityCriterion("EXC-01", CriterionType.EXCLUSION, "Active brain mets", "active_brain_mets", "==", True),
+            EligibilityCriterion("EXC-01", CriterionType.EXCLUSION, "Active brain mets",
+                                "active_brain_mets", "==", True),
         ]
         for c in defaults:
             self.add_criterion(c)

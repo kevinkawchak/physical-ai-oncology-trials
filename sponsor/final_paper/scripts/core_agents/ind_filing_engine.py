@@ -125,7 +125,8 @@ class INDFilingEngine:
 
     def generate_ectd_xml_stub(self, ind_number: str) -> str:
         pkg = self.packages[ind_number]
-        lines = [f'<ectd:ectd xmlns:ectd="urn:hl7-org:v3" version="4.0">', f'  <ind-number>{pkg.ind_number}</ind-number>']
+        header = '<ectd:ectd xmlns:ectd="urn:hl7-org:v3" version="4.0">'
+        lines = [header, f'  <ind-number>{pkg.ind_number}</ind-number>']
         for seq in pkg.sequences:
             lines.append(f'  <sequence number="{seq.sequence_number}">')
             for doc in seq.documents:

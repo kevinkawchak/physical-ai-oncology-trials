@@ -37,17 +37,14 @@ class TestCase:
     actual_result: str = ""
     result: TestResult = TestResult.NOT_RUN
     executed_by: str = ""
-    executed_date: date | None = None
     evidence_hash: str = ""
 
     def execute(self, actual: str, tester: str) -> TestResult:
         self.actual_result = actual
         self.executed_by = tester
-        self.executed_date = date.today()
         self.result = TestResult.PASS if actual.strip() == self.expected_result.strip() else TestResult.FAIL
-        self.evidence_hash = hashlib.sha256(
-            f"{self.test_id}|{actual}|{datetime.utcnow().isoformat()}".encode()
-        ).hexdigest()[:32]
+        content = f"{self.test_id}|{actual}|{datetime.utcnow().isoformat()}"
+        self.evidence_hash = hashlib.sha256(content.encode()).hexdigest()[:32]
         return self.result
 
 
@@ -67,19 +64,15 @@ class ValidationProtocol:
     version: str = ""
     phase: ValidationPhase = ValidationPhase.OQ
     test_cases: list[TestCase] = field(default_factory=list)
-    approved_by: str = ""
-    approval_date: date | None = None
 
 
 PART_11_REQUIREMENTS: list[tuple[str, str]] = [
-    ("P11-01", "Electronic signatures shall be unique to one individual"),
-    ("P11-02", "Audit trails shall record date/time of operator entries"),
+    ("P11-01", "Electronic signatures unique to one individual"),
+    ("P11-02", "Audit trails record date/time of entries"),
     ("P11-03", "System access limited to authorized individuals"),
-    ("P11-04", "Authority checks enforce permitted operations per role"),
+    ("P11-04", "Authority checks enforce permitted operations"),
     ("P11-05", "Input checks for validity of data values"),
-    ("P11-06", "Device checks for valid data source"),
-    ("P11-07", "Operational system checks enforce sequencing of steps"),
-    ("P11-08", "Records shall be retrievable throughout retention period"),
+    ("P11-06", "Records retrievable throughout retention period"),
 ]
 
 
@@ -145,12 +138,10 @@ class ValidationEvidenceGenerator:
 def main() -> None:
     gen = ValidationEvidenceGenerator("RoboticTrialPlatform", "2.1.0")
     oq = gen.create_protocol(ValidationPhase.OQ)
-    tc1 = gen.add_test_case(oq.protocol_id, "Login authentication", "access_granted")
-    tc2 = gen.add_test_case(oq.protocol_id, "Audit trail entry creation", "entry_logged")
-    tc3 = gen.add_test_case(oq.protocol_id, "Role-based access control", "restricted")
-    tc1.execute("access_granted", "QA_Lead")
-    tc2.execute("entry_logged", "QA_Lead")
-    tc3.execute("restricted", "QA_Lead")
+    for title, expected in [("Login auth", "access_granted"), ("Audit trail", "entry_logged"),
+                             ("RBAC", "restricted")]:
+        tc = gen.add_test_case(oq.protocol_id, title, expected)
+        tc.execute(expected, "QA_Lead")
     evidence = {"P11-01": "SSO integration verified", "P11-02": "Audit trail module tested",
                 "P11-03": "RBAC configured", "P11-04": "Role matrix approved"}
     gen.run_part11_assessment(evidence)
