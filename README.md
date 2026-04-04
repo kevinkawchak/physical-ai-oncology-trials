@@ -65,6 +65,27 @@ python unification/cross_platform_tools/framework_detector.py
 
 ---
 
+## Autonomous Sponsor Architecture (v3.3.0)
+
+```
+  LaTeX Instructions          Code Generation           Execution
+  (Appendices E-F)     --->   (Claude Code Opus 4.6)    Results
+  +-----------------+         +-----------------+       +----------+
+  | Sponsor Server  |  --->   | 15 Python files |  ---> | FastAPI  |
+  | Hourly Scripts  |  --->   | 24 generators   |  ---> | 288 dec. |
+  | Diagram Specs   |  --->   | 75 diagrams     |  ---> | 3 views  |
+  | Agent Specs     |  --->   | 53 core agents  |  ---> | Verified |
+  | Coordination    |  --->   | 16 scripts      |  ---> | Tested   |
+  +-----------------+         +-----------------+       +----------+
+           |                         |                       |
+           v                         v                       v
+  +-----------------------------------------------------+
+  |  24-Hour Simulation: 288 decisions, 168 patients,   |
+  |  13 escalations, 153 robot authorizations,          |
+  |  PSL 63.4 to 64.8, 0.16s execution time            |
+  +-----------------------------------------------------+
+```
+
 ## Repository Structure
 
 ```
@@ -796,7 +817,7 @@ If you use this repository in your research, please cite:
 @software{kawchak2026physicalai,
   author = {Kawchak, Kevin},
   title = {Physical AI for Oncology Clinical Trials},
-  version = {2.7.1},
+  version = {3.3.0},
   year = {2026},
   publisher = {GitHub},
   url = {https://github.com/kevinkawchak/physical-ai-oncology-trials}
