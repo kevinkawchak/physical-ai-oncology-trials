@@ -108,6 +108,17 @@ programs that partially meet criteria, and recommending termination for programs
 critical criteria. This gate structure ensures that autonomous operations maintain the
 strategic discipline that characterizes well-run pharmaceutical development organizations.
 
+This version of the paper includes automated code generation results from the
+instructions in Appendices E and F. Claude Code Opus 4.6 generated 108 Python scripts
+directly from the LaTeX code specifications: 53 core agent implementations across
+14 functional areas, a FastAPI-based sponsor control server with 15 modules, 24 hourly
+sponsor activity generators, and 16 coordination, safety, and dashboard scripts. The
+generated code was executed to produce a complete 24-hour simulation with 288 sponsor
+decisions across 168 patients, demonstrating the autonomous sponsor's ability to generate,
+validate, and operate its own code infrastructure. Three perspectives of text diagrams
+(75 total) were generated covering sponsor decision flow, agent workload distribution, and
+robot authorization timelines.
+
 The remainder of this paper is organized as follows. \S\ref{sec:governance} presents the
 autonomous governance and portfolio management layer. \S\ref{sec:trial-design} describes the
 trial design and statistical framework. \S\ref{sec:clinical-ops} covers clinical operations
