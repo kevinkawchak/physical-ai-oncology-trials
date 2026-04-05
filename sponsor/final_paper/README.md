@@ -2,10 +2,6 @@
 
 **4/4 PDF: v3.3.0 (Autonomous Sponsor Code Generation)** *Fully Automated Sponsor: Code Generation, Execution, and Paper Integration* - Automated generation of 108 Python scripts (53 core agents, 24 hours.) [![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.19396256-blue)](https://doi.org/10.5281/zenodo.19396256)
 
-Complete LaTeX source, automated Python code generations, execution results,
-and text diagrams for the autonomous AI-native sponsor operating system paper.
-This directory contains the final version with all code generation instructions
-from Appendices E and F executed and integrated into the paper.
 
 ## Directory Structure
 
