@@ -1,0 +1,66 @@
+------------------------------------------------------------
+             CUMULATIVE SAFETY SUMMARY - DAY 1              
+------------------------------------------------------------
+
+ESCALATION LEVELS
+----------------------------------------
+  Level 1 (Info):         6
+  Level 2 (Warning):      6
+  Level 3 (Critical):     1
+  Total:                 13
+
+ROBOT SAFETY EVENTS
+----------------------------------------
+  Total authorizations:  155
+  G4 mandatory human:     30
+  Pending reviews:        25
+  Auto-approved (G1):    100
+
+ADVERSE EVENTS
+----------------------------------------
+  Total AEs:               3
+  Serious AEs:             0
+  Treatment-related:       1
+  Grade >= 3:              0
+
+PROTOCOL SAFETY LEVEL (PSL) TREND
+----------------------------------------
+  Start (H00):   63.4
+  End   (H23):   64.8
+  Min:           63.4
+  Max:           64.8
+  Delta:         +1.4
+
+  PSL over 24h:
+  H00 |=== 63.4
+  H01 |==== 63.5
+  H02 |==== 63.5
+  H03 |==== 63.6
+  H04 |==== 63.6
+  H05 |==== 63.7
+  H06 |==== 63.8
+  H07 |==== 63.8
+  H08 |===== 63.9
+  H09 |===== 63.9
+  H10 |===== 64.0
+  H11 |===== 64.1
+  H12 |===== 64.1
+  H13 |====== 64.2
+  H14 |====== 64.3
+  H15 |====== 64.3
+  H16 |====== 64.4
+  H17 |====== 64.4
+  H18 |====== 64.5
+  H19 |======= 64.6
+  H20 |======= 64.6
+  H21 |======= 64.7
+  H22 |======= 64.7
+  H23 |======= 64.8
+
+OVERALL SAFETY VERDICT
+----------------------------------------
+  Status: ACCEPTABLE
+  All escalations resolved within SLA
+  Robot G4 hold rate: 30/155
+  PSL drift: +1.4 (within +/-3.0 tolerance)
+------------------------------------------------------------
