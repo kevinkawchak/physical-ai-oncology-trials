@@ -5,6 +5,34 @@ Format follows [Keep a Changelog](https://keepachangelog.com/).
 
 ## [Unreleased]
 
+## [3.4.0] - 2026-04-06
+
+### Added
+- sponsor/final_paper/168_hours/ - Complete 168-hour (7-day) autonomous sponsor simulation
+- 168 hourly Python scripts (sponsor_hour_000.py through sponsor_hour_167.py) across 7 daily directories
+- 168 JSON output files with sponsor decisions, patient arrivals, robot status for each hour
+- 525 ASCII text diagrams (504 hourly + 21 cumulative) across three perspectives
+- 7 daily summary JSON files with per-day cumulative statistics
+- 7 daily README files documenting each day's theme and key events
+- run_168h_simulation.py - Master 168-hour simulation runner
+- Generator infrastructure: _config.py, _gen_hourly.py, _gen_day_summary.py, _gen_init.py
+- instructions/rtx_4090_openclaw/README.md - RTX 4090 setup for Linux, macOS, Windows
+- instructions/mac_mini_m4_pro_openclaw/README.md - Mac Mini M4 Pro setup for Linux, macOS, Windows
+- 168 commits across 7 branches with 7 corresponding pull requests
+
+### Changed
+- README.md - Updated version badge to v3.4.0, added v3.4.0 news entry, updated architecture diagram and repository structure
+- CHANGELOG.md - Added v3.4.0 changelog entry
+- releases.md - Added v3.4.0 release notes
+
+### Notes
+- 168-hour simulation extends the v3.3.0 24-hour simulation to demonstrate continuous 24/7 sponsor operations
+- 7-day simulation themes: Trial Initialization, Enrollment Acceleration, Mid-Trial Safety Review, Robotic Fleet Scaling, Data Analysis, Regulatory Compliance, Trial Closeout
+- 2,016 total sponsor decisions across 1,336 patients with 125 escalations
+- PSL score improvement from 63.4 to 70.0 across 168 hours of autonomous operation
+- All code passes ruff lint (line-length 120, E/F/W rules) and ruff format checks
+- Simulation uses Python 3.10+ standard library only (no external dependencies)
+
 ## [3.3.0] - 2026-04-04
 
 ### Added

@@ -64,7 +64,7 @@ def generate_hourly_script(global_hour, day, hour_of_day, output_dir):
         minute = _hash_int(seed + 31, 1, 55)
         pat_id = f"PAT-168H-{pat_start_id + i:04d}"
         patient_lines.append(
-            f'        {{\n'
+            f"        {{\n"
             f'            "patient_id": "{pat_id}",\n'
             f'            "arrival_minute": {minute},\n'
             f'            "age": {age},\n'
@@ -73,32 +73,39 @@ def generate_hourly_script(global_hour, day, hour_of_day, output_dir):
             f'            "stage": "{stage}",\n'
             f'            "ecog": {ecog},\n'
             f'            "robot_category": "{robot_cat}",\n'
-            f'        }},'
+            f"        }},"
         )
 
     # Generate decisions
     escalations = ESCALATION_COUNTS[day][hour_of_day]
     decision_lines = []
     actions = [
-        "sponsor_cycle_init", "enrollment_gate_check", "telemetry_aggregation",
-        "procedure_authorization_g4", "safety_interlock_verification",
-        "inventory_level_audit", "crf_validation_sweep", "anomaly_triage",
-        "pathway_status_sync", "milestone_verification",
-        "discharge_readiness_eval", "compliance_snapshot",
+        "sponsor_cycle_init",
+        "enrollment_gate_check",
+        "telemetry_aggregation",
+        "procedure_authorization_g4",
+        "safety_interlock_verification",
+        "inventory_level_audit",
+        "crf_validation_sweep",
+        "anomaly_triage",
+        "pathway_status_sync",
+        "milestone_verification",
+        "discharge_readiness_eval",
+        "compliance_snapshot",
     ]
     rationales = [
         f"Initialize hour-{global_hour:03d} monitoring cycle for {patients} patients",
         f"Validate enrollment criteria for cohort at {hour_of_day:02d}:05",
         f"Vitals and robot telemetry monitoring at {hour_of_day:02d}:10",
-        f"Authorize procedure with gate G4 (mandatory-human-oversight)",
-        f"Verify all robot interlocks and patient positioning",
+        "Authorize procedure with gate G4 (mandatory-human-oversight)",
+        "Verify all robot interlocks and patient positioning",
         f"Confirm consumable levels for hour-{global_hour:03d} procedures",
         f"Validate CRF data integrity for hour {global_hour:03d}",
         f"Anomaly in robot telemetry at {hour_of_day:02d}:35",
         f"Status aggregation for {patients} active pathways",
         f"Procedure milestone check at {hour_of_day:02d}:45",
         f"Discharge readiness for hour-{global_hour:03d} treatment cycle",
-        f"GCP and 21 CFR Part 11 compliance snapshot",
+        "GCP and 21 CFR Part 11 compliance snapshot",
     ]
     gates = ["G1", "G2", "G3", "G4", "G1", "G2", "G3", "G4", "G1", "G2", "G3", "G4"]
 
@@ -107,7 +114,7 @@ def generate_hourly_script(global_hour, day, hour_of_day, output_dir):
         conf = _hash_int(global_hour * 100 + i * 7, 85, 95)
         esc = i >= (12 - escalations)
         decision_lines.append(
-            f'        {{\n'
+            f"        {{\n"
             f'            "timestamp": "{date_str}T{hour_of_day:02d}:{minute:02d}:00Z",\n'
             f'            "decision_type": "{DECISION_TYPES[i]}",\n'
             f'            "agent_responsible": "{AGENTS[i]}",\n'
@@ -116,7 +123,7 @@ def generate_hourly_script(global_hour, day, hour_of_day, output_dir):
             f'            "escalation_required": {str(esc)},\n'
             f'            "safety_gate": "{gates[i]}",\n'
             f'            "rationale": "{rationales[i]}",\n'
-            f'        }},'
+            f"        }},"
         )
 
     # Robot fleet status
@@ -261,6 +268,7 @@ if __name__ == "__main__":
 def generate_hourly_json(global_hour, day, hour_of_day, output_dir):
     """Generate JSON output for a given global hour."""
     import sys
+
     sys.path.insert(0, str(output_dir))
     try:
         mod_name = f"sponsor_hour_{global_hour:03d}"
@@ -336,9 +344,7 @@ def generate_diagrams(global_hour, day, hour_of_day, diagram_dir):
         tasks = max(1, _hash_int(seed, 1, total_tasks // 3 + 1))
         decs = max(1, _hash_int(seed + 5, 1, tasks))
         esc = 0
-        if esc_pool > 0 and agent in (
-            "safety_agent", "clinical_accountability_agent", "study_orchestrator"
-        ):
+        if esc_pool > 0 and agent in ("safety_agent", "clinical_accountability_agent", "study_orchestrator"):
             esc = min(1, esc_pool)
             esc_pool -= esc
         workload_rows.append({"agent": agent, "tasks": tasks, "decisions": decs, "escalations": esc})
@@ -382,7 +388,9 @@ def generate_diagrams(global_hour, day, hour_of_day, diagram_dir):
         gate = _hash_pick(seed + 17, list(GATE_LABELS.keys()))
         status_opts = ["APPROVED", "APPROVED", "APPROVED", "PENDING", "APPROVED"]
         status = _hash_pick(seed + 29, status_opts)
-        auth_rows.append({"time": f"{hour_of_day:02d}:{minute:02d}", "cat": cat, "patient": patient, "gate": gate, "status": status})
+        auth_rows.append(
+            {"time": f"{hour_of_day:02d}:{minute:02d}", "cat": cat, "patient": patient, "gate": gate, "status": status}
+        )
 
     auth_rows.sort(key=lambda r: r["time"])
     for r in auth_rows:
@@ -407,6 +415,7 @@ def generate_diagrams(global_hour, day, hour_of_day, diagram_dir):
 
 if __name__ == "__main__":
     import sys
+
     if len(sys.argv) < 2:
         print("Usage: python _gen_hourly.py <global_hour>")
         sys.exit(1)
