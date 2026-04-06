@@ -1,0 +1,35 @@
+------------------------------------------------------------
+           AGENT WORKLOAD DISTRIBUTION - HOUR 047           
+------------------------------------------------------------
+
+Agent                           Tasks    Dec    Esc
+---------------------------------------------------
+portfolio_agent                     1      1      0
+asset_lead_agent                    2      2      0
+clinical_accountability_agent       3      2      0
+study_orchestrator                  1      1      0
+clinops_agent                       2      1      0
+safety_agent                        3      2      0
+regulatory_agent                    1      1      0
+quality_agent                       2      2      0
+supply_agent                        3      2      0
+data_biostats_agent                 1      1      0
+site_gateway                        2      1      0
+robot_execution_gateway             3      2      0
+---------------------------------------------------
+TOTAL                              24     18      0
+
+Task distribution:
+  portfolio_agen  |######
+  asset_lead_age  |#############
+  clinical_accou  |####################
+  study_orchestr  |######
+  clinops_agent   |#############
+  safety_agent    |####################
+  regulatory_age  |######
+  quality_agent   |#############
+  supply_agent    |####################
+  data_biostats_  |######
+  site_gateway    |#############
+  robot_executio  |####################
+------------------------------------------------------------
