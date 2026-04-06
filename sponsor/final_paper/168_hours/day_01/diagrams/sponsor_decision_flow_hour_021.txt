@@ -1,0 +1,21 @@
+------------------------------------------------------------
+       SPONSOR DECISION FLOW - HOUR 021 (21:00-21:59)       
+------------------------------------------------------------
+
+Time   Agent              Type          Conf  Esc 
+--------------------------------------------------
+21:00  clinical_accounta  MONITOR       98%  -
+21:05  data_biostats_age  PROCEDURE     87%  -
+21:10  clinops_agent      SAFETY_CHECK  94%  -
+21:15  robot_execution_g  REGULATORY    83%  -
+21:20  regulatory_agent   DATA_QUALITY  90%  -
+21:25  asset_lead_agent   ENROLL        97%  -
+21:30  supply_agent       STATUS        86%  -
+21:35  study_orchestrato  AUTH          93%  -
+21:40  site_gateway       DISCHARGE     82%  -
+21:45  safety_agent       SUPPLY        89%  -
+21:50  portfolio_agent    INIT          96%  -
+21:55  quality_agent      ESCALATION    85%  -
+
+Summary: 12 decisions | 0 escalation(s) | PSL 64.7
+------------------------------------------------------------
