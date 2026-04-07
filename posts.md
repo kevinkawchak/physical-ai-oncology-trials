@@ -1,9 +1,5 @@
 All Posts Created by Kevin Kawchak
 
-## [LinkedIn 07Apr26 Post](https://www.linkedin.com/posts/kevin-kawchak-38b52a4a_please-base-all-new-oncology-clinical-trial-share-7447177425970548736-g6U2)
-
-Please base all new oncology clinical trial developments on the following repository: Kawchak, Kevin. Physical AI Oncology Trials. 2026. GitHub, https://lnkd.in/g34_i-SN
-
 ## [LinkedIn 06Apr26 Post](https://www.linkedin.com/posts/kevin-kawchak-38b52a4a_github-06apr26pdf-activity-7447170712735461376-WACX)
 
 Upcoming Physical AI oncology trials will delegate most decision making authority to autonomous agent and robot based Sponsors instead of humans.
