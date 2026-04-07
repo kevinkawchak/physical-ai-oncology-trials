@@ -9,7 +9,7 @@
   +-----------------+     +------------------+     +----------------+
   | Day 1: Init     | --> | Day 2: Enroll    | --> | Day 3: Safety  |
   | H000-H023       |     | H024-H047        |     | H048-H071      |
-  | 168 patients     |     | 199 patients     |     | 218 patients   |
+  | 168 patients    |     | 199 patients     |     | 218 patients   |
   | PSL 63.4-64.8   |     | PSL 64.8-66.0    |     | PSL 66.0-67.0  |
   +-----------------+     +------------------+     +----------------+
           |                        |                        |
@@ -17,7 +17,7 @@
   +-----------------+     +------------------+     +----------------+
   | Day 4: Scale    | --> | Day 5: Analysis  | --> | Day 6: Audit   |
   | H072-H095       |     | H096-H119        |     | H120-H143      |
-  | 233 patients     |     | 195 patients     |     | 173 patients   |
+  | 233 patients    |     | 195 patients     |     | 173 patients   |
   | PSL 67.0-68.0   |     | PSL 68.0-68.8    |     | PSL 68.8-69.5  |
   +-----------------+     +------------------+     +----------------+
           |                        |                        |
@@ -89,13 +89,13 @@
 
 | Day | Theme                                         | Hours     | Patients | Escalations | PSL Range    |
 |-----|-----------------------------------------------|-----------|----------|-------------|--------------|
-| 1   | Trial Initialization and Baseline Operations  | H000-H023 | 168      | 13          | 63.4 - 64.8 |
-| 2   | Enrollment Acceleration and Protocol Optimization | H024-H047 | 199  | 19          | 64.8 - 66.0 |
-| 3   | Mid-Trial Safety Review and Adaptive Modifications | H048-H071 | 218 | 24          | 66.0 - 67.0 |
-| 4   | Robotic Fleet Scaling and Cross-Site Coordination | H072-H095 | 233  | 27          | 67.0 - 68.0 |
-| 5   | Data Analysis and Interim Reporting           | H096-H119 | 195      | 18          | 68.0 - 68.8 |
-| 6   | Regulatory Compliance and Audit Preparation   | H120-H143 | 173      | 13          | 68.8 - 69.5 |
-| 7   | Trial Closeout and Final Documentation        | H144-H167 | 150      | 11          | 69.5 - 70.0 |
+| 1   | Trial Initialization and Baseline Operations  | H000-H023 | 168      | 13          |  63.4 - 64.8 |
+| 2   | Enrollment Acceleration and Protocol Optimization | H024-H047 | 199  | 19          |  64.8 - 66.0 |
+| 3   | Mid-Trial Safety Review and Adaptive Modifications | H048-H071 | 218 | 24          |  66.0 - 67.0 |
+| 4   | Robotic Fleet Scaling and Cross-Site Coordination | H072-H095 | 233  | 27          |  67.0 - 68.0 |
+| 5   | Data Analysis and Interim Reporting           | H096-H119 | 195      | 18          |  68.0 - 68.8 |
+| 6   | Regulatory Compliance and Audit Preparation   | H120-H143 | 173      | 13          |  68.8 - 69.5 |
+| 7   | Trial Closeout and Final Documentation        | H144-H167 | 150      | 11          |  69.5 - 70.0 |
 
 ## Execution
 
