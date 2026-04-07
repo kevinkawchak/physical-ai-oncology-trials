@@ -1,6 +1,6 @@
 ## 168-Hour Autonomous Sponsor Simulation
 
-**4/6: v3.4.0 (168-Hour Autonomous Sponsor Simulation)** *Fully Automated Sponsor: 7-Day Continuous Simulation with 168 Commits* - 168 hourly Python scripts, 168 JSON outputs, 525 text diagrams, 7 daily summaries across 7 branches. Complete 7-day (168-hour) simulation of an autonomous AI-native pharmaceutical sponsor operating system for Physical AI oncology clinical trials. Extends the v3.3.0 24-hour simulation to demonstrate continuous 24/7 sponsor operations. [![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.18445179-blue)](https://doi.org/10.5281/zenodo.18445179)
+**4/6: v3.4.0 (168-Hour Autonomous Sponsor Simulation)** *Fully Automated Sponsor: 7-Day Continuous Simulation with 168 Commits* - 168 hourly Python scripts, 168 JSON outputs, 525 text diagrams, 7 daily summaries across 7 branches. Complete 7-day (168-hour) simulation in less than 3 hours by Claude Code of an autonomous AI-native pharmaceutical sponsor operating system for Physical AI oncology clinical trials. Extends the v3.3.0 24-hour simulation to demonstrate continuous 24/7 sponsor operations. [![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.18445179-blue)](https://doi.org/10.5281/zenodo.18445179)
 
 ## Simulation Overview
 
