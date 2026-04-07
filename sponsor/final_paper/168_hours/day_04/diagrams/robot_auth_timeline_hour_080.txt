@@ -1,0 +1,27 @@
+------------------------------------------------------------
+          ROBOT AUTHORIZATION TIMELINE - HOUR 080           
+------------------------------------------------------------
+
+Time   Robot Category  Patient  Gate  Status   
+-----------------------------------------------
+08:00  Imaging-Pos     P-1948   G2    APPROVED 
+08:05  Lab-Draw        P-1893   G3    APPROVED 
+08:06  Imaging-Pos     P-2014   G4    APPROVED 
+08:11  Lab-Draw        P-1959   G1    APPROVED 
+08:16  Vitals-Mon      P-1904   G2    APPROVED 
+08:17  Lab-Draw        P-2025   G3    APPROVED 
+08:21  IV-Admin        P-1849   G3    APPROVED 
+08:22  Vitals-Mon      P-1970   G4    APPROVED 
+08:27  IV-Admin        P-1915   G1    APPROVED 
+08:32  Specimen-Xfer   P-1860   G2    APPROVED 
+08:33  IV-Admin        P-1981   G3    APPROVED 
+08:38  Specimen-Xfer   P-1926   G4    APPROVED 
+08:43  Med-Dispense    P-1871   G1    APPROVED 
+08:44  Specimen-Xfer   P-1992   G2    PENDING  
+08:49  Med-Dispense    P-1937   G3    PENDING  
+08:54  Imaging-Pos     P-1882   G4    PENDING  
+08:55  Med-Dispense    P-2003   G1    APPROVED 
+
+Total: 17 auth(s) | Approved: 14 | Pending: 3
+Gates: G1:4 G2:4 G3:5 G4:4
+------------------------------------------------------------
