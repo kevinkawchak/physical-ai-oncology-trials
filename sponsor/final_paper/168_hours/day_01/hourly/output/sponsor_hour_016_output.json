@@ -1,0 +1,258 @@
+{
+  "hour": 16,
+  "day": 1,
+  "hour_of_day": 16,
+  "period": "afternoon_wind",
+  "description": "Late afternoon wind-down beginning",
+  "patient_count": 7,
+  "patient_arrivals": [
+    {
+      "patient_id": "PAT-168H-0241",
+      "arrival_minute": 30,
+      "age": 68,
+      "sex": "M",
+      "cancer_type": "CML",
+      "stage": "I",
+      "ecog": 2,
+      "robot_category": "RT Positioning"
+    },
+    {
+      "patient_id": "PAT-168H-0242",
+      "arrival_minute": 47,
+      "age": 34,
+      "sex": "F",
+      "cancer_type": "Melanoma",
+      "stage": "III",
+      "ecog": 3,
+      "robot_category": "Needle Placement"
+    },
+    {
+      "patient_id": "PAT-168H-0243",
+      "arrival_minute": 9,
+      "age": 51,
+      "sex": "M",
+      "cancer_type": "Sarcoma",
+      "stage": "IA",
+      "ecog": 0,
+      "robot_category": "Surgical (da Vinci Xi)"
+    },
+    {
+      "patient_id": "PAT-168H-0244",
+      "arrival_minute": 26,
+      "age": 68,
+      "sex": "F",
+      "cancer_type": "Bladder urothelial",
+      "stage": "IIIA",
+      "ecog": 1,
+      "robot_category": "Transport/Logistics"
+    },
+    {
+      "patient_id": "PAT-168H-0245",
+      "arrival_minute": 43,
+      "age": 34,
+      "sex": "M",
+      "cancer_type": "Medulloblastoma",
+      "stage": "IB",
+      "ecog": 2,
+      "robot_category": "Social Companion"
+    },
+    {
+      "patient_id": "PAT-168H-0246",
+      "arrival_minute": 5,
+      "age": 51,
+      "sex": "F",
+      "cancer_type": "Gastric adenocarcinoma",
+      "stage": "IIIB",
+      "ecog": 3,
+      "robot_category": "RT Motion-Tracking"
+    },
+    {
+      "patient_id": "PAT-168H-0247",
+      "arrival_minute": 22,
+      "age": 68,
+      "sex": "M",
+      "cancer_type": "Breast IDC",
+      "stage": "II",
+      "ecog": 0,
+      "robot_category": "Cobots (Franka Emika)"
+    }
+  ],
+  "robot_status": {
+    "total_instances": 29,
+    "active": 7,
+    "standby": 21,
+    "maintenance": 1,
+    "fleet": [
+      {
+        "category": "Surgical Robots (da Vinci Xi)",
+        "instances": 3
+      },
+      {
+        "category": "Collaborative Robots (Cobots, Franka Emika)",
+        "instances": 4
+      },
+      {
+        "category": "RT Positioning Robots",
+        "instances": 3
+      },
+      {
+        "category": "Needle Placement Systems",
+        "instances": 2
+      },
+      {
+        "category": "Social Companion Robots",
+        "instances": 5
+      },
+      {
+        "category": "Rehabilitation Exoskeletons",
+        "instances": 2
+      },
+      {
+        "category": "RT Motion-Tracking Systems",
+        "instances": 3
+      },
+      {
+        "category": "Imaging Assistance Robots",
+        "instances": 4
+      },
+      {
+        "category": "Transport/Logistics Robots",
+        "instances": 2
+      },
+      {
+        "category": "Environmental Monitoring Robots",
+        "instances": 1
+      }
+    ]
+  },
+  "procedure_completions": 5,
+  "adverse_events": [],
+  "decisions": [
+    {
+      "timestamp": "2026-03-23T16:00:00Z",
+      "decision_type": "INIT",
+      "agent_responsible": "portfolio_agent",
+      "confidence_score": 90,
+      "action_taken": "sponsor_cycle_init",
+      "escalation_required": false,
+      "safety_gate": "G1",
+      "rationale": "Initialize hour-016 monitoring cycle for 7 patients"
+    },
+    {
+      "timestamp": "2026-03-23T16:05:00Z",
+      "decision_type": "ENROLL",
+      "agent_responsible": "asset_lead_agent",
+      "confidence_score": 86,
+      "action_taken": "enrollment_gate_check",
+      "escalation_required": false,
+      "safety_gate": "G2",
+      "rationale": "Validate enrollment criteria for cohort at 16:05"
+    },
+    {
+      "timestamp": "2026-03-23T16:10:00Z",
+      "decision_type": "MONITOR",
+      "agent_responsible": "clinical_accountability_agent",
+      "confidence_score": 93,
+      "action_taken": "telemetry_aggregation",
+      "escalation_required": false,
+      "safety_gate": "G3",
+      "rationale": "Vitals and robot telemetry monitoring at 16:10"
+    },
+    {
+      "timestamp": "2026-03-23T16:15:00Z",
+      "decision_type": "AUTH",
+      "agent_responsible": "study_orchestrator",
+      "confidence_score": 89,
+      "action_taken": "procedure_authorization_g4",
+      "escalation_required": false,
+      "safety_gate": "G4",
+      "rationale": "Authorize procedure with gate G4 (mandatory-human-oversight)"
+    },
+    {
+      "timestamp": "2026-03-23T16:20:00Z",
+      "decision_type": "SAFETY_CHECK",
+      "agent_responsible": "clinops_agent",
+      "confidence_score": 85,
+      "action_taken": "safety_interlock_verification",
+      "escalation_required": false,
+      "safety_gate": "G1",
+      "rationale": "Verify all robot interlocks and patient positioning"
+    },
+    {
+      "timestamp": "2026-03-23T16:25:00Z",
+      "decision_type": "SUPPLY",
+      "agent_responsible": "safety_agent",
+      "confidence_score": 92,
+      "action_taken": "inventory_level_audit",
+      "escalation_required": false,
+      "safety_gate": "G2",
+      "rationale": "Confirm consumable levels for hour-016 procedures"
+    },
+    {
+      "timestamp": "2026-03-23T16:30:00Z",
+      "decision_type": "DATA_QUALITY",
+      "agent_responsible": "regulatory_agent",
+      "confidence_score": 88,
+      "action_taken": "crf_validation_sweep",
+      "escalation_required": false,
+      "safety_gate": "G3",
+      "rationale": "Validate CRF data integrity for hour 016"
+    },
+    {
+      "timestamp": "2026-03-23T16:35:00Z",
+      "decision_type": "ESCALATION",
+      "agent_responsible": "quality_agent",
+      "confidence_score": 95,
+      "action_taken": "anomaly_triage",
+      "escalation_required": false,
+      "safety_gate": "G4",
+      "rationale": "Anomaly in robot telemetry at 16:35"
+    },
+    {
+      "timestamp": "2026-03-23T16:40:00Z",
+      "decision_type": "STATUS",
+      "agent_responsible": "supply_agent",
+      "confidence_score": 91,
+      "action_taken": "pathway_status_sync",
+      "escalation_required": false,
+      "safety_gate": "G1",
+      "rationale": "Status aggregation for 7 active pathways"
+    },
+    {
+      "timestamp": "2026-03-23T16:45:00Z",
+      "decision_type": "PROCEDURE",
+      "agent_responsible": "data_biostats_agent",
+      "confidence_score": 87,
+      "action_taken": "milestone_verification",
+      "escalation_required": false,
+      "safety_gate": "G2",
+      "rationale": "Procedure milestone check at 16:45"
+    },
+    {
+      "timestamp": "2026-03-23T16:50:00Z",
+      "decision_type": "DISCHARGE",
+      "agent_responsible": "site_gateway",
+      "confidence_score": 94,
+      "action_taken": "discharge_readiness_eval",
+      "escalation_required": false,
+      "safety_gate": "G3",
+      "rationale": "Discharge readiness for hour-016 treatment cycle"
+    },
+    {
+      "timestamp": "2026-03-23T16:55:00Z",
+      "decision_type": "REGULATORY",
+      "agent_responsible": "robot_execution_gateway",
+      "confidence_score": 90,
+      "action_taken": "compliance_snapshot",
+      "escalation_required": false,
+      "safety_gate": "G4",
+      "rationale": "GCP and 21 CFR Part 11 compliance snapshot"
+    }
+  ],
+  "summary": {
+    "total_decisions": 12,
+    "escalations": 0,
+    "safety_checks": 1,
+    "avg_confidence": 90.0
+  }
+}
