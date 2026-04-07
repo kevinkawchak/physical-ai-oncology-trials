@@ -1,7 +1,7 @@
 # End-to-End Physical AI Unification of Oncology Clinical Trials
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Release](https://img.shields.io/badge/Release-v3.3.0-brightgreen.svg)](https://github.com/kevinkawchak/physical-ai-oncology-trials)
+[![Release](https://img.shields.io/badge/Release-v3.4.0-brightgreen.svg)](https://github.com/kevinkawchak/physical-ai-oncology-trials)
 [![Last Updated](https://img.shields.io/badge/Updated-April%202026-blue.svg)](https://github.com/kevinkawchak/physical-ai-oncology-trials)
 [![Protocol](https://img.shields.io/badge/Protocol-MCP-purple.svg)](https://github.com/kevinkawchak/physical-ai-oncology-trials)
 [![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.18445179-blue)](https://doi.org/10.5281/zenodo.18445179)
@@ -14,6 +14,8 @@
 **Comprehensive developments for integrating physical AI into oncology clinical trials, by Claude Code Opus 4.6, Cowork; with Assistance from ChatGPT 5.4 Thinking and Google Gemini Search.**
 
 This repository provides production-ready configurations, validated pipelines, and integration guides for deploying robotic systems, digital twins, and embodied AI agents in oncology. 
+
+**4/6: v3.4.0 (168-Hour Autonomous Sponsor Simulation)** *Fully Automated Sponsor: 7-Day Continuous Simulation with 168 Commits* - 168 hourly Python scripts across 7 days generating 2,016 sponsor decisions for 1,336 patients with PSL improvement from 63.4 to 70.0.
 
 **4/4 PDF: v3.3.0 (Autonomous Sponsor Code Generation)** *Fully Automated Sponsor: Code Generation, Execution, and Paper Integration* - Automated generation of 108 Python scripts (53 core agents, 24 hours.) [![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.19396256-blue)](https://doi.org/10.5281/zenodo.19396256)
 
@@ -63,24 +65,26 @@ python unification/cross_platform_tools/framework_detector.py
 
 ---
 
-## Autonomous Sponsor Architecture (v3.3.0)
+## Autonomous Sponsor Architecture (v3.4.0)
 
 ```
-  LaTeX Instructions          Code Generation           Execution
-  (Appendices E-F)     --->   (Claude Code Opus 4.6)    Results
-  +-----------------+         +-----------------+       +----------+
-  | Sponsor Server  |  --->   | 15 Python files |  ---> | FastAPI  |
-  | Hourly Scripts  |  --->   | 24 generators   |  ---> | 288 dec. |
-  | Diagram Specs   |  --->   | 75 diagrams     |  ---> | 3 views  |
-  | Agent Specs     |  --->   | 53 core agents  |  ---> | Verified |
-  | Coordination    |  --->   | 16 scripts      |  ---> | Tested   |
-  +-----------------+         +-----------------+       +----------+
+  168-Hour Simulation           Code Generation           Execution
+  (7 Days x 24 Hours)    --->  (Claude Code Opus 4.6)    Results
+  +-----------------+          +-----------------+       +----------+
+  | Day 1: Init     |  --->   | 168 hourly .py  |  ---> | 2,016 d. |
+  | Day 2: Enroll   |  --->   | 168 JSON output |  ---> | 1,336 pt |
+  | Day 3: Safety   |  --->   | 525 diagrams    |  ---> | 125 esc. |
+  | Day 4: Scale    |  --->   | 7 day summaries |  ---> | PSL 70.0 |
+  | Day 5: Analysis |  --->   | 7 READMEs       |  ---> | Verified |
+  | Day 6: Audit    |  --->   | Sim runner      |  ---> | Tested   |
+  | Day 7: Closeout |  --->   | Instructions    |  ---> | Complete |
+  +-----------------+          +-----------------+       +----------+
            |                         |                       |
            v                         v                       v
   +-----------------------------------------------------+
-  |  24-Hour Simulation: 288 decisions, 168 patients,   |
-  |  13 escalations, 153 robot authorizations,          |
-  |  PSL 63.4 to 64.8, 0.16s execution time            |
+  |  168-Hour Simulation: 2,016 decisions, 1,336 pts,   |
+  |  125 escalations, 1,336 robot authorizations,       |
+  |  PSL 63.4 to 70.0, 168 commits, 7 branches/PRs     |
   +-----------------------------------------------------+
 ```
 
@@ -108,17 +112,27 @@ physical-ai-oncology-trials/
 │   │   ├── main.tex                   # Updated document with execution results
 │   │   ├── sections/                  # 19 updated .tex files
 │   │   ├── README.md                  # Comprehensive documentation
-│   │   └── scripts/                   # 108 generated Python scripts
-│   │       ├── run_sponsor_simulation.py  # Master 24-hour simulation runner
-│   │       ├── generate_all_diagrams.py   # 75 text diagram generator
-│   │       ├── sponsor_server/        # FastAPI sponsor control server (15 files)
-│   │       ├── hourly/                # 24 hourly sponsor generators + JSON output
-│   │       ├── diagrams/              # 75 ASCII text diagrams (3 perspectives)
-│   │       ├── coordination/          # Agent event bus, escalation, gates
-│   │       ├── safety/                # Robotic safety workflows
-│   │       ├── dashboard/             # Terminal dashboard and reports
-│   │       ├── core_agents/           # 53 core agent implementations
-│   │       └── output/                # Simulation results and reports
+│   │   ├── scripts/                   # 108 generated Python scripts (v3.3.0)
+│   │   │   ├── run_sponsor_simulation.py  # Master 24-hour simulation runner
+│   │   │   ├── generate_all_diagrams.py   # 75 text diagram generator
+│   │   │   ├── sponsor_server/        # FastAPI sponsor control server (15 files)
+│   │   │   ├── hourly/                # 24 hourly sponsor generators + JSON output
+│   │   │   ├── diagrams/              # 75 ASCII text diagrams (3 perspectives)
+│   │   │   ├── coordination/          # Agent event bus, escalation, gates
+│   │   │   ├── safety/                # Robotic safety workflows
+│   │   │   ├── dashboard/             # Terminal dashboard and reports
+│   │   │   ├── core_agents/           # 53 core agent implementations
+│   │   │   └── output/                # Simulation results and reports
+│   │   └── 168_hours/                 # ★ 168-Hour Simulation (v3.4.0)
+│   │       ├── README.md              # Simulation overview and statistics
+│   │       ├── run_168h_simulation.py # Master 168-hour simulation runner
+│   │       ├── day_01/ - day_07/      # 7 day directories (24 hours each)
+│   │       │   ├── hourly/            # 24 sponsor_hour_XXX.py + JSON output
+│   │       │   ├── diagrams/          # 75 text diagrams per day (72 hourly + 3 cumulative)
+│   │       │   └── output/            # Day summary JSON
+│   │       └── instructions/          # Real-time execution instructions
+│   │           ├── rtx_4090_openclaw/ # RTX 4090 setup (Linux, macOS, Windows)
+│   │           └── mac_mini_m4_pro_openclaw/ # M4 Pro setup (Linux, macOS, Windows)
 │   └── template/                      # Autonomous Sponsor Paper Template (v3.1.0)
 │       ├── main.tex                   # Template document (18 sections + appendices)
 │       ├── sponsor_paper.sty          # Style file (adapted from arxiv.sty, CC BY 4.0)
