@@ -1,5 +1,25 @@
 All Posts Created by Kevin Kawchak
 
+## [LinkedIn 04Apr26 Post](https://www.linkedin.com/posts/kevin-kawchak-38b52a4a_fully-automated-oncology-clinical-trial-sponsor-activity-7446451357580161025-8bS2)
+
+This paper presents a fully autonomous AI-native sponsor operating system for Physical AI oncology clinical trials, replacing traditional human-staffed pharmaceutical sponsor functions with a multi-agent software architecture. 
+
+Traditional oncology trial sponsors employ hundreds of staff distributed across many functional areas such as program leadership, clinical science and strategy, clinical operations, medical monitoring and safety.
+
+Claude Code first generated the paper template and paper, then:
+1) Proved utility with 108 Python script generations, followed by;
+2) Successful code execution of a 24-hour simulation producing 288 sponsor decisions across 155 patients.
+3) The new system is not merely an electronic data clinical trial management system or a robot controller: It is a company-shaped trial execution application, delivered in https://lnkd.in/g2ipXV2i.
+  
+Please refer to Appendix A for the complete specification for each of the twelve functional agents in the autonomous sponsor system. See also Table 38 for the code execution results regarding core agents, servers, and robot authorizations.
+
+Each agent automates a distinct sponsor responsibility, from:
+1) Portfolio management and protocol design through safety monitoring;
+2) Regulatory submissions, and robotic procedure authorization, while;
+3) Maintaining compliance with adapted regulatory frameworks including 21 CFR Part 312, 21 CFR Part 50, and ICH E6(R3). This current work is not endorsed or sponsored by CFR, ICH, or FDA
+
+Kawchak, K. (2026). Fully Automated Sponsor: Physical AI Oncology Clinical Trial Platform. Zenodo. https://lnkd.in/g2D_eEtW
+
 ## [LinkedIn 27Mar26 Post](https://www.linkedin.com/posts/kevin-kawchak-38b52a4a_national-platform-for-physical-ai-oncology-activity-7443552425711439872-zxGh)
 
 The National Platform for Physical AI Oncology Trials represents a paradigm shift in how oncology clinical trials are regulated, conducted, and scaled. Physical AI, defined as the integration of embodied robotic systems with advanced artificial intelligence for direct patient care in clinical trial settings, offers a transformative path to treat significantly more patients at lower cost and higher quality than traditional human-only trial operations. 
