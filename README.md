@@ -1,7 +1,7 @@
 # End-to-End Physical AI Unification of Oncology Clinical Trials
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Release](https://img.shields.io/badge/Release-v3.4.0-brightgreen.svg)](https://github.com/kevinkawchak/physical-ai-oncology-trials)
+[![Release](https://img.shields.io/badge/Release-v3.4.1-brightgreen.svg)](https://github.com/kevinkawchak/physical-ai-oncology-trials)
 [![Last Updated](https://img.shields.io/badge/Updated-April%202026-blue.svg)](https://github.com/kevinkawchak/physical-ai-oncology-trials)
 [![Protocol](https://img.shields.io/badge/Protocol-MCP-purple.svg)](https://github.com/kevinkawchak/physical-ai-oncology-trials)
 [![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.18445179-blue)](https://doi.org/10.5281/zenodo.18445179)
@@ -131,7 +131,8 @@ physical-ai-oncology-trials/
 │   │       │   └── output/            # Day summary JSON
 │   │       └── instructions/          # Real-time execution instructions
 │   │           ├── rtx_4090_openclaw/ # RTX 4090 setup (Linux, macOS, Windows)
-│   │           └── mac_mini_m4_pro_openclaw/ # M4 Pro setup (Linux, macOS, Windows)
+│   │           ├── mac_mini_m4_pro_openclaw/ # M4 Pro setup (Linux, macOS, Windows)
+│   │           └── core_i5_6200u_4gb/ # Core i5-6200U 4GB setup (Windows 10 Pro)
 │   └── template/                      # Autonomous Sponsor Paper Template (v3.1.0)
 │       ├── main.tex                   # Template document (18 sections + appendices)
 │       ├── sponsor_paper.sty          # Style file (adapted from arxiv.sty, CC BY 4.0)
@@ -828,7 +829,7 @@ If you use this repository in your research, please cite:
 @software{kawchak2026physicalai,
   author = {Kawchak, Kevin},
   title = {Physical AI for Oncology Clinical Trials},
-  version = {3.3.0},
+  version = {3.4.1},
   year = {2026},
   publisher = {GitHub},
   url = {https://github.com/kevinkawchak/physical-ai-oncology-trials}

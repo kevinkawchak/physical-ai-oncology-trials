@@ -5,6 +5,27 @@ Format follows [Keep a Changelog](https://keepachangelog.com/).
 
 ## [Unreleased]
 
+## [3.4.1] - 2026-04-07
+
+### Added
+- instructions/core_i5_6200u_4gb/README.md - 168-hour real-time execution instructions for Intel Core i5-6200U (4GB RAM) on Windows 10 Pro
+- Two execution methods: Task Scheduler (Method A) and Continuous Loop (Method B) with crash recovery
+- Exact step-by-step guides for Python/Git installation, system configuration, and autonomous 168-hour operation
+- Hardware limitation analysis covering RAM constraints, thermal throttling, power management, and Windows Update mitigation
+
+### Changed
+- README.md - Updated version badge to v3.4.1, updated repository structure to include core_i5_6200u_4gb instructions
+- CHANGELOG.md - Added v3.4.1 changelog entry
+- releases.md - Added v3.4.1 release notes
+- sponsor/final_paper/168_hours/README.md - Updated directory structure to include core_i5_6200u_4gb
+
+### Notes
+- Core i5-6200U 4GB represents the lowest-specification hardware in the instructions collection
+- Windows 10 Pro is the single target OS for this instruction set (no Linux or macOS)
+- No OpenClaw integration (CPU-only, no GPU available)
+- Task Scheduler method recommended for 4GB RAM systems (releases memory between hourly runs)
+- All simulation scripts use Python 3.10+ standard library only (no external dependencies)
+
 ## [3.4.0] - 2026-04-06
 
 ### Added

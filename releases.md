@@ -4,6 +4,37 @@ Release notes for the physical-ai-oncology-trials repository.
 
 ---
 
+Core i5-6200U 4GB Real-Time Execution Instructions for 168-Hour Simulation
+v3.4.1 - Low-Resource Hardware Instructions for 168-Hour Autonomous Simulation
+
+## Summary
+
+- Added hardware-specific 168-hour real-time execution instructions for Intel Core i5-6200U (4GB RAM) laptop running Windows 10 Pro, targeting fully autonomous 7-day continuous operation on constrained hardware
+- Provided two independent execution methods (Task Scheduler and Continuous Loop) to accommodate system limitations, with exact step-by-step guides for every action including program installation, script creation, and configuration
+- Documented 10 hardware-specific potential issues including thermal throttling, 4GB RAM constraints, Windows Update forced restarts, and power management concerns with mitigation strategies for each
+- Included crash recovery via state files, execution logging, and detailed troubleshooting for each method
+
+## Features
+
+- Complete step-by-step Windows 10 Pro setup guide: Python installation, Git installation, repository cloning, virtual environment creation, and system configuration for uninterrupted 168-hour operation
+- Method A: Windows Task Scheduler-based hourly execution with automatic resume after reboot, state persistence via JSON, and memory-efficient per-hour Python process lifecycle
+- Method B: Continuous Python loop with 3600-second delays, crash recovery from state file, and automatic resume capability
+- Detailed hardware limitation analysis: RAM constraints (4GB total, 1-2 GB available for simulation), thermal management for 15W mobile CPU, power and sleep prevention, Windows Update disable/re-enable procedures
+- Windows Defender exclusion setup to reduce CPU overhead during simulation
+- Comparison table for both methods covering resilience, memory pressure, reboot survival, and monitoring
+- Output file directory map showing all 168 JSON outputs and 7 daily summaries across day_01 through day_07
+
+## Contributors
+@kevinkawchak
+@claude
+@openai
+
+## Notes
+
+The Core i5-6200U with 4GB RAM represents the lowest-specification hardware in the instructions collection, demonstrating that the 168-hour simulation can run on resource-constrained systems. The simulation scripts use Python 3.10+ standard library only with no external dependencies, consuming approximately 20-40 MB per execution. Task Scheduler (Method A) is recommended for this hardware as it releases Python from memory between hourly runs, reducing memory pressure. The instructions target Windows 10 Pro exclusively as the single installed operating system on this device.
+
+---
+
 168-Hour Autonomous Sponsor Simulation: 7-Day Continuous Operation
 v3.4.0 - 168-Hour Sponsor Activity Simulation
 
