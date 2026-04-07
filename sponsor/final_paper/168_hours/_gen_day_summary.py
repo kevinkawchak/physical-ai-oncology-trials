@@ -63,9 +63,7 @@ def generate_day_summary(day):
             tasks = max(1, _hash_int(seed, 1, total_tasks // 3 + 1))
             decs = max(1, _hash_int(seed + 5, 1, tasks))
             ae = 0
-            if esc_pool > 0 and agent in (
-                "safety_agent", "clinical_accountability_agent", "study_orchestrator"
-            ):
+            if esc_pool > 0 and agent in ("safety_agent", "clinical_accountability_agent", "study_orchestrator"):
                 ae = min(1, esc_pool)
                 esc_pool -= ae
             workload.append({"agent": agent, "tasks": tasks, "decisions": decs, "escalations": ae})
@@ -82,16 +80,18 @@ def generate_day_summary(day):
             status = _hash_pick(seed + 29, status_opts)
             robot_auths.append({"gate": gate, "status": status})
 
-        all_hours.append({
-            "hour": gh,
-            "hour_of_day": hod,
-            "patients": patients,
-            "escalations": esc,
-            "robot_auth_count": robot_auth,
-            "psl": psl,
-            "workload": workload,
-            "robot_auths": robot_auths,
-        })
+        all_hours.append(
+            {
+                "hour": gh,
+                "hour_of_day": hod,
+                "patients": patients,
+                "escalations": esc,
+                "robot_auth_count": robot_auth,
+                "psl": psl,
+                "workload": workload,
+                "robot_auths": robot_auths,
+            }
+        )
 
     # Write summary JSON
     summary = {
@@ -161,8 +161,12 @@ def generate_day_summary(day):
     lines.append(hline)
     lines.append("")
 
-    shifts = {"Night": list(range(0, 6)), "Morning": list(range(6, 12)),
-              "Afternoon": list(range(12, 18)), "Evening": list(range(18, 24))}
+    shifts = {
+        "Night": list(range(0, 6)),
+        "Morning": list(range(6, 12)),
+        "Afternoon": list(range(12, 18)),
+        "Evening": list(range(18, 24)),
+    }
     agent_shift = {a: {} for a in AGENTS}
     agent_total = {a: 0 for a in AGENTS}
     agent_peak = {a: 0 for a in AGENTS}
@@ -285,6 +289,7 @@ def generate_day_summary(day):
 
 if __name__ == "__main__":
     import sys
+
     day = int(sys.argv[1]) if len(sys.argv) > 1 else 1
     paths = generate_day_summary(day)
     for p in paths:

@@ -19,14 +19,30 @@ DAY_THEMES = {
 
 # Period labels for each hour-of-day (0-23)
 PERIOD_LABELS = [
-    "overnight_low", "overnight_low", "overnight_low",
-    "early_morning", "early_morning", "early_morning",
-    "morning_ramp", "morning_peak", "morning_peak",
-    "peak_operations", "peak_operations", "peak_operations",
-    "midday_steady", "afternoon_ops", "afternoon_ops",
-    "afternoon_steady", "afternoon_wind", "evening_transition",
-    "evening_ops", "evening_wind", "night_transition",
-    "night_ops", "overnight_transition", "overnight_transition",
+    "overnight_low",
+    "overnight_low",
+    "overnight_low",
+    "early_morning",
+    "early_morning",
+    "early_morning",
+    "morning_ramp",
+    "morning_peak",
+    "morning_peak",
+    "peak_operations",
+    "peak_operations",
+    "peak_operations",
+    "midday_steady",
+    "afternoon_ops",
+    "afternoon_ops",
+    "afternoon_steady",
+    "afternoon_wind",
+    "evening_transition",
+    "evening_ops",
+    "evening_wind",
+    "night_transition",
+    "night_ops",
+    "overnight_transition",
+    "overnight_transition",
 ]
 
 PERIOD_DESCRIPTIONS = {
@@ -96,8 +112,18 @@ AGENTS = [
 ]
 
 DECISION_TYPES = [
-    "INIT", "ENROLL", "MONITOR", "AUTH", "SAFETY_CHECK", "SUPPLY",
-    "DATA_QUALITY", "ESCALATION", "STATUS", "PROCEDURE", "DISCHARGE", "REGULATORY",
+    "INIT",
+    "ENROLL",
+    "MONITOR",
+    "AUTH",
+    "SAFETY_CHECK",
+    "SUPPLY",
+    "DATA_QUALITY",
+    "ESCALATION",
+    "STATUS",
+    "PROCEDURE",
+    "DISCHARGE",
+    "REGULATORY",
 ]
 
 ROBOT_FLEET = [
@@ -114,29 +140,61 @@ ROBOT_FLEET = [
 ]
 
 ROBOT_CATEGORIES_SHORT = [
-    "IV-Admin", "Vitals-Mon", "Lab-Draw", "Imaging-Pos",
-    "Med-Dispense", "Specimen-Xfer",
+    "IV-Admin",
+    "Vitals-Mon",
+    "Lab-Draw",
+    "Imaging-Pos",
+    "Med-Dispense",
+    "Specimen-Xfer",
 ]
 
 GATE_LABELS = {"G1": "Auto", "G2": "Clinician", "G3": "ParamValid", "G4": "MandHuman"}
 
 CANCER_TYPES = [
-    "NSCLC adenocarcinoma", "HCC", "Breast IDC", "Prostate adenocarcinoma",
-    "Pediatric ALL", "Glioblastoma", "Colorectal adenocarcinoma", "Melanoma",
-    "Ovarian serous", "Pancreatic ductal", "Renal cell carcinoma", "Bladder urothelial",
-    "Esophageal SCC", "Thyroid papillary", "Endometrial", "Gastric adenocarcinoma",
-    "Head and neck SCC", "Cervical SCC", "Multiple myeloma", "Non-Hodgkin lymphoma",
-    "CML", "AML", "Cholangiocarcinoma", "Mesothelioma", "Sarcoma",
-    "Testicular seminoma", "Wilms tumor", "Neuroblastoma", "Medulloblastoma",
+    "NSCLC adenocarcinoma",
+    "HCC",
+    "Breast IDC",
+    "Prostate adenocarcinoma",
+    "Pediatric ALL",
+    "Glioblastoma",
+    "Colorectal adenocarcinoma",
+    "Melanoma",
+    "Ovarian serous",
+    "Pancreatic ductal",
+    "Renal cell carcinoma",
+    "Bladder urothelial",
+    "Esophageal SCC",
+    "Thyroid papillary",
+    "Endometrial",
+    "Gastric adenocarcinoma",
+    "Head and neck SCC",
+    "Cervical SCC",
+    "Multiple myeloma",
+    "Non-Hodgkin lymphoma",
+    "CML",
+    "AML",
+    "Cholangiocarcinoma",
+    "Mesothelioma",
+    "Sarcoma",
+    "Testicular seminoma",
+    "Wilms tumor",
+    "Neuroblastoma",
+    "Medulloblastoma",
     "Retinoblastoma",
 ]
 
 STAGES = ["I", "IA", "IB", "II", "IIA", "IIB", "III", "IIIA", "IIIB", "IV", "HR"]
 
 ROBOT_ASSIGNMENT_CATEGORIES = [
-    "Surgical (da Vinci Xi)", "RT Motion-Tracking", "Imaging Assistance",
-    "Needle Placement", "Social Companion", "Rehabilitation Exoskeleton",
-    "RT Positioning", "Transport/Logistics", "Cobots (Franka Emika)",
+    "Surgical (da Vinci Xi)",
+    "RT Motion-Tracking",
+    "Imaging Assistance",
+    "Needle Placement",
+    "Social Companion",
+    "Rehabilitation Exoskeleton",
+    "RT Positioning",
+    "Transport/Logistics",
+    "Cobots (Franka Emika)",
     "Environmental Monitoring",
 ]
 
