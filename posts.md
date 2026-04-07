@@ -1,5 +1,11 @@
 All Posts Created by Kevin Kawchak
 
+## [LinkedIn 27Mar26 Post](https://www.linkedin.com/posts/kevin-kawchak-38b52a4a_national-platform-for-physical-ai-oncology-activity-7443552425711439872-zxGh)
+
+The National Platform for Physical AI Oncology Trials represents a paradigm shift in how oncology clinical trials are regulated, conducted, and scaled. Physical AI, defined as the integration of embodied robotic systems with advanced artificial intelligence for direct patient care in clinical trial settings, offers a transformative path to treat significantly more patients at lower cost and higher quality than traditional human-only trial operations. 
+
+Kawchak, K. (2026). National Platform for Physical AI Oncology Trials. Zenodo. https://lnkd.in/gZxxFvNh
+
 ## [LinkedIn 23Mar26 Post](https://www.linkedin.com/posts/kevin-kawchak-38b52a4a_physical-ai-oncology-clinical-trial-site-activity-7442075307433496576-LlsR)
 
 Comprehensive documentation for establishing the first Physical AI oncology clinical trial site is included. These 11 documents collectively provide legislation drafts, regulatory updates, and building and premises code standards required for site authorization and operation. 
