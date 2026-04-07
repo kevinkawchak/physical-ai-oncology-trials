@@ -15,7 +15,7 @@
 
 This repository provides production-ready configurations, validated pipelines, and integration guides for deploying robotic systems, digital twins, and embodied AI agents in oncology. 
 
-**4/6: v3.4.0 (168-Hour Autonomous Sponsor Simulation)** *Fully Automated Sponsor: 7-Day Continuous Simulation with 168 Commits* - 168 hourly Python scripts across 7 days generating 2,016 sponsor decisions for 1,336 patients with PSL improvement from 63.4 to 70.0.
+**4/6: v3.4.0 (168-Hour Autonomous Sponsor Simulation)** *Fully Automated Sponsor: 7-Day Continuous Simulation with 168 Commits* - 168 hourly Python scripts across 7 days. [![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.18445179-blue)](https://doi.org/10.5281/zenodo.18445179)
 
 **4/4 PDF: v3.3.0 (Autonomous Sponsor Code Generation)** *Fully Automated Sponsor: Code Generation, Execution, and Paper Integration* - Automated generation of 108 Python scripts (53 core agents, 24 hours.) [![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.19396256-blue)](https://doi.org/10.5281/zenodo.19396256)
 
