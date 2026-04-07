@@ -1,5 +1,23 @@
 All Posts Created by Kevin Kawchak
 
+## [LinkedIn 06Apr26 Post](https://www.linkedin.com/posts/kevin-kawchak-38b52a4a_github-06apr26pdf-activity-7447170712735461376-WACX)
+
+Upcoming Physical AI oncology trials will delegate most decision making authority to autonomous agent and robot based Sponsors instead of humans.
+
+1. The attached simulation by Claude Code represents a 24/7 operating model on the Week (168 hours) timescale with 1,336 patients, 2,016 decisions, and 525 diagrams. Its significance is primarily attributed to its scalable, auditable AI workflow (a).
+
+2) This breakthrough in oncology trial contextual patient processing time represents a 7x increase in simulation capacity, a 7x increase in sponsor decisions; and an 8x increase in number of patients over a prior April 7th paper (b). Total Claude processing time was less than three hours.
+
+3) The substantial amount of data proves that Claude is capable of accelerating oncology trial sized workflows. For each of the 168 hours: 168 python scripts, 168 json files; and 7 json summaries (1 per Day) were generated.
+
+4) Next steps include following Claude provided instructions to implement python scripts into humanoids for tasks that require physical activity. This will likely be accomplished by utilizing OpenClaw software and either Mac mini or NVIDIA based hardware, as further detailed in physical-ai-oncology-trials/tree/main/sponsor/final_paper/168_hours/instructions (b).
+
+Disclaimer: This simulation is an independent work and not endorsed, sponsored, or approved by any trial sponsor, CRO, site, IRB, regulator, or medical society.
+
+References
+a) Kawchak, Kevin. Physical AI Oncology Trials. 2026. GitHub, https://lnkd.in/gtVnPxdR
+b) Kawchak, K. (2026). Fully Automated Sponsor: Physical AI Oncology Clinical Trial Platform. Zenodo. https://lnkd.in/g2D_eEtW
+
 ## [LinkedIn 04Apr26 Post](https://www.linkedin.com/posts/kevin-kawchak-38b52a4a_fully-automated-oncology-clinical-trial-sponsor-activity-7446451357580161025-8bS2)
 
 This paper presents a fully autonomous AI-native sponsor operating system for Physical AI oncology clinical trials, replacing traditional human-staffed pharmaceutical sponsor functions with a multi-agent software architecture. 
