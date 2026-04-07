@@ -66,6 +66,8 @@
       README.md                       # RTX 4090 setup (Linux, macOS, Windows)
     mac_mini_m4_pro_openclaw/
       README.md                       # Mac Mini M4 Pro setup (Linux, macOS, Windows)
+    core_i5_6200u_4gb/
+      README.md                       # Core i5-6200U 4GB setup (Windows 10 Pro)
   day_01/                             # Day 1: Trial Initialization (H000-H023)
     README.md
     hourly/
