@@ -1,0 +1,63 @@
+{
+  "simulation_title": "Autonomous Sponsor 168-Hour Simulation",
+  "total_days": 7,
+  "total_hours": 168,
+  "total_decisions": 2016,
+  "total_patients": 1317,
+  "total_escalations": 123,
+  "psl_start": 63.4,
+  "psl_end": 70.0,
+  "psl_improvement": 6.6,
+  "elapsed_seconds": 3.95,
+  "days": [
+    {
+      "day": 1,
+      "theme": "Trial Initialization and Baseline Operations",
+      "total_decisions": 288,
+      "total_patients": 155,
+      "total_escalations": 13
+    },
+    {
+      "day": 2,
+      "theme": "Enrollment Acceleration and Protocol Optimization",
+      "total_decisions": 288,
+      "total_patients": 196,
+      "total_escalations": 18
+    },
+    {
+      "day": 3,
+      "theme": "Mid-Trial Safety Review and Adaptive Modifications",
+      "total_decisions": 288,
+      "total_patients": 214,
+      "total_escalations": 24
+    },
+    {
+      "day": 4,
+      "theme": "Robotic Fleet Scaling and Cross-Site Coordination",
+      "total_decisions": 288,
+      "total_patients": 226,
+      "total_escalations": 27
+    },
+    {
+      "day": 5,
+      "theme": "Data Analysis and Interim Reporting",
+      "total_decisions": 288,
+      "total_patients": 196,
+      "total_escalations": 18
+    },
+    {
+      "day": 6,
+      "theme": "Regulatory Compliance and Audit Preparation",
+      "total_decisions": 288,
+      "total_patients": 180,
+      "total_escalations": 13
+    },
+    {
+      "day": 7,
+      "theme": "Trial Closeout and Final Documentation",
+      "total_decisions": 288,
+      "total_patients": 150,
+      "total_escalations": 10
+    }
+  ]
+}
