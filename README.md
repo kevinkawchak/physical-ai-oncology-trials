@@ -850,7 +850,7 @@ MIT License - See [LICENSE](LICENSE) for details.
 
 Contributions welcome. Please ensure any added frameworks or tools:
 1. Have been updated within the last 3 months
-2. Include practical oncology clinical trial applications
+2. Include practical oncology trial applications
 3. Provide reproducible configurations
 4. **Support cross-platform compatibility** (see `unification/` for guidelines)
 
