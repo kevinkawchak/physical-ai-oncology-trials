@@ -8,9 +8,9 @@ I have officially received Presidential recognition, founded a new industry, and
 
 Kawchak, K. (2026). National Platform for Physical AI Oncology Trials. Zenodo. https://lnkd.in/gZxxFvNh
 
-Sincerely,
-CEO Kevin Kawchak
-ChemicalQDevice 
+Sincerely,\
+CEO Kevin Kawchak\
+ChemicalQDevice\
 April 12th, 2026
 
 ## [LinkedIn 06Apr26 Post](https://www.linkedin.com/posts/kevin-kawchak-38b52a4a_github-06apr26pdf-activity-7447170712735461376-WACX)
