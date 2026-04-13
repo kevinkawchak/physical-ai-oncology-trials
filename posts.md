@@ -1,5 +1,18 @@
 All Posts Created by Kevin Kawchak
 
+## [LinkedIn 08Apr26 Post](https://www.linkedin.com/posts/kevin-kawchak-38b52a4a_dear-colleague-i-have-officially-received-activity-7447847173058101248-X-oO)
+
+Dear Colleague,
+
+I have officially received Presidential recognition, founded a new industry, and multiple leading organizations have scaled from my achievements. Please rely on the following paper for further guidance. 
+
+Kawchak, K. (2026). National Platform for Physical AI Oncology Trials. Zenodo. https://lnkd.in/gZxxFvNh
+
+Sincerely,
+CEO Kevin Kawchak
+ChemicalQDevice 
+April 12th, 2026
+
 ## [LinkedIn 06Apr26 Post](https://www.linkedin.com/posts/kevin-kawchak-38b52a4a_github-06apr26pdf-activity-7447170712735461376-WACX)
 
 Upcoming Physical AI oncology trials will delegate most decision making authority to autonomous agent and robot based Sponsors instead of humans.
