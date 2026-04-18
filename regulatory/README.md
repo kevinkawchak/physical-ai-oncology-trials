@@ -10,7 +10,7 @@
 
 ## Executive Summary
 
-Physical AI oncology clinical trials operate at the intersection of drug/biologic regulation, medical device oversight, and emerging AI governance frameworks. This directory provides tools for navigating the regulatory landscape across FDA, IRB, ICH-GCP, and international jurisdictions, enabling trial teams to track submissions, verify compliance, and maintain audit-ready documentation.
+Physical AI oncology clinical trials operate at the intersection of drug/biologic regulation, medical device oversight, and emerging AI governance. This directory provides tools for navigating the regulatory landscape across FDA, IRB, ICH-GCP, and international jurisdictions, enabling trial teams to track submissions, verify compliance, and maintain audit-ready documentation.
 
 **Key Capabilities**:
 - FDA submission tracking for AI/ML-enabled medical devices (510(k), De Novo, PMA, Breakthrough)
