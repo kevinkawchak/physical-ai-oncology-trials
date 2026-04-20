@@ -8,8 +8,7 @@ and metrics critical for engineers building physical AI oncology clinical trials
 
 Three sets of 10 visualizations (30 total) were produced across three Claude Code
 sessions using human-authored prompts combined with AI-recommended data extraction
-and chart design. Each visualization ships in both **light** and **dark** theme
-variants (60 PNGs, 30 Python scripts).
+and chart design. Each visualization ships in both **light** and **dark** variants (60 PNGs, 30 Python scripts).
 
 ## Directory Structure
 
