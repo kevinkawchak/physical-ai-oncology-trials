@@ -173,7 +173,7 @@ physical-ai-oncology-trials/
 │       ├── 09-parking-transportation/ # Parking and transit standards
 │       ├── 10-site-operations/        # Activation and SOPs
 │       ├── 11-emergency-preparedness/ # Emergency response plan
-│       ├── all-documents/              # Combined 11-document source
+│       ├── all-documents/             # Combined 11-document source
 │       │   ├── all_documents.tex      # Full combined LaTeX source
 │       │   └── all_documents_chunk/   # ★ Chunked into 11 files (v2.9.1)
 │       │       └── README.md          # Reconstruction instructions
@@ -209,7 +209,7 @@ physical-ai-oncology-trials/
 ├── patients/                          # ★ Patient Instructions (v2.1.0)
 │   ├── patient_robot_instructions_fixed.tex  # LaTeX source
 │   ├── patient_robot_instructions_fixed_chunk/ # ★ Chunked into 2 files (v2.9.1)
-│   │   └── README.md                 # Reconstruction instructions
+│   │   └── README.md                  # Reconstruction instructions
 │   ├── README.md                      # Paper content, instructions, text diagrams
 │   ├── research/                      # Archived generation scripts
 │   │   ├── v1.9.1/
@@ -433,7 +433,7 @@ physical-ai-oncology-trials/
 │       ├── README.md
 │       └── regulatory_tracker.py
 │
-├── regulatory-submit/                    # FDA Submission Automation (v1.0.0)
+├── regulatory-submit/                   # FDA Submission Automation (v1.0.0)
 │   ├── README.md
 │   ├── presub_generator.py              # Pre-Submission (Q-Sub) package generation
 │   ├── pccp_engine.py                   # PCCP document authoring
