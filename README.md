@@ -779,10 +779,6 @@ See `privacy/README.md` for complete documentation.
 
 ---
 
-## ★ Regulatory Compliance Framework
-
-The `regulatory/` directory provides **FDA, IRB, and ICH-GCP compliance tools** for navigating the regulatory landscape of AI-enabled oncology trials. Updated March 2026.
-
 ### Key Capabilities
 
 | Module | Purpose | Key Regulations |
@@ -838,19 +834,7 @@ If you use this repository in your research, please cite:
 
 ---
 
-
-
 ## License
 
 MIT License - See [LICENSE](LICENSE) for details.
-
-
-
-## Contributing
-
-Contributions welcome. Please ensure any added frameworks or tools:
-1. Have been updated within the last 3 months
-2. Include practical oncology trial applications
-3. Provide reproducible configurations
-4. **Support cross-platform compatibility** (see `unification/` for guidelines)
 
