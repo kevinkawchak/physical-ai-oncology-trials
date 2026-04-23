@@ -67,8 +67,8 @@ python unification/cross_platform_tools/framework_detector.py
 ## Autonomous Sponsor Architecture (v3.4.0)
 
 ```
-  168-Hour Simulation           Code Generation           Execution
-  (7 Days x 24 Hours)    --->  (Claude Code Opus 4.6)    Results
+  168-Hour Simulation          Code Generation           Execution
+  (7 Days x 24 Hours)   --->  (Claude Code Opus 4.6)      Results
   +-----------------+          +-----------------+       +----------+
   | Day 1: Init     |   --->   | 168 hourly .py  |  ---> | 2,016 d. |
   | Day 2: Enroll   |   --->   | 168 JSON output |  ---> | 1,336 pt |
