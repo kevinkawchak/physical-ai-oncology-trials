@@ -737,10 +737,6 @@ See `unification/README.md` for the complete cooperation model.
 
 ---
 
-## ★ Privacy Framework
-
-The new `privacy/` directory provides **HIPAA-compliant patient data protection** tools for AI-enabled oncology clinical trials.
-
 ### Key Capabilities
 
 | Module | Purpose | Regulatory Basis |
