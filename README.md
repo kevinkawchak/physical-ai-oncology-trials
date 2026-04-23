@@ -70,20 +70,20 @@ python unification/cross_platform_tools/framework_detector.py
   168-Hour Simulation           Code Generation           Execution
   (7 Days x 24 Hours)    --->  (Claude Code Opus 4.6)    Results
   +-----------------+          +-----------------+       +----------+
-  | Day 1: Init     |  --->   | 168 hourly .py  |  ---> | 2,016 d. |
-  | Day 2: Enroll   |  --->   | 168 JSON output |  ---> | 1,336 pt |
-  | Day 3: Safety   |  --->   | 525 diagrams    |  ---> | 125 esc. |
-  | Day 4: Scale    |  --->   | 7 day summaries |  ---> | PSL 70.0 |
-  | Day 5: Analysis |  --->   | 7 READMEs       |  ---> | Verified |
-  | Day 6: Audit    |  --->   | Sim runner      |  ---> | Tested   |
-  | Day 7: Closeout |  --->   | Instructions    |  ---> | Complete |
+  | Day 1: Init     |   --->   | 168 hourly .py  |  ---> | 2,016 d. |
+  | Day 2: Enroll   |   --->   | 168 JSON output |  ---> | 1,336 pt |
+  | Day 3: Safety   |   --->   | 525 diagrams    |  ---> | 125 esc. |
+  | Day 4: Scale    |   --->   | 7 day summaries |  ---> | PSL 70.0 |
+  | Day 5: Analysis |   --->   | 7 READMEs       |  ---> | Verified |
+  | Day 6: Audit    |   --->   | Sim runner      |  ---> | Tested   |
+  | Day 7: Closeout |   --->   | Instructions    |  ---> | Complete |
   +-----------------+          +-----------------+       +----------+
-           |                         |                       |
-           v                         v                       v
+           |                     |                       |
+           v                     v                       v
   +-----------------------------------------------------+
   |  168-Hour Simulation: 2,016 decisions, 1,336 pts,   |
   |  125 escalations, 1,336 robot authorizations,       |
-  |  PSL 63.4 to 70.0, 168 commits, 7 branches/PRs     |
+  |  PSL 63.4 to 70.0, 168 commits, 7 branches/PRs      |
   +-----------------------------------------------------+
 ```
 
