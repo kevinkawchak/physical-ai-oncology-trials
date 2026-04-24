@@ -26,6 +26,7 @@ Format follows [Keep a Changelog](https://keepachangelog.com/).
 - Task Scheduler method recommended for 4GB RAM systems (releases memory between hourly runs)
 - All simulation scripts use Python 3.10+ standard library only (no external dependencies)
 - @kevinkawchak Updated main README to make contributions section more concise on 2026-04-09.
+- @kevinkawchak Updated main README by removing redundant information from corresponding directoriea 2026-04-24.
 
 ## [3.4.0] - 2026-04-06
 
