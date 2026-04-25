@@ -78,13 +78,13 @@ python unification/cross_platform_tools/framework_detector.py
   | Day 6: Audit    |   --->   | Sim runner      |  ---> | Tested   |
   | Day 7: Closeout |   --->   | Instructions    |  ---> | Complete |
   +-----------------+          +-----------------+       +----------+
-           |                     |                       |
-           v                     v                       v
-  +-----------------------------------------------------+
-  |  168-Hour Simulation: 2,016 decisions, 1,336 pts,   |
-  |  125 escalations, 1,336 robot authorizations,       |
-  |  PSL 63.4 to 70.0, 168 commits, 7 branches/PRs      |
-  +-----------------------------------------------------+
+           |                           |                       |
+           v                           v                       v
+  +------------------------------------------------------------+
+  |  168-Hour Simulation: 2,016 decisions, 1,336 pts,          |
+  |  125 escalations, 1,336 robot authorizations,              |
+  |  PSL 63.4 to 70.0, 168 commits, 7 branches/PRs             |
+  +------------------------------------------------------------+
 ```
 
 ## Repository Structure
