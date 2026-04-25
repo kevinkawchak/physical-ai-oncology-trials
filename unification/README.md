@@ -19,25 +19,25 @@ The **[Unification Standard Level (USL)](usl/)** is a scoring framework for eval
 |              USL RESULTS SUMMARY — All Evaluated Robots                 |
 +-------------------------------------------------------------------------+
 |                                                                         |
-|  Category: Humanoid Robots (v1.6.0)           Score Range: 3.6 - 5.8   |
+|  Category: Humanoid Robots (v1.6.0)           Score Range: 3.6 - 5.8    |
 |  ──────────────────────────────────────────                             |
-|  Atlas (Electric)  [=====-----] 5.8  Best sim coverage (4 fwks, Drake) |
-|  Digit             [====------] 4.2  GR00T N1 partner, Amazon deploy   |
-|  Optimus (Gen 2)   [===-------] 3.6  Best hands (11-DOF), proprietary  |
+|  Atlas (Electric)  [=====-----] 5.8  Best sim coverage (4 fwks, Drake)  |
+|  Digit             [====------] 4.2  GR00T N1 partner, Amazon deploy    |
+|  Optimus (Gen 2)   [===-------] 3.6  Best hands (11-DOF), proprietary   |
 |                                                                         |
-|  Category: Surgical Robots (v1.5.0)           Score Range: 3.4 - 7.1   |
+|  Category: Surgical Robots (v1.5.0)           Score Range: 3.4 - 7.1    |
 |  ──────────────────────────────────────────                             |
-|  da Vinci (dVRK)   [=======---] 7.1  Open-source dVRK, ORBIT-Surgical |
-|  Hugo RAS          [====------] 4.5  Medtronic ecosystem, CE marked    |
-|  Versius           [===-------] 3.4  Lightest arms, most portable      |
+|  da Vinci (dVRK)   [=======---] 7.1  Open-source dVRK, ORBIT-Surgical   |
+|  Hugo RAS          [====------] 4.5  Medtronic ecosystem, CE marked     |
+|  Versius           [===-------] 3.4  Lightest arms, most portable       |
 |                                                                         |
-|  Category: Cobots (v1.4.0)                    Score Range: 3.4 - 7.4   |
+|  Category: Cobots (v1.4.0)                    Score Range: 3.4 - 7.4    |
 |  ──────────────────────────────────────────                             |
-|  Franka Panda      [=======---] 7.4  Largest cobot research ecosystem  |
-|  Kinova Gen3       [=====-----] 5.7  Lightest arm, integrated vision   |
-|  xArm 7            [===-------] 3.4  Most affordable, IP51 rated       |
+|  Franka Panda      [=======---] 7.4  Largest cobot research ecosystem   |
+|  Kinova Gen3       [=====-----] 5.7  Lightest arm, integrated vision    |
+|  xArm 7            [===-------] 3.4  Most affordable, IP51 rated        |
 |                                                                         |
-|  Bar scale: each = = 1.0 point (10 blocks = 10.0)                      |
+|  Bar scale: each = = 1.0 point (10 blocks = 10.0)                       |
 +-------------------------------------------------------------------------+
 ```
 
@@ -49,26 +49,26 @@ The **[Unification Standard Level (USL)](usl/)** is a scoring framework for eval
 +-------------------------------------------------------------------------+
 |                                                                         |
 |  KEY FINDING 1: OPEN-SOURCE IS THE STRONGEST USL PREDICTOR              |
-|  ──────────────────────────────────────────────────────────              |
-|  The two highest-scoring robots (Franka Panda 7.4, da Vinci dVRK 7.1)  |
+|  ──────────────────────────────────────────────────────────             |
+|  The two highest-scoring robots (Franka Panda 7.4, da Vinci dVRK 7.1)   |
 |  are also the two with the largest open-source ecosystems. Open code    |
-|  enables more simulation frameworks (Dim A), more AI research (Dim B), |
-|  and more cross-robot sharing (Dim C). Proprietary robots (Optimus,    |
+|  enables more simulation frameworks (Dim A), more AI research (Dim B),  |
+|  and more cross-robot sharing (Dim C). Proprietary robots (Optimus,     |
 |  Versius) consistently score lowest regardless of hardware quality.     |
 |                                                                         |
 |  KEY FINDING 2: CLINICAL READINESS LAGS ACROSS ALL CATEGORIES           |
-|  ──────────────────────────────────────────────────────────              |
+|  ──────────────────────────────────────────────────────────             |
 |  Dimension D (clinical trial collaboration) is the weakest dimension    |
-|  for 7 of 9 evaluated robots. Even da Vinci (FDA cleared, 14M          |
-|  procedures) only scores 7.0 on Dim D. Multi-site federated learning,  |
+|  for 7 of 9 evaluated robots. Even da Vinci (FDA cleared, 14M           |
+|  procedures) only scores 7.0 on Dim D. Multi-site federated learning,   |
 |  regulatory documentation, and audit trail infrastructure remain        |
 |  underdeveloped across the field.                                       |
 |                                                                         |
 |  KEY FINDING 3: CATEGORY LEADERS DEFINE THE UNIFICATION FRONTIER        |
-|  ──────────────────────────────────────────────────────────              |
-|  Franka Panda (cobot), da Vinci dVRK (surgical), and Atlas (humanoid)  |
+|  ──────────────────────────────────────────────────────────             |
+|  Franka Panda (cobot), da Vinci dVRK (surgical), and Atlas (humanoid)   |
 |  represent the current frontier of what is achievable in each category. |
-|  Their scores (7.4, 7.1, 5.8) show that cobots and surgical robots     |
+|  Their scores (7.4, 7.1, 5.8) show that cobots and surgical robots      |
 |  are closer to clinical trial readiness than humanoids.                 |
 |                                                                         |
 +-------------------------------------------------------------------------+
@@ -82,17 +82,17 @@ The **[Unification Standard Level (USL)](usl/)** is a scoring framework for eval
 +-------------------------------------------------------------------------+
 |                                                                         |
 |  PHASE 1 (2026): CATEGORY-SPECIFIC TRIALS                               |
-|  ─────────────────────────────────────────                               |
+|  ─────────────────────────────────────────                              |
 |  Cobots for lab automation, surgical robots for MIS oncology,           |
 |  humanoids for hospital logistics. Each category operates               |
 |  independently with USL guiding platform selection per site.            |
 |                                                                         |
 |       Lab site ──[Franka 7.4]──> Sample handling trial                  |
-|       OR site  ──[dVRK   7.1]──> Surgical autonomy trial               |
+|       OR site  ──[dVRK   7.1]──> Surgical autonomy trial                |
 |       Ward     ──[Atlas  5.8]──> Logistics pilot                        |
 |                                                                         |
 |  PHASE 2 (2027): CROSS-CATEGORY INTEGRATION                             |
-|  ───────────────────────────────────────────                             |
+|  ───────────────────────────────────────────                            |
 |  USL-standardized interfaces enable cobots and surgical robots to       |
 |  share workspace data during procedures. Humanoids transport            |
 |  specimens from OR to lab where cobots process them.                    |
@@ -101,14 +101,14 @@ The **[Unification Standard Level (USL)](usl/)** is a scoring framework for eval
 |                               --> Lab [Franka processing]               |
 |                                                                         |
 |  PHASE 3 (2028+): UNIFIED MULTI-SITE CONSORTIUM                         |
-|  ────────────────────────────────────────────────                        |
-|  Full multi-site trials where different hospitals use different          |
+|  ────────────────────────────────────────────────                       |
+|  Full multi-site trials where different hospitals use different         |
 |  robot platforms but share policies via ONNX, coordinate via            |
 |  federated learning, and report via unified audit trails.               |
-|  USL ensures behavioral equivalence across heterogeneous sites.        |
+|  USL ensures behavioral equivalence across heterogeneous sites.         |
 |                                                                         |
-|       Site A [Franka + dVRK]  <--federated-->  Site B [Kinova + Hugo]  |
-|       Site C [xArm + Versius] <--federated-->  Site D [Atlas + dVRK]   |
+|       Site A [Franka + dVRK]  <--federated-->  Site B [Kinova + Hugo]   |
+|       Site C [xArm + Versius] <--federated-->  Site D [Atlas + dVRK]    |
 |                                                                         |
 +-------------------------------------------------------------------------+
 ```
@@ -328,24 +328,24 @@ validator.generate_report(results, "validation_report.html")
 ┌─────────────────────────────────────────────────────────────────┐
 │                    Physical AI Oncology Consortium              │
 ├─────────────────────────────────────────────────────────────────┤
-│  ┌──────────────┐  ┌──────────────┐  ┌──────────────┐          │
+│  ┌──────────────┐  ┌──────────────┐  ┌──────────────┐           │
 │  │   Academic    │  │   Industry   │  │  Healthcare  │          │
 │  │  Partners     │  │   Partners   │  │   Systems    │          │
-│  ├──────────────┤  ├──────────────┤  ├──────────────┤          │
-│  │ Stanford     │  │ NVIDIA       │  │ Mayo Clinic  │          │
-│  │ JHU          │  │ Intuitive    │  │ MD Anderson  │          │
-│  │ MIT          │  │ Medtronic    │  │ Memorial     │          │
-│  │ Berkeley     │  │ Stryker      │  │ Cleveland    │          │
-│  └──────────────┘  └──────────────┘  └──────────────┘          │
+│  ├──────────────┤  ├──────────────┤  ├──────────────┤           │
+│  │ Stanford     │  │ NVIDIA       │  │ Mayo Clinic  │           │
+│  │ JHU          │  │ Intuitive    │  │ MD Anderson  │           │
+│  │ MIT          │  │ Medtronic    │  │ Memorial     │           │
+│  │ Berkeley     │  │ Stryker      │  │ Cleveland    │           │
+│  └──────────────┘  └──────────────┘  └──────────────┘           │
 │                           │                                     │
 │                           ▼                                     │
-│  ┌─────────────────────────────────────────────────────────┐   │
-│  │              Unified Data & Model Repository             │   │
-│  │  • Standardized robot models (URDF/MJCF/SDF/USD)        │   │
-│  │  • Trained policy checkpoints (ONNX)                     │   │
-│  │  • Clinical trial datasets (anonymized)                  │   │
-│  │  • Benchmark environments                                │   │
-│  └─────────────────────────────────────────────────────────┘   │
+│  ┌─────────────────────────────────────────────────────────┐    │
+│  │              Unified Data & Model Repository            │    │
+│  │  • Standardized robot models (URDF/MJCF/SDF/USD)        │    │
+│  │  • Trained policy checkpoints (ONNX)                    │    │
+│  │  • Clinical trial datasets (anonymized)                 │    │
+│  │  • Benchmark environments                               │    │
+│  └─────────────────────────────────────────────────────────┘    │
 └─────────────────────────────────────────────────────────────────┘
 ```
 
