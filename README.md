@@ -18,7 +18,7 @@ This repository provides production-ready configurations, validated pipelines, a
 
 **4/4 PDF: v3.3.0 (Autonomous Sponsor Code Generation)** *Fully Automated Sponsor: Code Generation, Execution, and Paper Integration* - Automated generation of 108 Python scripts (53 core agents, 24 hours.) [![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.19396256-blue)](https://doi.org/10.5281/zenodo.19396256)
 
-**3/28 PDF: v3.0.0 (National Platform Paper)** *National Platform for Physical AI Oncology Trials* - Comprehensive 186-page paper serving as an end-to-end resource for the pharmaceutical and regulatory industries. [![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.19244918-blue)](https://doi.org/10.5281/zenodo.19244918)
+**3/28 PDF: v3.0.0 (National Platform Paper)** *National Platform for Physical AI Oncology Trials* - Comprehensive 186-page paper serving as an end-to-end resource for the pharmaceutical and industries. [![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.19244918-blue)](https://doi.org/10.5281/zenodo.19244918)
 
 **3/24: v2.9.0 (Trial Site Documentation)** *Physical AI Oncology Clinical Trial Site Documentation* - 11 LaTeX documents for California's first Physical AI oncology trial site: legislation drafts, regulations. [![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.19176370-blue)](https://doi.org/10.5281/zenodo.19176370)
 
