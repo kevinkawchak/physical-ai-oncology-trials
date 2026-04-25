@@ -1,33 +1,33 @@
 +============================================================================+
-|              PATIENT FLOW DIAGRAM - Hour 05: 05:00-05:59                  |
+|              PATIENT FLOW DIAGRAM - Hour 05: 05:00-05:59                   |
 +============================================================================+
 |                                                                            |
-| TIME  ENTRANCE    CHECK-IN     WAITING     PROCEDURE    RECOVERY  EXIT    |
-| ----  --------    --------     -------     ---------    --------  ----    |
+| TIME  ENTRANCE    CHECK-IN     WAITING     PROCEDURE    RECOVERY  EXIT     |
+| ----  --------    --------     -------     ---------    --------  ----     |
 |                                                                            |
-| 05:00                                                   [P0003:RecBay3]   |
-|   |                                                     [P0005:PedWard]   |
-|   |                                                     [P0010:RecBay5]   |
-|   |                                                     [P0011:RecBay8]   |
-|   |                                                     [P0012:RecBay10]  |
-|   |                                                                       |
-| 05:05 P0013 ---> [Kiosk-1] --+                                           |
-|   |    (NSCLC)     05:05      |                                           |
-|   |                           |                                           |
-| 05:06                         +--> [Adult Wait]                           |
-|   |                                    |                                  |
-| 05:10                                  |           [P0010:Discharged]     |
-|   |                                    |                ---> EXIT         |
-| 05:12                                  +--> [Vault 1: TRACK-01]          |
-|   |                                         RT Motion-Tracking            |
-|   |                                         PAT-ODMND-0013               |
-|   |                                         2 Gy fraction                 |
-| 05:15 P0014 ---> [Kiosk-1] --+              |     [P0011:Discharged]     |
-|   |    (AML,6F)    05:15      |              |          ---> EXIT         |
-|   |                           |              |                            |
-| 05:16                         +--> [Ped Wait]|                            |
-|   |                                    |     |                            |
-| 05:20                                  |     |   [P0012:Discharged]      |
+| 05:00                                                   [P0003:RecBay3]    |
+|   |                                                     [P0005:PedWard]    |
+|   |                                                     [P0010:RecBay5]    |
+|   |                                                     [P0011:RecBay8]    |
+|   |                                                     [P0012:RecBay10]   |
+|   |                                                                        |
+| 05:05 P0013 ---> [Kiosk-1] --+                                             |
+|   |    (NSCLC)     05:05      |                                            |
+|   |                           |                                            |
+| 05:06                         +--> [Adult Wait]                            |
+|   |                                    |                                   |
+| 05:10                                  |           [P0010:Discharged]      |
+|   |                                    |                ---> EXIT          |
+| 05:12                                  +--> [Vault 1: TRACK-01]            |
+|   |                                         RT Motion-Tracking             |
+|   |                                         PAT-ODMND-0013                 |
+|   |                                         2 Gy fraction                  |
+| 05:15 P0014 ---> [Kiosk-1] --+              |     [P0011:Discharged]       |
+|   |    (AML,6F)    05:15      |              |          ---> EXIT          |
+|   |                           |              |                             |
+| 05:16                         +--> [Ped Wait]|                             |
+|   |                                    |     |                             |
+| 05:20                                  |     |   [P0012:Discharged]        |
 |   |                              +-----+     |        ---> EXIT           |
 |   |                              |           |                            |
 |   |                              v           |                            |
@@ -42,22 +42,22 @@
 |   |                                    |     |                            |
 | 05:27                                  |  [Complete]                      |
 |   |                                    |  P0013 --> Discharge --> EXIT    |
-| 05:28                                  +--> [Vault 1: RTPOS-01]          |
+| 05:28                                  +--> [Vault 1: RTPOS-01]           |
 |   |                                         Brain RT Positioning          |
-|   |                                         PAT-ODMND-0015               |
+|   |                                         PAT-ODMND-0015                |
 |   |                                         2 Gy fraction                 |
 | 05:35                           [Complete]   |                            |
-|   |                    P0014 --> [Ped Ward]   |                            |
+|   |                    P0014 --> [Ped Ward]   |                           |
 |   |   P0016 ---> [Kiosk-1] --+               |                            |
-|   |    (Sarcoma)   05:35      |               |                            |
-|   |                           |               |                            |
+|   |    (Sarcoma)   05:35      |               |                           |
+|   |                           |               |                           |
 | 05:36                         +--> [Adult Wait]                           |
 |   |                                    |     |                            |
-| 05:42                                  +--> [Stn 2: COBOT-02]           |
+| 05:42                                  +--> [Stn 2: COBOT-02]             |
 |   |                                         Core Needle Biopsy            |
-|   |                                         PAT-ODMND-0016               |
+|   |                                         PAT-ODMND-0016                |
 |   |                                         3 cores                       |
-| 05:50 P0017 ---> [Kiosk-1] --+              |     |                      |
+| 05:50 P0017 ---> [Kiosk-1] --+              |     |                       |
 |   |    (Liver,71F)  05:50     |              |     |                      |
 |   |                           |              |     |                      |
 | 05:51                         +--> [Adult Wait]    |                      |
@@ -65,14 +65,14 @@
 | 05:53                                  |  [Complete]                      |
 |   |                                    |  P0015 --> Recovery observation  |
 |   |                                    |                                  |
-| 05:55                                  +--> [Img Bay 4: IMAGE-04]        |
+| 05:55                                  +--> [Img Bay 4: IMAGE-04]         |
 |   |                                         Liver Ultrasound              |
-|   |                                         PAT-ODMND-0017               |
+|   |                                         PAT-ODMND-0017                |
 |   |                                         + steerable consult           |
-| 05:57                                       |  [P0016 --> RecBay6]       |
+| 05:57                                       |  [P0016 --> RecBay6]        |
 |   |                                         |  Post-biopsy obs            |
-| 05:59                                       |  (continues H06)           |
-|                                                                            |
+| 05:59                                       |  (continues H06)            |
+|                                                                           |
 +============================================================================+
 | PATIENT FLOW SUMMARY - Hour 05                                            |
 |                                                                            |
