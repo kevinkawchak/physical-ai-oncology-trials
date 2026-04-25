@@ -1,77 +1,77 @@
 +============================================================================+
-|              PATIENT FLOW DIAGRAM - Hour 00: 00:00-00:59                  |
+|              PATIENT FLOW DIAGRAM - Hour 00: 00:00-00:59                   |
 +============================================================================+
 |                                                                            |
-| TIME  ENTRANCE    CHECK-IN     WAITING     PROCEDURE    RECOVERY  EXIT    |
-| ----  --------    --------     -------     ---------    --------  ----    |
+| TIME  ENTRANCE    CHECK-IN     WAITING     PROCEDURE    RECOVERY  EXIT     |
+| ----  --------    --------     -------     ---------    --------  ----     |
 |                                                                            |
-| 00:00                                                   [P0003:RecBay3]   |
-|   |                                                     [P0004:RecBay7]   |
-|   |                                                     [P0005:PedWard]   |
-|   |                                                                       |
-| 00:05                                                   [P0003:RecBay3]   |
-|   |                                                     [P0004:RecBay7]   |
-|   |                                                     [P0005:PedWard]   |
-|   |                                                                       |
-| 00:10                                                   [P0003:RecBay3]   |
-|   |                                                                       |
-| 00:12 P0001 ---> [Kiosk-1] --+                                           |
-|   |    (NSCLC)     00:12      |                                           |
-|   |                           |                                           |
-| 00:13                         +--> [Adult Wait]                           |
-|   |                                    |                                  |
-| 00:15                                  |              [P0003:RecBay3]     |
-|   |                                    |              [P0004:RecBay7]     |
-|   |                                    |                                  |
-| 00:20                                  +--> [Vault 2: TRACK-02]          |
-|   |                                         RT Motion-Tracking            |
-|   |                                         PAT-ODMND-0001               |
-|   |                                         Fraction 12/30               |
-| 00:25                                       |           [P0004:Discharged]|
-|   |                                         |                ---> EXIT    |
-|   |                                         |                             |
-| 00:30                                       |                             |
-|   |                                         |                             |
-| 00:35                                       |                             |
-|   |                                         |                             |
-| 00:38                                  [Complete]                         |
-|   |   P0002 ---> [Kiosk-2] --+              |                             |
-|   |    (HCC)      00:38      |         P0001 --> Discharge --> EXIT       |
-|   |                          |              00:42                         |
-| 00:40                        +--> [Adult Wait]                            |
-|   |                                    |                                  |
-| 00:45                                  +--> [Img Bay 2: IMAGE-02]        |
-|   |                                         Liver Ultrasound              |
-|   |                                         PAT-ODMND-0002               |
-|   |                                         Pre-ablation scan             |
-| 00:50                                       |                             |
-|   |                                         |                             |
-| 00:55                                       |                             |
-|   |                                         |                             |
-| 00:58                                  [Complete]                         |
-|   |                                    P0002 --> Discharge (next hour)    |
-| 00:59                                                                     |
+| 00:00                                                   [P0003:RecBay3]    |
+|   |                                                     [P0004:RecBay7]    |
+|   |                                                     [P0005:PedWard]    |
+|   |                                                                        |
+| 00:05                                                   [P0003:RecBay3]    |
+|   |                                                     [P0004:RecBay7]    |
+|   |                                                     [P0005:PedWard]    |
+|   |                                                                        |
+| 00:10                                                   [P0003:RecBay3]    |
+|   |                                                                        |
+| 00:12 P0001 ---> [Kiosk-1] --+                                             |
+|   |    (NSCLC)     00:12      |                                            |
+|   |                           |                                            |
+| 00:13                         +--> [Adult Wait]                            |
+|   |                                    |                                   |
+| 00:15                                  |              [P0003:RecBay3]      |
+|   |                                    |              [P0004:RecBay7]      |
+|   |                                    |                                   |
+| 00:20                                  +--> [Vault 2: TRACK-02]            |
+|   |                                         RT Motion-Tracking             |
+|   |                                         PAT-ODMND-0001                 |
+|   |                                         Fraction 12/30                 |
+| 00:25                                       |           [P0004:Discharged] |
+|   |                                         |                ---> EXIT     |
+|   |                                         |                              |
+| 00:30                                       |                              |
+|   |                                         |                              |
+| 00:35                                       |                              |
+|   |                                         |                              |
+| 00:38                                  [Complete]                          |
+|   |   P0002 ---> [Kiosk-2] --+              |                              |
+|   |    (HCC)      00:38      |         P0001 --> Discharge --> EXIT        |
+|   |                          |              00:42                          |
+| 00:40                        +--> [Adult Wait]                             |
+|   |                                    |                                   |
+| 00:45                                  +--> [Img Bay 2: IMAGE-02]          |
+|   |                                         Liver Ultrasound               |
+|   |                                         PAT-ODMND-0002                 |
+|   |                                         Pre-ablation scan              |
+| 00:50                                       |                              |
+|   |                                         |                              |
+| 00:55                                       |                              |
+|   |                                         |                              |
+| 00:58                                  [Complete]                          |
+|   |                                    P0002 --> Discharge (next hour)     |
+| 00:59                                                                      |
 |                                                                            |
 +============================================================================+
-| PATIENT FLOW SUMMARY - Hour 00                                            |
+| PATIENT FLOW SUMMARY - Hour 00                                             |
 |                                                                            |
-| Arrivals: 2 patients                                                      |
-|   PAT-ODMND-0001 (52M, NSCLC) --> RT Motion-Tracking --> Discharged       |
-|   PAT-ODMND-0002 (67F, HCC)   --> Imaging Scan       --> Pending discharge|
+| Arrivals: 2 patients                                                       |
+|   PAT-ODMND-0001 (52M, NSCLC) --> RT Motion-Tracking --> Discharged        |
+|   PAT-ODMND-0002 (67F, HCC)   --> Imaging Scan       --> Pending discharge |
 |                                                                            |
-| Departures: 2 patients                                                    |
-|   PAT-ODMND-0001 (52M, NSCLC) --> Discharged 00:42 (RT complete)         |
-|   PAT-ODMND-0004 (44F, Sarcoma) --> Discharged 00:25 (recovery complete) |
+| Departures: 2 patients                                                     |
+|   PAT-ODMND-0001 (52M, NSCLC) --> Discharged 00:42 (RT complete)           |
+|   PAT-ODMND-0004 (44F, Sarcoma) --> Discharged 00:25 (recovery complete)   |
 |                                                                            |
-| Overnight patients: 3 (P0003 recovery, P0005 pediatric ward)             |
+| Overnight patients: 3 (P0003 recovery, P0005 pediatric ward)               |
 |                                                                            |
-| Cancer types active this hour:                                            |
-|   NSCLC adenocarcinoma (P0001) - RT treatment                             |
-|   HCC (P0002) - imaging assessment                                        |
-|   Mediastinal tumor (P0003) - post-surgical recovery                      |
-|   Soft-tissue sarcoma (P0004) - discharged post-biopsy                    |
-|   Pediatric ALL (P0005) - overnight monitoring                            |
+| Cancer types active this hour:                                             |
+|   NSCLC adenocarcinoma (P0001) - RT treatment                              |
+|   HCC (P0002) - imaging assessment                                         |
+|   Mediastinal tumor (P0003) - post-surgical recovery                       |
+|   Soft-tissue sarcoma (P0004) - discharged post-biopsy                     |
+|   Pediatric ALL (P0005) - overnight monitoring                             |
 |                                                                            |
-| Wait times: P0001 = 8 min, P0002 = 7 min                                 |
-| Average wait: 7.5 minutes                                                 |
+| Wait times: P0001 = 8 min, P0002 = 7 min                                   |
+| Average wait: 7.5 minutes                                                  |
 +============================================================================+
