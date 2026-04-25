@@ -1,132 +1,132 @@
 +============================================================================+
-|              PATIENT FLOW DIAGRAM - Hour 09: 09:00-09:59                  |
-|              PEAK MORNING - 15 New Arrivals (Highest Hour)                |
+|              PATIENT FLOW DIAGRAM - Hour 09: 09:00-09:59                   |
+|              PEAK MORNING - 15 New Arrivals (Highest Hour)                 |
 +============================================================================+
 |                                                                            |
-| TIME  ENTRANCE    CHECK-IN     WAITING     PROCEDURE    RECOVERY  EXIT    |
-| ----  --------    --------     -------     ---------    --------  ----    |
+| TIME  ENTRANCE    CHECK-IN     WAITING     PROCEDURE    RECOVERY  EXIT     |
+| ----  --------    --------     -------     ---------    --------  ----     |
 |                                                                            |
-| 09:00                                      [P0024:SURG-01 closing]       |
-|   |                                        [P0032:SURG-02 ongoing]       |
-|   |   P0044 ---> [Kiosk-1] --+             *** ALL 3 SUITES ***          |
-|   |    (Medias)    09:00     |                                           |
-|   |                          |                                           |
-| 09:04 P0045 ---> [Kiosk-2] --+                                           |
-|   |    (Sarcoma)   09:04     |                                           |
-|   |                          +--> [Adult Wait]                           |
-| 09:05                        |        |                                  |
-|   |                          |   P0044 --> [Pre-op SURG-03]              |
-| 09:07 P0046 ---> [Kiosk-3] --+                                           |
-|   |    (Mening)    09:07     |                                           |
-|   |                          +--> [Adult Wait]                           |
-| 09:10                        |        |    [P0024: complete 09:10]       |
-|   |   P0047 ---> [Kiosk-4] -+   P0046 +-> [Vault 2: RTPOS-02]          |
-|   |    (Ped AML)   09:10    |             mask fitting                   |
-|   |                         +--> [Ped Wait]                              |
-| 09:12                              |      [P0024 --> Recovery Bay 1]     |
-|   |                           P0045 +--> [Stn 3: COBOT-03]              |
-|   |                                       forearm biopsy                 |
-| 09:14 P0048 ---> [Kiosk-1] --+                                           |
-|   |    (NSCLC)     09:14     |                                           |
-| 09:15                        +--> [Adult Wait]                           |
-|   |                               |       [P0044: SURG-03 started]      |
-| 09:18 P0049 ---> [Kiosk-2] --+   |                                      |
-|   |    (Parotid)   09:18     |    | [AE: P0024 hypotension 92/58]       |
-|   |                          |    | [IV bolus initiated]                 |
-|   |                     P0047 +--> [Play 5: COMPN-05]                    |
-|   |                          |    | companion session                    |
-| 09:20                        +--> [Adult Wait]                           |
-|   |                               |                                      |
-| 09:22 P0050 ---> [Kiosk-3] --+   |                                      |
-|   |    (HCC)       09:22     |    |                                      |
-|   |                     P0048 +--> [Vault 1: TRACK-01]                   |
-|   |                          |     RT frac 8/30, 2 Gy                    |
-| 09:25 P0051 ---> [Kiosk-4] -+                                           |
-|   |    (Ped Osteo) 09:25    |                                            |
-|   |                         +--> [Ped Wait]                              |
-|   |                              |                                       |
-| 09:28 P0052 ---> [Kiosk-1] --+  |  [P0024: BP stabilized 118/72]       |
-|   |    (Liver met) 09:28     |   |                                      |
-|   |                     P0049 +-> [CT Ste 2: NEEDLE-02]                  |
-|   |                          |    parotid biopsy                         |
-|   |                     P0050 +-> [Img Bay 1: IMAGE-01]                  |
-| 09:30                        +--> [Adult Wait]                           |
-|   |                               |  [P0045: biopsy complete]            |
-|   |                               |       |                              |
-| 09:32 P0053 ---> [Kiosk-2] --+   |  P0045 --> [Recovery Bay 4]          |
-|   |    (NSCLC sq)  09:32     |    |                                      |
-|   |                     P0051 +--> [Therapy 1: HUMAN-01]                 |
-|   |                          |     PT prep + gait analysis               |
-|   |                          +--> [Adult Wait]                           |
-| 09:36 P0054 ---> [Kiosk-3] --+        |                                 |
-|   |    (Brain met) 09:36     |         |                                 |
-|   |                     P0052 +------> [Ablation 2: STEER-02]           |
-| 09:38                        +--> [Adult Wait]                           |
-|   |                               |                                      |
-| 09:40 P0055 ---> [Kiosk-4] --+   |                                      |
-|   |    (Sarcoma)   09:40     | P0053 +-> [Vault 3: TRACK-02]            |
-|   |                          |        RT frac 5/30, 2 Gy                 |
-| 09:42                        +--> [Adult Wait]                           |
-|   |                               |  [P0048: RT complete]               |
-|   |                               |  [P0046: mask fit complete]         |
-| 09:44 P0056 ---> [Kiosk-1] --+   |                                      |
-|   |    (HCC III)   09:44     | P0054 +-> [Vault 3: RTPOS-03]           |
-|   |                          |        frame fitting                      |
-|   |                          +--> [Adult Wait]                           |
-| 09:48 P0057 ---> [Kiosk-2] --+       |                                  |
-|   |    (Fem Osteo) 09:48     |  [P0047: companion done]                 |
-|   |                     P0055 +-> [Stn 4: COBOT-04]                     |
-|   |                          |    biopsy                                 |
-|   |                     P0051 +-> [Rehab 1: REHAB-01] (from HUMAN-01)   |
-|   |                          +--> [Adult Wait]                           |
-| 09:50                             |  P0048 --> Discharge --> EXIT        |
-|   |                               |  P0050 --> Discharge (09:55) -> EXIT |
-| 09:52 P0058 ---> [Kiosk-3] --+   |                                      |
-|   |    (Ped ALL)   09:52     | P0056 +-> [Img Bay 2: IMAGE-02]          |
-|   |                          +--> [Ped Wait]                             |
-| 09:55                              |  P0045 --> Discharge --> EXIT       |
-|   |                           P0058 +-> [Play 1: COMPN-01]              |
-|   |                     P0057 +-> [Rehab 2: REHAB-02]                   |
-| 09:58                        |    [P0053: RT complete --> Discharge]     |
-|   |                          |    [P0049: needle done --> Recovery]      |
-| 09:59                                                                    |
+| 09:00                                      [P0024:SURG-01 closing]         |
+|   |                                        [P0032:SURG-02 ongoing]         |
+|   |   P0044 ---> [Kiosk-1] --+             *** ALL 3 SUITES ***            |
+|   |    (Medias)    09:00     |                                             |
+|   |                          |                                             |
+| 09:04 P0045 ---> [Kiosk-2] --+                                             |
+|   |    (Sarcoma)   09:04     |                                             |
+|   |                          +--> [Adult Wait]                             |
+| 09:05                        |        |                                    |
+|   |                          |   P0044 --> [Pre-op SURG-03]                |
+| 09:07 P0046 ---> [Kiosk-3] --+                                             |
+|   |    (Mening)    09:07     |                                             |
+|   |                          +--> [Adult Wait]                             |
+| 09:10                        |        |    [P0024: complete 09:10]         |
+|   |   P0047 ---> [Kiosk-4] -+   P0046 +-> [Vault 2: RTPOS-02]              |
+|   |    (Ped AML)   09:10    |             mask fitting                     |
+|   |                         +--> [Ped Wait]                                |
+| 09:12                              |      [P0024 --> Recovery Bay 1]       |
+|   |                           P0045 +--> [Stn 3: COBOT-03]                 |
+|   |                                       forearm biopsy                   |
+| 09:14 P0048 ---> [Kiosk-1] --+                                             |
+|   |    (NSCLC)     09:14     |                                             |
+| 09:15                        +--> [Adult Wait]                             |
+|   |                               |       [P0044: SURG-03 started]         |
+| 09:18 P0049 ---> [Kiosk-2] --+   |                                         |
+|   |    (Parotid)   09:18     |    | [AE: P0024 hypotension 92/58]          |
+|   |                          |    | [IV bolus initiated]                   |
+|   |                     P0047 +--> [Play 5: COMPN-05]                      |
+|   |                          |    | companion session                      |
+| 09:20                        +--> [Adult Wait]                             |
+|   |                               |                                        |
+| 09:22 P0050 ---> [Kiosk-3] --+   |                                         |
+|   |    (HCC)       09:22     |    |                                        |
+|   |                     P0048 +--> [Vault 1: TRACK-01]                     |
+|   |                          |     RT frac 8/30, 2 Gy                      |
+| 09:25 P0051 ---> [Kiosk-4] -+                                              |
+|   |    (Ped Osteo) 09:25    |                                              |
+|   |                         +--> [Ped Wait]                                |
+|   |                              |                                         |
+| 09:28 P0052 ---> [Kiosk-1] --+  |  [P0024: BP stabilized 118/72]           |
+|   |    (Liver met) 09:28     |   |                                         |
+|   |                     P0049 +-> [CT Ste 2: NEEDLE-02]                    |
+|   |                          |    parotid biopsy                           |
+|   |                     P0050 +-> [Img Bay 1: IMAGE-01]                    |
+| 09:30                        +--> [Adult Wait]                             |
+|   |                               |  [P0045: biopsy complete]              |
+|   |                               |       |                                |
+| 09:32 P0053 ---> [Kiosk-2] --+   |  P0045 --> [Recovery Bay 4]             |
+|   |    (NSCLC sq)  09:32     |    |                                        |
+|   |                     P0051 +--> [Therapy 1: HUMAN-01]                   |
+|   |                          |     PT prep + gait analysis                 |
+|   |                          +--> [Adult Wait]                             |
+| 09:36 P0054 ---> [Kiosk-3] --+        |                                    |
+|   |    (Brain met) 09:36     |         |                                   |
+|   |                     P0052 +------> [Ablation 2: STEER-02]              |
+| 09:38                        +--> [Adult Wait]                             |
+|   |                               |                                        |
+| 09:40 P0055 ---> [Kiosk-4] --+   |                                         |
+|   |    (Sarcoma)   09:40     | P0053 +-> [Vault 3: TRACK-02]               |
+|   |                          |        RT frac 5/30, 2 Gy                   |
+| 09:42                        +--> [Adult Wait]                             |
+|   |                               |  [P0048: RT complete]                  |
+|   |                               |  [P0046: mask fit complete]            |
+| 09:44 P0056 ---> [Kiosk-1] --+   |                                         |
+|   |    (HCC III)   09:44     | P0054 +-> [Vault 3: RTPOS-03]               |
+|   |                          |        frame fitting                        |
+|   |                          +--> [Adult Wait]                             |
+| 09:48 P0057 ---> [Kiosk-2] --+       |                                     |
+|   |    (Fem Osteo) 09:48     |  [P0047: companion done]                    |
+|   |                     P0055 +-> [Stn 4: COBOT-04]                        |
+|   |                          |    biopsy                                   |
+|   |                     P0051 +-> [Rehab 1: REHAB-01] (from HUMAN-01)      |
+|   |                          +--> [Adult Wait]                             |
+| 09:50                             |  P0048 --> Discharge --> EXIT          |
+|   |                               |  P0050 --> Discharge (09:55) -> EXIT   |
+| 09:52 P0058 ---> [Kiosk-3] --+   |                                         |
+|   |    (Ped ALL)   09:52     | P0056 +-> [Img Bay 2: IMAGE-02]             |
+|   |                          +--> [Ped Wait]                               |
+| 09:55                              |  P0045 --> Discharge --> EXIT         |
+|   |                           P0058 +-> [Play 1: COMPN-01]                 |
+|   |                     P0057 +-> [Rehab 2: REHAB-02]                      |
+| 09:58                        |    [P0053: RT complete --> Discharge]       |
+|   |                          |    [P0049: needle done --> Recovery]        |
+| 09:59                                                                      |
 |                                                                            |
 +============================================================================+
-| PATIENT FLOW SUMMARY - Hour 09 (PEAK MORNING)                            |
+| PATIENT FLOW SUMMARY - Hour 09 (PEAK MORNING)                              |
 |                                                                            |
-| Arrivals: 15 patients (highest single-hour volume)                        |
-|   P0044 (60M, Mediastinal) --> Surgery SURG-03         --> Ongoing       |
-|   P0045 (35F, Sarcoma)     --> Biopsy COBOT-03         --> Discharged    |
-|   P0046 (68F, Meningioma)  --> RT Positioning RTPOS-02 --> Discharged    |
-|   P0047 (7F, Ped AML)      --> Companion COMPN-05      --> Ped Ward      |
-|   P0048 (55M, NSCLC)       --> RT Tracking TRACK-01    --> Discharged    |
-|   P0049 (43F, Parotid)     --> Needle NEEDLE-02        --> Recovery      |
-|   P0050 (61M, HCC)         --> Imaging IMAGE-01        --> Discharged    |
-|   P0051 (15M, Ped Osteo)   --> Humanoid + Rehab        --> Ongoing       |
-|   P0052 (74F, Liver mets)  --> Steerable STEER-02      --> Ongoing       |
-|   P0053 (50M, NSCLC sq)    --> RT Tracking TRACK-02    --> Discharged    |
-|   P0054 (46F, Brain mets)  --> RT Positioning RTPOS-03 --> Ongoing       |
-|   P0055 (28M, Sarcoma)     --> Biopsy COBOT-04         --> Ongoing       |
-|   P0056 (64F, HCC III)     --> Imaging IMAGE-02        --> Ongoing       |
-|   P0057 (69M, Fem Osteo)   --> Rehab REHAB-02          --> Ongoing       |
-|   P0058 (12F, Ped ALL)     --> Companion COMPN-01      --> Ongoing       |
+| Arrivals: 15 patients (highest single-hour volume)                         |
+|   P0044 (60M, Mediastinal) --> Surgery SURG-03         --> Ongoing         |
+|   P0045 (35F, Sarcoma)     --> Biopsy COBOT-03         --> Discharged      |
+|   P0046 (68F, Meningioma)  --> RT Positioning RTPOS-02 --> Discharged      |
+|   P0047 (7F, Ped AML)      --> Companion COMPN-05      --> Ped Ward        |
+|   P0048 (55M, NSCLC)       --> RT Tracking TRACK-01    --> Discharged      |
+|   P0049 (43F, Parotid)     --> Needle NEEDLE-02        --> Recovery        |
+|   P0050 (61M, HCC)         --> Imaging IMAGE-01        --> Discharged      |
+|   P0051 (15M, Ped Osteo)   --> Humanoid + Rehab        --> Ongoing         |
+|   P0052 (74F, Liver mets)  --> Steerable STEER-02      --> Ongoing         |
+|   P0053 (50M, NSCLC sq)    --> RT Tracking TRACK-02    --> Discharged      |
+|   P0054 (46F, Brain mets)  --> RT Positioning RTPOS-03 --> Ongoing         |
+|   P0055 (28M, Sarcoma)     --> Biopsy COBOT-04         --> Ongoing         |
+|   P0056 (64F, HCC III)     --> Imaging IMAGE-02        --> Ongoing         |
+|   P0057 (69M, Fem Osteo)   --> Rehab REHAB-02          --> Ongoing         |
+|   P0058 (12F, Ped ALL)     --> Companion COMPN-01      --> Ongoing         |
 |                                                                            |
-| Departures: 3 patients discharged                                         |
-|   P0045 (35F, Sarcoma)     --> Discharged 09:55 (biopsy complete)        |
-|   P0048 (55M, NSCLC)       --> Discharged 09:50 (RT complete)            |
-|   P0050 (61M, HCC)         --> Discharged 09:55 (imaging complete)       |
+| Departures: 3 patients discharged                                          |
+|   P0045 (35F, Sarcoma)     --> Discharged 09:55 (biopsy complete)          | 
+|   P0048 (55M, NSCLC)       --> Discharged 09:50 (RT complete)              |
+|   P0050 (61M, HCC)         --> Discharged 09:55 (imaging complete)         |
 |                                                                            |
-| Continuing: P0024 (recovery), P0032 (surgery), multiple prior-hour pts   |
+| Continuing: P0024 (recovery), P0032 (surgery), multiple prior-hour pts     |
 |                                                                            |
-| Adverse Event: P0024 Grade 1 hypotension at 09:18, resolved by 09:28    |
+| Adverse Event: P0024 Grade 1 hypotension at 09:18, resolved by 09:28       |
 |                                                                            |
-| Cancer types active this hour: 10                                         |
-|   Mediastinal (P0024,P0044), NSCLC adeno (P0048), NSCLC squam (P0053)   |
-|   Forearm sarcoma (P0045,P0055), Meningioma (P0046), Ped AML (P0047)    |
-|   Parotid (P0049), HCC (P0050,P0056), Ped osteosarcoma (P0051)          |
-|   Liver mets colorectal (P0052), Brain mets (P0054)                      |
-|   Femur osteosarcoma (P0057), Ped ALL (P0058)                            |
+| Cancer types active this hour: 10                                          |
+|   Mediastinal (P0024,P0044), NSCLC adeno (P0048), NSCLC squam (P0053)      |
+|   Forearm sarcoma (P0045,P0055), Meningioma (P0046), Ped AML (P0047)       |
+|   Parotid (P0049), HCC (P0050,P0056), Ped osteosarcoma (P0051)             |
+|   Liver mets colorectal (P0052), Brain mets (P0054)                        |
+|   Femur osteosarcoma (P0057), Ped ALL (P0058)                              |
 |                                                                            |
-| Wait times: avg 8 min (range 5-10 min, queue 2-3 at peak)               |
-| Max concurrent patients on-site: ~28                                      |
+| Wait times: avg 8 min (range 5-10 min, queue 2-3 at peak)                  |
+| Max concurrent patients on-site: ~28                                       |
 +============================================================================+
