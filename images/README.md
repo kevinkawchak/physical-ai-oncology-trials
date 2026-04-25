@@ -44,36 +44,36 @@ The visualization pipeline follows a human + AI collaborative workflow:
 
 ```
  ┌───────────────────────────────────────────────────────────────────┐
- │                    HUMAN-AUTHORED PROMPTS                        │
- │                                                                  │
- │  plan.md ──► 30 instruction outlines (chart types, data goals)   │
- │  1st.md  ──► Instructions 1–10  (top portion = human prompt)     │
- │  2nd.md  ──► Instructions 11–20 (top portion = human prompt)     │
- │  3rd.md  ──► Instructions 21–30 (top portion = human prompt)     │
+ │                    HUMAN-AUTHORED PROMPTS                         │
+ │                                                                   │
+ │  plan.md ──► 30 instruction outlines (chart types, data goals)    │
+ │  1st.md  ──► Instructions 1–10  (top portion = human prompt)      │
+ │  2nd.md  ──► Instructions 11–20 (top portion = human prompt)      │
+ │  3rd.md  ──► Instructions 21–30 (top portion = human prompt)      │
  └────────────────────────┬──────────────────────────────────────────┘
                           │
                           ▼
  ┌───────────────────────────────────────────────────────────────────┐
- │              AI RECOMMENDATIONS (Claude Code Plan Mode)          │
- │                                                                  │
- │  Claude Code reads the repository in plan mode, then:            │
- │  • Identifies relevant source files and data tables              │
- │  • Recommends chart types, axis labels, color schemes            │
- │  • Extracts metrics from results.md, configs, and Python modules │
- │  • Produces detailed per-chart specifications                    │
- │  (bottom portions of 1st.md, 2nd.md, 3rd.md)                    │
+ │              AI RECOMMENDATIONS (Claude Code Plan Mode)           │
+ │                                                                   │
+ │  Claude Code reads the repository in plan mode, then:             │
+ │  • Identifies relevant source files and data tables               │
+ │  • Recommends chart types, axis labels, color schemes             │
+ │  • Extracts metrics from results.md, configs, and Python modules  │
+ │  • Produces detailed per-chart specifications                     │
+ │  (bottom portions of 1st.md, 2nd.md, 3rd.md)                      │
  └────────────────────────┬──────────────────────────────────────────┘
                           │
                           ▼
  ┌───────────────────────────────────────────────────────────────────┐
- │                   GENERATION PIPELINE                            │
- │                                                                  │
- │  Python (.py) ──► Plotly figures ──► HTML (interactive)          │
- │                                  └──► PNG  (static, 1920x1080)  │
- │                                                                  │
- │  Each .py script produces:                                       │
- │    • 1 light-mode HTML + 1 dark-mode HTML                        │
- │    • 1 light-mode PNG  + 1 dark-mode PNG  (@2x resolution)      │
+ │                   GENERATION PIPELINE                             │
+ │                                                                   │
+ │  Python (.py) ──► Plotly figures ──► HTML (interactive)           │
+ │                                  └──► PNG  (static, 1920x1080)    │
+ │                                                                   │
+ │  Each .py script produces:                                        │
+ │    • 1 light-mode HTML + 1 dark-mode HTML                         │
+ │    • 1 light-mode PNG  + 1 dark-mode PNG  (@2x resolution)        │
  └───────────────────────────────────────────────────────────────────┘
 ```
 
