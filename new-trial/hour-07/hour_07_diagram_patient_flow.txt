@@ -1,129 +1,129 @@
 +============================================================================+
-|              PATIENT FLOW DIAGRAM - Hour 07: 07:00-07:59                  |
-|  Released on 23 March 2026 | CEO Kevin Kawchak | ChemicalQDevice         |
-|  Refs: ICH E6(R3), 21 CFR 50, 21 CFR 312                                |
-|  USL: DOI 10.5281/zenodo.18778220 | DOI 10.5281/zenodo.19119939          |
+|              PATIENT FLOW DIAGRAM - Hour 07: 07:00-07:59                   |
+|  Released on 23 March 2026 | CEO Kevin Kawchak | ChemicalQDevice           |
+|  Refs: ICH E6(R3), 21 CFR 50, 21 CFR 312                                   |
+|  USL: DOI 10.5281/zenodo.18778220 | DOI 10.5281/zenodo.19119939            |
 +============================================================================+
 |                                                                            |
-| TIME  ENTRANCE    CHECK-IN     WAITING     PROCEDURE    RECOVERY  EXIT    |
-| ----  --------    --------     -------     ---------    --------  ----    |
+| TIME  ENTRANCE    CHECK-IN     WAITING     PROCEDURE    RECOVERY  EXIT     |
+| ----  --------    --------     -------     ---------    --------  ----     |
 |                                                                            |
-| 07:00 [SHIFT CHANGE: SSO-D1 replaces SSO-N1]                             |
-|   |                                         [P0022:Abl1:STEER-01]        |
-|   |                              [P0005:PedPlay3:COMPN-03 companion]     |
-|   |                                                    [P0003:RecBay3]   |
-|   |                                                                       |
-| 07:05 P0024 ---> [Kiosk-1] --+                                           |
-|   |    (59M,med)   07:05      |                                           |
-|   |                           +--> [Pre-Op Suite]                        |
-|   |                                    |                                  |
-| 07:08 P0025 ---> [Kiosk-2] --+        |                                  |
-|   |    (14F,ALL)   07:08      |        |                                  |
-|   |                           +--> [Ped Wait]                            |
-|   |                                    |                                  |
-| 07:10                         [P0024: cefazolin 2g IV pre-op]            |
-|   |                                    |                                  |
-| 07:15 P0026 ---> [Kiosk-3] --+   [P0003: DISCHARGED] --------> EXIT     |
-|   |    (66M,GBM)   07:15     |        |                                  |
-|   |                          +--> [Adult Wait]                           |
-|   |                                   |    [P0025 --> Play2:COMPN-02]    |
-|   |                                   |                                  |
-| 07:20 P0027 ---> [Kiosk-1] --+       |                                  |
-|   |    (41F,sarc)  07:20      |  [P0024: anesthesia prep begins]        |
-|   |                          +--> [Adult Wait]                           |
-|   |                                   |                                  |
-| 07:25                            [P0026 --> Vault3:RTPOS-03 CT sim]     |
-|   |                              [P0022: ablation energy complete]       |
-|   |                              [P0027 --> Wait]                        |
-|   |                                   |                                  |
-| 07:28 P0028 ---> [Kiosk-2] --+       |                                  |
-|   |    (53M,NSCLC) 07:28      |  [P0027 --> Stn4:COBOT-04 biopsy]      |
-|   |                          +--> [Adult Wait]                           |
-|   |                                   |                                  |
-| 07:30                            [P0005: companion done, to infusion]   |
-|   |                              [P0028 --> Wait]                        |
-|   |                                                                       |
-| 07:35 P0029 ---> [Kiosk-3] --+  [P0024: draping, SURG-01 positioned]   |
-|   |    (77F,CRC)   07:35      |  [P0005: vincristine/pred infusion]     |
-|   |                          +--> [ImgBay2:IMAGE-02]                    |
-|   |                              [P0028 --> Vault2:TRACK-01 RT]         |
-|   |                                   |                                  |
-| 07:40                            [P0024 SURGERY BEGINS - SURG-01]       |
-|   |                              [P0024: port 1 placed, 5th interc]     |
-|   |                                   |                                  |
-| 07:42 P0030 ---> [Kiosk-1] --+  [P0024: port 2 placed]                 |
-|   |    (9M,osteo)  07:42      |       |                                  |
-|   |                          +--> [Ped Wait]                            |
-|   |                                   |                                  |
-| 07:44                            [P0024: port 3 placed]                 |
-|   |                                   |                                  |
-| 07:45                       *AE* [P0029: NAUSEA Grade 1 - paused]       |
-|   |                              [P0024: camera in, AI overlay on]      |
-|   |                              [P0028: field 1 complete (1.0 Gy)]     |
-|   |                                   |                                  |
-| 07:46                            [P0029: ondansetron 4 mg IV]           |
-|   |                                   |                                  |
-| 07:48                            [P0030 --> Therapy2:HUMAN-02 PT]       |
-|   |                              [P0024: dissection begins]             |
-|   |                                   |                                  |
-| 07:50 P0031 ---> [Kiosk-2] --+  [P0029: nausea resolved, imaging on]   |
-|   |    (62F,parot) 07:50      |  [P0027: biopsy done --> Observation]   |
-|   |                          +--> [CT Suite 2]                          |
-|   |                              [P0028: field 2 complete (0.6 Gy)]     |
-|   |                                   |                                  |
-| 07:52                            [P0029: lesion mapped 2.1 cm seg VI]   |
-|   |                              [P0024: superior pole dissection]      |
-|   |                                   |                                  |
-| 07:54                            [P0028: field 3 complete (2.0 Gy)]     |
-|   |                                   |                                  |
-| 07:55                            [P0029: imaging done --> Abl2:STEER-02]|
-|   |                              [P0026: RT pos done, mask removed]     |
-|   |                              [P0031: NEEDLE-02 active, plan CT]     |
-|   |                                   |                                  |
-| 07:58                       [P0028: DISCHARGED] --------> EXIT          |
-|   |                         [P0026: DISCHARGED] --------> EXIT          |
-|   |                         [P0024: neural mapping, RLN preserved]      |
-|   |                                   |                                  |
-| 07:59                                                                     |
-|   |   CONTINUING INTO HOUR 08:                                           |
-|   |   - P0024: surgery (67 min remaining)                                |
-|   |   - P0025: companion session                                         |
-|   |   - P0029: steerable needle prep (STEER-02)                         |
-|   |   - P0030: humanoid PT                                               |
-|   |   - P0031: needle biopsy (NEEDLE-02)                                |
+| 07:00 [SHIFT CHANGE: SSO-D1 replaces SSO-N1]                               |
+|   |                                         [P0022:Abl1:STEER-01]          |
+|   |                              [P0005:PedPlay3:COMPN-03 companion]       |
+|   |                                                    [P0003:RecBay3]     |
+|   |                                                                        |
+| 07:05 P0024 ---> [Kiosk-1] --+                                             |
+|   |    (59M,med)   07:05      |                                            |
+|   |                           +--> [Pre-Op Suite]                          |
+|   |                                    |                                   |
+| 07:08 P0025 ---> [Kiosk-2] --+        |                                    |
+|   |    (14F,ALL)   07:08      |        |                                   |
+|   |                           +--> [Ped Wait]                              |
+|   |                                    |                                   |
+| 07:10                         [P0024: cefazolin 2g IV pre-op]              |
+|   |                                    |                                   |
+| 07:15 P0026 ---> [Kiosk-3] --+   [P0003: DISCHARGED] --------> EXIT        |
+|   |    (66M,GBM)   07:15     |        |                                    |
+|   |                          +--> [Adult Wait]                             |
+|   |                                   |    [P0025 --> Play2:COMPN-02]      |
+|   |                                   |                                    |
+| 07:20 P0027 ---> [Kiosk-1] --+       |                                     |
+|   |    (41F,sarc)  07:20      |  [P0024: anesthesia prep begins]           |
+|   |                          +--> [Adult Wait]                             |
+|   |                                   |                                    |
+| 07:25                            [P0026 --> Vault3:RTPOS-03 CT sim]        |
+|   |                              [P0022: ablation energy complete]         |
+|   |                              [P0027 --> Wait]                          |
+|   |                                   |                                    |
+| 07:28 P0028 ---> [Kiosk-2] --+       |                                     |
+|   |    (53M,NSCLC) 07:28      |  [P0027 --> Stn4:COBOT-04 biopsy]          |
+|   |                          +--> [Adult Wait]                             |
+|   |                                   |                                    |
+| 07:30                            [P0005: companion done, to infusion]      |
+|   |                              [P0028 --> Wait]                          |
+|   |                                                                        |
+| 07:35 P0029 ---> [Kiosk-3] --+  [P0024: draping, SURG-01 positioned]       |
+|   |    (77F,CRC)   07:35      |  [P0005: vincristine/pred infusion]        |
+|   |                          +--> [ImgBay2:IMAGE-02]                       |
+|   |                              [P0028 --> Vault2:TRACK-01 RT]            |
+|   |                                   |                                    |
+| 07:40                            [P0024 SURGERY BEGINS - SURG-01]          |
+|   |                              [P0024: port 1 placed, 5th interc]        |
+|   |                                   |                                    |
+| 07:42 P0030 ---> [Kiosk-1] --+  [P0024: port 2 placed]                     |
+|   |    (9M,osteo)  07:42      |       |                                    |
+|   |                          +--> [Ped Wait]                               |
+|   |                                   |                                    |
+| 07:44                            [P0024: port 3 placed]                    |
+|   |                                   |                                    |
+| 07:45                       *AE* [P0029: NAUSEA Grade 1 - paused]          |
+|   |                              [P0024: camera in, AI overlay on]         |
+|   |                              [P0028: field 1 complete (1.0 Gy)]        |  
+|   |                                   |                                    |
+| 07:46                            [P0029: ondansetron 4 mg IV]              |
+|   |                                   |                                    |
+| 07:48                            [P0030 --> Therapy2:HUMAN-02 PT]          |
+|   |                              [P0024: dissection begins]                |
+|   |                                   |                                    |
+| 07:50 P0031 ---> [Kiosk-2] --+  [P0029: nausea resolved, imaging on]       |
+|   |    (62F,parot) 07:50      |  [P0027: biopsy done --> Observation]      |
+|   |                          +--> [CT Suite 2]                             |
+|   |                              [P0028: field 2 complete (0.6 Gy)]        |
+|   |                                   |                                    |
+| 07:52                            [P0029: lesion mapped 2.1 cm seg VI]      |
+|   |                              [P0024: superior pole dissection]         |
+|   |                                   |                                    |
+| 07:54                            [P0028: field 3 complete (2.0 Gy)]        |
+|   |                                   |                                    |
+| 07:55                            [P0029: imaging done --> Abl2:STEER-02]   |
+|   |                              [P0026: RT pos done, mask removed]        |
+|   |                              [P0031: NEEDLE-02 active, plan CT]        |
+|   |                                   |                                    |
+| 07:58                       [P0028: DISCHARGED] --------> EXIT             |
+|   |                         [P0026: DISCHARGED] --------> EXIT             |
+|   |                         [P0024: neural mapping, RLN preserved]         |
+|   |                                   |                                    |
+| 07:59                                                                      |
+|   |   CONTINUING INTO HOUR 08:                                             |
+|   |   - P0024: surgery (67 min remaining)                                  |
+|   |   - P0025: companion session                                           |
+|   |   - P0029: steerable needle prep (STEER-02)                            |
+|   |   - P0030: humanoid PT                                                 |
+|   |   - P0031: needle biopsy (NEEDLE-02)                                   |
 |                                                                            |
 +============================================================================+
-| PATIENT FLOW SUMMARY - Hour 07                                            |
+| PATIENT FLOW SUMMARY - Hour 07                                             |
 |                                                                            |
-| Arrivals: 8 patients                                                      |
-|   PAT-ODMND-0024 (59M, Mediastinal)  --> Surgery (SURG-01) in progress   |
-|   PAT-ODMND-0025 (14F, Pedi ALL)     --> Companion (COMPN-02) ongoing    |
-|   PAT-ODMND-0026 (66M, GBM)          --> RT Positioning --> Discharged   |
-|   PAT-ODMND-0027 (41F, Sarcoma)      --> Cobot biopsy --> Observation    |
-|   PAT-ODMND-0028 (53M, NSCLC)        --> RT Tracking --> Discharged      |
-|   PAT-ODMND-0029 (77F, CRC liver)    --> Imaging (AE!) --> Steer prep    |
-|   PAT-ODMND-0030 (9M, Osteosarcoma)  --> Humanoid PT ongoing             |
-|   PAT-ODMND-0031 (62F, Parotid)      --> Needle biopsy in progress       |
+| Arrivals: 8 patients                                                       |
+|   PAT-ODMND-0024 (59M, Mediastinal)  --> Surgery (SURG-01) in progress     |
+|   PAT-ODMND-0025 (14F, Pedi ALL)     --> Companion (COMPN-02) ongoing      |
+|   PAT-ODMND-0026 (66M, GBM)          --> RT Positioning --> Discharged     |
+|   PAT-ODMND-0027 (41F, Sarcoma)      --> Cobot biopsy --> Observation      |
+|   PAT-ODMND-0028 (53M, NSCLC)        --> RT Tracking --> Discharged        |
+|   PAT-ODMND-0029 (77F, CRC liver)    --> Imaging (AE!) --> Steer prep      |
+|   PAT-ODMND-0030 (9M, Osteosarcoma)  --> Humanoid PT ongoing               |
+|   PAT-ODMND-0031 (62F, Parotid)      --> Needle biopsy in progress         |
 |                                                                            |
-| Departures: 3 patients                                                    |
-|   PAT-ODMND-0003 (61M, Mediastinal)  --> Discharged 07:15 (recovery)    |
-|   PAT-ODMND-0026 (66M, GBM)          --> Discharged 07:58 (CT sim done) |
-|   PAT-ODMND-0028 (53M, NSCLC)        --> Discharged 07:58 (RT done)     |
+| Departures: 3 patients                                                     |
+|   PAT-ODMND-0003 (61M, Mediastinal)  --> Discharged 07:15 (recovery)       |
+|   PAT-ODMND-0026 (66M, GBM)          --> Discharged 07:58 (CT sim done)    |
+|   PAT-ODMND-0028 (53M, NSCLC)        --> Discharged 07:58 (RT done)        |
 |                                                                            |
-| Continuing: P0005 (infusion), P0022 (recovery), + prior hour patients    |
+| Continuing: P0005 (infusion), P0022 (recovery), + prior hour patients      |
 |                                                                            |
-| Adverse events: 1 (P0029, Grade 1 nausea, 07:45, resolved 07:50)        |
+| Adverse events: 1 (P0029, Grade 1 nausea, 07:45, resolved 07:50)           |
 |                                                                            |
-| Cancer types active this hour: 8                                          |
-|   Mediastinal tumor (P0003 disch, P0024 surgery)                         |
-|   Pediatric ALL (P0005 chemo, P0025 companion)                           |
-|   Glioblastoma (P0026 RT positioning)                                    |
-|   Forearm sarcoma (P0027 biopsy)                                         |
-|   NSCLC adenocarcinoma (P0028 RT)                                        |
-|   Liver mets colorectal (P0029 imaging + steerable needle)               |
-|   Pediatric osteosarcoma (P0030 humanoid PT)                             |
-|   Parotid tumor (P0031 needle biopsy)                                    |
+| Cancer types active this hour: 8                                           |
+|   Mediastinal tumor (P0003 disch, P0024 surgery)                           |
+|   Pediatric ALL (P0005 chemo, P0025 companion)                             |
+|   Glioblastoma (P0026 RT positioning)                                      |
+|   Forearm sarcoma (P0027 biopsy)                                           |
+|   NSCLC adenocarcinoma (P0028 RT)                                          |
+|   Liver mets colorectal (P0029 imaging + steerable needle)                 |
+|   Pediatric osteosarcoma (P0030 humanoid PT)                               |
+|   Parotid tumor (P0031 needle biopsy)                                      |
 |                                                                            |
-| Wait times: P0024=3m P0026=5m P0027=5m P0028=4m P0029=3m P0030=3m       |
-| Average wait: 3.8 minutes                                                |
+| Wait times: P0024=3m P0026=5m P0027=5m P0028=4m P0029=3m P0030=3m          |
+| Average wait: 3.8 minutes                                                  |
 +============================================================================+
