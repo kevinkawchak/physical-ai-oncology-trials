@@ -1,96 +1,96 @@
 +============================================================================+
-|              PATIENT FLOW DIAGRAM - Hour 04: 04:00-04:59                  |
+|              PATIENT FLOW DIAGRAM - Hour 04: 04:00-04:59                   |
 +============================================================================+
 |                                                                            |
-| TIME  ENTRANCE    CHECK-IN     WAITING     PROCEDURE    RECOVERY  EXIT    |
-| ----  --------    --------     -------     ---------    --------  ----    |
+| TIME  ENTRANCE    CHECK-IN     WAITING     PROCEDURE    RECOVERY  EXIT     |
+| ----  --------    --------     -------     ---------    --------  ----     |
 |                                                                            |
-| 04:00                                                   [P0003:RecBay3]   |
-|   |                                                     [P0005:PedWard]   |
-|   |                                                     [P0008:RecBay8]   |
-|   |                                                     [P0009:RecBay6]   |
-|   |                                                                       |
-| 04:05                                                   [P0003:RecBay3]   |
-|   |                                                     [P0005:PedWard]   |
-|   |                                                     [P0008:Discharged]|
-|   |                                                          ---> EXIT    |
-|   |                                                                       |
-| 04:10 P0010 ---> [Kiosk-1] --+                          [P0003:RecBay3]  |
-|   |   (Parotid)    04:10     |                          [P0009:RecBay6]  |
-|   |                          |                                            |
-| 04:11                        +--> [Adult Wait]                            |
-|   |                                    |                                  |
-| 04:14                                  |                                  |
-|   |                                    |                                  |
-| 04:15                                  +--> [CT Suite 1: NEEDLE-01]      |
-|   |                                         CT-Guided Needle Biopsy       |
-|   |                                         PAT-ODMND-0010               |
-|   |                                         Parotid FNA                   |
-| 04:20                                       |           [P0009:Discharged]|
-|   |                                         |                ---> EXIT    |
-|   |                                         |                             |
-| 04:25 P0011 ---> [Kiosk-2] --+              |                             |
-|   |    (HCC)      04:25      |              |                             |
-|   |                          |              |                             |
-| 04:26                        +--> [Adult Wait]                            |
-|   |                                    |    |                             |
-| 04:30                                  |    |                             |
-|   |                               +----+    |                             |
-|   |                               |         |                             |
-|   |                               +--> [Img Bay 1: IMAGE-01]             |
-|   |                                    Liver Ultrasound                   |
-|   |                                    PAT-ODMND-0011                     |
-|   |                                    HCC Assessment                     |
-|   |                                         |                             |
-| 04:35                                       |    |                        |
-|   |                                         |    |                        |
-| 04:40                                  [P0010 Complete]                   |
+| 04:00                                                   [P0003:RecBay3]    |
+|   |                                                     [P0005:PedWard]    |
+|   |                                                     [P0008:RecBay8]    |
+|   |                                                     [P0009:RecBay6]    |
+|   |                                                                        |
+| 04:05                                                   [P0003:RecBay3]    |
+|   |                                                     [P0005:PedWard]    |
+|   |                                                     [P0008:Discharged] |
+|   |                                                          ---> EXIT     |
+|   |                                                                        |
+| 04:10 P0010 ---> [Kiosk-1] --+                          [P0003:RecBay3]    |
+|   |   (Parotid)    04:10     |                          [P0009:RecBay6]    |
+|   |                          |                                             |
+| 04:11                        +--> [Adult Wait]                             |
+|   |                                    |                                   |
+| 04:14                                  |                                   |
+|   |                                    |                                   |
+| 04:15                                  +--> [CT Suite 1: NEEDLE-01]        |
+|   |                                         CT-Guided Needle Biopsy        |
+|   |                                         PAT-ODMND-0010                 |
+|   |                                         Parotid FNA                    |
+| 04:20                                       |           [P0009:Discharged] |
+|   |                                         |                ---> EXIT     |
+|   |                                         |                              |
+| 04:25 P0011 ---> [Kiosk-2] --+              |                              |
+|   |    (HCC)      04:25      |              |                              |
+|   |                          |              |                              |
+| 04:26                        +--> [Adult Wait]                             |
+|   |                                    |    |                              |
+| 04:30                                  |    |                              |
+|   |                               +----+    |                              |
+|   |                               |         |                              |
+|   |                               +--> [Img Bay 1: IMAGE-01]               |
+|   |                                    Liver Ultrasound                    |
+|   |                                    PAT-ODMND-0011                      |
+|   |                                    HCC Assessment                      |
+|   |                                         |                              |
+| 04:35                                       |    |                         |
+|   |                                         |    |                         |
+| 04:40                                  [P0010 Complete]                    |
 |   |                                    P0010 --> Recovery Bay 5            |
-|   |                                         |                             |
-| 04:45                                  [P0011 Complete]                   |
-|   |   P0012 ---> [Kiosk-3] --+         P0011 --> Post-imaging obs         |
-|   |   (Osteo)     04:45      |                                            |
-|   |                          |                                            |
-| 04:46                        +--> [Adult Wait]                            |
-|   |                                    |                                  |
-| 04:49                                  |                                  |
-|   |                                    |                                  |
-| 04:50                                  +--> [Rehab Bay 1: REHAB-01]      |
-|   |                                         Exoskeleton Walking           |
-|   |                                         PAT-ODMND-0012               |
-|   |                                         Gait Rehab 0.3 m/s           |
-| 04:55                                       |                             |
-|   |                                         |                             |
-| 04:59                                       | (continues to 05:10)       |
-|   |                                         |                             |
+|   |                                         |                              |
+| 04:45                                  [P0011 Complete]                    |
+|   |   P0012 ---> [Kiosk-3] --+         P0011 --> Post-imaging obs          |
+|   |   (Osteo)     04:45      |                                             |
+|   |                          |                                             |
+| 04:46                        +--> [Adult Wait]                             |
+|   |                                    |                                   |
+| 04:49                                  |                                   |
+|   |                                    |                                   |
+| 04:50                                  +--> [Rehab Bay 1: REHAB-01]        |
+|   |                                         Exoskeleton Walking            |
+|   |                                         PAT-ODMND-0012                 |
+|   |                                         Gait Rehab 0.3 m/s             |
+| 04:55                                       |                              |
+|   |                                         |                              |
+| 04:59                                       | (continues to 05:10)         |
+|   |                                         |                              |
 |                                                                            |
 +============================================================================+
-| PATIENT FLOW SUMMARY - Hour 04                                            |
+| PATIENT FLOW SUMMARY - Hour 04                                             |
 |                                                                            |
-| Arrivals: 3 patients                                                      |
-|   PAT-ODMND-0010 (55M, Parotid) --> Needle Biopsy  --> Recovery Bay 5    |
-|   PAT-ODMND-0011 (48F, HCC)     --> Liver Imaging  --> Post-imaging obs  |
-|   PAT-ODMND-0012 (63M, Osteo)   --> Rehab Walking  --> In progress       |
+| Arrivals: 3 patients                                                       |
+|   PAT-ODMND-0010 (55M, Parotid) --> Needle Biopsy  --> Recovery Bay 5      |
+|   PAT-ODMND-0011 (48F, HCC)     --> Liver Imaging  --> Post-imaging obs    |
+|   PAT-ODMND-0012 (63M, Osteo)   --> Rehab Walking  --> In progress         |
 |                                                                            |
-| Departures: 2 patients                                                    |
-|   PAT-ODMND-0008 (72M, Brain mets) --> Discharged 04:05 (post-RT obs)   |
-|   PAT-ODMND-0009 (34F, Sarcoma)    --> Discharged 04:20 (post-biopsy)    |
+| Departures: 2 patients                                                     |
+|   PAT-ODMND-0008 (72M, Brain mets) --> Discharged 04:05 (post-RT obs)      |
+|   PAT-ODMND-0009 (34F, Sarcoma)    --> Discharged 04:20 (post-biopsy)      |
 |                                                                            |
-| Continuing patients: 2 (P0003 recovery, P0005 pediatric ward)            |
+| Continuing patients: 2 (P0003 recovery, P0005 pediatric ward)              |
 |                                                                            |
-| Cancer types active this hour:                                            |
-|   Mediastinal tumor (P0003) - post-surgical recovery                      |
-|   Pediatric ALL (P0005) - overnight monitoring                            |
-|   Brain metastases (P0008) - discharged post-RT                           |
-|   Sarcoma (P0009) - discharged post-biopsy                                |
-|   Parotid tumor (P0010) - needle biopsy                                   |
-|   HCC (P0011) - liver imaging                                             |
-|   Femur osteosarcoma (P0012) - rehabilitation                             |
+| Cancer types active this hour:                                             |
+|   Mediastinal tumor (P0003) - post-surgical recovery                       |
+|   Pediatric ALL (P0005) - overnight monitoring                             |
+|   Brain metastases (P0008) - discharged post-RT                            |
+|   Sarcoma (P0009) - discharged post-biopsy                                 |
+|   Parotid tumor (P0010) - needle biopsy                                    |
+|   HCC (P0011) - liver imaging                                              |
+|   Femur osteosarcoma (P0012) - rehabilitation                              |
 |                                                                            |
-| Wait times: P0010 = 5 min, P0011 = 5 min, P0012 = 5 min                 |
-| Average wait: 5.0 minutes                                                 |
+| Wait times: P0010 = 5 min, P0011 = 5 min, P0012 = 5 min                    |
+| Average wait: 5.0 minutes                                                  |
 |                                                                            |
-| End-of-hour census: 5 patients on-site                                   |
-|   P0003 (recovery), P0005 (pediatric), P0010 (post-biopsy obs),          |
-|   P0011 (post-imaging obs), P0012 (active rehab session)                  |
+| End-of-hour census: 5 patients on-site                                     |
+|   P0003 (recovery), P0005 (pediatric), P0010 (post-biopsy obs),            |
+|   P0011 (post-imaging obs), P0012 (active rehab session)                   |
 +============================================================================+
