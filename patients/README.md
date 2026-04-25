@@ -53,7 +53,7 @@ Each of the 10 pages follows a consistent structure:
 | 3. What to do to conclude the session (recovery, timing)      |  <- (e) Step 3
 +---------------------------------------------------------------+
 | Sources: [Link] | For Demonstration Purposes Only             |  <- (f) Footer
-| March 1, 2026 | DOI: 10.5281/zenodo.18810541 | ChatGPT | Pg  |
+| March 1, 2026 | DOI: 10.5281/zenodo.18810541 | ChatGPT | Pg   |
 +---------------------------------------------------------------+
 ```
 
