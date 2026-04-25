@@ -1,130 +1,130 @@
 +============================================================================+
-|              PATIENT FLOW DIAGRAM - Hour 11: 11:00-11:59                  |
-|                Peak Continues - 13 Arrivals, 7 Departures                 |
+|              PATIENT FLOW DIAGRAM - Hour 11: 11:00-11:59                   |
+|                Peak Continues - 13 Arrivals, 7 Departures                  |
 +============================================================================+
 |                                                                            |
-| TIME  ENTRANCE    CHECK-IN     WAITING     PROCEDURE    RECOVERY  EXIT    |
-| ----  --------    --------     -------     ---------    --------  ----    |
+| TIME  ENTRANCE    CHECK-IN     WAITING     PROCEDURE    RECOVERY  EXIT     |
+| ----  --------    --------     -------     ---------    --------  ----     |
 |                                                                            |
-| 11:00 [~28 patients on-site from prior hours]                             |
-|   |   [P0065: SURG-01 ongoing]                                            |
-|   |   [P0044: surgery completes -> Recovery Bay 4]                        |
-|   |                                                                       |
-| 11:00 P0073 ---> [Kiosk-1] --+                                           |
-|   |   (64M,NSCLC  11:00     |                                            |
-|   |    adenoCA)              |                                            |
-| 11:02                        +--> [Adult Wait]                            |
-|   |                                    |                                  |
-| 11:05 P0074 ---> [Kiosk-2] --+        |                                  |
-|   |   (45F,Forearm 11:05     |        |                                  |
-|   |    sarcoma II)           |        |                                  |
-| 11:07                        +--> [Adult Wait]                            |
-|   |                                    |                                  |
-| 11:08 P0075 ---> [Kiosk-3] --+        +--> [Vault 2: TRACK-02]          |
-|   |   (69M,Menin  11:08     |              P0073 RT fraction             |
-|   |    gioma I)              |                                            |
-| 11:10                        +--> [Adult Wait]                            |
-|   |                                    |                                  |
-| 11:12 P0076 ---> [Ped Kiosk] |        +--> [Biopsy Stn 3: COBOT-03]     |
-|   |   (8F,Pedi    11:12     |              P0074 forearm sarcoma biopsy  |
-|   |    ALL, w/mom)           |                                            |
-| 11:14                        |        +--> [Vault 3: RTPOS-03]           |
-|   |                          |              P0075 meningioma stereo RT   |
-|   |                          |                                            |
-| 11:15                        |        +--> [Play 4: COMPN-04]            |
-|   |                          |              P0076 companion session      |
-| 11:16 P0077 ---> [Kiosk-1] --+                                           |
-|   |   (52M,Parotid 11:16    |                                            |
-|   |    tumor II)             |                                            |
-| 11:18                        +--> [Adult Wait]                            |
-|   |                                    |                                  |
-| 11:20 P0078 ---> [Kiosk-2] --+        +--> [CT Suite 2: NEEDLE-02]      |
-|   |   (60F,HCC    11:20     |              P0077 parotid FNA             |
-|   |    Stage II)             |                                            |
-| 11:22                        +--> [Adult Wait]                            |
-|   |                                    |                                  |
-| 11:24 P0079 ---> [Kiosk-3] --+        |                                  |
-|   |   (57M,Medias  11:24    |        |                                  |
-|   |    tinal III)            |        |                                  |
-| 11:26                        +--> [Pre-Op]                               |
-|   |   [P0073 RT complete]    |        +--> [Img Bay 4: IMAGE-04]         |
-|   |                          |              P0078 HCC liver US           |
-| 11:28 P0080 ---> [Ped Kiosk] |                                           |
-|   |   (11F,Pedi   11:28     |                                            |
-|   |    osteosarc)            |                                            |
-| 11:30 P0073 discharged ----> EXIT                                         |
-|   |   P0079: Pembrolizumab complete --> [Suite 2: SURG-02]               |
-|   |                          |              P0079 mediastinal debulking  |
-| 11:32 P0081 ---> [Kiosk-1] --+   P0074 discharged ----> EXIT             |
-|   |   (76M,Liver  11:32     |                                            |
-|   |    mets IV)              |                                            |
-| 11:34                        +--> [Adult Wait]                            |
-|   |                                    |                                  |
-| 11:36 P0082 ---> [Kiosk-2] --+        +--> [Therapy 3: HUMAN-03]        |
-|   |   (48F,NSCLC  11:36     |              P0080 mobility assessment    |
-|   |    squamous)             |                                            |
-| 11:38                        +--> [Adult Wait]                            |
-|   |   [P0075 RT complete]    |                                            |
-| 11:40 P0083 ---> [Kiosk-3] --+        +--> [Ablation 2: STEER-02]       |
-|   |   (36M,Forearm 11:40    |              P0081 steerable needle abl   |
-|   |    sarcoma I)            |                                            |
-| 11:42 P0075 discharged ----> EXIT                                         |
-|   |                          |                                            |
-| 11:44 P0084 ---> [Kiosk-1] --+        +--> [Vault 1: TRACK-03]          |
-|   |   (72F,Brain  11:44     |              P0082 NSCLC RT fraction      |
-|   |    mets IV)              |                                            |
-| 11:45                        |        **AE-011-001: P0081 pain 7/10**    |
-|   |                          |        STEER-02 needle halted, lidocaine  |
-| 11:46 P0078 discharged ----> EXIT                                         |
-|   |                          |                                            |
-| 11:48 P0085 ---> [Kiosk-2] --+        +--> [Biopsy Stn 4: COBOT-04]    |
-|   |   (65M,Femur  11:48     |              P0083 forearm biopsy         |
-|   |    osteosarc)            |   P0077 discharged ----> EXIT              |
-| 11:50                        |        P0081 AE resolved, procedure      |
-|   |                          |        resumed at 11:50                    |
-| 11:52                        |        +--> [Vault 1: RTPOS-01]          |
-|   |                          |              P0084 brain mets mask fit   |
-| 11:55                        |   [P0076 companion session complete]      |
-|   |                          |                                            |
-| 11:56                        |        +--> [Rehab Bay 1: REHAB-01]      |
-|   |                          |              P0080 exoskeleton gait      |
-|   |                          |        +--> [Rehab Bay 2: REHAB-02]      |
-|   |                          |              P0085 exoskeleton eval      |
-| 11:58                        |   P0081 procedure complete --> Recovery   |
-|   |                          |                                            |
-| 11:59 [End of hour snapshot]                                              |
-|   |   ACTIVE: P0065(SURG-01), P0079(SURG-02), P0080(REHAB-01),          |
-|   |           P0082(TRACK-03), P0083(COBOT-04), P0084(RTPOS-01),         |
-|   |           P0085(REHAB-02)                                             |
-|   |   RECOVERY: P0044, P0081, + morning wave carryovers                  |
+| 11:00 [~28 patients on-site from prior hours]                              |
+|   |   [P0065: SURG-01 ongoing]                                             |
+|   |   [P0044: surgery completes -> Recovery Bay 4]                         |
+|   |                                                                        |
+| 11:00 P0073 ---> [Kiosk-1] --+                                             |
+|   |   (64M,NSCLC  11:00     |                                              |
+|   |    adenoCA)              |                                             |
+| 11:02                        +--> [Adult Wait]                             |
+|   |                                    |                                   |
+| 11:05 P0074 ---> [Kiosk-2] --+        |                                    |
+|   |   (45F,Forearm 11:05     |        |                                    |
+|   |    sarcoma II)           |        |                                    |
+| 11:07                        +--> [Adult Wait]                             |
+|   |                                    |                                   |
+| 11:08 P0075 ---> [Kiosk-3] --+        +--> [Vault 2: TRACK-02]             |
+|   |   (69M,Menin  11:08     |              P0073 RT fraction               |
+|   |    gioma I)              |                                             |
+| 11:10                        +--> [Adult Wait]                             |
+|   |                                    |                                   |
+| 11:12 P0076 ---> [Ped Kiosk] |        +--> [Biopsy Stn 3: COBOT-03]        |
+|   |   (8F,Pedi    11:12     |              P0074 forearm sarcoma biopsy    |
+|   |    ALL, w/mom)           |                                             |
+| 11:14                        |        +--> [Vault 3: RTPOS-03]             |
+|   |                          |              P0075 meningioma stereo RT     |
+|   |                          |                                             |
+| 11:15                        |        +--> [Play 4: COMPN-04]              |
+|   |                          |              P0076 companion session        |
+| 11:16 P0077 ---> [Kiosk-1] --+                                             |
+|   |   (52M,Parotid 11:16    |                                              |
+|   |    tumor II)             |                                             |
+| 11:18                        +--> [Adult Wait]                             |
+|   |                                    |                                   |
+| 11:20 P0078 ---> [Kiosk-2] --+        +--> [CT Suite 2: NEEDLE-02]         |
+|   |   (60F,HCC    11:20     |              P0077 parotid FNA               |
+|   |    Stage II)             |                                             |
+| 11:22                        +--> [Adult Wait]                             |
+|   |                                    |                                   |
+| 11:24 P0079 ---> [Kiosk-3] --+        |                                    |
+|   |   (57M,Medias  11:24    |        |                                     |
+|   |    tinal III)            |        |                                    |
+| 11:26                        +--> [Pre-Op]                                 |
+|   |   [P0073 RT complete]    |        +--> [Img Bay 4: IMAGE-04]           |
+|   |                          |              P0078 HCC liver US             |
+| 11:28 P0080 ---> [Ped Kiosk] |                                             |
+|   |   (11F,Pedi   11:28     |                                              |
+|   |    osteosarc)            |                                             |
+| 11:30 P0073 discharged ----> EXIT                                          |
+|   |   P0079: Pembrolizumab complete --> [Suite 2: SURG-02]                 |
+|   |                          |              P0079 mediastinal debulking    |
+| 11:32 P0081 ---> [Kiosk-1] --+   P0074 discharged ----> EXIT               |
+|   |   (76M,Liver  11:32     |                                              |
+|   |    mets IV)              |                                             |
+| 11:34                        +--> [Adult Wait]                             |
+|   |                                    |                                   |
+| 11:36 P0082 ---> [Kiosk-2] --+        +--> [Therapy 3: HUMAN-03]           |
+|   |   (48F,NSCLC  11:36     |              P0080 mobility assessment       |
+|   |    squamous)             |                                             |
+| 11:38                        +--> [Adult Wait]                             |
+|   |   [P0075 RT complete]    |                                             |
+| 11:40 P0083 ---> [Kiosk-3] --+        +--> [Ablation 2: STEER-02]          |
+|   |   (36M,Forearm 11:40    |              P0081 steerable needle abl      |
+|   |    sarcoma I)            |                                             |
+| 11:42 P0075 discharged ----> EXIT                                          |
+|   |                          |                                             |
+| 11:44 P0084 ---> [Kiosk-1] --+        +--> [Vault 1: TRACK-03]             |
+|   |   (72F,Brain  11:44     |              P0082 NSCLC RT fraction         |
+|   |    mets IV)              |                                             |
+| 11:45                        |        **AE-011-001: P0081 pain 7/10**      |
+|   |                          |        STEER-02 needle halted, lidocaine    |
+| 11:46 P0078 discharged ----> EXIT                                          |
+|   |                          |                                             |
+| 11:48 P0085 ---> [Kiosk-2] --+        +--> [Biopsy Stn 4: COBOT-04]        |
+|   |   (65M,Femur  11:48     |              P0083 forearm biopsy            |
+|   |    osteosarc)            |   P0077 discharged ----> EXIT               |
+| 11:50                        |        P0081 AE resolved, procedure         |
+|   |                          |        resumed at 11:50                     |
+| 11:52                        |        +--> [Vault 1: RTPOS-01]             |
+|   |                          |              P0084 brain mets mask fit      |
+| 11:55                        |   [P0076 companion session complete]        |
+|   |                          |                                             |
+| 11:56                        |        +--> [Rehab Bay 1: REHAB-01]         |
+|   |                          |              P0080 exoskeleton gait         |
+|   |                          |        +--> [Rehab Bay 2: REHAB-02]         |
+|   |                          |              P0085 exoskeleton eval         |
+| 11:58                        |   P0081 procedure complete --> Recovery     |
+|   |                          |                                             |
+| 11:59 [End of hour snapshot]                                               |
+|   |   ACTIVE: P0065(SURG-01), P0079(SURG-02), P0080(REHAB-01),             |
+|   |           P0082(TRACK-03), P0083(COBOT-04), P0084(RTPOS-01),           |
+|   |           P0085(REHAB-02)                                              |
+|   |   RECOVERY: P0044, P0081, + morning wave carryovers                    |
 |                                                                            |
 +============================================================================+
-| PATIENT FLOW SUMMARY - Hour 11                                            |
+| PATIENT FLOW SUMMARY - Hour 11                                             |
 |                                                                            |
-| Arrivals: 13 patients (PAT-ODMND-0073 through PAT-ODMND-0085)            |
-|   P0073 (64M, NSCLC adeno) --> RT TRACK-02 --> Discharged                |
-|   P0074 (45F, forearm sarcoma) --> Biopsy COBOT-03 --> Discharged         |
-|   P0075 (69M, meningioma) --> RT pos RTPOS-03 --> Discharged              |
-|   P0076 (8F, pedi ALL) --> Companion COMPN-04 --> Ped Waiting             |
-|   P0077 (52M, parotid) --> FNA NEEDLE-02 --> Discharged                   |
-|   P0078 (60F, HCC) --> Imaging IMAGE-04 --> Discharged                    |
-|   P0079 (57M, mediastinal) --> Pembrolizumab IND --> Surgery SURG-02      |
-|   P0080 (11F, pedi osteo) --> HUMAN-03 assess --> REHAB-01 (ongoing)     |
-|   P0081 (76M, liver mets) --> STEER-02 ablation [AE Grade 2] --> Recov   |
-|   P0082 (48F, NSCLC squam) --> RT TRACK-03 (ongoing)                     |
-|   P0083 (36M, forearm sarcoma) --> Biopsy COBOT-04 (ongoing)             |
-|   P0084 (72F, brain mets) --> RT pos RTPOS-01 (ongoing)                  |
-|   P0085 (65M, femur osteo) --> Rehab REHAB-02 (ongoing)                  |
+| Arrivals: 13 patients (PAT-ODMND-0073 through PAT-ODMND-0085)              |
+|   P0073 (64M, NSCLC adeno) --> RT TRACK-02 --> Discharged                  |
+|   P0074 (45F, forearm sarcoma) --> Biopsy COBOT-03 --> Discharged          |
+|   P0075 (69M, meningioma) --> RT pos RTPOS-03 --> Discharged               |
+|   P0076 (8F, pedi ALL) --> Companion COMPN-04 --> Ped Waiting              |
+|   P0077 (52M, parotid) --> FNA NEEDLE-02 --> Discharged                    |
+|   P0078 (60F, HCC) --> Imaging IMAGE-04 --> Discharged                     |
+|   P0079 (57M, mediastinal) --> Pembrolizumab IND --> Surgery SURG-02       |
+|   P0080 (11F, pedi osteo) --> HUMAN-03 assess --> REHAB-01 (ongoing)       |
+|   P0081 (76M, liver mets) --> STEER-02 ablation [AE Grade 2] --> Recov     |
+|   P0082 (48F, NSCLC squam) --> RT TRACK-03 (ongoing)                       |
+|   P0083 (36M, forearm sarcoma) --> Biopsy COBOT-04 (ongoing)               |
+|   P0084 (72F, brain mets) --> RT pos RTPOS-01 (ongoing)                    |
+|   P0085 (65M, femur osteo) --> Rehab REHAB-02 (ongoing)                    |
 |                                                                            |
-| Departures: 5 patients                                                    |
-|   P0073 (11:30), P0074 (11:32), P0075 (11:42), P0077 (11:48),           |
-|   P0078 (11:46), plus multiple earlier carryover discharges               |
+| Departures: 5 patients                                                     |
+|   P0073 (11:30), P0074 (11:32), P0075 (11:42), P0077 (11:48),              |
+|   P0078 (11:46), plus multiple earlier carryover discharges                |
 |                                                                            |
-| Completed surgery: P0044 (11:00, 180 min total, Recovery Bay 4)          |
-| Ongoing surgery: P0065 (SURG-01), P0079 (SURG-02, started 11:35)        |
-| IND drugs: 2 (pembrolizumab P0079, lidocaine P0081)                      |
-| AE: 1 (AE-011-001, Grade 2, P0081, resolved)                            |
-| Concurrent patients at peak: ~28                                          |
-| Wait times: 3-8 min range | Average: 6.0 minutes                         |
-| Robot utilization: ~65% (19/29 instances active at peak)                  |
+| Completed surgery: P0044 (11:00, 180 min total, Recovery Bay 4)            |
+| Ongoing surgery: P0065 (SURG-01), P0079 (SURG-02, started 11:35)           |
+| IND drugs: 2 (pembrolizumab P0079, lidocaine P0081)                        |
+| AE: 1 (AE-011-001, Grade 2, P0081, resolved)                               |
+| Concurrent patients at peak: ~28                                           |
+| Wait times: 3-8 min range | Average: 6.0 minutes                           |
+| Robot utilization: ~65% (19/29 instances active at peak)                   |
 +============================================================================+
