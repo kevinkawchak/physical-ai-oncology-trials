@@ -1,146 +1,146 @@
 +============================================================================+
-|              PATIENT FLOW DIAGRAM - Hour 12: 12:00-12:59                  |
+|              PATIENT FLOW DIAGRAM - Hour 12: 12:00-12:59                   |
 +============================================================================+
 |                                                                            |
-| TIME  ENTRANCE    CHECK-IN     WAITING     PROCEDURE    RECOVERY  EXIT    |
-| ----  --------    --------     -------     ---------    --------  ----    |
+| TIME  ENTRANCE    CHECK-IN     WAITING     PROCEDURE    RECOVERY  EXIT     |
+| ----  --------    --------     -------     ---------    --------  ----     |
 |                                                                            |
-| 12:00                                      [P0065:Surg Suite 1]           |
-|   |                                        [P0079:Surg Suite 2]           |
-|   |                                                    [~14 pts in obs]   |
-|   |                                                                       |
-| 12:02 P0086 ---> [Kiosk-1] --+                                           |
-|   |    (55M SCLC  12:02     |                                            |
-|   |     Stage III)          |                                            |
-| 12:03                       +--> [Adult Wait]                             |
-|   |                                   |                                   |
-| 12:05                                 +--> [RT Vault 1: TRACK-01]        |
-|   |                                        RT motion tracking            |
-|   |                                        respiratory gating            |
-| 12:08 P0087 ---> [Kiosk-2] --+                                           |
-|   |    (42F Sarcoma 12:08    |                                           |
-|   |     Stage II)            |                                           |
-| 12:09                        +--> [Adult Wait]                            |
-|   |                                   |                                   |
-| 12:10                                 +--> [Biopsy Stn 1: COBOT-01]     |
-|   |                                P0068 --> Discharged --> EXIT          |
-|   |                                                  12:10               |
-| 12:12 P0088 ---> [Kiosk-1] --+                                           |
-|   |    (71M GBM    12:12     |                                           |
-|   |     Stage IV)            |  [IND: temozolomide dispensed]            |
-| 12:13                        +--> [Adult Wait]                            |
-|   |                                   |                                   |
-| 12:14                                 +--> [RT Vault 2: RTPOS-02]       |
-|   |                                        RT positioning/sim            |
-|   |                                        mask fitting + CT sim         |
-| 12:15                                      [P0065: Surgery COMPLETE]     |
-|   |                                        95 min, R0 resection          |
-|   |                                        P0065 --> Recovery Bay 1      |
-| 12:16 P0089 ---> [Kiosk-2] --+                                           |
-|   |    (6M Ped AML  12:16    |                                           |
-|   |     ECOG 1)              |                                           |
-| 12:17                        +--> [Ped Wait]                              |
-|   |                                   |                                   |
-| 12:18                                 +--> [Companion 5: COMPN-05]      |
-|   |                                        Pediatric AML support         |
-|   |                                        parent present                |
-| 12:20 P0090 ---> [Kiosk-1] --+                                           |
-|   |    (63F Parotid 12:20    |                                           |
-|   |     Stage I)             |                                           |
-| 12:21                        +--> [Adult Wait]                            |
-|   |                                   |                                   |
-| 12:22                                 +--> [CT Suite 1: NEEDLE-01]      |
-|   |                                        CT-guided parotid biopsy      |
-| 12:24 P0091 ---> [Kiosk-2] --+                                           |
-|   |    (58M HCC    12:24     |                                           |
-|   |     Stage III)           |  [IND: sorafenib dispensed]               |
-| 12:25                        +--> [Adult Wait]                            |
-|   |                                P0071 --> Discharged --> EXIT          |
-|   |                                                  12:25               |
-| 12:26                                 +--> [Img Bay 1: IMAGE-01]        |
-|   |                                        Pre-ablation liver imaging    |
-| 12:28 P0092 ---> [Kiosk-1] --+                                           |
-|   |    (14M Ped Osteo 12:28  |                                           |
-|   |     ECOG 1)              |                                           |
-| 12:29                        +--> [Ped Wait]                              |
-|   |                                   |                                   |
-| 12:30                                 +--> [Humanoid 1: HUMAN-01]       |
-|   |                                        PT and psychosocial           |
-| 12:32 P0093 ---> [Kiosk-2] --+                                           |
-|   |    (67F Liver   12:32    |                                           |
-|   |     mets IV)             |                                           |
-| 12:33                        +--> [Adult Wait]                            |
-|   |                                   |                                   |
-| 12:34                                 +--> [Img Bay 2: IMAGE-02]        |
-|   |                                        Liver mets surveillance       |
-|   |                                P0074 --> Discharged --> EXIT          |
-| 12:35                                                12:35               |
-| 12:36 P0094 ---> [Kiosk-1] --+                                           |
-|   |    (49M NSCLC  12:36     |                                           |
-|   |     Stage IIB)           |                                           |
-| 12:37                        +--> [Adult Wait]                            |
-|   |                                   |                                   |
-| 12:38                                 +--> [RT Vault 3: TRACK-02]       |
-|   |                                        RT tracking, lung tumor       |
-| 12:40 P0095 ---> [Kiosk-2] --+                                           |
-|   |    (38F Sarcoma 12:40    |                                           |
-|   |     Stage I)             |                                           |
-| 12:41                        +--> [Adult Wait]                            |
-|   |                                   |                                   |
-| 12:42                                 +--> [Biopsy Stn 2: COBOT-02]    |
-|   |                                        Forearm core needle Bx        |
-| 12:44                                      [P0091: Imaging COMPLETE]    |
-|   |                                        P0091 --> Ablation Suite 1    |
-| 12:45                                      [Ablation 1: STEER-01]       |
-|   |                                P0076 --> Discharged --> EXIT          |
-|   |                                                  12:45               |
-| 12:48 P0096 ---> [Kiosk-1] --+                                           |
-|   |    (70M Fem Osteo 12:48  |                                           |
-|   |     ECOG 2)              |                                           |
-| 12:49                        +--> [Adult Wait]                            |
-|   |                                   |                                   |
-| 12:50                                 +--> [Rehab Bay 3: REHAB-03]     |
-|   |                                        Exo gait training             |
-| 12:54                                      [P0093: Imaging COMPLETE]    |
-|   |                                        P0093 --> Recovery Bay 4      |
-| 12:55                                      [STEER-01: Ablation Cycle 1] |
-|   |                                        P0091 Seg V lesion, 150 W     |
-| 12:59                                      [P0079:Surg Suite 2 cont]    |
-|   |                                        [16 robots active]            |
+| 12:00                                      [P0065:Surg Suite 1]            |
+|   |                                        [P0079:Surg Suite 2]            |
+|   |                                                    [~14 pts in obs]    |
+|   |                                                                        |
+| 12:02 P0086 ---> [Kiosk-1] --+                                             |
+|   |    (55M SCLC  12:02     |                                              |
+|   |     Stage III)          |                                              |
+| 12:03                       +--> [Adult Wait]                              |
+|   |                                   |                                    |
+| 12:05                                 +--> [RT Vault 1: TRACK-01]          |
+|   |                                        RT motion tracking              |
+|   |                                        respiratory gating              |
+| 12:08 P0087 ---> [Kiosk-2] --+                                             |
+|   |    (42F Sarcoma 12:08    |                                             |
+|   |     Stage II)            |                                             |
+| 12:09                        +--> [Adult Wait]                             |
+|   |                                   |                                    |
+| 12:10                                 +--> [Biopsy Stn 1: COBOT-01]        |
+|   |                                P0068 --> Discharged --> EXIT           |
+|   |                                                  12:10                 |
+| 12:12 P0088 ---> [Kiosk-1] --+                                             |
+|   |    (71M GBM    12:12     |                                             |
+|   |     Stage IV)            |  [IND: temozolomide dispensed]              |
+| 12:13                        +--> [Adult Wait]                             |
+|   |                                   |                                    |
+| 12:14                                 +--> [RT Vault 2: RTPOS-02]          |
+|   |                                        RT positioning/sim              |
+|   |                                        mask fitting + CT sim           |
+| 12:15                                      [P0065: Surgery COMPLETE]       |
+|   |                                        95 min, R0 resection            |
+|   |                                        P0065 --> Recovery Bay 1        |
+| 12:16 P0089 ---> [Kiosk-2] --+                                             |
+|   |    (6M Ped AML  12:16    |                                             |
+|   |     ECOG 1)              |                                             |
+| 12:17                        +--> [Ped Wait]                               |
+|   |                                   |                                    |
+| 12:18                                 +--> [Companion 5: COMPN-05]         |
+|   |                                        Pediatric AML support           |
+|   |                                        parent present                  |
+| 12:20 P0090 ---> [Kiosk-1] --+                                             |
+|   |    (63F Parotid 12:20    |                                             |
+|   |     Stage I)             |                                             |
+| 12:21                        +--> [Adult Wait]                             |
+|   |                                   |                                    |
+| 12:22                                 +--> [CT Suite 1: NEEDLE-01]         |
+|   |                                        CT-guided parotid biopsy        |
+| 12:24 P0091 ---> [Kiosk-2] --+                                             |
+|   |    (58M HCC    12:24     |                                             |
+|   |     Stage III)           |  [IND: sorafenib dispensed]                 |
+| 12:25                        +--> [Adult Wait]                             |
+|   |                                P0071 --> Discharged --> EXIT           |
+|   |                                                  12:25                 |
+| 12:26                                 +--> [Img Bay 1: IMAGE-01]           |
+|   |                                        Pre-ablation liver imaging      |
+| 12:28 P0092 ---> [Kiosk-1] --+                                             |
+|   |    (14M Ped Osteo 12:28  |                                             |
+|   |     ECOG 1)              |                                             |
+| 12:29                        +--> [Ped Wait]                               |
+|   |                                   |                                    |
+| 12:30                                 +--> [Humanoid 1: HUMAN-01]          |
+|   |                                        PT and psychosocial             |
+| 12:32 P0093 ---> [Kiosk-2] --+                                             |
+|   |    (67F Liver   12:32    |                                             |
+|   |     mets IV)             |                                             |
+| 12:33                        +--> [Adult Wait]                             |
+|   |                                   |                                    |
+| 12:34                                 +--> [Img Bay 2: IMAGE-02]           |
+|   |                                        Liver mets surveillance         |
+|   |                                P0074 --> Discharged --> EXIT           |
+| 12:35                                                12:35                 |
+| 12:36 P0094 ---> [Kiosk-1] --+                                             |
+|   |    (49M NSCLC  12:36     |                                             |
+|   |     Stage IIB)           |                                             |
+| 12:37                        +--> [Adult Wait]                             |
+|   |                                   |                                    |
+| 12:38                                 +--> [RT Vault 3: TRACK-02]          |
+|   |                                        RT tracking, lung tumor         |
+| 12:40 P0095 ---> [Kiosk-2] --+                                             |
+|   |    (38F Sarcoma 12:40    |                                             |
+|   |     Stage I)             |                                             |
+| 12:41                        +--> [Adult Wait]                             |
+|   |                                   |                                    |
+| 12:42                                 +--> [Biopsy Stn 2: COBOT-02]        |
+|   |                                        Forearm core needle Bx          |
+| 12:44                                      [P0091: Imaging COMPLETE]       |
+|   |                                        P0091 --> Ablation Suite 1      |
+| 12:45                                      [Ablation 1: STEER-01]          |
+|   |                                P0076 --> Discharged --> EXIT           |
+|   |                                                  12:45                 |
+| 12:48 P0096 ---> [Kiosk-1] --+                                             |
+|   |    (70M Fem Osteo 12:48  |                                             |
+|   |     ECOG 2)              |                                             |
+| 12:49                        +--> [Adult Wait]                             |
+|   |                                   |                                    |
+| 12:50                                 +--> [Rehab Bay 3: REHAB-03]         |
+|   |                                        Exo gait training               |
+| 12:54                                      [P0093: Imaging COMPLETE]       |
+|   |                                        P0093 --> Recovery Bay 4        |
+| 12:55                                      [STEER-01: Ablation Cycle 1]    |
+|   |                                        P0091 Seg V lesion, 150 W       |
+| 12:59                                      [P0079:Surg Suite 2 cont]       |
+|   |                                        [16 robots active]              |
 |                                                                            |
 +============================================================================+
-| PATIENT FLOW SUMMARY - Hour 12                                            |
+| PATIENT FLOW SUMMARY - Hour 12                                             |
 |                                                                            |
-| Arrivals: 11 patients                                                     |
-|   PAT-ODMND-0086 (55M, SCLC III)     --> RT Tracking (TRACK-01)          |
-|   PAT-ODMND-0087 (42F, Sarcoma II)   --> Cobot Biopsy (COBOT-01)         |
-|   PAT-ODMND-0088 (71M, GBM IV)       --> RT Positioning (RTPOS-02)       |
-|   PAT-ODMND-0089 (6M, Ped AML)       --> Companion (COMPN-05)            |
-|   PAT-ODMND-0090 (63F, Parotid I)    --> Needle Biopsy (NEEDLE-01)       |
-|   PAT-ODMND-0091 (58M, HCC III)      --> Imaging+Ablation (IMAGE/STEER)  |
-|   PAT-ODMND-0092 (14M, Ped Osteo)    --> Humanoid PT (HUMAN-01)          |
-|   PAT-ODMND-0093 (67F, Liver mets)   --> Imaging (IMAGE-02)              |
-|   PAT-ODMND-0094 (49M, NSCLC IIB)    --> RT Tracking (TRACK-02)          |
-|   PAT-ODMND-0095 (38F, Sarcoma I)    --> Cobot Biopsy (COBOT-02)         |
-|   PAT-ODMND-0096 (70M, Fem Osteo)    --> Rehab Exo (REHAB-03)            |
+| Arrivals: 11 patients                                                      |
+|   PAT-ODMND-0086 (55M, SCLC III)     --> RT Tracking (TRACK-01)            |
+|   PAT-ODMND-0087 (42F, Sarcoma II)   --> Cobot Biopsy (COBOT-01)           |
+|   PAT-ODMND-0088 (71M, GBM IV)       --> RT Positioning (RTPOS-02)         |
+|   PAT-ODMND-0089 (6M, Ped AML)       --> Companion (COMPN-05)              |
+|   PAT-ODMND-0090 (63F, Parotid I)    --> Needle Biopsy (NEEDLE-01)         |
+|   PAT-ODMND-0091 (58M, HCC III)      --> Imaging+Ablation (IMAGE/STEER)    |
+|   PAT-ODMND-0092 (14M, Ped Osteo)    --> Humanoid PT (HUMAN-01)            |
+|   PAT-ODMND-0093 (67F, Liver mets)   --> Imaging (IMAGE-02)                |
+|   PAT-ODMND-0094 (49M, NSCLC IIB)    --> RT Tracking (TRACK-02)            |
+|   PAT-ODMND-0095 (38F, Sarcoma I)    --> Cobot Biopsy (COBOT-02)           |
+|   PAT-ODMND-0096 (70M, Fem Osteo)    --> Rehab Exo (REHAB-03)              |
 |                                                                            |
-| Departures: 4 patients                                                    |
-|   PAT-ODMND-0068 (59F, NSCLC)     --> Discharged 12:10 (post-RT)         |
-|   PAT-ODMND-0071 (64M, Liver mets)--> Discharged 12:25 (post-imaging)    |
-|   PAT-ODMND-0074 (45F, Sarcoma)   --> Discharged 12:35 (post-biopsy)     |
-|   PAT-ODMND-0076 (57M, Parotid)   --> Discharged 12:45 (post-needle)     |
+| Departures: 4 patients                                                     |
+|   PAT-ODMND-0068 (59F, NSCLC)     --> Discharged 12:10 (post-RT)           |
+|   PAT-ODMND-0071 (64M, Liver mets)--> Discharged 12:25 (post-imaging)      |
+|   PAT-ODMND-0074 (45F, Sarcoma)   --> Discharged 12:35 (post-biopsy)       |
+|   PAT-ODMND-0076 (57M, Parotid)   --> Discharged 12:45 (post-needle)       |
 |                                                                            |
-| Surgical completion: 1                                                    |
-|   PAT-ODMND-0065 (52M, mediastinal) - R0 resection, 95 min, to recovery |
+| Surgical completion: 1                                                     |
+|   PAT-ODMND-0065 (52M, mediastinal) - R0 resection, 95 min, to recovery    |
 |                                                                            |
-| Continuing surgery: 1                                                     |
-|   PAT-ODMND-0079 (61F, pancreatic) - Whipple ongoing (~13:45 expected)   |
+| Continuing surgery: 1                                                      |
+|   PAT-ODMND-0079 (61F, pancreatic) - Whipple ongoing (~13:45 expected)     |
 |                                                                            |
-| IND drugs administered: 2                                                 |
-|   P0088: temozolomide (GBM, concurrent RT)                               |
-|   P0091: sorafenib (HCC, adjunct to ablation)                            |
+| IND drugs administered: 2                                                  |
+|   P0088: temozolomide (GBM, concurrent RT)                                 |
+|   P0091: sorafenib (HCC, adjunct to ablation)                              |
 |                                                                            |
-| End of hour on-site: ~25 patients                                         |
-| Average wait time: 2.4 minutes                                            |
-| Adverse events: 0                                                         |
+| End of hour on-site: ~25 patients                                          |
+| Average wait time: 2.4 minutes                                             |
+| Adverse events: 0                                                          |
 +============================================================================+
