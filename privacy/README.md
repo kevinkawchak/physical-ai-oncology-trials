@@ -174,7 +174,7 @@ print(f"DUA generated: {dua.agreement_id}")
 Patient Data Sources          Privacy Layer              AI/Research Systems
 ─────────────────          ──────────────              ───────────────────
                            ┌──────────────┐
- EHR/FHIR ──────────────→ │ PHI Detector │
+ EHR/FHIR ──────────────→  │ PHI Detector │
                            │  & Scanner   │
  DICOM Imaging ──────────→ │              │──→ De-identification ──→ AI Model Training
                            │ Access       │         Pipeline
@@ -182,7 +182,7 @@ Patient Data Sources          Privacy Layer              AI/Research Systems
                            │ Manager      │──→ Limited Data Set ──→
  Robotic Telemetry ──────→ │              │                         Multi-site Analysis
                            │ Audit Trail  │──→ Aggregated Stats ──→
- Wearable/DHT Data ─────→ │              │                         Publication
+ Wearable/DHT Data ─────→  │              │                         Publication
                            └──────────────┘
                                  │
                            ┌──────────────┐
