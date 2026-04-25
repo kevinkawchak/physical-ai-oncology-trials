@@ -1,90 +1,90 @@
 +============================================================================+
-|              PATIENT FLOW DIAGRAM - Hour 03: 03:00-03:59                  |
+|              PATIENT FLOW DIAGRAM - Hour 03: 03:00-03:59                   |
 +============================================================================+
 |                                                                            |
-| TIME  ENTRANCE    CHECK-IN     WAITING     PROCEDURE    RECOVERY  EXIT    |
-| ----  --------    --------     -------     ---------    --------  ----    |
+| TIME  ENTRANCE    CHECK-IN     WAITING     PROCEDURE    RECOVERY  EXIT     |
+| ----  --------    --------     -------     ---------    --------  ----     |
 |                                                                            |
-| 03:00                                                   [P0003:RecBay3]   |
-|   |                                                     [P0005:PedWard]   |
-|   |                                                     [P0007:RecBay5]   |
-|   |                                                                       |
-| 03:05                                                   [P0003:RecBay3]   |
-|   |                                                     [P0005:PedWard]   |
-|   |                                                     [P0007:RecBay5]   |
-|   |                                                                       |
-| 03:08                                                   [P0007:Discharged]|
-|   |                                                          ---> EXIT    |
-|   |                                                     (post-RT complete)|
-|   |                                                                       |
-| 03:10                                                   [P0003:RecBay3]   |
-|   |                                                     [P0005:PedWard]   |
-|   |                                                                       |
-| 03:15 P0008 ---> [Kiosk-1] --+                                           |
-|   |    (Brain     03:15      |                                            |
-|   |     mets)                |                                            |
-| 03:16                        +--> [Adult Wait]                            |
-|   |                                    |                                  |
-| 03:20                                  |              [P0003:RecBay3]     |
-|   |                                    |                                  |
-| 03:22                                  +--> [Vault 1: RTPOS-01]          |
-|   |                                         RT Positioning                |
-|   |                                         PAT-ODMND-0008               |
-|   |                                         SRS mask + CT sim             |
-| 03:25                                       |                             |
-|   |                                         |                             |
-| 03:30                                       |                             |
-|   |                                         |                             |
-| 03:35                                       |                             |
-|   |                                         |                             |
-| 03:40 P0009 ---> [Kiosk-2] --+              |                             |
-|   |    (Forearm   03:40      |              |                             |
-|   |     sarcoma)             |              |                             |
-| 03:41                        +--> [Adult Wait]                            |
-|   |                                    |    |                             |
-| 03:45                                  |    |                             |
-|   |                                    |    |                             |
-| 03:48                                  |   [Complete]                     |
-|   |                                    |   P0008 --> [RecBay1]            |
-|   |                                    |        (post-positioning obs)    |
-|   |                                    +--> [Biopsy Stn 1: COBOT-01]     |
-|   |                                         Forearm Biopsy                |
-|   |                                         PAT-ODMND-0009               |
-|   |                                         US-guided core biopsy         |
-| 03:50                                       |                             |
-|   |                                         |                             |
-| 03:55                                       |                             |
-|   |                                         |                             |
-| 03:58                                  [Complete]                         |
-|   |                                    P0009 --> [RecBay7]                |
-|   |                                         (post-biopsy observation)     |
-| 03:59                                                                     |
+| 03:00                                                   [P0003:RecBay3]    |
+|   |                                                     [P0005:PedWard]    |
+|   |                                                     [P0007:RecBay5]    |
+|   |                                                                        |
+| 03:05                                                   [P0003:RecBay3]    |
+|   |                                                     [P0005:PedWard]    |
+|   |                                                     [P0007:RecBay5]    |
+|   |                                                                        |
+| 03:08                                                   [P0007:Discharged] |
+|   |                                                          ---> EXIT     |
+|   |                                                     (post-RT complete) |
+|   |                                                                        |
+| 03:10                                                   [P0003:RecBay3]    |
+|   |                                                     [P0005:PedWard]    |
+|   |                                                                        |
+| 03:15 P0008 ---> [Kiosk-1] --+                                             |
+|   |    (Brain     03:15      |                                             |
+|   |     mets)                |                                             |
+| 03:16                        +--> [Adult Wait]                             |
+|   |                                    |                                   |
+| 03:20                                  |              [P0003:RecBay3]      |
+|   |                                    |                                   |
+| 03:22                                  +--> [Vault 1: RTPOS-01]            |
+|   |                                         RT Positioning                 |
+|   |                                         PAT-ODMND-0008                 |
+|   |                                         SRS mask + CT sim              |
+| 03:25                                       |                              |
+|   |                                         |                              |
+| 03:30                                       |                              |
+|   |                                         |                              |
+| 03:35                                       |                              |
+|   |                                         |                              |
+| 03:40 P0009 ---> [Kiosk-2] --+              |                              |
+|   |    (Forearm   03:40      |              |                              |
+|   |     sarcoma)             |              |                              |
+| 03:41                        +--> [Adult Wait]                             |
+|   |                                    |    |                              |
+| 03:45                                  |    |                              |
+|   |                                    |    |                              |
+| 03:48                                  |   [Complete]                      |
+|   |                                    |   P0008 --> [RecBay1]             |
+|   |                                    |        (post-positioning obs)     |
+|   |                                    +--> [Biopsy Stn 1: COBOT-01]       |
+|   |                                         Forearm Biopsy                 |
+|   |                                         PAT-ODMND-0009                 |
+|   |                                         US-guided core biopsy          |
+| 03:50                                       |                              |
+|   |                                         |                              |
+| 03:55                                       |                              |
+|   |                                         |                              |
+| 03:58                                  [Complete]                          |
+|   |                                    P0009 --> [RecBay7]                 |
+|   |                                         (post-biopsy observation)      |
+| 03:59                                                                      |
 |                                                                            |
 +============================================================================+
-| PATIENT FLOW SUMMARY - Hour 03                                            |
+| PATIENT FLOW SUMMARY - Hour 03                                             |
 |                                                                            |
-| Arrivals: 2 patients                                                      |
-|   PAT-ODMND-0008 (72M, Brain mets) --> RT Positioning --> Recovery Bay 1  |
-|   PAT-ODMND-0009 (34F, Sarcoma)    --> Biopsy         --> Recovery Bay 7  |
+| Arrivals: 2 patients                                                       |
+|   PAT-ODMND-0008 (72M, Brain mets) --> RT Positioning --> Recovery Bay 1   |
+|   PAT-ODMND-0009 (34F, Sarcoma)    --> Biopsy         --> Recovery Bay 7   |
 |                                                                            |
-| Departures: 1 patient                                                     |
-|   PAT-ODMND-0007 (58F, NSCLC sq)   --> Discharged 03:08 (post-RT done)   |
+| Departures: 1 patient                                                      |
+|   PAT-ODMND-0007 (58F, NSCLC sq)   --> Discharged 03:08 (post-RT done)     |
 |                                                                            |
-| Overnight patients: 2 (P0003 recovery bay 3, P0005 pediatric ward)       |
+| Overnight patients: 2 (P0003 recovery bay 3, P0005 pediatric ward)         |
 |                                                                            |
-| Patients at end of hour: 4                                                |
-|   PAT-ODMND-0003 (61M, Mediastinal) - recovery bay 3                     |
-|   PAT-ODMND-0005 (8M, ALL) - pediatric ward                              |
-|   PAT-ODMND-0008 (72M, Brain mets) - recovery bay 1                      |
-|   PAT-ODMND-0009 (34F, Sarcoma) - recovery bay 7                         |
+| Patients at end of hour: 4                                                 |
+|   PAT-ODMND-0003 (61M, Mediastinal) - recovery bay 3                       |
+|   PAT-ODMND-0005 (8M, ALL) - pediatric ward                                |
+|   PAT-ODMND-0008 (72M, Brain mets) - recovery bay 1                        |
+|   PAT-ODMND-0009 (34F, Sarcoma) - recovery bay 7                           |
 |                                                                            |
-| Cancer types active this hour:                                            |
-|   Brain metastases (P0008) - RT positioning/SRS planning                  |
-|   Forearm soft-tissue sarcoma (P0009) - diagnostic biopsy                 |
-|   Mediastinal tumor (P0003) - post-surgical recovery                      |
-|   Pediatric ALL (P0005) - overnight monitoring                            |
-|   NSCLC squamous (P0007) - discharged post-RT                            |
+| Cancer types active this hour:                                             |
+|   Brain metastases (P0008) - RT positioning/SRS planning                   |
+|   Forearm soft-tissue sarcoma (P0009) - diagnostic biopsy                  |
+|   Mediastinal tumor (P0003) - post-surgical recovery                       |
+|   Pediatric ALL (P0005) - overnight monitoring                             |
+|   NSCLC squamous (P0007) - discharged post-RT                              |
 |                                                                            |
-| Wait times: P0008 = 7 min, P0009 = 8 min                                 |
-| Average wait: 7.5 minutes                                                 |
+| Wait times: P0008 = 7 min, P0009 = 8 min                                   |
+| Average wait: 7.5 minutes                                                  |
 +============================================================================+
