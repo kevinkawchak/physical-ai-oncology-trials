@@ -1,155 +1,155 @@
 +============================================================================+
-|              PATIENT FLOW DIAGRAM - Hour 10: 10:00-10:59                  |
-|                   Peak Morning - 14 Arrivals, 8 Departures                |
+|              PATIENT FLOW DIAGRAM - Hour 10: 10:00-10:59                   |
+|                   Peak Morning - 14 Arrivals, 8 Departures                 |
 +============================================================================+
 |                                                                            |
-| TIME  ENTRANCE    CHECK-IN     WAITING     PROCEDURE    RECOVERY  EXIT    |
-| ----  --------    --------     -------     ---------    --------  ----    |
+| TIME  ENTRANCE    CHECK-IN     WAITING     PROCEDURE    RECOVERY  EXIT     |
+| ----  --------    --------     -------     ---------    --------  ----     |
 |                                                                            |
-| 10:00 [~28 patients on-site from prior hours]                             |
-|   |   [P0044: SURG-03 ongoing]  [P0032: SURG-02 completing]              |
-|   |   [Multiple carryover patients in recovery and observation]           |
-|   |                                                                       |
-| 10:02 P0059 ---> [Kiosk-1] --+                                           |
-|   |   (51M,NSCLC  10:02     |                                            |
-|   |    adenoCA)              |                                            |
-| 10:04                        +--> [Adult Wait]                            |
-|   |                                    |                                  |
-| 10:05 P0060 ---> [Kiosk-2] --+        |  P0032:SURG-02-->Recovery Bay 5  |
-|   |   (40F,Forearm 10:05     |        |    R0 resection complete, 110min |
-|   |    sarcoma)              |        |                                  |
-| 10:07                        +--> [Adult Wait]                            |
-|   |                                    |                                  |
-| 10:08 P0061 ---> [Kiosk-3] --+        +--> [Vault 3: TRACK-03]          |
-|   |   (75M,GBM    10:08     |              P0059 RT fraction 12/30       |
-|   |    wheelchair)           |                                            |
-| 10:10                        +--> [Adult Wait]                            |
+| 10:00 [~28 patients on-site from prior hours]                              |
+|   |   [P0044: SURG-03 ongoing]  [P0032: SURG-02 completing]                |
+|   |   [Multiple carryover patients in recovery and observation]            |
+|   |                                                                        |
+| 10:02 P0059 ---> [Kiosk-1] --+                                             |
+|   |   (51M,NSCLC  10:02     |                                              |
+|   |    adenoCA)              |                                             |
+| 10:04                        +--> [Adult Wait]                             |
+|   |                                    |                                   |
+| 10:05 P0060 ---> [Kiosk-2] --+        |  P0032:SURG-02-->Recovery Bay 5    |
+|   |   (40F,Forearm 10:05     |        |    R0 resection complete, 110min   |
+|   |    sarcoma)              |        |                                    |
+| 10:07                        +--> [Adult Wait]                             |
+|   |                                    |                                   |
+| 10:08 P0061 ---> [Kiosk-3] --+        +--> [Vault 3: TRACK-03]             |
+|   |   (75M,GBM    10:08     |              P0059 RT fraction 12/30         |
+|   |    wheelchair)           |                                             |
+| 10:10                        +--> [Adult Wait]                             |
 |   |                          |    P0033 --> Discharged --> EXIT            |
-|   |                          |                                            |
-| 10:12 P0062 ---> [Ped Kiosk] |    +--> [Biopsy Stn 1: COBOT-01]         |
-|   |   (4F,Pedi    10:12     |    |     P0060 forearm sarcoma biopsy      |
-|   |    ALL, w/mom)          |    |                                        |
-| 10:14                        |    |     P0061: Bevacizumab IV (Pharmacy) |
+|   |                          |                                             |
+| 10:12 P0062 ---> [Ped Kiosk] |    +--> [Biopsy Stn 1: COBOT-01]            |
+|   |   (4F,Pedi    10:12     |    |     P0060 forearm sarcoma biopsy        |
+|   |    ALL, w/mom)          |    |                                         |
+| 10:14                        |    |     P0061: Bevacizumab IV (Pharmacy)   |
 |   |                          |    |                                        |
-| 10:15                        |    |    P0036 --> Discharged --> EXIT      |
+| 10:15                        |    |    P0036 --> Discharged --> EXIT       |
 |   |                          |    |                                        |
-| 10:16 P0063 ---> [Kiosk-1] --+   |                                       |
-|   |   (58M,Parotid 10:16    |    |                                       |
-|   |    tumor)               |    |                                        |
-| 10:18                        |    |    +--> [Vault 1: RTPOS-01]          |
-|   |                          |    |    |     P0061 GBM stereotactic pos  |
-|   |                          |    |    |    +--> [Play 2: COMPN-02]      |
-|   |                          |    |    |    |     P0062 companion session |
-| 10:20 P0064 ---> [Kiosk-2] --+   |    |    |                             |
-|   |   (63F,HCC    10:20     |    |    |    |    P0038 --> Disch --> EXIT  |
-|   |    Stage III)           |    |    |    |                              |
-| 10:22                        |    |    |    |    +--> [CT Ste 1: NEEDLE-01|
-|   |                          |    |    |    |    |     P0063 parotid FNA  |
-|   |                          |    |    |    |    |                        |
-| 10:24 P0065 ---> [Kiosk-3] --+   |    |    |    |                        |
-|   |   (47M,Medias  10:24    |    |    |    |    |                        |
-|   |    tinal tumor)         |    |    |    |    |                        |
+| 10:16 P0063 ---> [Kiosk-1] --+   |                                         |
+|   |   (58M,Parotid 10:16    |    |                                         |
+|   |    tumor)               |    |                                         |
+| 10:18                        |    |    +--> [Vault 1: RTPOS-01]            |
+|   |                          |    |    |     P0061 GBM stereotactic pos    |
+|   |                          |    |    |    +--> [Play 2: COMPN-02]        |
+|   |                          |    |    |    |     P0062 companion session  |
+| 10:20 P0064 ---> [Kiosk-2] --+   |    |    |                               |
+|   |   (63F,HCC    10:20     |    |    |    |    P0038 --> Disch --> EXIT   |
+|   |    Stage III)           |    |    |    |                               |
+| 10:22                        |    |    |    |    +--> [CT Ste 1: NEEDLE-01 |
+|   |                          |    |    |    |    |     P0063 parotid FNA   |
+|   |                          |    |    |    |    |                         |
+| 10:24 P0065 ---> [Kiosk-3] --+   |    |    |    |                          |
+|   |   (47M,Medias  10:24    |    |    |    |    |                          |
+|   |    tinal tumor)         |    |    |    |    |                          |
 | 10:25                        |    |    |    |    |    P0041 --> Disch EXIT |
-|   |                          |    |    |    |    |                        |
-| 10:26                        |    |    |    |    |    P0064: Regorafenib  |
-|   |                          |    |    |    |    |    oral (Pharmacy)     |
-| 10:28 P0066 ---> [Ped Kiosk] |  [Complete]  |    |   [Complete]          |
-|   |   (10M,Pedi   10:28     |   P0059-->Obs |    |   P0060-->Obs         |
-|   |    osteosarc)           |   P0068 wait  |    |                       |
-|   |                          |              |    |                        |
-| 10:30                        |   +--> [Ablation 1: STEER-01]             |
-|   |    P0065: Cisplatin/     |   |     P0064 HCC microwave ablation      |
-|   |    Etoposide IV (Pre-op) |   |                                       |
-|   |                          |   |                                        |
-| 10:32 P0067 ---> [Kiosk-1] --+  |                                        |
-|   |   (71F,Liver   10:32    |   |                                        |
-|   |    mets, CRC)           |   |                                        |
-| 10:34                        |   |    +--> [Therapy 2: HUMAN-02]         |
-|   |                          |   |    |     P0066 rehab assessment        |
-| 10:35                        |   |    |    P0045 --> Discharged --> EXIT  |
-|   |                          |   |    |                                   |
-| 10:36 P0068 ---> [Kiosk-2] --+  |    |                                   |
-|   |   (56M,NSCLC   10:36    |   |    |                                   |
-|   |    squamous)            |   |    |                                   |
-| 10:38                        |   |    |    +--> [Suite 1: SURG-01]       |
-|   |                          |   |    |    |     P0065 thoracoscopy      |
-|   |                          |   |    |    |    +--> [Img Bay 3: IMAGE-03]|
-|   |   [P0063 FNA complete]   |   |    |    |    |     P0067 liver CT     |
-|   |                          |   |    |    |    |                        |
-| 10:40 P0069 ---> [Kiosk-3] --+  |    |    |    |                        |
-|   |   (33F,Forearm 10:40    |   |    |    |    |                        |
-|   |    sarcoma I)           |   |    |    |    |                        |
-| 10:42                        |   |   [Complete]  |    |                   |
-|   |   [P0061 pos complete]   |   |    P0061-->Obs|    |                   |
-|   |                          |   |              |    |                    |
-| 10:44 P0070 ---> [Kiosk-1] --+  |    |         |    |                    |
-|   |   (67F,Brain   10:44    |   |    |         |    |                    |
-|   |    mets)                |   |    +--> [Vault 1: TRACK-01]            |
-|   |                          |   |              P0068 NSCLC RT frac 15   |
-| 10:45                        |   |    P0048 --> Discharged --> EXIT       |
-|   |                          |   |                                        |
-| 10:46                        |   |    +--> [Biopsy Stn 2: COBOT-02]     |
-|   |                          |   |    |     P0069 forearm sarcoma biopsy |
-| 10:48 P0071 ---> [Kiosk-2] --+  |   [Complete]                           |
-|   |   (73M,Femur   10:48    |   |    P0062-->Ped Wait                   |
-|   |    osteosarc)           |   |                                        |
-| 10:50                        |   |    +--> [Vault 2: RTPOS-02]           |
-|   |                          |   |    |     P0070 brain mets SRS pos     |
-|   |                          |   |    |    P0050 --> Discharged --> EXIT  |
-|   |                          |   |    |                                   |
-| 10:52 P0072 ---> [Ped Kiosk] |   |    |                                  |
-|   |   (16M,Pedi   10:52     |   |    |                                   |
-|   |    AML, w/dad)          |   |    |                                   |
-| 10:54                        |   |    |    +--> [Rehab Bay 3: REHAB-03]  |
-|   |   [P0066 assess done]    |   |    |    |     P0071 gait training     |
-|   |                          |   |    |    |                              |
-| 10:55                        |   |    |    |    P0053 --> Disch --> EXIT  |
-|   |                          |   |    |    |                              |
-| 10:56                        |   |   [Complete]  |    |                   |
-|   |   [P0067 scan complete]  |   |    P0067-->Obs|    |                   |
-|   |                          |   |              |    |                    |
-| 10:58                        |  [Complete]      |    |                    |
-|   |                          |   P0064-->Obs    |    |                    |
-|   |                          |   [P0069 done]   |    |                    |
-|   |                          |                  |    +--> [Play 3: COMPN-03
-|   |                          |                  |         P0072 companion |
-| 10:59 [End of hour snapshot]                                              |
-|   |   ACTIVE: P0044(SURG-03), P0065(SURG-01), P0068(TRACK-01),          |
-|   |           P0070(RTPOS-02), P0071(REHAB-03), P0072(COMPN-03)          |
-|   |   RECOVERY/OBS: P0032, P0059, P0060, P0061, P0063, P0064,           |
-|   |                 P0067, P0069, + morning wave carryovers              |
+|   |                          |    |    |    |    |                         |
+| 10:26                        |    |    |    |    |    P0064: Regorafenib   |
+|   |                          |    |    |    |    |    oral (Pharmacy)      |
+| 10:28 P0066 ---> [Ped Kiosk] |  [Complete]  |    |   [Complete]            |
+|   |   (10M,Pedi   10:28     |   P0059-->Obs |    |   P0060-->Obs           |
+|   |    osteosarc)           |   P0068 wait  |    |                         |
+|   |                          |              |    |                         |
+| 10:30                        |   +--> [Ablation 1: STEER-01]               |
+|   |    P0065: Cisplatin/     |   |     P0064 HCC microwave ablation        |
+|   |    Etoposide IV (Pre-op) |   |                                         |
+|   |                          |   |                                         |
+| 10:32 P0067 ---> [Kiosk-1] --+  |                                          |
+|   |   (71F,Liver   10:32    |   |                                          |
+|   |    mets, CRC)           |   |                                          |
+| 10:34                        |   |    +--> [Therapy 2: HUMAN-02]           |
+|   |                          |   |    |     P0066 rehab assessment         |
+| 10:35                        |   |    |    P0045 --> Discharged --> EXIT   |
+|   |                          |   |    |                                    |
+| 10:36 P0068 ---> [Kiosk-2] --+  |    |                                     |
+|   |   (56M,NSCLC   10:36    |   |    |                                     |
+|   |    squamous)            |   |    |                                     |
+| 10:38                        |   |    |    +--> [Suite 1: SURG-01]         |
+|   |                          |   |    |    |     P0065 thoracoscopy        |
+|   |                          |   |    |    |    +--> [Img Bay 3: IMAGE-03] |
+|   |   [P0063 FNA complete]   |   |    |    |    |     P0067 liver CT       |
+|   |                          |   |    |    |    |                          |
+| 10:40 P0069 ---> [Kiosk-3] --+  |    |    |    |                           |
+|   |   (33F,Forearm 10:40    |   |    |    |    |                           |
+|   |    sarcoma I)           |   |    |    |    |                           |
+| 10:42                        |   |   [Complete]  |    |                    |
+|   |   [P0061 pos complete]   |   |    P0061-->Obs|    |                    |
+|   |                          |   |              |    |                     |
+| 10:44 P0070 ---> [Kiosk-1] --+  |    |         |    |                      |
+|   |   (67F,Brain   10:44    |   |    |         |    |                      |
+|   |    mets)                |   |    +--> [Vault 1: TRACK-01]              |
+|   |                          |   |              P0068 NSCLC RT frac 15     |
+| 10:45                        |   |    P0048 --> Discharged --> EXIT        |  
+|   |                          |   |                                         |
+| 10:46                        |   |    +--> [Biopsy Stn 2: COBOT-02]        |
+|   |                          |   |    |     P0069 forearm sarcoma biopsy   |
+| 10:48 P0071 ---> [Kiosk-2] --+  |   [Complete]                             |
+|   |   (73M,Femur   10:48    |   |    P0062-->Ped Wait                      |
+|   |    osteosarc)           |   |                                          |
+| 10:50                        |   |    +--> [Vault 2: RTPOS-02]             |
+|   |                          |   |    |     P0070 brain mets SRS pos       |
+|   |                          |   |    |    P0050 --> Discharged --> EXIT   |
+|   |                          |   |    |                                    |
+| 10:52 P0072 ---> [Ped Kiosk] |   |    |                                    |
+|   |   (16M,Pedi   10:52     |   |    |                                     |
+|   |    AML, w/dad)          |   |    |                                     |
+| 10:54                        |   |    |    +--> [Rehab Bay 3: REHAB-03]    |
+|   |   [P0066 assess done]    |   |    |    |     P0071 gait training       |
+|   |                          |   |    |    |                               |
+| 10:55                        |   |    |    |    P0053 --> Disch --> EXIT   |
+|   |                          |   |    |    |                               |
+| 10:56                        |   |   [Complete]  |    |                    |
+|   |   [P0067 scan complete]  |   |    P0067-->Obs|    |                    |
+|   |                          |   |              |    |                     |
+| 10:58                        |  [Complete]      |    |                     |
+|   |                          |   P0064-->Obs    |    |                     |
+|   |                          |   [P0069 done]   |    |                     |
+|   |                          |                  |    +--> [Play 3: COMPN-03|
+|   |                          |                  |         P0072 companion  |
+| 10:59 [End of hour snapshot]                                               |
+|   |   ACTIVE: P0044(SURG-03), P0065(SURG-01), P0068(TRACK-01),             |
+|   |           P0070(RTPOS-02), P0071(REHAB-03), P0072(COMPN-03)            |
+|   |   RECOVERY/OBS: P0032, P0059, P0060, P0061, P0063, P0064,              |
+|   |                 P0067, P0069, + morning wave carryovers                |
 |                                                                            |
 +============================================================================+
-| PATIENT FLOW SUMMARY - Hour 10                                            |
+| PATIENT FLOW SUMMARY - Hour 10                                             |
 |                                                                            |
-| Arrivals: 14 patients (PAT-ODMND-0059 through PAT-ODMND-0072)            |
-|   P0059 (51M, NSCLC adeno) --> RT TRACK-03 --> Observation               |
-|   P0060 (40F, forearm sarcoma) --> Biopsy COBOT-01 --> Observation        |
-|   P0061 (75M, GBM) --> Bevacizumab IND --> RT pos RTPOS-01 --> Obs       |
-|   P0062 (4F, pedi ALL) --> Companion COMPN-02 --> Ped Waiting             |
-|   P0063 (58M, parotid) --> FNA NEEDLE-01 --> Observation                  |
-|   P0064 (63F, HCC) --> Regorafenib IND --> Ablation STEER-01 --> Obs     |
-|   P0065 (47M, mediastinal) --> Cis/Eto IND --> Surgery SURG-01 (ongoing) |
-|   P0066 (10M, pedi osteo) --> Assessment HUMAN-02 --> Ped Waiting         |
-|   P0067 (71F, liver mets) --> Imaging IMAGE-03 --> Observation            |
-|   P0068 (56M, NSCLC squam) --> RT TRACK-01 (ongoing)                     |
-|   P0069 (33F, forearm sarcoma) --> Biopsy COBOT-02 --> Observation        |
-|   P0070 (67F, brain mets) --> SRS pos RTPOS-02 (ongoing)                 |
-|   P0071 (73M, femur osteo) --> Rehab REHAB-03 (ongoing)                  |
-|   P0072 (16M, pedi AML) --> Companion COMPN-03 (ongoing)                 |
+| Arrivals: 14 patients (PAT-ODMND-0059 through PAT-ODMND-0072)              |
+|   P0059 (51M, NSCLC adeno) --> RT TRACK-03 --> Observation                 |
+|   P0060 (40F, forearm sarcoma) --> Biopsy COBOT-01 --> Observation         |
+|   P0061 (75M, GBM) --> Bevacizumab IND --> RT pos RTPOS-01 --> Obs         |
+|   P0062 (4F, pedi ALL) --> Companion COMPN-02 --> Ped Waiting              |
+|   P0063 (58M, parotid) --> FNA NEEDLE-01 --> Observation                   |
+|   P0064 (63F, HCC) --> Regorafenib IND --> Ablation STEER-01 --> Obs       |
+|   P0065 (47M, mediastinal) --> Cis/Eto IND --> Surgery SURG-01 (ongoing)   |
+|   P0066 (10M, pedi osteo) --> Assessment HUMAN-02 --> Ped Waiting          |
+|   P0067 (71F, liver mets) --> Imaging IMAGE-03 --> Observation             |
+|   P0068 (56M, NSCLC squam) --> RT TRACK-01 (ongoing)                       |
+|   P0069 (33F, forearm sarcoma) --> Biopsy COBOT-02 --> Observation         |
+|   P0070 (67F, brain mets) --> SRS pos RTPOS-02 (ongoing)                   |
+|   P0071 (73M, femur osteo) --> Rehab REHAB-03 (ongoing)                    |
+|   P0072 (16M, pedi AML) --> Companion COMPN-03 (ongoing)                   |
 |                                                                            |
-| Departures: 8 patients                                                    |
-|   P0033 (10:10), P0036 (10:15), P0038 (10:20), P0041 (10:25),           |
-|   P0045 (10:35), P0048 (10:45), P0050 (10:50), P0053 (10:55)            |
+| Departures: 8 patients                                                     |
+|   P0033 (10:10), P0036 (10:15), P0038 (10:20), P0041 (10:25),              |
+|   P0045 (10:35), P0048 (10:45), P0050 (10:50), P0053 (10:55)               |
 |                                                                            |
-| Completed surgery: P0032 (R0 resection, 110 min, Recovery Bay 5)         |
-| Ongoing surgery: P0044 (SURG-03, started 09:15, est complete 11:15)      |
-| New surgery started: P0065 (SURG-01, started 10:38, est complete 12:08)  |
+| Completed surgery: P0032 (R0 resection, 110 min, Recovery Bay 5)           |
+| Ongoing surgery: P0044 (SURG-03, started 09:15, est complete 11:15)        |
+| New surgery started: P0065 (SURG-01, started 10:38, est complete 12:08)    |
 |                                                                            |
-| IND drugs administered: 3 (bevacizumab, regorafenib, cisplatin/etop)     |
-| Concurrent patients on-site at peak: ~30                                  |
-| End of hour on-site: ~28                                                  |
-| Wait times: 4-6 min range | Average: 5.0 minutes                         |
-| Robot utilization: ~68% (20/29 instances active at peak)                  |
-| Adverse events: 0                                                         |
+| IND drugs administered: 3 (bevacizumab, regorafenib, cisplatin/etop)       |
+| Concurrent patients on-site at peak: ~30                                   |
+| End of hour on-site: ~28                                                   |
+| Wait times: 4-6 min range | Average: 5.0 minutes                           |
+| Robot utilization: ~68% (20/29 instances active at peak)                   |
+| Adverse events: 0                                                          |
 +============================================================================+
