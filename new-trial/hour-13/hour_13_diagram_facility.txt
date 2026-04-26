@@ -1,111 +1,111 @@
 +============================================================================+
 |              ON-DEMAND PHYSICAL AI ONCOLOGY TRIAL FACILITY                 |
-|                    Hour 13: 13:00-13:59 Status                            |
+|                    Hour 13: 13:00-13:59 Status                             |
 +============================================================================+
 |                                                                            |
-|  ENTRANCE / CHECK-IN (1,500 sq ft)                                        |
-|  +--------------------------------------------------------------------+   |
-|  | [KIOSK-1: active] [KIOSK-2: active] [KIOSK-3: idle] [KIOSK-4: idle]|   |
-|  | Patients checked in this hour: 10                                   |   |
-|  | Peak queue: 2 patients (13:15-13:25)                                |   |
-|  +--------------------------------------------------------------------+   |
+|  ENTRANCE / CHECK-IN (1,500 sq ft)                                         |
+|  +--------------------------------------------------------------------+    |
+|  | [KIOSK-1: active] [KIOSK-2: active] [KIOSK-3: idle] [KIOSK-4: idle]|    |
+|  | Patients checked in this hour: 10                                  |    |
+|  | Peak queue: 2 patients (13:15-13:25)                               |    |
+|  +--------------------------------------------------------------------+    |
 |                                                                            |
-|  WAITING AREAS                                                            |
-|  +-------------------------------+  +-------------------+                 |
-|  | ADULT WAITING (2,000 sq ft)   |  | PEDIATRIC WAITING |                 |
-|  | Occupancy: 4/50               |  | (800 sq ft)       |                 |
-|  | [P0099,P0101,P0103,P0106]     |  | Occ: 2/15         |                 |
-|  | (rotating through hour)       |  | [P0100,P0104]     |                 |
-|  +-------------------------------+  +-------------------+                 |
+|  WAITING AREAS                                                             |
+|  +-------------------------------+  +-------------------+                  |
+|  | ADULT WAITING (2,000 sq ft)   |  | PEDIATRIC WAITING |                  |
+|  | Occupancy: 4/50               |  | (800 sq ft)       |                  |
+|  | [P0099,P0101,P0103,P0106]     |  | Occ: 2/15         |                  |
+|  | (rotating through hour)       |  | [P0100,P0104]     |                  |
+|  +-------------------------------+  +-------------------+                  |
 |                                                                            |
-|  SURGICAL WING                                                            |
-|  +-------------------+-------------------+-------------------+            |
-|  | SUITE 1 (600)     | SUITE 2 (600)     | SUITE 3 (600)     |            |
-|  | SURG-01: cleaning | SURG-02: standby  | SURG-03: *ACTIVE* |            |
-|  | P0079 complete    | Patient: none     | PAT-ODMND-0097    |            |
-|  | R0 at 13:10       |                   | Mediastinal surg  |            |
-|  +-------------------+-------------------+-------------------+            |
+|  SURGICAL WING                                                             |
+|  +-------------------+-------------------+-------------------+             |
+|  | SUITE 1 (600)     | SUITE 2 (600)     | SUITE 3 (600)     |             |
+|  | SURG-01: cleaning | SURG-02: standby  | SURG-03: *ACTIVE* |             |
+|  | P0079 complete    | Patient: none     | PAT-ODMND-0097    |             |
+|  | R0 at 13:10       |                   | Mediastinal surg  |             |
+|  +-------------------+-------------------+-------------------+             |
 |                                                                            |
-|  BIOPSY WING                                                              |
-|  +------------+------------+------------+------------+                    |
-|  | STN 1(200) | STN 2(200) | STN 3(200) | STN 4(200) |                    |
-|  | COBOT-01   | COBOT-02   | COBOT-03   | COBOT-04   |                    |
-|  | standby    | standby    | *ACTIVE*   | standby    |                    |
-|  |            |            | PAT-0098   |            |                    |
-|  |            |            | Sarcoma bx |            |                    |
-|  +------------+------------+------------+------------+                    |
+|  BIOPSY WING                                                               |
+|  +------------+------------+------------+------------+                     |
+|  | STN 1(200) | STN 2(200) | STN 3(200) | STN 4(200) |                     |
+|  | COBOT-01   | COBOT-02   | COBOT-03   | COBOT-04   |                     |
+|  | standby    | standby    | *ACTIVE*   | standby    |                     |
+|  |            |            | PAT-0098   |            |                     |
+|  |            |            | Sarcoma bx |            |                     |
+|  +------------+------------+------------+------------+                     |
 |                                                                            |
-|  RADIOTHERAPY VAULTS (shielded)                                           |
-|  +---------------------+---------------------+---------------------+     |
-|  | VAULT 1 (1,200)     | VAULT 2 (1,200)     | VAULT 3 (1,200)     |     |
-|  | RTPOS-01: *ACTIVE*  | RTPOS-02: standby   | RTPOS-03: standby   |     |
-|  | TRACK-01: *ACTIVE*  | TRACK-02: standby   | TRACK-03: *ACTIVE*  |     |
-|  | P0099 (SRS) then    | Available           | PAT-ODMND-0101 (RT) |     |
-|  | P0106 (RT cal.)     |                     | Fraction 8/30       |     |
-|  +---------------------+---------------------+---------------------+     |
+|  RADIOTHERAPY VAULTS (shielded)                                            |
+|  +---------------------+---------------------+---------------------+       |
+|  | VAULT 1 (1,200)     | VAULT 2 (1,200)     | VAULT 3 (1,200)     |       |
+|  | RTPOS-01: *ACTIVE*  | RTPOS-02: standby   | RTPOS-03: standby   |       |
+|  | TRACK-01: *ACTIVE*  | TRACK-02: standby   | TRACK-03: *ACTIVE*  |       |
+|  | P0099 (SRS) then    | Available           | PAT-ODMND-0101 (RT) |       |
+|  | P0106 (RT cal.)     |                     | Fraction 8/30       |       |
+|  +---------------------+---------------------+---------------------+       |
 |                                                                            |
-|  CT-GUIDED / NEEDLE WING                                                  |
-|  +---------------------+---------------------+                           |
-|  | CT SUITE 1 (400)    | CT SUITE 2 (400)    |                           |
-|  | NEEDLE-01: standby  | NEEDLE-02: *ACTIVE* |                           |
-|  |                     | PAT-ODMND-0102      |                           |
-|  |                     | Parotid biopsy      |                           |
-|  +---------------------+---------------------+                           |
+|  CT-GUIDED / NEEDLE WING                                                   |
+|  +---------------------+---------------------+                             |
+|  | CT SUITE 1 (400)    | CT SUITE 2 (400)    |                             |
+|  | NEEDLE-01: standby  | NEEDLE-02: *ACTIVE* |                             |
+|  |                     | PAT-ODMND-0102      |                             |
+|  |                     | Parotid biopsy      |                             |
+|  +---------------------+---------------------+                             |
 |                                                                            |
-|  PEDIATRIC WING                                                           |
-|  +---------+---------+---------+---------+---------+                      |
-|  | PLAY 1  | PLAY 2  | PLAY 3  | PLAY 4  | PLAY 5  |                      |
-|  | COMPN-01| COMPN-02| COMPN-03| COMPN-04| COMPN-05|                      |
-|  |*ACTIVE* | standby | standby | standby | standby |                      |
-|  |PAT-0100 |         |         |         |         |                      |
-|  |ALL chemo|         |         |         |         |                      |
-|  +---------+---------+---------+---------+---------+                      |
-|  +-------------+-------------+-------------+                             |
-|  | THERAPY 1   | THERAPY 2   | THERAPY 3   |                             |
-|  | HUMAN-01    | HUMAN-02    | HUMAN-03    |                             |
-|  | standby     | *ACTIVE*    | standby     |                             |
-|  |             | PAT-0104    |             |                             |
-|  |             | Osteosarc.  |             |                             |
-|  +-------------+-------------+-------------+                             |
+|  PEDIATRIC WING                                                            |
+|  +---------+---------+---------+---------+---------+                       |
+|  | PLAY 1  | PLAY 2  | PLAY 3  | PLAY 4  | PLAY 5  |                       |
+|  | COMPN-01| COMPN-02| COMPN-03| COMPN-04| COMPN-05|                       |
+|  |*ACTIVE* | standby | standby | standby | standby |                       |
+|  |PAT-0100 |         |         |         |         |                       |
+|  |ALL chemo|         |         |         |         |                       |
+|  +---------+---------+---------+---------+---------+                       |
+|  +-------------+-------------+-------------+                               |
+|  | THERAPY 1   | THERAPY 2   | THERAPY 3   |                               |
+|  | HUMAN-01    | HUMAN-02    | HUMAN-03    |                               |
+|  | standby     | *ACTIVE*    | standby     |                               |
+|  |             | PAT-0104    |             |                               |
+|  |             | Osteosarc.  |             |                               |
+|  +-------------+-------------+-------------+                               |
 |                                                                            |
-|  IMAGING WING                                                             |
-|  +------------+------------+------------+------------+                    |
-|  | BAY 1(300) | BAY 2(300) | BAY 3(300) | BAY 4(300) |                    |
-|  | IMAGE-01   | IMAGE-02   | IMAGE-03   | IMAGE-04   |                    |
-|  | standby    | standby    | *ACTIVE*   | standby    |                    |
-|  |            |            | PAT-0103   |            |                    |
-|  |            |            | HCC US     |            |                    |
-|  +------------+------------+------------+------------+                    |
+|  IMAGING WING                                                              |
+|  +------------+------------+------------+------------+                     |
+|  | BAY 1(300) | BAY 2(300) | BAY 3(300) | BAY 4(300) |                     |
+|  | IMAGE-01   | IMAGE-02   | IMAGE-03   | IMAGE-04   |                     |
+|  | standby    | standby    | *ACTIVE*   | standby    |                     |
+|  |            |            | PAT-0103   |            |                     |
+|  |            |            | HCC US     |            |                     |
+|  +------------+------------+------------+------------+                     |
 |                                                                            |
-|  INTERVENTIONAL WING                                                      |
-|  +---------------------+---------------------+                           |
-|  | ABLATION 1 (500)    | ABLATION 2 (500)    |                           |
-|  | STEER-01: standby   | STEER-02: *ACTIVE*  |                           |
-|  |                     | PAT-ODMND-0105      |                           |
-|  |                     | Liver met ablation  |                           |
-|  +---------------------+---------------------+                           |
+|  INTERVENTIONAL WING                                                       |
+|  +---------------------+---------------------+                             |
+|  | ABLATION 1 (500)    | ABLATION 2 (500)    |                             |
+|  | STEER-01: standby   | STEER-02: *ACTIVE*  |                             |
+|  |                     | PAT-ODMND-0105      |                             |
+|  |                     | Liver met ablation  |                             |
+|  +---------------------+---------------------+                             |
 |                                                                            |
-|  REHABILITATION WING                                                      |
-|  +---------------+---------------+---------------+                        |
-|  | BAY 1 (400)   | BAY 2 (400)   | BAY 3 (400)   |                        |
-|  | REHAB-01      | REHAB-02      | REHAB-03      |                        |
-|  | standby       | *ACTIVE*      | standby       |                        |
-|  |               | PAT-0104      |               |                        |
-|  |               | Exo fitting   |               |                        |
-|  +---------------+---------------+---------------+                        |
+|  REHABILITATION WING                                                       |
+|  +---------------+---------------+---------------+                         |
+|  | BAY 1 (400)   | BAY 2 (400)   | BAY 3 (400)   |                         |
+|  | REHAB-01      | REHAB-02      | REHAB-03      |                         |
+|  | standby       | *ACTIVE*      | standby       |                         |
+|  |               | PAT-0104      |               |                         |
+|  |               | Exo fitting   |               |                         |
+|  +---------------+---------------+---------------+                         |
 |                                                                            |
-|  RECOVERY WING (600 sq ft)                                                |
-|  +--------------------------------------------------------------------+   |
-|  | Recovery Bays: 4/12 occupied                                        |   |
-|  | P0079 (post-surgical, transferring to PACU at 13:15)               |   |
-|  | Multiple morning patients completing discharge                      |   |
-|  +--------------------------------------------------------------------+   |
+|  RECOVERY WING (600 sq ft)                                                 |
+|  +--------------------------------------------------------------------+    |
+|  | Recovery Bays: 4/12 occupied                                       |    |
+|  | P0079 (post-surgical, transferring to PACU at 13:15)               |    |
+|  | Multiple morning patients completing discharge                     |    |
+|  +--------------------------------------------------------------------+    |
 |                                                                            |
 +============================================================================+
 | FACILITY SUMMARY - Hour 13                                                 |
 |                                                                            |
-| Patients on-site: ~22 | New arrivals: 10 | Departures: multiple           |
-| Active robots: 17/29 (58%) | Cleaning: 4 | Standby: 12                    |
-| Adverse events: 0 | IND drugs: 2 (nivolumab P0097, regorafenib P0105)    |
-| Site PSL: 64.9 | Safety officer: SSO-D2                                   |
+| Patients on-site: ~22 | New arrivals: 10 | Departures: multiple            |
+| Active robots: 17/29 (58%) | Cleaning: 4 | Standby: 12                     |
+| Adverse events: 0 | IND drugs: 2 (nivolumab P0097, regorafenib P0105)      |
+| Site PSL: 64.9 | Safety officer: SSO-D2                                    |
 +============================================================================+
