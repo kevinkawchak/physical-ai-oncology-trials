@@ -1,122 +1,122 @@
 +============================================================================+
-|              PATIENT FLOW DIAGRAM - Hour 19: 19:00-19:59                  |
+|              PATIENT FLOW DIAGRAM - Hour 19: 19:00-19:59                   |
 +============================================================================+
 |                                                                            |
-| TIME  ENTRANCE    CHECK-IN     WAITING     PROCEDURE    RECOVERY  EXIT    |
-| ----  --------    --------     -------     ---------    --------  ----    |
+| TIME  ENTRANCE    CHECK-IN     WAITING     PROCEDURE    RECOVERY  EXIT     |
+| ----  --------    --------     -------     ---------    --------  ----     |
 |                                                                            |
-| 19:00                                                   [P0134:PACU]      |
-|   |                                       Surgery done   R0 resection     |
-|   |                                       105 min total  transferred      |
-|   |                                                                       |
-| 19:05 P0154 ---> [Kiosk-2] --+                                           |
-|   |    (58M,      19:05      |                                            |
+| 19:00                                                   [P0134:PACU]       |
+|   |                                       Surgery done   R0 resection      |
+|   |                                       105 min total  transferred       |
+|   |                                                                        |
+| 19:05 P0154 ---> [Kiosk-2] --+                                             |
+|   |    (58M,      19:05      |                                             |
 |   |    mediast.)              |                                            |
-|   |                          +--> [Pre-op Hold]                           |
-|   |                                    |                                  |
-| 19:10 P0155 ---> [Kiosk-3] --+        |                                  |
-|   |    (36F,      19:10      |        |                                   |
-|   |    sarcoma)              |        |                                   |
-|   |                          +--> [Adult Wait]                            |
-|   |                                    |     |                            |
-| 19:15                                  |     |                            |
-|   |                                    |     |                            |
-| 19:18 P0156 ---> [Kiosk-1] --+        |     +--> [Stn 2: COBOT-02]      |
-|   |    (69M,      19:18      |        |          Forearm biopsy           |
-|   |    NSCLC)                |        |          PAT-ODMND-0155           |
-|   |                          +--> [Adult Wait]                            |
-|   |                                    |     |                            |
-| 19:24 P0157 ---> [Kiosk-4] --+        |     |                            |
-|   |    (7F,       19:24      |        |     |                             |
-|   |    ped AML)              |        |     |                             |
-|   |                          +--> [Ped Wait] |                            |
-|   |                                    |     |                            |
-| 19:25                           [Anesthesia] |                            |
+|   |                          +--> [Pre-op Hold]                            |
+|   |                                    |                                   |
+| 19:10 P0155 ---> [Kiosk-3] --+        |                                    |
+|   |    (36F,      19:10      |        |                                    |
+|   |    sarcoma)              |        |                                    |
+|   |                          +--> [Adult Wait]                             |
+|   |                                    |     |                             |
+| 19:15                                  |     |                             |
+|   |                                    |     |                             |
+| 19:18 P0156 ---> [Kiosk-1] --+        |     +--> [Stn 2: COBOT-02]         |
+|   |    (69M,      19:18      |        |          Forearm biopsy            |
+|   |    NSCLC)                |        |          PAT-ODMND-0155            |
+|   |                          +--> [Adult Wait]                             |
+|   |                                    |     |                             |
+| 19:24 P0157 ---> [Kiosk-4] --+        |     |                              |
+|   |    (7F,       19:24      |        |     |                              |
+|   |    ped AML)              |        |     |                              |
+|   |                          +--> [Ped Wait] |                             |
+|   |                                    |     |                             |
+| 19:25                           [Anesthesia] |                             |
 |   |                            P0154 inducted |                            |
-|   |                                    |     |                            |
-| 19:28                                  |     +--> [Vault 1: TRACK-01]    |
-|   |                                    |          RT Motion-Tracking      |
-|   |                                    |          PAT-ODMND-0156          |
-| 19:30 P0158 ---> [Kiosk-2] --+        |          Fraction 18/30         |
-|   |    (63F,      19:30      |   [Ped Play 3: COMPN-03]                  |
-|   |    brain met)            |   PAT-ODMND-0157                          |
-|   |                          +--> [Adult Wait]                            |
-|   |                                    |     |                            |
-| 19:35                           [Suite 3: SURG-03]                        |
-|   |                            PAT-ODMND-0154     |                       |
-|   |                            Mediastinal resec  |                       |
-|   |                                    |          |                       |
-| 19:38 P0159 ---> [Kiosk-3] --+   [Biopsy done]   +--> [Vault 1:RTPOS-01]|
-|   |    (51M,      19:38      |   P0155 --> Recov       PAT-ODMND-0158    |
-|   |    HCC)                  |                         SRS positioning   |
-|   |                          +--> [Adult Wait]                            |
-|   |                                    |                                  |
-| 19:42                                  |     !AE-19-001! P0158           |
-|   |                                    |     HR 112, mask loosened        |
-|   |                                    |     5 min break                  |
-| 19:44 P0160 ---> [Kiosk-1] --+        |                                  |
-|   |    (74F,      19:44      |        |                                   |
-|   |    liver met)            |        |                                   |
-|   |                          +--> [Adult Wait]                            |
-|   |                                    |                                  |
-| 19:45                                  +--> [Bay 1: IMAGE-01]            |
-|   |                                         PAT-ODMND-0159               |
-|   |                                         HCC liver scan               |
-|   |                                         (lenvatinib/IND)             |
-| 19:47                                  P0158 HR 82, normalized           |
-|   |                                    Positioning resumed                |
-| 19:48                             P0155 --> Discharge --> EXIT            |
-|   |                                    [RT done] P0156                    |
-|   |                                              |                       |
-| 19:50 P0161 ---> [Kiosk-4] --+                  |                        |
-|   |    (66M,      19:50      |   +--> [Bay 2: IMAGE-02]                  |
-|   |    osteosar)             |   |    PAT-ODMND-0160                     |
-|   |                          +--> [Adult Wait]                            |
-|   |                                    |                                  |
-| 19:55                             P0156 --> Discharge --> EXIT            |
-|   |                                    +--> [Rehab 1: REHAB-01]          |
-|   |                                         PAT-ODMND-0161               |
-|   |                                         Gait training                |
-| 19:58                             [P0158 positioning done]               |
-|   |                                P0158 --> Recovery                     |
-|   |                                [P0159 imaging done]                   |
-| 19:59                              P0159 --> Pending discharge            |
-|   |                                                                       |
-|   |   Ongoing: P0154 surgery, P0157 companion, P0160 imaging,            |
-|   |            P0161 rehab - all continue into Hour 20                    |
+|   |                                    |     |                             |
+| 19:28                                  |     +--> [Vault 1: TRACK-01]      |
+|   |                                    |          RT Motion-Tracking       |
+|   |                                    |          PAT-ODMND-0156           |
+| 19:30 P0158 ---> [Kiosk-2] --+        |          Fraction 18/30            |
+|   |    (63F,      19:30      |   [Ped Play 3: COMPN-03]                    |
+|   |    brain met)            |   PAT-ODMND-0157                            |
+|   |                          +--> [Adult Wait]                             |
+|   |                                    |     |                             |
+| 19:35                           [Suite 3: SURG-03]                         |
+|   |                            PAT-ODMND-0154     |                        |
+|   |                            Mediastinal resec  |                        | 
+|   |                                    |          |                        |
+| 19:38 P0159 ---> [Kiosk-3] --+   [Biopsy done]   +--> [Vault 1:RTPOS-01]   |
+|   |    (51M,      19:38      |   P0155 --> Recov       PAT-ODMND-0158      |
+|   |    HCC)                  |                         SRS positioning     |
+|   |                          +--> [Adult Wait]                             |
+|   |                                    |                                   |
+| 19:42                                  |     !AE-19-001! P0158             |
+|   |                                    |     HR 112, mask loosened         |
+|   |                                    |     5 min break                   |
+| 19:44 P0160 ---> [Kiosk-1] --+        |                                    |
+|   |    (74F,      19:44      |        |                                    |
+|   |    liver met)            |        |                                    |
+|   |                          +--> [Adult Wait]                             |
+|   |                                    |                                   |
+| 19:45                                  +--> [Bay 1: IMAGE-01]              |
+|   |                                         PAT-ODMND-0159                 |
+|   |                                         HCC liver scan                 |
+|   |                                         (lenvatinib/IND)               |
+| 19:47                                  P0158 HR 82, normalized             |
+|   |                                    Positioning resumed                 |
+| 19:48                             P0155 --> Discharge --> EXIT             |
+|   |                                    [RT done] P0156                     |
+|   |                                              |                         |
+| 19:50 P0161 ---> [Kiosk-4] --+                  |                          |
+|   |    (66M,      19:50      |   +--> [Bay 2: IMAGE-02]                    |
+|   |    osteosar)             |   |    PAT-ODMND-0160                       |
+|   |                          +--> [Adult Wait]                             |
+|   |                                    |                                   |
+| 19:55                             P0156 --> Discharge --> EXIT             |
+|   |                                    +--> [Rehab 1: REHAB-01]            |
+|   |                                         PAT-ODMND-0161                 |
+|   |                                         Gait training                  |
+| 19:58                             [P0158 positioning done]                 |
+|   |                                P0158 --> Recovery                      |
+|   |                                [P0159 imaging done]                    |
+| 19:59                              P0159 --> Pending discharge             |
+|   |                                                                        |
+|   |   Ongoing: P0154 surgery, P0157 companion, P0160 imaging,              |
+|   |            P0161 rehab - all continue into Hour 20                     |
 |                                                                            |
 +============================================================================+
-| PATIENT FLOW SUMMARY - Hour 19                                            |
+| PATIENT FLOW SUMMARY - Hour 19                                             |
 |                                                                            |
-| Arrivals: 8 patients (PAT-ODMND-0154 through PAT-ODMND-0161)             |
-|   P0154 (58M, mediastinal)   --> Surgery (SURG-03) --> Ongoing            |
-|   P0155 (36F, sarcoma)       --> Biopsy (COBOT-02) --> Discharged 19:48  |
-|   P0156 (69M, NSCLC)         --> RT (TRACK-01) --> Discharged 19:55      |
-|   P0157 (7F, ped AML)        --> Companion (COMPN-03) --> Ongoing        |
-|   P0158 (63F, brain mets)    --> RT Pos (RTPOS-01) --> Recovery [AE]     |
-|   P0159 (51M, HCC)           --> Imaging (IMAGE-01) --> Pending disch    |
-|   P0160 (74F, liver mets)    --> Imaging (IMAGE-02) --> Ongoing          |
-|   P0161 (66M, osteosarcoma)  --> Rehab (REHAB-01) --> Ongoing            |
+| Arrivals: 8 patients (PAT-ODMND-0154 through PAT-ODMND-0161)               |
+|   P0154 (58M, mediastinal)   --> Surgery (SURG-03) --> Ongoing             |
+|   P0155 (36F, sarcoma)       --> Biopsy (COBOT-02) --> Discharged 19:48    |
+|   P0156 (69M, NSCLC)         --> RT (TRACK-01) --> Discharged 19:55        |
+|   P0157 (7F, ped AML)        --> Companion (COMPN-03) --> Ongoing          |
+|   P0158 (63F, brain mets)    --> RT Pos (RTPOS-01) --> Recovery [AE]       |
+|   P0159 (51M, HCC)           --> Imaging (IMAGE-01) --> Pending disch      |
+|   P0160 (74F, liver mets)    --> Imaging (IMAGE-02) --> Ongoing            |
+|   P0161 (66M, osteosarcoma)  --> Rehab (REHAB-01) --> Ongoing              |
 |                                                                            |
-| Departures: 3 patients (new arrivals) + prior hour discharges            |
-|   P0134 --> PACU (surgery complete, R0)                                   |
-|   P0155 --> Discharged 19:48 (biopsy complete)                            |
-|   P0156 --> Discharged 19:55 (RT fraction 18/30 complete)                |
+| Departures: 3 patients (new arrivals) + prior hour discharges              |
+|   P0134 --> PACU (surgery complete, R0)                                    |
+|   P0155 --> Discharged 19:48 (biopsy complete)                             |
+|   P0156 --> Discharged 19:55 (RT fraction 18/30 complete)                  |
 |                                                                            |
-| Adverse events: 1 (AE-19-001, P0158, Grade 1 anxiety, resolved)         |
-| IND drugs: nivolumab (P0154), lenvatinib (P0159)                         |
+| Adverse events: 1 (AE-19-001, P0158, Grade 1 anxiety, resolved)            |
+| IND drugs: nivolumab (P0154), lenvatinib (P0159)                           |
 |                                                                            |
-| Cancer types active this hour:                                            |
-|   Mediastinal tumor (P0154) - surgical resection                          |
-|   Forearm sarcoma (P0155) - biopsy                                        |
-|   NSCLC adenocarcinoma (P0156) - RT fraction                              |
-|   Pediatric AML (P0157) - companion support                               |
-|   Brain metastases (P0158) - SRS positioning                              |
-|   HCC (P0159) - imaging assessment                                        |
-|   Liver metastases (P0160) - surveillance imaging                         |
-|   Femur osteosarcoma (P0161) - rehabilitation                             |
+| Cancer types active this hour:                                             |
+|   Mediastinal tumor (P0154) - surgical resection                           |
+|   Forearm sarcoma (P0155) - biopsy                                         |
+|   NSCLC adenocarcinoma (P0156) - RT fraction                               |
+|   Pediatric AML (P0157) - companion support                                |
+|   Brain metastases (P0158) - SRS positioning                               |
+|   HCC (P0159) - imaging assessment                                         |
+|   Liver metastases (P0160) - surveillance imaging                          |
+|   Femur osteosarcoma (P0161) - rehabilitation                              |
 |                                                                            |
-| Wait times: P0154=3m, P0155=7m, P0156=9m, P0157=5m,                     |
-|             P0158=7m, P0159=6m, P0160=5m, P0161=4m                       |
-| Average wait: 5.8 minutes                                                 |
+| Wait times: P0154=3m, P0155=7m, P0156=9m, P0157=5m,                        |
+|             P0158=7m, P0159=6m, P0160=5m, P0161=4m                         |
+| Average wait: 5.8 minutes                                                  |
 +============================================================================+
