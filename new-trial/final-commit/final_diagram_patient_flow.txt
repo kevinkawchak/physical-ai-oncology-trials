@@ -1,43 +1,43 @@
 +============================================================================+
-|          24-HOUR AGGREGATE PATIENT FLOW TIMELINE                          |
-|          On-Demand Physical AI Oncology Trial - 23 March 2026             |
-|          175 Unique Patients | ~185 Procedures | PSL 63.4 to 64.4        |
+|          24-HOUR AGGREGATE PATIENT FLOW TIMELINE                           |
+|          On-Demand Physical AI Oncology Trial - 23 March 2026              |
+|          175 Unique Patients | ~185 Procedures | PSL 63.4 to 64.4          |
 +============================================================================+
 |                                                                            |
-|  HOURLY ARRIVAL / DEPARTURE PATTERN                                       |
+|  HOURLY ARRIVAL / DEPARTURE PATTERN                                        |
 |                                                                            |
-|  Hour  Arrive  Depart  On-Site  Util%  Bar (arrivals, each * = 1 patient) |
-|  ----  ------  ------  -------  -----  ---------------------------------- |
-|  00       2       1       5     2.3%   **                                 |
-|  01       2       2       5     3.4%   **                                 |
-|  02       3       2       6     6.9%   ***                                |
-|  03       3       3       6    10.3%   ***                                |
-|  04       4       3       7    13.8%   ****                               |
-|  05       5       4       8    17.2%   *****                              |
-|  06       7       5      10    24.1%   *******                            |
-|  07      10       6      14    34.5%   **********                         |
-|  08      12       8      18    51.7%   ************                       |
-|  09      15      10      23    72.4%   ***************  <-- PEAK HOUR     |
-|  10      14      12      25    69.0%   **************                     |
-|  11      13      13      25    65.5%   *************                      |
-|  12      12      13      24    58.6%   ************                       |
-|  13      11      13      22    55.2%   ***********                        |
-|  14      10      13      19    48.3%   **********                         |
-|  15       9      12      16    44.8%   *********                          |
-|  16       8      11      13    37.9%   ********                           |
-|  17       7      10      10    31.0%   *******                            |
-|  18       6       9       7    24.1%   ******                             |
-|  19       5       7       5    20.7%   *****                              |
-|  20       5       6       4    17.2%   *****                              |
-|  21       4       5       3    13.8%   ****                               |
-|  22       4       4       3    10.3%   ****                               |
-|  23       2       1       4     6.9%   **                                 |
-|  ----  ------  ------  -------  -----                                     |
-|  TOT    172     172      avg    avg                                       |
-|  (+ 3 carryover = 175 unique IDs)                                         |
+|  Hour  Arrive  Depart  On-Site  Util%  Bar (arrivals, each * = 1 patient)  |
+|  ----  ------  ------  -------  -----  ----------------------------------  |
+|  00       2       1       5     2.3%   **                                  |
+|  01       2       2       5     3.4%   **                                  |
+|  02       3       2       6     6.9%   ***                                 |
+|  03       3       3       6    10.3%   ***                                 |
+|  04       4       3       7    13.8%   ****                                |
+|  05       5       4       8    17.2%   *****                               |
+|  06       7       5      10    24.1%   *******                             |
+|  07      10       6      14    34.5%   **********                          |
+|  08      12       8      18    51.7%   ************                        |
+|  09      15      10      23    72.4%   ***************  <-- PEAK HOUR      |
+|  10      14      12      25    69.0%   **************                      |
+|  11      13      13      25    65.5%   *************                       |
+|  12      12      13      24    58.6%   ************                        |
+|  13      11      13      22    55.2%   ***********                         |
+|  14      10      13      19    48.3%   **********                          |
+|  15       9      12      16    44.8%   *********                           |
+|  16       8      11      13    37.9%   ********                            |
+|  17       7      10      10    31.0%   *******                             |
+|  18       6       9       7    24.1%   ******                              |
+|  19       5       7       5    20.7%   *****                               |
+|  20       5       6       4    17.2%   *****                               |
+|  21       4       5       3    13.8%   ****                                |
+|  22       4       4       3    10.3%   ****                                |
+|  23       2       1       4     6.9%   **                                  |
+|  ----  ------  ------  -------  -----                                      |
+|  TOT    172     172      avg    avg                                        |
+|  (+ 3 carryover = 175 unique IDs)                                          |
 |                                                                            |
 +----------------------------------------------------------------------------+
-|  ARRIVAL CURVE VISUALIZATION (patients per hour)                          |
+|  ARRIVAL CURVE VISUALIZATION (patients per hour)                           |
 |                                                                            |
 |  16 |                  #                                                   |
 |  15 |                  #                                                   |
@@ -50,16 +50,16 @@
 |   8 |         #  #  #  #  #  #  #  #  #                                    |
 |   7 |      #  #  #  #  #  #  #  #  #  #  #                                 |
 |   6 |      #  #  #  #  #  #  #  #  #  #  #  #                              |
-|   5 |   #  #  #  #  #  #  #  #  #  #  #  #  #  #  #                       |
-|   4 |   #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #                 |
-|   3 |#  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #              |
-|   2 |#  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  |
-|   1 |#  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  |
-|     +--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+  |
-|      00 01 02 03 04 05 06 07 08 09 10 11 12 13 14 15 16 17 18 19 20 21 22 |
+|   5 |   #  #  #  #  #  #  #  #  #  #  #  #  #  #  #                        |
+|   4 |   #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #                  |
+|   3 |#  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #               |
+|   2 |#  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #   |
+|   1 |#  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #   |
+|     +--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+    |   
+|      00 01 02 03 04 05 06 07 08 09 10 11 12 13 14 15 16 17 18 19 20 21 22  |
 |                                                                        23  |
 +----------------------------------------------------------------------------+
-|  CONCURRENT ON-SITE PATIENT COUNT (peak within each hour)                 |
+|  CONCURRENT ON-SITE PATIENT COUNT (peak within each hour)                  |
 |                                                                            |
 |  28 |                     #                                                |
 |  26 |                     #                                                |
@@ -72,81 +72,81 @@
 |  14 |            #  #  #  #  #  #  #  #  #                                 |
 |  12 |            #  #  #  #  #  #  #  #  #  #                              |
 |  10 |         #  #  #  #  #  #  #  #  #  #  #  #                           |
-|   8 |      #  #  #  #  #  #  #  #  #  #  #  #  #  #                       |
-|   6 |   #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #                    |
-|   5 |#  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #           |
-|   4 |#  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  |
-|   3 |#  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  |
-|     +--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+  |
-|      00 01 02 03 04 05 06 07 08 09 10 11 12 13 14 15 16 17 18 19 20 21 22 |
+|   8 |      #  #  #  #  #  #  #  #  #  #  #  #  #  #                        |
+|   6 |   #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #                     |
+|   5 |#  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #            |
+|   4 |#  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #   |
+|   3 |#  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #   |
+|     +--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+    |
+|      00 01 02 03 04 05 06 07 08 09 10 11 12 13 14 15 16 17 18 19 20 21 22  |
 |                                                                        23  |
 +----------------------------------------------------------------------------+
-|  CANCER TYPE DISTRIBUTION (175 patients)                                  |
+|  CANCER TYPE DISTRIBUTION (175 patients)                                   |
 |                                                                            |
-|  NSCLC (adeno+squam)   [################]  28 pts  (16.0%)                |
-|  HCC                   [############]      18 pts  (10.3%)                |
-|  Colorectal (+mets)    [###########]       16 pts  ( 9.1%)                |
-|  Brain metastases      [##########]        14 pts  ( 8.0%)                |
-|  Pediatric ALL         [########]          12 pts  ( 6.9%)                |
-|  Sarcoma (soft tissue) [#######]           11 pts  ( 6.3%)                |
-|  Breast cancer         [#######]           11 pts  ( 6.3%)                |
-|  Mediastinal tumors    [######]            10 pts  ( 5.7%)                |
-|  Meningioma            [######]             9 pts  ( 5.1%)                |
-|  Parotid/salivary      [#####]              8 pts  ( 4.6%)                |
-|  Pediatric osteosar.   [#####]              8 pts  ( 4.6%)                |
-|  Femur osteosarcoma    [####]               7 pts  ( 4.0%)                |
-|  Pediatric AML         [####]               6 pts  ( 3.4%)                |
-|  Ewing sarcoma         [###]                5 pts  ( 2.9%)                |
-|  Pancreatic cancer     [###]                4 pts  ( 2.3%)                |
-|  Other                 [#####]              8 pts  ( 4.6%)                |
+|  NSCLC (adeno+squam)   [################]  28 pts  (16.0%)                 |
+|  HCC                   [############]      18 pts  (10.3%)                 |
+|  Colorectal (+mets)    [###########]       16 pts  ( 9.1%)                 |
+|  Brain metastases      [##########]        14 pts  ( 8.0%)                 |
+|  Pediatric ALL         [########]          12 pts  ( 6.9%)                 |
+|  Sarcoma (soft tissue) [#######]           11 pts  ( 6.3%)                 |
+|  Breast cancer         [#######]           11 pts  ( 6.3%)                 |
+|  Mediastinal tumors    [######]            10 pts  ( 5.7%)                 |
+|  Meningioma            [######]             9 pts  ( 5.1%)                 |
+|  Parotid/salivary      [#####]              8 pts  ( 4.6%)                 |
+|  Pediatric osteosar.   [#####]              8 pts  ( 4.6%)                 |
+|  Femur osteosarcoma    [####]               7 pts  ( 4.0%)                 |
+|  Pediatric AML         [####]               6 pts  ( 3.4%)                 |
+|  Ewing sarcoma         [###]                5 pts  ( 2.9%)                 |
+|  Pancreatic cancer     [###]                4 pts  ( 2.3%)                 |
+|  Other                 [#####]              8 pts  ( 4.6%)                 |
 |                                                                            |
 +----------------------------------------------------------------------------+
 |  ADVERSE EVENT TIMELINE                                                    |
 |                                                                            |
-|  Hour:  00 01 02 03 04 05 06 07 08 09 10 11 12 13 14 15 16 17 18 19 20 21 |
-|  AEs:    .  .  .  .  1  .  .  1  1  .  .  .  1  .  .  1  .  .  1  .  1  . |
+|  Hour:  00 01 02 03 04 05 06 07 08 09 10 11 12 13 14 15 16 17 18 19 20 21  |
+|  AEs:    .  .  .  .  1  .  .  1  1  .  .  .  1  .  .  1  .  .  1  .  1  .  |
 |  Grade:              G1       G1 G1             G2       G1       G1    G1 |
 |                                                                            |
-|  Hour 04: P0029 nausea G1                                                 |
-|  Hour 07: P0024 hypotension G1 (post-surgical)                            |
-|  Hour 08: P0037 bleeding G1 (puncture site)                               |
-|  Hour 12: P0081 pain G2 (post-biopsy, highest grade of day)               |
-|  Hour 15: P0118 cough G1 (during RT, beam hold applied)                   |
-|  Hour 18: P0142 desaturation G1 (during rehab, O2 applied)                |
-|  Hour 20: P0158 anxiety G1 (pre-procedure, companion + lorazepam)         |
+|  Hour 04: P0029 nausea G1                                                  |
+|  Hour 07: P0024 hypotension G1 (post-surgical)                             |
+|  Hour 08: P0037 bleeding G1 (puncture site)                                |
+|  Hour 12: P0081 pain G2 (post-biopsy, highest grade of day)                |
+|  Hour 15: P0118 cough G1 (during RT, beam hold applied)                    |
+|  Hour 18: P0142 desaturation G1 (during rehab, O2 applied)                 |
+|  Hour 20: P0158 anxiety G1 (pre-procedure, companion + lorazepam)          |
 |                                                                            |
-|  All 7 AEs resolved same hour. Zero Grade 3+. Zero patient harm.         |
+|  All 7 AEs resolved same hour. Zero Grade 3+. Zero patient harm.           |
 |                                                                            |
 +----------------------------------------------------------------------------+
 |  SHIFT COVERAGE                                                            |
 |                                                                            |
-|  00----01----02----03----04----05----06----07----08----09----10----11----    |
-|  [--- SSO-N1 (night) ---|--- SSO-N2 ---|--- SSO-D1 (day) ------------>    |
+|  00----01----02----03----04----05----06----07----08----09----10----11----  |
+|  [--- SSO-N1 (night) ---|--- SSO-N2 ---|--- SSO-D1 (day) ------------>     |
 |                                                                            |
-|  12----13----14----15----16----17----18----19----20----21----22----23----    |
-|  ------ SSO-D1 (day) ---------|--- SSO-D2 (evening) ----|--- SSO-N2 --    |
+|  12----13----14----15----16----17----18----19----20----21----22----23----  |
+|  ------ SSO-D1 (day) ---------|--- SSO-D2 (evening) ----|--- SSO-N2 --     |
 |                                                                            |
-|  Robot fleet: 29 instances available 24/7                                 |
-|  Exception: SURG-01 maintenance 22:15-01:59 (planned, 4-hour window)     |
+|  Robot fleet: 29 instances available 24/7                                  |
+|  Exception: SURG-01 maintenance 22:15-01:59 (planned, 4-hour window)       |
 |                                                                            |
 +----------------------------------------------------------------------------+
 |  KEY MILESTONES                                                            |
 |                                                                            |
-|  00:12 - First patient of cycle (PAT-ODMND-0001, NSCLC RT fraction)       |
-|  07:15 - First surgery starts (P0024, mediastinal resection)              |
-|  09:00 - Peak hour begins (15 arrivals, 72% utilization)                  |
-|  09:00 - All 3 surgical suites occupied simultaneously (first time)       |
-|  09:32 - Maximum concurrent patients on-site: ~28                         |
-|  12:30 - 100th patient check-in (P0102)                                   |
-|  15:00 - Daytime peak concludes, gradual evening decline begins           |
-|  20:45 - 163rd patient, evening operations winding down                   |
-|  22:15 - SURG-01 enters preventive maintenance (4-hour window)            |
-|  23:40 - Final patient of cycle (PAT-ODMND-0175, NSCLC RT)               |
-|  23:59 - Cycle closes: 4 patients remain, PSL 64.4, 0 unresolved AEs    |
+|  00:12 - First patient of cycle (PAT-ODMND-0001, NSCLC RT fraction)        |
+|  07:15 - First surgery starts (P0024, mediastinal resection)               |
+|  09:00 - Peak hour begins (15 arrivals, 72% utilization)                   |
+|  09:00 - All 3 surgical suites occupied simultaneously (first time)        |
+|  09:32 - Maximum concurrent patients on-site: ~28                          |
+|  12:30 - 100th patient check-in (P0102)                                    |
+|  15:00 - Daytime peak concludes, gradual evening decline begins            |
+|  20:45 - 163rd patient, evening operations winding down                    |
+|  22:15 - SURG-01 enters preventive maintenance (4-hour window)             |
+|  23:40 - Final patient of cycle (PAT-ODMND-0175, NSCLC RT)                 |
+|  23:59 - Cycle closes: 4 patients remain, PSL 64.4, 0 unresolved AEs       |
 |                                                                            |
 +============================================================================+
-|  24-HOUR ON-DEMAND CYCLE COMPLETE                                         |
-|  172 arrivals + 3 carryover = 175 unique | ~185 procedures completed      |
-|  Avg wait: 8 min | Peak concurrent: 28 | Robot uptime: 99.7%             |
-|  PSL: 63.4 -> 64.4 (+1.0) | Site classification: ADVANCED               |
+|  24-HOUR ON-DEMAND CYCLE COMPLETE                                          |
+|  172 arrivals + 3 carryover = 175 unique | ~185 procedures completed       |
+|  Avg wait: 8 min | Peak concurrent: 28 | Robot uptime: 99.7%               |
+|  PSL: 63.4 -> 64.4 (+1.0) | Site classification: ADVANCED                  |
 +============================================================================+
