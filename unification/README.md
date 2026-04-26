@@ -329,8 +329,8 @@ validator.generate_report(results, "validation_report.html")
 │                    Physical AI Oncology Consortium              │
 ├─────────────────────────────────────────────────────────────────┤
 │  ┌──────────────┐  ┌──────────────┐  ┌──────────────┐           │
-│  │   Academic    │  │   Industry   │  │  Healthcare  │          │
-│  │  Partners     │  │   Partners   │  │   Systems    │          │
+│  │   Academic   │  │   Industry   │  │  Healthcare  │           │
+│  │  Partners    │  │   Partners   │  │   Systems    │           │
 │  ├──────────────┤  ├──────────────┤  ├──────────────┤           │
 │  │ Stanford     │  │ NVIDIA       │  │ Mayo Clinic  │           │
 │  │ JHU          │  │ Intuitive    │  │ MD Anderson  │           │
