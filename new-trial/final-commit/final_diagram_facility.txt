@@ -1,186 +1,186 @@
 +============================================================================+
 |              ON-DEMAND PHYSICAL AI ONCOLOGY TRIAL FACILITY                 |
-|              End-of-Day Status: 23:59 - 23 March 2026                     |
+|              End-of-Day Status: 23:59 - 23 March 2026                      |
 |              24-Hour Cycle Complete | Site PSL: 64.4 (Advanced)            |
 +============================================================================+
 |                                                                            |
-|  ENTRANCE / CHECK-IN (1,500 sq ft)                                        |
-|  +--------------------------------------------------------------------+   |
-|  | [KIOSK-1: powered down] [KIOSK-2: powered down]                    |   |
-|  | [KIOSK-3: powered down] [KIOSK-4: powered down]                    |   |
-|  | 24-hour total check-ins: 175 patients                              |   |
-|  | Status: OVERNIGHT MODE - emergency entry only                      |   |
-|  +--------------------------------------------------------------------+   |
+|  ENTRANCE / CHECK-IN (1,500 sq ft)                                         |
+|  +--------------------------------------------------------------------+    |
+|  | [KIOSK-1: powered down] [KIOSK-2: powered down]                    |    |
+|  | [KIOSK-3: powered down] [KIOSK-4: powered down]                    |    |
+|  | 24-hour total check-ins: 175 patients                              |    |
+|  | Status: OVERNIGHT MODE - emergency entry only                      |    |
+|  +--------------------------------------------------------------------+    |
 |                                                                            |
-|  WAITING AREAS                                                            |
-|  +-------------------------------+  +---------------------+              |
-|  | ADULT WAITING (2,000 sq ft)   |  | PEDIATRIC WAITING   |              |
-|  | Occupancy: 0/50               |  | (800 sq ft)         |              |
-|  | [Lights dimmed - overnight]   |  | Occ: 0/15           |              |
-|  | Chairs: cleaned, sanitized    |  | [Cleaned overnight] |              |
-|  +-------------------------------+  +---------------------+              |
+|  WAITING AREAS                                                             |
+|  +-------------------------------+  +---------------------+                |
+|  | ADULT WAITING (2,000 sq ft)   |  | PEDIATRIC WAITING   |                |
+|  | Occupancy: 0/50               |  | (800 sq ft)         |                |
+|  | [Lights dimmed - overnight]   |  | Occ: 0/15           |                |
+|  | Chairs: cleaned, sanitized    |  | [Cleaned overnight] |                |
+|  +-------------------------------+  +---------------------+                |
 |                                                                            |
-|  =========================== CLINICAL WINGS ===========================   |
+|  =========================== CLINICAL WINGS ===========================    |
 |                                                                            |
-|  SURGICAL WING (3 suites, 1,800 sq ft total)                             |
-|  +-------------------+-------------------+-------------------+            |
-|  | SUITE 1 (600)     | SUITE 2 (600)     | SUITE 3 (600)     |            |
-|  | SURG-01           | SURG-02           | SURG-03           |            |
-|  | **MAINTENANCE**   | overnight-standby | overnight-standby |            |
-|  | Prev. maint.      | Self-calibrating  | Self-calibrating  |            |
-|  | Window: 22:15-    | Last case: 19:45  | Last case: 17:30  |            |
-|  | 01:59 next cycle  | 7 surgeries today | All R0 resections |            |
-|  | Tech: automated   |                   |                   |            |
-|  +-------------------+-------------------+-------------------+            |
+|  SURGICAL WING (3 suites, 1,800 sq ft total)                               |
+|  +-------------------+-------------------+-------------------+             |
+|  | SUITE 1 (600)     | SUITE 2 (600)     | SUITE 3 (600)     |             |
+|  | SURG-01           | SURG-02           | SURG-03           |             |
+|  | **MAINTENANCE**   | overnight-standby | overnight-standby |             |
+|  | Prev. maint.      | Self-calibrating  | Self-calibrating  |             |
+|  | Window: 22:15-    | Last case: 19:45  | Last case: 17:30  |             |
+|  | 01:59 next cycle  | 7 surgeries today | All R0 resections |             |
+|  | Tech: automated   |                   |                   |             |
+|  +-------------------+-------------------+-------------------+             |
 |                                                                            |
-|  BIOPSY WING (4 stations, 800 sq ft total)                               |
-|  +------------+------------+------------+------------+                    |
-|  | STN 1(200) | STN 2(200) | STN 3(200) | STN 4(200) |                    |
-|  | COBOT-01   | COBOT-02   | COBOT-03   | COBOT-04   |                    |
-|  | o/n stndby | o/n stndby | o/n stndby | o/n stndby |                    |
-|  | Self-clean | Self-clean | Self-clean | Self-clean |                    |
-|  | 24h: 6 Bx  | 24h: 7 Bx  | 24h: 6 Bx  | 24h: 5 Bx  |                    |
-|  +------------+------------+------------+------------+                    |
+|  BIOPSY WING (4 stations, 800 sq ft total)                                 |
+|  +------------+------------+------------+------------+                     |
+|  | STN 1(200) | STN 2(200) | STN 3(200) | STN 4(200) |                     |
+|  | COBOT-01   | COBOT-02   | COBOT-03   | COBOT-04   |                     |
+|  | o/n stndby | o/n stndby | o/n stndby | o/n stndby |                     |
+|  | Self-clean | Self-clean | Self-clean | Self-clean |                     |
+|  | 24h: 6 Bx  | 24h: 7 Bx  | 24h: 6 Bx  | 24h: 5 Bx  |                     |
+|  +------------+------------+------------+------------+                     |
 |                                                                            |
-|  RADIOTHERAPY VAULTS (shielded, 3,600 sq ft total)                       |
-|  +---------------------+---------------------+---------------------+     |
-|  | VAULT 1 (1,200)     | VAULT 2 (1,200)     | VAULT 3 (1,200)     |     |
-|  | RTPOS-01: o/n stndby| RTPOS-02: o/n stndby| RTPOS-03: o/n stndby|     |
-|  | TRACK-01: o/n stndby| TRACK-02: finishing  | TRACK-03: o/n stndby|     |
-|  | Patient: none       | PAT-ODMND-0175      | Patient: none       |     |
-|  |                     | RT frac 18/30       |                     |     |
-|  | Interlocks: secured | Beam: completing    | Interlocks: secured |     |
-|  | 24h RT: 8 fractions | 24h RT: 10 frac.    | 24h RT: 8 fractions |     |
-|  +---------------------+---------------------+---------------------+     |
+|  RADIOTHERAPY VAULTS (shielded, 3,600 sq ft total)                         |
+|  +---------------------+---------------------+---------------------+       |
+|  | VAULT 1 (1,200)     | VAULT 2 (1,200)     | VAULT 3 (1,200)     |       |
+|  | RTPOS-01: o/n stndby| RTPOS-02: o/n stndby| RTPOS-03: o/n stndby|       |
+|  | TRACK-01: o/n stndby| TRACK-02: finishing | TRACK-03: o/n stndby|       |
+|  | Patient: none       | PAT-ODMND-0175      | Patient: none       |       |
+|  |                     | RT frac 18/30       |                     |       |
+|  | Interlocks: secured | Beam: completing    | Interlocks: secured |       |
+|  | 24h RT: 8 fractions | 24h RT: 10 frac.    | 24h RT: 8 fractions |       |
+|  +---------------------+---------------------+---------------------+       |
 |                                                                            |
-|  CT-GUIDED / NEEDLE WING (800 sq ft total)                               |
-|  +---------------------+---------------------+                           |
-|  | CT SUITE 1 (400)    | CT SUITE 2 (400)    |                           |
-|  | NEEDLE-01: o/n stby | NEEDLE-02: o/n stby |                           |
-|  | Patient: none       | Patient: none       |                           |
-|  | 24h procedures: 9   | 24h procedures: 7   |                           |
-|  +---------------------+---------------------+                           |
+|  CT-GUIDED / NEEDLE WING (800 sq ft total)                                 |
+|  +---------------------+---------------------+                             |
+|  | CT SUITE 1 (400)    | CT SUITE 2 (400)    |                             |
+|  | NEEDLE-01: o/n stby | NEEDLE-02: o/n stby |                             |
+|  | Patient: none       | Patient: none       |                             |
+|  | 24h procedures: 9   | 24h procedures: 7   |                             |
+|  +---------------------+---------------------+                             |
 |                                                                            |
-|  PEDIATRIC / COMPANION WING (750 sq ft play + 750 sq ft therapy)         |
-|  +---------+---------+---------+---------+---------+                      |
-|  | PLAY 1  | PLAY 2  | PLAY 3  | PLAY 4  | PLAY 5  |                      |
-|  | COMPN-01| COMPN-02| COMPN-03| COMPN-04| COMPN-05|                      |
-|  | o/n stby|*ACTIVE* | o/n stby| o/n stby| o/n stby|                      |
-|  |         |PAT-0173 |         |         |         |                      |
-|  |         |Ewing    |         |         |         |                      |
-|  |         |sarcoma  |         |         |         |                      |
-|  |         |Age 10   |         |         |         |                      |
-|  |         |Overnight|         |         |         |                      |
-|  |         |monitor  |         |         |         |                      |
-|  +---------+---------+---------+---------+---------+                      |
-|  +-------------+-------------+-------------+                             |
-|  | THERAPY 1   | THERAPY 2   | THERAPY 3   |                             |
-|  | HUMAN-01    | HUMAN-02    | HUMAN-03    |                             |
-|  | o/n standby | o/n standby | o/n standby |                             |
-|  +-------------+-------------+-------------+                             |
+|  PEDIATRIC / COMPANION WING (750 sq ft play + 750 sq ft therapy)           |
+|  +---------+---------+---------+---------+---------+                       |
+|  | PLAY 1  | PLAY 2  | PLAY 3  | PLAY 4  | PLAY 5  |                       |
+|  | COMPN-01| COMPN-02| COMPN-03| COMPN-04| COMPN-05|                       |
+|  | o/n stby|*ACTIVE* | o/n stby| o/n stby| o/n stby|                       |
+|  |         |PAT-0173 |         |         |         |                       |
+|  |         |Ewing    |         |         |         |                       |
+|  |         |sarcoma  |         |         |         |                       |
+|  |         |Age 10   |         |         |         |                       |
+|  |         |Overnight|         |         |         |                       |
+|  |         |monitor  |         |         |         |                       |
+|  +---------+---------+---------+---------+---------+                       |
+|  +-------------+-------------+-------------+                               |
+|  | THERAPY 1   | THERAPY 2   | THERAPY 3   |                               |
+|  | HUMAN-01    | HUMAN-02    | HUMAN-03    |                               |
+|  | o/n standby | o/n standby | o/n standby |                               |
+|  +-------------+-------------+-------------+                               |
 |                                                                            |
-|  IMAGING WING (1,200 sq ft total)                                        |
-|  +-----------+-----------+-----------+-----------+                        |
-|  | BAY 1(300)| BAY 2(300)| BAY 3(300)| BAY 4(300)|                        |
-|  | IMAGE-01  | IMAGE-02  | IMAGE-03  | IMAGE-04  |                        |
-|  | o/n stby  | o/n stby  | o/n stby  | o/n stby  |                        |
-|  | 24h: 8 im | 24h: 9 im | 24h: 7 im | 24h: 6 im|                        |
-|  +-----------+-----------+-----------+-----------+                        |
-|  Note: PAT-ODMND-0174 imaging completed 23:20-23:42 via IMAGE-02         |
-|  PAT-ODMND-0174 currently in brief post-scan review area                 |
+|  IMAGING WING (1,200 sq ft total)                                          |
+|  +-----------+-----------+-----------+-----------+                         |
+|  | BAY 1(300)| BAY 2(300)| BAY 3(300)| BAY 4(300)|                         |
+|  | IMAGE-01  | IMAGE-02  | IMAGE-03  | IMAGE-04  |                         |
+|  | o/n stby  | o/n stby  | o/n stby  | o/n stby  |                         |
+|  | 24h: 8 im | 24h: 9 im | 24h: 7 im | 24h: 6 im |                         |
+|  +-----------+-----------+-----------+-----------+                         |
+|  Note: PAT-ODMND-0174 imaging completed 23:20-23:42 via IMAGE-02           |
+|  PAT-ODMND-0174 currently in brief post-scan review area                   |
 |                                                                            |
-|  STEERABLE NEEDLE WING (700 sq ft total)                                 |
-|  +---------------------+---------------------+                           |
-|  | STEER SUITE 1 (350) | STEER SUITE 2 (350) |                           |
-|  | STEER-01: o/n stby  | STEER-02: o/n stby  |                           |
-|  | 24h procedures: 4   | 24h procedures: 4   |                           |
-|  +---------------------+---------------------+                           |
+|  STEERABLE NEEDLE WING (700 sq ft total)                                   |
+|  +---------------------+---------------------+                             |
+|  | STEER SUITE 1 (350) | STEER SUITE 2 (350) |                             |
+|  | STEER-01: o/n stby  | STEER-02: o/n stby  |                             |
+|  | 24h procedures: 4   | 24h procedures: 4   |                             |
+|  +---------------------+---------------------+                             |
 |                                                                            |
-|  REHAB WING (1,200 sq ft total)                                          |
-|  +-------------------+-------------------+-------------------+            |
-|  | REHAB BAY 1 (400) | REHAB BAY 2 (400) | REHAB BAY 3 (400) |            |
-|  | REHAB-01: o/n stby| REHAB-02: o/n stby| [Unequipped bay]  |            |
-|  | 24h sessions: 3   | 24h sessions: 3   | Reserved future   |            |
-|  +-------------------+-------------------+-------------------+            |
+|  REHAB WING (1,200 sq ft total)                                            |
+|  +-------------------+-------------------+-------------------+             |
+|  | REHAB BAY 1 (400) | REHAB BAY 2 (400) | REHAB BAY 3 (400) |             |
+|  | REHAB-01: o/n stby| REHAB-02: o/n stby| [Unequipped bay]  |             |
+|  | 24h sessions: 3   | 24h sessions: 3   | Reserved future   |             |
+|  +-------------------+-------------------+-------------------+             |
 |                                                                            |
-|  ========================= SUPPORT AREAS ==========================      |
+|  ========================= SUPPORT AREAS ==========================        |
 |                                                                            |
-|  RECOVERY WING (12 bays, 1,440 sq ft)                                   |
-|  +----------+----------+----------+----------+----------+----------+     |
-|  | BAY 1    | BAY 2    | BAY 3    | BAY 4    | BAY 5    | BAY 6    |     |
-|  | [empty]  | [empty]  | P0154    | [empty]  | [empty]  | [empty]  |     |
-|  |          |          | Post-surg|          |          |          |     |
-|  |          |          | esoph.   |          |          |          |     |
-|  |          |          | Vitals   |          |          |          |     |
-|  |          |          | stable   |          |          |          |     |
-|  +----------+----------+----------+----------+----------+----------+     |
-|  +----------+----------+----------+----------+----------+----------+     |
-|  | BAY 7    | BAY 8    | BAY 9    | BAY 10   | BAY 11   | BAY 12   |     |
-|  | [empty]  | [empty]  | [empty]  | [empty]  | [empty]  | [empty]  |     |
-|  +----------+----------+----------+----------+----------+----------+     |
-|  Recovery: 1/12 occupied (P0154 - overnight surgical recovery)           |
-|  24-hour recovery bay utilization: 82 patient-hours across 12 bays      |
+|  RECOVERY WING (12 bays, 1,440 sq ft)                                      |
+|  +----------+----------+----------+----------+----------+----------+       |
+|  | BAY 1    | BAY 2    | BAY 3    | BAY 4    | BAY 5    | BAY 6    |       |
+|  | [empty]  | [empty]  | P0154    | [empty]  | [empty]  | [empty]  |       |
+|  |          |          | Post-surg|          |          |          |       |
+|  |          |          | esoph.   |          |          |          |       |
+|  |          |          | Vitals   |          |          |          |       |
+|  |          |          | stable   |          |          |          |       |
+|  +----------+----------+----------+----------+----------+----------+       |
+|  +----------+----------+----------+----------+----------+----------+       |
+|  | BAY 7    | BAY 8    | BAY 9    | BAY 10   | BAY 11   | BAY 12   |       |
+|  | [empty]  | [empty]  | [empty]  | [empty]  | [empty]  | [empty]  |       |
+|  +----------+----------+----------+----------+----------+----------+       |  
+|  Recovery: 1/12 occupied (P0154 - overnight surgical recovery)             |
+|  24-hour recovery bay utilization: 82 patient-hours across 12 bays         |
 |                                                                            |
-|  PHARMACY / DRUG STORAGE (800 sq ft)                                     |
-|  +--------------------------------------------------------------------+   |
-|  | IND inventory: verified | Controlled substances: reconciled        |   |
-|  | 24h dispensations: ~126 | Temperature: 2-8C (monitored)            |   |
-|  | Waste: properly disposed per 21 CFR 312 adapted protocol           |   |
-|  +--------------------------------------------------------------------+   |
+|  PHARMACY / DRUG STORAGE (800 sq ft)                                       |
+|  +--------------------------------------------------------------------+    |
+|  | IND inventory: verified | Controlled substances: reconciled        |    |
+|  | 24h dispensations: ~126 | Temperature: 2-8C (monitored)            |    |
+|  | Waste: properly disposed per 21 CFR 312 adapted protocol           |    |
+|  +--------------------------------------------------------------------+    |
 |                                                                            |
-|  SERVER ROOM (600 sq ft)                                                  |
-|  +--------------------------------------------------------------------+   |
-|  | AI Compute: active (overnight batch processing)                     |   |
-|  | Digital twin: synchronized | Federation: connected                  |   |
-|  | Data integrity: verified | Backup: completed at 23:30              |   |
-|  | 24h data volume: 2.4 TB clinical + 18.7 TB imaging                 |   |
-|  +--------------------------------------------------------------------+   |
+|  SERVER ROOM (600 sq ft)                                                   |
+|  +--------------------------------------------------------------------+    |
+|  | AI Compute: active (overnight batch processing)                    |    |
+|  | Digital twin: synchronized | Federation: connected                 |    |
+|  | Data integrity: verified | Backup: completed at 23:30              |    |
+|  | 24h data volume: 2.4 TB clinical + 18.7 TB imaging                 |    |
+|  +--------------------------------------------------------------------+    |
 |                                                                            |
-|  ROBOT MAINTENANCE BAY (1,000 sq ft)                                     |
-|  +--------------------------------------------------------------------+   |
-|  | SURG-01: preventive maintenance in progress (automated)             |   |
-|  | Completion ETA: 01:59 next cycle                                    |   |
-|  | Overnight calibration queue: COBOT-01, RTPOS-01 (scheduled 02:00)  |   |
-|  +--------------------------------------------------------------------+   |
+|  ROBOT MAINTENANCE BAY (1,000 sq ft)                                       |
+|  +--------------------------------------------------------------------+    |
+|  | SURG-01: preventive maintenance in progress (automated)            |    |
+|  | Completion ETA: 01:59 next cycle                                   |    |
+|  | Overnight calibration queue: COBOT-01, RTPOS-01 (scheduled 02:00)  |    |
+|  +--------------------------------------------------------------------+    |
 |                                                                            |
-|  NIGHT OPERATIONS CENTER                                                  |
-|  +--------------------------------------------------------------------+   |
-|  | SSO-N2 on duty (23:00-07:00)                                        |   |
-|  | Staff: 2 RNs (overnight), 1 RT (on-call), 1 SSO                    |   |
-|  | Emergency stops: all verified functional                            |   |
-|  | Radiation interlocks: all verified and secured                      |   |
-|  | Fire suppression: armed | HVAC: night mode                         |   |
-|  +--------------------------------------------------------------------+   |
+|  NIGHT OPERATIONS CENTER                                                   |
+|  +--------------------------------------------------------------------+    |
+|  | SSO-N2 on duty (23:00-07:00)                                       |    |
+|  | Staff: 2 RNs (overnight), 1 RT (on-call), 1 SSO                    |    |
+|  | Emergency stops: all verified functional                           |    |
+|  | Radiation interlocks: all verified and secured                     |    |
+|  | Fire suppression: armed | HVAC: night mode                         |    |
+|  +--------------------------------------------------------------------+    |
 |                                                                            |
-|  ======================= PATIENTS ON-SITE ==========================     |
+|  ======================= PATIENTS ON-SITE ==========================       |
 |                                                                            |
-|  Active patients at 23:59: 4                                             |
+|  Active patients at 23:59: 4                                               |
 |                                                                            |
-|  1. PAT-ODMND-0154 - Recovery Bay 3                                      |
-|     Post-esophagectomy surgical recovery                                 |
-|     Vitals: HR 72, BP 118/76, SpO2 98%, Temp 36.8C                      |
-|     Pain: 2/10 (well controlled), Jackson-Pratt drain: 15 mL/hr         |
-|     Status: stable, overnight monitoring continues                       |
+|  1. PAT-ODMND-0154 - Recovery Bay 3                                        |
+|     Post-esophagectomy surgical recovery                                   |
+|     Vitals: HR 72, BP 118/76, SpO2 98%, Temp 36.8C                         |
+|     Pain: 2/10 (well controlled), Jackson-Pratt drain: 15 mL/hr            |
+|     Status: stable, overnight monitoring continues                         |
 |                                                                            |
-|  2. PAT-ODMND-0173 - Pediatric Play Area 2                               |
-|     Ewing sarcoma, age 10, overnight companion monitoring                |
-|     COMPN-02: active monitoring, interactive sleep mode                  |
-|     Parent present in adjacent family room                               |
-|     Status: sleeping, vitals monitored via wearable                      |
+|  2. PAT-ODMND-0173 - Pediatric Play Area 2                                 |
+|     Ewing sarcoma, age 10, overnight companion monitoring                  |
+|     COMPN-02: active monitoring, interactive sleep mode                    |
+|     Parent present in adjacent family room                                 |
+|     Status: sleeping, vitals monitored via wearable                        |
 |                                                                            |
-|  3. PAT-ODMND-0174 - Post-imaging review                                 |
-|     Colorectal cancer liver mets, imaging completed 23:42                |
-|     Status: reviewing results with on-call oncologist (telehealth)       |
-|     Expected departure: 00:15 next cycle                                 |
+|  3. PAT-ODMND-0174 - Post-imaging review                                   |
+|     Colorectal cancer liver mets, imaging completed 23:42                  |
+|     Status: reviewing results with on-call oncologist (telehealth)         |
+|     Expected departure: 00:15 next cycle                                   |
 |                                                                            |
-|  4. PAT-ODMND-0175 - Radiotherapy Vault 2                                |
-|     NSCLC, RT fraction 18/30 via TRACK-02                                |
-|     Status: treatment in progress, expected completion 00:08             |
-|     Expected departure: 00:20 next cycle                                 |
+|  4. PAT-ODMND-0175 - Radiotherapy Vault 2                                  |
+|     NSCLC, RT fraction 18/30 via TRACK-02                                  |
+|     Status: treatment in progress, expected completion 00:08               |
+|     Expected departure: 00:20 next cycle                                   |
 |                                                                            |
 +============================================================================+
-|  FACILITY STATUS: OVERNIGHT MODE | 4 PATIENTS | 2 ROBOTS ACTIVE          |
-|  SURG-01: MAINTENANCE | 26 ROBOTS: OVERNIGHT STANDBY | 1 ACTIVE (COMPN) |
-|  24-HOUR TOTALS: 175 patients | ~185 procedures | 7 AE (all resolved)    |
-|  PSL: 64.4 (Advanced) | Robot uptime: 99.7% | Avg wait: 8 min           |
+|  FACILITY STATUS: OVERNIGHT MODE | 4 PATIENTS | 2 ROBOTS ACTIVE            |
+|  SURG-01: MAINTENANCE | 26 ROBOTS: OVERNIGHT STANDBY | 1 ACTIVE (COMPN)    |
+|  24-HOUR TOTALS: 175 patients | ~185 procedures | 7 AE (all resolved)      |
+|  PSL: 64.4 (Advanced) | Robot uptime: 99.7% | Avg wait: 8 min              |
 +============================================================================+
