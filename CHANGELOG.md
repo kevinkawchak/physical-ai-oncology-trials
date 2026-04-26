@@ -27,7 +27,8 @@ Format follows [Keep a Changelog](https://keepachangelog.com/).
 - All simulation scripts use Python 3.10+ standard library only (no external dependencies)
 - @kevinkawchak Updated main README to make contributions section more concise on 2026-04-09.
 - @kevinkawchak Updated main README by removing redundant information from corresponding directoriea 2026-04-24.
-- @kevinkawchak Updated main/new-trial ASCII diagrams for Hours 00-23 and final-commit for aesthetics on 2026-04-25. 
+- @kevinkawchak Updated main/new-trial ASCII diagrams for Hours 00-23 and final-commit for aesthetics on 2026-04-25.
+- @kevinkawchak Updated main/unification to improve repository aesthetics on 2026-04-26. 
 
 ## [3.4.0] - 2026-04-06
 
