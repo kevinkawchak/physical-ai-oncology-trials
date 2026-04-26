@@ -1,97 +1,97 @@
 +============================================================================+
-|              PATIENT FLOW DIAGRAM - Hour 22: 22:00-22:59                  |
-|  Released on 23 March 2026 | CEO Kevin Kawchak | ChemicalQDevice         |
+|              PATIENT FLOW DIAGRAM - Hour 22: 22:00-22:59                   |
+|  Released on 23 March 2026 | CEO Kevin Kawchak | ChemicalQDevice           |
 +============================================================================+
 |                                                                            |
-| TIME  ENTRANCE    CHECK-IN     WAITING     PROCEDURE    RECOVERY  EXIT    |
-| ----  --------    --------     -------     ---------    --------  ----    |
+| TIME  ENTRANCE    CHECK-IN     WAITING     PROCEDURE    RECOVERY  EXIT     |
+| ----  --------    --------     -------     ---------    --------  ----     |
 |                                                                            |
-| 22:00                                                   [P0154:RecBay5]   |
-|   |                                                     [P0168:obs]       |
-|   |                                                     [P0170:post-RT]   |
-|   |                                                                       |
-| 22:05                                                   [P0154:RecBay5]   |
-|   |                                                     [P0168:obs]       |
-|   |                                                     [P0170:post-RT]   |
-|   |                                                                       |
-| 22:10 P0171 ---> [Kiosk-1] --+                                           |
-|   |    (NSCLC)     22:10      |                                           |
-|   |                           |                                           |
-| 22:11                         +--> [Adult Wait]                           |
-|   |                                    |                                  |
-| 22:15                                  |              [P0154:RecBay5]     |
-|   |                                    |                                  |
-| 22:18                                  +--> [Vault 1: TRACK-01]          |
-|   |                                         RT Motion-Tracking            |
-|   |                                         PAT-ODMND-0171               |
-| 22:20                                       Fraction 18/30               |
-|   |                                         |           [P0168:Discharged]|
-|   |                                         |                ---> EXIT    |
-|   |                                         |                22:20        |
-| 22:25                                       |                             |
-|   |                                         |                             |
-| 22:30                                       |                             |
-|   |   P0172 ---> [Kiosk-2] --+              |                             |
-|   |    (HCC)      22:30      |              |                             |
-|   |                          |              |                             |
-| 22:31                        +--> [Adult Wait]                            |
-|   |                                    |    |                             |
-| 22:34                                  |    |                             |
-|   |                                    |    |                             |
-| 22:36                                  | [Complete]                       |
-|   |                                    |    |                             |
-|   |                                    | P0171 --> Discharge --> EXIT     |
-|   |                                    |              22:42               |
-| 22:38                                  +--> [Img Bay 1: IMAGE-01]        |
-|   |                                         Liver Ultrasound              |
-|   |                                         PAT-ODMND-0172               |
-| 22:40                                       |  [P0170:Discharged]        |
-|   |                                         |        ---> EXIT 22:40     |
-|   |                                         |                             |
-| 22:45 P0173 ---> [Kiosk-3] --+              |                             |
-|   |    (ALL)      22:45      |              |                             |
-|   |    Pediatric             |              |                             |
-| 22:46                        +--> [Ped Wait]|                             |
-|   |                                |        |                             |
-| 22:49                              |        |                             |
-|   |                                |        |                             |
-| 22:50                              +--> [Ped Ward Rm 2: COMPN-02]       |
-|   |                                     Overnight companion monitoring   |
-|   |                                     PAT-ODMND-0173 + parent          |
-| 22:52                                       [Complete]                    |
-|   |                                    P0172 --> Discharge --> EXIT       |
-|   |                                              22:56                    |
-| 22:55                                  [P0173: settling, nightlight]     |
-|   |                                                                       |
-| 22:59                                  [P0154:RecBay5] [P0173:PedWard]   |
-|   |                                     (overnight)     (overnight)      |
+| 22:00                                                   [P0154:RecBay5]    |
+|   |                                                     [P0168:obs]        |
+|   |                                                     [P0170:post-RT]    |
+|   |                                                                        |
+| 22:05                                                   [P0154:RecBay5]    |
+|   |                                                     [P0168:obs]        |
+|   |                                                     [P0170:post-RT]    |
+|   |                                                                        |
+| 22:10 P0171 ---> [Kiosk-1] --+                                             |
+|   |    (NSCLC)     22:10      |                                            |
+|   |                           |                                            |
+| 22:11                         +--> [Adult Wait]                            |
+|   |                                    |                                   |
+| 22:15                                  |              [P0154:RecBay5]      |
+|   |                                    |                                   |
+| 22:18                                  +--> [Vault 1: TRACK-01]            |
+|   |                                         RT Motion-Tracking             |
+|   |                                         PAT-ODMND-0171                 |
+| 22:20                                       Fraction 18/30                 |
+|   |                                         |           [P0168:Discharged] |
+|   |                                         |                ---> EXIT     |
+|   |                                         |                22:20         |
+| 22:25                                       |                              |
+|   |                                         |                              |
+| 22:30                                       |                              |
+|   |   P0172 ---> [Kiosk-2] --+              |                              |
+|   |    (HCC)      22:30      |              |                              |
+|   |                          |              |                              |
+| 22:31                        +--> [Adult Wait]                             |
+|   |                                    |    |                              |
+| 22:34                                  |    |                              |
+|   |                                    |    |                              |
+| 22:36                                  | [Complete]                        |
+|   |                                    |    |                              |
+|   |                                    | P0171 --> Discharge --> EXIT      |
+|   |                                    |              22:42                |
+| 22:38                                  +--> [Img Bay 1: IMAGE-01]          |
+|   |                                         Liver Ultrasound               |
+|   |                                         PAT-ODMND-0172                 |
+| 22:40                                       |  [P0170:Discharged]          |
+|   |                                         |        ---> EXIT 22:40       |
+|   |                                         |                              |
+| 22:45 P0173 ---> [Kiosk-3] --+              |                              |
+|   |    (ALL)      22:45      |              |                              |
+|   |    Pediatric             |              |                              |
+| 22:46                        +--> [Ped Wait]|                              |
+|   |                                |        |                              |
+| 22:49                              |        |                              |
+|   |                                |        |                              |
+| 22:50                              +--> [Ped Ward Rm 2: COMPN-02]          |
+|   |                                     Overnight companion monitoring     |
+|   |                                     PAT-ODMND-0173 + parent            |
+| 22:52                                       [Complete]                     |
+|   |                                    P0172 --> Discharge --> EXIT        |
+|   |                                              22:56                     |
+| 22:55                                  [P0173: settling, nightlight]       |
+|   |                                                                        |
+| 22:59                                  [P0154:RecBay5] [P0173:PedWard]     |
+|   |                                     (overnight)     (overnight)        |
 |                                                                            |
 +============================================================================+
-| PATIENT FLOW SUMMARY - Hour 22                                            |
+| PATIENT FLOW SUMMARY - Hour 22                                             |
 |                                                                            |
-| Arrivals: 3 patients                                                      |
-|   PAT-ODMND-0171 (63M, NSCLC) --> RT Motion-Tracking --> Discharged       |
-|   PAT-ODMND-0172 (55F, HCC)   --> Imaging Scan       --> Discharged       |
-|   PAT-ODMND-0173 (8F, ALL)    --> Ped Ward Overnight  --> Continuing      |
+| Arrivals: 3 patients                                                       |
+|   PAT-ODMND-0171 (63M, NSCLC) --> RT Motion-Tracking --> Discharged        |
+|   PAT-ODMND-0172 (55F, HCC)   --> Imaging Scan       --> Discharged        |
+|   PAT-ODMND-0173 (8F, ALL)    --> Ped Ward Overnight  --> Continuing       |
 |                                                                            |
-| Departures: 4 patients                                                    |
-|   PAT-ODMND-0168 (47F, Breast) --> Discharged 22:20 (post-biopsy obs)    |
-|   PAT-ODMND-0170 (72M, Prostate)--> Discharged 22:40 (post-RT monitor)  |
-|   PAT-ODMND-0171 (63M, NSCLC)  --> Discharged 22:42 (RT complete)       |
-|   PAT-ODMND-0172 (55F, HCC)    --> Discharged 22:56 (imaging complete)   |
+| Departures: 4 patients                                                     |
+|   PAT-ODMND-0168 (47F, Breast) --> Discharged 22:20 (post-biopsy obs)      |
+|   PAT-ODMND-0170 (72M, Prostate)--> Discharged 22:40 (post-RT monitor)     |
+|   PAT-ODMND-0171 (63M, NSCLC)  --> Discharged 22:42 (RT complete)          |
+|   PAT-ODMND-0172 (55F, HCC)    --> Discharged 22:56 (imaging complete)     |
 |                                                                            |
-| Overnight patients at 22:59: 2                                            |
-|   P0154 - post-surgical recovery Bay 5                                    |
-|   P0173 - pediatric overnight, chemo scheduled Hour 06                    |
+| Overnight patients at 22:59: 2                                             |
+|   P0154 - post-surgical recovery Bay 5                                     |
+|   P0173 - pediatric overnight, chemo scheduled Hour 06                     |
 |                                                                            |
-| Cancer types active this hour:                                            |
-|   NSCLC adenocarcinoma (P0171) - RT treatment                             |
-|   HCC (P0172) - imaging assessment                                        |
-|   Pediatric ALL (P0173) - overnight admission                             |
-|   Colorectal adenocarcinoma (P0154) - post-surgical recovery              |
-|   Breast invasive ductal (P0168) - discharged post-biopsy                 |
-|   Prostate adenocarcinoma (P0170) - discharged post-RT                    |
+| Cancer types active this hour:                                             |
+|   NSCLC adenocarcinoma (P0171) - RT treatment                              |
+|   HCC (P0172) - imaging assessment                                         |
+|   Pediatric ALL (P0173) - overnight admission                              |
+|   Colorectal adenocarcinoma (P0154) - post-surgical recovery               |
+|   Breast invasive ductal (P0168) - discharged post-biopsy                  |
+|   Prostate adenocarcinoma (P0170) - discharged post-RT                     |
 |                                                                            |
-| Wait times: P0171 = 7 min, P0172 = 7 min, P0173 = 4 min                 |
-| Average wait: 6.0 minutes                                                 |
+| Wait times: P0171 = 7 min, P0172 = 7 min, P0173 = 4 min                    |
+| Average wait: 6.0 minutes                                                  |
 +============================================================================+
