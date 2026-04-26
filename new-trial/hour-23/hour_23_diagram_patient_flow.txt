@@ -1,81 +1,81 @@
 +============================================================================+
-|              PATIENT FLOW DIAGRAM - Hour 23: 23:00-23:59                  |
-|                         (FINAL HOUR OF 24-HOUR CYCLE)                     |
+|              PATIENT FLOW DIAGRAM - Hour 23: 23:00-23:59                   |
+|                         (FINAL HOUR OF 24-HOUR CYCLE)                      |
 +============================================================================+
 |                                                                            |
-| TIME  ENTRANCE    CHECK-IN     WAITING     PROCEDURE    RECOVERY  EXIT    |
-| ----  --------    --------     -------     ---------    --------  ----    |
+| TIME  ENTRANCE    CHECK-IN     WAITING     PROCEDURE    RECOVERY  EXIT     |
+| ----  --------    --------     -------     ---------    --------  ----     |
 |                                                                            |
-| 23:00                                                   [P0154:RecBay3]   |
-|   |                                                     [P0173:PedWard]   |
-|   |                                                      (sleeping)      |
-|   |                                                                       |
-| 23:05                                                   [P0154:RecBay3]   |
-|   |                                                     [P0173:PedWard]   |
-|   |                                                                       |
-| 23:10                                                   [P0154:stable]   |
-|   |                                                                       |
-| 23:15 P0174 ---> [Kiosk-2] --+                                           |
-|   |   (CRC-liver)  23:15     |                                           |
-|   |    52M, IV               |                                           |
-|   |                          |                                           |
-| 23:17                        +--> [Adult Wait]                           |
-|   |                                    |                                  |
-| 23:20                                  +--> [Img Bay 2: IMAGE-02]        |
-|   |                                         Contrast CT liver mets       |
-|   |                                         PAT-ODMND-0174               |
-|   |                                         RECIST 1.1 surveillance      |
-| 23:25                                       |           [P0154:RecBay3]  |
-|   |                                         |                            |
-| 23:30                                       |           [P0173:woke      |
-|   |                                         |            briefly,        |
-|   |                                         |            COMPN-02        |
-|   |                                         |            lullaby]        |
-| 23:35                                       |                            |
-|   |                                         |                            |
-| 23:38                                       |                            |
-|   |                                         |                            |
-| 23:40                                  [Scan complete]                   |
-|   |   P0175 ---> [Kiosk-3] --+              |                            |
-|   |   (NSCLC)     23:40      |         P0174 --> post-scan obs.         |
-|   |    66F, IIIB             |                                           |
-| 23:42                        +--> [Adult Wait]                           |
-|   |                                    |    P0174 IV removed             |
-|   |                                    |                                 |
-| 23:45                                  |              [P0154:RecBay3]   |
-|   |                                    |              [P0173:sleeping]  |
-|   |                                    |                                 |
-| 23:47                                  |                                 |
-|   |                                    |                                 |
-| 23:48                                  +--> [Vault 2: TRACK-02]         |
-|   |                                         RT Motion-Tracking           |
-|   |                                         PAT-ODMND-0175              |
-| 23:50                                       |  P0174 --> Discharge      |
-|   |                                         |           --> EXIT (23:50) |
-|   |                                         |                            |
-| 23:52                                       |                            |
-|   |                                         |                            |
-| 23:55                                       | (Field 1 done, Field 2)   |
-|   |                                         |                            |
-| 23:59                                       | [IN PROGRESS - continues] |
-|   |                                         | 1.4 of 2.0 Gy delivered   |
+| 23:00                                                   [P0154:RecBay3]    |
+|   |                                                     [P0173:PedWard]    |
+|   |                                                      (sleeping)        |
+|   |                                                                        |
+| 23:05                                                   [P0154:RecBay3]    |
+|   |                                                     [P0173:PedWard]    |
+|   |                                                                        |
+| 23:10                                                   [P0154:stable]     |
+|   |                                                                        |
+| 23:15 P0174 ---> [Kiosk-2] --+                                             |
+|   |   (CRC-liver)  23:15     |                                             |
+|   |    52M, IV               |                                             |
+|   |                          |                                             |
+| 23:17                        +--> [Adult Wait]                             |
+|   |                                    |                                   |
+| 23:20                                  +--> [Img Bay 2: IMAGE-02]          |
+|   |                                         Contrast CT liver mets         |
+|   |                                         PAT-ODMND-0174                 |
+|   |                                         RECIST 1.1 surveillance        |
+| 23:25                                       |           [P0154:RecBay3]    |
+|   |                                         |                              |
+| 23:30                                       |           [P0173:woke        |
+|   |                                         |            briefly,          |
+|   |                                         |            COMPN-02          | 
+|   |                                         |            lullaby]          |
+| 23:35                                       |                              |
+|   |                                         |                              |
+| 23:38                                       |                              |
+|   |                                         |                              |
+| 23:40                                  [Scan complete]                     |
+|   |   P0175 ---> [Kiosk-3] --+              |                              |
+|   |   (NSCLC)     23:40      |         P0174 --> post-scan obs.            |
+|   |    66F, IIIB             |                                             |
+| 23:42                        +--> [Adult Wait]                             |
+|   |                                    |    P0174 IV removed               |
+|   |                                    |                                   |
+| 23:45                                  |              [P0154:RecBay3]      |
+|   |                                    |              [P0173:sleeping]     |
+|   |                                    |                                   |
+| 23:47                                  |                                   |
+|   |                                    |                                   |
+| 23:48                                  +--> [Vault 2: TRACK-02]            |
+|   |                                         RT Motion-Tracking             |
+|   |                                         PAT-ODMND-0175                 |
+| 23:50                                       |  P0174 --> Discharge         |
+|   |                                         |           --> EXIT (23:50)   |
+|   |                                         |                              |
+| 23:52                                       |                              |
+|   |                                         |                              |
+| 23:55                                       | (Field 1 done, Field 2)      |
+|   |                                         |                              |
+| 23:59                                       | [IN PROGRESS - continues]    |
+|   |                                         | 1.4 of 2.0 Gy delivered      |
 |                                                                            |
 +============================================================================+
-| PATIENT FLOW SUMMARY - Hour 23 (FINAL)                                   |
+| PATIENT FLOW SUMMARY - Hour 23 (FINAL)                                     |
 |                                                                            |
-| Arrivals: 2 patients                                                      |
-|   PAT-ODMND-0174 (52M, CRC liver mets) --> Imaging CT --> Discharged     |
-|   PAT-ODMND-0175 (66F, NSCLC IIIB)     --> RT Tracking --> In progress   |
+| Arrivals: 2 patients                                                       |
+|   PAT-ODMND-0174 (52M, CRC liver mets) --> Imaging CT --> Discharged       |
+|   PAT-ODMND-0175 (66F, NSCLC IIIB)     --> RT Tracking --> In progress     |
 |                                                                            |
-| Continuing:                                                               |
-|   PAT-ODMND-0154 (58M, esophageal)     --> Post-surgical recovery        |
-|   PAT-ODMND-0173 (9F, Ewing sarcoma)   --> Pediatric overnight monitor   |
+| Continuing:                                                                |
+|   PAT-ODMND-0154 (58M, esophageal)     --> Post-surgical recovery          |
+|   PAT-ODMND-0173 (9F, Ewing sarcoma)   --> Pediatric overnight monitor     |
 |                                                                            |
-| Discharges: 1 (PAT-ODMND-0174 at 23:50)                                 |
-| Concurrent at 23:59: 3 (P0154, P0173, P0175)                            |
+| Discharges: 1 (PAT-ODMND-0174 at 23:50)                                    |
+| Concurrent at 23:59: 3 (P0154, P0173, P0175)                               |
 |                                                                            |
-| 24-HOUR TOTALS:                                                           |
-|   Total unique patients: 175 (PAT-ODMND-0001 through PAT-ODMND-0175)    |
-|   Patients carried into next cycle: 3 (P0154, P0173, P0175)             |
-|   Adverse events: 0                                                       |
+| 24-HOUR TOTALS:                                                            |
+|   Total unique patients: 175 (PAT-ODMND-0001 through PAT-ODMND-0175)       |
+|   Patients carried into next cycle: 3 (P0154, P0173, P0175)                |
+|   Adverse events: 0                                                        |
 +============================================================================+
