@@ -43,7 +43,7 @@ Each of the 10 pages follows a consistent structure:
 |                    (largest page area)                        |
 |                                                               |
 |                                                               |
-+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -+
++- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -+
 |                  Full Robot Type Name                         |  <- (d) Robot type label
 +===============================================================+
 | Introduction sentence describing the robot to the patient.    |  <- (e) 1-line intro
@@ -230,14 +230,14 @@ PT = Physical Therapy | Ward = Hospital Ward/Playroom | Lab = Clinical Lab
 Patient Interaction Flow (All 10 Robot Types)
 ==============================================
 
-  ARRIVAL                      DURING INTERACTION               CONCLUSION
+  ARRIVAL                      DURING INTERACTION                CONCLUSION
   --------------------------   --------------------------------  ---------------------------
   - Lie down / sit / stand     - Robot performs task under       - Robot retracts / removed
   - Care team positions you      clinician or autonomous         - Bandage if applicable
-  - Robot positioned nearby      control                        - Recovery monitoring or
-  - Anesthesia if needed       - Patient stays still or           immediate discharge
-  - Imaging for alignment        interacts naturally            - Home care instructions
-                               - Quantitative parameters:         given if needed
+  - Robot positioned nearby      control                         - Recovery monitoring or
+  - Anesthesia if needed       - Patient stays still or            immediate discharge
+  - Imaging for alignment        interacts naturally             - Home care instructions
+                               - Quantitative parameters:          given if needed
                                  Forces: 2-5 N (imaging/cobot)
                                  Incisions: 1-2 cm (surgical)
                                  Distance: >= 1 m (humanoid)
