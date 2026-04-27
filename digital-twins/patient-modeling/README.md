@@ -18,8 +18,8 @@ Patient-specific digital twin modeling transforms medical imaging data into cali
 
 ```
 ┌─────────────────┐    ┌──────────────────┐    ┌─────────────────┐
-│  Medical Imaging │───>│  Segmentation &  │───>│  Model          │
-│  (CT, MRI, PET)  │    │  Feature Extract │    │  Calibration    │
+│ Medical Imaging │───>│  Segmentation &  │───>│  Model          │
+│ (CT, MRI, PET)  │    │  Feature Extract │    │  Calibration    │
 └─────────────────┘    └──────────────────┘    └─────────────────┘
                                                         │
                                                         v
