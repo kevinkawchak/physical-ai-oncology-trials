@@ -171,20 +171,20 @@ print(f"DUA generated: {dua.agreement_id}")
 ### Data Flow with Privacy Controls
 
 ```
-Patient Data Sources          Privacy Layer              AI/Research Systems
+Patient Data Sources       Privacy Layer               AI/Research Systems
 ─────────────────          ──────────────              ───────────────────
                            ┌──────────────┐
- EHR/FHIR ──────────────→  │ PHI Detector │
+ EHR/FHIR ───────────────→ │ PHI Detector │
                            │  & Scanner   │
  DICOM Imaging ──────────→ │              │──→ De-identification ──→ AI Model Training
                            │ Access       │         Pipeline
  Genomic Data ───────────→ │ Control      │                         Federated Learning
-                           │ Manager      │──→ Limited Data Set ──→
+                           │ Manager      │──→ Limited Data Set ───→
  Robotic Telemetry ──────→ │              │                         Multi-site Analysis
-                           │ Audit Trail  │──→ Aggregated Stats ──→
- Wearable/DHT Data ─────→  │              │                         Publication
+                           │ Audit Trail  │──→ Aggregated Stats ───→
+ Wearable/DHT Data ──────→ │              │                         Publication
                            └──────────────┘
-                                 │
+                                  │
                            ┌──────────────┐
                            │ Breach       │
                            │ Response     │
