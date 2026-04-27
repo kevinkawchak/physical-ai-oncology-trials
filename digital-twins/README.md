@@ -60,7 +60,7 @@ digital-twins/
     ├── README.md                  # Examples documentation
     ├── 01_realtime_dt_synchronization.py        # EKF/particle filter sync
     ├── 02_multi_organ_toxicity_twin.py          # PBPK multi-organ toxicity
-    ├── 03_adaptive_radiation_therapy_dt.py       # Deformable registration + dose
+    ├── 03_adaptive_radiation_therapy_dt.py      # Deformable registration + dose
     ├── 04_tumor_microenvironment_immunotherapy_dt.py  # TME + checkpoint inhibitor
     ├── 05_virtual_trial_cohort_dt.py            # In-silico trial design
     └── 06_dt_validation_verification.py         # FDA V&V + model cards
