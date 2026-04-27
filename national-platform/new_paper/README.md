@@ -10,32 +10,32 @@ This directory contains the compiled LaTeX source files and PDF for the **Nation
 
 ```
 new_paper/
-  main.tex              - Main document (entry point)
-  page_styles.tex       - Page style definitions (with template attribution)
-  references.bib        - Bibliography (34 sources with clickable URLs/DOIs)
-  README.md             - This file
+  main.tex                 - Main document (entry point)
+  page_styles.tex          - Page style definitions (with template attribution)
+  references.bib           - Bibliography (34 sources with clickable URLs/DOIs)
+  README.md                - This file
   sections/
-    cover_page.tex      - Cover page with title, author, notices
-    contents.tex        - Table of contents
-    source_documents.tex - Source documents overview and significance
-    executive_summary.tex - Executive summary
-    introduction.tex    - Section 1: Introduction to Physical AI Oncology Trials
-    gov_framework.tex   - Section 2: U.S. Government Framework for Physical AI Trials
-    regulatory_landscape.tex - Section 3: California and Federal Regulatory Landscape
-    ich_e6r3_adaptation.tex - Section 4: Adapted ICH E6(R3) for Physical AI Clinical Practice
-    cfr50_adaptation.tex - Section 5: Adapted 21 CFR Part 50 for Physical AI Protection
-    cfr312_adaptation.tex - Section 6: Adapted 21 CFR Part 312 for Physical AI IND
-    psl_usl_standards.tex - Section 7: Physical AI Standard Level and Unification Standard
-    site_establishment.tex - Section 8: Clinical Trial Site Establishment, Documentation
-    patient_journey.tex - Section 9: A Cancer Patient's Journey Through Physical AI
-    patient_instructions.tex - Section 10: Patient Instructions for Physical AI Trials
-    national_mcp.tex    - Section 11: National MCP Server Infrastructure
-    federated_learning.tex - Section 12: Federated Learning for Physical AI Trials
-    financial_analysis.tex - Section 13: Financial and Economic Impact Analysis
-    implementation_strategy.tex - Section 14: National Implementation Strategy
-    discussion.tex      - Section 15: Discussion
-    conclusion.tex      - Section 16: Conclusion
-    appendices.tex      - Appendices A-E
+    cover_page.tex         - Cover page with title, author, notices
+    contents.tex           - Table of contents
+    source_documents.tex   - Source documents overview and significance
+    executive_summary.tex  - Executive summary
+    introduction.tex       - Section 1: Introduction to Physical AI Oncology Trials
+    gov_framework.tex      - Section 2: U.S. Government Framework for Physical AI Trials
+    regulatory_landscape.tex  - Section 3: California and Federal Regulatory Landscape
+    ich_e6r3_adaptation.tex   - Section 4: Adapted ICH E6(R3) for Physical AI Clinical Practice
+    cfr50_adaptation.tex      - Section 5: Adapted 21 CFR Part 50 for Physical AI Protection
+    cfr312_adaptation.tex     - Section 6: Adapted 21 CFR Part 312 for Physical AI IND
+    psl_usl_standards.tex     - Section 7: Physical AI Standard Level and Unification Standard
+    site_establishment.tex    - Section 8: Clinical Trial Site Establishment, Documentation
+    patient_journey.tex       - Section 9: A Cancer Patient's Journey Through Physical AI
+    patient_instructions.tex  - Section 10: Patient Instructions for Physical AI Trials
+    national_mcp.tex          - Section 11: National MCP Server Infrastructure
+    federated_learning.tex    - Section 12: Federated Learning for Physical AI Trials
+    financial_analysis.tex    - Section 13: Financial and Economic Impact Analysis
+    implementation_strategy.tex  - Section 14: National Implementation Strategy
+    discussion.tex               - Section 15: Discussion
+    conclusion.tex               - Section 16: Conclusion
+    appendices.tex               - Appendices A-E
 ```
 
 ## Source Documents
