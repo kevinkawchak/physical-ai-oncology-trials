@@ -11,37 +11,37 @@
 |              USL RESULTS — Cobot Scores Explained                       |
 +-------------------------------------------------------------------------+
 |                                                                         |
-|  FRANKA EMIKA PANDA — USL 7.4 / 10.0  [Level 7: Advanced]              |
+|  FRANKA EMIKA PANDA — USL 7.4 / 10.0  [Level 7: Advanced]               |
 |  WHY 7.4: Largest open-source cobot ecosystem worldwide — official      |
-|  models in MuJoCo Menagerie, Isaac Lab, and Gazebo; extensive VLA      |
-|  and diffusion policy research (panda-gym, ORBIT-Surgical). Cross-     |
-|  manufacturer ONNX policy transfer demonstrated. 1 kHz torque-sensor   |
-|  control across all 7 joints. Only cobot with 5 framework support.     |
-|    Dim A: 8.0 — 5 frameworks, GPU sim, full policy transfer            |
-|    Dim B: 7.7 — VLA, diffusion, LLM planning, natural language        |
-|    Dim C: 8.5 — Inter-org ONNX, skills library, sync framework        |
-|    Dim D: 5.5 — Federated compatible, safety cert, ISO aligned        |
+|  models in MuJoCo Menagerie, Isaac Lab, and Gazebo; extensive VLA       |
+|  and diffusion policy research (panda-gym, ORBIT-Surgical). Cross-      |
+|  manufacturer ONNX policy transfer demonstrated. 1 kHz torque-sensor    |
+|  control across all 7 joints. Only cobot with 5 framework support.      |
+|    Dim A: 8.0 — 5 frameworks, GPU sim, full policy transfer             |
+|    Dim B: 7.7 — VLA, diffusion, LLM planning, natural language          |
+|    Dim C: 8.5 — Inter-org ONNX, skills library, sync framework          |
+|    Dim D: 5.5 — Federated compatible, safety cert, ISO aligned          |
 |                                                                         |
-|  KINOVA GEN3 7DoF — USL 5.7 / 10.0  [Level 5: Functional]              |
-|  WHY 5.7: Lightest 7-DOF cobot (8.2 kg) with integrated Intel          |
+|  KINOVA GEN3 7DoF — USL 5.7 / 10.0  [Level 5: Functional]               |
+|  WHY 5.7: Lightest 7-DOF cobot (8.2 kg) with integrated Intel           |
 |  RealSense depth camera — ideal for bedside deployment. Official        |
-|  MuJoCo Menagerie model and ros2_kortex package. Kortex API provides   |
-|  versatile high/low-level control. Heritage in assistive robotics.     |
-|    Dim A: 6.3 — 4 frameworks, partial GPU, MuJoCo + Gazebo official   |
-|    Dim B: 5.2 — LLM planning, agentic AI, safety-constrained          |
-|    Dim C: 5.8 — Intra-org ONNX, ROS 2 actions, Kortex sharing        |
-|    Dim D: 5.5 — Clinical workflow ready, safety cert, ISO aligned     |
+|  MuJoCo Menagerie model and ros2_kortex package. Kortex API provides    |
+|  versatile high/low-level control. Heritage in assistive robotics.      |
+|    Dim A: 6.3 — 4 frameworks, partial GPU, MuJoCo + Gazebo official     |
+|    Dim B: 5.2 — LLM planning, agentic AI, safety-constrained            |
+|    Dim C: 5.8 — Intra-org ONNX, ROS 2 actions, Kortex sharing           |
+|    Dim D: 5.5 — Clinical workflow ready, safety cert, ISO aligned       |
 |                                                                         |
-|  UFACTORY xARM 7 — USL 3.4 / 10.0  [Level 3: Basic]                   |
-|  WHY 3.4: Most affordable 7-DOF cobot with built-in collision          |
-|  detection and best environmental protection (IP51, 0-50C). Scores     |
-|  lowest due to smallest research community, no published VLA/diffusion |
-|  experiments, lower control frequency (250 Hz), and no regulatory      |
+|  UFACTORY xARM 7 — USL 3.4 / 10.0  [Level 3: Basic]                     |
+|  WHY 3.4: Most affordable 7-DOF cobot with built-in collision           |
+|  detection and best environmental protection (IP51, 0-50C). Scores      |
+|  lowest due to smallest research community, no published VLA/diffusion  |
+|  experiments, lower control frequency (250 Hz), and no regulatory       |
 |  pathway documentation.                                                 |
-|    Dim A: 4.6 — 3 frameworks, basic models only                       |
-|    Dim B: 3.2 — Basic generative + agentic only                       |
-|    Dim C: 3.8 — Intra-org SDK, basic ONNX export                     |
-|    Dim D: 2.1 — Remote monitoring only, no certifications             |
+|    Dim A: 4.6 — 3 frameworks, basic models only                         |
+|    Dim B: 3.2 — Basic generative + agentic only                         |
+|    Dim C: 3.8 — Intra-org SDK, basic ONNX export                        |
+|    Dim D: 2.1 — Remote monitoring only, no certifications               |
 |                                                                         |
 +-------------------------------------------------------------------------+
 ```
@@ -58,34 +58,34 @@
 |  RESEARCH COMMUNITY SIZE CORRELATES WITH USL SCORE                      |
 |  ─────────────────────────────────────────────────                      |
 |  Franka Panda has the largest open-source cobot research community      |
-|  (1000+ GitHub stars on franka_ros2, panda-gym, libfranka). This       |
-|  directly enables higher scores on Dim A (more framework support),     |
-|  Dim B (more AI research), and Dim C (more sharing infrastructure).    |
+|  (1000+ GitHub stars on franka_ros2, panda-gym, libfranka). This        |
+|  directly enables higher scores on Dim A (more framework support),      |
+|  Dim B (more AI research), and Dim C (more sharing infrastructure).     |
 |                                                                         |
 |       GitHub ecosystem size vs. USL score:                              |
-|       Franka  ========================  7.4  (1000+ stars, 5 fwks)     |
-|       Kinova  ===============           5.7  (500+ stars, 4 fwks)      |
-|       xArm    =========                3.4  (300+ stars, 3 fwks)       |
+|       Franka  ========================  7.4  (1000+ stars, 5 fwks)      |
+|       Kinova  ===============           5.7  (500+ stars, 4 fwks)       |
+|       xArm    =========                3.4  (300+ stars, 3 fwks)        |
 |                                                                         |
 |  HARDWARE EXCELLENCE != UNIFICATION READINESS                           |
-|  ────────────────────────────────────────────                            |
-|  The xArm 7 has the best environmental protection (IP51) and built-in  |
+|  ────────────────────────────────────────────                           |
+|  The xArm 7 has the best environmental protection (IP51) and built-in   |
 |  collision detection, yet scores lowest. Hardware quality matters for   |
 |  deployment but USL measures SOFTWARE interoperability: simulation      |
-|  framework coverage, AI integration depth, and sharing infrastructure. |
+|  framework coverage, AI integration depth, and sharing infrastructure.  |
 |                                                                         |
-|  CLINICAL TRIAL READINESS LAGS ACROSS ALL COBOTS                       |
-|  ────────────────────────────────────────────────                        |
-|  Even Franka (7.4 overall) scores only 5.5 on Dim D. No cobot has     |
-|  multi-site clinical trial deployment. This reflects a field-wide      |
-|  gap: cobots are well-established in research but clinical trial       |
-|  infrastructure (federated learning, regulatory docs, audit trails)    |
+|  CLINICAL TRIAL READINESS LAGS ACROSS ALL COBOTS                        |
+|  ────────────────────────────────────────────────                       |
+|  Even Franka (7.4 overall) scores only 5.5 on Dim D. No cobot has       |
+|  multi-site clinical trial deployment. This reflects a field-wide       |
+|  gap: cobots are well-established in research but clinical trial        |
+|  infrastructure (federated learning, regulatory docs, audit trails)     |
 |  remains underdeveloped.                                                |
 |                                                                         |
 |       Dim D scores (clinical readiness):                                |
-|       Franka  =====-----  5.5  (federated compat, ISO aligned)        |
-|       Kinova  =====-----  5.5  (clinical workflow, ISO aligned)        |
-|       xArm    ==--------  2.1  (remote monitoring only)                |
+|       Franka  =====-----  5.5  (federated compat, ISO aligned)          |
+|       Kinova  =====-----  5.5  (clinical workflow, ISO aligned)         |
+|       xArm    ==--------  2.1  (remote monitoring only)                 |
 |                                                                         |
 +-------------------------------------------------------------------------+
 ```
@@ -100,36 +100,36 @@
 +-------------------------------------------------------------------------+
 |                                                                         |
 |  NEAR-TERM (2026-2027): LAB AUTOMATION AND SURGICAL ASSISTANCE          |
-|  ────────────────────────────────────────────────────────────            |
+|  ────────────────────────────────────────────────────────────           |
 |  Cobots will enter oncology trials first through lab automation         |
 |  (sample handling, pipetting, vial management) and surgical             |
-|  assistance (instrument handoff, retraction). Franka leads due to      |
+|  assistance (instrument handoff, retraction). Franka leads due to       |
 |  its extensive RL/IL research for manipulation tasks.                   |
 |                                                                         |
-|       Lab automation        --> Franka (most RL research, 1 kHz)       |
+|       Lab automation        --> Franka (most RL research, 1 kHz)        |
 |       Bedside assistance    --> Kinova (lightest, integrated vision)    |
-|       Cost-effective sites  --> xArm (affordable, IP51 rated)          |
+|       Cost-effective sites  --> xArm (affordable, IP51 rated)           |
 |                                                                         |
 |  MID-TERM (2027-2028): CROSS-COBOT POLICY TRANSFER                      |
-|  ──────────────────────────────────────────────────                      |
-|  USL-standardized ONNX export will enable policies trained on          |
-|  Franka to deploy on Kinova or xArm at different trial sites.          |
-|  Multi-site trials can use different cobot hardware per site           |
-|  while maintaining behavioral consistency through shared policies.     |
+|  ──────────────────────────────────────────────────                     |
+|  USL-standardized ONNX export will enable policies trained on           |
+|  Franka to deploy on Kinova or xArm at different trial sites.           |
+|  Multi-site trials can use different cobot hardware per site            |
+|  while maintaining behavioral consistency through shared policies.      |
 |                                                                         |
-|       Franka (train) --ONNX--> Kinova (validate) --ONNX--> xArm       |
+|       Franka (train) --ONNX--> Kinova (validate) --ONNX--> xArm         |
 |       Site A (Stanford)        Site B (Mayo)         Site C (NHS)       |
 |                                                                         |
 |  LONG-TERM (2028+): COBOT-SURGICAL ROBOT COOPERATION                    |
-|  ─────────────────────────────────────────────────────                   |
-|  Cobots will work alongside surgical robots in the OR — handling       |
-|  instruments, managing specimens, and supporting the surgical team.    |
-|  USL enables unified interfaces between cobot (Franka) and surgical   |
-|  robot (dVRK) systems sharing the same clinical workspace.            |
+|  ─────────────────────────────────────────────────────                  |
+|  Cobots will work alongside surgical robots in the OR — handling        |
+|  instruments, managing specimens, and supporting the surgical team.     |
+|  USL enables unified interfaces between cobot (Franka) and surgical     |
+|  robot (dVRK) systems sharing the same clinical workspace.              |
 |                                                                         |
-|       Surgical robot (dVRK) <--unified interface--> Cobot (Franka)     |
-|       Tumor resection                               Instrument handoff |
-|       Suturing                                      Specimen handling  |
+|       Surgical robot (dVRK) <--unified interface--> Cobot (Franka)      |
+|       Tumor resection                               Instrument handoff  |
+|       Suturing                                      Specimen handling   |
 |                                                                         |
 +-------------------------------------------------------------------------+
 ```
@@ -160,7 +160,7 @@ This USL evaluation covers three state-of-the-art open-source collaborative robo
 |  |   (Franka Robotics)  |  |  (Kinova Robotics)   |  |    (UFACTORY)    |
 |  +----------------------+  +----------------------+  +------------------+
 |  | Heritage: Research   |  | Heritage: Assistive  |  | Heritage: Cost-  |
-|  |  robotics leader     |  |  & rehabilitation    |  |  effective cobot  |
+|  |  robotics leader     |  |  & rehabilitation    |  |  effective cobot |
 |  |                      |  |                      |  |                  |
 |  | Ecosystem: Largest   |  | Ecosystem: Strong    |  | Ecosystem:       |
 |  |  open-source cobot   |  |  ROS 2 + Kortex API  |  |  Growing Python  |
@@ -193,16 +193,16 @@ This USL evaluation covers three state-of-the-art open-source collaborative robo
 |                                                                         |
 |  Spec               Franka Panda      Kinova Gen3       xArm 7          |
 |  -----------------  ----------------  ----------------  ----------------|
-|  DOF                7                 7                 7                |
-|  Payload (kg)       3.0               4.0 <-- highest   3.5              |
-|  Reach (mm)         855               902 <-- highest   700              |
-|  Repeatability (mm) +/-0.1            +/-0.1            +/-0.1           |
-|  Weight (kg)        18.0              8.2 <-- lightest  11.2             |
+|  DOF                7                 7                 7               |
+|  Payload (kg)       3.0               4.0 <-- highest   3.5             |
+|  Reach (mm)         855               902 <-- highest   700             |
+|  Repeatability (mm) +/-0.1            +/-0.1            +/-0.1          |
+|  Weight (kg)        18.0              8.2 <-- lightest  11.2            |
 |  Control Freq (Hz)  1000 <-- highest  1000 <-- highest  250 (500 max)   |
-|  Torque Sensors     7 joints          7 joints          7 joints         |
-|  IP Rating          IP30              IP22              IP51 <-- highest |
-|  Temp Range (C)     5-40              0-40              0-50 <-- widest  |
-|  Integrated Vision  No                Yes <-- unique    No               |
+|  Torque Sensors     7 joints          7 joints          7 joints        |
+|  IP Rating          IP30              IP22              IP51 <-- highest|
+|  Temp Range (C)     5-40              0-40              0-50 <-- widest |
+|  Integrated Vision  No                Yes <-- unique    No              |
 |  Collision Detect   External          External          Built-in <--    |
 |                                                                         |
 |  Simulation Frameworks Supported:                                       |
@@ -211,19 +211,19 @@ This USL evaluation covers three state-of-the-art open-source collaborative robo
 |  NVIDIA Isaac Lab   Y Official        ~ Community       ~ Community     |
 |  Gazebo + ROS 2     Y Official        Y Official        Y Official      |
 |  PyBullet           Y Community       ~ Community       ~ Community     |
-|  Frameworks (#)     5                 4                 3                |
+|  Frameworks (#)     5                 4                 3               |
 |                                                                         |
 |  Model Formats Available:                                               |
 |  -------------------------                                              |
-|  URDF               Y                 Y                 Y                |
-|  MJCF               Y                 Y                 Y                |
-|  SDF                Y                 Y                 Y                |
-|  USD                Y                 ~                 ~                |
-|  Xacro              Y                 Y                 Y                |
+|  URDF               Y                 Y                 Y               |
+|  MJCF               Y                 Y                 Y               |
+|  SDF                Y                 Y                 Y               |
+|  USD                Y                 ~                 ~               |
+|  Xacro              Y                 Y                 Y               |
 |                                                                         |
 |  ROS 2 Package      franka_ros2       ros2_kortex       xarm_ros2       |
 |  API / SDK          libfranka         Kortex API        xArm Python SDK |
-|  GitHub Stars (est) 1000+             500+              300+             |
+|  GitHub Stars (est) 1000+             500+              300+            |
 |                                                                         |
 |  Y = Official support   ~ = Community/partial   X = Not available       |
 +-------------------------------------------------------------------------+
@@ -239,37 +239,37 @@ This USL evaluation covers three state-of-the-art open-source collaborative robo
 +-------------------------------------------------------------------------+
 |                                                                         |
 |  Dimension A: Simulation Framework Switching (25% weight)               |
-|  ------------------------------------------------                      |
-|  Franka Panda  [========--] 8.0   5 frameworks, GPU sim, full transfer |
-|  Kinova Gen3   [======----] 6.3   4 frameworks, partial GPU, MuJoCo+  |
-|  xArm 7        [====------] 4.6   3 frameworks, basic models only     |
+|  ------------------------------------------------                       |
+|  Franka Panda  [========--] 8.0   5 frameworks, GPU sim, full transfer  |
+|  Kinova Gen3   [======----] 6.3   4 frameworks, partial GPU, MuJoCo+    |
+|  xArm 7        [====------] 4.6   3 frameworks, basic models only       |
 |                                                                         |
 |  Dimension B: Generative / Agentic AI Integration (25% weight)          |
-|  --------------------------------------------------------              |
-|  Franka Panda  [=======---] 7.7   VLA, diffusion, LLM planning, NL    |
-|  Kinova Gen3   [=====-----] 5.2   LLM planning, agentic, safety      |
-|  xArm 7        [===-------] 3.2   Basic generative + agentic only     |
+|  --------------------------------------------------------               |
+|  Franka Panda  [=======---] 7.7   VLA, diffusion, LLM planning, NL      |
+|  Kinova Gen3   [=====-----] 5.2   LLM planning, agentic, safety         |
+|  xArm 7        [===-------] 3.2   Basic generative + agentic only       |
 |                                                                         |
 |  Dimension C: Cross-Robot Progress Sharing (25% weight)                 |
 |  ----------------------------------------------                         |
-|  Franka Panda  [========--] 8.5   Inter-org, ONNX, skills, sync       |
-|  Kinova Gen3   [=====-----] 5.8   Intra-org, ONNX, ROS 2 actions     |
-|  xArm 7        [===-------] 3.8   Intra-org SDK, basic ONNX          |
+|  Franka Panda  [========--] 8.5   Inter-org, ONNX, skills, sync         |
+|  Kinova Gen3   [=====-----] 5.8   Intra-org, ONNX, ROS 2 actions        |
+|  xArm 7        [===-------] 3.8   Intra-org SDK, basic ONNX             |
 |                                                                         |
 |  Dimension D: Multi-Site Clinical Trial Collaboration (25% weight)      |
-|  ---------------------------------------------------------             |
-|  Franka Panda  [=====-----] 5.5   Federated compat, safety cert, ISO  |
-|  Kinova Gen3   [=====-----] 5.5   Clinical workflow, safety cert, ISO |
-|  xArm 7        [==--------] 2.1   Remote monitoring only              |
+|  ---------------------------------------------------------              |
+|  Franka Panda  [=====-----] 5.5   Federated compat, safety cert, ISO    |
+|  Kinova Gen3   [=====-----] 5.5   Clinical workflow, safety cert, ISO   |
+|  xArm 7        [==--------] 2.1   Remote monitoring only                |
 |                                                                         |
 |  ===================================================                    |
 |  FINAL USL SCORES (weighted average):                                   |
 |  ------------------------------------                                   |
-|  Franka Panda  [=======---] 7.4   Level 7 — Advanced                  |
-|  Kinova Gen3   [=====-----] 5.7   Level 5 — Functional                |
-|  xArm 7        [===-------] 3.4   Level 3 — Basic                    |
+|  Franka Panda  [=======---] 7.4   Level 7 — Advanced                    |
+|  Kinova Gen3   [=====-----] 5.7   Level 5 — Functional                  |
+|  xArm 7        [===-------] 3.4   Level 3 — Basic                       |
 |                                                                         |
-|  Bar scale: each = = 1.0 point (10 blocks = 10.0)                      |
+|  Bar scale: each = = 1.0 point (10 blocks = 10.0)                       |
 +-------------------------------------------------------------------------+
 ```
 
