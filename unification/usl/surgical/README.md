@@ -8,40 +8,40 @@
 
 ```
 +-------------------------------------------------------------------------+
-|              USL RESULTS — Surgical Robot Scores Explained               |
+|              USL RESULTS — Surgical Robot Scores Explained              |
 +-------------------------------------------------------------------------+
 |                                                                         |
-|  DA VINCI (dVRK) — USL 7.1 / 10.0  [Level 7: Advanced]                 |
+|  DA VINCI (dVRK) — USL 7.1 / 10.0  [Level 7: Advanced]                  |
 |  WHY 7.1: Uniquely open-source surgical robot ecosystem — dVRK (JHU,    |
 |  45+ institutions), ORBIT-Surgical (GPU sim), SurRoL (benchmarks),      |
 |  AMBF (deformable tissue). 5 simulation frameworks, extensive VLA/      |
 |  diffusion/IL/RL research, and FDA-cleared with 14M+ procedures.        |
-|  No other surgical robot has comparable research infrastructure.         |
-|    Dim A: 7.5 — 5 frameworks, GPU sim, tissue deformation modeling     |
-|    Dim B: 7.2 — VLA, diffusion, IL, RL, surgical video AI             |
-|    Dim C: 6.8 — Open-source dVRK, ONNX, ROS 2, JIGSAWS dataset       |
-|    Dim D: 7.0 — FDA cleared, 9000+ systems, 69 countries              |
+|  No other surgical robot has comparable research infrastructure.        |
+|    Dim A: 7.5 — 5 frameworks, GPU sim, tissue deformation modeling      |
+|    Dim B: 7.2 — VLA, diffusion, IL, RL, surgical video AI               |
+|    Dim C: 6.8 — Open-source dVRK, ONNX, ROS 2, JIGSAWS dataset          |
+|    Dim D: 7.0 — FDA cleared, 9000+ systems, 69 countries                |
 |                                                                         |
-|  HUGO RAS — USL 4.5 / 10.0  [Level 4: Developing]                      |
+|  HUGO RAS — USL 4.5 / 10.0  [Level 4: Developing]                       |
 |  WHY 4.5: Medtronic ecosystem integration (Touch Surgery Enterprise,    |
-|  StealthStation, O-arm) provides strong clinical infrastructure.         |
+|  StealthStation, O-arm) provides strong clinical infrastructure.        |
 |  Penalized for fully proprietary platform — no open-source code,        |
 |  no simulation environments, no FDA clearance yet. Research community   |
 |  access is limited to Medtronic partners only.                          |
-|    Dim A: 4.5 — 2 frameworks, limited open-source simulation           |
-|    Dim B: 4.0 — Touch Surgery video AI + phase recognition             |
-|    Dim C: 3.5 — Intra-org via Medtronic ecosystem only                 |
-|    Dim D: 5.8 — CE marked, EXPAND trials, clinical audit trail         |
+|    Dim A: 4.5 — 2 frameworks, limited open-source simulation            |
+|    Dim B: 4.0 — Touch Surgery video AI + phase recognition              |
+|    Dim C: 3.5 — Intra-org via Medtronic ecosystem only                  |
+|    Dim D: 5.8 — CE marked, EXPAND trials, clinical audit trail          |
 |                                                                         |
-|  VERSIUS — USL 3.4 / 10.0  [Level 3: Basic]                            |
-|  WHY 3.4: Lightest arms (~10 kg), thinnest instruments (5 mm), and     |
+|  VERSIUS — USL 3.4 / 10.0  [Level 3: Basic]                             |
+|  WHY 3.4: Lightest arms (~10 kg), thinnest instruments (5 mm), and      |
 |  most portable surgical robot. Scores lowest because proprietary        |
 |  with minimal open-source presence, smallest research community,        |
 |  no published AI/ML research, and no FDA clearance.                     |
-|    Dim A: 3.2 — 2 frameworks, no open-source simulation                |
-|    Dim B: 2.8 — Basic video AI, limited published research             |
-|    Dim C: 2.5 — Intra-org only, no open standards or sharing           |
-|    Dim D: 5.2 — CE marked, 350+ hospitals, 25+ countries               |
+|    Dim A: 3.2 — 2 frameworks, no open-source simulation                 |
+|    Dim B: 2.8 — Basic video AI, limited published research              |
+|    Dim C: 2.5 — Intra-org only, no open standards or sharing            |
+|    Dim D: 5.2 — CE marked, 350+ hospitals, 25+ countries                |
 |                                                                         |
 +-------------------------------------------------------------------------+
 ```
@@ -59,9 +59,9 @@
 |  ──────────────────────────────────                                     |
 |  The dVRK scores nearly double Hugo/Versius because it is the ONLY      |
 |  surgical robot with a public open-source research platform. The        |
-|  dVRK ecosystem (45+ institutions) created ORBIT-Surgical, SurRoL,     |
+|  dVRK ecosystem (45+ institutions) created ORBIT-Surgical, SurRoL,      |
 |  AMBF, and hundreds of published papers — an infrastructure that        |
-|  proprietary platforms cannot replicate.                                 |
+|  proprietary platforms cannot replicate.                                |
 |                                                                         |
 |       dVRK research papers vs. Hugo + Versius combined:                 |
 |       dVRK     ================================  500+ papers            |
@@ -69,12 +69,12 @@
 |       Versius  ===                               ~30 papers             |
 |                                                                         |
 |  CLINICAL DEPLOYMENT != UNIFICATION READINESS                           |
-|  ────────────────────────────────────────────                            |
+|  ────────────────────────────────────────────                           |
 |  Hugo and Versius are clinically deployed (CE marked, active trials)    |
 |  yet score below 5.0 overall. Clinical deployment improves Dim D        |
 |  but cannot compensate for weak simulation (Dim A), AI research         |
 |  (Dim B), and cross-robot sharing (Dim C). Unification requires         |
-|  all four dimensions.                                                    |
+|  all four dimensions.                                                   |
 |                                                                         |
 |  GPU SIMULATION IS A DIFFERENTIATOR                                     |
 |  ──────────────────────────────────                                     |
@@ -84,7 +84,7 @@
 |  to hours. No other surgical robot has GPU simulation support.          |
 |                                                                         |
 |       GPU sim availability:                                             |
-|       dVRK    [Y] ORBIT-Surgical (Isaac Lab) — 4096x parallel          |
+|       dVRK    [Y] ORBIT-Surgical (Isaac Lab) — 4096x parallel           |
 |       Hugo    [X] No GPU simulation available                           |
 |       Versius [X] No GPU simulation available                           |
 |                                                                         |
@@ -101,35 +101,35 @@
 +-------------------------------------------------------------------------+
 |                                                                         |
 |  NEAR-TERM (2026-2027): dVRK AS RESEARCH BACKBONE                       |
-|  ─────────────────────────────────────────────────                       |
+|  ─────────────────────────────────────────────────                      |
 |  The dVRK's open-source ecosystem will continue driving AI research     |
 |  in surgical oncology. ORBIT-Surgical enables rapid prototyping of      |
 |  autonomous surgical skills (needle insertion, tissue retraction,       |
 |  suturing) that can later transfer to clinical-grade platforms.         |
 |                                                                         |
 |       Research (dVRK) ──policy transfer──> Clinical (da Vinci Xi/5)     |
-|       ORBIT-Surgical      ONNX export       Intuitive production sys   |
+|       ORBIT-Surgical      ONNX export       Intuitive production sys    |
 |                                                                         |
 |  MID-TERM (2027-2028): CROSS-PLATFORM SURGICAL AI                       |
-|  ─────────────────────────────────────────────────                       |
+|  ─────────────────────────────────────────────────                      |
 |  As Hugo and Versius develop simulation capabilities, USL-driven        |
 |  standardization will enable cross-platform surgical skill transfer.    |
-|  A suturing policy trained on dVRK could validate on Hugo simulation   |
-|  and deploy on Versius hardware — the multi-site trial model.          |
+|  A suturing policy trained on dVRK could validate on Hugo simulation    |
+|  and deploy on Versius hardware — the multi-site trial model.           |
 |                                                                         |
-|       dVRK (train) ──> Hugo (validate) ──> Versius (deploy)            |
-|       Site A (JHU)     Site B (Medtronic)   Site C (NHS)               |
+|       dVRK (train) ──> Hugo (validate) ──> Versius (deploy)             |
+|       Site A (JHU)     Site B (Medtronic)   Site C (NHS)                |
 |                                                                         |
 |  LONG-TERM (2028+): AUTONOMOUS SURGICAL ONCOLOGY                        |
-|  ────────────────────────────────────────────────                        |
-|  Increasing levels of surgical autonomy (Levels 1-3 per Yang et al.)   |
+|  ────────────────────────────────────────────────                       |
+|  Increasing levels of surgical autonomy (Levels 1-3 per Yang et al.)    |
 |  will emerge for specific oncology subtasks. USL ensures that           |
-|  autonomous capabilities developed on one platform can be validated    |
-|  and certified across platforms for multi-site regulatory approval.    |
+|  autonomous capabilities developed on one platform can be validated     |
+|  and certified across platforms for multi-site regulatory approval.     |
 |                                                                         |
 |       Autonomy Level 1: Robot assistance (current — all platforms)      |
-|       Autonomy Level 2: Task autonomy (2027 — dVRK research)           |
-|       Autonomy Level 3: Conditional autonomy (2028+ — FDA pathway)     |
+|       Autonomy Level 2: Task autonomy (2027 — dVRK research)            |
+|       Autonomy Level 3: Conditional autonomy (2028+ — FDA pathway)      |
 |                                                                         |
 +-------------------------------------------------------------------------+
 ```
@@ -165,7 +165,7 @@ This USL evaluation covers three teleoperated surgical robot systems from differ
 |  |                      |  |                      |  |                  |
 |  | Ecosystem: Largest   |  | Ecosystem: Touch     |  | Ecosystem:       |
 |  |  open-source via     |  |  Surgery Enterprise  |  |  Proprietary     |
-|  |  dVRK (JHU, 45+     |  |  AI video analytics  |  |  with growing    |
+|  |  dVRK (JHU, 45+     |  |  AI video analytics   |  |  with growing    |
 |  |  institutions)       |  |                      |  |  clinical data   |
 |  |                      |  |                      |  |                  |
 |  | Key Strength:        |  | Key Strength:        |  | Key Strength:    |
@@ -201,18 +201,18 @@ This USL evaluation covers three teleoperated surgical robot systems from differ
 |  Instrument Arms    3 PSMs            3 arms            3 arms (max 4)  |
 |  Camera Arms        1 ECM             1 arm             1 arm           |
 |  DOF per Arm        7 + grip          7 + grip          7 + grip        |
-|  Instrument dia.    5/8 mm            8 mm              5 mm <-- thin  |
+|  Instrument dia.    5/8 mm            8 mm              5 mm <-- thin   |
 |  Arm Weight (kg)    ~65 (full cart)   38 (per cart)     10 <-- lightest |
 |  Console Type       Immersive         Open              Open            |
 |  Tremor Filtering   Yes               Yes               Yes             |
-|  Motion Scaling     2:1, 3:1, 5:1    Yes               Yes             |
+|  Motion Scaling     2:1, 3:1, 5:1    Yes               Yes              |
 |  Control Freq (Hz)  1000              1000              1000            |
 |  Stereo Vision      Yes               3D HD             3D HD           |
-|  Portability        Fixed             Semi-portable     Portable <--   |
+|  Portability        Fixed             Semi-portable     Portable <--    |
 |                                                                         |
 |  Regulatory Status:                                                     |
 |  -----------------                                                      |
-|  FDA Cleared        Y <-- only one    X (pending)       X (pending)    |
+|  FDA Cleared        Y <-- only one    X (pending)       X (pending)     |
 |  CE Marked          Y                 Y                 Y               |
 |  Countries          69                20+               25+             |
 |  Systems Installed  9,000+ <-- most   500+              350+            |
@@ -220,22 +220,22 @@ This USL evaluation covers three teleoperated surgical robot systems from differ
 |                                                                         |
 |  Simulation / Open-Source Support:                                      |
 |  ---------------------------------                                      |
-|  Open-Source Code   Y dVRK (BSD)     X                 X               |
-|  ORBIT-Surgical     Y <-- unique     X                 X               |
-|  SurRoL Benchmark   Y <-- unique     X                 X               |
-|  AMBF Simulator     Y <-- unique     X                 X               |
-|  Gazebo + ROS 2     Y                ~                 ~               |
-|  MuJoCo             Y                X                 ~               |
-|  GPU Sim (Isaac)    Y                ~                 X               |
+|  Open-Source Code   Y dVRK (BSD)     X                 X                |
+|  ORBIT-Surgical     Y <-- unique     X                 X                |
+|  SurRoL Benchmark   Y <-- unique     X                 X                |
+|  AMBF Simulator     Y <-- unique     X                 X                |
+|  Gazebo + ROS 2     Y                ~                 ~                |
+|  MuJoCo             Y                X                 ~                |
+|  GPU Sim (Isaac)    Y                ~                 X                |
 |                                                                         |
 |  AI Research Ecosystem:                                                 |
 |  ---------------------                                                  |
-|  Surgical Video AI  Y JIGSAWS+       Y Touch Surgery   ~ Limited      |
-|  RL / IL Research   Y Extensive      X                 X               |
-|  VLA / Diffusion    Y <-- unique     X                 X               |
-|  Phase Recognition  Y                Y                 ~               |
+|  Surgical Video AI  Y JIGSAWS+       Y Touch Surgery   ~ Limited        |
+|  RL / IL Research   Y Extensive      X                 X                |
+|  VLA / Diffusion    Y <-- unique     X                 X                |
+|  Phase Recognition  Y                Y                 ~                |
 |                                                                         |
-|  Y = Supported   ~ = Partial/Limited   X = Not available               |
+|  Y = Supported   ~ = Partial/Limited   X = Not available                |
 +-------------------------------------------------------------------------+
 ```
 
@@ -249,37 +249,37 @@ This USL evaluation covers three teleoperated surgical robot systems from differ
 +-------------------------------------------------------------------------+
 |                                                                         |
 |  Dimension A: Simulation Framework Switching (25% weight)               |
-|  ------------------------------------------------                      |
-|  da Vinci(dVRK) [=======---] 7.5   5 frameworks, GPU sim, tissue def  |
-|  Hugo RAS       [====------] 4.5   2 frameworks, limited open-source  |
-|  Versius        [===-------] 3.2   2 frameworks, no open-source sim   |
+|  ------------------------------------------------                       |
+|  da Vinci(dVRK) [=======---] 7.5   5 frameworks, GPU sim, tissue def    |
+|  Hugo RAS       [====------] 4.5   2 frameworks, limited open-source    |
+|  Versius        [===-------] 3.2   2 frameworks, no open-source sim     |
 |                                                                         |
 |  Dimension B: Generative / Agentic AI Integration (25% weight)          |
-|  --------------------------------------------------------              |
-|  da Vinci(dVRK) [=======---] 7.2   VLA, diffusion, IL, RL, video AI  |
-|  Hugo RAS       [====------] 4.0   Touch Surgery video AI + phase     |
-|  Versius        [==--------] 2.8   Basic video AI, limited research   |
+|  --------------------------------------------------------               |
+|  da Vinci(dVRK) [=======---] 7.2   VLA, diffusion, IL, RL, video AI     |
+|  Hugo RAS       [====------] 4.0   Touch Surgery video AI + phase       |
+|  Versius        [==--------] 2.8   Basic video AI, limited research     |
 |                                                                         |
 |  Dimension C: Cross-Robot Progress Sharing (25% weight)                 |
 |  ----------------------------------------------                         |
-|  da Vinci(dVRK) [======----] 6.8   Open-source, ONNX, ROS 2, JIGSAWS|
-|  Hugo RAS       [===-------] 3.5   Intra-org via Medtronic ecosystem |
-|  Versius        [==--------] 2.5   Intra-org only, no open standards |
+|  da Vinci(dVRK) [======----] 6.8   Open-source, ONNX, ROS 2, JIGSAWS    |
+|  Hugo RAS       [===-------] 3.5   Intra-org via Medtronic ecosystem    |
+|  Versius        [==--------] 2.5   Intra-org only, no open standards    |
 |                                                                         |
 |  Dimension D: Multi-Site Clinical Trial Collaboration (25% weight)      |
-|  ---------------------------------------------------------             |
-|  da Vinci(dVRK) [=======---] 7.0   FDA cleared, 9000+ systems, certs |
-|  Hugo RAS       [=====-----] 5.8   CE marked, EXPAND trials, audit   |
-|  Versius        [=====-----] 5.2   CE marked, 350+ hospitals, certs  |
+|  ---------------------------------------------------------              |
+|  da Vinci(dVRK) [=======---] 7.0   FDA cleared, 9000+ systems, certs    |
+|  Hugo RAS       [=====-----] 5.8   CE marked, EXPAND trials, audit      |
+|  Versius        [=====-----] 5.2   CE marked, 350+ hospitals, certs     |
 |                                                                         |
 |  ===================================================                    |
 |  FINAL USL SCORES (weighted average):                                   |
 |  ------------------------------------                                   |
-|  da Vinci(dVRK) [=======---] 7.1   Level 7 — Advanced                |
-|  Hugo RAS       [====------] 4.5   Level 4 — Developing              |
-|  Versius        [===-------] 3.4   Level 3 — Basic                   |
+|  da Vinci(dVRK) [=======---] 7.1   Level 7 — Advanced                   |
+|  Hugo RAS       [====------] 4.5   Level 4 — Developing                 |
+|  Versius        [===-------] 3.4   Level 3 — Basic                      |
 |                                                                         |
-|  Bar scale: each = = 1.0 point (10 blocks = 10.0)                      |
+|  Bar scale: each = = 1.0 point (10 blocks = 10.0)                       |
 +-------------------------------------------------------------------------+
 ```
 
