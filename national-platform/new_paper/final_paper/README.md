@@ -408,15 +408,15 @@ This map shows which section files reference which other sections (via `\ref{sec
 ```
 source_documents.tex ──→ ALL sections (it's the master index)
 
-introduction.tex ──→ sec:financial, sec:implementation
+introduction.tex  ──→ sec:financial, sec:implementation
 gov_framework.tex ──→ sec:implementation
 regulatory_landscape.tex ──→ sec:implementation
-ich_e6r3_adaptation.tex ──→ sec:psl-usl
-cfr50_adaptation.tex ──→ sec:psl-usl
-cfr312_adaptation.tex ──→ sec:cfr50, sec:psl-usl
-psl_usl_standards.tex ──→ sec:site-establishment
+ich_e6r3_adaptation.tex  ──→ sec:psl-usl
+cfr50_adaptation.tex   ──→ sec:psl-usl
+cfr312_adaptation.tex  ──→ sec:cfr50, sec:psl-usl
+psl_usl_standards.tex  ──→ sec:site-establishment
 site_establishment.tex ──→ sec:financial
-patient_journey.tex ──→ sec:financial
+patient_journey.tex    ──→ sec:financial
 federated_learning.tex ──→ sec:implementation
 financial_analysis.tex ──→ sec:national-mcp
 national_mcp.tex ──→ sec:federated-learning, sec:implementation
