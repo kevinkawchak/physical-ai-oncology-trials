@@ -8,38 +8,38 @@
 
 ```
 +-------------------------------------------------------------------------+
-|              USL RESULTS — Humanoid Robot Scores Explained               |
+|              USL RESULTS — Humanoid Robot Scores Explained              |
 +-------------------------------------------------------------------------+
 |                                                                         |
-|  ATLAS (Electric) — USL 5.8 / 10.0  [Level 5: Functional]              |
+|  ATLAS (Electric) — USL 5.8 / 10.0  [Level 5: Functional]               |
 |  WHY 5.8: Strongest simulation coverage (4 frameworks incl. Drake       |
 |  open-source) and most advanced AI research (RL, IL, diffusion, VLA).   |
 |  Held back by proprietary platform (no public SDK), zero healthcare     |
 |  deployments, and limited cross-robot sharing outside Drake/ONNX.       |
-|    Dim A: 7.0 — 4 frameworks, Drake open-source, GPU sim               |
-|    Dim B: 7.4 — RL, IL, diffusion, VLA, LLM planning                   |
-|    Dim C: 4.5 — Proprietary; sharing via Drake + ONNX only             |
+|    Dim A: 7.0 — 4 frameworks, Drake open-source, GPU sim                |
+|    Dim B: 7.4 — RL, IL, diffusion, VLA, LLM planning                    |
+|    Dim C: 4.5 — Proprietary; sharing via Drake + ONNX only              |
 |    Dim D: 4.2 — Safety cert potential, ISO 13482, no clinical pilots    |
 |                                                                         |
-|  DIGIT — USL 4.2 / 10.0  [Level 4: Developing]                         |
+|  DIGIT — USL 4.2 / 10.0  [Level 4: Developing]                          |
 |  WHY 4.2: Best foundation model story (NVIDIA GR00T N1 primary          |
-|  partner) and only humanoid with commercial deployment (Amazon).         |
+|  partner) and only humanoid with commercial deployment (Amazon).        |
 |  Penalized for no healthcare experience, no ROS 2 interface, limited    |
 |  hand dexterity, and no federated learning or clinical trial tooling.   |
-|    Dim A: 5.8 — 3 frameworks, Isaac Lab + MuJoCo Menagerie official    |
-|    Dim B: 5.4 — GR00T N1, VLA, RL, IL, LLM task planning              |
-|    Dim C: 3.0 — Isaac Lab models + ONNX; no inter-org sharing          |
-|    Dim D: 2.7 — Commercial deploy (Amazon) but zero healthcare use     |
+|    Dim A: 5.8 — 3 frameworks, Isaac Lab + MuJoCo Menagerie official     |
+|    Dim B: 5.4 — GR00T N1, VLA, RL, IL, LLM task planning                |
+|    Dim C: 3.0 — Isaac Lab models + ONNX; no inter-org sharing           |
+|    Dim D: 2.7 — Commercial deploy (Amazon) but zero healthcare use      |
 |                                                                         |
-|  OPTIMUS (Gen 2) — USL 3.6 / 10.0  [Level 3: Basic]                    |
+|  OPTIMUS (Gen 2) — USL 3.6 / 10.0  [Level 3: Basic]                     |
 |  WHY 3.6: Best hands (11-DOF tactile) and mass production potential     |
 |  (sub-$20K target). Scores lowest because fully proprietary — no        |
 |  public SDK, no simulation models, no peer-reviewed research, no        |
 |  developer ecosystem. Cross-robot sharing is essentially zero.          |
-|    Dim A: 3.4 — 2 frameworks (community models only)                   |
-|    Dim B: 5.0 — End-to-end NN, RL, IL via Dojo (all internal)         |
-|    Dim C: 1.5 — Fully proprietary; no external sharing                 |
-|    Dim D: 4.4 — Audit trail, remote monitoring; no safety certs        |
+|    Dim A: 3.4 — 2 frameworks (community models only)                    |
+|    Dim B: 5.0 — End-to-end NN, RL, IL via Dojo (all internal)           |
+|    Dim C: 1.5 — Fully proprietary; no external sharing                  |
+|    Dim D: 4.4 — Audit trail, remote monitoring; no safety certs         |
 |                                                                         |
 +-------------------------------------------------------------------------+
 ```
@@ -57,13 +57,13 @@
 |  ─────────────────────────                                              |
 |  Atlas leads because Boston Dynamics/TRI publish Drake (open-source     |
 |  sim) and BDAII publishes peer-reviewed locomotion research. Digit      |
-|  benefits from NVIDIA's open Isaac Lab models and MuJoCo Menagerie.    |
+|  benefits from NVIDIA's open Isaac Lab models and MuJoCo Menagerie.     |
 |  Optimus trails because Tesla shares nothing publicly.                  |
 |                                                                         |
 |       Open-source ecosystem size vs. USL score:                         |
-|       Atlas  ████████████████░░░░  5.8  (Drake, 4 frameworks)          |
-|       Digit  ██████████░░░░░░░░░░  4.2  (Isaac Lab + Menagerie)       |
-|       Optimus ████████░░░░░░░░░░░  3.6  (community models only)       |
+|       Atlas  ████████████████░░░░  5.8  (Drake, 4 frameworks)           |
+|       Digit  ██████████░░░░░░░░░░  4.2  (Isaac Lab + Menagerie)         |
+|       Optimus ████████░░░░░░░░░░░  3.6  (community models only)         |
 |                                                                         |
 |  FOUNDATION MODELS ARE NOT ENOUGH                                       |
 |  ────────────────────────────────                                       |
@@ -75,15 +75,15 @@
 |  HEALTHCARE GAP IS UNIVERSAL                                            |
 |  ──────────────────────────                                             |
 |  No evaluated humanoid has hospital deployment experience. All three    |
-|  score below 5.0 on Dim D (clinical trial collaboration). This is      |
+|  score below 5.0 on Dim D (clinical trial collaboration). This is       |
 |  the single largest barrier to humanoid robots entering oncology        |
 |  clinical trials — regulatory, safety, and clinical validation are      |
 |  prerequisites that no manufacturer has yet addressed.                  |
 |                                                                         |
 |       Dim D scores (clinical readiness):                                |
-|       Optimus ████░░░░░░  4.4  (audit trail, no certs)                |
-|       Atlas   ████░░░░░░  4.2  (ISO 13482 aligned, no pilots)         |
-|       Digit   ██░░░░░░░░  2.7  (commercial only, no healthcare)       |
+|       Optimus ████░░░░░░  4.4  (audit trail, no certs)                  |
+|       Atlas   ████░░░░░░  4.2  (ISO 13482 aligned, no pilots)           |
+|       Digit   ██░░░░░░░░  2.7  (commercial only, no healthcare)         |
 |                                                                         |
 +-------------------------------------------------------------------------+
 ```
@@ -98,9 +98,9 @@
 +-------------------------------------------------------------------------+
 |                                                                         |
 |  NEAR-TERM (2026-2027): LOGISTICS FIRST                                 |
-|  ──────────────────────────────────────                                  |
-|  Humanoid robots will enter oncology settings via non-clinical           |
-|  logistics tasks — supply transport, specimen delivery, pharmacy         |
+|  ──────────────────────────────────────                                 |
+|  Humanoid robots will enter oncology settings via non-clinical          |
+|  logistics tasks — supply transport, specimen delivery, pharmacy        |
 |  restocking — before any patient-facing roles. Atlas and Digit are      |
 |  closest due to locomotion maturity and payload capacity.               |
 |                                                                         |
@@ -110,21 +110,21 @@
 |       Linen/waste transport ──► Optimus (4-hr battery, low cost)        |
 |                                                                         |
 |  MID-TERM (2027-2028): UNIFICATION ACCELERATION                         |
-|  ───────────────────────────────────────────────                         |
+|  ───────────────────────────────────────────────                        |
 |  As GR00T N1 and Drake mature, cross-robot policy transfer will         |
 |  enable training on one humanoid and deploying on another. This is      |
 |  the core USL value proposition — standardized interfaces mean          |
 |  multi-site trials can mix humanoid platforms per site availability.    |
 |                                                                         |
-|       Drake (Atlas) ──ONNX──► Isaac Lab (Digit) ──GR00T──► Deploy      |
+|       Drake (Atlas) ──ONNX──► Isaac Lab (Digit) ──GR00T──► Deploy       |
 |       Training site A         Validation site B         Trial site C    |
 |                                                                         |
 |  LONG-TERM (2028+): INTEGRATED CLINICAL ROLES                           |
-|  ─────────────────────────────────────────────                           |
+|  ─────────────────────────────────────────────                          |
 |  Once ISO 13482 certification and hospital safety validation are        |
 |  achieved, humanoid robots could take on assistive roles in oncology    |
 |  wards — patient mobility support, equipment positioning, and           |
-|  decontamination. Mass production (Optimus at sub-$20K) could make     |
+|  decontamination. Mass production (Optimus at sub-$20K) could make      |
 |  multi-site deployment economically viable.                             |
 |                                                                         |
 |       Barrier removal timeline:                                         |
@@ -172,11 +172,11 @@ This USL evaluation covers three bipedal humanoid robot systems from different m
 |  |                      |  |                      |  |                  |
 |  | Key Strength:        |  | Key Strength:        |  | Key Strength:    |
 |  |  Most dynamic ROM,   |  |  GR00T + Isaac Lab   |  |  11-DOF hands +  |
-|  |  4-framework sim,    |  |  sim-to-real pipeline |  |  mass production |
+|  |  4-framework sim,    |  |  sim-to-real pipeline|  |  mass production |
 |  |  Drake open-source   |  |  + 16 kg payload     |  |  at sub-$20K     |
 |  |                      |  |                      |  |                  |
 |  | Oncology Focus:      |  | Oncology Focus:      |  | Oncology Focus:  |
-|  |  Equipment handling, |  |  Supply tote delivery |  |  Pharmacy deliv- |
+|  |  Equipment handling, |  |  Supply tote delivery|  |  Pharmacy deliv- |
 |  |  specimen delivery,  |  |  specimen courier,   |  |  ery, linen      |
 |  |  decontamination     |  |  pharmacy restocking |  |  transport       |
 |  |                      |  |                      |  |                  |
@@ -197,49 +197,49 @@ This USL evaluation covers three bipedal humanoid robot systems from different m
 |       TECHNICAL SPECIFICATIONS — Humanoid Robot Comparison              |
 +-------------------------------------------------------------------------+
 |                                                                         |
-|  Spec               Atlas (Electric)  Digit             Optimus (Gen2) |
+|  Spec               Atlas (Electric)  Digit             Optimus (Gen2)  |
 |  -----------------  ----------------  ----------------  ----------------|
-|  Architecture       Bipedal electric  Bipedal backward  Bipedal full   |
-|                     full-body         -bending knees    -body humanoid |
-|  Height (m)         ~1.50             ~1.75             ~1.73          |
-|  Weight (kg)        ~89               ~65               ~57 <-- light  |
-|  Body DOF           ~28               ~20               ~28           |
-|  Hand DOF (each)    Custom EE         4-finger          11 <-- most   |
-|  Walking Speed(m/s) 1.5               1.5               1.3          |
-|  Payload (kg)       11                16 <-- highest    9              |
-|  Battery Life (hrs) ~1.5              ~3.0              ~4.0 <-- most  |
-|  Perception         Stereo + LiDAR    LiDAR + stereo    FSD cameras   |
-|                     + IMU + F/T       + depth + IMU     + IMU + tactile|
-|  Compute            Custom onboard    Jetson AGX Orin   Tesla HW4/SoC |
-|  Knee Design        Standard (hyper-  Backward-bending  Standard      |
-|                     extended ROM)     (bird-inspired)                  |
+|  Architecture       Bipedal electric  Bipedal backward  Bipedal full    |
+|                     full-body         -bending knees    -body humanoid  |
+|  Height (m)         ~1.50             ~1.75             ~1.73           |
+|  Weight (kg)        ~89               ~65               ~57 <-- light   |
+|  Body DOF           ~28               ~20               ~28             |
+|  Hand DOF (each)    Custom EE         4-finger          11 <-- most     |
+|  Walking Speed(m/s) 1.5               1.5               1.3             |
+|  Payload (kg)       11                16 <-- highest    9               |
+|  Battery Life (hrs) ~1.5              ~3.0              ~4.0 <-- most   |
+|  Perception         Stereo + LiDAR    LiDAR + stereo    FSD cameras     |
+|                     + IMU + F/T       + depth + IMU     + IMU + tactile |
+|  Compute            Custom onboard    Jetson AGX Orin   Tesla HW4/SoC   |
+|  Knee Design        Standard (hyper-  Backward-bending  Standard        |
+|                     extended ROM)     (bird-inspired)                   |
 |                                                                         |
 |  Simulation / Open-Source Support:                                      |
 |  ---------------------------------                                      |
-|  Isaac Lab          Y (URDF/USD)     Y Official <--   ~ Community    |
-|  MuJoCo             Y Community       Y Menagerie <-- ~ Community    |
-|  Drake              Y Official <--   X                 X              |
-|  Gazebo + ROS 2     ~ Community       ~ Community       X              |
-|  Open-Source Code   ~ Drake (TRI)    ~ Isaac Lab model X None         |
-|  Frameworks (#)     4                 3                 2              |
+|  Isaac Lab          Y (URDF/USD)     Y Official <--   ~ Community       |
+|  MuJoCo             Y Community       Y Menagerie <-- ~ Community       |
+|  Drake              Y Official <--   X                 X                |
+|  Gazebo + ROS 2     ~ Community       ~ Community       X               |
+|  Open-Source Code   ~ Drake (TRI)    ~ Isaac Lab model X None           |
+|  Frameworks (#)     4                 3                 2               |
 |                                                                         |
-|  AI / Foundation Model Support:                                        |
+|  AI / Foundation Model Support:                                         |
 |  ------------------------------                                         |
-|  GR00T N1           ~ Potential       Y Primary <--   X              |
-|  VLA Compatible     Y                 Y                 X              |
-|  LLM Task Planning  Y                 Y                 X              |
-|  RL Locomotion      Y                 Y                 Y              |
-|  Imitation Learning Y                 Y                 Y              |
-|  Diffusion Policy   Y                 X                 X              |
+|  GR00T N1           ~ Potential       Y Primary <--   X                 |
+|  VLA Compatible     Y                 Y                 X               |
+|  LLM Task Planning  Y                 Y                 X               |
+|  RL Locomotion      Y                 Y                 Y               |
+|  Imitation Learning Y                 Y                 Y               |
+|  Diffusion Policy   Y                 X                 X               |
 |                                                                         |
-|  Deployment / Clinical:                                                |
+|  Deployment / Clinical:                                                 |
 |  ----------------------                                                 |
-|  Commercial Deploy  X (Hyundai plan) Y Amazon <--    X (factory)    |
-|  Hospital Pilot     Y Potential       X                 X              |
-|  ISO 13482 Align    Y                 Y                 X              |
-|  Manufacturing      Hyundai (limited) RoboFab (10K/yr) Tesla (millions)|
+|  Commercial Deploy  X (Hyundai plan) Y Amazon <--    X (factory)        |
+|  Hospital Pilot     Y Potential       X                 X               |
+|  ISO 13482 Align    Y                 Y                 X               |
+|  Manufacturing      Hyundai (limited) RoboFab (10K/yr) Tesla (millions) |
 |                                                                         |
-|  Y = Supported   ~ = Partial/Limited   X = Not available               |
+|  Y = Supported   ~ = Partial/Limited   X = Not available                |
 +-------------------------------------------------------------------------+
 ```
 
@@ -253,37 +253,37 @@ This USL evaluation covers three bipedal humanoid robot systems from different m
 +-------------------------------------------------------------------------+
 |                                                                         |
 |  Dimension A: Simulation Framework Switching (25% weight)               |
-|  ------------------------------------------------                      |
-|  Atlas(Elec)  [=======---] 7.0   4 frameworks, Drake open-source, GPU |
-|  Digit        [=====-----] 5.8   3 frameworks, Isaac Lab + Menagerie  |
-|  Optimus(G2)  [===-------] 3.4   2 frameworks, community models only |
+|  ------------------------------------------------                       |
+|  Atlas(Elec)  [=======---] 7.0   4 frameworks, Drake open-source, GPU   |
+|  Digit        [=====-----] 5.8   3 frameworks, Isaac Lab + Menagerie    |
+|  Optimus(G2)  [===-------] 3.4   2 frameworks, community models only    |
 |                                                                         |
 |  Dimension B: Generative / Agentic AI Integration (25% weight)          |
-|  --------------------------------------------------------              |
-|  Atlas(Elec)  [=======---] 7.4   RL, IL, diffusion, VLA, LLM plan    |
-|  Digit        [=====-----] 5.4   GR00T N1, VLA, RL, IL, LLM plan    |
-|  Optimus(G2)  [=====-----] 5.0   End-to-end NN, RL, IL, Dojo train  |
+|  --------------------------------------------------------               |
+|  Atlas(Elec)  [=======---] 7.4   RL, IL, diffusion, VLA, LLM plan       |
+|  Digit        [=====-----] 5.4   GR00T N1, VLA, RL, IL, LLM plan        |
+|  Optimus(G2)  [=====-----] 5.0   End-to-end NN, RL, IL, Dojo train      |
 |                                                                         |
 |  Dimension C: Cross-Robot Progress Sharing (25% weight)                 |
 |  ----------------------------------------------                         |
-|  Atlas(Elec)  [====------] 4.5   Proprietary; Drake + ONNX sharing   |
-|  Digit        [===-------] 3.0   Isaac Lab models + ONNX; no inter   |
-|  Optimus(G2)  [=---------] 1.5   Fully proprietary; no sharing      |
+|  Atlas(Elec)  [====------] 4.5   Proprietary; Drake + ONNX sharing      |
+|  Digit        [===-------] 3.0   Isaac Lab models + ONNX; no inter      |
+|  Optimus(G2)  [=---------] 1.5   Fully proprietary; no sharing          |
 |                                                                         |
 |  Dimension D: Multi-Site Clinical Trial Collaboration (25% weight)      |
-|  ---------------------------------------------------------             |
-|  Atlas(Elec)  [====------] 4.2   Safety cert, ISO 13482, pilot poss  |
-|  Digit        [==--------] 2.7   Commercial deploy but no healthcare |
-|  Optimus(G2)  [====------] 4.4   Audit trail, remote mon; no certs   |
+|  ---------------------------------------------------------              |
+|  Atlas(Elec)  [====------] 4.2   Safety cert, ISO 13482, pilot poss     |
+|  Digit        [==--------] 2.7   Commercial deploy but no healthcare    |
+|  Optimus(G2)  [====------] 4.4   Audit trail, remote mon; no certs      |
 |                                                                         |
 |  ===================================================                    |
 |  FINAL USL SCORES (weighted average):                                   |
 |  ------------------------------------                                   |
-|  Atlas(Elec)  [=====-----] 5.8   Level 5 — Functional                |
-|  Digit        [====------] 4.2   Level 4 — Developing                |
-|  Optimus(G2)  [===-------] 3.6   Level 3 — Basic                    |
+|  Atlas(Elec)  [=====-----] 5.8   Level 5 — Functional                   |
+|  Digit        [====------] 4.2   Level 4 — Developing                   |
+|  Optimus(G2)  [===-------] 3.6   Level 3 — Basic                        |
 |                                                                         |
-|  Bar scale: each = = 1.0 point (10 blocks = 10.0)                      |
+|  Bar scale: each = = 1.0 point (10 blocks = 10.0)                       |
 +-------------------------------------------------------------------------+
 ```
 
