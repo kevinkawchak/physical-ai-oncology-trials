@@ -29,7 +29,7 @@ Format follows [Keep a Changelog](https://keepachangelog.com/).
 - @kevinkawchak Updated main README by removing redundant information from corresponding directoriea 2026-04-24.
 - @kevinkawchak Updated main/new-trial ASCII diagrams for Hours 00-23 and final-commit for aesthetics on 2026-04-25.
 - @kevinkawchak Updated main/unification to improve repository aesthetics on 2026-04-26.
-- @kevinkawchak Updated main/unification/usl, main/privacy, main/patients, main/new_paper, main/new_paper/final_paper, main/new_template, main/digital-twins, main/digital-twins/clinical-integration, main/patient-modeling READMEs to improve ASCII diagram aesthetics on 2026-04-27.       
+- @kevinkawchak Updated main, main/unification, main/unification/usl, main/privacy, main/patients, main/new_paper, main/new_paper/final_paper, main/new_template, main/digital-twins, main/digital-twins/clinical-integration, main/patient-modeling, main/sponsor/final_paper READMEs to improve ASCII diagram and repository structure aesthetics on 2026-04-27.       
 
 ## [3.4.0] - 2026-04-06
 
