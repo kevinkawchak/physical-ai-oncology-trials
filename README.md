@@ -68,7 +68,7 @@ python unification/cross_platform_tools/framework_detector.py
 
 ```
   168-Hour Simulation          Code Generation           Execution
-  (7 Days x 24 Hours)   --->  (Claude Code Opus 4.6)      Results
+  (7 Days x 24 Hours)   --->   (Claude Code Opus 4.6)    Results
   +-----------------+          +-----------------+       +----------+
   | Day 1: Init     |   --->   | 168 hourly .py  |  ---> | 2,016 d. |
   | Day 2: Enroll   |   --->   | 168 JSON output |  ---> | 1,336 pt |
@@ -80,11 +80,11 @@ python unification/cross_platform_tools/framework_detector.py
   +-----------------+          +-----------------+       +----------+
            |                           |                       |
            v                           v                       v
-  +------------------------------------------------------------+
-  |  168-Hour Simulation: 2,016 decisions, 1,336 pts,          |
-  |  125 escalations, 1,336 robot authorizations,              |
-  |  PSL 63.4 to 70.0, 168 commits, 7 branches/PRs             |
-  +------------------------------------------------------------+
+  +-----------------------------------------------------------------+
+  |  168-Hour Simulation: 2,016 decisions, 1,336 pts,               |
+  |  125 escalations, 1,336 robot authorizations,                   |
+  |  PSL 63.4 to 70.0, 168 commits, 7 branches/PRs                  |
+  +-----------------------------------------------------------------+
 ```
 
 ## Repository Structure
@@ -152,7 +152,7 @@ physical-ai-oncology-trials/
 │   │   ├── hour_XX_robot_logs.md      # Per-robot telemetry
 │   │   ├── hour_XX_patient_records.md # Patient vitals and records
 │   │   ├── hour_XX_psl_scores.md      # PSL scores for all 10 robots
-│   │   ├── hour_XX_diagram_facility.txt    # Facility layout diagram
+│   │   ├── hour_XX_diagram_facility.txt     # Facility layout diagram
 │   │   ├── hour_XX_diagram_patient_flow.txt # Patient flow diagram
 │   │   └── hour_XX_diagram_robot_status.txt # Robot status timeline
 │   ├── final-commit/                  # Error review and 24-hour summaries
@@ -162,8 +162,8 @@ physical-ai-oncology-trials/
 │   │   └── final_diagram_*.txt        # Summary diagrams (3 files)
 │   └── site/                          # ★ Trial Site Documentation (v2.9.0)
 │       ├── README.md                  # Site documentation overview
-│       ├── 01-legislation-authorization/  # SB 1042 authorization act
-│       ├── 02-legislation-patient-rights/ # AB 2847 patient rights act
+│       ├── 01-legislation-authorization/     # SB 1042 authorization act
+│       ├── 02-legislation-patient-rights/    # AB 2847 patient rights act
 │       ├── 03-legislation-data-transparency/ # SB 892 data protection act
 │       ├── 04-city-regulations/       # SF municipal code update
 │       ├── 05-state-regulations/      # CA Title 22 Chapter 14
@@ -184,20 +184,20 @@ physical-ai-oncology-trials/
 │   ├── stage_01_prescreening.py       # Stage 1: Pre-Screening & Referral Intake
 │   ├── stage_02_enrollment.py         # Stage 2: Enrollment & Informed Consent
 │   ├── stage_03_digital_twin.py       # Stage 3: Digital Twin Construction
-│   ├── stage_04_robot_qualification.py # Stage 4: Robot Qualification
+│   ├── stage_04_robot_qualification.py# Stage 4: Robot Qualification
 │   ├── stage_05_surgery.py            # Stage 5: Robot-Assisted Surgery
 │   ├── stage_06_recovery.py           # Stage 6: Post-Operative Recovery
 │   ├── stage_07_immunotherapy.py      # Stage 7: Immunotherapy Treatment
 │   ├── stage_08_federation.py         # Stage 8: Federated Learning
 │   ├── stage_09_surveillance.py       # Stage 9: Long-Term Surveillance
 │   ├── stage_10_closeout.py           # Stage 10: Trial Closeout
-│   ├── master_journey.py             # Master orchestrator (all 10 stages)
+│   ├── master_journey.py              # Master orchestrator (all 10 stages)
 │   ├── diagrams/                      # 30 ASCII progress diagrams (3 x 10)
 │   ├── deliverables/                  # Charts, tables, FDA analysis, guidance
 │   ├── paper/                         # ★ Patient Journey Paper (v2.7.0)
 │   │   ├── patient_journey_paper.tex  # LaTeX source
 │   │   ├── patient_journey_paper_chunk/ # ★ Chunked into 3 files (v2.9.1)
-│   │   │   └── README.md             # Reconstruction instructions
+│   │   │   └── README.md              # Reconstruction instructions
 │   │   ├── patient_journey_paper.pdf  # Compiled PDF (compile from .tex)
 │   │   ├── Latex_Source_Code.zip      # Source archive
 │   │   ├── arxiv.sty                  # Style file
@@ -207,7 +207,7 @@ physical-ai-oncology-trials/
 │   └── prompts.md                     # Development prompts archive
 │
 ├── patients/                          # ★ Patient Instructions (v2.1.0)
-│   ├── patient_robot_instructions_fixed.tex  # LaTeX source
+│   ├── patient_robot_instructions_fixed.tex    # LaTeX source
 │   ├── patient_robot_instructions_fixed_chunk/ # ★ Chunked into 2 files (v2.9.1)
 │   │   └── README.md                  # Reconstruction instructions
 │   ├── README.md                      # Paper content, instructions, text diagrams
@@ -305,7 +305,7 @@ physical-ai-oncology-trials/
 │   │   │   ├── Latex Source Code.zip # .tex, .sty, .bib, README
 │   │   │   ├── usl_oncology_trials.tex
 │   │   │   ├── usl_oncology_trials_chunk/ # ★ Chunked into 2 files (v2.9.1)
-│   │   │   │   └── README.md        # Reconstruction instructions
+│   │   │   │   └── README.md              # Reconstruction instructions
 │   │   │   ├── usl-oncology.sty
 │   │   │   ├── references.bib
 │   │   │   └── README
@@ -389,26 +389,26 @@ physical-ai-oncology-trials/
 │
 ├── regulatory/
 │   ├── README.md
-│   ├── Adaption-21-CFR-Part-312/      # ★ Physical AI 21 CFR Part 312 Adaptation (v2.5.0)
+│   ├── Adaption-21-CFR-Part-312/                  # ★ Physical AI 21 CFR Part 312 Adaptation (v2.5.0)
 │   │   └── source/
-│   │       ├── Physical_AI_21_CFR_Part_312.tex  # LaTeX source (94 pages compiled)
+│   │       ├── Physical_AI_21_CFR_Part_312.tex    # LaTeX source (94 pages compiled)
 │   │       ├── Physical_AI_21_CFR_Part_312_chunk/ # ★ Chunked into 5 files (v2.9.1)
-│   │       │   └── README.md                    # Reconstruction instructions
-│   │       ├── Physical_AI_21_CFR_Part_312.sty  # Custom style package
-│   │       ├── Physical_AI_21_CFR_Part_312.bib  # Bibliography (42 references)
-│   │       ├── Physical_AI_21_CFR_Part_312.pdf  # Compiled PDF
-│   │       ├── Physical_AI_21_CFR_Part_312.zip  # Source archive
-│   │       └── prompts.md                       # Development prompts archive
-│   ├── Adaption-21-CFR-Part-50/       # ★ Physical AI 21 CFR Part 50 Adaptation (v2.4.0)
+│   │       │   └── README.md                      # Reconstruction instructions
+│   │       ├── Physical_AI_21_CFR_Part_312.sty    # Custom style package
+│   │       ├── Physical_AI_21_CFR_Part_312.bib    # Bibliography (42 references)
+│   │       ├── Physical_AI_21_CFR_Part_312.pdf    # Compiled PDF
+│   │       ├── Physical_AI_21_CFR_Part_312.zip    # Source archive
+│   │       └── prompts.md                         # Development prompts archive
+│   ├── Adaption-21-CFR-Part-50/                   # ★ Physical AI 21 CFR Part 50 Adaptation (v2.4.0)
 │   │   └── source/
-│   │       ├── Physical_AI_21_CFR_Part_50.tex   # LaTeX source (37 pages compiled)
-│   │       ├── Physical_AI_21_CFR_Part_50_chunk/ # ★ Chunked into 3 files (v2.9.1)
-│   │       │   └── README.md                    # Reconstruction instructions
-│   │       ├── Physical_AI_21_CFR_Part_50.sty   # Custom style package
-│   │       ├── Physical_AI_21_CFR_Part_50.bib   # Bibliography (19 references)
-│   │       ├── Physical_AI_21_CFR_Part_50.pdf   # Compiled PDF
-│   │       ├── Physical_AI_21_CFR_Part_50.zip   # Source archive
-│   │       ├── prompts.md                            # ★ Development prompts archive (v2.4.0)
+│   │       ├── Physical_AI_21_CFR_Part_50.tex     # LaTeX source (37 pages compiled)
+│   │       ├── Physical_AI_21_CFR_Part_50_chunk/  # ★ Chunked into 3 files (v2.9.1)
+│   │       │   └── README.md                      # Reconstruction instructions
+│   │       ├── Physical_AI_21_CFR_Part_50.sty     # Custom style package
+│   │       ├── Physical_AI_21_CFR_Part_50.bib     # Bibliography (19 references)
+│   │       ├── Physical_AI_21_CFR_Part_50.pdf     # Compiled PDF
+│   │       ├── Physical_AI_21_CFR_Part_50.zip     # Source archive
+│   │       ├── prompts.md                         # ★ Development prompts archive (v2.4.0)
 │   │       └── README.md
 │   ├── adaption-ich-e6r3/             # ★ Physical AI Unification Guidance (v2.2.0)
 │   │   ├── prompts.md                 # Development prompts archive
@@ -476,19 +476,19 @@ physical-ai-oncology-trials/
 │
 ├── images/
 │   ├── README.md
-│   ├── prompts/                     # Human-authored + AI-recommended prompts
+│   ├── prompts/                       # Human-authored + AI-recommended prompts
 │   │   ├── plan.md
 │   │   ├── 1st.md
 │   │   ├── 2nd.md
 │   │   └── 3rd.md
-│   ├── interactive/                 # Python visualization scripts
-│   │   ├── 1st/                     # 10 scripts (architecture, clinical)
-│   │   ├── 2nd/                     # 10 scripts (AI/ML benchmarks)
-│   │   └── 3rd/                     # 10 scripts (regulatory, privacy)
-│   └── png/                         # Static PNG exports (1920×1080 @2x)
-│       ├── 1st/                     # 20 PNGs (10 light + 10 dark)
-│       ├── 2nd/                     # 20 PNGs (10 light + 10 dark)
-│       └── 3rd/                     # 20 PNGs (10 light + 10 dark)
+│   ├── interactive/                   # Python visualization scripts
+│   │   ├── 1st/                       # 10 scripts (architecture, clinical)
+│   │   ├── 2nd/                       # 10 scripts (AI/ML benchmarks)
+│   │   └── 3rd/                       # 10 scripts (regulatory, privacy)
+│   └── png/                           # Static PNG exports (1920×1080 @2x)
+│       ├── 1st/                       # 20 PNGs (10 light + 10 dark)
+│       ├── 2nd/                       # 20 PNGs (10 light + 10 dark)
+│       └── 3rd/                       # 20 PNGs (10 light + 10 dark)
 │
 ├── national-platform/                 # ★ National Platform for Physical AI Oncology Trials
 │   ├── RESEARCH-A                     # Federal regulatory research (plain text)
