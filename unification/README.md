@@ -326,26 +326,26 @@ validator.generate_report(results, "validation_report.html")
 
 ```
 ┌─────────────────────────────────────────────────────────────────┐
-│                    Physical AI Oncology Consortium              │
+│                  Physical AI Oncology Consortium                │
 ├─────────────────────────────────────────────────────────────────┤
-│  ┌──────────────┐  ┌──────────────┐  ┌──────────────┐           │
-│  │   Academic   │  │   Industry   │  │  Healthcare  │           │
-│  │  Partners    │  │   Partners   │  │   Systems    │           │
-│  ├──────────────┤  ├──────────────┤  ├──────────────┤           │
-│  │ Stanford     │  │ NVIDIA       │  │ Mayo Clinic  │           │
-│  │ JHU          │  │ Intuitive    │  │ MD Anderson  │           │
-│  │ MIT          │  │ Medtronic    │  │ Memorial     │           │
-│  │ Berkeley     │  │ Stryker      │  │ Cleveland    │           │
-│  └──────────────┘  └──────────────┘  └──────────────┘           │
-│                           │                                     │
-│                           ▼                                     │
-│  ┌─────────────────────────────────────────────────────────┐    │
-│  │              Unified Data & Model Repository            │    │
-│  │  • Standardized robot models (URDF/MJCF/SDF/USD)        │    │
-│  │  • Trained policy checkpoints (ONNX)                    │    │
-│  │  • Clinical trial datasets (anonymized)                 │    │
-│  │  • Benchmark environments                               │    │
-│  └─────────────────────────────────────────────────────────┘    │
+│       ┌──────────────┐  ┌──────────────┐  ┌──────────────┐      │
+│       │   Academic   │  │   Industry   │  │  Healthcare  │      │
+│       │  Partners    │  │   Partners   │  │   Systems    │      │
+│       ├──────────────┤  ├──────────────┤  ├──────────────┤      │
+│       │ Stanford     │  │ NVIDIA       │  │ Mayo Clinic  │      │
+│       │ JHU          │  │ Intuitive    │  │ MD Anderson  │      │
+│       │ MIT          │  │ Medtronic    │  │ Memorial     │      │
+│       │ Berkeley     │  │ Stryker      │  │ Cleveland    │      │
+│       └──────────────┘  └──────────────┘  └──────────────┘      │
+│                                │                                │
+│                                ▼                                │
+│   ┌─────────────────────────────────────────────────────────┐   │
+│   │              Unified Data & Model Repository            │   │
+│   │  • Standardized robot models (URDF/MJCF/SDF/USD)        │   │
+│   │  • Trained policy checkpoints (ONNX)                    │   │
+│   │  • Clinical trial datasets (anonymized)                 │   │
+│   │  • Benchmark environments                               │   │
+│   └─────────────────────────────────────────────────────────┘   │
 └─────────────────────────────────────────────────────────────────┘
 ```
 
