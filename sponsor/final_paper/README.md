@@ -52,7 +52,7 @@ sponsor/final_paper/
 |   |   |-- agent_event_bus.py       # Publish-subscribe inter-agent bus
 |   |   |-- escalation_engine.py     # Five-level escalation model
 |   |   |-- gate_transition_manager.py # Seven-gate decision framework
-|   |-- safety/                      # Safety workflow implementations
+|   |-- safety/                        # Safety workflow implementations
 |   |   |-- robotic_safety_workflow.py # Four-category event classification
 |   |   |-- procedure_authorization.py # Four-gate authorization protocol
 |   |   |-- telemetry_monitor.py     # Continuous telemetry monitoring
