@@ -730,33 +730,6 @@ See `privacy/README.md` for complete documentation.
 | ICH-GCP | E6(R3) compliance verification and audit | ICH E6(R3) (effective Sep 2025) |
 | Regulatory Intelligence | Multi-jurisdiction monitoring and deadline tracking | FDA, EMA, ICH, WHO |
 
-### Quick Start with Regulatory Tools
-
-```python
-# Track FDA submissions for AI oncology devices
-from regulatory.fda_compliance.fda_submission_tracker import FDASubmissionTracker
-tracker = FDASubmissionTracker(sponsor="Physical AI Oncology Consortium")
-submission = tracker.create_submission(
-    submission_type="de_novo",
-    device_name="AI-Guided Surgical Planning System",
-    intended_use="AI-assisted tumor resection planning"
-)
-
-# Verify ICH E6(R3) GCP compliance
-from regulatory.ich_gcp.gcp_compliance_checker import GCPComplianceChecker
-checker = GCPComplianceChecker(guideline_version="E6_R3")
-report = checker.verify_compliance(
-    check_categories=["digital_technology_provisions", "data_governance"]
-)
-
-# Monitor regulatory developments
-from regulatory.regulatory_intelligence.regulatory_tracker import RegulatoryTracker
-tracker = RegulatoryTracker(jurisdictions=["fda", "ema", "ich"])
-updates = tracker.get_recent_updates(days=90)
-```
-
-See `regulatory/README.md` for complete documentation.
-
 ---
 
 ## Citation
@@ -779,4 +752,3 @@ If you use this repository in your research, please cite:
 ## License
 
 MIT License - See [LICENSE](LICENSE) for details.
-
