@@ -693,32 +693,6 @@ See `unification/README.md` for the complete cooperation model.
 | Breach Response | Automated incident response and notification | 45 CFR 164.400-414 |
 | DUA Templates | Data Use Agreement generation for multi-site sharing | 45 CFR 164.514(e) |
 
-### Quick Start with Privacy Tools
-
-```python
-# Detect PHI in clinical trial data
-from privacy.phi_pii_management.phi_detector import PHIDetector
-detector = PHIDetector(detection_mode="comprehensive")
-result = detector.scan_dataset("trial_data/enrollment_records/")
-
-# De-identify patient data for AI model training
-from privacy.de_identification.deidentification_pipeline import DeidentificationPipeline
-pipeline = DeidentificationPipeline(method="safe_harbor")
-result = pipeline.deidentify("trial_data/raw/", "trial_data/deidentified/")
-
-# Generate Data Use Agreement for multi-site collaboration
-from privacy.dua_templates.dua_generator import DUAGenerator
-generator = DUAGenerator(template="multi_site_ai_research")
-dua = generator.generate(
-    data_provider="Memorial Sloan Kettering",
-    data_recipient="Physical AI Oncology Consortium",
-    data_description="De-identified CT imaging for AI training",
-    permitted_uses=["model_training", "validation", "publication"]
-)
-```
-
-See `privacy/README.md` for complete documentation.
-
 ---
 
 ### Key Capabilities
