@@ -7,12 +7,12 @@
                               |Scrn|Cons|Base|NeoA|Surg|Post|Adj |Surv|LTFU|Lock|
   ----------------------------+----+----+----+----+----+----+----+----+----+----+
   21 CFR 312 Subpart J        |    |    |    |    |    |    |    |    |    |    |
-    312.400 General provisions | XX |    |    |    |    |    |    |    | XX |    |
-    312.401 Definitions        | XX | XX |    |    |    |    |    |    |    |    |
-    312.402 Eligibility        | XX |    | XX |    | XX |    |    |    |    |    |
+    312.400 General provisions| XX |    |    |    |    |    |    |    | XX |    |
+    312.401 Definitions       | XX | XX |    |    |    |    |    |    |    |    |
+    312.402 Eligibility       | XX |    | XX |    | XX |    |    |    |    |    |
     312.403 Protocol submission|    |    |    |    |    |    |    |    |    | XX |
-    312.404 Safeguards/monitor |    |    |    | XX |    | XX | XX |    |    |    |
-    312.405 Charging           |    |    |    |    |    |    |    | XX |    |    |
+    312.404 Safeguards/monitor|    |    |    | XX |    | XX | XX |    |    |    |
+    312.405 Charging          |    |    |    |    |    |    |    | XX |    |    |
   ----------------------------+----+----+----+----+----+----+----+----+----+----+
   21 CFR 50 Subpart C         |    |    |    |    |    |    |    |    |    |    |
     50.30 IRB review           |    | XX |    |    |    |    |    |    |    |    |
@@ -22,15 +22,15 @@
     50.34 Waiver/alteration    |    | -- |    |    |    |    |    |    |    |    |
   ----------------------------+----+----+----+----+----+----+----+----+----+----+
   ICH E6(R3)                  |    |    |    |    |    |    |    |    |    |    |
-    1.2 GCP principles         | XX | XX |    |    |    |    |    |    |    |    |
-    1.3 Scope/applicability    | XX |    |    |    |    |    |    |    |    |    |
-    1.4 Glossary               | XX |    |    |    |    |    |    |    |    |    |
-    1.5 Roles/responsibilities | XX |    |    |    |    |    |    |    |    |    |
-    2.8 Quality management     |    |    | XX |    | XX |    |    |    |    |    |
-    2.9 Data integrity         |    |    | XX |    |    |    |    | XX |    | XX |
-    2.10 Safety reporting      |    |    |    | XX |    |    | XX |    |    |    |
-    2.11 Protocol amendments   |    |    |    |    |    |    | XX |    |    |    |
-    2.12 Essential documents   |    |    |    |    |    |    |    | XX | XX | XX |
+    1.2 GCP principles        | XX | XX |    |    |    |    |    |    |    |    |
+    1.3 Scope/applicability   | XX |    |    |    |    |    |    |    |    |    |
+    1.4 Glossary              | XX |    |    |    |    |    |    |    |    |    |
+    1.5 Roles/responsibilities| XX |    |    |    |    |    |    |    |    |    |
+    2.8 Quality management    |    |    | XX |    | XX |    |    |    |    |    |
+    2.9 Data integrity        |    |    | XX |    |    |    |    | XX |    | XX |
+    2.10 Safety reporting     |    |    |    | XX |    |    | XX |    |    |    |
+    2.11 Protocol amendments  |    |    |    |    |    |    | XX |    |    |    |
+    2.12 Essential documents  |    |    |    |    |    |    |    | XX | XX | XX |
   ----------------------------+----+----+----+----+----+----+----+----+----+----+
 
   Legend:
@@ -44,7 +44,7 @@
     +------+-----------------------------------------------+--------+
     | S1   | Screening & Eligibility                       |   7    |
     | S2   | Informed Consent & Enrollment                 |   5    |
-    | S3   | Baseline Assessment & Digital Twin Init        |   3    |
+    | S3   | Baseline Assessment & Digital Twin Init       |   3    |
     | S4   | Neoadjuvant Therapy                           |   2    |
     | S5   | Robotic Surgery                               |   2    |
     | S6   | Post-Operative Recovery                       |   2    |
