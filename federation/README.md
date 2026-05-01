@@ -10,16 +10,16 @@ A federated learning and trial coordination platform for orchestrating multi-sit
 
 ```
 federation/
-├── README.md                          # This file
+├── README.md                           # This file
 ├── __init__.py
-├── federated_coordinator.py           # Core federated learning orchestration engine
-├── differential_privacy.py            # Privacy budget management, noise mechanisms
-├── secure_aggregation.py              # Simulated secure multi-party computation
-├── site_enrollment.py                 # Enrollment sync, conflict resolution, stratification
-├── data_harmonization.py              # DICOM/FHIR normalization, vocabulary mapping
-├── consortium_reporting.py            # DSMB reports, enrollment dashboards, AE summaries
-├── privacy_analytics.py               # Privacy-preserving survival analysis
-└── examples-federation/               # Progressive example scripts
+├── federated_coordinator.py            # Core federated learning orchestration engine
+├── differential_privacy.py             # Privacy budget management, noise mechanisms
+├── secure_aggregation.py               # Simulated secure multi-party computation
+├── site_enrollment.py                  # Enrollment sync, conflict resolution, stratification
+├── data_harmonization.py               # DICOM/FHIR normalization, vocabulary mapping
+├── consortium_reporting.py             # DSMB reports, enrollment dashboards, AE summaries
+├── privacy_analytics.py                # Privacy-preserving survival analysis
+└── examples-federation/                # Progressive example scripts
     ├── README.md
     ├── 01_basic_two_site.py            # Minimal 2-site federation
     ├── 02_differential_privacy.py      # Privacy budget demonstration
