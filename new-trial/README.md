@@ -68,10 +68,10 @@ new-trial/
     hour_00_robot_logs.md      - Per-robot telemetry and status
     hour_00_patient_records.md - Patient vitals and records
     hour_00_psl_scores.md      - PSL scores for all 10 robot types
-    hour_00_diagram_facility.txt    - Facility layout diagram
+    hour_00_diagram_facility.txt     - Facility layout diagram
     hour_00_diagram_patient_flow.txt - Patient flow diagram
     hour_00_diagram_robot_status.txt - Robot status timeline
-  hour-01/ through hour-23/   - Same 7 files per hour
+  hour-01/ through hour-23/    - Same 7 files per hour
   final-commit/                - Error review and 24-hour summaries
     final_error_review.md      - Consistency check across all hours
     final_24h_summary.md       - Complete 24-hour performance summary
