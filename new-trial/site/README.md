@@ -72,47 +72,47 @@ site/
 │   ├── physical_ai_data_transparency.bib
 │   ├── physical_ai_legislation.sty
 │   └── README.md
-├── 04-city-regulations/             # SF Municipal Code
+├── 04-city-regulations/              # SF Municipal Code
 │   ├── sf_city_regulations.tex
 │   ├── sf_city_regulations.bib
 │   ├── physical_ai_legislation.sty
 │   └── README.md
-├── 05-state-regulations/            # CA Title 22
+├── 05-state-regulations/             # CA Title 22
 │   ├── ca_state_regulations.tex
 │   ├── ca_state_regulations.bib
 │   ├── physical_ai_legislation.sty
 │   └── README.md
-├── 06-national-regulations/         # FDA Compliance Guide
+├── 06-national-regulations/          # FDA Compliance Guide
 │   ├── fda_national_regulations.tex
 │   ├── fda_national_regulations.bib
 │   ├── physical_ai_legislation.sty
 │   └── README.md
-├── 07-building-code/                # Building Code
+├── 07-building-code/                 # Building Code
 │   ├── physical_ai_building_code.tex
 │   ├── physical_ai_building_code.bib
 │   ├── physical_ai_legislation.sty
 │   └── README.md
-├── 08-premises-code/                # Premises Code
+├── 08-premises-code/                 # Premises Code
 │   ├── physical_ai_premises_code.tex
 │   ├── physical_ai_premises_code.bib
 │   ├── physical_ai_legislation.sty
 │   └── README.md
-├── 09-parking-transportation/       # Parking Standards
+├── 09-parking-transportation/        # Parking Standards
 │   ├── physical_ai_parking.tex
 │   ├── physical_ai_parking.bib
 │   ├── physical_ai_legislation.sty
 │   └── README.md
-├── 10-site-operations/              # Site Operations
+├── 10-site-operations/               # Site Operations
 │   ├── physical_ai_site_operations.tex
 │   ├── physical_ai_site_operations.bib
 │   ├── physical_ai_legislation.sty
 │   └── README.md
-├── 11-emergency-preparedness/       # Emergency Plan
+├── 11-emergency-preparedness/        # Emergency Plan
 │   ├── physical_ai_emergency.tex
 │   ├── physical_ai_emergency.bib
 │   ├── physical_ai_legislation.sty
 │   └── README.md
-└── zips/                            # LaTeX source archives
+└── zips/                             # LaTeX source archives
     ├── 01-legislation-authorization.zip
     ├── 02-legislation-patient-rights.zip
     ├── 03-legislation-data-transparency.zip
