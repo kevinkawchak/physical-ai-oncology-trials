@@ -1,0 +1,39 @@
++============================================================================+
+|        NATIONAL 24/7 CONTINUOUS RTCT - HOUR 06 NETWORK STATUS              |
+|                            06:00-06:59 UTC                                 |
++============================================================================+
+|                                                                            |
+|  +-------------------- SITE-A (Houston) ---------------------------+       |
+|  | Patients on-site: 9  Active procedures: 2 (06:06 surg, 06:51 RT)|       |
+|  | SURG     [01:ACTV][02:stby][03:stby]                            |       |
+|  | RTPOS    [01:ACTV][02:stby][03:stby]                            |       |
+|  | TRACK    [01:ACTV][02:stby][03:stby]                            |       |
+|  | COMPN    [01:stby][02:stby][03:MON ][04:stby][05:stby]          |       |
+|  | All 24 other instances: standby                                 |       |
+|  +-----------------------------------------------------------------+       |
+|                                                                            |
+|  +-------------------- SITE-B (Philadelphia) ----------------------+       |
+|  | Patients on-site: 7  Active procedures: 1 (06:19)               |       |
+|  | NEEDLE   [01:ACTV][02:stby]                                     |       |
+|  | All 27 other instances: standby                                 |       |
+|  +-----------------------------------------------------------------+       |
+|                                                                            |
+|  +-------------------- SITE-C (Boston) ----------------------------+       |
+|  | Patients on-site: 5  Active procedures: 1 (06:00 ind cont)      |       |
+|  | HUMAN    [01:ACTV->stby][02:stby][03:stby]                      |       |
+|  | All 28 other instances: standby                                 |       |
+|  +-----------------------------------------------------------------+       |
+|                                                                            |
+|  +-------------------- SITE-D (Texas Medical Center) --------------+       |
+|  | Patients on-site: 5  Active procedures: 1 (06:33)               |       |
+|  | COMPN    [01:stby][02:MON ][03:stby][04:stby][05:ACTV]          |       |
+|  | All 27 other instances: standby                                 |       |
+|  +-----------------------------------------------------------------+       |
+|                                                                            |
+|  +-------------------- PARADIGM HEALTH AGGREGATOR -----------------+       |
+|  | All 4 channels UP. Endpoints validated this hour: 4.            |       |
+|  +-----------------------------------------------------------------+       |
+|                                                                            |
++============================================================================+
+| Network: 27 patients, 5 active sessions, 4 endpoints to FDA.               |
++============================================================================+
