@@ -18,20 +18,20 @@ Clinical integration enables seamless deployment of digital twin technology with
 
 ```
 ┌──────────────────────────────────────────────────────────────────┐
-│                     Clinical Workflow                            │
+│                      Clinical Workflow                           │
 │  ┌──────────┐  ┌──────────┐  ┌──────────┐  ┌──────────────────┐  │
-│  │   PACS   │  │   EHR    │  │  FHIR    │  │ Surgical Systems │  │
+│  │   PACS   │  │   EHR    │  │   FHIR   │  │ Surgical Systems │  │
 │  └────┬─────┘  └────┬─────┘  └────┬─────┘  └────────┬─────────┘  │
 │       │             │             │                 │            │
 │       v             v             v                 v            │
 │  ┌─────────────────────────────────────────────────────────────┐ │
 │  │              Clinical Data Integration Layer                │ │
-│  │         (HL7 FHIR, DICOM, IHE XDS-I)                        │ │
+│  │              (HL7 FHIR, DICOM, IHE XDS-I)                   │ │
 │  └─────────────────────────────────────────────────────────────┘ │
 │                              │                                   │
 │                              v                                   │
 │  ┌─────────────────────────────────────────────────────────────┐ │
-│  │                Digital Twin Engine                          │ │
+│  │                    Digital Twin Engine                      │ │
 │  │  ┌───────────┐ ┌────────────┐ ┌───────────────────────────┐ │ │
 │  │  │  Patient  │ │ Treatment  │ │  Surgical                 │ │ │
 │  │  │  Modeling │ │ Simulation │ │  Planning                 │ │ │
