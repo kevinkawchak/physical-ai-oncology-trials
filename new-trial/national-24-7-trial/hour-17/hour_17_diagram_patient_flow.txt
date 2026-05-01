@@ -1,0 +1,21 @@
++============================================================================+
+|       HOUR 17 PATIENT FLOW (17:00-17:59 UTC)                               |
++============================================================================+
+
+PAT-0081A SITE-A HCC abl wrap [ABL.....][cool][REC]            00..25 26-59
+PAT-0082A SITE-B IND C2D8     [INF...........][POST]           00..32 33-59
+PAT-0083A SITE-D pediatric ALL wrap [CMP....][REC]             00..18
+PAT-0084A SITE-A NSCLC RT     [CHK][POS][RT......][exit]       08-32
+PAT-0085A SITE-B sarcoma BX   [CHK][BX....][REC]               14-28
+PAT-0086A SITE-C SCLC f/u     [CHK][IMG.....][REC]             20-38
+PAT-0087A SITE-A mediastinal SURG [CHK][SURG.......][REC]      30-55
+PAT-0088A SITE-D pediatric rehab [CHK][REHAB....][REC]         40-55
+PAT-0089A SITE-A sarcoma BX   [CHK][BX>>                       48-59+
+PAT-0090A SITE-C SCLC img     [CHK][IMG>>                      50-59+
+
+DEPARTURES: 0036A (17:08), 0044A (17:22), 0058A (17:40), 0061A (17:55).
+AE-003 RESOLVED 17:30.
+
++----------------------------------------------------------------------------+
+| Network arrivals: 7 | Departures: 4 | AE resolutions: 1                    |
++----------------------------------------------------------------------------+
