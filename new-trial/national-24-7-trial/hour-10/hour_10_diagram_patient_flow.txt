@@ -1,0 +1,48 @@
++============================================================================+
+|       HOUR 10 PATIENT FLOW (10:00-10:59 UTC)                               |
++============================================================================+
+
+Time   00 .. 10 .. 20 .. 30 .. 40 .. 50 .. 59
+
+PAT-CONT-0036A SITE-A HCC ablation completion
+       [ABL][exit][REC.................................]
+        00..08    09-59
+
+PAT-CONT-0040A SITE-B NSCLC RT9
+       . [CHK][POS][RT...........][exit]
+          06    07-09 10..30
+
+PAT-CONT-0041A SITE-A sarcoma BX
+       . . [CHK][BX....][REC]
+            14    15-28 29-59
+
+PAT-CONT-0042A SITE-D pediatric rehab
+       . . . [CHK][REHAB............][REC]
+              22    23-45              46-59
+
+PAT-CONT-0043A SITE-C SCLC RT1
+       . . . . [CHK][POS][RT.............][exit]
+                30    31-32 33..55
+
+PAT-CONT-0044A SITE-A liver imaging
+       . . . . . [CHK][IMG..........][REC]
+                  41    42-58           59
+
+PAT-CONT-0045A SITE-B mantle C2D8 IND prep
+       . . . . . . [CHK][PRE>>
+                    52    53-59+
+
+DEPARTURES: 0011A (10:25), 0012A (10:50)
+
++----------------------------------------------------------------------------+
+| Network arrivals: 6 | Departures: 2 | Active sessions peak: 7              |
++----------------------------------------------------------------------------+
+
+RTCT Stream:
+10:09 -> TRAVERSE-CONT-0036A-ABL01-COMPLETE  ack 11s
+10:28 -> TRAVERSE-CONT-0041A-BX01            ack 11s
+10:30 -> TRAVERSE-CONT-0040A-RT09            ack 10s
+10:45 -> PED-CONT-0042A-REHAB                ack 12s
+10:55 -> STREAM-CONT-0043A-RT01              ack 10s
+10:58 -> TRAVERSE-CONT-0044A-IMG             ack 12s
++============================================================================+
