@@ -1,0 +1,19 @@
++============================================================================+
+|       HOUR 18 PATIENT FLOW (18:00-18:59 UTC)                               |
++============================================================================+
+
+PAT-0087A SITE-A SURG wrap [SURG.][REC]                       00..14
+PAT-0089A SITE-A sarcoma BX wrap [BX.....][REC]               00..18
+PAT-0090A SITE-C SCLC img wrap [IMG.....][REC]                00..18
+PAT-0091A SITE-B NSCLC RT [CHK][POS][RT.....][exit]           08-32
+PAT-0092A SITE-A liver f/u [CHK][IMG....][REC]                14-28
+PAT-0093A SITE-D pediatric BX [CHK][BX....][REC]              20-38
+PAT-0094A SITE-C SCLC RT4 [CHK][POS][RT....][exit]            35-55
+PAT-0095A SITE-A HCC ablation [CHK][REG][NDL][ABL>>           42-59+
+
+DEPARTURES: 0049A (18:08), 0051A (18:22), 0055A (18:38), 0064A (18:50),
+0067A (18:55).
+
++----------------------------------------------------------------------------+
+| Network arrivals: 5 | Departures: 5                                        |
++----------------------------------------------------------------------------+
