@@ -1,0 +1,43 @@
++============================================================================+
+|        NATIONAL 24/7 CONTINUOUS RTCT - HOUR 07 NETWORK STATUS              |
+|                            07:00-07:59 UTC                                 |
++============================================================================+
+|                                                                            |
+|  +-------------------- SITE-A (Houston) ---------------------------+       |
+|  | Patients on-site: 11  Active procedures: 3                      |       |
+|  | TRACK    [01:ACTV->stby][02:stby][03:stby]                      |       |
+|  | STEER    [01:stby][02:ACTV]      <- HCC ablation                |       |
+|  | REHAB    [01:stby][02:ACTV][03:stby]  <- pediatric rehab        |       |
+|  | COMPN    [01:stby][02:stby][03:MON ][04:stby][05:stby]          |       |
+|  | All 22 other instances: standby                                 |       |
+|  +-----------------------------------------------------------------+       |
+|                                                                            |
+|  +-------------------- SITE-B (Philadelphia) ----------------------+       |
+|  | Patients on-site: 8  Active procedures: 2 (07:14 RT, 07:56 BX)  |       |
+|  | RTPOS    [01:stby][02:ACTV][03:stby]                            |       |
+|  | TRACK    [01:stby][02:ACTV][03:stby]                            |       |
+|  | COBOT    [01:stby][02:stby][03:ACTV][04:stby]                   |       |
+|  | All 25 other instances: standby                                 |       |
+|  | AE-001 logged at 07:48 (PAT-CONT-0007).                         |       |
+|  +-----------------------------------------------------------------+       |
+|                                                                            |
+|  +-------------------- SITE-C (Boston) ----------------------------+       |
+|  | Patients on-site: 6  Active procedures: 1 (07:25)               |       |
+|  | IMAGE    [01:stby][02:stby][03:stby][04:ACTV]                   |       |
+|  | All 28 other instances: standby                                 |       |
+|  +-----------------------------------------------------------------+       |
+|                                                                            |
+|  +-------------------- SITE-D (Texas Medical Center) --------------+       |
+|  | Patients on-site: 6  Active procedures: 1 (07:43)               |       |
+|  | COMPN    [01:stby][02:MON ][03:stby][04:ACTV][05:stby]          |       |
+|  | All 27 other instances: standby                                 |       |
+|  +-----------------------------------------------------------------+       |
+|                                                                            |
+|  +-------------------- PARADIGM HEALTH AGGREGATOR -----------------+       |
+|  | All 4 channels UP. Endpoints validated this hour: 5             |       |
+|  | (1 priority AE endpoint acked in 8 s).                          |       |
+|  +-----------------------------------------------------------------+       |
+|                                                                            |
++============================================================================+
+| Network: 33 patients, 7 active sessions, 5 endpoints + AE priority path.   |
++============================================================================+
