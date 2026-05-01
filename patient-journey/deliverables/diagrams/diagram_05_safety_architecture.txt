@@ -7,15 +7,15 @@
                      ||       SAFETY MONITORING OVERVIEW       ||
                      +==========================================+
                                         |
-          +-----------------------------+-----------------------------+
-          |                             |                             |
-          v                             v                             v
+          +-----------------------------+--------------------------+
+          |                             |                          |
+          v                             v                          v
   +-----------------+       +---------------------+       +-----------------+
   | REAL-TIME       |       | ADVERSE EVENT       |       | OVERSIGHT       |
   | MONITORING      |       | REPORTING           |       | BODIES          |
   +-----------------+       +---------------------+       +-----------------+
-          |                             |                             |
-          v                             v                             v
+          |                             |                          |
+          v                             v                          v
 
   =====================       =====================       =====================
   REAL-TIME MONITORING        AE REPORTING PIPELINE       OVERSIGHT STRUCTURE
@@ -27,20 +27,20 @@
   | - ECG continuous |        |   observation    |        |  Monitoring      |
   | - Temp, RR       |        | - Patient report |        |  Board)          |
   +------------------+        | - Lab abnormality|        +------------------+
-         |                    | - Robot telemetry|        | - Independent    |
-         v                    +------------------+        |   review         |
-  +------------------+               |                    | - Interim        |
-  | Digital Twin     |               v                    |   analyses       |
+           |                  | - Robot telemetry|        | - Independent    |
+           v                  +------------------+        |   review         |
+  +------------------+                 |                  | - Interim        |
+  | Digital Twin     |                 v                  |   analyses       |
   | State Monitor    |        +------------------+        | - Stopping       |
   | - Risk score     |        | Classification   |        |   rules          |
   |   tracking       |        | - CTCAE grading  |        | - Unblinded      |
   | - Anomaly        |        | - Seriousness    |        |   access         |
   |   detection      |        | - Causality      |        +------------------+
-  | - Predictive     |        |   assessment     |               |
-  |   alerts         |        +------------------+               v
-  +------------------+               |                    +------------------+
-         |                           v                    | IRB / IEC        |
-         v                    +------------------+        | (Institutional   |
+  | - Predictive     |        |   assessment     |                 |
+  |   alerts         |        +------------------+                 v
+  +------------------+                 |                  +------------------+
+           |                           v                  | IRB / IEC        |
+           v                  +------------------+        | (Institutional   |
   +------------------+        | Documentation    |        |  Review Board)   |
   | Robot Telemetry  |        | - AE case form   |        +------------------+
   | - Force limits   |        | - Medical records|        | - Protocol       |
@@ -48,17 +48,17 @@
   | - Collision      |        |   medications    |        | - Consent        |
   |   detection      |        | - Outcome data   |        |   oversight      |
   | - E-stop status  |        +------------------+        | - Continuing     |
-  +------------------+               |                    |   review         |
-         |                           v                    | - SAE review     |
-         v                    +------------------+        +------------------+
-  +------------------+        | Expedited Reports|               |
-  | Alert Thresholds |        | - SAE: 24 hours  |               v
+  +------------------+                 |                  |   review         |
+           |                           v                  | - SAE review     |
+           v                  +------------------+        +------------------+
+  +------------------+        | Expedited Reports|                 |
+  | Alert Thresholds |        | - SAE: 24 hours  |                 v
   | ~~~~~~~~~~~~~~~  |        | - Fatal: 7 days  |        +------------------+
   | YELLOW: Warning  |        |   (IND safety)   |        | FDA / Regulatory |
   |   deviation from |        | - Annual: DSUR   |        | Authority        |
   |   expected range |        +------------------+        +------------------+
-  | ORANGE: Action   |               |                    | - IND safety     |
-  |   required by    |               v                    |   reports        |
+  | ORANGE: Action   |                 |                  | - IND safety     |
+  |   required by    |                 v                  |   reports        |
   |   clinical team  |        +------------------+        | - Annual updates |
   | RED: Immediate   |        | Recipients       |        | - Protocol       |
   |   intervention   |        | - Sponsor safety |        |   amendments     |
