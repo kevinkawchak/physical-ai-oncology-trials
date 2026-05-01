@@ -25,11 +25,11 @@
   |   filtration      |    |   tracking             |    | - Differential    |
   | - Force feedback  |    | - Genomic integration  |    |   privacy (e=1.0) |
   +-------------------+    +------------------------+    +-------------------+
-         |                           |                           |
-         v                           v                           v
+           |                           |                           |
+           v                           v                           v
   +-------------------+    +------------------------+    +-------------------+
   | USL Score: 87.5   |    | Initialized: Day 0     |    | Sites: SITE-001   |
-  | Status: DEPLOYED  |    | Updates: Continuous     |    |   through SITE-012|
+  | Status: DEPLOYED  |    | Updates: Continuous    |    |   through SITE-012|
   | Calibrated:       |    | Risk: 35% --> 3%       |    | Rounds: Quarterly |
   |   2026-01-15      |    | Fidelity: 94.2%        |    | Convergence: Yes  |
   +-------------------+    +------------------------+    +-------------------+
@@ -44,7 +44,7 @@
                       |                              |
                       |  Level 1: Basic Connectivity |
                       |    - Device registration     |
-                      |    - Heartbeat monitoring     |
+                      |    - Heartbeat monitoring    |
                       |    [x] ACHIEVED              |
                       |                              |
                       |  Level 2: Data Exchange      |
@@ -66,12 +66,12 @@
                                      |
                                      v
   +----------------------------------------------------------------------+
-  |                    LAB / PHARMACY AUTOMATION                          |
-  |                    (Franka Emika)                                     |
+  |                     LAB / PHARMACY AUTOMATION                        |
+  |                     (Franka Emika)                                   |
   +----------------------------------------------------------------------+
   | - Automated drug preparation and dosing verification                 |
   | - Barcode-verified patient-drug matching                             |
-  | - USL Score: 88.75 | Status: DEPLOYED | Calibrated: 2026-02-01      |
+  | - USL Score: 88.75 | Status: DEPLOYED | Calibrated: 2026-02-01       |
   +----------------------------------------------------------------------+
 
   Integration Points:
