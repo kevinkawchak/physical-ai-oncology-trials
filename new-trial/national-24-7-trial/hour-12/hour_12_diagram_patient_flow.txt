@@ -1,0 +1,20 @@
++============================================================================+
+|       HOUR 12 PATIENT FLOW (12:00-12:59 UTC)                               |
++============================================================================+
+
+PAT-CONT-0051A SITE-B HCC ablation [ABL.................][cool][REC]   00..25 26-59
+PAT-CONT-0052A SITE-A GBM RT10 wrap [RT...][exit]                       00..14
+PAT-CONT-0053A SITE-C mantle BX [BX......][REC]                         00..18 19-59
+PAT-CONT-0054A SITE-A NSCLC RT3 [CHK][POS][RT.....][exit]               08-34
+PAT-CONT-0055A SITE-B sarcoma BX [CHK][BX....][REC]                     20-33 34-59
+PAT-CONT-0056A SITE-C SCLC RT2 [CHK][POS][RT.....][exit]                35-58
+PAT-CONT-0057A SITE-D pediatric visit [CHK][CMP....][REC]               42-55
+PAT-CONT-0058A SITE-A HCC img [CHK][IMG>>                               50-59+
+
+DEPARTURES: 0002, 0007, 0018A, 0030A.
+
+AE: AE-002 RESOLVED 12:30 (PAT-CONT-0026A grade 0).
+
++----------------------------------------------------------------------------+
+| Network arrivals: 5 | Departures: 4 | AE resolutions: 1                    |
++----------------------------------------------------------------------------+
