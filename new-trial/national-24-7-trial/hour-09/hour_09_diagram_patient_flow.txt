@@ -1,0 +1,34 @@
++============================================================================+
+|       HOUR 09 PATIENT FLOW (09:00-09:59 UTC)                               |
++============================================================================+
+
+Time   00 .. 05 .. 10 .. 15 .. 20 .. 25 .. 30 .. 35 .. 40 .. 45 .. 50 .. 55..59
+
+Continuations from hour 08:
+PAT-CONT-0029A SITE-A GBM RT [RT...][exit]   00..14
+PAT-CONT-0031A SITE-B HCC IMG [IMG.....][REC]  00..23 24-59
+PAT-CONT-0032A SITE-A pediatric ALL [CMP.....][REC] 00..15 16-59
+
+New this hour:
+PAT-CONT-0033A SITE-A NSCLC RT13      [CHK][POS][RT.....][exit]   05-30
+PAT-CONT-0034A SITE-D pediatric leuk  [CHK][CMP.....][REC]        12-28
+PAT-CONT-0035A SITE-B mantle f/u img  [CHK][IMG......][REC]       18-32
+PAT-CONT-0036A SITE-A HCC ablation    [CHK][REG][NDL][ABL>>       25-55+
+PAT-CONT-0037A SITE-C SCLC plan img   [CHK][PLAN.....][REC]       32-50
+PAT-CONT-0038A SITE-B brain met SRS   [CHK][POS][SRS.....][exit]  42-58
+PAT-CONT-0039A SITE-A pediatric ALL   [CHK][CMP>>                 55-59+
+
+DEPARTURES: 0014A (09:20), 0015A (09:35)
+
++----------------------------------------------------------------------------+
+| Network arrivals: 7 | Departures: 2 | Active sessions peak: 9              |
++----------------------------------------------------------------------------+
+
+RTCT Stream (excerpt):
+09:14 ----> TRAVERSE-CONT-0029A-RT09        ack 10s
+09:23 ----> TRAVERSE-CONT-0031A-IMG         ack 11s
+09:30 ----> TRAVERSE-CONT-0033A-RT13        ack 10s
+09:32 ----> TRAVERSE-CONT-0035A-IMG-FOLLOWUP ack 12s
+09:50 ----> STREAM-CONT-0037A-PLAN-IMG      ack 13s
+09:58 ----> TRAVERSE-CONT-0038A-SRS01       ack 11s
++============================================================================+
