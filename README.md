@@ -1,7 +1,7 @@
 # End-to-End Physical AI Unification of Oncology Clinical Trials
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Release](https://img.shields.io/badge/Release-v3.4.1-brightgreen.svg)](https://github.com/kevinkawchak/physical-ai-oncology-trials)
+[![Release](https://img.shields.io/badge/Release-v3.4.2-brightgreen.svg)](https://github.com/kevinkawchak/physical-ai-oncology-trials)
 [![Last Updated](https://img.shields.io/badge/Updated-April%202026-blue.svg)](https://github.com/kevinkawchak/physical-ai-oncology-trials)
 [![Protocol](https://img.shields.io/badge/Protocol-MCP-purple.svg)](https://github.com/kevinkawchak/physical-ai-oncology-trials)
 [![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.18445179-blue)](https://doi.org/10.5281/zenodo.18445179)
@@ -13,6 +13,8 @@
 **Comprehensive developments for integrating physical AI into oncology clinical trials, by Claude Code Opus 4.6, Cowork; with Assistance from ChatGPT 5.4 Thinking and Google Gemini Search.**
 
 This repository provides production-ready configurations, validated pipelines, and integration guides for deploying robotic systems, digital twins, and embodied AI agents in oncology. 
+
+**5/1: v3.4.2 (National 24/7 Continuous RTCT)** *National 24/7 Continuous Real-Time Clinical Trial Simulation - FDA April 2026 Response* - Indefinite-duration continuous trial across 4 sites with 116 robots, minute-resolution per hour, 24 commits/day. [![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.18445179-blue)](https://github.com/kevinkawchak/physical-ai-oncology-trials/tree/main/new-trial/national-24-7-trial)
 
 **4/6: v3.4.0 (168-Hour Autonomous Sponsor Simulation)** *Fully Automated Sponsor: 7-Day Continuous Simulation with 168 Total Commits* - 168 hourly Python scripts spanning across 7 total days. [![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.18445179-blue)](https://doi.org/10.5281/zenodo.18445179)
 
@@ -160,6 +162,10 @@ physical-ai-oncology-trials/
 │   │   ├── final_24h_summary.md       # Performance summary
 │   │   ├── final_psl_cumulative.md    # PSL trajectory analysis
 │   │   └── final_diagram_*.txt        # Summary diagrams (3 files)
+│   ├── national-24-7-trial/           # ★ National 24/7 Continuous RTCT (v3.4.2)
+│   │   ├── README.md                  # Continuous trial overview and FDA mapping
+│   │   ├── FDA-April-2026/            # Source FDA news release (28 Apr 2026)
+│   │   └── hour-00/ through hour-NN/  # Indefinite hourly folders, 7 files each
 │   └── site/                          # ★ Trial Site Documentation (v2.9.0)
 │       ├── README.md                  # Site documentation overview
 │       ├── 01-legislation-authorization/     # SB 1042 authorization act

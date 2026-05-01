@@ -4,6 +4,36 @@ Release notes for the physical-ai-oncology-trials repository.
 
 ---
 
+National 24/7 Continuous Real-Time Clinical Trial Simulation
+v3.4.2 - National 24/7 Continuous RTCT Simulation (FDA April 2026)
+
+## Summary
+
+- Launched new-trial/national-24-7-trial/, a continuous, real-time, never-ending Physical AI oncology clinical trial simulation responding to the FDA's 28 April 2026 announcement of Real-Time Clinical Trials (RTCT) and the path toward continuous trials
+- Adopts the same 7-files-per-hour format as new-trial/ (4 markdown + 3 txt diagrams), with full minute-resolution timelines per hour and a 24-commits-per-day cadence
+- Models a 4-site national network (Houston, Philadelphia, Boston, Texas Medical Center) with 116 robot instances streaming endpoints to a Paradigm Health-style aggregator, then to the FDA real-time API
+- Introduces C-PSL (Continuity-PSL) rolling 24-hour metric and three new RTCT-specific Dimension A attributes (signal latency to FDA, endpoint validation, continuous re-enrollment readiness)
+
+## Features
+
+- Comprehensive README at new-trial/national-24-7-trial/README.md covering FDA source, format, directory structure, sites/robots, and continuous trial model
+- Per-hour file set: hour_XX_simulation.md, hour_XX_robot_logs.md, hour_XX_patient_records.md, hour_XX_psl_scores.md, hour_XX_diagram_facility.txt, hour_XX_diagram_patient_flow.txt, hour_XX_diagram_robot_status.txt
+- Network-wide RTCT signal stream documentation per hour with FDA ack latency and signal IDs (TRAVERSE, STREAM-SCLC, TRAVERSE-PED channels)
+- Continuous trial model diagram embedded in README with patient arrival -> robot orchestration -> procedure -> safety signals -> FDA -> real-time re-enrollment loop
+- Real-time commits: 1 hour per branch interval, indefinite duration, terminates only when user halts
+- Compatibility with the existing PSL framework from new-trial/psl_framework.md, extended with C-PSL and RTCT-specific adjustments
+- All additions are markdown and ASCII text only - no Python or YAML changes - so the existing CI lint-and-format jobs (ruff, yamllint) on Python 3.10/3.11/3.12 are not affected
+
+## Contributors
+@kevinkawchak
+@claude
+
+## Notes
+
+The continuous trial framework directly maps to the FDA's 28 April 2026 RTCT vision: real-time signal sharing via Paradigm Health, multi-site readiness paralleling AstraZeneca's TRAVERSE (MD Anderson + UPenn) and Amgen's STREAM-SCLC, and elimination of the inter-phase hiatus described by FDA Commissioner Marty Makary. The simulation runs on branch claude/add-fda-clinical-trial-CVStP with one new hour-XX/ folder appended per simulated hour, terminating only when the user explicitly halts. Upon halt, a final-commit/ folder is added matching the format of new-trial/final-commit/. v3.4.2 ships with hour-00, hour-01, hour-02 generated and additional hours appended as the run continues.
+
+---
+
 Core i5-6200U 4GB Real-Time Execution Instructions for 168-Hour Simulation
 v3.4.1 - Low-Resource Hardware Instructions for 168-Hour Autonomous Simulation
 

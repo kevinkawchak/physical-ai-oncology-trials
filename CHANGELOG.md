@@ -5,6 +5,28 @@ Format follows [Keep a Changelog](https://keepachangelog.com/).
 
 ## [Unreleased]
 
+## [3.4.2] - 2026-05-01
+
+### Added
+- new-trial/national-24-7-trial/ - National 24/7 Continuous Real-Time Clinical Trial simulation responding to the FDA's 28 April 2026 RTCT announcement
+- new-trial/national-24-7-trial/README.md - Comprehensive README covering format, sites, FDA signal flow, and continuous trial model
+- new-trial/national-24-7-trial/hour-00/ through hour-NN/ - Hour folders with 7 files each (4 markdown + 3 txt diagrams), minute-resolution simulation
+- 4-site network model: SITE-A (Houston), SITE-B (Philadelphia), SITE-C (Boston), SITE-D (Texas Medical Center)
+- Paradigm Health-style aggregator and FDA real-time API streaming with median ack latency tracking
+- C-PSL (Continuity-PSL) rolling 24-hour metric extending the PSL framework for continuous trials
+- Real-time commit cadence: 1 commit per simulated hour, 24 commits per day, indefinite duration
+
+### Changed
+- README.md - Updated version badge to v3.4.2, added national-24-7-trial entry to repository structure
+- CHANGELOG.md - Added v3.4.2 entry
+- releases.md - Added v3.4.2 release notes
+
+### Notes
+- Simulation runs indefinitely until tokens exhausted; resumes by appending the next hour folder
+- Format matches new-trial/ exactly: same number of files per hour (4 md + 3 txt), same final-commit termination structure when user halts
+- All 116 robot instances (29/site x 4 sites) tracked per hour at minute resolution
+- CI lint/format issues (ruff, yamllint) addressed via clean markdown/txt-only additions (no Python files, no YAML changes)
+
 ## [3.4.1] - 2026-04-07
 
 ### Added

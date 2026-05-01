@@ -1,0 +1,40 @@
++============================================================================+
+|        NATIONAL 24/7 CONTINUOUS RTCT - HOUR 02 NETWORK STATUS              |
+|                            02:00-02:59 UTC                                 |
++============================================================================+
+|                                                                            |
+|  +-------------------- SITE-A (Houston) ---------------------------+       |
+|  | Patients on-site: 6  Active procedures: 1 (02:48)               |       |
+|  | STEER    [01:ACTV][02:stby]      <- liver ablation prep         |       |
+|  | COMPN    [01:stby][02:stby][03:MON ][04:stby][05:stby]          |       |
+|  | All 26 other instances: standby                                 |       |
+|  +-----------------------------------------------------------------+       |
+|                                                                            |
+|  +-------------------- SITE-B (Philadelphia) ----------------------+       |
+|  | Patients on-site: 5  Active procedures: 1 (02:18)               |       |
+|  | HUMAN    [01:ACTV][02:stby][03:stby]   <- IND escort            |       |
+|  | IMAGE    [01:stby][02:stby][03:stby][04:ACTV (02:23 ECG)]       |       |
+|  | All 25 other instances: standby                                 |       |
+|  | Infusion bay 2 occupied (PAT-CONT-0007 IND C1D1).               |       |
+|  +-----------------------------------------------------------------+       |
+|                                                                            |
+|  +-------------------- SITE-C (Boston) ----------------------------+       |
+|  | Patients on-site: 3  Active procedures: 0                       |       |
+|  | All 29 instances: standby                                       |       |
+|  +-----------------------------------------------------------------+       |
+|                                                                            |
+|  +-------------------- SITE-D (Texas Medical Center) --------------+       |
+|  | Patients on-site: 3  Active procedures: 0                       |       |
+|  | COMPN    [01:stby][02:MON ][03:stby][04:stby][05:stby]          |       |
+|  | All 28 other instances: standby                                 |       |
+|  +-----------------------------------------------------------------+       |
+|                                                                            |
+|  +-------------------- PARADIGM HEALTH AGGREGATOR -----------------+       |
+|  | All 4 channels UP. FDA real-time API UP.                        |       |
+|  | Hour-boundary reconciliation 02:00: 3/3 endpoints accepted.     |       |
+|  | High-priority IND endpoint streamed and acked in 9 s.           |       |
+|  +-----------------------------------------------------------------+       |
+|                                                                            |
++============================================================================+
+| Network: 18 patients, 2 active sessions, 1 IND endpoint streamed.          |
++============================================================================+
