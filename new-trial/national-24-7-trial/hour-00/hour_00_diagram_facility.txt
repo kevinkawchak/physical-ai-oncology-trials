@@ -1,0 +1,54 @@
++============================================================================+
+|        NATIONAL 24/7 CONTINUOUS RTCT - HOUR 00 NETWORK STATUS              |
+|                            00:00-00:59 UTC                                 |
++============================================================================+
+|                                                                            |
+|  +-------------------- SITE-A (Houston) ---------------------------+       |
+|  | Patients on-site: 6  Active procedures: 2 (00:09, 00:42)        |       |
+|  | KIOSK [1:USED][2:idle][3:idle][4:idle]                          |       |
+|  | SURG    [01:stby][02:stby][03:stby]                             |       |
+|  | COBOT   [01:ACTV][02:stby][03:stby][04:stby]                    |       |
+|  | RTPOS   [01:stby][02:ACTV][03:stby]                             |       |
+|  | TRACK   [01:stby][02:ACTV][03:stby]                             |       |
+|  | NEEDLE  [01:stby][02:stby]                                      |       |
+|  | COMPN   [01:stby][02:stby][03:MON ][04:stby][05:stby]           |       |
+|  | HUMAN   [01:stby][02:stby][03:stby]                             |       |
+|  | IMAGE   [01:stby][02:stby][03:stby][04:stby]                    |       |
+|  | STEER   [01:stby][02:stby]                                      |       |
+|  | REHAB   [01:stby][02:stby][03:stby]                             |       |
+|  | Recovery bays:[B1:..][B2:..][B3:0011][B4:0001][B5:..][B6:..]    |       |
+|  +-----------------------------------------------------------------+       |
+|                                                                            |
+|  +-------------------- SITE-B (Philadelphia) ----------------------+       |
+|  | Patients on-site: 4  Active procedures: 1 (00:57)               |       |
+|  | KIOSK [1:idle][2:idle][3:idle][4:idle]                          |       |
+|  | COBOT   [01:stby][02:ACTV][03:stby][04:stby]                    |       |
+|  | All 25 other instances: standby                                 |       |
+|  | Recovery bays: [B1:0017][B2:0018][B3:0019][B4:..][B5:..]        |       |
+|  +-----------------------------------------------------------------+       |
+|                                                                            |
+|  +-------------------- SITE-C (Boston) ----------------------------+       |
+|  | Patients on-site: 3  Active procedures: 1 (00:23)               |       |
+|  | IMAGE   [01:ACTV][02:stby][03:stby][04:stby]                    |       |
+|  | All 25 other instances: standby                                 |       |
+|  | Recovery bays: [B1:0020][B2:0002][B3:0021][B4:..][B5:..]        |       |
+|  +-----------------------------------------------------------------+       |
+|                                                                            |
+|  +-------------------- SITE-D (Texas Medical Center) --------------+       |
+|  | Patients on-site: 2  Active procedures: 0                       |       |
+|  | NEEDLE-02: scheduled calibration 00:06-00:25                    |       |
+|  | COMPN-02: pediatric passive monitoring                          |       |
+|  | All 27 other instances: standby                                 |       |
+|  +-----------------------------------------------------------------+       |
+|                                                                            |
+|  +-------------------- PARADIGM HEALTH AGGREGATOR -----------------+       |
+|  | Channel: TRAVERSE | STREAM-SCLC | TRAVERSE-PED | NETWORK-OBS    |       |
+|  | Status:     UP    |     UP      |      UP      |      UP        |       |
+|  | -> FDA real-time API: UP. Median ack latency 13 s.              |       |
+|  | Endpoints validated this hour: 3 complete + 1 in-progress       |       |
+|  +-----------------------------------------------------------------+       |
+|                                                                            |
++============================================================================+
+| Network Summary: 15 patients, 4 active procedures (3 done + 1 ongoing),    |
+| 116 robot instances, 4 RTCT endpoints streamed to FDA.                     |
++============================================================================+
