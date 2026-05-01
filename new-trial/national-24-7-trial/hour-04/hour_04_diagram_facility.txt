@@ -1,0 +1,37 @@
++============================================================================+
+|        NATIONAL 24/7 CONTINUOUS RTCT - HOUR 04 NETWORK STATUS              |
+|                            04:00-04:59 UTC                                 |
++============================================================================+
+|                                                                            |
+|  +-------------------- SITE-A (Houston) ---------------------------+       |
+|  | Patients on-site: 6  Active procedures: 0                       |       |
+|  | COBOT    [01:stby][02:stby][03:CAL ][04:stby]                   |       |
+|  | COMPN    [01:stby][02:stby][03:MON ][04:stby][05:stby]          |       |
+|  | All 26 other instances: standby                                 |       |
+|  +-----------------------------------------------------------------+       |
+|                                                                            |
+|  +-------------------- SITE-B (Philadelphia) ----------------------+       |
+|  | Patients on-site: 5  Active procedures: 0                       |       |
+|  | All 29 instances: standby                                       |       |
+|  +-----------------------------------------------------------------+       |
+|                                                                            |
+|  +-------------------- SITE-C (Boston) ----------------------------+       |
+|  | Patients on-site: 4  Active procedures: 0                       |       |
+|  | All 29 instances: standby                                       |       |
+|  +-----------------------------------------------------------------+       |
+|                                                                            |
+|  +-------------------- SITE-D (Texas Medical Center) --------------+       |
+|  | Patients on-site: 4  Active procedures: 1 (04:36)               |       |
+|  | IMAGE    [01:stby][02:stby][03:ACTV][04:stby]                   |       |
+|  | COMPN    [01:stby][02:MON ][03:stby][04:stby][05:stby]          |       |
+|  | All 27 other instances: standby                                 |       |
+|  +-----------------------------------------------------------------+       |
+|                                                                            |
+|  +-------------------- PARADIGM HEALTH AGGREGATOR -----------------+       |
+|  | All 4 channels UP. FDA real-time API UP.                        |       |
+|  | Endpoints validated this hour: 2 (1 cal + 1 imaging)            |       |
+|  +-----------------------------------------------------------------+       |
+|                                                                            |
++============================================================================+
+| Network: 20 patients, 1 active session, 1 calibration, 2 endpoints.        |
++============================================================================+
