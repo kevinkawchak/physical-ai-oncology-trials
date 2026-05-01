@@ -1,0 +1,17 @@
++============================================================================+
+|       HOUR 13 PATIENT FLOW (13:00-13:59 UTC)                               |
++============================================================================+
+
+PAT-CONT-0058A SITE-A HCC IMG wrap [IMG.][REC]                       00..08 09-59
+PAT-CONT-0059A SITE-A NSCLC RT24   [CHK][POS][RT......][exit]        05-30
+PAT-CONT-0060A SITE-B sarcoma BX   [CHK][BX....][REC]                14-28 29-59
+PAT-CONT-0061A SITE-D pediatric osteo IMG [CHK][IMG.....][REC]       20-38
+PAT-CONT-0062A SITE-A mediastinal SURG [CHK][SURG.........][REC]     32-55
+PAT-CONT-0063A SITE-C SCLC C2D8 IND [CHK][PRE][INF>>                 40-59+
+PAT-CONT-0064A SITE-B brain SRS    [CHK][POS][SRS>>                  50-59+
+
+DEPARTURES: 0004, 0009, 0021A
+
++----------------------------------------------------------------------------+
+| Network arrivals: 6 | Departures: 3                                        |
++----------------------------------------------------------------------------+
