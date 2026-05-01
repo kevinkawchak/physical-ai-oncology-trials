@@ -1,0 +1,30 @@
++============================================================================+
+|       HOUR 11 PATIENT FLOW (11:00-11:59 UTC)                               |
++============================================================================+
+
+PAT-CONT-0045A SITE-B IND C2D8 [INF.................][POST]    00..32 33-59
+PAT-CONT-0046A SITE-A NSCLC RT19 [CHK][POS][RT.....][exit]      05-29
+PAT-CONT-0047A SITE-B sarcoma BX [CHK][BX....][REC]             12-25 26-59
+PAT-CONT-0048A SITE-C SCLC restage [CHK][IMG......][REC]        18-38
+PAT-CONT-0049A SITE-A mediastinal SURG [CHK][SURG..........][REC] 30-55
+PAT-CONT-0050A SITE-D pediatric maintenance [CHK][MAINT..][REC]  40-55
+PAT-CONT-0051A SITE-B HCC ablation prep [CHK][REG][NDL>>         42-59+
+PAT-CONT-0052A SITE-A GBM RT10 [CHK][POS][RT>>                   48-59+
+PAT-CONT-0053A SITE-C mantle BX [CHK][BX>>                       54-59+
+
+DEPARTURES: 0006 (11:10), 0023A (11:25), 0025A (11:40)
+
+ADVERSE EVENT: AE-002 PAT-CONT-0026A grade 1 nausea, 11:24
+
++----------------------------------------------------------------------------+
+| Network arrivals: 8 | Departures: 3 | AE: 1 (grade 1)                      |
++----------------------------------------------------------------------------+
+
+RTCT Stream (excerpt):
+11:24 -> TRAVERSE-CONT-0026A-AE-NAUSEA-G1   ack 8s (PRIORITY)
+11:28 -> TRAVERSE-CONT-0046A-RT19           ack 10s
+11:32 -> TRAVERSE-CONT-0045A-IND-C2D8       ack 9s
+11:38 -> STREAM-CONT-0048A-RESTAGE          ack 12s
+11:55 -> TRAVERSE-CONT-0049A-SURG01         ack 11s
+11:55 -> TRAVERSE-PED-CONT-0050A-MAINT01    ack 10s
++============================================================================+
