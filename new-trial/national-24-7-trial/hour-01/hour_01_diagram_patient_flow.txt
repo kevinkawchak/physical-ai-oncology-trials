@@ -1,0 +1,36 @@
++============================================================================+
+|       HOUR 01 PATIENT FLOW (01:00-01:59 UTC, all 4 sites)                  |
++============================================================================+
+
+Time   00 .. 05 .. 10 .. 15 .. 20 .. 25 .. 30 .. 35 .. 40 .. 45 .. 50 .. 55..59
+
+PAT-CONT-0004 (SITE-B, sarcoma, biopsy continuation)
+       [BX..............][REC.........................................]
+       00..07            07-59
+
+PAT-CONT-0003 (SITE-A, NSCLC, post-RT)
+       [obs........][DSH]
+       00..09       09 -> discharged
+
+PAT-CONT-0005 (SITE-D, pediatric ALL, maintenance)
+       . . . . . . . . . . . . . . [CHK][PLY][MAINT]......[REC]
+                                   14   15..30   31         32-59
+
+PAT-CONT-0006 (SITE-A, GBM, RT fraction 15)
+       . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . [CHK][POS][RT.....][exit]
+                                                                       33   34-35  37-54   55
+
+Carry-over (no movement this hour):
+PAT-CONT-0001 SITE-A recovery
+PAT-CONT-0002 SITE-C recovery / planning
+PAT-CONT-0011..0021 across sites in stable status
+
++----------------------------------------------------------------------------+
+| Network arrivals: 2 | Departures: 1 | Active procedures completed: 3       |
++----------------------------------------------------------------------------+
+
+RTCT Signal Stream Timeline:
+01:08 ----> TRAVERSE-CONT-0004-BX01           ---FDA ack 01:08+11s
+01:32 ----> TRAVERSE-PED-CONT-0005-MAINT01    ---FDA ack 01:32+12s
+01:56 ----> TRAVERSE-CONT-0006-RT15           ---FDA ack 01:56+10s
++============================================================================+
