@@ -21,8 +21,7 @@ Format follows [Keep a Changelog](https://keepachangelog.com/).
 - CHANGELOG.md - Added v3.4.2 entry
 - releases.md - Added v3.4.2 release notes
 - @kevinkawchak added unzipped paper files to main/sponsor/final_paper in preparation as inputs for an upcoming paper on 2026-05-01.
-- @kevinkawchak moved hour-56 through hour-83 into a new main/new-trial/national-24-7-trial/extra-hours directory due to approximations in diagrams; and populated two new Background-A and Background-B directories under new-trial
-/national-24-7-trial/ with deep research material from @openai for an upcoming paper on 2026-05-02.
+- @kevinkawchak moved hour-56 through hour-83 into a new main/new-trial/national-24-7-trial/extra-hours directory due to approximations in diagrams; and populated two new Background-A and Background-B directories under new-trial/national-24-7-trial/ with deep research material from @openai, further chunked by @claude for an upcoming paper on 2026-05-02.
 
 ### Notes
 - Simulation runs indefinitely until tokens exhausted; resumes by appending the next hour folder
