@@ -20,6 +20,7 @@ Format follows [Keep a Changelog](https://keepachangelog.com/).
 - README.md - Updated version badge to v3.4.2, added national-24-7-trial entry to repository structure
 - CHANGELOG.md - Added v3.4.2 entry
 - releases.md - Added v3.4.2 release notes
+- @kevinkawchak added unzipped paper files to main/sponsor/final_paper in preparation as inputs for an upcoming paper on 2026-05-01.
 
 ### Notes
 - Simulation runs indefinitely until tokens exhausted; resumes by appending the next hour folder
@@ -40,7 +41,6 @@ Format follows [Keep a Changelog](https://keepachangelog.com/).
 - CHANGELOG.md - Added v3.4.1 changelog entry
 - releases.md - Added v3.4.1 release notes
 - sponsor/final_paper/168_hours/README.md - Updated directory structure to include core_i5_6200u_4gb
-- @kevinkawchak added unzipped paper files to main/sponsor/final_paper in preparation as inputs for an upcoming paper on 2026-05-01.
 
 ### Notes
 - Core i5-6200U 4GB represents the lowest-specification hardware in the instructions collection
