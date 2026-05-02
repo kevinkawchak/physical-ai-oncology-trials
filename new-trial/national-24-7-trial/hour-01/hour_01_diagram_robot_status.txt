@@ -1,0 +1,35 @@
++============================================================================+
+|     HOUR 01 ROBOT STATUS TIMELINE (01:00-01:59 UTC)                        |
++============================================================================+
+
+  Minute        00 05 10 15 20 25 30 35 40 45 50 55 59
+                ----------------------------------------
+SITE-A
+  RTPOS-01     .. .. .. .. .. .. .. AA AA AA AA AA ..   <- RT setup 34-55
+  TRACK-01     .. .. .. .. .. .. .. AA AA AA AA AA ..   <- RT deliver 37-54
+  COMPN-03     MM MM MM MM MM MM MM MM MM MM MM MM MM   <- pediatric mon
+  Other 26     SS SS SS SS SS SS SS SS SS SS SS SS SS
+
+SITE-B
+  COBOT-02     AA AA .. .. .. .. .. .. .. .. .. CC ..   <- biopsy wrap 00-07; clean 57
+  Other 28     SS SS SS SS SS SS SS SS SS SS SS SS SS
+
+SITE-C
+  All 29       SS SS SS SS SS SS SS SS SS SS SS SS SS
+
+SITE-D
+  COMPN-04     .. .. .. AA AA AA AA AA AA .. .. .. ..   <- pediatric 15-32
+  COMPN-02     MM MM MM MM MM MM MM MM MM MM MM MM MM
+  Other 27     SS SS SS SS SS SS SS SS SS SS SS SS SS
+
++----------------------------------------------------------------------------+
+| Legend: SS=standby AA=active MM=passive monitoring CC=cleaning             |
++----------------------------------------------------------------------------+
+
+Utilization summary:
+  Active robot-minutes:      45
+  Total robot-minutes:    6,960
+  Network utilization:    0.65%
+  Active sessions:           3
+  Errors:                    0
++============================================================================+

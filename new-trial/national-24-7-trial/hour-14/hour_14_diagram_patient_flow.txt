@@ -1,0 +1,18 @@
++============================================================================+
+|       HOUR 14 PATIENT FLOW (14:00-14:59 UTC)                               |
++============================================================================+
+
+PAT-CONT-0064A SITE-B brain SRS wrap   [SRS....][exit]                  00..14
+PAT-CONT-0063A SITE-C IND C2D8 wrap    [INF..............][POST]        00..25 26-59
+PAT-CONT-0065A SITE-A NSCLC RT5        [CHK][POS][RT......][exit]       10-35
+PAT-CONT-0066A SITE-A sarcoma BX       [CHK][BX....][REC]               18-32 33-59
+PAT-CONT-0067A SITE-D pediatric MRI    [CHK][IMG.....][REC]             28-42
+PAT-CONT-0068A SITE-B HCC ablation     [CHK][REG][NDL][ABL...]          38-55
+PAT-CONT-0069A SITE-D pediatric ALL    [CHK][CMP>>                      45-59+
+PAT-CONT-0070A SITE-A GBM RT16         [CHK][POS][RT>>                  50-59+
+
+DEPARTURES: 0013A (14:08), 0019A (14:20), 0028A (14:35), 0033A (14:48).
+
++----------------------------------------------------------------------------+
+| Network arrivals: 6 | Departures: 4                                        |
++----------------------------------------------------------------------------+

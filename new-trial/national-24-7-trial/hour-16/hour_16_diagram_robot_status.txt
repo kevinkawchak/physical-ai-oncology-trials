@@ -1,0 +1,37 @@
++============================================================================+
+|     HOUR 16 ROBOT STATUS TIMELINE (16:00-16:59 UTC)                        |
++============================================================================+
+
+  Minute        00 05 10 15 20 25 30 35 40 45 50 55 59
+                ----------------------------------------
+SITE-A
+  SURG-01      AA AA .. .. .. .. .. .. .. .. .. .. ..
+  RTPOS-01     .. AA AA AA AA AA AA .. .. .. .. .. ..
+  TRACK-01     .. AA AA AA AA AA AA .. .. .. .. .. ..
+  COBOT-03     .. .. AA AA AA AA .. .. .. .. .. .. ..
+  STEER-02     .. .. .. .. .. .. .. .. AA AA AA AA AA
+  COMPN-03     MM MM MM MM MM MM MM MM MM MM MM MM MM
+  Other 22     SS SS SS SS SS SS SS SS SS SS SS SS SS
+
+SITE-B
+  RTPOS-02     AA AA AA .. .. .. .. .. .. .. .. .. ..
+  TRACK-02     AA AA AA .. .. .. .. .. .. .. .. .. ..
+  IMAGE-04     .. .. .. .. AA AA AA AA AA .. .. .. ..
+  HUMAN-02     .. .. .. .. .. .. .. .. .. .. .. AA AA
+  Other 25     SS SS SS SS SS SS SS SS SS SS SS SS SS
+
+SITE-C
+  IMAGE-01     AA AA AA .. .. .. .. .. .. .. .. .. ..
+  RTPOS-03     .. .. .. .. .. .. AA AA AA AA AA .. ..
+  TRACK-03     .. .. .. .. .. .. AA AA AA AA AA .. ..
+  Other 26     SS SS SS SS SS SS SS SS SS SS SS SS SS
+
+SITE-D
+  COBOT-01     .. .. .. .. .. .. .. AA AA AA .. .. ..
+  COMPN-05     .. .. .. .. .. .. .. .. .. .. .. AA AA
+  COMPN-02     MM MM MM MM MM MM MM MM MM MM MM MM MM
+  Other 26     SS SS SS SS SS SS SS SS SS SS SS SS SS
+
++----------------------------------------------------------------------------+
+Active robot-min: 197 | Util 2.83% | Peak 12 | Errors 0 | AEs 1
++============================================================================+

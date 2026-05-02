@@ -1,0 +1,48 @@
++============================================================================+
+|       HOUR 07 PATIENT FLOW (07:00-07:59 UTC)                               |
++============================================================================+
+
+Time   00 .. 05 .. 10 .. 15 .. 20 .. 25 .. 30 .. 35 .. 40 .. 45 .. 50 .. 55..59
+
+PAT-CONT-0017A (SITE-A, NSCLC RT22 wrap)
+       [RT....][exit]
+       00..08   09
+
+PAT-CONT-0018A (SITE-B, GBM RT8)
+       . . . [CHK][POS............][RT.................][exit]
+              04   05-13              14..38              39
+
+PAT-CONT-0019A (SITE-A, HCC ablation)
+       . . . . . . . . . [CHK][REG][NDL1][ABL.................][cool]
+                          11   12    13     14..50               51-55
+
+PAT-CONT-0020A (SITE-C, restage CT)
+       . . . . . . . . . . . . . . . . . . . . . . [CHK][CT............][REC]
+                                                    24   25..42         43-59
+
+PAT-CONT-0021A (SITE-A, pediatric rehab)
+       . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . [CHK][REHAB.......][REC]
+                                                                    35    36..54        55-59
+
+PAT-CONT-0022A (SITE-D, pediatric maintenance)
+       . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . [CHK][MAINT......][REC]
+                                                                                    42    43..58        59
+
+PAT-CONT-0023A (SITE-B, sarcoma biopsy)
+       . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . [CHK][BX>>
+                                                                                                              55    56-59+
+
+ADVERSE EVENT:
+07:48 AE-001 PAT-CONT-0007 (SITE-B, post-IND obs, grade 1 fatigue)
+
++----------------------------------------------------------------------------+
+| Network arrivals: 6 | Departures: 0 | AE: 1 (grade 1)                      |
++----------------------------------------------------------------------------+
+
+RTCT Stream (excerpt):
+07:09 ----> TRAVERSE-CONT-0017A-RT22         ack 10s
+07:39 ----> TRAVERSE-CONT-0018A-RT08         ack 11s
+07:43 ----> STREAM-CONT-0020A-RESTAGE        ack 12s
+07:48 ----> TRAVERSE-CONT-0007-AE-FATIGUE-G1 ack 8s (PRIORITY)
+07:55 ----> TRAVERSE-CONT-0019A-ABL01-COMPLETE ack 12s
++============================================================================+

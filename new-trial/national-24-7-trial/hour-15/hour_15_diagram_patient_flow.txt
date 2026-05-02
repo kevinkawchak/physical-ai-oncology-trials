@@ -1,0 +1,18 @@
++============================================================================+
+|       HOUR 15 PATIENT FLOW (15:00-15:59 UTC)                               |
++============================================================================+
+
+PAT-CONT-0070A SITE-A GBM RT16 wrap   [RT....][exit]            00..14
+PAT-CONT-0068A SITE-B HCC ablation wrap [ABL.][exit]            00..08
+PAT-CONT-0069A SITE-D pediatric wrap  [CMP....][REC]            00..18 19-59
+PAT-CONT-0071A SITE-B NSCLC RT7       [CHK][POS][RT......][exit] 10-35
+PAT-CONT-0072A SITE-A sarcoma BX      [CHK][BX....][REC]        20-33 34-59
+PAT-CONT-0073A SITE-C SCLC restage    [CHK][IMG.....][REC]      25-42
+PAT-CONT-0074A SITE-A mediastinal SURG [CHK][SURG.......][REC]  38-55
+PAT-CONT-0075A SITE-A pediatric COMPN [CHK][CMP>>                50-59+
+
+DEPARTURES: 0024A (15:08), 0035A (15:25), 0042A (15:40), 0048A (15:55).
+
++----------------------------------------------------------------------------+
+| Network arrivals: 5 | Departures: 4                                        |
++----------------------------------------------------------------------------+

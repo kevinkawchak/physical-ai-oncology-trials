@@ -1,0 +1,37 @@
++============================================================================+
+|       HOUR 00 PATIENT FLOW (00:00-00:59 UTC, all 4 sites)                  |
++============================================================================+
+
+Time   00 .. 05 .. 10 .. 15 .. 20 .. 25 .. 30 .. 35 .. 40 .. 45 .. 50 .. 55..59
+
+PAT-CONT-0001 (SITE-A, mantle cell, biopsy)
+       . . . . . . . . [CHK][POS][BX..............][REC.................]
+                       08   09   10  11..18         19    20-59 recovery
+
+PAT-CONT-0002 (SITE-C, SCLC, imaging)
+       . . . . . . . . . . . . . . . . . . . . . . [CHK][IMG..........][REC]
+                                                   22   23..34          36-59
+
+PAT-CONT-0003 (SITE-A, NSCLC, RT fraction 8)
+       . . . . . . . . . . . . . . . . . . . . . . . . . . . . . [CHK][POS][RT....]
+                                                                 41    42-43 44..54
+
+PAT-CONT-0004 (SITE-B, sarcoma, biopsy)
+       . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . [CHK][BX>>
+                                                                              55   57-59+
+
+Carry-over patients (overnight, no movement this hour):
+PAT-CONT-0011..0021 -> all in recovery, monitoring, or pre-procedure hold
+
++----------------------------------------------------------------------------+
+| Legend: [CHK]=check-in [POS]=positioning [BX]=biopsy [IMG]=imaging         |
+|         [RT]=radiotherapy delivery [REC]=recovery                          |
+| Network arrivals: 4 | Departures: 0 | Active procedures: 4 (3 done, 1 cont)|
++----------------------------------------------------------------------------+
+
+RTCT Signal Stream Timeline:
+00:20 ----> TRAVERSE-CONT-0001-BX01  ---FDA ack 00:21 (13 s)
+00:35 ----> STREAM-CONT-0002-IMG01   ---FDA ack 00:36 (14 s)
+00:54 ----> TRAVERSE-CONT-0003-RT08  ---FDA ack 00:55 (11 s)
+00:59 ----> (TRAVERSE-CONT-0004-BX01 in flight, ack expected hour 01)
++============================================================================+
