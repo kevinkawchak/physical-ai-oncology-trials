@@ -6,6 +6,8 @@ CEO Kevin Kawchak, ChemicalQDevice
 [![Release](https://img.shields.io/badge/Release-v3.4.2-brightgreen.svg)]()
 [![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.19194724-blue)](https://github.com/kevinkawchak/physical-ai-oncology-trials/tree/main/new-trial/national-24-7-trial)
 
+Note: Additional national-24-7-trial/extra-hours/ directory available for hours 56-83 approximated diagrams and markdowns.
+
 The original CFR documents are in the public domain. The original ICH document
 is copyrighted and may be used, reproduced, incorporated into other works,
 adapted, modified, translated or distributed under a public license. This
