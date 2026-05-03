@@ -1,0 +1,324 @@
+% ======================================================================
+% new_paper.sty - Style file for "Accelerated Patient Prediction in
+% Physical AI Oncology Clinical Trials: Four Comprehensive LLM
+% Simulations".
+%
+% Adapted from arxiv.sty LaTeX template by Joaquin Rapela (2024).
+% Original template: https://github.com/kourgeorge/arxiv-style
+% License: CC BY 4.0
+%
+% Modified for the full paper at:
+%   new-trial/national-24-7-trial/paper/full-paper/
+% Author: Kevin Kawchak, CEO ChemicalQDevice
+%
+% Style goals:
+%   - 1 inch margins, 11 pt body, ptm/phv font pair (matches IEEE-style
+%     commercial submissions).
+%   - Strong widow and orphan suppression so no isolated 1 or 2 word
+%     line ever appears at the top or bottom of a page.
+%   - Compact section spacing so a section never starts with two thirds
+%     of a page of empty white space above it.
+%   - Justified text with controlled \emergencystretch so no large river
+%     of white space appears between words.
+%   - All hypersetup colors black (set in main.tex).
+% ======================================================================
+\NeedsTeXFormat{LaTeX2e}
+\ProcessOptions\relax
+
+% ----------------------------------------------------------------------
+% Fonts: Times Roman body and Helvetica sans (legible at 11 pt).
+% ----------------------------------------------------------------------
+\renewcommand{\rmdefault}{ptm}
+\renewcommand{\sfdefault}{phv}
+
+% ----------------------------------------------------------------------
+% Page geometry. Letter paper, 1 inch top margin, 6.5 inch text width,
+% 9 inch text height. Headsep and footskip tuned to match IEEE practice.
+% ----------------------------------------------------------------------
+\usepackage[verbose=true,letterpaper]{geometry}
+\AtBeginDocument{
+  \newgeometry{
+    textheight=9in,
+    textwidth=6.5in,
+    top=1in,
+    headheight=14pt,
+    headsep=20pt,
+    footskip=30pt
+  }
+}
+
+% ----------------------------------------------------------------------
+% Widows and orphans. \widowpenalty=10000 forbids a single line at the
+% top of a page; \clubpenalty=10000 forbids a single line at the bottom
+% of a page (an orphan). \flushbottom forces the bottom margin to be
+% identical on every page so paragraphs reflow rather than leaving a
+% 1 or 2 word line stranded.
+% ----------------------------------------------------------------------
+\widowpenalty=10000
+\clubpenalty=10000
+\displaywidowpenalty=10000
+\brokenpenalty=10000
+\flushbottom
+\sloppy
+\raggedbottom\relax % overridden below; keep explicit so reader sees both
+
+% Re-enable flushbottom (overrides \raggedbottom above)
+\flushbottom
+
+% ----------------------------------------------------------------------
+% Headers and footers
+% ----------------------------------------------------------------------
+\newcommand{\headeright}{}
+\newcommand{\undertitle}{}
+\newcommand{\shorttitle}{\@title}
+
+\usepackage{fancyhdr}
+\fancyhf{}
+\pagestyle{fancy}
+\renewcommand{\headrulewidth}{0.4pt}
+\fancyheadoffset{0pt}
+\rhead{\scshape \footnotesize \headeright}
+\chead{\shorttitle}
+\cfoot{\thepage}
+
+% ----------------------------------------------------------------------
+% Keyword formatting (used after the abstract)
+% ----------------------------------------------------------------------
+\def\keywordname{{\bfseries \emph{Keywords}}}%
+\def\keywords#1{\par\addvspace\medskipamount{\rightskip=0pt plus1cm
+\def\and{\ifhmode\unskip\nobreak\fi\ $\cdot$
+}\noindent\keywordname\enspace\ignorespaces#1\par}}
+
+% ----------------------------------------------------------------------
+% Font sizes with reduced leading. Tuned so an 11 pt body packs the page
+% comfortably without crowding.
+% ----------------------------------------------------------------------
+\renewcommand{\normalsize}{%
+  \@setfontsize\normalsize\@xipt{13.5}%
+  \abovedisplayskip      7\p@ \@plus 2\p@ \@minus 5\p@
+  \abovedisplayshortskip \z@ \@plus 3\p@
+  \belowdisplayskip      \abovedisplayskip
+  \belowdisplayshortskip 4\p@ \@plus 3\p@ \@minus 3\p@
+}
+\normalsize
+\renewcommand{\small}{%
+  \@setfontsize\small\@xpt{12}%
+  \abovedisplayskip      6\p@ \@plus 1.5\p@ \@minus 4\p@
+  \abovedisplayshortskip \z@  \@plus 2\p@
+  \belowdisplayskip      \abovedisplayskip
+  \belowdisplayshortskip 3\p@ \@plus 2\p@   \@minus 2\p@
+}
+\renewcommand{\footnotesize}{\@setfontsize\footnotesize\@ixpt{11}}
+\renewcommand{\scriptsize}{\@setfontsize\scriptsize\@viipt\@viiipt}
+\renewcommand{\tiny}{\@setfontsize\tiny\@vipt\@viipt}
+\renewcommand{\large}{\@setfontsize\large\@xiipt{14}}
+\renewcommand{\Large}{\@setfontsize\Large\@xivpt{16}}
+\renewcommand{\LARGE}{\@setfontsize\LARGE\@xviipt{20}}
+\renewcommand{\huge}{\@setfontsize\huge\@xxpt{23}}
+\renewcommand{\Huge}{\@setfontsize\Huge\@xxvpt{28}}
+
+% ----------------------------------------------------------------------
+% Section headings. Compact spacing so a section heading never sits with
+% two thirds of a page of empty white space above it. Headings are
+% raggedright so a long heading wraps cleanly without river spacing.
+% ----------------------------------------------------------------------
+\providecommand{\section}{}
+\renewcommand{\section}{%
+  \@startsection{section}{1}{\z@}%
+                {-2.0ex \@plus -0.5ex \@minus -0.2ex}%
+                { 1.5ex \@plus  0.3ex \@minus  0.2ex}%
+                {\large\bf\raggedright}%
+}
+\providecommand{\subsection}{}
+\renewcommand{\subsection}{%
+  \@startsection{subsection}{2}{\z@}%
+                {-1.8ex \@plus -0.5ex \@minus -0.2ex}%
+                { 0.8ex \@plus  0.2ex}%
+                {\normalsize\bf\raggedright}%
+}
+\providecommand{\subsubsection}{}
+\renewcommand{\subsubsection}{%
+  \@startsection{subsubsection}{3}{\z@}%
+                {-1.5ex \@plus -0.5ex \@minus -0.2ex}%
+                { 0.5ex \@plus  0.2ex}%
+                {\normalsize\bf\raggedright}%
+}
+\providecommand{\paragraph}{}
+\renewcommand{\paragraph}{%
+  \@startsection{paragraph}{4}{\z@}%
+                {1.5ex \@plus 0.5ex \@minus 0.2ex}%
+                {-1em}%
+                {\normalsize\bf}%
+}
+\providecommand{\subparagraph}{}
+\renewcommand{\subparagraph}{%
+  \@startsection{subparagraph}{5}{\z@}%
+                {1.5ex \@plus 0.5ex \@minus 0.2ex}%
+                {-1em}%
+                {\normalsize\bf}%
+}
+\providecommand{\subsubsubsection}{}
+\renewcommand{\subsubsubsection}{%
+  \vskip5pt{\noindent\normalsize\rm\raggedright}%
+}
+
+% ----------------------------------------------------------------------
+% Float placement. Allow tables and figures to occupy up to 85 percent
+% of a page top, 70 percent of a float-only page; require at least
+% 10 percent of every body page to be text.
+% ----------------------------------------------------------------------
+\renewcommand{\topfraction      }{0.85}
+\renewcommand{\bottomfraction   }{0.4}
+\renewcommand{\textfraction     }{0.1}
+\renewcommand{\floatpagefraction}{0.7}
+
+\newlength{\@abovecaptionskip}\setlength{\@abovecaptionskip}{7\p@}
+\newlength{\@belowcaptionskip}\setlength{\@belowcaptionskip}{\z@}
+
+\setlength{\abovecaptionskip}{\@abovecaptionskip}
+\setlength{\belowcaptionskip}{\@belowcaptionskip}
+
+% Swap above/belowcaptionskip lengths for tables (table captions go on top)
+\renewenvironment{table}
+  {\setlength{\abovecaptionskip}{\@belowcaptionskip}%
+   \setlength{\belowcaptionskip}{\@abovecaptionskip}%
+   \@float{table}}
+  {\end@float}
+
+% ----------------------------------------------------------------------
+% Footnote formatting
+% ----------------------------------------------------------------------
+\setlength{\footnotesep }{6.65\p@}
+\setlength{\skip\footins}{9\p@ \@plus 4\p@ \@minus 2\p@}
+\renewcommand{\footnoterule}{\kern-3\p@ \hrule width 12pc \kern 2.6\p@}
+\setcounter{footnote}{0}
+
+% ----------------------------------------------------------------------
+% Paragraph formatting. No first-line indent; uniform 5.5 pt vertical
+% space between paragraphs (avoids the appearance of a wall of text and
+% gives the eye natural breaks).
+% ----------------------------------------------------------------------
+\setlength{\parindent}{\z@}
+\setlength{\parskip  }{5.5\p@}
+
+% ----------------------------------------------------------------------
+% List formatting. Consistent indentation across nested itemize and
+% enumerate so a deeply nested list does not look ragged.
+% ----------------------------------------------------------------------
+\setlength{\topsep       }{4\p@ \@plus 1\p@   \@minus 2\p@}
+\setlength{\partopsep    }{1\p@ \@plus 0.5\p@ \@minus 0.5\p@}
+\setlength{\itemsep      }{2\p@ \@plus 1\p@   \@minus 0.5\p@}
+\setlength{\parsep       }{2\p@ \@plus 1\p@   \@minus 0.5\p@}
+\setlength{\leftmargin   }{3pc}
+\setlength{\leftmargini  }{\leftmargin}
+\setlength{\leftmarginii }{2em}
+\setlength{\leftmarginiii}{1.5em}
+\setlength{\leftmarginiv }{1.0em}
+\setlength{\leftmarginv  }{0.5em}
+\def\@listi  {\leftmargin\leftmargini}
+\def\@listii {\leftmargin\leftmarginii
+              \labelwidth\leftmarginii
+              \advance\labelwidth-\labelsep
+              \topsep  2\p@ \@plus 1\p@    \@minus 0.5\p@
+              \parsep  1\p@ \@plus 0.5\p@ \@minus 0.5\p@
+              \itemsep \parsep}
+\def\@listiii{\leftmargin\leftmarginiii
+              \labelwidth\leftmarginiii
+              \advance\labelwidth-\labelsep
+              \topsep    1\p@ \@plus 0.5\p@ \@minus 0.5\p@
+              \parsep    \z@
+              \partopsep 0.5\p@ \@plus 0\p@ \@minus 0.5\p@
+              \itemsep \topsep}
+\def\@listiv {\leftmargin\leftmarginiv
+              \labelwidth\leftmarginiv
+              \advance\labelwidth-\labelsep}
+\def\@listv  {\leftmargin\leftmarginv
+              \labelwidth\leftmarginv
+              \advance\labelwidth-\labelsep}
+\def\@listvi {\leftmargin\leftmarginvi
+              \labelwidth\leftmarginvi
+              \advance\labelwidth-\labelsep}
+
+% ----------------------------------------------------------------------
+% Title page assembly
+% ----------------------------------------------------------------------
+\providecommand{\maketitle}{}
+\renewcommand{\maketitle}{%
+  \par
+  \begingroup
+    \renewcommand{\thefootnote}{\fnsymbol{footnote}}
+    \long\def\@makefntext##1{%
+      \parindent 1em\noindent
+      \hbox to 1.8em{\hss $\m@th ^{\@thefnmark}$}##1
+    }
+    \thispagestyle{empty}
+    \@maketitle
+    \@thanks
+  \endgroup
+  \let\maketitle\relax
+  \let\thanks\relax
+}
+
+\newcommand{\@toptitlebar}{
+  \hrule height 2\p@
+  \vskip 0.25in
+  \vskip -\parskip%
+}
+\newcommand{\@bottomtitlebar}{
+  \vskip 0.29in
+  \vskip -\parskip
+  \hrule height 2\p@
+  \vskip 0.09in%
+}
+
+\providecommand{\@maketitle}{}
+\renewcommand{\@maketitle}{%
+  \vbox{%
+    \hsize\textwidth
+    \linewidth\hsize
+    \vskip 0.1in
+    \@toptitlebar
+    \centering
+    {\LARGE\sc \@title\par}
+    \@bottomtitlebar
+    \textsc{\undertitle}\\
+    \vskip -0.2in
+    \def\And{%
+      \end{tabular}\hfil\linebreak[0]\hfil%
+      \begin{tabular}[t]{c}\bf\rule{\z@}{24\p@}\ignorespaces%
+    }
+    \def\AND{%
+      \end{tabular}\hfil\linebreak[4]\hfil%
+      \begin{tabular}[t]{c}\bf\rule{\z@}{24\p@}\ignorespaces%
+    }
+    \begin{tabular}[t]{c}\bf\rule{\z@}{24\p@}\@author\end{tabular}%
+  \vskip 0.0in \@minus 0.1in \center{\@date}   \vskip 0.1in
+  }
+}
+
+% Conference notice block (kept for parity with the upstream arxiv-style
+% template; not used in the current paper but harmless to retain).
+\newcommand{\ftype@noticebox}{8}
+\newcommand{\@notice}{%
+  \enlargethispage{2\baselineskip}%
+  \@float{noticebox}[b]%
+    \footnotesize\@noticestring%
+  \end@float%
+}
+
+% ----------------------------------------------------------------------
+% Abstract environment. Centered "Abstract" heading in small caps, body
+% set inside a quote environment so the abstract has a slight indent on
+% both sides.
+% ----------------------------------------------------------------------
+\renewenvironment{abstract}
+{
+  \centerline
+  {\large \bfseries \scshape Abstract}
+  \begin{quote}
+}
+{
+  \end{quote}
+}
+
+\endinput
