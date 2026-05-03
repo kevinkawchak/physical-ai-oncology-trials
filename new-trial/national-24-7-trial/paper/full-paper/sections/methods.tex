@@ -1,0 +1,265 @@
+% ======================================================================
+% SECTION 2: METHODS
+% Final prose. Documents AI generations, repository inputs, build, and
+% CI compatibility. Discusses simulation type (site vs sponsor) for each
+% of the four simulations.
+% ======================================================================
+
+\subsection{AI Generations and Author Roles}
+\label{sec:methods-ai}
+
+Primary AI generations for the original paper template and the
+subsequent population of that template into the full prose paper were
+performed by Claude Code Opus 4.7 Max with a 1M token context window
+using the Max 5x plan \cite{claude-opus-47, claude-code}. The
+template-creation pass produced the LaTeX skeleton, the style file,
+the bibliography, the section instruction blocks, and the prose
+Methods section as a single multi-commit pull request to the
+\path{kevinkawchak/physical-ai-oncology-trials} repository
+\cite{main-repo}. The current pass (full-paper population) replaces
+each bracketed instruction block with senior-author-quality final prose
+and ships an Overleaf-ready ZIP at
+\path{new-trial/national-24-7-trial/paper/full-paper/}.
+
+The current first prompt was written by the author of the paper.
+ChatGPT Thinking 5.5 with Extended Thinking and Deep Research, accessed
+through ChatGPT Plus, was used to generate both the Background-A and
+Background-B summaries that seed the bibliography and the Introduction
+\cite{chatgpt-thinking}. Claude Sonnet 4.6 with Adaptive Thinking was
+used to produce three chunks and a README file separately for both
+Background-A and Background-B, yielding the eight Markdown source
+files at \path{new-trial/national-24-7-trial/Background-A/} and
+\path{new-trial/national-24-7-trial/Background-B/}
+\cite{claude-sonnet-46}. Google Gemini AI Overview, accessed through
+\path{google.com} search, was used for additional search assistance
+during the source-gathering phase \cite{google-gemini-overview}. The
+author performed the senior-author white-space and table-width
+formatting pass after the body sections were populated, applying the
+formatting rules captured at the top of \path{main.tex}.
+
+\subsection{Simulation Type: Clinical Trial Sites and Sponsors}
+\label{sec:methods-sim-type}
+
+The four simulations referenced throughout this paper split between
+clinical trial sites and clinical trial sponsors. Simulations 1 and 2
+are site-side simulations: Simulation 1 is the Continuous National
+24/7 RTCT across four sites (SITE-A Houston, SITE-B Philadelphia,
+SITE-C Boston, SITE-D Texas Medical Center), and Simulation 2 is the
+single-patient 10-stage journey of patient PAT-2026-0042 through one
+site's protocol from pre-screening through closeout. Simulations 3
+and 4 are sponsor-side simulations: Simulation 3 is the 24-hour
+autonomous sponsor with 53 core agents, and Simulation 4 is the
+168-hour 7-day sponsor extension with local verification on a
+constrained Core i5-6200U laptop. Both perspectives are needed for a
+continuous trial. Sites generate the patient and robot signal streams,
+and sponsors generate the governance, regulatory, and decision
+streams; the FDA RTCT pilot ingests both as a single real-time view.
+
+\subsection{Repository Inputs}
+\label{sec:methods-inputs}
+
+The four simulations referenced throughout this paper are located at
+the following repository paths and are documented in the Results
+section:
+
+\begin{itemize}[leftmargin=*]
+\item Simulation 1 (clinical trial site) - Continuous Real-Time
+Clinical Trial: \path{new-trial/national-24-7-trial/hour-00/} through
+\path{hour-55/} (56 hours included in the paper), with each hour
+folder containing four Markdown files (\texttt{simulation.md},
+\texttt{robot\_logs.md}, \texttt{patient\_records.md},
+\texttt{psl\_scores.md}) and three ASCII diagrams
+(\texttt{diagram\_facility.txt}, \texttt{diagram\_patient\_flow.txt},
+\texttt{diagram\_robot\_status.txt}). See
+\cite{kawchak_2026_19176370, kawchak_2026_19244918} for the related
+site documentation and national platform packages, and
+\cite{kawchak_2026_18810541} for the patient instructions package.
+
+\item Note on \path{extra-hours/}: the 28 hour folders
+\path{new-trial/national-24-7-trial/extra-hours/hour-56/} through
+\path{hour-83/} contain only approximated data and approximated
+diagrams due to extended AI run time during the original cloud
+generation pass, and are therefore \emph{not included} in the
+full-paper text or analyses. This decision is stated once here in
+Methods rather than repeated through the paper, per the author brief.
+
+\item Simulation 2 (clinical trial site) - Single-Patient 10-Stage
+Journey: \path{patient-journey/stage_01_prescreening.py} through
+\path{patient-journey/stage_10_closeout.py}, with the prior paper at
+\path{patient-journey/paper/patient_journey_paper.tex}. The
+orchestrators are \path{patient-journey/master_journey.py} and
+\path{patient-journey/patient_state.py} \cite{kawchak_2026_19119939}.
+
+\item Simulation 3 (clinical trial sponsor) - 24-Hour Autonomous
+Sponsor: \path{sponsor/final_paper/scripts/hourly/sponsor_hour_00.py}
+through \path{sponsor_hour_23.py}, with 53 core agents under
+\path{sponsor/final_paper/scripts/core_agents/} and 75 ASCII diagrams
+under \path{sponsor/final_paper/scripts/diagrams/}, plus 24 JSON
+outputs at \path{sponsor/final_paper/scripts/hourly/output/} and the
+cumulative \path{sponsor_24h_summary.json}
+\cite{kawchak_2026_19396256}.
+
+\item Simulation 4 (clinical trial sponsor) - 168-Hour 7-Day
+Extension: \path{sponsor/final_paper/168_hours/day_01/} through
+\path{day_07/}, with hourly scripts at
+\path{day_NN/hourly/sponsor_hour_NNN.py} (168 scripts total), 168
+JSON outputs at \path{day_NN/hourly/output/}, and 525 ASCII diagrams
+at \path{day_NN/diagrams/}. The local-verification run is documented
+at
+\path{sponsor/final_paper/168_hours/instructions/core_i5_6200u_4gb/}
+\cite{kawchak_2026_19396256}.
+\end{itemize}
+
+The deep-research summaries that anchor the Introduction are located
+at \path{new-trial/national-24-7-trial/Background-A/} (three Markdown
+chunks plus a README, 17 BibTeX entries) and
+\path{new-trial/national-24-7-trial/Background-B/} (three Markdown
+chunks plus a README, 9 BibTeX entries; one entry, Yoo2025SCORPIO, is
+shared with Background-A and is included once in the bibliography).
+The FDA April 28, 2026 source release is located at
+\path{new-trial/national-24-7-trial/FDA-April-2026/FDA_RealTime_Clinical_Trials.md}
+\cite{fda2026realtime}.
+
+\subsection{Build and Verification}
+\label{sec:methods-build}
+
+The LaTeX paper compiles in Overleaf and locally with the standard
+four-pass sequence:
+\begin{verbatim}
+pdflatex main.tex
+bibtex main
+pdflatex main.tex
+pdflatex main.tex
+\end{verbatim}
+
+The bibliography uses the \texttt{ieeetr} style. Every reference
+includes a DOI where one exists and a clickable URL through the
+\texttt{note} field. The full-paper directory ships an Overleaf-ready
+ZIP at
+\path{new-trial/national-24-7-trial/paper/full-paper/LaTeX_Source_Files.zip}
+that contains \texttt{main.tex}, \texttt{new\_paper.sty},
+\texttt{references.bib}, \texttt{orcid\_icon.png}, the
+\texttt{sections/} directory, and \texttt{README.md}.
+
+\subsection{Continuous Integration Compatibility}
+\label{sec:methods-ci}
+
+The full-paper directory contains only LaTeX, Markdown, ZIP, and PNG
+assets. No new Python files are introduced by the full-paper pass, so
+the repository's existing \texttt{ruff} configuration in
+\path{ruff.toml} and the \texttt{lint-and-format} workflow at
+\path{.github/workflows/ci.yml} across Python 3.10, 3.11, and 3.12
+remain green. The lint-and-format workflow runs \texttt{ruff format
+--check} and \texttt{ruff check} on the existing Python tree, and the
+pull request that delivers this full paper does not change any Python
+file. Should a future pass introduce a helper Python script for
+diagram generation or for repository indexing, that script must be
+formatted with \texttt{ruff format} and pass \texttt{ruff check} under
+the repository's 120-character line length and \texttt{[E, F, W]} rule
+selection.
+
+\subsection{Reproducibility: Cloud Only Versus Cloud Plus Local}
+\label{sec:methods-reproducibility}
+
+The four simulations differ in where their compute lives, which in
+turn drives different reproducibility advantages and disadvantages.
+
+\textbf{Cloud-only simulations.} Simulations 1, 2, and 3 ran entirely
+on cloud compute, with all outputs (Markdown, ASCII, Python source,
+JSON) committed back to the GitHub repository. The advantage is that
+the cloud has high throughput - Simulation 1 generated 56 hours
+(included in this paper) of minute-resolution narrative in roughly 4
+to 5 hours of wall-clock cloud time, far faster than a local
+generation pass. The disadvantage is that re-running a cloud-only
+simulation requires cloud compute access, which is not always
+available to a clinical reader who wishes to verify the artifacts
+independently.
+
+\textbf{Cloud-plus-local simulation.} Simulation 4 paired the cloud
+generation with a complete 168-hour local verification run on a 2015
+Intel Core i5-6200U laptop with 4 GB of RAM running Windows 10 Pro.
+The cloud generated the 168 Python scripts and the 525 ASCII diagrams,
+and the local laptop re-executed those scripts to produce a
+\path{sponsor_168h_summary.json} that mirrors the cloud output. The
+advantage is high reproducibility: anyone with a 4 GB Windows laptop
+can re-execute the simulation and confirm the cumulative metrics. The
+disadvantage is that the local verification was partial. Not every
+script executed end-to-end on the constrained hardware due to thermal
+throttling and operating-system-specific quirks (Windows Update,
+antivirus exclusion, pagefile sizing), and downstream analytics must
+account for the partial-verification status.
+
+\subsection{Code-Based Versus Text-Only Simulations}
+\label{sec:methods-code-vs-text}
+
+The four simulations also differ in whether their primary output is
+Python code or only Markdown and ASCII text.
+
+\textbf{Text-only simulation (Simulation 1).} Simulation 1 emits only
+Markdown narrative and ASCII diagrams; no Python execution surface is
+generated. The benefit is auditability: a clinical reader can read
+\path{hour_NN_simulation.md} and the three ASCII diagrams in any text
+viewer, with no Python interpreter required. The cost is that
+downstream automation cannot easily consume the output - every
+downstream agent must parse the Markdown and ASCII, which is brittle.
+
+\textbf{Code-based simulations (Simulations 2, 3, 4).} The
+patient-journey simulation (10 Python stage scripts), the 24-hour
+sponsor (24 hourly Python scripts plus 53 agent modules), and the
+168-hour sponsor (168 hourly Python scripts) all emit Python code as
+the primary artifact. The benefit is that downstream agents can
+import the modules directly, which gives the simulation a structured
+execution surface that text-only simulations lack. The cost is that
+a clinical reader who wants to verify the output must run the Python
+code, which raises the technical barrier to verification.
+
+The two approaches are complementary. A complete continuous-trial
+deployment would use text-only artifacts (Simulation 1's narrative)
+to document the patient and robot timeline for clinical readers, and
+code artifacts (Simulations 2 to 4) to drive downstream automation.
+A future Claude Code or competing local-AI instance that runs both on
+cloud (1M token context for full-repository reasoning) and on local
+hardware (small specialist agents for per-task prediction) would offer
+both the power of cloud compute and the security and flexibility of
+local computing for oncology trial sites and sponsors.
+
+\subsection{Code Snippet: Hour-Loop Pattern (Simulation 3 Excerpt)}
+\label{sec:methods-snippet}
+
+The repeating pattern across the sponsor hourly scripts is a single
+24-iteration loop that calls the 53 agent modules in dependency order
+and writes the results to a per-hour JSON file. The following snippet
+shows the simplified pattern that drives Simulation 3's 24-hour run.
+
+\begin{lstlisting}
+# Simulation 3 - sponsor/final_paper/scripts/hourly/sponsor_hour_00.py
+# (simplified excerpt; full source has 53-agent dispatch + JSON output)
+import json
+from pathlib import Path
+from core_agents import governance, study_execution, site_robotics, trust
+
+OUTPUT_DIR = Path("output")
+OUTPUT_DIR.mkdir(exist_ok=True)
+
+
+def run_hour(hour_index: int) -> dict:
+    state = {"hour": hour_index, "decisions": [], "escalations": []}
+    state.update(governance.tick(hour_index))
+    state.update(study_execution.tick(hour_index, state))
+    state.update(site_robotics.tick(hour_index, state))
+    state.update(trust.tick(hour_index, state))
+    return state
+
+
+if __name__ == "__main__":
+    for hour in range(24):
+        snapshot = run_hour(hour)
+        out_path = OUTPUT_DIR / f"sponsor_hour_{hour:02d}.json"
+        out_path.write_text(json.dumps(snapshot, indent=2))
+\end{lstlisting}
+
+The 168-hour Simulation 4 reuses the same hour-loop, with the loop
+bound increased to 168 and the output directory renamed per day. The
+local verification run on the Core i5-6200U laptop calls the same
+\texttt{run\_hour} function with the same agent dispatch order, which
+is why the local output mirrors the cloud output.
