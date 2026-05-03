@@ -29,6 +29,7 @@ Format follows [Keep a Changelog](https://keepachangelog.com/).
 - CHANGELOG.md - Added v3.5.0 entry
 - releases.md - Added v3.5.0 release notes
 - new-trial/national-24-7-trial/README.md - Updated to reference the new paper/ subdirectory, the v3.5.0 release, and the four-simulation roadmap
+- @kevinkawchak reduced the main/README.md character length of "5/3: v3.5.0 (Accelerated Patient Prediction Paper Template)" to align with character lengths of other summaries on 2026-05-03.
 
 ### Notes
 - Template only ships the skeleton plus bracketed processing instructions; the next Claude Code 4.7 Max generation pass will populate every block into final prose for the 70+ page PDF
