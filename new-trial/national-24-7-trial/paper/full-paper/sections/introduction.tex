@@ -1,0 +1,230 @@
+% ======================================================================
+% SECTION 1: INTRODUCTION
+% Three thematic blocks (a) FDA RTCT, (b) AI baseline, (c) Transition.
+% ======================================================================
+
+\subsection{The FDA Real-Time Clinical Trials Announcement}
+\label{sec:intro-fda}
+
+On 28 April 2026 the U.S. Food and Drug Administration announced two
+major steps to advance the implementation of real-time clinical trials.
+The agency unveiled the successful initiation of two proof-of-concept
+trials that report endpoints and safety signals to the FDA in real
+time, and released a Request for Information regarding a proposed pilot
+program that will launch in summer 2026 \cite{fda2026realtime}. The
+press release framed early-phase clinical trials as a bottleneck in
+drug development, characterized by high uncertainty, limited patient
+populations, and inefficient sequential decision-making. Data is
+typically reported from sites to sponsors, who analyze and subsequently
+submit data to the FDA, with the lag between site, sponsor, and agency
+sometimes measured in months or years.
+
+FDA Commissioner Marty Makary, M.D., M.P.H. described the change in
+direct terms: \emph{"For 60 years, we've been conducting clinical trials
+in the same way, where key data signals can take years to reach the
+FDA. The lag time can delay regulatory decisions unnecessarily and slow
+down the drug development timeline. We are boldly advancing a modern
+approach whereby FDA scientists can view safety signals and endpoints
+in real time as a trial progresses. This will help us accelerate
+promising therapies, and build toward our ultimate goal of running
+real-time, continuous trials across all phases of drug development."}
+The Commissioner's framing positions the agency as enabling a faster
+path from a promising therapy to a patient who needs it, not as the
+limiting factor in that path.
+
+The two proof-of-concept trials selected for the launch are
+representative of distinct oncology contexts. AstraZeneca's TRAVERSE
+is a Phase 2 multi-site trial in patients with treatment-naive mantle
+cell lymphoma, with participation from The University of Texas MD
+Anderson Cancer Center and the University of Pennsylvania. Amgen's
+STREAM-SCLC is a Phase 1b trial in patients with limited-stage small
+cell lung carcinoma, with final site selection in process at the time
+of the announcement. The FDA met with each sponsor to establish
+criteria for reporting signals in real time, and validated the
+technical framework for AstraZeneca's trial through Paradigm Health.
+Paradigm Health acts as the validated technical conduit between the
+sites, the sponsor, and the FDA real-time stream.
+
+Chief AI Officer Jeremy Walsh stated: \emph{"Real-time trials have been
+talked about for years. We demonstrated that it is not only possible,
+but also potentially transformative for the clinical trials ecosystem.
+We have to consider our processes from the standpoint of a patient
+awaiting a potentially powerful treatment."} The Request for
+Information seeks community input on pilot program design, evaluation
+metrics, and success criteria, with the comment period closing on 29
+May 2026, final selection criteria disseminated in July 2026, and
+pilot selections completed in August 2026.
+
+The FDA framed real-time trials as an important step toward facilitating
+\emph{continuous} trials. At present, most clinical development occurs
+in discrete phases, run according to a protocol and typically as a
+separate study. There is generally a hiatus in the development program
+after one phase ends and the next begins, slowing the pace of product
+development. Because real-time trials allow the FDA to view key
+insights as the trial progresses, this hiatus could be eliminated or
+reduced to a minimum, enabling continuous trials. This continuous
+framework is the regulatory stage on which the four simulations in
+this paper operate.
+
+\subsection{Current AI Patient Prediction Capabilities}
+\label{sec:intro-ai-baseline}
+
+The current oncology AI patient-prediction landscape is heterogeneous,
+narrow, and largely retrospective. The architectural reality is that
+today's deployed prediction systems are not general-purpose reasoning
+agents, but rather a collection of task-specific supervised models
+fitted to fixed feature sets. Common architectures include ridge Cox
+regression, support vector machines, random survival forests, gradient
+boosted trees such as XGBoost, and elastic net classifiers
+\cite{Smiley2025OncologyMLReportingQuality}. Methodological and
+reporting quality remain mixed; many published models report a single
+internal validation cohort with no external test, no fairness audit,
+and limited prospective signal. The Huang 2025 systematic review and
+meta-analysis of machine learning versus traditional Cox regression for
+survival prediction in cancer using real-world data found a
+standardized mean difference of 0.01 with a 95\% confidence interval
+of -0.01 to 0.03, a null result that should temper any claim that
+machine learning per se delivers a routine survival-prediction
+advantage on structured tabular features
+\cite{Huang2025CancerSurvivalMetaAnalysis}.
+
+Short-horizon mortality prediction from electronic health record data
+is the most mature application of supervised oncology AI. Manz 2020
+validated a gradient boosting model to predict 180-day mortality for
+24,582 outpatients with cancer, reporting an area under the receiver
+operating characteristic curve of 0.89, a positive predictive value of
+45.2 percent at the 40 percent decision threshold, and a 4 to 8 day
+prospective lead time over routine clinical assessment
+\cite{Manz2020Oncology180DayMortality}. Sidey-Gibbons 2022 showed that
+patient-reported-outcome-only models can reach AUROC values of 0.69 to
+0.76 for 180-day mortality in women with ovarian cancer, evidence that
+even sparse non-clinical features carry useful prognostic signal
+\cite{SideyGibbons2022OvarianPROMortality}. The ceiling for these
+short-horizon EHR-based systems sits in the 0.80 to 0.89 AUROC range
+across cohorts, and the ceiling has been stable for several years.
+
+Adverse-event and hospitalization prediction during cancer treatment
+is the application area in which supervised AI has produced its
+strongest prospective evidence. Hong 2020 published the SHIELD-RT
+prospective randomized study, which used a machine learning model to
+direct twice-weekly clinical evaluations during radiation and
+chemoradiation, and reported a 45 percent relative reduction in
+acute-care events and a 48 percent reduction in associated costs
+\cite{Hong2020SHIELDRT}. Elia 2025 reported a multi-institutional
+external validation of SHIELD-RT across approximately 22,000 courses,
+with AUROC values of 0.756 to 0.770 across the validation institutions
+\cite{Elia2025SHIELDRTExternalValidation}. Li 2022 used XGBoost to
+predict short-term cardiotoxicity in colorectal cancer patients
+starting fluoropyrimidine-based chemotherapy at AUC 0.816
+\cite{Li2022FluoropyrimidineCardiotoxicity}. Cai 2024 reported that
+treatment-relevant toxicity in breast cancer patients undergoing
+neoadjuvant systemic treatment can be predicted at AUROC 0.75 when
+dose-intensity features are added \cite{Cai2024BreastCancerToxicityPrediction}.
+Ugwu 2026 reported a 2026 systematic review and meta-analysis of head
+and neck radiation toxicity AI models with a pooled AUROC of 0.76
+\cite{Ugwu2026HeadNeckRadiationToxicityMeta}.
+
+Medium and long-horizon survival prediction has matured through
+multimodal weakly supervised models. Li 2025 reported AIM-LCpro for
+non-small cell lung cancer with a C-index of 0.785 to 0.804 on internal
+test data and 0.693 to 0.749 on external cohorts
+\cite{Li2025AIMLCpro}. Yuan 2025 reported PROGPATH, a pancancer Vision
+Transformer foundation model for prognosis, with C-indices of 0.713 to
+0.805 across 17 external cohorts, the broadest pancancer evaluation
+reported to date \cite{Yuan2025PROGPATH}. The 2025 image-based lung
+cancer meta-analysis reported a pooled sensitivity of 0.83, a pooled
+specificity of 0.83, and a pooled AUC of 0.90 across image-only
+classifiers \cite{Yuan2025LungImageMeta}.
+
+Response and progression prediction under immune checkpoint inhibition
+is the application area with the most active multimodal research.
+Yoo 2025 published SCORPIO, a routine-blood-test-and-clinical-data model
+with a median time-dependent AUC of 0.763 on hold-out and 0.725 on
+external validation \cite{Yoo2025SCORPIO}. Vanguri 2022 integrated
+radiology, pathology, and genomics for response to PD-(L)1 blockade in
+non-small cell lung cancer at AUC 0.80
+\cite{Vanguri2022MultimodalPDL1NSCLC}. Captier 2025 reported a
+late-fusion model that integrates clinical, pathological, radiological,
+and transcriptomic data with a C-index of 0.75 for overall survival
+and AUC 0.81 for one-year death \cite{Captier2025MultimodalNSCLCImmunotherapy}.
+Arango-Argoty 2025 reported PBMF, a contrastive learning approach to
+predictive biomarker discovery designed to improve clinical trial
+outcomes \cite{ArangoArgoty2025PBMF}. Xu 2025 reported a multimodal
+fusion system in unresectable hepatocellular carcinoma
+\cite{Xu2025MMF}. Zhao 2023 reported anti-PD-1 radiomics in advanced
+breast cancer at AUC 0.86 on internal test \cite{Zhao2023BreastRadiomics}.
+Iivanainen 2021 used XGBoost on electronic patient-reported outcomes
+to predict immune-related adverse events
+\cite{Iivanainen2021irAE}. Brouwer 2025 used smartphone step count
+data to predict clinical outcomes in patients with cancer receiving
+systemic treatment \cite{Brouwer2025StepCount}. Sun 2024 modeled
+patient health signals to inform long-term survival on immune
+checkpoint inhibitor therapy \cite{Sun2024HealthSignals}.
+Seyednasrollah 2017 organized a DREAM challenge to build prediction
+models for short-term discontinuation of docetaxel in metastatic
+castration-resistant prostate cancer, and Deng 2020 extended the
+challenge with a treatment stratification model in the same disease
+\cite{Seyednasrollah2017Docetaxel, Deng2020mCRPC}.
+
+The reporting and methodological floor is set by two recent guidance
+papers. Collins 2024 published the TRIPOD+AI statement, an updated
+guidance for reporting clinical prediction models that use regression
+or machine learning methods \cite{Collins2024TRIPODAI}. El Emam 2024
+published the Consolidated Reporting Guidelines for Prognostic and
+Diagnostic Machine Learning Models (CREMLS), which extend the TRIPOD+AI
+recommendations toward operational deployment \cite{ElEmam2024CREMLS}.
+Both standards apply to any new predictive system, including the
+LLM-based simulations in this paper, that is intended for clinical
+deployment.
+
+The operational gaps left by this baseline are the subject of the rest
+of this paper. The supervised models named above are retrospectively
+trained, narrow per task, restricted to homogeneous endpoints inside
+each task, and not coupled to a real-time signal-sharing channel
+between sites, sponsors, and the FDA. They cannot ingest a heterogeneous
+mix of protocol text, EHR records, robotic telemetry, regulatory
+adaptations, and ASCII facility diagrams in a single inference pass.
+They cannot emit a structured commit at hourly cadence to a public
+GitHub repository. The four author simulations in this paper address
+each of these gaps using a different architectural premise: a single
+Claude Code Opus 4.7 Max instance with a 1M token context window holds
+the entire trial repository in context and emits hour-by-hour patient
+predictions, safety signals, and forecasts.
+
+\subsection{Transition to the Four Simulations}
+\label{sec:intro-transition}
+
+Repository-scale processing with a 1M token context window is the
+computational signature that separates this work from the supervised
+baselines named in \S\ref{sec:intro-ai-baseline}. Claude Code Opus 4.7
+Max can hold the protocol, regulatory, robotic, EHR, and ASCII-diagram
+content of an entire oncology trial in a single inference pass and
+emit hour-by-hour patient predictions, safety signals, and forecasts
+at a cadence and depth that the narrow supervised models in current
+oncology trial practice have not demonstrated
+\cite{claude-opus-47, claude-code}. The thesis is computational and
+contextual, not a head-to-head AUROC benchmark on a fixed test cohort;
+the comparisons in \S\ref{sec:discussion} are scoped accordingly.
+
+This paper documents four author Physical AI oncology trial
+simulations. Simulation 1 is the Continuous National 24/7 RTCT, a
+clinical trial site simulation across four sites (Houston,
+Philadelphia, Boston, Texas Medical Center) and 116 robot instances,
+with hour-by-hour text artifacts in
+\path{new-trial/national-24-7-trial/hour-00} through \path{hour-55} and
+the extra-hours block \path{extra-hours/hour-56} through \path{hour-83}
+that contains approximated diagrams \cite{kawchak_2026_19176370,
+kawchak_2026_19244918}. Simulation 2 is the Single-Patient 10-Stage
+Journey, a clinical trial site simulation that follows patient
+PAT-2026-0042 through ten Python-orchestrated stages from
+pre-screening to closeout
+\cite{kawchak_2026_19119939, kawchak_2026_18810541}. Simulation 3 is
+the 24-Hour Autonomous Sponsor, a clinical trial sponsor simulation
+that runs 53 core agents organized into four governance, study
+execution, site/robotics, and trust layers \cite{kawchak_2026_19396256}.
+Simulation 4 is the 168-Hour 7-Day Sponsor Extension, a clinical trial
+sponsor simulation that produces 525 ASCII diagrams, 168 Python
+scripts, 168 JSON outputs, and a complete local-verification run on a
+2015 Intel Core i5-6200U laptop with 4 GB of RAM
+\cite{kawchak_2026_19396256}. The on-screen Table of Contents follows
+directly after this introduction on a fresh page.
