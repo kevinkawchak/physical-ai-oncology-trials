@@ -14,7 +14,7 @@
 
 This repository provides production-ready configurations, validated pipelines, and integration guides for deploying robotic systems, digital twins, and embodied AI agents in oncology. 
 
-**5/3: v3.5.0 (Accelerated Patient Prediction Paper Template)** *LaTeX template at new-trial/national-24-7-trial/paper/ with bracketed processing instructions for "Accelerated Patient Prediction in Physical AI Oncology Clinical Trials: Four Comprehensive LLM Simulations"* - Skeleton, style, bibliography, and per-section directives that reference the four author simulations (continuous RTCT, single-patient journey, 24-hour sponsor, 168-hour 7-day extension) plus the FDA April 28 2026 RTCT announcement. [![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.19994945-blue)](https://doi.org/10.5281/zenodo.19994945)
+**5/3: v3.5.0 (Accelerated Patient Prediction Paper Template)** *LaTeX template at new-trial/national-24-7-trial/paper/ & instructions for "Accelerated Patient Prediction in Physical AI Oncology Clinical Trials: Four Comprehensive LLM Simulations"* [![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.19994945-blue)](https://doi.org/10.5281/zenodo.19994945)
 
 **5/1: v3.4.2 (National 24/7 Continuous RTCT)** *National 24/7 Continuous Real-Time Clinical Trial Simulation - FDA April 2026 Response* - Indefinite-duration continuous trial across 4 sites with 116 robots, minute-resolution per hour, 24 commits/day. [![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.18445179-blue)](https://github.com/kevinkawchak/physical-ai-oncology-trials/tree/main/new-trial/national-24-7-trial)
 
