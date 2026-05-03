@@ -1,0 +1,293 @@
+% ======================================================================
+% SECTION 3: RESULTS
+% Four subsections, one per simulation. Each subsection has the same
+% internal layout: (i) what was generated, (ii) advantages, (iii)
+% disadvantages, (iv) one or more comprehensive ASCII diagrams to embed
+% verbatim with \begin{verbatim} ... \end{verbatim}, and (v) hour-level
+% or stage-level patient-and-robot examples to call out by name.
+% ======================================================================
+
+\subsection{Simulation 1: Continuous National 24/7 Real-Time Clinical Trial}
+\label{sec:results-sim1}
+
+[PROCESSING INSTRUCTION (Simulation 1, 5 to 8 paragraphs): Read the
+README at new-trial/national-24-7-trial/README.md and every per-hour file
+in new-trial/national-24-7-trial/hour-00/ through hour-55/ plus
+new-trial/national-24-7-trial/extra-hours/hour-56/ through hour-83/
+(seven files per hour: simulation.md, robot\_logs.md, patient\_records.md,
+psl\_scores.md, diagram\_facility.txt, diagram\_patient\_flow.txt,
+diagram\_robot\_status.txt). Read the final-commit summary at
+new-trial/final-commit/final\_24h\_summary.md.
+
+Write a results subsection that opens by stating the scope: 84 hours of
+continuous trial coverage (hour-00 through hour-83) generated in response
+to the FDA 28 April 2026 RTCT announcement, with 4 sites (Houston,
+Philadelphia, Boston, Texas Medical Center) and 116 robot instances
+streaming endpoints to a Paradigm Health-style aggregator, then to the
+FDA real-time API. Quote the C-PSL (Continuity-PSL) rolling 24-hour
+metric introduced for continuous trials.
+
+Include the following sample comprehensive ASCII diagrams verbatim:
+\begin{itemize}[leftmargin=*]
+\item hour-00: hour\_00\_diagram\_facility.txt (network kickoff state)
+\item hour-12: hour\_12\_diagram\_facility.txt (mid-day peak utilization)
+\item hour-12: hour\_12\_diagram\_patient\_flow.txt (cross-site flow)
+\item hour-23: hour\_23\_diagram\_robot\_status.txt (end-of-day-1 robots)
+\item hour-47: hour\_47\_diagram\_facility.txt (day-2 close, comparison)
+\item extra-hours/hour-72: hour\_72\_diagram\_facility.txt (day-3 close)
+\item final-commit/final\_diagram\_facility.txt (cumulative summary)
+\end{itemize}
+
+Identify the following individual patient and robot examples by name and
+hour, drawn from the per-hour patient\_records.md and robot\_logs.md files:
+\begin{itemize}[leftmargin=*]
+\item Hour 00, SITE-A patient PT-A-001 arrival and PSL initialization,
+plus RTPOS-01/TRACK-01 robot pair startup status.
+\item Hour 12, SITE-A four active sessions (RTPOS-03/TRACK-03 wrap,
+RTPOS-01/TRACK-01, IMAGE-04) with AE-002 resolution at 12:30 and the
+Paradigm Health aggregator state ("All UP. 8 endpoints + 1 AE-resolution").
+\item Hour 23, end-of-day-1 wrap with the cumulative C-PSL rolling
+metric and any unresolved safety signals.
+\item Hour 47, day-2 close with cross-site comparison and any cumulative
+PSL improvement vs hour-23.
+\item extra-hours/hour-83, the last approximated-diagram hour, noting in
+the prose that this hour is in the extra-hours subdirectory due to
+diagram approximation.
+\end{itemize}
+
+Advantages to highlight (one paragraph): repository-scale processing -
+Claude Code Opus 4.7 Max held all 168 patients across 4 sites and 116
+robots in a single inference window, generated 3 ASCII diagrams plus 4
+markdown files per hour without iterative human prompting, and emitted
+hourly real-time commits to GitHub at a 1-hour cadence (24 commits per
+day, 84 commits across the run). The minute-resolution per-hour
+simulation.md file produced finer-grained patient and robot timelines
+than any narrow supervised model can produce.
+
+Disadvantages (one paragraph): no separate code agents for local compute
+were provided in this simulation; the entire output is text-only (markdown
+plus ASCII), so the work is computationally cheap but offers no Python
+execution surface for downstream automation. Hours 56 through 83 were
+relocated to extra-hours/ because the diagrams contain approximations
+rather than minute-precise computations.
+
+Cite \cite{kawchak\_2026\_19176370} and \cite{fda2026realtime}.]
+
+\subsection{Simulation 2: Single-Patient 10-Stage Patient Journey}
+\label{sec:results-sim2}
+
+[PROCESSING INSTRUCTION (Simulation 2, 4 to 6 paragraphs): Read the
+README at patient-journey/README.md, the prior paper at
+patient-journey/paper/patient\_journey\_paper.tex, and every Python stage
+script: patient-journey/stage\_01\_prescreening.py through
+stage\_10\_closeout.py, plus the orchestrators
+patient-journey/master\_journey.py and patient-journey/patient\_state.py.
+Read the deliverables in patient-journey/deliverables/ and the diagrams
+in patient-journey/diagrams/.
+
+Write a results subsection that summarizes the journey of patient
+PAT-2026-0042, a 58-year-old female with Stage IIIB NSCLC adenocarcinoma
+(ECOG 1, PD-L1 65 percent, TMB 14 mut/Mb), through the 10 sequential
+stages: pre-screening, enrollment, digital twin initialization, robot
+qualification, robotic surgery, post-operative recovery, immunotherapy,
+federated learning, surveillance, and trial closeout. Reference the FDA
+cost-savings analysis (30 to 50 percent trial cost reductions, \$390M to
+\$650M against a \$1.3B baseline) and the regulatory adaptations (21 CFR
+312, 21 CFR 50, ICH E6(R3)).
+
+Include the following sample comprehensive ASCII diagrams verbatim:
+\begin{itemize}[leftmargin=*]
+\item patient-journey/diagrams/timeline\_progress.txt (timeline view)
+\item patient-journey/diagrams/regulatory\_progress.txt (regulatory view)
+\item patient-journey/diagrams/clinical\_progress.txt (clinical view)
+\item patient-journey/deliverables/ FDA cost-savings diagram
+\end{itemize}
+
+Identify the following individual stage-level events by name:
+\begin{itemize}[leftmargin=*]
+\item Stage 5 (stage\_05\_surgery.py): da Vinci Xi robotic lobectomy at
+USL 87.5, 168-minute procedure, R0 resection with negative margins.
+\item Stage 7 (stage\_07\_immunotherapy.py): 35 pembrolizumab cycles
+managed by Franka Emika at USL 88.75, complete response with recurrence
+risk declining from 35 percent to 3 percent over 36 months of event-free
+survival.
+\item Stage 9 (stage\_09\_surveillance.py): federated learning surveillance
+state and any per-cycle digital twin updates.
+\end{itemize}
+
+Advantages (one paragraph): single-patient depth - this simulation
+produces the most regulatory-grounded patient prediction in the four,
+because every stage is mapped to a specific 21 CFR / ICH section, the
+cost-savings analysis ties safety and efficacy predictions to dollar
+figures, and the journey produces 12 Python modules accessible at every
+commit. Real-time human monitorability is documented by timestamped text
+diagrams.
+
+Disadvantages (one paragraph): the simulation is restricted to a single
+patient and is not as extensive as the multi-patient continuous trial in
+Simulation 1. There is no national network model and no multi-site
+aggregation. The single-patient orientation limits population-level
+prediction calibration to TRIPOD+AI / CREMLS standards.
+
+Cite \cite{kawchak\_2026\_19119939}, \cite{Collins2024TRIPODAI}, and
+\cite{ElEmam2024CREMLS}.]
+
+\subsection{Simulation 3: 24-Hour Autonomous Sponsor with Many Agents}
+\label{sec:results-sim3}
+
+[PROCESSING INSTRUCTION (Simulation 3, 5 to 7 paragraphs): Read the
+README at sponsor/final\_paper/README.md and the script directories:
+sponsor/final\_paper/scripts/core\_agents/ (53 agent .py files plus
+\_\_init\_\_.py), sponsor/final\_paper/scripts/coordination/ (4
+coordination modules), sponsor/final\_paper/scripts/dashboard/,
+sponsor/final\_paper/scripts/diagrams/ (75 ASCII diagrams),
+sponsor/final\_paper/scripts/hourly/sponsor\_hour\_00.py through
+sponsor\_hour\_23.py, sponsor/final\_paper/scripts/safety/, and
+sponsor/final\_paper/scripts/sponsor\_server/. Read the JSON outputs at
+sponsor/final\_paper/scripts/hourly/output/sponsor\_hour\_00.json through
+sponsor\_hour\_23.json and the cumulative
+sponsor/final\_paper/scripts/output/sponsor\_24h\_summary.json.
+
+Write a results subsection that summarizes the 24-hour autonomous sponsor
+operating system. State the agent count (53 core agents organized into 4
+layers: governance, study execution, site/robotics, trust), the script
+count (24 hourly scripts, 75 ASCII diagrams, 24 JSON outputs), and the
+PSL trajectory across the day.
+
+Include the following sample comprehensive ASCII diagrams verbatim:
+\begin{itemize}[leftmargin=*]
+\item sponsor/final\_paper/scripts/diagrams/agent\_workload\_hour\_00.txt
+(start of day workload by agent)
+\item sponsor/final\_paper/scripts/diagrams/agent\_workload\_hour\_12.txt
+(mid-day peak; this file is 34 tasks total across 12 agents, with
+clinops\_agent at 5 tasks and clinical\_accountability\_agent at 4 tasks
+and 1 escalation)
+\item sponsor/final\_paper/scripts/diagrams/agent\_workload\_hour\_23.txt
+(end of day workload)
+\item one cumulative diagram drawn from sponsor\_24h\_summary.json
+\end{itemize}
+
+Identify the following individual hour-level patient and robot examples
+by name:
+\begin{itemize}[leftmargin=*]
+\item Hour 00, overnight, 2 patients: name the two patients from
+sponsor\_hour\_00.json and the robot authorization decisions made by
+robot\_execution\_gateway.
+\item Hour 12, mid-day peak, 5 patients: identify the safety\_agent
+escalation and the clinical\_accountability\_agent decision flow.
+\item Hour 23, overnight, 2 patients: identify the day-end audit trail
+manager final state.
+\end{itemize}
+
+Advantages (one paragraph): the sponsor simulation includes the largest
+number of agents in the four-simulation set (53 core agents), the largest
+number of ASCII diagrams (75), and an end-to-end FastAPI sponsor server
+under sponsor/final\_paper/scripts/sponsor\_server/ that exposes 5 API
+endpoints. The 24 Python scripts plus 24 JSON files give downstream
+analytics a structured execution surface that Simulation 1 lacks.
+
+Disadvantages (one paragraph): the simulation lacks some of the advanced
+detail of the continuous-trial Simulation 1, notably the minute-resolution
+per-hour simulation.md narrative. The 24-hour scope, while complete, does
+not exercise multi-day continuity that Simulation 4 introduces.
+
+Cite \cite{kawchak\_2026\_19396256}.]
+
+\subsection{Simulation 4: 168-Hour 7-Day Extension with Local Verification}
+\label{sec:results-sim4}
+
+[PROCESSING INSTRUCTION (Simulation 4, 6 to 9 paragraphs): Read the
+README at sponsor/final\_paper/168\_hours/README.md and the day-level
+directories sponsor/final\_paper/168\_hours/day\_01/ through
+sponsor/final\_paper/168\_hours/day\_07/. Each day directory contains
+hourly/sponsor\_hour\_NNN.py (24 scripts per day, 168 total),
+hourly/output/sponsor\_hour\_NNN.json (168 JSON outputs total),
+diagrams/agent\_workload\_hour\_NNN.txt (75 per day, 525 total), and a
+day-level summary. Read the local verification README at
+sponsor/final\_paper/168\_hours/instructions/core\_i5\_6200u\_4gb/README.md
+and the verification output at
+sponsor/final\_paper/168\_hours/instructions/core\_i5\_6200u\_4gb/sponsor\_168h\_summary.json.
+Also read the orchestrators _commit_hour.sh, \_config.py, \_gen\_day\_summary.py,
+\_gen\_hourly.py, \_gen\_init.py, and run\_168h\_simulation.py at
+sponsor/final\_paper/168\_hours/.
+
+Write a results subsection that summarizes the 7-day extension. State
+the cumulative metrics from the 168-hour summary: 168 hours, 2,016
+sponsor decisions, 1,336 patients processed, 125 escalations, 1,336 robot
+authorizations, PSL start 63.4 to PSL end 70.0 (improvement +6.6), 525
+text diagrams, 168 Python scripts, 168 JSON output files, 7 daily summary
+files, 7 branches, 168 GitHub commits, 7 PRs.
+
+Include the following sample comprehensive ASCII diagrams verbatim:
+\begin{itemize}[leftmargin=*]
+\item day\_01/diagrams/agent\_workload\_hour\_000.txt (initialization)
+\item day\_03/diagrams/agent\_workload\_hour\_071.txt (safety day end)
+\item day\_05/diagrams/agent\_workload\_hour\_119.txt (analysis day end)
+\item day\_07/diagrams/agent\_workload\_hour\_167.txt (closeout)
+\item one cumulative 7-day text diagram drawn from
+sponsor\_168h\_summary.json
+\end{itemize}
+
+Identify the following individual day-level and hour-level patient and
+robot examples by name:
+\begin{itemize}[leftmargin=*]
+\item Day 1 (H000-H023, 168 patients, PSL 63.4 to 64.8): name the
+initialization patient cohort and the first day's escalations from
+day\_01/hourly/output/sponsor\_hour\_000.json through
+sponsor\_hour\_023.json.
+\item Day 3 (H048-H071, 218 patients, PSL 66.0 to 67.0): name the safety
+day events and the robot\_execution\_gateway authorization counts.
+\item Day 5 (H096-H119, 195 patients, PSL 68.0 to 68.8): name the
+analysis-day biostats agent decisions.
+\item Day 7 (H144-H167, 150 patients, PSL 69.5 to 70.0): name the
+closeout patient cohort and the audit\_trail\_manager final state.
+\end{itemize}
+
+The local verification block (one paragraph, importance critical):
+explain that
+sponsor/final\_paper/168\_hours/instructions/core\_i5\_6200u\_4gb/README.md
+documents a complete 7-day run on a 2015-vintage Intel Core i5-6200U
+laptop with 4 GB RAM running Windows 10 Pro, including hardware-specific
+mitigations (thermal throttling, Windows Update disable, antivirus
+exclusion, pagefile sizing). The fact that a 168-hour autonomous sponsor
+simulation completes on this hardware proves that the computational
+overhead is not the limiting factor for AI-driven oncology trial patient
+prediction, which directly contradicts a common objection that LLM-scale
+prediction requires data-center hardware. The sponsor\_168h\_summary.json
+output from that run mirrors the cloud run output, and the agent scripts
+under day\_NN/hourly/ that were partially verified locally on this
+hardware are listed by file name. Tie this to the FDA RTCT vision: a
+small hospital site running a Core i5-6200U could in principle stream
+sponsor-side decisions to the FDA in real time without provisioning new
+infrastructure.
+
+Advantages (one paragraph): Simulation 4 extends Simulation 3 by a
+factor of 7, demonstrating multi-day continuity, week-scale PSL
+improvement (+6.6), and the largest agent-script footprint of the four
+simulations. The 168 GitHub commits across 7 branches and 7 PRs prove
+that an autonomous sponsor can also operate the version-control workflow
+of a real pharmaceutical organization.
+
+Disadvantages (one paragraph): like Simulation 3, this simulation lacks
+the minute-resolution narrative that Simulation 1 provides. The
+verification on a 4 GB laptop, while important, was partial - not every
+script executed end-to-end on that hardware, and downstream analytics
+must account for the partial-verification status.
+
+Cite \cite{kawchak\_2026\_19396256} and \cite{fda2026realtime}.]
+
+\subsection{Cross-Simulation Synthesis}
+\label{sec:results-synthesis}
+
+[PROCESSING INSTRUCTION (Synthesis, 2 to 3 paragraphs and 1 comprehensive
+ASCII comparison diagram): Compose a short closing subsection that draws
+the cross-simulation comparison. Render a single ASCII comparison diagram
+in a verbatim block with four columns (Simulation 1 through 4) and rows
+covering: scope, hours, patients, robots, ASCII diagrams generated,
+Python scripts generated, JSON outputs generated, GitHub commits, and
+local verification status. Source the row values from the per-simulation
+subsections above. Close with one sentence stating that the cross-
+simulation pattern - repository-scale 1M-token context, hourly commit
+cadence, and ASCII-diagram production - is the computational signature
+that distinguishes this work from the supervised baselines named in the
+Introduction.]
