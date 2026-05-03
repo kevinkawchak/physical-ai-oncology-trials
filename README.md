@@ -1,8 +1,8 @@
 # End-to-End Physical AI Unification of Oncology Clinical Trials
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Release](https://img.shields.io/badge/Release-v3.4.2-brightgreen.svg)](https://github.com/kevinkawchak/physical-ai-oncology-trials)
-[![Last Updated](https://img.shields.io/badge/Updated-April%202026-blue.svg)](https://github.com/kevinkawchak/physical-ai-oncology-trials)
+[![Release](https://img.shields.io/badge/Release-v3.5.0-brightgreen.svg)](https://github.com/kevinkawchak/physical-ai-oncology-trials)
+[![Last Updated](https://img.shields.io/badge/Updated-May%202026-blue.svg)](https://github.com/kevinkawchak/physical-ai-oncology-trials)
 [![Protocol](https://img.shields.io/badge/Protocol-MCP-purple.svg)](https://github.com/kevinkawchak/physical-ai-oncology-trials)
 [![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.18445179-blue)](https://doi.org/10.5281/zenodo.18445179)
 [![Python](https://img.shields.io/badge/Python-3.10%20|%203.11%20|%203.12-blue.svg)](https://www.python.org/)
@@ -13,6 +13,8 @@
 **Comprehensive developments for integrating physical AI into oncology clinical trials, by Claude Code Opus 4.6, Cowork; with Assistance from ChatGPT 5.4 Thinking and Google Gemini Search.**
 
 This repository provides production-ready configurations, validated pipelines, and integration guides for deploying robotic systems, digital twins, and embodied AI agents in oncology. 
+
+**5/3: v3.5.0 (Accelerated Patient Prediction Paper Template)** *LaTeX template at new-trial/national-24-7-trial/paper/ with bracketed processing instructions for "Accelerated Patient Prediction in Physical AI Oncology Clinical Trials: Four Comprehensive LLM Simulations"* - Skeleton, style, bibliography, and per-section directives that reference the four author simulations (continuous RTCT, single-patient journey, 24-hour sponsor, 168-hour 7-day extension) plus the FDA April 28 2026 RTCT announcement. [![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.19994945-blue)](https://doi.org/10.5281/zenodo.19994945)
 
 **5/1: v3.4.2 (National 24/7 Continuous RTCT)** *National 24/7 Continuous Real-Time Clinical Trial Simulation - FDA April 2026 Response* - Indefinite-duration continuous trial across 4 sites with 116 robots, minute-resolution per hour, 24 commits/day. [![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.18445179-blue)](https://github.com/kevinkawchak/physical-ai-oncology-trials/tree/main/new-trial/national-24-7-trial)
 
@@ -65,6 +67,35 @@ python unification/cross_platform_tools/framework_detector.py
 ```
 
 ---
+
+## Accelerated Patient Prediction Paper Template (v3.5.0)
+
+```
+  Four LLM Simulations           Paper Template                  Future Pass
+  (Inputs)                ---->  (this PR)                ---->  (Population)
+  +-------------------+          +---------------------+         +------------+
+  | Sim 1: 24/7 RTCT  |   --->   | main.tex            |   --->  | 70+ pages  |
+  | (84 hours x 7     |   --->   | new_paper.sty       |   --->  | Color      |
+  |  files, 4 sites,  |          | references.bib (35) |         | diagrams   |
+  |  116 robots)      |          | abstract.tex        |         | added in a |
+  | Sim 2: Patient    |   --->   | introduction.tex    |   --->  | second     |
+  | Journey (10       |          | methods.tex (prose) |         | author-    |
+  | stages, 1 patient)|          | results.tex (4 sims)|         | driven     |
+  | Sim 3: 24h        |   --->   | discussion.tex      |   --->  | pass       |
+  | Sponsor (24 .py,  |          | limitations.tex     |         |            |
+  | 53 agents, 75 dx) |          | conclusions.tex     |         | Senior     |
+  | Sim 4: 168h, 7d   |   --->   | back_matter.tex     |   --->  | author     |
+  | (525 dx, 168 .py, |          | LaTeX_Source_Files  |         | white-     |
+  | 7 PRs, Core i5)   |          | .zip (Overleaf)     |         | space pass |
+  +-------------------+          +---------------------+         +------------+
+           |                              |                            |
+           v                              v                            v
+  +-----------------------------------------------------------------------------+
+  |  v3.5.0: bracketed instructions naming exact directories and file paths,    |
+  |  ASCII diagrams to embed verbatim, individual patient and robot examples,   |
+  |  and DOIs and clickable URLs for every reference (GitHub + Zenodo).         |
+  +-----------------------------------------------------------------------------+
+```
 
 ## Autonomous Sponsor Architecture (v3.4.0)
 
@@ -165,7 +196,18 @@ physical-ai-oncology-trials/
 │   ├── national-24-7-trial/           # ★ National 24/7 Continuous RTCT (v3.4.2)
 │   │   ├── README.md                  # Continuous trial overview and FDA mapping
 │   │   ├── FDA-April-2026/            # Source FDA news release (28 Apr 2026)
-│   │   └── hour-00/ through hour-NN/  # Indefinite hourly folders, 7 files each
+│   │   ├── Background-A/              # Deep research chunk set A (17 bib entries)
+│   │   ├── Background-B/              # Deep research chunk set B (9 bib entries)
+│   │   ├── hour-00/ through hour-55/  # Hourly folders, 7 files each
+│   │   ├── extra-hours/               # hour-56 through hour-83 (approximated)
+│   │   └── paper/                     # ★ Paper Template (v3.5.0)
+│   │       ├── main.tex               # Document skeleton + global formatting brief
+│   │       ├── new_paper.sty          # Style file (arxiv-derived, CC BY 4.0)
+│   │       ├── references.bib        # 35 entries with DOIs and clickable URLs
+│   │       ├── orcid_icon.png        # Title-page ORCID hyperlink asset
+│   │       ├── README.md             # Paper-template documentation
+│   │       ├── LaTeX_Source_Files.zip # Overleaf-ready archive
+│   │       └── sections/              # 8 section .tex files
 │   └── site/                          # ★ Trial Site Documentation (v2.9.0)
 │       ├── README.md                  # Site documentation overview
 │       ├── 01-legislation-authorization/     # SB 1042 authorization act
