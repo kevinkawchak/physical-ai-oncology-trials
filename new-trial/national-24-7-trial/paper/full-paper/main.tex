@@ -1,0 +1,247 @@
+% ======================================================================
+% Accelerated Patient Prediction in Physical AI Oncology Clinical Trials:
+% Four Comprehensive LLM Simulations
+% Author: Kevin Kawchak, CEO ChemicalQDevice
+% Released: May 3rd, 2026
+% Location: new-trial/national-24-7-trial/paper/full-paper/main.tex
+% ======================================================================
+\documentclass[11pt]{article}
+\usepackage{new_paper}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{url}
+\usepackage[hidelinks, colorlinks=false, pdfborder={0 0 0}]{hyperref}
+\usepackage{booktabs}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{enumitem}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{tabularx}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{textcomp}
+\usepackage{microtype}
+\usepackage{float}
+\usepackage{ragged2e}
+\usepackage{multirow}
+\usepackage{makecell}
+\usepackage{caption}
+
+% ======================================================================
+% Header height adjustment to fix fancyhdr warning
+% ======================================================================
+\setlength{\headheight}{16pt}
+
+% Compact running header so the long title fits on one line
+\renewcommand{\shorttitle}{\scriptsize\scshape Accelerated Patient Prediction in Physical AI Oncology Clinical Trials}
+
+% ======================================================================
+% Paragraph spacing controls. Tuned to avoid large white spaces between
+% words (river spacing) while preserving justified text. The \sloppy
+% directive together with \emergencystretch prevents text from running
+% off the right margin without producing visible rivers.
+% ======================================================================
+\tolerance=1200
+\emergencystretch=3em
+\hbadness=2000
+\hyphenpenalty=50
+\exhyphenpenalty=50
+\sloppy
+
+% ======================================================================
+% Force all text to black (paper requirement: only black text). Hyperlinks
+% are kept black through the hypersetup below so a printed page is
+% indistinguishable from a screen view.
+% ======================================================================
+\color{black}
+\hypersetup{
+  urlcolor=black,
+  linkcolor=black,
+  citecolor=black,
+  filecolor=black
+}
+
+% ======================================================================
+% Allow URL line breaks at many characters so long DOI URLs do not run
+% off the right margin in the bibliography.
+% ======================================================================
+\def\UrlBreaks{\do\/\do-\do.\do=\do_\do?\do\&\do\%\do\a\do\b\do\c\do\d\do\e%
+\do\f\do\g\do\h\do\i\do\j\do\k\do\l\do\m\do\n\do\o\do\p\do\q\do\r\do\s\do\t%
+\do\u\do\v\do\w\do\x\do\y\do\z\do\A\do\B\do\C\do\D\do\E\do\F\do\G\do\H\do\I%
+\do\J\do\K\do\L\do\M\do\N\do\O\do\P\do\Q\do\R\do\S\do\T\do\U\do\V\do\W\do\X%
+\do\Y\do\Z}
+
+% ======================================================================
+% Code listing style for Python excerpts. Black-only foreground colors;
+% scriptsize so a listing fits inside the 6.5 inch text width without
+% overflow. Line numbers on the left for cross-reference.
+% ======================================================================
+\lstdefinestyle{pythonstyle}{
+  language=Python,
+  basicstyle=\ttfamily\scriptsize,
+  keywordstyle=\color{black}\bfseries,
+  stringstyle=\color{black},
+  commentstyle=\color{black}\itshape,
+  numbers=left,
+  numberstyle=\tiny\color{black},
+  stepnumber=1,
+  numbersep=5pt,
+  backgroundcolor=\color{white},
+  frame=single,
+  rulecolor=\color{black},
+  breaklines=true,
+  breakatwhitespace=false,
+  tabsize=4,
+  showstringspaces=false,
+  columns=flexible,
+  upquote=true,
+  literate={"}{\textquotedbl}1
+}
+\lstset{style=pythonstyle}
+
+% ======================================================================
+% ORCID icon command. The icon is rendered next to the author name on the
+% title page and links to the author's ORCID record.
+% ======================================================================
+\newcommand{\orcidicon}[1]{%
+\href{https://orcid.org/#1}{%
+\raisebox{-1pt}{\includegraphics[height=9pt]{orcid_icon.png}}}}
+
+% ======================================================================
+% Compact table column types (use \raggedright to avoid large interword
+% gaps inside cells). The L, C, R types take a width argument so each
+% table column can be tuned to keep all text inside the page margin.
+% ======================================================================
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
+\newcolumntype{C}[1]{>{\centering\arraybackslash}p{#1}}
+\newcolumntype{R}[1]{>{\raggedleft\arraybackslash}p{#1}}
+
+% ======================================================================
+% Caption style. Keep captions black, small, and left-justified so the
+% caption width matches the table or figure content.
+% ======================================================================
+\captionsetup{font=small,labelfont=bf,justification=raggedright,singlelinecheck=false}
+
+% ======================================================================
+% Verbatim environment width control. Render verbatim blocks at scriptsize
+% so long ASCII diagrams fit inside the 6.5 inch text width.
+% ======================================================================
+\makeatletter
+\renewcommand{\verbatim@font}{\ttfamily\scriptsize}
+\makeatother
+
+% ======================================================================
+% TITLE (Two Lines, Centered)
+% ======================================================================
+\title{Accelerated Patient Prediction in Physical AI Oncology\\
+Clinical Trials: Four Comprehensive LLM Simulations}
+
+\author{
+  Kevin Kawchak\hspace{2pt}\orcidicon{0009-0007-5457-8667} \\
+  CEO ChemicalQDevice\\
+  \href{https://doi.org/10.5281/zenodo.19994945}{10.5281/zenodo.19994945} \\
+}
+
+\date{May 3rd, 2026}
+
+% ======================================================================
+% BEGIN DOCUMENT
+% ======================================================================
+\begin{document}
+\maketitle
+
+% ======================================================================
+% ABSTRACT (on title page)
+% ======================================================================
+\begin{abstract}
+\input{sections/abstract}
+\end{abstract}
+
+% Disclaimer below abstract (mandatory text, do not modify)
+\begin{center}
+\footnotesize
+Disclaimer: This work is independent and is not endorsed or sponsored by any
+trial sponsor, FDA, CRO, site, IRB, regulator, or medical society; and was
+generated using Artificial Intelligence.
+\end{center}
+
+\keywords{Patient Prediction \and Physical AI \and Oncology Trials \and Real-Time Clinical Trials \and Large Language Models}
+
+\vspace{-0.2cm}
+
+% ======================================================================
+% SECTION 1: INTRODUCTION (starts on title page, continues after TOC)
+% ======================================================================
+\section{Introduction}
+\label{sec:introduction}
+\input{sections/introduction}
+
+% ======================================================================
+% TABLE OF CONTENTS (starts after Introduction ends)
+% ======================================================================
+\newpage
+\tableofcontents
+\newpage
+
+% ======================================================================
+% SECTION 2: METHODS
+% ======================================================================
+\section{Methods}
+\label{sec:methods}
+\input{sections/methods}
+\newpage
+
+% ======================================================================
+% SECTION 3: RESULTS
+% ======================================================================
+\section{Results}
+\label{sec:results}
+\input{sections/results}
+\newpage
+
+% ======================================================================
+% SECTION 4: DISCUSSION
+% ======================================================================
+\section{Discussion}
+\label{sec:discussion}
+\input{sections/discussion}
+\newpage
+
+% ======================================================================
+% SECTION 5: LIMITATIONS AND FUTURE WORK
+% ======================================================================
+\section{Limitations and Future Work}
+\label{sec:limitations}
+\input{sections/limitations_future}
+\newpage
+
+% ======================================================================
+% SECTION 6: CONCLUSIONS
+% ======================================================================
+\section{Conclusions}
+\label{sec:conclusions}
+\input{sections/conclusions}
+\newpage
+
+% ======================================================================
+% REFERENCES
+% ======================================================================
+\phantomsection
+\addcontentsline{toc}{section}{References}
+\begingroup
+\raggedright
+\bibliographystyle{ieeetr}
+\bibliography{references}
+\endgroup
+\newpage
+
+% ======================================================================
+% BACK MATTER (Acknowledgments, Ethical disclosures, Rights and permissions,
+% Cite this article)
+% ======================================================================
+\input{sections/back_matter}
+
+\end{document}
