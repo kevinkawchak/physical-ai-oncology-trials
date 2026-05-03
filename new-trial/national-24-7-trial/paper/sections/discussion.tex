@@ -1,0 +1,100 @@
+% ======================================================================
+% SECTION 4: DISCUSSION
+% Refers back to Results subsections by label and to the FDA news plus
+% the Background-A / Background-B baselines. Three thematic blocks.
+% ======================================================================
+
+[PROCESSING INSTRUCTION (Discussion block 1 - Comparison to FDA RTCT, 3
+to 4 paragraphs): Read the FDA source at
+new-trial/national-24-7-trial/FDA-April-2026/FDA\_RealTime\_Clinical\_Trials.md
+in full and the per-hour facility diagrams from Simulation 1
+(hour\_00\_diagram\_facility.txt, hour\_12\_diagram\_facility.txt,
+hour\_23\_diagram\_facility.txt, hour\_47\_diagram\_facility.txt) plus the
+Simulation 4 day-end diagrams day\_01/diagrams/agent\_workload\_hour\_023.txt
+through day\_07/diagrams/agent\_workload\_hour\_167.txt.
+
+Discuss how the four author simulations relate to the FDA's stated path
+toward continuous trials. The FDA's announcement frames real-time signal
+sharing as "demonstrated proof-of-concept" with two trials (TRAVERSE and
+STREAM-SCLC) and one validated technical conduit (Paradigm Health). The
+four simulations in this paper extend that proof-of-concept by:
+\begin{itemize}[leftmargin=*]
+\item Simulation 1: implementing a Paradigm Health-style aggregator and
+the FDA real-time API stream across 4 sites and 116 robots, at minute
+resolution, for 84 hours.
+\item Simulation 2: grounding a single-patient real-time prediction
+trajectory in three adapted regulatory frameworks (21 CFR 312, 21 CFR 50,
+ICH E6(R3)).
+\item Simulations 3 and 4: scaling the autonomous sponsor side of the
+FDA framework from 24 hours (53 agents, 75 diagrams) to 168 hours (525
+diagrams) with 168 GitHub commits across 7 branches.
+\end{itemize}
+Frame the FDA respectfully throughout. The four simulations are
+opportunistic extensions of the FDA's real-time vision, not critiques of
+it; each simulation produces an artifact the FDA RTCT pilot program could
+in principle ingest.]
+
+[PROCESSING INSTRUCTION (Discussion block 2 - Comparison to current AI
+prediction methods, 4 to 6 paragraphs): Read Background-A chunks 01 and
+02 and Background-B chunks 01 and 02 in full. Reference the Results
+subsections (\ref{sec:results-sim1}, \ref{sec:results-sim2},
+\ref{sec:results-sim3}, \ref{sec:results-sim4}, \ref{sec:results-synthesis})
+when comparing.
+
+Discuss how repository-scale Claude Code processing differs from the
+narrow supervised baselines named in the Introduction:
+\begin{itemize}[leftmargin=*]
+\item Manz 2020 (AUC 0.89 from a single fixed feature set) versus the
+hour-resolution patient narrative emitted by Simulation 1's
+hour\_NN\_simulation.md and hour\_NN\_patient\_records.md, which
+incorporates protocol, robotic telemetry, EHR fields, and PSL scoring in
+the same inference pass.
+\item SHIELD-RT (one prospective RCT in radiotherapy) versus the 116-
+robot, 4-site continuous network in Simulation 1 and the 1,336-patient
+168-hour cumulative throughput in Simulation 4.
+\item SCORPIO and PROGPATH (single-modality and pancancer foundation
+models for survival) versus the cross-modal repository context that
+Claude Code holds in a 1M-token window across all four simulations.
+\item Huang 2025 null result (ML versus Cox regression on real-world
+structured data) versus the unstructured protocol-plus-telemetry-plus-
+ASCII-diagram input that the four simulations actually consume - a class
+of input that the supervised baselines cannot ingest at all.
+\end{itemize}
+Be careful: the comparison is computational and contextual, not a head-
+to-head AUROC benchmark. Make this distinction explicit in the prose so
+the discussion does not overstate. Acknowledge that TRIPOD+AI and CREMLS
+remain the reporting floor for any future deployment-grade extension of
+this work, and that the four simulations in this paper do not satisfy
+those reporting standards because they were not evaluated on real
+patients. Cite \cite{Huang2025CancerSurvivalMetaAnalysis},
+\cite{Manz2020Oncology180DayMortality}, \cite{Hong2020SHIELDRT},
+\cite{Yoo2025SCORPIO}, \cite{Yuan2025PROGPATH}, \cite{Collins2024TRIPODAI},
+and \cite{ElEmam2024CREMLS}.]
+
+[PROCESSING INSTRUCTION (Discussion block 3 - Significance for patient
+safety and efficacy prediction, 3 to 4 paragraphs): Conclude the
+discussion by stating, in measured prose, that the central significance
+of the four-simulation set is the demonstration that:
+\begin{itemize}[leftmargin=*]
+\item LLM-scale repository context (1M tokens) produces patient
+prediction artifacts at a cadence (1 hour) and depth (3 ASCII diagrams +
+4 markdown files per hour for Simulation 1; 24 Python scripts + 75
+diagrams + JSON output per hour for Simulation 3; equivalent at 168 hours
+for Simulation 4) that is not achievable by current narrow supervised
+oncology models.
+\item The same repository-scale context can be operated by an autonomous
+agent (sponsor in Simulations 3 and 4; site coordinator in Simulation 1;
+single-patient orchestrator in Simulation 2), opening a path to fully
+autonomous safety and efficacy prediction loops that the FDA RTCT pilot
+program is moving toward.
+\item Simulation 4's local verification on a Core i5-6200U with 4 GB RAM
+proves that the computational floor is far below typical data-center
+infrastructure - a result that strengthens the FDA's observation that
+real-time trials are "not only possible, but also potentially
+transformative."
+\end{itemize}
+Close this block by asserting that the work is opportunistic with respect
+to the FDA's framework: it offers concrete, file-level artifacts that the
+RTCT pilot program could ingest as inputs once real-patient validation is
+complete. Cite \cite{fda2026realtime}, \cite{kawchak\_2026\_19176370},
+\cite{kawchak\_2026\_19119939}, and \cite{kawchak\_2026\_19396256}.]
