@@ -1,0 +1,231 @@
+\documentclass{article}
+\usepackage{new_paper}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{url}
+\usepackage[hidelinks, colorlinks=false, pdfborder={0 0 0}]{hyperref}
+\usepackage{booktabs}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{enumitem}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{tabularx}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{textcomp}
+\usepackage{microtype}
+\usepackage{float}
+
+% Fix fancyhdr headheight warning
+\setlength{\headheight}{16pt}
+
+% Make running header title fit on one line with smaller font
+\renewcommand{\shorttitle}{\scriptsize\scshape Accelerated Patient Prediction in Physical AI Oncology Clinical Trials}
+
+% Justified text with proper word spacing (avoids large white spaces between words)
+\usepackage{ragged2e}
+\tolerance=1000
+\emergencystretch=2em
+\hbadness=2000
+
+% Force all text to black (paper requirement: only black text)
+\color{black}
+\hypersetup{
+  urlcolor=black,
+  linkcolor=black,
+  citecolor=black,
+  filecolor=black
+}
+
+% Allow URL line breaks at more characters so URLs do not run off the right side
+\def\UrlBreaks{\do\/\do-\do.\do=\do_\do?\do\&\do\%\do\a\do\b\do\c\do\d\do\e%
+\do\f\do\g\do\h\do\i\do\j\do\k\do\l\do\m\do\n\do\o\do\p\do\q\do\r\do\s\do\t%
+\do\u\do\v\do\w\do\x\do\y\do\z\do\A\do\B\do\C\do\D\do\E\do\F\do\G\do\H\do\I%
+\do\J\do\K\do\L\do\M\do\N\do\O\do\P\do\Q\do\R\do\S\do\T\do\U\do\V\do\W\do\X%
+\do\Y\do\Z}
+
+% Prevent overfull hbox and ensure proper word spacing
+\sloppy
+
+% [GLOBAL FORMATTING INSTRUCTION (ALL SECTIONS): When Claude Code Opus 4.7 Max
+% (1M token context) populates this template, the following formatting rules
+% apply to every paragraph, table, diagram, and ASCII figure in this paper.
+% These rules represent the final formatting steps a senior author would take
+% before submission. They are not optional.
+%
+% 1. NO text shall run off the right margin anywhere. If a long URL or token
+%    forces overflow, insert \UrlBreaks-friendly characters or a manual line
+%    break. Verify by visually scanning every page after each compile.
+% 2. NO large white spaces shall appear between words. Adjust \raggedright,
+%    \tolerance, and \emergencystretch as needed. If a paragraph still has
+%    visible river spacing, rephrase the offending sentence.
+% 3. NO single-word or two-word lines (orphans) shall remain at the end of
+%    paragraphs. Rephrase the prior sentence to either pull the orphan onto
+%    the previous line or push at least three words onto the orphan line.
+% 4. NO single line shall sit alone at the top of a page (widow) separated
+%    from its parent paragraph. Use \widowpenalty=10000 (already set in the
+%    .sty) and reflow text by editing wording.
+% 5. NO page shall have excessive empty white space without text. If a section
+%    ends two-thirds of the way down a page and the next \section{} starts on
+%    a new page, add at least one self-standing summary paragraph or a
+%    relevant ASCII diagram to fill the page. Some white space is acceptable
+%    (do not overcrowd) but every page should look self standing.
+% 6. ONLY black text is permitted throughout the entire paper. Do not introduce
+%    \color{} commands of any other color. Hyperlinks remain black per the
+%    \hypersetup above.
+% 7. Use SINGLE dashes (-) only. Do NOT use em dashes (---), double dashes
+%    (--), or triple dashes anywhere in the paper. Replace any em or en dashes
+%    introduced by AI generation with a single hyphen surrounded by spaces.
+% 8. Use the section symbol \S (rendered as the proper Unicode glyph) wherever
+%    the text "SS", "Section sign", or similar appears. Replace every "SS"
+%    that means a section reference with \S.
+% 9. Final compile order: pdflatex main.tex && bibtex main && pdflatex main.tex
+%    && pdflatex main.tex (run twice after bibtex so cross-references resolve).
+% 10. Each page should look properly formatted and self standing by itself.
+%     If a page contains only a partial paragraph, either pull text from the
+%     prior page or push the paragraph to start the next page cleanly.]
+
+% Code listing style for Python excerpts
+\lstdefinestyle{pythonstyle}{
+  language=Python,
+  basicstyle=\ttfamily\scriptsize,
+  keywordstyle=\color{black}\bfseries,
+  stringstyle=\color{black},
+  commentstyle=\color{black}\itshape,
+  numbers=left,
+  numberstyle=\tiny\color{black},
+  stepnumber=1,
+  numbersep=5pt,
+  backgroundcolor=\color{white},
+  frame=single,
+  rulecolor=\color{black},
+  breaklines=true,
+  breakatwhitespace=false,
+  tabsize=4,
+  showstringspaces=false,
+  columns=flexible
+}
+\lstset{style=pythonstyle}
+
+% ORCID icon command
+\newcommand{\orcidicon}[1]{%
+\href{https://orcid.org/#1}{%
+\raisebox{-1pt}{\includegraphics[height=9pt]{orcid_icon.png}}}}
+
+% Compact table column types (use \raggedright to avoid large gaps)
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
+\newcolumntype{C}[1]{>{\centering\arraybackslash}p{#1}}
+\newcolumntype{R}[1]{>{\raggedleft\arraybackslash}p{#1}}
+
+% ======================================================================
+% TITLE (Two Lines, Centered)
+% ======================================================================
+\title{Accelerated Patient Prediction in Physical AI Oncology\\
+Clinical Trials: Four Comprehensive LLM Simulations}
+
+\author{
+  Kevin Kawchak\hspace{2pt}\orcidicon{0009-0007-5457-8667} \\
+  CEO ChemicalQDevice\\
+  \href{https://doi.org/10.5281/zenodo.19994945}{10.5281/zenodo.19994945} \\
+}
+
+\date{May 3rd, 2026}
+
+% ======================================================================
+% BEGIN DOCUMENT
+% ======================================================================
+\begin{document}
+\maketitle
+
+% ======================================================================
+% ABSTRACT (on title page)
+% ======================================================================
+\begin{abstract}
+\input{sections/abstract}
+\end{abstract}
+
+% Disclaimer below abstract (mandatory text, do not modify)
+\begin{center}
+\footnotesize
+Disclaimer: This work is independent and is not endorsed or sponsored by any
+trial sponsor, FDA, CRO, site, IRB, regulator, or medical society; and was
+generated using Artificial Intelligence.
+\end{center}
+
+\keywords{Patient Prediction \and Physical AI \and Oncology Trials}
+
+\vspace{-0.2cm}
+
+% ======================================================================
+% SECTION 1: INTRODUCTION (starts on title page, continues after TOC)
+% ======================================================================
+\section{Introduction}
+\label{sec:introduction}
+\input{sections/introduction}
+
+% ======================================================================
+% TABLE OF CONTENTS (starts after Introduction ends)
+% ======================================================================
+\newpage
+\tableofcontents
+\newpage
+
+% ======================================================================
+% SECTION 2: METHODS
+% ======================================================================
+\section{Methods}
+\label{sec:methods}
+\input{sections/methods}
+\newpage
+
+% ======================================================================
+% SECTION 3: RESULTS
+% ======================================================================
+\section{Results}
+\label{sec:results}
+\input{sections/results}
+\newpage
+
+% ======================================================================
+% SECTION 4: DISCUSSION
+% ======================================================================
+\section{Discussion}
+\label{sec:discussion}
+\input{sections/discussion}
+\newpage
+
+% ======================================================================
+% SECTION 5: LIMITATIONS AND FUTURE WORK
+% ======================================================================
+\section{Limitations and Future Work}
+\label{sec:limitations}
+\input{sections/limitations_future}
+\newpage
+
+% ======================================================================
+% SECTION 6: CONCLUSIONS
+% ======================================================================
+\section{Conclusions}
+\label{sec:conclusions}
+\input{sections/conclusions}
+\newpage
+
+% ======================================================================
+% REFERENCES
+% ======================================================================
+\begingroup
+\raggedright
+\bibliographystyle{ieeetr}
+\bibliography{references}
+\endgroup
+\newpage
+
+% ======================================================================
+% BACK MATTER (Acknowledgments, Ethical disclosures, Rights and permissions,
+% Cite this article)
+% ======================================================================
+\input{sections/back_matter}
+
+\end{document}

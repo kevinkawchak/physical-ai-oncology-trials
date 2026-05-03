@@ -4,6 +4,40 @@ Release notes for the physical-ai-oncology-trials repository.
 
 ---
 
+Accelerated Patient Prediction Paper Template (Four LLM Simulations)
+v3.5.0 - Accelerated Patient Prediction Paper Template
+
+## Summary
+
+- Added a new LaTeX paper template at new-trial/national-24-7-trial/paper/ that defines the skeleton, style, bibliography, and per-section bracketed processing instructions for the manuscript "Accelerated Patient Prediction in Physical AI Oncology Clinical Trials: Four Comprehensive LLM Simulations"
+- The template is structured for downstream Claude Code Opus 4.7 Max (1M token context) processing: each of the bracketed instruction blocks names the exact repository directories, file paths, ASCII diagrams to embed verbatim, and individual patient and robot examples to call out by name
+- The four simulations covered are Simulation 1 (continuous RTCT in new-trial/national-24-7-trial/hour-00 through hour-55 plus extra-hours/hour-56 through hour-83), Simulation 2 (single-patient 10-stage journey in patient-journey/), Simulation 3 (24-hour autonomous sponsor in sponsor/final_paper/scripts/), and Simulation 4 (168-hour 7-day extension in sponsor/final_paper/168_hours/ with local verification on Core i5-6200U / 4 GB RAM hardware)
+- references.bib carries DOIs and clickable URLs for the FDA April 28 2026 RTCT announcement, the four author Zenodo simulation papers, all 17 Background-A entries, all unique Background-B entries, and the AI tooling references; every repository entry includes both GitHub and Zenodo URLs in its note field
+- Ships the Overleaf-ready ZIP at new-trial/national-24-7-trial/paper/LaTeX_Source_Files.zip containing main.tex, new_paper.sty, references.bib, orcid_icon.png, and the eight section .tex files
+
+## Features
+
+- main.tex skeleton with two-line centered title, ORCID hyperlink author block, abstract environment, introduction on the title page, table of contents, six body sections (Methods, Results, Discussion, Limitations and Future Work, Conclusions, plus the references and back matter), and a global formatting brief that codifies the senior-author white-space rules (no margin overflow, no orphan or widow lines, no excessive page-bottom white space, single dashes only, section symbol replacement for "SS", only black text)
+- new_paper.sty adapted from arxiv.sty (CC BY 4.0) with widow and orphan penalties at 10000 and tightened section spacing
+- references.bib with DOI, URL, and note triplets for every entry; ieeetr bibliography style; clickable DOIs in the rendered bibliography
+- sections/abstract.tex, introduction.tex, results.tex, discussion.tex, limitations_future.tex, and conclusions.tex contain the bracketed processing instructions naming exact directories such as new-trial/national-24-7-trial/Background-A/, new-trial/national-24-7-trial/Background-B/, new-trial/national-24-7-trial/FDA-April-2026/, sponsor/final_paper/scripts/core_agents/, sponsor/final_paper/168_hours/instructions/core_i5_6200u_4gb/, and the per-hour and per-day file sets
+- sections/methods.tex contains final prose covering AI generations (Claude Code Opus 4.7 Max, Claude Sonnet 4.6 Adaptive Thinking, ChatGPT Thinking 5.5 Extended Thinking Deep Research, Google Gemini AI Overview), author roles, repository inputs, build sequence, and CI compatibility
+- sections/back_matter.tex contains final prose for Acknowledgments, Ethical Disclosures, Rights and Permissions (CC BY 4.0), and Cite This Article, each anchored with \phantomsection plus \addcontentsline for proper hyperref bookmarks
+- All additions are LaTeX, Markdown, and PNG only; no Python or YAML files are introduced, so the existing lint-and-format CI workflow (ruff, yamllint) across Python 3.10, 3.11, and 3.12 remains green
+- main README.md, CHANGELOG.md, and new-trial/national-24-7-trial/README.md updated to reference the paper directory, the v3.5.0 release, and the four-simulation roadmap
+
+## Contributors
+@kevinkawchak
+@claude
+@openai
+@google-gemini
+
+## Notes
+
+The template ships only the skeleton plus instructions. The next Claude Code Opus 4.7 Max generation pass will populate every bracketed instruction block into final prose, expand the ASCII-diagram embeds drawn from per-hour and per-day output, and emit the final 70+ page PDF compiled in Overleaf. Color diagrams will be added in a separate generation pass driven by an author-written prompt. The author will then perform the senior-author white-space and table-column-width formatting pass to remove any orphans, widows, or large empty page regions before publication.
+
+---
+
 National 24/7 Continuous Real-Time Clinical Trial Simulation
 v3.4.2 - National 24/7 Continuous RTCT Simulation (FDA April 2026)
 

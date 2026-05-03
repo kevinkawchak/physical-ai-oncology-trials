@@ -3,7 +3,7 @@
 Released on 1 May 2026
 CEO Kevin Kawchak, ChemicalQDevice
 
-[![Release](https://img.shields.io/badge/Release-v3.4.2-brightgreen.svg)]()
+[![Release](https://img.shields.io/badge/Release-v3.5.0-brightgreen.svg)]()
 [![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.19194724-blue)](https://github.com/kevinkawchak/physical-ai-oncology-trials/tree/main/new-trial/national-24-7-trial)
 
 Note: Additional national-24-7-trial/extra-hours/ directory available for hours 56-83 approximated diagrams and markdowns.
@@ -70,12 +70,58 @@ new-trial/national-24-7-trial/
   FDA-April-2026/
     FDA_RealTime_Clinical_Trials.md - Source FDA news release (28 Apr 2026)
     README.md                       - FDA folder description
+  Background-A/                     - Deep research chunk set A (v3.4.2)
+    chunk_01_baseline_and_short_horizon.md
+    chunk_02_multimodal_and_limitations.md
+    chunk_03_bibtex.md              - 17 BibTeX references
+    README.md                       - Chunk navigation guide
+  Background-B/                     - Deep research chunk set B (v3.4.2)
+    chunk_01_baseline_and_prediction_domains.md
+    chunk_02_response_metrics_conclusions.md
+    chunk_03_bibtex_references.md   - 9 BibTeX references
+    README.md                       - Chunk navigation guide
   hour-00/                          - Hour 00 (7 files, minute resolution)
   hour-01/                          - Hour 01 (7 files, minute resolution)
-  ...                               - Continues indefinitely
-  hour-NN/                          - Last hour generated before token exhaust
-  final-commit/                     - Generated only at user-initiated stop
+  ...                               - Continues through hour-55
+  hour-55/                          - Last full minute-resolution hour
+  extra-hours/                      - hour-56 through hour-83 (approximated)
+  paper/                            - ★ Paper Template (v3.5.0)
+    main.tex                        - Document skeleton + global formatting brief
+    new_paper.sty                   - Style file (arxiv-derived, CC BY 4.0)
+    references.bib                  - 35 entries with DOIs and clickable URLs
+    orcid_icon.png                  - Title-page ORCID hyperlink asset
+    README.md                       - Paper-template documentation
+    LaTeX_Source_Files.zip          - Overleaf-ready archive of all paper files
+    sections/
+      abstract.tex                  - Bracketed instructions for the abstract
+      introduction.tex              - Bracketed instructions for the introduction
+      methods.tex                   - Final prose (no instructions)
+      results.tex                   - Bracketed instructions for the four sims
+      discussion.tex                - Bracketed instructions for the discussion
+      limitations_future.tex        - Bracketed instructions for limits + future
+      conclusions.tex               - Bracketed instructions for conclusions
+      back_matter.tex               - Acknowledgments, ethics, rights, citation
 ```
+
+## Paper Template (v3.5.0)
+
+The `paper/` directory contains the LaTeX skeleton for the manuscript
+"Accelerated Patient Prediction in Physical AI Oncology Clinical Trials:
+Four Comprehensive LLM Simulations" (Kawchak K., 2026, DOI:
+[10.5281/zenodo.19994945](https://doi.org/10.5281/zenodo.19994945)). The
+template carries bracketed processing instructions naming the exact files
+to read for each section (FDA-April-2026/, Background-A/, Background-B/,
+the four simulation directories under new-trial/, patient-journey/, and
+sponsor/final_paper/) and the comprehensive ASCII diagrams to embed
+verbatim. The next Claude Code Opus 4.7 Max generation pass will populate
+the bracketed instructions into final prose to produce a 70+ page PDF.
+
+| Simulation | Path | Headline output |
+|------------|------|-----------------|
+| 1. Continuous RTCT | `hour-00/` through `extra-hours/hour-83/` | 84 hrs x 7 files, 4 sites, 116 robots |
+| 2. Single-patient journey | `patient-journey/stage_01_*` to `stage_10_*` | 10 stages, 1120 days, PAT-2026-0042 |
+| 3. 24-hour sponsor | `sponsor/final_paper/scripts/` | 24 .py + 24 JSON + 75 ASCII + 53 agents |
+| 4. 168-hour 7-day | `sponsor/final_paper/168_hours/day_01/` to `day_07/` | 168 .py, 168 JSON, 525 ASCII, 7 PRs |
 
 ## Continuous Trial Model
 
@@ -140,5 +186,10 @@ mean of cumulative site PSL.
 ## Citation
 
 Kawchak, K. (2026). National 24/7 Continuous Real-Time Physical AI Oncology
-Clinical Trial Simulation. physical-ai-oncology-trials v3.4.2.
+Clinical Trial Simulation. physical-ai-oncology-trials v3.5.0.
 DOI: 10.5281/zenodo.18445179
+
+For the v3.5.0 paper template specifically, cite:
+Kawchak, K. (2026). Accelerated Patient Prediction in Physical AI Oncology
+Clinical Trials: Four Comprehensive LLM Simulations. Zenodo.
+DOI: [10.5281/zenodo.19994945](https://doi.org/10.5281/zenodo.19994945)

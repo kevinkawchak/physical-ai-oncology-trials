@@ -5,6 +5,36 @@ Format follows [Keep a Changelog](https://keepachangelog.com/).
 
 ## [Unreleased]
 
+## [3.5.0] - 2026-05-03
+
+### Added
+- new-trial/national-24-7-trial/paper/ - LaTeX paper template for "Accelerated Patient Prediction in Physical AI Oncology Clinical Trials: Four Comprehensive LLM Simulations" by Kevin Kawchak (10.5281/zenodo.19994945)
+- new-trial/national-24-7-trial/paper/main.tex - Document skeleton with two-line centered title, ORCID author block, abstract, introduction (on title page), table of contents, Methods, Results, Discussion, Limitations and Future Work, Conclusions, References, and back matter (Acknowledgments, Ethical Disclosures, Rights and Permissions, Cite This Article); includes a global formatting brief covering margin overflow, orphan/widow suppression, single-dash usage, section-symbol replacement, and black-text-only requirements
+- new-trial/national-24-7-trial/paper/new_paper.sty - Style file adapted from arxiv.sty (CC BY 4.0) with letterpaper geometry, Times/Helvetica fonts, widow and orphan penalties at 10000, fancyhdr running header, tightened section spacing, and arxiv-style abstract environment
+- new-trial/national-24-7-trial/paper/references.bib - 35 bibliography entries: the FDA April 28 2026 RTCT press announcement, four author Zenodo simulation references (kawchak_2026_19176370 site, kawchak_2026_19119939 patient journey, kawchak_2026_19396256 sponsor for Simulations 3 and 4, kawchak_2026_19994945 current paper, main-repo for the parent repository), all 17 Background-A entries, the 8 unique Background-B entries (Yoo2025SCORPIO is shared with Background-A and is included once), and 5 AI tooling references; every entry carries DOI, URL, and note triplets; repository entries include both GitHub and Zenodo URLs
+- new-trial/national-24-7-trial/paper/orcid_icon.png - ORCID icon asset reused for the title-page hyperlink to https://orcid.org/0009-0007-5457-8667
+- new-trial/national-24-7-trial/paper/README.md - File-structure documentation, four-simulation summary table mapping each simulation to its repository path and primary outputs, processing instructions for the next Claude Code 4.7 Max generation pass, and the citation block
+- new-trial/national-24-7-trial/paper/sections/abstract.tex - Bracketed instruction for a 900-character abstract covering FDA RTCT significance, the AI patient-prediction baseline (Manz 2020 AUC 0.89, SHIELD-RT, SCORPIO, PROGPATH, Huang 2025 null result), the four simulations, and a computational-advantage close
+- new-trial/national-24-7-trial/paper/sections/introduction.tex - Three-block introduction (FDA April 28 2026 announcement with Marty Makary and Jeremy Walsh quotes; AI baseline across five technical paragraphs from Background-A and Background-B; transition into the four simulations)
+- new-trial/national-24-7-trial/paper/sections/methods.tex - Final prose (no bracketed instructions) covering AI generations (Claude Code Opus 4.7 Max, ChatGPT Thinking 5.5, Claude Sonnet 4.6 Adaptive Thinking, Google Gemini AI Overview), author roles, repository inputs, build sequence, and CI compatibility
+- new-trial/national-24-7-trial/paper/sections/results.tex - Five subsections (one per simulation plus a cross-simulation synthesis) with file paths, comprehensive ASCII diagrams to embed verbatim, individual patient and robot examples by name, and per-simulation advantages and disadvantages
+- new-trial/national-24-7-trial/paper/sections/discussion.tex - Three blocks comparing the four simulations to the FDA RTCT proof-of-concept and to the supervised oncology AI baselines from Background-A and Background-B
+- new-trial/national-24-7-trial/paper/sections/limitations_future.tex - Per-simulation limits and two future-work tracks (Track A: single big model performing all tasks; Track B: single big model creating smaller local agents)
+- new-trial/national-24-7-trial/paper/sections/conclusions.tex - Five-paragraph closing block summarizing artifact counts, persistent themes, implications for patient prediction safety and effectiveness, key limitations, and the next generation pass
+- new-trial/national-24-7-trial/paper/sections/back_matter.tex - Final prose for Acknowledgments (Anthropic, OpenAI, Google Gemini AI Overview), Ethical Disclosures, Rights and Permissions (CC BY 4.0), and Cite This Article, each with \phantomsection for proper hyperref anchoring
+- new-trial/national-24-7-trial/paper/LaTeX_Source_Files.zip - Overleaf-ready ZIP containing main.tex, new_paper.sty, references.bib, orcid_icon.png, and the eight section .tex files
+
+### Changed
+- README.md - Updated version badge to v3.5.0, added the v3.5.0 paper-template entry, and added the new paper directory to the repository structure
+- CHANGELOG.md - Added v3.5.0 entry
+- releases.md - Added v3.5.0 release notes
+- new-trial/national-24-7-trial/README.md - Updated to reference the new paper/ subdirectory, the v3.5.0 release, and the four-simulation roadmap
+
+### Notes
+- Template only ships the skeleton plus bracketed processing instructions; the next Claude Code 4.7 Max generation pass will populate every block into final prose for the 70+ page PDF
+- All additions are LaTeX, Markdown, and PNG only; no Python or YAML files are introduced, so the lint-and-format CI workflow (ruff, yamllint) on Python 3.10/3.11/3.12 remains green
+- DOIs and clickable URLs are included for every reference; repository entries carry both GitHub and Zenodo URLs in the note field
+
 ## [3.4.2] - 2026-05-01
 
 ### Added
