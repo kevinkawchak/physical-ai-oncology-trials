@@ -1,0 +1,95 @@
+% ======================================================================
+% SECTION 6: CONCLUSIONS
+% Summary of accomplishments and persistent themes.
+% ======================================================================
+
+This paper documented four author Physical AI oncology clinical trial
+simulations and showed how their cumulative artifact set demonstrates
+a computational and contextual capability that distinguishes LLM-
+scale repository-context prediction from the narrow supervised
+oncology models named in \S\ref{sec:intro-ai-baseline}.
+
+\textbf{Headline artifact counts.} Simulation 1 produced 56 hours of
+continuous trial coverage (\path{hour-00} through \path{hour-55})
+with 7 files per hour for a total of 392 site-side artifacts at
+minute resolution across 4 sites and 116 robots. Simulation 2
+produced 10 stage Python scripts plus 30 ASCII progress diagrams plus
+6 deliverable diagrams plus 6 regulatory tables for one patient
+(PAT-2026-0042) over 1,120 days. Simulation 3 produced 24 hourly
+Python scripts, 24 JSON outputs, 75 ASCII diagrams, and 53 core
+agents organized into 4 layers. Simulation 4 produced 168 hourly
+Python scripts, 168 JSON outputs, 525 ASCII diagrams, 7 daily
+summaries, 7 GitHub branches, 168 GitHub commits, 7 pull requests,
+plus a complete local-verification run on a 2015 Intel Core i5-6200U
+laptop with 4 GB of RAM running Windows 10 Pro. Simulations 1 and 2
+are clinical trial site simulations; Simulations 3 and 4 are clinical
+trial sponsor simulations. The site and sponsor simulations are
+synergistic: a sponsor simulation can ingest the signal stream from a
+site simulation, and a site simulation can ingest the authorization
+stream from a sponsor simulation, with the FDA RTCT real-time channel
+observing both streams.
+
+\textbf{Persistent themes.} Three themes recur across the four
+simulations. The first is repository-scale LLM context (1M tokens) as
+the computational signature that distinguishes this work from current
+narrow supervised oncology models; the model holds protocol,
+regulatory, robotic, EHR, and ASCII-diagram content in a single
+inference pass and emits multiple artifact types in the same step.
+The second is hourly commit cadence as the operational signature
+aligned with the FDA RTCT vision; each simulation emits at least one
+commit per hour to a public GitHub repository, producing an audit
+trail that mirrors the real-time signal-sharing framework the FDA
+validated through Paradigm Health \cite{fda2026realtime}. The third
+is the file-level artifact bundle (ASCII plus Markdown plus Python
+plus JSON) that makes the work auditable and human-monitorable in
+real time. A clinical reader can read the ASCII facility diagram
+without running any code; a downstream analytics agent can import
+the Python module directly; an FDA inspector can verify the GitHub
+commit log against the local re-run.
+
+\textbf{Implications for patient safety and effectiveness.} LLM
+code-and-text contextual awareness at scale enables the strongest
+opportunity to improve patient prediction safety and effectiveness in
+oncology trials, because (a) the model can reason across protocol,
+EHR, robotic telemetry, regulatory adaptations, and ASCII diagrams in
+a single inference pass; (b) the model can emit structured artifacts
+(JSON, Python, ASCII) that downstream systems can ingest; and (c) the
+model's output can be committed to GitHub at a 1-hour cadence,
+mirroring the real-time signal-sharing framework the FDA validated
+through Paradigm Health \cite{fda2026realtime}. The framing here is
+respectful of the FDA and of current trial sponsors; the four
+simulations are opportunistic extensions of the FDA RTCT vision, not
+critiques of it. The advanced robotics integration (116 robot
+instances in Simulation 1) and the advanced predictive layer (1M
+token context across all four simulations) extend the FDA's
+pharmacology-only pair of proof-of-concept trials toward a more
+complete continuous-trial framework, which is crucial for both
+patient safety (real-time AE detection across robotics and pharma)
+and patient efficacy (per-hour outcome forecasting at the protocol
+level).
+
+\textbf{Key limitations restated.} None of the four simulations was
+tested on real patients. Claude Code Opus 4.7 Max output is non-
+deterministic. The local verification on the Core i5-6200U laptop
+was partial. The four simulations do not satisfy TRIPOD+AI or CREMLS
+reporting requirements \cite{Collins2024TRIPODAI, ElEmam2024CREMLS}.
+The work is a computational and software demonstration, not a
+clinical demonstration.
+
+\textbf{Forward path.} The next step is to bridge the synthetic-to-
+real gap. The Track A and Track B future-work directions in
+\S\ref{sec:limits-future} provide the architectural plan for a real-
+patient extension of this work, with three concrete deliverables: a
+TRIPOD+AI-compliant retrospective validation of one of the four
+simulations on a real-patient cohort, a public benchmark against the
+supervised baselines named in Background-A and Background-B, and an
+FDA-aligned RTCT pilot submission that uses Simulation 4 as the
+sponsor-side input. The artifact at
+\path{new-trial/national-24-7-trial/paper/full-paper/LaTeX_Source_Files.zip}
+is ready for upload to Overleaf, and the GitHub commit log of this
+pull request provides the audit trail for the present
+template-population pass. Cite \cite{fda2026realtime,
+kawchak_2026_19176370, kawchak_2026_19244918, kawchak_2026_18810541,
+kawchak_2026_19119939, kawchak_2026_19396256, Collins2024TRIPODAI,
+ElEmam2024CREMLS} for the artifacts and reporting standards that
+underpin this conclusion.
