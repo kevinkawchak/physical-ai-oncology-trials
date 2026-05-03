@@ -3,10 +3,13 @@
 Released on 1 May 2026
 CEO Kevin Kawchak, ChemicalQDevice
 
-[![Release](https://img.shields.io/badge/Release-v3.5.0-brightgreen.svg)]()
+[![Release](https://img.shields.io/badge/Release-v3.6.0-brightgreen.svg)]()
 [![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.19194724-blue)](https://github.com/kevinkawchak/physical-ai-oncology-trials/tree/main/new-trial/national-24-7-trial)
+[![Full Paper DOI](https://img.shields.io/badge/Paper_DOI-10.5281%2Fzenodo.19994945-blue)](https://doi.org/10.5281/zenodo.19994945)
 
-Note: Additional national-24-7-trial/extra-hours/ directory available for hours 56-83 approximated diagrams and markdowns.
+Note: Additional national-24-7-trial/extra-hours/ directory available for hours 56-83 approximated diagrams and markdowns. These are excluded from the polished full-paper text per Methods due to extended AI run time during cloud generation.
+
+The polished 70+ page LaTeX manuscript is at `paper/full-paper/` (v3.6.0). The earlier template skeleton with bracketed processing instructions remains untouched at `paper/` (v3.5.0).
 
 The original CFR documents are in the public domain. The original ICH document
 is copyrighted and may be used, reproduced, incorporated into other works,
