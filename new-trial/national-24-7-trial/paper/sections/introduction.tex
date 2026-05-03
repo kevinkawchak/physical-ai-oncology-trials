@@ -1,0 +1,115 @@
+% ======================================================================
+% SECTION 1: INTRODUCTION
+% Location in paper: title page, continues onto page 2 above the table of
+% contents. Three thematic blocks (a), (b), (c) - each 3 to 6 paragraphs.
+% ======================================================================
+
+[PROCESSING INSTRUCTION (a) - FDA April 28, 2026 News, 4 to 6 paragraphs:
+Open the introduction with a focused account of the FDA's 28 April 2026
+Real-Time Clinical Trials (RTCT) announcement. Read the full source file
+at new-trial/national-24-7-trial/FDA-April-2026/FDA\_RealTime\_Clinical\_Trials.md
+and quote, where appropriate, FDA Commissioner Marty Makary's exact framing
+("For 60 years, we've been conducting clinical trials in the same way") and
+Chief AI Officer Jeremy Walsh's quote on the transformative potential of
+real-time trials. Identify the two announced proof-of-concept trials by
+name: AstraZeneca's TRAVERSE Phase 2 in mantle cell lymphoma at MD Anderson
+and the University of Pennsylvania, and Amgen's STREAM-SCLC Phase 1b in
+limited-stage small cell lung carcinoma. Explain Paradigm Health's role as
+the validated technical conduit for real-time signal sharing. Describe the
+Request for Information for the upcoming pilot program. Close this block
+by stating that the FDA's path to "continuous trials" - eliminating the
+hiatus between phases - sets the regulatory stage on which the four
+simulations in this paper operate. Be respectful of the FDA throughout;
+frame the agency as enabling improvements rather than as the limiting
+factor. Cite \cite{fda2026realtime}.]
+
+[PROCESSING INSTRUCTION (b) - Current AI Patient Prediction Capabilities,
+6 to 9 paragraphs: Read the following files in full and summarize the
+current state of oncology AI patient prediction in measured, technical
+prose:
+- new-trial/national-24-7-trial/Background-A/README.md
+- new-trial/national-24-7-trial/Background-A/chunk\_01\_baseline\_and\_short\_horizon.md
+- new-trial/national-24-7-trial/Background-A/chunk\_02\_multimodal\_and\_limitations.md
+- new-trial/national-24-7-trial/Background-A/chunk\_03\_bibtex.md
+- new-trial/national-24-7-trial/Background-B/README.md
+- new-trial/national-24-7-trial/Background-B/chunk\_01\_baseline\_and\_prediction\_domains.md
+- new-trial/national-24-7-trial/Background-B/chunk\_02\_response\_metrics\_conclusions.md
+- new-trial/national-24-7-trial/Background-B/chunk\_03\_bibtex\_references.md
+
+Cover at least the following five domains, in order, with one short
+paragraph per domain:
+
+(b.1) Architectural reality: today's oncology prediction AI is a
+heterogeneous collection of narrow supervised models (ridge Cox, SVM,
+random survival forests, XGBoost, elastic net), not general-purpose
+reasoning systems. Cite \cite{Smiley2025OncologyMLReportingQuality} and
+\cite{Huang2025CancerSurvivalMetaAnalysis} for the null result that ML
+provides SMD = 0.01 (95\% CI -0.01 to 0.03) over Cox regression on real-
+world structured survival data.
+
+(b.2) Short-horizon EHR-based mortality prediction: Manz 2020 with AUC
+0.89 in 24,582 patients, PPV 45.2\% at 40\% threshold, and 4 to 8 day
+prospective lead time. Patient-reported-outcome-only models (Sidey-Gibbons
+2022) reach AUROC 0.69 to 0.76. Cite \cite{Manz2020Oncology180DayMortality}
+and \cite{SideyGibbons2022OvarianPROMortality}.
+
+(b.3) Adverse-event and hospitalization prediction: SHIELD-RT (Hong 2020)
+as the gold-standard prospective RCT - 45\% reduction in acute-care events,
+48\% reduction in costs - externally validated by Elia 2025 across 22,000
+courses at AUROC 0.756 to 0.770. Add fluoropyrimidine cardiotoxicity (Li
+2022 XGBoost AUC 0.816), neoadjuvant breast cancer toxicity (Cai 2024
+AUROC reaching 0.75 with dose-intensity features), and the 2026 head and
+neck pooled AUROC 0.76 (Ugwu 2026). Cite \cite{Hong2020SHIELDRT},
+\cite{Elia2025SHIELDRTExternalValidation},
+\cite{Li2022FluoropyrimidineCardiotoxicity},
+\cite{Cai2024BreastCancerToxicityPrediction}, and
+\cite{Ugwu2026HeadNeckRadiationToxicityMeta}.
+
+(b.4) Medium and long-horizon survival prediction: AIM-LCpro (Li 2025)
+multimodal NSCLC C-index 0.785 to 0.804 internal and 0.693 to 0.749
+external; PROGPATH (Yuan 2025) pancancer ViT foundation model C-index
+0.713 to 0.805 across 17 external cohorts; lung-cancer image-AI meta
+sensitivity 0.83 / specificity 0.83 / AUC 0.90 (Yuan 2025 image meta).
+Cite \cite{Li2025AIMLCpro}, \cite{Yuan2025PROGPATH}, and
+\cite{Yuan2025LungImageMeta}.
+
+(b.5) Response and progression prediction under immune checkpoint
+inhibitors: SCORPIO routine-blood model median time-dependent AUC 0.763
+hold-out and 0.725 external (Yoo 2025); Vanguri 2022 multimodal radiology
++ pathology + genomics AUC 0.80; Captier 2025 late-fusion C-index 0.75
+OS, AUC 0.81 1-year death; PBMF contrastive biomarker discovery (Arango-
+Argoty 2025); MMF in HCC (Xu 2025); Zhao 2023 anti-PD-1 radiomics in
+breast cancer; Iivanainen 2021 ePRO + XGBoost for irAE detection. Cite
+\cite{Yoo2025SCORPIO}, \cite{Vanguri2022MultimodalPDL1NSCLC},
+\cite{Captier2025MultimodalNSCLCImmunotherapy}, \cite{ArangoArgoty2025PBMF},
+\cite{Xu2025MMF}, \cite{Zhao2023BreastRadiomics}, and \cite{Iivanainen2021irAE}.
+
+(b.6) Reporting and methodological floor: TRIPOD+AI (Collins 2024) and
+CREMLS (El Emam 2024) define the reporting standards against which any new
+predictive system - including the LLM-based simulations in this paper -
+should be evaluated. Cite \cite{Collins2024TRIPODAI} and
+\cite{ElEmam2024CREMLS}.
+
+After the five technical paragraphs, add one short paragraph that names
+the operational gaps left by the current baseline: retrospective bias,
+heterogeneous endpoints, narrow per-task models, no real-time signal
+sharing across sites and sponsors and FDA, and no contextual repository-
+level reasoning across protocol, EHR, robotics, and regulatory documents
+in a single inference pass.]
+
+[PROCESSING INSTRUCTION (c) - Transition to the Four Simulations, 2
+paragraphs: Transition from the gap analysis above into a one-paragraph
+preview of the four author simulations and the central thesis: Claude Code
+Opus 4.7 Max with a 1M token context window can hold protocol, regulatory,
+robotic, EHR, and ASCII-diagram content in a single inference pass and
+emit hour-by-hour patient predictions, safety signals, and forecasts at a
+cadence and depth that no current narrow supervised model in oncology
+trial practice has demonstrated. The second paragraph names the four
+simulations exactly as listed in paper/README.md (Continuous RTCT;
+Single-patient 10-stage journey; 24-hour autonomous sponsor; 168-hour
+7-day extension with local verification on Core i5-6200U / 4 GB RAM) and
+the Zenodo DOIs (10.5281/zenodo.19176370, 10.5281/zenodo.19119939, and
+10.5281/zenodo.19396256 covering both sponsor simulations). Note that
+the on-screen Table of Contents follows directly after this introduction
+and on a fresh page. Cite \cite{kawchak\_2026\_19176370},
+\cite{kawchak\_2026\_19119939}, and \cite{kawchak\_2026\_19396256}.]
