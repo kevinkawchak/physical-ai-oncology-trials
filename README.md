@@ -16,8 +16,6 @@ This repository provides production-ready configurations, validated pipelines, a
 
 **5/3: v3.6.0 (Accelerated Patient Prediction Full Paper)** *Polished 70+ page LaTeX paper at new-trial/national-24-7-trial/paper/full-paper/ for "Accelerated Patient Prediction in Physical AI Oncology Clinical Trials: Four Comprehensive LLM Simulations"* [![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.19994945-blue)](https://doi.org/10.5281/zenodo.19994945)
 
-**5/3: v3.5.0 (Accelerated Patient Prediction Paper Template)** *LaTeX template at new-trial/national-24-7-trial/paper/ & instructions for "Accelerated Patient Prediction in Physical AI Oncology Clinical Trials: Four Comprehensive LLM Simulations"* [![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.19994945-blue)](https://doi.org/10.5281/zenodo.19994945)
-
 **5/1: v3.4.2 (National 24/7 Continuous RTCT)** *National 24/7 Continuous Real-Time Clinical Trial Simulation - FDA April 2026 Response* - Indefinite-duration continuous trial across 4 sites with 116 robots, minute-resolution per hour, 24 commits/day. [![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.18445179-blue)](https://github.com/kevinkawchak/physical-ai-oncology-trials/tree/main/new-trial/national-24-7-trial)
 
 **4/6: v3.4.0 (168-Hour Autonomous Sponsor Simulation)** *Fully Automated Sponsor: 7-Day Continuous Simulation with 168 Total Commits* - 168 hourly Python scripts spanning across 7 total days. [![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.18445179-blue)](https://doi.org/10.5281/zenodo.18445179)
