@@ -1,0 +1,498 @@
+% ======================================================================
+% Accelerated Patient Prediction in Physical AI Oncology Clinical Trials:
+% Four Comprehensive LLM Simulations
+% Author: Kevin Kawchak, CEO ChemicalQDevice
+% Released: May 3rd, 2026
+% Location: new-trial/national-24-7-trial/paper/full-paper/main.tex
+% ======================================================================
+\documentclass[11pt]{article}
+\usepackage{new_paper}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{url}
+\usepackage[hidelinks, colorlinks=false, pdfborder={0 0 0}]{hyperref}
+\usepackage{booktabs}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{enumitem}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{tabularx}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{textcomp}
+\usepackage{microtype}
+\usepackage{float}
+\usepackage{ragged2e}
+\usepackage{multirow}
+\usepackage{makecell}
+\usepackage{caption}
+
+% ======================================================================
+% Header height adjustment to fix fancyhdr warning
+% ======================================================================
+\setlength{\headheight}{16pt}
+
+% Compact running header so the long title fits on one line
+\renewcommand{\shorttitle}{\scriptsize\scshape Accelerated Patient Prediction in Physical AI Oncology Clinical Trials}
+
+% ======================================================================
+% Paragraph spacing controls. Tuned to avoid large white spaces between
+% words (river spacing) while preserving justified text. The \sloppy
+% directive together with \emergencystretch prevents text from running
+% off the right margin without producing visible rivers.
+% ======================================================================
+\tolerance=1200
+\emergencystretch=3em
+\hbadness=2000
+\hyphenpenalty=50
+\exhyphenpenalty=50
+\sloppy
+
+% ======================================================================
+% Force all text to black (paper requirement: only black text). Hyperlinks
+% are kept black through the hypersetup below so a printed page is
+% indistinguishable from a screen view.
+% ======================================================================
+\color{black}
+\hypersetup{
+  urlcolor=black,
+  linkcolor=black,
+  citecolor=black,
+  filecolor=black
+}
+
+% ======================================================================
+% Allow URL line breaks at many characters so long DOI URLs do not run
+% off the right margin in the bibliography.
+% ======================================================================
+\def\UrlBreaks{\do\/\do-\do.\do=\do_\do?\do\&\do\%\do\a\do\b\do\c\do\d\do\e%
+\do\f\do\g\do\h\do\i\do\j\do\k\do\l\do\m\do\n\do\o\do\p\do\q\do\r\do\s\do\t%
+\do\u\do\v\do\w\do\x\do\y\do\z\do\A\do\B\do\C\do\D\do\E\do\F\do\G\do\H\do\I%
+\do\J\do\K\do\L\do\M\do\N\do\O\do\P\do\Q\do\R\do\S\do\T\do\U\do\V\do\W\do\X%
+\do\Y\do\Z}
+
+% ======================================================================
+% Code listing style for Python excerpts. Black-only foreground colors;
+% scriptsize so a listing fits inside the 6.5 inch text width without
+% overflow. Line numbers on the left for cross-reference.
+% ======================================================================
+\lstdefinestyle{pythonstyle}{
+  language=Python,
+  basicstyle=\ttfamily\scriptsize,
+  keywordstyle=\color{black}\bfseries,
+  stringstyle=\color{black},
+  commentstyle=\color{black}\itshape,
+  numbers=left,
+  numberstyle=\tiny\color{black},
+  stepnumber=1,
+  numbersep=5pt,
+  backgroundcolor=\color{white},
+  frame=single,
+  rulecolor=\color{black},
+  breaklines=true,
+  breakatwhitespace=false,
+  tabsize=4,
+  showstringspaces=false,
+  columns=flexible,
+  upquote=true
+}
+\lstset{style=pythonstyle}
+
+% ======================================================================
+% ORCID icon command. The icon is rendered next to the author name on the
+% title page and links to the author's ORCID record.
+% ======================================================================
+\newcommand{\orcidicon}[1]{%
+\href{https://orcid.org/#1}{%
+\raisebox{-1pt}{\includegraphics[height=9pt]{orcid_icon.png}}}}
+
+% ======================================================================
+% Compact table column types (use \raggedright to avoid large interword
+% gaps inside cells). The L, C, R types take a width argument so each
+% table column can be tuned to keep all text inside the page margin.
+% ======================================================================
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
+\newcolumntype{C}[1]{>{\centering\arraybackslash}p{#1}}
+\newcolumntype{R}[1]{>{\raggedleft\arraybackslash}p{#1}}
+
+% ======================================================================
+% Caption style. Keep captions black, small, and left-justified so the
+% caption width matches the table or figure content.
+% ======================================================================
+\captionsetup{font=small,labelfont=bf,justification=raggedright,singlelinecheck=false}
+
+% ======================================================================
+% Verbatim environment width control. Render verbatim blocks at scriptsize
+% so long ASCII diagrams fit inside the 6.5 inch text width.
+% ======================================================================
+\makeatletter
+\renewcommand{\verbatim@font}{\ttfamily\scriptsize}
+\makeatother
+
+% ======================================================================
+% TITLE (Two Lines, Centered)
+% ======================================================================
+\title{Accelerated Patient Prediction in Physical AI Oncology Clinical Trials: 4 Extensive Simulations}
+
+\author{
+  Kevin Kawchak\hspace{2pt}\orcidicon{0009-0007-5457-8667} \\
+  CEO ChemicalQDevice\\
+  \href{https://doi.org/10.5281/zenodo.19994945}{10.5281/zenodo.19994945} \\
+}
+
+\date{May 4th, 2026}
+
+% ======================================================================
+% BEGIN DOCUMENT
+% ======================================================================
+\begin{document}
+\maketitle
+
+% ======================================================================
+% ABSTRACT (on title page)
+% ======================================================================
+\begin{abstract}
+\input{sections/abstract}
+\end{abstract}
+
+% Disclaimer below abstract (mandatory text, do not modify)
+\begin{center}
+\normalsize
+Disclaimer: This work is independent and is not endorsed or sponsored by any
+trial sponsor, FDA,\\CRO, site, IRB, regulator, or medical society; and was
+generated using Artificial Intelligence.
+\end{center}
+
+\keywords{Patient Prediction \and Physical AI \and Oncology Trials \and LLMs}
+
+\vspace{-0.2cm}
+
+% ======================================================================
+% SECTION 1: INTRODUCTION (starts on title page, continues after TOC)
+% ======================================================================
+\section{Introduction}
+\label{sec:introduction}
+\input{sections/introduction}
+
+% ======================================================================
+% TABLE OF CONTENTS (starts after Introduction ends)
+% ======================================================================
+\newpage
+\tableofcontents
+% \newpage
+
+\vspace{0.4cm}
+
+
+
+\begin{figure}[H]
+    \hspace{-0.75cm}
+   \includegraphics[width=1.1\linewidth, trim={0 100 0 0}, clip]{sections/Images_2/Replace Chart 15 Cross-simulation synthesis (full page).png}
+    % \vspace{-0.25cm}
+    \caption{Four physical AI trial simulations summary; two sites versus two sponsors approaches.}
+    \label{FourSumm}
+\end{figure}
+
+
+
+
+
+FDA Commissioner Marty Makary, M.D., M.P.H. described the change in
+direct terms: \emph{"For 60 years, we've been conducting clinical trials
+in the same way, where key data signals can take years to reach the
+FDA. The lag time can delay regulatory decisions unnecessarily and slow
+down the drug development timeline. We are boldly advancing a modern
+approach whereby FDA scientists can view safety signals and endpoints
+in real time as a trial progresses. This will help us accelerate
+promising therapies, and build toward our ultimate goal of running
+real-time, continuous trials across all phases of drug development."}
+The Commissioner's framing positions the agency as enabling a faster
+path from a promising therapy to a patient who needs it, not as the
+limiting factor in that path.
+
+The two proof-of-concept trials selected for the launch are
+representative of distinct oncology contexts. AstraZeneca's TRAVERSE
+is a Phase 2 multi-site trial in patients with treatment-naive mantle
+cell lymphoma, with participation from The University of Texas MD
+Anderson Cancer Center and the University of Pennsylvania. Amgen's
+STREAM-SCLC is a Phase 1b trial in patients with limited-stage small
+cell lung carcinoma, with final site selection in process at the time
+of the announcement.\ The FDA met with each sponsor to establish
+criteria for reporting signals in real time, and validated the
+technical framework for AstraZeneca's trial through Paradigm Health.
+Paradigm Health acts as the validated technical conduit between the
+sites, the sponsor, and the FDA real-time stream.
+
+Chief AI Officer Jeremy Walsh stated: \emph{"Real-time trials have been
+talked about for years. We demonstrated that it is not only possible,
+but also potentially transformative for the clinical trials ecosystem.
+We have to consider our processes from the standpoint of a patient
+awaiting a potentially powerful treatment."} The Request for
+Information seeks community input on pilot program design, evaluation
+metrics, and success criteria, with the comment period closing on 29
+May 2026, final selection criteria disseminated in July 2026, and
+pilot selections completed in August 2026.
+
+The FDA framed real-time trials as an important step toward facilitating
+\emph{continuous} trials. At present, most clinical development occurs
+in discrete phases, run according to a protocol and typically as a
+separate study. There is generally a hiatus in the development program
+after one phase ends and the next begins, slowing the pace of product
+development. Because real-time trials allow the FDA to view key
+insights as the trial progresses, this hiatus could be eliminated or
+reduced to a minimum, enabling continuous trials.\ This continuous
+framework is the regulatory stage on which the four simulations in
+this paper operate.
+
+\clearpage
+
+
+
+
+
+
+
+
+\subsection{Current AI Patient Prediction Capabilities}
+\label{sec:intro-ai-baseline}
+
+The current oncology AI patient-prediction landscape is heterogeneous,
+narrow, and largely retrospective. The architectural reality is that
+today's deployed prediction systems are not general-purpose reasoning
+agents, but rather a collection of task-specific supervised models
+fitted to fixed feature sets. Common architectures include ridge Cox
+regression, support vector machines, random survival forests, gradient
+boosted trees such as XGBoost, and elastic net classifiers
+\cite{Smiley2025OncologyMLReportingQuality}.\ Methodological and
+reporting quality remain mixed; many published models report a single
+internal validation cohort with no external test, no fairness audit,
+and limited prospective signal. The Huang 2025 systematic review and
+meta-analysis of machine learning versus traditional Cox regression for
+survival prediction in cancer using real-world data found a
+standardized mean difference of 0.01 with a 95\% confidence interval
+of -0.01 to 0.03, a null result that should temper any claim that
+machine learning delivers a routine survival-prediction
+advantage on structured tabular features
+\cite{Huang2025CancerSurvivalMetaAnalysis}.
+
+Short-horizon mortality prediction from electronic health record data
+is the most mature application of supervised oncology AI. Manz 2020
+validated a gradient boosting model to predict 180-day mortality for
+24,582 outpatients with cancer, reporting an area under the receiver
+operating characteristic curve of 0.89, a positive predictive value of
+45.2 percent at the 40 percent decision threshold, and a 4 to 8 day
+prospective lead time over routine clinical assessment
+\cite{Manz2020Oncology180DayMortality}. Sidey-Gibbons 2022 showed that
+patient-reported-outcome-only models can reach AUROC values of 0.69 to
+0.76 for 180-day mortality in women with ovarian cancer, evidence that
+even sparse non-clinical features carry useful prognostic signal
+\cite{SideyGibbons2022OvarianPROMortality}.\ The ceiling for these
+short-horizon EHR-based systems sits in the 0.80 to 0.89 AUROC range
+across cohorts.
+
+Adverse-event and hospitalization prediction during cancer treatment
+is the application area in which supervised AI has produced its
+strongest prospective evidence. Hong 2020 published the SHIELD-RT
+prospective randomized study, which used a machine learning model to
+direct twice-weekly clinical evaluations during radiation and
+chemoradiation, and reported a 45 percent relative reduction in
+acute-care events and a 48 percent reduction in associated costs
+\cite{Hong2020SHIELDRT}.\ Elia 2025 reported a multi-institutional
+external validation of SHIELD-RT across approximately 22,000 courses,
+with AUROC values of 0.756 to 0.770 across the validation institutions
+\cite{Elia2025SHIELDRTExternalValidation}. Li 2022 used XGBoost to
+predict short-term cardiotoxicity in colorectal cancer patients
+starting fluoropyrimidine-based chemotherapy at AUC 0.816
+\cite{Li2022FluoropyrimidineCardiotoxicity}. Cai 2024 reported that
+treatment-relevant toxicity in breast cancer patients undergoing
+neoadjuvant systemic treatment can be predicted at AUROC 0.75 when
+dose-intensity features are added \cite{Cai2024BreastCancerToxicityPrediction}.
+Ugwu 2026 reported a 2026 systematic review and meta-analysis of head
+and neck radiation toxicity AI models with a pooled AUROC of 0.76
+\cite{Ugwu2026HeadNeckRadiationToxicityMeta}.
+
+Medium and long-horizon survival prediction has matured through
+multimodal weakly supervised models. Li 2025 reported AIM-LCpro for
+non-small cell lung cancer with a C-index of 0.785 to 0.804 on internal
+test data and 0.693 to 0.749 on external cohorts
+\cite{Li2025AIMLCpro}. Yuan 2025 reported PROGPATH, a pancancer Vision
+Transformer foundation model for prognosis, with C-indices of 0.713 to
+0.805 across 17 external cohorts, the broadest pancancer evaluation
+reported to date \cite{Yuan2025PROGPATH}. The 2025 image-based lung
+cancer meta-analysis reported a pooled sensitivity of 0.83, a pooled
+specificity of 0.83, and a pooled AUC of 0.90 across image-only
+classifiers \cite{Yuan2025LungImageMeta}.
+
+Response and progression prediction under immune checkpoint inhibition
+is the application area with the most active multimodal research.
+Yoo 2025 published SCORPIO, a routine-blood-test-and-clinical-data model
+with a median time-dependent AUC of 0.763 on hold-out and 0.725 on
+external validation \cite{Yoo2025SCORPIO}. Vanguri 2022 integrated
+radiology, pathology, and genomics for response to PD-(L)1 blockade in
+non-small cell lung cancer at AUC 0.80
+\cite{Vanguri2022MultimodalPDL1NSCLC}. Captier 2025 reported a
+late-fusion model that integrates clinical, pathological, radiological,
+and transcriptomic data with a C-index of 0.75 for overall survival
+and AUC 0.81 for one-year death \cite{Captier2025MultimodalNSCLCImmunotherapy}.
+Arango-Argoty 2025 reported PBMF, a contrastive learning approach to
+predictive biomarker discovery designed to improve clinical trial
+outcomes \cite{ArangoArgoty2025PBMF}. 
+
+
+\clearpage
+
+
+Xu 2025 reported a multimodal
+fusion system in unresectable hepatocellular carcinoma
+\cite{Xu2025MMF}. Zhao 2023 reported anti-PD-1 radiomics in advanced
+breast cancer at AUC 0.86 on internal test \cite{Zhao2023BreastRadiomics}.
+Iivanainen 2021 used XGBoost on electronic patient-reported outcomes
+to predict immune-related adverse events
+\cite{Iivanainen2021irAE}. Brouwer 2025 used smartphone step count
+data to predict clinical outcomes in patients with cancer receiving
+systemic treatment \cite{Brouwer2025StepCount}. Sun 2024 modeled
+patient health signals to inform long-term survival on immune
+checkpoint inhibitor therapy \cite{Sun2024HealthSignals}.
+Seyednasrollah 2017 organized a DREAM challenge to build prediction
+models for short-term discontinuation of docetaxel in metastatic
+castration-resistant prostate cancer, and Deng 2020 extended the
+challenge with a treatment stratification model in the same disease
+\cite{Seyednasrollah2017Docetaxel, Deng2020mCRPC}.
+
+The reporting and methodological floor is set by two recent guidance
+papers. Collins 2024 published the TRIPOD+AI statement, an updated
+guidance for reporting clinical prediction models that use regression
+or machine learning methods \cite{Collins2024TRIPODAI}. El Emam 2024
+published the Consolidated Reporting Guidelines for Prognostic and
+Diagnostic Machine Learning Models (CREMLS), which extend the TRIPOD+AI
+recommendations toward operational deployment \cite{ElEmam2024CREMLS}.
+Both standards apply to any new predictive system, including the
+LLM-based simulations in this paper, that is intended for clinical
+deployment.
+
+The operational gaps left by this baseline are the subject of the rest
+of this paper. The supervised models named above are retrospectively
+trained, narrow per task, restricted to homogeneous endpoints inside
+each task, and not coupled to a real-time signal-sharing channel
+between sites, sponsors, and the FDA. They cannot ingest a heterogeneous
+mix of protocol text, EHR records, robotic telemetry, regulatory
+adaptations, and ASCII facility diagrams in a single inference pass.
+They cannot emit a structured commit at hourly cadence to a public
+GitHub repository. The four author simulations in this paper address
+each of these gaps using a different architectural premise: a single
+Claude Code Opus 4.7 Max instance with a 1M token context window holds
+the entire trial repository in context and emits hour-by-hour patient
+predictions, safety signals, and forecasts.
+
+\subsection{Transition to the Four Simulations}
+\label{sec:intro-transition}
+
+Repository-scale processing with a 1M token context window is the
+computational signature that separates this work from the supervised
+baselines named in \S\ref{sec:intro-ai-baseline}. Claude Code Opus 4.7
+Max can hold the protocol, regulatory, robotic, EHR, and ASCII-diagram
+content of an entire oncology trial in a single inference pass and
+emit hour-by-hour patient predictions, safety signals, and forecasts
+at a cadence and depth that the narrow supervised models in current
+oncology trial practice have not demonstrated
+\cite{claude-opus-47, claude-code}. The thesis is computational and
+contextual, not a head-to-head AUROC benchmark on a fixed test cohort;
+the comparisons in \S\ref{sec:discussion} are scoped accordingly.
+
+This paper documents four author Physical AI oncology trial
+simulations illustrated in \autoref{FourSumm}. Simulation 1 is the Continuous National 24/7 RTCT, a
+clinical trial site simulation across four sites (Houston,
+Philadelphia, Boston, Texas Medical Center) and 116 robot instances,
+with hour-by-hour text artifacts in
+\path{new-trial/national-24-7-trial/hour-00} through \path{hour-55} and
+the extra-hours block \path{extra-hours/hour-56} through \path{hour-83}
+that contains approximated diagrams \cite{kawchak_2026_19176370,
+kawchak_2026_19244918}. Simulation 2 shown in \autoref{Funnel} is the Single-Patient 10-Stage
+Journey, a clinical trial site simulation that follows patient
+PAT-2026-0042 through ten Python-orchestrated stages from
+pre-screening to closeout
+\cite{kawchak_2026_19119939, kawchak_2026_18810541}. 
+
+Simulation 3 is
+the 24-Hour Autonomous Sponsor, a clinical trial sponsor simulation
+that runs 53 core agents organized into four governance, study
+execution, site/robotics, and trust layers \cite{kawchak_2026_19396256}.
+Simulation 4 is the 168-Hour 7-Day Sponsor Extension, a clinical trial
+sponsor simulation that produces 525 ASCII diagrams, 168 Python
+scripts, 168 JSON outputs, and a local-verification run on a
+2015 Intel Core i5-6200U laptop with 4 GB of RAM
+\cite{kawchak_2026_19396256}. The on-screen Table of Contents follows
+directly after this introduction on a fresh page.
+
+\clearpage
+
+\begin{figure}[H]
+    % \hspace{-0.2cm}
+   \includegraphics[width=1\linewidth, trim={0 0 0 0}, clip]{sections/Images/18_patient_safety_funnel.png}
+   \vspace{-1.1cm}
+    \caption{1,000 patient example regarding a state of the art digital twin and robotic workflow for Simulation 2.}
+    \label{Funnel}
+\end{figure}
+
+% ======================================================================
+% SECTION 2: METHODS
+% ======================================================================
+\section{Methods}
+\label{sec:methods}
+\input{sections/methods}
+\newpage
+
+% ======================================================================
+% SECTION 3: RESULTS
+% ======================================================================
+\section{Results}
+\label{sec:results}
+\input{sections/results}
+\newpage
+
+% ======================================================================
+% SECTION 4: DISCUSSION
+% ======================================================================
+\section{Discussion}
+\label{sec:discussion}
+\input{sections/discussion}
+\newpage
+
+% ======================================================================
+% SECTION 5: LIMITATIONS AND FUTURE WORK
+% ======================================================================
+\section{Limitations and Future Work}
+\label{sec:limitations}
+\input{sections/limitations_future}
+\newpage
+
+% ======================================================================
+% SECTION 6: CONCLUSIONS
+% ======================================================================
+\section{Conclusions}
+\label{sec:conclusions}
+\input{sections/conclusions}
+% \newpage
+
+% ======================================================================
+% REFERENCES
+% ======================================================================
+\phantomsection
+\addcontentsline{toc}{section}{References}
+\begingroup
+\raggedright
+\bibliographystyle{ieeetr}
+\bibliography{references}
+\endgroup
+\newpage
+
+% ======================================================================
+% BACK MATTER (Acknowledgments, Ethical disclosures, Rights and permissions,
+% Cite this article)
+% ======================================================================
+\input{sections/back_matter}
+
+\end{document}

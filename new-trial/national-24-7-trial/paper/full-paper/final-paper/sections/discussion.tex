@@ -1,0 +1,330 @@
+% ======================================================================
+% SECTION 4: DISCUSSION
+% Three blocks: (1) FDA RTCT comparison, (2) AI baseline comparison,
+% (3) significance for patient safety and efficacy.
+% ======================================================================
+
+\subsection{Comparison to the FDA RTCT Announcement}
+\label{sec:disc-fda}
+
+The FDA's 28 April 2026 announcement of two real-time clinical trial
+proofs-of-concept and a forthcoming pilot program sets the regulatory
+stage on which the four simulations in this paper operate
+\cite{fda2026realtime}. The two FDA proofs-of-concept are AstraZeneca
+TRAVERSE (Phase 2 mantle cell lymphoma) and Amgen STREAM-SCLC (Phase
+1b limited-stage small cell lung carcinoma), with Paradigm Health as
+the validated technical conduit between sites, sponsor, and the FDA
+real-time stream. The four simulations here extend that proof-of-
+concept along several axes:
+
+\begin{itemize}[leftmargin=*]
+\item \textbf{Simulation 1 (site)} implements a Paradigm Health-style
+aggregator and the FDA real-time API stream across 4 sites (SITE-A,
+SITE-B, SITE-C, SITE-D) and 116 robot instances at minute resolution
+for 56 hours, with TRAVERSE, STREAM-SCLC, TRAVERSE-PED, and
+NETWORK-OBS endpoint channels. The hour 00 facility diagram in
+\S\ref{sec:results-sim1} shows all four channels UP at simulation
+start, with a median 13-second FDA acknowledgement latency.
+
+\item \textbf{Simulation 2 (site)} grounds a single-patient real-time
+prediction trajectory in three adapted regulatory frameworks (21 CFR
+312, 21 CFR 50, ICH E6(R3)) for patient PAT-2026-0042 across 1,120
+days. Each stage of the journey produces a real-time signal stream
+that the FDA RTCT pilot could ingest.
+
+\item \textbf{Simulations 3 and 4 (sponsor)} scale the autonomous
+sponsor side of the FDA framework from 24 hours (53 agents, 75
+diagrams) to 168 hours (525 diagrams) with 168 GitHub commits across
+7 branches. The sponsor server in Simulation 3 exposes 5 FastAPI
+endpoints that mirror the FDA RTCT signal-sharing pattern, and the
+local verification in Simulation 4 demonstrates that the same agent
+logic can run on a 4 GB laptop.
+\end{itemize}
+
+The FDA's stated goal is continuous trials, where the hiatus between
+phases can be eliminated or reduced. The four simulations here show
+how a single 1M-token-context AI agent (Claude Code Opus 4.7 Max) can
+hold the entire trial repository in context and emit hour-by-hour
+real-time artifacts. The simulations are opportunistic extensions of
+the FDA's vision, not critiques of it; each simulation produces an
+artifact that a future FDA RTCT pilot program could in principle
+ingest as input \cite{kawchak_2026_19176370,
+kawchak_2026_19119939, kawchak_2026_19396256}.
+
+A second comparison concerns advanced robotic capabilities and
+predictive capabilities not present in the FDA's two proofs-of-
+concept. AstraZeneca TRAVERSE and Amgen STREAM-SCLC are pharmacology
+trials that report safety signals and endpoints in real time; neither
+trial integrates physical robotic interventions at the site level.
+The four simulations here pair the FDA's signal-sharing model with
+the physical robotics layer of the four-site / 116-robot Simulation 1
+network, which adds a class of safety signal (force feedback, gating
+efficiency, robot authorization decision) that the pharmacology
+trials do not generate. 
+
+Each per-hour facility diagram from
+Simulation 1 records, at minute resolution, the active robot
+inventory by station and the per-station feedback metric. This
+robotics-plus-prediction integration is a meaningful capability
+extension over the pharmacology proof-of-concept, and is the area
+where the four simulations here provide the most direct value-add to
+the FDA's continuous-trial path.
+
+\clearpage
+
+\begin{table}[H]
+\centering
+\caption{Simulation extensions over the FDA RTCT 28 April 2026
+proof-of-concept program.}
+\label{tab:disc-fda-extension}
+{\renewcommand{\arraystretch}{1.15}
+\begin{tabular}{>{\raggedright\arraybackslash}p{3.25cm} >{\raggedright\arraybackslash}p{5.75cm} >{\raggedright\arraybackslash}p{6.3cm}}
+\toprule
+\textbf{Dimension} & \textbf{FDA RTCT 2026 PoC} & \textbf{Four Simulations Here} \\
+\midrule
+Trials                 & 2 (TRAVERSE, STREAM-SCLC)                & 4 author simulations of site, sponsor       \\
+Sites                  & MD Anderson, Penn (TRAVERSE)             & 4 Simulation 1 sites, others distributed       \\
+Robots                 & Not specified in the announcement         & 116 robot instances in Simulation 1                   \\
+Real-time signals      & Endpoint and safety signals only         & Endpoint, safety, robot authorization, agent decision \\
+Cadence                & Real-time as defined per trial            & Per-hour minute-resolution + per-stage       \\
+Predictive layer       & Per-trial supervised endpoints            & Repository-scale 1M-token context across 4 simulations\\
+Local-side compute     & Not addressed                            & Verified on Core i5-6200U / 4 GB     \\
+\bottomrule
+\end{tabular}}
+\end{table}
+
+The added predictive capability in the four simulations (1M token
+context that holds protocol, EHR, robotic telemetry, and regulatory
+adaptations in a single inference pass) is also crucial for patient
+safety and efficacy. The FDA RTCT real-time signal-sharing channel
+expects the sponsor and site to generate predictive content that the
+FDA can act on; the four simulations here generate that predictive
+content at a granularity (hourly per-patient narrative for Simulation
+1; per-stage regulatory mapping for Simulation 2; per-hour 53-agent
+decision tree for Simulations 3 and 4) that supervised AUROC models
+do not produce.
+
+\subsection{Comparison to Current AI Prediction Methods}
+\label{sec:disc-ai-baseline}
+
+The supervised baselines named in \S\ref{sec:intro-ai-baseline} differ
+from the four-simulation set along several dimensions, all
+computational and contextual rather than head-to-head AUROC. The
+distinction is important: nothing in this paper has been benchmarked
+on a fixed prediction task against a fixed test cohort under TRIPOD+AI
+or CREMLS reporting standards \cite{Collins2024TRIPODAI,
+ElEmam2024CREMLS}. The comparison below is scoped to the
+computational signature of repository-scale processing.
+
+\textbf{Manz 2020 versus Simulation 1.} Manz 2020 emits a single
+180-day mortality probability per patient per visit, derived from a
+fixed feature set, with AUC 0.89 in a 24,582-patient cohort
+\cite{Manz2020Oncology180DayMortality}. Simulation 1 in
+\S\ref{sec:results-sim1} emits a paragraph per minute per active
+patient, plus three ASCII diagrams per hour, plus a four-Markdown
+narrative bundle per hour. The Manz 2020 model cannot ingest the
+robot-by-minute force-feedback log that PAT-CONT-0001's COBOT-01
+biopsy generated at 1.4 N steady force, because the model is
+restricted to its training feature set. The simulation here can
+ingest that log and emit a narrative paragraph that mentions it by
+name. The comparison is one of expressive surface area, not AUROC.
+
+\textbf{SHIELD-RT versus Simulation 1.} SHIELD-RT is the gold-
+standard prospective randomized trial for AI-directed clinical
+evaluation during radiotherapy \cite{Hong2020SHIELDRT,
+Elia2025SHIELDRTExternalValidation}. The original SHIELD-RT trial
+covered a single radiotherapy program; Simulation 1 covers 116 robot
+instances across 4 sites and 56 hours of continuous operation.
+Simulation 4's 1,336-patient 168-hour cumulative throughput exceeds
+the SHIELD-RT cohort scale by an order of magnitude, although the
+comparison is unfair in the other direction: SHIELD-RT is real-
+patient and prospectively randomized, while Simulation 4 is a
+synthetic agent-rule simulation. The point of comparison is that
+LLM-scale repository context can in principle scale a SHIELD-RT-like
+program from one institution to many.
+
+\textbf{SCORPIO and PROGPATH versus the four-simulation set.} SCORPIO
+emits a per-patient response probability for immune checkpoint
+inhibitor efficacy from routine blood tests and clinical data
+\cite{Yoo2025SCORPIO}. PROGPATH emits a per-patient C-index score
+across 17 external pancancer cohorts \cite{Yuan2025PROGPATH}. Both
+models operate inside a single modality (blood plus clinical for
+SCORPIO; pathology images for PROGPATH). The four simulations operate
+across modalities (text protocol, EHR JSON, ASCII facility diagrams,
+Python agent code, and regulatory citations) in the same inference
+pass. The cross-modal repository context is the qualitative
+extension; the four simulations cannot replace SCORPIO or PROGPATH on
+their narrow tasks, but they can hold both models' outputs as inputs
+to a higher-level reasoning step.
+
+\textbf{Huang 2025 null result versus the four-simulation set.}
+Huang 2025 reports that machine learning provides no significant gain
+over Cox regression on real-world structured survival data
+(standardized mean difference 0.01, 95\% CI -0.01 to 0.03)
+\cite{Huang2025CancerSurvivalMetaAnalysis}. The four simulations do
+not contradict this null result. The simulations consume an entirely
+different class of input - unstructured protocol text plus telemetry
+plus ASCII diagrams plus Python code - that the supervised baselines
+in Huang 2025 cannot ingest at all. The null result of ML versus Cox
+on structured tabular features is consistent with the observation
+that the gain from LLM-scale processing comes from context that
+structured-feature models do not see, not from any improvement in the
+underlying regression on the structured features themselves.
+
+\begin{table}[H]
+\centering
+\caption{Comparative computational signatures of supervised baselines
+versus the four-simulation set. AUROC is comparable only within a
+fixed task; the comparison below is scoped to the computational
+expressive surface, not to head-to-head benchmark numbers.}
+\label{tab:disc-baseline-vs-sim}
+{\renewcommand{\arraystretch}{1.15}
+\begin{tabular}{>{\raggedright\arraybackslash}p{2.6cm} >{\raggedright\arraybackslash}p{3cm} >{\raggedright\arraybackslash}p{3cm} >{\raggedright\arraybackslash}p{3cm} >{\raggedright\arraybackslash}p{3cm}}
+\toprule
+\textbf{Property} & \textbf{SHIELD-RT, SCORPIO} & \textbf{PROGPATH, AIM-LCpro} & \textbf{Huang 2025 Cox vs ML} & \textbf{Four Simulations} \\
+\midrule
+Inputs              & Fixed feature set per task    & Multimodal images plus tabular  & Tabular features only         & Repository plus narrative plus code        \\
+Output              & One probability per patient   & C-index per cohort              & Hazard ratio                  & Per-hour narrative, diagrams, JSON \\
+Cadence             & Per visit (months)            & Per cohort                      & Retrospective                 & Per hour, per stage                      \\
+TRIPOD+AI compliant & Some                          & Some                            & Yes (meta-analytic)           & No (synthetic)                             \\
+Modalities          & 1                             & 2-4                             & 1 (tabular)                   & Text plus code plus ASCII plus JSON         \\
+Real-time stream    & No                            & No                              & No                            & Yes (hourly commit)                        \\
+\bottomrule
+\end{tabular}}
+\end{table}
+
+The four simulations in this paper do not satisfy TRIPOD+AI or CREMLS
+reporting standards because they were not evaluated on real patients
+\cite{Collins2024TRIPODAI, ElEmam2024CREMLS}. Any future extension of
+this work toward deployment must adopt those reporting floors before
+any clinical claim is made. The discussion here therefore frames the
+simulations as a computational and contextual demonstration, not as a
+clinical demonstration.
+
+\subsection{Significance for Patient Safety and Efficacy Prediction}
+\label{sec:disc-significance}
+
+The central significance of the four-simulation set is the
+demonstration that:
+
+\begin{enumerate}[leftmargin=*]
+\item LLM-scale repository context (1M tokens) produces patient
+prediction artifacts at a cadence (1 hour) and depth (3 ASCII
+diagrams plus 4 Markdown files per hour for Simulation 1; 24 Python
+scripts plus 75 diagrams plus JSON per 24 hours for Simulation 3;
+525 diagrams plus 168 scripts plus 168 JSON per 168 hours for
+Simulation 4) that no current narrow supervised oncology model
+matches.
+
+
+
+\item The same repository-scale context can be operated by a single
+autonomous agent: a sponsor in Simulations 3 and 4, a site
+coordinator in Simulation 1, a single-patient orchestrator in
+Simulation 2. This opens a path to fully autonomous safety and
+efficacy prediction loops aligned with the FDA RTCT pilot program.
+
+\item Simulation 4's local verification on a Core i5-6200U with 4 GB
+RAM proves that the computational floor is far below typical data-
+center infrastructure - a result that strengthens the FDA's
+observation that real-time trials are \emph{"not only possible, but
+also potentially transformative"} \cite{fda2026realtime}.
+\end{enumerate}
+
+The work is opportunistic with respect to the FDA's framework: it
+offers concrete file-level artifacts that the RTCT pilot program could
+ingest as inputs once real-patient validation is complete. None of
+the four simulations claims clinical deployment readiness; the value
+is computational and contextual. Cite \cite{fda2026realtime,
+kawchak_2026_19176370, kawchak_2026_19244918, kawchak_2026_18810541,
+kawchak_2026_19119939, kawchak_2026_19396256} for the underlying
+artifacts.
+
+\subsection{Cloud Versus Local Compute Trade-Offs}
+\label{sec:disc-cloud-local}
+
+A practical question for any RTCT-aligned deployment is whether the
+sponsor-side AI runs on cloud compute or on local hardware. The four
+simulations here cover both modes. Simulations 1, 2, and 3 ran on
+cloud compute; Simulation 4 ran on cloud compute and was verified
+locally on a 4 GB Core i5-6200U laptop. The trade-offs are
+summarized in the diagram below.
+
+\begin{verbatim}
++============================================================================+
+|          CLOUD VS LOCAL COMPUTE FOR RTCT-ALIGNED ONCOLOGY TRIAL AI         |
++----------------------+--------------------+--------------------------------+
+| Property             | Cloud Compute Only | Cloud + Local Verification     |
++----------------------+--------------------+--------------------------------+
+| Wall-clock speed     | Highest            | Cloud high, local slower       |
+| 1M token context     | Yes (Claude Opus)  | Yes (cloud) / partial (local)  |
+| Reproducibility      | Cloud commit log   | Cloud + local rerun parity     |
+| Hardware floor       | Data-center scale  | i5-6200U / 4 GB demonstrated   |
+| PHI / data security  | Cloud transit risk | Local processing + cloud meta  |
+| Audit trail          | GitHub commits     | GitHub commits + local hash    |
+| Site adoption cost   | Cloud subscription | Off-the-shelf laptop           |
++----------------------+--------------------+--------------------------------+
+\end{verbatim}
+
+The advantage of cloud compute is that a single 1M-token-context
+inference pass can hold the entire trial repository in memory and
+emit per-hour artifacts in seconds; the disadvantage is that PHI
+traveling to and from the cloud must be carefully governed, and that
+the audit trail depends on the cloud provider's transparency. The
+advantage of cloud-plus-local verification is that the local rerun
+can validate the cloud output on hardware that an FDA inspector or a
+trial sponsor's IT team can audit physically; the disadvantage is
+that local hardware introduces operating-system-specific quirks and
+cannot itself host a 1M-token-context inference pass.
+
+The optimal future configuration combines both. A future Claude Code
+or competing AI local instance that runs simultaneously on cloud
+(for the 1M-token context full-repository reasoning) and on local
+hardware (for per-task specialist agents that handle PHI without
+leaving the site) would offer both the power of cloud compute and
+the security and flexibility of local computing. Such a configuration
+is the natural endpoint of the trade-off table above and is the
+subject of Track B in the Future Work section
+(\S\ref{sec:limitations}).
+
+\subsection{Code-Based Versus Text-Only Simulations - Practical Implications}
+\label{sec:disc-code-vs-text}
+
+A second practical question is whether the sponsor-side AI emits
+Python code or only Markdown plus ASCII text. Simulation 1 emits
+text only; Simulations 2, 3, and 4 emit Python plus JSON. The
+practical trade-offs were sketched in Methods
+(\S\ref{sec:methods-code-vs-text}); the implications for performance
+in real RTCT-aligned deployments deserve a fuller discussion here.
+
+Code-based simulations win on \emph{practicality} for downstream
+automation. A Python script can re-execute on local hardware to
+verify the cloud-generated output (Simulation 4 demonstrates this on
+a 4 GB laptop), an importer can call the agent modules directly, and
+a CI workflow can lint and test the code under the repository's
+\texttt{ruff} configuration. Text-only simulations win on
+\emph{auditability} for clinical readers. A radiation oncologist
+reviewing Simulation 1's hour 12 patient flow diagram can read the
+PAT-CONT-0051A through PAT-CONT-0058A bracketed timeline directly
+without running any code, which lowers the technical barrier to
+clinical review.
+
+The performance trade-off in cloud compute is also asymmetric.
+Generating Markdown and ASCII is computationally cheap on the cloud
+side because the model only needs to produce text tokens; generating
+Python code is more expensive because the model must produce
+executable structure under the constraint that the code parses and
+runs. Simulation 1 generated 56 hours of text in roughly 4 to 5
+hours of cloud time, whereas Simulation 4 generated 168 hours of
+Python plus JSON in roughly 12 to 14 hours of cloud time. The
+disparity reflects the higher per-token cost of code generation, not
+any difference in the underlying 1M-token context capability.
+
+For a real RTCT-aligned deployment, the practical recommendation is
+to combine text-only artifacts (for clinical readers) and code
+artifacts (for downstream automation) in a single trial. Simulation 1
+plus Simulation 4 paired together is the closest existing
+approximation: Simulation 1 generates the per-hour patient narrative
+that a clinical reader can audit, and Simulation 4 generates the per-
+hour sponsor decision script that a CI workflow can re-run. The
+synergistic value of the pair exceeds the value of either alone.
