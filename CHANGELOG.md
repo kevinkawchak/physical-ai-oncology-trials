@@ -5,6 +5,35 @@ Format follows [Keep a Changelog](https://keepachangelog.com/).
 
 ## [Unreleased]
 
+## [3.6.0] - 2026-05-03
+
+### Added
+- new-trial/national-24-7-trial/paper/full-paper/ - Polished 70+ page LaTeX manuscript for "Accelerated Patient Prediction in Physical AI Oncology Clinical Trials: Four Comprehensive LLM Simulations" by Kevin Kawchak (10.5281/zenodo.19994945), populated from the v3.5.0 template into final prose
+- new-trial/national-24-7-trial/paper/full-paper/main.tex - Polished document entry point with displaywidowpenalty and brokenpenalty 10000, tighter \tolerance and \emergencystretch settings, microtype activation, scriptsize verbatim for ASCII diagrams, and amssymb plus multirow plus makecell plus caption packages added
+- new-trial/national-24-7-trial/paper/full-paper/new_paper.sty - Polished style file with 11 pt body and 13.5 pt leading, four-level widow and orphan suppression, raggedright section headings, and consistent flushbottom
+- new-trial/national-24-7-trial/paper/full-paper/references.bib - Bibliography expanded with two additional Zenodo entries (kawchak_2026_19244918 National Platform and kawchak_2026_18810541 Patient Instructions); every entry retains a DOI string and a clickable URL via the note field; repository entries carry both GitHub and Zenodo URLs
+- new-trial/national-24-7-trial/paper/full-paper/sections/abstract.tex - Final 900-character abstract opening with the FDA 28 Apr 2026 RTCT announcement and closing on the 1M token context computational signature
+- new-trial/national-24-7-trial/paper/full-paper/sections/introduction.tex - Three-subsection final prose covering the FDA RTCT announcement (with Makary and Walsh quotes, TRAVERSE/STREAM-SCLC trials, Paradigm Health), the AI patient-prediction baseline across architecture, short-horizon mortality, AE/hospitalization, medium and long-horizon survival, response under ICI, and the reporting floor, and the transition to the four simulations
+- new-trial/national-24-7-trial/paper/full-paper/sections/methods.tex - Final prose with new subsections on simulation type (clinical trial site vs sponsor), reproducibility (cloud-only vs cloud-plus-local), code-based vs text-only simulations, and a Python code snippet showing the hour-loop pattern; states once that extra-hours/hour-56 through hour-83 are excluded due to extended AI run time during cloud generation
+- new-trial/national-24-7-trial/paper/full-paper/sections/results.tex - Five-subsection final prose with verbatim ASCII diagrams from hour-00, hour-12, hour-23, and hour-47 (Simulation 1), USL-trajectory stage table (Simulation 2), hour-00/12/23 sponsor agent workload diagrams (Simulation 3), daily metrics table and local-verification block (Simulation 4), and a cross-simulation synthesis ASCII comparison; tables use L{w} column types per the project brief
+- new-trial/national-24-7-trial/paper/full-paper/sections/discussion.tex - Five-subsection final prose comparing the four simulations to the FDA RTCT announcement (with extension table including advanced robotics and predictive capabilities), to current AI prediction methods (with computational signature comparison table), to patient safety and efficacy significance, to cloud vs local compute trade-offs (with ASCII trade-off diagram), and to code-based vs text-only practical implications
+- new-trial/national-24-7-trial/paper/full-paper/sections/limitations_future.tex - Per-simulation limitations followed by a Track A versus Track B future-work comparison table, three concrete deliverables, and a future Claude Code or competing AI local instance discussion
+- new-trial/national-24-7-trial/paper/full-paper/sections/conclusions.tex - Six-paragraph closing block with headline artifact counts split between site and sponsor simulations, persistent themes, implications for safety and effectiveness, restated limitations, and the forward path
+- new-trial/national-24-7-trial/paper/full-paper/sections/back_matter.tex - Acknowledgments, Ethical Disclosures, Rights and Permissions (CC BY 4.0), Cite This Article, and a Data Availability section linking every simulation source to its Zenodo DOI and GitHub path
+- new-trial/national-24-7-trial/paper/full-paper/orcid_icon.png - ORCID icon copied from the v3.5.0 template
+- new-trial/national-24-7-trial/paper/full-paper/README.md - Documentation with 7 DOI badges, ASCII repository structure diagram, cloud-only versus cloud-plus-local reproducibility table, and code-based versus text-only practical comparison; maps each of the four simulations to either clinical trial site (Sims 1, 2) or clinical trial sponsor (Sims 3, 4)
+- new-trial/national-24-7-trial/paper/full-paper/LaTeX_Source_Files.zip - Overleaf-ready ZIP containing main.tex, new_paper.sty, references.bib, orcid_icon.png, README.md, and the eight section .tex files
+
+### Changed
+- README.md - Updated version badge to v3.6.0, added the v3.6.0 full-paper entry above the v3.5.0 template entry, added the Accelerated Patient Prediction Full Paper architecture diagram, and added the new full-paper directory to the repository structure
+- CHANGELOG.md - Added v3.6.0 entry above v3.5.0
+- releases.md - Added v3.6.0 release notes above v3.5.0
+
+### Notes
+- All additions are LaTeX, Markdown, ZIP, and PNG only; no Python, YAML, or other CI-checked files are introduced. The lint-and-format CI workflow (ruff format check, ruff check, yamllint) on Python 3.10/3.11/3.12 remains green
+- The v3.6.0 full paper does NOT modify or replace any file from the v3.5.0 template (paper/main.tex, paper/sections/*.tex, paper/new_paper.sty, paper/references.bib, paper/README.md, paper/LaTeX_Source_Files.zip remain untouched). The full paper lives in a new full-paper/ subdirectory per the project brief
+- DOIs and clickable URLs are present for every reference; repository entries (Sim 1 via 19176370, Sim 2 via 19119939, Sims 3 and 4 via 19396256, the National Platform via 19244918, the Patient Instructions via 18810541, and the parent repository via 18445179) all include both GitHub and Zenodo URLs in the note field
+
 ## [3.5.0] - 2026-05-03
 
 ### Added

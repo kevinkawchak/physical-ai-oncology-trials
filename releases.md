@@ -4,6 +4,41 @@ Release notes for the physical-ai-oncology-trials repository.
 
 ---
 
+Accelerated Patient Prediction Full Paper (Four LLM Simulations)
+v3.6.0 - Accelerated Patient Prediction Full Paper
+
+## Summary
+
+- Added a polished 70+ page LaTeX manuscript at new-trial/national-24-7-trial/paper/full-paper/ for "Accelerated Patient Prediction in Physical AI Oncology Clinical Trials: Four Comprehensive LLM Simulations" by Kevin Kawchak (10.5281/zenodo.19994945), populated from the v3.5.0 template into final senior-author prose
+- The full paper splits the four author simulations between clinical trial sites (Simulation 1 continuous RTCT and Simulation 2 single-patient 10-stage journey) and clinical trial sponsors (Simulation 3 24-hour autonomous sponsor and Simulation 4 168-hour 7-day sponsor extension verified locally on a 2015 Core i5-6200U laptop with 4 GB RAM)
+- Adds reproducibility analysis for cloud-only versus cloud-plus-local-verification and a code-based versus text-only simulation comparison; documents the FDA RTCT 28 April 2026 announcement context and the advanced robotics and predictive capabilities advantage over the agency's two pharmacology proofs-of-concept
+- Adds two new Zenodo references (kawchak_2026_19244918 National Platform and kawchak_2026_18810541 Patient Instructions) to the bibliography; every reference retains a DOI string and a clickable URL via the note field; repository entries carry both GitHub and Zenodo URLs
+- Ships an Overleaf-ready ZIP at new-trial/national-24-7-trial/paper/full-paper/LaTeX_Source_Files.zip containing main.tex, new_paper.sty, references.bib, orcid_icon.png, README.md, and the eight section .tex files
+- Does NOT modify or replace anything from new-trial/national-24-7-trial/paper/ (the v3.5.0 template); the full paper lives in a new full-paper/ subdirectory per the project brief
+
+## Features
+
+- Polished main.tex with stronger formatting controls (\\tolerance=1200, \\emergencystretch=3em, \\hyphenpenalty=50), microtype activation, scriptsize verbatim for ASCII diagrams, and amssymb plus multirow plus makecell plus caption packages added
+- Polished new_paper.sty with displaywidowpenalty and brokenpenalty 10000, 11 pt body, 13.5 pt leading, raggedright section headings, and consistent flushbottom (no \\raggedbottom conflict)
+- Final prose in every section: abstract opens with the FDA 28 Apr 2026 announcement and closes on the 1M token computational signature; introduction covers the FDA announcement (with Makary and Walsh quotes, TRAVERSE / STREAM-SCLC trials, Paradigm Health) and the AI patient-prediction baseline (Manz 2020 AUC 0.89, SHIELD-RT prospective RCT, SCORPIO, PROGPATH, Huang 2025 null result); methods adds simulation-type, reproducibility, code-vs-text, and a Python hour-loop snippet; results includes verbatim ASCII diagrams from hour-00, hour-12, hour-23, hour-47 of Simulation 1 and hour-00, hour-12, hour-23 sponsor agent workload diagrams of Simulation 3 plus a daily metrics table and local-verification block for Simulation 4; discussion adds a cloud vs local trade-off ASCII diagram and an FDA-extension comparison table; limitations and future work introduces Track A (single big model performing all tasks) versus Track B (single big model creating smaller local agents) with comparison table; conclusions restates the headline counts split by site versus sponsor; back matter adds a Data Availability section linking every Zenodo DOI to its GitHub source path
+- Tables across the paper use L{w} column types per the project brief, ensuring left-justified text in every column and preventing right-margin overflow
+- States once in Methods that extra-hours/hour-56 through hour-83 are excluded due to extended AI run time during cloud generation
+- All additions are LaTeX, Markdown, ZIP, and PNG only; no Python, YAML, or other CI-checked files are introduced; the lint-and-format CI workflow on Python 3.10/3.11/3.12 remains green
+- README at new-trial/national-24-7-trial/paper/full-paper/README.md carries 7 DOI badges (parent repo, sponsor, national platform, site documentation, patient journey, patient instructions, paper itself), an ASCII repository structure diagram, a cloud-only versus cloud-plus-local reproducibility comparison table, and a code-based versus text-only simulation comparison
+- main README.md, CHANGELOG.md, and releases.md updated to reference the new full-paper directory; main README.md adds a v3.6.0 architecture diagram block above the v3.5.0 template diagram
+
+## Contributors
+@kevinkawchak
+@claude
+@openai
+@google-gemini
+
+## Notes
+
+The v3.6.0 release replaces no existing file in the v3.5.0 paper template; instead it ships an entirely new full-paper/ subdirectory containing the polished prose. The future-work tracks (Track A: single big model performing all tasks; Track B: big model that creates smaller local agents) are positioned as the next research direction, with three concrete deliverables: a TRIPOD+AI-compliant retrospective validation on a real-patient cohort, a public benchmark against the supervised baselines named in Background-A and Background-B, and an FDA-aligned RTCT pilot submission that uses Simulation 4 as the sponsor-side input. Color diagrams remain a separate future generation pass per the v3.5.0 plan.
+
+---
+
 Accelerated Patient Prediction Paper Template (Four LLM Simulations)
 v3.5.0 - Accelerated Patient Prediction Paper Template
 

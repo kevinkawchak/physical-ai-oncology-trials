@@ -1,7 +1,7 @@
 # End-to-End Physical AI Unification of Oncology Clinical Trials
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Release](https://img.shields.io/badge/Release-v3.5.0-brightgreen.svg)](https://github.com/kevinkawchak/physical-ai-oncology-trials)
+[![Release](https://img.shields.io/badge/Release-v3.6.0-brightgreen.svg)](https://github.com/kevinkawchak/physical-ai-oncology-trials)
 [![Last Updated](https://img.shields.io/badge/Updated-May%202026-blue.svg)](https://github.com/kevinkawchak/physical-ai-oncology-trials)
 [![Protocol](https://img.shields.io/badge/Protocol-MCP-purple.svg)](https://github.com/kevinkawchak/physical-ai-oncology-trials)
 [![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.18445179-blue)](https://doi.org/10.5281/zenodo.18445179)
@@ -13,6 +13,8 @@
 **Comprehensive developments for integrating physical AI into oncology clinical trials, by Claude Code Opus 4.6, Cowork; with Assistance from ChatGPT 5.4 Thinking and Google Gemini Search.**
 
 This repository provides production-ready configurations, validated pipelines, and integration guides for deploying robotic systems, digital twins, and embodied AI agents in oncology. 
+
+**5/3: v3.6.0 (Accelerated Patient Prediction Full Paper)** *Polished 70+ page LaTeX paper at new-trial/national-24-7-trial/paper/full-paper/ for "Accelerated Patient Prediction in Physical AI Oncology Clinical Trials: Four Comprehensive LLM Simulations"* [![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.19994945-blue)](https://doi.org/10.5281/zenodo.19994945)
 
 **5/3: v3.5.0 (Accelerated Patient Prediction Paper Template)** *LaTeX template at new-trial/national-24-7-trial/paper/ & instructions for "Accelerated Patient Prediction in Physical AI Oncology Clinical Trials: Four Comprehensive LLM Simulations"* [![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.19994945-blue)](https://doi.org/10.5281/zenodo.19994945)
 
@@ -67,6 +69,36 @@ python unification/cross_platform_tools/framework_detector.py
 ```
 
 ---
+
+## Accelerated Patient Prediction Full Paper (v3.6.0)
+
+```
+  Polished Full Paper           Site & Sponsor Sims          Build Output
+  (Final Prose)          ---->  (Source Repos)         ---->  (Overleaf PDF)
+  +---------------------+       +-------------------+         +------------+
+  | main.tex (polished) |  ---  | Site Sim 1: 56h   |   --->  | 70+ pages  |
+  | new_paper.sty       |  ---  | Site Sim 2: 10st  |   --->  | Black text |
+  | references.bib (35) |  ---  | Sponsor Sim 3: 24h|   --->  | Single dsh |
+  | abstract.tex        |  ---  | Sponsor Sim 4:    |   --->  | No widows  |
+  | introduction.tex    |  ---  |   168h + i5-6200U |   --->  | No orphans |
+  | methods.tex         |  ---  |                   |   --->  | DOI URLs   |
+  | results.tex         |  ---  | (FDA RTCT 28 Apr  |   --->  | clickable  |
+  | discussion.tex      |  ---  |  2026 reference)  |   --->  | in bib     |
+  | limitations_future  |  ---  |                   |   --->  |            |
+  | conclusions.tex     |  ---  | Cloud-only:       |   --->  | Tables L{w}|
+  | back_matter.tex     |  ---  |   Sims 1, 2, 3    |         | left-just  |
+  | LaTeX_Source_Files  |  ---  | Cloud + local:    |         | ASCII dx   |
+  | .zip (Overleaf)     |  ---  |   Sim 4 (i5/4GB)  |         | per Sim    |
+  +---------------------+       +-------------------+         +------------+
+           |                            |                            |
+           v                            v                            v
+  +-----------------------------------------------------------------------------+
+  |  v3.6.0: full prose, tables in L{w} format, ASCII diagrams verbatim,         |
+  |  Track A vs Track B future work, cloud + local reproducibility analysis,     |
+  |  6 simulation Zenodo refs (incl. National Platform 19244918, Patient Instr   |
+  |  18810541), all-black hyperref, single-dash style, no margin overflow.       |
+  +-----------------------------------------------------------------------------+
+```
 
 ## Accelerated Patient Prediction Paper Template (v3.5.0)
 
@@ -207,7 +239,15 @@ physical-ai-oncology-trials/
 │   │       ├── orcid_icon.png        # Title-page ORCID hyperlink asset
 │   │       ├── README.md             # Paper-template documentation
 │   │       ├── LaTeX_Source_Files.zip # Overleaf-ready archive
-│   │       └── sections/              # 8 section .tex files
+│   │       ├── sections/              # 8 section .tex files
+│   │       └── full-paper/            # ★ Polished Full Paper (v3.6.0)
+│   │           ├── main.tex           # Polished document with stronger formatting
+│   │           ├── new_paper.sty      # Updated style with displaywidowpenalty
+│   │           ├── references.bib     # 35 entries + 2 added Zenodo refs
+│   │           ├── orcid_icon.png     # Title-page ORCID hyperlink asset
+│   │           ├── README.md          # DOI badges + ASCII diagrams + tables
+│   │           ├── LaTeX_Source_Files.zip # Overleaf-ready archive
+│   │           └── sections/          # 8 section .tex files (final prose)
 │   └── site/                          # ★ Trial Site Documentation (v2.9.0)
 │       ├── README.md                  # Site documentation overview
 │       ├── 01-legislation-authorization/     # SB 1042 authorization act

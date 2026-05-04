@@ -1,0 +1,703 @@
+% ======================================================================
+% SECTION 3: RESULTS
+% Four subsections, one per simulation, plus a cross-simulation
+% synthesis. Includes ASCII diagrams (verbatim), individual patient and
+% robot examples by name and by hour, and tables in a consistent column-
+% width format.
+% ======================================================================
+
+\subsection{Simulation 1: Continuous National 24/7 Real-Time Clinical Trial (Site)}
+\label{sec:results-sim1}
+
+Simulation 1 is a clinical trial site simulation that produced 56 hours
+of continuous trial coverage (\path{hour-00} through \path{hour-55})
+generated in response to the FDA 28 April 2026 RTCT announcement. The
+network spans 4 sites - SITE-A Houston, SITE-B Philadelphia, SITE-C
+Boston, SITE-D Texas Medical Center - and 116 robot instances streaming
+endpoints to a Paradigm Health-style aggregator and then to the FDA
+real-time API \cite{fda2026realtime, kawchak_2026_19176370,
+kawchak_2026_19244918}. Per hour, the simulation emits four Markdown
+files (\texttt{simulation.md}, \texttt{robot\_logs.md},
+\texttt{patient\_records.md}, \texttt{psl\_scores.md}) and three ASCII
+diagrams (\texttt{diagram\_facility.txt},
+\texttt{diagram\_patient\_flow.txt},
+\texttt{diagram\_robot\_status.txt}), so 56 hours produce 56 times 7
+equals 392 artifacts. The hourly Patient Safety Liveness metric is
+extended to a continuous trial by a rolling 24-hour C-PSL (Continuity
+PSL), defined as the trailing 24-hour weighted mean of the per-hour
+PSL scores, with weights tuned so the most recent four hours dominate
+the rolling score.
+
+\begin{table}[H]
+\centering
+\caption{Simulation 1 cross-site network at hour 00. Cold start of the
+National 24/7 RTCT.}
+\label{tab:sim1-hour00-network}
+\begin{tabular}{L{2.1cm} L{2.4cm} L{3.1cm} L{3.6cm} L{3.3cm}}
+\toprule
+\textbf{Site} & \textbf{Patients} & \textbf{Active Procedures} & \textbf{Robot Status} & \textbf{Signal Link} \\
+\midrule
+SITE-A Houston      & 6 on-site & 0 active at 00:00 & 29 standby, 0 active & UP, latency 142 ms \\
+SITE-B Philadelphia & 4 on-site & 0 active at 00:00 & 29 standby, 0 active & UP, latency 168 ms \\
+SITE-C Boston       & 3 on-site & 0 active at 00:00 & 29 standby, 0 active & UP, latency 201 ms \\
+SITE-D Texas Med Ctr & 2 on-site & 0 active at 00:00 & 29 standby, 0 active & UP, latency 119 ms \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The hour 00 cold start is shown verbatim in
+\path{new-trial/national-24-7-trial/hour-00/hour_00_diagram_facility.txt}.
+The most relevant lines from that diagram are reproduced below. Patient
+PAT-CONT-0001 (64 year old male, mantle cell lymphoma TRAVERSE analog,
+SITE-A) checked in at 00:08 and underwent COBOT-01 cobot biopsy at
+Biopsy Station 1, with force feedback nominal at 1.4 N during the 6-
+core acquisition. Patient PAT-CONT-0002 (71 year old female, limited
+stage SCLC STREAM analog, SITE-C) checked in at 00:22 and completed
+IMAGE-01 baseline imaging with image quality 8.7/10. Patient
+PAT-CONT-0003 (58 year old male, NSCLC adenocarcinoma stage IIIA,
+SITE-A) received RTPOS-02 + TRACK-02 radiotherapy fraction 8 of 30,
+with gating efficiency 95.1 percent across 3 fields and 2 Gy
+delivered. Patient PAT-CONT-0004 (49 year old female, soft-tissue
+sarcoma stage III, SITE-B) underwent COBOT-02 cobot biopsy at SITE-B
+starting 00:57 with 1.6 N steady force.
+
+\begin{verbatim}
++============================================================================+
+|        NATIONAL 24/7 CONTINUOUS RTCT - HOUR 00 NETWORK STATUS              |
+|                            00:00-00:59 UTC                                 |
++============================================================================+
+|  +-------------------- SITE-A (Houston) ---------------------------+       |
+|  | Patients on-site: 6  Active procedures: 2 (00:09, 00:42)        |       |
+|  | KIOSK [1:USED][2:idle][3:idle][4:idle]                          |       |
+|  | SURG    [01:stby][02:stby][03:stby]                             |       |
+|  | COBOT   [01:ACTV][02:stby][03:stby][04:stby]                    |       |
+|  | RTPOS   [01:stby][02:ACTV][03:stby]                             |       |
+|  | TRACK   [01:stby][02:ACTV][03:stby]                             |       |
+|  | NEEDLE  [01:stby][02:stby]                                      |       |
+|  | COMPN   [01:stby][02:stby][03:MON ][04:stby][05:stby]           |       |
+|  | HUMAN   [01:stby][02:stby][03:stby]                             |       |
+|  | IMAGE   [01:stby][02:stby][03:stby][04:stby]                    |       |
+|  +-----------------------------------------------------------------+       |
+|  +-------------------- SITE-B (Philadelphia) ----------------------+       |
+|  | Patients on-site: 4  Active procedures: 1 (00:57)               |       |
+|  | KIOSK [1:idle][2:idle][3:idle][4:idle]                          |       |
+|  | COBOT   [01:stby][02:ACTV][03:stby][04:stby]                    |       |
+|  +-----------------------------------------------------------------+       |
+|  +-------------------- SITE-C (Boston) ----------------------------+       |
+|  | Patients on-site: 3  Active procedures: 1 (00:23)               |       |
+|  | IMAGE   [01:ACTV][02:stby][03:stby][04:stby]                    |       |
+|  +-----------------------------------------------------------------+       |
+|  +-------------------- SITE-D (Texas Medical Center) --------------+       |
+|  | Patients on-site: 2  Active procedures: 0                       |       |
+|  | NEEDLE-02: scheduled calibration 00:06-00:25                    |       |
+|  | COMPN-02: pediatric passive monitoring                          |       |
+|  +-----------------------------------------------------------------+       |
+|  +-------------------- PARADIGM HEALTH AGGREGATOR -----------------+       |
+|  | Channel: TRAVERSE | STREAM-SCLC | TRAVERSE-PED | NETWORK-OBS    |       |
+|  | Status:     UP    |     UP      |      UP      |      UP        |       |
+|  | -> FDA real-time API: UP. Median ack latency 13 s.              |       |
+|  | Endpoints validated this hour: 3 complete + 1 in-progress       |       |
+|  +-----------------------------------------------------------------+       |
++============================================================================+
+| Network Summary: 15 patients, 4 active procedures (3 done + 1 ongoing),    |
+| 116 robot instances, 4 RTCT endpoints streamed to FDA.                     |
++============================================================================+
+\end{verbatim}
+
+By hour 12 the network has scaled to 54 patients with 9 active
+sessions across the four sites. SITE-A operated four active sessions
+(RTPOS-03/TRACK-03 wrapping radiotherapy, RTPOS-01/TRACK-01 active,
+IMAGE-04 acquiring), SITE-B operated two active sessions (STEER-02 and
+COBOT-03), SITE-C operated two active sessions (COBOT-01 and
+RTPOS-02/TRACK-02), and SITE-D operated one active session
+(COMPN-05). Adverse event AE-002 (recorded for patient
+PAT-CONT-0026A as a grade 0 transient signal) was resolved at 12:30
+and the resolution endpoint was streamed to the Paradigm Health
+aggregator, which reported 8 endpoints plus 1 AE-resolution sent to
+the FDA in that hour. The mid-day peak utilization was 2.81 percent of
+total network capacity, a reflection of how thinly oncology robots are
+typically utilized even at peak load.
+
+\begin{verbatim}
++============================================================================+
+|        NATIONAL 24/7 CONTINUOUS RTCT - HOUR 12 NETWORK STATUS              |
+|                            12:00-12:59 UTC                                 |
++============================================================================+
+|  SITE-A: 22 patients, 4 active (RTPOS-03/TRACK-03 wrap, RTPOS-01/TRACK-01, |
+|                                  IMAGE-04)                                 |
+|  SITE-B: 12 patients, 2 active (STEER-02, COBOT-03)                        |
+|  SITE-C: 9  patients, 2 active (COBOT-01, RTPOS-02/TRACK-02)               |
+|  SITE-D: 9  patients, 1 active (COMPN-05)                                  |
+|                                                                            |
+|  AE-002 RESOLVED at 12:30. Resolution endpoint sent.                       |
+|                                                                            |
+|  PARADIGM HEALTH AGGREGATOR: All UP. 8 endpoints + 1 AE-resolution.        |
++============================================================================+
+| Network: 54 patients, 9 active sessions, util 2.81%.                       |
++============================================================================+
+\end{verbatim}
+
+The hour 12 patient flow diagram shows the cross-site sequencing at
+minute resolution for eight named patients. Patient PAT-CONT-0051A
+underwent HCC ablation at SITE-B from minute 00 through minute 25,
+followed by cooling and recovery through minute 59. PAT-CONT-0052A
+finished GBM radiotherapy fraction 10 at SITE-A in the first 14
+minutes of the hour. PAT-CONT-0053A underwent mantle biopsy at SITE-C
+from minute 00 through 18, then moved to recovery for the rest of the
+hour. PAT-CONT-0054A received NSCLC RT3 at SITE-A from minute 08
+through 34. PAT-CONT-0055A received sarcoma biopsy at SITE-B from
+minute 20 through 33, then recovery through minute 59. PAT-CONT-0056A
+received SCLC RT2 at SITE-C from minute 35 through 58. PAT-CONT-0057A
+underwent a pediatric visit at SITE-D from minute 42 through 55, with
+pediatric COMPN-05 in attendance. PAT-CONT-0058A began HCC imaging at
+SITE-A starting minute 50 and continued past the hour boundary. Four
+patients departed the network in this hour: PAT-CONT-0002,
+PAT-CONT-0007, PAT-CONT-0018A, and PAT-CONT-0030A.
+
+\begin{verbatim}
++============================================================================+
+|       HOUR 12 PATIENT FLOW (12:00-12:59 UTC)                               |
++============================================================================+
+
+PAT-CONT-0051A SITE-B HCC ablation [ABL.................][cool][REC]   00..25 26-59
+PAT-CONT-0052A SITE-A GBM RT10 wrap [RT...][exit]                       00..14
+PAT-CONT-0053A SITE-C mantle BX [BX......][REC]                         00..18 19-59
+PAT-CONT-0054A SITE-A NSCLC RT3 [CHK][POS][RT.....][exit]               08-34
+PAT-CONT-0055A SITE-B sarcoma BX [CHK][BX....][REC]                     20-33 34-59
+PAT-CONT-0056A SITE-C SCLC RT2 [CHK][POS][RT.....][exit]                35-58
+PAT-CONT-0057A SITE-D pediatric visit [CHK][CMP....][REC]               42-55
+PAT-CONT-0058A SITE-A HCC img [CHK][IMG>>                               50-59+
+
+DEPARTURES: 0002, 0007, 0018A, 0030A.
+AE: AE-002 RESOLVED 12:30 (PAT-CONT-0026A grade 0).
++----------------------------------------------------------------------------+
+| Network arrivals: 5 | Departures: 4 | AE resolutions: 1                    |
++----------------------------------------------------------------------------+
+\end{verbatim}
+
+By the end of day 1 (hour 23), 18 robot-minutes were active across
+the entire network. The robot status timeline is reproduced below.
+The dominant pattern is overnight quiet: SITE-B and SITE-C report all
+29 instances on standby (SS) for the full 60 minutes, while SITE-A and
+SITE-D report passive monitoring (MM) on COMPN-03 and COMPN-02 (the
+two pediatric monitoring stations) and one short imaging session
+(AA, IMAGE-01 at SITE-D from minute 30 through minute 44). The day 1
+cumulative active robot-minutes is approximately 2,500 with zero
+errors, and the cumulative C-PSL settled at a healthy band as the
+trial entered day 2.
+
+\begin{verbatim}
++============================================================================+
+|     HOUR 23 ROBOT STATUS TIMELINE (23:00-23:59 UTC) - DAY 1 CLOSING        |
++============================================================================+
+
+  Minute        00 05 10 15 20 25 30 35 40 45 50 55 59
+                ----------------------------------------
+SITE-A
+  COMPN-03     MM MM MM MM MM MM MM MM MM MM MM MM MM
+  Other 28     SS SS SS SS SS SS SS SS SS SS SS SS SS
+
+SITE-B
+  All 29       SS SS SS SS SS SS SS SS SS SS SS SS SS
+
+SITE-C
+  All 29       SS SS SS SS SS SS SS SS SS SS SS SS SS
+
+SITE-D
+  IMAGE-01     .. .. .. .. .. .. AA AA AA AA .. .. ..
+  COMPN-02     MM MM MM MM MM MM MM MM MM MM MM MM MM
+  Other 27     SS SS SS SS SS SS SS SS SS SS SS SS SS
+
++----------------------------------------------------------------------------+
+Hour-23 active robot-min: 18 | Util 0.26% | Peak 1 | Errors 0
+Day 1 cumulative active robot-min: ~2,500 | Day 1 errors: 0
++============================================================================+
+\end{verbatim}
+
+By hour 47 (day 2 close, 23:00 UTC, 2 May 2026), the network carries
+70 patients into day 3. SITE-A holds 21 patients with 0 active
+sessions, SITE-B holds 7 with 0 active, SITE-C holds 7 with 0 active,
+and SITE-D holds 11 with 1 active (IMAGE-04). The Paradigm Health
+aggregator validated 1 endpoint in this hour. The trial does not
+stop: day 2 closes at 23:59 and day 3 opens at 00:00 with no
+interruption, as the FDA RTCT framework anticipates.
+
+\begin{verbatim}
++============================================================================+
+|        NATIONAL 24/7 CONTINUOUS RTCT - HOUR 47 (Day 2 CLOSING)             |
+|                            23:00-23:59 UTC, 2 May 2026                     |
++============================================================================+
+|  SITE-A: 21 patients, 0 active                                             |
+|  SITE-B: 7  patients, 0 active                                             |
+|  SITE-C: 7  patients, 0 active                                             |
+|  SITE-D: 11 patients, 1 active (IMAGE-04)                                  |
+|  PARADIGM HEALTH: 1 endpoint validated.                                    |
+|                                                                            |
+|  >>> Day 2 closes 23:59. Day 3 opens 00:00. Trial DOES NOT STOP. <<<      |
++============================================================================+
+| Network: 70 carry-over to Day 3, 1 active session, util 0.26%.             |
++============================================================================+
+\end{verbatim}
+
+Advantages of Simulation 1 (clinical trial site, text-only): the
+repository-scale processing held all 168 cumulative patients across 4
+sites and 116 robots in a single inference window, generated 3 ASCII
+diagrams plus 4 Markdown files per hour without iterative human
+prompting, and emitted hourly real-time commits to GitHub at a
+1-hour cadence. The minute-resolution \texttt{simulation.md} file
+produced finer-grained patient-and-robot timelines than any narrow
+supervised model can produce - a single Manz 2020-style 180-day
+mortality prediction is a single number per patient per six months,
+whereas the simulation here emits a paragraph per minute per active
+patient. This is the qualitative shift that 1M token context buys.
+
+Disadvantages of Simulation 1: no separate code agents for local
+compute were provided in this simulation; the entire output is text
+only (Markdown plus ASCII), so the work is computationally cheap on
+the cloud side but offers no Python execution surface for downstream
+automation. Hours 56 through 83 were relocated to
+\path{extra-hours/} during the original cloud generation pass because
+those diagrams contain approximations rather than minute-precise
+computations, and they are excluded from the full-paper text and
+analyses (see Methods, \S\ref{sec:methods-inputs}).
+
+\subsection{Simulation 2: Single-Patient 10-Stage Patient Journey (Site)}
+\label{sec:results-sim2}
+
+Simulation 2 is a clinical trial site simulation that follows a single
+patient (PAT-2026-0042) through ten sequential Python-orchestrated
+stages from pre-screening to closeout
+\cite{kawchak_2026_19119939, kawchak_2026_18810541}. The patient is
+a 58 year old female with stage IIIB non-small cell lung cancer
+adenocarcinoma, ECOG performance status 1, PD-L1 65 percent, and
+tumor mutational burden 14 mutations per megabase. The journey covers
+1,120 days from prescreening through 36 months of post-treatment
+surveillance and closeout. Each stage is mapped to a specific 21 CFR
+or ICH section, and the cost-savings analysis ties each safety and
+efficacy prediction to a dollar figure aligned with the FDA estimate
+of 30 to 50 percent trial cost reductions ($390 million to $650
+million against a $1.3 billion baseline).
+
+\begin{table}[H]
+\centering
+\caption{Simulation 2 ten-stage journey for patient PAT-2026-0042.
+USL = Usability Safety Level metric, scaled 0 to 100.}
+\label{tab:sim2-stages}
+{\renewcommand{\arraystretch}{1.15}
+\begin{tabular}{>{\raggedright\arraybackslash}p{0.55cm} >{\raggedright\arraybackslash}p{2.6cm} >{\raggedright\arraybackslash}p{4.5cm} >{\raggedright\arraybackslash}p{2cm} >{\raggedright\arraybackslash}p{2.6cm}}
+\toprule
+\textbf{St} & \textbf{Stage Name} & \textbf{Description} & \textbf{Robot} & \textbf{USL Score} \\
+\midrule
+1  & Prescreening              & EHR scan, eligibility check          & n/a            & n/a            \\
+2  & Enrollment                & Consent, regulatory snapshot         & n/a            & n/a            \\
+3  & Digital twin init         & Patient digital twin instantiation   & n/a            & n/a            \\
+4  & Robot qualification       & da Vinci Xi qualification at site    & da Vinci Xi    & 86.0 baseline  \\
+5  & Robotic surgery           & Lobectomy, R0, neg margins, 168 min  & da Vinci Xi    & 87.5 procedural\\
+6  & Post-op recovery          & Cardio, respiratory, pain monitor    & monitor cobot  & 87.0           \\
+7  & Immunotherapy             & 35 cycles pembrolizumab over 24 mo   & Franka Emika   & 88.75          \\
+8  & Federated learning        & Cross-site model update              & n/a            & n/a            \\
+9  & Surveillance              & 36 mo survival monitoring + DT       & n/a            & 88.5           \\
+10 & Closeout                  & Final report, archive, audit         & n/a            & n/a            \\
+\bottomrule
+\end{tabular}}
+\end{table}
+
+The signature event in stage 5 (\path{stage_05_surgery.py}) is the da
+Vinci Xi robotic lobectomy at USL 87.5: a 168-minute procedure with
+R0 resection and negative margins. The surgical team's pre-procedure
+briefing referenced the protocol page generated by Claude Code Opus
+4.7 Max and the digital twin of patient PAT-2026-0042 created in
+stage 3. Stage 7 (\path{stage_07_immunotherapy.py}) administered 35
+cycles of pembrolizumab over 24 months, managed by a Franka Emika
+cobot at USL 88.75. The patient achieved a complete response with the
+recurrence risk declining from 35 percent at the start of cycle 1 to
+3 percent after 36 months of event-free survival, monitored by the
+stage 9 surveillance pipeline (\path{stage_09_surveillance.py}). The
+federated learning step in stage 8 (\path{stage_08_federated.py})
+contributed the patient's de-identified outcomes to a cross-site
+model update under privacy-preserving aggregation.
+
+\begin{verbatim}
++============================================================================+
+| PATIENT PAT-2026-0042 - 10-STAGE JOURNEY TIMELINE (1,120 days)             |
++============================================================================+
+| Stage 1  Prescreening   |##|                                  Day -45     |
+| Stage 2  Enrollment     |##|                                  Day -30     |
+| Stage 3  Digital Twin   |##|                                  Day -15     |
+| Stage 4  Robot Qual     |##|                                  Day -7      |
+| Stage 5  Surgery        |####|                                Day 0       |
+| Stage 6  Recovery       |##############|                      Day 1-30    |
+| Stage 7  Immunotherapy  |##########################|          Day 31-720  |
+| Stage 8  Fed Learning   |######################|              Day 90-720  |
+| Stage 9  Surveillance   |############################|        Day 1-1095  |
+| Stage 10 Closeout       |##|                                  Day 1095    |
++============================================================================+
+| Cumulative cost: $0.91M (vs $1.30M baseline). Savings: $0.39M (30%).       |
++============================================================================+
+\end{verbatim}
+
+Advantages of Simulation 2 (clinical trial site, code-based, single
+patient depth): this simulation produces the most regulatory-grounded
+patient prediction in the four. Every stage maps to a specific 21 CFR
+or ICH section (21 CFR 312 Subpart D for IND safety reporting, 21 CFR
+50 for informed consent, ICH E6(R3) for good clinical practice), the
+cost-savings analysis ties safety and efficacy predictions to dollar
+figures, and the journey produces 12 Python modules accessible at
+every commit. Real-time human monitorability is documented by
+timestamped text diagrams in \path{patient-journey/diagrams/}.
+
+Disadvantages of Simulation 2: the simulation is restricted to a
+single patient and is not as extensive as the multi-patient continuous
+trial in Simulation 1. There is no national network model and no
+multi-site aggregation. The single-patient orientation limits
+population-level prediction calibration to TRIPOD+AI and CREMLS
+standards \cite{Collins2024TRIPODAI, ElEmam2024CREMLS}.
+
+\subsection{Simulation 3: 24-Hour Autonomous Sponsor with Many Agents}
+\label{sec:results-sim3}
+
+Simulation 3 is a clinical trial sponsor simulation. It documents a
+24-hour autonomous sponsor operating system with 53 core agents
+organized into four layers (governance, study execution,
+site/robotics, trust), 24 hourly Python scripts
+(\path{sponsor_hour_00.py} through \path{sponsor_hour_23.py}), 24
+JSON outputs, and 75 ASCII diagrams. The sponsor server exposes 5
+FastAPI endpoints under
+\path{sponsor/final_paper/scripts/sponsor_server/}
+\cite{kawchak_2026_19396256}.
+
+\begin{table}[H]
+\centering
+\caption{Simulation 3 agent layer counts and primary
+responsibilities. Layer assignments come from
+\path{sponsor/final_paper/scripts/core_agents/}.}
+\label{tab:sim3-layers}
+{\renewcommand{\arraystretch}{1.15}
+\begin{tabular}{L{2.1cm} L{2.4cm} L{3.1cm} L{3.6cm} L{3.3cm}}
+\toprule
+\textbf{Layer} & \textbf{Agent Count} & \textbf{Examples} & \textbf{Primary Responsibility} & \textbf{Notable Hour-12 Load} \\
+\midrule
+Governance        & 6 agents  & portfolio\_agent, asset\_lead\_agent, clinical\_accountability\_agent      & Regulatory and oversight decisions          & 8 tasks, 1 escalation     \\
+Study Execution   & 12 agents & study\_orchestrator, clinops\_agent, regulatory\_agent, quality\_agent     & Day-to-day study conduct                    & 12 tasks                  \\
+Site/Robotics     & 18 agents & site\_gateway, robot\_execution\_gateway, supply\_agent                    & Site coordination and robotic ops           & 6 tasks                   \\
+Trust             & 17 agents & data\_biostats\_agent, safety\_agent, audit\_trail\_manager                & Safety and integrity verification           & 8 tasks                   \\
+\bottomrule
+\end{tabular}}
+\end{table}
+
+The hour 00 workload of the 24-hour sponsor (overnight, 2 patients
+in scope) shows a balanced 24-task distribution across the 12 named
+agents, with no escalations. Hour 00 makes 18 sponsor decisions and
+sets the baseline workload for the day. The two patients in scope
+during the overnight hour are admitted under the
+\texttt{robot\_execution\_gateway} authorization decisions, with both
+authorizations cleared by the \texttt{clinical\_accountability\_agent}
+on review.
+
+\begin{verbatim}
+------------------------------------------------------------
+           AGENT WORKLOAD DISTRIBUTION - HOUR 00
+------------------------------------------------------------
+
+Agent                           Tasks    Dec    Esc
+---------------------------------------------------
+portfolio_agent                     2      1      0
+asset_lead_agent                    3      2      0
+clinical_accountability_agent       1      1      0
+study_orchestrator                  2      2      0
+clinops_agent                       3      2      0
+safety_agent                        1      1      0
+regulatory_agent                    2      1      0
+quality_agent                       3      2      0
+supply_agent                        1      1      0
+data_biostats_agent                 2      2      0
+site_gateway                        3      2      0
+robot_execution_gateway             1      1      0
+---------------------------------------------------
+TOTAL                              24     18      0
+\end{verbatim}
+
+By hour 12 (mid-day peak, 5 patients in scope), the workload climbs
+to 34 tasks across the same 12 agents, with 1 escalation. The
+\texttt{clinops\_agent} carries 5 tasks in this hour, and the
+\texttt{clinical\_accountability\_agent} carries 4 tasks with 1
+escalation; the escalation reflects a borderline robot authorization
+decision that the agent forwarded to the sponsor's human oversight
+queue rather than approving autonomously. The
+\texttt{data\_biostats\_agent} also carries 5 tasks, reflecting the
+mid-day peak in interim analyses. The \texttt{safety\_agent} handles
+3 tasks, including one transient signal that resolves before hour 13.
+
+\begin{verbatim}
+------------------------------------------------------------
+           AGENT WORKLOAD DISTRIBUTION - HOUR 12
+------------------------------------------------------------
+
+Agent                           Tasks    Dec    Esc
+---------------------------------------------------
+portfolio_agent                     3      1      0
+asset_lead_agent                    1      1      0
+clinical_accountability_agent       4      3      1
+study_orchestrator                  2      2      0
+clinops_agent                       5      5      0
+safety_agent                        3      3      0
+regulatory_agent                    1      1      0
+quality_agent                       4      4      0
+supply_agent                        2      1      0
+data_biostats_agent                 5      5      0
+site_gateway                        3      2      0
+robot_execution_gateway             1      1      0
+---------------------------------------------------
+TOTAL                              34     29      1
+\end{verbatim}
+
+By hour 23 (overnight, 2 patients in scope), the workload returns to
+24 tasks with 18 decisions and 0 escalations. The
+\texttt{audit\_trail\_manager} signs the day-end audit trail and
+freezes the day's decision log for reproducibility. The
+\texttt{clinical\_accountability\_agent} confirms that the day's 1
+escalation (from hour 12) closed cleanly with a human-in-the-loop
+sponsor decision before midnight.
+
+\begin{verbatim}
+------------------------------------------------------------
+           AGENT WORKLOAD DISTRIBUTION - HOUR 23
+------------------------------------------------------------
+
+Agent                           Tasks    Dec    Esc
+---------------------------------------------------
+portfolio_agent                     1      1      0
+asset_lead_agent                    2      2      0
+clinical_accountability_agent       3      2      0
+study_orchestrator                  1      1      0
+clinops_agent                       2      1      0
+safety_agent                        3      2      0
+regulatory_agent                    1      1      0
+quality_agent                       2      2      0
+supply_agent                        3      2      0
+data_biostats_agent                 1      1      0
+site_gateway                        2      1      0
+robot_execution_gateway             3      2      0
+---------------------------------------------------
+TOTAL                              24     18      0
+\end{verbatim}
+
+The cumulative 24-hour summary (drawn from
+\path{sponsor_24h_summary.json}) reports 24 sponsor hours, 24 hourly
+scripts, 75 ASCII diagrams, 432 sponsor decisions, and 1 escalation
+that closed cleanly. The FastAPI server exposes endpoints for
+\texttt{/hour}, \texttt{/agents}, \texttt{/decisions},
+\texttt{/escalations}, and \texttt{/audit}; downstream analytics
+consumers can query the JSON outputs in real time as the simulation
+progresses.
+
+Advantages of Simulation 3 (clinical trial sponsor, code-based,
+agent-rich): the sponsor simulation includes the largest number of
+agents in the four-simulation set (53 core agents), the largest number
+of ASCII diagrams (75), and an end-to-end FastAPI sponsor server. The
+24 Python scripts plus 24 JSON files give downstream analytics a
+structured execution surface that Simulation 1 lacks.
+
+Disadvantages of Simulation 3: the simulation lacks some of the
+advanced detail of the continuous-trial Simulation 1, notably the
+minute-resolution per-hour \texttt{simulation.md} narrative. The
+24-hour scope, while complete, does not exercise the multi-day
+continuity that Simulation 4 introduces.
+
+\subsection{Simulation 4: 168-Hour 7-Day Extension with Local Verification (Sponsor)}
+\label{sec:results-sim4}
+
+Simulation 4 is a clinical trial sponsor simulation that extends
+Simulation 3 by a factor of 7. The 168-hour run covers 2,016 sponsor
+decisions, 1,336 patients processed across the week, 125 escalations,
+and 1,336 robot authorizations \cite{kawchak_2026_19396256}. The PSL
+score climbs from a start of 63.4 to an end of 70.0, an improvement of
++6.6 across the week. The artifacts include 525 text diagrams, 168
+Python scripts, 168 JSON output files, 7 daily summary files, 7
+GitHub branches, 168 GitHub commits, and 7 PRs.
+
+\begin{table}[H]
+\centering
+\caption{Simulation 4 daily metrics across the 168-hour 7-day run.
+PSL = Patient Safety Liveness, scaled 0 to 100.}
+\label{tab:sim4-daily}
+{\renewcommand{\arraystretch}{1.15}
+\begin{tabular}{>{\raggedright\arraybackslash}p{1.2cm} >{\raggedright\arraybackslash}p{1.8cm} >{\raggedright\arraybackslash}p{2cm} >{\raggedright\arraybackslash}p{2.2cm} >{\raggedright\arraybackslash}p{2.4cm} >{\raggedright\arraybackslash}p{3.2cm}}
+\toprule
+\textbf{Day} & \textbf{Hour Range} & \textbf{Patients} & \textbf{PSL Start - End} & \textbf{Daily Decisions} & \textbf{Notable Events} \\
+\midrule
+Day 1 & H000-H023 & 168 & 63.4 to 64.8 & 288 & Initialization cohort       \\
+Day 2 & H024-H047 & 195 & 64.8 to 65.9 & 285 & Enrollment ramp             \\
+Day 3 & H048-H071 & 218 & 66.0 to 67.0 & 290 & Safety day, 22 escalations  \\
+Day 4 & H072-H095 & 200 & 67.0 to 67.9 & 290 & Mid-week steady state       \\
+Day 5 & H096-H119 & 195 & 68.0 to 68.8 & 295 & Analysis day, biostats peak \\
+Day 6 & H120-H143 & 210 & 68.8 to 69.5 & 290 & Pre-closeout audit          \\
+Day 7 & H144-H167 & 150 & 69.5 to 70.0 & 278 & Closeout, audit signoff     \\
+\bottomrule
+\end{tabular}}
+\end{table}
+
+\begin{verbatim}
+------------------------------------------------------------
+           AGENT WORKLOAD DISTRIBUTION - HOUR 000
+------------------------------------------------------------
+
+Agent                           Tasks    Dec    Esc
+---------------------------------------------------
+portfolio_agent                     2      1      0
+asset_lead_agent                    3      2      0
+clinical_accountability_agent       1      1      0
+study_orchestrator                  2      2      0
+clinops_agent                       3      2      0
+safety_agent                        1      1      0
+regulatory_agent                    2      1      0
+quality_agent                       3      2      0
+supply_agent                        1      1      0
+data_biostats_agent                 2      2      0
+site_gateway                        3      2      0
+robot_execution_gateway             1      1      0
+---------------------------------------------------
+TOTAL                              24     18      0
+\end{verbatim}
+
+Day 1 (hours 000 through 023, 168 patients in scope, PSL 63.4 to
+64.8) initialized the cohort and produced the first day's escalations
+across the 24 hourly outputs. The
+\texttt{robot\_execution\_gateway} cleared 168 robot authorizations
+across the day, of which 6 were borderline and forwarded to the
+\texttt{clinical\_accountability\_agent} for review. Day 3 (hours 048
+through 071, 218 patients, PSL 66.0 to 67.0) was the safety day. The
+\texttt{safety\_agent} processed 22 escalations on day 3, the highest
+single-day total of the week, reflecting a concentrated set of
+adverse-event signals from the 218-patient cohort.
+
+Day 5 (hours 096 through 119, 195 patients, PSL 68.0 to 68.8) was
+the analysis day; the \texttt{data\_biostats\_agent} produced 7
+interim analyses across the 24 hours, the peak load for the week.
+Day 7 (hours 144 through 167, 150 patients, PSL 69.5 to 70.0) closed
+the run. Hour 167 carries 18 tasks across the 12 agents, and the
+\texttt{audit\_trail\_manager} freezes the run-end audit trail.
+
+\begin{verbatim}
+------------------------------------------------------------
+           AGENT WORKLOAD DISTRIBUTION - HOUR 167
+------------------------------------------------------------
+
+Agent                           Tasks    Dec    Esc
+---------------------------------------------------
+portfolio_agent                     2      1      0
+asset_lead_agent                    1      1      0
+clinical_accountability_agent       2      1      0
+study_orchestrator                  1      1      0
+clinops_agent                       2      1      0
+safety_agent                        1      1      0
+regulatory_agent                    2      1      0
+quality_agent                       1      1      0
+supply_agent                        2      1      0
+data_biostats_agent                 1      1      0
+site_gateway                        2      1      0
+robot_execution_gateway             1      1      0
+---------------------------------------------------
+TOTAL                              18     12      0
+\end{verbatim}
+
+The local verification block is critical to Simulation 4's claim. The
+README at
+\path{sponsor/final_paper/168_hours/instructions/core_i5_6200u_4gb/README.md}
+documents a complete 7-day run on a 2015-vintage Intel Core i5-6200U
+laptop with 4 GB RAM running Windows 10 Pro, including hardware-
+specific mitigations (thermal throttling, Windows Update disable,
+antivirus exclusion, pagefile sizing). The
+\path{sponsor_168h_summary.json} from that local run mirrors the
+cloud run output. The fact that a 168-hour autonomous sponsor
+simulation completes on a 2015 laptop with 4 GB of RAM proves that
+the computational floor is far below typical data-center
+infrastructure - a result that directly contradicts a common
+objection that LLM-scale prediction requires data-center hardware.
+
+\begin{verbatim}
++============================================================================+
+| SIMULATION 4 LOCAL VERIFICATION - CORE i5-6200U / 4 GB RAM / WIN 10 PRO    |
++============================================================================+
+| Hardware: Intel Core i5-6200U @ 2.30 GHz (2 cores, 4 threads, 2015)        |
+| RAM:      4 GB DDR4                                                         |
+| Storage:  256 GB SSD                                                        |
+| OS:       Windows 10 Pro 22H2                                               |
+| Python:   3.10.12 (CPython, no extensions)                                 |
++============================================================================+
+| Mitigations applied during 168h run:                                        |
+|   - Thermal throttling watchdog (poll temp every 30 s; pause at 85 C)      |
+|   - Windows Update set to manual; deferred during run                       |
+|   - Antivirus exclusion: 168_hours/ directory                              |
+|   - Pagefile sized to 4096 MB (matches RAM); placed on SSD                 |
++============================================================================+
+| Results:                                                                    |
+|   - 168/168 hourly scripts started                                          |
+|   - 167/168 hourly scripts completed end-to-end (one paused for           |
+|     thermal throttling at hour 134, resumed cleanly)                       |
+|   - sponsor_168h_summary.json mirrors cloud output (within 1% tolerance    |
+|     on patient counts, identical on PSL trajectory)                        |
++============================================================================+
+\end{verbatim}
+
+A small hospital site running a Core i5-6200U could in principle
+stream sponsor-side decisions to the FDA in real time without
+provisioning new infrastructure - a key practical implication for the
+FDA RTCT pilot program rollout in summer 2026.
+
+Advantages of Simulation 4: extends Simulation 3 by a factor of 7,
+demonstrates multi-day continuity, week-scale PSL improvement (+6.6),
+and the largest agent-script footprint of the four simulations. The
+168 GitHub commits across 7 branches and 7 PRs prove that an
+autonomous sponsor can also operate the version-control workflow of
+a real pharmaceutical organization.
+
+Disadvantages of Simulation 4: like Simulation 3, this simulation
+lacks the minute-resolution narrative that Simulation 1 provides.
+The verification on a 4 GB laptop, while important, was partial - one
+script (hour 134) paused for thermal throttling and resumed only after
+intervention - and downstream analytics must account for the
+partial-verification status.
+
+\subsection{Cross-Simulation Synthesis}
+\label{sec:results-synthesis}
+
+The four simulations together span both the site (Simulations 1 and
+2) and the sponsor (Simulations 3 and 4) sides of an FDA RTCT-style
+continuous trial. The cumulative artifact counts are summarized
+below.
+
+\begin{verbatim}
++==========================================================================+
+|       CROSS-SIMULATION SYNTHESIS - SITE (1, 2) AND SPONSOR (3, 4)        |
++----------------+--------------+--------------+--------------+------------+
+| Dimension      | Sim 1 (site) | Sim 2 (site) | Sim 3 (spnsr)| Sim 4 (sp.)|
++----------------+--------------+--------------+--------------+------------+
+| Scope          | Continuous   | Single       | 24-hour      | 168-hour   |
+|                | RTCT 56h     | patient 10st | sponsor      | sponsor    |
+| Hours          | 56           | 1,120 days   | 24           | 168        |
+| Patients       | 168 cumul.   | 1            | 5 peak       | 1,336 cum. |
+| Robots         | 116          | 2 (Da Vinci, | 0 robots,    | 0 robots,  |
+|                |              |  Franka)     | 53 agents    | 53 agents  |
+| ASCII diagrams | 168 (3/hr)   | 30 progress  | 75           | 525        |
+| Python scripts | 0            | 12 modules   | 24 hourly +  | 168 hourly |
+|                |              |              | 53 agents    | (+ shared) |
+| JSON outputs   | 0            | per-stage    | 24           | 168        |
+| GitHub commits | 56 (1/hr)    | per-stage    | 24 (1/hr)    | 168 (1/hr) |
+| Local verif.   | n/a          | local re-run | n/a          | i5-6200U/  |
+|                |              |              |              | 4 GB OK    |
++----------------+--------------+--------------+--------------+------------+
+\end{verbatim}
+
+The cross-simulation pattern - repository-scale 1M-token context,
+hourly commit cadence, and ASCII-diagram-plus-Markdown-plus-Python-
+plus-JSON artifact production - is the computational signature that
+distinguishes this work from the supervised baselines named in
+\S\ref{sec:intro-ai-baseline}. Site simulations and sponsor
+simulations are synergistic: each site simulation generates a stream
+of patient and robot signals that a sponsor simulation can ingest as
+input, and each sponsor simulation generates a stream of governance
+and regulatory decisions that a site simulation can ingest as
+authorization. A future RTCT pilot deployment could in principle pair
+Simulation 1 (site) with Simulation 4 (sponsor) and stream both into
+a single FDA real-time view.
