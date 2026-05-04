@@ -71,7 +71,7 @@ python unification/cross_platform_tools/framework_detector.py
 ## Accelerated Patient Prediction Full Paper (v3.6.0)
 
 ```
-  Polished Full Paper           Site & Sponsor Sims          Build Output
+  Polished Full Paper           Site & Sponsor Sims           Build Output
   (Final Prose)          ---->  (Source Repos)         ---->  (Overleaf PDF)
   +---------------------+       +-------------------+         +------------+
   | main.tex (polished) |  ---  | Site Sim 1: 56h   |   --->  | 70+ pages  |
@@ -88,13 +88,13 @@ python unification/cross_platform_tools/framework_detector.py
   | LaTeX_Source_Files  |  ---  | Cloud + local:    |         | ASCII dx   |
   | .zip (Overleaf)     |  ---  |   Sim 4 (i5/4GB)  |         | per Sim    |
   +---------------------+       +-------------------+         +------------+
-           |                            |                            |
-           v                            v                            v
+             |                            |                          |
+             v                            v                          v
   +-----------------------------------------------------------------------------+
-  |  v3.6.0: full prose, tables in L{w} format, ASCII diagrams verbatim,         |
-  |  Track A vs Track B future work, cloud + local reproducibility analysis,     |
-  |  6 simulation Zenodo refs (incl. National Platform 19244918, Patient Instr   |
-  |  18810541), all-black hyperref, single-dash style, no margin overflow.       |
+  |  v3.6.0: full prose, tables in L{w} format, ASCII diagrams verbatim,        |
+  |  Track A vs Track B future work, cloud + local reproducibility analysis,    |
+  |  6 simulation Zenodo refs (incl. National Platform 19244918, Patient Instr  |
+  |  18810541), all-black hyperref, single-dash style, no margin overflow.      |
   +-----------------------------------------------------------------------------+
 ```
 
@@ -118,8 +118,8 @@ python unification/cross_platform_tools/framework_detector.py
   | (525 dx, 168 .py, |          | LaTeX_Source_Files  |         | white-     |
   | 7 PRs, Core i5)   |          | .zip (Overleaf)     |         | space pass |
   +-------------------+          +---------------------+         +------------+
-           |                              |                            |
-           v                              v                            v
+           |                                |                          |
+           v                                v                          v
   +-----------------------------------------------------------------------------+
   |  v3.5.0: bracketed instructions naming exact directories and file paths,    |
   |  ASCII diagrams to embed verbatim, individual patient and robot examples,   |
@@ -230,12 +230,12 @@ physical-ai-oncology-trials/
 │   │   ├── Background-B/              # Deep research chunk set B (9 bib entries)
 │   │   ├── hour-00/ through hour-55/  # Hourly folders, 7 files each
 │   │   ├── extra-hours/               # hour-56 through hour-83 (approximated)
-│   │   └── paper/                     # ★ Paper Template (v3.5.0)
+│   │   └── paper/                     # Paper Template (v3.5.0)
 │   │       ├── main.tex               # Document skeleton + global formatting brief
 │   │       ├── new_paper.sty          # Style file (arxiv-derived, CC BY 4.0)
-│   │       ├── references.bib        # 35 entries with DOIs and clickable URLs
-│   │       ├── orcid_icon.png        # Title-page ORCID hyperlink asset
-│   │       ├── README.md             # Paper-template documentation
+│   │       ├── references.bib         # 35 entries with DOIs and clickable URLs
+│   │       ├── orcid_icon.png         # Title-page ORCID hyperlink asset
+│   │       ├── README.md              # Paper-template documentation
 │   │       ├── LaTeX_Source_Files.zip # Overleaf-ready archive
 │   │       ├── sections/              # 8 section .tex files
 │   │       └── full-paper/            # ★ Polished Full Paper (v3.6.0)
@@ -246,7 +246,7 @@ physical-ai-oncology-trials/
 │   │           ├── README.md          # DOI badges + ASCII diagrams + tables
 │   │           ├── LaTeX_Source_Files.zip # Overleaf-ready archive
 │   │           └── sections/          # 8 section .tex files (final prose)
-│   └── site/                          # ★ Trial Site Documentation (v2.9.0)
+│   └── site/                          # Trial Site Documentation (v2.9.0)
 │       ├── README.md                  # Site documentation overview
 │       ├── 01-legislation-authorization/     # SB 1042 authorization act
 │       ├── 02-legislation-patient-rights/    # AB 2847 patient rights act
@@ -670,27 +670,6 @@ The new `digital-twins/` directory provides comprehensive tools for creating and
 | Surgical planning | Isaac Sim integration | Virtual surgery rehearsal |
 | Clinical integration | FHIR/DICOM | Hospital system connectivity |
 
-
----
-
-## Validated Integration Paths
-
-### Path 1: Surgical Robot Training Pipeline (Unified)
-```
-NVIDIA Isaac Lab → [unification/bridge] → MuJoCo Validation → dVRK Hardware → Clinical
-```
-
-### Path 2: Agentic Clinical Assistant (Unified)
-```
-LangGraph + MCP → [unified_agent_interface] → Any Robot Platform → Hospital Deployment
-```
-
-### Path 3: Multi-Framework Development
-```
-Train (Isaac) → Validate (MuJoCo) → Integrate (Gazebo) → Prototype (PyBullet) → Deploy
-      ↑___________________________↓
-       Cross-platform validation
-```
 
 ---
 
