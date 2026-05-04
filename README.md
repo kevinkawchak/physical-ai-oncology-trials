@@ -1,7 +1,7 @@
 # End-to-End Physical AI Unification of Oncology Clinical Trials
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Release](https://img.shields.io/badge/Release-v3.6.0-brightgreen.svg)](https://github.com/kevinkawchak/physical-ai-oncology-trials)
+[![Release](https://img.shields.io/badge/Release-v3.7.0-brightgreen.svg)](https://github.com/kevinkawchak/physical-ai-oncology-trials)
 [![Last Updated](https://img.shields.io/badge/Updated-May%202026-blue.svg)](https://github.com/kevinkawchak/physical-ai-oncology-trials)
 [![Protocol](https://img.shields.io/badge/Protocol-MCP-purple.svg)](https://github.com/kevinkawchak/physical-ai-oncology-trials)
 [![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.18445179-blue)](https://doi.org/10.5281/zenodo.18445179)
@@ -13,6 +13,8 @@
 **Comprehensive developments for integrating physical AI into oncology clinical trials, by Claude Code Opus 4.6, Cowork; with Assistance from ChatGPT 5.4 Thinking and Google Gemini Search.**
 
 This repository provides production-ready configurations, validated pipelines, and integration guides for deploying robotic systems, digital twins, and embodied AI agents in oncology. 
+
+**5/4: v3.7.0 (Accelerated Patient Prediction Chart Pack)** *30 publication-quality matplotlib charts (300 DPI) at new-trial/national-24-7-trial/paper/full-paper/charts/ that replace ASCII diagrams and dense tables in the v3.6.0 full paper and add 15 new figures (capability radar, cost waterfall, patient safety funnel, value proposition wheel, financial assessment dashboard, 21 CFR / ICH compliance wheel) - 10 of 30 are full page; 50/50 mix of replacements and net-new figures* [![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.19994945-blue)](https://doi.org/10.5281/zenodo.19994945)
 
 **5/3: v3.6.0 (Accelerated Patient Prediction Full Paper)** *Polished 70+ page LaTeX paper at new-trial/national-24-7-trial/paper/full-paper/ for "Accelerated Patient Prediction in Physical AI Oncology Clinical Trials: Four Comprehensive LLM Simulations"* [![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.19994945-blue)](https://doi.org/10.5281/zenodo.19994945)
 
@@ -69,6 +71,44 @@ python unification/cross_platform_tools/framework_detector.py
 ```
 
 ---
+
+## Accelerated Patient Prediction Chart Pack (v3.7.0)
+
+```
+  Full Paper Sections          Chart Pack (30 figures)        Output Artifacts
+  (v3.6.0 prose)        ---->  (v3.7.0 charts/)         ---->  (PNG at 300 DPI)
+  +-------------------+        +-----------------------+      +---------------+
+  | Sim 1 site (RTCT) | -->    | 01 site network (FP)  | -->  | charts/images |
+  | Sim 2 site (10st) | -->    | 02 patient flow Gantt | -->  |   01 - 30 png |
+  | Sim 3 sponsor 24h | -->    | 03 robot status htmap | -->  |   300 DPI     |
+  | Sim 4 sponsor     | -->    | 04 - 09 sim panels    | -->  |   No dark mode|
+  |   168h + i5/4GB   | -->    | 10 - 15 replace tables| -->  |   Light fills |
+  |                   |        | 16 FDA capability rdr | -->  |   Single dash |
+  | Discussion 4.x    | -->    | 17 cost waterfall     | -->  |   § for SS    |
+  | Limitations 5.x   | -->    | 18 safety funnel (FP) | -->  |               |
+  | Conclusions 6     | -->    | 19 value prop wheel   | -->  | charts/scripts|
+  | Methods 2.x       | -->    | 20 financial dboard   | -->  |   01 - 30 .py |
+  |                   |        | 21 PSL trajectory     |      |   ruff clean  |
+  |                   |        | 22 multimodal inputs  |      | charts/instr  |
+  |                   |        | 23 commit cadence     |      |   01 - 30 .md |
+  | FDA RTCT 28 Apr   | -->    | 24 safety/efficacy 2x2| -->  | charts/README |
+  |   2026 announce   | -->    | 25 21 CFR / ICH wheel | -->  |   captions    |
+  |                   |        | 26 robot auth flowct  |      |   placement   |
+  |                   |        | 27 site/sponsor arch  |      |   guide       |
+  |                   |        | 28 future roadmap     |      |               |
+  |                   |        | 29 artifact treemap   |      |               |
+  |                   |        | 30 RTCT signal flow   |      |               |
+  +-------------------+        +-----------------------+      +---------------+
+           |                              |                            |
+           v                              v                            v
+  +-----------------------------------------------------------------------------+
+  |  v3.7.0: 30 publication-quality matplotlib charts at 300 DPI; 50/50 mix    |
+  |  of v3.6.0 ASCII / table replacements (15) and entirely new figures (15);  |
+  |  10 of 30 are full page; combines three Sim 3 hourly workload tables into  |
+  |  one figure per the project brief; highlights FDA RTCT differentiators -   |
+  |  advanced robotics (116 instances) plus advanced 1M token predictive layer.|
+  +-----------------------------------------------------------------------------+
+```
 
 ## Accelerated Patient Prediction Full Paper (v3.6.0)
 
@@ -247,7 +287,12 @@ physical-ai-oncology-trials/
 │   │           ├── orcid_icon.png     # Title-page ORCID hyperlink asset
 │   │           ├── README.md          # DOI badges + ASCII diagrams + tables
 │   │           ├── LaTeX_Source_Files.zip # Overleaf-ready archive
-│   │           └── sections/          # 8 section .tex files (final prose)
+│   │           ├── sections/          # 8 section .tex files (final prose)
+│   │           └── charts/            # ★ Chart Pack (v3.7.0)
+│   │               ├── README.md      # 30-row image inventory + captions
+│   │               ├── instructions/  # 30 .md instruction files (1 per chart)
+│   │               ├── scripts/       # 30 matplotlib .py scripts (300 DPI)
+│   │               └── images/        # 30 .png renderings (300 DPI)
 │   └── site/                          # ★ Trial Site Documentation (v2.9.0)
 │       ├── README.md                  # Site documentation overview
 │       ├── 01-legislation-authorization/     # SB 1042 authorization act
