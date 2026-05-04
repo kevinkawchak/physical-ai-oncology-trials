@@ -43,3 +43,5 @@ ignore = ["F841", "E741", "E501"]
 "patient-journey/**/*.py" = ["F401", "F402"]
 # Sponsor autonomous agent scripts use conditional imports and cross-module references
 "sponsor/**/*.py" = ["F401", "F402", "E402"]
+# Full-paper chart matplotlib scripts use heavy local style helpers and inline color tables
+"new-trial/national-24-7-trial/paper/full-paper/charts/scripts/*.py" = ["F401", "F841", "E402"]
