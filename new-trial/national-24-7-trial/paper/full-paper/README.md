@@ -1,13 +1,14 @@
 # Accelerated Patient Prediction in Physical AI Oncology Clinical Trials: Four Comprehensive LLM Simulations - Full Paper
 
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.19994945.svg)](https://doi.org/10.5281/zenodo.19994945)
-[![License: CC BY 4.0](https://img.shields.io/badge/License-CC%20BY%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by/4.0/)
-[![Parent Repository DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.18445179.svg)](https://doi.org/10.5281/zenodo.18445179)
-[![Sponsor Simulations DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.19396256.svg)](https://doi.org/10.5281/zenodo.19396256)
-[![National Platform DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.19244918.svg)](https://doi.org/10.5281/zenodo.19244918)
-[![Site Documentation DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.19176370.svg)](https://doi.org/10.5281/zenodo.19176370)
-[![Patient Journey DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.19119939.svg)](https://doi.org/10.5281/zenodo.19119939)
-[![Patient Instructions DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.18810541.svg)](https://doi.org/10.5281/zenodo.18810541)
+[![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.19994945-blue)](https://doi.org/10.5281/zenodo.19994945)
+[![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.18445179-blue)](https://doi.org/10.5281/zenodo.18445179)
+[![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.19396256-blue)](https://doi.org/10.5281/zenodo.19396256)
+[![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.19244918-blue)](https://doi.org/10.5281/zenodo.19244918)
+[![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.19176370-blue)](https://doi.org/10.5281/zenodo.19176370)
+[![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.19119939-blue)](https://doi.org/10.5281/zenodo.19119939)
+[![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.18810541-blue)](https://doi.org/10.5281/zenodo.18810541)
+
+
 
 The polished, fully populated 70+ page LaTeX manuscript for the National 24/7
 Continuous Real-Time Clinical Trial paper. This directory contains the
