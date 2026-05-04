@@ -28,6 +28,7 @@ Format follows [Keep a Changelog](https://keepachangelog.com/).
 - README.md - Updated version badge to v3.6.0, added the v3.6.0 full-paper entry above the v3.5.0 template entry, added the Accelerated Patient Prediction Full Paper architecture diagram, and added the new full-paper directory to the repository structure
 - CHANGELOG.md - Added v3.6.0 entry above v3.5.0
 - releases.md - Added v3.6.0 release notes above v3.5.0
+- @kevinkawchak uploaded paper LaTeX source files and fixed README DOI badge issues in main/new-trial/national-24-7-trial/paper/full-paper/final-paper on 2025-05-04.
 
 ### Notes
 - All additions are LaTeX, Markdown, ZIP, and PNG only; no Python, YAML, or other CI-checked files are introduced. The lint-and-format CI workflow (ruff format check, ruff check, yamllint) on Python 3.10/3.11/3.12 remains green
