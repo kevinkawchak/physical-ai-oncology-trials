@@ -30,6 +30,7 @@ Format follows [Keep a Changelog](https://keepachangelog.com/).
 - releases.md - Added v3.6.0 release notes above v3.5.0
 - @kevinkawchak uploaded paper LaTeX source file and fixed README DOI badge issues in main/new-trial/national-24-7-trial/paper/full-paper/final-paper. The user also fixed DOI badge issues in main/new-trial/national-24-7-trial/paper/full-paper; and made main/README.md more concise by fixing diagram formatting issues, and removing a redundant section on 2025-05-04.
 - @kevinkawchak created new main/patients/paper directory, and added new "Deep-Research-1" and "Deep-Research-2" directories with chunked summaries and README files for each directory on 2026-05-05.
+- @kevinkawchak added paper input chunks and READMEs for Deep-Research-3 and Deep-Research-4 in main/patients/paper on 2026-05-05.
 
 ### Notes
 - All additions are LaTeX, Markdown, ZIP, and PNG only; no Python, YAML, or other CI-checked files are introduced. The lint-and-format CI workflow (ruff format check, ruff check, yamllint) on Python 3.10/3.11/3.12 remains green
