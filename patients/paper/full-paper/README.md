@@ -1,6 +1,15 @@
 # Patient Priority and Proposed U.S. Bills for Physical AI Oncology Clinical Trials - FULL PAPER
 
-**v3.8.0 (Patient Priority Full Paper)** *Patient Priority and Proposed U.S. Bills for Physical AI Oncology Clinical Trials* - polished 70+ page LaTeX manuscript at `patients/paper/full-paper/` populating the seven proposed federal bills (HR 9501 through HR 9507) with consolidated bracketed instructions and named repository file paths from the prior v3.7.0 template, restructured around the seven bills as the central deliverable. [![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.20045457-blue)](https://doi.org/10.5281/zenodo.20045457) [![DOI](https://img.shields.io/badge/Repo-10.5281%2Fzenodo.18445179-blue)](https://doi.org/10.5281/zenodo.18445179)
+**v3.8.0 (Patient Priority Full Paper)** Polished 70+ page LaTeX manuscript at `patients/paper/full-paper/` populating the seven proposed federal bills (HR 9501 through HR 9507) with consolidated bracketed instructions and named repository file paths from the prior v3.7.0 template, restructured around the seven bills as the central deliverable.
+
+[![Paper DOI](https://img.shields.io/badge/Paper%20DOI-10.5281%2Fzenodo.20045457-blue)](https://doi.org/10.5281/zenodo.20045457)
+[![Repo DOI](https://img.shields.io/badge/Repo%20DOI-10.5281%2Fzenodo.18445179-blue)](https://doi.org/10.5281/zenodo.18445179)
+[![National Platform DOI](https://img.shields.io/badge/National%20Platform-10.5281%2Fzenodo.19244918-blue)](https://doi.org/10.5281/zenodo.19244918)
+[![Sponsor DOI](https://img.shields.io/badge/Sponsor-10.5281%2Fzenodo.19396256-blue)](https://doi.org/10.5281/zenodo.19396256)
+[![Site DOI](https://img.shields.io/badge/Site-10.5281%2Fzenodo.19176370-blue)](https://doi.org/10.5281/zenodo.19176370)
+[![Patient Journey DOI](https://img.shields.io/badge/Patient%20Journey-10.5281%2Fzenodo.19119939-blue)](https://doi.org/10.5281/zenodo.19119939)
+[![Patient Instructions DOI](https://img.shields.io/badge/Patient%20Instructions-10.5281%2Fzenodo.18810541-blue)](https://doi.org/10.5281/zenodo.18810541)
+[![Accelerated Patient Prediction DOI](https://img.shields.io/badge/4%20Simulations-10.5281%2Fzenodo.19994945-blue)](https://doi.org/10.5281/zenodo.19994945)
 
 ## Overview
 
@@ -16,12 +25,15 @@ Priority Framework, Implementation/Metrics, Discussion, Limitations,
 and Conclusions sections have been MOVED into the seven bill section
 files. The result is a tight 7-Bill paper layout (Title page + TOC,
 seven bills, References, Acknowledgments, Ethical disclosures, Rights
-and permissions, Cite this article).
+and permissions, Cite this article) suitable for downstream Claude
+Code Opus 4.7 1M Max population into final 70+ page prose.
+
+## Seven Proposed Bills
 
 The seven proposed bills, each renumbered to HR 9501 through HR 9507
 to avoid known active-legislation conflicts (the prior HR 4501-4507
-range collides with bills such as the Holy Sovereignty Protection Act
-in the 119th Congress) are:
+range collides with bills such as the Holy Sovereignty Protection
+Act in the 119th Congress) are:
 
 | Bill | Adaption / Revision Of | Patient-Control Aim |
 |------|------------------------|---------------------|
@@ -30,7 +42,7 @@ in the 119th Congress) are:
 | HR 9503 (2026) | OHRP Broad Consent 2017, 21st Century Cures Act 2016 | Cancer patient procedural modification authority |
 | HR 9504 (2026) | HTI-1 DSI Final Rule 2023, FDA AI Decision-Making Draft Guidance 2025 | Physical AI clinical error reduction |
 | HR 9505 (2026) | FDA RTCT Press Announcement April 2026, FDA DCT Guidance 2024 | Real-time patient-sponsor direct communication |
-| HR 9506 (2026) | FDORA Section 3209, 21st Century Cures Act 2016 | American leadership in medical AI and robotics oncology |
+| HR 9506 (2026) | FDORA Section 3209, 21st Century Cures Act 2016 | American physical AI oncology leadership |
 | HR 9507 (2026) | HHS HIPAA Right-to-Access 2025, ONC Cures Act Final Rule | Cancer patient health data self-custody and trial-selection |
 
 Every proposed section explicitly states "adaption" or "revision" in
@@ -61,15 +73,16 @@ from, per the project brief.
    `patients/paper/Deep-Research-3/part2_ai_robotics_legislation.md`.
 
 The new bills support prior author paper innovations including
-patient-booked 24/7 trial time slots, patient choice of surgical robot
-or humanoid or companion robot, and patient-controlled procedure
-modifications with less human doctor and nurse intervention.
+patient-booked 24/7 trial time slots, patient choice of surgical
+robot or humanoid or companion robot, and patient-controlled
+procedure modifications with less human doctor and nurse
+intervention.
 
-Mentions of the FDA and other governing bodies remain respectful and
-opportunistic, framed as enabling the patient's interests rather than
-obstructing them. The United States must remain Number 1 in the world
-regarding patient benefit during the current medical AI and robotics
-revolution.
+Mentions of the FDA and other governing bodies remain respectful
+and opportunistic, framed as enabling the patient's interests rather
+than obstructing them. The United States must remain Number 1 in
+the world regarding patient benefit during the current medical AI
+and robotics revolution.
 
 ## File Structure
 
@@ -80,15 +93,15 @@ patients/paper/full-paper/
 |-- patient_priority.sty                     # Style file (adapted from prior templates)
 |-- patient_priority.bib                     # Bibliography (DOIs + clickable URLs; biber)
 |-- LaTeX_Source_Files.zip                   # Overleaf-ready archive (added in final commit)
-`-- sections/                                # 8 section .tex files (one per main.tex \section)
-    |-- hr_9501_patient_self_selection.tex
-    |-- hr_9502_robot_humanoid_choice.tex
-    |-- hr_9503_procedural_modification.tex
-    |-- hr_9504_error_reduction.tex
-    |-- hr_9505_realtime_sponsor.tex
-    |-- hr_9506_american_leadership.tex
-    |-- hr_9507_data_self_custody.tex
-    `-- back_matter.tex
+`-- sections/                                # 8 section .tex files
+    |-- hr_9501_patient_self_selection.tex   # Section 1
+    |-- hr_9502_robot_humanoid_choice.tex    # Section 2
+    |-- hr_9503_procedural_modification.tex  # Section 3
+    |-- hr_9504_error_reduction.tex          # Section 4
+    |-- hr_9505_realtime_sponsor.tex         # Section 5
+    |-- hr_9506_american_leadership.tex      # Section 6
+    |-- hr_9507_data_self_custody.tex        # Section 7
+    `-- back_matter.tex                      # Acknowledgments + back matter
 ```
 
 The Deep-Research source materials remain in the parent directory at
@@ -107,10 +120,13 @@ pdflatex main.tex
 ```
 
 The bibliography uses `biblatex` with `backend=biber`,
-`style=numeric`, `sorting=none`. Every reference includes a DOI string
-and a clickable URL through the `note` field (per the project brief).
-Repository entries include BOTH a GitHub URL and a Zenodo URL inside
-the `note` field, both rendered as clickable hyperlinks.
+`style=numeric`, `sorting=none`. Every reference includes a DOI
+string (where one exists) and a single canonical clickable URL. For
+repository entries, the `url` field carries the Zenodo doi.org link
+and the `note` field carries the GitHub URL, so both render as
+separate clickable hyperlinks. The double-URL pattern from the prior
+v3.7.0 template (where the same doi.org link appeared twice in one
+entry) has been removed.
 
 ## Bill Architecture (ASCII)
 
@@ -185,12 +201,31 @@ distributed into the seven bill sections of this full paper:
 | Conclusions 13.1 list | One sentence per bill closing |
 | Conclusions 13.2-13.6 | HR 9506 |
 
+## Bibliography Reference Counts
+
+The 47-entry bibliography (down from the prior 56-entry tally after
+de-duplication of the double-URL pattern) consists of:
+
+| Category | Count |
+|----------|-------|
+| Author Zenodo repository entries (each with both Zenodo and GitHub clickable) | 12 |
+| U.S. statutory and regulatory baseline entries (single canonical URL) | 15 |
+| Layered legal-stack acts (single congress.gov URL) | 9 |
+| AI and robotics evidence entries (single doi.org URL) | 8 |
+| Patient-control software baselines (single doi.org URL) | 3 |
+| AI tooling references (single canonical URL) | 5 |
+
+Every reference includes a DOI string (where one exists) and a
+single canonical clickable URL. For repository entries, the `url`
+field carries the Zenodo doi.org link and the `note` field carries
+the GitHub URL, so both render as separate clickable hyperlinks.
+
 ## AVAILABLE DIRECTORIES (cited in section instruction blocks)
 
 The bracketed processing instructions in every `sections/*.tex` file
 draw on the four AVAILABLE DIRECTORIES from the project brief
-(national-platform/, sponsor/, new-trial/national-24-7-trial/paper/,
-patients/paper/) plus `patient-journey/` and
+(`national-platform/`, `sponsor/`, `new-trial/national-24-7-trial/paper/`,
+`patients/paper/`) plus `patient-journey/` and
 `patients/patient_robot_instructions_fixed.tex`. The Deep-Research-1,
 Deep-Research-2, and Deep-Research-3 markdown source pools at
 `patients/paper/Deep-Research-1/`, `Deep-Research-2/`, and
@@ -203,6 +238,6 @@ This is an independent draft and is not endorsed, sponsored, or
 approved by any trial sponsor, CRO, site, IRB, regulator, or medical
 society. Adapted using Claude Code Opus 4.7 1M Max. CFR-derived
 content is from public domain documents. ICH content is copyrighted
-and may be used under a public license. Bill numbers and short titles
-are illustrative placeholders selected to avoid known active
+and may be used under a public license. Bill numbers and short
+titles are illustrative placeholders selected to avoid known active
 legislation under the 119th Congress.
