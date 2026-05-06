@@ -1,0 +1,382 @@
+% ======================================================================
+% Patient Priority and Proposed U.S. Bills for Physical AI Oncology
+% Clinical Trials - FULL PAPER (CONSOLIDATED 7-BILL STRUCTURE)
+%
+% This main.tex is the consolidated full-paper version derived from
+% patients/paper/main.tex. All bracketed processing instructions and
+% repository file/directory references that previously lived in the
+% template's Abstract, Introduction, Patient Priority Framework,
+% Implementation/Metrics, Discussion, Limitations, and Conclusions
+% sections have been MOVED into the seven bill section files
+% (sections/hr_9501_*.tex through sections/hr_9507_*.tex). The result
+% is a tight 7-Bill paper layout (Title page + TOC, 7 Bills,
+% References, Acknowledgments, Ethical disclosures, Rights and
+% permissions, Cite this article).
+%
+% Author: Kevin Kawchak, CEO ChemicalQDevice
+% Released: May 7, 2026
+% Location: patients/paper/full-paper/main.tex
+% ======================================================================
+\documentclass[11pt,letterpaper]{article}
+\usepackage{patient_priority}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{url}
+\usepackage[hidelinks, colorlinks=false, pdfborder={0 0 0}]{hyperref}
+\usepackage{booktabs}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{enumitem}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{tabularx}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{textcomp}
+\usepackage{microtype}
+\usepackage{float}
+\usepackage{multirow}
+\usepackage{makecell}
+\usepackage{caption}
+\usepackage[backend=biber,style=numeric,sorting=none]{biblatex}
+\addbibresource{patient_priority.bib}
+
+% ----------------------------------------------------------------------
+% Header height adjustment (silences the fancyhdr headheight warning).
+% ----------------------------------------------------------------------
+\setlength{\headheight}{16pt}
+
+% ----------------------------------------------------------------------
+% Compact running header so the long title fits on one line.
+% ----------------------------------------------------------------------
+\renewcommand{\shorttitle}{\scriptsize\scshape Patient Priority and Proposed U.S. Bills for Physical AI Oncology Clinical Trials}
+
+% ----------------------------------------------------------------------
+% Paragraph spacing controls. Tuned to avoid large white spaces between
+% words (river spacing) while preserving justified text. The \sloppy
+% directive together with \emergencystretch prevents text from running
+% off the right margin without producing visible rivers.
+% ----------------------------------------------------------------------
+\usepackage{ragged2e}
+\tolerance=1200
+\emergencystretch=3em
+\hbadness=2000
+\hyphenpenalty=50
+\exhyphenpenalty=50
+\sloppy
+
+% ----------------------------------------------------------------------
+% Force all text to black (paper requirement: only black text matches
+% the prior template at new-trial/site/all-documents/all_documents.tex).
+% Hyperlinks remain black so a printed page is indistinguishable from a
+% screen view.
+% ----------------------------------------------------------------------
+\color{black}
+\hypersetup{
+  urlcolor=black,
+  linkcolor=black,
+  citecolor=black,
+  filecolor=black
+}
+
+% ----------------------------------------------------------------------
+% Allow URL line breaks at many characters so long DOI URLs do not run
+% off the right margin in the bibliography.
+% ----------------------------------------------------------------------
+\def\UrlBreaks{\do\/\do-\do.\do=\do_\do?\do\&\do\%\do\a\do\b\do\c\do\d\do\e%
+\do\f\do\g\do\h\do\i\do\j\do\k\do\l\do\m\do\n\do\o\do\p\do\q\do\r\do\s\do\t%
+\do\u\do\v\do\w\do\x\do\y\do\z\do\A\do\B\do\C\do\D\do\E\do\F\do\G\do\H\do\I%
+\do\J\do\K\do\L\do\M\do\N\do\O\do\P\do\Q\do\R\do\S\do\T\do\U\do\V\do\W\do\X%
+\do\Y\do\Z}
+
+% ----------------------------------------------------------------------
+% [GLOBAL FORMATTING INSTRUCTION (ALL SECTIONS): When Claude Code Opus
+% 4.7 Max (1M token context) populates this template, the following
+% formatting rules apply to every paragraph, table, diagram, and ASCII
+% figure in this paper. These rules represent the final formatting
+% steps a senior author would take before submission. They are not
+% optional.
+%
+% 1. NO text shall run off the right margin anywhere. If a long URL or
+%    token forces overflow, insert \UrlBreaks-friendly characters or
+%    a manual line break. Verify by visually scanning every page after
+%    each compile.
+% 2. NO large white spaces shall appear between words. Modify
+%    \raggedright spacing, \tolerance, and \emergencystretch as needed
+%    so positioning between words looks equally and properly spaced.
+%    If a paragraph still has visible river spacing, rephrase the
+%    offending sentence.
+% 3. NO single-word or two-word lines (orphans) shall remain at the
+%    end of paragraphs. Rephrase the prior sentence to either pull the
+%    orphan onto the previous line or push at least three words onto
+%    the orphan line.
+% 4. NO single line shall sit alone at the top of a page (widow)
+%    separated from its parent paragraph. Use \widowpenalty=10000
+%    (already set in the .sty) and reflow text by editing wording.
+% 5. NO page shall have excessive empty white space without text. If
+%    a section ends two-thirds of the way down a page and the next
+%    \section{} starts on a new page, add at least one self-standing
+%    summary paragraph or a relevant ASCII diagram to fill the page.
+%    Some white space is acceptable (do not overcrowd) but every page
+%    must look properly formatted and self standing by itself.
+% 6. ONLY black text is permitted throughout the entire paper. Do NOT
+%    introduce \color{} commands of any other color. Hyperlinks remain
+%    black per the \hypersetup above.
+% 7. Use SINGLE dashes (-) only. Do NOT use em dashes, double dashes,
+%    or triple dashes anywhere in the paper. Replace any em or en
+%    dashes introduced by AI generation with a single hyphen
+%    surrounded by spaces.
+% 8. Use the section symbol \S (rendered as the proper Unicode glyph)
+%    wherever the text "SS" appears as a section reference. Replace
+%    every "SS" that means "section sign" with \S.
+% 9. Final compile order in Overleaf is biber-driven:
+%    pdflatex main.tex && biber main && pdflatex main.tex && pdflatex main.tex
+%    Run pdflatex twice after biber so cross-references and the table
+%    of contents resolve.
+% 10. Each page must look properly formatted and self standing by
+%     itself. If a page contains only a partial paragraph, either pull
+%     text from the prior page or push the paragraph to start the
+%     next page cleanly.
+% 11. Senior-author final pass: correct white-space formatting, remove
+%     or add relevant text to make each section and page self-standing,
+%     avoid overcrowding, allow some white space.]
+% ----------------------------------------------------------------------
+
+% ----------------------------------------------------------------------
+% Code listing style for Python excerpts when needed. Black-only
+% foreground colors; scriptsize so a listing fits inside the 6.5 inch
+% text width without overflow. Line numbers on the left for cross-
+% reference.
+% ----------------------------------------------------------------------
+\lstdefinestyle{pythonstyle}{
+  language=Python,
+  basicstyle=\ttfamily\scriptsize,
+  keywordstyle=\color{black}\bfseries,
+  stringstyle=\color{black},
+  commentstyle=\color{black}\itshape,
+  numbers=left,
+  numberstyle=\tiny\color{black},
+  stepnumber=1,
+  numbersep=5pt,
+  backgroundcolor=\color{white},
+  frame=single,
+  rulecolor=\color{black},
+  breaklines=true,
+  breakatwhitespace=false,
+  tabsize=4,
+  showstringspaces=false,
+  columns=flexible,
+  upquote=true
+}
+\lstset{style=pythonstyle}
+
+% ----------------------------------------------------------------------
+% Compact table column types (use \raggedright to avoid large interword
+% gaps inside cells). The L, C, R types take a width argument so each
+% table column can be tuned to keep all text inside the page margin.
+% ----------------------------------------------------------------------
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
+\newcolumntype{C}[1]{>{\centering\arraybackslash}p{#1}}
+\newcolumntype{R}[1]{>{\raggedleft\arraybackslash}p{#1}}
+
+% ======================================================================
+% TITLE (Two Lines, Centered) - Replacement Title per project brief
+% ======================================================================
+\title{Patient Priority and Proposed U.S. Bills for\\
+Physical AI Oncology Clinical Trials}
+
+% Subtitle (Two Lines)
+\newcommand{\subtitlestr}{Proposed Legislation for Improving Cancer\\Patient's Control over their Disease}
+
+\author{%
+  Kevin Kawchak\\
+  \href{https://orcid.org/0009-0007-5457-8667}{https://orcid.org/0009-0007-5457-8667}\\
+  CEO ChemicalQDevice\\
+  \href{https://doi.org/10.5281/zenodo.20045457}{10.5281/zenodo.20045457}
+}
+
+\date{May 7, 2026}
+
+% ======================================================================
+% BEGIN DOCUMENT
+% ======================================================================
+\begin{document}
+
+% ======================================================================
+% TITLE PAGE (Front Cover)
+% Per project brief: a single self standing title page that carries the
+% title, subtitle, author, ORCID, affiliation, paper DOI, date, and
+% disclaimer blocks; the table of contents starts at the bottom of the
+% same title page (not on a fresh page).
+% ======================================================================
+\thispagestyle{empty}
+
+\begin{center}
+\vspace*{0.4in}
+
+{\LARGE\bfseries\scshape Patient Priority and Proposed U.S. Bills for\par}
+{\LARGE\bfseries\scshape Physical AI Oncology Clinical Trials\par}
+
+\vspace{0.35in}
+
+{\large \subtitlestr\par}
+
+\vspace{0.40in}
+
+{\normalsize Kevin Kawchak\par}
+
+\vspace{0.10in}
+
+{\normalsize \href{https://orcid.org/0009-0007-5457-8667}{https://orcid.org/0009-0007-5457-8667}\par}
+
+\vspace{0.10in}
+
+{\normalsize CEO ChemicalQDevice\par}
+
+\vspace{0.10in}
+
+{\normalsize \href{https://doi.org/10.5281/zenodo.20045457}{10.5281/zenodo.20045457}\par}
+
+\vspace{0.10in}
+
+{\normalsize May 7, 2026\par}
+
+\vspace{0.30in}
+\end{center}
+
+\begin{center}
+\footnotesize
+\textit{Unofficial independent draft derived from prior legislation; no
+third-party endorsement, sponsorship, affiliation, or authorization is
+expressed or implied; and was adapted using Claude Code Opus 4.7 1M
+Max.}
+\end{center}
+
+\vspace{0.15em}
+
+\begin{center}
+\footnotesize
+\textit{This work was adapted from original CFR documents in the public
+domain. The original ICH document is copyrighted and may be used,
+reproduced, incorporated into other works, adapted, modified,
+translated or distributed under a public license. This current work
+is not endorsed or sponsored by CFR, ICH, or FDA; and was adapted
+using Claude Code Opus 4.7.}
+\end{center}
+
+\vspace{0.15em}
+
+\begin{center}
+\footnotesize
+\textit{This draft is independent and is not endorsed, sponsored, or
+approved by any trial sponsor, CRO, site, IRB, regulator, medical
+society, or technology vendor. Bill numbers and short titles are
+illustrative placeholders selected to avoid known active legislation
+under the 119th Congress; the legal-design intent of each section
+remains the substantive contribution.}
+\end{center}
+
+\vspace{0.6em}
+
+% Table of Contents at the bottom of the title page (starts here)
+\renewcommand{\contentsname}{\centering\large\bfseries\scshape Table of Contents}
+\begingroup
+\small
+\setlength{\parskip}{0pt}
+\tableofcontents
+\endgroup
+
+\newpage
+
+% ======================================================================
+% BODY (Seven Bills only, after Title Page + TOC)
+%
+% The Abstract, Introduction, Patient Priority Framework, Implementation
+% Metrics, Discussion, Limitations, and Conclusions sections from the
+% prior template have been REMOVED from the body and their bracketed
+% processing instructions and file/directory references have been
+% MOVED into the seven bill section files below. This consolidates
+% the paper around the 7 Bills as the central deliverable.
+% ======================================================================
+
+% ----------------------------------------------------------------------
+% SECTION 1: HR 9501 - Cancer Patient Self-Selection of Physical AI
+% Oncology Trials Act of 2026
+% ----------------------------------------------------------------------
+\section{HR 9501 (2026) - Cancer Patient Self-Selection of Physical AI Oncology Trials Act of 2026 (Adaption of 21 CFR Part 50, FDA Decentralized Trial Final Guidance 2024, and 42 USC 300gg-8)}
+\label{sec:hr9501}
+\input{sections/hr_9501_patient_self_selection}
+\newpage
+
+% ----------------------------------------------------------------------
+% SECTION 2: HR 9502 - Cancer Patient Robot-and-Humanoid Choice Act
+% ----------------------------------------------------------------------
+\section{HR 9502 (2026) - Cancer Patient Robot-and-Humanoid Choice Act of 2026 (Revision of California AB 2847 (2026) and FDA AI Regulatory Decision-Making Draft Guidance 2025)}
+\label{sec:hr9502}
+\input{sections/hr_9502_robot_humanoid_choice}
+\newpage
+
+% ----------------------------------------------------------------------
+% SECTION 3: HR 9503 - Cancer Patient Procedural Modification Authority Act
+% ----------------------------------------------------------------------
+\section{HR 9503 (2026) - Cancer Patient Procedural Modification Authority Act of 2026 (Adaption of OHRP Broad Consent 2017 and 21st Century Cures Act 2016)}
+\label{sec:hr9503}
+\input{sections/hr_9503_procedural_modification}
+\newpage
+
+% ----------------------------------------------------------------------
+% SECTION 4: HR 9504 - Physical AI Clinical Error Reduction Act
+% ----------------------------------------------------------------------
+\section{HR 9504 (2026) - Physical AI Clinical Error Reduction Act of 2026 (Adaption of HTI-1 DSI Final Rule 2023 and FDA AI Decision-Making Draft Guidance 2025)}
+\label{sec:hr9504}
+\input{sections/hr_9504_error_reduction}
+\newpage
+
+% ----------------------------------------------------------------------
+% SECTION 5: HR 9505 - Real-Time Patient-Sponsor Direct Communication Act
+% ----------------------------------------------------------------------
+\section{HR 9505 (2026) - Real-Time Patient-Sponsor Direct Communication Act of 2026 (Revision of FDA Real-Time Clinical Trials Press Announcement April 2026 and FDA Decentralized Clinical Trials Guidance 2024)}
+\label{sec:hr9505}
+\input{sections/hr_9505_realtime_sponsor}
+\newpage
+
+% ----------------------------------------------------------------------
+% SECTION 6: HR 9506 - American Physical AI Oncology Leadership Act
+% ----------------------------------------------------------------------
+\section{HR 9506 (2026) - American Physical AI Oncology Leadership Act of 2026 (New Federal Authorizing Statute Adapting FDORA Section 3209 and 21st Century Cures Act 2016)}
+\label{sec:hr9506}
+\input{sections/hr_9506_american_leadership}
+\newpage
+
+% ----------------------------------------------------------------------
+% SECTION 7: HR 9507 - Cancer Patient Health Data Self-Custody Act
+% ----------------------------------------------------------------------
+\section{HR 9507 (2026) - Cancer Patient Health Data Self-Custody and Trial-Selection Act of 2026 (Revision of HHS HIPAA Right-to-Access 2025 and ONC Cures Act Final Rule)}
+\label{sec:hr9507}
+\input{sections/hr_9507_data_self_custody}
+\newpage
+
+% ======================================================================
+% REFERENCES
+% Per project brief: every entry must include a DOI string AND a
+% clickable URL. Repository entries must include both a GitHub URL and
+% a Zenodo URL inside the note field, each wrapped in \url{...} so
+% that both render as separate clickable hyperlinks in the
+% bibliography.
+% ======================================================================
+\begingroup
+\raggedright
+\printbibliography[title={References}]
+\endgroup
+\addcontentsline{toc}{section}{References}
+\newpage
+
+% ======================================================================
+% BACK MATTER (Acknowledgments, Ethical disclosures, Rights and
+% permissions, Cite this article).
+% ======================================================================
+\input{sections/back_matter}
+
+\end{document}

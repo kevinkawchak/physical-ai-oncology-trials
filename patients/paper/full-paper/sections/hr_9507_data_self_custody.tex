@@ -1,0 +1,186 @@
+% ======================================================================
+% SECTION 7: HR 9507 - Cancer Patient Health Data Self-Custody and
+% Trial-Selection Act of 2026
+% Revision of HHS HIPAA Right-to-Access 2025 and ONC Cures Act Final
+% Rule.
+% ======================================================================
+
+HR 9507 is a \textit{Revision of the HHS HIPAA Right-to-Access (2025)
+framework and the ONC Cures Act Final Rule}, drawing the chain of
+prior authority from the HIPAA right-to-access right through the
+information-blocking and certification provisions of the Cures Act
+\cite{hhs_right_to_access_2025, onc_cures_act_final_rule_page,
+federal_register_info_blocking_disincentives_2024}. The bill
+implements the fourth dimension of the operational definition of
+patient control: data and biospecimen governance under HIPAA, broad
+consent, and information-blocking penalties.
+
+The current legal stack supplies the foundation. The 21st Century
+Cures Act (PL 114-255) established interoperability, information-
+blocking, real-world evidence, and the non-device clinical decision
+support software carve-out. HHS HIPAA Right-to-Access (2025), the
+ASTP/ONC Patient Portals Brief 2024, and the ASTP/ONC Hospital APIs
+Brief 2024 establish the access framework. Information-blocking
+penalties exist under the federal register disincentives rule but
+patient-initiated self-custody of trial-eligibility data is not yet
+guaranteed. HR 9507 closes that gap
+\cite{rank1_cures_act_2016, onc_cures_act_final_rule_page,
+hhs_right_to_access_2025, astp_onc_patient_portals_apps_2024,
+astp_onc_hospital_apis_2024,
+federal_register_info_blocking_disincentives_2024}.
+
+\subsection{Findings and Declarations}
+
+(a) Patient access to health information is a recognized HIPAA
+right; the right does not by itself create a patient-controlled
+self-custody endpoint suitable for direct grant of trial-sponsor or
+AI-matching access \cite{hhs_right_to_access_2025}.
+
+(b) The ASTP/ONC Patient Portals and Hospital APIs briefs document
+that adoption of patient-controlled access is uneven across health-
+system EHR vendors \cite{astp_onc_patient_portals_apps_2024,
+astp_onc_hospital_apis_2024}.
+
+(c) Foundation-model performance in computational pathology
+(Virchow, Nature Medicine 2024) supports HR 9507's same-day
+pathology release requirement: pathology slides are the dominant
+input for trial-eligibility gating in solid tumors, and timely
+delivery of high-quality slides materially improves the trial-
+matching pipeline \cite{vorontsov2024virchow}.
+
+(d) The prior California SB 892 Clinical Data Protection and
+Transparency Act (documented at
+\texttt{new-trial/site/03-legislation-data-transparency/physical\_ai\_data\_transparency.tex}
+and at
+\texttt{national-platform/new\_trial\_psl/03\_sb892\_data\_protection.tex})
+provides the State-level baseline that HR 9507 revises into federal
+coverage \cite{kawchak_2026_19176370, kawchak_2026_19244918}.
+
+(e) The information-blocking enforcement record is mixed; HR 9507
+incorporates the federal register disincentives rule
+\cite{federal_register_info_blocking_disincentives_2024}.
+
+\subsection{Definitions}
+
+(a) \billterm{Patient health data self-custody} means the patient's
+right to hold the patient's own complete oncology medical record,
+in machine-readable FHIR format, on a patient-controlled device or
+cloud endpoint, with full HIPAA portability across providers,
+payers, and trial sponsors.
+
+(b) \billterm{Trial-eligibility data} means the subset of the
+patient's medical record that determines eligibility for currently
+recruiting oncology trials, including pathology slides and reports,
+genomic sequencing reports, prior treatment history, ECOG / PD-L1 /
+TMB scores, and current medications. The Virchow pathology
+benchmark supports the inclusion of slide-level data, and the
+digital-twin module at
+\texttt{patient-journey/stage\_03\_digital\_twin.py} provides the
+technical baseline \cite{vorontsov2024virchow,
+kawchak_2026_19119939}.
+
+(c) \billterm{Same-day release} means pathology and genomic results
+released to the patient's self-custody endpoint within the same
+calendar day the result is finalized, drawing on Domain 1 of the
+four-domain dashboard at
+\texttt{patients/paper/Deep-Research-3/part3\_metrics\_guardrails.md}.
+
+\subsection{Patient Health Data Self-Custody Rights}
+
+(a) Right to receive the complete medical record in machine-
+readable FHIR format on demand, at zero cost to the patient.
+
+(b) Right to require same-day release of pathology and genomic
+results to the patient's self-custody endpoint, drawing on the
+ASTP/ONC hospital APIs framework
+\cite{astp_onc_hospital_apis_2024}.
+
+(c) Right to grant time-limited, scope-limited access to specific
+trial sponsors or AI matching systems (TrialGPT, PRISM,
+TrialMatchAI), with revocation taking effect within one hour
+\cite{jin2024trialgpt, gupta2024prism, abdallah2026trialmatchai}.
+
+(d) Right to a portable trial-history record that follows the
+patient across providers, payers, and States. The data-governance
+baseline at
+\texttt{national-platform/ich\_e6r3\_adapt/03\_data\_governance.tex}
+applies \cite{kawchak_2026_18973368}.
+
+(e) Right to information-blocking penalties under the federal
+register disincentives rule where any provider or payer denies the
+patient's self-custody request
+\cite{federal_register_info_blocking_disincentives_2024}.
+
+(f) Right to a permanent, exportable copy of the complete oncology
+medical record at end of trial enrollment, with no provider
+retention requirement that overrides the patient's self-custody
+rights.
+
+\subsection{Implementation}
+
+(a) The Secretary of Health and Human Services, acting through the
+Food and Drug Administration, the Office of the National
+Coordinator for Health Information Technology, the Office for
+Civil Rights, and the Centers for Medicare and Medicaid Services,
+shall require all CMS-billable EHR vendors to publish a self-
+custody export endpoint within 12 months of enactment.
+
+(b) State-level harmonization shall be complete within 24 months
+of enactment.
+
+(c) The preemption rule preserves stronger State-level data-
+protection statutes, including the California baseline
+\cite{kawchak_2026_19176370}.
+
+\subsection{Reporting and Enforcement}
+
+(a) Annual federal report on per-state, per-payer self-custody
+uptake.
+
+(b) Civil penalties under HIPAA enforcement and the information-
+blocking disincentives rule
+\cite{federal_register_info_blocking_disincentives_2024}.
+
+(c) CMS reimbursement penalty for sites that fail to expose the
+self-custody endpoint by the 12-month deadline.
+
+(d) The federal Patient Control Dashboard's Domain 1 (Access)
+subset anchors the report: same-day pathology release rate, same-
+day genomic release rate, end-to-end FHIR export latency, patient-
+initiated trial sponsor access grants per quarter, and patient-
+initiated revocations within one hour
+\cite{hhs_right_to_access_2025, astp_onc_hospital_apis_2024}.
+
+\subsection{Discussion and Limitation}
+
+The bill extends the prior 21st Century Cures Act information-
+blocking framework into a positive self-custody right and extends
+the HHS HIPAA Right-to-Access 2025 framework with a same-day
+release requirement for pathology and genomic results. The Virchow
+foundation-model evidence supports the same-day pathology release
+because pathology data are dispositive for solid-tumor trial
+eligibility \cite{rank1_cures_act_2016, onc_cures_act_final_rule_page,
+vorontsov2024virchow, hhs_right_to_access_2025}. The principal
+limitation is that the 12-month CMS-billable EHR self-custody
+endpoint deadline assumes vendor support at zero cost to the
+patient; the Cures Act information-blocking enforcement record is
+mixed \cite{federal_register_info_blocking_disincentives_2024}.
+
+\subsection{Patient-Control Framings}
+
+For the individual patient, a 58-year-old female NSCLC patient
+matching PAT-2026-0042 receives her PD-L1 65 percent and TMB 14
+mutations per megabase scores released to her self-custody endpoint
+on the same calendar day. She grants 30-day time-limited access to
+TrialGPT and TrialMatchAI for trial discovery (HR 9501), and
+revokes that access within one hour after self-booking her
+preferred trial \cite{jin2024trialgpt, abdallah2026trialmatchai,
+kawchak_2026_19119939}.
+
+For broad adoption, all CMS-billable EHRs must expose a self-
+custody export endpoint within 12 months; all United States cancer
+patients gain portable trial-eligibility data within 24 months.
+The bill positions the United States as Number 1 in the world for
+patient health data self-custody, replacing the prior access-only
+HIPAA framework with a positive self-custody right
+\cite{kawchak_2026_19119939, kawchak_2026_19994945}.

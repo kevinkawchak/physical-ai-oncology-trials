@@ -1,0 +1,207 @@
+% ======================================================================
+% SECTION 5: HR 9505 - Real-Time Patient-Sponsor Direct Communication
+% Act of 2026
+% Revision of FDA Real-Time Clinical Trials Press Announcement April
+% 2026 and FDA Decentralized Clinical Trials Guidance 2024.
+% ======================================================================
+
+HR 9505 is a \textit{Revision of the FDA Real-Time Clinical Trials
+Press Announcement of April 28, 2026 and the FDA Decentralized
+Clinical Trials Final Guidance of 2024}, drawing the chain of prior
+authority from the FDA's own validation of the Paradigm-Health-style
+real-time signal-sharing conduit through the FDA decentralized-
+elements final guidance \cite{fda_rtct_press_2026,
+fda_dct_guidance_2024, fda_dhts_drug_development_2026}. The bill
+extends a sponsor-initiated proof of concept (TRAVERSE Phase 2 in
+mantle cell lymphoma at MD Anderson and Penn; STREAM-SCLC Phase 1b
+at Mass General) into a patient-initiated direct sponsor
+communication right, while remaining respectful of the FDA's
+leadership posture as the agency the bill builds on rather than
+against. The bill implements the fifth dimension of the operational
+definition of patient control: toxicity warnings and adverse-event
+self-management through ePRO, ASyMS, and eRAPID infrastructure
+\cite{rocque2025remote_symptom_monitoring, kearney2009asyms,
+maguire2017esmart, absolom2021erapid}.
+
+\subsection{Findings and Declarations}
+
+(a) FDA Commissioner Marty Makary, in the April 28, 2026 press
+announcement, stated that "for 60 years, we've been conducting
+clinical trials in the same way" and framed real-time clinical
+trials as a transformative shift in how trials are run. FDA Chief
+AI Officer Jeremy Walsh emphasized the transformative potential of
+real-time trials in the same announcement
+\cite{fda_rtct_press_2026}.
+
+(b) Two announced proof-of-concept trials anchor the FDA's
+validation: AstraZeneca's TRAVERSE Phase 2 trial in mantle cell
+lymphoma at MD Anderson and the University of Pennsylvania, and
+Amgen's STREAM-SCLC Phase 1b trial at Massachusetts General
+Hospital \cite{fda_rtct_press_2026}.
+
+(c) Paradigm Health is the validated technical conduit for real-
+time signal sharing in both proof-of-concept trials
+\cite{fda_rtct_press_2026}.
+
+(d) The author's prior 168-hour autonomous sponsor simulation at
+\texttt{sponsor/final\_paper/168\_hours/} demonstrated that hourly
+commits from a sponsor-side server (24 commits per day, 168 commits
+across seven days) sustain a continuous trial-data flow on
+commodity hardware (Core i5-6200U with 4 GB RAM, see
+\texttt{sponsor/final\_paper/168\_hours/instructions/core\_i5\_6200u\_4gb/README.md})
+\cite{kawchak_2026_19396256}.
+
+(e) The ePRO and remote symptom monitoring evidence (Rocque 2025;
+ASyMS; eRAPID) supports the bill without overclaiming
+\cite{rocque2025remote_symptom_monitoring, kearney2009asyms,
+maguire2017esmart, absolom2021erapid}.
+
+(f) The FDA pilot is sponsor-initiated; this bill extends the same
+real-time channel to patient-initiated communication while
+preserving the FDA's regulatory leadership.
+
+\subsection{Definitions}
+
+(a) \billterm{Patient-sponsor direct channel} means a HIPAA-
+compliant, FHIR-based, Paradigm-Health-style aggregator endpoint
+that the patient may use to send the patient's own structured data,
+modification requests, and adverse-event reports directly to the
+trial sponsor's safety pharmacovigilance system. The operational
+baseline is the FastAPI sponsor control server at
+\texttt{sponsor/final\_paper/scripts/sponsor\_server/} and the
+safety-pharmacovigilance section of the prior sponsor paper at
+\texttt{sponsor/paper/sections/safety\_pharmacovigilance.tex}
+\cite{kawchak_2026_19396256}.
+
+(b) \billterm{Real-time} means data from the patient's qualified
+Physical AI executor, ePRO endpoint, or wearable reaches the
+sponsor within one hour of generation. The hourly commit cadence
+documented in the four-simulation paper at
+\texttt{new-trial/national-24-7-trial/paper/sections/results.tex}
+(Simulation 1: 24 commits per day; 84 commits across 84 hours) and
+the 168-hour extension at \texttt{sponsor/final\_paper/168\_hours/}
+(Simulation 4: 168 GitHub commits across seven days) provide the
+operational baseline \cite{kawchak_2026_19994945,
+kawchak_2026_19396256}.
+
+(c) \billterm{Sponsor-side patient interface} means the patient-
+facing endpoint that mirrors
+\texttt{sponsor/final\_paper/scripts/sponsor\_server/} but is
+accessible to the patient under HIPAA-compliant authentication.
+
+\subsection{Patient-Sponsor Direct Communication Rights}
+
+(a) Right to send structured adverse-event reports (Common Toxicity
+Criteria graded) directly to the sponsor's pharmacovigilance system
+within one hour, drawing on the ePRO infrastructure documented in
+Rocque 2025 and the ASyMS / eRAPID systems
+\cite{rocque2025remote_symptom_monitoring, kearney2009asyms,
+maguire2017esmart, absolom2021erapid}.
+
+(b) Right to receive sponsor-side acknowledgment of every patient
+submission within one hour, with the acknowledgment carrying a
+hash-chained provenance record per the MCP-PAI standard documented
+at \texttt{national-platform/national\_mcp/}
+\cite{kawchak_2026_19244918}.
+
+(c) Right to receive a per-cycle digital twin update reflecting
+the patient's own data submissions. The technical baseline is the
+digital-twin initialization Python module at
+\texttt{patient-journey/stage\_03\_digital\_twin.py} and the
+patient-modeling framework at
+\texttt{digital-twins/patient-modeling/}
+\cite{kawchak_2026_19119939}.
+
+(d) Right to escalate any sponsor-side delay beyond one hour to
+the FDA RTCT pilot oversight team, mirroring the escalation
+pattern at \texttt{sponsor/final\_paper/scripts/coordination/}
+\cite{kawchak_2026_19396256}.
+
+(e) Right to receive a real-time read-back of how the patient's
+data is being used in the sponsor's safety analyses, with the
+privacy envelope governed by 45 CFR 46 and the data-protection
+framework in HR 9507 \cite{hhs_45cfr46_protection_human_subjects}.
+
+(f) Right to opt out of any individual sponsor-data exchange while
+remaining enrolled in the trial. The patient retains discretion
+over which fields the sponsor sees and may withdraw any individual
+field without withdrawing from the trial.
+
+\subsection{Implementation}
+
+(a) The Secretary of Health and Human Services, acting through the
+Food and Drug Administration, the Office of the National
+Coordinator for Health Information Technology, and the Department
+of Health and Human Services, shall require all FDA RTCT pilot
+trials to expose a patient-sponsor direct channel within 24 months
+of enactment.
+
+(b) Implementation aligns with the FDA's own RTCT pilot program and
+the FDA Oncology Center of Excellence Advancing Oncology
+Decentralized Trials directory
+\cite{fda_oce_advancing_oncology_dct_2024}.
+
+(c) The NIH funding opportunity for digital-health-technology-
+derived endpoints in cancer trials (PAR-25-170) supplies the
+research-funding bridge to expand the patient-sponsor direct
+channel beyond the initial pilot
+\cite{nih_par25_170_dht_endpoints}.
+
+\subsection{Reporting and Enforcement}
+
+(a) Annual federal report on patient-sponsor channel uptake and
+median sponsor acknowledgment latency. The federal Patient Control
+Dashboard's Domain 3 (Control-in-Action) subset anchors this
+report: alert response time, false-alert burden, median sponsor
+acknowledgment latency, and serious adverse events detected via
+patient-initiated channel versus sponsor-initiated channel
+\cite{rocque2025remote_symptom_monitoring}.
+
+(b) Civil penalties for sponsors that fail to acknowledge within
+one hour.
+
+(c) The audit-trail provenance model from
+\texttt{sponsor/final\_paper/scripts/core\_agents/audit\_trail\_manager.py}
+provides the technical baseline for hash-chained provenance records
+\cite{kawchak_2026_19396256}.
+
+\subsection{Discussion and Limitation}
+
+The ePRO and remote symptom monitoring evidence supports the bill
+without overclaiming. The author's prior simulation evidence (the
+four LLM simulations in
+\texttt{new-trial/national-24-7-trial/paper/full-paper/}, the
+single-patient journey at \texttt{patient-journey/}, and the 24-
+hour and 168-hour sponsor simulations in \texttt{sponsor/final\_paper/})
+supplies the operational substrate that the bill regulates. The
+FDA's "demonstrated proof-of-concept" framing (TRAVERSE, STREAM-
+SCLC, Paradigm Health) is the regulatory opening that HR 9505
+builds on \cite{kawchak_2026_19994945, kawchak_2026_19119939,
+kawchak_2026_19396256, fda_rtct_press_2026,
+fda_dhts_drug_development_2026}. The principal limitation is that
+Paradigm-Health-style aggregator infrastructure has not yet been
+demonstrated to generalize beyond TRAVERSE and STREAM-SCLC; the
+FDA RTCT pilot has not released aggregate metrics; and the 24-month
+deadline is aggressive \cite{fda_rtct_press_2026}.
+
+\subsection{Patient-Control Framings}
+
+For the individual patient, a 58-year-old female NSCLC patient
+matching PAT-2026-0042 sends a Grade 2 fatigue adverse-event report
+from her home wearable on day 14 of cycle 22 of her 35
+pembrolizumab cycles. The sponsor's safety pharmacovigilance system
+acknowledges the report within 12 minutes and updates her per-cycle
+digital twin within the same hour. The patient reviews the read-
+back showing how her adverse-event data informed the cumulative
+safety analysis at
+\texttt{sponsor/final\_paper/scripts/output/sponsor\_24h\_summary.json}
+\cite{kawchak_2026_19119939, kawchak_2026_19396256}.
+
+For broad adoption, all FDA RTCT pilot trials must expose a
+patient-sponsor direct channel within 24 months. The bill positions
+the United States as Number 1 in the world for patient-initiated
+real-time trial communication, building respectfully on the FDA's
+own April 28, 2026 RTCT framework and the 168-hour autonomous
+sponsor simulation in \texttt{sponsor/final\_paper/168\_hours/}
+\cite{kawchak_2026_19396256, kawchak_2026_19994945,
+fda_rtct_press_2026}.

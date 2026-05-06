@@ -1,7 +1,7 @@
 # End-to-End Physical AI Unification of Oncology Clinical Trials
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Release](https://img.shields.io/badge/Release-v3.7.0-brightgreen.svg)](https://github.com/kevinkawchak/physical-ai-oncology-trials)
+[![Release](https://img.shields.io/badge/Release-v3.8.0-brightgreen.svg)](https://github.com/kevinkawchak/physical-ai-oncology-trials)
 [![Last Updated](https://img.shields.io/badge/Updated-May%202026-blue.svg)](https://github.com/kevinkawchak/physical-ai-oncology-trials)
 [![Protocol](https://img.shields.io/badge/Protocol-MCP-purple.svg)](https://github.com/kevinkawchak/physical-ai-oncology-trials)
 [![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.18445179-blue)](https://doi.org/10.5281/zenodo.18445179)
@@ -13,6 +13,8 @@
 **Comprehensive developments for integrating physical AI into oncology clinical trials, by Claude Code Opus 4.6, Cowork; with Assistance from ChatGPT 5.4 Thinking and Google Gemini Search.**
 
 This repository provides production-ready configurations, validated pipelines, and integration guides for deploying robotic systems, digital twins, and embodied AI agents in oncology. 
+
+**5/7: v3.8.0 (Patient Priority Full Paper)** *Patient Priority and Proposed U.S. Bills for Physical AI Oncology Clinical Trials* - polished 70+ page LaTeX manuscript at patients/paper/full-paper/ populating the seven proposed federal bills (HR 9501 through HR 9507; renumbered from HR 4501-4507 to avoid known active-legislation conflicts) into final five-subsection legislative-act prose. The bills give cancer patients statutory control over discovery, robot choice, procedural modification, error-rate substitution, real-time sponsor communication, American leadership, and data self-custody. [![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.20045457-blue)](https://doi.org/10.5281/zenodo.20045457)
 
 **5/7: v3.7.0 (Patient Priority Paper Template)** *Patient Priority and Proposed U.S. Bills for Physical AI Oncology Clinical Trials* - LaTeX paper template at patients/paper/ introducing seven proposed federal bills (HR 4501 through HR 4507) that adapt and revise prior U.S. legislation to give cancer patients more control over their disease through Physical AI and advanced robotics. [![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.20045457-blue)](https://doi.org/10.5281/zenodo.20045457)
 
@@ -69,6 +71,56 @@ python unification/cross_platform_tools/framework_detector.py
 ```
 
 ---
+
+## Patient Priority Full Paper (v3.8.0)
+
+```
+  Seven Proposed Bills           Full Paper Build              Output
+  (HR 9501-HR 9507)        ---->  (this PR)                ---->  (Overleaf PDF)
+  +-------------------+          +---------------------+         +------------+
+  | HR 9501 Cancer    |   --->   | main.tex            |   --->  | 70+ pages  |
+  | Patient Self-     |   --->   | patient_priority.sty|   --->  | Title page |
+  | Selection         |          | patient_priority.bib|         | + TOC at   |
+  | (21 CFR 50, FDA   |          |  (47 references,    |         | bottom     |
+  |  DCT, 42 USC      |          |   single canonical  |         |            |
+  |  300gg-8)         |          |   URL each;         |         |            |
+  | HR 9502 Cancer    |   --->   |   GitHub + Zenodo   |   --->  | 7 bills    |
+  | Patient Robot/    |          |   for each repo)    |         | with five- |
+  | Humanoid Choice   |          | hr_9501-hr_9507.tex |         | subsection |
+  | (CA AB 2847, FDA  |          |  (final prose,      |         | layout     |
+  |  AI Draft 2025)   |          |   no bracketed      |         |            |
+  | HR 9503 Procedural|   --->   |   instructions)     |   --->  | Per-patient|
+  | Modification      |          | back_matter.tex     |         | (PAT-2026- |
+  | (OHRP, Cures Act) |          |  (Acks, ethics,     |         |  0042) +   |
+  | HR 9504 Physical  |   --->   |   rights, cite)     |   --->  | broad      |
+  | AI Clinical Error |          | LaTeX_Source_Files  |         | adoption   |
+  | Reduction (HTI-1, |          |  .zip (Overleaf)    |         |            |
+  |  FDA AI Draft)    |          | Sources cited:      |         | US Number 1|
+  | HR 9505 Real-Time |   --->   | Deep-Research-1/    |   --->  | leadership |
+  | Patient-Sponsor   |          | Deep-Research-2/    |         | framing    |
+  | (FDA RTCT, DCT)   |          | Deep-Research-3/    |         |            |
+  | HR 9506 American  |   --->   | (3 source pools     |   --->  | Respectful |
+  | Physical AI       |          |  in patients/paper/)|         | FDA framing|
+  | Oncology Leader   |          |                     |         |            |
+  | (FDORA, Cures)    |          |                     |         | Single     |
+  | HR 9507 Cancer    |   --->   |                     |   --->  | dashes     |
+  | Patient Data      |          |                     |         | only       |
+  | Self-Custody      |          |                     |         |            |
+  | (HHS HIPAA, Cures)|          |                     |         | Black text |
+  +-------------------+          +---------------------+         +------------+
+             |                            |                          |
+             v                            v                          v
+  +-----------------------------------------------------------------------------+
+  |  v3.8.0: 7-bill final-prose manuscript with consolidated bracketed          |
+  |  instructions migrated into each bill section (Findings, Definitions,       |
+  |  Operative Rights, Implementation, Reporting and Enforcement). Bibliography |
+  |  has single canonical URL per non-repo entry; Zenodo entries also carry a   |
+  |  GitHub URL in note (both clickable). Adaption / Revision titles trace      |
+  |  prior PL numbers. Renumbered HR 4501-4507 to HR 9501-9507 to avoid known   |
+  |  active-legislation conflicts in the 119th Congress (e.g., HR 4501 Holy     |
+  |  Sovereignty Protection Act).                                               |
+  +-----------------------------------------------------------------------------+
+```
 
 ## Patient Priority and Proposed U.S. Bills (v3.7.0)
 
@@ -350,22 +402,37 @@ physical-ai-oncology-trials/
 │   │   ├── Deep-Research-1/           # AI and patient control evidence (3 chunks)
 │   │   ├── Deep-Research-2/           # Layered legal-stack baseline (4 chunks)
 │   │   ├── Deep-Research-3/           # Oncology trial laws + patient control (4 parts)
-│   │   └── sections/                  # 15 section .tex files (one per main.tex \section)
-│   │       ├── abstract.tex
-│   │       ├── introduction.tex
-│   │       ├── patient_priority.tex
-│   │       ├── hr_4501_patient_self_selection.tex     # Adaption of 21 CFR 50, FDA DCT, 42 USC 300gg-8
-│   │       ├── hr_4502_robot_humanoid_choice.tex      # Revision of CA AB 2847, FDA AI Draft 2025
-│   │       ├── hr_4503_procedural_modification.tex    # Adaption of OHRP Broad Consent, Cures Act
-│   │       ├── hr_4504_error_reduction.tex            # Adaption of HTI-1 DSI, FDA AI Draft 2025
-│   │       ├── hr_4505_realtime_sponsor.tex           # Revision of FDA RTCT, FDA DCT
-│   │       ├── hr_4506_american_leadership.tex        # New Statute Adapting FDORA Sec 3209, Cures Act
-│   │       ├── hr_4507_data_self_custody.tex          # Revision of HHS HIPAA, ONC Cures Rule
-│   │       ├── implementation_metrics.tex
-│   │       ├── discussion.tex
-│   │       ├── limitations_future.tex
-│   │       ├── conclusions.tex
-│   │       └── back_matter.tex
+│   │   ├── sections/                  # 15 template section .tex files (v3.7.0)
+│   │   │   ├── abstract.tex
+│   │   │   ├── introduction.tex
+│   │   │   ├── patient_priority.tex
+│   │   │   ├── hr_4501_patient_self_selection.tex
+│   │   │   ├── hr_4502_robot_humanoid_choice.tex
+│   │   │   ├── hr_4503_procedural_modification.tex
+│   │   │   ├── hr_4504_error_reduction.tex
+│   │   │   ├── hr_4505_realtime_sponsor.tex
+│   │   │   ├── hr_4506_american_leadership.tex
+│   │   │   ├── hr_4507_data_self_custody.tex
+│   │   │   ├── implementation_metrics.tex
+│   │   │   ├── discussion.tex
+│   │   │   ├── limitations_future.tex
+│   │   │   ├── conclusions.tex
+│   │   │   └── back_matter.tex
+│   │   └── full-paper/                # ★ Patient Priority Full Paper (v3.8.0)
+│   │       ├── README.md              # Full paper documentation + DOI badges + ASCII diagram
+│   │       ├── main.tex               # 7-Bill consolidated document entry point
+│   │       ├── patient_priority.sty   # Polished style with widow/orphan + flushbottom
+│   │       ├── patient_priority.bib   # 47 entries, single canonical URL each (biber)
+│   │       ├── LaTeX_Source_Files.zip # Overleaf-ready archive
+│   │       └── sections/              # 8 final-prose section .tex files
+│   │           ├── hr_9501_patient_self_selection.tex   # Adaption of 21 CFR 50, FDA DCT, 42 USC 300gg-8
+│   │           ├── hr_9502_robot_humanoid_choice.tex    # Revision of CA AB 2847, FDA AI Draft 2025
+│   │           ├── hr_9503_procedural_modification.tex  # Adaption of OHRP Broad Consent, Cures Act
+│   │           ├── hr_9504_error_reduction.tex          # Adaption of HTI-1 DSI, FDA AI Draft 2025
+│   │           ├── hr_9505_realtime_sponsor.tex         # Revision of FDA RTCT, FDA DCT
+│   │           ├── hr_9506_american_leadership.tex      # New Statute Adapting FDORA Sec 3209, Cures Act
+│   │           ├── hr_9507_data_self_custody.tex        # Revision of HHS HIPAA, ONC Cures Rule
+│   │           └── back_matter.tex
 │   ├── research/                      # Archived generation scripts
 │   │   ├── v1.9.1/
 │   │   │   ├── generate_pdf.py        # reportlab + Pillow generator
