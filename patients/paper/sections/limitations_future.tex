@@ -1,0 +1,137 @@
+% ======================================================================
+% SECTION 12: LIMITATIONS AND FUTURE WORK
+% Two thematic blocks: per-bill limitations and future-work tracks.
+% ======================================================================
+
+[PROCESSING INSTRUCTION (Limitations block - Per-Bill and Cross-Bill
+Limitations, 4 to 6 paragraphs): Read in full
+- patients/paper/Deep-Research-3/part3_metrics_guardrails.md (the
+  Open Questions and Limitations section)
+- new-trial/national-24-7-trial/paper/full-paper/sections/limitations_future.tex
+  (Track A vs Track B framing)
+- patient-journey/README.md (the single-patient orientation note)
+- sponsor/final_paper/README.md (the synthetic agent decision logic
+  note)
+
+For each of the seven proposed bills, write one short paragraph that
+lists the most important limit by name. Use measured language; do
+NOT overclaim. State explicitly:
+
+(12.1.a) HR 4501 (Patient Self-Selection): The bill assumes
+machine-readable eligibility data of high quality across all CMS-
+billable EHRs. The ASTP/ONC hospital APIs brief documents that
+adoption is uneven; the 12-month deadline is aggressive. The Mazor
+2025 null result on AI notifications alone reminds us that
+self-selection rights without a complete pathway from discovery to
+consent to enrollment may not improve participation. Cite
+\cite{astp_onc_hospital_apis_2024} and
+\cite{mazor2025ai_notifications_trial}.
+
+(12.1.b) HR 4502 (Robot-and-Humanoid Choice): The bill assumes that
+qualified-robot USL scoring is comparable across vendors. The
+unification/usl/ paper documents that USL scoring requires multi-site
+calibration; humanoid robots in particular have a thinner clinical
+evidence base than surgical robots. Cite \cite{kawchak_2026_18778219}.
+
+(12.1.c) HR 4503 (Procedural Modification): The bill assumes that
+real-time consent updates can be logged within 5 minutes by every
+qualified Physical AI executor. The MCP-PAI infrastructure is
+documented; field deployment is not. The bill's "modifiable steps"
+matrix presumes IRB review at scale that has not been tested. Cite
+\cite{kawchak_2026_18973368}.
+
+(12.1.d) HR 4504 (Doctor and Nurse Error Reduction): The bill is the
+most contentious of the seven because it touches workforce questions
+beyond the project brief. The Huang 2025 null result indicates that
+ML does not always exceed Cox regression on real-world structured
+survival data; the SHIELD-RT prospective RCT is convincing for one
+domain (radiotherapy AE prediction) but does not generalize without
+prospective validation in each domain. Cite the four-simulation paper
+\cite{kawchak_2026_19994945} and acknowledge the
+TRIPOD+AI / CREMLS reporting gap. The bill respects human doctor and
+nurse roles in empathy, consent counseling, and ethical oversight.
+
+(12.1.e) HR 4505 (Real-Time Patient-Sponsor Direct Communication):
+The bill assumes Paradigm-Health-style aggregator infrastructure
+generalizes beyond TRAVERSE and STREAM-SCLC. The FDA RTCT pilot has
+not yet released aggregate metrics; the 24-month deadline is
+aggressive. Cite \cite{fda_rtct_press_2026}.
+
+(12.1.f) HR 4506 (American Leadership): The bill is the most
+ambitious; it assumes seven-year sustained federal investment which
+is subject to appropriations cycles. The American Leadership Index
+relies on year-over-year metric stability across 50 states. Cite
+\cite{rank4_fdora_fda_modernization_2022}.
+
+(12.1.g) HR 4507 (Patient Health Data Self-Custody): The bill
+assumes EHR vendors will support a self-custody export endpoint at
+zero cost to the patient within 12 months. The Cures Act
+information-blocking enforcement record is mixed. Cite
+\cite{federal_register_info_blocking_disincentives_2024}.
+
+After the per-bill paragraphs, add one cross-cutting paragraph
+stating:
+- The bills are draft language by an independent author and have
+  not been reviewed by Congress, FDA, or any state legislature.
+- The bills are not endorsed by Anthropic, OpenAI, Google, or any
+  technology vendor.
+- The patient-control framework remains an operational hypothesis;
+  outcome studies are required to confirm that the bills, taken
+  together, increase participation and decrease error rates without
+  unintended consequences.
+- The bills do not address pediatric or vulnerable-population
+  protections beyond the existing 21 CFR 50 Subpart D framework
+  documented at national-platform/21cfr50_adapt/02_irb_review_pediatric.tex
+  and at \cite{kawchak_2026_19040707}.]
+
+[PROCESSING INSTRUCTION (Future Work block - Three Future Tracks, 3
+to 4 paragraphs):
+
+Track A - Single big model performing all bills' obligations: a
+future generation of Claude Code Opus 4.7 (or equivalent foundation-
+model agent) holds all seven bill texts plus the AVAILABLE
+DIRECTORIES content in a single 1M-token context and emits
+implementation deliverables (machine-readable eligibility reports,
+USL transparency reports, modification matrices, error-rate
+publications, real-time aggregator endpoints, American Leadership
+Index, self-custody endpoints) in a single inference loop. This
+track is the natural extension of the four-simulation paper at
+new-trial/national-24-7-trial/paper/full-paper/. Cite
+\cite{kawchak_2026_19994945} and \cite{claude_opus_47}.
+
+Track B - Distributed agents per bill, coordinated by a smaller
+orchestrator: each of the seven bills has its own dedicated agent
+(self-selection agent for HR 4501, robot-choice agent for HR 4502,
+modification agent for HR 4503, error-rate agent for HR 4504,
+sponsor-channel agent for HR 4505, leadership-index agent for HR
+4506, self-custody agent for HR 4507), all coordinated by a smaller
+orchestrator that runs on hardware as constrained as the Core
+i5-6200U with 4 GB RAM documented at
+sponsor/final_paper/168_hours/instructions/core_i5_6200u_4gb/README.md.
+This track is the natural extension of Simulation 4 at
+sponsor/final_paper/168_hours/. Cite \cite{kawchak_2026_19396256}.
+
+Track C - Patient-side native deployment: a future generation
+deploys a single integrated patient-side agent that operates HR 4501
+through HR 4507 from the patient's own device, using
+patient-controlled credentials and HIPAA-compliant authentication
+to interact with provider, payer, and sponsor endpoints. This track
+addresses the patient priority thesis directly and is the natural
+extension of patients/patient_robot_instructions_fixed.tex pages
+1 through 10 plus the digital-twin infrastructure at
+patient-journey/stage_03_digital_twin.py. Cite
+\cite{kawchak_2026_18810541} and \cite{kawchak_2026_19119939}.
+
+Close with one paragraph naming three concrete future deliverables:
+(i) a TRIPOD+AI / CREMLS-compliant retrospective validation of HR
+4504's error-rate baseline on a real-patient cohort, drawing on the
+SHIELD-RT design pattern;
+(ii) a public benchmark of HR 4501's machine-readable eligibility
+report performance across the TrialGPT, PRISM, and TrialMatchAI
+matching systems on a shared dataset;
+(iii) an FDA-aligned RTCT pilot submission that uses Simulation 4
+(sponsor/final_paper/168_hours/) as the sponsor-side input and HR
+4505's patient-sponsor direct channel as the patient-side input.
+Cite \cite{fda_rtct_press_2026},
+\cite{kawchak_2026_19994945}, \cite{kawchak_2026_19396256}, and
+\cite{kawchak_2026_19119939}.]
