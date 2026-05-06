@@ -4,6 +4,44 @@ Release notes for the physical-ai-oncology-trials repository.
 
 ---
 
+Patient Priority and Proposed U.S. Bills Paper Template (Seven New Federal Bills)
+v3.7.0 - Patient Priority Paper Template
+
+## Summary
+
+- Added a new LaTeX paper template at patients/paper/ that defines the skeleton, style, bibliography, and per-section bracketed processing instructions for the manuscript "Patient Priority and Proposed U.S. Bills for Physical AI Oncology Clinical Trials" by Kevin Kawchak (10.5281/zenodo.20045457)
+- The template introduces seven proposed U.S. federal bills (HR 4501 through HR 4507) that adapt and revise prior U.S. legislation to give cancer patients more control over their disease through Physical AI and advanced robotics, replacing prior error-prone and physically and intellectually limited human-only care where the patient prefers
+- Each bill explicitly states "Adaption" or "Revision" in its title to identify the prior U.S. legislative document it builds from: HR 4501 (21 CFR Part 50, FDA DCT 2024, 42 USC 300gg-8), HR 4502 (CA AB 2847, FDA AI Draft 2025), HR 4503 (OHRP Broad Consent 2017, 21st Century Cures Act PL 114-255), HR 4504 (HTI-1 DSI 2023, FDA AI Draft 2025), HR 4505 (FDA RTCT April 2026, FDA DCT 2024), HR 4506 (FDORA Section 3209, 21st Century Cures Act), HR 4507 (HHS HIPAA Right-to-Access 2025, ONC Cures Act Final Rule)
+- The template is structured for downstream Claude Code Opus 4.7 1M Max processing: each bracketed instruction block names the exact repository directories and file names from the four AVAILABLE DIRECTORIES (national-platform/, sponsor/, new-trial/national-24-7-trial/paper/, patients/paper/) for the next Claude Code Opus 4.7 1M Max generation pass to consume
+- patient_priority.bib carries DOIs and clickable URLs for 56 entries: 12 author Zenodo references each with both GitHub and Zenodo URLs in the note field, 15 U.S. statutory and regulatory baseline entries from the layered legal stack and the Common Rule, 9 layered legal-stack acts (Cures Act PL 114-255, CLINICAL TREATMENT Act PL 116-260, ACA PL 111-148, FDORA PL 117-328, FDAAA PL 110-85, Right to Try PL 115-176, FDARA PL 115-52, CA SB 37, ONC HTI-1), 12 AI/robotics evidence base entries (TrialGPT, PRISM, TrialMatchAI, Mazor 2025, Rocque 2025, Virchow, Bayesian NSCLC, FDA RTCT, FDA DHTs, NIH PAR-25-170, TARGET bronchoscopy, NEJM Cancer CARE Beyond Walls), 3 patient-control software baselines (ASyMS, eRAPID, eSMART), and 5 AI tooling references (Claude Code, Claude Opus 4.7, Claude Sonnet 4.6, ChatGPT, Google Gemini)
+- Ships the Overleaf-ready ZIP at patients/paper/LaTeX_Source_Files.zip containing main.tex, patient_priority.sty, patient_priority.bib, README.md, and the 15 section .tex files
+
+## Features
+
+- main.tex skeleton with title page (replacement title "Patient Priority and Proposed U.S. Bills for Physical AI Oncology Clinical Trials" two lines centered, subtitle "Proposed Legislation for Improving Cancer Patient's Control over their Disease" two lines, ORCID hyperlink, paper DOI 10.5281/zenodo.20045457, May 7 2026 date, three disclaimer blocks); table of contents at the bottom of the title page (different from the prior template format which had TOC after the abstract); 13 body sections (Abstract, Introduction, Patient Priority Framework, HR 4501 through HR 4507, Implementation and Metrics, Discussion, Limitations and Future Work, Conclusions); references; back matter (Acknowledgments, Ethical disclosures, Rights and permissions, Cite this article); global formatting brief covering margin overflow, orphan and widow suppression, single-dash usage, "SS" to section-symbol replacement, black-text-only requirement, and the senior-author white-space pass
+- patient_priority.sty adapted from physical_ai_legislation.sty (the prior all-documents template) and new_paper.sty (the prior national-24-7-trial template) with widow and orphan penalties at 10000, displaywidowpenalty and brokenpenalty at 10000, ragged2e tuned to avoid river spacing, fancyhdr running header, and a tcolorbox patientcallout environment for per-bill highlights
+- patient_priority.bib uses biber backend with biblatex numeric style; every reference includes a DOI string AND a clickable URL via the note field; repository entries include both GitHub and Zenodo URLs in the note field, both rendered as clickable hyperlinks; substantially more references than the 10 references from the prior new-trial/site template
+- sections/abstract.tex through sections/conclusions.tex contain bracketed processing instructions naming exact directories such as patients/paper/Deep-Research-1/, Deep-Research-2/, Deep-Research-3/; new-trial/site/01-legislation-authorization/; new-trial/site/02-legislation-patient-rights/; new-trial/site/03-legislation-data-transparency/; new-trial/national-24-7-trial/FDA-April-2026/; sponsor/final_paper/scripts/core_agents/; sponsor/final_paper/168_hours/instructions/core_i5_6200u_4gb/; national-platform/national_mcp/; national-platform/federated_learning/; national-platform/patient_robot/; national-platform/usl_standard/; national-platform/ich_e6r3_adapt/; national-platform/21cfr50_adapt/; national-platform/21cfr312_adapt/; national-platform/new_trial_psl/; patient-journey/stage_01_prescreening.py through stage_10_closeout.py; patients/patient_robot_instructions_fixed.tex pages 1 through 10
+- sections/back_matter.tex contains final prose for Acknowledgments (Anthropic Claude Code, OpenAI ChatGPT, Google Gemini AI Overview), Ethical disclosures, Rights and permissions (CC BY 4.0), and Cite this article, each anchored with phantomsection plus addcontentsline for proper hyperref bookmarks
+- Each bill section follows a five-subsection legislative-act layout (Findings and Declarations, Definitions, Operative Rights, Implementation, Reporting and Enforcement) matching the SB 1042 / AB 2847 / SB 892 layout used by the prior site documentation template
+- Every bill section includes both INDIVIDUAL patient detail (named PAT-2026-0042 from patient-journey/, named robot instances RTPOS-01 / RTPOS-03 from hour-12, named robot models da Vinci Xi at USL 87.5 and Franka Emika at USL 88.75) AND broad-adoption framing (12-month, 18-month, 24-month deadlines for ALL CMS-billable sites, ALL FDA RTCT pilot trials, or ALL 50 states)
+- Every bill section closes with a "United States Number 1" framing paragraph emphasizing American leadership in the medical AI and robotics revolution
+- All FDA and other governing-body mentions remain respectful throughout, framed as enabling rather than gating, while remaining opportunistic under the patient's control based primarily on their own interests
+- All additions are LaTeX, BibTeX, Markdown, and ZIP only; no Python, YAML, or other CI-checked files are introduced; the lint-and-format CI workflow (ruff format check, ruff check, yamllint) on Python 3.10, 3.11, and 3.12 remains green
+- main README.md, CHANGELOG.md, and patients/paper/README.md updated to reference the new template directory, the v3.7.0 release, and the seven-bill roadmap; main README.md adds a v3.7.0 Patient Priority Paper Template architecture diagram block above the v3.6.0 full-paper diagram
+
+## Contributors
+@kevinkawchak
+@claude
+@openai
+@google-gemini
+
+## Notes
+
+The v3.7.0 release ships the template skeleton plus per-section bracketed instructions only. The next Claude Code Opus 4.7 1M Max generation pass will populate every bracketed instruction block into final prose, expand the proposed bill text into legislative-act voice for HR 4501 through HR 4507, embed individual patient and robot examples drawn from the AVAILABLE DIRECTORIES, and emit the final 70+ page PDF compiled in Overleaf. The author will then perform the senior-author white-space and table-column-width formatting pass to remove any orphans, widows, or large empty page regions, replace any incorrect symbols (e.g., "SS" to section-symbol), and verify single-dash style throughout. DOIs and clickable URLs are present for every reference; repository entries carry both GitHub and Zenodo URLs.
+
+---
+
 Accelerated Patient Prediction Full Paper (Four LLM Simulations)
 v3.6.0 - Accelerated Patient Prediction Full Paper
 

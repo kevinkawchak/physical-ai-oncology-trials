@@ -1,0 +1,126 @@
+% ======================================================================
+% SECTION 3: HR 4501 - Patient Self-Selection Act of 2026
+% Adaption of 21 CFR Part 50, FDA Decentralized Trial Final Guidance
+% 2024, and 42 USC 300gg-8.
+%
+% Layout follows the prior site documentation template at
+% new-trial/site/all-documents/all\_documents.tex (Findings,
+% Definitions, Authorization or Rights, Implementation, Reporting and
+% Enforcement). The section title in main.tex already names the bill
+% as an Adaption.
+% ======================================================================
+
+[PROCESSING INSTRUCTION (HR 4501 - Patient Self-Selection Act of 2026,
+6 to 9 paragraphs structured into the five legislative-act
+subsections): Draft the proposed bill text in legislative-act voice,
+following the layout used by SB 1042 in the prior site template at
+new-trial/site/all-documents/all\_documents.tex (which was, in turn,
+populated from new-trial/site/01-legislation-authorization/physical\_ai\_trial\_authorization.tex
+and national-platform/new\_trial\_psl/01\_preamble\_and\_sb1042.tex).
+
+The bill must explicitly state in its first paragraph that it is an
+"Adaption of 21 CFR Part 50, FDA Decentralized Trial Final Guidance
+2024, and 42 USC 300gg-8" so that readers can trace the chain of prior
+authority. Cite \cite{hhs_45cfr46_protection_human_subjects},
+\cite{fda_dct_guidance_2024}, \cite{fda_oce_advancing_oncology_dct_2024},
+and \cite{usc_300gg8_clinical_trials}.
+
+Subsection 3.1 - Findings and Declarations: Read
+patients/paper/Deep-Research-3/part1\_legal\_baseline.md and quote the
+seven percent participation-rate finding. Read
+patients/paper/Deep-Research-3/part2\_ai\_robotics\_legislation.md and
+quote the TrialGPT, PRISM, and TrialMatchAI performance figures.
+Compose 4 to 6 enumerated findings in the (a)/(b)/(c) style used by
+SB 1042 in the prior template. Each finding must cite at least one
+prior-law reference and at least one AI-evidence reference. Cite
+\cite{jin2024trialgpt}, \cite{gupta2024prism}, and
+\cite{abdallah2026trialmatchai}.
+
+Subsection 3.2 - Definitions: Define the following operational terms
+used throughout the bill:
+- "Patient self-selection" means the patient's right to discover,
+  evaluate, and book their own oncology clinical trial slot without
+  intermediary provider gatekeeping. Reference the existing 24/7 trial
+  format documented in
+  new-trial/national-24-7-trial/paper/full-paper/main.tex and the
+  hour-NN/patient\_records.md files at
+  new-trial/national-24-7-trial/hour-00/ through hour-55/.
+- "Machine-readable eligibility report" means a structured FHIR-based
+  output containing the patient's eligibility-relevant data fields
+  for at least 80 percent of currently recruiting U.S. oncology
+  trials. Reference the ClinicalTrials.gov infrastructure under FDAAA
+  Section 801. Cite \cite{rank5_fdaaa_2007}.
+- "Qualified Physical AI oncology trial site" means a site authorized
+  under either this Act or under the prior California SB 1042 / Title
+  22 framework documented at
+  new-trial/site/05-state-regulations/ca\_state\_regulations.tex and
+  national-platform/new\_trial\_psl/05\_title22\_regulations.tex (read
+  this file in full when populating).
+- "24/7 booking" means the patient's right to book any qualified site
+  at any hour of the day, any day of the week, drawing on the
+  168-hour sponsor extension at
+  sponsor/final\_paper/168\_hours/ for the operational baseline. Cite
+  \cite{kawchak_2026_19396256} and \cite{kawchak_2026_19994945}.
+
+Subsection 3.3 - Patient Self-Selection Rights (the operative core):
+Compose 5 to 7 enumerated rights in the (a)/(b)/(c) style. Each right
+must be specific enough to be enforceable. Examples:
+- Right to receive a machine-readable eligibility report from any
+  CMS-billable EHR within 7 calendar days of pathology or genomic
+  result release.
+- Right to discover all currently recruiting U.S. oncology trials via
+  an FDA-published API that integrates the data fields from
+  ClinicalTrials.gov, the FDA RTCT pilot program, and FDA Oncology
+  Center of Excellence DCT directory at
+  new-trial/national-24-7-trial/FDA-April-2026/FDA\_RealTime\_Clinical\_Trials.md
+  and \cite{fda_oce_advancing_oncology_dct_2024}.
+- Right to book a 24/7 trial slot at any qualified site without prior
+  written referral. Reference the 24/7 site infrastructure at
+  new-trial/national-24-7-trial/hour-NN/diagram\_facility.txt files
+  (e.g., hour-00, hour-12, hour-23, hour-47) for the operational
+  pattern.
+- Right to payment parity for decentralized and at-home trial
+  components under 42 USC 300gg-8 and CMS NCD 310.1; closes the gap
+  identified in the Introduction. Cite
+  \cite{usc_300gg8_clinical_trials} and
+  \cite{cms_ncd_3101_routine_costs}.
+- Right to cross-state portability of eligibility data and trial
+  bookings, drawing on the ASTP/ONC Hospital APIs Brief 2024 to
+  identify the technical baseline. Cite
+  \cite{astp_onc_hospital_apis_2024}.
+
+Subsection 3.4 - Implementation: Implementation timeline (12 months
+for federal API, 24 months for full state-level adoption); FDA, ONC,
+HHS, and CMS roles; preemption rule that explicitly preserves stronger
+state-level patient protections (e.g., CA SB 37 for routine-cost
+coverage). Cite \cite{rank8_california_sb37_2001} and
+\cite{rank4_fdora_fda_modernization_2022} for the FDORA precedent
+that authorizes mandatory FDA decentralized-trial guidance.
+
+Subsection 3.5 - Reporting and Enforcement: Annual public report on
+patient-self-selection rates by state, payer, and cancer type;
+information-blocking penalties harmonized with
+\cite{federal_register_info_blocking_disincentives_2024}; an explicit
+"no automated-only denial" clause that mirrors the first guardrail
+from patients/paper/Deep-Research-3/part3\_metrics\_guardrails.md.
+
+Close the bill (1 paragraph after Subsection 3.5) with two patient-
+control framings:
+(i) FOR INDIVIDUAL PATIENTS: An NSCLC patient at home in rural Texas
+    can, on their own initiative, receive an FHIR eligibility report
+    for the qualified Physical AI Oncology Trial Site documented in
+    national-platform/new\_trial\_psl/01\_preamble\_and\_sb1042.tex within
+    7 days of their genomic result, then self-book a 24/7 slot at a
+    USL-7-or-above surgical robot system following the 10-stage
+    journey for PAT-2026-0042 in
+    patient-journey/stage\_01\_prescreening.py through
+    stage\_10\_closeout.py.
+(ii) FOR BROAD ADOPTION: All U.S. oncology trials must publish their
+     eligibility criteria in machine-readable form within the
+     12-month federal-API window, with ALL CMS-billable EHRs
+     maintaining a self-selection portal endpoint accessible by every
+     U.S. cancer patient by month 24. The United States must remain
+     Number 1 in the world for cancer patient benefit during the
+     medical AI and robotics revolution, and HR 4501 is the
+     foundational bill that opens that pathway. Cite
+     \cite{kawchak_2026_19994945} and \cite{kawchak_2026_19119939}.]
