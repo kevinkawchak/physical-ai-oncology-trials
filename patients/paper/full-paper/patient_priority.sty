@@ -1,9 +1,10 @@
+% ======================================================================
 % patient_priority.sty - Style file for "Patient Priority and Proposed
 % U.S. Bills for Physical AI Oncology Clinical Trials" - FULL PAPER
 %
-% Adapted from physical_ai_legislation.sty (the prior template at
-% new-trial/site/all-documents/physical_ai_legislation.sty) and
-% new_paper.sty (the prior template at
+% Adapted from physical_ai_legislation.sty (the prior all-documents
+% template at new-trial/site/all-documents/physical_ai_legislation.sty)
+% and new_paper.sty (the prior national-24-7-trial template at
 % new-trial/national-24-7-trial/paper/new_paper.sty), unified into a
 % single style file with the senior-author white-space rules captured
 % in the global formatting brief at the top of main.tex.
@@ -14,32 +15,47 @@
 % Color formatting: black-only text throughout, matching the prior
 % template at new-trial/site/all-documents/all_documents.tex; hyperlinks
 % remain black per the \hypersetup block in main.tex.
+% ======================================================================
 
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesPackage{patient_priority}[2026/05/07 Patient Priority Style v3.8.0]
 
+% ----------------------------------------------------------------------
 % Page layout (1-inch margins, letterpaper)
+% ----------------------------------------------------------------------
 \RequirePackage[margin=1in,letterpaper]{geometry}
 \RequirePackage{setspace}
 \onehalfspacing
 
+% ----------------------------------------------------------------------
 % Typography
+% ----------------------------------------------------------------------
 \RequirePackage[T1]{fontenc}
 \RequirePackage{lmodern}
 \RequirePackage{microtype}
 
-% Section formatting (consistent with the prior all_documents.sty look)
+% ----------------------------------------------------------------------
+% Section formatting (consistent with the prior all_documents.sty look).
+% Both \raggedright on each section header so a long bill title (e.g.,
+% "HR 9501 (2026) - Cancer Patient Self-Selection of Physical AI
+% Oncology Trials Act of 2026 ...") wraps to the next line cleanly
+% rather than running off the right margin.
+% ----------------------------------------------------------------------
 \RequirePackage{titlesec}
 \titleformat{\section}{\large\bfseries\raggedright}{\thesection.}{0.5em}{}
 \titleformat{\subsection}{\normalsize\bfseries\raggedright}{\thesubsection.}{0.5em}{}
 \titleformat{\subsubsection}{\normalsize\bfseries\raggedright}{\thesubsubsection.}{0.5em}{}
 
-% Lists - tight item spacing for legislative-style enumeration (a)/(1)/(i)
+% ----------------------------------------------------------------------
+% Lists - tight item spacing for legislative-style enumeration (a)/(1)/(i).
+% ----------------------------------------------------------------------
 \RequirePackage{enumitem}
 \setlist[enumerate]{itemsep=2pt,parsep=2pt}
 \setlist[itemize]{itemsep=2pt,parsep=2pt}
 
-% Headers and footers (running header per page)
+% ----------------------------------------------------------------------
+% Headers and footers (running header per page).
+% ----------------------------------------------------------------------
 \RequirePackage{fancyhdr}
 \pagestyle{fancy}
 \fancyhf{}
@@ -49,51 +65,86 @@
 \renewcommand{\headrulewidth}{0.4pt}
 \renewcommand{\footrulewidth}{0pt}
 
+% ----------------------------------------------------------------------
 % Tables
+% ----------------------------------------------------------------------
 \RequirePackage{booktabs}
 \RequirePackage{longtable}
 
+% ----------------------------------------------------------------------
 % Colors (black only - matches prior template color formatting)
+% ----------------------------------------------------------------------
 \RequirePackage{xcolor}
 
+% ----------------------------------------------------------------------
 % Paragraph formatting - justified with proper hyphenation; modify
 % \raggedright spacing to make positioning between words look equally
-% and properly spaced (per the global formatting brief in main.tex)
+% and properly spaced (per the global formatting brief in main.tex).
+% These values mirror those set in main.tex so a recompile of the
+% style file alone keeps the controls active.
+% ----------------------------------------------------------------------
 \RequirePackage{ragged2e}
 \tolerance=1200
 \emergencystretch=3em
 \hyphenpenalty=50
 
+% ----------------------------------------------------------------------
 % Suppress widows and orphans (no single line at top of page, no single
-% line at bottom). The 10000 value forces the typesetter to reflow text
-% rather than leave a 1- or 2-word stranded line.
+% line at bottom). The 10000 value forces the typesetter to reflow
+% text rather than leave a 1- or 2-word stranded line. The four
+% penalties together (widow, club, displaywidow, broken) match the
+% v3.6.0 polished new_paper.sty.
+% ----------------------------------------------------------------------
 \widowpenalty=10000
 \clubpenalty=10000
 \displaywidowpenalty=10000
 \brokenpenalty=10000
 
+% ----------------------------------------------------------------------
+% Bottom-of-page consistency: \flushbottom keeps every page's text
+% block ending at the same baseline so a \newpage between bills does
+% not produce visible jagged page bottoms.
+% ----------------------------------------------------------------------
+\flushbottom
+
+% ----------------------------------------------------------------------
 % Section symbol shortcut (use \sect{} or \S in source; replace any
-% literal "SS" tokens that mean "section sign")
+% literal "SS" tokens that mean "section sign" per global formatting
+% brief instruction 8).
+% ----------------------------------------------------------------------
 \newcommand{\sect}{\S}
 
-% Table of Contents tightening
+% ----------------------------------------------------------------------
+% Table of Contents tightening - leaves enough space for two-digit
+% section numbers (HR 9501 through HR 9507 each become section 1
+% through 7 of this paper) while keeping the TOC compact on the
+% title-page bottom half.
+% ----------------------------------------------------------------------
 \RequirePackage{tocloft}
 \setlength{\cftsecnumwidth}{2.5em}
 \setlength{\cftsubsecnumwidth}{3.2em}
 
-% URL line-break helpers (used in main.tex via \UrlBreaks)
+% ----------------------------------------------------------------------
+% URL line-break helpers (used in main.tex via \UrlBreaks).
+% ----------------------------------------------------------------------
 \RequirePackage{url}
 
-% Path/literal helper for repository file names
+% ----------------------------------------------------------------------
+% Path/literal helper for repository file names.
+% ----------------------------------------------------------------------
 \RequirePackage{xspace}
 
-% Definition environment for proposed bill terms (matches the legislative
-% style used in the prior all_documents.tex template)
+% ----------------------------------------------------------------------
+% Definition environment for proposed bill terms (matches the
+% legislative style used in the prior all_documents.tex template).
+% ----------------------------------------------------------------------
 \newcommand{\billterm}[1]{\textit{``#1''}}
 
+% ----------------------------------------------------------------------
 % Patient-priority callout box (bordered) for highlighting per-bill
 % patient-control benefits. Use sparingly so each page remains
 % self-standing and not overcrowded.
+% ----------------------------------------------------------------------
 \RequirePackage{tcolorbox}
 \tcbset{
   patientboxstyle/.style={
@@ -106,5 +157,14 @@
   }
 }
 \newtcolorbox{patientcallout}[1][]{patientboxstyle, title=#1}
+
+% ----------------------------------------------------------------------
+% Bill-section heading helper. Each of the seven bills has a long
+% multi-line title in main.tex. The \billsection macro lets a section
+% file insert an internal subsection heading consistently.
+% ----------------------------------------------------------------------
+\newcommand{\billsubsection}[2]{%
+  \subsection{#1 - #2}%
+}
 
 \endinput
