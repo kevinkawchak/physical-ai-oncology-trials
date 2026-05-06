@@ -2,200 +2,234 @@
 % SECTION 2: HR 9502 - Cancer Patient Robot-and-Humanoid Choice Act of 2026
 % Revision of California AB 2847 (2026) and FDA AI Regulatory
 % Decision-Making Draft Guidance 2025.
-%
-% This file consolidates instructions previously housed in the prior
-% template's Patient Priority Framework (NEW dimension 2.7
-% physical-AI procedure execution choice plus the 10-robot-category
-% block), Implementation/Metrics (Domain 5 NEW physical-AI execution
-% metrics), Discussion (11.2.e robotics evidence, 11.3.c FDA AI Draft
-% 2025), Limitations (12.1.b HR 4502 limitation), and Conclusions
-% (13.1 second list item) into the body of HR 9502.
 % ======================================================================
 
-[CONSOLIDATED PATIENT PRIORITY FRAMEWORK NEW DIMENSION 2.7 (formerly
-Patient Priority Framework subsection 2.7, the new dimension
-introduced by this paper). Physical-AI procedure execution choice
-means the patient selects which surgical robot, humanoid companion,
-or rehabilitation exoskeleton performs their care from the 10 robot
-categories enumerated in
-patients/patient_robot_instructions_fixed.tex (pages 1 through 10) and
-in national-platform/patient_robot/01_preamble_robots1to5.tex
+HR 9502 is a \textit{Revision of California AB 2847 (2026) Patient
+Rights and Robotic Safety Act and FDA AI Regulatory Decision-Making
+Draft Guidance of 2025}, drawing the chain of prior authority from
+the California state-level patient-rights baseline up to the FDA
+capability-neutrality draft \cite{fda_ai_regulatory_decision_draft_2025}.
+The California baseline is documented at
+\texttt{new-trial/site/02-legislation-patient-rights/physical\_ai\_patient\_rights.tex}
+and at
+\texttt{national-platform/new\_trial\_psl/02\_ab2847\_patient\_rights.tex}
+\cite{kawchak_2026_19176370, kawchak_2026_19244918}. HR 9502 implements
+the seventh dimension of the operational definition of patient
+control introduced in this paper: physical-AI procedure execution
+choice. The patient selects which surgical robot, humanoid companion,
+or rehabilitation exoskeleton performs the patient's care from the
+ten robot categories enumerated at
+\texttt{patients/patient\_robot\_instructions\_fixed.tex} pages 1
+through 10 and at
+\texttt{national-platform/patient\_robot/01\_preamble\_robots1to5.tex}
 (surgical, cobot, RT positioning, needle placement, social companion)
-and 02_robots6to10_closing.tex (humanoid, RT motion-tracking,
-imaging, steerable needle, rehabilitation exoskeleton). Cite
-\cite{kawchak_2026_18810541}, \cite{kawchak_2026_18778219} (for the
-USL scoring framework that quantifies each robot's readiness for
-patient choice), and \cite{target2025robotic_bronchoscopy} (for an
-example of robotic-assisted bronchoscopy that demonstrates the
-patient-control benefit of robot-executed procedures).]
+and \texttt{02\_robots6to10\_closing.tex} (humanoid, RT motion-
+tracking, imaging, steerable needle, rehabilitation exoskeleton)
+\cite{kawchak_2026_18810541, kawchak_2026_18778219,
+target2025robotic_bronchoscopy}.
 
-[CONSOLIDATED INTRODUCTION TIE-IN (formerly Introduction block 1
-seventh-dimension paragraph). Read
-patients/paper/Deep-Research-3/part1_legal_baseline.md in full and
-use the operational definition of patient control across six
+The operational definition of patient control across six prior
 functional dimensions (trial discovery, enrollment comprehension,
 location choice, data and biospecimen governance, toxicity warnings,
-AI-exclusion contestability) to motivate the seventh dimension HR
-9502 implements: physical-AI procedure execution choice. Cite
-\cite{hhs_45cfr46_protection_human_subjects},
-\cite{fda_informed_consent_guidance_2023}, and
-\cite{fda_dct_guidance_2024}.]
+AI-exclusion contestability) is supplied by
+\texttt{patients/paper/Deep-Research-3/part1\_legal\_baseline.md}.
+This paper introduces the seventh dimension that HR 9502 implements
+\cite{hhs_45cfr46_protection_human_subjects,
+fda_informed_consent_guidance_2023, fda_dct_guidance_2024}.
 
-[PROCESSING INSTRUCTION (HR 9502 - Cancer Patient Robot-and-Humanoid
-Choice Act of 2026, populate to 9 to 12 paragraphs structured into
-the five legislative-act subsections):
+\subsection{Findings and Declarations}
 
-The bill must explicitly state in its first paragraph that it is a
-"Revision of California AB 2847 (2026) Patient Rights and Robotic
-Safety Act and FDA AI Regulatory Decision-Making Draft Guidance 2025"
-so that readers can trace the chain of prior authority. The CA AB
-2847 prior text is documented at
-new-trial/site/02-legislation-patient-rights/physical_ai_patient_rights.tex
-and at national-platform/new_trial_psl/02_ab2847_patient_rights.tex
-(read both files in full when populating). The FDA AI Regulatory
-Decision-Making Draft is at \cite{fda_ai_regulatory_decision_draft_2025}.
+Congress finds and declares the following.
 
-Subsection 2.1 - Findings and Declarations: Read
-patients/patient_robot_instructions_fixed.tex pages 1 through 10
-(also chunked at
-patients/patient_robot_instructions_fixed_chunk/ via
-01_preamble_robots1to5.tex and 02_robots6to10_closing.tex) and
-quote the 10 robot categories enumerated there: surgical robots,
-collaborative cobots, RT positioning robots, robotic needle-placement
-systems, social companion robots, humanoids, RT motion-management
-robots, imaging assistant robots, steerable needle robots,
-rehabilitation exoskeletons. Read
-national-platform/usl_standard/01_preamble_introduction_framework.tex
-and 02_results_discussion_closing.tex for the USL scoring framework.
-Compose 6 to 8 enumerated findings citing
-\cite{kawchak_2026_18810541}, \cite{kawchak_2026_18778219},
-\cite{target2025robotic_bronchoscopy}, and
-\cite{vorontsov2024virchow}. At least one finding must reference the
-California AB 2847 prior bill being revised. At least one finding
-must reference the FDA AI Draft 2025 capability-neutrality
-requirement.
+(a) Ten distinct robot categories are clinically deployed in
+oncology care today: surgical robots, collaborative cobots, RT
+positioning robots, robotic needle-placement systems, social
+companion robots, humanoids, RT motion-management robots, imaging
+assistant robots, steerable needle robots, and rehabilitation
+exoskeletons \cite{kawchak_2026_18810541}.
 
-Subsection 2.2 - Definitions: Define the operational terms used
-throughout the bill:
-- "Patient robot choice" means the patient's right to select which
-  surgical robot, humanoid robot, or companion robot performs their
-  care. Reference patients/patient_robot_instructions_fixed.tex
-  pages 1 to 10.
-- "Qualified robot" means a Physical AI system that meets the
-  Unification Standard Level (USL) threshold for its category, as
-  documented in national-platform/usl_standard/ and
-  unification/usl/paper/usl_oncology_trials.tex. Cite
-  \cite{kawchak_2026_18778219}.
-- "Robot category" means one of the 10 categories enumerated in the
-  prior California SB 1042 Section 2 definitions, repeated at
-  new-trial/site/01-legislation-authorization/physical_ai_trial_authorization.tex
-  and at national-platform/new_trial_psl/01_preamble_and_sb1042.tex,
-  with each category carrying its own USL minimum threshold. Cite
-  \cite{kawchak_2026_19176370}.
-- "Capability-neutral" means the bill's definitions must apply to any
-  robot architecture (LLM-driven, foundation-model, agentic system,
-  or specialized hardware) that meets the USL threshold, drawing on
-  patients/paper/Deep-Research-3/part2_ai_robotics_legislation.md
-  guardrail \#2 and \cite{fda_ai_regulatory_decision_draft_2025}.
+(b) The Unification Standard Level (USL) framework provides a
+four-dimension scoring sheet (capability, safety, autonomy, trust)
+that quantifies each robot's readiness for patient choice on a 0
+through 100 scale; the USL framework is documented at
+\texttt{national-platform/usl\_standard/01\_preamble\_introduction\_framework.tex}
+and \texttt{02\_results\_discussion\_closing.tex}
+\cite{kawchak_2026_18778219}.
 
-Subsection 2.3 - Patient Robot Choice Rights (operative core):
-Compose 6 to 8 enumerated rights:
-- Right to receive a side-by-side comparison of all qualified robots
-  for the patient's procedure, including USL scores, prior outcomes,
-  and named instances. Use the named-instance examples from
-  patient-journey/stage_05_surgery.py (da Vinci Xi at USL 87.5 for
-  lobectomy), stage_06_recovery.py (post-op cobot for limb stabili-
-  zation), stage_07_immunotherapy.py (Franka Emika at USL 88.75 for
-  pembrolizumab), and stage_09_surveillance.py (companion robot for
-  pediatric or geriatric patients). Cite \cite{kawchak_2026_19119939}.
-- Right to select the specific robot instance (e.g., RTPOS-01 vs
-  RTPOS-03) following the patient_records.md naming pattern at
-  new-trial/national-24-7-trial/hour-12/patient_records.md.
-- Right to substitute a humanoid robot (e.g., Tesla Optimus, Boston
-  Dynamics Atlas, Agility Digit, evaluated under
-  unification/usl/humanoids/) for routine non-surgical tasks
-  (transport, vitals collection, medication delivery) where the
-  patient prefers reduced human contact.
-- Right to refuse a specific robot instance and request a substitute
-  at no additional cost to the patient.
-- Right to receive a USL transparency report (the four-dimension USL
-  scoring sheet) for any robot before consenting to its use. Cite
-  \cite{kawchak_2026_18778219}.
-- Right of appeal to the FDA Oncology Center of Excellence DCT
-  pathway for any robot denial that the patient believes is
-  capability-equivalent. Cite \cite{fda_oce_advancing_oncology_dct_2024}.
-- Right to a humanoid-robot deployment for in-home care over the
-  course of long therapeutic regimens (35 pembrolizumab cycles per
-  the PAT-2026-0042 example), with patient-side override at any
-  point during the regimen.
+(c) Direct robotics evidence supporting patient-led robot choice
+includes the TARGET multicenter robotic-bronchoscopy trial published
+in CHEST 2025 (safety and diagnostic outcomes across multiple sites)
+and the NEJM Catalyst Cancer CARE Beyond Walls home-based
+chemotherapy study published in 2026 (safety, feasibility, and
+patient experience metrics) \cite{target2025robotic_bronchoscopy,
+dronca2026cancer_care_beyond_walls}.
 
-Subsection 2.4 - Implementation: 12-month deadline for ALL qualified
-sites to publish a per-robot USL report; FDA, AHRQ, and ONC roles;
-explicit reference that this is a Revision of CA AB 2847 (2026) for
-NATIONAL coverage; preemption rule preserves stronger state
-protections. Read national-platform/patient_robot/02_robots6to10_closing.tex
-for the operational implementation pattern and
-sponsor/final_paper/scripts/safety/ for the safety-workflow
-integration.
+(d) The California AB 2847 (2026) Patient Rights and Robotic Safety
+Act establishes patient rights at the State level only; HR 9502
+extends those rights to national coverage through revision rather
+than displacement of the State framework \cite{kawchak_2026_19176370}.
 
-Subsection 2.5 - Reporting and Enforcement: Annual federal report
-listing the per-state, per-cancer, per-robot-category selection rate;
-the AI-decision-tracking infrastructure at
-sponsor/final_paper/scripts/core_agents/ (53 agents, see
-sponsor/final_paper/scripts/core_agents/__init__.py for the list)
-that the FDA can audit; civil penalties harmonized with the FDA AI
-Draft 2025 capability-neutrality enforcement framework.]
+(e) The FDA AI Regulatory Decision-Making Draft Guidance of January
+2025 articulates the capability-neutrality principle for AI systems
+used in regulatory decision-making; HR 9502 incorporates that
+principle into its definitions of qualified robot
+\cite{fda_ai_regulatory_decision_draft_2025}.
 
-[CONSOLIDATED IMPLEMENTATION-METRICS DOMAIN 5 - PHYSICAL-AI
-EXECUTION (formerly Implementation Metrics subsection 10.2 Domain 5,
-the NEW domain introduced by this paper). The federal Patient
-Control Dashboard must publish, for HR 9502, the following Domain 5
-metrics: patient-selected robot percentage by category,
-patient-initiated procedural modification rate (tied to HR 9503),
-patient-sponsor direct channel uptake (tied to HR 9505), American
-Leadership Index ranking (tied to HR 9506). Cite
-\cite{kawchak_2026_18810541}, \cite{kawchak_2026_18778219}, and
-\cite{kawchak_2026_19244918}.]
+(f) Foundation-model evidence in computational pathology (Virchow,
+Nature Medicine 2024) demonstrates that AI systems can reach clinical-
+grade performance across pan-cancer detection; the same pattern
+generalizes to robot-executed image-guided procedures
+\cite{vorontsov2024virchow}.
 
-[CONSOLIDATED DISCUSSION COMPARISON (formerly Discussion items
-11.2.e robotics evidence and 11.3.c FDA AI Draft 2025). Direct
-robotics evidence supporting HR 9502 includes the TARGET multicenter
-robotic-bronchoscopy trial \cite{target2025robotic_bronchoscopy} and
-the NEJM Catalyst Cancer CARE Beyond Walls home-based chemotherapy
-study \cite{dronca2026cancer_care_beyond_walls}. The FDA AI
-Regulatory Decision-Making Draft Guidance 2025 is the regulatory
-opening that HR 9502 (and HR 9504) build on. Cite
-\cite{fda_ai_regulatory_decision_draft_2025}.]
+\subsection{Definitions}
 
-[CONSOLIDATED LIMITATIONS PARAGRAPH (formerly Limitations item
-12.1.b). HR 9502 assumes that qualified-robot USL scoring is
-comparable across vendors. The unification/usl/ paper documents that
-USL scoring requires multi-site calibration; humanoid robots in
-particular have a thinner clinical evidence base than surgical
-robots. Cite \cite{kawchak_2026_18778219}.]
+(a) \billterm{Patient robot choice} means the patient's right to
+select which surgical robot, humanoid robot, or companion robot
+performs the patient's care, exercised after review of the qualified
+robot comparison required by Subsection 2.3(a). The reference list of
+robot categories is the ten-category enumeration at
+\texttt{patients/patient\_robot\_instructions\_fixed.tex} pages 1
+through 10 \cite{kawchak_2026_18810541}.
 
-[CONSOLIDATED CONCLUSIONS RESTATEMENT (formerly Conclusions item
-13.1 second list item). HR 9502 replaces the provider-only choice
-pattern under traditional CA AB 2847 with a national patient-led
-standard governing the 10 robot categories defined in the prior
-patient-instructions paper. Cite \cite{kawchak_2026_18810541} and
-\cite{kawchak_2026_19176370}.]
+(b) \billterm{Qualified robot} means a Physical AI system that meets
+the Unification Standard Level (USL) threshold for the system's
+category, as documented at \texttt{national-platform/usl\_standard/}
+and at \texttt{unification/usl/paper/usl\_oncology\_trials.tex}
+\cite{kawchak_2026_18778219}.
 
-Close the bill (1 paragraph after Subsection 2.5) with two patient-
-control framings:
+(c) \billterm{Robot category} means one of the ten categories
+enumerated in Subsection 2 of the prior California SB 1042 baseline,
+repeated at
+\texttt{new-trial/site/01-legislation-authorization/physical\_ai\_trial\_authorization.tex}
+and at
+\texttt{national-platform/new\_trial\_psl/01\_preamble\_and\_sb1042.tex},
+with each category carrying its own USL minimum threshold
+\cite{kawchak_2026_19176370}.
 
-(i) FOR INDIVIDUAL PATIENTS: A 58-year-old female NSCLC patient
-    matching the PAT-2026-0042 profile in patient-journey/ chooses
-    the da Vinci Xi for her lobectomy after reviewing USL 87.5 vs
-    the USL 84.0 alternative, and chooses a Tesla Optimus humanoid
-    for home-based vitals collection during her 35 pembrolizumab
-    cycles at \cite{dronca2026cancer_care_beyond_walls}.
+(d) \billterm{Capability-neutral} means the bill's definitions apply
+to any robot architecture (LLM-driven, foundation-model, agentic
+system, or specialized hardware) that meets the USL threshold,
+following the second guardrail in
+\texttt{patients/paper/Deep-Research-3/part2\_ai\_robotics\_legislation.md}
+and the FDA AI Regulatory Decision-Making Draft 2025
+\cite{fda_ai_regulatory_decision_draft_2025}.
 
-(ii) FOR BROAD ADOPTION: All Physical AI oncology trial sites must
-     publish a USL transparency report for every deployed robot
-     instance within 12 months. The bill positions the United States
-     as Number 1 in the world for patient-controlled robot
-     selection, replacing the prior provider-only choice pattern
-     under traditional CA AB 2847 with a national patient-led
-     standard. Cite \cite{kawchak_2026_18810541} and
-     \cite{kawchak_2026_19176370}.
+(e) \billterm{USL transparency report} means the four-dimension USL
+scoring sheet (capability, safety, autonomy, trust) for a specific
+robot instance, published in machine-readable form by the qualified
+site that operates the robot \cite{kawchak_2026_18778219}.
+
+\subsection{Patient Robot Choice Rights}
+
+(a) Right to receive a side-by-side comparison of all qualified
+robots for the patient's procedure, including USL scores, prior
+outcomes, and named instances. Worked examples drawn from the
+single-patient journey include da Vinci Xi at USL 87.5 for lobectomy
+(\texttt{patient-journey/stage\_05\_surgery.py}), post-operative
+cobot for limb stabilization
+(\texttt{patient-journey/stage\_06\_recovery.py}), Franka Emika at
+USL 88.75 for pembrolizumab infusion
+(\texttt{patient-journey/stage\_07\_immunotherapy.py}), and a
+companion robot for pediatric or geriatric surveillance
+(\texttt{patient-journey/stage\_09\_surveillance.py})
+\cite{kawchak_2026_19119939}.
+
+(b) Right to select a specific robot instance (for example RTPOS-01
+versus RTPOS-03) following the per-hour
+\texttt{patient\_records.md} naming pattern at
+\texttt{new-trial/national-24-7-trial/hour-12/patient\_records.md}
+\cite{kawchak_2026_19994945}.
+
+(c) Right to substitute a humanoid robot (Tesla Optimus, Boston
+Dynamics Atlas, Agility Digit, or other USL-qualified humanoid
+evaluated under \texttt{unification/usl/humanoids/}) for routine non-
+surgical tasks (transport, vitals collection, medication delivery)
+where the patient prefers reduced human contact
+\cite{kawchak_2026_18778219}.
+
+(d) Right to refuse a specific robot instance and request a
+substitute at no additional cost to the patient.
+
+(e) Right to receive a USL transparency report for any robot before
+consenting to the robot's use \cite{kawchak_2026_18778219}.
+
+(f) Right of appeal to the FDA Oncology Center of Excellence DCT
+pathway for any robot denial that the patient believes is
+capability-equivalent to the requested robot
+\cite{fda_oce_advancing_oncology_dct_2024}.
+
+(g) Right to a humanoid-robot deployment for in-home care over the
+course of long therapeutic regimens (the 35 pembrolizumab cycles for
+PAT-2026-0042 are a worked example), with a patient-side override
+authority that may revert any in-home humanoid deployment to human-
+nurse delivery within the same calendar day
+\cite{kawchak_2026_19119939}.
+
+\subsection{Implementation}
+
+(a) The Secretary of Health and Human Services, acting through the
+Food and Drug Administration, the Agency for Healthcare Research and
+Quality, and the Office of the National Coordinator for Health
+Information Technology, shall require all qualified Physical AI
+oncology trial sites to publish a per-robot USL transparency report
+within 12 months of enactment.
+
+(b) The bill is a Revision of California AB 2847 (2026) for national
+coverage; State-level protections that exceed the federal floor are
+preserved by the preemption rule
+\cite{kawchak_2026_19176370}.
+
+(c) Implementation references the operational pattern at
+\texttt{national-platform/patient\_robot/02\_robots6to10\_closing.tex}
+and the safety-workflow integration at
+\texttt{sponsor/final\_paper/scripts/safety/}
+\cite{kawchak_2026_19244918, kawchak_2026_19396256}.
+
+\subsection{Reporting and Enforcement}
+
+(a) Annual federal report listing the per-state, per-cancer, per-
+robot-category selection rate. Domain 5 of the federal Patient
+Control Dashboard (Physical-AI Execution) anchors this report:
+patient-selected robot percentage by category, patient-initiated
+procedural modification rate (tied to HR 9503), patient-sponsor
+direct channel uptake (tied to HR 9505), and the American Leadership
+Index ranking (tied to HR 9506) \cite{kawchak_2026_18810541,
+kawchak_2026_18778219, kawchak_2026_19244918}.
+
+(b) The AI-decision-tracking infrastructure at
+\texttt{sponsor/final\_paper/scripts/core\_agents/} (53 agents listed
+in
+\texttt{sponsor/final\_paper/scripts/core\_agents/\_\_init\_\_.py})
+provides the FDA-auditable substrate \cite{kawchak_2026_19396256}.
+
+(c) Civil penalties harmonize with the FDA AI Regulatory Decision-
+Making Draft 2025 capability-neutrality enforcement framework
+\cite{fda_ai_regulatory_decision_draft_2025}.
+
+\subsection{Discussion and Limitation}
+
+The bill rests on the assumption that USL scoring is comparable
+across vendors. The unification/usl/ paper documents that USL scoring
+requires multi-site calibration; humanoid robots in particular have
+a thinner clinical evidence base than surgical robots. The findings
+above acknowledge this limitation and constrain humanoid deployment
+to non-surgical routine tasks until additional prospective evidence
+accumulates \cite{kawchak_2026_18778219}.
+
+\subsection{Patient-Control Framings}
+
+For the individual patient, a 58-year-old female NSCLC patient
+matching the PAT-2026-0042 profile chooses the da Vinci Xi for her
+lobectomy after reviewing USL 87.5 versus the USL 84.0 alternative,
+and chooses a Tesla Optimus humanoid for home-based vitals collection
+during her 35 pembrolizumab cycles, with a daily revert-to-human-
+nurse override available at any point during the regimen
+\cite{dronca2026cancer_care_beyond_walls, kawchak_2026_19119939}.
+
+For broad adoption, all Physical AI oncology trial sites must
+publish a USL transparency report for every deployed robot instance
+within 12 months. The bill positions the United States as Number 1
+in the world for patient-controlled robot selection, replacing the
+prior provider-only choice pattern under traditional CA AB 2847 with
+a national patient-led standard governing the ten robot categories
+\cite{kawchak_2026_18810541, kawchak_2026_19176370}.
