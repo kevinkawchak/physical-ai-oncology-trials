@@ -1,0 +1,740 @@
+% ======================================================================
+% REFERENCES FOR: Patient Priority and Proposed U.S. Bills for Physical
+% AI Oncology Clinical Trials
+% File: patient_priority.bib
+% Location: patients/paper/patient_priority.bib
+% ======================================================================
+%
+% [PROCESSING INSTRUCTION: When Claude Code Opus 4.7 Max (1M token
+% context) processes this bibliography for the next paper-population
+% pass, the following invariants are mandatory and must not be relaxed:
+%
+%   1. Every entry MUST have a DOI number where one exists, formatted as
+%      doi = {10.XXXX/XXXXXX}. DO NOT delete the DOI field for any entry,
+%      even if it is also rendered through the URL field.
+%   2. Every entry MUST have a URL field that is clickable in the
+%      compiled PDF. Use https://doi.org/<doi> as the canonical URL when
+%      a DOI exists; otherwise use the publisher or government URL.
+%   3. For repository-style references, include BOTH a GitHub URL and a
+%      Zenodo URL inside the note field, each wrapped in \url{...} so
+%      that BOTH render as separate clickable hyperlinks in the
+%      bibliography (verified by visually scanning the rendered PDF).
+%   4. The note field, when present, MUST contain the literal DOI
+%      string and the human-readable URL(s) so the rendered bibliography
+%      lists these even when the bib style does not normally render the
+%      doi/url fields directly.
+%   5. Use biber + biblatex (numeric, sorting=none) per main.tex; this
+%      differs from the prior all-in-one template which used bibtex with
+%      ieeetr.
+%   6. Verify that every \cite{} in the section .tex files has a
+%      matching entry below; ADD new entries as needed and DO NOT delete
+%      existing entries during the next pass.
+%   7. After each compile pass, visually scan the rendered References
+%      page: every entry must show a DOI string and a clickable URL with
+%      no truncation off the right margin. If a URL is too long, rely on
+%      the \UrlBreaks definition in main.tex rather than manually
+%      breaking the URL.
+%   8. Source bibtex pools to merge from when expanding the body
+%      sections (do NOT remove any entry already present; ADD entries
+%      from these source files as the bills are populated):
+%        - patients/paper/Deep-Research-1/chunk_3_references_bibtex.md
+%          (11 entries: Kearney2009ASYMS, Maguire2017eSMART,
+%          McCann2024ASYMSQualitative, Absolom2021eRAPID,
+%          Velikova2022eRAPIDProgramme, Mlakar2021PERSISTProtocol,
+%          Arioz2025PERSISTAppliedSciences, Arioz2024PERSISTPreprint,
+%          plus the QOL+, PATH/MyCoach, and random-forest QoL entries).
+%        - patients/paper/Deep-Research-2/chunk_04_bibtex.md
+%          (14 entries on the layered legal stack: rank1_cures_act_2016,
+%          rank2_clinical_treatment_act_2020, rank3_aca_clinical_trials_2010,
+%          rank4_fdora_fda_modernization_2022, rank5_fdaaa_2007,
+%          rank6_right_to_try_2018, rank7_fdara_2017,
+%          rank8_california_sb37_2001, rank9_onc_hti1_2023, plus ranks
+%          10 to 14 for CDS guidance, diversity plans, AI evidence,
+%          state law, CMS SMD 21-005).
+%        - patients/paper/Deep-Research-3/part4_bibtex.md
+%          (27 entries already with DOI + URL fields populated:
+%          usc_300gg8_clinical_trials, cms_ncd_3101_routine_costs,
+%          hhs_45cfr46_protection_human_subjects,
+%          fda_informed_consent_guidance_2023,
+%          fda_ohrp_key_information_draft_2024,
+%          ohrp_broad_consent_attachment_c_2017, fda_dct_guidance_2024,
+%          fda_oce_advancing_oncology_dct_2024,
+%          fda_ai_regulatory_decision_draft_2025,
+%          onc_cures_act_final_rule_page,
+%          astp_onc_patient_portals_apps_2024,
+%          astp_onc_hospital_apis_2024, hti1_dsi_fact_sheet_2023,
+%          federal_register_info_blocking_disincentives_2024,
+%          hhs_right_to_access_2025, jin2024trialgpt, gupta2024prism,
+%          abdallah2026trialmatchai, mazor2025ai_notifications_trial,
+%          rocque2025remote_symptom_monitoring, vorontsov2024virchow,
+%          gonzalez2025bayesian_urgent_care_nsclc,
+%          fda_rtct_press_2026, fda_dhts_drug_development_2026,
+%          nih_par25_170_dht_endpoints,
+%          target2025robotic_bronchoscopy,
+%          dronca2026cancer_care_beyond_walls).
+%   9. Final reference count target: substantially MORE than the 10
+%      references in the prior template at
+%      new-trial/site/all-documents/all_documents.bib (target: at least
+%      40 to 60 entries combining the three Deep-Research pools, the
+%      author Zenodo references below, the FDA RTCT announcement, and
+%      the AI tooling references).
+% ]
+
+% ======================================================================
+% AUTHOR REPOSITORY ZENODO REFERENCES
+% Each repository entry carries DOI, URL, AND both GitHub + Zenodo URLs
+% inside the note field, so that BOTH render clickable in the rendered
+% bibliography. This enforces the project brief: DOIs and URLs MUST be
+% clickable in references, including for GitHub and Zenodo.
+% ======================================================================
+
+% Current paper - self-citation for "Cite This Article" back-matter block
+@misc{kawchak_2026_20045457,
+  author       = {Kawchak, Kevin},
+  title        = {Patient Priority and Proposed {U.S.} Bills for Physical {AI} Oncology Clinical Trials},
+  month        = may,
+  year         = {2026},
+  publisher    = {Zenodo},
+  doi          = {10.5281/zenodo.20045457},
+  url          = {https://doi.org/10.5281/zenodo.20045457},
+  note         = {DOI: 10.5281/zenodo.20045457.
+                  GitHub: \url{https://github.com/kevinkawchak/physical-ai-oncology-trials/tree/main/patients/paper}.
+                  Zenodo: \url{https://doi.org/10.5281/zenodo.20045457}.}
+}
+
+% Parent repository (overall DOI)
+@misc{main_repo,
+  author       = {Kawchak, Kevin},
+  title        = {Physical {AI} for Oncology Clinical Trials},
+  year         = {2026},
+  howpublished = {Zenodo},
+  doi          = {10.5281/zenodo.18445179},
+  url          = {https://doi.org/10.5281/zenodo.18445179},
+  note         = {DOI: 10.5281/zenodo.18445179.
+                  GitHub: \url{https://github.com/kevinkawchak/physical-ai-oncology-trials}.
+                  Zenodo: \url{https://doi.org/10.5281/zenodo.18445179}.}
+}
+
+% Site documentation package (the prior template; for "Adaption of"
+% comparisons in HR 4501 and HR 4502 sections)
+@misc{kawchak_2026_19176370,
+  author       = {Kawchak, Kevin},
+  title        = {Physical {AI} Oncology Clinical Trial Site Complete Documentation Package},
+  month        = mar,
+  year         = {2026},
+  publisher    = {Zenodo},
+  doi          = {10.5281/zenodo.19176370},
+  url          = {https://doi.org/10.5281/zenodo.19176370},
+  note         = {DOI: 10.5281/zenodo.19176370.
+                  GitHub: \url{https://github.com/kevinkawchak/physical-ai-oncology-trials/tree/main/new-trial/site}.
+                  Zenodo: \url{https://doi.org/10.5281/zenodo.19176370}.}
+}
+
+% Patient journey single-patient simulation (for "individual patient and
+% robot" detail in HR 4502 and HR 4503 sections)
+@misc{kawchak_2026_19119939,
+  author       = {Kawchak, Kevin},
+  title        = {A Cancer Patient's Journey Through a Regulated Physical {AI} Oncology Trial},
+  month        = mar,
+  year         = {2026},
+  publisher    = {Zenodo},
+  doi          = {10.5281/zenodo.19119939},
+  url          = {https://doi.org/10.5281/zenodo.19119939},
+  note         = {DOI: 10.5281/zenodo.19119939.
+                  GitHub: \url{https://github.com/kevinkawchak/physical-ai-oncology-trials/tree/main/patient-journey}.
+                  Zenodo: \url{https://doi.org/10.5281/zenodo.19119939}.}
+}
+
+% Sponsor 24-hour and 168-hour autonomous simulation (for HR 4505 and
+% HR 4506 sections - sponsor-side real-time signal sharing)
+@misc{kawchak_2026_19396256,
+  author       = {Kawchak, Kevin},
+  title        = {Fully Automated Sponsor: Physical {AI} Oncology Clinical Trial Platform},
+  month        = apr,
+  year         = {2026},
+  publisher    = {Zenodo},
+  doi          = {10.5281/zenodo.19396256},
+  url          = {https://doi.org/10.5281/zenodo.19396256},
+  note         = {DOI: 10.5281/zenodo.19396256.
+                  GitHub: \url{https://github.com/kevinkawchak/physical-ai-oncology-trials/tree/main/sponsor}.
+                  Zenodo: \url{https://doi.org/10.5281/zenodo.19396256}.}
+}
+
+% National Platform paper (for "broad adoption" framing in HR 4506)
+@misc{kawchak_2026_19244918,
+  author       = {Kawchak, Kevin},
+  title        = {National Platform for Physical {AI} Oncology Trials},
+  month        = mar,
+  year         = {2026},
+  publisher    = {Zenodo},
+  doi          = {10.5281/zenodo.19244918},
+  url          = {https://doi.org/10.5281/zenodo.19244918},
+  note         = {DOI: 10.5281/zenodo.19244918.
+                  GitHub: \url{https://github.com/kevinkawchak/physical-ai-oncology-trials/tree/main/national-platform}.
+                  Zenodo: \url{https://doi.org/10.5281/zenodo.19244918}.}
+}
+
+% Patient Instructions paper (for HR 4502 - patient choice of robot)
+@misc{kawchak_2026_18810541,
+  author       = {Kawchak, Kevin},
+  title        = {Patient Instructions: Physical {AI} Oncology Trials},
+  month        = mar,
+  year         = {2026},
+  publisher    = {Zenodo},
+  doi          = {10.5281/zenodo.18810541},
+  url          = {https://doi.org/10.5281/zenodo.18810541},
+  note         = {DOI: 10.5281/zenodo.18810541.
+                  GitHub: \url{https://github.com/kevinkawchak/physical-ai-oncology-trials/tree/main/patients}.
+                  Zenodo: \url{https://doi.org/10.5281/zenodo.18810541}.}
+}
+
+% Accelerated Patient Prediction paper (for HR 4504 - error rate
+% reduction and AI prediction baseline comparisons)
+@misc{kawchak_2026_19994945,
+  author       = {Kawchak, Kevin},
+  title        = {Accelerated Patient Prediction in Physical {AI} Oncology Clinical Trials: Four Comprehensive {LLM} Simulations},
+  month        = may,
+  year         = {2026},
+  publisher    = {Zenodo},
+  doi          = {10.5281/zenodo.19994945},
+  url          = {https://doi.org/10.5281/zenodo.19994945},
+  note         = {DOI: 10.5281/zenodo.19994945.
+                  GitHub: \url{https://github.com/kevinkawchak/physical-ai-oncology-trials/tree/main/new-trial/national-24-7-trial/paper}.
+                  Zenodo: \url{https://doi.org/10.5281/zenodo.19994945}.}
+}
+
+% USL Standard (for HR 4502 - measurable robot-readiness scoring)
+@misc{kawchak_2026_18778219,
+  author       = {Kawchak, Kevin},
+  title        = {Unification Standard Level for Physical {AI} Oncology Trials},
+  month        = feb,
+  year         = {2026},
+  publisher    = {Zenodo},
+  doi          = {10.5281/zenodo.18778219},
+  url          = {https://doi.org/10.5281/zenodo.18778219},
+  note         = {DOI: 10.5281/zenodo.18778219.
+                  GitHub: \url{https://github.com/kevinkawchak/physical-ai-oncology-trials/tree/main/unification/usl}.
+                  Zenodo: \url{https://doi.org/10.5281/zenodo.18778219}.}
+}
+
+% ICH E6(R3) adaption (for procedural compliance in HR 4503 and HR 4505)
+@misc{kawchak_2026_18973368,
+  author       = {Kawchak, Kevin},
+  title        = {Adaption of {ICH} {E6(R3)} for Physical {AI} Oncology Clinical Trials},
+  month        = mar,
+  year         = {2026},
+  publisher    = {Zenodo},
+  doi          = {10.5281/zenodo.18973368},
+  url          = {https://doi.org/10.5281/zenodo.18973368},
+  note         = {DOI: 10.5281/zenodo.18973368.
+                  GitHub: \url{https://github.com/kevinkawchak/physical-ai-oncology-trials/tree/main/regulatory}.
+                  Zenodo: \url{https://doi.org/10.5281/zenodo.18973368}.}
+}
+
+% 21 CFR 50 adaption (for HR 4501 and HR 4503)
+@misc{kawchak_2026_19040707,
+  author       = {Kawchak, Kevin},
+  title        = {Adaption of 21 {CFR} Part 50 for Physical {AI} Oncology Clinical Trials},
+  month        = mar,
+  year         = {2026},
+  publisher    = {Zenodo},
+  doi          = {10.5281/zenodo.19040707},
+  url          = {https://doi.org/10.5281/zenodo.19040707},
+  note         = {DOI: 10.5281/zenodo.19040707.
+                  GitHub: \url{https://github.com/kevinkawchak/physical-ai-oncology-trials/tree/main/regulatory}.
+                  Zenodo: \url{https://doi.org/10.5281/zenodo.19040707}.}
+}
+
+% 21 CFR 312 adaption (for HR 4505)
+@misc{kawchak_2026_19057628,
+  author       = {Kawchak, Kevin},
+  title        = {Adaption of 21 {CFR} Part 312 for Physical {AI} Oncology Clinical Trials},
+  month        = mar,
+  year         = {2026},
+  publisher    = {Zenodo},
+  doi          = {10.5281/zenodo.19057628},
+  url          = {https://doi.org/10.5281/zenodo.19057628},
+  note         = {DOI: 10.5281/zenodo.19057628.
+                  GitHub: \url{https://github.com/kevinkawchak/physical-ai-oncology-trials/tree/main/regulatory}.
+                  Zenodo: \url{https://doi.org/10.5281/zenodo.19057628}.}
+}
+
+% ======================================================================
+% U.S. STATUTORY AND REGULATORY BASELINE (from
+% patients/paper/Deep-Research-3/part4_bibtex.md - all 27 entries
+% already have DOI/URL fields where applicable. The new bills below
+% adapt and revise these prior authorities by name and reference number.)
+% ======================================================================
+
+@misc{usc_300gg8_clinical_trials,
+  title        = {42 {U.S.C.} 300gg-8: Coverage for Individuals Participating in Approved Clinical Trials},
+  author       = {{United States House of Representatives, Office of the Law Revision Counsel}},
+  year         = {2026},
+  note         = {Accessed 2026-05-05.
+                  URL: \url{https://uscode.house.gov/view.xhtml?req=(title:42\%20section:300gg-8\%20edition:prelim)}.},
+  url          = {https://uscode.house.gov/view.xhtml?req=(title:42\%20section:300gg-8\%20edition:prelim)}
+}
+
+@misc{cms_ncd_3101_routine_costs,
+  title        = {National Coverage Determination 310.1: Routine Costs in Clinical Trials},
+  author       = {{Centers for Medicare and Medicaid Services}},
+  year         = {2026},
+  note         = {Accessed 2026-05-05.
+                  URL: \url{https://www.cms.gov/medicare-coverage-database/view/ncd.aspx?ncdid=1&ncdver=4}.},
+  url          = {https://www.cms.gov/medicare-coverage-database/view/ncd.aspx?ncdid=1&ncdver=4}
+}
+
+@misc{hhs_45cfr46_protection_human_subjects,
+  title        = {45 {CFR} 46: Protection of Human Subjects (Common Rule)},
+  author       = {{U.S. Department of Health and Human Services}},
+  year         = {2026},
+  note         = {Accessed 2026-05-05.
+                  URL: \url{https://www.hhs.gov/ohrp/regulations-and-policy/regulations/45-cfr-46/index.html}.},
+  url          = {https://www.hhs.gov/ohrp/regulations-and-policy/regulations/45-cfr-46/index.html}
+}
+
+@misc{fda_informed_consent_guidance_2023,
+  title        = {Informed Consent: Guidance for {IRBs}, Clinical Investigators, and Sponsors},
+  author       = {{U.S. Food and Drug Administration}},
+  year         = {2023},
+  month        = aug,
+  note         = {Final guidance; accessed 2026-05-05.
+                  URL: \url{https://www.fda.gov/regulatory-information/search-fda-guidance-documents/informed-consent-guidance-irbs-clinical-investigators-and-sponsors}.},
+  url          = {https://www.fda.gov/regulatory-information/search-fda-guidance-documents/informed-consent-guidance-irbs-clinical-investigators-and-sponsors}
+}
+
+@misc{fda_ohrp_key_information_draft_2024,
+  title        = {Key Information and Facilitating Understanding in Informed Consent: Draft Guidance for Sponsors, Investigators, and Institutional Review Boards},
+  author       = {{U.S. Food and Drug Administration and Office for Human Research Protections}},
+  year         = {2024},
+  month        = mar,
+  note         = {Draft guidance; accessed 2026-05-05.
+                  URL: \url{https://www.fda.gov/regulatory-information/search-fda-guidance-documents/key-information-and-facilitating-understanding-informed-consent-guidance-sponsors-investigators-and}.},
+  url          = {https://www.fda.gov/regulatory-information/search-fda-guidance-documents/key-information-and-facilitating-understanding-informed-consent-guidance-sponsors-investigators-and}
+}
+
+@misc{ohrp_broad_consent_attachment_c_2017,
+  title        = {Attachment {C}: Recommendations for Broad Consent Guidance, August 2017},
+  author       = {{Office for Human Research Protections}},
+  year         = {2017},
+  month        = aug,
+  note         = {Accessed 2026-05-05.
+                  URL: \url{https://www.hhs.gov/ohrp/regulations-and-policy/guidance/attachment-c-recommendations-for-broad-consent-guidance-august-2017/index.html}.},
+  url          = {https://www.hhs.gov/ohrp/regulations-and-policy/guidance/attachment-c-recommendations-for-broad-consent-guidance-august-2017/index.html}
+}
+
+@misc{fda_dct_guidance_2024,
+  title        = {Conducting Clinical Trials with Decentralized Elements},
+  author       = {{U.S. Food and Drug Administration}},
+  year         = {2024},
+  month        = sep,
+  note         = {Final guidance; accessed 2026-05-05.
+                  URL: \url{https://www.fda.gov/regulatory-information/search-fda-guidance-documents/conducting-clinical-trials-decentralized-elements}.},
+  url          = {https://www.fda.gov/regulatory-information/search-fda-guidance-documents/conducting-clinical-trials-decentralized-elements}
+}
+
+@misc{fda_oce_advancing_oncology_dct_2024,
+  title        = {Advancing Oncology Decentralized Trials},
+  author       = {{U.S. Food and Drug Administration, Oncology Center of Excellence}},
+  year         = {2024},
+  month        = jun,
+  note         = {Accessed 2026-05-05.
+                  URL: \url{https://www.fda.gov/about-fda/oncology-center-excellence/advancing-oncology-decentralized-trials}.},
+  url          = {https://www.fda.gov/about-fda/oncology-center-excellence/advancing-oncology-decentralized-trials}
+}
+
+@misc{fda_ai_regulatory_decision_draft_2025,
+  title        = {Considerations for the Use of Artificial Intelligence to Support Regulatory Decision-Making for Drug and Biological Products},
+  author       = {{U.S. Food and Drug Administration}},
+  year         = {2025},
+  month        = jan,
+  note         = {Draft guidance; accessed 2026-05-05.
+                  URL: \url{https://www.fda.gov/regulatory-information/search-fda-guidance-documents/considerations-use-artificial-intelligence-support-regulatory-decision-making-drug-and}.},
+  url          = {https://www.fda.gov/regulatory-information/search-fda-guidance-documents/considerations-use-artificial-intelligence-support-regulatory-decision-making-drug-and}
+}
+
+@misc{onc_cures_act_final_rule_page,
+  title        = {{ONC's} Cures Act Final Rule},
+  author       = {{Assistant Secretary for Technology Policy and Office of the National Coordinator for Health Information Technology}},
+  year         = {2026},
+  note         = {Official overview page; accessed 2026-05-05.
+                  URL: \url{https://www.healthit.gov/regulations/cures-act-final-rule/}.},
+  url          = {https://www.healthit.gov/regulations/cures-act-final-rule/}
+}
+
+@misc{astp_onc_patient_portals_apps_2024,
+  title        = {Individuals' Access and Use of Patient Portals and Smartphone Health Apps, 2024},
+  author       = {{Assistant Secretary for Technology Policy and Office of the National Coordinator for Health Information Technology}},
+  year         = {2025},
+  month        = jul,
+  note         = {Data Brief No.~77; accessed 2026-05-05.
+                  URL: \url{https://www.healthit.gov/data/data-briefs/individuals-access-and-use-patient-portals-and-smartphone-health-apps-2024/}.},
+  url          = {https://www.healthit.gov/data/data-briefs/individuals-access-and-use-patient-portals-and-smartphone-health-apps-2024/}
+}
+
+@misc{astp_onc_hospital_apis_2024,
+  title        = {Hospital Use of {APIs} to Enable Data Sharing between {EHRs} and Third-Party Technology},
+  author       = {{Assistant Secretary for Technology Policy and Office of the National Coordinator for Health Information Technology}},
+  year         = {2026},
+  note         = {Data brief based on 2024 hospital survey data; accessed 2026-05-05.
+                  URL: \url{https://www.healthit.gov/data/data-briefs/hospital-use-of-apis-to-enable-data-sharing-between-ehrs-and-third-party-technology/}.},
+  url          = {https://www.healthit.gov/data/data-briefs/hospital-use-of-apis-to-enable-data-sharing-between-ehrs-and-third-party-technology/}
+}
+
+@misc{hti1_dsi_fact_sheet_2023,
+  title        = {Decision Support Interventions Fact Sheet: Health Data, Technology, and Interoperability {(HTI-1)} Final Rule},
+  author       = {{Assistant Secretary for Technology Policy and Office of the National Coordinator for Health Information Technology}},
+  year         = {2023},
+  month        = dec,
+  note         = {Accessed 2026-05-05.
+                  URL: \url{https://www.healthit.gov/wp-content/uploads/2023/12/HTI-1_DSI_fact-sheet_508.pdf}.},
+  url          = {https://www.healthit.gov/wp-content/uploads/2023/12/HTI-1_DSI_fact-sheet_508.pdf}
+}
+
+@misc{federal_register_info_blocking_disincentives_2024,
+  title        = {21st Century Cures Act: Establishment of Disincentives for Health Care Providers That Have Committed Information Blocking},
+  author       = {{U.S. Department of Health and Human Services}},
+  year         = {2024},
+  month        = jul,
+  note         = {Federal Register final rule; accessed 2026-05-05.
+                  URL: \url{https://www.federalregister.gov/documents/2024/07/01/2024-13793/21st-century-cures-act-establishment-of-disincentives-for-health-care-providers-that-have-committed}.},
+  url          = {https://www.federalregister.gov/documents/2024/07/01/2024-13793/21st-century-cures-act-establishment-of-disincentives-for-health-care-providers-that-have-committed}
+}
+
+@misc{hhs_right_to_access_2025,
+  title        = {Get It. Check It. Use It. You Have the Right to Access Your Health Information},
+  author       = {{U.S. Department of Health and Human Services, Office for Civil Rights}},
+  year         = {2025},
+  month        = may,
+  day          = {30},
+  note         = {Accessed 2026-05-05.
+                  URL: \url{https://www.hhs.gov/hipaa/for-individuals/right-to-access/index.html}.},
+  url          = {https://www.hhs.gov/hipaa/for-individuals/right-to-access/index.html}
+}
+
+% ======================================================================
+% LAYERED LEGAL STACK BASELINE (from Deep-Research-2/chunk_04_bibtex.md)
+% Acts and laws cited as the prior legislation that the new bills adapt
+% and revise. Where present, accurate Public Law (PL) numbers preserve
+% the legislative-history chain.
+% ======================================================================
+
+@misc{rank1_cures_act_2016,
+  title        = {21st Century Cures Act, {PL} 114-255 (2016)},
+  author       = {{United States Congress}},
+  year         = {2016},
+  note         = {Public Law 114-255, December 13, 2016; accessed 2026-05-05.
+                  URL: \url{https://www.congress.gov/bill/114th-congress/house-bill/34}.},
+  url          = {https://www.congress.gov/bill/114th-congress/house-bill/34}
+}
+
+@misc{rank2_clinical_treatment_act_2020,
+  title        = {{CLINICAL TREATMENT} Act / Consolidated Appropriations Act 2021, {PL} 116-260 (2020)},
+  author       = {{United States Congress}},
+  year         = {2020},
+  note         = {Public Law 116-260, December 27, 2020; Medicaid coverage of clinical trial routine costs from January 1, 2022; accessed 2026-05-05.
+                  URL: \url{https://www.congress.gov/bill/116th-congress/house-bill/133}.},
+  url          = {https://www.congress.gov/bill/116th-congress/house-bill/133}
+}
+
+@misc{rank3_aca_clinical_trials_2010,
+  title        = {Patient Protection and Affordable Care Act, {PL} 111-148 (2010), Section 2709},
+  author       = {{United States Congress}},
+  year         = {2010},
+  note         = {Public Law 111-148, March 23, 2010; accessed 2026-05-05.
+                  URL: \url{https://www.congress.gov/bill/111th-congress/house-bill/3590}.},
+  url          = {https://www.congress.gov/bill/111th-congress/house-bill/3590}
+}
+
+@misc{rank4_fdora_fda_modernization_2022,
+  title        = {Food and Drug Omnibus Reform Act ({FDORA}) and {FDA} Modernization Act 2.0, {PL} 117-328 (2022), Section 3209},
+  author       = {{United States Congress}},
+  year         = {2022},
+  note         = {Public Law 117-328, December 29, 2022; authorizes in silico and computer-model alternatives to animal testing; accessed 2026-05-05.
+                  URL: \url{https://www.congress.gov/bill/117th-congress/house-bill/2617}.},
+  url          = {https://www.congress.gov/bill/117th-congress/house-bill/2617}
+}
+
+@misc{rank5_fdaaa_2007,
+  title        = {Food and Drug Administration Amendments Act ({FDAAA}), {PL} 110-85 (2007), Section 801},
+  author       = {{United States Congress}},
+  year         = {2007},
+  note         = {Public Law 110-85, September 27, 2007; ClinicalTrials.gov registration and results-reporting infrastructure; accessed 2026-05-05.
+                  URL: \url{https://www.congress.gov/bill/110th-congress/house-bill/3580}.},
+  url          = {https://www.congress.gov/bill/110th-congress/house-bill/3580}
+}
+
+@misc{rank6_right_to_try_2018,
+  title        = {Right to Try Act of 2017, {PL} 115-176 (2018)},
+  author       = {{United States Congress}},
+  year         = {2018},
+  note         = {Public Law 115-176, May 30, 2018; accessed 2026-05-05.
+                  URL: \url{https://www.congress.gov/bill/115th-congress/senate-bill/204}.},
+  url          = {https://www.congress.gov/bill/115th-congress/senate-bill/204}
+}
+
+@misc{rank7_fdara_2017,
+  title        = {{FDA} Reauthorization Act of 2017 ({FDARA}), {PL} 115-52},
+  author       = {{United States Congress}},
+  year         = {2017},
+  note         = {Public Law 115-52, August 18, 2017; accessed 2026-05-05.
+                  URL: \url{https://www.congress.gov/bill/115th-congress/house-bill/2430}.},
+  url          = {https://www.congress.gov/bill/115th-congress/house-bill/2430}
+}
+
+@misc{rank8_california_sb37_2001,
+  title        = {California {SB} 37 (2001) - Cancer Clinical Trial Routine Costs Coverage},
+  author       = {{California State Legislature}},
+  year         = {2001},
+  note         = {Accessed 2026-05-05.
+                  URL: \url{https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=200120020SB37}.},
+  url          = {https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=200120020SB37}
+}
+
+@misc{rank9_onc_hti1_2023,
+  title        = {{ONC} {HTI-1} Final Rule (2023): Health Data, Technology, and Interoperability Certification Updates, Algorithm Transparency, and Information Sharing},
+  author       = {{Office of the National Coordinator for Health Information Technology}},
+  year         = {2023},
+  month        = dec,
+  note         = {Federal Register final rule, December 13, 2023; accessed 2026-05-05.
+                  URL: \url{https://www.federalregister.gov/documents/2024/01/09/2023-28857/health-data-technology-and-interoperability-certification-program-updates-algorithm-transparency}.},
+  url          = {https://www.federalregister.gov/documents/2024/01/09/2023-28857/health-data-technology-and-interoperability-certification-program-updates-algorithm-transparency}
+}
+
+% ======================================================================
+% AI AND ROBOTICS EVIDENCE BASE (from Deep-Research-3/part4_bibtex.md
+% entries 16 through 27, with DOIs + URLs already populated)
+% ======================================================================
+
+@article{jin2024trialgpt,
+  title        = {Matching Patients to Clinical Trials with Large Language Models},
+  author       = {Jin, Qiao and Wang, Zifeng and Floudas, Charalampos S. and Chen, Fangyuan and Gong, Changlin and Bracken-Clarke, Dara and Xue, Elisabetta and Yang, Yifan and Sun, Jimeng and Lu, Zhiyong},
+  journal      = {Nature Communications},
+  year         = {2024},
+  volume       = {15},
+  pages        = {9074},
+  doi          = {10.1038/s41467-024-53081-z},
+  url          = {https://doi.org/10.1038/s41467-024-53081-z},
+  note         = {DOI: 10.1038/s41467-024-53081-z. \url{https://doi.org/10.1038/s41467-024-53081-z}.}
+}
+
+@article{gupta2024prism,
+  title        = {{PRISM}: Patient Records Interpretation for Semantic Clinical Trial Matching System Using Large Language Models},
+  author       = {Gupta, Shashi and Basu, Aditya and Nievas, Mauro and Thomas, Jerrin and Wolfrath, Nathan and Ramamurthi, Adhitya and Taylor, Bradley and Kothari, Anai N. and Schwind, Regina and Miller, Therica M. and Nadaf-Rahrov, Sorena and Wang, Yanshan and Singh, Hrituraj},
+  journal      = {npj Digital Medicine},
+  year         = {2024},
+  volume       = {7},
+  pages        = {305},
+  doi          = {10.1038/s41746-024-01274-7},
+  url          = {https://doi.org/10.1038/s41746-024-01274-7},
+  note         = {DOI: 10.1038/s41746-024-01274-7. \url{https://doi.org/10.1038/s41746-024-01274-7}.}
+}
+
+@article{abdallah2026trialmatchai,
+  title        = {{TrialMatchAI}: An End-to-End {AI}-Powered Clinical Trial Recommendation System to Streamline Patient-to-Trial Matching},
+  author       = {Abdallah, M. and others},
+  journal      = {Nature Communications},
+  year         = {2026},
+  doi          = {10.1038/s41467-026-70509-w},
+  url          = {https://doi.org/10.1038/s41467-026-70509-w},
+  note         = {DOI: 10.1038/s41467-026-70509-w. \url{https://doi.org/10.1038/s41467-026-70509-w}.}
+}
+
+@article{mazor2025ai_notifications_trial,
+  title        = {Clinical Trial Notifications Triggered by Artificial Intelligence Detected Cancer Progression: A Randomized Trial},
+  author       = {Mazor, Tali and Farhat, Karim S. and Trukhanov, Pavel and others},
+  journal      = {JAMA Network Open},
+  year         = {2025},
+  volume       = {8},
+  number       = {4},
+  pages        = {e252013},
+  doi          = {10.1001/jamanetworkopen.2025.2013},
+  url          = {https://doi.org/10.1001/jamanetworkopen.2025.2013},
+  note         = {DOI: 10.1001/jamanetworkopen.2025.2013. \url{https://doi.org/10.1001/jamanetworkopen.2025.2013}.}
+}
+
+@article{rocque2025remote_symptom_monitoring,
+  title        = {Remote Symptom Monitoring With Electronic Patient-Reported Outcomes in Clinical Cancer Populations},
+  author       = {Rocque, Gabrielle B. and Franks, Jeffrey A. and Deng, Luqin and others},
+  journal      = {JAMA Network Open},
+  year         = {2025},
+  volume       = {8},
+  number       = {5},
+  pages        = {e259852},
+  doi          = {10.1001/jamanetworkopen.2025.9852},
+  url          = {https://doi.org/10.1001/jamanetworkopen.2025.9852},
+  note         = {DOI: 10.1001/jamanetworkopen.2025.9852. \url{https://doi.org/10.1001/jamanetworkopen.2025.9852}.}
+}
+
+@article{vorontsov2024virchow,
+  title        = {A Foundation Model for Clinical-Grade Computational Pathology and Rare Cancers Detection},
+  author       = {Vorontsov, Eugene and Bozkurt, Alican and Casson, Adam and others},
+  journal      = {Nature Medicine},
+  year         = {2024},
+  volume       = {30},
+  pages        = {2924--2935},
+  doi          = {10.1038/s41591-024-03141-0},
+  url          = {https://doi.org/10.1038/s41591-024-03141-0},
+  note         = {DOI: 10.1038/s41591-024-03141-0. \url{https://doi.org/10.1038/s41591-024-03141-0}.}
+}
+
+@article{gonzalez2025bayesian_urgent_care_nsclc,
+  title        = {Using Bayesian Networks to Predict Urgent Care Visits in Patients Receiving Systemic Therapy for Non-Small Cell Lung Cancer},
+  author       = {Gonzalez, Brian D. and Li, Xiaoyin and Gudenkauf, Lisa M. and Pullukkara, Jerrin J. and others},
+  journal      = {JCO Clinical Cancer Informatics},
+  year         = {2025},
+  volume       = {9},
+  number       = {9},
+  pages        = {e2400315},
+  doi          = {10.1200/CCI-24-00315},
+  url          = {https://doi.org/10.1200/CCI-24-00315},
+  note         = {DOI: 10.1200/CCI-24-00315. \url{https://doi.org/10.1200/CCI-24-00315}.}
+}
+
+@misc{fda_rtct_press_2026,
+  title        = {{FDA} Announces Major Steps to Implement Real-Time Clinical Trials},
+  author       = {{U.S. Food and Drug Administration}},
+  year         = {2026},
+  month        = apr,
+  note         = {Press announcement, April 28, 2026; accessed 2026-05-05.
+                  URL: \url{https://www.fda.gov/news-events/press-announcements/fda-announces-major-steps-implement-real-time-clinical-trials}.},
+  url          = {https://www.fda.gov/news-events/press-announcements/fda-announces-major-steps-implement-real-time-clinical-trials}
+}
+
+@misc{fda_dhts_drug_development_2026,
+  title        = {Digital Health Technologies ({DHTs}) for Drug Development},
+  author       = {{U.S. Food and Drug Administration}},
+  year         = {2026},
+  note         = {Content current as of 2026-04-23; accessed 2026-05-05.
+                  URL: \url{https://www.fda.gov/science-research/science-and-research-special-topics/digital-health-technologies-dhts-drug-development}.},
+  url          = {https://www.fda.gov/science-research/science-and-research-special-topics/digital-health-technologies-dhts-drug-development}
+}
+
+@misc{nih_par25_170_dht_endpoints,
+  title        = {{PAR-25-170}: Digital Health Technology Derived Endpoints in Cancer Clinical Trials},
+  author       = {{National Institutes of Health}},
+  year         = {2024},
+  month        = nov,
+  note         = {Funding opportunity announcement; accessed 2026-05-05.
+                  URL: \url{https://grants.nih.gov/grants/guide/pa-files/PAR-25-170.html}.},
+  url          = {https://grants.nih.gov/grants/guide/pa-files/PAR-25-170.html}
+}
+
+@article{target2025robotic_bronchoscopy,
+  title        = {A Prospective, Multicenter Evaluation of Safety and Diagnostic Outcomes With Robotic-Assisted Bronchoscopy: Results of the Transbronchial Biopsy Assisted by Robot Guidance in the Evaluation of Tumors of the Lung ({TARGET}) Trial},
+  author       = {{TARGET Investigators}},
+  journal      = {CHEST},
+  year         = {2025},
+  volume       = {168},
+  number       = {2},
+  pages        = {539--555},
+  doi          = {10.1016/j.chest.2025.04.022},
+  url          = {https://doi.org/10.1016/j.chest.2025.04.022},
+  note         = {DOI: 10.1016/j.chest.2025.04.022. \url{https://doi.org/10.1016/j.chest.2025.04.022}.}
+}
+
+@article{dronca2026cancer_care_beyond_walls,
+  title        = {Cancer {CARE} (Connected Access and Remote Expertise) Beyond Walls: Safety, Feasibility, and Patient Experience of Home-Based Chemotherapy},
+  author       = {Dronca, Roxana S. and Jones, Jeremy C. and others},
+  journal      = {NEJM Catalyst Innovations in Care Delivery},
+  year         = {2026},
+  volume       = {7},
+  number       = {4},
+  doi          = {10.1056/CAT.25.0168},
+  url          = {https://doi.org/10.1056/CAT.25.0168},
+  note         = {DOI: 10.1056/CAT.25.0168. \url{https://doi.org/10.1056/CAT.25.0168}.}
+}
+
+% ======================================================================
+% PATIENT-CONTROL EVIDENCE FROM DEEP-RESEARCH-1
+% (Software baselines that the new physical AI bills must outperform)
+% ======================================================================
+
+@article{kearney2009asyms,
+  title        = {Evaluation of a Mobile Phone-Based, Advanced Symptom Management System ({ASyMS}) in the Management of Chemotherapy-Related Toxicity},
+  author       = {Kearney, Nora and McCann, Lisa and Norrie, John and others},
+  journal      = {Supportive Care in Cancer},
+  year         = {2009},
+  volume       = {17},
+  number       = {4},
+  pages        = {437--444},
+  doi          = {10.1007/s00520-008-0515-0},
+  url          = {https://doi.org/10.1007/s00520-008-0515-0},
+  note         = {DOI: 10.1007/s00520-008-0515-0. \url{https://doi.org/10.1007/s00520-008-0515-0}.}
+}
+
+@article{absolom2021erapid,
+  title        = {Phase {III} Randomized Controlled Trial of {eRAPID}: {eHealth} Intervention During Chemotherapy},
+  author       = {Absolom, Kate and Warrington, Lorraine and Hudson, Eleanor and others},
+  journal      = {Journal of Clinical Oncology},
+  year         = {2021},
+  volume       = {39},
+  number       = {7},
+  pages        = {734--747},
+  doi          = {10.1200/JCO.20.02015},
+  url          = {https://doi.org/10.1200/JCO.20.02015},
+  note         = {DOI: 10.1200/JCO.20.02015. \url{https://doi.org/10.1200/JCO.20.02015}.}
+}
+
+@article{maguire2017esmart,
+  title        = {The {eSMART} Study Protocol: A Randomised Controlled Trial to Evaluate Electronic Symptom Management Using the Advanced Symptom Management System ({ASyMS}) Remote Technology for Patients with Cancers},
+  author       = {Maguire, Roma and Fox, Patricia A. and McCann, Lisa and others},
+  journal      = {BMJ Open},
+  year         = {2017},
+  volume       = {7},
+  pages        = {e015016},
+  doi          = {10.1136/bmjopen-2016-015016},
+  url          = {https://doi.org/10.1136/bmjopen-2016-015016},
+  note         = {DOI: 10.1136/bmjopen-2016-015016. \url{https://doi.org/10.1136/bmjopen-2016-015016}.}
+}
+
+% ======================================================================
+% AI TOOLING (used in Methods, Acknowledgments, and as the generation
+% engines for this paper template - matches the prior template at
+% new-trial/national-24-7-trial/paper/references.bib)
+% ======================================================================
+
+@misc{claude_code,
+  title        = {Claude Code},
+  author       = {{Anthropic}},
+  year         = {2026},
+  note         = {Accessed 2026-05-07.
+                  URL: \url{https://claude.com/product/claude-code}.},
+  url          = {https://claude.com/product/claude-code}
+}
+
+@misc{claude_opus_47,
+  title        = {Claude Opus 4.7 (1M Token Max Context)},
+  author       = {{Anthropic}},
+  year         = {2026},
+  note         = {Model release; accessed 2026-05-07.
+                  URL: \url{https://www.anthropic.com/claude/opus}.},
+  url          = {https://www.anthropic.com/claude/opus}
+}
+
+@misc{claude_sonnet_46,
+  title        = {Claude Sonnet 4.6 (Adaptive Thinking)},
+  author       = {{Anthropic}},
+  year         = {2026},
+  note         = {Model release; accessed 2026-05-07.
+                  URL: \url{https://www.anthropic.com/claude/sonnet}.},
+  url          = {https://www.anthropic.com/claude/sonnet}
+}
+
+@misc{chatgpt_thinking,
+  title        = {{ChatGPT} (Thinking, Extended Thinking, and Deep Research)},
+  author       = {{OpenAI}},
+  year         = {2026},
+  note         = {Accessed 2026-05-07.
+                  URL: \url{https://chatgpt.com/}.},
+  url          = {https://chatgpt.com/}
+}
+
+@misc{google_gemini_overview,
+  title        = {Google Gemini {AI} Overview},
+  author       = {{Google}},
+  year         = {2026},
+  note         = {Search-integrated overview; accessed 2026-05-07.
+                  URL: \url{https://gemini.google.com/}.},
+  url          = {https://gemini.google.com/}
+}

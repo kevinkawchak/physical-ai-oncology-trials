@@ -1,0 +1,228 @@
+% ======================================================================
+% SECTION 4: HR 9504 - Physical AI Clinical Error Reduction Act of 2026
+% Adaption of HTI-1 DSI Final Rule 2023 and FDA AI Decision-Making
+% Draft Guidance 2025.
+%
+% This file consolidates instructions previously housed in the prior
+% template's Patient Priority Framework dimension 2.6 (AI-exclusion
+% contestability), Implementation/Metrics (Domain 3 control-in-action
+% and Domain 4 fairness/technical quality), Discussion (11.1.e ONC
+% HTI-1 extension, 11.2.b ePRO evidence, 11.2.d Mazor null result,
+% 11.3.c FDA AI Draft 2025), Limitations (12.1.d HR 4504 limitation),
+% and Conclusions (13.1 fourth list item) into the body of HR 9504.
+% ======================================================================
+
+[CONSOLIDATED PATIENT PRIORITY FRAMEWORK DIMENSION 2.6 (formerly
+Patient Priority Framework subsection 2.6). AI-exclusion
+contestability: HTI-1 DSI transparency, FDA AI draft guidance 2025,
+mandatory appeal rights for any patient excluded from a trial or
+treatment by an AI gatekeeping decision. Cite
+\cite{rank9_onc_hti1_2023}, \cite{hti1_dsi_fact_sheet_2023}, and
+\cite{fda_ai_regulatory_decision_draft_2025}.]
+
+[CONSOLIDATED INTRODUCTION TIE-IN (formerly Introduction block 2 item
+2.f). ONC HTI-1 Final Rule (2023) and HTI-1 DSI Fact Sheet impose
+algorithm-transparency requirements for predictive decision support
+interventions in certified health IT. HR 9504 extends transparency
+into mandatory error-rate tracking and patient-initiated AI
+second-opinion rights. Cite \cite{rank9_onc_hti1_2023} and
+\cite{hti1_dsi_fact_sheet_2023}.]
+
+[PROCESSING INSTRUCTION (HR 9504 - Physical AI Clinical Error
+Reduction Act of 2026, populate to 10 to 13 paragraphs structured
+into the five legislative-act subsections, plus one ASCII comparison
+diagram):
+
+The bill must explicitly state in its first paragraph that it is an
+"Adaption of HTI-1 DSI Final Rule of 2023 and FDA AI Regulatory
+Decision-Making Draft Guidance 2025" so that readers can trace the
+chain of prior authority. Cite \cite{rank9_onc_hti1_2023},
+\cite{hti1_dsi_fact_sheet_2023}, and
+\cite{fda_ai_regulatory_decision_draft_2025}.
+
+Subsection 4.1 - Findings and Declarations: This is the core bill
+for the project brief's third aim ("reduce human doctor and nurse
+error rates and lack of physical and intellectual capabilities").
+Read the following in full:
+- new-trial/national-24-7-trial/paper/full-paper/sections/results.tex
+  (the four LLM simulations demonstrating that AI patient prediction
+  outperforms current narrow supervised models)
+- new-trial/national-24-7-trial/Background-A/chunk_01_baseline_and_short_horizon.md
+  and chunk_02_multimodal_and_limitations.md (Manz 2020 AUC 0.89,
+  Sidey-Gibbons 2022, the Huang 2025 null result of ML versus Cox)
+- new-trial/national-24-7-trial/Background-B/chunk_01_baseline_and_prediction_domains.md
+  and chunk_02_response_metrics_conclusions.md (SCORPIO, PROGPATH,
+  multimodal foundation models)
+- patients/paper/Deep-Research-3/part2_ai_robotics_legislation.md
+  (the SHIELD-RT prospective RCT: 45 percent reduction in acute-care
+  events, 48 percent reduction in costs)
+
+Compose 6 to 8 enumerated findings citing
+\cite{kawchak_2026_19994945} for the four-simulation paper,
+\cite{vorontsov2024virchow}, \cite{rocque2025remote_symptom_monitoring},
+\cite{gonzalez2025bayesian_urgent_care_nsclc},
+\cite{mazor2025ai_notifications_trial}, and the FDA RTCT announcement
+at \cite{fda_rtct_press_2026}. The findings must:
+- Acknowledge respectfully that human doctors and nurses make errors
+  at documented rates (cite the prior published rates rather than
+  inflating them).
+- Acknowledge that AI and robotics can reduce specific error
+  categories where prospectively validated (SHIELD-RT, ASyMS,
+  eRAPID).
+- Acknowledge that humans retain irreplaceable roles in empathy,
+  consent counseling, and ethical oversight, and that the bill does
+  NOT eliminate human doctors or nurses; it shifts the patient's
+  default for procedurally definable tasks to physical-AI execution
+  where the patient prefers and the evidence supports.
+
+Subsection 4.2 - Definitions:
+- "Documented human error rate" means the per-task error rate
+  published in peer-reviewed literature for the specific task
+  category (surgical site infection, medication reconciliation,
+  needle placement deviation, RT positioning, sepsis recognition,
+  etc.).
+- "Physical AI substitute" means a Physical AI system, robot, or
+  agent that can perform the same task category with a documented
+  error rate at or below the human baseline. Reference the 53 core
+  agents at sponsor/final_paper/scripts/core_agents/ (in particular
+  safety_agent.py, clinical_accountability_agent.py, and
+  audit_trail_manager.py) for the operational baseline.
+- "Patient-initiated AI second opinion" means the patient's right to
+  request, before any consequential clinical decision, a parallel
+  evaluation by a qualified AI system meeting HTI-1 DSI transparency
+  requirements.
+
+Subsection 4.3 - Error Rate Reduction Rights (operative core):
+- Right to a published per-site, per-task human error rate prior to
+  consenting to any procedure.
+- Right to substitute a Physical AI executor for any task where the
+  documented Physical AI error rate is below the human baseline AND
+  the patient prefers AI execution.
+- Right to a patient-initiated AI second opinion, generated by a
+  qualified system, prior to any consequential clinical decision
+  (surgery, chemotherapy regimen change, end-of-life care decision).
+- Right to mandatory error tracking across all sites, with public
+  per-site reporting; reference the dashboard at
+  sponsor/final_paper/scripts/dashboard/ and the 168-hour cumulative
+  metrics at sponsor/final_paper/168_hours/instructions/core_i5_6200u_4gb/sponsor_168h_summary.json
+  for the operational reporting pattern.
+- Right to refuse a human-only execution path for any task where a
+  qualified Physical AI substitute exists, mirroring the FDA RTCT
+  pilot's "real-time signal sharing" model. Cite
+  \cite{fda_rtct_press_2026}.
+- Right to AI-exclusion contestability: any patient excluded from a
+  trial, treatment, or procedural pathway by an automated decision
+  may appeal under the HTI-1 DSI transparency framework. Cite
+  \cite{rank9_onc_hti1_2023} and \cite{hti1_dsi_fact_sheet_2023}.
+
+After Subsection 4.3, embed a comprehensive ASCII comparison diagram
+in a verbatim block. Three columns (Task Category, Human Baseline
+Error Rate, Physical AI Error Rate) and rows for: surgical site
+infection, medication reconciliation, needle placement deviation,
+RT positioning, sepsis recognition, AE detection from ePRO. Source
+the human baselines from the prior literature cited in
+patients/paper/Deep-Research-1/chunk_1_foundations.md and the AI
+baselines from
+new-trial/national-24-7-trial/Background-A/ and
+sponsor/final_paper/scripts/output/sponsor_24h_summary.json.
+
+Subsection 4.4 - Implementation: 18-month deadline for ALL
+CMS-billable sites to publish per-task human and AI error rates;
+HTI-1 DSI transparency requirements apply to every AI second-opinion
+system; FDA, AHRQ, ONC, and CMS roles. Reference the patient
+priority operational baseline at
+new-trial/national-24-7-trial/paper/full-paper/sections/discussion.tex.
+
+Subsection 4.5 - Reporting and Enforcement: Annual federal
+error-rate report by site, by task, by AI substitute (if any); CMS
+reimbursement penalty for sites that fail to publish error rates;
+information-blocking penalty harmonized with
+\cite{federal_register_info_blocking_disincentives_2024}.]
+
+[CONSOLIDATED IMPLEMENTATION-METRICS DOMAINS 3 AND 4 (formerly
+Implementation Metrics subsection 10.2 Domains 3 and 4). The federal
+Patient Control Dashboard must publish, for HR 9504, the following
+metrics:
+
+Domain 3 - Control-in-action: hospitalization rate, urgent-care or
+ED use, alert response time, false-alert burden, serious adverse
+events in home or robotics settings. Cite
+\cite{rocque2025remote_symptom_monitoring},
+\cite{gonzalez2025bayesian_urgent_care_nsclc},
+\cite{dronca2026cancer_care_beyond_walls}, and
+\cite{target2025robotic_bronchoscopy}.
+
+Domain 4 - Fairness and technical quality: declared context of use,
+external validation, subgroup performance, calibration monitoring,
+update-control disclosure, revalidation after model changes. Cite
+\cite{fda_ai_regulatory_decision_draft_2025} and
+\cite{vorontsov2024virchow}.]
+
+[CONSOLIDATED IMPLEMENTATION GUARDRAILS (formerly Implementation
+Metrics subsection 10.3 guardrails (i), (ii), (iii) attached to HR
+9504 because they all reference error reduction or AI substitution).
+
+(i) No patient denied trial consideration by automated output alone.
+
+(ii) Capability-neutral statutory rights that follow any AI
+     architecture (LLM, foundation model, agentic system, robotics
+     platform), drawing on
+     \cite{fda_ai_regulatory_decision_draft_2025}.
+
+(iii) Mandatory annual public reporting, auditability, and sunset
+      review by Congress under FDORA Section 3209 authorities. Cite
+      \cite{rank4_fdora_fda_modernization_2022}.]
+
+[CONSOLIDATED DISCUSSION COMPARISON (formerly Discussion items
+11.1.e ONC HTI-1 extension, 11.2.b ePRO evidence, 11.2.d Mazor null
+result, 11.3.c FDA AI Draft 2025). HR 9504 extends ONC HTI-1 DSI
+transparency into mandatory error-rate publication and
+patient-initiated AI second-opinion rights. The ePRO and remote
+symptom monitoring evidence (Rocque 2025, ASyMS, eRAPID) supports
+HR 9504 without overclaiming. The Mazor 2025 null result on AI
+notifications alone is critical and informs the bill's "no
+automated-only denial" guardrail. Cite \cite{rank9_onc_hti1_2023},
+\cite{rocque2025remote_symptom_monitoring}, \cite{kearney2009asyms},
+\cite{maguire2017esmart}, \cite{absolom2021erapid}, and
+\cite{mazor2025ai_notifications_trial}.]
+
+[CONSOLIDATED LIMITATIONS PARAGRAPH (formerly Limitations item
+12.1.d). HR 9504 is the most contentious of the seven because it
+touches workforce questions beyond the project brief. The Huang
+2025 null result indicates that ML does not always exceed Cox
+regression on real-world structured survival data; the SHIELD-RT
+prospective RCT is convincing for one domain (radiotherapy AE
+prediction) but does not generalize without prospective validation
+in each domain. Cite the four-simulation paper
+\cite{kawchak_2026_19994945} and acknowledge the TRIPOD+AI / CREMLS
+reporting gap. The bill respects human doctor and nurse roles in
+empathy, consent counseling, and ethical oversight.]
+
+[CONSOLIDATED CONCLUSIONS RESTATEMENT (formerly Conclusions item
+13.1 fourth list item). HR 9504 constrains the AI-substitution
+path to procedurally definable tasks with prospectively validated
+error reductions, while explicitly preserving human roles in
+empathy, consent counseling, and ethical oversight. Cite
+\cite{kawchak_2026_19994945} and \cite{kawchak_2026_19119939}.]
+
+Close the bill (1 paragraph after Subsection 4.5) with two patient-
+control framings:
+
+(i) FOR INDIVIDUAL PATIENTS: A 58-year-old female NSCLC patient
+    matching PAT-2026-0042 reviews the published per-site error
+    rates at her chosen site, requests an AI second opinion before
+    her cycle-1 pembrolizumab dosing decision, and refuses a
+    human-only RT positioning step in favor of the RTPOS-01 robot
+    documented at hour-12 of
+    new-trial/national-24-7-trial/hour-12/robot_logs.md.
+
+(ii) FOR BROAD ADOPTION: All U.S. CMS-billable oncology trial sites
+     must publish per-task error rates within 18 months. The bill
+     positions the United States as Number 1 in the world for
+     evidence-based patient-led error reduction. The bill explicitly
+     respects the human doctor and nurse roles that remain
+     irreplaceable (empathy, consent counseling, ethical oversight)
+     and constrains the AI-substitution path to procedurally
+     definable tasks with prospectively validated error reductions.
+     Cite \cite{kawchak_2026_19994945} and
+     \cite{kawchak_2026_19119939}.
