@@ -2,15 +2,16 @@
 % Patient Priority and Proposed U.S. Bills for Physical AI Oncology
 % Clinical Trials - FULL PAPER (CONSOLIDATED 7-BILL STRUCTURE)
 %
-% This main.tex is the consolidated version of patients/paper/main.tex.
-% All bracketed processing instructions and repository file/directory
-% references that previously lived in Abstract, Introduction, Patient
-% Priority Framework, Implementation/Metrics, Discussion, Limitations,
-% and Conclusions have been MOVED into the seven bill section files
+% This main.tex is the consolidated full-paper version derived from
+% patients/paper/main.tex. All bracketed processing instructions and
+% repository file/directory references that previously lived in the
+% template's Abstract, Introduction, Patient Priority Framework,
+% Implementation/Metrics, Discussion, Limitations, and Conclusions
+% sections have been MOVED into the seven bill section files
 % (sections/hr_9501_*.tex through sections/hr_9507_*.tex). The result
-% is a tight 7-Bill paper layout (Title page + TOC, 7 Bills, References,
-% Acknowledgments, Ethical disclosures, Rights and permissions, Cite
-% this article).
+% is a tight 7-Bill paper layout (Title page + TOC, 7 Bills,
+% References, Acknowledgments, Ethical disclosures, Rights and
+% permissions, Cite this article).
 %
 % Author: Kevin Kawchak, CEO ChemicalQDevice
 % Released: May 7, 2026
@@ -42,13 +43,22 @@
 \usepackage[backend=biber,style=numeric,sorting=none]{biblatex}
 \addbibresource{patient_priority.bib}
 
-% Fix fancyhdr headheight warning
+% ----------------------------------------------------------------------
+% Header height adjustment (silences the fancyhdr headheight warning).
+% ----------------------------------------------------------------------
 \setlength{\headheight}{16pt}
 
-% Make running header title fit on one line with smaller font
+% ----------------------------------------------------------------------
+% Compact running header so the long title fits on one line.
+% ----------------------------------------------------------------------
 \renewcommand{\shorttitle}{\scriptsize\scshape Patient Priority and Proposed U.S. Bills for Physical AI Oncology Clinical Trials}
 
-% Justified text with proper word spacing (avoids large white spaces between words)
+% ----------------------------------------------------------------------
+% Paragraph spacing controls. Tuned to avoid large white spaces between
+% words (river spacing) while preserving justified text. The \sloppy
+% directive together with \emergencystretch prevents text from running
+% off the right margin without producing visible rivers.
+% ----------------------------------------------------------------------
 \usepackage{ragged2e}
 \tolerance=1200
 \emergencystretch=3em
@@ -57,7 +67,12 @@
 \exhyphenpenalty=50
 \sloppy
 
-% Force all text to black (paper requirement: only black text)
+% ----------------------------------------------------------------------
+% Force all text to black (paper requirement: only black text matches
+% the prior template at new-trial/site/all-documents/all_documents.tex).
+% Hyperlinks remain black so a printed page is indistinguishable from a
+% screen view.
+% ----------------------------------------------------------------------
 \color{black}
 \hypersetup{
   urlcolor=black,
@@ -66,60 +81,75 @@
   filecolor=black
 }
 
-% Allow URL line breaks at more characters so URLs do not run off the right side
+% ----------------------------------------------------------------------
+% Allow URL line breaks at many characters so long DOI URLs do not run
+% off the right margin in the bibliography.
+% ----------------------------------------------------------------------
 \def\UrlBreaks{\do\/\do-\do.\do=\do_\do?\do\&\do\%\do\a\do\b\do\c\do\d\do\e%
 \do\f\do\g\do\h\do\i\do\j\do\k\do\l\do\m\do\n\do\o\do\p\do\q\do\r\do\s\do\t%
 \do\u\do\v\do\w\do\x\do\y\do\z\do\A\do\B\do\C\do\D\do\E\do\F\do\G\do\H\do\I%
 \do\J\do\K\do\L\do\M\do\N\do\O\do\P\do\Q\do\R\do\S\do\T\do\U\do\V\do\W\do\X%
 \do\Y\do\Z}
 
-% [GLOBAL FORMATTING INSTRUCTION (ALL SECTIONS): When Claude Code Opus 4.7 Max
-% (1M token context) populates this template, the following formatting rules
-% apply to every paragraph, table, diagram, and ASCII figure in this paper.
-% These rules represent the final formatting steps a senior author would take
-% before submission. They are not optional.
+% ----------------------------------------------------------------------
+% [GLOBAL FORMATTING INSTRUCTION (ALL SECTIONS): When Claude Code Opus
+% 4.7 Max (1M token context) populates this template, the following
+% formatting rules apply to every paragraph, table, diagram, and ASCII
+% figure in this paper. These rules represent the final formatting
+% steps a senior author would take before submission. They are not
+% optional.
 %
-% 1. NO text shall run off the right margin anywhere. If a long URL or token
-%    forces overflow, insert \UrlBreaks-friendly characters or a manual line
-%    break. Verify by visually scanning every page after each compile.
-% 2. NO large white spaces shall appear between words. Modify \raggedright
-%    spacing, \tolerance, and \emergencystretch as needed so positioning
-%    between words looks equally and properly spaced. If a paragraph still
-%    has visible river spacing, rephrase the offending sentence.
-% 3. NO single-word or two-word lines (orphans) shall remain at the end of
-%    paragraphs. Rephrase the prior sentence to either pull the orphan onto
-%    the previous line or push at least three words onto the orphan line.
-% 4. NO single line shall sit alone at the top of a page (widow) separated
-%    from its parent paragraph. Use \widowpenalty=10000 (already set in the
-%    .sty) and reflow text by editing wording.
-% 5. NO page shall have excessive empty white space without text. If a
-%    section ends two-thirds of the way down a page and the next \section{}
-%    starts on a new page, add at least one self-standing summary paragraph
-%    or a relevant ASCII diagram to fill the page. Some white space is
-%    acceptable (do not overcrowd) but every page must look properly
-%    formatted and self standing by itself.
-% 6. ONLY black text is permitted throughout the entire paper, matching the
-%    prior template at new-trial/site/all-documents/all_documents.tex. Do
-%    NOT introduce \color{} commands of any other color. Hyperlinks remain
+% 1. NO text shall run off the right margin anywhere. If a long URL or
+%    token forces overflow, insert \UrlBreaks-friendly characters or
+%    a manual line break. Verify by visually scanning every page after
+%    each compile.
+% 2. NO large white spaces shall appear between words. Modify
+%    \raggedright spacing, \tolerance, and \emergencystretch as needed
+%    so positioning between words looks equally and properly spaced.
+%    If a paragraph still has visible river spacing, rephrase the
+%    offending sentence.
+% 3. NO single-word or two-word lines (orphans) shall remain at the
+%    end of paragraphs. Rephrase the prior sentence to either pull the
+%    orphan onto the previous line or push at least three words onto
+%    the orphan line.
+% 4. NO single line shall sit alone at the top of a page (widow)
+%    separated from its parent paragraph. Use \widowpenalty=10000
+%    (already set in the .sty) and reflow text by editing wording.
+% 5. NO page shall have excessive empty white space without text. If
+%    a section ends two-thirds of the way down a page and the next
+%    \section{} starts on a new page, add at least one self-standing
+%    summary paragraph or a relevant ASCII diagram to fill the page.
+%    Some white space is acceptable (do not overcrowd) but every page
+%    must look properly formatted and self standing by itself.
+% 6. ONLY black text is permitted throughout the entire paper. Do NOT
+%    introduce \color{} commands of any other color. Hyperlinks remain
 %    black per the \hypersetup above.
-% 7. Use SINGLE dashes (-) only. Do NOT use em dashes, double dashes, or
-%    triple dashes anywhere in the paper. Replace any em or en dashes
-%    introduced by AI generation with a single hyphen surrounded by spaces.
+% 7. Use SINGLE dashes (-) only. Do NOT use em dashes, double dashes,
+%    or triple dashes anywhere in the paper. Replace any em or en
+%    dashes introduced by AI generation with a single hyphen
+%    surrounded by spaces.
 % 8. Use the section symbol \S (rendered as the proper Unicode glyph)
-%    wherever the text "SS" appears as a section reference. Replace every
-%    "SS" that means "section sign" with \S.
+%    wherever the text "SS" appears as a section reference. Replace
+%    every "SS" that means "section sign" with \S.
 % 9. Final compile order in Overleaf is biber-driven:
 %    pdflatex main.tex && biber main && pdflatex main.tex && pdflatex main.tex
-%    Run pdflatex twice after biber so cross-references and the table of
-%    contents resolve.
-% 10. Each page must look properly formatted and self standing by itself.
-%     If a page contains only a partial paragraph, either pull text from
-%     the prior page or push the paragraph to start the next page cleanly.
-% 11. Senior-author final pass: correct white-space formatting, remove or
-%     add relevant text to make each section and page self-standing, avoid
-%     overcrowding, allow some white space.]
+%    Run pdflatex twice after biber so cross-references and the table
+%    of contents resolve.
+% 10. Each page must look properly formatted and self standing by
+%     itself. If a page contains only a partial paragraph, either pull
+%     text from the prior page or push the paragraph to start the
+%     next page cleanly.
+% 11. Senior-author final pass: correct white-space formatting, remove
+%     or add relevant text to make each section and page self-standing,
+%     avoid overcrowding, allow some white space.]
+% ----------------------------------------------------------------------
 
-% Code listing style for Python excerpts when needed
+% ----------------------------------------------------------------------
+% Code listing style for Python excerpts when needed. Black-only
+% foreground colors; scriptsize so a listing fits inside the 6.5 inch
+% text width without overflow. Line numbers on the left for cross-
+% reference.
+% ----------------------------------------------------------------------
 \lstdefinestyle{pythonstyle}{
   language=Python,
   basicstyle=\ttfamily\scriptsize,
@@ -142,7 +172,11 @@
 }
 \lstset{style=pythonstyle}
 
-% Compact table column types (use \raggedright to avoid large gaps)
+% ----------------------------------------------------------------------
+% Compact table column types (use \raggedright to avoid large interword
+% gaps inside cells). The L, C, R types take a width argument so each
+% table column can be tuned to keep all text inside the page margin.
+% ----------------------------------------------------------------------
 \newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
 \newcolumntype{C}[1]{>{\centering\arraybackslash}p{#1}}
 \newcolumntype{R}[1]{>{\raggedleft\arraybackslash}p{#1}}
@@ -216,7 +250,8 @@ Physical AI Oncology Clinical Trials}
 \footnotesize
 \textit{Unofficial independent draft derived from prior legislation; no
 third-party endorsement, sponsorship, affiliation, or authorization is
-expressed or implied; and was adapted using Claude Code Opus 4.7 1M Max.}
+expressed or implied; and was adapted using Claude Code Opus 4.7 1M
+Max.}
 \end{center}
 
 \vspace{0.15em}
@@ -225,10 +260,10 @@ expressed or implied; and was adapted using Claude Code Opus 4.7 1M Max.}
 \footnotesize
 \textit{This work was adapted from original CFR documents in the public
 domain. The original ICH document is copyrighted and may be used,
-reproduced, incorporated into other works, adapted, modified, translated
-or distributed under a public license. This current work is not endorsed
-or sponsored by CFR, ICH, or FDA; and was adapted using Claude Code
-Opus 4.7.}
+reproduced, incorporated into other works, adapted, modified,
+translated or distributed under a public license. This current work
+is not endorsed or sponsored by CFR, ICH, or FDA; and was adapted
+using Claude Code Opus 4.7.}
 \end{center}
 
 \vspace{0.15em}
@@ -262,8 +297,8 @@ remains the substantive contribution.}
 % Metrics, Discussion, Limitations, and Conclusions sections from the
 % prior template have been REMOVED from the body and their bracketed
 % processing instructions and file/directory references have been
-% MOVED into the seven bill section files below. This consolidates the
-% paper around the 7 Bills as the central deliverable.
+% MOVED into the seven bill section files below. This consolidates
+% the paper around the 7 Bills as the central deliverable.
 % ======================================================================
 
 % ----------------------------------------------------------------------
@@ -276,7 +311,7 @@ remains the substantive contribution.}
 \newpage
 
 % ----------------------------------------------------------------------
-% SECTION 2: HR 9502 - Cancer Patient Robot-and-Humanoid Choice Act of 2026
+% SECTION 2: HR 9502 - Cancer Patient Robot-and-Humanoid Choice Act
 % ----------------------------------------------------------------------
 \section{HR 9502 (2026) - Cancer Patient Robot-and-Humanoid Choice Act of 2026 (Revision of California AB 2847 (2026) and FDA AI Regulatory Decision-Making Draft Guidance 2025)}
 \label{sec:hr9502}
@@ -327,8 +362,9 @@ remains the substantive contribution.}
 % REFERENCES
 % Per project brief: every entry must include a DOI string AND a
 % clickable URL. Repository entries must include both a GitHub URL and
-% a Zenodo URL inside the note field, each wrapped in \url{...} so that
-% both render as separate clickable hyperlinks in the bibliography.
+% a Zenodo URL inside the note field, each wrapped in \url{...} so
+% that both render as separate clickable hyperlinks in the
+% bibliography.
 % ======================================================================
 \begingroup
 \raggedright
