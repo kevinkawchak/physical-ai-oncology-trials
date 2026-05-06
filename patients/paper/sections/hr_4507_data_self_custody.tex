@@ -1,0 +1,102 @@
+% ======================================================================
+% SECTION 9: HR 4507 - Patient Health Data Self-Custody and Trial-Selection Act of 2026
+% Revision of HHS HIPAA Right-to-Access 2025 and ONC Cures Act Final Rule.
+% ======================================================================
+
+[PROCESSING INSTRUCTION (HR 4507 - Patient Health Data Self-Custody
+and Trial-Selection Act of 2026, 6 to 9 paragraphs structured into
+the five legislative-act subsections):
+
+The bill must explicitly state in its first paragraph that it is a
+"Revision of HHS HIPAA Right-to-Access (2025) and the ONC Cures Act
+Final Rule" so that readers can trace the chain of prior authority.
+Cite \cite{hhs_right_to_access_2025},
+\cite{onc_cures_act_final_rule_page}, and
+\cite{federal_register_info_blocking_disincentives_2024}.
+
+Subsection 9.1 - Findings and Declarations: Read in full
+- patients/paper/Deep-Research-3/part1_legal_baseline.md (the
+  Cures Act / HIPAA data-access rights baseline)
+- patients/paper/Deep-Research-3/part3_metrics_guardrails.md (the
+  four-domain dashboard, in particular Domain 1 access and Domain 4
+  fairness and technical quality)
+- new-trial/site/03-legislation-data-transparency/physical_ai_data_transparency.tex
+  and national-platform/new_trial_psl/03_sb892_data_protection.tex
+  (the prior CA SB 892 Clinical Data Protection and Transparency Act
+  baseline that this national bill revises into federal coverage)
+
+Compose 4 to 6 enumerated findings citing
+\cite{astp_onc_patient_portals_apps_2024},
+\cite{astp_onc_hospital_apis_2024}, \cite{vorontsov2024virchow} (for
+the pathology data that needs same-day release for trial-eligibility
+gating), and the prior CA SB 892 framework being revised into federal
+coverage.
+
+Subsection 9.2 - Definitions:
+- "Patient health data self-custody" means the patient's right to
+  hold their own complete oncology medical record, in machine-
+  readable FHIR format, on a patient-controlled device or cloud
+  endpoint, with full HIPAA portability across providers, payers,
+  and trial sponsors.
+- "Trial-eligibility data" means the subset of the patient's medical
+  record that determines eligibility for currently recruiting
+  oncology trials, including pathology slides and reports, genomic
+  sequencing reports, prior treatment history, ECOG/PD-L1/TMB
+  scores, and current medications. Reference Virchow pathology
+  benchmark data at \cite{vorontsov2024virchow} and the
+  patient-journey stage_03_digital_twin.py module for the technical
+  baseline.
+- "Same-day release" means pathology and genomic results released to
+  the patient's self-custody endpoint within the same calendar day
+  the result is finalized, drawing on Domain 1 of the four-domain
+  dashboard at patients/paper/Deep-Research-3/part3_metrics_guardrails.md.
+
+Subsection 9.3 - Patient Health Data Self-Custody Rights (operative
+core):
+- Right to receive the complete medical record in machine-readable
+  FHIR format on demand, at zero cost to the patient.
+- Right to require same-day release of pathology and genomic
+  results to the patient's self-custody endpoint, drawing on the
+  ASTP/ONC hospital APIs framework at
+  \cite{astp_onc_hospital_apis_2024}.
+- Right to grant time-limited, scope-limited access to specific
+  trial sponsors or AI matching systems (TrialGPT, PRISM,
+  TrialMatchAI), with revocation taking effect within 1 hour. Cite
+  \cite{jin2024trialgpt}, \cite{gupta2024prism}, and
+  \cite{abdallah2026trialmatchai}.
+- Right to a portable trial-history record that follows the patient
+  across providers, payers, and states; reference the ICH E6(R3)
+  adaption at national-platform/ich_e6r3_adapt/03_data_governance.tex
+  for the data-governance baseline. Cite \cite{kawchak_2026_18973368}.
+- Right to information-blocking penalties under
+  \cite{federal_register_info_blocking_disincentives_2024} where any
+  provider or payer denies the patient's self-custody request.
+
+Subsection 9.4 - Implementation: 12-month deadline for ALL CMS-
+billable EHR vendors to publish a self-custody export endpoint;
+24-month deadline for state-level harmonization; FDA, ONC, OCR, and
+CMS roles; preemption rule preserves stronger state protections
+(e.g., California's prior data-protection statute baseline).
+
+Subsection 9.5 - Reporting and Enforcement: Annual federal report
+on per-state, per-payer self-custody uptake; civil penalties under
+HIPAA enforcement and information-blocking disincentives; CMS
+reimbursement penalty for sites that fail to expose the self-custody
+endpoint.
+
+Close the bill (1 paragraph after Subsection 9.5) with two patient-
+control framings:
+(i) FOR INDIVIDUAL PATIENTS: A 58-year-old female NSCLC patient
+    matching PAT-2026-0042 receives her PD-L1 65 percent and TMB 14
+    mut/Mb scores released to her self-custody endpoint on the same
+    calendar day, grants 30-day time-limited access to TrialGPT and
+    TrialMatchAI for trial discovery (HR 4501), and revokes that
+    access within 1 hour after self-booking her preferred trial.
+(ii) FOR BROAD ADOPTION: All CMS-billable EHRs must expose a self-
+     custody export endpoint within 12 months; all U.S. cancer
+     patients gain portable trial-eligibility data within 24 months.
+     The bill positions the United States as Number 1 in the world
+     for patient health data self-custody, replacing the prior
+     access-only HIPAA framework with a positive self-custody right.
+     Cite \cite{kawchak_2026_19119939} and
+     \cite{kawchak_2026_19994945}.]
