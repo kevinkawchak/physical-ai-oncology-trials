@@ -1,0 +1,110 @@
+% patient_priority.sty - Style file for "Patient Priority and Proposed
+% U.S. Bills for Physical AI Oncology Clinical Trials"
+%
+% Adapted from physical_ai_legislation.sty (the prior template at
+% new-trial/site/all-documents/physical_ai_legislation.sty) and
+% new_paper.sty (the prior template at
+% new-trial/national-24-7-trial/paper/new_paper.sty), unified into a
+% single style file with the senior-author white-space rules captured
+% in the global formatting brief at the top of main.tex.
+%
+% Author: Kevin Kawchak, CEO ChemicalQDevice
+% Location: patients/paper/patient_priority.sty
+%
+% Color formatting: black-only text throughout, matching the prior
+% template at new-trial/site/all-documents/all_documents.tex; hyperlinks
+% remain black per the \hypersetup block in main.tex.
+
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{patient_priority}[2026/05/07 Patient Priority Style]
+
+% Page layout (1-inch margins, letterpaper)
+\RequirePackage[margin=1in,letterpaper]{geometry}
+\RequirePackage{setspace}
+\onehalfspacing
+
+% Typography
+\RequirePackage[T1]{fontenc}
+\RequirePackage{lmodern}
+\RequirePackage{microtype}
+
+% Section formatting (consistent with the prior all_documents.sty look)
+\RequirePackage{titlesec}
+\titleformat{\section}{\large\bfseries\raggedright}{\thesection.}{0.5em}{}
+\titleformat{\subsection}{\normalsize\bfseries\raggedright}{\thesubsection.}{0.5em}{}
+\titleformat{\subsubsection}{\normalsize\bfseries\raggedright}{\thesubsubsection.}{0.5em}{}
+
+% Lists - tight item spacing for legislative-style enumeration (a)/(1)/(i)
+\RequirePackage{enumitem}
+\setlist[enumerate]{itemsep=2pt,parsep=2pt}
+\setlist[itemize]{itemsep=2pt,parsep=2pt}
+
+% Headers and footers (running header per page)
+\RequirePackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small Patient Priority and Proposed U.S. Bills}
+\fancyhead[R]{\small May 2026}
+\fancyfoot[C]{\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% Tables
+\RequirePackage{booktabs}
+\RequirePackage{longtable}
+
+% Colors (black only - matches prior template color formatting)
+\RequirePackage{xcolor}
+
+% Paragraph formatting - justified with proper hyphenation; modify
+% \raggedright spacing to make positioning between words look equally
+% and properly spaced (per the global formatting brief in main.tex)
+\RequirePackage{ragged2e}
+\tolerance=1000
+\emergencystretch=2em
+\hyphenpenalty=50
+
+% Suppress widows and orphans (no single line at top of page, no single
+% line at bottom). The 10000 value forces the typesetter to reflow text
+% rather than leave a 1- or 2-word stranded line.
+\widowpenalty=10000
+\clubpenalty=10000
+\displaywidowpenalty=10000
+\brokenpenalty=10000
+
+% Section symbol shortcut (use \sect{} or \S in source; replace any
+% literal "SS" tokens that mean "section sign")
+\newcommand{\sect}{\S}
+
+% Table of Contents tightening
+\RequirePackage{tocloft}
+\setlength{\cftsecnumwidth}{2.5em}
+\setlength{\cftsubsecnumwidth}{3.2em}
+
+% URL line-break helpers (used in main.tex via \UrlBreaks)
+\RequirePackage{url}
+
+% Path/literal helper for repository file names
+\RequirePackage{xspace}
+
+% Definition environment for proposed bill terms (matches the legislative
+% style used in the prior all_documents.tex template)
+\newcommand{\billterm}[1]{\textit{``#1''}}
+
+% Patient-priority callout box (bordered) for highlighting per-bill
+% patient-control benefits. Use sparingly so each page remains
+% self-standing and not overcrowded.
+\RequirePackage{tcolorbox}
+\tcbset{
+  patientboxstyle/.style={
+    colback=white,
+    colframe=black,
+    boxrule=0.4pt,
+    arc=1mm,
+    left=4pt,right=4pt,top=4pt,bottom=4pt,
+    fontupper=\small
+  }
+}
+\newtcolorbox{patientcallout}[1][]{patientboxstyle, title=#1}
+
+\endinput
