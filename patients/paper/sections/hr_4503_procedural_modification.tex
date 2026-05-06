@@ -1,0 +1,107 @@
+% ======================================================================
+% SECTION 5: HR 4503 - Patient Procedural Modification Authority Act of 2026
+% Adaption of OHRP Broad Consent 2017 and 21st Century Cures Act 2016.
+% ======================================================================
+
+[PROCESSING INSTRUCTION (HR 4503 - Patient Procedural Modification
+Authority Act of 2026, 6 to 9 paragraphs structured into the five
+legislative-act subsections):
+
+The bill must explicitly state in its first paragraph that it is an
+"Adaption of OHRP Broad Consent Recommendations 2017 and 21st Century
+Cures Act of 2016 (PL 114-255)" so that readers can trace the chain of
+prior authority. Cite \cite{ohrp_broad_consent_attachment_c_2017},
+\cite{rank1_cures_act_2016}, and
+\cite{hhs_45cfr46_protection_human_subjects} for 45 CFR 46 (Common
+Rule) baseline.
+
+Subsection 5.1 - Findings and Declarations: Read
+patients/paper/Deep-Research-3/part1_legal_baseline.md (the
+broad-consent permissions for secondary biospecimen use) and
+patient-journey/stage_07_immunotherapy.py (the 35 pembrolizumab cycles
+managed by Franka Emika at USL 88.75) to establish that current
+procedure consent is binary (accept entire protocol or refuse) and
+that physical-AI execution now permits per-cycle and per-step
+patient modification with no loss of safety. Compose 4 to 6 enumerated
+findings citing \cite{kawchak_2026_19119939},
+\cite{kawchak_2026_18973368} (the ICH E6(R3) adaption that already
+permits such modifications under "real-time consent updates"), and
+\cite{kawchak_2026_19040707} (the 21 CFR Part 50 adaption).
+
+Subsection 5.2 - Definitions:
+- "Procedural modification" means a patient-initiated change to a
+  pre-approved protocol step, executed by the qualified Physical AI
+  system, that does NOT alter the primary endpoint or the safety
+  profile beyond pre-defined tolerances. Reference the
+  ICH E6(R3) adaption at
+  national-platform/ich_e6r3_adapt/01_preamble_principles_investigator.tex
+  and 02_sponsor_responsibilities.tex (read both files).
+- "Real-time consent update" means a HIPAA-compliant, FHIR-based
+  consent revision logged in the patient's EHR within 5 minutes of
+  the modification. Reference the FHIR infrastructure at
+  national-platform/national_mcp/chunk2_methods_and_results_part1.tex
+  and chunk3_results_part2.tex (the MCP-PAI five-server topology with
+  hash-chained audit trails).
+- "Qualified Physical AI executor" means a robot or robotic system
+  with a USL score above the modification-tier threshold (e.g.,
+  USL 8.0 or above for surgical modifications, 6.0 or above for
+  therapeutic positioning modifications, 4.0 or above for
+  rehabilitation modifications). Cite \cite{kawchak_2026_18778219}.
+
+Subsection 5.3 - Patient Procedural Modification Rights (operative
+core):
+- Right to request, at any point during the trial, a modification to
+  a pre-approved procedural step, with the qualified Physical AI
+  executor evaluating safety in real time and either executing or
+  declining the modification with cited reason.
+- Right to receive, in plain language, the safety evaluation result
+  for any requested modification within 5 minutes; if declined, the
+  patient may appeal to the IRB on call (the
+  21cfr50_adapt/02_irb_review_pediatric.tex IRB framework applies).
+- Right to revise broad consent at any point with 24-hour notice,
+  drawing on patients/paper/Deep-Research-3/part1_legal_baseline.md
+  broad-consent baseline and \cite{ohrp_broad_consent_attachment_c_2017}.
+- Right to specify, before each procedure, which steps may be
+  modified by the patient and which require investigator review.
+  Reference the 10-stage patient journey in patient-journey/ and the
+  per-stage modification points enumerated at
+  patient-journey/stage_05_surgery.py through
+  stage_10_closeout.py.
+- Right to request that a procedural step be performed by a
+  Physical AI system rather than by a human doctor or nurse where
+  doing so reduces the documented error rate (this dovetails with
+  HR 4504 in the next section).
+
+Subsection 5.4 - Implementation: 18-month deadline for federal IRB
+networks to publish a per-protocol "modifiable steps" matrix; FDA,
+OHRP, and HHS roles; reference the prior site documentation at
+new-trial/site/02-legislation-patient-rights/physical_ai_patient_rights.tex
+and at
+national-platform/new_trial_psl/02_ab2847_patient_rights.tex for the
+California baseline.
+
+Subsection 5.5 - Reporting and Enforcement: Annual federal report on
+modification rate by stage, by cancer, by robot category; the audit
+trail manager at sponsor/final_paper/scripts/core_agents/
+audit_trail_manager.py provides the technical baseline; civil
+penalties harmonized with 45 CFR 46 enforcement and the Cures Act
+information-blocking framework. Cite
+\cite{federal_register_info_blocking_disincentives_2024}.
+
+Close the bill (1 paragraph after Subsection 5.5) with two patient-
+control framings:
+(i) FOR INDIVIDUAL PATIENTS: A 58-year-old female NSCLC patient
+    matching PAT-2026-0042 (patient-journey/stage_07_immunotherapy.py)
+    requests at cycle 22 of 35 pembrolizumab that the Franka Emika
+    cobot deliver the infusion 30 minutes earlier than the protocol
+    default to accommodate work, with the qualified Physical AI
+    executor evaluating safety in 4 minutes and approving the
+    modification under the patient's broad-consent revision.
+(ii) FOR BROAD ADOPTION: All Physical AI oncology trial sites must
+     publish a "modifiable steps" matrix per protocol within 18
+     months. The bill positions the United States as Number 1 in
+     the world for patient-led procedural modification under
+     physical-AI execution, replacing the prior all-or-nothing
+     consent pattern under traditional IRB review with a granular
+     per-step national standard. Cite \cite{kawchak_2026_18973368}
+     and \cite{kawchak_2026_19119939}.]
