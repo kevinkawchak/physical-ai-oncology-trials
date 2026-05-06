@@ -14,9 +14,7 @@
 
 This repository provides production-ready configurations, validated pipelines, and integration guides for deploying robotic systems, digital twins, and embodied AI agents in oncology. 
 
-**5/7: v3.8.0 (Patient Priority Full Paper)** *Patient Priority and Proposed U.S. Bills for Physical AI Oncology Clinical Trials* - polished 70+ page LaTeX manuscript at patients/paper/full-paper/ populating the seven proposed federal bills (HR 9501 through HR 9507; renumbered from HR 4501-4507 to avoid known active-legislation conflicts) into final five-subsection legislative-act prose. The bills give cancer patients statutory control over discovery, robot choice, procedural modification, error-rate substitution, real-time sponsor communication, American leadership, and data self-custody. [![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.20045457-blue)](https://doi.org/10.5281/zenodo.20045457)
-
-**5/7: v3.7.0 (Patient Priority Paper Template)** *Patient Priority and Proposed U.S. Bills for Physical AI Oncology Clinical Trials* - LaTeX paper template at patients/paper/ introducing seven proposed federal bills (HR 4501 through HR 4507) that adapt and revise prior U.S. legislation to give cancer patients more control over their disease through Physical AI and advanced robotics. [![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.20045457-blue)](https://doi.org/10.5281/zenodo.20045457)
+**5/7: v3.8.0 (Patient Priority Full Paper)** *Patient Priority and Proposed U.S. Bills for Physical AI Oncology Clinical Trials* - polished 70+ page LaTeX manuscript at patients/paper/full-paper/ populating the seven proposed federal bills. [![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.20045457-blue)](https://doi.org/10.5281/zenodo.20045457)
 
 **5/3: v3.6.0 (Accelerated Patient Prediction Full Paper)** *Polished 70+ page LaTeX paper at new-trial/national-24-7-trial/paper/full-paper/ for "Accelerated Patient Prediction in Physical AI Oncology Clinical Trials: Four Comprehensive LLM Simulations"* [![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.19994945-blue)](https://doi.org/10.5281/zenodo.19994945)
 
