@@ -67,136 +67,13 @@ python scripts/verify_installation.py
 # Detect available simulation frameworks
 python unification/cross_platform_tools/framework_detector.py
 ```
-
 ---
-
-## Patient Priority Full Paper (v3.8.0)
-
-```
-  Seven Proposed Bills           Full Paper Build              Output
-  (HR 9501-HR 9507)        ---->  (this PR)                ---->  (Overleaf PDF)
-  +-------------------+          +---------------------+         +------------+
-  | HR 9501 Cancer    |   --->   | main.tex            |   --->  | 70+ pages  |
-  | Patient Self-     |   --->   | patient_priority.sty|   --->  | Title page |
-  | Selection         |          | patient_priority.bib|         | + TOC at   |
-  | (21 CFR 50, FDA   |          |  (47 references,    |         | bottom     |
-  |  DCT, 42 USC      |          |   single canonical  |         |            |
-  |  300gg-8)         |          |   URL each;         |         |            |
-  | HR 9502 Cancer    |   --->   |   GitHub + Zenodo   |   --->  | 7 bills    |
-  | Patient Robot/    |          |   for each repo)    |         | with five- |
-  | Humanoid Choice   |          | hr_9501-hr_9507.tex |         | subsection |
-  | (CA AB 2847, FDA  |          |  (final prose,      |         | layout     |
-  |  AI Draft 2025)   |          |   no bracketed      |         |            |
-  | HR 9503 Procedural|   --->   |   instructions)     |   --->  | Per-patient|
-  | Modification      |          | back_matter.tex     |         | (PAT-2026- |
-  | (OHRP, Cures Act) |          |  (Acks, ethics,     |         |  0042) +   |
-  | HR 9504 Physical  |   --->   |   rights, cite)     |   --->  | broad      |
-  | AI Clinical Error |          | LaTeX_Source_Files  |         | adoption   |
-  | Reduction (HTI-1, |          |  .zip (Overleaf)    |         |            |
-  |  FDA AI Draft)    |          | Sources cited:      |         | US Number 1|
-  | HR 9505 Real-Time |   --->   | Deep-Research-1/    |   --->  | leadership |
-  | Patient-Sponsor   |          | Deep-Research-2/    |         | framing    |
-  | (FDA RTCT, DCT)   |          | Deep-Research-3/    |         |            |
-  | HR 9506 American  |   --->   | (3 source pools     |   --->  | Respectful |
-  | Physical AI       |          |  in patients/paper/)|         | FDA framing|
-  | Oncology Leader   |          |                     |         |            |
-  | (FDORA, Cures)    |          |                     |         | Single     |
-  | HR 9507 Cancer    |   --->   |                     |   --->  | dashes     |
-  | Patient Data      |          |                     |         | only       |
-  | Self-Custody      |          |                     |         |            |
-  | (HHS HIPAA, Cures)|          |                     |         | Black text |
-  +-------------------+          +---------------------+         +------------+
-             |                            |                          |
-             v                            v                          v
-  +-----------------------------------------------------------------------------+
-  |  v3.8.0: 7-bill final-prose manuscript with consolidated bracketed          |
-  |  instructions migrated into each bill section (Findings, Definitions,       |
-  |  Operative Rights, Implementation, Reporting and Enforcement). Bibliography |
-  |  has single canonical URL per non-repo entry; Zenodo entries also carry a   |
-  |  GitHub URL in note (both clickable). Adaption / Revision titles trace      |
-  |  prior PL numbers. Renumbered HR 4501-4507 to HR 9501-9507 to avoid known   |
-  |  active-legislation conflicts in the 119th Congress (e.g., HR 4501 Holy     |
-  |  Sovereignty Protection Act).                                               |
-  +-----------------------------------------------------------------------------+
-```
-
-## Patient Priority and Proposed U.S. Bills (v3.7.0)
-
-```
-  Seven Proposed Bills          Paper Template                  Future Pass
-  (HR 4501-HR 4507)       ---->  (this PR)                ---->  (Population)
-  +-------------------+          +---------------------+         +------------+
-  | HR 4501 Patient   |   --->   | main.tex            |   --->  | 70+ pages  |
-  | Self-Selection    |   --->   | patient_priority.sty|   --->  | Title page |
-  | (21 CFR 50, FDA   |          | patient_priority.bib|         | + TOC at   |
-  |  DCT, 42 USC      |          |  (56 references,    |         | bottom     |
-  |  300gg-8)         |          |   DOIs + clickable  |         |            |
-  | HR 4502 Robot     |   --->   |   GitHub + Zenodo   |   --->  | 7 bills    |
-  | Choice (CA AB     |          |   URLs in note)     |         | with five- |
-  |  2847, FDA AI     |          | abstract.tex        |         | subsection |
-  |  Draft 2025)      |          | introduction.tex    |         | layout     |
-  | HR 4503 Procedure |   --->   | patient_priority.tex|   --->  |            |
-  | Modification      |          | hr_4501-hr_4507.tex |         | Per-patient|
-  | (OHRP, Cures Act) |          |  (7 bill sections)  |         | + broad    |
-  | HR 4504 Error     |   --->   | implementation_*.tex|   --->  | adoption   |
-  | Reduction (HTI-1, |          | discussion.tex      |         |            |
-  |  FDA AI Draft)    |          | limitations_*.tex   |         | US Number 1|
-  | HR 4505 Real-Time |   --->   | conclusions.tex     |   --->  | leadership |
-  | Sponsor (FDA RTCT,|          | back_matter.tex     |         | framing    |
-  |  FDA DCT)         |          | LaTeX_Source_Files  |         |            |
-  | HR 4506 American  |   --->   | .zip (Overleaf)     |   --->  | Respectful |
-  | Leadership (FDORA,|          |                     |         | FDA framing|
-  |  Cures Act)       |          | Sources cited:      |         |            |
-  | HR 4507 Data      |   --->   | Deep-Research-1/    |   --->  | DOI URLs   |
-  | Self-Custody      |          | Deep-Research-2/    |         | clickable  |
-  | (HHS HIPAA, ONC   |          | Deep-Research-3/    |         | in bib     |
-  |  Cures Final Rule)|          |                     |         |            |
-  +-------------------+          +---------------------+         +------------+
-             |                            |                          |
-             v                            v                          v
-  +-----------------------------------------------------------------------------+
-  |  v3.7.0: 7-bill template, individual patient (PAT-2026-0042) + broad-       |
-  |  adoption framing, AVAILABLE DIRECTORIES (national-platform/, sponsor/,     |
-  |  new-trial/national-24-7-trial/paper/, patients/paper/) named in every      |
-  |  bracketed instruction; Adaption / Revision titles trace prior PL numbers.  |
-  +-----------------------------------------------------------------------------+
-```
-
-## Accelerated Patient Prediction Full Paper (v3.6.0)
-
-```
-  Polished Full Paper           Site & Sponsor Sims           Build Output
-  (Final Prose)          ---->  (Source Repos)         ---->  (Overleaf PDF)
-  +---------------------+       +-------------------+         +------------+
-  | main.tex (polished) |  ---  | Site Sim 1: 56h   |   --->  | 70+ pages  |
-  | new_paper.sty       |  ---  | Site Sim 2: 10st  |   --->  | Black text |
-  | references.bib (35) |  ---  | Sponsor Sim 3: 24h|   --->  | Single dsh |
-  | abstract.tex        |  ---  | Sponsor Sim 4:    |   --->  | No widows  |
-  | introduction.tex    |  ---  |   168h + i5-6200U |   --->  | No orphans |
-  | methods.tex         |  ---  |                   |   --->  | DOI URLs   |
-  | results.tex         |  ---  | (FDA RTCT 28 Apr  |   --->  | clickable  |
-  | discussion.tex      |  ---  |  2026 reference)  |   --->  | in bib     |
-  | limitations_future  |  ---  |                   |   --->  |            |
-  | conclusions.tex     |  ---  | Cloud-only:       |   --->  | Tables L{w}|
-  | back_matter.tex     |  ---  |   Sims 1, 2, 3    |         | left-just  |
-  | LaTeX_Source_Files  |  ---  | Cloud + local:    |         | ASCII dx   |
-  | .zip (Overleaf)     |  ---  |   Sim 4 (i5/4GB)  |         | per Sim    |
-  +---------------------+       +-------------------+         +------------+
-             |                            |                          |
-             v                            v                          v
-  +-----------------------------------------------------------------------------+
-  |  v3.6.0: full prose, tables in L{w} format, ASCII diagrams verbatim,        |
-  |  Track A vs Track B future work, cloud + local reproducibility analysis,    |
-  |  6 simulation Zenodo refs (incl. National Platform 19244918, Patient Instr  |
-  |  18810541), all-black hyperref, single-dash style, no margin overflow.      |
-  +-----------------------------------------------------------------------------+
-```
 
 ## Accelerated Patient Prediction Paper Template (v3.5.0)
 
 ```
   Four LLM Simulations           Paper Template                  Future Pass
-  (Inputs)                ---->  (this PR)                ---->  (Population)
+  (Inputs)                --->   (this PR)                 --->  (Population)
   +-------------------+          +---------------------+         +------------+
   | Sim 1: 24/7 RTCT  |   --->   | main.tex            |   --->  | 70+ pages  |
   | (84 hours x 7     |   --->   | new_paper.sty       |   --->  | Color      |
@@ -212,36 +89,13 @@ python unification/cross_platform_tools/framework_detector.py
   | (525 dx, 168 .py, |          | LaTeX_Source_Files  |         | white-     |
   | 7 PRs, Core i5)   |          | .zip (Overleaf)     |         | space pass |
   +-------------------+          +---------------------+         +------------+
-           |                                |                          |
-           v                                v                          v
+           |                                |                           |
+           v                                v                           v
   +-----------------------------------------------------------------------------+
   |  v3.5.0: bracketed instructions naming exact directories and file paths,    |
   |  ASCII diagrams to embed verbatim, individual patient and robot examples,   |
   |  and DOIs and clickable URLs for every reference (GitHub + Zenodo).         |
   +-----------------------------------------------------------------------------+
-```
-
-## Autonomous Sponsor Architecture (v3.4.0)
-
-```
-  168-Hour Simulation          Code Generation              Execution
-  (7 Days x 24 Hours)   --->   (Claude Code Opus 4.6)       Results
-  +-----------------+          +-----------------+          +----------+
-  | Day 1: Init     |   --->   | 168 hourly .py  |   --->   | 2,016 d. |
-  | Day 2: Enroll   |   --->   | 168 JSON output |   --->   | 1,336 pt |
-  | Day 3: Safety   |   --->   | 525 diagrams    |   --->   | 125 esc. |
-  | Day 4: Scale    |   --->   | 7 day summaries |   --->   | PSL 70.0 |
-  | Day 5: Analysis |   --->   | 7 READMEs       |   --->   | Verified |
-  | Day 6: Audit    |   --->   | Sim runner      |   --->   | Tested   |
-  | Day 7: Closeout |   --->   | Instructions    |   --->   | Complete |
-  +-----------------+          +-----------------+          +----------+
-           |                           |                         |
-           v                           v                         v
-  +--------------------------------------------------------------------+
-  |  168-Hour Simulation: 2,016 decisions, 1,336 pts,                  |
-  |  125 escalations, 1,336 robot authorizations,                      |
-  |  PSL 63.4 to 70.0, 168 commits, 7 branches/PRs                     |
-  +--------------------------------------------------------------------+
 ```
 
 ## Repository Structure
