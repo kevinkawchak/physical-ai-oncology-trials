@@ -14,7 +14,7 @@
 
 This repository provides production-ready configurations, validated pipelines, and integration guides for deploying robotic systems, digital twins, and embodied AI agents in oncology. 
 
-**5/6: v3.8.0 (Patient Priority Full Paper)** *Patient Priority and Proposed U.S. Bills for Physical AI Oncology Clinical Trials* - polished 70+ page LaTeX manuscript at patients/paper/full-paper/ populating the seven proposed federal bills. [![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.20045457-blue)](https://doi.org/10.5281/zenodo.20045457)
+**5/6: v3.8.0 (Patient Priority Final Paper)** *Patient Priority and Proposed U.S. Bills for Physical AI Oncology Clinical Trials* - polished LaTeX manuscript at patients/paper/full-paper/final-paper populating the seven proposed federal bills. [![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.20045457-blue)](https://doi.org/10.5281/zenodo.20045457)
 
 **5/3: v3.6.0 (Accelerated Patient Prediction Full Paper)** *Polished 70+ page LaTeX paper at new-trial/national-24-7-trial/paper/full-paper/ for "Accelerated Patient Prediction in Physical AI Oncology Clinical Trials: Four Comprehensive LLM Simulations"* [![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.19994945-blue)](https://doi.org/10.5281/zenodo.19994945)
 
