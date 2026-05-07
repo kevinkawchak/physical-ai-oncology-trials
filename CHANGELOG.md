@@ -28,7 +28,7 @@ Format follows [Keep a Changelog](https://keepachangelog.com/).
 - CHANGELOG.md - Added v3.8.0 entry above v3.7.0
 - releases.md - Added v3.8.0 release notes above v3.7.0
 - Bill numbers renumbered from HR 4501-HR 4507 (v3.7.0 template range) to HR 9501-HR 9507 (v3.8.0 full paper range) to avoid known active-legislation conflicts in the 119th Congress (e.g., HR 4501 Holy Sovereignty Protection Act). The renumbering is documented in the full paper README and in the title-page disclaimer block
-- @kevinkawchak made recent full-paper main/README.md update more concise on 2026-05-06.
+- @kevinkawchak made recent full-paper main/README.md update more concise. patients/paper/full-paper/final-paper LaTeX source files were also added on 2026-05-06.
   
 ### Notes
 - All additions are LaTeX, BibTeX, Markdown, and ZIP only; no Python, YAML, or other CI-checked files are introduced. The lint-and-format CI workflow (ruff format check, ruff check, yamllint) on Python 3.10, 3.11, and 3.12 remains green
