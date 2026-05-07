@@ -1,6 +1,6 @@
 # Patient Priority and Proposed U.S. Bills for Physical AI Oncology Clinical Trials - FULL PAPER
 
-**v3.8.0 (Patient Priority Full Paper)** Polished 70+ page LaTeX manuscript at `patients/paper/full-paper/` populating the seven proposed federal bills (HR 9501 through HR 9507) with consolidated bracketed instructions and named repository file paths from the prior v3.7.0 template, restructured around the seven bills as the central deliverable.
+**v3.8.0 (Patient Priority Full Paper)** Polished 70+ page LaTeX manuscript at `patients/paper/full-paper/` populating the seven proposed federal bills (HR 9501 through HR 9507) with consolidated bracketed instructions and named repository file paths from the prior v3.7.0 template.
 
 [![Paper DOI](https://img.shields.io/badge/Paper%20DOI-10.5281%2Fzenodo.20045457-blue)](https://doi.org/10.5281/zenodo.20045457)
 [![Repo DOI](https://img.shields.io/badge/Repo%20DOI-10.5281%2Fzenodo.18445179-blue)](https://doi.org/10.5281/zenodo.18445179)
@@ -20,9 +20,7 @@ This is the polished LaTeX paper for the manuscript:
 
 The full paper is a consolidated 7-Bill structure derived from the
 v3.7.0 template at `patients/paper/`. All bracketed processing
-instructions from the prior template's Abstract, Introduction, Patient
-Priority Framework, Implementation/Metrics, Discussion, Limitations,
-and Conclusions sections have been MOVED into the seven bill section
+instructions from the prior template have been MOVED into the seven bill section
 files. The result is a tight 7-Bill paper layout (Title page + TOC,
 seven bills, References, Acknowledgments, Ethical disclosures, Rights
 and permissions, Cite this article) suitable for downstream Claude
