@@ -24,7 +24,7 @@ instructions from the prior template have been MOVED into the seven bill section
 files. The result is a tight 7-Bill paper layout (Title page + TOC,
 seven bills, References, Acknowledgments, Ethical disclosures, Rights
 and permissions, Cite this article) suitable for downstream Claude
-Code Opus 4.7 1M Max population into final 70+ page prose.
+Code Opus 4.7 1M Max population into final prose.
 
 ## Seven Proposed Bills
 
@@ -104,7 +104,7 @@ patients/paper/full-paper/
 
 The Deep-Research source materials remain in the parent directory at
 `patients/paper/Deep-Research-1/`, `Deep-Research-2/`, and
-`Deep-Research-3/` and are NOT duplicated under `full-paper/`.
+`Deep-Research-3/`.
 
 ## Compilation (Overleaf)
 
