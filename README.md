@@ -1,7 +1,7 @@
 # End-to-End Physical AI Unification of Oncology Clinical Trials
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Release](https://img.shields.io/badge/Release-v3.8.0-brightgreen.svg)](https://github.com/kevinkawchak/physical-ai-oncology-trials)
+[![Release](https://img.shields.io/badge/Release-v3.9.0-brightgreen.svg)](https://github.com/kevinkawchak/physical-ai-oncology-trials)
 [![Last Updated](https://img.shields.io/badge/Updated-May%202026-blue.svg)](https://github.com/kevinkawchak/physical-ai-oncology-trials)
 [![Protocol](https://img.shields.io/badge/Protocol-MCP-purple.svg)](https://github.com/kevinkawchak/physical-ai-oncology-trials)
 [![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.18445179-blue)](https://doi.org/10.5281/zenodo.18445179)
@@ -13,6 +13,8 @@
 **Comprehensive developments for integrating physical AI into oncology clinical trials, by Claude Code Opus 4.7, Cowork; with Assistance from ChatGPT 5.5 Thinking and Google Gemini Search.**
 
 This repository provides production-ready configurations, validated pipelines, and integration guides for deploying robotic systems, digital twins, and embodied AI agents in oncology. 
+
+**5/9: v3.9.0 (Glioblastoma Robotic Surgery Simulation Instructions)** *On-prem LLM controlled glioblastoma stereotactic resection simulation at 1 ms resolution for 1 hour with 64-iteration sweep* - 17-file instruction set at competitions/instructions/ for a future Claude Code Opus 4.7 1M Max session to author the simulation against the Medtronic ROSA ONE Brain v3.0, firmware 3.1.4, with on-prem LLM comparison agent ranking against prior versions, competitor robots, and hybrid human-robot teams. [![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.18445179-blue)](https://github.com/kevinkawchak/physical-ai-oncology-trials/tree/main/competitions/instructions)
 
 **5/6: v3.8.0 (Patient Priority Final Paper)** *Patient Priority and Proposed U.S. Bills for Physical AI Oncology Clinical Trials* - polished LaTeX manuscript at patients/paper/full-paper/final-paper populating the seven proposed federal bills. [![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.20045457-blue)](https://doi.org/10.5281/zenodo.20045457)
 
@@ -68,6 +70,44 @@ python scripts/verify_installation.py
 python unification/cross_platform_tools/framework_detector.py
 ```
 ---
+
+## Glioblastoma Robotic Surgery Simulation Instructions (v3.9.0)
+
+```
+  Sensor Stream                XYZ Commands               Comparison Agent
+  (50 channels @ 1 kHz)  --->  (phase-conditioned    ---> (on-prem LLM,
+                                1 kHz / 100 Hz)            skill rating)
+  +-----------------------+    +-----------------------+   +----------------+
+  | Joints x 18 channels  | -> | x, y, z, qw, qx, qy,  |-> | Quality 0.40   |
+  | EE pose x 7 channels  |    | qz, vel, force_clamp, |   | Time     0.25  |
+  | EE force x 6 channels |    | tool, command_state   |   | Cost     0.20  |
+  | Nav dev x 3 channels  |    | + 2 metadata          |   | Safety   0.10  |
+  | Tool flags x 6 chan.  |    | ~2.73M commands/hr    |   | PtExp    0.05  |
+  | Safety enums x 2 ch.  |    | Parquet 90 MB         |   | TrueSkill mu/s |
+  | + 8 metadata fields   |    +-----------------------+   +----------------+
+  | 3.6M ticks/hr         |               |                        |
+  | Parquet 60 MB         |               v                        v
+  +-----------------------+    +-----------------------+   +----------------+
+        |                      | ROSA ONE Brain v3.0   |   | Tournament 8   |
+        v                      | firmware 3.1.4        |   | rounds: this   |
+  +-----------------------+    | 6 DOF, 0.5 mm RMS,    |   | project vs.    |
+  | Layer 1: generators   |    | 50 mm/s max linear    |   | prior version  |
+  | Layer 2: 7 commits in |    | velocity, IEC 80601-  |   | snapshots,     |
+  | one PR with per-      |    | 2-77 force limits,    |   | NeuroMate,     |
+  | commit budgets        |    | 21 CFR 50.30 task-    |   | Brainlab Cirq, |
+  | Layer 3: per-file     |    | order lifecycle       |   | Modus V,       |
+  | chunking caps         |    +-----------------------+   | Mazor X, human |
+  +-----------------------+                                +----------------+
+           |                                |                       |
+           v                                v                       v
+  +-----------------------------------------------------------------------------+
+  |  v3.9.0: 17-file instruction set at competitions/instructions/ for a future |
+  |  Claude Code Opus 4.7 1M Max session to author the simulation across 7      |
+  |  sequential commits in 1 PR. ASCII and Mermaid diagrams replace SVG for     |
+  |  high-frequency series. SHA-256 manifested release snapshot enables future  |
+  |  release-vs-release comparisons via the on-prem LLM comparison agent.       |
+  +-----------------------------------------------------------------------------+
+```
 
 ## Accelerated Patient Prediction Paper Template (v3.5.0)
 
@@ -300,6 +340,32 @@ physical-ai-oncology-trials/
 │   │       └── png/README.md
 │   └── prompts/
 │       └── prompts.md                 # Development prompts archive
+│
+├── competitions/                      # ★ Competitions and Instruction Sets
+│   ├── instructions/                  # ★ Glioblastoma Trial Instructions (v3.9.0)
+│   │   ├── README.md                  # Top-level orientation and table of contents
+│   │   ├── glioblastoma_context.md    # Patient PAT-GBM-0001 + 5-phase procedure timeline
+│   │   ├── robot_specification.md     # Medtronic ROSA ONE Brain v3.0 + 50-channel sensors
+│   │   ├── chunking_strategy.md       # 3-layer chunking to keep future LLM in memory
+│   │   ├── file_format_conventions.md # .md, .pdf, .json, .jsonl, .yaml, .toml, .parquet, etc.
+│   │   ├── ascii_diagram_guide.md     # ASCII + Mermaid templates that replace SVG
+│   │   ├── runtime_environments.md    # MacOS, Windows, Linux, Docker, server recipes
+│   │   ├── competition_protocol.md    # Prior versions, competitor robots, hybrid teams
+│   │   ├── ci_compliance_checklist.md # Pre-commit ruff and yamllint checklist
+│   │   ├── pr_workflow.md             # 7-commit single-PR pattern
+│   │   ├── commit_01_project_overview.md         # Future Commit 1: 7 files
+│   │   ├── commit_02_sensor_specifications.md    # Future Commit 2: 8 files
+│   │   ├── commit_03_xyz_mapping.md              # Future Commit 3: 9 files
+│   │   ├── commit_04_iteration_design.md         # Future Commit 4: 10 files (incl. Cargo.toml)
+│   │   ├── commit_05_comparison_competition.md   # Future Commit 5: 12 files + release snapshot
+│   │   ├── commit_06_error_fixes.md              # Future Commit 6: 7-check pre-commit error scan
+│   │   └── commit_07_repository_updates.md       # Future Commit 7: parent README, releases.md, CHANGELOG.md
+│   ├── inputs/                        # Reference papers and Kaggle competition source files
+│   │   ├── paper-a/                   # CodeClash paper chunked into 10 markdown files
+│   │   ├── paper-b/                   # FAERS paper chunked into 10 markdown files
+│   │   └── site-1/                    # Orbit Wars Kaggle competition chunked into 3 files
+│   ├── data/                          # Future generated competition data
+│   └── paper/                         # Future generated competition paper
 │
 ├── digital-twins/
 │   ├── README.md
