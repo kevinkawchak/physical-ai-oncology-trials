@@ -32,8 +32,8 @@ The future session works across seven commits inside one pull request. Each comm
 | 1 Project overview | 7 | 200 KB | 0 |
 | 2 Sensor specifications | 8 | 250 KB | 60 MB Parquet (script-generated) |
 | 3 Sensor to xyz mapping | 9 | 300 KB | 90 MB Parquet (script-generated) |
-| 4 Iterations | 9 | 300 KB | 1.5 GB Parquet across 64 iterations (script-generated) |
-| 5 Comparison | 12 | 500 KB | 50 MB Parquet plus 5 MB PDF (script-generated) |
+| 4 Iterations | 10 | 300 KB | 5.7 GB Parquet across 64 iterations (script-generated; LFS or single-file fallback) |
+| 5 Comparison | 12 | 500 KB | 50 MB Parquet plus 5 MB PDF plus 4 MB HTML (script-generated) |
 | 6 Error fixes | varies | 100 KB | 0 |
 | 7 Repository updates | 3 | 60 KB | 0 |
 
