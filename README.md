@@ -1,7 +1,7 @@
 # End-to-End Physical AI Unification of Oncology Clinical Trials
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Release](https://img.shields.io/badge/Release-v3.9.0-brightgreen.svg)](https://github.com/kevinkawchak/physical-ai-oncology-trials)
+[![Release](https://img.shields.io/badge/Release-v3.9.1-brightgreen.svg)](https://github.com/kevinkawchak/physical-ai-oncology-trials)
 [![Last Updated](https://img.shields.io/badge/Updated-May%202026-blue.svg)](https://github.com/kevinkawchak/physical-ai-oncology-trials)
 [![Protocol](https://img.shields.io/badge/Protocol-MCP-purple.svg)](https://github.com/kevinkawchak/physical-ai-oncology-trials)
 [![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.18445179-blue)](https://doi.org/10.5281/zenodo.18445179)
@@ -13,6 +13,8 @@
 **Comprehensive developments for integrating physical AI into oncology clinical trials, by Claude Code Opus 4.7, Cowork; with Assistance from ChatGPT 5.5 Thinking and Google Gemini Search.**
 
 This repository provides production-ready configurations, validated pipelines, and integration guides for deploying robotic systems, digital twins, and embodied AI agents in oncology. 
+
+**5/10: v3.9.1 (Glioblastoma 1-Minute Variant Instructions)** *On-prem LLM controlled 1-minute glioblastoma resection simulation with 4 cooperating arms at mixed 1 kHz / 10 kHz force resolution and 16-iteration sweep* - 12-file 1-minute variant instruction set at competitions/instructions/one_minute_variant/ for a future Claude Code Opus 4.7 1M Max session to author the simulation against the hypothetical 2030 Medtronic NeuroSpeed 1.0 (4 arms with 7 DOF each, 1,000 mm/s end-effector velocity, 800 mm cubed per second peak removal rate, 5 ms E-stop latency), with 416 MB L0 raw archived to Zenodo and 9.7 MB committed across L1 to L3 pyramid plus events. [![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.18445179-blue)](https://github.com/kevinkawchak/physical-ai-oncology-trials/tree/main/competitions/instructions/one_minute_variant)
 
 **5/9: v3.9.0 (Glioblastoma Robotic Surgery Simulation Instructions)** *On-prem LLM controlled glioblastoma stereotactic resection simulation at 1 ms resolution for 1 hour with 64-iteration sweep* - 17-file instruction set at competitions/instructions/ for a future Claude Code Opus 4.7 1M Max session to author the simulation against the Medtronic ROSA ONE Brain v3.0, firmware 3.1.4, with on-prem LLM comparison agent ranking against prior versions, competitor robots, and hybrid human-robot teams. [![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.18445179-blue)](https://github.com/kevinkawchak/physical-ai-oncology-trials/tree/main/competitions/instructions)
 
@@ -70,6 +72,46 @@ python scripts/verify_installation.py
 python unification/cross_platform_tools/framework_detector.py
 ```
 ---
+
+## Glioblastoma 1-Minute Variant Instructions (v3.9.1)
+
+```
+  4-Arm Sensor Streams         Per-Arm XYZ Commands     1-Min vs 1-Hr Compare
+  (50 ch/arm x 4 arms,   --->  (per-arm phase-      --> (on-prem LLM,
+   200 ch total at mixed         conditioned 1 kHz       4-round tournament)
+   1 kHz + 10 kHz force)         with 5 ms e-stop)
+  +-----------------------+    +-----------------------+   +----------------+
+  | Arm 1 hyb u-w-p cut   | -> | Per-arm x, y, z, q,   |-> | Quality 0.40   |
+  | Arm 2 bipolar coag    |    | linear_vel up to       |   | Time     0.25  |
+  | Arm 3 suction collect |    | 1,000 mm/s, force      |   | Cost     0.20  |
+  | Arm 4 iMRI + 5-ALA    |    | clamp 5 N/arm, tool,   |   | Safety   0.10  |
+  | 1 kHz heartbeat bus   |    | 7-state command enum   |   | PtExp    0.05  |
+  | 12 N cumulative cap   |    | + heartbeat watchdog   |   | TrueSkill mu/s |
+  +-----------------------+    +-----------------------+   +----------------+
+        |                          |                          |
+        v                          v                          v
+  +-----------------------+    +-----------------------+   +----------------+
+  | NeuroSpeed 1.0 (2030) |    | 4-phase 60s timeline  |   | Compare vs     |
+  | 4 arms x 7 DOF, 28    |    | P1 dural 0-5s, P2     |   | v3.9.0 1-hr    |
+  | DOF total, 0.1 mm RMS |    | bulk 5-45s @ 800      |   | ROSA ONE Brain |
+  | at 1,000 mm/s, 5 ms   |    | mm cubed per s, P3    |   | v3.0 baseline  |
+  | e-stop, 800 mm cubed  |    | margin 45-55s, P4     |   | + manual human |
+  | per s peak via hybrid |    | hemostasis 55-60s     |   | (no published  |
+  | u-w-p removal         |    | (pre-op precomputed)  |   |  1-min human)  |
+  +-----------------------+    +-----------------------+   +----------------+
+           |                                |                       |
+           v                                v                       v
+  +-----------------------------------------------------------------------------+
+  | v3.9.1: 12-file 1-minute variant instruction set at                         |
+  | competitions/instructions/one_minute_variant/ for a future Claude Code Opus |
+  | 4.7 1M Max session to author the simulation across 7 sequential commits in  |
+  | 1 PR. L1 (20 Hz) + L2 (1 Hz) + L3 (per-phase) + events committed at 510 KB  |
+  | per iteration; 16 iterations total 8.2 MB committed within 10 MB cap. L0    |
+  | raw of 26 MB per iteration archived to Zenodo (416 MB total, free 50 GB     |
+  | tier). Inherits parent v3.9.0 instructions verbatim except for 4-arm and    |
+  | 1-minute-specific overrides; nothing in glioblastoma-1hr-trial/ is touched. |
+  +-----------------------------------------------------------------------------+
+```
 
 ## Glioblastoma Robotic Surgery Simulation Instructions (v3.9.0)
 
@@ -359,7 +401,20 @@ physical-ai-oncology-trials/
 │   │   ├── commit_04_iteration_design.md         # Future Commit 4: 10 files (incl. Cargo.toml)
 │   │   ├── commit_05_comparison_competition.md   # Future Commit 5: 12 files + release snapshot
 │   │   ├── commit_06_error_fixes.md              # Future Commit 6: 7-check pre-commit error scan
-│   │   └── commit_07_repository_updates.md       # Future Commit 7: parent README, releases.md, CHANGELOG.md
+│   │   ├── commit_07_repository_updates.md       # Future Commit 7: parent README, releases.md, CHANGELOG.md
+│   │   └── one_minute_variant/        # ★ Glioblastoma 1-Minute Variant Instructions (v3.9.1)
+│   │       ├── README.md              # 1-min variant orientation and inheritance map from v3.9.0
+│   │       ├── glioblastoma_context_1min.md      # 4-phase 60-second procedure timeline (pre-op precomputed)
+│   │       ├── robot_specification_neurospeed.md # Medtronic NeuroSpeed 1.0 (2030) 4 arms x 7 DOF
+│   │       ├── sensor_specification_10khz.md     # Mixed 1 kHz / 10 kHz force, 200 channels (50/arm x 4)
+│   │       ├── multi_arm_coordination.md         # 1 kHz heartbeat, 5 ms e-stop, 12 N cumulative cap
+│   │       ├── file_size_pyramid_1min.md         # Layer 4 pyramid: 510 KB committed + 26 MB Zenodo per iter
+│   │       ├── commit_01_overview_1min.md        # Future Commit 1: 8 files (vs parent 7)
+│   │       ├── commit_02_sensors_1min.md         # Future Commit 2: 9 files (vs parent 8)
+│   │       ├── commit_03_xyz_4arm.md             # Future Commit 3: 11 files (vs parent 9, adds heartbeat)
+│   │       ├── commit_04_iterations_1min.md      # Future Commit 4: 14 files (16 iter sweep at 1 min)
+│   │       ├── commit_05_competition_1min.md     # Future Commit 5: 13 files + v3.9.1 snapshot + Zenodo patch
+│   │       └── zenodo_archive_protocol.md        # 416 MB L0 raw deposition, DOI assignment, SHA-256 manifest
 │   ├── inputs/                        # Reference papers and Kaggle competition source files
 │   │   ├── paper-a/                   # CodeClash paper chunked into 10 markdown files
 │   │   ├── paper-b/                   # FAERS paper chunked into 10 markdown files
