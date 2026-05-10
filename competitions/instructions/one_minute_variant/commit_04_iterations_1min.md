@@ -1,6 +1,6 @@
 # Commit 4 (1-Minute Variant): Iteration Design
 
-This file specifies the files the future Claude Code Opus 4.7 1M Max session must author in its fourth commit for the 1-minute variant. The session must author exactly the files listed and must not author additional files in this commit. The parent `competitions/instructions/commit_04_iteration_design.md` lists 10 files for the v3.9.0 1-hour scenario. This 1-minute variant lists 11 files because the 4-arm topology adds the per-iteration L0 raw Zenodo pointer.
+This file specifies the files the future Claude Code Opus 4.7 1M Max session must author in its fourth commit for the 1-minute variant. The session must author exactly the files listed and must not author additional files in this commit. The parent `competitions/instructions/commit_04_iteration_design.md` lists 10 files for the v3.9.0 1-hour scenario. This 1-minute variant lists 14 files (each per-iteration file kind expands to 16 individual files for a total of 80 per-iteration files plus 4 release-aggregate files, with 5 per-iteration file kinds replacing the parent's single per-iteration Parquet kind).
 
 ## Goal
 
@@ -25,13 +25,13 @@ Run 16 deterministic iterations across the 1-minute glioblastoma resection scena
 | 13 | `competitions/glioblastoma-1min-trial/notebooks/iteration_analysis_1min.ipynb` | Jupyter | Hand-authored, outputs cleared | 30 KB |
 | 14 | `competitions/glioblastoma-1min-trial/logs/iteration_run.txt` | Plain text | Script-generated | 40 KB |
 
-The original instruction list in this section names 11 logical files; the table above expands the 16 per-iteration files into a single row per file kind. The future session generates the per-iteration files via a single orchestrator invocation. The total committed footprint across all iteration files is 8.2 MB.
+The table above lists 14 file kinds. Five of those kinds (orders 6 through 10) are per-iteration file kinds and each expands to 16 individual files (one per iteration), for a total of 80 per-iteration files. The remaining 9 kinds are release-aggregate files. The future session generates the per-iteration files via a single orchestrator invocation. The total committed footprint across all iteration files is 8.2 MB.
 
 ## File 1: docs/iteration_design.md
 
 Required sections:
 
-1. Iteration count and rationale: 16 iterations to balance statistical power against the doubled per-iteration committed footprint of the 4-arm topology. 16 is the default tournament size for v3.9.1; later releases may scale to 32 or 64 if Zenodo bandwidth allows.
+1. Iteration count and rationale: 16 iterations to balance statistical power against the doubled per-iteration committed footprint of the 4-arm topology. 16 is the default iteration count for v3.9.1; later releases may scale to 32 or 64 if Zenodo bandwidth allows. The default tournament size of 4 (defined in `commit_05_competition_1min.md`) is independent of the iteration count.
 2. Sweep dimensions (the only parameters that vary between iterations):
    - Seed: integer in [20260510, 20260525] inclusive, one per iteration.
    - Per-arm sensor noise sigma: 0.01 to 0.05 mm linearly across iterations.

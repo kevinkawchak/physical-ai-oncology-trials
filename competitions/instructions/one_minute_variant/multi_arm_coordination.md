@@ -97,7 +97,7 @@ Each frame carries a monotonically increasing heartbeat_seq integer per arm. A r
 +==========================================================================+
 ```
 
-The diagram above is 28 lines and 78 columns; it conforms to the 80-column 60-line cap defined in `competitions/instructions/ascii_diagram_guide.md`. The future Commit 1 architecture document for the 1-minute output tree must embed a copy of this diagram verbatim in `docs/architecture.md` and must save a standalone copy as `docs/architecture_overview_4arm.txt`.
+The diagram above is 26 lines and 76 columns; it conforms to the 80-column 60-line cap defined in `competitions/instructions/ascii_diagram_guide.md`. The future Commit 1 architecture document for the 1-minute output tree must embed a copy of this diagram verbatim in `docs/architecture.md` and must save a standalone copy as `docs/architecture_overview_4arm.txt`.
 
 ## Implementation Targets in the Future Output Tree
 
