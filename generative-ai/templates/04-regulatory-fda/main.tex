@@ -1,0 +1,139 @@
+% ============================================================
+% Template: Regulatory and FDA Submission Manuscript Template
+% Perspective: Regulatory and FDA Submission
+% Author: Kevin Kawchak, CEO
+% License: CC BY 4.0
+% ============================================================
+\documentclass[11pt]{article}
+\usepackage{new_paper}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{url}
+\usepackage[hidelinks,colorlinks=false,pdfborder={0 0 0}]{hyperref}
+\usepackage{underscore}
+\usepackage{booktabs}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{enumitem}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{tabularx}
+\usepackage{xcolor}
+\usepackage{textcomp}
+\usepackage{microtype}
+\usepackage{float}
+\usepackage{ragged2e}
+\usepackage{multirow}
+\usepackage{makecell}
+\usepackage{caption}
+
+\setlength{\headheight}{16pt}
+\renewcommand{\shorttitle}{\scriptsize\scshape Regulatory and FDA Submission}
+
+\tolerance=1200
+\emergencystretch=3em
+\hbadness=2000
+\hyphenpenalty=50
+\exhyphenpenalty=50
+\sloppy
+
+\hypersetup{
+  urlcolor=black,
+  linkcolor=black,
+  citecolor=black,
+  filecolor=black
+}
+
+\def\UrlBreaks{\do\/\do-\do.\do=\do_\do?\do\&\do\%\do\a\do\b\do\c\do\d\do\e%
+\do\f\do\g\do\h\do\i\do\j\do\k\do\l\do\m\do\n\do\o\do\p\do\q\do\r\do\s\do\t%
+\do\u\do\v\do\w\do\x\do\y\do\z\do\A\do\B\do\C\do\D\do\E\do\F\do\G\do\H\do\I%
+\do\J\do\K\do\L\do\M\do\N\do\O\do\P\do\Q\do\R\do\S\do\T\do\U\do\V\do\W\do\X%
+\do\Y\do\Z}
+
+\IfFileExists{orcid_icon.png}{
+  \newcommand{\orcidicon}[1]{%
+    \href{https://orcid.org/#1}{%
+    \raisebox{-1pt}{\includegraphics[height=9pt]{orcid_icon.png}}}}
+}{
+  \definecolor{orcidgreen}{HTML}{A6CE39}
+  \newcommand{\orcidicon}[1]{%
+    \href{https://orcid.org/#1}{%
+    \textbf{\textcolor{orcidgreen}{\textsf{iD}}}}}
+}
+
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
+\newcolumntype{C}[1]{>{\centering\arraybackslash}p{#1}}
+\newcolumntype{R}[1]{>{\raggedleft\arraybackslash}p{#1}}
+
+\captionsetup{font=small,labelfont=bf,justification=raggedright,singlelinecheck=false}
+
+\title{Regulatory and FDA Submission Manuscript Template}
+
+\author{
+  Kevin Kawchak\hspace{2pt}\orcidicon{0009-0007-5457-8667} \\
+  CEO ChemicalQDevice\\
+  \href{https://doi.org/10.5281/zenodo.xxxxxxxx}{10.5281/zenodo.xxxxxxxx} \\
+}
+
+\date{May 11, 2026}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+\input{sections/abstract}
+\end{abstract}
+
+% Keywords appear on the first page directly after the abstract. The
+% template ships with a blank single-line slot so authors fill in their
+% own keywords without disturbing layout.
+\keywords{ }
+
+\vspace{-0.2cm}
+
+\section{Introduction}
+\label{sec:introduction}
+\input{sections/introduction}
+
+\tableofcontents
+\vspace{0.4cm}
+
+\newpage
+\section{Methods}
+\label{sec:methods}
+\input{sections/methods}
+\newpage
+
+\section{Results}
+\label{sec:results}
+\input{sections/results}
+\newpage
+
+\section{Discussion}
+\label{sec:discussion}
+\input{sections/discussion}
+
+\section{Limitations and Future Work}
+\label{sec:limitations}
+\input{sections/limitations_future}
+\newpage
+
+\section{Conclusions}
+\label{sec:conclusions}
+\input{sections/conclusions}
+\newpage
+
+\phantomsection
+\addcontentsline{toc}{section}{References}
+\begingroup
+\raggedright
+\bibliographystyle{ieeetr}
+\bibliography{references}
+\endgroup
+\newpage
+
+\input{sections/back_matter}
+
+\end{document}
