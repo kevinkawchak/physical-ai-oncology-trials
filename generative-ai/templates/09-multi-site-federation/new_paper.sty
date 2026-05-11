@@ -1,0 +1,72 @@
+% Style file - Journal-style single column, numbered sections
+\NeedsTeXFormat{LaTeX2e}
+\ProcessOptions\relax
+
+\renewcommand{\rmdefault}{ptm}
+\renewcommand{\sfdefault}{phv}
+
+\usepackage[verbose=true,letterpaper]{geometry}
+\AtBeginDocument{
+  \newgeometry{textheight=9in,textwidth=6.4in,top=1in,headheight=14pt,headsep=20pt,footskip=30pt}
+}
+
+\definecolor{journalred}{HTML}{6A1B1B}
+
+\widowpenalty=10000
+\clubpenalty=10000
+\flushbottom
+\sloppy
+
+\newcommand{\headeright}{}
+\newcommand{\shorttitle}{\@title}
+
+\usepackage{fancyhdr}
+\fancyhf{}
+\pagestyle{fancy}
+\renewcommand{\headrulewidth}{0.4pt}
+\fancyheadoffset{0pt}
+\lhead{\footnotesize\textsc{\shorttitle}}
+\rhead{\footnotesize \thepage}
+\cfoot{}
+
+\def\keywordname{{\bfseries\scshape Keywords}}%
+\def\keywords#1{\par\addvspace\medskipamount{\rightskip=0pt plus1cm
+\def\and{\ifhmode\unskip\nobreak\fi\ \textbullet\
+}\noindent\keywordname\enspace\ignorespaces#1\par}}
+
+\renewcommand{\normalsize}{\@setfontsize\normalsize\@xipt{13.6}}
+\normalsize
+
+\providecommand{\section}{}
+\renewcommand{\section}{\@startsection{section}{1}{\z@}
+  {-2.2ex \@plus -0.5ex \@minus -0.2ex}{1.2ex \@plus 0.3ex \@minus 0.2ex}
+  {\normalsize\sffamily\bfseries\MakeUppercase}}
+\providecommand{\subsection}{}
+\renewcommand{\subsection}{\@startsection{subsection}{2}{\z@}
+  {-1.6ex \@plus -0.4ex \@minus -0.2ex}{0.6ex \@plus 0.2ex}
+  {\normalsize\sffamily\itshape}}
+
+\setlength{\parindent}{1.2em}
+\setlength{\parskip}{3\p@}
+
+\providecommand{\maketitle}{}
+\renewcommand{\maketitle}{\par\begingroup
+  \thispagestyle{empty}\@maketitle\endgroup
+  \let\maketitle\relax}
+
+\providecommand{\@maketitle}{}
+\renewcommand{\@maketitle}{\vbox{\hsize\textwidth \linewidth\hsize
+  \vskip 0.05in \centering
+  {\sffamily\small\color{journalred} RESEARCH ARTICLE}\vskip 0.2in
+  {\LARGE\bfseries\@title\par}\vskip 0.3in
+  \begin{tabular}[t]{c}\@author\end{tabular}\\[0.4em]
+  {\small\@date}\vskip 0.2in
+  \hrule height 0.4pt
+  \vskip 0.1in}}
+
+\renewenvironment{abstract}
+  {\par\noindent\rule{\textwidth}{0.4pt}\vskip 0.2em
+   \noindent{\sffamily\bfseries\small ABSTRACT}\par\vskip 0.4em\begin{quote}\small}
+  {\end{quote}\vskip 0.2em\noindent\rule{\textwidth}{0.4pt}\normalsize}
+
+\endinput
