@@ -1,0 +1,64 @@
+% Style file - Minimalist slim single column
+\NeedsTeXFormat{LaTeX2e}
+\ProcessOptions\relax
+
+\renewcommand{\rmdefault}{bch}
+\renewcommand{\sfdefault}{phv}
+
+\usepackage[verbose=true,letterpaper]{geometry}
+\AtBeginDocument{
+  \newgeometry{textheight=9.2in,textwidth=6.0in,top=1in,headheight=14pt,headsep=22pt,footskip=30pt}
+}
+
+\widowpenalty=10000
+\clubpenalty=10000
+\flushbottom
+\sloppy
+
+\newcommand{\headeright}{}
+\newcommand{\shorttitle}{\@title}
+
+\usepackage{fancyhdr}
+\fancyhf{}
+\pagestyle{fancy}
+\renewcommand{\headrulewidth}{0pt}
+\fancyheadoffset{0pt}
+\cfoot{\footnotesize \thepage}
+
+\def\keywordname{{\scshape Keywords}}%
+\def\keywords#1{\par\addvspace\medskipamount{\rightskip=0pt plus1cm
+\def\and{\ifhmode\unskip\nobreak\fi\ \textperiodcentered\
+}\noindent\keywordname\enspace\ignorespaces#1\par}}
+
+\renewcommand{\normalsize}{\@setfontsize\normalsize\@xipt{14}}
+\normalsize
+
+\providecommand{\section}{}
+\renewcommand{\section}{\@startsection{section}{1}{\z@}
+  {-2.2ex \@plus -0.5ex \@minus -0.2ex}{1.0ex \@plus 0.3ex}
+  {\normalsize\scshape\raggedright}}
+\providecommand{\subsection}{}
+\renewcommand{\subsection}{\@startsection{subsection}{2}{\z@}
+  {-1.6ex \@plus -0.4ex \@minus -0.2ex}{0.6ex \@plus 0.2ex}
+  {\small\scshape\raggedright}}
+
+\setlength{\parindent}{\z@}
+\setlength{\parskip}{6\p@}
+
+\providecommand{\maketitle}{}
+\renewcommand{\maketitle}{\par\begingroup
+  \thispagestyle{empty}\@maketitle\endgroup
+  \let\maketitle\relax}
+
+\providecommand{\@maketitle}{}
+\renewcommand{\@maketitle}{\vbox{\hsize\textwidth \linewidth\hsize
+  \vskip 0.6in \raggedright
+  {\LARGE\@title\par}\vskip 0.4in
+  {\@author}\vskip 0.05in
+  {\small\itshape\@date}\vskip 0.4in}}
+
+\renewenvironment{abstract}
+  {\par\noindent{\scshape Abstract.}\enspace\itshape\ignorespaces}
+  {\par\upshape}
+
+\endinput
