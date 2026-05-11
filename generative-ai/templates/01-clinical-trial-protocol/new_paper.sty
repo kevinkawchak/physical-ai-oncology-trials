@@ -1,0 +1,80 @@
+% Style file - Classic single column academic article
+% Adapted from arxiv-style by Joaquin Rapela (2024).
+% License: CC BY 4.0.
+\NeedsTeXFormat{LaTeX2e}
+\ProcessOptions\relax
+
+\renewcommand{\rmdefault}{ptm}
+\renewcommand{\sfdefault}{phv}
+
+\usepackage[verbose=true,letterpaper]{geometry}
+\AtBeginDocument{
+  \newgeometry{textheight=9in,textwidth=6.5in,top=1in,headheight=14pt,headsep=20pt,footskip=30pt}
+}
+
+\widowpenalty=10000
+\clubpenalty=10000
+\displaywidowpenalty=10000
+\brokenpenalty=10000
+\flushbottom
+\sloppy
+
+\newcommand{\headeright}{}
+\newcommand{\undertitle}{}
+\newcommand{\shorttitle}{\@title}
+
+\usepackage{fancyhdr}
+\fancyhf{}
+\pagestyle{fancy}
+\renewcommand{\headrulewidth}{0.4pt}
+\fancyheadoffset{0pt}
+\rhead{\scshape \footnotesize \headeright}
+\chead{\shorttitle}
+\cfoot{\thepage}
+
+\def\keywordname{{\bfseries \emph{Keywords}}}%
+\def\keywords#1{\par\addvspace\medskipamount{\rightskip=0pt plus1cm
+\def\and{\ifhmode\unskip\nobreak\fi\ $\cdot$
+}\noindent\keywordname\enspace\ignorespaces#1\par}}
+
+\renewcommand{\normalsize}{\@setfontsize\normalsize\@xipt{13.5}}
+\normalsize
+
+\providecommand{\section}{}
+\renewcommand{\section}{\@startsection{section}{1}{\z@}
+  {-2.0ex \@plus -0.5ex \@minus -0.2ex}{ 1.5ex \@plus 0.3ex \@minus 0.2ex}
+  {\large\bf\raggedright}}
+\providecommand{\subsection}{}
+\renewcommand{\subsection}{\@startsection{subsection}{2}{\z@}
+  {-1.8ex \@plus -0.5ex \@minus -0.2ex}{ 0.8ex \@plus 0.2ex}
+  {\normalsize\bf\raggedright}}
+\providecommand{\subsubsection}{}
+\renewcommand{\subsubsection}{\@startsection{subsubsection}{3}{\z@}
+  {-1.5ex \@plus -0.5ex \@minus -0.2ex}{ 0.5ex \@plus 0.2ex}
+  {\normalsize\bf\raggedright}}
+
+\setlength{\parindent}{\z@}
+\setlength{\parskip}{5.5\p@}
+
+\providecommand{\maketitle}{}
+\renewcommand{\maketitle}{\par\begingroup
+  \renewcommand{\thefootnote}{\fnsymbol{footnote}}
+  \thispagestyle{empty}\@maketitle\@thanks\endgroup
+  \let\maketitle\relax\let\thanks\relax}
+
+\newcommand{\@toptitlebar}{\hrule height 2\p@ \vskip 0.25in \vskip -\parskip}
+\newcommand{\@bottomtitlebar}{\vskip 0.29in \vskip -\parskip \hrule height 2\p@ \vskip 0.09in}
+
+\providecommand{\@maketitle}{}
+\renewcommand{\@maketitle}{\vbox{\hsize\textwidth \linewidth\hsize
+  \vskip 0.1in \@toptitlebar \centering
+  {\LARGE\sc \@title\par}\@bottomtitlebar
+  \textsc{\undertitle}\\\vskip -0.2in
+  \begin{tabular}[t]{c}\bf\rule{\z@}{24\p@}\@author\end{tabular}
+  \vskip 0.0in \@minus 0.1in \center{\@date} \vskip 0.1in}}
+
+\renewenvironment{abstract}
+  {\centerline{\large \bfseries \scshape Abstract}\begin{quote}}
+  {\end{quote}}
+
+\endinput
