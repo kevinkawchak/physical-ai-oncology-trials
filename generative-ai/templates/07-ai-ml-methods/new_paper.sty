@@ -1,0 +1,72 @@
+% Style file - Technical style single column
+\NeedsTeXFormat{LaTeX2e}
+\ProcessOptions\relax
+
+\renewcommand{\rmdefault}{ptm}
+\renewcommand{\sfdefault}{phv}
+\renewcommand{\ttdefault}{pcr}
+
+\usepackage[verbose=true,letterpaper]{geometry}
+\AtBeginDocument{
+  \newgeometry{textheight=9in,textwidth=6.5in,top=1in,headheight=14pt,headsep=18pt,footskip=28pt}
+}
+
+\definecolor{techgreen}{HTML}{1F3D2F}
+\definecolor{techgray}{gray}{0.32}
+
+\widowpenalty=10000
+\clubpenalty=10000
+\flushbottom
+\sloppy
+
+\newcommand{\headeright}{}
+\newcommand{\shorttitle}{\@title}
+
+\usepackage{fancyhdr}
+\fancyhf{}
+\pagestyle{fancy}
+\renewcommand{\headrulewidth}{0.4pt}
+\fancyheadoffset{0pt}
+\lhead{\ttfamily\footnotesize\shorttitle}
+\rhead{\ttfamily\footnotesize p.\thepage}
+\cfoot{}
+
+\def\keywordname{{\ttfamily\bfseries Keywords::}}%
+\def\keywords#1{\par\addvspace\medskipamount{\rightskip=0pt plus1cm
+\def\and{\ifhmode\unskip\nobreak\fi\ |\
+}\noindent\keywordname\enspace\ignorespaces#1\par}}
+
+\renewcommand{\normalsize}{\@setfontsize\normalsize\@xipt{13.5}}
+\normalsize
+
+\providecommand{\section}{}
+\renewcommand{\section}{\@startsection{section}{1}{\z@}
+  {-2.2ex \@plus -0.5ex \@minus -0.2ex}{1.3ex \@plus 0.3ex \@minus 0.2ex}
+  {\large\ttfamily\bfseries\raggedright}}
+\providecommand{\subsection}{}
+\renewcommand{\subsection}{\@startsection{subsection}{2}{\z@}
+  {-1.6ex \@plus -0.4ex \@minus -0.2ex}{0.6ex \@plus 0.2ex}
+  {\normalsize\ttfamily\bfseries\raggedright}}
+
+\setlength{\parindent}{\z@}
+\setlength{\parskip}{5.5\p@}
+
+\providecommand{\maketitle}{}
+\renewcommand{\maketitle}{\par\begingroup
+  \thispagestyle{empty}\@maketitle\endgroup
+  \let\maketitle\relax}
+
+\providecommand{\@maketitle}{}
+\renewcommand{\@maketitle}{\vbox{\hsize\textwidth \linewidth\hsize
+  \vskip 0.05in
+  \begin{flushleft}\ttfamily\color{techgray}\small\#\,article|template|v1.0\end{flushleft}
+  \vskip 0.1in
+  {\LARGE\sffamily\bfseries\@title\par}\vskip 0.2in
+  {\@author}\vskip 0.05in
+  {\small\@date}\vskip 0.2in \hrule height 0.6pt \vskip 0.1in}}
+
+\renewenvironment{abstract}
+  {\par\noindent{\ttfamily\bfseries Abstract.}\enspace\begin{quote}}
+  {\end{quote}}
+
+\endinput
