@@ -1,0 +1,71 @@
+% Style file - Bold display single column
+\NeedsTeXFormat{LaTeX2e}
+\ProcessOptions\relax
+
+\renewcommand{\rmdefault}{ptm}
+\renewcommand{\sfdefault}{phv}
+
+\usepackage[verbose=true,letterpaper]{geometry}
+\AtBeginDocument{
+  \newgeometry{textheight=9in,textwidth=6.5in,top=1.1in,headheight=14pt,headsep=20pt,footskip=30pt}
+}
+
+\definecolor{gray70}{gray}{0.30}
+\definecolor{gray85}{gray}{0.55}
+
+\widowpenalty=10000
+\clubpenalty=10000
+\flushbottom
+\sloppy
+
+\newcommand{\headeright}{}
+\newcommand{\shorttitle}{\@title}
+
+\usepackage{fancyhdr}
+\fancyhf{}
+\pagestyle{fancy}
+\renewcommand{\headrulewidth}{1.2pt}
+\fancyheadoffset{0pt}
+\lhead{\bfseries\sffamily\footnotesize \shorttitle}
+\rhead{\bfseries\sffamily\footnotesize \thepage}
+\cfoot{}
+
+\def\keywordname{{\sffamily\bfseries Keywords}}%
+\def\keywords#1{\par\addvspace\medskipamount{\rightskip=0pt plus1cm
+\def\and{\ifhmode\unskip\nobreak\fi\ \textbullet\
+}\noindent\keywordname\enspace\ignorespaces#1\par}}
+
+\renewcommand{\normalsize}{\@setfontsize\normalsize\@xipt{13.5}}
+\normalsize
+
+\providecommand{\section}{}
+\renewcommand{\section}{\@startsection{section}{1}{\z@}
+  {-2.4ex \@plus -0.5ex \@minus -0.2ex}{1.4ex \@plus 0.3ex \@minus 0.2ex}
+  {\Large\sffamily\bfseries\raggedright}}
+\providecommand{\subsection}{}
+\renewcommand{\subsection}{\@startsection{subsection}{2}{\z@}
+  {-1.8ex \@plus -0.4ex \@minus -0.2ex}{0.7ex \@plus 0.2ex}
+  {\large\sffamily\bfseries\raggedright}}
+
+\setlength{\parindent}{\z@}
+\setlength{\parskip}{5.5\p@}
+
+\providecommand{\maketitle}{}
+\renewcommand{\maketitle}{\par\begingroup
+  \thispagestyle{empty}\@maketitle\endgroup
+  \let\maketitle\relax}
+
+\providecommand{\@maketitle}{}
+\renewcommand{\@maketitle}{\vbox{\hsize\textwidth \linewidth\hsize
+  \vskip 0.05in
+  \raggedright
+  {\sffamily\bfseries\fontsize{22pt}{26pt}\selectfont\@title\par}\vskip 0.25in
+  {\sffamily\large\@author}\vskip 0.06in
+  {\sffamily\small\color{gray70}\@date}\vskip 0.18in
+  {\color{gray85}\hrule height 0.6pt}\vskip 0.1in}}
+
+\renewenvironment{abstract}
+  {\par\noindent{\sffamily\bfseries\large Abstract}\par\vskip 0.4em\begin{quote}\itshape}
+  {\end{quote}\upshape}
+
+\endinput
