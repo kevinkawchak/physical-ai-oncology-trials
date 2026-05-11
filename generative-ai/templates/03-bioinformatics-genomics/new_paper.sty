@@ -1,0 +1,69 @@
+% Style file - MDPI-inspired clean single column
+\NeedsTeXFormat{LaTeX2e}
+\ProcessOptions\relax
+
+\renewcommand{\rmdefault}{ptm}
+\renewcommand{\sfdefault}{phv}
+
+\usepackage[verbose=true,letterpaper]{geometry}
+\AtBeginDocument{
+  \newgeometry{textheight=9.25in,textwidth=6.5in,top=0.9in,headheight=14pt,headsep=18pt,footskip=28pt}
+}
+
+\definecolor{mdpiteal}{HTML}{1F6F8B}
+
+\widowpenalty=10000
+\clubpenalty=10000
+\flushbottom
+\sloppy
+
+\newcommand{\headeright}{}
+\newcommand{\shorttitle}{\@title}
+
+\usepackage{fancyhdr}
+\fancyhf{}
+\pagestyle{fancy}
+\renewcommand{\headrulewidth}{0.4pt}
+\fancyheadoffset{0pt}
+\lhead{\footnotesize\itshape\shorttitle}
+\rhead{\footnotesize Page \thepage}
+\cfoot{}
+
+\def\keywordname{{\bfseries Keywords:}}%
+\def\keywords#1{\par\addvspace\medskipamount{\rightskip=0pt plus1cm
+\def\and{\ifhmode\unskip\nobreak\fi\ ;\
+}\noindent\keywordname\enspace\ignorespaces#1\par}}
+
+\renewcommand{\normalsize}{\@setfontsize\normalsize\@xipt{14}}
+\normalsize
+
+\providecommand{\section}{}
+\renewcommand{\section}{\@startsection{section}{1}{\z@}
+  {-2.4ex \@plus -0.5ex \@minus -0.2ex}{1.5ex \@plus 0.3ex \@minus 0.2ex}
+  {\large\bfseries\raggedright}}
+\providecommand{\subsection}{}
+\renewcommand{\subsection}{\@startsection{subsection}{2}{\z@}
+  {-1.8ex \@plus -0.5ex \@minus -0.2ex}{0.8ex \@plus 0.2ex}
+  {\normalsize\bfseries\itshape\raggedright}}
+
+\setlength{\parindent}{\z@}
+\setlength{\parskip}{5\p@}
+
+\providecommand{\maketitle}{}
+\renewcommand{\maketitle}{\par\begingroup
+  \thispagestyle{empty}\@maketitle\endgroup
+  \let\maketitle\relax}
+
+\providecommand{\@maketitle}{}
+\renewcommand{\@maketitle}{\vbox{\hsize\textwidth \linewidth\hsize
+  \vskip 0.05in \raggedright
+  {\Large\bfseries\@title\par}\vskip 0.25in
+  \begin{tabular}[t]{@{}l@{}}\@author\end{tabular}\\[0.5em]
+  {\small\itshape Received: \@date\hspace{1.2em} Accepted: \@date\hspace{1.2em} Published: \@date}
+  \vskip 0.18in \hrule height 0.4pt \vskip 0.1in}}
+
+\renewenvironment{abstract}
+  {\par\noindent{\bfseries Abstract:} \itshape\begin{quote}}
+  {\end{quote}\upshape}
+
+\endinput
