@@ -25,6 +25,7 @@ Format follows [Keep a Changelog](https://keepachangelog.com/).
 - README.md - Updated version badge to v3.9.1; added the 5/10 v3.9.1 release block above the 5/9 v3.9.0 release block; added a v3.9.1 Glioblastoma 1-Minute Variant Instructions architecture diagram block above the v3.9.0 architecture diagram block; extended the Repository Structure tree under competitions/instructions/ with the one_minute_variant/ subdirectory listing all 12 variant instruction files
 - CHANGELOG.md - Added [3.9.1] - 2026-05-10 entry above [3.9.0] - 2026-05-09
 - releases.md - Added v3.9.1 Glioblastoma 1-Minute Variant Instructions release notes above v3.9.0 Glioblastoma Robotic Surgery Simulation Instructions
+- @kevinkawchak fixed README.md file ASCII diagrams in main/, new-trial/, and sponsor/ on 2026-17-2026.
 
 ### Notes
 - All additions are Markdown only; no Python, YAML, or other CI-checked files are introduced outside of markdown code blocks. The lint-and-format CI workflow (ruff format check, ruff check, yamllint) on Python 3.10, 3.11, and 3.12 remains green
