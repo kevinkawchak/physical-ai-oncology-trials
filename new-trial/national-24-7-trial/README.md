@@ -129,18 +129,18 @@ the bracketed instructions into final prose to produce a 70+ page PDF.
 ## Continuous Trial Model
 
 ```
-+--------------------------------------------------------------+
-|                    CONTINUOUS RTCT LOOP                      |
-|                                                              |
-|   [Patient arrival] -> [Robot orchestration] -> [Procedure]  |
-|         ^                                              |     |
-|         |                                              v     |
-|   [Real-time     <- [FDA signal stream] <- [Safety signals]  |
-|    re-enrollment]    via Paradigm Health                     |
-|                      framework                               |
-|                                                              |
-|   1-minute resolution | 1-hour commit cadence | indefinite   |
-+--------------------------------------------------------------+
++----------------------------------------------------------------+
+|                    CONTINUOUS RTCT LOOP                        |
+|                                                                |
+|   [Patient arrival] -> [Robot orchestration] -> [Procedure]    |
+|         ^                                              |       |
+|         |                                              v       | 
+|   [Real-time     <- [FDA signal stream] <- [Safety signals]    |
+|    re-enrollment]    via Paradigm Health                       |
+|                      framework                                 |
+|                                                                |
+|   1-minute resolution | 1-hour commit cadence | indefinite     |
++----------------------------------------------------------------+
 ```
 
 ## Real-Time Commit Cadence
