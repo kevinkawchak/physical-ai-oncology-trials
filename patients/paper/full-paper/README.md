@@ -131,39 +131,39 @@ entry) has been removed.
 ## Bill Architecture (ASCII)
 
 ```
-+------------------------------------------------------------+
-|         Patient Priority Paper - 7 Bill Structure          |
-+------------------------------------------------------------+
-|                                                            |
-|  [Title Page + Table of Contents]                          |
-|                                                            |
-|  Section 1: HR 9501 - Cancer Patient Self-Selection        |
-|             (Trial discovery, 24/7 booking)                |
-|  Section 2: HR 9502 - Cancer Patient Robot/Humanoid Choice |
-|             (10 robot categories, USL transparency)        |
-|  Section 3: HR 9503 - Cancer Patient Procedural            |
-|             Modification Authority                         |
-|             (Real-time consent updates within 5 minutes)   |
-|  Section 4: HR 9504 - Physical AI Clinical Error Reduction |
-|             (Per-task error rate publication)              |
-|             (Patient-initiated AI second opinion)          |
-|  Section 5: HR 9505 - Real-Time Patient-Sponsor Direct     |
-|             Communication                                  |
-|             (1-hour acknowledgment, FDA RTCT extension)    |
-|  Section 6: HR 9506 - American Physical AI Oncology        |
-|             Leadership Act                                 |
-|             (American Leadership Index, 50-state coverage) |
-|  Section 7: HR 9507 - Cancer Patient Health Data           |
-|             Self-Custody and Trial-Selection               |
-|             (Same-day pathology, FHIR export at zero cost) |
-|                                                            |
-|  References                                                |
-|  Acknowledgments                                           |
-|  Ethical disclosures                                       |
-|  Rights and permissions                                    |
-|  Cite this article                                         |
-|                                                            |
-+------------------------------------------------------------+
++-------------------------------------------------------------+
+|         Patient Priority Paper - 7 Bill Structure           |
++-------------------------------------------------------------+
+|                                                             |
+|  [Title Page + Table of Contents]                           |
+|                                                             |
+|  Section 1: HR 9501 - Cancer Patient Self-Selection         |
+|             (Trial discovery, 24/7 booking)                 |
+|  Section 2: HR 9502 - Cancer Patient Robot/Humanoid Choice  |
+|             (10 robot categories, USL transparency)         |
+|  Section 3: HR 9503 - Cancer Patient Procedural             |
+|             Modification Authority                          |
+|             (Real-time consent updates within 5 minutes)    |
+|  Section 4: HR 9504 - Physical AI Clinical Error Reduction  |
+|             (Per-task error rate publication)               |
+|             (Patient-initiated AI second opinion)           |
+|  Section 5: HR 9505 - Real-Time Patient-Sponsor Direct      |
+|             Communication                                   |
+|             (1-hour acknowledgment, FDA RTCT extension)     |
+|  Section 6: HR 9506 - American Physical AI Oncology         |
+|             Leadership Act                                  |
+|             (American Leadership Index, 50-state coverage)  |
+|  Section 7: HR 9507 - Cancer Patient Health Data            |
+|             Self-Custody and Trial-Selection                |
+|             (Same-day pathology, FHIR export at zero cost)  |
+|                                                             |
+|  References                                                 |
+|  Acknowledgments                                            |
+|  Ethical disclosures                                        |
+|  Rights and permissions                                     |
+|  Cite this article                                          |
+|                                                             |
++-------------------------------------------------------------+
 ```
 
 ## Consolidation Mapping (v3.7.0 to v3.8.0)
