@@ -1,0 +1,130 @@
+%% ============================================================
+%% sections/a7-verification-economics.tex
+%% H. R. 9510 Bill v5.0 - APPENDIX B. VERIFICATION ECONOMICS AND FINANCIAL
+%% EVIDENCE (NON-OPERATIVE). The VVUQ-01/02 record read as a ledger.
+%% Rendered visuals: Figure 9 (Mermaid clustered component, unit economics,
+%% TikZ), Table 10 (per-gate unit-cost schedule), Table 11 (acceleration
+%% economics summary).
+%% ============================================================
+\clearpage
+\phantomsection\label{toc:a7}
+\addcontentsline{toc}{section}{Appendix B. Verification Economics and Financial Evidence (Non-Operative)}
+\usccrosshead{APPENDIX B. VERIFICATION ECONOMICS AND FINANCIAL EVIDENCE (NON-OPERATIVE)}
+
+\uscprov{1}{This appendix is non-operative. It reads the VVUQ-01 and VVUQ-02
+engineering record as a ledger: what one ten-gate verification run costs, how
+the unit cost composes into the cost per cleared interaction class, and how
+that compares with the conventional path the gate replaces. None of these
+figures is cited as the legal basis of an operative clause; all are
+illustrative or simulation results from the seed 20260525, and each row is
+traceable to a recorded test count or release range - the traceability test
+of Appendix C \cite{kawchak2026vvuq01, kawchak2026vvuq02}.}
+
+\uscprov{1}{The unit economics are simple because the gate is deterministic:
+cost in (compute for ten gates at three or more runs each, records storage,
+and human review only on an ESCALATE), one cleared interaction class out, and
+a ledger row written to the audit trail as section 515D(k) requires. Figure 9
+draws the pipeline; Table 10 prices it.}
+
+\begin{mermaidfig}
+\node[mmin,text width=26mm]  (c1) at (0,0)    {Compute\\10 gates, 3+ runs each};
+\node[mmin,text width=26mm]  (c2) at (0,-1.7) {Personnel\\review of ESCALATE only};
+\node[mmin,text width=26mm]  (c3) at (0,-3.4) {Records\\hash-chained storage};
+\node[mmstep,text width=28mm](g)  at (4.4,-1.7) {Ten-gate suite\\(verify, validate,\\quantify)};
+\node[mmlaw,text width=26mm] (u)  at (8.6,0)    {Unit cost per cleared\\interaction class};
+\node[mmlaw,text width=26mm] (l)  at (8.6,-1.7) {Cost ledger row\\(515D(k) record)};
+\node[mmgoal,text width=26mm](s)  at (8.6,-3.6) {Annual aggregate\\to the Secretary};
+\begin{scope}[on background layer]
+\node[mmlane,fit=(c1)(c2)(c3),label={[mmlanetitle]above:Cost inputs (illustrative)}] {};
+\node[mmlane,fit=(u)(l)(s),label={[mmlanetitle]above:Cost outputs}] {};
+\end{scope}
+\draw[mmedge] (c1) -- (g);
+\draw[mmedge] (c2) -- (g);
+\draw[mmedge] (c3) -- (g);
+\draw[mmedge] (g) -- (u);
+\draw[mmedge] (u) -- (l);
+\draw[mmedge] (l) -- (s);
+\end{mermaidfig}
+\vspace{-0.7cm}
+\figcaption{Figure 9. Unit economics of a ten-gate verification run: three cost inputs,\\one
+deterministic suite, and the three cost outputs the bill makes load-bearing.}
+
+{\footnotesize
+\begin{xltabular}{\textwidth}{@{}L{8cm} Y R{1.9cm}@{}}
+\hline\noalign{\vskip 0.04cm}
+\textbf{Cost line (per cleared interaction class)} & \textbf{Traceable to} &
+\textbf{Illustr.\ (\$)}\\
+\hline\noalign{\vskip 0.04cm}
+\endfirsthead
+\hline\noalign{\vskip 0.04cm}
+\textbf{Cost line (per cleared interaction class)} & \textbf{Traceable to} &
+\textbf{Illustr.\ (\$)}\\
+\hline\noalign{\vskip 0.04cm}
+\endhead
+\hline\noalign{\vskip 0.04cm}
+\endlastfoot
+Gates 01-05 (servo, force, balance, plan, grasp) & Table 2 rows 01-05; VVUQ-02
+gate suite & 1,495\\
+\hline\noalign{\vskip 0.04cm}
+Gates 07, 08 (suturing, perception) & Table 2 rows 07-08 & 595\\
+\hline\noalign{\vskip 0.04cm}
+Hard-predicate gates 06, 09, 10 (no-fly, collision, fault) & Table 2 rows 06,
+09, 10; catastrophe sim. & 1,620\\
+\hline\noalign{\vskip 0.04cm}
+Ten-gate compute subtotal & Sum of the Table 2 cost column & 3,710\\
+\hline\noalign{\vskip 0.04cm}
+Hash-chained records storage & 515D(e); 21 CFR part 11 trail & 240\\
+\hline\noalign{\vskip 0.04cm}
+Human review, amortized over ESCALATE rate & VVUQ-01 1-in-6 ESCALATE surface &
+470\\
+\hline\noalign{\vskip 0.04cm}
+\textbf{Cost per cleared interaction class} & The 515D(k) ledger row &
+\textbf{4,420}\\
+\hline
+\end{xltabular}}
+\vspace{-0.7cm}
+\figcaption{Table 10. The per-gate verification unit-cost schedule (illustrative,
+seed 20260525): the\\Table 2 cost column composed into the cost per cleared
+interaction class, with the three \\hard-predicate gates carrying the
+catastrophe-simulation premium. The 1,495 + 595 +\\ 1,620 equals the 3,710 subtotal; with records and review the class clears at 4,420 dollars.}
+
+\uscprov{1}{At program-year terms the comparison with the conventional path is
+the financial case of finding (d). Operating the automated suite across an
+investigation year - including re-verification on every change - costs
+illustratively 155,000 dollars, against the 3,000,000 dollar conventional
+ledger of Figure 2: a nineteen-fold reduction, with the four-work build
+record itself (48,400 dollars, Table 1) a one-time cost smaller than two
+percent of one conventional program-year. Table 11 reconciles the columns.}
+
+{\footnotesize
+\begin{xltabular}{\textwidth}{@{}Y R{2.6cm} R{2.6cm}@{}}
+\hline\noalign{\vskip 0.04cm}
+\textbf{Program-year line (illustrative)} & \textbf{Conventional (\$)} &
+\textbf{Automated gate (\$)}\\
+\hline\noalign{\vskip 0.04cm}
+\endfirsthead
+\hline\noalign{\vskip 0.04cm}
+\textbf{Program-year line (illustrative)} & \textbf{Conventional (\$)} &
+\textbf{Automated gate (\$)}\\
+\hline\noalign{\vskip 0.04cm}
+\endhead
+\hline\noalign{\vskip 0.04cm}
+\endlastfoot
+Manual code review / suite operation & 1,800,000 & 96,000\\
+\hline\noalign{\vskip 0.04cm}
+Serial V\&V cycles / records and storage & 640,000 & 18,000\\
+\hline\noalign{\vskip 0.04cm}
+Re-review after each change / ESCALATE review & 310,000 & 41,000\\
+\hline\noalign{\vskip 0.04cm}
+Counsel and drafting overhead & 250,000 & -\\
+\hline\noalign{\vskip 0.04cm}
+\textbf{Total per program-year} & \textbf{3,000,000} & \textbf{155,000}\\
+\hline\noalign{\vskip 0.04cm}
+One-time four-work build record (Table 1) & - & 48,400\\
+\hline
+\end{xltabular}}
+\vspace{-0.75cm}
+\figcaption{Table 11. Acceleration economics summary (illustrative): the
+conventional program-year ledger of\\Figure 2 beside the automated-gate
+program-year, a nineteen-fold reduction, with the one-time\\four-work build
+cost carried for completeness. Right-aligned R columns; every column sums.}

@@ -1,0 +1,203 @@
+%% ============================================================
+%% sections/s5-financial.tex
+%% H. R. 9510 Bill v5.0 - SEC. 5. FINANCIAL DATA TRANSPARENCY; USER FEES;
+%% AUTHORIZATION OF APPROPRIATIONS; BUDGETARY EFFECTS. The operative financial
+%% core, NEW in v5.0.
+%% Rendered visuals: Table 5 (financial-data elements dictionary), Figure 6
+%% (Mermaid sequence, the annual reporting flow, TikZ), Table 6 (authorization
+%% of appropriations schedule, R columns), Figure 7 (ASCII money flow), and
+%% the boxed budgetary-effects clause (billbox).
+%% ============================================================
+% \clearpage
+\billsec{SEC. 5.}{FINANCIAL DATA TRANSPARENCY; USER FEES; AUTHORIZATION OF
+APPROPRIATIONS; BUDGETARY EFFECTS.}\phantomsection\label{toc:s5}
+
+\uscprov{1}{\textbf{(a) Financial Data Transparency.}}
+\uscprov{2}{\textbf{(1) Annual Publication.} The Secretary shall publish,
+annually and in de-identified aggregate form, the verification cost records
+reported under section 515D(k) of the Federal Food, Drug, and Cosmetic Act, in
+the manner of the transparency reports under section 1128G of the Social
+Security Act (42 U.S.C. 1320a-7h), so that the cost of safety assurance in
+Physical AI oncology clinical investigations is public financial data
+\cite{usc-open-payments, cfr-403-subpart-i}.}
+\uscprov{2}{\textbf{(2) Content and Limits.} Each annual summary shall state,
+for each interaction class and fiscal year, the number of verification runs,
+the aggregate and per-run direct cost, the share attributable to the
+hard-catastrophe-predicate gates, and the human-review cost occasioned by
+ESCALATE determinations; and shall contain no patient-identifiable
+information and no proprietary line-item information. Table 5 is the
+financial-data elements dictionary for this section.}
+
+\clearpage
+
+{\footnotesize
+\begin{xltabular}{\textwidth}{@{}L{4.4cm} L{2.3cm} Y L{2.2cm}@{}}
+\hline\noalign{\vskip 0.04cm}
+\textbf{Financial data element} & \textbf{Who files} & \textbf{Where it flows}
+& \textbf{Public form}\\
+\hline\noalign{\vskip 0.04cm}
+\endfirsthead
+\hline\noalign{\vskip 0.04cm}
+\textbf{Financial data element} & \textbf{Who files} & \textbf{Where it flows}
+& \textbf{Public form}\\
+\hline\noalign{\vskip 0.04cm}
+\endhead
+\hline\noalign{\vskip 0.04cm}
+\endlastfoot
+Verification cost record, per run (515D(k)(1)) & Sponsor & Hash-chained part 11
+audit trail & Not public (audit)\\
+\hline\noalign{\vskip 0.04cm}
+Fiscal-year aggregate of cost records (515D(k)(3)) & Sponsor & Annual report to
+the Secretary & De-identified aggregate\\
+\hline\noalign{\vskip 0.04cm}
+Annual cost summary by interaction class (SEC. 5(a)) & Secretary & Public
+summary, Open Payments manner & Public\\
+\hline\noalign{\vskip 0.04cm}
+Verification-service financial arrangements (SEC. 5(b)) & Sponsor and
+investigator & Part 54 certification, disclosure w/ application & Not
+public (review)\\
+\hline\noalign{\vskip 0.04cm}
+Implementation cost statement (SEC. 5(a)(3)) & Secretary & Annual budget
+justification to Congress & Public\\
+\hline\noalign{\vskip 0.04cm}
+Authorization and outlay series (SEC. 5(d); App. A) & Congress; CBO after
+introduction & Appropriations process; scorecards & Public\\
+\hline
+\end{xltabular}}
+\vspace{-0.725cm}
+\figcaption{Table 5. The financial-data elements dictionary: each element this
+Act creates or touches,\\who files it, where it flows, and its public form.
+Figure 6 draws the same flow in time order.}
+
+\uscprov{2}{\textbf{(3) Implementation Cost Statement.} The Secretary shall
+include, with the annual budget justification, a statement of the cost of
+carrying out section 515D and this section, in the controlled vocabulary of
+the Federal budget process \cite{gao-budget-glossary, omb-a11}.}
+
+\begin{mermaidfig}
+\node[mmin,text width=20mm]   (sp)  at (0,0)     {Sponsor};
+\node[mmstep,text width=20mm] (at)  at (3.0,0)   {Audit trail\\(part 11)};
+\node[mmlaw,text width=20mm]  (sec) at (6.0,0)   {Secretary\\(FDA)};
+\node[mmstep,text width=20mm] (pub) at (9.0,0)   {Public\\summary};
+\node[mmgoal,text width=20mm] (con) at (12.0,0)  {Congress};
+\draw[mmedged] (sp.south)  -- ++(0,-5.0);
+\draw[mmedged] (at.south)  -- ++(0,-5.0);
+\draw[mmedged] (sec.south) -- ++(0,-5.0);
+\draw[mmedged] (pub.south) -- ++(0,-5.0);
+\draw[mmedged] (con.south) -- ++(0,-5.0);
+\draw[mmedge] (0,-1.1)  -- node[mmlabel]{1. cost record per run (515D(k)(1))} (3.0,-1.1);
+\draw[mmedge] (0,-2.0)  -- node[mmlabel,pos=0.5]{2. annual fiscal-year report (515D(k)(3))} (6.0,-2.0);
+\draw[mmedge] (0,-2.9)  -- node[mmlabel,pos=0.5]{3. part 54-aligned disclosures (SEC. 5(b))} (6.0,-2.9);
+\draw[mmedge] (6.0,-3.8) -- node[mmlabel]{4. de-identified aggregate} (9.0,-3.8);
+\draw[mmedge] (6.0,-4.7) -- node[mmlabel,pos=0.62]{5. implementation cost statement} (12.0,-4.7);
+\end{mermaidfig}
+\vspace{-0.6cm}
+\figcaption{Figure 6. The annual financial-data reporting flow: the sponsor writes per-run cost records to the
+audit trail, reports the fiscal-year aggregate and the part 54-aligned
+disclosures to the Secretary, and the Secretary\\publishes the de-identified
+summary and delivers the implementation cost statement to Congress.}
+
+\uscprov{1}{\textbf{(b) Financial Disclosure Alignment.} The financial
+disclosure discipline of part 54 of title 21, Code of Federal Regulations
+(certification on Form FDA 3454 or disclosure on Form FDA 3455), shall apply
+to a financial arrangement between a sponsor and a provider of verification
+services under section 515D - including compensation affected by the outcome
+of a verification run, a proprietary interest in the verification process,
+and significant payments of other sorts - to the same extent as if the
+provider were a clinical investigator, so the entity that clears the code has
+no undisclosed stake in the clearance \cite{cfr-part54}.}
+
+\uscprov{1}{\textbf{(c) User-Fee Treatment.}}
+\uscprov{2}{\textbf{(1) No Fee for a Record Alone.} Section 738(a) of the
+Federal Food, Drug, and Cosmetic Act (21 U.S.C. 379j(a)) is amended by adding
+at the end the new paragraph (4) shown in the comparative print in section 4:
+no fee is assessed for the filing of a verification record, or of a
+verification cost record, under section 515D, and such a filing, alone, is
+not a submission \cite{usc-379j, usc-379i}.}
+\uscprov{2}{\textbf{(2) Sense of Congress on Reauthorization.} It is the sense
+of Congress that any incremental review workload attributable to verification
+records should be priced through the next medical-device user-fee
+reauthorization - the successor to the Medical Device User Fee Amendments of
+2022, which authorize fees through fiscal year 2027 - rather than a statutory fee \cite{pl-mdufa5, fda-mdufa-rates}.}
+
+\uscprov{1}{\textbf{(d) Authorization of Appropriations.} There are authorized
+to be appropriated to the Secretary, for the Food and Drug Administration
+Salaries and Expenses account, to carry out section 515D and this section, the
+amounts set out in Table 6 - 18,000,000 dollars for fiscal year 2027,
+12,000,000 dollars for fiscal year 2028, 10,000,000 dollars for fiscal year
+2029, and 9,000,000 dollars for each of fiscal years 2030 and 2031, a total of
+58,000,000 dollars (amounts illustrative pending a formal estimate) - to
+remain available until expended. Amounts under this subsection are authorized,
+not appropriated; budget authority flows only when provided in an
+appropriations Act \cite{gao-budget-glossary}. Figure 7 maps the flow.}
+
+{\footnotesize
+\begin{xltabular}{\textwidth}{@{}Y R{1.35cm} R{1.35cm} R{1.35cm} R{1.35cm} R{1.35cm} R{1.1cm}@{}}
+\hline\noalign{\vskip 0.04cm}
+\textbf{Activity (\$ millions, illustrative)} & \textbf{FY27} & \textbf{FY28} &
+\textbf{FY29} & \textbf{FY30} & \textbf{FY31} & \textbf{Total}\\
+\hline\noalign{\vskip 0.04cm}
+\endfirsthead
+\hline\noalign{\vskip 0.04cm}
+\textbf{Activity (\$ millions, illustrative)} & \textbf{FY27} & \textbf{FY28} &
+\textbf{FY29} & \textbf{FY30} & \textbf{FY31} & \textbf{Total}\\
+\hline\noalign{\vskip 0.04cm}
+\endhead
+\hline\noalign{\vskip 0.04cm}
+\endlastfoot
+Rulemaking under section 515D(h) & 4.0 & 2.0 & 0.5 & 0.5 & 0.5 & 7.5\\
+\hline\noalign{\vskip 0.04cm}
+Verification-records system (build, operate) & 9.0 & 6.0 & 4.5 & 3.0 &
+3.0 & 25.5\\
+\hline\noalign{\vskip 0.04cm}
+Sequencing inspections and record review & 3.0 & 2.5 & 3.5 & 4.0 & 4.0 &
+17.0\\
+\hline\noalign{\vskip 0.04cm}
+Annual de-identified cost summaries & 2.0 & 1.5 & 1.5 & 1.5 & 1.5 & 8.0\\
+\hline\noalign{\vskip 0.04cm}
+\textbf{Total authorized} & \textbf{18.0} & \textbf{12.0} & \textbf{10.0} &
+\textbf{9.0} & \textbf{9.0} & \textbf{58.0}\\
+\hline
+\end{xltabular}}
+\vspace{-0.5cm}
+\figcaption{Table 6. The authorization of appropriations schedule by activity
+and fiscal year (dollars\\in millions, illustrative pending a formal estimate;
+right-aligned R columns). Every\\column and row sums; Appendix A converts this
+budget authority to estimated outlays.}
+
+\begin{asciifig}
+            HOW SECTION 515D IMPLEMENTATION IS PAID FOR (SEC. 5)
+
+Congress: annual appropriations          Industry: MDUFA user fees
+(authorized by SEC. 5(d))                (21 U.S.C. 379i-379j, unchanged)
+             |                                        |
+             |  budget authority                      |  fee revenue
+             v                                        v
++-----------------------------------------------------------------------+
+|                     FDA device program (S&E account)                  |
++-----------------------------------------------------------------------+
+    |                    |                    |                 |
+    v                    v                    v                 v
+rulemaking         verification          sequencing       annual public
+515D(h)            records (FY27-28      inspections      cost summaries
+(FY27 heavy)       build, then O&M)      (steady state)   (de-identified)
+                      
+NOT permitted: a new statutory fee for filing a verification record
+(SEC. 5(c)); pricing belongs to the MDUFA VI negotiation (by 10/2027)
+\end{asciifig}
+\vspace{-0.4cm}
+\figcaption{Figure 7. The money flow (ASCII): the two funding sources, the
+account they meet in,\\the four activities of Table 6 they pay for, and the
+fee treatment boundary SEC. 5(c) draws.}
+
+\uscprov{1}{\textbf{(e) Budgetary Effects.} This Act creates no direct
+spending and no revenue effect; its costs are subject to appropriations. For
+scorekeeping, the Act carries the standard clause \cite{usc-paygo-2010,
+house-rule-xxi}:}
+
+\billbox{\textbf{Budgetary Effects.} The budgetary effects of this Act, for
+the purpose of complying with the Statutory Pay-As-You-Go Act of 2010, shall
+be determined by reference to the latest statement titled ``Budgetary Effects
+of PAYGO Legislation'' for this Act, submitted for printing in the
+Congressional Record by the Chairman of the House Committee on the Budget,
+provided that such statement has been submitted prior to the vote on passage.}

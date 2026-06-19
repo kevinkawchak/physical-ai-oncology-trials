@@ -1,0 +1,420 @@
+% ============================================================
+% usctitle.sty
+% Style file for H. R. 9510 Bill v5.0 (single-prompt-bill, auto-bill-02).
+%   THE FINANCIAL DATA AMENDMENT to the Federal Food, Drug, and Cosmetic Act
+%   (21 U.S.C. 301 et seq.), built on the Title 21 device provisions current
+%   through Public Law 119-93.
+%
+% WHAT THIS STYLE IS. It MERGES the two ancestor styles, per the Stage 2
+% template selection: the VVUQ-05 final-bill style (v3.1.0), which contributes
+% the United States Code look and feel, the congressional amendment apparatus,
+% the full-width ragged-right table columns, and the centered white-background
+% ASCII figure primitives (asciifig, asciifigsmall); and the auto-bill-01
+% final-bill style (v4.0.0), which contributes the gray-scale Mermaid figure
+% rendered natively in TikZ (mermaidfig and the mm* node styles) and the boxed
+% statement device (billbox). New for v5.0: a right-aligned numeric column type
+% R{<width>} so fiscal-year dollar columns align on the right in the financial
+% tables. The three permitted media - tables, ASCII, gray-scale Mermaid as
+% TikZ - therefore share one set of primitives, one white background, and one
+% centered black-ruled frame. No raster images anywhere.
+%
+% Senior-author formatting required by the task is centralized here:
+%   - body text is RaggedRight (ragged2e) with a small RaggedRightRightskip
+%     stretch so interword spacing is even, with no rivers, no large gaps, and
+%     no line running off the right margin;
+%   - widow, orphan, and broken-line penalties are maximal so no single line is
+%     stranded and no one- or two-word last line is left behind;
+%   - the running header is abbreviated so no two fields overlap;
+%   - long reference URLs break on any character so no link runs off the page;
+%   - left-aligned ragged-right fixed-width columns (L and ragcol), a flexible
+%     ragged-right column (Y), and the right-aligned numeric column (R) set
+%     every table to the body measure;
+%   - every background is white; black rules only;
+%   - single hyphens only; the section symbol for every codified reference.
+% ============================================================
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{usctitle}[2026/06/09 v5.1.0 Food, Drug, and Cosmetic Act financial data amendment style (full bill)]
+
+% - Times-like serif body to match the printed United States Code. newtx is
+%   standard on Overleaf; on a minimal install substitute \usepackage{mathptmx}. -
+\RequirePackage{newtxtext}
+\RequirePackage{newtxmath}
+
+% - Page geometry: letter paper, statute-style measure. -
+\RequirePackage[letterpaper,top=1.0in,bottom=1.0in,left=1.1in,right=1.1in,%
+  headheight=15pt,headsep=18pt,footskip=24pt]{geometry}
+
+% - Color, encodings, and the typesetting helpers. -
+\RequirePackage{xcolor}
+\RequirePackage[T1]{fontenc}
+\RequirePackage[utf8]{inputenc}
+\RequirePackage{textcomp}
+\RequirePackage[protrusion=true,expansion=false]{microtype}
+\RequirePackage{array}
+\RequirePackage{longtable}
+\RequirePackage{tabularx}
+\RequirePackage{xltabular}
+\RequirePackage{ragged2e}
+\RequirePackage{needspace}
+\RequirePackage{enumitem}
+\RequirePackage{fancyvrb}
+
+% - TikZ for the gray-scale Mermaid figures (no external image is used). -
+\RequirePackage{tikz}
+\usetikzlibrary{shapes.geometric,arrows.meta,positioning,fit,backgrounds,calc}
+
+% - Hyperref for PDF bookmarks and the clickable contents; links are black. -
+\RequirePackage[hidelinks,pdfusetitle]{hyperref}
+\RequirePackage{url}
+
+% - White background everywhere; black rules only. -
+\definecolor{billwhite}{rgb}{1,1,1}
+\definecolor{billblack}{rgb}{0,0,0}
+\pagecolor{billwhite}
+
+% - Five-step gray-scale palette for the Mermaid figures: lightest for inputs
+%   and context, darkest for end goals and the bill, with decisions and money
+%   controls between (carried from the v4.0 style and the Stage 3 palette). -
+\definecolor{mmg1}{gray}{0.96}
+\definecolor{mmg2}{gray}{0.88}
+\definecolor{mmg3}{gray}{0.81}
+\definecolor{mmg4}{gray}{0.72}
+\definecolor{mmg5}{gray}{0.60}
+
+% - Even spacing, no right-margin overflow, no big interword gaps. -
+\tolerance=2000
+\emergencystretch=3em
+\hbadness=4000
+\hyphenpenalty=70
+\exhyphenpenalty=70
+\RaggedRight
+\setlength{\RaggedRightParindent}{0pt}
+\setlength{\RaggedRightRightskip}{0pt plus 2em}
+
+% - No stranded lines: maximal widow, orphan, and broken-line penalties. -
+\widowpenalty=10000
+\clubpenalty=10000
+\displaywidowpenalty=10000
+\brokenpenalty=10000
+\interlinepenalty=0
+\predisplaypenalty=10000
+\postdisplaypenalty=10000
+
+% - Break long URLs on any character so no reference link runs off the margin. -
+\def\UrlBreaks{\do\/\do-\do.\do=\do_\do?\do\&\do\%\do\#\do\:\do\a\do\b\do\c%
+\do\d\do\e\do\f\do\g\do\h\do\i\do\j\do\k\do\l\do\m\do\n\do\o\do\p\do\q\do\r%
+\do\s\do\t\do\u\do\v\do\w\do\x\do\y\do\z\do\A\do\B\do\C\do\D\do\E\do\F\do\G%
+\do\H\do\I\do\J\do\K\do\L\do\M\do\N\do\O\do\P\do\Q\do\R\do\S\do\T\do\U\do\V%
+\do\W\do\X\do\Y\do\Z\do\0\do\1\do\2\do\3\do\4\do\5\do\6\do\7\do\8\do\9}
+\Urlmuskip=0mu plus 3mu\relax
+
+% The ieeetr bibliography style lowercases title fields, so a \S in a BibTeX
+% title is emitted as \s; provide \s as the section symbol so the bibliography
+% compiles and every codified reference renders correctly.
+\providecommand{\s}{\S}
+
+% - Paragraph defaults: small inter-clause gap, no first-line indent. -
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{3.2pt plus 1pt minus 0.5pt}
+
+% - Running header: page left, abbreviated act title center, bill number right. -
+\RequirePackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0pt}
+\fancyhead[L]{\footnotesize\thepage}
+\fancyhead[C]{\footnotesize\scshape Verification Before Generation Act of 2026}
+\fancyhead[R]{\footnotesize H.\,R. 9510 (Bill v5.0)}
+\fancypagestyle{plain}{%
+  \fancyhf{}%
+  \renewcommand{\headrulewidth}{0pt}%
+  \fancyfoot[C]{\footnotesize\thepage}}
+
+% - Indentation unit for the statutory hierarchy. -
+\newlength{\uscunit}\setlength{\uscunit}{1.7em}
+
+% - Table columns. L{<width>} and \ragcol{<width>} are left-aligned ragged-right
+%   fixed-width cells; Y is the flexible ragged-right column for xltabular and
+%   tabularx; R{<width>} is NEW for v5.0: a right-aligned fixed-width cell so
+%   dollar amounts and fiscal-year series align on the right at the body
+%   measure with no large interword gaps. -
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
+\newcolumntype{Y}{>{\raggedright\arraybackslash}X}
+\newcolumntype{R}[1]{>{\raggedleft\arraybackslash}p{#1}}
+\newcommand{\ragcol}[1]{>{\raggedright\arraybackslash}p{#1}}
+
+% ==========================================================================
+% UNITED STATES CODE REPRODUCTION COMMANDS (existing-law text, comparative
+% print). Carried unchanged from the ancestor styles so reproduced section
+% files render identically.
+% ==========================================================================
+\newcommand{\usctitlehead}[2]{%
+  \begin{center}
+  {\Large\bfseries #1}\\[0.25em]
+  {\Large\bfseries #2}
+  \end{center}}
+
+\newcommand{\uscchapterhead}[2]{%
+  \par\addvspace{1.4\baselineskip}%
+  \needspace{4\baselineskip}%
+  \phantomsection\addcontentsline{toc}{section}{#1 #2}%
+  \begin{center}{\large\bfseries #1\\[0.15em]#2}\end{center}%
+  \par\addvspace{0.5\baselineskip}}
+
+\newcommand{\uscsubchapterhead}[1]{%
+  \par\addvspace{1.1\baselineskip}%
+  \needspace{3\baselineskip}%
+  \phantomsection\addcontentsline{toc}{subsection}{#1}%
+  \begin{center}{\bfseries #1}\end{center}%
+  \par\addvspace{0.35\baselineskip}}
+
+\newcommand{\uscparthead}[1]{%
+  \par\addvspace{0.8\baselineskip}%
+  \needspace{3\baselineskip}%
+  \phantomsection\addcontentsline{toc}{subsection}{#1}%
+  \begin{center}{\bfseries\scshape #1}\end{center}%
+  \par\addvspace{0.3\baselineskip}}
+
+% Section catchline: "SS 360e-4. Predetermined change control plans ..." is
+% never written; the section symbol is used. A short running mark preserves
+% PDF structure while the running header keeps its fixed fields.
+\newcommand{\uscsection}[2]{%
+  \par\addvspace{1.15\baselineskip}%
+  \needspace{4\baselineskip}%
+  \phantomsection
+  \addcontentsline{toc}{subsubsection}{#1 #2}%
+  {\setlength{\parindent}{0pt}\bfseries\large #1\hskip 0.45em #2\par}%
+  \nopagebreak\par\addvspace{0.35\baselineskip}}
+
+% Statutory provision with a hanging indent at depth #1 (0 = flush body).
+\newcommand{\uscprov}[2]{%
+  \par
+  \begingroup
+  \ifnum#1>0
+    \setlength{\leftskip}{\dimexpr#1\uscunit\relax}%
+    \setlength{\parindent}{-\uscunit}%
+  \else
+    \setlength{\leftskip}{0pt}%
+    \setlength{\parindent}{1.0em}%
+  \fi
+  #2\par
+  \endgroup}
+
+% Quoted statutory or amendment text, indented and set off (used for the new
+% section 515D rendered as quoted matter to be inserted).
+\newcommand{\uscquote}[2]{%
+  \par
+  \begingroup
+  \setlength{\leftskip}{\dimexpr#1\uscunit + \uscunit\relax}%
+  \setlength{\rightskip}{0.5\uscunit}%
+  \setlength{\parindent}{0.8em}%
+  \small #2\par
+  \endgroup}
+
+% Source credit: parenthetical Public Law lineage at the left margin.
+\newcommand{\uscsource}[1]{%
+  \par\addvspace{0.25\baselineskip}%
+  {\setlength{\parindent}{0pt}\small #1\par}%
+  \addvspace{0.2\baselineskip}}
+
+% Cross-heading: centered bold.
+\newcommand{\usccrosshead}[1]{%
+  \par\addvspace{0.7\baselineskip}%
+  \needspace{2.5\baselineskip}%
+  \begin{center}{\bfseries #1}\end{center}%
+  \par\addvspace{0.2\baselineskip}}
+
+% Note heading: centered small caps.
+\newcommand{\uscnotehead}[1]{%
+  \par\addvspace{0.45\baselineskip}%
+  \needspace{2\baselineskip}%
+  \begin{center}{\scshape #1}\end{center}%
+  \par\addvspace{0.1\baselineskip}}
+
+% Note paragraph: flush body text within a note.
+\newcommand{\uscnotepar}[1]{%
+  \par{\setlength{\parindent}{1.0em}#1\par}}
+
+% Boxed statement (from the v4.0 style): a set-off, black-ruled box on white,
+% used in v5.0 for the SEC. 5 budgetary-effects clause.
+\newcommand{\billbox}[1]{%
+  \par\addvspace{0.4\baselineskip}%
+  \begin{center}\begin{minipage}{0.92\linewidth}%
+  \setlength{\fboxrule}{0.5pt}\setlength{\fboxsep}{8pt}%
+  \fcolorbox{billblack}{billwhite}{\begin{minipage}{\dimexpr\linewidth-18pt\relax}#1\end{minipage}}%
+  \end{minipage}\end{center}%
+  \par\addvspace{0.4\baselineskip}}
+
+% ==========================================================================
+% CONGRESSIONAL AMENDMENT APPARATUS.
+% ==========================================================================
+\newcommand{\billcaption}[3]{%
+  \begin{center}
+  \makebox[\textwidth][s]{\bfseries #1\hfill #3}\\[0.15em]
+  {\itshape #2}
+  \end{center}%
+  \vspace{0.2em}\noindent\rule{\textwidth}{0.8pt}\par}
+
+\newcommand{\billlongtitle}[1]{%
+  \par\addvspace{0.4\baselineskip}%
+  \begin{center}\begin{minipage}{0.86\textwidth}\centering #1\end{minipage}\end{center}%
+  \par\addvspace{0.3\baselineskip}}
+
+\newcommand{\billintro}[3]{%
+  \par\addvspace{0.3\baselineskip}%
+  \begin{center}{\scshape #1}\\[0.2em]{\itshape #2}\end{center}%
+  \par{\setlength{\parindent}{1.0em}#3\par}%
+  \par\addvspace{0.3\baselineskip}}
+
+\newcommand{\billhead}{%
+  \par\addvspace{0.5\baselineskip}%
+  \noindent\rule{\textwidth}{0.8pt}\par
+  \begin{center}\vspace{0.1cm}{\LARGE\bfseries A BILL}\vspace{-0.2cm}\end{center}%
+  \noindent\rule{\textwidth}{0.8pt}\par
+  \addvspace{0.3\baselineskip}}
+
+\newcommand{\enactingclause}{%
+  \par\addvspace{0.3\baselineskip}%
+  {\itshape This legislative draft is submitted for review and consideration by the United States Congress,}\par
+  \addvspace{0.4\baselineskip}}
+
+\newcommand{\billcovernote}[1]{%
+  \par\addvspace{0.4\baselineskip}%
+  \begingroup
+  \footnotesize\itshape\RaggedRight
+  \setlength{\parindent}{0pt}%
+  \noindent\rule{\linewidth}{0.4pt}\par\vspace{2pt}%
+  #1\par
+  \vspace{-3pt}\noindent\rule{\linewidth}{0.4pt}\par
+  \endgroup
+  \addvspace{0.4\baselineskip}}
+
+\newcommand{\billsec}[2]{%
+  \par\addvspace{0.9\baselineskip}%
+  \needspace{4\baselineskip}%
+  \phantomsection
+  \addcontentsline{toc}{section}{#1 #2}%
+  {\setlength{\parindent}{0pt}\bfseries #1\hskip 0.4em #2\par}%
+  \nopagebreak\par\addvspace{0.2\baselineskip}}
+
+% Comparative-print markers: deleted shown [strike: ...]; inserted [insert: ...].
+\newcommand{\cprstrike}[1]{[strike: #1]}
+\newcommand{\cprinsert}[1]{[insert: \textit{#1}]}
+
+% ==========================================================================
+% CLICKABLE, PAGE-FILLING TABLE OF CONTENTS (SECTION 1(b)).
+% ==========================================================================
+\newcommand{\billtoc}[1]{%
+  \par
+  \begingroup
+  \setlength{\parindent}{0pt}%
+  \setlength{\parskip}{0pt}%
+  #1%
+  \par
+  \endgroup}
+
+\newcommand{\billtocline}[4]{%
+  \needspace{2.2\baselineskip}%
+  {\setlength{\leftskip}{0pt}\setlength{\rightskip}{0pt}%
+   \noindent\hyperref[#1]{\bfseries #2\hskip 0.4em \mdseries #3}%
+   \nobreak\ \dotfill\ \hyperref[#1]{\pageref{#1}}\par}%
+  {\footnotesize\itshape\setlength{\leftskip}{1.8em}\setlength{\rightskip}{0pt plus 2em}%
+   #4\par}}
+
+% ==========================================================================
+% VISUAL PRIMITIVES (the three-media apparatus).
+% ==========================================================================
+
+% ASCII figure (from the v3.0 style): a white-background, black-ruled,
+% monospace box that preserves the original spacing of an ASCII ledger, money
+% flow, waterfall, layering map, timeline, or repository tree exactly, so it
+% renders as it would in a fenced GitHub Markdown block. The content is
+% captured into a content-width box (BVerbatim) and CENTERED on the page
+% inside a thin black frame on a white fill. Two environments share one
+% savebox and one placement macro: asciifig at footnotesize for ordinary
+% figures, and asciifigsmall at scriptsize for a wide figure so no line runs
+% off the right margin. The font size is fixed per environment rather than
+% passed as an optional argument, because an optional argument on a
+% verbatim-wrapping environment makes the lookahead gobble the leading spaces
+% of the first ASCII line.
+\newsavebox{\asciifigbox}
+\newcommand{\asciifigplace}{%
+  \begin{center}%
+  \setlength{\fboxrule}{0.4pt}\setlength{\fboxsep}{8pt}%
+  \fcolorbox{billblack}{billwhite}{\usebox{\asciifigbox}}%
+  \end{center}%
+  \par\addvspace{0.15\baselineskip}}
+\newenvironment{asciifig}{%
+  \VerbatimEnvironment
+  \par\addvspace{0.55\baselineskip}%
+  \needspace{6\baselineskip}%
+  \begin{lrbox}{\asciifigbox}%
+  \begin{BVerbatim}[fontsize=\footnotesize,baselinestretch=0.96]%
+}{%
+  \end{BVerbatim}%
+  \end{lrbox}%
+  \asciifigplace}
+\newenvironment{asciifigsmall}{%
+  \VerbatimEnvironment
+  \par\addvspace{0.55\baselineskip}%
+  \needspace{6\baselineskip}%
+  \begin{lrbox}{\asciifigbox}%
+  \begin{BVerbatim}[fontsize=\scriptsize,baselinestretch=0.96]%
+}{%
+  \end{BVerbatim}%
+  \end{lrbox}%
+  \asciifigplace}
+
+% Gray-scale Mermaid figure styles (TikZ, from the v4.0 style). Node roles
+% match the Stage 3 palette g1..g5; emphasis is by gray level and stroke
+% weight only (no color).
+\tikzset{
+  mmevery/.style={>={Stealth[length=2.2mm]},line width=0.5pt,font=\footnotesize,
+    every node/.append style={align=center}},
+  mmin/.style={rectangle,rounded corners=2pt,draw=billblack,fill=mmg1,
+    minimum height=8mm,inner sep=3pt,text width=30mm},
+  mmstep/.style={rectangle,rounded corners=2pt,draw=billblack,fill=mmg2,
+    minimum height=8mm,inner sep=3pt,text width=30mm},
+  mmdec/.style={diamond,aspect=2,draw=billblack,fill=mmg3,inner sep=1pt,
+    text width=22mm},
+  mmlaw/.style={rectangle,rounded corners=2pt,draw=billblack,line width=0.8pt,
+    fill=mmg4,minimum height=8mm,inner sep=3pt,text width=30mm},
+  mmgoal/.style={rectangle,rounded corners=2pt,draw=billblack,line width=1pt,
+    fill=mmg5,minimum height=8mm,inner sep=3pt,text width=32mm},
+  mmperson/.style={ellipse,draw=billblack,fill=mmg1,inner sep=2pt,
+    text width=24mm,minimum height=9mm},
+  mmlane/.style={rectangle,draw=billblack,dashed,inner sep=5pt,rounded corners=1pt},
+  mmlanetitle/.style={font=\scriptsize\bfseries},
+  mmedge/.style={->,draw=billblack},
+  mmedged/.style={->,draw=billblack,dashed},
+  mmlabel/.style={font=\scriptsize\itshape,fill=billwhite,inner sep=1pt}
+}
+
+% mermaidfig: capture a tikzpicture into a content-width box, then frame it on
+% white and center it on the page, mirroring the asciifig placement so the two
+% figure media carry identical visual weight.
+\newsavebox{\mmsavebox}
+\newenvironment{mermaidfig}{%
+  \par\addvspace{0.55\baselineskip}%
+  \needspace{8\baselineskip}%
+  \begin{lrbox}{\mmsavebox}%
+  \begin{tikzpicture}[mmevery]%
+}{%
+  \end{tikzpicture}%
+  \end{lrbox}%
+  \begin{center}%
+  \setlength{\fboxrule}{0.4pt}\setlength{\fboxsep}{8pt}%
+  \fcolorbox{billblack}{billwhite}{\usebox{\mmsavebox}}%
+  \end{center}%
+  \par\addvspace{0.15\baselineskip}}
+
+% Figure or table caption: small centered italic line. Single hyphens only.
+\newcommand{\figcaption}[1]{%
+  \par\nopagebreak
+  \begin{center}\begin{minipage}{0.9\linewidth}%
+  \centering\footnotesize\itshape #1%
+  \end{minipage}\end{center}%
+  \addvspace{0.5\baselineskip}}
+
+\endinput

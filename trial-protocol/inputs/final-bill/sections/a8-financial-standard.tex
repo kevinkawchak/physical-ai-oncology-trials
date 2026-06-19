@@ -1,0 +1,95 @@
+%% ============================================================
+%% sections/a8-financial-standard.tex
+%% H. R. 9510 Bill v5.0 - APPENDIX C. THE FINANCIAL-DATA TRANSPARENCY STANDARD
+%% (NON-OPERATIVE). The v5.0 counterpart of the v3.0 explainability standard.
+%% Rendered visuals: Figure 10 (Mermaid C4 view of the financial-data system
+%% of record, TikZ), Table 12 (the standard mapped to in-force instruments).
+%% ============================================================
+\clearpage
+\phantomsection\label{toc:a8}
+\addcontentsline{toc}{section}{Appendix C. The Financial-Data Transparency Standard (Non-Operative)}
+\usccrosshead{APPENDIX C. THE FINANCIAL-DATA TRANSPARENCY STANDARD (NON-OPERATIVE)}
+
+\uscprov{1}{This appendix is non-operative. The prior bill established a
+reusable standard for explaining how a piece of United States legislation was
+created; this version establishes the matching standard for what an automated
+process costs. The claim is narrow and demonstrable: a financial record is
+transparent when it passes four tests - \textbf{completeness} (every cost
+recorded at the moment it is incurred), \textbf{traceability} (every published
+figure traceable to a record), \textbf{periodicity} (every series aligned to
+the fiscal year), and \textbf{comparability} (every term used in the
+controlled vocabulary of the Federal budget process)
+\cite{kawchak2026vvuq05bill, gao-greenbook, gao-budget-glossary}.}
+
+\uscprov{1}{The standard is demonstrated twice. First, by the bill's own
+mechanism: section 515D(k) writes the cost of every verification run into the
+part 11 hash-chained audit trail at the moment it is incurred (completeness,
+traceability); section 5(a) publishes fiscal-year aggregates (periodicity);
+and sections 5(d) and 515D(k)(1) speak in the GAO vocabulary (comparability).
+Second, by this build's own development record: every milestone of the
+auto-bill-02 process was committed and pushed in real time, every dollar
+figure in every table carries its source or its illustrative marking, and the
+commit schedule in Appendix E is itself a financial-grade ledger of the work
+(graded against this standard in place). Figure 10 draws the system of
+record; Table 12 maps the tests to the in-force instruments they are graded
+against.}
+
+\begin{mermaidfig}
+\node[mmperson] (p1) at (0,0)      {Sponsor financial\\officer (attests)};
+\node[mmstep,text width=34mm] (a1) at (4.6,0)    {Verification engine\\emits per-run cost\\telemetry};
+\node[mmlaw,text width=34mm]  (a2) at (4.6,-2.0) {Hash-chained audit trail\\21 CFR part 11 integrity};
+\node[mmstep,text width=34mm] (a3) at (4.6,-4.0) {Annual report compiler\\fiscal-year alignment\\(A-11)};
+\node[mmlaw,text width=26mm]  (x2) at (0,-2.0)   {Part 54\\disclosures};
+\node[mmlaw,text width=26mm]  (x1) at (0,-4.0)   {Open Payments\\publication model};
+\node[mmperson] (p2) at (9.2,-4.0) {FDA reviewer\\(reads with the\\submission)};
+\begin{scope}[on background layer]
+\node[mmlane,fit=(a1)(a2)(a3),label={[mmlanetitle]above:System: the section 515D(k) financial-data record}] {};
+\end{scope}
+\draw[mmedge] (p1) -- (a1);
+\draw[mmedge] (a1) -- (a2);
+\draw[mmedge] (a2) -- (a3);
+\draw[mmedge] (a3) -- (p2);
+\draw[mmedged] (x2) -- (a2);
+\draw[mmedged] (x1) -- (a3);
+\end{mermaidfig}
+\vspace{-0.2cm}
+\figcaption{Figure 10. The financial-data system of record (gray-scale Mermaid
+C4 view as TikZ): the attesting person, the three containers of the 515D(k)
+system, the reviewing person, and - dashed - the two in-force external models
+the record aligns to.}
+
+{\footnotesize
+\begin{xltabular}{\textwidth}{@{}L{2.3cm} Y L{4.0cm}@{}}
+\hline\noalign{\vskip 0.04cm}
+\textbf{Test} & \textbf{What satisfies it (bill mechanism; build record)} &
+\textbf{Graded against}\\
+\hline\noalign{\vskip 0.04cm}
+\endfirsthead
+\hline\noalign{\vskip 0.04cm}
+\textbf{Test} & \textbf{What satisfies it (bill mechanism; build record)} &
+\textbf{Graded against}\\
+\hline\noalign{\vskip 0.04cm}
+\endhead
+\hline\noalign{\vskip 0.04cm}
+\endlastfoot
+Completeness & Every verification run writes its cost at the moment incurred
+(515D(k)(1)); every build milestone committed in real time & Green Book
+control activities (GAO-14-704G)\\
+\hline\noalign{\vskip 0.04cm}
+Traceability & Every published figure traceable to a hash-chained record;
+every table figure carries its source or illustrative marking & 21 CFR part
+11; Green Book information principles\\
+\hline\noalign{\vskip 0.04cm}
+Periodicity & Fiscal-year aggregates (515D(k)(3)); the Table 6 and Table 7
+series; the milestone schedule dated per stage & OMB Circular A-11\\
+\hline\noalign{\vskip 0.04cm}
+Comparability & Budget authority, obligation, outlay, and authorization used
+exactly; publication in the Open Payments manner & GAO-05-734SP glossary;
+42 U.S.C. \S~1320a-7h\\
+\hline
+\end{xltabular}}
+\vspace{-0.8cm}
+\figcaption{Table 12. The financial-data transparency standard: each test, what
+satisfies it in the bill's mechanism and in this build's own record, and the
+in-force instrument it is graded against \cite{omb-a11, cfr-part11,
+usc-open-payments}.}

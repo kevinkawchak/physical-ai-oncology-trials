@@ -1,0 +1,182 @@
+%% ============================================================
+%% sections/s2-findings.tex
+%% H. R. 9510 Bill v5.0 - SEC. 2. FINDINGS; THE EVIDENCE TO LAW TO COST RECORD.
+%% Rendered visuals: Figure 1 (gray-scale Mermaid lineage, TikZ), Table 1 (the
+%% four works with the financial footprint), Figure 2 (ASCII cost ledger). The
+%% carried v3.0 findings are condensed into a lettered narrative and extended
+%% by the four v5.0 financial findings.
+%% ============================================================
+
+\billsec{SEC. 2.}{FINDINGS; THE EVIDENCE TO LAW TO COST RECORD.}\phantomsection\label{toc:s2}
+
+\uscprov{1}{\textbf{(a) In General.} Congress finds that an automated process
+must verify robot-patient interaction code before that code is generated or
+executed in a Physical AI oncology clinical investigation; that the record of
+the VVUQ-01 through VVUQ-04 developments establishes both the need for and the
+feasibility of that requirement; and that the same record, read as a ledger,
+establishes a third thing the prior versions left implicit: the requirement is
+affordable, and the verification data that proves safety becomes financial
+data the moment a cost is attached to each run \cite{kawchak2026national,
+kawchak2026vvuq01, kawchak2026vvuq02}. Figure 1 shows how engineering evidence
+became proposed law, then a precise amendment, and now a priced one.}
+
+\begin{mermaidfig}
+\node[mmin]   (v1) at (0,0)      {VVUQ-01\\method + 51-test pipeline};
+\node[mmin]   (v2) at (4.0,0)    {VVUQ-02\\10-gate humanoid, 172 tests};
+\node[mmstep] (v3) at (8.0,0)    {VVUQ-03\\standalone bill (v1.0)};
+\node[mmstep] (v4) at (0,-2.4)   {VVUQ-04\\FD\&C amendment (v2.0)};
+\node[mmlaw]  (v5) at (4.0,-2.4) {v3.0 visual and\\v4.0 Mermaid amendments};
+\node[mmgoal] (b)  at (8.0,-2.4) {H. R. 9510 v5.0\\the Financial Data\\Amendment};
+\draw[mmedge] (v1) -- (v2);
+\draw[mmedge] (v2) -- (v3);
+\draw[mmedge] (v3.south) -- ++(0,-0.55) -- ++(-8.0,0) -- (v4.north);
+\draw[mmedge] (v4) -- (v5);
+\draw[mmedge] (v5) -- (b);
+\end{mermaidfig}
+\vspace{-0.2cm}
+\figcaption{Figure 1. Evidence-to-law-to-cost lineage (gray-scale Mermaid as
+TikZ): the method and pipeline, the hard engineering proof, the bill, the
+amendment, the two visual versions, and this financial version, which attaches
+a price to everything the prior five versions recorded.}
+
+\uscprov{1}{\textbf{(b) The Embodiment Problem and the Sequencing Gap.}
+Physical AI oncology investigations place autonomous and semi-autonomous
+robots in direct physical contact with patients, and the behavior of a robot
+at the moment of contact is determined by software that is increasingly
+machine-generated. In a disembodied pipeline an error yields a wrong number a
+human can catch downstream; in an embodied surgical system the same error
+class yields a wrong motion a human cannot catch in time. No Federal law
+requires the verification of robot-patient interaction code to clear before
+that code is generated or executed, because the order of operations is not
+regulated \cite{kawchak2026vvuq01, kawchak2026national}.}
+
+\uscprov{1}{\textbf{(c) The Financial Data Gap.} Federal law already makes the
+adjacent money flows of a clinical investigation reportable: a clinical
+investigator's financial arrangements must be certified or disclosed under
+part 54 of title 21, Code of Federal Regulations, and an applicable
+manufacturer's payments to covered recipients are reported and published
+annually under the Open Payments system established by section 1128G of the
+Social Security Act (42 U.S.C. 1320a-7h) \cite{cfr-part54, usc-open-payments,
+cfr-403-subpart-i}. But no Federal law prices, records, or discloses what it
+costs to verify robot-patient interaction code, so a sponsor, a reviewer, and
+the Congress each lack the financial data needed to judge whether safety
+assurance is being bought, skipped, or padded. This Act closes that gap with
+the financial-data record in section 515D(k) and the transparency duties of
+section 5.}
+
+\uscprov{1}{\textbf{(d) The Cost Asymmetry.} An embodied failure is priced in
+lives, litigation, and program termination; an automated ex ante gate is
+priced in compute, storage, and a bounded amount of human review. The
+asymmetry is the financial case for the sequencing rule: the gate's unit cost
+is small, fixed, and measurable, while the failure it prevents is large,
+unbounded, and borne by patients first. Table 1 attaches the illustrative
+financial footprint to each of the four works so the asymmetry can be read
+from the record itself.}
+
+{\footnotesize
+\begin{xltabular}{\textwidth}{@{}L{1.5cm} Y L{3.1cm} R{1.7cm} L{1.7cm}@{}}
+\hline\noalign{\vskip 0.04cm}
+\textbf{Work} & \textbf{What it is} & \textbf{Headline assurance result} &
+\textbf{Illustr.\ cost (\$)} & \textbf{End-goal DOI}\\
+\hline\noalign{\vskip 0.04cm}
+\endfirsthead
+\hline\noalign{\vskip 0.04cm}
+\textbf{Work} & \textbf{What it is} & \textbf{Headline assurance result} &
+\textbf{Illustr.\ cost (\$)} & \textbf{End-goal DOI}\\
+\hline\noalign{\vskip 0.04cm}
+\endhead
+\hline\noalign{\vskip 0.04cm}
+\endlastfoot
+VVUQ-01 & Method paper plus working pipeline and an execution record & 51 of
+51 tests; a 1 ACCEPT, 5 BLOCK, 1 ESCALATE gate surface & 12,600 &
+\href{https://doi.org/10.5281/zenodo.20372501}{20372501}\\
+\hline\noalign{\vskip 0.04cm}
+VVUQ-02 & Generated ten-gate humanoid surgical codebase and autonomous
+execution record & 172 of 172 tests; 32 of 32 sweep iterations; composite mean
+93.56 & 21,400 &
+\href{https://doi.org/10.5281/zenodo.20421754}{20421754}\\
+\hline\noalign{\vskip 0.04cm}
+VVUQ-03 & Standalone Physical AI Oncology Trial Bill synthesized from the
+recorded evidence & 15 sections; 21 body-width tables; 60 references & 6,100 &
+\href{https://doi.org/10.5281/zenodo.20454870}{20454870}\\
+\hline\noalign{\vskip 0.04cm}
+VVUQ-04 & Bill recast as an amendment to the Federal Food, Drug, and Cosmetic
+Act & New section 360e-5 plus ten conforming amendments & 8,300 &
+\href{https://doi.org/10.5281/zenodo.20485580}{20485580}\\
+\hline\noalign{\vskip 0.04cm}
+Total & The four-work evidence-to-law record & About eleven days of
+autonomous, real-time work & 48,400 & -\\
+\hline
+\end{xltabular}}
+\vspace{-0.9cm}
+\figcaption{Table 1. The four works at a glance, with the financial footprint:
+each work's role, headline assurance result, illustrative all-in build cost
+(compute, storage, and records, from the seed 20260525), and DOI. The
+illustrative column sums to the 48,400 dollar total carried in Figure 2.}
+
+\uscprov{1}{\textbf{(e) Feasibility Is Demonstrated, and Affordable.}
+Automated verification of robot-patient interaction code is feasible today: a
+pipeline held the verification fraction at 1.0, and a ten-gate assurance
+suite over control software for a surgical humanoid cleared reproducibly from
+a fixed seed, each gate bound to a published external standard
+\cite{kawchak2026vvuq01, kawchak2026vvuq02, asmevv40, nasastd7009}. The same
+record shows what the assurance cost: Figure 2 reads the conventional
+program-year ledger beside the four-work record, and the appendices price the
+unit economics gate by gate.}
+
+\begin{asciifig}
+Conventional path (per program-year)        Four-work autonomous record
++-----------------------------------+       +-----------------------------------+
+| Manual code review   $1,800,000/y |       | VVUQ-01  pipeline      ~5 days    |
+| Serial V&V cycles      $640,000/y |  vs   | VVUQ-02  10 gates      ~2 days    |
+| Re-review after each              |       | VVUQ-03  bill          ~1 day     |
+|   change             $310,000/y   |       | VVUQ-04  amendment     ~2 days    |
+| Counsel + drafting   $250,000+    |       | compute + records   $48,400 total |
++-----------------------------------+       +-----------------------------------+
+   ~$3.0 million per program-year              ~$0.05 million, fixed seed
+   (illustrative, fully loaded)                (illustrative, seed 20260525)
+\end{asciifig}
+\vspace{-0.6cm}
+\figcaption{Figure 2. Conventional versus autonomous cost ledger (ASCII). The
+illustrative fully loaded conventional ledger beside the four-work record
+whose per-work figures appear in Table 1; Appendix B reconciles the two
+columns at program-year terms.}
+
+\uscprov{1}{\textbf{(f) The Closest Existing Analogues.} The predetermined
+change control plan authority in section 515C of the Federal Food, Drug, and
+Cosmetic Act (21 U.S.C. 360e-4) and the Food and Drug Administration final
+guidance on such plans for artificial-intelligence-enabled device software
+functions are the closest existing analogues to validating a change before
+deployment, but each remains voluntary, submission-based, and neither
+automated nor required in advance of generation; the Quality Management System
+Regulation and part 11 of title 21, Code of Federal Regulations, supply
+quality and record-integrity scaffolding but no rule that verification
+precedes generation and no cost record for the verification itself
+\cite{fda-pccp-2024, fr-qmsr-2024, cfr-part11}. Human-over-AI review is
+already widely adopted in State law, and the Medicare Advantage
+artificial-intelligence guardrail is the strongest Federal precedent for
+mandatory human oversight \cite{ca-sb1120, il-hb1806, tx-hb149, md-hb820,
+cms-4201-ma}.}
+
+\uscprov{1}{\textbf{(g) A Recognized Standards Basis.} Recognized consensus
+standards, including ASME V\&V 40-2018, the Food and Drug Administration
+guidance assessing the credibility of computational modeling, NASA-STD-7009A,
+IEEE Std 7009-2024, IEC 80601-2-77, ISO 14971, and ISO/TS 15066, supply the
+credibility framework, dispersion bounds, fail-safe requirements, and
+biomechanical contact limits to which an automated gate may be bound, and the
+graduated autonomy taxonomy maintained by the American Medical Association
+provides the spine for matching verification rigor, and therefore
+verification cost, to the degree of autonomy of a device \cite{asmevv40,
+fda-credibility-2023, nasastd7009, ieee7009, iec8060127, iso14971, isots15066,
+cpt-appendix-s}.}
+
+\uscprov{1}{\textbf{(h) Budget Discipline.} The requirement rides the
+financial machinery that already exists. Implementation is discretionary
+spending within the Food and Drug Administration's appropriated device
+program, supplemented by the medical-device user-fee structure of sections
+737 and 738 (21 U.S.C. 379i, 379j) as it stands; this Act creates no
+entitlement, no new tax, and no new statutory fee, authorizes appropriations
+in stated amounts in section 5, and is therefore consistent with the
+Statutory Pay-As-You-Go Act of 2010 and the House CutGo rule, as the cost
+appendix demonstrates \cite{usc-379i, usc-379j, usc-paygo-2010,
+house-rule-xxi, gao-budget-glossary}.}
