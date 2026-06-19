@@ -4,7 +4,7 @@
 %%{init: {'theme':'base','themeVariables':{'fontSize':'12px','lineColor':'#6C757D'}}}%%
 flowchart LR
     GEN["Proposed robot-patient<br/>interaction code / command"]:::light
-    GATES["10-Gate Assurance Suite<br/>14 external standards + 2 clinical baselines<br/>IEC 80601-2-77, ASME V&V 40,<br/>NASA-STD-7009A, IEEE 7009-2024"]:::mid
+    GATES["10-Gate Assurance Suite<br/>14 external standards + 2 clinical baselines<br/>IEC 80601-2-77, ASME V and V 40,<br/>NASA-STD-7009A, IEEE 7009-2024"]:::mid
     UQ["Uncertainty quantification<br/>epistemic + aleatory bounds<br/>coefficient-of-variation"]:::mid
     V{"Gate surface verdict"}:::warn
     ACC["ACCEPT<br/>verified before generation"]:::goal
