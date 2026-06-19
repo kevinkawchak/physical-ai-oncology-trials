@@ -4,6 +4,39 @@ Release notes for the physical-ai-oncology-trials repository.
 
 ---
 
+Physical AI Pancreatic Whipple + Daraxonrasib Phase 1 Protocol (v4.0.0)
+v4.0.0 - Physical AI Pancreatic Whipple + Daraxonrasib Phase 1 Protocol
+
+## Summary
+
+This release adds trial-protocol/, the first substantial Physical AI clinical trial protocol in the repository: a Phase 1, first-in-human, combined IND/IDE study of on-premises large language model directed robotic pancreaticoduodenectomy (the Whipple procedure) with perioperative daraxonrasib (RMC-6236) in KRAS-mutated pancreatic ductal adenocarcinoma. The daraxonrasib drug arm proceeds under an IND (21 CFR part 312, Phase 1, 3+3 dose escalation at 160 / 220 / 300 mg); the eight-arm robotic Whipple proceeds as a significant-risk device under an IDE (21 CFR part 812) with the Physical AI overlay of Subpart J (sections 312.400 through 312.405). The protocol adapts the NIH-FDA IND/IDE Clinical Trial Protocol Template using the recolored paper template (Corporate Blue 00417A) and follows the inputs/auto-bill-02 mermaid to draft to full to final processing workflow. Authored by Kevin Kawchak (ChemicalQDevice), DOI 10.5281/zenodo.xxxxxxxx, June 20, 2026.
+The build was generated end to end by Claude Code Opus 4.8 (1M context) on a single development branch with one commit per file pushed in real time and tracked in one continuously updated pull request. It addresses every NIH section as a separate commit (Statement of Compliance through References and Back Matter), the three counterfactual scenarios in which withholding the LLM plus robot plus medicine combination shortens progression-free and overall survival, and all eight Physical AI concerns (limitations, patient safety, loss of human workers, single-source software, proprietary-model dependency, non-domestic open-source LLMs, overly complex workflows, and black boxes) each paired with a concrete mitigation.
+
+## Features
+
+- trial-protocol/prompts: the master prompt filed verbatim (prompt-protocol.md) and the full Claude Code output (output-protocol.md).
+- trial-protocol/sub-prompts: the four generated stage sub-prompts (mermaid, draft, full, final), adapted from the auto-bill-02 workflow.
+- trial-protocol/mermaid: 25 new, professionally colored Mermaid figures (Corporate Blue 00417A, Professional Gray 6C757D, Classic White), one commit per figure, each carrying real quantitative data and named source files.
+- trial-protocol/draft-protocol: the 13-section NIH scaffold with bracketed drafting instructions naming exact repository files, plus an Overleaf zip.
+- trial-protocol/full-protocol: the 13 full sections with 20 TikZ mermaidfig figures and 11 full-width tables, plus an Overleaf zip.
+- trial-protocol/final-protocol: the polished sections (the two densest figures expanded to full fidelity, clearpage per section, raggedbottom), plus an Overleaf zip. No final-protocol/publication directory.
+- Comprehensive READMEs and relevant badges in every trial-protocol directory; the paper template recolored to 00417A; a PNG-free TikZ ORCID iD mark.
+- Root README updated with twice the badges, a 425-character summary, a dedicated v4.0.0 section (colored Mermaid, tables, table of contents), and the trial-protocol structure tree. CHANGELOG.md updated.
+
+## Contributors
+@kevinkawchak
+@claude
+@google-gemini
+@openai
+
+## Notes
+
+- No raster images anywhere; the permitted media are full-width white-background tables, centered monospace ASCII figures, and gray-scale or blue-accent Mermaid diagrams reproduced in LaTeX as TikZ. Single hyphens only; the section symbol for every codified reference.
+- Each LaTeX set (draft, full, final) compiles in Overleaf with pdfLaTeX and ships its own zip. The build adds no Python, YAML, or other CI-checked files, so the lint-and-format workflow (ruff check, ruff format, yamllint) on Python 3.10, 3.11, and 3.12 remains green.
+- The DOI 10.5281/zenodo.xxxxxxxx is a placeholder pending deposit. This is an independent research draft, not an active IND or IDE and not medical or regulatory advice.
+
+---
+
 Glioblastoma 1-Minute Variant Instructions (v3.9.1)
 v3.9.1 - Glioblastoma 1-Minute Variant Instructions
 
