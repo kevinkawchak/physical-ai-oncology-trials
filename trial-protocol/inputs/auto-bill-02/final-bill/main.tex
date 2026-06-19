@@ -1,0 +1,260 @@
+% ============================================================
+% main.tex
+% H. R. 9510 BILL v5.0 - final-bill (polished; repository release v2.0.0),
+%   single-prompt-bill / auto-bill-02.
+%   THE FINANCIAL DATA AMENDMENT to the Federal Food, Drug, and Cosmetic Act
+%   (21 U.S.C. 301 et seq.), grounded on the Title 21 device provisions current
+%   through Public Law 119-93.
+%
+% WHAT THIS FILE IS. This is the polished, final v5.0 financial bill, produced
+% from the full-bill by applying the senior-author corrections learned across
+% both prior draft-to-full-to-final cycles: page balancing with \clearpage so
+% SEC. 3, SEC. 4, and SEC. 5 begin on fresh pages, a clean divider opening the
+% financial appendices, reference white-space formatting with no stranded
+% single-word lines, and a final consistency pass over every figure, table,
+% caption, and dollar series. The
+% eleven numbered figures plus the cover are rendered (six ASCII figures in
+% centered white-background monospace frames; six gray-scale Mermaid diagrams
+% as gray-scale TikZ), the fifteen full-width tables are filled with their
+% financial data (fiscal-year dollar series right-aligned in R columns, every
+% series summing, every figure illustrative unless tied to a cited statute or
+% notice), the operative text of new section 515D is carried with the new
+% financial-data record (k) so the bill stands on its own, the comparative
+% print reaches twelve sections including the user-fee section, and SEC. 5
+% carries the financial core: transparency, user-fee treatment, the
+% authorization of appropriations, and the boxed budgetary-effects clause.
+%
+% Media (Master prompt objective (b)): full-width white-background tables;
+% centered monospace ASCII figures (asciifig); gray-scale Mermaid diagrams
+% reproduced as gray-scale TikZ (mermaidfig). No raster images anywhere.
+%
+% Compile recipe (Overleaf, pdfLaTeX):
+%   pdflatex main.tex
+%   bibtex   main
+%   pdflatex main.tex
+%   pdflatex main.tex
+% ============================================================
+\documentclass[11pt]{article}
+\usepackage{usctitle}
+
+\title{Verification Before Generation in Physical AI Oncology Trials Act of 2026
+(H. R. 9510), Bill v5.0: A Financial Data Amendment to the Federal Food, Drug,
+and Cosmetic Act}
+\author{Prepared for single-prompt-bill by CEO Kevin Kawchak, ChemicalQDevice}
+\date{June 9, 2026 (current through Public Law 119-93)}
+
+\begin{document}
+
+% ============================================================
+% BILL CAPTION AND FRONT MATTER (the caption page). The House and Senate
+% statements are condensed: the long title appears once, the referral block is
+% brief, and the standard enacting clause is retained. A centered ASCII overview
+% of the v5.0 financial build closes the page.
+% ============================================================
+\thispagestyle{plain}
+\pagenumbering{roman}
+
+\billcaption{119TH CONGRESS}{2d Session}{H.\,R. 9510}
+
+\billlongtitle{To amend the Federal Food, Drug, and Cosmetic Act to require an
+automated verification, validation, and uncertainty quantification process to
+clear robot-patient interaction code before that code is generated or executed
+in a Physical AI oncology clinical investigation, to establish financial data
+transparency for that process, and to authorize appropriations.}
+
+\billintro{IN THE HOUSE OF REPRESENTATIVES}{June 9, 2026}{%
+Mr.\ \underline{Kevin Kawchak} authored the following bill with the assistance of
+artificial intelligence; which was referred to the Committee on Energy and
+Commerce.}
+
+\billhead
+
+\enactingclause
+
+\billcovernote{\href{https://doi.org/10.5281/zenodo.xxxxxxxx}{Bill (v5.0)
+10.5281/zenodo.xxxxxxxx} is the polished, final Financial Data Amendment of H. R. 9510, the
+Verification Before Generation in Physical AI Oncology Trials Act of 2026. It
+carries the full operative amendment with a new financial-data record, a
+financial core (transparency, user fees, an authorization of appropriations,
+and the budgetary-effects clause), and five financial appendices, rendered in
+three media: full-width tables, centered ASCII figures, and gray-scale Mermaid
+diagrams set as TikZ. It was prepared with an autonomous artificial
+intelligence coding agent (Claude Code, 1M context) under human direction. It
+is an independent research draft, is not an enacted law, and is not legal
+advice; all dollar figures are illustrative unless tied to a cited statute or
+notice. The development record appears in Appendix E.}
+
+\begin{asciifig}
+EVIDENCE + LAW (v1.0 - v4.0)                 FINANCIAL FRAME (2026)
++----------------------------------+         +----------------------------------+
+| VVUQ-01/02  method + hard proof  |         | PAYGO 2 U.S.C. 931-939           |
+| VVUQ-03/04  bill + FD&C 515D     |  =====> | CutGo House Rule XXI cl. 10      |
+| v3.0 visual  v4.0 Mermaid        |         | MDUFA V fees 21 U.S.C. 379i-379j |
++----------------------------------+         | part 54 + Open Payments          |
+                 |                           +----------------------------------+
+                 v                                            |
+        single-prompt-bill/auto-bill-02  (this build)         |
+        +--------------------------------------------------+  |
+        | sub-prompts -> research -> template -> visuals   |<-+
+        | -> draft-bill -> full-bill -> final-bill v2.0.0  |
+        +--------------------------------------------------+
+                 |
+                 v
+        H. R. 9510 BILL v5.0  <== THE FINANCIAL DATA AMENDMENT
+        cost records (515D(k)) + SEC. 5 transparency, user fees,
+        authorization of appropriations, budgetary effects
+\end{asciifig}
+\vspace{-0.4cm}
+\figcaption{Cover Figure. The Bill v5.0 financial build: the evidence-to-law
+record of the four prior versions, read against the 2026 financial frame and
+reorganized through this build into the Financial Data Amendment.}
+
+\clearpage
+\pagenumbering{arabic}
+
+% ============================================================
+% SECTION 1. SHORT TITLE; TABLE OF CONTENTS.
+% The table of contents is clickable (each entry links to its part) and is set
+% to fill the remainder of the page with evenly distributed entries.
+% ============================================================
+\billsec{SECTION 1.}{SHORT TITLE; TABLE OF CONTENTS.}\phantomsection\label{toc:s1}
+
+\uscprov{1}{\textbf{(a) Short Title.} This Act may be cited as the
+``Verification Before Generation in Physical AI Oncology Trials Act of 2026''.}
+
+\uscprov{1}{\textbf{(b) Table of Contents.} The table of contents for this Act
+version is as follows. Each entry links to the part it names.}
+
+\vspace{0.4\baselineskip}
+\billtoc{%
+\billtocline{toc:s1}{Sec.~1.}{Short title; table of contents.}{The citation and
+this clickable contents.}
+\vfill
+\billtocline{toc:s2}{Sec.~2.}{Findings; the evidence to law to cost record.}{Why
+the rule is needed and feasible, and what the record cost to produce.}
+\vfill
+\billtocline{toc:s3}{Sec.~3.}{Amendment to the Federal Food, Drug, and Cosmetic
+Act.}{New section 515D with the financial-data record, and ten conforming
+amendments.}
+\vfill
+\billtocline{toc:s4}{Sec.~4.}{Comparative print; changes in existing law.}{The
+twelve affected Title 21 sections, including the user-fee section, marked.}
+\vfill
+\billtocline{toc:s5}{Sec.~5.}{Financial data transparency; user fees;
+authorization of appropriations; budgetary effects.}{The operative financial
+core of the v5.0 amendment.}
+\vfill
+\billtocline{toc:a6}{App.~A.}{Cost estimate and budgetary data
+(non-operative).}{The pre-introduction estimate: budget authority, outlays,
+fees, scorecards, mandates.}
+\vfill
+\billtocline{toc:a7}{App.~B.}{Verification economics and financial evidence
+(non-operative).}{What the four-work record says a verification run costs.}
+\vfill
+\billtocline{toc:a8}{App.~C.}{The financial-data transparency standard
+(non-operative).}{Completeness, traceability, periodicity, comparability,
+mapped to in-force instruments.}
+\vfill
+\billtocline{toc:a9}{App.~D.}{Research influence matrix, financial
+(non-operative).}{Emerging financial bills and actions, kept out of the
+operative text.}
+\vfill
+\billtocline{toc:a10}{App.~E.}{Development transparency and commit
+schedule.}{How Bill v5.0 was built across nine real-time milestones.}
+}
+
+\clearpage
+
+% ============================================================
+% BILL BODY AND APPENDICES (one file per section; each corresponds to main.tex).
+% The bill body (SEC. 2 through SEC. 5) carries the operative text and the
+% rendered financial visuals; the appendices carry the cost estimate, the
+% verification economics, the financial-data standard, the influence matrix,
+% and the transparency record.
+% ============================================================
+\input{sections/s2-findings}
+\input{sections/s3-amendment}
+\input{sections/s4-comparative}
+\input{sections/s5-financial}
+
+\clearpage
+\phantomsection
+\usccrosshead{APPENDICES: THE FINANCIAL PERSPECTIVE}
+\uscprov{1}{The following five appendices carry the financial perspective of
+this Act - the cost estimate, the verification economics, the financial-data
+transparency standard, the financial research-influence matrix, and the
+development record. Appendices A through D are non-operative and accompany the
+operative bill without replacing its text; each is listed in the SECTION 1(b)
+table of contents.}
+
+\input{sections/a6-cost-estimate}
+\input{sections/a7-verification-economics}
+\input{sections/a8-financial-standard}
+\input{sections/a9-research-matrix}
+\input{sections/a10-transparency}
+
+% ============================================================
+% AUTHORSHIP, NOTICES, AND PROVENANCE.
+% ============================================================
+\clearpage
+\vspace{0.3cm}
+\phantomsection
+\addcontentsline{toc}{section}{Authorship, Notices, and Provenance}
+\usccrosshead{AUTHORSHIP, NOTICES, AND PROVENANCE}
+
+\uscnotepar{Prepared by CEO Kevin Kawchak
+(\href{https://orcid.org/0009-0007-5457-8667}{ORCID 0009-0007-5457-8667}),
+ChemicalQDevice (\href{mailto:kevink@chemicalqdevice.com}{kevink@chemicalqdevice.com}).
+Adapted using an autonomous Claude Code agent (Anthropic, 1M context); research
+assisted by ChatGPT and Google Gemini.}
+
+\uscnotepar{Notice: This measure was adapted from documents of the United States
+Government in the public domain under 17 U.S.C. 105. The reproduced statutory
+text is in the public domain; the authoritative version is the United States
+Code as published by the Office of the Law Revision Counsel. This work is not
+endorsed or sponsored by the FDA, HHS, the CBO, the GAO, the OMB, the OLRC, CFR,
+ICH, or any member of Congress.}
+
+\uscnotepar{Disclaimer: This work is an independent research draft, is not an
+enacted law, and is not legal advice; it is not endorsed, sponsored, or approved
+by any trial sponsor, contract research organization, site, institutional review
+board, regulator, or medical society. All supporting numbers, including every
+dollar figure not tied to a cited statute or published notice, are simulation
+or illustrative results from the seed 20260525, and no patient-identifiable
+information is included. No formal Congressional Budget Office estimate exists
+for this draft.}
+
+\uscnotepar{Rights: The reproduced statutory text is in the public domain; the
+generated amendment framing, figures, tables, and notices are released under the
+Creative Commons Attribution 4.0 International License (CC BY 4.0),
+\href{https://creativecommons.org/licenses/by/4.0/}{https://creativecommons.org/licenses/by/4.0/}.}
+
+\href{https://doi.org/10.5281/zenodo.xxxxxxxx}{DOI current bill (v5.0): 10.5281/zenodo.xxxxxxxx}
+
+\href{https://doi.org/10.5281/zenodo.20576907}{DOI prior bill (v4.0): 10.5281/zenodo.20576907}
+
+\href{https://doi.org/10.5281/zenodo.20535429}{DOI prior bill (v3.0): 10.5281/zenodo.20535429}
+
+\href{https://doi.org/10.5281/zenodo.20576648}{DOI repository: 10.5281/zenodo.20576648}
+
+\uscnotepar{San Diego. June 9, 2026.}
+
+% ============================================================
+% PROVENANCE AND RESEARCH SOURCES (BIBLIOGRAPHY).
+% A real congressional bill carries no bibliography; this research-aid back
+% matter does, so the operative text stays clean while sources remain auditable.
+% ============================================================
+\clearpage
+\phantomsection
+\addcontentsline{toc}{section}{Provenance and Research Sources}
+\usccrosshead{Provenance and Research Sources}
+\vspace{-0.6cm}
+
+\begingroup
+\RaggedRight
+\nocite{*}
+\bibliographystyle{ieeetr}
+\bibliography{references}
+\endgroup
+
+\end{document}

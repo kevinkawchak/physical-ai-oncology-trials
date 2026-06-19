@@ -1,0 +1,959 @@
+% ============================================================
+% references.bib
+% Provenance and research sources for H. R. 9510 Bill v5.0 (LaTeX),
+% the Financial Data Amendment (single-prompt-bill, auto-bill-02).
+%
+% This file carries the full operative-authority and research-influence set
+% from Bill v3.0 (cancer-automated/papers/VVUQ-05/final-bill/references.bib)
+% unchanged, so every key the carried bill body cites still resolves, and it
+% ADDS the v5.0 financial layer: the congressional budget framework (Statutory
+% PAYGO, House Rule XXI, the GAO budget glossary and Green Book, OMB Circular
+% A-11), the FDA funding structure (the device user-fee sections and MDUFA V),
+% the clinical-investigation financial-data law (21 CFR part 54, Open
+% Payments), the Unfunded Mandates Reform Act, and the v4.0 bill and this
+% repository as lineage.
+%
+% A finished congressional amendment carries no bibliography; its operative
+% text cites authority inline by United States Code, Code of Federal
+% Regulations, and Public Law numbers. This file backs only the research-aid
+% matter: the SEC. 2 findings, the financial appendices (the cost estimate,
+% the verification economics, the financial-data standard, and the influence
+% matrix), the development transparency statement, and the Provenance and
+% Research Sources back matter, so the operative sections stay clean while
+% every source remains auditable.
+%
+% House conventions (carried from the ancestor .bib files): a bare doi field
+% where a DOI exists; a single resolver or canonical url; a note that opens
+% with "DOI: <doi>." when a DOI exists and ends with the clickable link in
+% \url{...}; no howpublished field; no duplicate link across the set. Rendered
+% with ieeetr, which prints the note. Research influences (executive actions
+% and 119th Congress bills) appear only in the findings narrative and
+% Appendix D, never in operative bill text.
+% ============================================================
+
+% --- Source of record for the reproduced statutory text. -------------------
+@misc{uscode_download,
+  author       = {{Office of the Law Revision Counsel}},
+  title        = {Download the United States Code},
+  year         = {2026},
+  publisher    = {United States House of Representatives},
+  note         = {Source portal for the Title 21 USLM XML reproduced in the comparative print (urldate 2026-05-31). \url{https://uscode.house.gov/download/download.shtml}}
+}
+
+@misc{olrc-usc21,
+  author       = {{Office of the Law Revision Counsel}},
+  title        = {United States Code, Title 21 - Food and Drugs (USLM XML)},
+  year         = {2026},
+  publisher    = {U.S. House of Representatives},
+  note         = {Authoritative source of the reproduced existing-law text, current through Public Law 119-93. \url{https://uscode.house.gov}}
+}
+
+@misc{pl-119-93,
+  author       = {{United States Congress}},
+  title        = {Public Law 119-93 (the publication point Title 21 is current through)},
+  year         = {2026},
+  publisher    = {U.S. Government Publishing Office},
+  note         = {The public law through which the reproduced Title 21 text is current; named as the currency point, not as the law amended. \url{https://www.govinfo.gov/app/collection/plaw}}
+}
+
+% --- The underlying Act amended and its load-bearing device provisions. -----
+@misc{usc-fdca,
+  author       = {{United States Congress}},
+  title        = {Federal Food, Drug, and Cosmetic Act, 21 U.S.C. \S~301 et seq.},
+  year         = {1938},
+  publisher    = {Cornell Legal Information Institute},
+  note         = {The underlying Act this bill amends; the device-regulation backbone reproduced in the comparative print. \url{https://www.law.cornell.edu/uscode/text/21/chapter-9}}
+}
+
+@misc{usc-321h,
+  author       = {{United States Congress}},
+  title        = {Definitions; the term ``device'', 21 U.S.C. \S~321(h) (FD\&C Act \S~201(h))},
+  year         = {2021},
+  publisher    = {Cornell Legal Information Institute},
+  note         = {The threshold device definition, redesignated (h)(1) by Pub. L. 116-304; the gate that decides whether robot-patient interaction code is regulated. \url{https://www.law.cornell.edu/uscode/text/21/321}}
+}
+
+@misc{usc-331,
+  author       = {{United States Congress}},
+  title        = {Prohibited acts, 21 U.S.C. \S~331 (FD\&C Act \S~301)},
+  year         = {2022},
+  publisher    = {Cornell Legal Information Institute},
+  note         = {The list of prohibited acts to which the Act's penalties under 21 U.S.C. \S~333 attach; the enforcement hook for the new duty. \url{https://www.law.cornell.edu/uscode/text/21/331}}
+}
+
+@misc{usc-351,
+  author       = {{United States Congress}},
+  title        = {Adulterated drugs and devices, 21 U.S.C. \S~351 (FD\&C Act \S~501)},
+  year         = {2017},
+  publisher    = {Cornell Legal Information Institute},
+  note         = {The device-quality backbone tying adulteration to current good manufacturing practice and 21 U.S.C. \S~360j(f). \url{https://www.law.cornell.edu/uscode/text/21/351}}
+}
+
+@misc{usc-355g,
+  author       = {{United States Congress}},
+  title        = {Utilizing real world evidence, 21 U.S.C. \S~355g (FD\&C Act \S~505F)},
+  year         = {2016},
+  publisher    = {Cornell Legal Information Institute},
+  note         = {The 21st Century Cures Act real-world-evidence program extended to recognize verification records from Physical AI oncology investigations. \url{https://www.law.cornell.edu/uscode/text/21/355g}}
+}
+
+@misc{usc-360,
+  author       = {{United States Congress}},
+  title        = {Registration of producers; premarket notification, 21 U.S.C. \S~360(k) (FD\&C Act \S~510(k))},
+  year         = {2022},
+  publisher    = {Cornell Legal Information Institute},
+  note         = {The 510(k) premarket-notification pathway at \S~360(k); distinct from the State-preemption section. \url{https://www.law.cornell.edu/uscode/text/21/360}}
+}
+
+@misc{usc-360c,
+  author       = {{United States Congress}},
+  title        = {Classification of devices intended for human use, 21 U.S.C. \S~360c (FD\&C Act \S~513)},
+  year         = {2022},
+  publisher    = {Cornell Legal Information Institute},
+  note         = {The risk-based Class I, II, and III scheme and the substantial-equivalence definition; the home of graduated special controls by autonomy. \url{https://www.law.cornell.edu/uscode/text/21/360c}}
+}
+
+@misc{usc-360e,
+  author       = {{United States Congress}},
+  title        = {Premarket approval, 21 U.S.C. \S~360e (FD\&C Act \S~515)},
+  year         = {2022},
+  publisher    = {Cornell Legal Information Institute},
+  note         = {The Class III premarket-approval pathway; the application contents amended to include the verification record. \url{https://www.law.cornell.edu/uscode/text/21/360e}}
+}
+
+@misc{usc-360e4,
+  author       = {{United States Congress}},
+  title        = {Predetermined change control plans for devices, 21 U.S.C. \S~360e-4 (FD\&C Act \S~515C)},
+  year         = {2022},
+  publisher    = {Cornell Legal Information Institute},
+  note         = {The keystone change-control authority, added by FDORA, after which the new section 515D (21 U.S.C. \S~360e-5) is inserted. \url{https://www.law.cornell.edu/uscode/text/21/360e-4}}
+}
+
+@misc{usc-360j,
+  author       = {{United States Congress}},
+  title        = {General provisions; the software and clinical decision support exclusion, 21 U.S.C. \S~360j(o) (FD\&C Act \S~520(o))},
+  year         = {2022},
+  publisher    = {Cornell Legal Information Institute},
+  note         = {The Cures Act software exclusion that robot-control software must not fall through; confirmed not to reach code that acts on a patient. \url{https://www.law.cornell.edu/uscode/text/21/360j}}
+}
+
+@misc{usc-360k,
+  author       = {{United States Congress}},
+  title        = {State and local requirements respecting devices, 21 U.S.C. \S~360k (FD\&C Act \S~521)},
+  year         = {1976},
+  publisher    = {Cornell Legal Information Institute},
+  note         = {Device preemption; the boundary the savings clause marks for State human-over-AI requirements. Distinct from the 510(k) pathway at \S~360(k). \url{https://www.law.cornell.edu/uscode/text/21/360k}}
+}
+
+@misc{pl-fdora,
+  author       = {{United States Congress}},
+  title        = {Food and Drug Omnibus Reform Act of 2022 (FDORA), Pub. L. 117-328, div. FF, title III},
+  year         = {2022},
+  publisher    = {U.S. Congress},
+  note         = {Added FD\&C Act \S~515C (21 U.S.C. \S~360e-4), the PCP authority. \url{https://www.congress.gov/bill/117th-congress/house-bill/2617}}
+}
+
+@misc{pl-cures,
+  author       = {{United States Congress}},
+  title        = {21st Century Cures Act, Pub. L. 114-255},
+  year         = {2016},
+  publisher    = {U.S. Congress},
+  note         = {Source of the software and clinical decision support exclusion (21 U.S.C. \S~360j(o)), the real-world-evidence program (21 U.S.C. \S~355g). \url{https://www.congress.gov/bill/114th-congress/house-bill/34}}
+}
+
+% --- In-force regulatory anchors for the operative duties. ------------------
+@misc{fda-pccp-2024,
+  author       = {{U.S. Food and Drug Administration}},
+  title        = {Marketing Submission Recommendations for a Predetermined Change Control Plan for Artificial Intelligence-Enabled Device Software Functions},
+  year         = {2025},
+  publisher    = {U.S. Food and Drug Administration},
+  note         = {Final guidance (Dec. 4, 2024) operationalizing 21 U.S.C. \S~360e-4 for AI-enabled device software; the closest existing analogue to the verification-before-change duty. \url{https://www.fda.gov/regulatory-information/search-fda-guidance-documents/marketing-submission-recommendations-predetermined-change-control-plan-artificial-intelligence}}
+}
+
+@misc{fda-credibility-2023,
+  author       = {{U.S. Food and Drug Administration}},
+  title        = {Assessing the Credibility of Computational Modeling and Simulation in Medical Device Submissions},
+  year         = {2023},
+  publisher    = {U.S. Food and Drug Administration},
+  note         = {Final guidance (Nov. 17, 2023) adopting the ASME V\&V 40 credibility argument (model risk equals influence times consequence); the regulatory basis for the gate's credibility grading. \url{https://www.fda.gov/regulatory-information/search-fda-guidance-documents/assessing-credibility-computational-modeling-and-simulation-medical-device-submissions}}
+}
+
+@misc{fda-cds-2026,
+  author       = {{U.S. Food and Drug Administration}},
+  title        = {Clinical Decision Support Software (current guidance)},
+  year         = {2026},
+  publisher    = {U.S. Food and Drug Administration},
+  note         = {The controlling clinical decision support guidance; software that drives or executes a procedure can't claim 21 U.S.C. \S~360j(o) exclusion. \url{https://www.fda.gov/regulatory-information/search-fda-guidance-documents/clinical-decision-support-software}}
+}
+
+@misc{fr-qmsr-2024,
+  author       = {{U.S. Food and Drug Administration}},
+  title        = {Medical Devices; Quality System Regulation Amendments (Quality Management System Regulation), 89 FR 7496},
+  year         = {2024},
+  publisher    = {Office of the Federal Register},
+  note         = {Final rule (effective Feb. 2, 2026) revising 21 CFR part 820 to incorporate ISO 13485:2016; the live quality scaffold the adulteration tie leans on. \url{https://www.govinfo.gov/app/details/FR-2024-02-02/2024-01709}}
+}
+
+@misc{cfr-part820,
+  author       = {{Office of the Federal Register}},
+  title        = {Quality Management System Regulation, 21 CFR part 820},
+  year         = {2026},
+  publisher    = {U.S. Government},
+  note         = {The codified device quality requirement, as amended by the Quality Management System Regulation effective Feb. 2, 2026. \url{https://www.ecfr.gov/current/title-21/chapter-I/subchapter-H/part-820}}
+}
+
+@misc{cfr-part814,
+  author       = {{Office of the Federal Register}},
+  title        = {Premarket Approval of Medical Devices, 21 CFR part 814},
+  year         = {2026},
+  publisher    = {U.S. Government},
+  note         = {The premarket-approval regulation under 21 U.S.C. \S~360e implementing the application-contents. \url{https://www.ecfr.gov/current/title-21/chapter-I/subchapter-H/part-814}}
+}
+
+@misc{cfr-part860,
+  author       = {{Office of the Federal Register}},
+  title        = {Medical Device Classification Procedures, 21 CFR part 860},
+  year         = {2026},
+  publisher    = {U.S. Government},
+  note         = {The classification regulation under 21 U.S.C. \S~360c, including De Novo classification. \url{https://www.ecfr.gov/current/title-21/chapter-I/subchapter-H/part-860}}
+}
+
+@misc{cfr-part11,
+  author       = {{Office of the Federal Register}},
+  title        = {Electronic Records; Electronic Signatures, 21 CFR part 11},
+  year         = {2026},
+  publisher    = {U.S. Government},
+  note         = {The record-integrity basis for the hash-chained, tamper-evident audit trail required by section 515D. \url{https://www.ecfr.gov/current/title-21/chapter-I/subchapter-A/part-11}}
+}
+
+@misc{cfr-hipaa-164,
+  author       = {{Office for Civil Rights, HHS}},
+  title        = {HIPAA Security Rule, 45 CFR part 164, subpart C},
+  year         = {2026},
+  publisher    = {U.S. Department of Health and Human Services},
+  note         = {The audit-control (\S~164.312(b)) and integrity (\S~164.312(c)) requirements supporting the audit trail. \url{https://www.ecfr.gov/current/title-45/subtitle-A/subchapter-C/part-164}}
+}
+
+@misc{fr-1557-2024,
+  author       = {{Office for Civil Rights, HHS}},
+  title        = {Nondiscrimination in Health Programs and Activities (Section 1557 final rule), 89 FR 37522},
+  year         = {2024},
+  publisher    = {Office of the Federal Register},
+  note         = {Final rule (effective July 5, 2024) that promulgated 45 CFR \S~92.210; the statutory authority is 42 U.S.C. \S~18116. \url{https://www.govinfo.gov/app/details/FR-2024-05-06/2024-08711}}
+}
+
+@misc{cfr-92-210,
+  author       = {{Office for Civil Rights, HHS}},
+  title        = {Nondiscrimination in the use of patient care decision support tools, 45 CFR \S~92.210},
+  year         = {2024},
+  publisher    = {U.S. Department of Health and Human Services},
+  note         = {The in-force anchor for the bias-minimization and accessibility duties (identify-and-mitigate compliance date May 1, 2025). \url{https://www.ecfr.gov/current/title-45/subtitle-A/subchapter-A/part-92/subpart-B/section-92.210}}
+}
+
+@misc{usc-1557,
+  author       = {{United States Congress}},
+  title        = {Section 1557 of the Patient Protection and Affordable Care Act, 42 U.S.C. \S~18116},
+  year         = {2010},
+  publisher    = {Cornell Legal Information Institute},
+  note         = {The statutory nondiscrimination authority behind the 45 CFR \S~92.210 rule. \url{https://www.law.cornell.edu/uscode/text/42/18116}}
+}
+
+@misc{cms-4201-ma,
+  author       = {{Centers for Medicare and Medicaid Services}},
+  title        = {Medicare Advantage and Part D Final Rule; Artificial Intelligence and Algorithm Guardrail, 42 CFR \S~422.101(c)},
+  year         = {2023},
+  publisher    = {Office of the Federal Register},
+  note         = {88 FR 22120 (applicable for coverage beginning Jan. 1, 2024); the strongest federal precedent for mandatory human-over-AI oversight in coverage decisions. \url{https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-B/part-422/subpart-C/section-422.101}}
+}
+
+@misc{usc-1395y,
+  author       = {{United States Congress}},
+  title        = {Medicare; exclusions from coverage (reasonable and necessary), 42 U.S.C. \S~1395y(a)(1)(A)},
+  year         = {2026},
+  publisher    = {Cornell Legal Information Institute},
+  note         = {A device cleared under this Act must still be reasonable and necessary for coverage; the verification record supports that determination. \url{https://www.law.cornell.edu/uscode/text/42/1395y}}
+}
+
+@misc{cpt-appendix-s,
+  author       = {{American Medical Association}},
+  title        = {CPT Appendix S: Artificial Intelligence Taxonomy (assistive, augmentative, autonomous)},
+  year         = {2026},
+  publisher    = {American Medical Association},
+  note         = {The graduated-autonomy spine mapped to special controls; robot-control code sits at the autonomous tier requiring the strictest ex ante gate. \url{https://www.ama-assn.org/practice-management/cpt/cpt-appendix-s-ai-taxonomy-medical-services-procedures}}
+}
+
+@misc{fr-hti1,
+  author       = {{Assistant Secretary for Technology Policy, ONC}},
+  title        = {Health Data, Technology, and Interoperability: Certification Program Updates, Algorithm Transparency, and Information Sharing (HTI-1), 89 FR 1192},
+  year         = {2024},
+  publisher    = {Office of the Federal Register},
+  note         = {The decision-support intervention transparency template (45 CFR \S~170.315(b)(11)); cited as algorithm-transparency context, not as operative authority. \url{https://www.ecfr.gov/current/title-45/subtitle-A/subchapter-D/part-170/subpart-C/section-170.315}}
+}
+
+% --- Nondiscrimination authorities (Title 42 and Title 29, not Title 26). ---
+@misc{usc-titlevi,
+  author       = {{United States Congress}},
+  title        = {Title VI of the Civil Rights Act of 1964, 42 U.S.C. \S~2000d},
+  year         = {1964},
+  publisher    = {Cornell Legal Information Institute},
+  note         = {Nondiscrimination basis (Title 42, not Title 26) for the bias-minimization duty. \url{https://www.law.cornell.edu/uscode/text/42/2000d}}
+}
+
+@misc{usc-ada,
+  author       = {{United States Congress}},
+  title        = {Americans with Disabilities Act of 1990, 42 U.S.C. \S~12101 et seq.},
+  year         = {1990},
+  publisher    = {Cornell Legal Information Institute},
+  note         = {Accessibility and accommodation basis (Title 42) for the nondiscrimination duty. \url{https://www.law.cornell.edu/uscode/text/42/12101}}
+}
+
+@misc{usc-504,
+  author       = {{United States Congress}},
+  title        = {Section 504 of the Rehabilitation Act of 1973, 29 U.S.C. \S~794},
+  year         = {1973},
+  publisher    = {Cornell Legal Information Institute},
+  note         = {Disability nondiscrimination basis (Title 29) complementing the accessibility duty. \url{https://www.law.cornell.edu/uscode/text/29/794}}
+}
+
+% --- Recognized consensus standards (the credibility and safety basis). -----
+@misc{asmevv40,
+  author       = {{ASME}},
+  title        = {ASME V\&V 40-2018: Assessing Credibility of Computational Modeling through Verification and Validation: Application to Medical Devices},
+  year         = {2018},
+  publisher    = {American Society of Mechanical Engineers},
+  note         = {FDA-recognized consensus standard; the credibility basis (model risk equals influence times consequence) for the verification, validation, and uncertainty quantification gate. \url{https://www.asme.org/codes-standards/find-codes-standards/assessing-credibility-of-computational-modeling-through-verification-and-validation-application-to-medical-devices}}
+}
+
+@misc{asmevvuq70,
+  author       = {{ASME}},
+  title        = {ASME VVUQ 70: Verification, Validation, and Uncertainty Quantification for Machine Learning (in development)},
+  year         = {2026},
+  publisher    = {American Society of Mechanical Engineers},
+  note         = {The machine-learning credibility standard in development; cited as direction only. There is no ASME V\&V 90. \url{https://www.asme.org/conferences-events/events/vvuq-70-verification-validation-and-uncertainty-quantification-of-machine-learning}}
+}
+
+@misc{nasastd7009,
+  author       = {{National Aeronautics and Space Administration}},
+  title        = {NASA-STD-7009A: Standard for Models and Simulations},
+  year         = {2016},
+  publisher    = {NASA},
+  note         = {Treats uncertainty quantification as a first-class credibility factor (epistemic and aleatory); the basis for the coefficient-of-variation dispersion bounds. \url{https://standards.nasa.gov/standard/nasa/nasa-std-7009}}
+}
+
+@misc{ieee7009,
+  author       = {{IEEE}},
+  title        = {IEEE Std 7009-2024: Standard for Fail-Safe Design of Autonomous and Semi-Autonomous Systems},
+  year         = {2024},
+  publisher    = {Institute of Electrical and Electronics Engineers},
+  doi          = {10.1109/IEEESTD.2024.10582898},
+  note         = {DOI: 10.1109/IEEESTD.2024.10582898. Fail-safe behavior and hand-back-to-human escalation underpinning the ESCALATE rule. \url{https://doi.org/10.1109/IEEESTD.2024.10582898}}
+}
+
+@misc{iec8060127,
+  author       = {{International Electrotechnical Commission}},
+  title        = {IEC 80601-2-77:2019: Requirements for the Basic Safety and Essential Performance of Robotically Assisted Surgical Equipment},
+  year         = {2019},
+  publisher    = {International Electrotechnical Commission},
+  note         = {The dedicated surgical-robot safety standard defining the essential performance the gate protects. \url{https://www.iso.org/standard/68473.html}}
+}
+
+@misc{iso14971,
+  author       = {{International Organization for Standardization}},
+  title        = {ISO 14971:2019: Medical Devices - Application of Risk Management to Medical Devices},
+  year         = {2019},
+  publisher    = {International Organization for Standardization},
+  note         = {The master risk-management process; the gate is a risk-control measure and the hard catastrophe predicate a risk acceptance limit under it. \url{https://www.iso.org/standard/72704.html}}
+}
+
+@misc{isots15066,
+  author       = {{International Organization for Standardization}},
+  title        = {ISO/TS 15066:2016: Robots and Robotic Devices - Collaborative Robots},
+  year         = {2016},
+  publisher    = {International Organization for Standardization},
+  note         = {Power-and-force-limiting and biomechanical thresholds for robot-patient contact; binds the clearance gates. \url{https://www.iso.org/standard/62996.html}}
+}
+
+@misc{iec62304,
+  author       = {{International Electrotechnical Commission}},
+  title        = {IEC 62304:2006/Amd 1:2015: Medical Device Software - Software Life Cycle Processes},
+  year         = {2015},
+  publisher    = {International Electrotechnical Commission},
+  note         = {Software safety classification (class A, B, C); its sole normative reference is ISO 14971. \url{https://webstore.iec.ch/publication/22794}}
+}
+
+@misc{ul4600,
+  author       = {{Underwriters Laboratories}},
+  title        = {ANSI/UL 4600: Standard for Safety for the Evaluation of Autonomous Products},
+  year         = {2023},
+  publisher    = {Underwriters Laboratories},
+  note         = {The claim-based safety case (claims, argument, evidence) and safe-state default for the autonomy gates. \url{https://users.ece.cmu.edu/~koopman/ul4600/index.html}}
+}
+
+@misc{iso13482,
+  author       = {{International Organization for Standardization}},
+  title        = {ISO 13482:2014: Robots and Robotic Devices - Safety Requirements for Personal Care Robots},
+  year         = {2014},
+  publisher    = {International Organization for Standardization},
+  note         = {Stability, collision avoidance, and fail-safe requirements for a close-contact humanoid. \url{https://www.iso.org/standard/53820.html}}
+}
+
+@misc{iso10218,
+  author       = {{International Organization for Standardization}},
+  title        = {ISO 10218-1 and -2: Robotics - Safety Requirements for Industrial Robots},
+  year         = {2025},
+  publisher    = {International Organization for Standardization},
+  note         = {Speed-and-separation monitoring and safety-rated stops; the 2025 revision integrates the collaborative-robot limits of ISO/TS 15066. \url{https://www.iso.org/standard/73933.html}}
+}
+
+@misc{iec60601,
+  author       = {{International Electrotechnical Commission}},
+  title        = {IEC 60601-1: Medical Electrical Equipment - Part 1: General Requirements for Basic Safety and Essential Performance},
+  year         = {2020},
+  publisher    = {International Electrotechnical Commission},
+  note         = {The single-fault safe-state requirement underlying the fault and emergency-stop gate. \url{https://webstore.iec.ch/publication/67497}}
+}
+
+@misc{iso13849,
+  author       = {{International Organization for Standardization}},
+  title        = {ISO 13849-1:2023: Safety of Machinery - Safety-Related Parts of Control Systems},
+  year         = {2023},
+  publisher    = {International Organization for Standardization},
+  note         = {The performance level of the fault and emergency-stop control path. \url{https://www.iso.org/standard/73481.html}}
+}
+
+@misc{iso9283,
+  author       = {{International Organization for Standardization}},
+  title        = {ISO 9283:1998: Manipulating Industrial Robots - Performance Criteria and Related Test Methods},
+  year         = {1998},
+  publisher    = {International Organization for Standardization},
+  note         = {Pose accuracy and repeatability for the servo, grasp, and handover gates. \url{https://www.iso.org/standard/22244.html}}
+}
+
+@misc{nist-airmf,
+  author       = {{National Institute of Standards and Technology}},
+  title        = {NIST AI Risk Management Framework 1.0 (NIST AI 100-1)},
+  year         = {2023},
+  publisher    = {National Institute of Standards and Technology},
+  doi          = {10.6028/NIST.AI.100-1},
+  note         = {DOI: 10.6028/NIST.AI.100-1. Risk-management framing (map, measure, manage, govern) as direction, not operative authority. \url{https://doi.org/10.6028/NIST.AI.100-1}}
+}
+
+% --- Clinical-trial and good clinical practice anchors. ---------------------
+@misc{cfr-part312,
+  author       = {{Office of the Federal Register}},
+  title        = {Investigational New Drug Application, 21 CFR part 312},
+  year         = {2026},
+  publisher    = {U.S. Government},
+  note         = {The IND framework the verification gate attaches to and that the rule of construction preserves. \url{https://www.ecfr.gov/current/title-21/chapter-I/subchapter-D/part-312}}
+}
+
+@misc{cfr-part50,
+  author       = {{Office of the Federal Register}},
+  title        = {Protection of Human Subjects, 21 CFR part 50},
+  year         = {2026},
+  publisher    = {U.S. Government},
+  note         = {Human-subject protection and informed consent the bill preserves unchanged. \url{https://www.ecfr.gov/current/title-21/chapter-I/subchapter-A/part-50}}
+}
+
+@misc{cfr-part56,
+  author       = {{Office of the Federal Register}},
+  title        = {Institutional Review Boards, 21 CFR part 56},
+  year         = {2026},
+  publisher    = {U.S. Government},
+  note         = {The IRB review framework the bill preserves unchanged. \url{https://www.ecfr.gov/current/title-21/chapter-I/subchapter-A/part-56}}
+}
+
+@misc{iche6r3,
+  author       = {{International Council for Harmonisation}},
+  title        = {ICH E6(R3): Good Clinical Practice},
+  year         = {2025},
+  publisher    = {International Council for Harmonisation},
+  note         = {The harmonized good-clinical-practice basis for the recorded human review and audit requirements. \url{https://www.ich.org/page/efficacy-guidelines}}
+}
+
+% --- VVUQ research lineage (prior bill, studies, repositories). -------------
+@misc{kawchak2026vvuqbill,
+  author       = {Kawchak, Kevin},
+  title        = {VVUQ Physical AI Oncology Trial Bill (H.R. 9510, Draft 1.0)},
+  month        = may,
+  year         = {2026},
+  publisher    = {Zenodo},
+  doi          = {10.5281/zenodo.20454870},
+  note         = {DOI: 10.5281/zenodo.20454870. The prior bill this amendment recasts; source at papers/VVUQ-03/final-paper. \url{https://doi.org/10.5281/zenodo.20454870}}
+}
+
+@misc{kawchak2026vvuq01,
+  author       = {Kawchak, Kevin},
+  title        = {VVUQ-01: Automated Verification, Validation, and Uncertainty Quantification of Generated Code},
+  year         = {2026},
+  publisher    = {Zenodo},
+  note         = {The first study: a complete VVUQ pipeline holding the verification fraction at 1.0; 51 of 51 supporting tests passed. \url{https://github.com/kevinkawchak/cancer-automated/tree/main/papers/VVUQ-01}}
+}
+
+@misc{kawchak2026vvuq02,
+  author       = {Kawchak, Kevin},
+  title        = {VVUQ-02: A Ten-Gate Assurance Suite for Robot-Patient Interaction Code},
+  year         = {2026},
+  publisher    = {Zenodo},
+  note         = {The second study: control software for a surgical humanoid cleared a ten-gate suite bound to fourteen external standards and two clinical baselines, reproducibly from a fixed seed. \url{https://github.com/kevinkawchak/cancer-automated/tree/main/papers/VVUQ-02}}
+}
+
+@misc{kawchak2026national,
+  author       = {Kawchak, Kevin},
+  title        = {National Platform for Physical AI Oncology Trials: USL and PSL Readiness Standards},
+  year         = {2026},
+  publisher    = {Zenodo},
+  doi          = {10.5281/zenodo.19244918},
+  note         = {DOI: 10.5281/zenodo.19244918. The Unification Standard Level and Physical AI Standard Level readiness standards the gates rely on. \url{https://doi.org/10.5281/zenodo.19244918}}
+}
+
+@misc{repo-cancer-automated,
+  author       = {Kawchak, Kevin},
+  title        = {cancer-automated: Automated Physical AI Oncology Trial Daily Deliverables},
+  year         = {2026},
+  publisher    = {Zenodo},
+  doi          = {10.5281/zenodo.20372501},
+  note         = {DOI: 10.5281/zenodo.20372501. The repository holding the VVUQ-01 through VVUQ-04 records and this full-bill. \url{https://github.com/kevinkawchak/cancer-automated}}
+}
+
+@misc{repo-physical-ai,
+  author       = {Kawchak, Kevin},
+  title        = {physical-ai-oncology-trials: National Platform},
+  year         = {2026},
+  publisher    = {Zenodo},
+  note         = {The sibling repository with the USL and PSL standards and the trial simulations; read only as a source, not edited. \url{https://github.com/kevinkawchak/physical-ai-oncology-trials}}
+}
+
+% --- VVUQ-04 pipeline steps that produced this bill. ------------------------
+@misc{vvuq04-instruct-bill,
+  author       = {Kawchak, Kevin},
+  title        = {VVUQ-04 instruct-bill: U.S. Medical AI Bill and Law Summaries (through May 31, 2026)},
+  year         = {2026},
+  publisher    = {GitHub},
+  note         = {The legal crosswalk and bill-style instruction set (v2.0.0) whose ten markdown files and five .bib files ground this bill. \url{https://github.com/kevinkawchak/cancer-automated/tree/main/papers/VVUQ-04/instruct-bill}}
+}
+
+@misc{vvuq04-template-bill,
+  author       = {Kawchak, Kevin},
+  title        = {VVUQ-04 template-bill: Title 21 device-provisions excerpt (LaTeX)},
+  year         = {2026},
+  publisher    = {GitHub},
+  note         = {The faithful Title 21 reproduction (v2.1.0) whose eleven section files form the comparative-print base. \url{https://github.com/kevinkawchak/cancer-automated/tree/main/papers/VVUQ-04/template-bill}}
+}
+
+@misc{vvuq04-draft-bill,
+  author       = {Kawchak, Kevin},
+  title        = {VVUQ-04 draft-bill: FD\&C Act amendment scaffold with drafting instructions (LaTeX)},
+  year         = {2026},
+  publisher    = {GitHub},
+  note         = {The amendment scaffold (v2.2.0) whose bracketed drafting instructions this full-bill executes. \url{https://github.com/kevinkawchak/cancer-automated/tree/main/papers/VVUQ-04/draft-bill}}
+}
+
+@misc{vvuq03-final-paper,
+  author       = {Kawchak, Kevin},
+  title        = {VVUQ-03 final-paper: VVUQ Physical AI Oncology Trial Bill source},
+  year         = {2026},
+  publisher    = {GitHub},
+  note         = {The prior-bill LaTeX source whose operative text, definitions, and crosswalk this amendment converts into FD\&C Act amendatory form. \url{https://github.com/kevinkawchak/cancer-automated/tree/main/papers/VVUQ-03/final-paper}}
+}
+
+@misc{anthropic-claude-code,
+  author       = {{Anthropic}},
+  title        = {Claude Fable 5 and Claude Mythos 5},
+  year         = {2026},
+  publisher    = {Anthropic},
+  note         = {The coding agent that authored the v2.0.0 to v2.3.0 pipeline autonomously across sequential commits; named for development transparency. \url{https://www.anthropic.com/news/claude-fable-5-mythos-5}}
+}
+
+% --- State human-in-the-loop laws (cited only as findings of practice). -----
+@misc{ca-sb1120,
+  author       = {{California State Legislature}},
+  title        = {SB 1120, Physicians Make Decisions Act (Chapter 879, Statutes of 2024)},
+  year         = {2024},
+  publisher    = {State of California},
+  note         = {Effective Jan. 1, 2025; bars AI in utilization review from replacing a licensed physician's medical-necessity determination; as human-over-AI practice. \url{https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202320240SB1120}}
+}
+
+@misc{il-hb1806,
+  author       = {{Illinois General Assembly}},
+  title        = {HB 1806, Wellness and Oversight for Psychological Resources Act (Public Act 104-0054)},
+  year         = {2025},
+  publisher    = {State of Illinois},
+  note         = {Effective Aug. 4, 2025; bars AI from independent therapeutic decisions without licensed-professional review. Cited as a finding of existing practice. \url{https://legiscan.com/IL/bill/HB1806/2025}}
+}
+
+@misc{tx-hb149,
+  author       = {{Texas Legislature}},
+  title        = {HB 149, Texas Responsible Artificial Intelligence Governance Act (TRAIGA)},
+  year         = {2025},
+  publisher    = {State of Texas},
+  note         = {Effective Jan. 1, 2026; comprehensive AI governance with a regulatory sandbox and advisory council. A finding of existing practice. \url{https://legiscan.com/TX/bill/HB149/2025}}
+}
+
+@misc{md-hb820,
+  author       = {{Maryland General Assembly}},
+  title        = {HB 820, Utilization Review - Use of Artificial Intelligence (Chapter 747)},
+  year         = {2025},
+  publisher    = {State of Maryland},
+  note         = {Effective Oct. 1, 2025; AI in utilization review must use individual clinical information and may not autonomously deny care. Cited as a finding of existing practice. \url{https://mgaleg.maryland.gov/mgawebsite/Legislation/Details/hb0820}}
+}
+
+@misc{ny-a9149,
+  author       = {{New York State Legislature}},
+  title        = {A9149, Artificial Intelligence in Utilization Review},
+  year         = {2024},
+  publisher    = {State of New York},
+  note         = {Would require submission of utilization-review algorithms for bias certification; the algorithm-certification model. Cited as a finding of existing practice. \url{https://www.nysenate.gov/legislation/bills/2023/A9149}}
+}
+
+% --- Research influences (Appendix A and findings narrative only). ----------
+@misc{eo-14179,
+  author       = {{Executive Office of the President}},
+  title        = {Executive Order 14179, Removing Barriers to American Leadership in Artificial Intelligence},
+  year         = {2025},
+  publisher    = {Office of the Federal Register},
+  note         = {Research influence only (90 FR 8741); deregulatory posture cited in the findings narrative and Appendix A, never in operative text. \url{https://www.govinfo.gov/app/details/DCPD-202500170}}
+}
+
+@misc{eo-14365,
+  author       = {{Executive Office of the President}},
+  title        = {Executive Order 14365, Ensuring a National Policy Framework for Artificial Intelligence},
+  year         = {2025},
+  publisher    = {Office of the Federal Register},
+  note         = {Research influence only (signed Dec. 11, 2025); directs review of conflicting State AI laws. Cited only in Appendix A. \url{https://public-inspection.federalregister.gov/2025-23092.pdf?1765815309}}
+}
+
+@misc{omb-m2521,
+  author       = {{Office of Management and Budget}},
+  title        = {OMB Memorandum M-25-21, Accelerating Federal Use of AI through Innovation, Governance, and Public Trust},
+  year         = {2025},
+  publisher    = {Executive Office of the President},
+  note         = {Research influence only (Apr. 3, 2025); defines high-impact AI and pre-deployment testing for federal use. Cited only in Appendix A. \url{https://www.whitehouse.gov/omb/information-for-agencies/memoranda/}}
+}
+
+@misc{hhs-ai-strategy-2025,
+  author       = {{U.S. Department of Health and Human Services}},
+  title        = {HHS Artificial Intelligence Strategy},
+  year         = {2025},
+  publisher    = {U.S. Department of Health and Human Services},
+  note         = {Research influence only (released Dec. 4, 2025); governance and research-reproducibility pillars cited in the findings narrative and Appendix A. \url{https://www.hhs.gov/programs/topic-sites/ai/index.html}}
+}
+
+@misc{hr238-healthy-tech,
+  author       = {{United States Congress}},
+  title        = {H.R. 238, Healthy Technology Act of 2025},
+  year         = {2025},
+  publisher    = {U.S. Congress},
+  note         = {Research influence; 119th Congress bill on AI prescribing authority, referred to Energy and Commerce. Not operative authority. \url{https://www.congress.gov/bill/119th-congress/house-bill/238}}
+}
+
+@misc{s1399-health-tech-investment,
+  author       = {{United States Congress}},
+  title        = {S. 1399, Health Tech Investment Act},
+  year         = {2025},
+  publisher    = {U.S. Congress},
+  note         = {Research influence; 119th Congress bill on a Medicare payment class for algorithm-based services, referred to Finance. Not operative. \url{https://www.congress.gov/bill/119th-congress/senate-bill/1399}}
+}
+
+@misc{hr6361-ban-ai-denials,
+  author       = {{United States Congress}},
+  title        = {H.R. 6361, Ban AI Denials in Medicare Act},
+  year         = {2025},
+  publisher    = {U.S. Congress},
+  note         = {Research influence only; 119th Congress bill barring AI-driven prior authorization in traditional Medicare. Not operative authority. \url{https://www.congress.gov/bill/119th-congress/house-bill/6361}}
+}
+
+@misc{hr5045-health-ai,
+  author       = {{United States Congress}},
+  title        = {H.R. 5045, HEALTH AI Act},
+  year         = {2025},
+  publisher    = {U.S. Congress},
+  note         = {Research influence only; 119th Congress bill creating an HHS grant program on generative AI in health care, referred to Energy and Commerce. Not operative authority. \url{https://www.congress.gov/bill/119th-congress/house-bill/5045}}
+}
+
+@misc{hres694-wiser,
+  author       = {{United States Congress}},
+  title        = {H.Res. 694, expressing the sense of the House on the CMS WISeR artificial intelligence pilot},
+  year         = {2025},
+  publisher    = {U.S. Congress},
+  note         = {Research influence only; a simple resolution urging CMS to halt AI in Medicare coverage decisions. Cited by number and subject; not operative authority. \url{https://www.congress.gov/bill/119th-congress/house-resolution/694}}
+}
+
+% --- The four prior works visualized by Bill v3.0 (the evidence-to-law chain). -
+@misc{kawchak2026vvuq04bill,
+  author       = {Kawchak, Kevin},
+  title        = {Verification Before Generation in Physical AI Oncology Trials Act of 2026 (H.R. 9510; FD\&C Act amendment, Bill v2.0)},
+  month        = jun,
+  year         = {2026},
+  publisher    = {Zenodo},
+  doi          = {10.5281/zenodo.20485580},
+  note         = {DOI: 10.5281/zenodo.20485580. Bill v2.0, the finished FD\&C Act amendment this visual bill reorganizes; source at papers/VVUQ-04/final-bill. \url{https://doi.org/10.5281/zenodo.20485580}}
+}
+
+@misc{kawchak2026vvuq05bill,
+  author       = {Kawchak, Kevin},
+  title        = {Verification Before Generation in Physical AI Oncology Trials Act of 2026 (H.R. 9510; FD\&C Act amendment, Bill v3.0, the visual amendment)},
+  month        = jun,
+  year         = {2026},
+  publisher    = {Zenodo},
+  doi          = {10.5281/zenodo.20535429},
+  note         = {DOI: 10.5281/zenodo.20535429. Bill v3.0, the finished visual amendment this financial bill is built from; source at papers/VVUQ-05/final-bill. \url{https://doi.org/10.5281/zenodo.20535429}}
+}
+
+@misc{kawchak2026vvuq01paper,
+  author       = {Kawchak, Kevin},
+  title        = {Two Stage VVUQ Oncology Clinical Trial Verification Automation Priority over Existing Generated Code (VVUQ-01)},
+  year         = {2026},
+  publisher    = {Zenodo},
+  doi          = {10.5281/zenodo.20372501},
+  note         = {DOI: 10.5281/zenodo.20372501. The method paper and pipeline; 51 of 51 tests, a 1 ACCEPT, 5 BLOCK, 1 ESCALATE gate surface, and the PDAC pilot reference. \url{https://doi.org/10.5281/zenodo.20372501}}
+}
+
+@misc{kawchak2026vvuq02paper,
+  author       = {Kawchak, Kevin},
+  title        = {Mobile Pancreatic Cancer Unitree H2 Surgical Humanoid with Priority VVUQ (VVUQ-02)},
+  year         = {2026},
+  publisher    = {Zenodo},
+  doi          = {10.5281/zenodo.20421754},
+  note         = {DOI: 10.5281/zenodo.20421754. The ten-gate humanoid assurance suite; 172 of 172 tests and a 32 of 32 sweep at composite mean 93.56 from seed 20260525. \url{https://doi.org/10.5281/zenodo.20421754}}
+}
+
+% --- VVUQ-05 update-bill inputs that this visual draft synthesizes. ----------
+@misc{vvuq05-figures-bill,
+  author       = {Kawchak, Kevin},
+  title        = {VVUQ-05 update-bill figures-bill: verbatim visual catalog of the papers/ corpus},
+  year         = {2026},
+  publisher    = {GitHub},
+  note         = {The five-file catalog (01 root, 02 VVUQ-01, 03 VVUQ-02, 04 VVUQ-03, 05 VVUQ-04) reproducing every ASCII diagram, timeline, repository tree, and table; the visual source for the figure and table slots. \url{https://github.com/kevinkawchak/cancer-automated/tree/main/papers/VVUQ-05/update-bill/figures-bill}}
+}
+
+@misc{vvuq05-next-steps,
+  author       = {Kawchak, Kevin},
+  title        = {VVUQ-05 update-bill next-steps: pre-submission steps for a U.S. House bill (2026)},
+  year         = {2026},
+  publisher    = {GitHub},
+  note         = {Two multi-model outputs identifying the deliverables and process a draft House bill needs before introduction; the source for the deliverables appendix. \url{https://github.com/kevinkawchak/cancer-automated/tree/main/papers/VVUQ-05/update-bill/next-steps}}
+}
+
+% --- U.S. House process and Congressional Research Service deliverable anchors. -
+@misc{house-rule-xii,
+  author       = {{U.S. House of Representatives}},
+  title        = {Rules of the House of Representatives, 119th Congress (Rule XII, clause 7)},
+  year         = {2025},
+  publisher    = {U.S. House of Representatives},
+  note         = {Receipt and referral of measures, sponsorship and cosponsorship, and the constitutional authority statement requirement at clause 7(c)(1). \url{https://www.congress.gov/bill/119th-congress/house-resolution/5/text}}
+}
+
+@misc{crs-r44001,
+  author       = {{Congressional Research Service}},
+  title        = {Introducing a House Bill or Resolution (CRS Report R44001)},
+  year         = {2025},
+  publisher    = {Congressional Research Service},
+  note         = {The mechanics of introduction: the bill is not numbered until introduced, the Clerk assigns the number, and only a Member may introduce a House bill. \url{https://www.everycrsreport.com/reports/R44001.html}}
+}
+
+@misc{crs-rs22477,
+  author       = {{Congressional Research Service}},
+  title        = {Sponsorship and Cosponsorship of House Bills (CRS Report RS22477)},
+  year         = {2024},
+  publisher    = {Congressional Research Service},
+  note         = {One sponsor and an unlimited number of cosponsors; the basis for the sponsor and cosponsor packet deliverable. \url{https://crsreports.congress.gov/product/details?prodcode=RS22477}}
+}
+
+@misc{crs-if12335,
+  author       = {{Congressional Research Service}},
+  title        = {Constitutional Authority Statements: A Quick Guide (CRS Report IF12335)},
+  year         = {2023},
+  publisher    = {Congressional Research Service},
+  note         = {Required by House Rule XII, clause 7(c); for an FD\&C Act amendment the cited power is the Commerce Clause (Art. I, sec. 8, cl. 3). \url{https://crsreports.congress.gov/product/details?prodcode=IF12335}}
+}
+
+@misc{house-holc,
+  author       = {{Office of the Legislative Counsel, U.S. House}},
+  title        = {Understanding the Legislative Process; House Legislative Counsel Drafting Guide},
+  year         = {2026},
+  publisher    = {U.S. House of Representatives},
+  note         = {Nonpartisan, confidential drafting services; positive-law status affects whether a bill amends the U.S. Code provision or the underlying statute. \url{https://legcounsel.house.gov/}}
+}
+
+@misc{house-ehopper,
+  author       = {{Office of the Clerk, U.S. House}},
+  title        = {eHopper Quick Guide (electronic introduction of measures)},
+  year         = {2026},
+  publisher    = {U.S. House of Representatives},
+  note         = {The House primary electronic introduction mechanism; submissions accepted near convening and adjournment; generates and submits the constitutional authority statement. \url{https://www.house.gov/}}
+}
+
+@misc{congress-howlawsmade,
+  author       = {{Office of the Parliamentarian, U.S. House}},
+  title        = {How Our Laws Are Made},
+  year         = {2026},
+  publisher    = {U.S. Government Publishing Office},
+  note         = {The reference on the legislative process: introduction, referral, committee, and the bill versus resolution distinction. \url{https://www.congress.gov/help/learn-about-the-legislative-process/how-our-laws-are-made}}
+}
+
+@misc{cbo-paygo,
+  author       = {{Congressional Budget Office}},
+  title        = {Cost Estimates and the Statutory Pay-As-You-Go Act of 2010},
+  year         = {2026},
+  publisher    = {Congressional Budget Office},
+  note         = {The basis for the PAYGO and cost-estimate deliverable; informal CBO consultation can precede a formal score. \url{https://www.cbo.gov/system/files/2026-06/hr8872.pdf}}
+}
+
+% --- Explainability sources behind the new-standard appendix (Appendix C). ----
+@misc{nist-ai-600,
+  author       = {{National Institute of Standards and Technology}},
+  title        = {NIST AI 600-1: Artificial Intelligence Risk Management Framework: Generative AI Profile},
+  year         = {2024},
+  publisher    = {National Institute of Standards and Technology},
+  doi          = {10.6028/NIST.AI.600-1},
+  note         = {DOI: 10.6028/NIST.AI.600-1. Generative-AI risk and transparency framing; direction for the explainability standard, not operative authority. \url{https://doi.org/10.6028/NIST.AI.600-1}}
+}
+
+@misc{nist-ai-explainability,
+  author       = {Phillips, P. J. and Hahn, C. A. and Fontana, P. C. and Yates, A. N. and Greene, K. and Broniatowski, D. A. and Przybocki, M. A.},
+  title        = {Four Principles of Explainable Artificial Intelligence (NISTIR 8312)},
+  year         = {2021},
+  publisher    = {National Institute of Standards and Technology},
+  doi          = {10.6028/NIST.IR.8312},
+  note         = {DOI: 10.6028/NIST.IR.8312. The explanation, meaningful, accuracy, and knowledge-limits principles the four-work record mapped to in Appendix C. \url{https://doi.org/10.6028/NIST.IR.8312}}
+}
+
+% ============================================================
+% THE v5.0 FINANCIAL LAYER (added for the Financial Data Amendment).
+% ============================================================
+
+% --- The congressional budget framework (scoring, scorecards, House rules). --
+@misc{usc-paygo-2010,
+  author       = {{United States Congress}},
+  title        = {Statutory Pay-As-You-Go Act of 2010, 2 U.S.C. \S\S~931-939},
+  year         = {2010},
+  publisher    = {Cornell Legal Information Institute},
+  note         = {The direct-spending and revenue scorecard regime behind the SEC. 5 budgetary-effects clause; OMB keeps the 5- and 10-year scorecards and a year-end debit triggers sequestration. \url{https://www.congress.gov/crs-product/R41157#:~:text=Title%20I%2C%20referred%20to%20as,law%20not%20increase%20the%20deficit.}}
+}
+
+@misc{house-rule-xxi,
+  author       = {{U.S. House of Representatives}},
+  title        = {Rules of the House of Representatives, 119th Congress - Rule XXI, clauses 9 and 10},
+  year         = {2025},
+  publisher    = {U.S. House of Representatives},
+  note         = {Clause 9 defines congressional earmarks, limited tax benefits, and limited tariff benefits (the negative declaration); clause 10 is the CutGo restraint on net mandatory-spending increases. \url{https://rules.house.gov/}}
+}
+
+@misc{cba-1974,
+  author       = {{United States Congress}},
+  title        = {Congressional Budget Act of 1974, \S~402 (CBO cost estimates), 2 U.S.C. \S~653},
+  year         = {1974},
+  publisher    = {Cornell Legal Information Institute},
+  note         = {Requires a Congressional Budget Office cost estimate for reported bills; the authority under which the formal score of this measure would issue after introduction. \url{https://www.law.cornell.edu/uscode/text/2/653}}
+}
+
+@misc{gao-budget-glossary,
+  author       = {{U.S. Government Accountability Office}},
+  title        = {A Glossary of Terms Used in the Federal Budget Process, GAO-05-734SP},
+  year         = {2005},
+  publisher    = {U.S. Government Accountability Office},
+  note         = {The controlled vocabulary this bill uses exactly: budget authority, obligation, outlay, authorization of appropriations, direct versus discretionary spending. \url{https://www.gao.gov/products/gao-05-734sp}}
+}
+
+@misc{gao-greenbook,
+  author       = {{U.S. Government Accountability Office}},
+  title        = {Standards for Internal Control in the Federal Government (the Green Book), GAO-14-704G},
+  year         = {2014},
+  publisher    = {U.S. Government Accountability Office},
+  note         = {The internal-control principles (control activities; information and communication) the Appendix C financial-data transparency standard maps to. \url{https://www.gao.gov/greenbook}}
+}
+
+@misc{omb-a11,
+  author       = {{Office of Management and Budget}},
+  title        = {Circular No. A-11: Preparation, Submission, and Execution of the Budget},
+  year         = {2025},
+  publisher    = {Executive Office of the President},
+  note         = {The fiscal-year alignment and budget-justification discipline the annual financial-data reports in SEC. 5 follow. \url{https://www.whitehouse.gov/omb/information-for-agencies/circulars/}}
+}
+
+@misc{usc-umra,
+  author       = {{United States Congress}},
+  title        = {Unfunded Mandates Reform Act of 1995, 2 U.S.C. \S~1501 et seq.},
+  year         = {1995},
+  publisher    = {Cornell Legal Information Institute},
+  note         = {The intergovernmental and private-sector mandate thresholds (in 1996 dollars, adjusted annually for inflation) the Appendix A mandate analysis addresses. \url{https://www.law.cornell.edu/uscode/text/2/1501}}
+}
+
+% --- The FDA funding structure (appropriations plus device user fees). -------
+@misc{usc-379i,
+  author       = {{United States Congress}},
+  title        = {Definitions; medical device user fees, 21 U.S.C. \S~379i (FD\&C Act \S~737)},
+  year         = {2022},
+  publisher    = {Cornell Legal Information Institute},
+  note         = {The definitions section of the device user-fee program, including the premarket application and supplement classes the fee percentages attach to. \url{https://www.law.cornell.edu/uscode/text/21/379i}}
+}
+
+@misc{usc-379j,
+  author       = {{United States Congress}},
+  title        = {Authority to assess and use device fees, 21 U.S.C. \S~379j (FD\&C Act \S~738)},
+  year         = {2022},
+  publisher    = {Cornell Legal Information Institute},
+  note         = {The fee-setting section SEC. 5(c) amends: fee classes set as statutory percentages of the standard premarket approval fee, with annual Federal Register rates. \url{https://www.law.cornell.edu/uscode/text/21/379j}}
+}
+
+@misc{pl-mdufa5,
+  author       = {{United States Congress}},
+  title        = {Medical Device User Fee Amendments of 2022 (MDUFA V), Pub. L. 117-180, div. C},
+  year         = {2022},
+  publisher    = {U.S. Congress},
+  note         = {The current five-year device user-fee authorization, fiscal years 2023-2027; MDUFA VI enacted before October 1, 2027, and is the vehicle for pricing any verification-record. \url{https://www.fda.gov/media/176137/download}}
+}
+
+@misc{fda-mdufa-rates,
+  author       = {{U.S. Food and Drug Administration}},
+  title        = {Medical Device User Fee Rates for Fiscal Year 2026 (Federal Register notice)},
+  year         = {2025},
+  publisher    = {Office of the Federal Register},
+  note         = {The annual notice setting the dollar amounts of each statutory fee class for fiscal year 2026; the bill cites the classes and percentages, not the dollar amounts, which change yearly. \url{https://www.federalregister.gov/}}
+}
+
+% --- Financial-data law attached to clinical investigations. -----------------
+@misc{cfr-part54,
+  author       = {{Office of the Federal Register}},
+  title        = {Financial Disclosure by Clinical Investigators, 21 CFR part 54},
+  year         = {2026},
+  publisher    = {U.S. Government},
+  note         = {The investigator financial-disclosure regime (Forms FDA 3454 and 3455: outcome-tied compensation, proprietary and significant equity interests, significant payments of other sorts) that SEC. 5(b) extends to verification-service arrangements. \url{https://www.ecfr.gov/current/title-21/chapter-I/subchapter-A/part-54}}
+}
+
+@misc{usc-open-payments,
+  author       = {{United States Congress}},
+  title        = {Transparency reports and reporting of physician ownership or investment interests (Open Payments), 42 U.S.C. \S~1320a-7h},
+  year         = {2010},
+  publisher    = {Cornell Legal Information Institute},
+  note         = {The Physician Payments Sunshine Act transparency model: manufacturer payments reported and published annually; the template for the de-identified verification-cost summaries of SEC. 5(a). \url{https://www.law.cornell.edu/uscode/text/42/1320a-7h}}
+}
+
+@misc{cfr-403-subpart-i,
+  author       = {{Centers for Medicare and Medicaid Services}},
+  title        = {Transparency Reports and Reporting of Physician Ownership or Investment Interests, 42 CFR part 403, subpart I},
+  year         = {2026},
+  publisher    = {U.S. Government},
+  note         = {The Open Payments implementing regulation: who reports, what counts as a payment or transfer of value, and how CMS publishes the data. \url{https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-A/part-403/subpart-I}}
+}
+
+% --- The v4.0 bill and this repository (lineage). ----------------------------
+@misc{kawchak2026autobill01,
+  author       = {Kawchak, Kevin},
+  title        = {Verification Before Generation in Physical AI Oncology Trials Act of 2026 (H.R. 9510; Bill v4.0, the gray-scale Mermaid amendment)},
+  month        = jun,
+  year         = {2026},
+  publisher    = {Zenodo},
+  doi          = {10.5281/zenodo.20576907},
+  note         = {DOI: 10.5281/zenodo.20576907. Bill v4.0, the single-prompt build whose process and Mermaid TikZ primitives this build adapts; source at single-prompt-bill/auto-bill-01. \url{https://doi.org/10.5281/zenodo.20576907}}
+}
+
+@misc{repo-single-prompt-bill,
+  author       = {Kawchak, Kevin},
+  title        = {single-prompt-bill: autonomous single-prompt builds of H. R. 9510},
+  year         = {2026},
+  publisher    = {Zenodo},
+  doi          = {10.5281/zenodo.20576648},
+  note         = {DOI: 10.5281/zenodo.20576648. The repository holding the auto-bill-01 (v4.0) and auto-bill-02 (v5.0, this measure) builds. \url{https://github.com/kevinkawchak/single-prompt-bill}}
+}

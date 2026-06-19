@@ -1,0 +1,147 @@
+%% ============================================================
+%% sections/a10-transparency.tex
+%% H. R. 9510 Bill v5.0 - APPENDIX E. DEVELOPMENT TRANSPARENCY AND COMMIT
+%% SCHEDULE. How Bill v5.0 was built.
+%% Rendered visuals: Table 14 (bill version lineage v1.0-v5.0), Table 15 (the
+%% nine-milestone commit schedule), Figure 11 (Mermaid build process, TikZ).
+%% ============================================================
+\phantomsection\label{toc:a10}
+\addcontentsline{toc}{section}{Appendix E. Development Transparency and Commit Schedule}
+\usccrosshead{APPENDIX E. DEVELOPMENT TRANSPARENCY AND COMMIT SCHEDULE}
+
+\uscprov{1}{\textbf{What was built, and how.} Bill v5.0 (repository release
+v2.0.0) is the Financial Data Amendment of H. R. 9510. It was produced by an
+autonomous artificial intelligence coding agent (Claude Code, 1M context)
+operating under human direction in a managed, ephemeral cloud container, from
+a single Master prompt: Process A generated seven sub-prompts, and Process B
+ran them in sequence through four research stages and three bill stages,
+building from the Bill v3.0 measure (without its deliverables) and the
+financial frame identified in Stage 1. It was authored across sequential
+commits, one file per commit pushed to GitHub in real time, with the nine
+stage milestones tracked in one continuously updated pull request on the
+single permitted branch. Only kevinkawchak/single-prompt-bill was edited
+\cite{anthropic-claude-code, repo-single-prompt-bill}.}
+
+{\footnotesize
+\begin{xltabular}{\textwidth}{@{}L{1.4cm} L{4.4cm} Y L{2.7cm}@{}}
+\hline\noalign{\vskip 0.04cm}
+\textbf{Version} & \textbf{Directory} & \textbf{Role} & \textbf{DOI}\\
+\hline\noalign{\vskip 0.04cm}
+\endfirsthead
+\hline\noalign{\vskip 0.04cm}
+\textbf{Version} & \textbf{Directory} & \textbf{Role} & \textbf{DOI}\\
+\hline\noalign{\vskip 0.04cm}
+\endhead
+\hline\noalign{\vskip 0.04cm}
+\endlastfoot
+Bill v1.0 & cancer-automated: papers/VVUQ-03/final-paper & Standalone Physical
+AI Oncology Trial Bill & \tiny 10.5281/zenodo.20454870\\
+\hline\noalign{\vskip 0.04cm}
+Bill v2.0 & cancer-automated: papers/VVUQ-04/final-bill & FD\&C Act amendment:
+new section 360e-5 & \tiny 10.5281/zenodo.20485580\\
+\hline\noalign{\vskip 0.04cm}
+Bill v3.0 & cancer-automated: papers/VVUQ-05/final-bill & The visual amendment
+this version is built from & \tiny 10.5281/zenodo.20535429\\
+\hline\noalign{\vskip 0.04cm}
+Bill v4.0 & single-prompt-bill: auto-bill-01 & The gray-scale Mermaid
+amendment; the process adapted here & \tiny 10.5281/zenodo.20576907\\
+\hline\noalign{\vskip 0.04cm}
+Bill v5.0 & single-prompt-bill: auto-bill-02 & This Financial Data Amendment &
+\tiny 10.5281/zenodo.xxxxxxxx\\
+\hline
+\end{xltabular}}
+\vspace{-1cm}
+\figcaption{Table 14. Bill version lineage: each bill version, its directory,
+its role, and its DOI (the v5.0 DOI is the Rule 15 placeholder pending
+deposit).}
+
+\uscprov{1}{\textbf{What this version adds.} From Bill v3.0, this version
+keeps the full operative text and adds the financial perspective: the section
+515D(k) financial-data record, the SEC. 5 financial core (transparency, the
+user-fee treatment, the authorization of appropriations, the boxed
+budgetary-effects clause), the twelfth comparative-print section, and the
+four financial appendices, rendered in the three media - fifteen full-width
+tables, six ASCII figures with the cover, and six gray-scale Mermaid diagrams
+as TikZ \cite{kawchak2026vvuq05bill, kawchak2026autobill01}. The ordered
+milestones of the single pull request are listed in Table 15; Figure 11 draws
+the build.}
+
+{\footnotesize
+\begin{xltabular}{\textwidth}{@{}L{2.2cm} L{5.6cm} Y@{}}
+\hline\noalign{\vskip 0.04cm}
+\textbf{Milestone} & \textbf{Files or action} & \textbf{Role}\\
+\hline\noalign{\vskip 0.04cm}
+\endfirsthead
+\hline\noalign{\vskip 0.04cm}
+\textbf{Milestone} & \textbf{Files or action} & \textbf{Role}\\
+\hline\noalign{\vskip 0.04cm}
+\endhead
+\hline\noalign{\vskip 0.04cm}
+\endlastfoot
+M1 (10 commits) & README, master-prompt, seven sub-prompts; the PR opened &
+Bootstrap; Process A\\
+\hline\noalign{\vskip 0.04cm}
+M2-M5 (2 each) & 01-research through 04-figure-selection, output plus README &
+The four research stages\\
+\hline\noalign{\vskip 0.04cm}
+M6 (16 commits) & draft-bill: main, style, bib, nine scaffolds, prompt,
+output, README, error-pass plus zip & Stage 5, the scaffold\\
+\hline\noalign{\vskip 0.04cm}
+M7 (16 commits) & full-bill: the same set, every slot rendered & Stage 6, this
+full bill\\
+\hline\noalign{\vskip 0.04cm}
+M8 (16 commits) & final-bill: the same set, senior-author polish & Stage 7;
+repository v2.0.0\\
+\hline\noalign{\vskip 0.04cm}
+M9 (4 commits) & CHANGELOG.md, releases.md, root README, build status & The
+single last release update\\
+\hline
+\end{xltabular}}
+\vspace{-0.8cm}
+\figcaption{Table 15. The nine-milestone commit schedule of this build: one
+commit per file pushed in real time, every milestone a contiguous labeled set
+inside the single continuously updated pull request.}
+
+\begin{mermaidfig}
+\node[mmgoal,text width=30mm] (mp) at (0,0) {Master prompt};
+\node[mmstep,text width=42mm] (sp) at (0,-1.8) {M1: seven sub-prompts,\\READMEs, the single PR};
+\node[mmin,text width=26mm]  (r)  at (-4.4,-3.7) {M2 research};
+\node[mmin,text width=26mm]  (t)  at (0,-3.7)    {M3 template};
+\node[mmin,text width=26mm]  (ma) at (4.4,-3.7)  {M4 Mermaid + ASCII};
+\node[mmin,text width=26mm]  (f)  at (-4.4,-5.5) {M5 figures};
+\node[mmstep,text width=26mm] (d)  at (0,-5.5)   {M6 draft bill};
+\node[mmlaw,text width=26mm] (fu) at (4.4,-5.5)  {M7 full bill};
+\node[mmlaw,text width=26mm] (fi) at (0,-7.6)    {M8 final bill};
+\node[mmgoal,text width=34mm](rel) at (4.4,-7.6) {M9 release v2.0.0};
+\draw[mmedge] (mp) -- (sp);
+\draw[mmedge] (sp) -- (r);
+\draw[mmedge] (r) -- (t);
+\draw[mmedge] (t) -- (ma);
+\draw[mmedge] (ma.south) -- ++(0,-0.45) -- ++(-8.8,0) -- (f.north);
+\draw[mmedge] (f) -- (d);
+\draw[mmedge] (d) -- (fu);
+\draw[mmedge] (fu) -- (fi);
+\draw[mmedge] (fi) -- (rel);
+\end{mermaidfig}
+\vspace{-0.2cm}
+\figcaption{Figure 11. The nine-milestone build process (gray-scale Mermaid as
+TikZ): Process A at the top, the Process B stages in sequence, and the release
+milestone that closes the repository at v2.0.0.}
+
+\uscprov{1}{\textbf{How this measure is implemented as law.} On enactment, the
+Secretary issues final regulations within 365 days under section 515D(h); the
+amendments take effect on the first day of the first calendar quarter
+beginning not less than one year after enactment; an investigation already
+enrolling has 180 days to come into compliance; the first annual
+financial-data report under section 515D(k)(3) is due for the first full
+fiscal year after the effective date, and the first de-identified public
+summary follows under section 5(a); the authorization of appropriations runs
+fiscal years 2027 through 2031 on the Table 6 schedule, subject to
+appropriations Acts; and any verification-review workload is priced in the
+MDUFA VI negotiation due before October 1, 2027. The enforcement trigger
+remains a single fact - the absence of a cleared
+verification-before-generation record - and the financial trigger is now its
+twin: the absence of the cost record that section 515D(k) attaches to it. The
+financial-data standard of Appendix C grades this appendix's own commit
+record, so the transparency the bill demands of sponsors is the transparency
+this build practiced \cite{pl-mdufa5, gao-greenbook}.}
