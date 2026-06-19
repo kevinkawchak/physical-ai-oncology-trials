@@ -1,0 +1,77 @@
+% main.tex - FULL Phase 1 Physical AI Pancreatic Whipple + Daraxonrasib Clinical
+% Trial Protocol. v4.0.0. Stage 3 of the mermaid -> draft -> full -> final build.
+% The full stage executes every draft [DRAFTING INSTRUCTION]: full prose, each
+% Mermaid figure rendered as a TikZ mermaidfig, and every table filled.
+% Compile on Overleaf with pdfLaTeX:
+%   pdflatex main -> bibtex main -> pdflatex main -> pdflatex main
+\documentclass[11pt]{article}
+\usepackage{protostyle}
+
+\title{A Phase 1, First-in-Human, Combined IND/IDE Clinical Trial Protocol of
+On-Premises Large Language Model Directed Robotic Pancreaticoduodenectomy
+(Whipple) with Perioperative Daraxonrasib (RMC-6236) in KRAS-Mutated Pancreatic
+Ductal Adenocarcinoma}
+\author{Kevin Kawchak}
+\date{June 20, 2026}
+
+\begin{document}
+\thispagestyle{plain}
+
+% ---------- Cover ----------
+\begin{center}
+{\LARGE\bfseries\color{accentcol} A Phase 1, First-in-Human, Combined IND/IDE
+Clinical Trial Protocol}\\[0.4em]
+{\large\bfseries On-Premises LLM-Directed Robotic Pancreaticoduodenectomy
+(Whipple) with Perioperative Daraxonrasib (RMC-6236) in KRAS-Mutated Pancreatic
+Ductal Adenocarcinoma}\\[0.3em]
+{\color{accentcol}\rule{\linewidth}{1.2pt}}
+\end{center}
+
+\begin{center}\small
+Kevin Kawchak\,\orcidicon{0009-0007-5457-8667}, CEO ChemicalQDevice \;|\;
+\href{mailto:kevink@chemicalqdevice.com}{kevink@chemicalqdevice.com} \;|\;
+\href{https://doi.org/10.5281/zenodo.xxxxxxxx}{10.5281/zenodo.xxxxxxxx}
+\end{center}
+
+\begin{center}\footnotesize
+\textbf{Protocol version:} v4.0.0 \quad
+\textbf{Date:} June 20, 2026 \quad
+\textbf{Regulatory basis:} IND (21 CFR part 312) + IDE (21 CFR part 812),
+Physical AI Subpart J
+\end{center}
+
+\noindent\footnotesize\textit{Independent research draft. Not an active IND or
+IDE, not an approved protocol, and not medical or regulatory advice; not endorsed
+by the FDA, NIH, HHS, an IRB, ICH, or any sponsor. The DOI placeholder
+\texttt{10.5281/zenodo.xxxxxxxx} is filled at deposit. Clinical figures derive
+from the author's simulation sources and are illustrative unless tied to a cited
+reference.}\normalsize\par
+
+\renewcommand{\keywordname}{\textbf{Keywords}}
+\keywords{pancreatic ductal adenocarcinoma; robotic Whipple; daraxonrasib;
+Physical AI; on-premises LLM; IND/IDE; Phase 1; VVUQ}
+
+\vspace{0.4em}
+{\color{accentcol}\rule{\linewidth}{0.6pt}}
+
+% ---------- Clickable table of contents ----------
+\renewcommand{\contentsname}{\color{accentcol}Table of Contents}
+{\setlength{\parskip}{0pt}\small\tableofcontents}
+\clearpage
+
+% ---------- Protocol body: one \input per NIH section (Rule 6) ----------
+\input{sections/sec-00-compliance}
+\input{sections/sec-01-summary}
+\input{sections/sec-02-introduction}
+\input{sections/sec-03-objectives}
+\input{sections/sec-04-design}
+\input{sections/sec-05-population}
+\input{sections/sec-06-intervention}
+\input{sections/sec-07-discontinuation}
+\input{sections/sec-08-assessments}
+\input{sections/sec-09-statistics}
+\input{sections/sec-10-oversight}
+\input{sections/sec-11-additional}
+\input{sections/sec-12-references-backmatter}
+
+\end{document}

@@ -1,0 +1,179 @@
+\section{Objectives and Endpoints}
+
+This study pairs each objective with a prospectively defined, measurable endpoint
+and a scientific justification, presented in the standard three-column form. The
+trial is a combined investigation of two regulated articles: perioperative
+daraxonrasib (RMC-6236) under the investigational new drug (IND) pathway, and the
+on-premises large language model (LLM) directed eight-arm robotic
+pancreaticoduodenectomy (Whipple) system under the investigational device
+exemption (IDE) pathway. The objective set is therefore organized so that the
+drug, the device, and the combined procedure each carry their own primary
+safety, dose-finding, and feasibility anchors, with secondary oncologic-surgical
+quality measures and exploratory survival and human-factors measures layered
+beneath them. Table~1 is the governing objectives-endpoints table; it drives the
+analysis plan in \S9 and the safety oversight rules in \S6 and \S7.
+
+\vspace{0.3em}
+
+\noindent\begin{tabularx}{\textwidth}{Y Y Y}
+\toprule
+\textbf{Objective} & \textbf{Endpoint} & \textbf{Justification} \\
+\midrule
+\multicolumn{3}{l}{\textit{Primary}} \\
+\midrule
+Characterize the early safety of the combined LLM-directed robotic Whipple and perioperative daraxonrasib intervention. & Incidence of device-related or procedure-related serious adverse events (SAEs) through 30 days after the procedure, including Clavien-Dindo grade III or higher complications. & Thirty-day SAE incidence is the standard first-in-human safety anchor and captures the dominant early post-Whipple cascade (fistula, hemorrhage, sepsis, failure to rescue); a device or procedure attribution isolates risk introduced by the investigational system. \\
+\addlinespace
+Determine the maximum tolerated dose (MTD) and recommended Phase 2 dose (RP2D) of perioperative daraxonrasib. & MTD and RP2D defined by the rate of dose-limiting toxicities (DLTs) within the 28-day DLT window of the 3+3 escalation across dose levels DL1 through DL3. & A 3+3 escalation is the established dose-finding design for cytotoxic and targeted oncology agents and yields a defensible RP2D from a small first-in-human cohort, consistent with the RASolute 302 pan-KRAS program \cite{rasolute302}. \\
+\addlinespace
+Establish the technical feasibility of the eight-arm robotic Whipple under continuous human oversight. & Proportion of procedures that complete all prespecified assigned operative tasks without unplanned conversion caused by device malfunction or unsafe device behavior. & Task-completion without unsafe conversion is the FDA-recognized early-feasibility readout for a significant-risk device and measures whether the system can perform its intended function within hard cyber-physical limits \cite{fda2013earlyfeasibility}. \\
+\midrule
+\multicolumn{3}{l}{\textit{Secondary}} \\
+\midrule
+Estimate the oncologic adequacy of the resection. & R0 (microscopically margin-negative) resection rate determined at day-90 pathology review. & R0 status is the strongest modifiable surgical determinant of survival in resectable PDAC and is the principal oncologic quality measure for the operation. \\
+\addlinespace
+Estimate the rate of clinically relevant postoperative pancreatic fistula. & International Study Group on Pancreatic Surgery (ISGPS) grade B or C postoperative pancreatic fistula rate \cite{Bassi2017}; human comparator 24.4\% \cite{DutchCohort2025}. & Grade B/C fistula is the leading driver of post-Whipple morbidity and mortality; the 2025 Dutch nationwide robotic cohort provides a contemporaneous human benchmark. \\
+\addlinespace
+Estimate the rate of major postoperative complications. & Clavien-Dindo grade III or higher complication rate through 90 days; human comparator 41.3\% \cite{DutchCohort2025}. & Clavien-Dindo grade III+ is the validated severity threshold for interventions requiring procedural, endoscopic, or intensive-care management. \\
+\addlinespace
+Estimate early postoperative mortality. & 30-day and 90-day all-cause mortality; human comparator 3.9\% at 30 days \cite{DutchCohort2025}. & Thirty- and 90-day mortality are the standard short-term survival safety measures for major hepatopancreatobiliary surgery. \\
+\addlinespace
+Characterize the safety profile of the conversion pathway. & Unplanned conversion rate from the robotic system to open or conventional approach; human comparator 10.1\% \cite{DutchCohort2025}. & Conversion rate contextualizes the feasibility endpoint and benchmarks the investigational system against established robotic practice. \\
+\midrule
+\multicolumn{3}{l}{\textit{Exploratory (non-confirmatory)}} \\
+\midrule
+Describe disease control after the combined intervention. & Progression-free survival (PFS) and overall survival (OS) assessed to 24 months. & PFS and OS provide preliminary, hypothesis-generating signals of oncologic benefit; the small single-arm sample precludes confirmatory inference. \\
+\addlinespace
+Describe the reliability of the LLM advisory layer. & Concordance between the LLM advisory output and the independent hard-coded safety gate, expressed as a proportion of advisories. & Quantifying advisory-to-gate concordance characterizes the second-opinion oracle and informs autonomy-graduation decisions in later phases. \\
+\addlinespace
+Describe the fidelity of preoperative simulation to the operative event. & Sim-to-real gap in trajectory (millimeters) and tip force (newtons) between Phase 0 simulation and the intra-operative record. & The sim-to-real gap validates the Phase 0 simulation-validation gate and supports the digital-evidence basis for the device feasibility claim. \\
+\bottomrule
+\end{tabularx}
+
+\vspace{0.3em}
+
+\noindent Abbreviations: DLT, dose-limiting toxicity; ISGPS, International Study
+Group on Pancreatic Surgery; LLM, large language model; MTD, maximum tolerated
+dose; OS, overall survival; PFS, progression-free survival; RP2D, recommended
+Phase 2 dose; SAE, serious adverse event. Human comparator values are drawn from
+the 2025 Dutch nationwide cohort of 1000 robotic pancreaticoduodenectomies
+\cite{DutchCohort2025} and are descriptive benchmarks only; this single-arm
+first-in-human study is not powered for formal comparison against them.
+
+Figure~3 renders the objective-to-endpoint hierarchy that organizes Table~1,
+showing how the three primary anchors (30-day serious adverse event incidence,
+daraxonrasib MTD/RP2D, and unsafe-conversion-free task completion) sit above the
+secondary oncologic-surgical quality measures and the exploratory survival and
+human-factors measures.
+
+\begin{mermaidfig}
+\node[mmgoal] (prim) at (0,0)      {PRIMARY\\safety + feasibility};
+\node[mmstep] (p1)   at (-4.2,-2.4){Device/procedure\\serious AEs\\through 30 days};
+\node[mmstep] (p2)   at (0,-2.4)   {MTD / RP2D of\\daraxonrasib (3+3)};
+\node[mmstep] (p3)   at (4.2,-2.4) {Assigned tasks done\\without unsafe\\conversion};
+\node[mmgoal] (sec)  at (0,-4.8)   {SECONDARY\\oncologic-surgical};
+\node[mmin]   (s1)   at (-4.2,-7.2){R0 rate; ISGPS\\B/C fistula};
+\node[mmin]   (s2)   at (4.2,-7.2) {Clavien-Dindo III+;\\30/90-day mortality};
+\node[mmgoal] (exp)  at (0,-9.6)   {EXPLORATORY\\non-confirmatory};
+\node[mmin]   (e1)   at (0,-12.0)  {PFS/OS to 24 mo;\\LLM concordance;\\sim-to-real gap};
+\draw[mmedge] (prim) -- (p1);
+\draw[mmedge] (prim) -- (p2);
+\draw[mmedge] (prim) -- (p3);
+\draw[mmedge] (sec) -- (s1);
+\draw[mmedge] (sec) -- (s2);
+\draw[mmedge] (exp) -- (e1);
+\draw[mmedged] (prim) -- (sec);
+\draw[mmedged] (sec) -- (exp);
+\end{mermaidfig}
+\figcaption{Figure 3. Objective-to-endpoint hierarchy. Primary safety and
+feasibility (30-day serious adverse event incidence, daraxonrasib MTD/RP2D, and
+unsafe-conversion-free task completion) sit above secondary oncologic-surgical
+quality (R0 rate, ISGPS grade B/C fistula, Clavien-Dindo grade III+, and 30- and
+90-day mortality) and exploratory progression-free and overall survival, LLM
+advisory concordance, and the sim-to-real gap.}
+
+\subsection{Primary Objectives and Endpoints}
+
+The study carries three co-primary objectives, one for each axis of the combined
+IND/IDE investigation: a drug-and-procedure safety objective, a drug dose-finding
+objective, and a device technical-feasibility objective.
+
+The \textbf{primary safety objective} is to characterize the early safety of the
+combined intervention. Its endpoint is the incidence of device-related or
+procedure-related serious adverse events through 30 days after the procedure,
+graded for severity under the Clavien-Dindo classification, with grade III or
+higher events counted as the principal severe-complication signal. Attribution to
+the device or to the procedure is adjudicated by an independent reviewer who is
+blinded to the daraxonrasib dose level, so that drug-attributable toxicity and
+device-attributable or procedure-attributable harm are separated. The 30-day
+window is the standard first-in-human horizon for major hepatopancreatobiliary
+surgery and captures the dominant early lethal cascade of pancreatic fistula,
+intra-abdominal infection, hemorrhage, sepsis, and failure to rescue.
+
+The \textbf{primary dose-finding objective} is to determine the MTD and RP2D of
+perioperative daraxonrasib. Its endpoint is defined operationally by the rate of
+dose-limiting toxicities within the 28-day DLT window of a standard 3+3
+escalation across dose levels DL1 through DL3 (\S4.3). The MTD is the highest
+dose level at which fewer than two of six DLT-evaluable participants experience a
+DLT, and the RP2D is selected at or below the MTD with integration of all safety,
+tolerability, and available pharmacokinetic data. Daraxonrasib eligibility and
+the dose anchor follow the broad pan-KRAS criteria of the RASolute 302 program
+\cite{rasolute302}.
+
+The \textbf{primary technical-feasibility objective} is to establish that the
+eight-arm robotic Whipple can perform its intended function under continuous human
+oversight. Its endpoint is the proportion of procedures that complete all
+prespecified assigned operative tasks (dissection of the superior mesenteric and
+portal veins, hepatic-artery control, the three anastomoses, hemostasis, and
+drain placement) without an unplanned conversion caused by device malfunction or
+unsafe device behavior. A protocol-defined conversion undertaken for patient
+safety at the discretion of the supervising surgeon, in the absence of device
+malfunction, does not count against this endpoint but is recorded and reported.
+Task-completion without unsafe conversion is the early-feasibility readout
+recognized by the FDA for a significant-risk device \cite{fda2013earlyfeasibility}.
+
+\subsection{Secondary Objectives and Endpoints}
+
+The secondary objectives characterize the oncologic adequacy and the
+surgical-quality profile of the combined intervention against the contemporaneous
+human benchmark. Each secondary endpoint is summarized descriptively with an
+exact binomial confidence interval; the study is not powered for formal hypothesis
+testing against the comparators.
+
+The \textbf{R0 resection rate} is the proportion of participants with a
+microscopically margin-negative resection at day-90 pathology review, the single
+strongest modifiable surgical determinant of survival in resectable PDAC. The
+\textbf{ISGPS grade B/C postoperative pancreatic fistula rate} \cite{Bassi2017}
+is the leading driver of post-Whipple morbidity; the 2025 Dutch nationwide
+robotic cohort reported a grade B/C fistula rate of 24.4\% \cite{DutchCohort2025}.
+The \textbf{Clavien-Dindo grade III or higher complication rate} through 90 days
+captures major complications requiring procedural, endoscopic, or intensive-care
+management; the Dutch comparator is 41.3\% \cite{DutchCohort2025}.
+\textbf{Thirty-day and 90-day all-cause mortality} are the short-term survival
+safety measures, with a Dutch 30-day comparator of 3.9\% \cite{DutchCohort2025}.
+The \textbf{unplanned conversion rate} from the robotic system to an open or
+conventional approach contextualizes the feasibility endpoint; the Dutch
+comparator is 10.1\% \cite{DutchCohort2025}. Taken together, these comparators
+provide a transparent reference frame, but the small single-arm sample means they
+are interpreted as benchmarks rather than as targets for inferential comparison.
+
+\subsection{Exploratory Objectives and Endpoints}
+
+The exploratory objectives generate hypotheses for later-phase study and are
+explicitly non-confirmatory; no exploratory analysis is used to make a
+go or no-go decision on the intervention and all are reported with that caveat.
+
+\textbf{Progression-free survival and overall survival} are assessed to 24 months
+from the day of surgery using Response Evaluation Criteria in Solid Tumors
+imaging at day 90 and every 12 weeks thereafter, providing a preliminary signal of
+oncologic benefit that the sample size cannot confirm. \textbf{LLM advisory
+concordance} is the proportion of LLM advisory outputs that agree with the
+independent hard-coded safety gate, quantifying the reliability of the
+second-opinion oracle and informing autonomy-graduation decisions reserved for
+later phases (\S4.1). The \textbf{sim-to-real gap} is the difference between the
+Phase 0 simulation prediction and the intra-operative record, reported as the
+trajectory gap in millimeters (target less than 2 mm) and the tip-force gap in
+newtons (target less than 0.5 N); it validates the fidelity of the
+simulation-validation gate and underpins the digital-evidence basis for the
+device feasibility claim. Because these measures are descriptive, they are
+summarized with point estimates and dispersion only, without confirmatory
+significance testing.

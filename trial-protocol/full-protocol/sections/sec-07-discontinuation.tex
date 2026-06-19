@@ -1,0 +1,101 @@
+\section{Intervention and Participant Discontinuation/Withdrawal}
+
+This section defines the prospectively specified rules for discontinuing the study
+intervention (the device, the drug, or both), the procedures governing a
+participant's withdrawal from the study, and the handling of participants lost to
+follow-up. Discontinuation of an intervention is distinct from withdrawal from the
+study: a participant who stops one or both components for a protocol-defined reason
+remains in the study for safety and survival follow-up unless consent for that
+follow-up is withdrawn.
+
+\subsection{Discontinuation of Study Intervention}
+
+\paragraph{Device stopping rules.}
+The investigational device is discontinued for the index procedure, with conversion
+to the appropriate fallback technique, whenever any of the following prespecified
+conditions occurs. These rules implement the Physical AI stopping criteria of 21 CFR
+$\S$312.23(g)(i)(v) and the divergence-reporting threshold of $\S$312.32(g)(v)
+\cite{kawchak2026adapt312}.
+
+\begin{itemize}[leftmargin=1.4em,itemsep=1pt,topsep=2pt]
+\item \textit{Conversion to open or manual technique.} Any intra-operative judgment
+by the supervising surgeon that patient safety or oncologic adequacy is better
+served by manual robotic or open conversion (including uncontrolled bleeding,
+unfavorable anatomy, or loss of a critical view) ends device-directed operation
+immediately; conversion is always available and is never itself a protocol
+violation.
+\item \textit{Repeated force-limit excursions.} Repeated excursions against the
+$\leq 3$ N per-arm or $\leq 18$ N cumulative cross-arm tip-force caps, or any
+sustained or consecutive pattern of force-clamp activations indicating that the
+case cannot proceed within the force envelope, trigger discontinuation.
+\item \textit{No-fly-zone violations.} Any breach of a vascular no-fly zone around a
+named vessel (superior mesenteric vein or portal vein at 1.0 mm; hepatic artery,
+celiac axis, or superior mesenteric artery at 1.5 mm), or a recurring pattern of
+no-fly approaches, ends device-directed dissection in that field.
+\item \textit{Sim-to-real divergence beyond twice tolerance.} Any instance in which
+the observed device behavior diverges from the validated simulation prediction by
+more than twice the sim-to-real gap tolerance (a trajectory deviation greater than
+4 mm or a force discrepancy greater than 1.0 N) triggers discontinuation and a
+report under $\S$8.3.6.
+\item \textit{Hard-stop E-stop event.} Any hard-stop cross-arm E-stop (the
+$\leq 3$ ms full-platform halt, whether software- or hardware-initiated) ends the
+device-directed segment; resumption with the device requires that the cause be
+identified and that the system re-pass the pre-procedure safety matrix
+($\S$6.2), failing which the case is completed by conversion.
+\end{itemize}
+
+Following any device discontinuation, the operation is completed by the most
+appropriate conventional means, the hash-chained audit trail is preserved across
+the event window ($\S$8.3.6), and the event is reviewed by the Physical AI Safety
+Review Committee and the data safety monitoring board before the device is used in
+a subsequent case.
+
+\paragraph{Drug stopping rules.}
+Daraxonrasib is discontinued in an individual participant for a dose-limiting
+toxicity attributable to the drug during the 28-day DLT window, for any other
+clinically significant or unacceptable toxicity that does not resolve with protocol
+dose interruption and reduction, for a confirmed ISGPS Grade C postoperative
+pancreatic fistula \cite{Bassi2017} (which precludes restart and maps to the T+21d
+or continued-hold arm of the perioperative advisory, $\S$6.1.2), for pregnancy, for
+intercurrent illness that contraindicates continuation, or at the participant's
+request. Dose interruptions and reductions for lower-grade toxicity follow the
+protocol algorithm and do not by themselves constitute permanent discontinuation;
+a participant who permanently discontinues the drug remains in the study for safety
+and survival follow-up.
+
+\subsection{Participant Discontinuation/Withdrawal from the Study}
+
+A participant may withdraw from the study at any time, for any reason, without
+penalty and without loss of any benefit to which the participant is otherwise
+entitled, and a participant may separately withdraw consent for continued
+study-specific procedures while permitting ongoing survival follow-up through the
+medical record. The investigator may withdraw a participant for safety, for
+intercurrent illness, for significant non-compliance that compromises participant
+safety or data integrity, for loss of eligibility, or at the sponsor's direction if
+the study is terminated. The reason for and date of any discontinuation or
+withdrawal are recorded in the case report form, and a participant who withdraws is
+asked to complete a final safety assessment where feasible.
+
+Data and specimens collected up to the point of withdrawal are retained and analyzed
+in accordance with the consent and applicable regulation; withdrawal of consent for
+future participation does not require deletion of data already collected. The
+relationship of discontinuation and withdrawal to the analysis populations (the
+safety, DLT-evaluable, and modified intention-to-treat populations) is defined in
+the statistical considerations ($\S$9). A participant who withdraws before
+completing the operative intervention is replaced for the purpose of completing the
+3+3 cohort only if not DLT-evaluable, per the rules in $\S$9.
+
+\subsection{Lost to Follow-Up}
+
+A participant is considered lost to follow-up only after the site has made and
+documented at least three contact attempts by telephone across separate days,
+followed by a written contact attempt to the last known address, over the 24-month
+overall-survival window. Each attempt is recorded with its date and outcome in the
+case report form. Before declaring a participant lost to follow-up, the site
+attempts, with appropriate authorization, to ascertain vital status from the medical
+record, the referring provider, and permissible public sources, because survival is
+a key endpoint of the study. A participant who cannot be reached after these
+attempts is classified as lost to follow-up, with the last date known alive
+recorded. The handling of the resulting missing data, including censoring rules for
+progression-free and overall survival and the sensitivity analyses used to assess
+the impact of missingness, is specified in $\S$9.4.

@@ -1,0 +1,31 @@
+\section{References and Back Matter}
+
+\draftinstr{Render the References via \texttt{ieeetr} from
+\texttt{references.bib}: the five DARAXONRASIB entries; the relevant FDA guidance
+and 21 CFR parts 11/50/812 from the \texttt{research/} markdowns; the IEC/ASME/
+NASA/IEEE standards; the NIH protocol template; and only the directly necessary
+author works. Cite each main document with a brief explanation.}
+
+\bmhead{Acknowledgments}
+This protocol was assembled with Claude Code (Opus 4.8, 1M context). The author
+thanks the open-source robotics, simulation, and clinical-standards communities.
+
+\bmhead{Author and ORCID}
+\draftinstr{Kevin Kawchak, CEO ChemicalQDevice, ORCID 0009-0007-5457-8667; render
+the ORCID iD mark via \textbackslash orcidicon and the ORCID URL.}
+
+\bmhead{Ethical Disclosures}
+\draftinstr{No real patients, PHI, or IRB approval; the exemplar PAT-PDAC-0001 is
+synthetic; all clinical figures derive from the author's simulation sources.}
+
+\bmhead{Data Availability}
+\draftinstr{GitHub plus Zenodo; deterministic seed; no PII; DOI
+10.5281/zenodo.xxxxxxxx.}
+
+\bmhead{Cite This Article}
+\draftinstr{Kawchak K. A Phase 1, First-in-Human, Combined IND/IDE Clinical Trial
+Protocol ... Zenodo. 2026; 10.5281/zenodo.xxxxxxxx.}
+
+% Bibliography (ieeetr); \nocite shows the assembled list in the draft scaffold.
+\phantomsection\addcontentsline{toc}{section}{References}
+\begingroup\raggedright\nocite{*}\bibliographystyle{ieeetr}\bibliography{references}\endgroup
