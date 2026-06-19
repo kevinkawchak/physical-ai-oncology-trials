@@ -1,0 +1,54 @@
+% tmpl01style.sty - legislative deliverable style (single column, Times, statute look).
+% Rebuilt for output-03 from papers/VVUQ-05/final-bill/usctitle.sty conventions.
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{tmpl01style}[2026/06/05 v2.0.0 output-03 legislative style]
+\RequirePackage{mathptmx}
+\RequirePackage[letterpaper,top=1in,bottom=1in,left=1.1in,right=1.1in,headheight=15pt,headsep=16pt,footskip=24pt]{geometry}
+\RequirePackage{xcolor}\definecolor{accentcol}{HTML}{1F3A68}
+\RequirePackage[T1]{fontenc}\RequirePackage[utf8]{inputenc}\RequirePackage{textcomp}
+\RequirePackage[protrusion=true,expansion=false]{microtype}
+\RequirePackage{array}\RequirePackage{booktabs}\RequirePackage{tabularx}
+\RequirePackage{ragged2e}\RequirePackage{needspace}\RequirePackage{enumitem}
+\RequirePackage{graphicx}\RequirePackage{float}\RequirePackage{caption}
+\RequirePackage{fancyvrb}
+\definecolor{billwhite}{rgb}{1,1,1}\pagecolor{billwhite}
+\RaggedRight\setlength{\RaggedRightParindent}{0pt}\setlength{\RaggedRightRightskip}{0pt plus 2em}
+\setlength{\parindent}{0pt}\setlength{\parskip}{3.4pt plus 1pt}
+\widowpenalty=10000 \clubpenalty=10000 \brokenpenalty=10000 \emergencystretch=3em \tolerance=2000
+\RequirePackage{fancyhdr}\pagestyle{fancy}\fancyhf{}\renewcommand{\headrulewidth}{0.4pt}
+\fancyhead[L]{\footnotesize\thepage}\fancyhead[C]{\footnotesize\scshape One-Page Summary}\fancyhead[R]{\footnotesize H.\,R. 9510}
+\fancypagestyle{plain}{\fancyhf{}\renewcommand{\headrulewidth}{0pt}\fancyfoot[C]{\footnotesize\thepage}}
+% Left-aligned ragged-right fixed-width columns and a flexible Y column, so the
+% one table template matches the body measure with no large inter-word gaps.
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
+\newcolumntype{C}[1]{>{\centering\arraybackslash}p{#1}}
+\newcolumntype{Y}{>{\raggedright\arraybackslash}X}
+% Section heading: bold serif small-caps with a thin accent rule (cross-head feel).
+\RequirePackage{titlesec}
+\titleformat{\section}{\large\bfseries\color{accentcol}}{}{0pt}{}[{\color{accentcol}\titlerule[0.6pt]}]
+% Comparative-print markers and a bill-header line.
+\newcommand{\cprstrike}[1]{[strike: #1]}
+\newcommand{\cprinsert}[1]{[insert: \textit{#1}]}
+\newcommand{\billline}[1]{{\footnotesize #1\par}\vspace{2pt}\noindent{\color{accentcol}\rule{\linewidth}{0.6pt}}\par}
+
+% Green ORCID logo. orcid_icon.png ships with every template, so \orcidicon is
+% defined unconditionally; a guarded \IfFileExists wrapper would place #1 inside a
+% kernel argument scan and break. Adapted from papers/VVUQ-02/final-paper/main.tex.
+\newcommand{\orcidicon}[1]{%
+  \href{https://orcid.org/#1}{\raisebox{-1pt}{\includegraphics[height=9pt]{orcid_icon.png}}}}
+
+% Keywords: a blank single line for the author to fill in (separate with |).
+\providecommand{\keywordname}{\textbf{Keywords}}
+\providecommand{\keywords}[1]{\par\addvspace{\medskipamount}%
+  {\setlength{\parindent}{0pt}\keywordname\enspace #1\par}}
+
+% Selectable back-matter heading (used by section files that carry back matter).
+\providecommand{\bmhead}[1]{\par\addvspace{0.5\baselineskip}\needspace{2\baselineskip}%
+  \phantomsection\addcontentsline{toc}{section}{#1}{\noindent\bfseries\color{accentcol}#1}\par\addvspace{2pt}}
+% Font-independent empty checkbox (avoids amssymb, which conflicts with kpfonts).
+\providecommand{\cboxx}{\raisebox{0.12ex}{\framebox[1.25ex]{\rule{0pt}{0.95ex}}}}
+
+
+\RequirePackage[hidelinks]{hyperref}\RequirePackage{url}
+\captionsetup{font=small,labelfont=bf,justification=raggedright,singlelinecheck=false}
+\endinput

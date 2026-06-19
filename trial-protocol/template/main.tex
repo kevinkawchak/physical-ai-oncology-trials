@@ -1,0 +1,24 @@
+% main.tex - One-Page Summary of H. R. 9510
+% Genre: Executive one-pager (labeled blocks). output-03 template (single column).
+% Built on INSPIRATIONS: VVUQ-05 deliverable 01; VVUQ-03 back matter.
+% Compile on Overleaf with pdfLaTeX: pdflatex -> bibtex -> pdflatex -> pdflatex.
+\documentclass[11pt]{article}
+\usepackage{tmpl01style}
+\begin{document}
+\thispagestyle{plain}
+\billline{\textbf{Bill:} H.\,R. 9510 (illustrative; the Clerk assigns the number at introduction), 119th Congress, 2d Session. \textbf{Refer to:} House Energy and Commerce (Health)}
+\begin{center}{\LARGE\bfseries\color{accentcol} One-Page Summary}\end{center}
+\begin{center}\small Prepared by Kevin Kawchak\,\orcidicon{0009-0007-5457-8667}, CEO ChemicalQDevice \;|\; \href{mailto:kevink@chemicalqdevice.com}{kevink@chemicalqdevice.com} \;|\; \href{https://doi.org/10.5281/zenodo.xxxxxxxx}{10.5281/zenodo.xxxxxxxx}\end{center}
+\noindent\footnotesize\textit{Independent research draft. Not an enacted law and not legal advice; not endorsed by the FDA, HHS, or any Member of Congress.}\normalsize\par
+\renewcommand{\keywordname}{\textbf{Subject}}\keywords{}
+
+\input{sections/section-a}
+\input{sections/section-b}
+\input{sections/section-c}
+\input{sections/section-d}
+\input{sections/section-e}
+\input{sections/section-f}
+
+\phantomsection\addcontentsline{toc}{section}{References}
+\begingroup\raggedright\nocite{*}\bibliographystyle{ieeetr}\bibliography{references}\endgroup
+\end{document}
