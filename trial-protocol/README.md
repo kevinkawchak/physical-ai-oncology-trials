@@ -62,14 +62,18 @@ flowchart TB
 
 ## Milestone schedule (one pull request, updated as each lands)
 
+**Status: complete (v4.0.0).** All milestones landed on
+`claude/gallant-planck-auv8n0`, one commit per file pushed in real time, inside
+one continuously updated pull request.
+
 | Milestone | Stage | Output directory | Commits | Status |
 |:--|:--|:--|:--|:--|
-| M1 | Bootstrap (Process A) | `prompts/`, `sub-prompts/`, this README, directory READMEs, template recolor | per file | in progress |
-| M2 | Stage 1 mermaid | [`mermaid/`](mermaid) | 20+ | pending |
-| M3 | Stage 2 draft-protocol | [`draft-protocol/`](draft-protocol) | 10+ | pending |
-| M4 | Stage 3 full-protocol | [`full-protocol/`](full-protocol) | 10+ | pending |
-| M5 | Stage 4 final-protocol | [`final-protocol/`](final-protocol) | 10+ | pending |
-| M6 | Release (v4.0.0) | root `CHANGELOG.md`, `releases.md`, `README.md`, `prompts/output-protocol.md` | 4+ | pending |
+| M1 | Bootstrap (Process A) | `prompts/`, `sub-prompts/`, this README, directory READMEs, template recolor | per file | complete |
+| M2 | Stage 1 mermaid | [`mermaid/`](mermaid) | 28 (25 figures) | complete |
+| M3 | Stage 2 draft-protocol | [`draft-protocol/`](draft-protocol) | 21 | complete |
+| M4 | Stage 3 full-protocol | [`full-protocol/`](full-protocol) | 21 (20 TikZ, 11 tables) | complete |
+| M5 | Stage 4 final-protocol | [`final-protocol/`](final-protocol) | 21 | complete |
+| M6 | Release (v4.0.0) | root `CHANGELOG.md`, `releases.md`, `README.md`, `prompts/output-protocol.md` | 5+ | complete |
 
 ## Directory map
 
