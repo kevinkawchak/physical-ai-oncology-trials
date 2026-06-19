@@ -1,0 +1,51 @@
+\section{Introduction}
+
+\subsection{Study Rationale}
+Pancreatic ductal adenocarcinoma is the third leading cause of cancer death in
+the United States with five-year overall survival below 13 percent, and the
+Whipple procedure is its most technically demanding curative-intent operation.
+This protocol pairs a precise, auditable, on-premises LLM-directed robotic
+Whipple with the RAS(ON) multi-selective inhibitor daraxonrasib.
+
+\draftinstr{Develop the rationale around the three counterfactual scenarios in
+which withholding the LLM + robot + medicine combination shortens PFS and OS;
+render \texttt{mermaid/fig-19-counterfactual-scenarios.md} as a TikZ figure.
+Politely raise the framing questions: how did we ever rely on humans alone for
+this treatment; why did we fully trust a prior trial system with so many
+opportunities for compounding human error; why would human peer review continue
+for increasingly complex and voluminous AI outputs. Source the clinical cascade
+from \texttt{inputs/2030-pdac-1min-final-paper/sections/\{introduction,discussion\}.tex}.}
+
+\subsection{Background}
+\draftinstr{Summarize: (a) PDAC epidemiology and the Whipple fistula-sepsis
+cascade (2030-pdac introduction); (b) daraxonrasib mechanism, FDA Breakthrough
+Therapy designation, RASolute 302 / RASolve 301 (cite the five DARAXONRASIB
+entries, brief explanation of each); (c) the current state of AI in trials -
+prior AI was prediction-only or narrow, 0 generative LLM devices approved, 1,016
+to 1,450+ narrow AI/ML authorizations - from
+\texttt{research/\{ChatGPT-5.5-Thinking-Extended-18Jun26,Gemini-3.1-Pro-18Jun26\}.md};
+(d) the author's established LLM trust, Aug 2024-Jun 2026, from
+\texttt{inputs/author\_works.bib}, rendered via
+\texttt{mermaid/fig-23-author-trust-timeline.md}, with brief descriptions only.}
+
+\draftinstr{Add a Background subsection ``Physical AI concerns addressed by this
+protocol'' covering all eight items (limitations; patient safety; loss of human
+workers; single-source software; proprietary-model dependency; non-domestic
+open-source LLMs; overly complex workflows; black boxes), each paired with its
+mitigation; render \texttt{mermaid/fig-20-physical-ai-concerns.md} as a TikZ
+figure and as a full-width table.}
+
+\subsection{Risk/Benefit Assessment}
+\subsubsection{Known Potential Risks}
+\draftinstr{Enumerate drug risks (daraxonrasib toxicity), device/robotic risks
+(malfunction, AI advisory error, cyber-physical failure, vascular injury), and
+operative risks (fistula, hemorrhage, conversion). Source robotic risk
+categories from \texttt{inputs/21cfr312\_adapt/01\_preamble\_scope\_definitions.tex}.}
+\subsubsection{Known Potential Benefits}
+\draftinstr{Precise in-window R0 resection, layered hard safety limits with full
+audit trail, optimized drug-restart timing; for a low-survival population.}
+\subsubsection{Assessment of Potential Risks and Benefits}
+\draftinstr{Render \texttt{mermaid/fig-24-risk-benefit-terminal.md} as a TikZ
+figure; conclude the benefit-risk balance is favorable for advanced patients,
+consistent with the expanded-access ethic (21 CFR 312.84;
+\texttt{research/ChatGPT-5.5-Thinking-Extended-19Jun26.md}).}
