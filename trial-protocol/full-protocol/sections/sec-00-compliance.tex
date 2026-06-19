@@ -1,0 +1,148 @@
+\section{Statement of Compliance}
+
+This trial will be conducted in accordance with the protocol, the principles of
+the International Council for Harmonisation (ICH) Good Clinical Practice (GCP)
+guideline E6(R3), and all applicable United States regulations governing both
+the investigational drug and the investigational device, together with the
+Physical AI overlay that governs the on-premises large language model (LLM)
+directed robotic system. Because this is a combined Investigational New Drug
+(IND) and Investigational Device Exemption (IDE) first-in-human study, two
+distinct but harmonized regulatory spines apply concurrently; both are carried
+in full below, and neither is subordinated to the other. The Sponsor-Investigator
+attests that the conduct of every study activity, the protection of every
+enrolled participant, and the integrity of every recorded datum will satisfy the
+more stringent of the two spines wherever they differ.
+
+\subsection{Drug Arm Compliance (IND, 21 CFR Part 312)}
+
+The perioperative daraxonrasib (RMC-6236) component is conducted under an IND in
+accordance with Title 21 of the Code of Federal Regulations. Specifically, the
+study complies with 21 CFR part 50 (Protection of Human Subjects, including the
+informed-consent requirements of \S50.20 through \S50.27); 21 CFR part 54
+(Financial Disclosure by Clinical Investigators); 21 CFR part 56 (Institutional
+Review Boards); and 21 CFR part 312 (Investigational New Drug Application),
+including the sponsor and investigator responsibilities of subparts B and D, the
+safety-reporting requirements of \S312.32, and the IND-application and amendment
+provisions of \S312.20 through \S312.31. The drug arm is structured as a Phase 1,
+3+3 dose-finding evaluation; the IND is in effect following the 30-day review
+period of \S312.40, and no participant is dosed before the IND is in effect.
+
+\subsection{Device Arm Compliance (IDE, 21 CFR Part 812)}
+
+The on-premises LLM-directed eight-arm robotic pancreaticoduodenectomy (Whipple)
+system is an investigational medical device evaluated under an IDE in accordance
+with 21 CFR part 812. The Sponsor-Investigator and the reviewing Institutional
+Review Board (IRB) have determined that the device presents a significant risk
+within the meaning of \S812.3(m), because it is a surgical-intervention device
+whose patient-contact motion, force application, vascular-exclusion gating, and
+emergency-stop behavior present a potential for serious risk to the health,
+safety, or welfare of a participant. The study therefore proceeds only under an
+IDE approved by both the FDA and the IRB. The device arm additionally complies
+with 21 CFR part 50 and 21 CFR part 56 for human-subject protection and IRB
+oversight, and with 21 CFR part 11 (Electronic Records; Electronic Signatures)
+for the validation, audit-trail, and electronic-signature controls that
+underpin the hash-chained command and telemetry record described in \S10. The
+device component is framed as an early feasibility study consistent with FDA
+guidance for significant-risk devices, in which limited clinical experience is
+sought because nonclinical simulation alone cannot supply the information needed
+to advance development.
+
+\subsection{Physical AI Overlay (21 CFR Part 312, Subpart J)}
+
+The autonomy-bearing behavior of the LLM-directed system is governed by the
+Physical AI overlay codified in 21 CFR part 312, Subpart J (\S312.400 through
+\S312.405), as adapted for end-to-end Physical AI oncology investigations
+\cite{kawchak2026adapt312}. Subpart J requires, as preconditions to first-in-human
+use, a Phase 0 simulation-validation gate (at least two independent simulation
+frameworks reproducing motion within a $\leq 2$ mm positional and $\leq 0.5$ N
+force tolerance), a documented Unified Safety Level (USL) readiness rating of
+$\geq 7.0$ for surgical deployment, and classification of the system as a Class
+II collaborative device under continuous human oversight with a guaranteed
+emergency-stop latency of $\leq 500$ ms. These overlay requirements operate in
+addition to, and never in place of, the part 312 and part 812 obligations above.
+The hash-chained audit trail required under \S312.404 satisfies the part 11
+electronic-records standard and renders every LLM advisory, every robot command,
+and every safety-limit event re-traceable to a deterministic seed and a specific
+repository commit.
+
+\subsection{Good Clinical Practice and Electronic Records}
+
+The trial adheres to ICH E6(R3) GCP, the international ethical and scientific
+quality standard for designing, conducting, recording, and reporting clinical
+investigations involving human participants. All electronic clinical data,
+source records, and the cyber-physical telemetry stream are maintained under 21
+CFR part 11, with validated systems, secure time-stamped audit trails that do not
+obscure prior entries, role-based access controls, and electronic signatures
+bound to the records they authenticate. The hash-chained record specified by the
+Physical AI overlay provides cryptographic continuity across the screening,
+operative, and follow-up phases.
+
+\subsection{Trial Registration}
+
+The study will be registered on ClinicalTrials.gov before enrollment of the
+first participant. It is registered as an Interventional study. The drug
+component is classified as Phase 1 (dose-finding for daraxonrasib), while the
+device component carries Phase: Not Applicable, consistent with the
+ClinicalTrials.gov convention that FDA-defined phase categories apply to drugs
+and biologics rather than to devices. The Primary Purpose is recorded as Device
+Feasibility together with the dose-finding objective of the drug arm. The study
+is open-label and single-arm, with staggered (sentinel) enrollment and
+prespecified pause and stopping rules.
+
+\subsection{Statement of Compliance Pathway}
+
+Figure 1 renders the combined IND and IDE compliance spine with the Physical AI
+Subpart J overlay. The daraxonrasib drug arm (IND, part 312) and the robotic
+Whipple device arm (IDE, part 812, significant-risk) converge through the
+Phase 0 simulation-validation gate, the USL readiness verification, and the
+Class II collaborative classification into a single first-in-human protocol.
+
+\begin{mermaidfig}
+\node[mmin]  (pre)   at (0,0)       {Pre-IND meeting\\\S312.47 plus\\Physical AI review};
+\node[mmstep](ind)   at (0,-2.4)    {IND in effect (30-day)\\daraxonrasib\\Phase 1, 3+3};
+\node[mmin]  (sr)    at (4.6,0)      {Significant-risk\\determination\\\S812.3(m)};
+\node[mmstep](ide)   at (4.6,-2.4)   {IDE approved\\(FDA plus IRB)\\early feasibility};
+\node[mmstep](p0)    at (2.3,-4.8)   {Phase 0 sim validation\\$\geq 2$ frameworks\\$<2$ mm / $<0.5$ N};
+\node[mmstep](usl)   at (2.3,-7.0)   {USL readiness $\geq 7.0$\\pre-procedure\\safety matrix};
+\node[mmgoal](cls)   at (2.3,-9.2)   {Class II collaborative\\continuous oversight\\$\leq 500$ ms e-stop};
+\node[mmgoal](enr)   at (2.3,-11.4)  {First-in-human\\enrollment\\combined IND plus IDE};
+\draw[mmedge] (pre) -- (ind);
+\draw[mmedge] (sr)  -- (ide);
+\draw[mmedge] (ind.south) |- (p0.west);
+\draw[mmedge] (ide.south) |- (p0.east);
+\draw[mmedge] (p0)  -- (usl);
+\draw[mmedge] (usl) -- (cls);
+\draw[mmedge] (cls) -- (enr);
+\end{mermaidfig}
+\figcaption{Figure 1. Combined IND / IDE regulatory pathway with the Physical AI
+overlay. The daraxonrasib drug arm (IND, part 312) and the robotic Whipple device
+arm (IDE, part 812, significant-risk per \S812.3(m)) converge through the
+Subpart J overlay of Phase 0 simulation validation, USL readiness, and Class II
+collaborative classification into one first-in-human protocol.}
+
+\subsection{Signatures}
+
+The Sponsor-Investigator has reviewed and approved this protocol and confirms
+that the study will be conducted in compliance with the protocol, ICH E6(R3) GCP,
+and the federal regulations cited above. By signature below, each signatory
+agrees to conduct or supervise the study in accordance with the protocol and all
+applicable requirements.
+
+\vspace{0.6em}
+
+\noindent\begin{tabularx}{\textwidth}{L{8.2cm} Y}
+\toprule
+\textbf{Sponsor-Investigator} & \textbf{Site Principal Investigator} \\
+\midrule
+\vspace{1.6em}\rule{6.0cm}{0.4pt} & \vspace{1.6em}\rule{6.0cm}{0.4pt} \\
+Kevin Kawchak & Name (printed) \\
+CEO, ChemicalQDevice & Title / Institution \\[0.8em]
+Signature and date: \rule{2.6cm}{0.4pt} & Signature and date: \rule{2.6cm}{0.4pt} \\
+\bottomrule
+\end{tabularx}
+
+\vspace{0.4em}
+
+\noindent The signatory acknowledges that this is an independent research draft;
+it is not an active IND or IDE and is not endorsed by the FDA, NIH, HHS, an IRB,
+ICH, or any sponsor.
