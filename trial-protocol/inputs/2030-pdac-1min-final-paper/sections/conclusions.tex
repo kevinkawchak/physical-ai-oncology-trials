@@ -1,0 +1,128 @@
+% ======================================================================
+% SECTION 6: CONCLUSIONS
+% Four thematic blocks expanded from the v0.8.0 bracketed draft at
+% 2030-pdac-1min/paper/draft-paper/sections/conclusions.tex.
+% Location: 2030-pdac-1min/paper/full-paper/sections/conclusions.tex
+% ======================================================================
+
+\subsection{Headline Artifact Result}
+\label{sec:conclusions-headline}
+
+The headline artifact of this v0.9.0 release is a complete five
+phase Claude Code Opus 4.7 1M Max workflow (code instructions plus
+code generation plus execution plus a draft template, now expanded into a full paper, followed by this final version) that produces the first 60 second 8 arm Whipple procedure plus
+Daraxonrasib precision oncology adjuvant simulation in the
+literature.\ The headline numbers tie back to file paths located in the repository under
+\texttt{2030-pdac-1min/paper/execution/}: mean composite of 93.298
+across 32 iterations with std 1.225 and 95\% CI half width of 0.462 at
+\texttt{2030-pdac-1min/paper/execution/iterations/iteration_summary.csv},
+PancreSpeed 1.0 winning 96 of 96 played rounds throughout the competition at mean composite
+93.735 at
+\texttt{2030-pdac-1min/paper/execution/comparison/leaderboard.csv},
+and a noteable T+7d Daraxonrasib postoperative restart in 29 of 32 of all the iterations at
+\texttt{2030-pdac-1min/paper/execution/daraxonrasib/advisory_summary.csv}.
+
+The exceptional processing feat is the 1001 record Phase 5 first
+100 ms Arm 1 sample at
+\texttt{2030-pdac-1min/paper/execution/sensors/sensor_sample_8arm.jsonl},
+which no human team could review or author inline within a single
+working session at the 100 kHz force sampling rate across 640
+channels. The next subsection states the three persistent themes
+carried forward from the present paper.
+
+\subsection{Three Persistent Themes Carried Forward}
+\label{sec:conclusions-themes}
+
+Three themes carry forward from this PDAC paper into the next
+sibling release in this repository. Clinical relevance is the
+first theme: the 60 second 8 arm Whipple plus Daraxonrasib pairing
+addresses the third leading cause of cancer death in the United
+States and the fourth in the European Union, with 5 year overall
+survival below 13 percent \cite{Siegel2025CancerStatistics}. The
+2025 Dutch nationwide cohort mean ideal outcome rate of 47 percent
+\cite{DutchCohort2025Whipple} is the human baseline that the 2030
+PancreSpeed 1.0 target improves on, with the cross time
+normalization caveat preserved in every per round LLM judge
+rationale. Technical reproducibility is the second theme: the
+deterministic seed contract (root seed 20260513) at
+\texttt{2030-pdac-1min/paper/codegen/config/iterations.yaml}, the
+doi plus url plus note triad invariant across the 35 entry
+\texttt{references.bib}, and the IEC \cite{iec-80601-2-77,
+iec-62304} plus FDA \cite{fda-samd, cfr-21-50-30, rev-fda-breakthrough}
+plus ICH \cite{ich-e6r3} standards anchors together guarantee that
+the workflow is reproducible by any third party.
+
+Ethical alignment is the third theme: the on premises LLM
+deployment, the FDA
+SaMD framework opportunism \cite{fda-samd}, the TRIPOD+AI
+\cite{Collins2024TRIPODAI} plus CREMLS \cite{ElEmam2024CREMLS}
+reporting floor, and the United States Number 1 patient safety
+framing all converge on the same alignment. Table
+\ref{tab:conclusions-themes} summarizes the three themes and
+their downstream sharing plan.
+
+\clearpage
+
+\begin{table}[H]
+\caption{3 persistent themes carried forward from this PDAC full paper.}
+\label{tab:conclusions-themes}
+\centering
+\begin{tabular}{>{\raggedright\arraybackslash}p{3.4cm} >{\raggedright\arraybackslash}p{5.5cm} >{\raggedright\arraybackslash}p{6.3cm}}
+\toprule
+\textbf{Theme} & \textbf{Anchor} & \textbf{Downstream sharing plan} \\
+\midrule
+  Clinical relevance & PDAC, 5 year OS less than 13\%, Whipple gold standard & Cohort scale up + multi center federation \\
+  Technical reproducibility & Root seed 20260513, ieeetr bibstyle, doi+url+note triad & GitHub + Zenodo dual deposition \\
+  Ethical alignment & On premises LLM, FDA SaMD, TRIPOD+AI, CREMLS & FDA Q-Sub + TRIPOD+AI checklist  \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Safety Implications of the On-Premises LLM Advisory Layer}
+\label{sec:conclusions-safety}
+
+The on premises LLM advisory layer located
+\texttt{2030-pdac-1min/paper/codegen/src/llm/compare_agent_1min.py}
+and new file at
+\texttt{2030-pdac-1min/paper/codegen/src/daraxonrasib/advisory.py}
+minimizes significantly notable single robot error potential through second opinion
+oracle isolation from the robot vendor controller.\ The mechanism
+is unchanged from the v0.4.0 GBM cross study anchor
+\cite{kawchak_2026_20113157}; the safety floor in the PDAC
+variant is tightened by the 5 vessel safety zone gate verdicts at
+\texttt{2030-pdac-1min/paper/execution/vascular/gate_verdicts.csv}
+(clear 83, no_fly 6, soft_warning 6, hard_stop 5 across a 100
+tick sample), by the 3 ms E stop budget at
+\texttt{2030-pdac-1min/paper/codegen/src/coordination/arm_heartbeat_10khz.cpp},
+and by the FDA SaMD framing \cite{fda-samd} that the Daraxonrasib
+advisory layer at
+\texttt{2030-pdac-1min/paper/execution/daraxonrasib/advisories.json}
+preserves verbatim in every output. The combination positions the
+workflow for an FDA Q-Sub pre submission as the next regulatory
+step.
+
+\subsection{Forward Path to the Final Publication}
+\label{sec:conclusions-forward}
+
+The downstream Claude Code Opus 4.7 1M Max passes that follow
+this v0.9.0 full paper inherit a complete worked example. The
+sibling cancer site papers (hepatocellular carcinoma,
+cholangiocarcinoma, gastric cancer, and any future addition)
+start by copying the v0.8.0 PDAC draft template at
+\texttt{2030-pdac-1min/paper/draft-paper/} (preserved verbatim in
+this PR), swapping the disease specific instruction files, and
+resolving the brackets in one pass against the new disease
+context. The reference inventory at
+\texttt{2030-pdac-1min/paper/full-paper/references.bib} (35
+entries with the doi plus url plus note triad) carries the cross
+study citations that the sibling paper extends rather than
+replaces, the formatting invariants at
+\texttt{2030-pdac-1min/paper/full-paper/README.md} carry the
+raggedright table column type contract plus the black text plus
+single dash invariants, and the per section structure (abstract,
+introduction, methods, results, discussion, limitations and
+future work, conclusions, back matter) carries the page level
+self standing layout convention.
+
+Cite this article as Kawchak K. 2030: 60 Second Pancreatic Ductal Adenocarcinoma Robotic Whipple Procedure \&
+Daraxonrasib Simulation. Zenodo. 2026; 10.5281/zenodo.20196639.

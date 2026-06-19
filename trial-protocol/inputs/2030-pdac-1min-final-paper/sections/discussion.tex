@@ -1,0 +1,195 @@
+% ======================================================================
+% SECTION 4: DISCUSSION
+% Five thematic subsections expanded from the v0.8.0 bracketed draft at
+% 2030-pdac-1min/paper/draft-paper/sections/discussion.tex.
+% Location: 2030-pdac-1min/paper/full-paper/sections/discussion.tex
+% ======================================================================
+
+\subsection{Significance of the As-Built Artifacts}
+\label{sec:discussion-significance}
+
+The five phase Claude Code workflow output paired with this paper
+consists of 26 instruction files (v0.5.0) at
+\texttt{2030-pdac-1min/paper/instructions/}, the v0.6.0 codegen
+tree (15 src modules across Python, C++, and Rust) at
+\texttt{2030-pdac-1min/paper/codegen/}, the v0.7.0 execution tree
+(16 subdirectories with deterministic run output) at
+\texttt{2030-pdac-1min/paper/execution/}, and the v0.8.0 bracketed
+draft template at \texttt{2030-pdac-1min/paper/draft-paper/} that
+this v0.9.0 full paper expands without modification. The workflow
+is end to end in the sense that no human authored a single file
+beyond the prompts; the agent stack \cite{claude-code,
+claude-opus-47, claude-sonnet-46} carried the five phases.
+
+The significance argument is straightforward: this is the first 60
+second 8 arm Whipple paired with a precision oncology drug
+development program in the literature.\ The prior 60 second GBM
+resection \cite{kawchak_2026_20113157} demonstrated the 4 arm
+pattern; the present work scales the pattern to 8 arms and adds
+the Daraxonrasib LLM bound advisory layer. The four prior author
+PDAC papers \cite{kawchak_2025_15735068, kawchak_2025_16415815,
+kawchak_2025_17001137, kawchak_2025_17239510} and the Daraxonrasib
+summary \cite{kawchak_2025_18099351} independently complemented
+real RASolute 302 trial development throughout 2025; this paper
+makes the surgical robot complement explicit and ties the
+pharmacologic and surgical workflows under one repository.
+
+\subsection{Opportunistic FDA Framing for Physical AI Oncology Surgery}
+\label{sec:discussion-fda}
+
+The 28 April 2026 FDA RTCT announcement \cite{fda2026realtime} is
+the regulatory entry point that this work is positioned against.
+The two named oncology pharmacology pilots (AstraZeneca TRAVERSE
+and Amgen STREAM-SCLC) leave the surgical theater open as a third
+pilot family. The present work is positioned as advancing the new
+field of Physical AI oncology trial surgical procedures while
+keeping the United States Number 1 in the world regarding patient
+safety, efficacy, and speed benefits in oncological robotic
+clinical trial surgeries. The framing is respectful but
+opportunistic.
+
+The four regulatory anchors are the FDA Software as a Medical
+Device framework \cite{fda-samd}, the IEC 80601-2-77 robotically
+assisted surgical equipment standard \cite{iec-80601-2-77}, the
+IEC 62304 medical device software life cycle standard
+\cite{iec-62304}, and the 21 CFR 50.30 informed consent obligation
+\cite{cfr-21-50-30}. ICH E6(R3) Good Clinical Practice
+\cite{ich-e6r3} adds the international clinical trial framing for
+the eventual cross border deployment. The reporting floor is set
+by TRIPOD+AI \cite{Collins2024TRIPODAI} and CREMLS
+\cite{ElEmam2024CREMLS}; both apply to every per round tournament
+rationale and to the per iteration advisory output.
+
+The cross jurisdictional opportunity is broader than a single FDA
+filing. The EU Medical Device Regulation, the China National
+Medical Products Administration, the Japan Pharmaceuticals and
+Medical Devices Agency, the United Kingdom Medicines and Healthcare
+products Regulatory Agency, Health Canada, and the Therapeutic
+Goods Administration of Australia each maintain a parallel SaMD
+review track. The on premises LLM thesis preserves the data
+residency requirement that governs the parallel non US frameworks
+without the need for a separate inference deployment per
+jurisdiction. The next subsection details the mechanism
+that the SaMD framework will review.
+
+\subsection{On-Premises LLM Single Robot Error Minimization}
+\label{sec:discussion-onprem}
+
+The thesis from
+\texttt{2030-pdac-1min/paper/instructions/README.md} is stated
+verbatim: on premises repository based LLMs provide commands to
+standard oncology surgical robots based on real time sensor data
+and controlled via x, y, z coordinates to administer patient
+treatment; this workflow minimizes single robot error potential.
+The mechanism is second opinion oracle isolation. The LLM acts as
+an oracle that sits outside the robot vendor kinematic stack, so a
+fault in the vendor controller does not propagate into the LLM
+advisory layer. The 10 kHz heartbeat bus, the 100 microsecond
+watchdog, and the 3 ms E stop budget specified in
+\texttt{multi_arm_coordination_8arm.md} and implemented in
+\texttt{2030-pdac-1min/paper/codegen/src/coordination/arm_heartbeat_10khz.cpp}
+bound every LLM advisory inside the safety floor before it can
+reach an actuator.
+
+The quality and safety benefits realized in the v0.7.0 execution
+tree are concrete.\ The 5 vessel safety zone gate located at
+\texttt{2030-pdac-1min/paper/execution/vascular/gate_verdicts.csv}
+logged 100 ticks with the following details: clear 83, no_fly 6, soft_warning 6, and
+hard_stop 5; every hard_stop fired the 3 ms E stop within budget.\
+The per anastomosis controller outcomes at
+\texttt{2030-pdac-1min/paper/execution/anastomosis/} recorded PJ
+Grade A in 31 of 32 iterations, HJ leak absent in 14 of 32
+iterations per controller (consistent with the bile spectro-
+photometry leak detection threshold), and GJ patent in 32 of 32
+iterations. The composite mean 93.298 with std 1.225 indicates a
+tight outcome envelope around the 32 iteration sample, which is a
+quality and safety win against the 2025 Dutch human cohort mean
+ideal outcome rate of 47 percent \cite{DutchCohort2025Whipple}
+under the cross time normalization caveat.
+
+The privacy and data residency benefits sit on top of the safety
+benefits. The on premises deployment never sends patient sensor
+data outside the institution. The next subsection
+documents how this draft head start accelerates the downstream
+final paper pass.
+
+\subsection{Head Start for the Downstream Full Paper Pass}
+\label{sec:discussion-headstart}
+
+This v0.9.0 full paper provides the worked example that a
+downstream Claude Code Opus 4.7 1M Max pass can reuse on a
+sibling cancer site (for example, hepatocellular carcinoma,
+cholangiocarcinoma, or gastric cancer) without re authoring the
+section structure, the table column type contract, the reference
+inventory pattern, or the cross study cite framing. The bracketed
+draft template at
+\texttt{2030-pdac-1min/paper/draft-paper/} (preserved verbatim in
+this PR) names the exact source files in
+\texttt{2030-pdac-1min/paper/\{instructions,codegen,execution,inputs\}/} that the downstream pass should process; this v0.9.0
+full paper resolves those brackets into running prose, anchored
+tables, and ASCII diagrams without inventing new sources.
+
+The benefits of the head start are tangible. The downstream pass
+can focus its 1M context budget on synthesis rather than
+discovery; the file name level specificity in each bracket
+reduces hallucination risk; the pre populated tables anchor the
+dimensional and unit invariants; the references.bib starter ships
+with the doi plus url plus note triad that the downstream pass
+extends rather than replaces. The v0.4.0 GBM paper at
+\cite{kawchak_2026_20113157} provides the parallel cross study
+anchor; the v0.9.0 PDAC paper provides the second worked example
+that closes the GBM to PDAC pattern.\ A future sibling
+hepatocellular carcinoma paper would start by copying the v0.8.0
+PDAC draft template, swapping the disease specific instruction
+files, and resolving the brackets in one pass.
+
+\subsection{Practical Real-Life Adoption Insights}
+\label{sec:discussion-realworld}
+
+The honest accounting of how close this work sits to real life is
+the most important paragraph in the discussion. The 60 second
+simulation is simulation against simulation for the three
+hypothetical 2030 robot competitors and simulation against the
+2025 Dutch cohort numbers \cite{DutchCohort2025Whipple} for the
+human baseline.\ The synthetic patient PAT-PDAC-0001 from
+\texttt{2030-pdac-1min/paper/instructions/pdac_context_1min.md}
+is one synthetic patient, not a cohort. The TRIPOD+AI
+\cite{Collins2024TRIPODAI} and CREMLS \cite{ElEmam2024CREMLS}
+reporting standards must be satisfied before any clinical
+translation step. The 2025 SOTA platforms cited in
+\cite{intuitive-davinci-sp, medtronic-hugo-ras}
+cannot perform a 60 second Whipple today; bench top prototypes
+that close the 5x to 500x performance gap are a multi year
+hardware program with FDA Breakthrough Device pathway gating.
+
+The Daraxonrasib bridge is closer to real life because the drug
+is real. Daraxonrasib holds an FDA Breakthrough Therapy
+designation from June 2025 \cite{rev-fda-breakthrough}, is
+enrolled in the RASolute 302 phase 3 trial in previously treated
+metastatic pancreatic cancer \cite{rasolute302}, and is enrolled
+in the RASolve 301 first line trial with pembrolizumab
+\cite{rasolve301}.\ The perioperative pause and restart logic in
+\texttt{2030-pdac-1min/paper/instructions/daraxonrasib_integration.md}
+is consistent with the public protocols. The LLM bound advisory
+layer is the new piece this work contributes; an FDA Q-Sub pre
+submission under the SaMD framework \cite{fda-samd} is the
+tractable next regulatory step. Table \ref{tab:discussion-realworld}
+summarizes the 5 real life adoption gaps and the tractable next
+step for each.
+
+\begin{table}[H]
+\caption{5 real life adoption gaps and tractable next steps for the 60 second 8 arm Whipple plus Daraxonrasib pairing.}
+\label{tab:discussion-realworld}
+\centering
+\begin{tabular}{>{\raggedright\arraybackslash}p{4.8cm} >{\raggedright\arraybackslash}p{5.4cm} >{\raggedright\arraybackslash}p{5.2cm}}
+\toprule
+\textbf{Gap} & \textbf{Why it matters} & \textbf{Tractable next step} \\
+\midrule
+  Synthetic patient PAT-PDAC-0001 & Single patient, no cohort variance & Cohort scale up under TRIPOD+AI \cite{Collins2024TRIPODAI} \\
+  Hypothetical PancreSpeed 1.0 hardware & 5x to 500x gap vs 2025 SOTA & Multi year hardware program with FDA Breakthrough \\
+  Simulation vs simulation for 3 robot competitors & No real bench data on competitors & Vendor handoff under cross licensing terms \\
+  60 second time scale not biologically validated & Tissue creep, anastomosis healing, pharmacokinetics & Translational work on porcine, human cadaver models \\
+  Not yet IRB approved & SaMD review pending & Pre submission Q-Sub \cite{fda-samd} \\
+\bottomrule
+\end{tabular}
+\end{table}

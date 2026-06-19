@@ -1,0 +1,280 @@
+% ======================================================================
+% 2030: 60 Second Pancreatic Cancer Whipple Surgery + Daraxonrasib
+% Simulation. Author: Kevin Kawchak, CEO ChemicalQDevice
+% Released: May 15, 2026
+% Location: 2030-pdac-1min/paper/full-paper/main.tex
+%
+% Populated full paper expanded from the bracketed draft template at
+% 2030-pdac-1min/paper/draft-paper/. This directory holds the
+% Overleaf-ready end-to-end paper compiled with
+%   pdflatex main.tex
+%   bibtex   main
+%   pdflatex main.tex
+%   pdflatex main.tex
+% The bracketed processing instructions that lived in the upstream
+% draft template have been resolved into running prose, anchored
+% tables, and ASCII diagrams in each section file. Single dashes
+% only. Black text only. \S used for the section sign.
+% ======================================================================
+\documentclass[11pt]{article}
+\usepackage{new_paper}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{url}
+\usepackage[hidelinks, colorlinks=false, pdfborder={0 0 0}]{hyperref}
+% Load underscore AFTER hyperref so the underscore character renders as
+% a normal printable character in text mode (file paths in the body
+% carry underscores).
+\usepackage{underscore}
+\usepackage{booktabs}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{enumitem}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{tabularx}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{textcomp}
+\usepackage{microtype}
+\usepackage{float}
+\usepackage{ragged2e}
+\usepackage{multirow}
+\usepackage{makecell}
+\usepackage{caption}
+
+% ======================================================================
+% Header height adjustment (fixes fancyhdr warning under 11 pt body).
+% ======================================================================
+\setlength{\headheight}{16pt}
+
+% Compact running header so the long title fits on one line.
+\renewcommand{\shorttitle}{\scriptsize\scshape 2030: 60 Second PDAC Whipple Procedure \& Daraxonrasib Simulation}
+
+% ======================================================================
+% Paragraph spacing controls. Tuned to avoid large white spaces between
+% words while preserving justified text. \sloppy + \emergencystretch
+% prevents lines from running off the right margin without producing
+% visible rivers between words. The tighter tolerance plus the
+% \RaggedRight default in new_paper.sty keeps interword spacing even
+% throughout the body.
+% ======================================================================
+\tolerance=1200
+\emergencystretch=3em
+\hbadness=2000
+\hyphenpenalty=50
+\exhyphenpenalty=50
+\sloppy
+
+% Suppress isolated 1 or 2 word lines at the top or bottom of a page
+% so each page reads self-standingly without short orphan/widow lines.
+\widowpenalty=10000
+\clubpenalty=10000
+\displaywidowpenalty=10000
+\brokenpenalty=10000
+\predisplaypenalty=10000
+\postdisplaypenalty=10000
+
+% ======================================================================
+% Force all text to black (paper requirement: only black text).
+% Hyperlinks are kept black through the hypersetup below so a printed
+% page is indistinguishable from a screen view.
+% ======================================================================
+\color{black}
+\hypersetup{
+  urlcolor=black,
+  linkcolor=black,
+  citecolor=black,
+  filecolor=black
+}
+
+% ======================================================================
+% Allow URL line breaks at many characters so long DOI URLs in the
+% bibliography do not run off the right margin.
+% ======================================================================
+\def\UrlBreaks{\do\/\do-\do.\do=\do_\do?\do\&\do\%\do\a\do\b\do\c\do\d\do\e%
+\do\f\do\g\do\h\do\i\do\j\do\k\do\l\do\m\do\n\do\o\do\p\do\q\do\r\do\s\do\t%
+\do\u\do\v\do\w\do\x\do\y\do\z\do\A\do\B\do\C\do\D\do\E\do\F\do\G\do\H\do\I%
+\do\J\do\K\do\L\do\M\do\N\do\O\do\P\do\Q\do\R\do\S\do\T\do\U\do\V\do\W\do\X%
+\do\Y\do\Z}
+
+% ======================================================================
+% Code listing style for Python and C++ excerpts. Black-only foreground
+% colors; scriptsize so a listing fits inside the 6.5 inch text width.
+% ======================================================================
+\lstdefinestyle{pythonstyle}{
+  language=Python,
+  basicstyle=\ttfamily\scriptsize,
+  keywordstyle=\color{black}\bfseries,
+  stringstyle=\color{black},
+  commentstyle=\color{black}\itshape,
+  numbers=left,
+  numberstyle=\tiny\color{black},
+  stepnumber=1,
+  numbersep=5pt,
+  backgroundcolor=\color{white},
+  frame=single,
+  rulecolor=\color{black},
+  breaklines=true,
+  breakatwhitespace=false,
+  tabsize=4,
+  showstringspaces=false,
+  columns=flexible,
+  upquote=true
+}
+\lstset{style=pythonstyle}
+
+% ======================================================================
+% ORCID icon command. Renders the green ORCID logo next to the author
+% name when orcid_icon.png is present, and gracefully falls back to a
+% bold green "iD" tag (still hyperlinked) when the image is missing so
+% the document compiles cleanly in any environment.
+% ======================================================================
+\IfFileExists{orcid_icon.png}{
+  \newcommand{\orcidicon}[1]{%
+    \href{https://orcid.org/#1}{%
+    \raisebox{-1pt}{\includegraphics[height=9pt]{orcid_icon.png}}}}
+}{
+  \definecolor{orcidgreen}{HTML}{A6CE39}
+  \newcommand{\orcidicon}[1]{%
+    \href{https://orcid.org/#1}{%
+    \textbf{\textcolor{orcidgreen}{\textsf{iD}}}}}
+}
+
+% ======================================================================
+% Compact table column types. The standard pattern for every table in
+% this paper is:
+%   {>{\raggedright\arraybackslash}p{XYZcm}}
+% Every width value must keep the \raggedright\arraybackslash prefix
+% to avoid large interword gaps inside cells.
+% ======================================================================
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
+\newcolumntype{C}[1]{>{\centering\arraybackslash}p{#1}}
+\newcolumntype{R}[1]{>{\raggedleft\arraybackslash}p{#1}}
+
+% ======================================================================
+% Caption style. Captions are black, small, left-justified so the
+% caption width matches the figure or table content.
+% ======================================================================
+\captionsetup{font=small,labelfont=bf,justification=raggedright,singlelinecheck=false}
+
+% ======================================================================
+% Verbatim environment width control. Long ASCII diagrams render at
+% scriptsize to fit inside the 6.5 inch text width.
+% ======================================================================
+\makeatletter
+\renewcommand{\verbatim@font}{\ttfamily\scriptsize}
+\makeatother
+
+% ======================================================================
+% TITLE PAGE (Two Lines, Centered)
+% ======================================================================
+\title{2030: 60 Second Pancreatic Ductal Adenocarcinoma\\Robotic Whipple Procedure \& Daraxonrasib Simulation}
+
+\author{
+  Kevin Kawchak\hspace{2pt}\orcidicon{0009-0007-5457-8667} \\
+  CEO ChemicalQDevice\\
+  \href{https://doi.org/10.5281/zenodo.20196639}{10.5281/zenodo.20196639} \\
+}
+
+\date{May 15, 2026}
+
+% ======================================================================
+% BEGIN DOCUMENT
+% ======================================================================
+\begin{document}
+\maketitle
+
+% ======================================================================
+% ABSTRACT (on title page)
+% ======================================================================
+\begin{abstract}
+\input{sections/abstract}
+\end{abstract}
+
+% Disclaimer below abstract (mandatory text, do not modify).
+\begin{center}
+\normalsize
+Disclaimer: This work is independent and not endorsed or sponsored by FDA, or any sponsor,\\CRO, site, IRB, regulator, or medical society;
+and was generated using Artificial Intelligence.
+\end{center}
+
+\keywords{60 Second Robotic Surgery \and PDAC \and Whipple Procedure \and Daraxonrasib \and AI}
+
+\vspace{-0.2cm}
+
+% ======================================================================
+% SECTION 1: INTRODUCTION (starts on title page, continues after TOC)
+% ======================================================================
+\section{Introduction}
+\label{sec:introduction}
+\input{sections/introduction}
+
+% ======================================================================
+% TABLE OF CONTENTS (starts at the top of page 2)
+% ======================================================================
+\tableofcontents
+
+\vspace{0.4cm}
+
+% ======================================================================
+% SECTION 2: METHODS
+% ======================================================================
+\newpage
+\section{Methods}
+\label{sec:methods}
+\input{sections/methods}
+% \newpage
+
+% ======================================================================
+% SECTION 3: RESULTS
+% ======================================================================
+\section{Results}
+\label{sec:results}
+\input{sections/results}
+\newpage
+
+% ======================================================================
+% SECTION 4: DISCUSSION
+% ======================================================================
+\section{Discussion}
+\label{sec:discussion}
+\input{sections/discussion}
+
+% ======================================================================
+% SECTION 5: LIMITATIONS AND FUTURE WORK
+% ======================================================================
+\section{Limitations and Future Work}
+\label{sec:limitations}
+\input{sections/limitations_future}
+\newpage
+
+% ======================================================================
+% SECTION 6: CONCLUSIONS
+% ======================================================================
+\section{Conclusions}
+\label{sec:conclusions}
+\input{sections/conclusions}
+\newpage
+
+% ======================================================================
+% REFERENCES
+% ======================================================================
+\phantomsection
+\addcontentsline{toc}{section}{References}
+\begingroup
+\raggedright
+\bibliographystyle{ieeetr}
+\bibliography{references}
+\endgroup
+\newpage
+
+% ======================================================================
+% BACK MATTER (Acknowledgments, Ethical disclosures, Rights and
+% permissions, Cite this article, Data Availability)
+% ======================================================================
+\input{sections/back_matter}
+
+\end{document}

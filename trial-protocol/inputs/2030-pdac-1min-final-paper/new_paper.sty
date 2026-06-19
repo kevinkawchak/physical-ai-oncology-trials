@@ -1,0 +1,99 @@
+% ======================================================================
+% Style file - Modern sans-serif single column with dark blue accents.
+% Inherited from the Robotic Surgery Engineering Manuscript Template
+% (Template_02). Reused for the v0.9.0 PDAC 1-minute full paper at
+% 2030-pdac-1min/paper/full-paper/. The contract is identical to the
+% upstream v0.8.0 draft template at 2030-pdac-1min/paper/draft-paper/
+% so the Overleaf compile path is bit identical to the draft compile
+% path.
+% ======================================================================
+\NeedsTeXFormat{LaTeX2e}
+\ProcessOptions\relax
+
+\renewcommand{\familydefault}{\sfdefault}
+\renewcommand{\sfdefault}{phv}
+
+\usepackage[verbose=true,letterpaper]{geometry}
+\AtBeginDocument{
+  \newgeometry{textheight=9in,textwidth=6.5in,top=1in,headheight=14pt,headsep=18pt,footskip=30pt}
+}
+
+% \definecolor{black}{HTML}{0A3D62}
+
+% ======================================================================
+% Widow and orphan suppression. The penalties are set to 10000 so a
+% single or two word line cannot float to the top or bottom of a
+% page on its own. \flushbottom keeps the page filled to its natural
+% bottom which prevents short last lines from appearing as visual
+% orphans.
+% ======================================================================
+\widowpenalty=10000
+\clubpenalty=10000
+\displaywidowpenalty=10000
+\brokenpenalty=10000
+\flushbottom
+\sloppy
+
+\newcommand{\headeright}{}
+\newcommand{\shorttitle}{\@title}
+
+\usepackage{fancyhdr}
+\fancyhf{}
+\pagestyle{fancy}
+\renewcommand{\headrulewidth}{0.6pt}
+\renewcommand{\headrule}{\hbox to\headwidth{\color{black}\leaders\hrule height 0.6pt\hfill}}
+\fancyheadoffset{0pt}
+\chead{\small\color{black}\shorttitle}
+\cfoot{\thepage}
+
+% ======================================================================
+% Keywords command. The dark blue Keywords label sits on its own line
+% under the abstract block. The \and separator inserts a centered
+% middle dot between consecutive keyword tokens.
+% ======================================================================
+\def\keywordname{{\bfseries \color{black} Keywords}}%
+\def\keywords#1{\par\addvspace\medskipamount{\rightskip=0pt plus1cm
+\def\and{\ifhmode\unskip\nobreak\fi\ $\cdot$
+}\noindent\keywordname\enspace\ignorespaces#1\par}}
+
+\renewcommand{\normalsize}{\@setfontsize\normalsize\@xipt{13.6}}
+\normalsize
+
+% ======================================================================
+% Section heading styles. Section headings render in dark blue bold
+% with a raggedright left margin so a long heading wraps cleanly
+% without right margin overflow.
+% ======================================================================
+\providecommand{\section}{}
+\renewcommand{\section}{\@startsection{section}{1}{\z@}
+  {-2.2ex \@plus -0.5ex \@minus -0.2ex}{1.4ex \@plus 0.3ex \@minus 0.2ex}
+  {\large\bf\color{black}\raggedright}}
+\providecommand{\subsection}{}
+\renewcommand{\subsection}{\@startsection{subsection}{2}{\z@}
+  {-1.8ex \@plus -0.5ex \@minus -0.2ex}{0.8ex \@plus 0.2ex}
+  {\normalsize\bf\color{black}\raggedright}}
+\providecommand{\subsubsection}{}
+\renewcommand{\subsubsection}{\@startsection{subsubsection}{3}{\z@}
+  {-1.4ex \@plus -0.5ex \@minus -0.2ex}{0.5ex \@plus 0.2ex}
+  {\normalsize\bf\color{black}\raggedright}}
+
+\setlength{\parindent}{\z@}
+\setlength{\parskip}{5.5\p@}
+
+\providecommand{\maketitle}{}
+\renewcommand{\maketitle}{\par\begingroup
+  \thispagestyle{empty}\@maketitle\endgroup
+  \let\maketitle\relax}
+
+\providecommand{\@maketitle}{}
+\renewcommand{\@maketitle}{\vbox{\hsize\textwidth \linewidth\hsize
+  \vskip 0.1in {\color{black}\hrule height 1.4pt}\vskip 0.15in
+  \raggedright {\LARGE\bf\color{black}\@title\par}\vskip 0.2in
+  {\large\@author}\vskip 0.05in
+  {\small\@date}\vskip 0.1in {\color{black}\hrule height 0.6pt}\vskip 0.15in}}
+
+\renewenvironment{abstract}
+  {\par\noindent{\large\bf\color{black}Abstract}\par\vskip 0.4em\begin{quote}}
+  {\end{quote}}
+
+\endinput
