@@ -5,6 +5,26 @@ Format follows [Keep a Changelog](https://keepachangelog.com/).
 
 ## [Unreleased]
 
+## [4.0.0] - 2026-06-20
+
+### Added
+- `trial-protocol/` - the first substantial Physical AI clinical trial protocol in the repository: a Phase 1, first-in-human, combined IND/IDE study of on-premises LLM-directed robotic pancreaticoduodenectomy (Whipple) with perioperative daraxonrasib (RMC-6236) in KRAS-mutated pancreatic ductal adenocarcinoma. Drug arm under IND (21 CFR part 312, Phase 1, 3+3 at 160/220/300 mg); device arm as a significant-risk device under IDE (21 CFR part 812) with the Physical AI overlay of Subpart J (sections 312.400-312.405). Authored by Kevin Kawchak (ChemicalQDevice), DOI 10.5281/zenodo.xxxxxxxx, June 20, 2026.
+- `trial-protocol/prompts/` - the master prompt filed verbatim (`prompt-protocol.md`) and the full Claude Code output (`output-protocol.md`).
+- `trial-protocol/sub-prompts/` - four generated stage sub-prompts (mermaid, draft, full, final) adapted from the `inputs/auto-bill-02` workflow, with a comprehensive README.
+- `trial-protocol/mermaid/` - 25 new, professionally colored Mermaid figures (Corporate Blue `#00417A`, Professional Gray `#6C757D`, Classic White), one commit per figure, each carrying real quantitative data and named source files; README and `output-mermaid.md`.
+- `trial-protocol/draft-protocol/` - the 13-section NIH scaffold (`main.tex`, `protostyle.sty`, `references.bib`, `sections/sec-00..sec-12`) with bracketed `[DRAFTING INSTRUCTION]` pointers, plus `draft-protocol-LaTeX.zip`.
+- `trial-protocol/full-protocol/` - the 13 full sections with 20 TikZ `mermaidfig` figures and 11 full-width tables, plus `full-protocol-LaTeX.zip`.
+- `trial-protocol/final-protocol/` - the polished final sections (counterfactual and Physical AI concerns figures expanded to full fidelity; `\clearpage` per section; `\raggedbottom`; `\frenchspacing`), plus `final-protocol-LaTeX.zip`. No `publication` subdirectory.
+- Comprehensive READMEs and badges in every `trial-protocol/` directory; `research/` and `inputs/` READMEs.
+
+### Changed
+- `trial-protocol/template/tmpl01style.sty` - paper template accent recolored from `#1F3A68` to Corporate Blue `#00417A`.
+- Root `README.md` - twice the badges (15), a 425-character v4.0.0 summary, a dedicated v4.0.0 section (colored Mermaid, tables, table of contents), and the `trial-protocol/` structure tree.
+- `releases.md` - v4.0.0 release notes added at the top.
+
+### Notes
+- No raster images; tables, ASCII, and TikZ Mermaid only; single hyphens; section symbol for codified references. Each LaTeX set compiles in Overleaf with pdfLaTeX. No Python/YAML files were added, so the `lint-and-format` CI (ruff, yamllint) on Python 3.10/3.11/3.12 stays green.
+
 ## [3.9.1] - 2026-05-10
 
 ### Added
