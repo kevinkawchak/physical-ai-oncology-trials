@@ -1,0 +1,272 @@
+\section{Introduction}
+
+\subsection{Study Rationale}
+
+Pancreatic ductal adenocarcinoma (PDAC) is the third leading cause of cancer
+death in the United States and the fourth in the European Union, with total
+five-year overall survival below 13 percent \cite{Siegel2025}. The
+pancreaticoduodenectomy, or Whipple procedure, is the most technically demanding
+of all curative-intent abdominal oncology operations: it requires resection and
+reconstruction of four luminal structures (the pancreas, the duodenum, the common
+bile duct, and the stomach or pylorus) and dissection around two named vessels
+(the superior mesenteric vein and the portal vein), with an artery-first approach
+to the superior mesenteric artery. The leading lethal postoperative sequence is
+the fistula-sepsis cascade: pancreatic fistula, intra-abdominal infection,
+hemorrhage, sepsis, and failure to rescue, graded under the ISGPS classification
+of postoperative pancreatic fistula \cite{Bassi2017}. The 2025 Dutch nationwide
+cohort of 1000 robotic pancreaticoduodenectomies reported a conversion rate of
+10.1 percent, Clavien-Dindo grade III or higher complications of 41.3 percent,
+ISGPS grade B or C fistula of 24.4 percent, and 30-day mortality of 3.9 percent
+\cite{DutchCohort2025}; these figures anchor the contemporary human baseline. The
+present protocol pairs a precise, auditable, on-premises large language model
+(LLM) directed robotic Whipple with the RAS(ON) multi-selective inhibitor
+daraxonrasib in patients who have completed or are eligible for systemic therapy
+such as modified FOLFIRINOX \cite{Conroy2018}.
+
+The clinical argument for the combination is best stated through three
+counterfactual scenarios, summarized in Figure 3, in which withholding the
+LLM-plus-robot-plus-medicine combination shortens both PFS and OS. In Scenario A,
+a borderline-resectable tumor abutting the superior mesenteric vein at 75 degrees
+progresses to unresectable disease during a human-only scheduling delay (operating
+room access, fatigue, staging lag), and the R0 window closes; the LLM-directed
+robot instead achieves a rapid, precise, in-window R0 resection. In Scenario B, an
+unrecognized superior-mesenteric or portal-vein injury during manual surgery
+triggers the hemorrhage-conversion-fistula-sepsis-failure-to-rescue cascade; the
+no-fly vascular gate with a $\leq 3$ ms emergency stop averts the injury and
+preserves a complete resection. In Scenario C, manual mistiming of the
+daraxonrasib restart (too early or too late) causes anastomotic dehiscence or
+micrometastatic outgrowth; the LLM advisory restart at T+7, T+14, or T+21 days,
+keyed to fistula status and drug trough, preserves the therapeutic window.
+
+These scenarios invite three framing questions that this protocol is designed to
+answer constructively rather than rhetorically. First, given the narrow resection
+window and the unforgiving fistula-sepsis cascade, how did we ever rely on humans
+alone for this treatment, with no second-opinion oracle isolated from the
+operative kinematics. Second, why did we fully trust a prior trial system with so
+many opportunities for compounding human error across scheduling, dissection, and
+drug timing, when each step admits a documented, deterministic safeguard. Third,
+as AI outputs grow more complex and voluminous, why would human peer review alone
+continue to suffice for increasingly intricate AI-directed care, rather than a
+verification-before-generation discipline with a hash-chained audit trail
+\cite{kawchak2026hr9510}. The protocol answers each question by retaining the
+human in the loop while making every machine action validated, bounded, and
+re-traceable.
+
+\begin{mermaidfig}
+% Scenario A
+\node[mmin]  (a0) at (0,0)      {Scenario A\\Borderline PDAC,\\SMV abutment $75^\circ$};
+\node[mmdark](aw) at (5.0,0.95)  {Human-only delay:\\unresectable, R0 window\\closes, shorter PFS/OS};
+\node[mmgoal](ac) at (5.0,-0.95) {LLM plus robot:\\in-window R0 resection};
+% Scenario B
+\node[mmin]  (b0) at (0,-3.2)    {Scenario B\\Intra-op SMV/PV plane};
+\node[mmdark](bw) at (5.0,-2.25) {Manual injury: hemorrhage,\\conversion, R1/R2,\\fistula-sepsis cascade};
+\node[mmgoal](bc) at (5.0,-4.15) {No-fly gate, $\leq 3$ ms\\e-stop: injury averted};
+% Scenario C
+\node[mmin]  (c0) at (0,-6.4)    {Scenario C\\Perioperative\\daraxonrasib};
+\node[mmdark](cw) at (5.0,-5.45) {Manual mistiming:\\dehiscence or\\micrometastatic outgrowth};
+\node[mmgoal](cc) at (5.0,-7.35) {Advisory T+7/14/21:\\optimally timed restart};
+\draw[mmedge] (a0.east) -- node[above,font=\scriptsize]{human only} (aw.west);
+\draw[mmedge] (a0.east) -- node[below,font=\scriptsize]{combination} (ac.west);
+\draw[mmedge] (b0.east) -- node[above,font=\scriptsize]{human only} (bw.west);
+\draw[mmedge] (b0.east) -- node[below,font=\scriptsize]{combination} (bc.west);
+\draw[mmedge] (c0.east) -- node[above,font=\scriptsize]{human only} (cw.west);
+\draw[mmedge] (c0.east) -- node[below,font=\scriptsize]{combination} (cc.west);
+\end{mermaidfig}
+\figcaption{Figure 3. The three counterfactual scenarios in which withholding the
+combination worsens the patient. Scenario A (top): a human-only scheduling delay
+lets a borderline-resectable tumor progress and closes the R0 window. Scenario B
+(middle): an unrecognized superior-mesenteric or portal-vein injury during manual
+surgery triggers the fistula-sepsis cascade; the no-fly gate with a $\leq 3$ ms
+emergency stop averts it. Scenario C (bottom): manual mistiming of the
+daraxonrasib restart causes dehiscence or micrometastatic outgrowth, which the
+timed advisory prevents. In each, the human-only path shortens progression-free
+and overall survival while the LLM-plus-robot-plus-medicine path preserves them.}
+
+\subsection{Background}
+
+\subsubsection*{PDAC epidemiology and the Whipple fistula-sepsis cascade}
+
+The epidemiologic burden and operative hazard of PDAC define the unmet need this
+protocol addresses. With under-13-percent five-year survival \cite{Siegel2025}
+and a most-demanding curative operation whose leading complication is a
+self-amplifying fistula-sepsis-hemorrhage cascade \cite{Bassi2017}, the
+population has few alternatives and a narrow margin for technical error. The
+contemporary robotic baseline \cite{DutchCohort2025} demonstrates that even
+expert, high-volume robotic surgery leaves a substantial residual of conversions,
+high-grade complications, and clinically relevant fistulae. The combination in
+this protocol targets precisely the failure modes that the baseline still
+tolerates.
+
+\subsubsection*{Daraxonrasib mechanism and clinical program}
+
+Daraxonrasib (RMC-6236) is an oral RAS(ON) multi-selective inhibitor that binds
+the active, GTP-bound (ON) state of multiple RAS variants, providing broad
+pan-KRAS coverage including the G12 alleles that predominate in PDAC. The FDA
+granted daraxonrasib Breakthrough Therapy designation in June 2025 for previously
+treated metastatic PDAC with KRAS G12 mutations \cite{revbreakthrough}, and the
+late-phase program comprises RASolute 302 (a Phase 3 study in previously treated
+metastatic PDAC) and RASolve 301 (a first-line program) \cite{rasolute302}. The
+broad pan-KRAS eligibility of RASolute 302 defines the molecular eligibility used
+in this protocol, and the perioperative pause-and-restart logic respects any
+RASolve 301 checkpoint-inhibitor combination context. Five prior computational
+works by the author independently complemented this drug-development program
+throughout 2025 and 2026 and supply the simulation scaffolding adapted here: a
+60-second PDAC robotic Whipple and daraxonrasib simulation
+\cite{kawchak_2026_20196639}; an AI digital-twin pancreatic-cancer simulation for
+in silico FDA-compliance and cost efficiency \cite{kawchak_2025_17239510}; a
+quantitative systems pharmacology (QSP) metastatic-PDAC trial simulation with code,
+VVUQ, and playbook \cite{kawchak_2025_17001137}; a 100,000-patient in silico
+Phase 3 five-arm PDAC trial triplicate \cite{kawchak_2025_16415815}; and
+end-to-end PDAC digital-twin clinical-trial proposals \cite{kawchak_2025_15735068}.
+
+\subsubsection*{Current state of AI in clinical trials and surgery}
+
+Artificial intelligence in regulated medicine has, to date, been narrow and
+prediction-oriented rather than generative and intervention-directing. As of the
+current taxonomy of FDA-authorized medical devices, AI is overwhelmingly deployed
+as prediction-only or narrow task-specific software, with reported authorizations
+spanning 1,016 in the published taxonomy \cite{Singh2025} and rising to 1,450 or
+more by current counts, while zero generative LLM devices have been approved for
+patient-facing intervention. This protocol therefore does not propose a generative
+device; it proposes a narrow, locked, validated device behavior governed by an
+on-premises repository-based LLM whose advisories are bounded, auditable, and
+held outside the robot vendor kinematic stack. The author's established record of
+LLM evaluation and trust over the period from August 2024 to June 2026 grounds
+this design, including a comparative code-generation evaluation of 16 proprietary
+versus open-source LLMs against the FDA Adverse Event Reporting System
+\cite{kawchak2025codegen16}, a mobile pancreatic-cancer surgical-humanoid program
+with priority VVUQ \cite{kawchak2026unitree}, the 21 CFR part 312 Physical AI
+unification adaptation \cite{kawchak2026adapt312}, and the
+verification-before-generation legislative framing \cite{kawchak2026hr9510}.
+
+\subsubsection*{Physical AI concerns addressed by this protocol}
+
+Eight recurring concerns are raised about Physical AI in patient care, and this
+protocol pairs each with a concrete, prespecified mitigation. Figure 4 maps the
+eight concerns to their mitigations, and Table 1 states each pairing in full.
+
+\begin{mermaidfig}
+\node[mmin]  (c1) at (0,0)       {Physical AI\\limitations};
+\node[mmin]  (c2) at (0,-1.7)    {Patient safety\\is paramount};
+\node[mmin]  (c3) at (0,-3.4)    {Loss of\\human workers};
+\node[mmin]  (c4) at (0,-5.1)    {Single-source\\software};
+\node[mmin]  (c5) at (0,-6.8)    {Proprietary-model\\dependency};
+\node[mmin]  (c6) at (0,-8.5)    {Open-source LLMs\\not domestic};
+\node[mmin]  (c7) at (0,-10.2)   {Overly complex\\AI workflows};
+\node[mmin]  (c8) at (0,-11.9)   {LLMs are\\black boxes};
+\node[mmstep](m1) at (5.6,0)      {Phase 0 sim validation;\\narrow locked device};
+\node[mmstep](m2) at (5.6,-1.7)   {10 kHz heartbeat, $\leq 3$ ms\\e-stop, force caps};
+\node[mmstep](m3) at (5.6,-3.4)   {Human-in-the-loop; surgeon\\plus backup plus ISM};
+\node[mmstep](m4) at (5.6,-5.1)   {Cross-framework\\(Isaac, MuJoCo, $\geq 2$)};
+\node[mmstep](m5) at (5.6,-6.8)   {On-premises LLM,\\open weights, isolated};
+\node[mmstep](m6) at (5.6,-8.5)   {Domestic deployment;\\data residency preserved};
+\node[mmstep](m7) at (5.6,-10.2)  {Deny-by-default, 5 MCP\\servers, simplified gate};
+\node[mmgoal](m8) at (5.6,-11.9)  {Hash-chained audit trail;\\21 CFR part 11 traceable};
+\draw[mmedge] (c1) -- (m1);
+\draw[mmedge] (c2) -- (m2);
+\draw[mmedge] (c3) -- (m3);
+\draw[mmedge] (c4) -- (m4);
+\draw[mmedge] (c5) -- (m5);
+\draw[mmedge] (c6) -- (m6);
+\draw[mmedge] (c7) -- (m7);
+\draw[mmedge] (c8) -- (m8);
+\end{mermaidfig}
+\figcaption{Figure 4. The complete mapping of all eight Physical AI concerns to
+their protocol mitigations, the same eight pairs tabulated in Table 1. Each
+concern is paired with a concrete, prespecified safeguard: validated narrow
+device behavior over
+generative open-endedness, layered hard safety limits, retained human roles, and
+multi-framework non-single-source validation.}
+
+\vspace{0.3em}
+
+\noindent\begin{tabularx}{\textwidth}{L{5.0cm} Y}
+\toprule
+\textbf{Concern} & \textbf{Protocol mitigation} \\
+\midrule
+Physical AI limitations & Phase 0 simulation validation over $\geq 1000$ procedures and $\geq 2$ independent frameworks; the device behavior is narrow and locked, not generative, and operates only within validated envelopes. \\
+Patient safety is paramount & Layered hard limits: a 10 kHz heartbeat broadcast bus, a $\leq 3$ ms cross-arm emergency stop, $\leq 3$ N per-arm and $\leq 18$ N cumulative tip-force caps, and vascular no-fly gating around the SMV and PV. \\
+Loss of human workers & The human is retained in the loop: a credentialed surgeon, a backup operator, and an independent safety monitor (ISM) supervise every procedure, with the LLM acting as a bounded advisory oracle rather than a replacement. \\
+Single-source software & Validation is cross-framework (for example Isaac, MuJoCo, Gazebo, PyBullet), with $\geq 2$ independent frameworks required, so no single simulator or codebase is a single point of failure. \\
+Proprietary-model dependency & The advisory uses an on-premises repository-based LLM with open weights, isolated from any single vendor stack, so the protocol is not captive to one proprietary model provider \cite{kawchak2025codegen16}. \\
+Non-domestic open-source LLMs & Deployment is domestic and on-premises, preserving data residency and avoiding reliance on non-domestic open-source model hosting; inference and records remain within the controlled environment. \\
+Overly complex AI workflows & A deny-by-default posture with a deliberately simplified gate surface (a small set of Model Context Protocol servers) constrains the action space and reduces workflow complexity to an auditable minimum. \\
+LLMs are black boxes & A hash-chained audit trail under 21 CFR part 11 records every advisory, command, and safety event, making each re-traceable to a deterministic seed and a specific commit, so the black box becomes traceable \cite{kawchak2026adapt312}. \\
+\bottomrule
+\end{tabularx}
+\figcaption{Table 1. The eight Physical AI concerns and their protocol
+mitigations.}
+
+\subsection{Risk/Benefit Assessment}
+
+\subsubsection{Known Potential Risks}
+
+The known potential risks fall into three categories. Drug risks arise from
+daraxonrasib toxicity, including gastrointestinal effects (nausea, diarrhea,
+stomatitis), dermatologic and mucocutaneous events, hepatic enzyme elevations,
+and dose-limiting toxicities that the 3+3 escalation is specifically designed to
+detect and bound; perioperative exposure additionally raises a theoretical risk
+to wound and anastomotic healing if restart timing is suboptimal. Device and
+robotic risks include device malfunction, an erroneous AI advisory, cyber-physical
+failure of the control or telemetry chain, and inadvertent vascular injury; these
+are the categories that motivate the significant-risk determination and the
+layered hard safety limits. Operative risks are those intrinsic to the Whipple
+procedure: postoperative pancreatic fistula (graded by ISGPS \cite{Bassi2017}),
+hemorrhage, delayed gastric emptying, intra-abdominal infection and sepsis, and
+the need for conversion to open surgery. The contemporary robotic baseline
+quantifies the residual magnitude of these operative risks even in expert hands
+\cite{DutchCohort2025}.
+
+\subsubsection{Known Potential Benefits}
+
+The known potential benefits are directed at the specific failure modes above. A
+precise, in-window R0 resection is the principal oncologic benefit, addressing the
+resection-window collapse and the margin-positivity that drive shorter survival.
+Layered hard safety limits with a full hash-chained audit trail provide a
+benefit not available in manual surgery: every machine action is bounded and
+re-traceable, supporting both intraoperative safety and post hoc verification.
+Optimized drug-restart timing, advised at T+7, T+14, or T+21 days and keyed to
+fistula status and drug trough, aims to restore systemic therapy at the earliest
+safe point and thereby suppress micrometastatic outgrowth. For a low-survival
+population with few alternatives, even incremental gains in margin status,
+complication avoidance, and therapy continuity are clinically meaningful.
+
+\subsubsection{Assessment of Potential Risks and Benefits}
+
+Figure 5 frames the benefit-risk weighing for this population. Against a baseline
+of under-13-percent five-year survival and few alternatives, the novel risks
+(device malfunction, advisory error, cyber-physical failure) are weighed against
+the benefits (precise in-window R0 resection, layered hard safety limits with a
+full audit trail, and optimized drug-restart timing). For this low-survival,
+limited-alternative population, the benefit-risk balance is favorable: the
+potential benefits are likely to outweigh the risks, and the assessment is
+consistent with the expanded-access ethic that permits investigational treatment
+for serious or immediately life-threatening conditions when the potential benefit
+justifies the potential risk (21 CFR \S312.84).
+
+\begin{mermaidfig}
+\node[mmdark](base) at (0,0)      {Advanced PDAC baseline\\5-year OS $<$ 13\%\\3rd US / 4th EU death};
+\node[mmin]  (r1)  at (-4.6,-2.4) {Device malfunction};
+\node[mmin]  (r2)  at (-4.6,-4.4) {AI advisory error};
+\node[mmin]  (r3)  at (-4.6,-6.4) {Cyber-physical failure};
+\node[mmstep](b1)  at (4.6,-2.4)  {In-window R0 resection};
+\node[mmstep](b2)  at (4.6,-4.4)  {Hard limits plus audit trail};
+\node[mmstep](b3)  at (4.6,-6.4)  {Optimized restart timing};
+\node[mmdec] (w)   at (0,-4.4)     {Benefit-risk for\\low-survival patients};
+\node[mmgoal](j)   at (0,-7.4)     {Favorable: benefits likely\\outweigh risks; \S312.84};
+\draw[mmedge] (base) -- (w);
+\draw[mmedge] (r1.east) -- (w.west);
+\draw[mmedge] (r2) -- (w);
+\draw[mmedge] (r3.east) -- (w.west);
+\draw[mmedge] (b1.west) -- (w.east);
+\draw[mmedge] (b2) -- (w);
+\draw[mmedge] (b3.west) -- (w.east);
+\draw[mmedge] (w) -- (j);
+\end{mermaidfig}
+\figcaption{Figure 5. Risk-benefit framework for advanced PDAC. Against a baseline
+of under-13-percent five-year survival and few alternatives, the novel risks
+(device malfunction, advisory error, cyber-physical failure) are weighed against
+the benefits (precise in-window R0 resection, layered hard safety limits with a
+full audit trail, optimized drug timing). For this low-survival,
+limited-alternative population the benefit-risk balance is favorable, consistent
+with the expanded-access ethic of 21 CFR \S312.84.}
