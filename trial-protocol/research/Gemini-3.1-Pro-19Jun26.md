@@ -5,6 +5,7 @@
 - Only provide clinical trial options. Provide the number of times each were used in the last 5 years for cancer treatments. Further detail exactly what each is, and how to state each in headlines and literature. Expanded Access (Compassionate Use): This is the most common pathway. It is an FDA-regulated process that allows patients with immediately life-threatening conditions or serious diseases to gain access to an investigational medical product (drug, biologic, or medical device) outside of a clinical trial. The patient's doctor must apply to the FDA and the drug manufacturer, arguing that the potential patient benefit justifies the potential risks of the treatment.
 Emergency IND (Investigational New Drug): A specific type of Expanded Access used in urgent, life-threatening situations where there isn't enough time to go through the standard Compassionate Use review process. The FDA can grant authorization over the phone.
 - Provide the exact trial type and information needed for the following.
+- Provide same output, but with all references as bibtex entries at the end (with reference numbers in the body corresponding to the numbers for each reference at the bottom).
 
 ### Output
 Based on the provided source documents from the project repository, the exact trial type and the specific information framework required under this legislation are detailed below.
