@@ -1,0 +1,30 @@
+\section{Protocol Summary}
+
+\subsection{Synopsis}
+A first-in-human, open-label, single-arm, dose-finding study of perioperative
+daraxonrasib combined with on-premises LLM-directed eight-arm robotic
+pancreaticoduodenectomy in adults with resectable or borderline-resectable
+KRAS-mutated PDAC.
+
+\draftinstr{Fill the Synopsis as a compressed mirror of the whole protocol:
+title, brief rationale, objectives/endpoints (from sec-03), design (single-arm,
+3+3, up to n=18; from sec-04 and sec-09), population (from sec-05), intervention
+(from sec-06), and duration (24-month OS follow-up). Pull headline numbers from
+\texttt{inputs/2030-pdac-1min-final-paper/sections/\{introduction,results\}.tex}.}
+
+\subsection{Schema}
+\draftinstr{Render \texttt{mermaid/fig-01-trial-schema.md} as a TikZ
+\texttt{mermaidfig} (screening -> consent with Physical AI opt-out -> Phase 0
+simulation validation -> dose-cohort -> robotic Whipple -> perioperative
+advisory -> follow-up -> end of study).}
+
+\subsection{Schedule of Activities (SoA)}
+\draftinstr{Build the SoA as a full-width table using
+\texttt{>\{\textbackslash raggedright\textbackslash arraybackslash\}p\{<width>\}}
+columns at \textbackslash textwidth. Rows: informed consent, staging/KRAS, CA
+19-9, ECOG, labs, Phase 0 sim sign-off, USL + safety matrix, surgery, intra-op
+telemetry, ISGPS fistula grading, daraxonrasib restart advisory, AE/SAE review,
+imaging (RECIST), PFS/OS. Columns: Screening (Day -28..-1), Baseline (Day -1),
+Surgery (Day 0), Acute (Day 1-7), Day 30, Day 90, Long-term (q12wk). Source the
+visit map from \texttt{mermaid/fig-14-schedule-of-activities.md} and timings
+from \texttt{research/ChatGPT-5.5-Thinking-Extended-19Jun26.md}.}
