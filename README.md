@@ -1,18 +1,28 @@
 # End-to-End Physical AI Unification of Oncology Clinical Trials
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Release](https://img.shields.io/badge/Release-v3.9.1-brightgreen.svg)](https://github.com/kevinkawchak/physical-ai-oncology-trials)
-[![Last Updated](https://img.shields.io/badge/Updated-May%202026-blue.svg)](https://github.com/kevinkawchak/physical-ai-oncology-trials)
+[![Release](https://img.shields.io/badge/Release-v4.0.0-brightgreen.svg)](https://github.com/kevinkawchak/physical-ai-oncology-trials)
+[![Last Updated](https://img.shields.io/badge/Updated-June%202026-blue.svg)](https://github.com/kevinkawchak/physical-ai-oncology-trials)
 [![Protocol](https://img.shields.io/badge/Protocol-MCP-purple.svg)](https://github.com/kevinkawchak/physical-ai-oncology-trials)
 [![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.18445179-blue)](https://doi.org/10.5281/zenodo.18445179)
 [![Python](https://img.shields.io/badge/Python-3.10%20|%203.11%20|%203.12-blue.svg)](https://www.python.org/)
 [![Contributors](https://img.shields.io/badge/Contributors-4-blue.svg)](releases.md)
+[![Trial Protocol](https://img.shields.io/badge/Trial%20Protocol-Phase%201%20IND%2FIDE-00417A.svg)](trial-protocol)
+[![Indication](https://img.shields.io/badge/Indication-Pancreatic%20(PDAC)-00417A.svg)](trial-protocol)
+[![Intervention](https://img.shields.io/badge/Intervention-Robotic%20Whipple%20%2B%20Daraxonrasib-00417A.svg)](trial-protocol)
+[![NIH Template](https://img.shields.io/badge/Template-NIH--FDA%20IND%2FIDE-6C757D.svg)](trial-protocol/nih-protocol)
+[![Mermaid Figures](https://img.shields.io/badge/Mermaid%20figures-25-6C757D.svg)](trial-protocol/mermaid)
+[![TikZ Figures](https://img.shields.io/badge/TikZ%20figures-20-6C757D.svg)](trial-protocol/final-protocol)
+[![Protocol DOI](https://img.shields.io/badge/Protocol%20DOI-10.5281%2Fzenodo.xxxxxxxx-blue.svg)](https://doi.org/10.5281/zenodo.xxxxxxxx)
+[![Protocol License](https://img.shields.io/badge/Protocol%20License-CC%20BY%204.0-yellow.svg)](https://creativecommons.org/licenses/by/4.0/)
 
 
 
 **Comprehensive developments for integrating physical AI into oncology clinical trials, by Claude Code Opus 4.7, Cowork; with Assistance from ChatGPT 5.5 Thinking and Google Gemini Search.**
 
 This repository provides production-ready configurations, validated pipelines, and integration guides for deploying robotic systems, digital twins, and embodied AI agents in oncology. 
+
+**6/20: v4.0.0 (Physical AI Pancreatic Whipple + Daraxonrasib Phase 1 Protocol)** *v4.0.0 delivers the first substantial Physical AI clinical trial protocol: a Phase 1, first-in-human, combined IND/IDE study of on-premises LLM-directed robotic Whipple surgery with perioperative daraxonrasib in KRAS-mutated pancreatic cancer. Built from the NIH-FDA template across mermaid, draft, full, and final LaTeX stages, it carries 25 colored figures, 20 TikZ renders, 11 tables, and the full 13-section NIH protocol.* [![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.xxxxxxxx-blue)](https://doi.org/10.5281/zenodo.xxxxxxxx)
 
 **5/10: v3.9.1 (Glioblastoma 1-Minute Variant Instructions)** *On-prem LLM controlled 1-minute glioblastoma resection simulation with 4 cooperating arms at mixed 1 kHz / 10 kHz force resolution and 16-iteration sweep* - 12-file 1-minute variant instruction set. [![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.18445179-blue)](https://github.com/kevinkawchak/physical-ai-oncology-trials/tree/main/competitions/instructions/one_minute_variant)
 
@@ -71,6 +81,83 @@ python scripts/verify_installation.py
 # Detect available simulation frameworks
 python unification/cross_platform_tools/framework_detector.py
 ```
+---
+
+## Physical AI Pancreatic Whipple + Daraxonrasib Phase 1 Protocol (v4.0.0)
+
+This release adds [`trial-protocol/`](trial-protocol): the first substantial
+**Physical AI clinical trial protocol** in this repository. It is a **Phase 1,
+first-in-human, combined IND/IDE** study of **on-premises LLM-directed robotic
+pancreaticoduodenectomy (the Whipple procedure)** with **perioperative
+daraxonrasib (RMC-6236)** in KRAS-mutated pancreatic ductal adenocarcinoma. The
+daraxonrasib drug arm proceeds under an IND (21 CFR part 312, Phase 1, 3+3); the
+eight-arm robotic Whipple proceeds as a significant-risk device under an IDE
+(21 CFR part 812) with the Physical AI overlay of Subpart J. Authored by Kevin
+Kawchak (ChemicalQDevice), DOI [10.5281/zenodo.xxxxxxxx](https://doi.org/10.5281/zenodo.xxxxxxxx),
+June 20, 2026.
+
+### Contents of this version
+
+- [Build pipeline](#physical-ai-pancreatic-whipple--daraxonrasib-phase-1-protocol-v400) (mermaid -> draft -> full -> final)
+- [Stage outputs and commit counts](#stage-outputs)
+- [Protocol at a glance](#protocol-at-a-glance)
+- [trial-protocol structure](#trial-protocol-structure)
+
+### Build pipeline
+
+```mermaid
+%%{init: {'theme':'base','themeVariables':{'fontSize':'13px','lineColor':'#6C757D'}}}%%
+flowchart LR
+    MP["Master prompt<br/>prompts/prompt-protocol.md"]:::goal
+    S1["Stage 1 mermaid<br/>25 colored figures"]:::light
+    S2["Stage 2 draft<br/>bracketed scaffold"]:::light
+    S3["Stage 3 full<br/>20 TikZ figures, 11 tables"]:::mid
+    S4["Stage 4 final<br/>polished + zip"]:::goal
+    REL["Release v4.0.0<br/>CHANGELOG + releases + README"]:::goal
+    MP --> S1 --> S2 --> S3 --> S4 --> REL
+    classDef light fill:#FFFFFF,stroke:#111111,stroke-width:1px,color:#111111
+    classDef mid fill:#6C757D,stroke:#111111,stroke-width:1.2px,color:#FFFFFF
+    classDef goal fill:#00417A,stroke:#000000,stroke-width:1.5px,color:#FFFFFF
+```
+
+### Stage outputs
+
+| Stage | Directory | Output | Commits |
+|:--|:--|:--|:--|
+| Bootstrap | `trial-protocol/prompts`, `sub-prompts` | master prompt, 4 sub-prompts, READMEs | per file |
+| 1 mermaid | `trial-protocol/mermaid` | 25 colored Mermaid figures | 28 |
+| 2 draft | `trial-protocol/draft-protocol` | 13 NIH section scaffolds + zip | 21 |
+| 3 full | `trial-protocol/full-protocol` | 13 full sections, 20 TikZ, 11 tables + zip | 21 |
+| 4 final | `trial-protocol/final-protocol` | polished sections + zip | 21 |
+
+### Protocol at a glance
+
+| Element | Value |
+|:--|:--|
+| Design | Phase 1, first-in-human, open-label, single-arm, combined IND/IDE |
+| Drug arm | Daraxonrasib (RMC-6236), RAS(ON) multi-selective inhibitor, 3+3 (160 / 220 / 300 mg) |
+| Device arm | Eight-arm LLM-directed robotic Whipple; 56 DOF; 640 sensor channels; 3 N / 18 N force caps; 3 ms E-stop |
+| Population | KRAS G12 PDAC, ECOG 0-1, resectable / borderline-resectable; up to n = 18 |
+| Primary endpoints | 30-day device/procedure serious-AE incidence; MTD/RP2D; unsafe-conversion-free task completion |
+| Safety | 5-vessel no-fly gate; VVUQ ten-gate; hash-chained audit trail (21 CFR part 11); USL $\geq$ 7.0 |
+
+### trial-protocol structure
+
+```
+trial-protocol/
+├── README.md                 # build hub (v4.0.0)
+├── prompts/                  # prompt-protocol.md (master) + output-protocol.md
+├── sub-prompts/              # prompt-1-mermaid .. prompt-4-final-protocol
+├── mermaid/                  # Stage 1: 25 colored Mermaid figures
+├── draft-protocol/           # Stage 2: 13 NIH section scaffolds + zip
+├── full-protocol/            # Stage 3: full sections, 20 TikZ, 11 tables + zip
+├── final-protocol/           # Stage 4: polished sections + zip
+├── template/                 # paper template (recolored #00417A)
+├── nih-protocol/             # NIH-FDA IND/IDE template (10 chunks)
+├── inputs/                   # 3 main documents + author_works.bib
+└── research/                 # 2026 Physical AI FDA + oncology-strategy markdowns
+```
+
 ---
 
 ## Glioblastoma 1-Minute Variant Instructions (v3.9.1)
@@ -188,6 +275,19 @@ physical-ai-oncology-trials/
 ├── V1_RELEASE.md
 ├── LICENSE
 ├── requirements.txt
+│
+├── trial-protocol/                    # ★ Physical AI Whipple + Daraxonrasib Phase 1 Protocol (v4.0.0)
+│   ├── README.md                      # build hub
+│   ├── prompts/                       # master prompt (verbatim) + full output
+│   ├── sub-prompts/                   # 4 generated stage sub-prompts
+│   ├── mermaid/                       # Stage 1: 25 colored Mermaid figures
+│   ├── draft-protocol/                # Stage 2: 13 NIH section scaffolds + zip
+│   ├── full-protocol/                 # Stage 3: full sections, 20 TikZ, 11 tables + zip
+│   ├── final-protocol/                # Stage 4: polished sections + zip
+│   ├── template/                      # paper template (recolored #00417A)
+│   ├── nih-protocol/                  # NIH-FDA IND/IDE template (10 chunks)
+│   ├── inputs/                        # 3 main documents + author_works.bib
+│   └── research/                      # 2026 Physical AI FDA + oncology-strategy markdowns
 │
 ├── sponsor/                           # ★ Fully Automated Sponsor (v3.3.0)
 │   ├── input_files/                   # Sponsor playbook and organization inputs (16 files)
