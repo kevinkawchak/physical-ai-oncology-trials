@@ -1,4 +1,4 @@
-# trial-protocol - Physical AI Pancreatic Whipple + Daraxonrasib Phase 1 Clinical Trial Protocol (v4.0.0)
+# trial-protocol - Physical AI Pancreatic Whipple + Daraxonrasib Phase 1 Clinical Trial Protocol (v1.0.0)
 
 [![License](https://img.shields.io/badge/License-CC%20BY%204.0-yellow.svg)](https://creativecommons.org/licenses/by/4.0/)
 [![Protocol](https://img.shields.io/badge/Protocol-Phase%201%20First--in--Human-00417A.svg)](.)
@@ -7,7 +7,7 @@
 [![Media](https://img.shields.io/badge/Media-Tables%20%2B%20ASCII%20%2B%20TikZ%20Mermaid-6C757D.svg)](.)
 [![Figures](https://img.shields.io/badge/Mermaid%20figures-20%2B-00417A.svg)](mermaid)
 [![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.xxxxxxxx-blue.svg)](https://doi.org/10.5281/zenodo.xxxxxxxx)
-[![Release](https://img.shields.io/badge/Release-v4.0.0-orange.svg)](../releases.md)
+[![Release](https://img.shields.io/badge/Release-v1.0.0-orange.svg)](../releases.md)
 
 This directory holds the autonomous, single-prompt build of a new **Phase 1,
 First-in-Human, Combined IND/IDE Clinical Trial Protocol** for **on-premises
@@ -24,7 +24,7 @@ continuously updated pull request (Rules 6, 7, 8).
 - **Author:** Kevin Kawchak, CEO ChemicalQDevice
   ([ORCID 0009-0007-5457-8667](https://orcid.org/0009-0007-5457-8667))
 - **DOI:** [`10.5281/zenodo.xxxxxxxx`](https://doi.org/10.5281/zenodo.xxxxxxxx)
-  (pending deposit) - **Date:** June 20, 2026 - **Version:** v4.0.0
+  (pending deposit) - **Date:** June 20, 2026 - **Version:** v1.0.0
 
 ## What this protocol is
 
@@ -62,7 +62,7 @@ flowchart TB
 
 ## Milestone schedule (one pull request, updated as each lands)
 
-**Status: complete (v4.0.0).** All milestones landed on
+**Status: complete (v1.0.0).** All milestones landed on
 `claude/gallant-planck-auv8n0`, one commit per file pushed in real time, inside
 one continuously updated pull request.
 
@@ -73,7 +73,7 @@ one continuously updated pull request.
 | M3 | Stage 2 draft-protocol | [`draft-protocol/`](draft-protocol) | 21 | complete |
 | M4 | Stage 3 full-protocol | [`full-protocol/`](full-protocol) | 21 (20 TikZ, 11 tables) | complete |
 | M5 | Stage 4 final-protocol | [`final-protocol/`](final-protocol) | 21 | complete |
-| M6 | Release (v4.0.0) | root `CHANGELOG.md`, `releases.md`, `README.md`, `prompts/output-protocol.md` | 5+ | complete |
+| M6 | Release (v1.0.0) | root `CHANGELOG.md`, `releases.md`, `README.md`, `prompts/output-protocol.md` | 5+ | complete |
 
 ## Directory map
 
