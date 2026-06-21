@@ -1,4 +1,4 @@
-# mermaid - Stage 1 figure catalog (v4.0.0)
+# mermaid - Stage 1 figure catalog (v1.0.0)
 
 [![License](https://img.shields.io/badge/License-CC%20BY%204.0-yellow.svg)](https://creativecommons.org/licenses/by/4.0/)
 [![Figures](https://img.shields.io/badge/Figures-25-00417A.svg)](.)
