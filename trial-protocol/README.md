@@ -23,7 +23,7 @@ continuously updated pull request (Rules 6, 7, 8).
 
 - **Author:** Kevin Kawchak, CEO ChemicalQDevice
   ([ORCID 0009-0007-5457-8667](https://orcid.org/0009-0007-5457-8667))
-- **DOI:** [`10.5281/zenodo.xxxxxxxx`](https://doi.org/10.5281/zenodo.xxxxxxxx)
+- **DOI:** [`10.5281/zenodo.20780121`](https://doi.org/10.5281/zenodo.20780121)
   (pending deposit) - **Date:** June 20, 2026 - **Version:** v1.0.0
 
 ## What this protocol is
@@ -130,6 +130,6 @@ under 17 U.S.C. § 105. Author: Kevin Kawchak, CEO ChemicalQDevice.
 
 *Independent research draft. Not an enacted protocol, not an active IND or IDE,
 and not medical or regulatory advice; not endorsed by the FDA, NIH, HHS, IRB,
-ICH, or any sponsor. The DOI placeholder `10.5281/zenodo.xxxxxxxx` is filled at
+ICH, or any sponsor. The DOI placeholder `10.5281/zenodo.20780121` is filled at
 deposit. All clinical figures derive from the author's simulation sources and
 are illustrative unless tied to a cited reference.*
