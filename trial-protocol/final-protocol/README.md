@@ -1,4 +1,4 @@
-# final-protocol - Stage 4 (polished) (v4.0.0)
+# final-protocol - Stage 4 (polished) (v1.0.0)
 
 [![License](https://img.shields.io/badge/License-CC%20BY%204.0-yellow.svg)](https://creativecommons.org/licenses/by/4.0/)
 [![Stage](https://img.shields.io/badge/Stage-4%20final-00417A.svg)](../sub-prompts/prompt-4-final-protocol.md)
