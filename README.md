@@ -13,7 +13,7 @@
 [![NIH Template](https://img.shields.io/badge/Template-NIH--FDA%20IND%2FIDE-6C757D.svg)](trial-protocol/nih-protocol)
 [![Mermaid Figures](https://img.shields.io/badge/Mermaid%20figures-25-6C757D.svg)](trial-protocol/mermaid)
 [![TikZ Figures](https://img.shields.io/badge/TikZ%20figures-20-6C757D.svg)](trial-protocol/final-protocol)
-[![Protocol DOI](https://img.shields.io/badge/Protocol%20DOI-10.5281%2Fzenodo.20780121-blue.svg)](https://doi.org/10.5281/zenodo.20780121)
+[![Protocol DOI](https://img.shields.io/badge/Protocol%20DOI%20v1.0.0-10.5281%2Fzenodo.20780121-blue.svg)](https://doi.org/10.5281/zenodo.20780121)
 [![Protocol License](https://img.shields.io/badge/Protocol%20License-CC%20BY%204.0-yellow.svg)](https://creativecommons.org/licenses/by/4.0/)
 
 **Comprehensive developments for integrating physical AI into oncology clinical trials, by Claude Code Opus 4.7, Cowork; with Assistance from ChatGPT 5.5 Thinking and Google Gemini Search.**
