@@ -21,7 +21,7 @@ single master prompt in [`prompts/prompt-protocol.md`](prompts/prompt-protocol.m
 **Process B** runs those sub-prompts in order, growing the protocol from Mermaid
 figures to a draft, a full, and a final LaTeX protocol. Every distinguishable
 file is a separate commit pushed in real time; all milestones are tracked in one
-continuously updated pull request (Rules 6, 7, 8). draft-protocol, full-protocol, and final-protocol source and pdfs were AI generated from prompt-protocol.md. [final-protocol/publication](https://github.com/kevinkawchak/physical-ai-oncology-trials/tree/main/trial-protocol/final-protocol/publication) contains further author edits prior to online submission.
+continuously updated pull request (Rules 6, 7, 8). draft-protocol, full-protocol, and final-protocol source and pdfs were AI generated from [prompt-protocol.md](https://github.com/kevinkawchak/physical-ai-oncology-trials/blob/main/trial-protocol/prompts/prompt-protocol.md). final-protocol/publication contains further author edits prior to online submission.
 
 - **Author:** Kevin Kawchak, CEO ChemicalQDevice
   ([ORCID 0009-0007-5457-8667](https://orcid.org/0009-0007-5457-8667))
