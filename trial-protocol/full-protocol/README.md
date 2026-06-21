@@ -1,4 +1,4 @@
-# full-protocol - Stage 3 (full rendering) (v4.0.0)
+# full-protocol - Stage 3 (full rendering) (v1.0.0)
 
 [![License](https://img.shields.io/badge/License-CC%20BY%204.0-yellow.svg)](https://creativecommons.org/licenses/by/4.0/)
 [![Stage](https://img.shields.io/badge/Stage-3%20full-00417A.svg)](../sub-prompts/prompt-3-full-protocol.md)
