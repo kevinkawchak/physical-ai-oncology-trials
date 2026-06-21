@@ -44,17 +44,23 @@ first-in-human protocol.
 %%{init: {'theme':'base','themeVariables':{'fontSize':'13px','primaryColor':'#FFFFFF','primaryTextColor':'#111111','lineColor':'#6C757D'}}}%%
 flowchart TB
     MP["Master prompt<br/>prompts/prompt-protocol.md"]:::goal
+    
     subgraph A["Process A - generate sub-prompts"]
       SP["sub-prompts 1-4<br/>mermaid / draft / full / final"]:::mid
     end
+    
     subgraph B["Process B - run each sub-prompt in sequence"]
       S1["Stage 1 mermaid<br/>20+ colored figures"]:::light
       S2["Stage 2 draft-protocol<br/>.tex scaffold + bracketed instructions"]:::light
       S3["Stage 3 full-protocol<br/>.tex rendered + TikZ figures"]:::mid
       S4["Stage 4 final-protocol<br/>.tex polished + zip"]:::goal
     end
-    REL["Single last update<br/>CHANGELOG + releases + root README + output"]:::goal
-    MP --> SP --> S1 --> S2 --> S3 --> S4 --> REL
+    
+    REL["Single last update<br/>CHANGELOG + releases + output"]:::goal
+    PUB["Publication: Author Edits<br/>tables + checks + diagrams"]:::goal
+    
+    MP --> SP --> S1 --> S2 --> S3 --> S4 --> REL --> PUB
+    
     classDef light fill:#FFFFFF,stroke:#111111,stroke-width:1px,color:#111111
     classDef mid fill:#6C757D,stroke:#111111,stroke-width:1.2px,color:#FFFFFF
     classDef goal fill:#00417A,stroke:#000000,stroke-width:1.5px,color:#FFFFFF
