@@ -9,7 +9,7 @@
 [![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.20780121-blue.svg)](https://doi.org/10.5281/zenodo.20780121)
 [![Release](https://img.shields.io/badge/Release-v1.0.0-orange.svg)](../releases.md)
 
-[Publication](./trial-protocol/final-protocol/publication/). This directory holds the autonomous, single-prompt build of a new **Phase 1,
+[Zenodo Publication with Author Edits](https://github.com/kevinkawchak/physical-ai-oncology-trials/tree/main/trial-protocol/final-protocol/publication). This directory holds the autonomous, single-prompt build of a new **Phase 1,
 First-in-Human, Combined IND/IDE Clinical Trial Protocol** for **on-premises
 large language model (LLM) directed robotic pancreaticoduodenectomy (the Whipple
 procedure) with perioperative daraxonrasib (RMC-6236)** in patients with
