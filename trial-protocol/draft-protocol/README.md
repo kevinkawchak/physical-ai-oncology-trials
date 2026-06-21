@@ -1,4 +1,4 @@
-# draft-protocol - Stage 2 (scaffold) (v4.0.0)
+# draft-protocol - Stage 2 (scaffold) (v1.0.0)
 
 [![License](https://img.shields.io/badge/License-CC%20BY%204.0-yellow.svg)](https://creativecommons.org/licenses/by/4.0/)
 [![Stage](https://img.shields.io/badge/Stage-2%20draft%20(scaffold)-00417A.svg)](../sub-prompts/prompt-2-draft-protocol.md)
