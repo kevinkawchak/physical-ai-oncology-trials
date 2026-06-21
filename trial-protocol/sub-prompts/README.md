@@ -1,4 +1,4 @@
-# sub-prompts - Process A output (Physical AI oncology trial protocol, v4.0.0)
+# sub-prompts - Process A output (Physical AI oncology trial protocol, v1.0.0)
 
 [![License](https://img.shields.io/badge/License-CC%20BY%204.0-yellow.svg)](https://creativecommons.org/licenses/by/4.0/)
 [![Sub-prompts](https://img.shields.io/badge/Sub--prompts-4-00417A.svg)](.)
