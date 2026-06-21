@@ -13,16 +13,14 @@
 [![NIH Template](https://img.shields.io/badge/Template-NIH--FDA%20IND%2FIDE-6C757D.svg)](trial-protocol/nih-protocol)
 [![Mermaid Figures](https://img.shields.io/badge/Mermaid%20figures-25-6C757D.svg)](trial-protocol/mermaid)
 [![TikZ Figures](https://img.shields.io/badge/TikZ%20figures-20-6C757D.svg)](trial-protocol/final-protocol)
-[![Protocol DOI](https://img.shields.io/badge/Protocol%20DOI-10.5281%2Fzenodo.xxxxxxxx-blue.svg)](https://doi.org/10.5281/zenodo.xxxxxxxx)
+[![Protocol DOI](https://img.shields.io/badge/Protocol%20DOI-10.5281%2Fzenodo.20780121-blue.svg)](https://doi.org/10.5281/zenodo.20780121)
 [![Protocol License](https://img.shields.io/badge/Protocol%20License-CC%20BY%204.0-yellow.svg)](https://creativecommons.org/licenses/by/4.0/)
-
-
 
 **Comprehensive developments for integrating physical AI into oncology clinical trials, by Claude Code Opus 4.7, Cowork; with Assistance from ChatGPT 5.5 Thinking and Google Gemini Search.**
 
 This repository provides production-ready configurations, validated pipelines, and integration guides for deploying robotic systems, digital twins, and embodied AI agents in oncology. 
 
-**6/20: v4.0.0 (Physical AI Pancreatic Whipple + Daraxonrasib Phase 1 Protocol)** *v4.0.0 delivers the first substantial Physical AI clinical trial protocol: a Phase 1, first-in-human, combined IND/IDE study of on-premises LLM-directed robotic Whipple surgery with perioperative daraxonrasib in KRAS-mutated pancreatic cancer. Built from the NIH-FDA template across mermaid, draft, full, and final LaTeX stages, it carries 25 colored figures, 20 TikZ renders, 11 tables, and the full 13-section NIH protocol.* [![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.xxxxxxxx-blue)](https://doi.org/10.5281/zenodo.xxxxxxxx)
+**6/20: v4.0.0 (Physical AI Pancreatic Whipple + Daraxonrasib Phase 1 Protocol v1.0.0)** *v4.0.0 delivers the first substantial Physical AI clinical trial protocol: a Phase 1, first-in-human, combined IND/IDE study of on-premises LLM-directed robotic Whipple surgery with perioperative daraxonrasib in KRAS-mutated pancreatic cancer.* [![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.20780121-blue)](https://doi.org/10.5281/zenodo.20780121)
 
 **5/10: v3.9.1 (Glioblastoma 1-Minute Variant Instructions)** *On-prem LLM controlled 1-minute glioblastoma resection simulation with 4 cooperating arms at mixed 1 kHz / 10 kHz force resolution and 16-iteration sweep* - 12-file 1-minute variant instruction set. [![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.18445179-blue)](https://github.com/kevinkawchak/physical-ai-oncology-trials/tree/main/competitions/instructions/one_minute_variant)
 
