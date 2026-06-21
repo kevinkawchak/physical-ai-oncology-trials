@@ -13,7 +13,9 @@
 First-in-Human, Combined IND/IDE Clinical Trial Protocol** for **on-premises
 large language model (LLM) directed robotic pancreaticoduodenectomy (the Whipple
 procedure) with perioperative daraxonrasib (RMC-6236)** in patients with
-KRAS-mutated pancreatic ductal adenocarcinoma (PDAC). The build is driven by the
+KRAS-mutated pancreatic ductal adenocarcinoma (PDAC). 
+
+The build is driven by the
 single master prompt in [`prompts/prompt-protocol.md`](prompts/prompt-protocol.md):
 **Process A** generated every sub-prompt under [`sub-prompts/`](sub-prompts), and
 **Process B** runs those sub-prompts in order, growing the protocol from Mermaid
