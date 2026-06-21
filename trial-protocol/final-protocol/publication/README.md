@@ -9,7 +9,7 @@
 [![ORCID](https://img.shields.io/badge/ORCID-0009--0007--5457--8667-A6CE39.svg)](https://orcid.org/0009-0007-5457-8667)
 [![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.20780121-blue.svg)](https://doi.org/10.5281/zenodo.20780121)
 
-[Clinical Trial Protocol Files, Zenodo](https://doi.org/10.5281/zenodo.20780121). This directory is the output of **Stage 4** (sub-prompt
+[Zenodo Protocol Files](https://doi.org/10.5281/zenodo.20780121). This directory is the output of **Stage 4** (sub-prompt
 [`../sub-prompts/prompt-4-final-protocol.md`](../sub-prompts/prompt-4-final-protocol.md)):
 the **polished, final** Phase 1 protocol, at maximum context and formatting
 quality. It starts from the full protocol and implements the corrections
