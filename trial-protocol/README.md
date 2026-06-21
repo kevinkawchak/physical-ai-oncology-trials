@@ -57,7 +57,7 @@ flowchart TB
     end
     
     REL["Single last update<br/>CHANGELOG + releases + output"]:::goal
-    PUB["Publication: Author Edits<br/>tables + checks + diagrams"]:::goal
+    PUB["Publication: author edits<br/>tables + checks + diagrams"]:::goal
     
     MP --> SP --> S1 --> S2 --> S3 --> S4 --> REL --> PUB
     
