@@ -6,7 +6,7 @@
 
 This directory preserves the single submitted **master prompt** and the full
 **Claude Code output** for the Physical AI oncology trial protocol build
-(version v4.0.0), following the auto-bill-02 filing convention.
+(version v1.0.0), following the auto-bill-02 filing convention.
 
 ## Files
 
