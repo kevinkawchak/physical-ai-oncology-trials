@@ -6,10 +6,10 @@
 [![Template](https://img.shields.io/badge/Template-NIH--FDA%20IND%2FIDE-6C757D.svg)](nih-protocol)
 [![Media](https://img.shields.io/badge/Media-Tables%20%2B%20ASCII%20%2B%20TikZ%20Mermaid-6C757D.svg)](.)
 [![Figures](https://img.shields.io/badge/Mermaid%20figures-20%2B-00417A.svg)](mermaid)
-[![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.xxxxxxxx-blue.svg)](https://doi.org/10.5281/zenodo.xxxxxxxx)
+[![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.20780121-blue.svg)](https://doi.org/10.5281/zenodo.20780121)
 [![Release](https://img.shields.io/badge/Release-v1.0.0-orange.svg)](../releases.md)
 
-This directory holds the autonomous, single-prompt build of a new **Phase 1,
+[Zenodo Publication with Author Edits](./publication/). This directory holds the autonomous, single-prompt build of a new **Phase 1,
 First-in-Human, Combined IND/IDE Clinical Trial Protocol** for **on-premises
 large language model (LLM) directed robotic pancreaticoduodenectomy (the Whipple
 procedure) with perioperative daraxonrasib (RMC-6236)** in patients with
