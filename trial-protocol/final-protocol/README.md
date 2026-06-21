@@ -7,7 +7,7 @@
 [![Tables](https://img.shields.io/badge/Full--width%20tables-11-6C757D.svg)](.)
 [![Compiles](https://img.shields.io/badge/Overleaf-pdfLaTeX-6C757D.svg)](main.tex)
 [![ORCID](https://img.shields.io/badge/ORCID-0009--0007--5457--8667-A6CE39.svg)](https://orcid.org/0009-0007-5457-8667)
-[![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.xxxxxxxx-blue.svg)](https://doi.org/10.5281/zenodo.xxxxxxxx)
+[![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.20780121-blue.svg)](https://doi.org/10.5281/zenodo.20780121)
 
 [Publication with Author Edits](./publication/) This directory is the output of **Stage 4** (sub-prompt
 [`../sub-prompts/prompt-4-final-protocol.md`](../sub-prompts/prompt-4-final-protocol.md)):
