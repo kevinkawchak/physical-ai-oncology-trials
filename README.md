@@ -17,7 +17,7 @@
 [![Phase 2 Design](https://img.shields.io/badge/Design-Multicenter%208%20centers%201%3A1-800020.svg)](trial-phase-2)
 [![Phase 2 Primary](https://img.shields.io/badge/Primary-PFS%20HR%200.60-800020.svg)](trial-phase-2/final-protocol/publication)
 [![Co-Investment](https://img.shields.io/badge/Funding-Co--Investment%20%2B%20Capital%20Firewall-800020.svg)](trial-phase-2/final-protocol/publication/sections/sec-10-oversight.tex)
-[![Protocol DOI v1.1.0](https://img.shields.io/badge/Protocol%20DOI%20v1.1.0-10.5281%2Fzenodo.xxxxxxxx-blue.svg)](https://doi.org/10.5281/zenodo.xxxxxxxx)
+[![Protocol DOI v1.1.0](https://img.shields.io/badge/Protocol%20DOI%20v1.1.0-10.5281%2Fzenodo.xxxxxxxx-800020.svg)](https://doi.org/10.5281/zenodo.xxxxxxxx)
 
 
 **Comprehensive developments for integrating physical AI into oncology clinical trials, by Claude Code Opus 4.8, Cowork; with Assistance from ChatGPT 5.5 Thinking Extended and Google Gemini 3.1 Pro.**
