@@ -1,0 +1,76 @@
+% main.tex - FULL Phase 2, Multicenter, Randomized, Controlled Physical AI
+% Pancreatic Whipple + Daraxonrasib Clinical Trial Protocol. v1.1.0. Stage 3
+% (full render) of the mermaid -> draft -> full -> final build. The full stage
+% renders every section in complete prose with every TikZ mermaidfig and table;
+% the final-stage pagination polish (\raggedbottom and a \clearpage after every
+% section) is deferred to final-protocol/. Here sections run continuously.
+% Compile on Overleaf with pdfLaTeX:
+%   pdflatex main -> bibtex main -> pdflatex main -> pdflatex main
+\documentclass[11pt]{article}
+\usepackage{protostyle}
+
+\title{A Phase 2, Multicenter, Randomized, Controlled Clinical Trial Protocol of
+On-Premises Large Language Model Directed Robotic Pancreaticoduodenectomy
+(Whipple) with Perioperative Daraxonrasib (RMC-6236) in KRAS-Mutated Pancreatic
+Ductal Adenocarcinoma}
+\author{Kevin Kawchak}
+\date{June 23, 2026}
+
+\begin{document}
+\thispagestyle{plain}
+
+% ---------- Cover ----------
+\begin{center}
+{\LARGE\bfseries\color{accentcol} A Phase 2, Multicenter, Randomized,\\Controlled Clinical Trial Protocol}\\[0.4em]
+{\large\bfseries On-Premises LLM-Directed Robotic Pancreaticoduodenectomy with Perioperative Daraxonrasib (RMC-6236) in KRAS-Mutated Pancreatic
+Ductal Adenocarcinoma}\\[0.3em]
+{\color{accentcol}\rule{\linewidth}{1.2pt}}
+\end{center}
+
+\begin{center}\small
+Kevin Kawchak\,\orcidicon{0009-0007-5457-8667}, CEO ChemicalQDevice \;|\;
+\href{mailto:kevink@chemicalqdevice.com}{kevink@chemicalqdevice.com} \;|\;
+\href{https://doi.org/10.5281/zenodo.xxxxxxxx}{10.5281/zenodo.xxxxxxxx}
+\end{center}
+
+\begin{center}\footnotesize
+\textbf{Protocol version:} v1.1.0 (full render) \quad
+\textbf{Date:} June 23, 2026 \quad \textbf{Repository:} \href{https://github.com/kevinkawchak/physical-ai-oncology-trials/tree/main/trial-phase-2}{kevinkawchak/physical-ai-oncology-trials/...trial-phase-2} \\
+\textbf{Regulatory basis:} IND (21 CFR part 312) + IDE (21 CFR part 812),
+Physical AI Subpart J \quad \textbf{Predicate:} Phase 1 protocol (v1.0.0)
+\end{center}
+
+\noindent\footnotesize\textit{Independent research draft. Not an active IND or
+IDE, not an approved protocol, and not medical or regulatory advice; not endorsed
+by the FDA, NIH, HHS, an IRB, ICH, or any sponsor. The DOI placeholder
+\texttt{10.5281/zenodo.xxxxxxxx} is filled at deposit.}\normalsize\par
+
+\renewcommand{\keywordname}{\textbf{Keywords}}
+\keywords{Pancreatic Ductal Adenocarcinoma; Robotic Whipple; Daraxonrasib;
+Physical AI; On-premises LLM; Randomized Controlled Trial; Multicenter; IND/IDE;
+Phase 2 Protocol; Co-Investment; VVUQ}
+
+\vspace{0.4em}
+{\color{accentcol}\rule{\linewidth}{0.6pt}}
+
+% ---------- Clickable table of contents ----------
+\renewcommand{\contentsname}{\color{accentcol}Table of Contents}
+{\setlength{\parskip}{0pt}\small\tableofcontents}
+\bigskip
+
+% ---------- Protocol body: continuous (final stage adds \clearpage per section) ----------
+\input{sections/sec-00-compliance}
+\input{sections/sec-01-summary}
+\input{sections/sec-02-introduction}
+\input{sections/sec-03-objectives}
+\input{sections/sec-04-design}
+\input{sections/sec-05-population}
+\input{sections/sec-06-intervention}
+\input{sections/sec-07-discontinuation}
+\input{sections/sec-08-assessments}
+\input{sections/sec-09-statistics}
+\input{sections/sec-10-oversight}
+\input{sections/sec-11-additional}
+\input{sections/sec-12-references-backmatter}
+
+\end{document}
