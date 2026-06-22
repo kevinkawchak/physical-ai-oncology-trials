@@ -15,7 +15,7 @@
 [![Protocol License](https://img.shields.io/badge/Protocol%20License-CC%20BY%204.0-yellow.svg)](https://creativecommons.org/licenses/by/4.0/)
 [![Phase 2 Protocol](https://img.shields.io/badge/Trial%20Protocol-Phase%202%20Randomized%20Controlled-800020.svg)](trial-phase-2)
 [![Phase 2 Design](https://img.shields.io/badge/Design-Multicenter%208%20centers%201%3A1-800020.svg)](trial-phase-2)
-[![Phase 2 Primary](https://img.shields.io/badge/Primary-PFS%20HR%200.60-800020.svg)](trial-phase-2/final-protocol/publication)
+[![Phase 2 Primary](https://img.shields.io/badge/Primary-PFS%20HR-800020.svg)](trial-phase-2/final-protocol/publication)
 [![Protocol DOI v1.1.0](https://img.shields.io/badge/Protocol%20DOI%20v1.1.0-10.5281%2Fzenodo.xxxxxxxx-800020.svg)](https://doi.org/10.5281/zenodo.xxxxxxxx)
 
 
