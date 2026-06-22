@@ -1,0 +1,51 @@
+\section{Study Design}
+
+\subsection{Overall Design}
+\draftinstr{Follow the Phase 2 publication section
+\texttt{final-protocol/publication/sections/sec-04-design.tex} and the Phase 1
+model file \texttt{trial-protocol/draft-protocol/sections/sec-04-design.tex}.
+Describe the prospective, multicenter, randomized, parallel-group, controlled,
+open-label design with BICR across eight academic HPB centers; $n=220$ randomized
+1:1 (110 per arm); Arm A daraxonrasib RP2D 300 mg PO daily plus PancreSpeed II,
+Arm B modified FOLFIRINOX \cite{Conroy2018} plus standard Whipple; central
+permuted-block randomization stratified by resectability, KRAS allele, neoadjuvant
+therapy, and site. Source the design and population order from
+\texttt{trial-protocol/nih-protocol/03\_study\_design\_and\_study\_population.md}.}
+
+\draftinstr{Render \texttt{trial-phase-2/mermaid/fig-08-randomization-design.md} as
+a TikZ \texttt{mermaidfig} (this is \textbf{Figure 8}): eligible participant ->
+central stratified randomization 1:1 -> Arm A / Arm B -> eight harmonized HPB sites
+-> BICR plus central masked pathology -> endpoint adjudication.}
+
+\subsection{Scientific Rationale for Study Design}
+\draftinstr{Justify the randomized controlled design as the ethical next step that
+inverts the single-arm predicate \cite{kawchak2026phase1}; open-label conduct is
+unavoidable for a surgical-system intervention, so bias control is concentrated
+downstream (BICR imaging, central masked R0/MPR pathology, blinded adjudication).
+The internal control Arm B replaces the external Dutch benchmark
+\cite{DutchCohort2025,Siegel2025}. Follow the CONSORT framework
+\cite{Schulz2010consort}.}
+
+\subsection{Justification for Dose and Device Readiness}
+\draftinstr{Daraxonrasib at the established RP2D of 300 mg once daily (no 3+3
+escalation), anchored to RASolute 302 \cite{rasolute302,kawchak2026phase1}. The
+device ``dose'' analogue is the \emph{upgraded} Phase 0 gate: USL $\geq 8.0$, at
+least 5000 sims across at least 3 frameworks, sim-to-real $< 1.5$ mm and $< 0.4$ N,
+per-site qualification plus fleet harmonization, operating with the intra-op hard
+caps ($\leq 3$ N per-arm, $\leq 18$ N cumulative, $\leq 3$ ms e-stop, five-vessel
+no-fly gate) \cite{ecfr2026part812,kawchak2026adapt312}. Source from
+\texttt{trial-protocol/inputs/21cfr312\_adapt/02\_ind\_content\_phases.tex}.}
+
+\draftinstr{Render \texttt{trial-phase-2/mermaid/fig-09-staged-autonomy.md} as a
+TikZ \texttt{mermaidfig} (this is \textbf{Figure 9}): the phase-graduated
+staged-autonomy model running at Stage 2 supervised semiautonomy (Class II,
+continuous oversight, immediate override); any expanded subtask requires
+independent safety review and USL $\geq 8.0$; Stage 3 full autonomy reserved and
+prohibited under 21 CFR \S312.21(e).}
+
+\subsection{End of Study Definition}
+\draftinstr{Define individual completion at the 24-month OS assessment (or death,
+progression precluding follow-up, or withdrawal), and overall end of study as the
+last scheduled PFS/OS assessment plus primary-analysis database lock after $\sim
+140$ PFS events. Discontinued participants (\S7) remain in long-term survival
+follow-up.}
