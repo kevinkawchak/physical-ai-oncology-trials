@@ -1,0 +1,275 @@
+\section{Regulatory, Ethical, and Oversight Considerations}
+
+The oversight architecture for this combined IND/IDE first-in-human study layers a
+conventional human-subject-protection structure with the additional governance
+that an autonomy-bearing surgical system requires. The Sponsor-Investigator,
+ChemicalQDevice, answers to a reviewing Institutional Review Board (IRB) and to an
+independent data and safety monitoring board (DSMB), convenes a Physical AI Safety
+Review Committee on a $\leq 90$-day cadence, designates an Independent Safety
+Monitor (ISM) for each procedure, and delegates day-to-day monitoring to a
+robotics- and artificial-intelligence-competent clinical research organization
+(CRO) over the site team. Figure~16 presents the governance and safety-oversight
+structure.
+
+\begin{mermaidfig}
+\node[mmgoal](si)  at (4.2,0)     {Sponsor-Investigator\\ChemicalQDevice};
+\node[mmstep](irb) at (0,-2.4)    {Reviewing IRB\\SR device + IND};
+\node[mmstep](dsmb)at (4.2,-2.4)  {Data and Safety\\Monitoring Board};
+\node[mmstep](pais)at (8.4,-2.4)  {Physical AI Safety\\Review Committee\\$\leq 90$-day cadence};
+\node[mmin]  (cro) at (-2,-4.8)    {CRO / clinical\\monitor (robotics\\+ AI competent)};
+\node[mmstep](ism) at (8.4,-4.8)  {Independent Safety\\Monitor (per\\procedure)};
+\node[mmin]  (site)at (4.2,-6.5)  {Site team: surgeon,\\operator, backup\\operator};
+\draw[mmedge] (si) -- (irb);
+\draw[mmedge] (si) -- (dsmb);
+\draw[mmedge] (si) -- (pais);
+\draw[mmedge] (si.west) -| (cro.north);
+\draw[mmedge] (cro) |- (site.west);
+\draw[mmedged] (dsmb) -- node[right,font=\scriptsize]{stop/continue} (site);
+\draw[mmedged] (pais.south) -- node[right,font=\scriptsize,pos=0.5]{USL changes} (ism.north);
+\draw[mmedged] (ism) |- (site.east);
+\end{mermaidfig}
+\vspace{-0.6cm}
+\figcaption{Figure 16. Study governance and safety oversight. The
+Sponsor-Investigator answers to the reviewing IRB\\and the DSMB, convenes a
+Physical AI Safety Review Committee on a $\leq 90$-day cadence, designates\\an Independent Safety Monitor for each procedure, and delegates monitoring to a
+robotics- and\\AI-competent CRO over the site team (surgeon, operator, and a
+qualified backup operator).}
+
+\subsection{Informed Consent Process}
+
+Informed consent is obtained by a qualified member of the research team, who is
+not the treating surgeon, before any study-specific procedure, in language the
+participant can understand and with adequate time and opportunity to ask
+questions, consistent with 21 CFR part 50 \cite{ecfr2026part50} and ICH E6(R3).
+The consent discussion covers the diagnosis, the alternatives, and the prognosis;
+the perioperative daraxonrasib regimen and its risks; and, in addition to the
+standard elements, an explicit and distinct disclosure of the on-premises
+LLM-directed robotic system, its role and continuous human oversight, and its
+system-specific risks, as required for an autonomy-bearing investigational device.
+The consent form addresses the therapeutic misconception directly and explains the
+staged-autonomy model under which the system operates only at the
+clinician-controlled and supervised semiautonomous levels.
+
+A defining feature of this trial class is the documented Physical AI opt-out.
+Under 21 CFR $\S$312.60(f), as adapted for Physical AI investigations
+\cite{kawchak2026adapt312}, the participant is offered, and may exercise, a
+documented right to request administration without the Physical AI advisory layer
+where clinically feasible, without penalty and without affecting eligibility for
+the remainder of the study or for clinical care. The participant's election or
+declination of the opt-out is recorded in the source document and the case report
+form (CRF). Assent is obtained where applicable, although the adult-only
+eligibility makes pediatric assent inapplicable in practice; a legally authorized
+representative process and the use of qualified interpreters and translated
+materials for participants with limited English proficiency are provided so that
+consent is meaningful for every eligible individual. The right to withdraw at any
+time without penalty is stated at consent and reaffirmed at each contact.
+Figure~17 shows the consent process and the opt-out.
+
+\begin{mermaidfig}
+\node[mmin]  (intro)at (-0.2,0)      {Investigator presents\\study: disease,\\alternatives, prognosis};
+\node[mmstep](pai)  at (4.4,0)    {Explain Physical AI\\system: role, oversight,\\risks (\S312.60(f))};
+\node[mmdec] (opt)  at (9.3,0)    {Participant\\choice};
+\node[mmgoal](yes)  at (9.3,-2.6) {Consents to Physical AI\\signed ICF + assent\\if applicable};
+\node[mmstep](no)   at (4.4,-2.6) {Requests non-Physical AI\\administration if\\clinically feasible};
+\node[mmgoal](enr)  at (4.4,-4.9) {Enroll and document\\consent in source + CRF};
+\node[mmin]  (wd)   at (-0.2,-4.9)   {Right to withdraw at\\any time without penalty};
+\draw[mmedge] (intro) -- (pai);
+\draw[mmedge] (pai) -- (opt);
+\draw[mmedge] (opt) -- node[right,font=\scriptsize]{accept} (yes);
+\draw[mmedge] (opt.south west) -- node[above,font=\scriptsize, xshift=-0.42cm, yshift=0.25cm]{decline AI} (no.east);
+\draw[mmedge] (yes) |- (enr.east);
+\draw[mmedge] (no) -- (enr);
+\draw[mmedged] (enr) -- (wd);
+\end{mermaidfig}
+\vspace{-0.65cm}
+\figcaption{Figure 17. Informed-consent process with the Physical AI opt-out.
+Consent discloses the Physical AI system's role, continuous human oversight, and
+system-specific risks, and offers the participant a documented right to request
+non-Physical AI administration where clinically feasible (21 CFR $\S$312.60(f)),
+with standard right to withdraw.}
+
+\subsection{Study Discontinuation and Closure}
+
+The study may be discontinued or closed by the Sponsor-Investigator, by the IRB,
+or by the FDA. Grounds for closure include unacceptable safety findings (including
+the prespecified halt rules of \S9.4.6), a clinical hold, a determination that the
+study cannot be conducted in compliance, or completion of the planned cohorts. The
+FDA may impose a clinical hold on the drug or device component under the
+provisions for terminating or suspending an investigation; in addition, the
+Physical AI overlay establishes specific clinical-hold grounds for the
+autonomy-bearing system, including a breach of a hard cyber-physical safety limit,
+a failure of the verification-before-generation gate surface, or a loss of audit
+integrity. On any hold or closure, enrollment and patient-facing robotic activity
+stop immediately; affected participants are transitioned to appropriate clinical
+care; and a controlled decommissioning and data-preservation procedure is executed,
+under which the robotic system is locked out of patient contact, the deterministic
+configuration and repository commit are recorded, and the complete hash-chained
+command and telemetry record is sealed and retained for the regulatory retention
+period (\S10.9). The IRB, the FDA, and the DSMB are notified, and a final report is
+prepared.
+
+\subsection{Confidentiality and Privacy}
+
+Participant confidentiality is protected throughout. Data released for analysis,
+deposition, or publication are de-identified by the HIPAA Safe Harbor method, with
+removal of all eighteen categories of protected health information identifiers
+(names; geographic subdivisions smaller than a state; all date elements other than
+year that are directly related to an individual, and ages over 89; telephone and
+fax numbers; email addresses; Social Security numbers; medical record numbers;
+health plan beneficiary numbers; account numbers; certificate or license numbers;
+vehicle identifiers; device identifiers and serial numbers; web URLs; IP
+addresses; biometric identifiers; full-face photographs and comparable images;
+and any other unique identifying number, characteristic, or code). Access to
+identifiable records is governed by a deny-by-default authorization model, in which
+no role can read, write, or export a record except where an access right has been
+explicitly granted, and every access, change, and export is written to a
+hash-chained audit trail in which each entry cryptographically incorporates the
+hash of the prior entry so that the record is tamper-evident and any alteration is
+detectable. All electronic records, signatures, and the cyber-physical telemetry
+stream are maintained under 21 CFR part 11 \cite{ecfr2026part11}, with validated
+systems, secure time-stamped audit trails that do not obscure prior entries,
+role-based access controls, and electronic signatures bound to the records they
+authenticate.
+
+\subsection{Future Use of Stored Specimens and Data}
+
+The cyber-physical record is retained as a tiered telemetry pyramid that balances
+long-term scientific reuse against storage cost. At the apex are the compact,
+human-readable summaries and the safety-event and audit logs retained in full and
+indefinitely; the middle tiers hold compressed feature and event streams; and the
+base, level zero (L0), holds the raw, losslessly reconstructable command and
+sensor stream. The L0 raw tier is deposited on Zenodo under controlled terms and
+is decompressible and reconstructable on FDA request as required for inspection
+and review under 21 CFR $\S$312.57, so that any reported behavior can be replayed
+deterministically from the seed and the repository commit. Any future secondary
+use of stored de-identified data is limited to research consistent with the
+consent and applicable regulation, is conducted on de-identified data only, and
+preserves the audit chain. No biological specimens are banked beyond those required
+for the clinical care and the protocol-specified assessments; tumor genotyping is
+performed on standard-of-care material, and no specimen is retained for an
+unspecified future purpose without appropriate consent.
+
+\subsection{Key Roles and Study Governance}
+
+The Sponsor-Investigator (ChemicalQDevice, Kevin Kawchak) holds the combined
+IND/IDE and bears the sponsor and investigator responsibilities under 21 CFR parts
+312 and 812, including protocol custody, safety reporting, oversight of the
+investigation, and assurance of compliance. The site Principal Investigator
+directs the conduct of the study at the clinical site and supervises the research
+team. The operating surgeon performs the pancreaticoduodenectomy under the
+staged-autonomy model; a primary operator drives the system, and a qualified
+backup operator is present and ready to assume control or to invoke the manual
+override at any time. The CRO provides robotics- and AI-competent clinical
+monitoring. The DSMB, the Independent Safety Monitor, and the Physical AI Safety
+Review Committee provide the independent oversight described in \S10.6. Roles,
+delegated duties, and the corresponding qualifications are documented on a
+delegation-of-authority log maintained by the site, and changes are recorded and
+reported as required.
+
+\subsection{Safety Oversight}
+
+Independent safety oversight operates on three tiers. The DSMB, composed of
+members independent of the conduct of the study with surgical, oncologic,
+biostatistical, and device-safety expertise, reviews accumulating safety data at
+each cohort boundary and at any triggered review, applies the prespecified halt
+rules of \S9.4.6, and recommends continuation, modification, pause, or halt. The
+Independent Safety Monitor is designated for each procedure and provides
+real-time, case-level safety oversight independent of the operating team, with the
+authority to call a stop. The Physical AI Safety Review Committee meets on a
+$\leq 90$-day cadence (and ad hoc on any triggering event) to review the
+autonomy-bearing behavior of the system: the telemetry and audit record, the
+verification-before-generation gate-surface decisions, the Unified Safety Level rating, and any software change, and to recommend USL reassessment or
+oversight changes to the Sponsor-Investigator. The three tiers are coordinated so
+that no autonomy-bearing change and no escalation decision, proceeds without
+appropriate independent review.
+
+\subsection{Clinical Monitoring}
+
+The study is monitored by a CRO whose monitors are competent in both clinical-trial
+monitoring and the robotics and artificial-intelligence elements of this trial
+class. Monitoring follows a risk-based plan and includes source-data verification
+not only of conventional clinical source documents and the consent records but
+also of the cyber-physical evidence: the device telemetry, the
+verification-before-generation gate-surface logs, and the hash-chained audit trail,
+which are verified against the recorded outcomes and the deterministic seed and
+repository commit. Monitoring visits verify eligibility, consent (including the
+documented Physical AI opt-out election), safety reporting, protocol adherence,
+and data integrity, and findings are documented and resolved through to closure.
+
+\subsection{Quality Assurance and Quality Control}
+
+Quality assurance and quality control span the clinical and the cyber-physical
+domains. Before every procedure, the pre-procedure safety matrix is verified, the
+USL readiness rating is confirmed at or above the deployment threshold, and the
+emergency-stop, positional, and force envelopes are checked. After any software
+update, model change, or configuration change to the LLM-directed system, a
+Phase 0 re-validation is performed against the independent simulation frameworks,
+and the USL is reassessed, before any further patient-facing use; no update reaches
+a participant without re-validation. Audits may be conducted by the
+Sponsor-Investigator or a designee independent of the conduct of the study, and
+corrective and preventive actions are documented. The deterministic, version-controlled
+build ensures that the validated configuration in use is exactly the configuration
+that was tested and recorded.
+
+\subsection{Data Handling and Record Keeping}
+
+Seven Physical AI record types are captured and retained for this trial class, in
+addition to the conventional clinical trial records: (1) the LLM advisory record
+(each prompt, context, and advisory output); (2) the robot command record (each
+command issued to the arms); (3) the sensor and telemetry record (the
+cyber-physical stream, tiered as in \S10.4); (4) the safety-limit-event record
+(emergency-stop activations and latencies, positional and force-envelope
+excursions, and vascular-exclusion gating events); (5) the
+verification-before-generation gate-surface record (each accept, block, or
+escalate decision); (6) the human-override and intervention record; and (7) the
+hash-chained audit trail that binds the preceding six to a deterministic seed and a
+repository commit. All records are retained for the period required by 21 CFR
+$\S$312.57 (at least two years after a marketing application is approved for
+indication, or, if no application is filed or approved, two years after the
+investigation is discontinued and the FDA is notified), and the L0 raw tier is
+preserved described in \S10.4 so that a requested record can be reconstructed.
+
+\subsection{Protocol Deviations}
+
+A protocol deviation is any departure from the IRB-approved protocol. Deviations
+are identified, documented, assessed for their effect on participant safety and
+data integrity, and reported to the IRB and the Sponsor-Investigator in accordance
+with the IRB's policy and applicable regulation; deviations that affect safety or
+the rights and welfare of participants, and any that recur, are escalated.
+Deviations are distinguished from planned protocol amendments, which follow the
+amendment process. Where a deviation is necessary to eliminate an apparent
+immediate hazard to a participant, the change may be implemented without prior IRB
+or FDA approval under 21 CFR $\S$312.30(h) (and the corresponding device
+provision), with prompt notification and reporting afterward; for the
+autonomy-bearing system, an immediate-hazard modification also triggers the
+decommissioning and re-validation controls of \S10.2 and \S10.8 before any further
+patient-facing use.
+
+\subsection{Publication and Data Sharing Policy}
+
+Results are disseminated regardless of outcome through dual deposition: the
+analysis code, derived data sets, and protocol are published in a public GitHub
+repository and archived on Zenodo with a citable DOI, under the Creative Commons
+Attribution 4.0 International (CC BY 4.0) license. Reporting follows the TRIPOD+AI
+statement for the model-assisted advisory component \cite{Collins2024tripodai} and
+the CREMLS (Consensus Reporting for Evaluation of Machine Learning Systems)
+guidance for the machine-learning system, in addition to the applicable
+clinical-trial reporting standards. The deterministic seed and the repository
+commit are published so that every reported result is reproducible, and the tiered
+telemetry record is deposited as described in \S10.4. No identifiable participant
+information is published; all shared data are de-identified by the HIPAA Safe
+Harbor method (\S10.3).
+
+\subsection{Conflict of Interest Policy}
+
+Financial interests are disclosed and managed in accordance with 21 CFR part 54
+(Financial Disclosure by Clinical Investigators). The Sponsor-Investigator is the
+chief executive of ChemicalQDevice, which develops the Physical AI system under
+study; this relationship is disclosed in full, and the independent oversight
+structure of \S10.6 (the DSMB, the Independent Safety Monitor, and the Physical AI
+Safety Review Committee) is established in part to manage it, so that safety and
+escalation decisions are not made by a party with a financial interest in the
+outcome alone. Investigator financial-disclosure certifications are collected
+before participation and updated through one year after the study, and any
+identified conflict is disclosed and managed before it can affect the conduct,
+analysis, or reporting of the study.

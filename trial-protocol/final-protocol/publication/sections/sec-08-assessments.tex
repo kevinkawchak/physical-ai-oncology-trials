@@ -1,0 +1,295 @@
+\section{Study Assessments and Procedures}
+
+This section specifies the efficacy and safety assessments, the device-telemetry
+measurements unique to the Physical AI component, and the adverse-event and
+unanticipated-problem machinery for the study. The timing of every assessment is
+governed by the Schedule of Activities ($\S$1.3); this section defines what is
+measured, how it is graded, and how it is reported.
+
+\subsection{Efficacy Assessments}
+
+The primary surgical-efficacy endpoint is the rate of margin-negative (R0)
+resection, determined by histopathology under a standardized synoptic protocol and
+read by a pathologist masked to the assigned daraxonrasib dose level and to the
+device telemetry ($\S$6.3), with masked independent adjudication of discordant or
+indeterminate margins. Radiographic tumor response is assessed against RECIST
+version 1.1 on contrast-enhanced cross-sectional imaging read centrally by a
+blinded reviewer at the protocol-specified timepoints. Progression-free survival
+and overall survival are followed to the 24-month endpoint, with overall survival
+benchmarked descriptively against the 2025 Dutch nationwide robotic
+pancreaticoduodenectomy cohort.
+
+Anastomosis quality is a prespecified feasibility endpoint and is assessed for each
+of the three reconstructions against its controller ring-tension band: the
+duct-to-mucosa pancreaticojejunostomy (0.30 to 0.60 N), the end-to-side
+hepaticojejunostomy (0.20 to 0.50 N), and the antecolic gastrojejunostomy (0.40 to
+0.80 N), as constructed under Arm 5 monitoring ($\S$6.1.2). Postoperative
+pancreatic fistula is graded by the International Study Group of Pancreatic Surgery
+(ISGPS) definition as a biochemical leak (no longer classified as a clinically
+relevant fistula), Grade B (requiring a change in management), or Grade C
+(requiring reoperation or causing organ failure or death) \cite{Bassi2017}; the
+pancreaticojejunostomy grade is the dominant fistula determinant and is the input
+to the perioperative drug-restart advisory ($\S$6.1.2) and to the drug stopping
+rule ($\S$7.1).
+
+\subsection{Safety and Other Assessments}
+
+Clinical safety assessments comprise vital signs, a directed physical examination,
+hematology, serum chemistry including hepatic and pancreatic indices, coagulation
+studies, the serum daraxonrasib trough assay, and protocol-specified imaging, at the
+frequencies in the Schedule of Activities. In addition to these conventional
+assessments, the device generates a continuous safety telemetry stream that is a source of protocol observations under 21 CFR $\S$312.23(g)(i)(iv): per-arm
+and cumulative force profiles, trajectory accuracy against the 0.05 mm root mean
+square specification, every vascular safety-zone verdict, every heartbeat and
+watchdog event, and every E-stop activation, each captured at its recorded rate in
+the hash-chained audit trail. Pre-procedure safety matrix results are recorded for
+each case.
+
+The vascular safety-zone gate ticks at 10 kHz and evaluates the instrument-tip
+proximity to each of five named vessels against three concentric thresholds, with
+the verdict driving the response: a soft-warning zone at 3.0 mm raises an LLM
+advisory, a no-fly zone (1.0 mm at the superior mesenteric and portal veins; 1.5 mm
+at the hepatic artery, celiac axis, and superior mesenteric artery) blocks the
+command, and a hard-stop zone at 5.0 mm forces a $\leq 3$ ms E-stop. Across the
+representative 100-tick verdict sample the gate returned clear on 83 ticks,
+soft\_warning on 6, no\_fly on 6, and hard\_stop on 5, exercising all five vessels
+across all eight phases (40 vessel-by-phase cells). The gate is shown in Figure 13.
+
+\begin{mermaidfig}
+\node[mmin]  (tip)  at (4.7,0)     {Instrument-tip\\proximity\\sampled at 10 kHz};
+\node[mmdec] (z)    at (4.7,-2.4)  {Zone test\\per vessel};
+\node[mmin]  (clr)  at (0,-4.8)    {Clear\\(83 of 100 ticks)};
+\node[mmstep](soft) at (4.7,-4.8)  {soft\_warning\\LLM advisory\\all vessels 3.0 mm};
+\node[mmstep](nofly)at (9.6,-4.8)  {no\_fly: block\\SMV/PV 1.0 mm\\HA/CA/SMA 1.5 mm};
+\node[mmgoal](hard) at (9.6,-2.4)  {hard\_stop: ESTOP\\all vessels 5.0 mm\\halt $\leq 3$ ms};
+\node[mmdark](v)    at (0,-2.4)    {Vessels: SMV, PV,\\hepatic artery,\\celiac axis, SMA\\(5 $\times$ 8 = 40)};
+\draw[mmedge] (tip) -- (z);
+\draw[mmedge] (z) -- node[left,font=\scriptsize, xshift=-0.2cm]{clear} (clr);
+\draw[mmedge] (z) -- node[right,font=\scriptsize,pos=0.6, yshift=0.2cm]{soft} (soft);
+\draw[mmedge] (z) -- node[right,font=\scriptsize,pos=0.6, xshift=0.2cm]{no\_fly} (nofly);
+\draw[mmedge] (z) -- node[above,font=\scriptsize, xshift=-0.05cm]{hard} (hard);
+\draw[mmedged] (z) -- (v);
+\end{mermaidfig}
+\vspace{-0.5cm}
+\figcaption{Figure 13. Five-vessel vascular safety-zone gate. Three concentric
+proximity zones around each named vessel drive the response: a soft-warning zone
+(3.0 mm) raises an LLM advisory, a no-fly zone (1.0 mm at the superior mesenteric
+and portal veins; 1.5 mm at the hepatic artery, celiac axis, and superior
+mesenteric artery) blocks the command, and a hard-stop zone (5.0 mm) forces a
+$\leq 3$ ms E-stop. The gate is sampled at 10 kHz across all phases.}
+
+The halt chain that backs the gate is layered. The 10 kHz heartbeat bus broadcasts
+a 64-byte frame on a $100\,\mu$s per-arm watchdog deadline; a frame that is on time
+continues the command state, whereas a missed or out-of-parameter frame parks the
+affected arm within $50\,\mu$s and escalates to a cross-arm E-stop that halts the
+platform in $\leq 3$ ms at a 0.0 N force clamp. A software-independent hardware
+E-stop meeting the 21 CFR $\S$312.404 $\leq 500$ ms requirement backs the software
+chain. The architecture is shown in Figure 14.
+
+\begin{mermaidfig}
+\node[mmgoal](hb)  at (4.7,0)     {10 kHz heartbeat bus\\64-byte frame,\\$100\,\mu$s deadline};
+\node[mmdec] (wd)  at (4.7,-2.4)  {Watchdog window\\$100\,\mu$s per arm};
+\node[mmin]  (ok)  at (0,-2.4)    {Frame on time\\continue command\\state};
+\node[mmstep](miss)at (9.4,-2.4)  {Frame missed or\\out-of-parameter};
+\node[mmstep](park)at (9.4,-4.7)  {Emergency arm park\\within $50\,\mu$s};
+\node[mmgoal](est) at (4.7,-4.7)  {Cross-arm ESTOP\\halt $\leq 3$ ms,\\force clamp 0.0 N};
+\node[mmdark](hw)  at (0,-4.7)    {Hardware E-stop\\independent of\\software ($\leq 500$ ms)};
+\draw[mmedge] (hb) -- (wd);
+\draw[mmedge] (wd) -- node[above,font=\scriptsize, xshift=0.1cm]{met} (ok);
+\draw[mmedge] (wd) -- node[above,font=\scriptsize, xshift=-0.1cm]{missed} (miss);
+\draw[mmedge] (miss) -- (park);
+\draw[mmedge] (park) -- (est);
+\draw[mmedge] (est) -- (hw);
+\end{mermaidfig}
+\vspace{-0.5cm}
+\figcaption{Figure 14. Heartbeat, watchdog, and E-stop architecture. A 10 kHz
+heartbeat bus with a $100\,\mu$s per\\arm watchdog continues the command state on an
+on-time frame; a missed frame parks the arm within\\$50\,\mu$s and escalates to a
+cross-arm E-stop that halts the platform in $\leq 3$ ms at a 0.0 N force clamp,\\backed by a software independent hardware E-stop meeting the $\S$312.404
+$\leq 500$ ms requirement.}
+
+\subsection{Adverse Events and Serious Adverse Events}
+
+Adverse events are captured through two parallel and equally binding streams: a
+conventional pharmacovigilance stream for clinical events, and a Physical AI safety
+stream for device- and AI-related events. The combined workflow is shown in
+Figure 15.
+
+\begin{mermaidfig}
+\node[mmin]  (det)  at (0,0)     {Event detected\\clinical AE or\\Physical AI AE};
+\node[mmdec] (cls)  at (5.2,-2.4)  {Classify severity /\\causality /\\expectedness};
+\node[mmstep](ns)   at (0,-2.4)    {Non-serious\\record in CRF\\(CTCAE v5)};
+\node[mmgoal](s15)  at (10.4,-2.4)  {Serious +\\unexpected\\report $\leq 15$ days};
+\node[mmgoal](s7)   at (10.4,0)     {Fatal / life-\\threatening\\report $\leq 7$ days};
+\node[mmstep](pai)  at (0,-4.8)    {Physical AI triggers\\system-drug, cyber,\\degradation, $> 2\times$};
+\node[mmdark](aud)  at (5.2,-4.8)  {Preserve audit trail\\$-24$ h to $+72$ h\\around event};
+\node[mmgoal](comm) at (10.4,-4.8)  {Notify FDA, IRB,\\DSMB, Safety\\Review Committee};
+\draw[mmedge] (det.south east) -- (cls.north west);
+\draw[mmedge] (cls) -- node[above,font=\scriptsize, xshift=0.15cm, yshift=-0.7cm]{non-\\serious} (ns);
+\draw[mmedge] (cls) -- node[above,font=\scriptsize,pos=0.6, xshift=-0.22cm, yshift=-0.4cm]{serious} (s15);
+\draw[mmedge] (cls.east) -- ++(0.5,0) |- (s7.west);
+\draw[mmedge] (det.west) -- ++(-0.5,0) |- (pai.west);
+\draw[mmedge] (pai) -- (aud);
+\draw[mmedge] (aud) -- (comm);
+\draw[mmedge] (s15) -- (comm);
+\end{mermaidfig}
+\vspace{-0.7cm}
+\figcaption{Figure 15. Adverse-event and Physical AI AE reporting workflow. Clinical
+events are graded by CTCAE v5 and reported on the 15-day (serious, unexpected) or
+7-day (fatal, life-threatening) IND/IDE timelines, while Physical AI triggers add
+their own reports, each preserving the hash-chained audit trail from 24 hours
+before to 72 hours after the event, with notification to the FDA, the IRB, the
+DSMB, and the Physical AI Safety Review Committee.}
+
+\subsubsection{Definition of Adverse Events (AE)}
+
+An adverse event is any untoward medical occurrence in a participant administered the
+study intervention, whether or not considered related to it; the term encompasses
+any unfavorable and unintended sign (including an abnormal laboratory finding),
+symptom, or disease temporally associated with the intervention. Clinical adverse
+events are graded for severity by the Common Terminology Criteria for Adverse Events
+(CTCAE) version 5.0. In addition, a Physical AI adverse event, per 21 CFR
+$\S$312.32(f), is any untoward occurrence associated with the operation of the
+device during the investigation, whether or not caused by it, including robotic
+malfunction, AI prediction error, sensor failure, communication loss, unauthorized
+system access, digital-twin divergence, and any event requiring activation of the
+emergency stop \cite{kawchak2026adapt312}.
+
+\subsubsection{Definition of Serious Adverse Events (SAE)}
+
+A serious adverse event is any adverse event that results in death, is
+life-threatening, requires inpatient hospitalization or prolongation of existing
+hospitalization, results in persistent or significant disability or incapacity, is a
+congenital anomaly or birth defect, or is an important medical event that may
+jeopardize the participant and may require intervention to prevent one of the
+foregoing outcomes. A serious Physical AI adverse event, per $\S$312.32(f), is a
+Physical AI adverse event that results in, or has the potential to result in, any
+serious-adverse-event outcome, or that results in an unplanned interruption of an
+investigational drug-administration procedure requiring clinical intervention, an
+uncontrolled release of the investigational drug, or compromise of the device's
+sterile field during a surgical procedure.
+
+\clearpage
+
+\subsubsection{Classification of an Adverse Event}
+
+Each adverse event is classified along four axes. Severity is graded by CTCAE
+version 5.0 (Grade 1 mild through Grade 5 fatal). Causality is assessed separately
+in relation to the drug and in relation to the device, each as related or unrelated
+(with relatedness denoting a reasonable possibility that the component caused the
+event), so that a single event may carry independent drug and device causality
+attributions. Expectedness is judged against the reference safety information (the
+daraxonrasib investigator's brochure for the drug and the Physical AI supplement
+and System Description for the device), and an event not listed there at the
+observed specificity or severity is classified as unexpected. Seriousness is
+determined against the criteria in $\S$8.3.2. The combination of unexpected, serious,
+and at least possibly related defines a suspected adverse reaction reportable on the
+expedited timelines below.
+
+\subsubsection{Time Period and Frequency for Assessment and Follow-Up}
+
+Adverse events are solicited and recorded from the time of informed consent and are
+assessed at every study contact. The primary intensive safety-collection window
+spans from consent through the 30-day postoperative safety visit and encompasses the
+28-day daraxonrasib DLT window. Beyond the 30-day window, serious adverse events,
+events of special interest, Physical AI adverse events, and new anticancer therapy
+continue to be collected through the long-term follow-up period to the 24-month
+overall-survival endpoint. Each event is followed until resolution, stabilization,
+return to baseline, or a determination that no further change is expected, or until participant is lost to follow-up or withdraws consent.
+
+\subsubsection{Adverse Event Reporting}
+
+All adverse events, serious and non-serious, are recorded in the case report form
+with onset and resolution dates, severity grade, drug and device causality,
+expectedness, seriousness, action taken with each intervention, and outcome. Routine
+(non-serious) events are captured on the adverse-event case report form at the
+scheduled visits and do not require expedited transmission. Device-telemetry-derived
+observations that meet the adverse-event definition are entered with reference to
+corresponding audit-trail.
+
+\subsubsection{Serious Adverse Event Reporting}
+
+Serious adverse events are reported by the investigator to the sponsor within
+24 hours of awareness. The sponsor submits IND/IDE safety reports to the FDA on the
+regulatory timelines: any unexpected fatal or life-threatening suspected adverse
+reaction is reported as soon as possible but no later than 7 calendar days after
+initial receipt of the information, and any other serious and unexpected suspected
+adverse reaction is reported no later than 15 calendar days after the determination
+that the event is reportable. In addition to the clinical SAE pathway, six Physical
+AI reporting triggers are reported under $\S$312.32(g): (i) any serious Physical AI
+adverse event, on the 7- or 15-day timeline as applicable; (ii) any Physical AI
+system-drug interaction event causing incorrect drug administration (wrong dose,
+route, timing, or patient), regardless of seriousness; (iii) any cybersecurity
+incident, within 15 calendar days (or 7 days if it has the potential to cause
+patient harm); (iv) sustained AI model performance degradation below the
+pre-specified acceptance criteria for three or more consecutive procedures or a
+cumulative 24 hours; (v) any sim-to-real divergence beyond twice the validated gap
+tolerance (trajectory deviation $> 4$ mm or force discrepancy $> 1.0$ N); and (vi)
+any digital-twin discrepancy beyond the pre-specified accuracy thresholds. For every
+Physical AI adverse event reported, the complete hash-chained audit trail covering
+the period from 24 hours before the event to 72 hours after the event is preserved
+under 21 CFR part 11 and made available to the FDA on request
+\cite{ecfr2026part11}.
+
+\subsubsection{Events of Special Interest}
+
+The following events are designated events of special interest and are tracked and
+reported with the same diligence as serious adverse events regardless of whether
+they independently meet seriousness criteria: vascular injury (including any
+hard-stop E-stop precipitated by a vascular safety-zone breach), clinically relevant
+postoperative pancreatic fistula (ISGPS Grade B or C), conversion from device-directed
+to manual or open technique, any cybersecurity incident affecting the device, and any
+model-performance degradation. Each is reviewed by the Physical AI Safety Review
+Committee, which convenes at intervals not exceeding 90 days during active
+enrollment, and is reported to the data safety monitoring board.
+
+\subsubsection{Reporting of Pregnancy}
+
+Pregnancy is not an adverse event but is reported because of the potential exposure
+of an embryo or fetus to daraxonrasib. Participants of childbearing potential and
+partners of participants must use highly effective contraception during treatment
+and for the protocol-specified interval afterward. Any pregnancy in a participant or
+a participant's partner occurring during treatment or within that interval is
+reported by the investigator to the sponsor within 24 hours of awareness and is
+followed to outcome; a pregnancy with an associated serious adverse event, or an
+abnormal pregnancy outcome, is reported on the applicable expedited SAE timeline.
+
+\subsection{Unanticipated Problems}
+
+\subsubsection{Definition}
+
+An unanticipated problem is any incident, experience, or outcome that is unexpected
+(not described in the protocol, consent, investigator's brochure, or Physical AI
+System Description in terms of nature, severity, or frequency given the procedures
+and population), related or possibly related to participation, and that suggests the
+research places participants or others at a greater risk of harm (including physical,
+psychological, economic, or social harm) than was previously known or recognized. For
+the device, the Physical AI hold grounds (repeated uncorrected safety failures, a
+confirmed cybersecurity compromise of drug-administration parameters or system
+integrity, and a simulation-validation deficiency that undermines the pre-clinical
+safety basis) are treated as paradigm unanticipated problems.
+
+\subsubsection{Reporting}
+
+Unanticipated problems are reported by the investigator to the reviewing IRB and, as
+applicable, to the sponsor and the FDA in accordance with the institutional policy
+and the IND/IDE requirements. An unanticipated problem that is also a serious and
+unexpected suspected adverse reaction is reported on the 7- or 15-day timeline of
+$\S$8.3.6; other unanticipated problems are reported promptly and ordinarily within
+the institution's defined window (typically no later than the next scheduled
+continuing review, and sooner when the problem indicates an immediate hazard).
+Reports that involve the device preserve the hash-chained audit trail across the
+event window. The Physical AI Safety Review Committee and the data safety monitoring
+board review each unanticipated problem and recommend any change to device
+operation, human-oversight requirements, USL thresholds, or the protocol.
+
+\subsubsection{Reporting to Participants}
+
+When an unanticipated problem affects the rights, safety, or welfare of enrolled
+participants, or could affect a participant's willingness to continue, the
+information is communicated to affected participants in a timely manner, ordinarily
+through an IRB-approved re-consent or written notification. Where an unanticipated
+problem changes the risk profile of the combined intervention, including a relevant
+Physical AI safety event, the consent document is updated and currently enrolled
+participants are re-consented before any further study procedure, consistent with the
+Physical AI opt-out in the original consent.

@@ -1,0 +1,130 @@
+\section{Protocol Summary}
+
+\subsection{Synopsis}
+
+\textbf{Title.} A Phase 1, first-in-human, combined IND/IDE clinical trial of
+on-premises large language model (LLM) directed robotic pancreaticoduodenectomy
+(Whipple) with perioperative daraxonrasib (RMC-6236) in KRAS-mutated pancreatic
+ductal adenocarcinoma (PDAC).
+
+\textbf{Rationale.} PDAC is the third leading cause of cancer death in the United
+States, with total five-year overall survival below 13 percent
+\cite{Siegel2025}, and the Whipple procedure is the most technically demanding
+of all curative-intent abdominal oncology operations. This study pairs a precise,
+auditable, on-premises LLM-directed robotic Whipple with the RAS(ON)
+multi-selective inhibitor daraxonrasib, with the aim of achieving an in-window R0
+resection while layering hard cyber-physical safety limits and optimizing the
+perioperative drug-restart window.
+
+\textbf{Objectives and endpoints.} The primary objective is to characterize the
+safety and feasibility of the combined intervention. The primary endpoints are
+the rate of dose-limiting toxicities (DLTs) during the daraxonrasib 3+3
+escalation and the rate of device-related and procedure-related serious adverse
+events through the day-30 safety window, including Clavien-Dindo grade III or
+higher complications. Key secondary endpoints are the R0 resection rate at day-90
+pathology, the International Study Group on Pancreatic Surgery (ISGPS) grade B/C
+postoperative pancreatic fistula rate, 90-day mortality, progression-free
+survival (PFS), and overall survival (OS) to 24 months.
+
+\textbf{Design.} Open-label, single-arm, dose-finding study using a standard 3+3
+escalation across three daraxonrasib dose levels (DL1 through DL3) with staggered
+(sentinel) enrollment. Enrollment is planned for up to $n=18$ participants. A
+mandatory Phase 0 simulation-validation gate ($\geq 1000$ simulated procedures
+across $\geq 2$ independent frameworks, with a Unified Safety Level (USL) rating
+$\geq 7.0$) precedes any patient-facing robotic activity, and prespecified pause
+and stopping rules govern progression.
+
+\textbf{Population.} Adults ($\geq 18$ years) with histologically confirmed,
+resectable or borderline-resectable, KRAS G12-mutated PDAC; ECOG performance
+status 0 or 1; and adequate organ function. Participants are daraxonrasib-eligible
+under the broad pan-KRAS criteria of the RASolute 302 program
+\cite{rasolute302}. Full inclusion and exclusion criteria appear in \S5.
+
+\textbf{Intervention.} Perioperative daraxonrasib administered with a planned
+preoperative pause and an LLM-advised postoperative restart at T+7, T+14, or T+21
+days keyed to fistula status and drug trough, combined with an eight-arm robotic
+Whipple performed under continuous human oversight as a Class II collaborative
+device, with a 10 kHz heartbeat broadcast bus, a $\leq 3$ ms cross-arm
+emergency-stop budget, per-arm tip-force caps of $\leq 3$ N, a cumulative
+cross-arm tip-force cap of $\leq 18$ N, and vascular no-fly gating around the
+superior mesenteric and portal veins.
+
+\textbf{Duration.} Each participant undergoes up to 28 days of screening, a
+baseline day, surgery on day 0, an acute day 1 to 7 window, the day-30 primary
+safety window, day-90 pathology and mortality assessment, and long-term
+follow-up every 12 weeks to the 24-month overall-survival endpoint.
+
+\subsection{Schema}
+
+Figure 2 presents the end-to-end trial schema, from 28-day screening through
+enrollment with the Physical AI consent opt-out, the Phase 0 simulation-validation
+gate, daraxonrasib 3+3 dose assignment, the eight-arm robotic Whipple, the
+perioperative pause-and-restart advisory, follow-up, and the 24-month
+overall-survival endpoint.
+
+\begin{mermaidfig}
+\node[mmin]  (scr) at (0,0)      {Screening (up to 28 days)\\KRAS G12 PDAC, ECOG 0-1\\resectable / borderline};
+\node[mmdec] (elig)at (0,-2.6)   {Eligible?\\\S5.1 / \S5.2};
+\node[mmin]  (sf)  at (4.8,-2.6) {Screen failure\\(minimal data set, \S5.4)};
+\node[mmstep](enr) at (0,-5.2)   {Enrollment plus consent\\Physical AI opt-out\\\S312.60(f)};
+\node[mmstep](p0)  at (4.8,-5.2) {Phase 0 sim validation\\$\geq 1000$ sims, $\geq 2$ frameworks\\USL $\geq 7.0$};
+\node[mmstep](dl)  at (4.8,-7.6) {Daraxonrasib dose-cohort\\3+3 escalation, DL1-DL3};
+\node[mmgoal](sur) at (0,-7.6)   {Robotic Whipple\\Class II collaborative\\8 arms, oversight};
+\node[mmgoal](peri)at (0,-9.7)  {Perioperative advisory\\pause then restart\\T+7 / T+14 / T+21};
+\node[mmgoal](eos) at (4.8,-9.7){End of study\\last visit / 24-month OS};
+\draw[mmedge] (scr) -- (elig);
+\draw[mmedge] (elig) -- node[mmlabel,above]{no} (sf);
+\draw[mmedge] (elig) -- node[mmlabel,left]{yes} (enr);
+\draw[mmedge] (enr) -- (p0);
+\draw[mmedge] (p0)  -- (dl);
+\draw[mmedge] (dl)  -- (sur);
+\draw[mmedge] (sur) -- (peri);
+\draw[mmedge] (peri) -- (eos);
+\end{mermaidfig}
+\vspace{-0.7cm}
+\figcaption{Figure 2. Overall trial schema for the Phase 1 combined IND/IDE study,
+from 28-day screening through enrollment with the Physical AI consent opt-out,
+Phase 0 simulation validation, daraxonrasib 3+3 dose assignment, the eight\\arm
+robotic Whipple, the perioperative pause-and-restart advisory, and follow-up to 24-month OS endpoint.}
+
+\subsection{Schedule of Activities (SoA)}
+
+The Schedule of Activities binds each assessment to a timepoint across the
+screening window (Day $-28$ to $-1$), the baseline day (Day $-1$), surgery
+(Day 0), the acute window (Day 1 to 7), Day 30, Day 90, and long-term follow-up
+every 12 weeks. An ``X'' marks each assessment performed at that visit. The
+baseline day carries the Phase 0 simulation sign-off and the USL plus
+safety-matrix verification, the acute window carries the ISGPS fistula grading
+and the daraxonrasib restart advisory, and the long-term column carries PFS and
+OS to 24 months.
+
+\vspace{0.3em}
+
+\noindent\begin{tabularx}{\textwidth}{L{4.2cm} C{1.85cm} C{1.25cm} C{1.15cm} C{1.55cm} C{1.0cm} C{1.0cm} C{1.45cm}}
+\toprule
+\textbf{Activity} & \textbf{Screen Day -28 to -1} & \textbf{Base Day -1} & \textbf{Surg Day 0} & \textbf{Acute Day 1-7} & \textbf{Day 30} & \textbf{Day 90} & \textbf{LT q12wk} \\
+\midrule
+Informed consent (incl. Physical AI opt-out) & X & & & & & & \\
+Staging / KRAS G12 confirmation & X & & & & & & \\
+CA 19-9 & X & X & & & X & X & X \\
+ECOG performance status & X & X & & & X & X & X \\
+Safety laboratory panel & X & X & X & X & X & X & X \\
+Phase 0 simulation sign-off & & X & & & & & \\
+USL $\geq 7.0$ plus safety matrix & & X & & & & & \\
+Robotic Whipple surgery & & & X & & & & \\
+Intra-operative telemetry capture & & & X & & & & \\
+ISGPS fistula grading & & & & X & X & & \\
+Daraxonrasib restart advisory & & & & X & & & \\
+AE / SAE review & X & X & X & X & X & X & X \\
+RECIST imaging & X & & & & & X & X \\
+PFS / OS assessment & & & & & & X & X \\
+\bottomrule
+\end{tabularx}
+
+\vspace{0.3em}
+
+\noindent Abbreviations: AE, adverse event; SAE, serious adverse event; ISGPS,
+International Study Group on Pancreatic Surgery; LT, long-term; OS, overall
+survival; PFS, progression-free survival; RECIST, Response Evaluation Criteria in
+Solid Tumors; USL, Unified Safety Level. The Day 30 visit is the primary safety
+window (Clavien-Dindo grading); Day 90 carries 90-day mortality and R0 pathology.

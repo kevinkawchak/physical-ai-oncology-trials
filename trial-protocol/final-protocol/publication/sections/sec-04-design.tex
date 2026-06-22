@@ -1,0 +1,159 @@
+\section{Study Design}
+
+\subsection{Overall Design}
+
+This is a prospective, open-label, single-arm, first-in-human study that combines
+a Phase 1 standard 3+3 dose-finding evaluation of perioperative daraxonrasib
+(RMC-6236) with an early feasibility evaluation of the on-premises large language
+model (LLM) directed eight-arm robotic pancreaticoduodenectomy (Whipple) system,
+a significant-risk Class II collaborative device. The study is conducted under a
+combined IND/IDE submission: the drug component proceeds under the investigational
+new drug pathway and the device component under the investigational device
+exemption pathway, with a single integrated protocol, a single informed consent
+that carries the Physical AI opt-out, and a single safety governance structure.
+The central hypothesis is that the combined intervention can be delivered with an
+acceptable early safety profile and can complete the assigned operative tasks
+under continuous human oversight while a recommended Phase 2 dose of daraxonrasib
+is identified, supporting progression to a later-phase efficacy study.
+
+Enrollment is planned for up to $n=18$ participants assigned across three
+daraxonrasib dose levels (DL1 through DL3) by the 3+3 rule with staggered
+(sentinel) enrollment, so that no two participants in a cohort undergo surgery
+within the same DLT-evaluation interval until the supervising surgeon and the
+data safety monitoring board (DSMB) have reviewed the preceding case. A mandatory
+Phase 0 simulation-validation gate precedes any patient-facing robotic activity
+(\S4.3). The device operates within a phase-graduated staged-autonomy model: in
+this Phase 1 protocol the system runs only at the clinician-controlled
+(teleoperation or supervised) level and the supervised semiautonomous level, both
+under continuous human oversight with an immediate manual override; full
+autonomy is prohibited at this phase consistent with 21 CFR $\S$312.21(e), and
+any future move to higher autonomy is reserved for a later phase and gated by
+independent safety review, a Unified Safety Level (USL) reassessment, and DSMB
+concurrence \cite{ecfr2026part812}. Figure~4 presents the staged-autonomy model.
+
+\begin{mermaidfig}
+\node[mmin]  (st1) at (-0.15,0)     {Stage 1\\Clinician-controlled\\teleoperation /\\supervised;\\full autonomy\\prohibited \S312.21(e)};
+\node[mmdec] (r1)  at (5.2,0)   {Independent safety\\review + USL\\reassessment};
+\node[mmstep](st2) at (10.75,0)   {Stage 2\\Supervised\\semiautonomous;\\Class II, continuous\\oversight, immediate\\manual override};
+\node[mmdec] (r2)  at (10.75,-3.4){Accumulated safety\\data + DSMB\\concurrence};
+\node[mmgoal](st3) at (5.2,-3.4){Stage 3\\Higher autonomy\\after review\\(reserved,\\later phase)};
+\draw[mmedge] (st1) -- (r1);
+\draw[mmedge] (r1) -- (st2);
+\draw[mmedge] (st2) -- (r2);
+\draw[mmedge] (r2) -- (st3);
+\end{mermaidfig}
+\vspace{-0.5cm}
+\figcaption{Figure 4. Phase-graduated staged-autonomy model. Autonomy increases
+only through gated review: this Phase 1 protocol operates at the
+clinician-controlled and supervised semiautonomous levels (Class II, continuous
+oversight with immediate manual override; full autonomy prohibited per 21 CFR
+$\S$312.21(e)), and any move to higher autonomy requires an independent safety
+review, a USL reassessment, and DSMB concurrence, for a later phase.}
+
+\subsection{Scientific Rationale for Study Design}
+
+A single-arm, open-label design is scientifically and ethically appropriate for
+this first-in-human study, and a randomized comparator arm is not. The objectives
+at this stage are to characterize early safety, to identify a recommended Phase 2
+dose, and to demonstrate that a novel surgical system can perform its intended
+function within hard cyber-physical limits; none of these is a comparative
+efficacy question, and each is answered most efficiently and most safely in a
+small, intensively monitored single-arm cohort. The early-feasibility pathway
+recognized by the FDA for significant-risk devices is explicitly structured around
+small first-in-human cohorts that generate the device-performance and safety
+evidence needed before any controlled comparison is undertaken
+\cite{fda2013earlyfeasibility}. Randomizing a vulnerable population to an
+unproven combined drug-device intervention before that feasibility and safety
+evidence exists would expose participants to risk without a commensurate
+scientific gain and would be difficult to justify under the equipoise and
+minimization-of-risk principles that govern human-subjects research.
+
+The study population is a vulnerable one. Participants have a lethal malignancy
+with a total five-year survival below 13\% \cite{Siegel2025}, are facing the most
+technically demanding curative-intent abdominal operation, and may experience
+therapeutic misconception about an LLM-directed robotic system. The single-arm
+design concentrates oversight on each participant, permits sentinel staggered
+enrollment with case-by-case DSMB review, and allows immediate pausing of
+accrual on a prespecified safety signal, all of which protect participants more
+effectively than a parallel randomized structure would at this stage. The 2025
+Dutch nationwide cohort of 1000 robotic pancreaticoduodenectomies provides a
+robust external human benchmark for the secondary surgical-quality endpoints
+(\S3), so the absence of an internal control does not leave the surgical results
+uninterpretable \cite{DutchCohort2025}. For these reasons the design is a
+single-arm dose-finding and early-feasibility study, with a randomized controlled
+comparison deferred to a later phase once safety, the RP2D, and device
+feasibility are established.
+
+\subsection{Justification for Dose}
+
+\paragraph{Daraxonrasib dose and 3+3 escalation.}
+Perioperative daraxonrasib is administered orally once daily. The escalation uses
+exact doses anchored to the RASolute 302 pan-KRAS program, in which the
+300~mg once-daily dose is the established recommended Phase 2 dose
+\cite{rasolute302}. To preserve a conservative first-in-human margin in the
+perioperative setting, the escalation begins below that reference dose and steps
+up to it: DL1 is 160~mg once daily, DL2 is 220~mg once daily, and DL3 is the
+300~mg once-daily reference dose. Three participants are enrolled at each level
+and observed over a 28-day DLT window. If no DLT occurs among the first three,
+the cohort escalates to the next level. If one of three experiences a DLT, the
+cohort expands to six; a single DLT among six permits escalation, whereas two or
+more DLTs at a level define that level as exceeding the MTD and fix the MTD at the
+preceding level. The MTD is the highest level at which fewer than two of six
+DLT-evaluable participants experience a DLT, and the RP2D is selected at or below
+the MTD. Figure~5 shows the escalation scheme.
+
+\begin{mermaidfig}
+\node[mmin]  (dl1) at (0,0)      {DL1 160 mg QD\\starting dose,\\enroll 3};
+\node[mmdec] (q1)  at (4.7,0)    {DLTs in first 3?\\(28-day window)};
+\node[mmstep](dl1e)at (4.7,-2.6) {Expand DL1\\to 6};
+\node[mmdec] (q1b) at (4.7,-5.2) {DLTs in 6?};
+\node[mmstep](dl2) at (9.4,0)    {DL2 220 mg QD\\escalate, enroll 3};
+\node[mmgoal](dl3) at (9.4,-2.6) {DL3 300 mg QD\\target dose,\\enroll 3-6};
+\node[mmgoal](mtd) at (9.4,-7.2) {Declare MTD / RP2D\\at prior dose level};
+\draw[mmedge] (dl1) -- (q1);
+\draw[mmedge] (q1) -- node[above,font=\scriptsize, xshift=-0.1cm]{0 of 3} (dl2);
+\draw[mmedge] (q1) -- node[right,font=\scriptsize, yshift=0.1cm]{1 of 3} (dl1e);
+\draw[mmedge] (dl1e) -- (q1b);
+\draw[mmedge] (q1b) -- node[below,font=\scriptsize, yshift=-0.025cm, xshift=-0.3cm]{1 of 6} (mtd);
+\draw[mmedge] (q1b) -| node[below,font=\scriptsize,pos=0.25, xshift=-0.1cm]{$\geq 2$ of 6} (mtd);
+\draw[mmedge] (dl2) -- (dl3);
+\draw[mmedge] (dl3) -- node[right,font=\scriptsize, yshift=0.8cm]{tolerated} (mtd);
+\end{mermaidfig}
+\vspace{-0.45cm}
+\figcaption{Figure 5.\ Daraxonrasib 3+3 dose-escalation scheme. Cohorts of three
+advance when no dose-limiting\\toxicity is observed in the 28-day window, expand to
+six on a single dose-limiting toxicity, and define\\the maximum tolerated dose and
+recommended Phase 2 dose at the highest tolerated level, escalating\\from
+DL1 (160~mg once daily) through DL2 (220~mg) to the DL3 reference dose (300~mg).}
+
+\paragraph{Device ``dose'' analogue and the Phase 0 gate.}
+The device has no pharmacologic dose; its dose analogue is the readiness evidence
+required before any patient-facing activity, and it is escalated only by passing
+the mandatory Phase 0 simulation-validation gate. Three conditions must be met
+and documented before the first robotic case. First, the system must achieve a
+Unified Safety Level (USL) rating of at least 7.0 on the surgical-readiness scale.
+Second, the Phase 0 campaign must complete at least 1000 simulated procedures
+across at least two independent simulation frameworks, so that the readiness
+finding is not an artifact of any single simulator. Third, the sim-to-real
+fidelity must fall within prespecified limits: a trajectory gap of less than 2~mm
+and a tip-force gap of less than 0.5~N between the simulation prediction and the
+operative record \cite{ecfr2026part812}. These limits operate together with the
+intra-operative hard caps (a $\leq 3$~ms cross-arm emergency-stop budget, per-arm
+tip-force caps of $\leq 3$~N, a cumulative cross-arm cap of $\leq 18$~N, and
+vascular no-fly gating around the superior mesenteric and portal veins), so that
+the device dose analogue is met only when both the simulation evidence and the
+real-time safety envelope are demonstrably in place.
+
+\subsection{End of Study Definition}
+
+An individual participant is considered to have completed the study at the last
+visit or procedure specified in the Schedule of Activities (\S1.3), which is the
+24-month overall-survival assessment, or at the participant's death,
+documented disease progression precluding further follow-up, or withdrawal of
+consent, whichever occurs first. The end of the study as a whole is defined as the
+date of the last scheduled assessment for the last participant, which is the last
+participant's 24-month overall-survival assessment. After that date, no further
+study-specific procedures are performed and the database is locked for the primary
+analysis. Participants who discontinue the investigational intervention for a
+protocol-defined reason (\S7) remain in long-term follow-up for survival to the
+24-month endpoint unless they withdraw consent for follow-up.

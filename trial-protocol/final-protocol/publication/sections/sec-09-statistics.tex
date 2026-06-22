@@ -1,0 +1,323 @@
+\section{Statistical Considerations}
+
+The statistical framework for this study is that of a small, intensively
+monitored, single-arm, first-in-human investigation in which the primary purpose
+is to characterize early safety and to identify a recommended dose, not to test a
+comparative efficacy hypothesis. Accordingly, the analyses are predominantly
+descriptive and estimation-based rather than confirmatory, and the design is
+governed by its operating characteristics rather than by formal statistical power.
+All analyses follow the principles of the International Council for Harmonisation
+(ICH) E9 guideline on statistical principles for clinical trials, are prespecified
+in this section and in the Statistical Analysis Plan that this section
+summarizes, and are reported in accordance with TRIPOD+AI statement for model-assisted advisory component \cite{Collins2024tripodai}.
+
+\subsection{Statistical Hypotheses}
+
+The study has one primary safety hypothesis and one dose-finding objective, each
+matched to an analytic strategy appropriate for the small sample.
+
+The primary safety hypothesis is framed as a one-sided assessment against a
+prespecified unacceptable threshold. Let $\pi$ denote the true incidence of
+device-related or procedure-related serious adverse events (serious AEs) within
+the 30-day perioperative window. The null and alternative hypotheses are
+$H_0\!: \pi \geq \pi_0$ versus $H_1\!: \pi < \pi_0$, where $\pi_0$ is the
+prespecified unacceptable serious-AE rate. The trial is designed so that a
+device-related serious-AE rate at or above the cohort-level halt threshold defined
+in \S9.4.6 (a rate $\geq$ one third within a cohort, or two device-related deaths)
+triggers a mandatory data and safety monitoring board (DSMB) review and a possible
+halt. Because of the small sample, this hypothesis is evaluated by estimation: the
+observed serious-AE proportion is reported with an exact (Clopper-Pearson) two-sided
+$95\%$ confidence interval, and acceptability is judged by whether the interval
+excludes, or fails to exclude, the unacceptable threshold $\pi_0$, rather than by a
+fixed-rejection significance test that a single-arm safety cohort cannot reliably
+support.
+
+The dose-finding objective is to identify the maximum tolerated dose (MTD) and the
+recommended Phase 2 dose (RP2D) of perioperative daraxonrasib using the standard
+3+3 rule (\S4.1, \S6). This objective is operational rather than hypothesis-testing:
+the MTD is the highest dose level at which fewer than two of up to six participants
+experience a dose-limiting toxicity (DLT), and the RP2D is selected by integrating
+the MTD with the totality of the safety, tolerability, telemetry, and available
+pharmacodynamic information. No formal type I error is spent on dose selection;
+the operating characteristics of the 3+3 rule (\S9.2) govern the dose-finding
+behavior. ICH E9 estimands principles are applied to the supportive efficacy
+endpoints: the population of interest, the endpoint, the handling of
+intercurrent events (for example open conversion, withdrawal, or death), and the
+population-level summary are each specified for every endpoint in \S9.4.
+
+\subsection{Sample Size Determination}
+
+The planned sample size is up to $n=18$ treated participants, allocated across
+three daraxonrasib dose levels (DL1 through DL3) by the 3+3 rule. This number is
+not derived from a power calculation, because the study tests no confirmatory
+efficacy hypothesis; it is determined jointly by the dose-finding design and by
+the early-feasibility precedent for significant-risk devices, and it is justified
+by its operating characteristics.
+
+The 3+3 rule enrolls cohorts of three. A dose level that yields no DLT in three
+participants escalates; a dose level that yields one DLT in three expands to six,
+and a dose level that yields two or more DLTs in up to six is exceeded, defining
+the dose below it as the MTD. The maximum exposure at any single dose level is
+therefore six participants, and three escalation levels give a design maximum of
+$3 \times 6 = 18$ treated participants; many realizations terminate with fewer.
+This cohort size is consistent with the FDA early-feasibility guidance for
+significant-risk devices, under which limited initial clinical experience,
+generally fewer than ten participants per device-feasibility cohort, is sought
+when nonclinical simulation alone cannot supply the information needed to advance
+development \cite{fda2013earlyfeasibility}. The combined ceiling of 18 thus
+respects the early-feasibility convention at the device-cohort level while
+providing the per-dose exposure that the drug-arm 3+3 escalation requires.
+
+Rather than power, the design is characterized by its operating characteristics.
+The probability that the 3+3 rule escalates past a given dose level is a function
+of the true DLT probability at that level: a dose with a true DLT rate of roughly
+$10\%$ is very likely to be tolerated and escalated, whereas a dose with a true
+DLT rate of $40\%$ or higher is very likely to be identified as excessively toxic
+and to define the MTD at the level below. Precision of estimation at the planned
+sample is summarized in Table~\ref{tab:opchar}: with $n$ between 3 and 18, an
+observed proportion is reported with an exact $95\%$ confidence interval whose
+width reflects the small sample, so that, for example, zero events in 18
+participants yields an exact upper $95\%$ confidence bound near $18\%$, and one
+event in 18 yields an interval excluding rates above roughly one quarter. No
+formal significance level is set for the dose-finding analysis; for the supportive
+estimation analyses, two-sided $95\%$ confidence intervals are reported throughout
+(nominal $\alpha = 0.05$, two-sided), and no multiplicity adjustment is applied due to descriptive analyses and non-confirmatory.
+
+\begin{table}[htbp]
+\centering
+\footnotesize
+\caption{Operating characteristics and exact-interval precision at the planned
+sample sizes. Confidence intervals are two-sided exact (Clopper-Pearson) bounds
+for a single proportion; the dose-finding behavior is that of the standard 3+3
+rule. No statistical power is computed because the study tests no confirmatory
+efficacy hypothesis.}
+\label{tab:opchar}
+\begin{tabularx}{\textwidth}{L{2.6cm} L{3cm} Y}
+\toprule
+\textbf{Quantity} & \textbf{Planned value} & \textbf{Operating characteristic / precision} \\
+\midrule
+Cohort size & 3, expand to 6 & 3+3 rule: escalate on 0/3; expand on 1/3; exceed dose on $\geq 2/6$. \\
+Per-dose maximum & 6 & Maximum exposure at any one dose level before the MTD is declared. \\
+Dose levels & 3 (DL1 to DL3) & Three-level escalation; design maximum $3 \times 6 = 18$ treated. \\
+Total treated & up to 18 & At or below the early-feasibility convention of generally fewer than 10 per device cohort, summed across dose levels \cite{fda2013earlyfeasibility}. \\
+0 events / 3 & point estimate $0\%$ & Exact two-sided $95\%$ CI approximately $0\%$ to $71\%$. \\
+0 events / 6 & point estimate $0\%$ & Exact two-sided $95\%$ CI approximately $0\%$ to $46\%$. \\
+0 events / 18 & point estimate $0\%$ & Exact two-sided $95\%$ CI approximately $0\%$ to $18\%$. \\
+1 event / 18 & point estimate $5.6\%$ & Exact two-sided $95\%$ CI approximately $0.1\%$ to $27\%$. \\
+Significance level & $\alpha = 0.05$ (two-sided) & Applies to supportive estimation only; no $\alpha$ is spent on dose selection. \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\subsection{Populations for Analyses}
+
+Four analysis populations are defined and applied consistently across all
+analyses. The Safety population comprises all participants who received any study
+intervention (any dose of daraxonrasib or any patient-facing robotic activity) and
+is the primary population for all safety and primary-endpoint analyses. The
+DLT-evaluable population comprises all dosed participants who either completed the
+28-day DLT-evaluation window or experienced a DLT within it, and is the population
+on which the 3+3 escalation decisions and the MTD determination are based. The
+Per-Protocol population comprises participants who received the robotic Whipple
+and the LLM-directed advisory per protocol without a major protocol deviation that
+could affect the efficacy assessment, and supports the supportive surgical-quality
+analyses. The modified intention-to-treat (mITT) population comprises all dosed
+participants who contributed at least one post-baseline assessment, and is used
+for the supportive and exploratory efficacy summaries. Figure~22 shows the
+derivation of four populations and cohort-level interim stopping logic.
+
+\begin{mermaidfig}
+\node[mmin]  (enr) at (0.3,-1.15)      {Enrolled and\\dose-assigned\\n = 18};
+\node[mmstep](saf) at (4.4,2.3)  {Safety population\\all who received\\any intervention};
+\node[mmstep](dlt) at (4.4,0) {DLT-evaluable\\completed 28-day\\window or had DLT};
+\node[mmstep](pp)  at (4.4,-2.3) {Per-protocol\\Whipple + advisory\\per protocol};
+\node[mmstep](mitt)at (4.4,-4.6) {modified ITT\\dosed with $\geq 1$\\post-baseline assessment};
+\node[mmdec] (stop)at (10.3,2.3)  {Interim safety\\review after each\\cohort + DSMB};
+\node[mmgoal](halt)at (8,-0.6) {Halt: $\geq 33\%$\\device-related\\serious AE, or 2\\device-related deaths};
+\node[mmgoal](cont)at (11.7,-0.215) {Continue\\escalation};
+\draw[mmedge] (enr.north east) -- (saf.south west);
+\draw[mmedge] (enr.north east) -- (dlt.west);
+\draw[mmedge] (enr.south east) -- (pp.west);
+\draw[mmedge] (enr.south east) -- (mitt.north west);
+\draw[mmedge] (saf) -- (stop);
+\draw[mmedge] (stop.south west) -- node[left,font=\scriptsize, yshift=0.2cm, xshift=0.1cm]{met} (halt.north);
+\draw[mmedge] (stop.south east) -- node[left,font=\scriptsize,pos=0.6, yshift=0.1cm, xshift=-0.1cm]{below} (cont.north);
+\end{mermaidfig}
+\vspace{-0.6cm}
+\figcaption{Figure 22. The four analysis populations (safety, dose-limiting-toxicity
+evaluable, per-protocol, modified intention-to-treat) and the cohort-level interim
+safety review with prespecified DSMB halt rules (a\\device-related serious-AE rate
+at or above one third within a cohort, or two device-related deaths).}
+
+\subsection{Statistical Analyses}
+
+\subsubsection{General Approach}
+
+All analyses are descriptive and estimation-based. Continuous variables are
+summarized by the number of non-missing observations, mean, standard deviation,
+median, minimum, and maximum; categorical variables are summarized by counts and
+percentages. Because the sample is small, every proportion (incidence, rate, or
+fraction) is accompanied by an exact (Clopper-Pearson) two-sided $95\%$ confidence
+interval rather than a normal-approximation (Wald) interval, which is unreliable
+near the bounds and at small $n$. Time-to-event variables are summarized by the
+Kaplan-Meier method with the number at risk, and no inferential model is fitted
+unless prespecified as exploratory. Missing data are not imputed for the primary
+or safety analyses; the analysis population denominators are reported explicitly,
+and missingness is described. No interim or final hypothesis test is conducted for
+efficacy, so no multiplicity adjustment is required; the few inferential summaries
+that appear are flagged as exploratory and non-confirmatory. All analyses are
+performed in a validated, version-controlled statistical environment under a
+deterministic random seed, and the analysis code and derived data sets are
+deposited so that every reported figure is reproducible.
+
+\subsubsection{Analysis of the Primary Endpoint(s)}
+
+The co-primary safety and feasibility endpoints are analyzed on the Safety
+population. The primary safety endpoint, the incidence of device-related or
+procedure-related serious AEs within 30 days, is reported as a proportion with an
+exact two-sided $95\%$ confidence interval, overall and by dose level, and the
+upper confidence bound is compared against the prespecified unacceptable threshold
+$\pi_0$ (\S9.1). The dose-finding endpoint, the MTD and the RP2D, is determined on
+the DLT-evaluable population by applying the 3+3 rule to the observed DLT counts
+at each dose level; the MTD is reported as the highest dose with fewer than two
+DLTs in up to six participants, and the RP2D is reported with the rationale that
+integrated the MTD with the safety, tolerability, and telemetry data. The
+operative feasibility endpoint, the proportion of cases in which the assigned
+operative tasks are completed under the staged-autonomy model without conversion
+attributable to system failure, is reported as a proportion with an exact $95\%$
+confidence interval. No formal significance test is applied to any primary
+endpoint; acceptability is judged by the confidence intervals and the prespecified
+thresholds.
+
+\subsubsection{Analysis of the Secondary Endpoint(s)}
+
+Secondary surgical-quality and short-term oncologic endpoints are analyzed on the
+Per-Protocol population (with the Safety population as a sensitivity analysis) and
+each is reported as a proportion with an exact two-sided $95\%$ confidence
+interval, accompanied by the contemporaneous Dutch 2025 nationwide
+robotic-pancreatoduodenectomy benchmark as a descriptive, non-inferential
+comparator \cite{DutchCohort2025}. The prespecified secondary endpoints and their
+comparators are summarized in Table~\ref{tab:secondary}. The margin-negative (R0)
+resection rate, the rate of clinically relevant (ISGPS grade B or C) postoperative
+pancreatic fistula graded per the 2016 ISGPS update \cite{Bassi2017}, the rate of
+Clavien-Dindo grade III or higher complications, and 30-day and 90-day mortality
+are each estimated with exact intervals. Because the comparison with the Dutch
+benchmark is descriptive and the study is single-arm, no hypothesis test of
+non-inferiority or superiority is performed; the benchmark is presented as context
+for interpreting the observed point estimates and intervals.
+
+\begin{table}[htbp]
+\centering
+\footnotesize
+\caption{Secondary surgical-quality and short-term oncologic endpoints, the
+analysis population, and the descriptive Dutch 2025 nationwide
+robotic-pancreatoduodenectomy comparator. Comparisons are descriptive only; the
+single-arm design supports estimation, not inferential between-group testing.}
+\label{tab:secondary}
+\begin{tabularx}{\textwidth}{L{4.75cm} L{3.6cm} Y}
+\toprule
+\textbf{Secondary endpoint} & \textbf{Population / method} & \textbf{Reporting and comparator} \\
+\midrule
+Margin-negative (R0) resection rate & Per-protocol; exact $95\%$ CI & Proportion with exact CI; descriptive comparison with the Dutch 2025 cohort \cite{DutchCohort2025}. \\
+Clinically relevant pancreatic fistula (ISGPS grade B/C) & Per-protocol; exact $95\%$ CI & Graded per the 2016 ISGPS update \cite{Bassi2017}; benchmarked descriptively to Dutch 2025. \\
+Clavien-Dindo grade III+ complications & Safety; exact $95\%$ CI & Proportion with exact CI; Dutch 2025 descriptive comparator. \\
+30-day mortality & Safety; exact $95\%$ CI & Proportion with exact CI; Dutch 2025 descriptive comparator. \\
+90-day mortality & Safety; exact $95\%$ CI & Proportion with exact CI; Dutch 2025 descriptive comparator. \\
+Estimated blood loss, operative time, length of stay & Per-protocol; descriptive & Mean / median with range; Dutch 2025 phase-of-learning-curve context. \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\subsubsection{Safety Analyses}
+
+Safety is the focus of the study, and all safety analyses are performed on the
+Safety population. Adverse events are coded to the Medical Dictionary for
+Regulatory Activities (MedDRA) and tabulated by system organ class and preferred
+term, by maximum severity using the Common Terminology Criteria for Adverse
+Events (CTCAE), and by relationship to the drug, to the device, and to the
+procedure. Serious AEs, DLTs, and deaths are listed individually. Treatment-emergent
+AEs are summarized overall and by dose level, with the number of participants
+reporting each event, the number of events, and the corresponding proportions with
+exact $95\%$ confidence intervals.
+
+Device telemetry constitutes a second, parallel safety stream unique to this
+trial class. The cyber-physical record is summarized per procedure and in
+aggregate: emergency-stop activations and the measured stop latency against the
+$\leq 500$ ms requirement; positional and force-tolerance excursions against the
+$\leq 2$ mm and $\leq 0.5$ N envelopes; vascular-exclusion gating events; and the
+counts of LLM advisories that were accepted, blocked, or escalated to the human
+operator by the verification-before-generation gate surface. A dedicated Physical
+AI adverse-event tabulation records, for every event, whether an LLM advisory, a
+robot command, a safety-limit trip, or a human override was implicated, so that
+events arising from the autonomy-bearing layer are visible and traceable to a
+deterministic seed and a repository commit through the hash-chained audit trail
+(\S10.3). Laboratory data, vital signs, and physical-examination findings are
+summarized descriptively with shift tables relative to baseline.
+
+\subsubsection{Baseline Descriptive Statistics}
+
+Baseline characteristics are summarized descriptively for each analysis
+population. Reported variables include demographics (age, sex, race, ethnicity);
+disease staging and resectability category (resectable versus borderline-resectable);
+the specific KRAS G12 mutation; baseline CA 19-9; Eastern Cooperative Oncology
+Group (ECOG) performance status; prior neoadjuvant therapy and number of cycles;
+and relevant comorbidity and organ-function indices. No formal between-group
+comparison of baseline characteristics is performed, consistent with the
+single-arm design; baseline balance across dose levels is described to support
+interpretation of the safety and dose-finding results.
+
+\subsubsection{Planned Interim Analyses}
+
+Formal interim safety analyses are conducted at the cohort level. After each
+participant completes the 28-day DLT-evaluation window and before the next
+participant in the cohort undergoes surgery, the accumulating safety data are
+reviewed under the staggered (sentinel) enrollment rule (\S4.1); and after each
+dose-level cohort is complete, the DSMB convenes for a formal interim safety
+review and an escalation, expansion, hold, or halt decision. The prespecified
+halt rules are quantitative and binding: enrollment and escalation halt for a
+mandatory DSMB review if the device-related or procedure-related serious-AE rate
+reaches or exceeds one third within a cohort, or if two device-related deaths
+occur at any point. Additional pause triggers include any unexpected
+device-related serious AE, any breach of a hard cyber-physical safety limit
+(emergency-stop latency, positional, or force envelope), and any failure of the
+pre-procedure safety-matrix verification. The DSMB may halt, pause, modify, or
+permit continuation; a halt for an immediate hazard is implemented at once under
+\S312.30(h) and \S10.10. No interim efficacy analysis and no efficacy-based
+stopping rule are specified, so no efficacy-related type I error is spent. The
+stopping logic is shown in Figure~22.
+
+\subsubsection{Sub-Group Analyses}
+
+Prespecified subgroup summaries are descriptive and hypothesis-generating only.
+Safety and the supportive surgical-quality endpoints are summarized by
+resectability category (resectable versus borderline-resectable) and by
+daraxonrasib dose level (DL1 through DL3). Given the small sample, subgroup
+results are reported as counts and proportions with exact confidence intervals and
+are interpreted with explicit caution; no formal test of interaction or of
+subgroup difference is performed, and no clinical conclusion is drawn from any
+single subgroup.
+
+\subsubsection{Tabulation of Individual Participant Data}
+
+Because the cohort is small and intensively monitored, individual participant data
+are tabulated in full. Participant-level listings are provided for demographics
+and baseline characteristics; dose level and actual exposure; all adverse events
+with onset, severity, seriousness, relationship, and outcome; DLTs and the
+resulting escalation decisions; serious AEs and deaths; surgical-quality outcomes;
+and the per-procedure device-telemetry and Physical AI event summaries, each keyed
+to participant and timepoint. Listings are presented so that every aggregate
+statistic can be traced to its contributing records, consistent with the
+transparency expected of a first-in-human cyber-physical investigation.
+
+\subsubsection{Exploratory Analyses}
+
+Exploratory analyses are non-confirmatory and are clearly labeled as such.
+Progression-free survival (PFS) and overall survival (OS) through the 24-month
+follow-up are summarized by the Kaplan-Meier method with the number at risk, and
+are interpreted as descriptive given the sample and the absence of a comparator.
+The concordance between LLM advisories and the actions ultimately taken by the
+operating surgeon, and the sim-to-real gap between the Phase 0 simulation
+predictions and the observed intraoperative telemetry, are summarized descriptively
+to inform later-phase design and the verification-before-generation calibration.
+These exploratory results generate hypotheses for a later-phase study and are not
+used to draw efficacy conclusions in this protocol.
