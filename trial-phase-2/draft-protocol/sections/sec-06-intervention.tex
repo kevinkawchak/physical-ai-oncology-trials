@@ -1,0 +1,104 @@
+\section{Study Intervention}
+
+\draftinstr{Follow the Phase 2 publication section
+\texttt{final-protocol/publication/sections/sec-06-intervention.tex} and the Phase 1
+model file \texttt{trial-protocol/draft-protocol/sections/sec-06-intervention.tex}.
+Describe both randomized arms under one integrated protocol; Arm A couples the drug
+and device at the single perioperative pause-and-restart decision point (\S6.1.2).
+Source the intervention order from
+\texttt{trial-protocol/nih-protocol/04\_study\_intervention.md}.}
+
+\subsection{Study Intervention Administration}
+
+\subsubsection{Study Intervention Description}
+\draftinstr{Describe the three components. Arm A drug: daraxonrasib (RMC-6236),
+RAS(ON) multi-selective inhibitor, oral, perioperative \cite{revbreakthrough,rasolute302}.
+Arm B control: modified FOLFIRINOX \cite{Conroy2018} plus institutional-standard
+high-volume pancreaticoduodenectomy. Arm A device: the eight-arm LLM-directed
+robotic Whipple platform (PancreSpeed II) - 56 DOF, 640 sensor channels, 0.05 mm
+RMS at 1200 mm/s, $\leq 3$ N per-arm and $\leq 18$ N cumulative force caps, 10 kHz
+heartbeat with $100\,\mu$s watchdog, $\leq 3$ ms cross-arm e-stop, five-vessel
+no-fly gate, fleet-harmonized, Stage 2 supervised semiautonomy. Source from
+\texttt{trial-protocol/inputs/2030-pdac-1min-final-paper/sections/methods.tex} and
+the 21 CFR 312.23(g) eleven-field Physical AI System Description from
+\texttt{trial-protocol/inputs/21cfr312\_adapt/02\_ind\_content\_phases.tex}.}
+
+\draftinstr{Render \texttt{trial-phase-2/mermaid/fig-11-llm-advisory-loop.md} as a
+TikZ \texttt{mermaidfig} (this is \textbf{Figure 11}): the on-premises LLM advisory
+control loop (sensor -> Cartesian frame -> hash-pinned LLM advisory outside the
+vendor stack -> safety gate -> actuators -> hash-chained federated audit under 21
+CFR part 11 \cite{ecfr2026part11}). Then render
+\texttt{trial-phase-2/mermaid/fig-12-platform-architecture.md} as a TikZ
+\texttt{mermaidfig} (this is \textbf{Figure 12}): the eight-arm platform
+architecture coordinated by the 10 kHz heartbeat bus.}
+
+\draftinstr{Build two full-width tables: the per-arm tool assignment crossed with
+the eight operative phases P1-P8 (\textbf{Table~\ref{tab:arms}}) and ten
+representative channels from the 640-channel inventory (\textbf{Table~\ref{tab:sensors}}).
+Source both from
+\texttt{trial-protocol/inputs/2030-pdac-1min-final-paper/sections/methods.tex}.}
+
+\subsubsection{Dosing and Administration}
+\draftinstr{Daraxonrasib at the fixed RP2D of 300 mg PO once daily (no 3+3
+escalation), anchored to RASolute 302 \cite{kawchak2026phase1,rasolute302}. Render
+\texttt{trial-phase-2/mermaid/fig-13-daraxonrasib-advisory.md} as a TikZ
+\texttt{mermaidfig} (this is \textbf{Figure 13}): the perioperative
+pause-and-restart advisory keyed to the PJ ISGPS fistula grade \cite{Bassi2017} and
+the 0.5 ng/mL serum trough (restart T+7 / T+14 / T+21 or continued hold). Then
+render \texttt{trial-phase-2/mermaid/fig-14-three-anastomoses.md} as a TikZ
+\texttt{mermaidfig} (this is \textbf{Figure 14}): the device administration across
+the eight operative phases and the three reconstructive anastomoses (PJ 0.30 to
+0.60 N, HJ 0.20 to 0.50 N, GJ 0.40 to 0.80 N) under Arm 5 ring-tension control.}
+
+\subsection{Preparation, Handling, Storage, and Accountability}
+
+\subsubsection{Acquisition and Accountability}
+\draftinstr{Sponsor-supplied daraxonrasib dispensed against a written prescription
+tied to an enrolled Arm A participant with a drug-accountability log; Arm B
+modified FOLFIRINOX via standard oncology pharmacy; the device accounted for via
+the asset record, pre-procedure safety matrix, and federated audit trail (\S6.4).}
+
+\subsubsection{Formulation, Appearance, Packaging, and Labeling}
+\draftinstr{Daraxonrasib oral tablets composing the 300 mg RP2D, labeled per 21
+CFR \S312.6 with the investigational caution statement; the device and single-use
+accessories labeled per 21 CFR part 812 and not relabeled at site.}
+
+\subsubsection{Product Storage and Stability}
+\draftinstr{Controlled-room-temperature, access-controlled, temperature-monitored
+storage with excursion handling; device stored and maintained in its qualified
+clinical environment under the maintenance program, identically across the fleet.}
+
+\subsubsection{Preparation and Device Maintenance and Calibration}
+\draftinstr{No drug compounding; tablets swallowed whole. Device maintenance and
+calibration per 21 CFR \S312.23(g)(xi): the pre-procedure safety matrix (640-channel
+verification, per-arm force calibration against the $\leq 3$ N / $\leq 18$ N caps,
+10 kHz heartbeat with $100\,\mu$s watchdog, five-vessel no-fly gate, software and
+hardware e-stop self-test, 0.05 mm RMS positioning), with per-site qualification and
+fleet harmonization, all logged to the audit trail.}
+
+\subsection{Measures to Minimize Bias: Randomization and Blinding}
+\draftinstr{Central permuted-block randomization 1:1 stratified by resectability,
+KRAS allele, neoadjuvant therapy, and site \cite{Schulz2010consort}; open-label
+delivery with downstream bias control (BICR imaging, central masked R0/MPR pathology
+with independent adjudication, blinded endpoint adjudication). Cite ICH E9 and
+\texttt{trial-protocol/nih-protocol/04\_study\_intervention.md}.}
+
+\subsection{Study Intervention Compliance}
+\draftinstr{Daraxonrasib adherence via the dispensing log, returned-tablet counts,
+diary, and serum assay (which supplies the advisory trough); Arm B via cycle
+administration records. Device compliance enforced before and during every procedure
+and written to the 21 CFR part 11 hash-chained federated audit trail
+\cite{ecfr2026part11}. (The audit-trail data flow is rendered as Figure 21 in \S10.)}
+
+\subsection{Concomitant Therapy}
+\draftinstr{Permitted perioperative supportive care in both arms with attention to
+daraxonrasib interactions in Arm A; prohibited systemic anticancer therapy outside
+the assigned regimen, other investigational agents or devices, and a second surgical
+robot for the index operation.}
+
+\subsubsection{Rescue Medicine}
+\draftinstr{Rescue along two axes: surgical / device complications (conversion to
+manual or open per \S7, transfusion, drainage, antimicrobials, somatostatin
+analogue) and drug toxicity (hold or discontinue daraxonrasib per \S7; dose-modify
+modified FOLFIRINOX per its established management). Record all rescue as
+concomitant therapy and, where applicable, as AE / SAE.}

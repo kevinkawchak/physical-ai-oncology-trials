@@ -1,0 +1,45 @@
+\section{Objectives and Endpoints}
+
+\draftinstr{Follow the Phase 2 publication section
+\texttt{final-protocol/publication/sections/sec-03-objectives.tex} and the Phase 1
+model file \texttt{trial-protocol/draft-protocol/sections/sec-03-objectives.tex}.
+Build the governing three-column objectives / endpoints / justification table
+(\textbf{Table~\ref{tab:objend}}) organized as one confirmatory efficacy question,
+a fixed-sequence key secondary hierarchy, estimation-only secondary measures, and
+exploratory measures. Source the structure from
+\texttt{trial-protocol/nih-protocol/02\_objectives\_and\_endpoints.md}. Carry the
+abbreviations line and note the internal control (Arm B) versus the external Dutch
+descriptive benchmark \cite{DutchCohort2025}.}
+
+\draftinstr{Render \texttt{trial-phase-2/mermaid/fig-07-objectives-endpoints.md} as
+a TikZ \texttt{mermaidfig} (this is \textbf{Figure 7}): the objective-to-endpoint
+hierarchy with PRIMARY (PFS, Arm A vs Arm B) above the fixed-sequence KEY SECONDARY
+family (OS; R0; ISGPS B/C; MPR; ctDNA) above the estimation-only SECONDARY and the
+EXPLORATORY measures, with dashed tier separators.}
+
+\subsection{Primary Objective and Endpoint}
+\draftinstr{Single primary objective: compare PFS between Arm A and Arm B. Primary
+endpoint PFS per RECIST 1.1, investigator-assessed with BICR as a prespecified
+sensitivity analysis; sized for $\sim 140$ events for 85 percent power at two-sided
+$\alpha=0.05$ to detect HR $0.60$ (median PFS 14.0 vs 23.3 months), with one
+group-sequential interim \cite{DeMets1994lan,Jennison2000group} (\S9).}
+
+\subsection{Key Secondary Objectives and Endpoints}
+\draftinstr{Fixed-sequence gatekeeping hierarchy controlling the family-wise type I
+error at two-sided 0.05: (1) OS; (2) R0 resection rate; (3) ISGPS grade B/C fistula
+\cite{Bassi2017}; (4) MPR; (5) week-12 KRAS ctDNA clearance \cite{Tie2019ctdna}.
+First non-significant result closes the sequence.}
+
+\subsection{Secondary Objectives and Endpoints}
+\draftinstr{Estimation-only measures with two-sided 95 percent CIs: Clavien-Dindo
+grade III+ through 90 days (Dutch comparator 41.3 percent), 90-day mortality,
+unplanned conversion rate (Dutch comparator 10.1 percent), operative time / EBL /
+LOS, and quality of life (EORTC QLQ-C30 and PAN26 \cite{EORTCqlqc30}) with 12-,
+18-month PFS and 24-month OS rates \cite{DutchCohort2025}.}
+
+\subsection{Exploratory Objectives and Endpoints}
+\draftinstr{Non-confirmatory measures: LLM advisory-to-gate concordance;
+sim-to-real gap (trajectory mm, tip-force N) against the upgraded Phase 0
+thresholds; federated-learning model performance and ctDNA dynamics across the
+eight sites \cite{Tie2019ctdna}; and health-economic / cost-effectiveness outcomes
+linked to the co-investment design.}

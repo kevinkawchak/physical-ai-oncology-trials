@@ -1,0 +1,105 @@
+\section{Study Assessments and Procedures}
+
+\draftinstr{Follow the Phase 2 publication section
+\texttt{final-protocol/publication/sections/sec-08-assessments.tex} and the Phase 1
+model file \texttt{trial-protocol/draft-protocol/sections/sec-08-assessments.tex}.
+State that every centrally readable endpoint is read centrally across the eight
+sites (central imaging core BICR, central masked pathology, central laboratories).
+Timing is governed by the SoA (\S1.3). Source from
+\texttt{trial-protocol/nih-protocol/06\_study\_assessments\_and\_procedures.md}.}
+
+\subsection{Efficacy Assessments}
+\draftinstr{Define PFS (RECIST 1.1, investigator-assessed primary with BICR
+sensitivity, \S9.4.2) and OS to 24 months \cite{DutchCohort2025}; the central
+masked R0 resection rate and MPR; ISGPS biochemical-leak / Grade B / Grade C
+fistula grading \cite{Bassi2017}; week-12 KRAS ctDNA clearance \cite{Tie2019ctdna};
+the Arm A anastomosis-quality reads against the ring-tension bands; and QoL via
+EORTC QLQ-C30 and PAN26 \cite{EORTCqlqc30}.}
+
+\subsection{Safety and Other Assessments}
+\draftinstr{Clinical safety (vitals, exam, hematology, chemistry, coagulation, the
+Arm A serum daraxonrasib trough, imaging) plus the Arm A continuous device-telemetry
+stream under 21 CFR \S312.23(g) (per-arm and cumulative force profiles, trajectory
+accuracy, vascular-zone verdicts, heartbeat / watchdog events, e-stop activations).
+Render \texttt{trial-phase-2/mermaid/fig-15-vascular-safety-gate.md} as a TikZ
+\texttt{mermaidfig} (this is \textbf{Figure 15}): the five-vessel vascular
+safety-zone gate (soft-warning 3.0 mm, no-fly 1.0/1.5 mm, hard-stop 5.0 mm) sampled
+at 10 kHz. Then render \texttt{trial-phase-2/mermaid/fig-16-estop-architecture.md}
+as a TikZ \texttt{mermaidfig} (this is \textbf{Figure 16}): the heartbeat /
+watchdog / e-stop architecture ($100\,\mu$s watchdog, $50\,\mu$s arm park, $\leq 3$
+ms cross-arm e-stop, $\leq 500$ ms hardware e-stop). Source from
+\texttt{trial-protocol/inputs/2030-pdac-1min-final-paper/sections/methods.tex} and
+\texttt{trial-protocol/inputs/21cfr312\_adapt/05\_clinical\_holds\_appendices\_closing.tex}.}
+
+\subsection{Adverse Events and Serious Adverse Events}
+\draftinstr{Two parallel binding streams: conventional pharmacovigilance for both
+arms and a Physical AI safety stream for Arm A. Render
+\texttt{trial-phase-2/mermaid/fig-17-ae-reporting.md} as a TikZ \texttt{mermaidfig}
+(this is \textbf{Figure 17}): the combined AE / Physical AI AE reporting workflow
+(CTCAE v5 grading, 7-day fatal / 15-day serious-unexpected timelines, the six
+Physical AI triggers, audit-trail preservation $-24$ h to $+72$ h federated across
+sites, and notification of FDA / IRB / DSMB / Safety Review Committee). Source from
+\texttt{trial-protocol/inputs/21cfr312\_adapt/03\_protocol\_amendments\_reporting.tex}.}
+
+\subsubsection{Definition of Adverse Events (AE)}
+\draftinstr{Standard AE definition, CTCAE v5 grading in both arms, plus the
+Physical AI adverse event per 21 CFR \S312.32(f) (robotic malfunction, AI
+prediction error, sensor failure, communication loss, unauthorized access,
+digital-twin divergence, any e-stop activation) \cite{kawchak2026adapt312}.}
+
+\subsubsection{Definition of Serious Adverse Events (SAE)}
+\draftinstr{Standard SAE criteria plus the serious Physical AI adverse event per
+\S312.32(f) (potential SAE outcome, unplanned interruption of drug administration,
+uncontrolled drug release, or sterile-field compromise).}
+
+\subsubsection{Classification of an Adverse Event}
+\draftinstr{Four axes: severity (CTCAE v5); separate drug and device causality
+(procedure causality in Arm B); expectedness against the reference safety
+information; and seriousness. Unexpected + serious + at least possibly related
+defines a reportable suspected adverse reaction.}
+
+\subsubsection{Time Period and Frequency for Assessment and Follow-Up}
+\draftinstr{Solicit AEs from consent; intensive window through the 30-day visit;
+SAEs, events of special interest, Physical AI AEs, and new anticancer therapy
+collected to the 24-month OS endpoint.}
+
+\subsubsection{Adverse Event Reporting}
+\draftinstr{Record all AEs in the CRF with onset / resolution, grade, drug and
+device causality, expectedness, seriousness, action, and outcome; Arm A telemetry-
+derived observations cross-referenced to audit-trail records.}
+
+\subsubsection{Serious Adverse Event Reporting}
+\draftinstr{Investigator-to-sponsor within 24 hours; FDA timelines (7-day fatal /
+life-threatening, 15-day other serious unexpected) plus the six Physical AI
+reporting triggers under \S312.32(g); preserve the hash-chained audit trail $-24$ h
+to $+72$ h, federated across the eight sites \cite{ecfr2026part11}.}
+
+\subsubsection{Events of Special Interest}
+\draftinstr{Vascular injury (including any vascular-breach hard-stop e-stop),
+clinically relevant fistula (ISGPS B/C \cite{Bassi2017}), conversion, any
+cybersecurity incident, and any model-performance degradation; reviewed by the
+Physical AI Safety Review Committee ($\leq 90$-day cadence) and reported to the
+DSMB.}
+
+\subsubsection{Reporting of Pregnancy}
+\draftinstr{Pregnancy reported (not an AE) within 24 hours and followed to outcome;
+highly effective contraception required; an associated SAE reported on the expedited
+timeline.}
+
+\subsection{Unanticipated Problems}
+
+\subsubsection{Definition}
+\draftinstr{Standard unanticipated-problem definition; treat the Physical AI hold
+grounds (repeated uncorrected safety failures, confirmed cybersecurity compromise,
+simulation-validation deficiency) as paradigm unanticipated problems.}
+
+\subsubsection{Reporting}
+\draftinstr{Report to the single IRB and, as applicable, the sponsor and FDA on the
+7- or 15-day SAE timeline or promptly otherwise; device-related reports preserve the
+federated audit trail \cite{ecfr2026part11}; the Physical AI Safety Review Committee
+and DSMB review each.}
+
+\subsubsection{Reporting to Participants}
+\draftinstr{Communicate to affected participants via IRB-approved re-consent or
+written notification; update the consent and re-consent enrolled participants when
+the risk profile changes, consistent with the Physical AI opt-out.}

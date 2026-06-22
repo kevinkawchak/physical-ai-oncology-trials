@@ -1,0 +1,84 @@
+\section{Statistical Considerations}
+
+\draftinstr{Follow the Phase 2 publication section
+\texttt{final-protocol/publication/sections/sec-09-statistics.tex} and the Phase 1
+model file \texttt{trial-protocol/draft-protocol/sections/sec-09-statistics.tex}.
+Frame this as a confirmatory, randomized, controlled superiority trial with type I
+error protection (contrasting the descriptive single-arm predicate
+\cite{kawchak2026phase1}); follow ICH E9 (including the estimand framework),
+CONSORT \cite{Schulz2010consort}, and TRIPOD+AI \cite{Collins2024tripodai}. Source
+from \texttt{trial-protocol/nih-protocol/07\_statistical\_considerations.md}.}
+
+\subsection{Statistical Hypotheses}
+\draftinstr{Primary PFS hypothesis $H_0\!: \theta \geq 1$ vs $H_1\!: \theta < 1$,
+stratified log-rank with stratified Cox HR and two-sided 95 percent CI, two-sided
+$\alpha=0.05$ allocated across one interim and the final analysis by alpha spending.
+Key secondary fixed-sequence hierarchy (OS; R0; ISGPS B/C \cite{Bassi2017}; MPR;
+week-12 KRAS ctDNA \cite{Tie2019ctdna}) controlling the family-wise error at
+two-sided 0.05.}
+
+\subsection{Sample Size Determination}
+\draftinstr{$n=220$ randomized 1:1 (110 per arm), event-driven: $\sim 140$ PFS
+events give 85 percent power at two-sided $\alpha=0.05$ for HR $0.60$ (median PFS
+14.0 vs 23.3 months); up to $\sim 245$ enrolled to allow $\leq 10$ percent
+non-evaluability; one interim at $\sim 60$ percent of events ($\sim 84$) with a
+Lan-DeMets O'Brien-Fleming spending function and non-binding futility boundary
+\cite{DeMets1994lan,Jennison2000group}. Summarize the operating characteristics in
+the full-width \textbf{Table~\ref{tab:power}}.}
+
+\subsection{Populations for Analyses}
+\draftinstr{Define ITT (all randomized, primary), modified ITT (dosed with $\geq 1$
+post-baseline assessment), per-protocol, and safety (intervention as received)
+populations. Render \texttt{trial-phase-2/mermaid/fig-18-analysis-populations.md} as
+a TikZ \texttt{mermaidfig} (this is \textbf{Figure 18}): the four populations and
+the single group-sequential interim with the O'Brien-Fleming efficacy / futility
+boundary and the parallel binding device-safety halt rules.}
+
+\subsection{Statistical Analyses}
+\subsubsection{General Approach}
+\draftinstr{Confirmatory primary and key secondary analyses with type I error
+protection; estimation-based descriptive remainder. Stratified log-rank with
+Kaplan-Meier and stratified Cox HR for time-to-event (RMST fallback if proportional
+hazards fails); stratified Cochran-Mantel-Haenszel for confirmatory binary
+endpoints; ICH E9 estimands for intercurrent events; deterministic-seed,
+version-controlled, reproducible analysis.}
+\subsubsection{Analysis of the Primary Endpoint}
+\draftinstr{PFS on ITT by stratified log-rank at the alpha allocated to the final
+analysis, with the stratified Cox HR and 95 percent CI; BICR-assessed PFS as the
+prespecified sensitivity analysis, plus per-protocol, mITT, and alternative-censoring
+sensitivity analyses (\S8.1).}
+\subsubsection{Analysis of the Key Secondary Endpoints}
+\draftinstr{Fixed-sequence hierarchy (OS, R0, ISGPS B/C, MPR, week-12 ctDNA), each
+at two-sided 0.05, stopping at the first non-rejection. Summarize the key secondary
+and other secondary endpoints, populations, methods, and the external Dutch 2025
+descriptive context in the full-width \textbf{Table~\ref{tab:secendpts}}
+\cite{DutchCohort2025,Tie2019ctdna}.}
+\subsubsection{Safety Analyses}
+\draftinstr{Safety population; MedDRA-coded AEs by system organ class and CTCAE
+severity with drug, device (Arm A), and procedure causality by arm; the parallel
+Arm A cyber-physical telemetry summaries (e-stop latency vs $\leq 500$ ms, force
+excursions vs the $\leq 3$ N / $\leq 18$ N caps, vascular-zone gating, advisory
+accept / block / escalate counts) and the Physical AI AE tabulation keyed to the
+federated audit trail (\S8.3.6).}
+\subsubsection{Baseline Descriptive Statistics}
+\draftinstr{Baseline characteristics by arm and overall (demographics, staging,
+resectability, KRAS allele, CA 19-9, ECOG, neoadjuvant cycles) without a baseline
+significance test, per CONSORT \cite{Schulz2010consort}.}
+\subsubsection{Planned Interim Analyses}
+\draftinstr{Single formal interim at $\sim 60$ percent of PFS events ($\sim 84$),
+DSMB-reviewed against the Lan-DeMets O'Brien-Fleming efficacy and non-binding
+futility boundaries \cite{DeMets1994lan,Jennison2000group}, with parallel binding
+device-safety halt rules under \S312.30(h).}
+\subsubsection{Sub-Group Analyses}
+\draftinstr{Prespecified subgroups (resectability, KRAS allele, neoadjuvant, site)
+with a forest plot and interaction test, interpreted as supportive and not adjusted
+for multiplicity.}
+\subsubsection{Tabulation of Individual Participant Data}
+\draftinstr{Participant-level listings (demographics, arm and strata, actual
+intervention, all AEs, SAEs and deaths, efficacy endpoints with dates, and the Arm A
+per-procedure device-telemetry and Physical AI event summaries).}
+\subsubsection{Exploratory Analyses}
+\draftinstr{Non-confirmatory: LLM advisory-to-gate concordance, sim-to-real gap,
+federated-learning model performance across sites, longitudinal ctDNA dynamics
+\cite{Tie2019ctdna}, and health-economic / cost-effectiveness linked to the
+co-investment facility.}

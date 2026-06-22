@@ -1,0 +1,447 @@
+\section{Study Intervention}
+
+This study compares two randomized arms under a single integrated protocol. Arm A,
+the experimental arm, combines an investigational drug, perioperative daraxonrasib
+(RMC-6236) administered at the recommended Phase 2 dose (RP2D), with an
+investigational device, the on-premises large language model (LLM) directed
+eight-arm robotic pancreaticoduodenectomy (Whipple) system (PancreSpeed II). Arm B,
+the active control, is modified FOLFIRINOX \cite{Conroy2018} plus
+institutional-standard high-volume pancreaticoduodenectomy that is not
+LLM-directed. This section describes both arms, their administration, their
+preparation and accountability, the measures taken to minimize bias, the compliance
+machinery for each, and the permitted and prohibited concomitant therapy. In Arm A
+the drug and device are coupled at one decision point only: the perioperative
+pause-and-restart advisory for the drug is informed by the operative and pathology
+results of the device procedure (\S6.1.2).
+
+\subsection{Study Intervention Administration}
+
+\subsubsection{Study Intervention Description}
+
+\paragraph{Experimental arm drug: daraxonrasib (RMC-6236).}
+Daraxonrasib is an orally bioavailable, RAS(ON) multi-selective (pan-RAS)
+small-molecule inhibitor that binds the active, guanosine triphosphate bound state
+of mutant RAS in complex with cyclophilin A, suppressing downstream effector
+signaling across the common KRAS oncoprotein variants found in PDAC. The agent
+received FDA Breakthrough Therapy designation in June 2025 for previously treated
+metastatic PDAC \cite{revbreakthrough}, and its dose is anchored to the pan-KRAS
+RASolute 302 program, in which 300~mg once daily is the established RP2D
+\cite{rasolute302,kawchak2026phase1}. In Arm A daraxonrasib is administered orally,
+once daily, in a perioperative schedule: a defined pre-operative course, a
+protocol-mandated pause spanning the operative window, and a postoperative restart
+whose timing is governed by the advisory described in \S6.1.2. The drug is
+investigational in this perioperative, curative-intent surgical context and for the
+drug-device use here.
+
+\paragraph{Control arm: modified FOLFIRINOX plus standard pancreaticoduodenectomy.}
+Arm B delivers institutional-standard care. The systemic component is modified
+FOLFIRINOX, the multi-agent regimen established in the resectable and adjuvant PDAC
+setting \cite{Conroy2018}, administered on its standard schedule with the
+institution's supportive-care practice. The surgical component is a high-volume
+pancreaticoduodenectomy performed by the institutional standard, robotic or open,
+that is not LLM-directed and does not use the eight-arm investigational platform.
+Arm B thus represents the contemporary standard of care against which the
+experimental drug-device regimen is compared.
+
+\paragraph{Experimental device: on-premises LLM-directed eight-arm Whipple (PancreSpeed II).}
+The investigational device is an eight-arm parallel coelomic surgical platform in
+which an on-premises repository-pinned LLM acts as a second-opinion advisory oracle
+held strictly outside the robot vendor kinematic stack, never as an autonomous
+controller. The platform carries 56 mechanical degrees of freedom ($8\times7$
+per-arm degrees of freedom) and a 640-channel mixed-rate sensor stack (80 channels
+per arm). Force channels sample at 100 kHz; all remaining channels sample at the
+10 kHz command rate. Positioning accuracy is 0.05 mm root mean square at a peak tip
+velocity of $1{,}200$ mm/s. The hard cyber-physical safety envelope comprises a
+per-arm tip-force cap of $\leq 3$ N, a cumulative cross-arm tip-force cap of
+$\leq 18$ N enforced at the heartbeat boundary, a 10 kHz heartbeat coordination bus
+broadcasting a 64-byte frame on a $100\,\mu$s per-arm watchdog deadline, an
+emergency arm park within $50\,\mu$s of a missed or out-of-parameter frame, and a
+cross-arm emergency stop (E-stop) that halts the full platform in $\leq 3$ ms; a
+software-independent hardware E-stop backs the software chain and acts within
+$\leq 500$ ms. A five-vessel no-fly gate enforces standoff distances around the
+major peripancreatic vessels (1.0 mm for the superior mesenteric vein and portal
+vein, 1.5 mm for the hepatic artery, celiac axis, and superior mesenteric artery, a
+3.0 mm soft margin, and a 5.0 mm hard-stop margin). The platform is multicenter
+fleet-harmonized so that every instance behaves identically across the eight
+centers. In this Phase 2 protocol the device operates at Stage 2 supervised
+semiautonomy under continuous human oversight with immediate manual override; full
+autonomy is prohibited consistent with 21 CFR \S312.21(e). The advisory control
+loop and platform architecture are shown in Figure 11 and Figure 12.
+
+\begin{mermaidfig}
+\node[mmin]  (sens) at (0,0)      {640 sensor\\channels\\100 kHz force /\\10 kHz other};
+\node[mmstep](map)  at (4.2,0)    {Sensor to x,y,z\\Cartesian command\\frame};
+\node[mmgoal](llm)  at (8.4,0)    {On-premises LLM\\advisory, hash-pinned\\to commit + seed};
+\node[mmdec] (gate) at (8.4,-2.8) {Safety gate\\vessel zones + force\\caps; 10 kHz beat,\\$100\,\mu$s watchdog};
+\node[mmin]  (vend) at (4.2,-2.8) {Robot vendor\\kinematic stack\\(isolated from LLM)};
+\node[mmgoal](act)  at (0,-2.8)   {8-arm actuators\\$\leq 3$ N/arm,\\$\leq 18$ N cumulative};
+\node[mmdark](aud)  at (0,-5.2)   {Hash-chained\\federated audit\\21 CFR part 11};
+\draw[mmedge] (sens) -- (map);
+\draw[mmedge] (map) -- (llm);
+\draw[mmedge] (llm) -- (gate);
+\draw[mmedge] (gate) -- (vend);
+\draw[mmedge] (vend) -- (act);
+\draw[mmedge] (act.south) -- (aud.north);
+\draw[mmedge] (act.west) -- ++(-0.5,0) |- ($(sens.west)+(-0.5,0)$) -- (sens.west);
+\draw[mmedged] (gate.south) -- ++(0,-0.15) -| (act.south);
+\end{mermaidfig}
+\vspace{-0.7cm}
+\figcaption{Figure 11. On-premises LLM advisory control loop. Sensor data is mapped
+to a Cartesian command\\frame; the LLM issues hash-pinned advisory commands from
+outside the vendor kinematic stack\\(second-opinion oracle isolation); and a safety
+gate enforces the vessel zones, the force caps, the 10 kHz\\ heartbeat, and the
+$100\,\mu$s watchdog before any actuator moves. Actuator telemetry returns to the
+sensor stack, and every step is written to a hash-chained federated audit trail
+under 21 CFR part 11 \cite{ecfr2026part11}.}
+
+\begin{mermaidfig}
+\node[mmgoal](hub) at (4.2,0)     {10 kHz heartbeat\\coordination bus\\64-byte frame,\\$100\,\mu$s deadline};
+\node[mmstep](a1)  at (0,-2.4)    {Arm 1 / Arm 2\\hybrid u-w-p\\dissection (P1-P8)};
+\node[mmstep](a3)  at (4.2,-2.4)  {Arm 3 bipolar +\\retractor; Arm 4\\NIR + ICG (P1-P8)};
+\node[mmstep](a5)  at (8.4,-2.4)  {Arm 5 anastomosis\\(P5-P7); Arm 6 coag\\(P2, P5-P8)};
+\node[mmstep](a7)  at (8.4,-5)    {Arm 7 suction +\\irrigation (P1-P8)};
+\node[mmstep](a8)  at (4.2,-5)    {Arm 8 imaging +\\drain (P1, P4, P8)};
+\node[mmin]  (spec)at (0,-5)      {56 DOF ($8\times7$)\\640 channels (80/arm)\\0.05 mm RMS at\\$1{,}200$ mm/s};
+\draw[mmedge] (hub) -- (a1);
+\draw[mmedge] (hub) -- (a3);
+\draw[mmedge] (hub) -- (a5);
+\draw[mmedge] (a5) -- (a7);
+\draw[mmedge] (a3) -- (a8);
+\draw[mmedged] (a1) -- (spec);
+\end{mermaidfig}
+\vspace{-0.7cm}
+\figcaption{Figure 12. Eight-arm platform architecture. Eight cooperating arms
+(56 degrees of freedom, 640 sensor\\channels at 80 per arm, 0.05 mm root mean square
+positioning at $1{,}200$ mm/s) are coordinated by a\\10 kHz heartbeat bus; each
+arm's tool assignment and operative-phase coverage drive the Schedule of
+Activities.}
+
+The per-arm tool assignment crossed with the eight operative phases (P1 through P8)
+is given in Table~\ref{tab:arms}, and ten representative channels drawn from the
+640-channel inventory are given in Table~\ref{tab:sensors}.
+
+\begin{table}[htbp]
+\centering
+\footnotesize
+\caption{Per-arm tool assignment and operative-phase coverage for the eight-arm LLM-directed Whipple platform (PancreSpeed II).}
+\label{tab:arms}
+\begin{tabularx}{\textwidth}{L{1.2cm} L{4.9cm} L{4.0cm} Y}
+\toprule
+\textbf{Arm} & \textbf{Primary tool} & \textbf{Phase coverage} & \textbf{Sensor channels (10 of 80)} \\
+\midrule
+Arm 1 & Hybrid u-w-p end-effector & P1 to P8 (active dissect) & Tip force, joint torque, ID \\
+Arm 2 & Hybrid u-w-p end-effector & P1 to P8 (active dissect) & Tip force, joint torque, ID \\
+Arm 3 & Bipolar + retractor & P1 to P8 (vessel control) & Tip force, current, force \\
+Arm 4 & NIR + ICG imaging probe & P1 to P8 (imaging) & ICG fluorescence, NIR depth \\
+Arm 5 & Anastomosis probe & P5, P6, P7 (idle others) & Ring tension, ring strain \\
+Arm 6 & Bipolar coag + cautery & P2, P5, P6, P7, P8 & Tip force, RF power \\
+Arm 7 & Suction + irrigation & P1 to P8 & Suction pressure, pH \\
+Arm 8 & Final images + drain placement & P1, P4, P8 (light load) & ICG fluorescence, drain ID \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\begin{table}[htbp]
+\centering
+\footnotesize
+\caption{Ten representative sensor channels drawn from the 640-channel inventory (80 channels per arm).}
+\label{tab:sensors}
+\begin{tabularx}{\textwidth}{L{1.0cm} L{3.8cm} L{3cm} L{2.4cm} Y}
+\toprule
+\textbf{Arm} & \textbf{Channel name} & \textbf{Rate} & \textbf{Unit} & \textbf{Dynamic range} \\
+\midrule
+1 & tip\_force\_x & 100 kHz & N & 0 to 3.0 N \\
+1 & joint\_torque\_3 & 10 kHz & N$\cdot$m & $-50$ to $50$ \\
+2 & tip\_force\_z & 100 kHz & N & 0 to 3.0 N \\
+3 & retractor\_force & 10 kHz & N & 0 to 5.0 N \\
+4 & icg\_fluorescence & 10 kHz & a.u. & 0 to $65{,}535$ \\
+4 & nir\_depth & 10 kHz & mm & 0 to 50 \\
+5 & ring\_tension & 10 kHz & N & 0 to 1.0 N \\
+6 & rf\_power & 10 kHz & W & 0 to 80 \\
+7 & suction\_pressure & 10 kHz & kPa & $-90$ to 0 \\
+8 & drain\_id & 10 kHz & enum & 0 to 4 \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\paragraph{Physical AI System Description fields (21 CFR \S312.23(g)).}
+Because the device participates in the investigational drug delivery pathway, the
+combined IND/IDE carries a full Physical AI System Description meeting the eleven
+fields of 21 CFR \S312.23(g) \cite{kawchak2026adapt312}. The fields, and the
+location of the corresponding evidence in this submission, are summarized below;
+the multicenter conduct adds fleet harmonization and a federated audit across the
+eight centers.
+
+\begin{itemize}[leftmargin=1.4em,itemsep=1pt,topsep=2pt]
+\item[(i)] \textit{System identification and classification:} manufacturer, model
+designation, software version, surgical robot category, and the current Unified
+Safety Level (USL) score computed across simulation switching, AI integration,
+cross-robot sharing, and clinical-trial collaboration.
+\item[(ii)] \textit{Role in drug administration:} secondary role (the device does
+not itself dispense daraxonrasib; it conducts the resection and reconstruction and
+generates the operative and pathology inputs to the restart advisory), with
+permitted autonomy levels and human-oversight requirements for each procedure.
+\item[(iii)] \textit{Hardware specifications:} 56 degrees of freedom, 0.05 mm root
+mean square positioning at $1{,}200$ mm/s, 100 kHz force sensing, the $\leq 3$ N
+per-arm and $\leq 18$ N cumulative tip-force limits, and end-effector details.
+\item[(iv)] \textit{Software and AI/ML specifications:} the operating and
+middleware stack, the control algorithms, and the on-premises advisory LLM together
+with its training data characteristics, validation methodology, performance
+metrics, and Predetermined Change Control Plan (PCCP).
+\item[(v)] \textit{Simulation validation data:} the upgraded Phase 0 campaign
+results, including at least 5000 simulated procedures reproduced across at least
+three independent frameworks and the tightened sim-to-real gap quantification
+(trajectory gap $< 1.5$ mm, tip-force gap $< 0.4$ N).
+\item[(vi)] \textit{Digital twin specifications:} the digital-twin methodology,
+calibration sources, update frequency, and validation metrics used for operative
+rehearsal and intra-operative guidance.
+\item[(vii)] \textit{Safety systems:} the emergency-stop mechanisms (hardware and
+software), the force and torque limits, the five-vessel no-fly gate, collision
+detection, workspace-boundary enforcement, fail-safe behaviors, and the
+pre-procedure safety matrix.
+\item[(viii)] \textit{Cybersecurity assessment:} the network architecture,
+deny-by-default authentication and authorization, encryption, vulnerability
+management, and incident response.
+\item[(ix)] \textit{MCP integration:} the Model Context Protocol server topology,
+conformance level, robot capability profile, and the hash-chained federated
+audit-trail implementation under 21 CFR part 11 \cite{ecfr2026part11}.
+\item[(x)] \textit{Human-robot interaction protocols:} the operator control
+stations, status displays, alarm systems, handoff procedures, and the training
+requirements for operating and supervising personnel across the fleet.
+\item[(xi)] \textit{Maintenance and calibration:} the scheduled maintenance
+intervals, calibration procedures, out-of-service criteria, per-site qualification,
+and re-qualification requirements (\S6.2).
+\end{itemize}
+
+\subsubsection{Dosing and Administration}
+
+\paragraph{Daraxonrasib dosing.}
+In Arm A daraxonrasib is administered orally once daily at the fixed RP2D of 300~mg.
+Because the RP2D is already established in the Phase 1 predicate and anchored to the
+RASolute 302 pan-KRAS program \cite{kawchak2026phase1,rasolute302}, there is no 3+3
+dose escalation in this Phase 2 study; every participant in Arm A receives the same
+fixed daily dose, and the trial tests comparative efficacy rather than dose-finding.
+
+\paragraph{Perioperative pause-and-restart advisory.}
+In Arm A daraxonrasib is paused before surgery and restarted postoperatively on a
+day chosen by an advisory that is LLM-bound and human-confirmed, never autonomous.
+The advisory takes two inputs: the pancreaticojejunostomy ISGPS postoperative
+pancreatic-fistula grade (A, B, or C) \cite{Bassi2017} and the serum daraxonrasib
+trough relative to a 0.5 ng/mL threshold. It recommends a restart on postoperative
+day T+7, T+14, or T+21 (or a continued hold): T+7 for a Grade A fistula with a
+sub-threshold trough, T+14 for a Grade B fistula or a delayed serum rise, and T+21
+or continued hold for a Grade C fistula, which also maps to the drug stop rule of
+\S7. The advisory logic is shown in Figure 13.
+
+\begin{mermaidfig}
+\node[mmin]  (pre) at (5.2,0)     {Pre-operative hold\\daraxonrasib paused\\before surgery};
+\node[mmstep](in1) at (0,-2.4)    {Input: PJ ISGPS\\fistula grade\\(A / B / C)};
+\node[mmstep](in2) at (10.4,-2.4) {Input: serum trough\\vs 0.5 ng/mL};
+\node[mmdec] (adv) at (5.2,-2.4)  {LLM-bound\\restart advisory\\(human confirmed)};
+\node[mmgoal](r7)  at (0,-5.0)    {Restart T+7\\Grade A,\\trough $< 0.5$};
+\node[mmstep](r14) at (5.2,-5.0)  {Restart T+14\\Grade B / delayed\\serum rise};
+\node[mmdark](r21) at (10.4,-5.0) {Restart T+21 /\\hold; Grade C};
+\draw[mmedge] (pre) -- (in1);
+\draw[mmedge] (pre) -- (in2);
+\draw[mmedge] (in1) -- (adv);
+\draw[mmedge] (in2) -- (adv);
+\draw[mmedge] (adv) -- (r7);
+\draw[mmedge] (adv) -- (r14);
+\draw[mmedge] (adv) -- (r21);
+\end{mermaidfig}
+\vspace{-0.7cm}
+\figcaption{Figure 13. Daraxonrasib perioperative pause-and-restart advisory in
+Arm A. The restart day is keyed to the pancreaticojejunostomy ISGPS fistula grade
+and the serum trough relative to 0.5 ng/mL: T+7 for Grade A with a sub-threshold
+trough, T+14 for Grade B or a delayed serum rise, and T+21 or continued hold for
+Grade C. The advisory is bound and human-checked, not autonomous.}
+
+\paragraph{Device administration: operative phases and the three anastomoses.}
+The device has no pharmacologic dose; its administration is the conduct of the
+pancreaticoduodenectomy across eight operative phases (P1 through P8) under
+continuous human oversight. Phases P1 through P4 comprise the dissection and
+specimen removal (Arms 1 and 2 dissecting under Arm 3 vessel control and Arm 4
+near-infrared indocyanine-green imaging); the specimen is removed at the end of P4
+and reconstruction begins. The three reconstructive anastomoses are then constructed
+in sequence under closed-loop ring-tension control by the Arm 5 anastomosis probe,
+which issues a soft warning whenever measured ring tension falls outside the
+controller band: the duct-to-mucosa pancreaticojejunostomy (PJ) in P5 with a band of
+0.30 to 0.60 N, the end-to-side hepaticojejunostomy (HJ) in P6 with a band of 0.20
+to 0.50 N, and the antecolic gastrojejunostomy (GJ) in P7 with a band of 0.40 to
+0.80 N; P8 covers final imaging, hemostasis, and drain placement. The
+pancreaticojejunostomy is the dominant determinant of postoperative
+pancreatic-fistula risk and is therefore the anastomosis on which the fistula-grade
+input to the drug advisory is based. The reconstruction sequence and the
+ring-tension bands are shown in Figure 14.
+
+\begin{mermaidfig}
+\node[mmin]  (rem) at (0,0)       {Specimen removed\\(end P4)\\reconstruction begins};
+\node[mmgoal](pj)  at (4.2,0)     {Pancreatico-\\jejunostomy (PJ)\\duct-to-mucosa, P5\\0.30 to 0.60 N};
+\node[mmgoal](hj)  at (8.4,0)     {Hepatico-\\jejunostomy (HJ)\\end-to-side, P6\\0.20 to 0.50 N};
+\node[mmgoal](gj)  at (8.4,-2.8)  {Gastro-\\jejunostomy (GJ)\\antecolic, P7\\0.40 to 0.80 N};
+\node[mmstep](mon) at (4.2,-2.8)  {Ring-tension monitor\\(Arm 5)\\soft-warn outside\\band};
+\draw[mmedge] (rem) -- (pj);
+\draw[mmedge] (pj) -- (hj);
+\draw[mmedge] (hj) -- (gj);
+\draw[mmedged] (mon) -- (pj);
+\draw[mmedged] (mon) -- (hj);
+\draw[mmedged] (mon.east) -- ++(0.4,0) |- (gj.west);
+\end{mermaidfig}
+\vspace{-0.7cm}
+\figcaption{Figure 14. Three reconstructive anastomoses and their controller
+ring-tension bands: the duct-to-mucosa pancreaticojejunostomy (0.30 to 0.60 N), the
+end-to-side hepaticojejunostomy (0.20 to 0.50 N), and the antecolic
+gastrojejunostomy (0.40 to 0.80 N), each guarded by the Arm 5 ring-tension monitor
+issuing a soft warning outside the band.}
+
+\subsection{Preparation, Handling, Storage, and Accountability}
+
+\subsubsection{Acquisition and Accountability}
+
+Daraxonrasib is supplied by the sponsor to the investigational-product pharmacy at
+each participating site and is dispensed only by the site pharmacist or an
+authorized designee against a written prescription tied to an enrolled,
+Arm A participant. The pharmacy maintains a drug-accountability log recording, for
+every unit, the lot number, the quantity received, the quantity dispensed, the
+quantity returned, and the quantity destroyed, reconciled against shipment records
+at each monitoring visit. Returned and unused product is retained for reconciliation
+and destroyed only after sponsor authorization. The modified FOLFIRINOX components
+of Arm B are obtained and accounted for through standard institutional oncology
+pharmacy practice. The investigational device is provided under the IDE and is not a
+consumable; its accountability is established through the asset record, the
+per-procedure pre-procedure safety matrix, and the hash-chained federated audit
+trail that captures every operative use across the fleet (\S6.4). Custody of all
+components is restricted to authorized, trained personnel, and all transfers are
+documented.
+
+\subsubsection{Formulation, Appearance, Packaging, and Labeling}
+
+Daraxonrasib is provided as oral tablets in the strengths required to compose the
+300~mg once-daily RP2D. Tablets are packaged in child-resistant, light-protective
+containers labeled in accordance with 21 CFR \S312.6, bearing the caution statement
+``Caution: New Drug. Limited by Federal (or United States) law to investigational
+use,'' together with the protocol number, lot number, storage conditions, and a
+unique container identifier. Because this is an open-label study, the
+participant-facing label identifies the product and the assigned daily dose; no
+label information is used to influence the masked outcome assessors described in
+\S6.5. The investigational device and its single-use accessories are labeled per
+21 CFR part 812 with the investigational-device caution statement and are not
+relabeled or repackaged at the site.
+
+\subsubsection{Product Storage and Stability}
+
+Daraxonrasib is stored at controlled room temperature in a secured,
+access-controlled, temperature-monitored location within the investigational-product
+pharmacy, in its original light-protective packaging, until dispensed. Continuous
+temperature monitoring with documented excursion handling is maintained; any
+excursion outside the labeled range is quarantined and is not dispensed until the
+sponsor confirms continued suitability against the stability data on file. Stability
+is supported by the sponsor's stability program, and product is dispensed only
+within its labeled expiry or retest date. The investigational device is stored and
+maintained in its qualified clinical environment between procedures under the
+maintenance and calibration program below, with the same qualification applied
+identically at every site in the harmonized fleet.
+
+\subsubsection{Preparation and Device Maintenance and Calibration}
+
+\paragraph{Drug preparation.}
+No compounding or reconstitution is required for daraxonrasib; preparation consists
+of the pharmacist verifying the participant identity, the RP2D, and the expiry, then
+dispensing the once-daily oral dose with administration instructions. Tablets are
+swallowed whole with water and are not crushed, split, or chewed unless a future
+protocol amendment provides validated instructions. Modified FOLFIRINOX is prepared
+per institutional oncology pharmacy standards.
+
+\paragraph{Device maintenance and calibration (21 CFR \S312.23(g)(xi)).}
+Before each clinical procedure the system must pass the pre-procedure safety matrix:
+verification of the 640-channel sensor stack, confirmation of the per-arm force
+calibration against the $\leq 3$ N per-arm and $\leq 18$ N cumulative caps, exercise
+of the 10 kHz heartbeat with its $100\,\mu$s watchdog, confirmation of the
+five-vessel no-fly gate, a successful software and hardware E-stop self-test, and
+confirmation that the positioning accuracy remains within the 0.05 mm root mean
+square specification at $1{,}200$ mm/s. Scheduled maintenance, periodic force and
+positional calibration, per-site qualification, and fleet harmonization verification
+are performed at the manufacturer-specified intervals and documented. A system that
+fails any pre-procedure check, exhibits an out-of-tolerance calibration, or
+experiences a hard-stop E-stop event is taken out of service and is returned to
+clinical use only after re-qualification against the same matrix and sponsor
+authorization. All maintenance, calibration, and out-of-service events are recorded
+in the hash-chained federated audit trail.
+
+\subsection{Measures to Minimize Bias: Randomization and Blinding}
+
+Allocation uses central permuted-block randomization 1:1, stratified by resectability
+(resectable versus borderline-resectable), KRAS allele (G12D versus other G12),
+neoadjuvant therapy (yes versus no), and site, so that the central mechanism prevents
+allocation bias and balances the strata across arms \cite{Schulz2010consort}.
+Treatment is open-label because a surgical-system intervention cannot be masked from
+the operating team or the participant; bias control is therefore concentrated
+downstream of the intervention. The imaging-based endpoints pass through blinded
+independent central review (BICR); the R0 resection status and the major pathologic
+response (MPR) are determined on central masked pathology by reviewers who are masked
+to the assigned arm, to the intra-operative device telemetry, and to the LLM advisory
+record, with discordant or indeterminate margins adjudicated by an independent masked
+second pathologist; and all confirmatory endpoints pass through blinded endpoint
+adjudication independent of the operative team. In this way the open-label delivery
+does not propagate into outcome ascertainment.
+
+\subsection{Study Intervention Compliance}
+
+\paragraph{Daraxonrasib adherence.}
+In Arm A, adherence is documented through the dispensing and accountability log,
+returned-tablet counts at each visit, and a participant dosing diary reconciled
+against the pharmacy record. Adherence is corroborated objectively by the serum
+daraxonrasib assay, which both confirms exposure and supplies the trough value used
+by the restart advisory (\S6.1.2); a documented trough discordant with the reported
+intake prompts adherence counseling and is recorded in the case report form.
+Adherence to modified FOLFIRINOX in Arm B is captured through standard cycle
+administration records. Material non-adherence in either arm is captured as a
+protocol deviation and informs the per-protocol analysis (\S9).
+
+\paragraph{Device compliance.}
+Device compliance is enforced before and during every procedure rather than
+reconstructed afterward. No operative phase may begin until the pre-procedure safety
+matrix passes in full, and the 10 kHz heartbeat, the $100\,\mu$s watchdog, the force
+caps, and the five-vessel no-fly gate operate continuously throughout the case. Every
+advisory command, every safety-gate verdict, every force and trajectory sample at the
+recorded rates, and every E-stop event is written to a 21 CFR part 11 hash-chained,
+append-only federated audit trail \cite{ecfr2026part11}, so that compliance with the
+cyber-physical envelope is verifiable for each case across the fleet; any deviation is
+detectable and time-stamped. The audit trail also satisfies the preservation
+requirement that applies around a reportable Physical AI adverse event (\S8).
+
+\subsection{Concomitant Therapy}
+
+All medications, biologics, blood products, radiotherapy, and clinically significant
+non-pharmacologic interventions taken from the time of informed consent through the
+end of safety follow-up are recorded in the case report form with indication, dose,
+route, and dates. Standard perioperative supportive care is permitted and encouraged
+in both arms, including antiemetics, analgesia, venous thromboembolism prophylaxis,
+peri-operative antimicrobial prophylaxis, proton-pump inhibitors, and
+pancreatic-enzyme replacement as clinically indicated, with attention in Arm A to
+agents that may interact with daraxonrasib exposure. Prohibited during study
+participation are systemic anticancer therapy outside the assigned regimen (for
+Arm A, cytotoxic chemotherapy, other targeted agents, or immunotherapy beyond the
+protocol; for Arm B, agents beyond the modified FOLFIRINOX standard), other
+investigational agents or investigational devices, and any concomitant use of a
+second surgical robotic system for the index operation. Strong inducers or inhibitors
+of the daraxonrasib principal metabolic pathway are avoided where feasible in Arm A;
+when an interacting agent is clinically unavoidable, its use is documented and
+reviewed against exposure data.
+
+\subsubsection{Rescue Medicine}
+
+Rescue is available along two axes. For surgical and device-related complications,
+the operative team may at any time convert to manual or open technique (\S7) and
+deliver standard rescue care: transfusion and hemostatic resuscitation for bleeding,
+vasoactive support for hemodynamic instability, percutaneous or operative drainage and
+broad-spectrum antimicrobials for a clinically relevant postoperative pancreatic
+fistula or intra-abdominal collection, and somatostatin-analogue therapy where
+indicated for high-output fistula. For drug toxicity, daraxonrasib in Arm A is held or
+discontinued per the stopping rules (\S7) and managed symptomatically with the
+appropriate supportive agents (for example antidiarrheals and aggressive dermatologic
+care for the rash and gastrointestinal toxicities characteristic of the class), and
+modified FOLFIRINOX in Arm B is dose-modified or held per its established toxicity
+management, with dose interruption and reduction governed by the protocol. All rescue
+interventions are recorded as concomitant therapy and, where the criteria are met, as
+adverse or serious adverse events.

@@ -1,0 +1,35 @@
+\section{Protocol Summary}
+
+\subsection{Synopsis}
+\draftinstr{Follow the Phase 2 publication section
+\texttt{final-protocol/publication/sections/sec-01-summary.tex} and the Phase 1
+model file \texttt{trial-protocol/draft-protocol/sections/sec-01-summary.tex}.
+Fill the Synopsis as a compressed mirror of the whole protocol: title, rationale,
+objectives and endpoints (from sec-03), design (multicenter, randomized 1:1,
+parallel-group, open-label with BICR, $n=220$ at 110 per arm; from sec-04 and
+sec-09), population (from sec-05), intervention (Arm A daraxonrasib at RP2D plus
+LLM-directed robotic Whipple; Arm B modified FOLFIRINOX plus standard Whipple;
+from sec-06), co-investment, and duration. Pull headline numbers from
+\texttt{trial-protocol/inputs/2030-pdac-1min-final-paper/sections/\{introduction,results\}.tex}
+and the Phase 1 predicate \cite{kawchak2026phase1}.}
+
+\subsection{Schema}
+\draftinstr{Render \texttt{trial-phase-2/mermaid/fig-02-trial-schema.md} as a TikZ
+\texttt{mermaidfig} (this is \textbf{Figure 2}): screening (28 days) ->
+eligibility -> central 1:1 stratified randomization with Physical AI opt-out ->
+two parallel arms -> follow-up with BICR -> PFS and 24-month OS endpoints,
+including the screen-failure branch.}
+
+\subsection{Schedule of Activities (SoA)}
+\draftinstr{Build the SoA as a full-width \texttt{tabularx} table at
+\texttt{\textbackslash textwidth} with \texttt{L\{\}/C\{\}/Y} columns
+(\textbf{Table~\ref{tab:soa}}). Columns: Screening (Day $-28$ to $-1$),
+Randomization / Baseline, Surgery (Day 0), Acute (Day 1 to 7), Day 30, Day 90,
+Long-term (q8-12wk). Rows: informed consent with Physical AI opt-out,
+staging / KRAS G12, CA 19-9, ECOG, safety labs, ctDNA (KRAS), central
+randomization, Phase 0 sign-off with USL $\geq 8.0$ (Arm A), surgery, intra-op
+telemetry (Arm A), ISGPS fistula grading, central R0 / MPR pathology, daraxonrasib
+restart advisory (Arm A), QoL EORTC QLQ-C30, BICR RECIST imaging, AE / SAE review,
+PFS / OS. Source the visit map from
+\texttt{trial-protocol/nih-protocol/01\_statement\_of\_compliance\_protocol\_summary\_introduction.md}
+and \texttt{trial-protocol/nih-protocol/06\_study\_assessments\_and\_procedures.md}.}

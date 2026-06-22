@@ -1,7 +1,7 @@
 # End-to-End Physical AI Unification of Oncology Clinical Trials
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Release](https://img.shields.io/badge/Release-v4.0.0-brightgreen.svg)](https://github.com/kevinkawchak/physical-ai-oncology-trials)
+[![Release](https://img.shields.io/badge/Release-v4.1.0-brightgreen.svg)](https://github.com/kevinkawchak/physical-ai-oncology-trials)
 [![Last Updated](https://img.shields.io/badge/Updated-June%202026-blue.svg)](https://github.com/kevinkawchak/physical-ai-oncology-trials)
 [![Protocol](https://img.shields.io/badge/Protocol-MCP-purple.svg)](https://github.com/kevinkawchak/physical-ai-oncology-trials)
 [![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.18445179-blue)](https://doi.org/10.5281/zenodo.18445179)
@@ -15,10 +15,25 @@
 [![TikZ Figures](https://img.shields.io/badge/TikZ%20figures-20-6C757D.svg)](trial-protocol/final-protocol)
 [![Protocol DOI](https://img.shields.io/badge/Protocol%20DOI%20v1.0.0-10.5281%2Fzenodo.20780121-blue.svg)](https://doi.org/10.5281/zenodo.20780121)
 [![Protocol License](https://img.shields.io/badge/Protocol%20License-CC%20BY%204.0-yellow.svg)](https://creativecommons.org/licenses/by/4.0/)
+[![Phase 2 Protocol](https://img.shields.io/badge/Trial%20Protocol-Phase%202%20Randomized%20Controlled-800020.svg)](trial-phase-2)
+[![Phase 2 Design](https://img.shields.io/badge/Design-Multicenter%208%20centers%201%3A1-800020.svg)](trial-phase-2)
+[![Phase 2 Primary](https://img.shields.io/badge/Primary-PFS%20HR%200.60-800020.svg)](trial-phase-2/final-protocol/publication)
+[![Phase 2 Sample](https://img.shields.io/badge/Randomized-n%3D220%20(110%2Farm)-6B6B6B.svg)](trial-phase-2)
+[![Phase 2 Key Secondary](https://img.shields.io/badge/Key%20secondary-OS%2FR0%2Ffistula%2FMPR%2FctDNA-6B6B6B.svg)](trial-phase-2)
+[![Phase 0 USL](https://img.shields.io/badge/Phase%200-USL%20%E2%89%A5%208.0%20%2F%205000%20sims-6B6B6B.svg)](trial-phase-2)
+[![Phase 2 Mermaid](https://img.shields.io/badge/Mermaid%20figures-24-6B6B6B.svg)](trial-phase-2/mermaid)
+[![Phase 2 TikZ](https://img.shields.io/badge/TikZ%20figures-22-6B6B6B.svg)](trial-phase-2/final-protocol/publication)
+[![Phase 2 Tables](https://img.shields.io/badge/Full--width%20tables-11-6B6B6B.svg)](trial-phase-2/final-protocol/publication)
+[![Co-Investment](https://img.shields.io/badge/Funding-Co--Investment%20%2B%20Capital%20Firewall-800020.svg)](trial-phase-2/final-protocol/publication/sections/sec-10-oversight.tex)
+[![Predicate](https://img.shields.io/badge/Predicate-Phase%201%20v1.0.0-6B6B6B.svg)](trial-protocol)
+[![Protocol DOI v1.1.0](https://img.shields.io/badge/Protocol%20DOI%20v1.1.0-10.5281%2Fzenodo.xxxxxxxx-blue.svg)](https://doi.org/10.5281/zenodo.xxxxxxxx)
+[![Palette](https://img.shields.io/badge/Palette-%23800020%20Burgundy-800020.svg)](trial-phase-2/template)
 
 **Comprehensive developments for integrating physical AI into oncology clinical trials, by Claude Code Opus 4.8, Cowork; with Assistance from ChatGPT 5.5 Thinking Extended and Google Gemini 3.1 Pro.**
 
 This repository provides production-ready configurations, validated pipelines, and integration guides for deploying robotic systems, digital twins, and embodied AI agents in oncology. 
+
+**6/23: v4.1.0 (Physical AI Pancreatic Whipple + Daraxonrasib Phase 2 Randomized Controlled Trial Protocol v1.1.0)** *v4.1.0 delivers the multicenter randomized Phase 2 follow-up: 220 participants randomized 1:1 across 8 centers, daraxonrasib at the recommended Phase 2 dose plus the LLM-directed robotic Whipple versus standard of care, powered for progression-free survival (HR 0.60), with a Patient-Aligned Co-Investment Facility behind a capital firewall.* [![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.xxxxxxxx-blue)](https://doi.org/10.5281/zenodo.xxxxxxxx)
 
 **6/20: v4.0.0 (Physical AI Pancreatic Whipple + Daraxonrasib Phase 1 Protocol v1.0.0)** *v4.0.0 delivers the first substantial Physical AI clinical trial protocol: a Phase 1, first-in-human, combined IND/IDE study of on-premises LLM-directed robotic Whipple surgery with perioperative daraxonrasib.* [![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.20780121-blue)](https://doi.org/10.5281/zenodo.20780121)
 
@@ -79,6 +94,91 @@ python scripts/verify_installation.py
 # Detect available simulation frameworks
 python unification/cross_platform_tools/framework_detector.py
 ```
+---
+
+## Physical AI Pancreatic Whipple + Daraxonrasib Phase 2 Randomized Controlled Trial Protocol (v4.1.0)
+
+This release adds [`trial-phase-2/`](trial-phase-2): the multicenter randomized
+**Phase 2** follow-up to the Phase 1 protocol. With the Phase 1 protocol having
+established the daraxonrasib recommended Phase 2 dose (RP2D, 300 mg once daily) and
+the feasibility and safety of the on-premises LLM-directed eight-arm robotic
+Whipple, genuine clinical equipoise now exists, so this study randomizes **220
+participants 1:1 across eight high-volume academic centers**, powered for a
+confirmatory **progression-free-survival** primary endpoint. A distinctive Phase 2
+addition is a **Patient-Aligned Co-Investment Facility** behind a **capital
+firewall**: aligned capital raises operational success likelihood (more sites,
+more simulation compute, a patient access and equity fund, central review, and
+independent oversight) without influencing randomization, endpoints, adjudication,
+analysis, or publication. Authored by Kevin Kawchak (ChemicalQDevice), protocol
+v1.1.0, DOI [10.5281/zenodo.xxxxxxxx](https://doi.org/10.5281/zenodo.xxxxxxxx),
+June 23, 2026.
+
+### Contents of this version
+
+- [Build pipeline](#physical-ai-pancreatic-whipple--daraxonrasib-phase-2-randomized-controlled-trial-protocol-v410) (mermaid -> draft -> full -> final -> publication)
+- [Stage outputs](#stage-outputs-phase-2)
+- [Protocol at a glance (Phase 2)](#protocol-at-a-glance-phase-2)
+- [trial-phase-2 structure](#trial-phase-2-structure)
+
+### Build pipeline
+
+```mermaid
+%%{init: {'theme':'base','themeVariables':{'fontSize':'13px','lineColor':'#6B6B6B'}}}%%
+flowchart LR
+    MP["Master prompt<br/>prompts/prompt-protocol.md"]:::goal
+    S1["Stage 1 mermaid<br/>24 colored figures"]:::light
+    S2["Stage 2 draft<br/>bracketed scaffold"]:::light
+    S3["Stage 3 full<br/>22 TikZ figures, 11 tables"]:::mid
+    S4["Stage 4 final<br/>polished + zip"]:::mid
+    PUB["Publication<br/>author edits, paper URL dir"]:::goal
+    REL["Release v4.1.0<br/>CHANGELOG + releases + README"]:::goal
+    MP --> S1 --> S2 --> S3 --> S4 --> PUB --> REL
+    classDef light fill:#F5F5F5,stroke:#800020,stroke-width:1.2px,color:#111111
+    classDef mid fill:#6B6B6B,stroke:#111111,stroke-width:1.4px,color:#FFFFFF
+    classDef goal fill:#800020,stroke:#000000,stroke-width:1.6px,color:#FFFFFF
+```
+
+### Stage outputs (Phase 2)
+
+| Stage | Directory | Output |
+|:--|:--|:--|
+| Bootstrap | `trial-phase-2/prompts`, `sub-prompts` | master prompt, 4 sub-prompts, READMEs |
+| 1 mermaid | `trial-phase-2/mermaid` | 24 colored Mermaid figures (Burgundy #800020 palette) |
+| 2 draft | `trial-phase-2/draft-protocol` | 13 NIH section scaffolds + zip |
+| 3 full | `trial-phase-2/full-protocol` | 13 full sections, 22 TikZ, 11 tables + zip |
+| 4 final | `trial-phase-2/final-protocol` | polished sections + zip |
+| publication | `trial-phase-2/final-protocol/publication` | author-edited paper URL directory + zip |
+
+### Protocol at a glance (Phase 2)
+
+| Element | Value |
+|:--|:--|
+| Design | Phase 2, multicenter (8 centers), randomized 1:1, parallel-group, controlled, open-label with BICR |
+| Arm A | Daraxonrasib RP2D (300 mg once daily) + on-premises LLM-directed eight-arm robotic Whipple |
+| Arm B | Modified FOLFIRINOX + institutional-standard high-volume pancreaticoduodenectomy |
+| Primary endpoint | Progression-free survival; HR 0.60; 85% power; two-sided alpha 0.05; about 140 events; one group-sequential interim |
+| Key secondary (hierarchical) | OS; R0 rate; ISGPS grade B/C fistula; major pathologic response; ctDNA clearance |
+| Device readiness | Phase 0 USL >= 8.0; >= 5000 sims; >= 3 frameworks; sim-to-real < 1.5 mm / < 0.4 N; fleet harmonization |
+| Funding | Patient-Aligned Co-Investment Facility behind a capital firewall (21 CFR part 54; H.R. 9510 VVUQ) |
+
+### trial-phase-2 structure
+
+```
+trial-phase-2/
+├── README.md                 # build hub (v1.1.0)
+├── prompts/                  # prompt-protocol.md (master) + output-protocol.md
+├── sub-prompts/              # prompt-1-mermaid .. prompt-4-final-protocol
+├── mermaid/                  # Stage 1: 24 colored Mermaid figures (#800020 palette)
+├── draft-protocol/           # Stage 2: 13 NIH section scaffolds + zip
+├── full-protocol/            # Stage 3: full sections, 22 TikZ, 11 tables + zip
+├── final-protocol/           # Stage 4: polished sections + zip
+│   └── publication/          # author-edited paper URL directory (the paper)
+├── template/                 # paper template (recolored #800020)
+├── nih-protocol/             # NIH-FDA Phase 2/3 IND/IDE template grounding
+├── inputs/                   # main documents + Phase 1 predicate (grounding)
+└── research/                 # Phase 2 evidence base and background
+```
+
 ---
 
 ## Physical AI Pancreatic Whipple + Daraxonrasib Phase 1 Protocol (v4.0.0)
@@ -273,6 +373,20 @@ physical-ai-oncology-trials/
 ├── V1_RELEASE.md
 ├── LICENSE
 ├── requirements.txt
+│
+├── trial-phase-2/                     # ★ Physical AI Whipple + Daraxonrasib Phase 2 Randomized Controlled Trial Protocol (v4.1.0)
+│   ├── README.md                      # build hub (v1.1.0 / repo v4.1.0)
+│   ├── prompts/                       # Phase 2 master prompt (verbatim) + output
+│   ├── sub-prompts/                   # 4 generated stage sub-prompts
+│   ├── mermaid/                       # Stage 1: 24 figures recolored to #800020
+│   ├── draft-protocol/                # Stage 2: 13 NIH section scaffolds + zip
+│   ├── full-protocol/                 # Stage 3: full sections, 22 TikZ, 11 tables + zip
+│   ├── final-protocol/                # Stage 4: polished sections + zip
+│   │   └── publication/               # author-edited paper URL directory (the paper)
+│   ├── template/                      # paper template (recolored #800020)
+│   ├── nih-protocol/                  # NIH-FDA Phase 2/3 IND/IDE template grounding
+│   ├── inputs/                        # main documents + Phase 1 predicate (grounding)
+│   └── research/                      # Phase 2 evidence base and background
 │
 ├── trial-protocol/                    # ★ Physical AI Whipple + Daraxonrasib Phase 1 Protocol (v4.0.0)
 │   ├── README.md                      # build hub

@@ -1,0 +1,102 @@
+\section{Regulatory, Ethical, and Oversight Considerations}
+
+\draftinstr{Follow the Phase 2 publication section
+\texttt{final-protocol/publication/sections/sec-10-oversight.tex} and the Phase 1
+model file \texttt{trial-protocol/draft-protocol/sections/sec-10-oversight.tex}.
+Open with the multicenter oversight architecture (Coordinating Center,
+Sponsor-Investigator, single IRB under 45 CFR 46.114 \cite{commonrule_sirb}, DSMB
+with a group-sequential interim, Physical AI Safety Review Committee on a $\leq 90$-day
+cadence, per-procedure Independent Safety Monitor, and a robotics- and AI-competent
+CRO). Render \texttt{trial-phase-2/mermaid/fig-19-governance-oversight.md} as a TikZ
+\texttt{mermaidfig} (this is \textbf{Figure 19}). Source the oversight order from
+\texttt{trial-protocol/nih-protocol/08\_supporting\_documentation\_regulatory\_oversight.md}
+and duties from
+\texttt{trial-protocol/inputs/21cfr312\_adapt/04\_annual\_reports\_withdrawal.tex}.}
+
+\subsection{Informed Consent Process}
+\draftinstr{Describe consent by a non-treating team member under 21 CFR part 50
+\cite{ecfr2026part50} and ICH E6(R3), a single master consent across the network,
+disclosure of the randomized open-label allocation and the LLM-directed system, and
+the documented Physical AI opt-out under 21 CFR \S312.60(f) \cite{kawchak2026adapt312}.
+Render \texttt{trial-phase-2/mermaid/fig-20-informed-consent.md} as a TikZ
+\texttt{mermaidfig} (this is \textbf{Figure 20}). Source from
+\texttt{trial-protocol/inputs/21cfr312\_adapt/05\_clinical\_holds\_appendices\_closing.tex}.}
+
+\subsection{Funding, Co-Investment Governance, and the Capital Firewall}
+\draftinstr{Describe the PACIF funding only the six operational levers and never
+scientific outcomes, the capital firewall walling funders off from randomization,
+endpoints, adjudication, analysis, data access, and publication, disclosure under 21
+CFR part 54 \cite{ecfr2026part54}, governance by the H.R. 9510 VVUQ financial-data
+standard \cite{kawchak2026hr9510}, and open CC BY 4.0 deposition. Render
+\texttt{trial-phase-2/mermaid/fig-21-capital-firewall.md} as a TikZ
+\texttt{mermaidfig} (this is \textbf{Figure 21}): the capital-firewall governance
+with the dashed blocked path to the science. Source the firewall model from
+\texttt{trial-protocol/inputs/auto-bill-02/final-bill/main.tex}.}
+
+\subsection{Study Discontinuation and Closure}
+\draftinstr{Closure by the Sponsor-Investigator, single IRB, or FDA; the Physical AI
+clinical-hold grounds (hard cyber-physical limit breach, verification-before-generation
+gate-surface failure, loss of audit integrity) that may halt one site or the fleet;
+and the controlled decommissioning and data-preservation procedure (\S10.10).}
+
+\subsection{Confidentiality and Privacy}
+\draftinstr{HIPAA Safe Harbor de-identification (18 identifiers), deny-by-default
+authorization, and the federated hash-chained audit trail under 21 CFR part 11
+\cite{ecfr2026part11}. (The audit-trail data flow is the Figure 21 capital-firewall
+companion logic; the hash-chained loop itself is rendered in Figure 11, \S6.)}
+
+\subsection{Future Use of Stored Specimens and Data}
+\draftinstr{The tiered telemetry pyramid (apex summaries and safety / audit logs;
+middle compressed feature streams; L0 raw losslessly reconstructable), L0 deposited
+on Zenodo and decompressible on FDA request per 21 CFR \S312.57; ctDNA and biomarker
+specimens governed by consent.}
+
+\subsection{Key Roles and Study Governance}
+\draftinstr{Sponsor-Investigator (ChemicalQDevice, Kevin Kawchak) holding the
+combined IND/IDE under parts 312 and 812; Coordinating Center; site PIs; the Arm A
+operating surgeon, primary operator, and backup operator under supervised
+semiautonomy; the CRO; and the DSMB / ISM / Physical AI Safety Review Committee, on a
+delegation-of-authority log.}
+
+\subsection{Safety Oversight}
+\draftinstr{Three tiers: the DSMB (group-sequential interim with O'Brien-Fleming
+spending \cite{DeMets1994lan} and the \S9 stopping rules), the per-procedure
+Independent Safety Monitor, and the Physical AI Safety Review Committee ($\leq 90$-day
+cadence) reviewing the fleet telemetry, gate-surface decisions, and USL rating.}
+
+\subsection{Clinical Monitoring}
+\draftinstr{Robotics- and AI-competent CRO monitors; risk-based plan; source-data
+verification of clinical documents, consent (including the Arm A Physical AI opt-out
+election), and the cyber-physical evidence (telemetry, gate-surface logs, federated
+audit trail).}
+
+\subsection{Quality Assurance and Quality Control}
+\draftinstr{Pre-procedure safety-matrix verification and USL confirmation before
+every Arm A case; Phase 0 re-validation, USL reassessment ($\geq 8.0$), and fleet
+re-harmonization after any software, model, or configuration change before further
+patient-facing use; deterministic version-controlled build.}
+
+\subsection{Data Handling and Record Keeping}
+\draftinstr{The seven Physical AI record types (LLM advisory; robot command; sensor
+/ telemetry; safety-limit-event; verification-before-generation gate-surface;
+human-override; and the federated hash-chained audit trail binding the first six),
+retained per 21 CFR \S312.57 with the L0 raw tier preserved (\S10.5).}
+
+\subsection{Protocol Deviations}
+\draftinstr{Definition, documentation, assessment, and reporting to the single IRB
+and Sponsor-Investigator; immediate-hazard modifications under 21 CFR \S312.30(b),
+which for the autonomy-bearing system also trigger the decommissioning and
+re-validation controls of \S10.4 and \S10.11.}
+
+\subsection{Publication and Data Sharing Policy}
+\draftinstr{Dual deposition (GitHub plus Zenodo, CC BY 4.0) regardless of outcome;
+reporting per TRIPOD+AI \cite{Collins2024tripodai} and CONSORT
+\cite{Schulz2010consort}; published deterministic seed and repository commit; HIPAA
+Safe Harbor de-identification (\S10.5).}
+
+\subsection{Conflict of Interest Policy}
+\draftinstr{Disclose and manage financial interests under 21 CFR part 54
+\cite{ecfr2026part54}; the Sponsor-Investigator's ChemicalQDevice relationship
+managed by the independent oversight of \S10.9 and the capital firewall of \S10.3;
+certifications collected before participation and updated through one year after the
+study.}

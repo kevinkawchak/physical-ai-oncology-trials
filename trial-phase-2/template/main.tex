@@ -1,0 +1,45 @@
+% main.tex - Phase 2 paper template skeleton (v1.1.0).
+% This is the reusable, recolored single-column template for the Phase 2 build:
+% load protostyle.sty (Burgundy #800020 document color, five-step palette,
+% mermaidfig + full-width tables + PNG-free TikZ ORCID iD), then \input one .tex
+% per NIH section. The protocol stages (draft / full / final / publication) all
+% derive their main.tex from this skeleton.
+% Compile on Overleaf with pdfLaTeX: pdflatex -> bibtex -> pdflatex -> pdflatex
+\documentclass[11pt]{article}
+\usepackage{protostyle}
+
+\title{<Protocol Title>}
+\author{Kevin Kawchak}
+\date{June 23, 2026}
+
+\begin{document}
+\thispagestyle{plain}
+
+% ---------- Cover ----------
+\begin{center}
+{\LARGE\bfseries\color{accentcol} <Protocol Title, line 1>}\\[0.4em]
+{\large\bfseries <subtitle>}\\[0.3em]
+{\color{accentcol}\rule{\linewidth}{1.2pt}}
+\end{center}
+
+\begin{center}\small
+Kevin Kawchak\,\orcidicon{0009-0007-5457-8667}, CEO ChemicalQDevice \;|\;
+\href{mailto:kevink@chemicalqdevice.com}{kevink@chemicalqdevice.com} \;|\;
+\href{https://doi.org/10.5281/zenodo.xxxxxxxx}{10.5281/zenodo.xxxxxxxx}
+\end{center}
+
+\renewcommand{\keywordname}{\textbf{Keywords}}
+\keywords{<keywords>}
+
+\vspace{0.4em}
+{\color{accentcol}\rule{\linewidth}{0.6pt}}
+
+\renewcommand{\contentsname}{\color{accentcol}Table of Contents}
+{\setlength{\parskip}{0pt}\small\tableofcontents}
+\clearpage
+
+% ---------- Protocol body: one \input per NIH section ----------
+% \input{sections/sec-00-compliance}\clearpage
+% ... sec-01 through sec-12 ...
+
+\end{document}

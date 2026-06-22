@@ -1,0 +1,207 @@
+\section{Statement of Compliance}
+
+This trial will be conducted in accordance with the protocol, the principles of
+the International Council for Harmonisation (ICH) Good Clinical Practice (GCP)
+guideline E6(R3), and all applicable United States regulations governing both
+the investigational drug and the investigational device, together with the
+Physical AI overlay that governs the on-premises large language model (LLM)
+directed robotic system. This Phase 2 study is the randomized, controlled,
+multicenter efficacy evaluation that the first-in-human combined Investigational
+New Drug (IND) and Investigational Device Exemption (IDE) protocol explicitly
+deferred \cite{kawchak2026phase1}; the predicate study established the
+daraxonrasib recommended Phase 2 dose (RP2D) and device feasibility and safety,
+and this protocol now advances both components into a powered comparative trial.
+Two distinct but harmonized regulatory spines apply concurrently across the eight
+participating high-volume hepatopancreatobiliary (HPB) centers; both are carried
+in full below, and neither is subordinated to the other. The Sponsor-Investigator
+attests that the conduct of every study activity, the protection of every
+enrolled participant, and the integrity of every recorded datum will satisfy the
+more stringent of the two spines wherever they differ.
+
+\subsection{Drug Arm Compliance (IND, 21 CFR Part 312)}
+
+The perioperative daraxonrasib (RMC-6236) component is conducted under an IND in
+accordance with Title 21 of the Code of Federal Regulations. Specifically, the
+study complies with 21 CFR part 50 (Protection of Human Subjects, including the
+informed-consent requirements of \S50.20 through \S50.27) \cite{ecfr2026part50};
+21 CFR part 54 (Financial Disclosure by Clinical Investigators)
+\cite{ecfr2026part54}; 21 CFR part 56 (Institutional Review Boards); and 21 CFR
+part 312 (Investigational New Drug Application), including the sponsor and
+investigator responsibilities of subparts B and D, the safety-reporting
+requirements of \S312.32, and the IND-application and amendment provisions of
+\S312.20 through \S312.31. Because the predicate Phase 1 study established the
+RP2D \cite{kawchak2026phase1}, the drug arm is no longer a 3+3 dose-finding
+evaluation; daraxonrasib proceeds at the fixed RP2D of 300 mg orally once daily
+as a Phase 2 controlled efficacy evaluation under \S312.21(b). The IND remains in
+effect following the review period of \S312.40, the protocol advance is filed as
+an amendment under \S312.30, and no participant is dosed before the amended IND
+is in effect.
+
+\subsection{Device Arm Compliance (IDE, 21 CFR Part 812)}
+
+The on-premises LLM-directed eight-arm robotic pancreaticoduodenectomy (Whipple)
+system (PancreSpeed II) is an investigational medical device evaluated under an
+IDE in accordance with 21 CFR part 812 \cite{ecfr2026part812}. The
+Sponsor-Investigator and the reviewing Institutional Review Board (IRB) have
+determined that the device presents a significant risk within the meaning of
+\S812.3(m), because it is a surgical-intervention device whose patient-contact
+motion, force application, vascular-exclusion gating, and emergency-stop behavior
+present a potential for serious risk to the health, safety, or welfare of a
+participant. The study therefore proceeds only under an IDE approved by both the
+FDA and the IRB. The device arm additionally complies with 21 CFR part 50
+\cite{ecfr2026part50} and 21 CFR part 56 for human-subject protection and IRB
+oversight, and with 21 CFR part 11 (Electronic Records; Electronic Signatures)
+\cite{ecfr2026part11} for the validation, audit-trail, and electronic-signature
+controls that underpin the federated hash-chained command and telemetry record
+described in \S10. Having met the early-feasibility objectives of the predicate
+study \cite{kawchak2026phase1}, the device component is now framed as a
+multicenter randomized controlled clinical study under part 812, in which the
+comparative clinical performance of the device-directed operation is evaluated
+against institutional-standard high-volume pancreaticoduodenectomy.
+
+\subsection{Physical AI Overlay (21 CFR Part 312, Subpart J)}
+
+The autonomy-bearing behavior of the LLM-directed system is governed by the
+Physical AI overlay codified in 21 CFR part 312, Subpart J (\S312.400 through
+\S312.405), as adapted for end-to-end Physical AI oncology investigations
+\cite{kawchak2026adapt312}. For this Phase 2 study the Phase 0 gate is upgraded
+relative to the predicate. As preconditions to randomized enrollment, Subpart J
+now requires at least 5000 simulated procedures reproduced across at least three
+independent simulation frameworks, with a tightened sim-to-real correspondence of
+trajectory error $< 1.5$ mm and tip-force error $< 0.4$ N; a documented Unified
+Safety Level (USL) readiness rating of $\geq 8.0$ for surgical deployment, raised
+from the predicate threshold; per-site qualification together with multicenter
+fleet harmonization so that every device instance behaves identically across the
+eight centers; and a federated hash-chained audit trail spanning all sites under
+21 CFR part 11 \cite{ecfr2026part11}. The system remains classified as a Class II
+collaborative device under continuous human oversight with a guaranteed
+emergency-stop latency of $\leq 500$ ms, operated as Stage 2 supervised
+semiautonomy with immediate manual override; full autonomy is prohibited under 21
+CFR \S312.21(e). These overlay requirements operate in addition to, and never in
+place of, the part 312 and part 812 obligations above. The hash-chained audit
+trail required under \S312.404 satisfies the part 11 electronic-records standard
+and renders every LLM advisory, every robot command, and every safety-limit event
+re-traceable to a deterministic seed and a specific repository commit.
+
+\subsection{Good Clinical Practice and Electronic Records}
+
+The trial adheres to ICH E6(R3) GCP, the international ethical and scientific
+quality standard for designing, conducting, recording, and reporting clinical
+investigations involving human participants. All electronic clinical data,
+source records, and the cyber-physical telemetry stream are maintained under 21
+CFR part 11 \cite{ecfr2026part11}, with validated systems, secure time-stamped
+audit trails that do not obscure prior entries, role-based access controls, and
+electronic signatures bound to the records they authenticate. The federated
+hash-chained record specified by the Physical AI overlay provides cryptographic
+continuity across the screening, operative, and follow-up phases and across all
+eight participating sites, so that the multicenter telemetry corpus forms a single
+tamper-evident chain of custody.
+
+\subsection{Multicenter Single IRB and Co-Investment Governance}
+
+Because this is a cooperative multicenter study, a single IRB of record (sIRB)
+reviews the protocol for all eight participating sites in accordance with 45 CFR
+46.114 \cite{commonrule_sirb}, with site-level context handled through reliance
+agreements coordinated by the Coordinating Center. All co-investment in the trial
+is disclosed and managed under 21 CFR part 54 \cite{ecfr2026part54}. Contributions
+to the Patient-Aligned Co-Investment Facility (PACIF) are held behind a capital
+firewall that isolates every funder from randomization, endpoint definition,
+outcome adjudication, analysis, and publication; capital may purchase only
+operational capacity and never scientific outcomes. This separation is governed
+under the H.R. 9510 verification, validation, and uncertainty quantification
+(VVUQ) financial-data standard \cite{kawchak2026hr9510}, which subjects the flow
+and application of co-investment funds to the same auditable VVUQ discipline
+applied to the trial's technical evidence.
+
+\subsection{Trial Registration}
+
+The study will be registered on ClinicalTrials.gov before enrollment of the
+first participant. It is registered as an Interventional study with a randomized,
+parallel-assignment allocation. The drug component is classified as Phase 2
+(controlled efficacy evaluation of daraxonrasib at the established RP2D), while
+the device component carries Phase: Not Applicable, consistent with the
+ClinicalTrials.gov convention that FDA-defined phase categories apply to drugs and
+biologics rather than to devices. The Primary Purpose is recorded as Treatment.
+The study is open-label with blinded independent central review (BICR) of imaging,
+central masked pathology, and blinded endpoint adjudication, and it carries
+prespecified group-sequential interim analysis with efficacy and futility
+stopping rules.
+
+\subsection{Statement of Compliance Pathway}
+
+Figure 1 renders the combined IND and IDE compliance spine with the Physical AI
+Subpart J overlay as upgraded for Phase 2. The daraxonrasib drug arm (IND, part
+312, now at the established RP2D) and the robotic Whipple device arm (IDE, part
+812, significant-risk per \S812.3(m), now a randomized controlled study) converge
+through the upgraded Phase 0 simulation-validation gate, the raised USL readiness
+verification, the single IRB across the eight sites, and the Class II
+collaborative classification into a single multicenter randomized enrollment
+pathway.
+
+\subsection{Signatures}
+
+The Sponsor-Investigator and the Coordinating Principal Investigator have reviewed
+and approved this protocol and confirm that the study will be conducted in
+compliance with the protocol, ICH E6(R3) GCP, and the federal regulations cited
+above. By signature below, each signatory agrees to conduct or supervise the study
+in accordance with the protocol and all applicable requirements.
+
+\vspace{0.6em}
+
+\noindent\begin{tabularx}{\textwidth}{L{8.2cm} Y}
+\toprule
+\textbf{Sponsor-Investigator} & \textbf{Coordinating Principal Investigator} \\
+\midrule
+\vspace{0.1em}\rule{6.0cm}{0.4pt} & \vspace{0em}\rule{6.0cm}{0.4pt} \\
+Kevin Kawchak & Name (printed) \\
+CEO, ChemicalQDevice & Title / Institution \\[0.8em]
+Signature and date: \rule{2.6cm}{0.4pt} & Signature and date: \rule{2.6cm}{0.4pt} \vspace{0.05cm} \\
+\bottomrule
+\end{tabularx}
+
+\vspace{0.4em}
+
+\noindent\begin{tabularx}{\textwidth}{L{8.2cm} Y}
+\toprule
+\textbf{Multi-Site Principal Investigator} & \textbf{Site / Institution} \\
+\midrule
+\vspace{0.1em}\rule{6.0cm}{0.4pt} & \vspace{0em}\rule{6.0cm}{0.4pt} \\
+Name (printed) & One signature line per participating site \\
+Title / Institution & (eight high-volume HPB centers) \\[0.8em]
+Signature and date: \rule{2.6cm}{0.4pt} & Signature and date: \rule{2.6cm}{0.4pt} \vspace{0.05cm} \\
+\bottomrule
+\end{tabularx}
+
+\vspace{0.3em}
+
+\noindent The signatories acknowledge that this is an independent research draft;
+it is not an active IND or IDE and is not endorsed by the FDA, NIH, HHS, an IRB,
+ICH, or any sponsor.
+
+
+\begin{mermaidfig}
+\node[mmin]  (pre)   at (0,0)       {IND in effect\\daraxonrasib at RP2D\\Phase 2 efficacy};
+\node[mmstep](ind)   at (0,-2.4)    {Amended IND\\\S312.21(b)\\300 mg PO daily};
+\node[mmin]  (sr)    at (4.6,0)      {Significant-risk\\IDE \S812.3(m)\\randomized controlled};
+\node[mmstep](ide)   at (4.6,-2.4)   {IDE approved\\(FDA plus IRB)\\PancreSpeed II};
+\node[mmstep](p0)    at (2.3,-4.8)   {Phase 0 sim validation\\$\geq 3$ frameworks\\$<1.5$ mm / $<0.4$ N};
+\node[mmstep](usl)   at (2.3,-7.0)   {USL readiness $\geq 8.0$\\fleet harmonization\\federated audit};
+\node[mmgoal](cls)   at (2.3,-9.2)   {Single IRB (sIRB)\\8 HPB sites\\45 CFR 46.114};
+\node[mmgoal](enr)   at (2.3,-11.4)  {Multicenter randomized\\enrollment 1:1\\Class II, $\leq 500$ ms e-stop};
+\draw[mmedge] (pre) -- (ind);
+\draw[mmedge] (sr)  -- (ide);
+\draw[mmedge] (ind.south) |- (p0.west);
+\draw[mmedge] (ide.south) |- (p0.east);
+\draw[mmedge] (p0)  -- (usl);
+\draw[mmedge] (usl) -- (cls);
+\draw[mmedge] (cls) -- (enr);
+\end{mermaidfig}
+\vspace{-0.7cm}
+\figcaption{Figure 1. Combined IND / IDE regulatory pathway with the upgraded
+Physical AI overlay for Phase 2. The daraxonrasib drug arm (IND, part 312, at the
+established RP2D) and the robotic Whipple device arm (IDE, part 812,
+significant-risk per \S812.3(m), randomized controlled) converge through the
+upgraded Subpart J overlay of Phase 0 simulation validation across at least three
+frameworks, USL readiness $\geq 8.0$ with multicenter fleet harmonization, single
+IRB review across eight sites, and Class II collaborative classification into a
+single multicenter randomized enrollment pathway.}

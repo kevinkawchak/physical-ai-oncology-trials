@@ -1,0 +1,157 @@
+\section{Additional Considerations, Abbreviations, and Amendment History}
+
+\subsection{Additional Considerations}
+
+Although this protocol is written to the United States combined IND/IDE pathway, the
+LLM-directed robotic system is a Software as a Medical Device (SaMD) whose
+deployment may be sought across jurisdictions, and the design anticipates the
+parallel regulatory tracks summarized in Table~\ref{tab:jurisdictions}. The European
+Union Medical Device Regulation (EU MDR) and its companion artificial-intelligence
+requirements, China's National Medical Products Administration (NMPA), Japan's
+Pharmaceuticals and Medical Devices Agency (PMDA), the United Kingdom's Medicines
+and Healthcare products Regulatory Agency (MHRA), Health Canada, and Australia's
+Therapeutic Goods Administration (TGA) each maintain a SaMD and robotically assisted
+surgery framework with which the device evidence is designed to remain compatible.
+The common technical spine, Phase 0 simulation validation, USL readiness rating, the
+federated hash-chained audit trail, and the verification-before-generation gate
+surface, is constructed to map onto each track without redesign, and the
+international consensus standards cited in $\S$12 (IEC 80601-2-77, ASME V and V 40,
+NASA-STD-7009A, IEEE 7009-2024) provide a shared basis across jurisdictions
+\cite{iec8060127,asmevv40,nasastd7009,ieee7009}.
+
+A multicenter Physical AI trial also depends on learning across sites without
+centralizing raw patient data. The eight academic HPB centers operate as a federated
+network: model and validation evidence is exchanged across sites while raw telemetry
+and identifiable records remain local, the audit trail is hash-chained across the
+fleet so that every site's record is tamper-evident, and fleet harmonization ensures
+that every device instance behaves identically. This federated design lets the
+network accumulate validation evidence and reproduce simulated procedures at scale
+while preserving the deny-by-default privacy model of $\S$10.6 and the upgraded
+Phase 0 readiness gate at each site.
+
+The trial is additionally aligned with the legislative and financial framework of
+the Verification Before Generation in Physical AI Oncology Trials Act of 2026 (H.R.
+9510) \cite{kawchak2026hr9510}, which ties the funding and oversight of Physical AI
+oncology investigations to a verification-and-validation-and-uncertainty-quantification
+(VVUQ) evidentiary standard. That framework supplies the financial-data standard
+under which the Patient-Aligned Co-Investment Facility operates: co-investment
+capital raises operational capacity and trial success likelihood while the capital
+firewall and the VVUQ standard together ensure that funding is verifiable and that
+no funder can reach the science of the comparison. The ten-gate assurance suite
+operationalizes the technical half of that standard: every proposed robot-patient
+command is verified before it is generated, against fourteen external safety and
+robotics standards plus two clinical baselines, with epistemic and aleatory
+uncertainty bounds, and the gate surface returns one of accept, block, or escalate.
+Figure 22 renders the ten-gate pipeline.
+
+\begin{table}[htbp]
+\centering
+\footnotesize
+\caption{Cross-jurisdictional Software as a Medical Device (SaMD) and robotically
+assisted surgery tracks. The common technical spine (Phase 0 validation, USL
+readiness, the federated hash-chained audit trail, and the
+verification-before-generation gate surface) maps onto each track without redesign.}
+\label{tab:jurisdictions}
+\begin{tabularx}{\textwidth}{L{2.5cm} L{3.2cm} Y}
+\toprule
+\textbf{Jurisdiction} & \textbf{Regulator / framework} & \textbf{Alignment basis} \\
+\midrule
+European Union & EU MDR + AI reqs & SaMD risk classification; common simulation-validation and federated audit evidence. \\
+China & NMPA & SaMD, robotically assisted surgery review; standards-based VVUQ. \\
+Japan & PMDA & SaMD and device review; consensus-standard alignment. \\
+United Kingdom & MHRA & SaMD framework; post-market and audit-trail compatibility. \\
+Canada & Health Canada & SaMD licensing; quality-system and validation evidence. \\
+Australia & TGA & SaMD inclusion; standards-based safety and performance evidence. \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\vspace{-0.2cm}
+
+\begin{mermaidfig}
+\node[mmin]  (gen)  at (-0.2,0)      {Proposed robot-patient\\interaction code /\\command};
+\node[mmstep](gates)at (4.6,0)    {10-gate assurance suite\\14 external standards\\+ 2 clinical baselines};
+\node[mmstep](uq)   at (9.6,0)    {Uncertainty\\quantification:\\epistemic + aleatory};
+\node[mmdec] (v)    at (9.6,-2.6) {Gate surface\\verdict};
+\node[mmgoal](acc)  at (4.6,-2.6) {ACCEPT: verified\\before generation};
+\node[mmdark](blk)  at (-0.2,-2.6)   {BLOCK: command\\refused};
+\node[mmdark](esc)  at (4.6,-4.5) {ESCALATE: hand\\back to human};
+\draw[mmedge] (gen) -- (gates);
+\draw[mmedge] (gates) -- (uq);
+\draw[mmedge] (uq) -- (v);
+\draw[mmedge] (v) -- node[above,font=\scriptsize, xshift=0.1cm]{accept} (acc);
+\draw[mmedge] (acc) -- node[above,font=\scriptsize, xshift=0.05cm]{block} (blk);
+\draw[mmedge] (v.south west) -- node[right,font=\scriptsize,pos=0.6]{escalate} (esc.east);
+\end{mermaidfig}
+\vspace{-0.7cm}
+\figcaption{Figure 22. Verification before generation. Every proposed robot-patient
+command passes a ten-gate assurance suite aligned to fourteen external safety and
+robotics standards plus two clinical baselines, with epistemic and aleatory
+uncertainty bounds, before the gate surface returns ACCEPT, BLOCK, or ESCALATE (hand
+back to human).}
+
+\subsection{Protocol Amendment History}
+
+Table~\ref{tab:amend} records the version history of this protocol and its Phase 1
+predicate; subsequent amendments will be appended with the version, date, sections
+affected, and a summary of the change.
+
+\begin{table}[htbp]
+\centering
+\footnotesize
+\caption{Protocol amendment history.}
+\label{tab:amend}
+\begin{tabularx}{\textwidth}{L{2.0cm} L{2.6cm} L{3.2cm} Y}
+\toprule
+\textbf{Version} & \textbf{Date} & \textbf{Sections affected} & \textbf{Summary of change} \\
+\midrule
+v1.0.0 & June 20, 2026 & All (predicate protocol) & Phase 1 predicate protocol \cite{kawchak2026phase1}: the first-in-human, single-arm, combined IND/IDE design that established the daraxonrasib recommended Phase 2 dose through a perioperative 3+3, the on-premises LLM-directed eight-arm robotic Whipple device feasibility, the Physical AI Subpart J overlay, and the safety and oversight framework on which this Phase 2 builds. \\
+v1.1.0 & June 23, 2026 & All (this protocol) & This Phase 2, multicenter, randomized, controlled protocol. Establishes the randomized 1:1 parallel-group design with BICR, daraxonrasib at the recommended Phase 2 dose plus standard-of-care control, the upgraded Phase 0 readiness gate (USL $\geq 8.0$), multicenter single-IRB governance, the co-investment model and the capital firewall, and the confirmatory group-sequential statistical framework. \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\vspace{-0.2cm}
+
+\subsection{Abbreviations}
+
+Table~\ref{tab:abbrev} resolves every abbreviation used across this protocol.
+
+\begin{table}[htbp]
+\centering
+\footnotesize
+\caption{Abbreviations used in this protocol.}
+\label{tab:abbrev}
+\begin{tabularx}{\textwidth}{L{1.3cm} L{6.8cm} L{1.3cm} L{6.2cm}}
+\toprule
+\textbf{Abbr.} & \textbf{Definition} & \textbf{Abbr.} & \textbf{Definition} \\
+\midrule
+AE     & Adverse event                                  & MTD   & Maximum tolerated dose \\
+BICR   & Blinded independent central review              & NMPA  & National Medical Products Administration \\
+CONSORT& Consolidated Standards of Reporting Trials      & OS    & Overall survival \\
+CRF    & Case report form                                & PACIF & Patient-Aligned Co-Investment Facility \\
+CRO    & Clinical research organization                  & PDAC  & Pancreatic ductal adenocarcinoma \\
+ctDNA  & Circulating tumor DNA                           & PFS   & Progression-free survival \\
+CTCAE  & Common Terminology Criteria for Adverse Events  & PJ    & Pancreaticojejunostomy \\
+DLT    & Dose-limiting toxicity                          & PMDA  & Pharmaceuticals and Medical Devices Agency \\
+DSMB   & Data and Safety Monitoring Board                & PP    & Per-protocol \\
+ECOG   & Eastern Cooperative Oncology Group              & PV    & Portal vein \\
+EORTC  & European Organisation for Research and Treatment of Cancer & QoL & Quality of life \\
+FDA    & U.S. Food and Drug Administration               & R0    & Margin-negative resection \\
+GCP    & Good Clinical Practice                          & RCT   & Randomized controlled trial \\
+GJ     & Gastrojejunostomy                               & RP2D  & Recommended Phase 2 dose \\
+HJ     & Hepaticojejunostomy                             & SAE   & Serious adverse event \\
+HPB    & Hepatopancreatobiliary                          & SaMD  & Software as a Medical Device \\
+HR     & Hazard ratio                                    & sIRB  & Single Institutional Review Board \\
+ICH    & International Council for Harmonisation         & SMA   & Superior mesenteric artery \\
+IDE    & Investigational Device Exemption                & SMV   & Superior mesenteric vein \\
+IND    & Investigational New Drug                        & TGA   & Therapeutic Goods Administration \\
+ISGPS  & International Study Group of Pancreatic Surgery & USL   & Unified Safety Level \\
+ISM    & Independent Safety Monitor                      & VVUQ  & Verification, validation, and uncertainty quantification \\
+ITT    & Intention-to-treat                              & MDR   & Medical Device Regulation \\
+KRAS   & Kirsten rat sarcoma viral oncogene homolog      & MHRA  & Medicines and Healthcare products Regulatory Agency \\
+LLM    & Large language model                            & MPR   & Major pathologic response \\
+mITT   & Modified intention-to-treat                     &       & \\
+\bottomrule
+\end{tabularx}
+\end{table}

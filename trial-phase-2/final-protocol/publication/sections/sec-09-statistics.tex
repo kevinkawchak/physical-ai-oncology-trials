@@ -1,0 +1,304 @@
+\section{Statistical Considerations}
+
+The statistical framework for this study is that of a confirmatory, randomized,
+controlled superiority trial designed to test a comparative efficacy hypothesis
+between the investigational regimen (Arm A) and institutional-standard care (Arm B).
+Accordingly, the primary analysis is hypothesis-testing and is protected against type
+I error inflation, in contrast to the predominantly descriptive framework of the
+single-arm predicate \cite{kawchak2026phase1}. All analyses follow the principles of
+the International Council for Harmonisation (ICH) E9 guideline on statistical
+principles for clinical trials, including the estimand framework for defining the
+target of estimation, are prespecified in this section and in the Statistical
+Analysis Plan that this section summarizes, and are reported in accordance with the
+CONSORT statement for parallel-group randomized trials \cite{Schulz2010consort} and
+the TRIPOD+AI statement for the model-assisted advisory component
+\cite{Collins2024tripodai}.
+
+\subsection{Statistical Hypotheses}
+
+The study has one primary efficacy hypothesis and a prespecified hierarchy of key
+secondary hypotheses, each matched to a population-level summary and an analytic
+method.
+
+The primary efficacy hypothesis concerns progression-free survival (PFS). Let
+$\theta$ denote the true hazard ratio (HR) for PFS comparing Arm A with Arm B. The
+null and alternative hypotheses are $H_0\!: \theta \geq 1$ (no PFS benefit of Arm A
+relative to Arm B) versus $H_1\!: \theta < 1$. The hypothesis is tested by a
+stratified log-rank test using the randomization strata (resectability, KRAS allele,
+neoadjuvant therapy, and site), and the treatment effect is estimated by a stratified
+Cox proportional-hazards model that yields the HR with a two-sided $95\%$ confidence
+interval. The test is two-sided at the $\alpha = 0.05$ level, with the type I error
+allocated across one interim and the final analysis by a group-sequential alpha
+spending function ($\S$9.2, $\S$9.4.6).
+
+The key secondary hypotheses are tested only if the primary PFS hypothesis is
+rejected, in a fixed-sequence (hierarchical) order that controls the family-wise type
+I error at two-sided $0.05$ without further multiplicity adjustment: overall survival
+(OS); the margin-negative (R0) resection rate; the clinically relevant (ISGPS Grade B
+or C) postoperative pancreatic fistula rate \cite{Bassi2017}; the major pathologic
+response (MPR) rate; and the week-12 KRAS ctDNA clearance rate \cite{Tie2019ctdna}.
+Each is tested at two-sided $0.05$, and testing proceeds down the sequence only while
+each successive null hypothesis is rejected; the first non-rejection stops the
+confirmatory sequence, and endpoints below that point are reported descriptively. The
+remaining secondary endpoints are estimation targets reported with two-sided $95\%$
+confidence intervals and are not part of the confirmatory hierarchy. ICH E9 estimand
+attributes (population, endpoint, handling of intercurrent events such as open
+conversion, withdrawal, new anticancer therapy, or death, and the population-level
+summary) are specified for every endpoint in the Statistical Analysis Plan.
+
+\subsection{Sample Size Determination}
+
+The planned sample size is $n=220$ participants randomized 1:1 (110 per arm). The
+sample size is event-driven: under proportional hazards, approximately $140$ PFS
+events provide $85\%$ power at a two-sided $\alpha = 0.05$ to reject the primary null
+hypothesis when the true PFS hazard ratio is $0.60$, corresponding to a median PFS of
+$14.0$ months in Arm B and $23.3$ months in Arm A. The randomization of 220
+participants is projected to accrue the required $140$ events over approximately a
+30-month accrual period across the eight sites followed by a minimum of 18 months of
+additional follow-up. To preserve the evaluable sample against non-evaluability
+(major eligibility violations, withdrawal before any post-baseline assessment, or
+missing the primary assessment), up to approximately $245$ participants may be
+enrolled, allowing for up to $10\%$ non-evaluability while retaining $220$ evaluable
+randomized participants.
+
+A single interim analysis for efficacy and futility is performed when approximately
+$60\%$ of the targeted PFS events (approximately $84$ events) have accrued. The type
+I error is controlled across the interim and final analyses by the Lan-DeMets alpha
+spending function approximating the O'Brien-Fleming boundary, which spends little
+alpha at the interim and preserves close to the full two-sided $0.05$ for the final
+analysis \cite{DeMets1994lan,Jennison2000group}; a non-binding futility boundary
+based on the corresponding beta spending is evaluated at the same interim. The
+operating characteristics of the design are summarized in Table~\ref{tab:power}.
+
+\begin{table}[htbp]
+\centering
+\footnotesize
+\caption{Design and operating characteristics for the confirmatory
+progression-free-survival comparison. The trial is an event-driven, randomized,
+two-arm superiority design with one group-sequential interim analysis governed by a
+Lan-DeMets O'Brien-Fleming alpha spending function.}
+\label{tab:power}
+\begin{tabularx}{\textwidth}{L{3cm} L{3.2cm} Y}
+\toprule
+\textbf{Parameter} & \textbf{Planned value} & \textbf{Basis and operating characteristic} \\
+\midrule
+Design & Randomized 1:1, two-arm, superiority & Multicenter (8 sites), controlled, open-label with blinded independent central review. \\
+Arms & Arm A vs Arm B & Arm A: daraxonrasib RP2D plus LLM-directed robotic Whipple. Arm B: modified FOLFIRINOX plus standard pancreaticoduodenectomy \cite{Conroy2018}. \\
+Allocation & 1:1 (110 per arm) & Central permuted-block randomization, stratified by resectability, KRAS allele, neoadjuvant therapy, and site. \\
+Primary endpoint & Progression-free survival & Time from randomization to RECIST 1.1 progression or death; stratified log-rank with stratified Cox HR. \\
+Target hazard ratio & HR $= 0.60$ & Alternative hypothesis ($H_1\!: \theta < 1$); corresponds to the assumed treatment benefit. \\
+Median PFS & 14.0 vs 23.3 months & Arm B (control) versus Arm A (experimental) under proportional hazards. \\
+Power & $85\%$ & At HR $= 0.60$ and two-sided $\alpha = 0.05$. \\
+Significance level & $\alpha = 0.05$ (two-sided) & Allocated across one interim and the final analysis by alpha spending. \\
+Target events & approximately 140 PFS events & Event-driven primary analysis; database lock at the target event count. \\
+Interim analysis & one, at approximately $60\%$ of events ($\sim 84$) & Efficacy and futility; Lan-DeMets O'Brien-Fleming spending; DSMB review \cite{DeMets1994lan,Jennison2000group}. \\
+Sample size & $n = 220$ (up to $\sim 245$ enrolled) & Up to $\sim 245$ enrolled to allow $\leq 10\%$ non-evaluability. \\
+Accrual and follow-up & $\sim 30$-month accrual, $\geq 18$-month follow-up & Across 8 sites; follow-up to the 24-month overall-survival endpoint. \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\subsection{Populations for Analyses}
+
+Four analysis populations are defined and applied consistently across all analyses.
+The intention-to-treat (ITT) population comprises all randomized participants
+analyzed according to the arm to which they were randomized, and is the primary
+population for the primary and key secondary efficacy analyses. The modified
+intention-to-treat (mITT) population comprises all randomized participants who
+received any study intervention and contributed at least one post-baseline
+assessment, and supports sensitivity analyses. The per-protocol population comprises
+participants who received the assigned intervention without a major protocol deviation
+that could affect the efficacy assessment, and supports supportive analyses of the
+primary and surgical-quality endpoints. The safety population comprises all
+participants who received any study intervention, analyzed according to the
+intervention actually received, and is the population for all safety analyses. The
+derivation of the populations and the group-sequential interim with the DSMB efficacy
+and futility boundaries are shown in Figure 18.
+
+\begin{mermaidfig}
+\node[mmin]  (rand) at (0.3,-1.15)  {Randomized 1:1\\n = 220\\(110 per arm)};
+\node[mmstep](itt)  at (4.4,2.3)    {ITT population\\all randomized\\(primary)};
+\node[mmstep](mitt) at (4.4,0)      {modified ITT\\dosed with $\geq 1$\\post-baseline assessment};
+\node[mmstep](pp)   at (4.4,-2.3)   {Per-protocol\\assigned intervention,\\no major deviation};
+\node[mmstep](saf)  at (4.4,-4.6)   {Safety population\\intervention\\as received};
+\node[mmdec] (intm) at (10.3,2.3)   {Interim at $\sim 60\%$\\events ($\sim 84$):\\DSMB review};
+\node[mmgoal](bound)at (8,-0.6)     {O'Brien-Fleming\\efficacy / futility\\boundary crossed};
+\node[mmgoal](cont) at (11.7,-0.215){Continue to\\final analysis};
+\draw[mmedge] (rand.north east) -- (itt.south west);
+\draw[mmedge] (rand.north east) -- (mitt.west);
+\draw[mmedge] (rand.south east) -- (pp.west);
+\draw[mmedge] (rand.south east) -- (saf.north west);
+\draw[mmedge] (itt) -- (intm);
+\draw[mmedge] (intm.south west) -- node[left,font=\scriptsize, yshift=0.2cm, xshift=0.1cm]{crossed} (bound.north);
+\draw[mmedge] (intm.south east) -- node[left,font=\scriptsize,pos=0.6, yshift=0.1cm, xshift=-0.1cm]{within} (cont.north);
+\end{mermaidfig}
+\vspace{-0.6cm}
+\figcaption{Figure 18. The four analysis populations (intention-to-treat,
+modified intention-to-treat, per-protocol, safety) and the single group-sequential
+interim analysis at approximately $60\%$ of the targeted progression-free-survival
+events, at which the DSMB evaluates the Lan-DeMets O'Brien-Fleming efficacy and
+futility boundaries. Binding device-safety halt rules operate in parallel: a
+device-related serious-adverse-event rate breach or a hard-limit breach triggers a
+mandatory DSMB review.}
+
+\subsection{Statistical Analyses}
+
+\subsubsection{General Approach}
+
+The primary and key secondary efficacy analyses are confirmatory and are protected
+against type I error inflation; the remaining analyses are estimation-based and
+descriptive. Time-to-event endpoints are analyzed by the stratified log-rank test and
+summarized by the Kaplan-Meier method with the number at risk, and the treatment
+effect is estimated by a stratified Cox proportional-hazards model reporting the
+hazard ratio with a two-sided $95\%$ confidence interval; the proportional-hazards
+assumption is assessed and, if it is not supported, a prespecified alternative
+(restricted mean survival time) is reported. Binary endpoints are summarized as
+proportions with two-sided $95\%$ confidence intervals and compared by a
+stratified test (Cochran-Mantel-Haenszel) where a confirmatory comparison is
+specified. Continuous variables are summarized by the number of non-missing
+observations, mean, standard deviation, median, minimum, and maximum; categorical
+variables are summarized by counts and percentages. ICH E9 estimands govern the
+handling of intercurrent events. Missing data are handled by the prespecified primary
+estimand strategy, with sensitivity analyses to assess robustness. All analyses are
+performed in a validated, version-controlled statistical environment under a
+deterministic random seed, and the analysis code and derived data sets are deposited
+so that every reported result is reproducible.
+
+\subsubsection{Analysis of the Primary Endpoint}
+
+The primary endpoint, PFS, is analyzed on the ITT population. The primary analysis is
+the stratified log-rank test of $H_0\!: \theta \geq 1$ against $H_1\!: \theta < 1$ at
+the alpha allocated to the final analysis by the group-sequential spending function,
+with the hazard ratio and its two-sided $95\%$ confidence interval estimated from the
+stratified Cox model. The primary read is the investigator-assessed PFS; a
+prespecified sensitivity analysis repeats the test and estimation on the
+BICR-assessed PFS to confirm that the open-label delivery does not propagate into
+endpoint ascertainment ($\S$8.1). Additional sensitivity analyses repeat the primary
+analysis on the per-protocol and mITT populations and under alternative
+censoring rules for new anticancer therapy.
+
+\subsubsection{Analysis of the Key Secondary Endpoints}
+
+The key secondary endpoints are analyzed only if the primary null hypothesis is
+rejected, in the fixed-sequence hierarchy of $\S$9.1: OS, then the R0 resection rate,
+then the ISGPS Grade B or C fistula rate, then the MPR rate, then the week-12 KRAS
+ctDNA clearance rate. OS is analyzed by the stratified log-rank test and the
+stratified Cox model on the ITT population; the binary key secondary endpoints are
+analyzed by the stratified Cochran-Mantel-Haenszel test with the risk difference and
+its $95\%$ confidence interval. Each test is conducted at two-sided $0.05$, and the
+sequence stops at the first non-rejection. The key secondary and the remaining
+secondary endpoints, their analysis populations and methods, and the external Dutch
+2025 nationwide robotic-pancreatoduodenectomy descriptive context are summarized in
+Table~\ref{tab:secendpts} \cite{DutchCohort2025}.
+
+\begin{table}[htbp]
+\centering
+\footnotesize
+\caption{Key secondary (confirmatory, fixed-sequence) and other secondary
+(estimation) endpoints, the analysis population and method, and the reporting and
+external comparator. The Dutch 2025 nationwide robotic-pancreatoduodenectomy cohort
+is an external descriptive reference, not an inferential comparator.}
+\label{tab:secendpts}
+\begin{tabularx}{\textwidth}{L{4.5cm} L{3.4cm} Y}
+\toprule
+\textbf{Endpoint} & \textbf{Population / method} & \textbf{Reporting and comparator} \\
+\midrule
+Overall survival (key) & ITT; stratified log-rank, Cox HR & First in the hierarchy after PFS; KM curves, HR with $95\%$ CI; 24-month rate. \\
+R0 resection rate (key) & ITT; stratified CMH & Risk difference with $95\%$ CI; central masked synoptic pathology. \\
+ISGPS Grade B/C fistula (key) & ITT; stratified CMH & Risk difference with $95\%$ CI; graded per the 2016 ISGPS update \cite{Bassi2017}. \\
+Major pathologic response (key) & ITT; stratified CMH & Risk difference with $95\%$ CI; central pathology grading. \\
+Week-12 KRAS ctDNA clearance (key) & ITT; stratified CMH & Risk difference with $95\%$ CI; central laboratory assay \cite{Tie2019ctdna}. \\
+Clavien-Dindo grade III+ & Safety; proportion, $95\%$ CI & Estimation only; Dutch 2025 reference 41.3\% \cite{DutchCohort2025}. \\
+90-day mortality & Safety; proportion, $95\%$ CI & Estimation only; Dutch 2025 reference 3.9\% \cite{DutchCohort2025}. \\
+Conversion to open & Safety; proportion, $95\%$ CI & Estimation only; Dutch 2025 reference 10.1\% \cite{DutchCohort2025}. \\
+Operative time, EBL, length of stay & Per-protocol; descriptive & Mean / median with range; Dutch 2025 descriptive context \cite{DutchCohort2025}. \\
+Quality of life & mITT; descriptive / mixed model & EORTC QLQ-C30 and PAN26 over time \cite{EORTCqlqc30}. \\
+12- and 18-month PFS rate; 24-month OS rate & ITT; Kaplan-Meier & Landmark rates with $95\%$ CI. \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\subsubsection{Safety Analyses}
+
+All safety analyses are performed on the safety population, with events analyzed
+according to the intervention actually received. Adverse events are coded to the
+Medical Dictionary for Regulatory Activities (MedDRA) and tabulated by system organ
+class and preferred term, by maximum severity using the Common Terminology Criteria
+for Adverse Events (CTCAE), and by relationship to the drug, to the device (Arm A),
+and to the procedure, with proportions accompanied by $95\%$ confidence intervals and
+reported by arm. Serious adverse events and deaths are listed individually. Device
+telemetry constitutes a second, parallel safety stream unique to Arm A. The
+cyber-physical record is summarized per procedure and in aggregate: emergency-stop
+activations and the measured stop latency against the $\leq 500$ ms requirement;
+positional and force excursions against the per-arm $\leq 3$ N and cumulative
+$\leq 18$ N caps; vascular safety-zone gating events; and the counts of LLM
+advisories that were accepted, blocked, or escalated to the human operator. A
+dedicated Physical AI adverse-event tabulation records, for every event, whether an
+LLM advisory, a robot command, a safety-limit trip, or a human override was
+implicated, so that events arising from the autonomy-bearing layer are visible and
+traceable to a deterministic seed and a repository commit through the federated
+hash-chained audit trail ($\S$8.3.6). Laboratory data, vital signs, and
+physical-examination findings are summarized descriptively with shift tables relative
+to baseline.
+
+\subsubsection{Baseline Descriptive Statistics}
+
+Baseline characteristics are summarized descriptively by arm and overall. Reported
+variables include demographics (age, sex, race, ethnicity); disease staging and
+resectability category (resectable versus borderline-resectable); the specific KRAS
+G12 mutation; baseline CA 19-9; Eastern Cooperative Oncology Group (ECOG) performance
+status; prior neoadjuvant therapy and number of cycles; and relevant comorbidity and
+organ-function indices. Consistent with CONSORT and the randomized design, baseline
+characteristics are presented by arm without a formal significance test of baseline
+balance \cite{Schulz2010consort}; any notable imbalance in a strong prognostic factor
+is addressed by a prespecified covariate-adjusted sensitivity analysis of the primary
+endpoint.
+
+\subsubsection{Planned Interim Analyses}
+
+A single formal interim analysis of the primary endpoint is conducted when
+approximately $60\%$ of the targeted PFS events (approximately $84$ events) have
+accrued, and is reviewed by the independent DSMB. Efficacy is assessed against the
+Lan-DeMets O'Brien-Fleming efficacy boundary and futility against the corresponding
+non-binding futility boundary, so that the cumulative two-sided type I error across
+the interim and final analyses is controlled at $0.05$
+\cite{DeMets1994lan,Jennison2000group}. In parallel with the efficacy interim, binding
+device-safety halt rules operate throughout the trial: a device-related serious
+adverse-event rate that reaches the prespecified halt threshold, or a breach of a hard
+cyber-physical safety limit (emergency-stop latency, or the per-arm or cumulative
+force caps), triggers a mandatory DSMB review and possible halt, and a halt for an
+immediate hazard is implemented at once under $\S$312.30(h). No efficacy stopping
+decision is taken outside the prespecified group-sequential boundary.
+
+\subsubsection{Sub-Group Analyses}
+
+Prespecified subgroup analyses of the primary endpoint are conducted by resectability
+category, KRAS allele (G12D versus other G12), neoadjuvant therapy (yes versus no),
+and site, with the hazard ratio and $95\%$ confidence interval displayed in a forest
+plot and a test of treatment-by-subgroup interaction reported. These analyses are
+prespecified but are interpreted with caution as supportive and hypothesis-refining;
+they are not adjusted for multiplicity, and no confirmatory conclusion is drawn from
+any single subgroup.
+
+\subsubsection{Tabulation of Individual Participant Data}
+
+Individual participant data are tabulated to support the aggregate analyses.
+Participant-level listings are provided for demographics and baseline characteristics;
+randomized arm, stratification factors, and actual intervention received; all adverse
+events with onset, severity, seriousness, relationship, and outcome; serious adverse
+events and deaths; the efficacy endpoints and their event or assessment dates; and,
+for Arm A, the per-procedure device-telemetry and Physical AI event summaries, each
+keyed to participant and timepoint. Listings are presented so that every aggregate
+statistic can be traced to its contributing records.
+
+\subsubsection{Exploratory Analyses}
+
+Exploratory analyses are non-confirmatory and are clearly labeled as such. They
+include the concordance between LLM advisories and the verdicts of the deterministic
+safety gates; the sim-to-real gap between the Phase 0 simulation predictions and the
+observed intraoperative telemetry; the performance of the federated-learning model
+across sites over the course of the trial; the longitudinal dynamics of KRAS ctDNA
+beyond the week-12 clearance endpoint \cite{Tie2019ctdna}; and a health-economic and
+cost-effectiveness analysis linked to the co-investment facility. These exploratory
+results generate hypotheses for later development and are not used to draw confirmatory
+efficacy conclusions in this protocol.

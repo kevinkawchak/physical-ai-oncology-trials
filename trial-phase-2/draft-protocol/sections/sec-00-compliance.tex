@@ -1,0 +1,72 @@
+\section{Statement of Compliance}
+
+\draftinstr{Follow the Phase 2 publication section
+\texttt{final-protocol/publication/sections/sec-00-compliance.tex} and the Phase 1
+model file \texttt{trial-protocol/draft-protocol/sections/sec-00-compliance.tex}.
+Render the dual-spine compliance statement for the randomized, controlled,
+multicenter efficacy study, framed as the trial the Phase 1 predicate deferred
+\cite{kawchak2026phase1}. Source the section order and required content from
+\texttt{trial-protocol/nih-protocol/01\_statement\_of\_compliance\_protocol\_summary\_introduction.md}.}
+
+\subsection{Drug Arm Compliance (IND, 21 CFR Part 312)}
+\draftinstr{Carry the IND citations: 21 CFR parts 50, 54, 56, and 312, with the
+safety reporting of \S312.32 and the amendment provisions of \S312.20 through
+\S312.31. State that, because the predicate established the RP2D, the drug arm is
+no longer a 3+3 evaluation; daraxonrasib proceeds at the fixed RP2D of 300 mg
+orally once daily as a Phase 2 controlled efficacy evaluation under \S312.21(b).
+Source from \texttt{trial-protocol/inputs/21cfr312\_adapt/02\_ind\_content\_phases.tex}
+and \texttt{trial-protocol/inputs/2030-pdac-1min-final-paper/sections/introduction.tex}.}
+
+\subsection{Device Arm Compliance (IDE, 21 CFR Part 812)}
+\draftinstr{State the significant-risk IDE determination under \S812.3(m) for the
+PancreSpeed II eight-arm robotic Whipple, now framed as a multicenter randomized
+controlled clinical study under part 812; add the 21 CFR part 11 electronic-records
+clause supporting the federated hash-chained audit trail. Source from
+\texttt{trial-protocol/inputs/21cfr312\_adapt/01\_preamble\_scope\_definitions.tex}.}
+
+\subsection{Physical AI Overlay (21 CFR Part 312, Subpart J)}
+\draftinstr{Carry the Subpart J overlay (\S312.400 through \S312.405) with the
+\emph{upgraded} Phase 0 gate: USL $\geq 8.0$, at least 5000 simulated procedures
+across at least 3 independent frameworks, sim-to-real trajectory $< 1.5$ mm and
+tip-force $< 0.4$ N, per-site qualification plus multicenter fleet harmonization,
+and a federated hash-chained audit trail under part 11. Retain Stage 2 supervised
+semiautonomy with $\leq 500$ ms e-stop; full autonomy prohibited under
+\S312.21(e). Source from
+\texttt{trial-protocol/inputs/21cfr312\_adapt/05\_clinical\_holds\_appendices\_closing.tex}
+and \cite{kawchak2026adapt312}.}
+
+\subsection{Good Clinical Practice and Electronic Records}
+\draftinstr{Add the ICH E6(R3) GCP attestation and the 21 CFR part 11
+electronic-records clause (validated systems, secure time-stamped audit trails,
+role-based access, bound electronic signatures) supporting the federated
+hash-chained record across all eight sites \cite{ecfr2026part11}.}
+
+\subsection{Multicenter Single IRB and Co-Investment Governance}
+\draftinstr{State the single IRB of record (sIRB) for all eight sites under 45 CFR
+46.114 \cite{commonrule_sirb}, with reliance agreements coordinated by the
+Coordinating Center; disclose co-investment under 21 CFR part 54 \cite{ecfr2026part54}
+and the PACIF capital firewall governed by the H.R. 9510 VVUQ financial-data
+standard \cite{kawchak2026hr9510}.}
+
+\subsection{Trial Registration}
+\draftinstr{Register as Interventional, randomized parallel-assignment; drug
+component Phase 2, device component Phase: Not Applicable, Primary Purpose
+Treatment; open-label with blinded independent central review and a prespecified
+group-sequential interim. Source from
+\texttt{trial-protocol/nih-protocol/01\_statement\_of\_compliance\_protocol\_summary\_introduction.md}.}
+
+\subsection{Statement of Compliance Pathway}
+\draftinstr{Render \texttt{trial-phase-2/mermaid/fig-01-ind-ide-pathway.md} here as
+a TikZ \texttt{mermaidfig} (this is \textbf{Figure 1}): the combined IND/IDE
+compliance spine with the upgraded Physical AI Subpart J overlay converging through
+the Phase 0 gate, USL readiness, single IRB across eight sites, and Class II
+collaborative classification into a single multicenter randomized enrollment
+pathway.}
+
+\subsection{Signatures}
+\draftinstr{Carry the signature blocks for the Sponsor-Investigator (Kevin
+Kawchak, CEO ChemicalQDevice), the Coordinating Principal Investigator, and the
+Multi-Site Principal Investigator (one line per participating site, eight HPB
+centers), with the independent-research-draft acknowledgment. Use
+\texttt{tabularx} with \texttt{L\{\}} and \texttt{Y} columns per the Phase 1
+model.}
