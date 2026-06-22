@@ -4,6 +4,40 @@ Release notes for the physical-ai-oncology-trials repository.
 
 ---
 
+Physical AI Pancreatic Whipple + Daraxonrasib Phase 2 Randomized Controlled Trial Protocol (v4.1.0)
+v4.1.0 - Physical AI Pancreatic Whipple + Daraxonrasib Phase 2 Randomized Controlled Trial Protocol
+
+## Summary
+
+This release adds trial-phase-2/, the multicenter randomized Phase 2 follow-up to the Phase 1 protocol: a Phase 2, multicenter (8 high-volume academic hepatopancreatobiliary centers), randomized 1:1, parallel-group, controlled, open-label study with blinded independent central review of on-premises large language model directed robotic pancreaticoduodenectomy (the Whipple procedure) with perioperative daraxonrasib (RMC-6236) in KRAS-mutated pancreatic ductal adenocarcinoma. With the Phase 1 protocol having established the daraxonrasib recommended Phase 2 dose (300 mg once daily) and the device feasibility and safety, genuine clinical equipoise now exists for a randomized comparison. Arm A is perioperative daraxonrasib at the recommended Phase 2 dose plus the LLM-directed eight-arm robotic Whipple; Arm B is modified FOLFIRINOX plus institutional-standard high-volume pancreaticoduodenectomy. The trial randomizes 220 participants (110 per arm) and is powered for a confirmatory progression-free survival primary endpoint (hazard ratio 0.60, 85 percent power, two-sided alpha 0.05, about 140 events, one group-sequential interim), with a fixed-sequence hierarchy of key secondary endpoints (overall survival, R0 resection rate, ISGPS grade B/C fistula rate, major pathologic response, and circulating-tumor-DNA clearance). The device readiness bar is raised (Unified Safety Level greater than or equal to 8.0, at least 5000 simulated procedures across at least 3 independent frameworks, sim-to-real tightened to less than 1.5 mm and less than 0.4 N), with multicenter fleet harmonization, a federated hash-chained audit trail, a single IRB of record, and an independent DSMB. The entire document is recolored to the five-step Phase 2 palette with Burgundy 800020 as the document color. Authored by Kevin Kawchak (ChemicalQDevice), protocol v1.1.0, DOI 10.5281/zenodo.xxxxxxxx, June 23, 2026.
+
+A distinctive Phase 2 addition is a Patient-Aligned Co-Investment Facility: wealthier individuals connected to cancer patients contribute ring-fenced philanthropic and private capital to raise the trial's success likelihood. A capital firewall structurally prevents any funder from influencing randomization, endpoint definition, outcome adjudication, statistical analysis, data access, or publication. Capital purchases only operational success-likelihood levers (the eight-site network, expanded Phase 0 simulation compute, the robot fleet, a Patient Access and Equity Fund, central review and biomarker infrastructure, and independent oversight), so money raises power, fidelity, retention, equity, and generalizability and never buys a favorable answer. The facility is disclosed under 21 CFR part 54 and aligned with the H. R. 9510 verification-before-generation VVUQ financial-data standard.
+
+## Features
+
+- trial-phase-2/prompts: the Phase 2 master prompt filed verbatim and the narrative output.
+- trial-phase-2/sub-prompts: the four generated stage sub-prompts re-targeted to the randomized multicenter Phase 2 design.
+- trial-phase-2/mermaid: 24 new Mermaid figures recolored to the Phase 2 palette (Burgundy 800020, Charcoal 2E2E2E, Slate 6B6B6B, Mist C9C9C9, Cloud F5F5F5), one commit per figure family, each carrying real quantitative data and named source files.
+- trial-phase-2/draft-protocol: the 13-section NIH scaffold with bracketed drafting instructions, plus an Overleaf zip.
+- trial-phase-2/full-protocol: the 13 full sections with 22 TikZ mermaidfig figures and 11 full-width tables, plus an Overleaf zip.
+- trial-phase-2/final-protocol: the polished sections (raggedbottom, clearpage per section), plus an Overleaf zip; and final-protocol/publication as the author-edited paper URL directory.
+- Comprehensive READMEs and relevant badges in every trial-phase-2 directory; the paper template recolored to 800020; a PNG-free TikZ ORCID iD mark.
+- Root README updated with twice the badges, a 425-character summary, a dedicated v4.1.0 section (colored Mermaid, tables, table of contents), and the trial-phase-2 structure tree. CHANGELOG.md updated.
+
+## Contributors
+@kevinkawchak
+@claude
+@google-gemini
+@openai
+
+## Notes
+
+- No raster images anywhere; the permitted media are full-width white-background tables, centered monospace ASCII figures, and Burgundy-accent Mermaid diagrams reproduced in LaTeX as TikZ. Single hyphens only; the section symbol for every codified reference.
+- Each LaTeX set (draft, full, final, publication) compiles in Overleaf with pdfLaTeX and ships its own zip. The build adds no Python, YAML, or other CI-checked files, so the lint-and-format workflow (ruff check, ruff format, yamllint) on Python 3.10, 3.11, and 3.12 remains green.
+- The DOI 10.5281/zenodo.xxxxxxxx is a placeholder pending deposit. This is an independent research draft, not an active IND or IDE and not medical or regulatory advice.
+
+---
+
 Physical AI Pancreatic Whipple + Daraxonrasib Phase 1 Protocol (v4.0.0)
 v4.0.0 - Physical AI Pancreatic Whipple + Daraxonrasib Phase 1 Protocol
 

@@ -5,6 +5,22 @@ Format follows [Keep a Changelog](https://keepachangelog.com/).
 
 ## [Unreleased]
 
+## [4.1.0] - 2026-06-23
+
+### Added
+- `trial-phase-2/` - the multicenter randomized Phase 2 follow-up to the Phase 1 protocol: a Phase 2, multicenter (8 high-volume academic HPB centers), randomized 1:1, parallel-group, controlled, open-label study with blinded independent central review of on-premises LLM-directed robotic pancreaticoduodenectomy (Whipple) with perioperative daraxonrasib (RMC-6236) in KRAS-mutated PDAC. Arm A: daraxonrasib at the recommended Phase 2 dose (300 mg once daily) plus the LLM-directed eight-arm robotic Whipple; Arm B: modified FOLFIRINOX plus standard pancreaticoduodenectomy. Primary endpoint progression-free survival (HR 0.60, 85 percent power, two-sided alpha 0.05, about 140 events, one group-sequential interim); key secondary hierarchy of OS, R0 rate, ISGPS grade B/C fistula, major pathologic response, and ctDNA clearance. Protocol v1.1.0, DOI 10.5281/zenodo.xxxxxxxx, June 23, 2026.
+- `trial-phase-2/prompts/` - the Phase 2 master prompt filed verbatim (`prompt-protocol.md`) and the narrative output (`output-protocol.md`).
+- `trial-phase-2/sub-prompts/` - four generated stage sub-prompts (mermaid, draft, full, final) re-targeted to the randomized multicenter Phase 2 design, with a comprehensive README.
+- `trial-phase-2/mermaid/` - 24 new Mermaid figures recolored to the five-step Phase 2 palette (Burgundy `#800020`, Charcoal `#2E2E2E`, Slate `#6B6B6B`, Mist `#C9C9C9`, Cloud `#F5F5F5`), with README and `output-mermaid.md`.
+- `trial-phase-2/draft-protocol/` - the 13-section NIH scaffold with bracketed drafting instructions naming exact repository files, plus `draft-protocol-LaTeX.zip`.
+- `trial-phase-2/full-protocol/` - the 13 full sections with 22 TikZ `mermaidfig` figures and 11 full-width tables, plus `full-protocol-LaTeX.zip`.
+- `trial-phase-2/final-protocol/` - the polished sections (`\raggedbottom`, `\clearpage` per section), plus `final-protocol-LaTeX.zip`, and `final-protocol/publication/` as the author-edited paper URL directory (`LaTeX Source Files.zip`).
+- `trial-phase-2/template/`, `nih-protocol/`, `inputs/`, `research/` - the recolored Phase 2 paper template (Burgundy `#800020` document color) and the NIH-FDA Phase 2/3 template, inputs, and research grounding READMEs.
+- A distinctive Phase 2 funding model: a Patient-Aligned Co-Investment Facility behind a capital firewall (disclosed under 21 CFR part 54, aligned with the H. R. 9510 VVUQ financial-data standard) that raises operational success likelihood without influencing randomization, endpoints, adjudication, analysis, or publication.
+
+### Changed
+- Root `README.md` updated with a dedicated v4.1.0 section, doubled badge set, the `trial-phase-2/` repository-structure subtree, and a colored Phase 2 build diagram and protocol table; `releases.md` updated with the v4.1.0 release notes.
+
 ## [4.0.0] - 2026-06-20
 
 ### Added
