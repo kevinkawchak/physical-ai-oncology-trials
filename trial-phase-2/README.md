@@ -13,7 +13,7 @@
 [![Predicate](https://img.shields.io/badge/Predicate-Phase%201%20v1.0.0-6B6B6B.svg)](../trial-protocol)
 [![Co-Investment](https://img.shields.io/badge/Funding-Co--Investment%20%2B%20Capital%20Firewall-800020.svg)](final-protocol/publication/sections/sec-10-oversight.tex)
 [![ORCID](https://img.shields.io/badge/ORCID-0009--0007--5457--8667-A6CE39.svg)](https://orcid.org/0009-0007-5457-8667)
-[![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.xxxxxxxx-blue.svg)](https://doi.org/10.5281/zenodo.xxxxxxxx)
+[![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.20807027-blue.svg)](https://doi.org/10.5281/zenodo.20807027)
 [![Release](https://img.shields.io/badge/Release-v4.1.0-orange.svg)](../releases.md)
 
 [Publication with Author Edits](https://github.com/kevinkawchak/physical-ai-oncology-trials/tree/main/trial-phase-2/final-protocol/publication) (final-protocol/publication; the paper URL directory). This directory holds the **Phase 2,
