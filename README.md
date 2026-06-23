@@ -19,7 +19,7 @@
 [![Protocol DOI v1.1.0](https://img.shields.io/badge/Protocol%20DOI%20v1.1.0-10.5281%2Fzenodo.20807027-800020.svg)](https://doi.org/10.5281/zenodo.20807027)
 
 
-**Comprehensive developments for integrating physical AI into oncology clinical trials, by Claude Code Opus 4.8, Cowork; with Assistance from ChatGPT 5.5 Thinking Extended and Google Gemini 3.1 Pro.**
+**Comprehensive developments for integrating physical AI into oncology clinical trials, by Claude Code Opus 4.8 Max, Cowork; with Assistance from ChatGPT 5.5 Thinking Extended and Google Gemini 3.1 Pro.**
 
 This repository provides production-ready configurations, validated pipelines, and integration guides for deploying robotic systems, digital twins, and embodied AI agents in oncology. 
 
