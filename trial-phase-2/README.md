@@ -16,7 +16,7 @@
 [![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.20807027-800020.svg)](https://doi.org/10.5281/zenodo.20807027)
 [![Release](https://img.shields.io/badge/Release-v4.1.0-orange.svg)](../releases.md)
 
-[Publication with Author Edits](https://github.com/kevinkawchak/physical-ai-oncology-trials/tree/main/trial-phase-2/final-protocol/publication/author) (final-protocol/publication; the paper URL directory). This directory holds the **Phase 2,
+[Publication with Author Edits](https://github.com/kevinkawchak/physical-ai-oncology-trials/tree/main/trial-phase-2/final-protocol/publication/author) (final-protocol/publication/author). This directory holds the **Phase 2,
 Multicenter, Randomized, Controlled Clinical Trial Protocol** for **on-premises
 large language model (LLM) directed robotic pancreaticoduodenectomy (the Whipple
 procedure) with perioperative daraxonrasib (RMC-6236)** in patients with
