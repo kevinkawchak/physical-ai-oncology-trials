@@ -7,13 +7,13 @@
 [![Figures](https://img.shields.io/badge/TikZ%20figures-22-6B6B6B.svg)](.)
 [![Tables](https://img.shields.io/badge/Full--width%20tables-11-6B6B6B.svg)](.)
 [![Overleaf](https://img.shields.io/badge/Overleaf-pdfLaTeX-6B6B6B.svg)](main.tex)
-[![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.xxxxxxxx-blue.svg)](https://doi.org/10.5281/zenodo.xxxxxxxx)
+[![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.20807027-6B6B6B.svg)](https://doi.org/10.5281/zenodo.20807027)
 
-This directory is the output of **Stage 4** (sub-prompt
+The author-edited, publication-ready build is in
+[`publication/`](publication), which is the paper URL directory. This directory is the output of **Stage 4** (sub-prompt
 [`../sub-prompts/prompt-4-final-protocol.md`](../sub-prompts/prompt-4-final-protocol.md)):
 the **polished, final** Phase 2 protocol, at maximum context and formatting
-quality. The author-edited, publication-ready build is in
-[`publication/`](publication), which is the paper URL directory.
+quality. 
 
 ## What changed from the full protocol (the final polish)
 
