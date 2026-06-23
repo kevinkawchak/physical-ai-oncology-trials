@@ -1,0 +1,164 @@
+\section{Protocol Summary}
+
+\subsection{Synopsis}
+
+\textbf{Title.} A Phase 2, multicenter, randomized, controlled clinical trial of
+on-premises large language model (LLM) directed robotic pancreaticoduodenectomy
+(Whipple) with perioperative daraxonrasib (RMC-6236) in KRAS-mutated pancreatic
+ductal adenocarcinoma (PDAC).
+
+\textbf{Rationale.} PDAC is the third leading cause of cancer death in the United
+States, with total five-year overall survival below 13 percent
+\cite{Siegel2025}, and even at high-volume centers a substantial fraction of
+intended curative resections fail to achieve a margin-negative result or are
+compromised by perioperative morbidity \cite{DutchCohort2025}. The first-in-human
+predicate study established the daraxonrasib RP2D and demonstrated the
+feasibility and hard cyber-physical safety of an on-premises LLM-directed robotic
+Whipple \cite{kawchak2026phase1}, but it was not powered for efficacy and
+explicitly deferred the comparative question to a randomized trial. This Phase 2
+study pairs perioperative daraxonrasib at the established RP2D with the upgraded
+PancreSpeed II device-directed operation and tests, against contemporary standard
+of care, whether the combined intervention improves disease control after
+curative-intent surgery.
+
+\textbf{Objectives and endpoints.} The primary objective is to determine whether
+the experimental intervention prolongs progression-free survival (PFS) relative to
+standard of care. The primary endpoint is PFS per RECIST 1.1, investigator
+assessed with blinded independent central review (BICR) as a sensitivity analysis.
+Key secondary endpoints, tested in a prespecified hierarchical sequence, are
+overall survival (OS); the R0 resection rate; the International Study Group on
+Pancreatic Surgery (ISGPS) grade B/C postoperative pancreatic fistula rate
+\cite{Bassi2017}; major pathologic response (MPR); and KRAS circulating tumor DNA
+(ctDNA) clearance at week 12 \cite{Tie2019ctdna}.
+
+\textbf{Design.} Multicenter, randomized 1:1, parallel-group, controlled,
+open-label study with BICR of imaging, central masked pathology, and blinded
+endpoint adjudication, conducted at eight high-volume HPB centers with a planned
+sample size of $n=220$ randomized participants (approximately 110 per arm).
+Central, permuted-block randomization is stratified by resectability (resectable
+versus borderline-resectable), KRAS allele (G12D versus other G12), neoadjuvant
+therapy (yes/no), and site. The trial targets approximately 140 PFS events for
+85 percent power at a two-sided alpha of 0.05 to detect a hazard ratio of 0.60
+(median PFS 14.0 months control versus 23.3 months experimental), with a single
+interim analysis for efficacy and futility at approximately 60 percent of events
+by an independent Data and Safety Monitoring Board using O'Brien-Fleming spending
+\cite{DeMets1994lan}. A mandatory upgraded Phase 0 simulation-validation gate
+($\geq 5000$ simulated procedures across $\geq 3$ independent frameworks, sim-to-real
+trajectory $< 1.5$ mm and tip-force $< 0.4$ N, USL $\geq 8.0$, and multicenter
+fleet harmonization) precedes any device-directed activity in the experimental
+arm.
+
+\textbf{Population.} Adults ($\geq 18$ years) with histologically confirmed,
+resectable or borderline-resectable, KRAS G12-mutated PDAC; ECOG performance
+status 0 or 1; and adequate organ function. Participants are daraxonrasib-eligible
+under the broad pan-KRAS criteria of the RASolute 302 program
+\cite{rasolute302}. Full inclusion and exclusion criteria appear in \S5.
+
+\textbf{Intervention.} Participants are randomized 1:1 to one of two arms. Arm A
+(experimental) receives perioperative daraxonrasib at the RP2D of 300 mg orally
+once daily plus an on-premises LLM-directed eight-arm robotic Whipple
+(PancreSpeed II) performed under continuous human oversight as a Class II
+collaborative device with hard cyber-physical limits. Arm B (control) receives
+standard perioperative systemic therapy (modified FOLFIRINOX \cite{Conroy2018})
+plus an institutional-standard high-volume pancreaticoduodenectomy that is not
+LLM-directed.
+
+\textbf{Co-investment.} The Patient-Aligned Co-Investment Facility, operating
+behind a capital firewall that bars any funder from influencing randomization,
+endpoints, adjudication, analysis, or publication, funds only the operational
+levers that make the eight-site, adequately powered, and equitable design
+possible.
+
+\textbf{Duration.} Each participant undergoes up to 28 days of screening, central
+randomization with a baseline assessment, surgery on day 0, an acute day 1 to 7
+window, the day-30 safety window, a day-90 pathology and MPR assessment, and
+long-term follow-up every 8 to 12 weeks with BICR imaging to the PFS endpoint and
+the 24-month overall-survival endpoint.
+
+\subsection{Schema}
+
+Figure 2 presents the end-to-end randomized multicenter schema, from 28-day
+screening through eligibility determination, central 1:1 stratified randomization,
+the two parallel treatment arms (Arm A daraxonrasib at RP2D plus LLM-directed
+robotic Whipple; Arm B modified FOLFIRINOX plus standard Whipple), follow-up with
+BICR, and the PFS and overall-survival endpoints, including the screen-failure
+branch.
+
+\begin{mermaidfig}
+\node[mmin]  (scr) at (0,0)      {Screening (up to 28 days)\\KRAS G12 PDAC, ECOG 0-1\\resectable / borderline};
+\node[mmdec] (elig)at (0,-2.75)   {Eligible?\\\S5.1 / \S5.2};
+\node[mmin]  (sf)  at (4.8,-2.75) {Screen failure\\(minimal data set, \S5.4)};
+\node[mmstep](rand)at (0,-5.8)   {RCT 1:1 stratified, permuted-block\\consent, Physical AI opt-out};
+\node[mmgoal](arma)at (-2.4,-8.2){Arm A (experimental)\\daraxonrasib RP2D\\LLM robotic Whipple};
+\node[mmgoal](armb)at (2.4,-8.2) {Arm B (control)\\mFOLFIRINOX\\standard Whipple};
+\node[mmstep](fu)  at (0,-10.4)  {Follow-up q8-12wk\\BICR RECIST 1.1\\central pathology};
+\node[mmgoal](eos) at (0,-12.4)  {Endpoints\\PFS (primary)\\OS to 24 months};
+\draw[mmedge] (scr) -- (elig);
+\draw[mmedge] (elig) -- node[mmlabel,above, xshift=-0.06cm, yshift=0.08cm]{no} (sf);
+\draw[mmedge] (elig) -- node[mmlabel,left, yshift=0.07cm, xshift=-0.09cm]{yes} (rand);
+\draw[mmedge] (rand) -- (arma);
+\draw[mmedge] (rand) -- (armb);
+\draw[mmedge] (arma) -- (fu);
+\draw[mmedge] (armb) -- (fu);
+\draw[mmedge] (fu) -- (eos);
+\end{mermaidfig}
+\vspace{-0.7cm}
+\figcaption{Figure 2. Overall schema for the Phase 2 multicenter RCT,
+from 28-day screening through eligibility determination, central 1:1 stratified
+randomization with Physical AI consent opt-out, the two parallel arms (Arm A
+daraxonrasib at RP2D plus LLM-directed robotic Whipple; Arm B modified
+FOLFIRINOX plus standard Whipple), follow-up with blinded independent central
+review; and the PFS and 24-month OS endpoints, with screen-failure branch.}
+
+\subsection{Schedule of Activities (SoA)}
+
+The Schedule of Activities binds each assessment to a timepoint across the
+screening window (Day $-28$ to $-1$), randomization and baseline, surgery (Day 0),
+the acute window (Day 1 to 7), Day 30, Day 90, and long-term follow-up every 8 to
+12 weeks. An ``X'' marks each assessment performed at that visit. Arm-specific
+rows are flagged in the activity label: the Phase 0 simulation sign-off with USL
+$\geq 8.0$ verification, the intra-operative telemetry capture, and the
+daraxonrasib restart advisory apply to Arm A, while ctDNA (KRAS) is drawn at
+baseline and week 12 in both arms. The full-width Schedule of Activities is given
+in Table~\ref{tab:soa}.
+
+\begin{table}[htbp]\centering\footnotesize
+\caption{Schedule of Activities for the Phase 2 multicenter randomized trial.}
+\label{tab:soa}
+\begin{tabularx}{\textwidth}{L{4.0cm} C{1.7cm} C{1.35cm} C{1.0cm} C{1.3cm} C{0.85cm} C{0.85cm} C{1.6cm}}
+\toprule
+\textbf{Activity} & \textbf{Screen Day -28 to -1} & \textbf{Rand / Base} & \textbf{Surg Day 0} & \textbf{Acute Day 1-7} & \textbf{Day 30} & \textbf{Day 90} & \textbf{LT q8-12wk} \\
+\midrule
+Informed consent (incl. Physical AI opt-out) & X & & & & & & \\
+Staging / KRAS G12 confirmation & X & & & & & & \\
+CA 19-9 & X & X & & & X & X & X \\
+ECOG performance status & X & X & & & X & X & X \\
+Safety laboratory panel & X & X & X & X & X & X & X \\
+ctDNA (KRAS) & & X & & & & X & \\
+Central randomization (1:1, stratified) & & X & & & & & \\
+Phase 0 sign-off, USL $\geq 8.0$ (Arm A) & & X & & & & & \\
+Robotic / standard Whipple surgery & & & X & & & & \\
+Intra-op telemetry capture (Arm A) & & & X & & & & \\
+ISGPS fistula grading & & & & X & X & & \\
+Central pathology R0 / MPR & & & & & & X & \\
+Daraxonrasib restart advisory (Arm A) & & & & X & & & \\
+QoL EORTC QLQ-C30 & & X & & & X & X & X \\
+BICR RECIST imaging & X & & & & & X & X \\
+AE / SAE review & X & X & X & X & X & X & X \\
+PFS / OS assessment & & & & & & X & X \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\vspace{-0.5em}
+
+\noindent Abbreviations: AE, adverse event; SAE, serious adverse event; BICR,
+blinded independent central review; ctDNA, circulating tumor DNA; EORTC QLQ-C30,
+European Organisation for Research and Treatment of Cancer Quality of Life
+Questionnaire Core 30 \cite{EORTCqlqc30}; ISGPS, International Study Group on
+Pancreatic Surgery; LT, long-term; MPR, major pathologic response; OS, overall
+survival; PFS, progression-free survival; QoL, quality of life; RECIST, Response
+Evaluation Criteria in Solid Tumors; USL, Unified Safety Level. Randomization and
+baseline assessments occur on the same visit before surgery; Day 30 is the primary
+safety window; Day 90 carries central R0 and MPR pathology; arm-flagged rows apply
+to the experimental arm (Arm A).

@@ -1,0 +1,141 @@
+\section{Study Design}
+
+\subsection{Overall Design}
+
+This is a prospective, multicenter, randomized, parallel-group, controlled,
+open-label study with blinded independent central review (BICR), conducted across
+eight academic high-volume hepatopancreatobiliary (HPB) centers. A total of
+$n=220$ participants are randomized 1:1 (110 per arm). Arm A receives perioperative
+daraxonrasib (RMC-6236) at the recommended Phase 2 dose (RP2D) of 300~mg orally
+once daily plus the on-premises large language model (LLM) directed eight-arm
+robotic pancreaticoduodenectomy (Whipple) system (PancreSpeed II). Arm B receives
+modified FOLFIRINOX \cite{Conroy2018} plus institutional-standard high-volume
+pancreaticoduodenectomy that is not LLM-directed. Allocation uses central
+permuted-block randomization 1:1, stratified by resectability (resectable versus
+borderline-resectable), KRAS allele (G12D versus other G12), neoadjuvant therapy
+(yes versus no), and site. The study is conducted under a combined IND/IDE
+submission with a single integrated protocol, a single informed consent carrying
+the Physical AI opt-out, and a single multicenter safety governance structure.
+
+The device operates at Stage 2 supervised semiautonomy as a Class II collaborative
+system under continuous human oversight with an immediate manual override; full
+autonomy is prohibited under 21 CFR \S312.21(e), and any expanded
+supervised-autonomous subtask requires independent safety review and a Unified
+Safety Level (USL) of at least 8.0. A mandatory upgraded Phase 0
+simulation-validation gate must be passed at each site before any patient-facing
+robotic activity (\S4.3). The eight-site, powered, equitable design is enabled by
+the Patient Access and Equity Fund (the Patient-Aligned Co-Investment Facility,
+PACIF) held behind a capital firewall, so that funders cannot touch randomization,
+endpoint definition, outcome adjudication, or analysis \cite{kawchak2026hr9510,ecfr2026part54}.
+Figure 8 presents the randomization and multicenter design.
+
+\subsection{Scientific Rationale for Study Design}
+
+A randomized, controlled, parallel-group design is now the scientifically and
+ethically appropriate next step, inverting the logic of the single-arm predicate.
+The first-in-human study was single-arm precisely because the early safety profile,
+the RP2D, and the technical feasibility of the combined drug-device intervention
+were unknown, and randomizing a vulnerable population before that evidence existed
+could not be justified. The Phase 1 predicate \cite{kawchak2026phase1} has now
+established all three, so genuine clinical equipoise exists between the
+investigational regimen and institutional-standard care, and a randomized
+controlled comparison is the appropriate and ethical way to test comparative
+efficacy. The trial follows the CONSORT framework for reporting a parallel-group
+randomized design \cite{Schulz2010consort}.
+
+Open-label conduct is unavoidable because a surgical-system intervention cannot be
+masked from the operating team or the participant. Bias control is therefore
+concentrated downstream of the intervention: the primary PFS endpoint is supported
+by BICR of imaging, the R0 and MPR endpoints are read on central masked pathology,
+and all confirmatory endpoints pass through blinded endpoint adjudication, so that
+the open-label delivery does not propagate into outcome ascertainment. The internal
+control, Arm B, replaces the external Dutch benchmark used in the predicate as the
+primary comparator \cite{DutchCohort2025}; the Dutch cohort is retained only as an
+external descriptive reference. The study population remains vulnerable, with a
+total five-year survival below 13\% \cite{Siegel2025}, so the Patient Access and
+Equity Fund and per-cohort DSMB oversight are maintained to protect participants
+throughout randomized comparison.
+
+\begin{mermaidfig}
+\node[mmin]  (elig) at (0,-0.4)        {Eligible\\participant};
+\node[mmstep](rand) at (0,-2.8)     {Central stratified\\randomization 1:1\\(resectability, KRAS\\allele, neoadjuvant, site)};
+\node[mmgoal](armA) at (-3.9,-5.2)  {Arm A\\daraxonrasib RP2D +\\LLM robotic Whipple};
+\node[mmstep](armB) at (3.9,-5.2)   {Arm B\\mFOLFIRINOX +\\standard Whipple};
+\node[mmdark](sites)at (0,-7.5)      {8 academic HPB sites\\(harmonized fleet)};
+\node[mmstep](bicr) at (0,-9.2)     {BICR + central\\masked pathology};
+\node[mmgoal](adj)  at (0,-11.1)     {Endpoint\\adjudication};
+\draw[mmedge]  (elig) -- (rand);
+\draw[mmedge]  (rand) -- (armA);
+\draw[mmedge]  (rand) -- (armB);
+\draw[mmedge]  (armA) -- (sites);
+\draw[mmedge]  (armB) -- (sites);
+\draw[mmedge]  (sites) -- (bicr);
+\draw[mmedge]  (bicr) -- (adj);
+\end{mermaidfig}
+\vspace{-0.7cm}
+\figcaption{Figure 8. Randomization and multicenter design. Eligible participants
+undergo central permuted-block randomization 1:1, stratified by resectability,
+KRAS allele, neoadjuvant therapy, and site, to Arm A (daraxonrasib at the RP2D plus
+the LLM-directed robotic Whipple) or Arm B (modified FOLFIRINOX plus standard
+high-volume Whipple). Both arms are delivered across the academic HPB sites
+operating as a harmonized fleet, and all outcomes flow through blinded independent
+central review and central masked pathology into blinded endpoint adjudication.}
+
+\subsection{Justification for Dose and Device Readiness}
+
+\paragraph{Daraxonrasib at the established RP2D.}
+Daraxonrasib is administered at the RP2D of 300~mg orally once daily established in
+the Phase 1 predicate and anchored to the RASolute 302 pan-KRAS program
+\cite{kawchak2026phase1,rasolute302}. Because the RP2D is already established, there
+is no 3+3 dose escalation in this Phase 2 study; every participant in Arm A receives
+the same fixed dose, and the trial tests comparative efficacy rather than
+dose-finding.
+
+\paragraph{Device ``dose'' analogue and the upgraded Phase 0 gate.}
+The device has no pharmacologic dose; its dose analogue is the readiness evidence
+required before any patient-facing activity, escalated only by passing the mandatory
+upgraded Phase 0 simulation-validation gate. Relative to the predicate, the gate is
+upgraded to require a USL rating of at least 8.0, at least 5000 simulated procedures
+reproduced across at least three independent simulation frameworks, and a tightened
+sim-to-real fidelity of a trajectory gap below 1.5~mm and a tip-force gap below
+0.4~N, together with per-site qualification and multicenter fleet harmonization so
+that every device instance behaves identically across the eight centers. These
+preconditions operate with the intra-operative hard caps (per-arm tip-force caps of
+$\leq 3$~N, a cumulative cross-arm cap of $\leq 18$~N, a cross-arm emergency-stop
+budget of $\leq 3$~ms, and a five-vessel no-fly gate around the major peripancreatic
+vessels) \cite{ecfr2026part812,kawchak2026adapt312}. The expanded Phase 0 compute
+required to meet these thresholds is funded by the co-investment facility behind the
+capital firewall, which purchases operational capacity only and never scientific
+outcomes. Figure 9 presents the staged-autonomy model for Phase 2.
+
+\begin{mermaidfig}
+\node[mmin]  (st1) at (-0.05,0)  {Stage 1\\Clinician-controlled\\teleoperation /\\supervised;\\full autonomy\\prohibited \S312.21(e)};
+\node[mmdec] (r1)  at (5.1,0)    {Independent safety\\review + USL\\$\geq 8.0$};
+\node[mmstep](st2) at (10.35,0)  {Stage 2\\Supervised\\semiautonomous;\\Class II, continuous\\oversight, immediate\\manual override};
+\node[mmdec] (r2)  at (10.35,-3.4){Expanded subtask\\independent review +\\USL $\geq 8.0$};
+\node[mmgoal](st3) at (5.1,-3.4) {Stage 3\\Higher autonomy\\(reserved, prohibited\\this phase)};
+\draw[mmedge] (st1) -- (r1);
+\draw[mmedge] (r1) -- (st2);
+\draw[mmedge] (st2) -- (r2);
+\draw[mmedge] (r2) -- (st3);
+\end{mermaidfig}
+\vspace{-0.7cm}
+\figcaption{Figure 9. Phase-graduated staged-autonomy model for Phase 2. The
+operative system runs at Stage 2\\supervised semiautonomy (Class II, continuous
+oversight with immediate manual override). Any expanded supervised-autonomous
+subtask requires an independent safety review and a Unified Safety Level of at least\\8.0; full autonomy (Stage 3) remains reserved and prohibited at this phase under 21
+CFR \S312.21(e).}
+
+\subsection{End of Study Definition}
+
+An individual participant is considered to have completed the study at the last
+visit specified in the Schedule of Activities (\S1.3), which is the 24-month
+overall-survival assessment, or at the participant's death, documented disease
+progression precluding further follow-up, or withdrawal of consent, whichever
+occurs first. The end of the study as a whole is defined as the date of the last
+scheduled PFS or OS assessment for the last enrolled participant together with the
+primary-analysis database lock, which occurs after approximately 140 PFS events
+have accrued. After that date, no further study-specific procedures are performed.
+Participants who discontinue the investigational intervention for a protocol-defined
+reason (\S7) remain in long-term follow-up for survival to the 24-month endpoint
+unless they withdraw consent for follow-up.

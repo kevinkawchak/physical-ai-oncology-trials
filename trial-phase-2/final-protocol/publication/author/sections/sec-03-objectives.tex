@@ -1,0 +1,212 @@
+\section{Objectives and Endpoints}
+
+This study pairs each objective with a prospectively defined, measurable endpoint
+and a scientific justification, presented in the standard three-column form. Unlike
+the single-arm first-in-human predicate \cite{kawchak2026phase1}, this protocol is
+a randomized controlled efficacy study that directly compares Arm A (perioperative
+daraxonrasib (RMC-6236) at the recommended Phase 2 dose (RP2D) plus on-premises
+large language model (LLM) directed eight-arm robotic pancreaticoduodenectomy
+(Whipple), PancreSpeed II) against Arm B (modified FOLFIRINOX
+\cite{Conroy2018} plus institutional-standard high-volume pancreaticoduodenectomy).
+The objective set is therefore organized around a single confirmatory efficacy
+question, a fixed-sequence hierarchy of key secondary questions that share the
+study-wide error budget, a set of estimation-only secondary measures, and a tier
+of exploratory measures. Table~\ref{tab:objend} is the governing objectives-endpoints
+table; it drives the analysis plan in \S9 and the safety rules in \S6 and \S7.
+
+\noindent \textbf{Abbreviations in Trial Protocol:} BICR, blinded independent
+central review; ctDNA, circulating tumor DNA; EBL, estimated blood loss; HR,
+hazard ratio; ISGPS, International Study Group on Pancreatic Surgery; LLM, large
+language model; LOS, length of stay; MPR, major pathologic response; OS, overall
+survival; PDAC, pancreatic ductal adenocarcinoma; PFS, progression-free survival;
+QoL, quality of life; RECIST, Response Evaluation Criteria in Solid Tumors; RP2D,
+recommended Phase 2 dose. The internal control is Arm B; the 2025 Dutch nationwide
+cohort of 1000 robotic pancreaticoduodenectomies \cite{DutchCohort2025} is retained
+only as an external descriptive benchmark.
+
+\vspace{0.3em}
+
+\begin{table}[htbp]
+\centering
+\footnotesize
+\caption{Objectives, endpoints, and justifications. The primary objective is
+confirmatory; the key secondary objectives are tested in a fixed-sequence
+hierarchy that controls the family-wise error rate; secondary objectives are
+estimation only; exploratory objectives are hypothesis-generating.}
+\label{tab:objend}
+\begin{tabularx}{\textwidth}{L{4cm} Y Y}
+\toprule
+\textbf{Objective} & \textbf{Endpoint} & \textbf{Justification} \\
+\midrule
+\multicolumn{3}{l}{\textit{Primary}} \\
+\midrule
+Compare progression-free survival (PFS) between Arm A and Arm B. & PFS, defined as time from randomization to RECIST 1.1 progression or death from any cause, assessed by the investigator with blinded independent central review (BICR) as a sensitivity analysis. & PFS is the standard randomized Phase 2 efficacy anchor in resectable and borderline-resectable PDAC; a hazard ratio favoring Arm A supports progression to a Phase 3 confirmatory trial. \\
+\midrule
+\multicolumn{3}{l}{\textit{Key Secondary (hierarchical, fixed sequence)}} \\
+\midrule
+1. Compare overall survival (OS) between arms. & OS, time from randomization to death from any cause. & OS is the definitive measure of clinical benefit and the first gatekeeper after PFS in the testing hierarchy. \\
+\addlinespace
+2. Compare the R0 resection rate between arms. & Proportion with a microscopically margin-negative (R0) resection on central masked pathology review. & R0 status is the strongest modifiable surgical determinant of survival in resectable PDAC. \\
+\addlinespace
+3. Compare clinically relevant postoperative pancreatic fistula between arms. & ISGPS grade B or C postoperative pancreatic fistula rate \cite{Bassi2017}. & Grade B/C fistula is leading driver of post-Whipple morbidity + key safety quality discriminator vs.\ 2 operations. \\
+\addlinespace
+4. Compare major pathologic response between arms. & Major pathologic response (MPR) rate on central masked pathology review. & MPR is a validated surrogate of neoadjuvant treatment effect that links systemic regimen to resection specimen. \\
+\addlinespace
+5. Compare molecular response between arms. & KRAS circulating tumor DNA (ctDNA) clearance at week 12 \cite{Tie2019ctdna}. & Week-12 ctDNA clearance is an early, minimally invasive molecular readout of disease control. \\
+\midrule
+\multicolumn{3}{l}{\textit{Secondary (estimation)}} \\
+\midrule
+Estimate major postoperative complications by arm. & Clavien-Dindo grade III or higher complication rate through 90 days; external comparator 41.3\% \cite{DutchCohort2025}. & Clavien-Dindo grade III+ is the validated severity threshold for complications requiring procedural, endoscopic, or intensive-care management. \\
+\addlinespace
+Estimate early postoperative mortality by arm. & 90-day all-cause mortality. & Ninety-day mortality is the standard short-term survival safety measure for major hepatopancreatobiliary surgery. \\
+\addlinespace
+Estimate the conversion pathway by arm. & Unplanned conversion rate from the robotic system to an open or conventional approach; external comparator 10.1\% \cite{DutchCohort2025}. & Conversion rate contextualizes device performance against established robotic practice. \\
+\addlinespace
+Estimate operative burden and recovery by arm. & Operative time, estimated blood loss (EBL), and length of stay (LOS). & These operative + recovery measures characterize footprints of each operation. \\
+\addlinespace
+Estimate quality of life by arm. & EORTC QLQ-C30 and PAN26 scores over follow-up \cite{EORTCqlqc30}; 12- and 18-month PFS rates and 24-month OS rate. & Patient-reported quality of life and landmark survival rates frame the patient-centered value of each regimen. \\
+\bottomrule \vspace{-0.2cm}
+Table 4 continued, next page.\\
+\end{tabularx}
+\end{table}
+
+
+
+
+
+
+
+
+
+\begin{table}[htbp]
+\centering
+\footnotesize
+\begin{tabularx}{\textwidth}{L{4cm} Y Y}
+\toprule
+\textbf{Objective} & \textbf{Endpoint} & \textbf{Justification} \\
+\midrule
+\multicolumn{3}{l}{\textit{Exploratory}} \\
+\midrule
+Characterize the LLM advisory layer. & Concordance between the LLM advisory output and the independent hard-coded safety gate, as a proportion of advisories. & Advisory-to-gate concordance characterizes second-opinion oracle; informs later autonomy-graduation. \\
+\addlinespace
+Characterize simulation fidelity and the multicenter fleet. & Sim-to-real gap in trajectory (mm) and tip force (N); federated-learning model performance and ctDNA dynamics across sites. & These measures validate the upgraded Phase 0 gate and the cross-site fleet, supporting the digital-evidence basis for the device claim. \\
+\addlinespace
+Characterize health-economic value. & Cost and cost-effectiveness outcomes linked to the co-investment design. & Health-economic outcomes inform the equitable-access rationale and the capital-firewalled co-investment structure. \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\vspace{0.3em}
+
+Figure 7 renders the objective-to-endpoint hierarchy that organizes
+Table~\ref{tab:objend}, showing how the single primary efficacy comparison of PFS
+between Arm A and Arm B sits above the fixed-sequence key secondary family, which
+in turn sits above the estimation-only secondary measures, exploratory
+measures.
+
+\begin{mermaidfig}
+\node[mmgoal] (prim) at (0,-0.45)       {PRIMARY\\PFS: Arm A vs Arm B};
+\node[mmstep] (sec)  at (0,-2.6)    {KEY SECONDARY\\(fixed sequence)\\OS; R0; ISGPS B/C;\\MPR; ctDNA};
+\node[mmin]   (oth)  at (-4,-4.7) {SECONDARY\\(estimation)\\Clavien III+; mortality;\\conversion; QoL};
+\node[mmin]   (exp)  at (4,-4.7)  {EXPLORATORY\\LLM concordance;\\sim-to-real; federated\\model; cost};
+\draw[mmedged] (prim) -- (sec);
+\draw[mmedged] (sec) -- (oth);
+\draw[mmedged] (sec) -- (exp);
+\end{mermaidfig}
+\vspace{-0.7cm}
+\figcaption{Figure 7. Objective-to-endpoint hierarchy for the randomized
+comparison. The primary efficacy endpoint (progression-free survival, Arm A versus
+Arm B) sits above the fixed-sequence key secondary family (overall survival, R0
+resection rate, ISGPS grade B/C fistula, major pathologic response, and week-12
+KRAS ctDNA clearance), which sits above the estimation-only secondary measures
+(Clavien-Dindo grade III+, 90-day\\mortality, conversion rate, and quality of life)
+and the exploratory measures (LLM advisory concordance,\\the sim-to-real gap,
+federated model performance, and cost-effectiveness). Dashed edges separate the
+tiers.}
+
+\subsection{Primary Objective and Endpoint}
+
+The single primary objective is to compare progression-free survival between Arm A
+and Arm B. The primary endpoint is PFS, defined as the time from randomization to
+the first documented RECIST 1.1 disease progression or death from any cause,
+whichever occurs first. The primary analysis is investigator-assessed, with BICR
+applied as a prespecified sensitivity analysis to guard against evaluation bias in
+an open-label design. PFS is the established randomized Phase 2 efficacy anchor in
+resectable and borderline-resectable PDAC: it is measurable within the trial
+horizon, it integrates the systemic and surgical effects of each arm, and a hazard
+ratio favoring Arm A provides the confirmatory signal needed to justify a Phase 3
+trial. The study is sized for approximately 140 PFS events to provide 85\% power
+at a two-sided significance level of 0.05 to detect a hazard ratio of 0.60
+(median PFS 14.0 months in Arm B versus 23.3 months in Arm A), with a single
+interim analysis for efficacy and futility at approximately 60\% of events
+governed by an O'Brien-Fleming spending function \cite{DeMets1994lan,Jennison2000group}
+(\S9).
+
+\subsection{Key Secondary Objectives and Endpoints}
+
+The key secondary objectives are tested in a single fixed-sequence (hierarchical)
+gatekeeping procedure that controls the family-wise type I error rate at a
+two-sided 0.05 level. Each hypothesis is tested at the full 0.05 level only if the
+primary PFS comparison and every preceding key secondary hypothesis have reached
+statistical significance; the first non-significant result closes the sequence, and
+all subsequent comparisons are reported as descriptive only. The fixed order is:
+(1) overall survival; (2) R0 resection rate; (3) ISGPS grade B/C postoperative
+pancreatic fistula rate \cite{Bassi2017}; (4) major pathologic response rate; and
+(5) week-12 KRAS ctDNA clearance \cite{Tie2019ctdna}. Overall survival is placed
+first as the definitive measure of clinical benefit. R0 resection rate and MPR are
+assessed on central masked pathology review, and the ISGPS fistula grade is
+adjudicated centrally, so that each surgical-quality comparison is protected from
+unmasking in the open-label setting. Week-12 ctDNA clearance provides an early
+molecular corroboration of the imaging-based primary endpoint. This single ordered
+sequence keeps the confirmatory inference for the entire key secondary family
+within one shared error budget.
+
+\subsection{Secondary Objectives and Endpoints}
+
+The secondary objectives are estimation only; each is summarized with a point
+estimate and a two-sided 95\% confidence interval (for between-arm contrasts, a
+difference or hazard ratio with its interval), and none is part of the confirmatory
+hierarchy. They comprise the \textbf{Clavien-Dindo grade III or higher
+complication rate} through 90 days, for which the 2025 Dutch nationwide robotic
+cohort reported 41.3\% \cite{DutchCohort2025}; \textbf{90-day all-cause
+mortality}; the \textbf{unplanned conversion rate} from the robotic system to an
+open or conventional approach, with a Dutch external comparator of 10.1\%
+\cite{DutchCohort2025}; \textbf{operative time, estimated blood loss, and length of
+stay}; and \textbf{quality of life} measured by the EORTC QLQ-C30 and PAN26
+instruments \cite{EORTCqlqc30}, together with the 12- and 18-month PFS rates and
+the 24-month OS rate. Because these measures sit outside the testing hierarchy,
+the Dutch values are interpreted as external descriptive benchmarks and the
+between-arm contrasts are interpreted as estimates rather than as confirmatory
+findings; the internal Arm B comparator remains the primary reference frame.
+
+\subsection{Exploratory Objectives and Endpoints}
+
+The exploratory objectives generate hypotheses for later-phase study and are
+explicitly non-confirmatory; no exploratory analysis is used to make a go or no-go
+decision on the intervention, and all are reported with that caveat. \textbf{LLM
+advisory-to-gate concordance} is the proportion of LLM advisory outputs that agree
+with the independent hard-coded safety gate, quantifying the reliability of the
+second-opinion oracle and informing autonomy-graduation decisions reserved for
+later phases (\S4). The \textbf{sim-to-real gap} is the difference between the
+Phase 0 simulation prediction and the intra-operative record, reported as the
+trajectory gap in millimeters and the tip-force gap in newtons against the upgraded
+Phase 0 thresholds, and is reported alongside \textbf{federated-learning model
+performance} and \textbf{ctDNA dynamics} pooled across the eight sites to
+characterize the multicenter fleet. The \textbf{health-economic and
+cost-effectiveness} outcomes are linked to the capital-firewalled co-investment
+design and inform the equitable-access rationale. Because these measures are
+descriptive, they are summarized with point estimates and dispersion only, without
+confirmatory significance testing.

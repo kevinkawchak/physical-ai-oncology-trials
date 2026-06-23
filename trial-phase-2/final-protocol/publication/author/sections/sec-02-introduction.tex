@@ -1,0 +1,441 @@
+\section{Introduction}
+
+\subsection{Study Rationale}
+
+Pancreatic ductal adenocarcinoma (PDAC) is the third leading cause of cancer
+death in the United States and the fourth in the European Union, with total
+five-year overall survival below 13 percent \cite{Siegel2025}. The
+pancreaticoduodenectomy, or Whipple procedure, is the most technically demanding
+of all curative-intent abdominal oncology operations: it requires resection and
+reconstruction of four luminal structures (the pancreas, the duodenum, the common
+bile duct, and the stomach or pylorus) and dissection around two named vessels
+(the superior mesenteric vein and the portal vein), with an artery-first approach
+to the superior mesenteric artery. The leading lethal postoperative sequence is
+the fistula-sepsis cascade: pancreatic fistula, intra-abdominal infection,
+hemorrhage, sepsis, and failure to rescue, graded under the ISGPS classification
+of postoperative pancreatic fistula \cite{Bassi2017}.
+
+The 2025 Dutch nationwide cohort of 1000 robotic pancreaticoduodenectomies
+reported a conversion rate of 10.1 percent, Clavien-Dindo grade III or higher
+complications of 41.3 percent, ISGPS grade B or C fistula of 24.4 percent, and
+30-day mortality of 3.9 percent \cite{DutchCohort2025}; these figures anchor the
+contemporary human baseline. The Phase 1 predicate \cite{kawchak2026phase1}
+established the recommended Phase 2 dose (RP2D, 300 mg daraxonrasib once daily)
+and the feasibility and safety of the on-premises large language model (LLM)
+directed eight-arm robotic Whipple, but a single-arm feasibility study cannot
+establish efficacy. That predicate result creates genuine clinical equipoise
+between the integrated combination and the prevailing standard of care, and it is
+precisely that equipoise that this randomized, controlled efficacy comparison is
+designed to resolve. The present Phase 2 protocol therefore randomizes patients
+1:1 (open-label, with blinded independent central review, BICR) between Arm A,
+perioperative daraxonrasib at RP2D plus the on-premises LLM-directed robotic
+Whipple (PancreSpeed II), and Arm B, modified FOLFIRINOX \cite{Conroy2018} plus a
+standard high-volume pancreaticoduodenectomy.
+
+The clinical argument for the combination, and for funding a definitive test of
+it, is best stated through four counterfactual scenarios, summarized in Figure 3,
+in which withholding the integrated approach shortens progression-free survival
+(PFS) and overall survival (OS) or, in the fourth case, denies the field a
+trustworthy answer altogether. In Scenario A, a borderline-resectable tumor
+abutting the superior mesenteric vein progresses to unresectable disease during a
+human-only scheduling delay (operating room access, fatigue, staging lag), and the
+R0 window closes; the LLM-directed robot instead achieves a rapid, precise,
+in-window R0 resection. In Scenario B, an unrecognized superior-mesenteric or
+portal-vein injury during manual surgery triggers the
+hemorrhage-conversion-fistula-sepsis-failure-to-rescue cascade; the five-vessel
+no-fly vascular gate with a $\leq 3$ ms cross-arm emergency stop averts the injury
+and preserves a complete resection. 
+
+In Scenario C, manual mistiming of the
+daraxonrasib restart (too early or too late) causes anastomotic dehiscence or
+micrometastatic outgrowth; the LLM advisory restart at T+7, T+14, or T+21 days,
+keyed to fistula status and drug trough, preserves the therapeutic window. In
+Scenario D, an under-funded, single-center, under-powered study fails to deliver a
+definitive, generalizable, and equitable answer at all: slow accrual, attrition,
+and a thin biomarker core leave the central PFS question unresolved for the next
+patient. The patient-aligned co-investment model converts capital, strictly behind
+a structural firewall, into accrual speed, retention, fidelity, and statistical
+power, raising the probability of a definitive result without ever touching the
+endpoints, their adjudication, or the analysis.
+
+These scenarios invite four framing questions that this protocol is designed to
+answer constructively rather than rhetorically. First, given the narrow resection
+window and the unforgiving fistula-sepsis cascade, how did we ever rely on humans
+alone for this treatment, with no second-opinion oracle isolated from the
+operative kinematics. Second, why did we fully trust a prior trial system with so
+many opportunities for compounding human error across scheduling, dissection, and
+drug timing, when each step admits a documented, deterministic safeguard. Third,
+as AI outputs grow more complex and voluminous, why would human peer review alone
+continue to suffice for increasingly intricate AI-directed care, rather than a
+verification-before-generation discipline with a hash-chained audit trail
+\cite{kawchak2026hr9510}. Fourth, when aligned philanthropic and private capital
+can raise the success likelihood of a definitive trial without altering a single
+endpoint, why would we leave that answer under-powered and inequitable. The
+protocol answers the first three by retaining the human in the loop while making
+every machine action validated, bounded, and re-traceable, and it answers the
+fourth with a Patient-Aligned Co-Investment Facility whose capital firewall lets
+contributions buy only operational success-likelihood, never a favorable result
+\cite{kawchak2026hr9510}.
+
+\begin{mermaidfig}
+% Scenario A
+\node[mmin]  (a0) at (0,0)       {Scenario A\\Borderline PDAC,\\SMV abutment $75^\circ$};
+\node[mmdark](aw) at (5.2,0.95)  {Human-only delay:\\unresectable, R0\\window closes, shorter PFS/OS};
+\node[mmgoal](ac) at (5.2,-0.95) {LLM plus robot:\\in-window R0 resection};
+% Scenario B
+\node[mmin]  (b0) at (0,-3.7)    {Scenario B\\Intra-op SMV/PV plane};
+\node[mmdark](bw) at (5.2,-2.75) {Manual injury: hemorrhage,\\conversion, R1/R2,\\fistula-sepsis cascade};
+\node[mmgoal](bc) at (5.2,-4.65) {No-fly gate, $\leq 3$ ms\\e-stop: injury averted};
+% Scenario C
+\node[mmin]  (c0) at (0,-7.4)    {Scenario C\\Perioperative\\daraxonrasib};
+\node[mmdark](cw) at (5.2,-6.45) {Manual mistiming:\\dehiscence or\\micrometastatic outgrowth};
+\node[mmgoal](cc) at (5.2,-8.35) {Advisory T+7/14/21:\\optimally timed restart};
+% Scenario D
+\node[mmin]  (d0) at (0,-11.1)   {Scenario D\\Funding the\\definitive answer};
+\node[mmdark](dw) at (5.2,-10.15){Under-funded, single-center,\\under-powered};
+\node[mmgoal](dc) at (5.2,-12.05){Co-invested behind firewall: power, retention, equity};
+
+\draw[mmedge] (a0.east) -- node[above, font=\scriptsize, align=center, xshift=-0.075cm, yshift=0.315cm]{human only} (aw.west);
+\draw[mmedge] (a0.east) -- node[below,font=\scriptsize, align=center, xshift=-0.075cm, yshift=-0.375cm]{combination} (ac.west);
+
+\draw[mmedge] (b0.east) -- node[above,font=\scriptsize, align=center, xshift=-0.075cm, yshift=0.315cm]{human only} (bw.west);
+\draw[mmedge] (b0.east) -- node[below,font=\scriptsize, align=center, xshift=-0.075cm, yshift=-0.375cm]{combination} (bc.west);
+
+\draw[mmedge] (c0.east) -- node[above,font=\scriptsize, align=center, xshift=-0.075cm, yshift=0.315cm]{human only} (cw.west);
+\draw[mmedge] (c0.east) -- node[below,font=\scriptsize, align=center, xshift=-0.075cm, yshift=-0.375cm]{combination} (cc.west);
+
+\draw[mmedge] (d0.east) -- node[above,font=\scriptsize, align=center, xshift=-0.075cm, yshift=0.425cm]{under-funded} (dw.west);
+\draw[mmedge] (d0.east) -- node[below,font=\scriptsize, align=center, xshift=-0.075cm, yshift=-0.375cm]{co-invested} (dc.west);
+\end{mermaidfig}
+\vspace{-0.7cm}
+\figcaption{Figure 3. The four counterfactual scenarios in which withholding the
+integrated approach worsens the patient or\\the evidence. Scenario A: a human-only
+scheduling delay lets a borderline-resectable tumor progress and closes the\\R0
+window. Scenario B: an unrecognized superior-mesenteric or portal-vein injury
+during manual surgery triggers\\the fistula-sepsis cascade; the no-fly gate averts it. Scenario C: manual mistiming of the
+daraxonrasib restart\\causes dehiscence or micrometastatic outgrowth; the timed
+advisory prevents it. Scenario D: an under-funded, single-center, under-powered
+study yields no definitive equitable answer; patient-aligned co-investment, walled
+off from endpoints by capital firewall, converts capital into accrual
+speed, retention, fidelity, and statistical power.}
+
+\subsection{Background}
+
+\subsubsection*{PDAC epidemiology and the Whipple fistula-sepsis cascade}
+
+The epidemiologic burden and operative hazard of PDAC define the unmet need this
+protocol addresses. With under-13-percent five-year survival \cite{Siegel2025}
+and a most-demanding curative operation whose leading complication is a
+self-amplifying fistula-sepsis-hemorrhage cascade \cite{Bassi2017}, the
+population has few alternatives and a narrow margin for technical error. The
+contemporary robotic baseline \cite{DutchCohort2025} demonstrates that even
+expert, high-volume robotic surgery leaves a substantial residual of conversions,
+high-grade complications, and clinically relevant fistulae. The combination in
+this protocol targets precisely the failure modes that the baseline still
+tolerates, and the randomized internal control (Arm B) measures the increment
+against modified FOLFIRINOX plus standard pancreaticoduodenectomy
+\cite{Conroy2018}.
+
+\subsubsection*{Daraxonrasib mechanism and clinical program}
+
+Daraxonrasib (RMC-6236) is an oral RAS(ON) multi-selective inhibitor that binds
+the active, GTP-bound (ON) state of multiple RAS variants, providing broad
+pan-KRAS coverage including the G12 alleles that predominate in PDAC. The FDA
+granted daraxonrasib Breakthrough Therapy designation in June 2025 for previously
+treated metastatic PDAC with KRAS G12 mutations \cite{revbreakthrough}, and the
+late-phase program comprises RASolute 302 (a Phase 3 study in previously treated
+metastatic PDAC) and RASolve 301 (a first-line program) \cite{rasolute302}. The
+broad pan-KRAS eligibility of RASolute 302 defines the molecular eligibility used
+in this protocol, and the perioperative pause-and-restart logic respects any
+RASolve 301 checkpoint-inhibitor combination context. Five prior computational
+works by the author independently complemented this drug-development program
+throughout 2025 and 2026 and supply the simulation scaffolding adapted here: a
+60-second PDAC robotic Whipple and daraxonrasib simulation
+\cite{kawchak_2026_20196639}; an AI digital-twin pancreatic-cancer simulation for
+in silico FDA-compliance and cost efficiency \cite{kawchak_2025_17239510}; a
+quantitative systems pharmacology (QSP) metastatic-PDAC trial simulation with code,
+VVUQ, and playbook \cite{kawchak_2025_17001137}; a 100,000-patient in silico
+Phase 3 five-arm PDAC trial triplicate \cite{kawchak_2025_16415815}; and
+end-to-end PDAC digital-twin clinical-trial proposals \cite{kawchak_2025_15735068}.
+
+\subsubsection*{Current state of AI in clinical trials and surgery}
+
+Artificial intelligence in regulated medicine has, to date, been narrow and
+prediction-oriented rather than generative and intervention-directing. As of the
+current taxonomy of FDA-authorized medical devices, AI is overwhelmingly deployed
+as prediction-only or narrow task-specific software, with reported authorizations
+spanning 1,016 in the published taxonomy \cite{Singh2025} and rising to 1,450 or
+more by current counts, while zero generative LLM devices have been approved for
+patient-facing intervention. This protocol therefore does not propose a generative
+device; it proposes a narrow, locked, validated device behavior governed by an
+on-premises repository-based LLM whose advisories are bounded, auditable, and
+held outside the robot vendor kinematic stack. The author's established record of
+LLM evaluation and trust over the period from August 2024 to June 2026 grounds
+this design, including a comparative code-generation evaluation of 16 proprietary
+versus open-source LLMs against the FDA Adverse Event Reporting System
+\cite{kawchak2025codegen16}, a mobile pancreatic-cancer surgical-humanoid program
+with priority VVUQ \cite{kawchak2026unitree}, the 21 CFR part 312 Physical AI
+unification adaptation \cite{kawchak2026adapt312}, and the
+verification-before-generation legislative framing \cite{kawchak2026hr9510}.
+
+\subsubsection*{Funding, co-investment, and the success likelihood of a definitive
+trial}
+
+A definitive, generalizable, and equitable Phase 2 answer is itself an outcome
+that can be made more or less likely by how the trial is resourced, and this
+protocol makes that mechanism explicit and governed. The Patient-Aligned
+Co-Investment Facility (PACIF) allows wealthier individuals connected to cancer
+patients to contribute ring-fenced philanthropic or private capital with the sole
+purpose of raising the trial's success likelihood. The defining safeguard is a
+capital firewall: contributors are structurally walled off from randomization,
+endpoint definition, outcome adjudication, statistical analysis, and publication,
+so that capital can never buy a favorable result.
+
+What capital can buy is limited
+to six operational success-likelihood levers, each of which acts on accrual,
+fidelity, retention, data quality, or oversight rather than on the answer. First,
+multi-site expansion to eight academic hepato-pancreato-biliary centers
+accelerates accrual and broadens generalizability. Second, Phase 0 compute funds
+$\geq 5000$ simulations across $\geq 3$ independent frameworks, lowering the
+sim-to-real gap (target $< 1.5$ mm and $< 0.4$ N) and raising the unified safety
+level to USL $\geq 8.0$. Third, a robot fleet with redundancy increases throughput
+and uptime. Fourth, a Patient Access and Equity Fund covers travel, lodging,
+lost-wage, caregiver, and navigation costs, raising retention, which lowers
+dropout, and protects statistical power, while making enrollment more
+equitable and representative. 
+
+Fifth, central infrastructure (BICR, central
+pathology, ctDNA, federated learning, and biostatistics) improves data quality and
+reduces bias. Sixth, independent oversight (a Data and Safety Monitoring Board, an
+independent safety monitor, a Physical AI Safety Review Committee, and an
+ethicist) protects safety and integrity. The facility is governed by the H.R. 9510
+verification, validation, and uncertainty quantification (VVUQ) financial-data
+standard \cite{kawchak2026hr9510}, disclosed under 21 CFR part 54
+\cite{ecfr2026part54}, and its results are deposited openly under CC BY 4.0.
+Table~\ref{tab:coinvest} maps each co-investment tranche to the operational lever
+it funds and to the firewall that keeps it away from the answer. In short, aligned
+capital raises power, fidelity, retention, equity, and generalizability without
+buying the answer.
+
+\subsubsection*{Physical AI concerns addressed by this protocol}
+
+Nine recurring concerns are raised about Physical AI in patient care, and this
+protocol pairs each with a concrete, prespecified mitigation. The first eight
+concern the device and its governance; the ninth, new to this Phase 2 design,
+concerns financial influence and inequitable access and is answered by the capital
+firewall and the equity fund. Figure 4 maps the nine concerns to their
+mitigations, and Table~\ref{tab:concerns} states each pairing in full.
+
+
+\subsection{Risk/Benefit Assessment}
+
+\subsubsection{Known Potential Risks}
+
+The known potential risks fall into three categories. Drug risks arise from
+daraxonrasib toxicity, including gastrointestinal effects (nausea, diarrhea,
+stomatitis), dermatologic and mucocutaneous events, hepatic enzyme elevations,
+and dose-limiting toxicities bounded at the established RP2D; perioperative
+exposure additionally raises a theoretical risk to wound and anastomotic healing
+if restart timing is suboptimal. Device and robotic risks include device
+malfunction, an erroneous AI advisory, cyber-physical failure of the control or
+telemetry chain, and inadvertent vascular injury; these are the categories that
+motivate the significant-risk determination and the layered hard safety limits.
+Operative risks are those intrinsic to the Whipple procedure: postoperative
+pancreatic fistula (graded by ISGPS \cite{Bassi2017}), hemorrhage, delayed gastric
+emptying, intra-abdominal infection and sepsis, and the need for conversion to
+open surgery. Because the design is randomized, patients in the control arm (Arm B)
+also carry the operative and modified-FOLFIRINOX toxicity risks intrinsic to the
+standard of care \cite{Conroy2018}. The contemporary robotic baseline quantifies residual magnitude of these operative risks even in expert hands
+\cite{DutchCohort2025}.
+
+
+
+\begin{mermaidfig}
+\node[mmin]  (c1) at (0,0)       {Physical AI\\limitations};
+\node[mmin]  (c2) at (0,-1.6)    {Patient safety\\is paramount};
+\node[mmin]  (c3) at (0,-3.2)    {Loss of\\human workers};
+\node[mmin]  (c4) at (0,-4.8)    {Single-source\\software};
+\node[mmin]  (c5) at (0,-6.4)    {Proprietary-model\\dependency};
+\node[mmin]  (c6) at (0,-8.0)    {Open-source LLMs\\not domestic};
+\node[mmin]  (c7) at (0,-9.6)    {Overly complex\\AI workflows};
+\node[mmin]  (c8) at (0,-11.2)   {LLMs are\\black boxes};
+\node[mmin]  (c9) at (0,-12.8)   {Financial influence,\\inequitable access};
+\node[mmgoal](m1) at (4.6,0)      {Phase 0 sim validation;\\narrow locked device};
+\node[mmgoal](m2) at (4.6,-1.6)   {10 kHz heartbeat, $\leq 3$ ms\\e-stop, force caps};
+\node[mmgoal](m3) at (4.6,-3.2)   {Human-in-the-loop; surgeon\\plus backup plus ISM};
+\node[mmgoal](m4) at (4.6,-4.8)   {Cross-framework\\($\geq 3$ frameworks)};
+\node[mmgoal](m5) at (4.6,-6.4)   {On-premises LLM,\\open weights, isolated};
+\node[mmgoal](m6) at (4.6,-8.0)   {Domestic deployment;\\data residency preserved};
+\node[mmgoal](m7) at (4.6,-9.6)   {Deny-by-default,\\simplified MCP gate};
+\node[mmgoal](m8) at (4.6,-11.2)  {Hash-chained audit\\trail; 21 CFR part 11};
+\node[mmgoal](m9) at (4.6,-12.8)  {Capital firewall, equity fund,\\H.R. 9510};
+\draw[mmedge] (c1) -- (m1);
+\draw[mmedge] (c2) -- (m2);
+\draw[mmedge] (c3) -- (m3);
+\draw[mmedge] (c4) -- (m4);
+\draw[mmedge] (c5) -- (m5);
+\draw[mmedge] (c6) -- (m6);
+\draw[mmedge] (c7) -- (m7);
+\draw[mmedge] (c8) -- (m8);
+\draw[mmedge] (c9) -- (m9);
+\end{mermaidfig}
+\vspace{-0.65cm}
+\figcaption{Figure 4. The mapping of all nine Physical AI concerns to protocol
+mitigations, the same nine pairs in Table~\ref{tab:concerns}.\\ The original eight
+device concerns are paired with validated device behavior over open-endedness,
+layered hard\\safety limits, retained human roles, and multi-framework
+non-single-source validation; the ninth, financial\\influence and inequitable
+access, is answered by the capital firewall, the Patient Access and Equity Fund,\\21 CFR part 54 disclosure, the H.R. 9510 VVUQ financial standard, and open CC BY
+deposition.}
+
+\vspace{0.3em}
+
+\begin{table}[t]\centering\footnotesize
+\caption{The nine Physical AI concerns and their protocol mitigations.}
+\label{tab:concerns}
+\begin{tabularx}{\textwidth}{L{5.5cm} Y}
+\toprule
+\textbf{Concern} & \textbf{Protocol mitigation} \\
+\midrule
+Physical AI limitations & Phase 0 simulation validation over $\geq 5000$ procedures and $\geq 3$ independent frameworks; device behavior is narrow and locked, not generative, and operates only within validated envelopes. \\
+Patient safety is paramount & Layered hard limits: a 10 kHz heartbeat broadcast bus, a $\leq 3$ ms cross-arm emergency stop, $\leq 3$ N per-arm and $\leq 18$ N cumulative tip-force caps, and a five-vessel no-fly gate around the SMV and PV. \\
+Loss of human workers & The human is retained in the loop: a credentialed surgeon, a backup operator, and an independent safety monitor (ISM) supervise every procedure, with the LLM acting as a bounded advisory oracle rather than a replacement. \\
+Single-source software & Validation is cross-framework, with $\geq 3$ independent frameworks required, so no single simulator or codebase is a single point of failure. \\
+Proprietary-model dependency & The advisory uses an on-premises repository-based LLM with open weights, isolated from any single vendor stack, so the protocol is not captive to one proprietary model provider \cite{kawchak2025codegen16}. \\
+Non-domestic open-source LLMs & Deployment is domestic and on-premises, preserving data residency and avoiding reliance on non-domestic open-source model hosting; inference and records remain within the controlled environment. \\
+Overly complex AI workflows & A deny-by-default posture with a deliberately simplified gate surface (a small set of Model Context Protocol servers) constrains the action space and reduces workflow complexity to an auditable minimum. \\
+LLMs are black boxes & A hash-chained audit trail under 21 CFR part 11 records every advisory, command, and safety event, making each re-traceable to a deterministic seed and a specific commit, so the black box becomes traceable \cite{kawchak2026adapt312}. \\
+Financial influence and inequitable access & A capital firewall walls funders off from randomization, endpoints, adjudication, analysis, and publication; a Patient Access and Equity Fund supports equitable enrollment and retention; influence is disclosed under 21 CFR part 54, governed by the H.R. 9510 VVUQ financial standard, and all results are deposited openly under CC BY \cite{kawchak2026hr9510,ecfr2026part54}. \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\begin{table}[t]\centering\footnotesize
+\caption{The patient-aligned co-investment tranches, the operational
+success-likelihood levers they fund, and the capital firewall.}
+\label{tab:coinvest}
+\begin{tabularx}{\textwidth}{L{3.2cm} L{4.3cm} Y}
+\toprule
+\textbf{Co-investment tranche} & \textbf{Operational lever funded} & \textbf{Effect on success likelihood; firewall note} \\
+\midrule
+Multi-site network (8 centers) & Eight academic HPB centers activated and supported & Faster accrual and broader generalizability of the PFS result; no influence on randomization or endpoints. \\
+Phase 0 compute & $\geq 5000$ simulations across $\geq 3$ frameworks & Lower sim-to-real gap ($< 1.5$ mm, $< 0.4$ N); USL $\geq 8.0$, raising fidelity; compute cannot alter the analysis plan. \\
+Robot fleet plus redundancy & Device fleet, spares, and uptime engineering & Higher throughput and uptime, sustaining in-window accrual; no access to outcome adjudication. \\
+Patient Access and Equity Fund & Travel, lodging, lost-wage, caregiver, and navigation support & Higher retention that lowers dropout and protects statistical power, with more equitable and representative enrollment; funders see no patient-level outcomes. \\
+Central review and biomarker core & BICR, central pathology, ctDNA, and federated learning & Improved data quality and reduced bias; the core is independent of contributors and of the analysis team. \\
+Independent oversight & DSMB, ISM, Physical AI Safety Review Committee, ethicist & Stronger safety and integrity monitoring; oversight bodies are insulated from funders. \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+
+
+
+
+\vspace{-0.2cm}
+
+\subsubsection{Known Potential Benefits}
+
+The known potential benefits are directed at the specific failure modes above. A
+precise, in-window R0 resection is the principal oncologic benefit, addressing the
+resection-window collapse and the margin-positivity that drive shorter survival.
+Layered hard safety limits with a full hash-chained audit trail provide a benefit
+not available in manual surgery: every machine action is bounded and re-traceable,
+supporting both intraoperative safety and post hoc verification. Optimized
+drug-restart timing, advised at T+7, T+14, or T+21 days and keyed to fistula
+status and drug trough, aims to restore systemic therapy at the earliest safe
+point and thereby suppress micrometastatic outgrowth. Beyond the individual
+procedure, the Patient Access and Equity Fund confers a direct participant
+benefit, lowering the travel, lodging, lost-wage, and caregiver burdens that drive
+attrition and inequitable enrollment, which improves both retention and the
+representativeness of the evidence. For a low-survival population with few
+alternatives, even incremental gains in margin status, complication avoidance,
+therapy continuity, and equitable access are clinically meaningful.
+
+
+\textit{Capital firewall}: contributors to any tranche cannot influence randomization, endpoint definition, outcome adjudication, statistical analysis, or publication; capital buys only operational success-likelihood, never a favorable result. Influence is disclosed under 21 CFR part 54 and governed by the H.R. 9510 VVUQ financial-data standard \cite{kawchak2026hr9510,ecfr2026part54}.
+
+\vspace{-0.2cm}
+
+\subsubsection{Assessment of Potential Risks and Benefits}
+
+Figure 5 frames the benefit-risk weighing for this population, now as a randomized
+comparison with an internal control. Against a baseline of under-13-percent
+five-year survival and few alternatives, the novel risks (device malfunction,
+advisory error, cyber-physical failure) are weighed against the benefits (precise
+in-window R0 resection, layered hard safety limits with a full audit trail,
+optimized drug-restart timing, and the access-fund gains in retention and equity).
+For this low-survival, limited-alternative population, the benefit-risk balance is
+favorable: the potential benefits are likely to outweigh the risks, and the
+assessment is consistent with the expanded-access ethic that permits
+investigational treatment for serious or immediately life-threatening conditions
+when the potential benefit justifies the potential risk (21 CFR \S312.84).
+
+\begin{mermaidfig}
+\node[mmdark](base) at (0,-0.95)  {Advanced PDAC baseline\\5-year OS $<$ 13\%\\3rd US / 4th EU death};
+\node[mmin]  (r1)  at (-5.1,-2.4) {Device malfunction};
+\node[mmin]  (r2)  at (-5.1,-4.4) {AI advisory error};
+\node[mmin]  (r3)  at (-5.1,-6.4) {Cyber-physical failure};
+\node[mmstep](b1)  at (5.1,-2.4)  {In-window R0 resection};
+\node[mmstep](b2)  at (5.1,-4.4)  {Hard limits plus audit trail};
+\node[mmstep](b3)  at (5.1,-6.4)  {Restart timing plus equity fund};
+\node[mmdec] (w)   at (0,-4.4)    {Benefit-risk for\\low-survival patients};
+\node[mmgoal](j)   at (0,-7.6)    {Favorable: benefits likely outweigh\\risks; \S312.84};
+\draw[mmedge] (base) -- (w);
+\draw[mmedge] (r1.east) -- (w.west);
+\draw[mmedge] (r2) -- (w);
+\draw[mmedge] (r3.east) -- (w.west);
+\draw[mmedge] (b1.west) -- (w.east);
+\draw[mmedge] (b2) -- (w);
+\draw[mmedge] (b3.west) -- (w.east);
+\draw[mmedge] (w) -- (j);
+\end{mermaidfig}
+\vspace{-0.45cm}
+\figcaption{Figure 5. Risk-benefit framework for the randomized Phase 2
+comparison in advanced PDAC. Against a baseline\\of under-13-percent five-year
+survival and few alternatives, the novel risks (device malfunction, advisory
+error, cyber-physical failure) are weighed against the benefits (precise in-window
+R0 resection, layered hard safety\\limits with a full audit trail, optimized drug
+timing, and the access-fund gains in retention and equity).\\For this low-survival,
+limited-alternative population the benefit-risk balance is favorable.}
+
+Finally, Figure 6 makes the co-investment logic explicit and shows where the
+firewall sits. Aligned capital and the PACIF supply only the operational levers;
+the capital firewall blocks every path from a contributor to the endpoints, their
+adjudication, or the analysis, so the levers raise the success likelihood of a
+definitive answer while the integrity of that answer remains structurally
+protected.
+
+\begin{mermaidfig}
+\node[mmin]  (cap) at (0,0.5)       {Aligned capital\\and PACIF tranches};
+\node[mmdec] (fw)  at (0,2.55)     {Capital\\firewall};
+\node[mmstep](l1)  at (6,2.55)  {8 academic\\HPB sites};
+\node[mmstep](l2)  at (6,0.85)  {Phase 0 compute\\($\geq 5000$ sims)};
+\node[mmstep](l3)  at (6,-0.85) {Patient Access\\and Equity Fund};
+\node[mmstep](l4)  at (6,-2.55) {Central review\\core (BICR)};
+\node[mmgoal](o1)  at (10.2,2.55) {Higher\\statistical power};
+\node[mmgoal](o2)  at (10.2,0.85) {Lower\\sim-to-real gap};
+\node[mmgoal](o3)  at (10.2,-0.85){Lower dropout,\\equitable enrollment};
+\node[mmgoal](o4)  at (10.2,-2.55){Definitive, generalizable,\\equitable answer};
+\node[mmdark](block) at (0,-2.55){Endpoints, adjudication,\\analysis: no funder};
+\draw[mmedge] (cap) -- (fw);
+\draw[mmedge] (fw.east) -- (l1.west);
+\draw[mmedge] (fw.east) -- (l2.north west);
+\draw[mmedge] (fw.east) -- (l3.north west);
+\draw[mmedge] (fw.east) -- (l4.north west);
+\draw[mmedge] (l1) -- (o1);
+\draw[mmedge] (l2) -- (o2);
+\draw[mmedge] (l3) -- (o3);
+\draw[mmedge] (l4) -- (o4);
+\draw[mmedged, rounded corners=4pt] (fw.west) -- ++(-0.75,0) |- node[pos=0.25, right, font=\scriptsize, align=center, yshift=-1.15cm]{blocked} (block.west);
+\end{mermaidfig}
+\vspace{-0.7cm}
+\figcaption{Figure 6. The co-investment-to-success-likelihood pathway. Aligned
+capital and the PACIF flow only through the capital firewall into operational
+levers (eight sites, Phase 0 compute, the Patient Access and Equity Fund, and the
+central review core), which raise statistical power, lower the sim-to-real gap,
+lower dropout, broaden equitable enrollment, and so raise the probability of a
+definitive, generalizable, equitable answer. The dashed blocked edge shows that
+the firewall admits no path from funders to the endpoints, their adjudication, or
+the analysis: capital raises operational success likelihood while the integrity of
+the result is structurally protected \cite{kawchak2026hr9510,ecfr2026part54}.}
