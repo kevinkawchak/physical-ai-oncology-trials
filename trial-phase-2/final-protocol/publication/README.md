@@ -1,4 +1,4 @@
-# Zenodo Publication with Author Edits - Phase 2 (paper URL directory) (v1.1.0)
+# Zenodo AI Publication - Phase 2 (paper URL directory) (v1.1.0)
 
 [![License](https://img.shields.io/badge/License-CC%20BY%204.0-yellow.svg)](https://creativecommons.org/licenses/by/4.0/)
 [![Stage](https://img.shields.io/badge/Stage-4%20final%20%2B%20author%20edits-800020.svg)](../../sub-prompts/prompt-4-final-protocol.md)
