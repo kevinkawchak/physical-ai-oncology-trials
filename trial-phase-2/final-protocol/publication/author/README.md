@@ -24,7 +24,7 @@ document color.
 
 - **Author:** Kevin Kawchak, CEO ChemicalQDevice
   ([ORCID 0009-0007-5457-8667](https://orcid.org/0009-0007-5457-8667))
-- **DOI:** [`10.5281/zenodo.xxxxxxxx`](https://doi.org/10.5281/zenodo.xxxxxxxx)
+- **DOI:** [`10.5281/zenodo.20807027`](https://doi.org/10.5281/zenodo.20807027)
   (pending deposit) - **Date:** June 23, 2026 - **Version:** v1.1.0
 - **Predicate:** the Phase 1 protocol (v1.0.0,
   [`10.5281/zenodo.20780121`](https://doi.org/10.5281/zenodo.20780121)) that
