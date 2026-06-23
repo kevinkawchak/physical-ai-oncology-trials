@@ -93,14 +93,8 @@ This release adds [`trial-phase-2/`](trial-phase-2): the multicenter randomized
 established the daraxonrasib recommended Phase 2 dose (RP2D, 300 mg once daily) and
 the feasibility and safety of the on-premises LLM-directed eight-arm robotic
 Whipple, genuine clinical equipoise now exists, so this study randomizes **220
-participants 1:1 across eight high-volume academic centers**, powered for a
-confirmatory **progression-free-survival** primary endpoint. A distinctive Phase 2
-addition is a **Patient-Aligned Co-Investment Facility** behind a **capital
-firewall**: aligned capital raises operational success likelihood (more sites,
-more simulation compute, a patient access and equity fund, central review, and
-independent oversight) without influencing randomization, endpoints, adjudication,
-analysis, or publication. Authored by Kevin Kawchak (ChemicalQDevice), protocol
-v1.1.0, DOI [10.5281/zenodo.xxxxxxxx](https://doi.org/10.5281/zenodo.xxxxxxxx),
+participants 1:1 across eight high-volume academic centers**. Authored by Kevin Kawchak (ChemicalQDevice), protocol
+v1.1.0, DOI [10.5281/zenodo.20807027](https://doi.org/10.5281/zenodo.20807027),
 June 23, 2026.
 
 ### Contents of this version
@@ -177,11 +171,7 @@ This release adds [`trial-protocol/`](trial-protocol): the first substantial
 **Physical AI clinical trial protocol** in this repository. It is a **Phase 1,
 first-in-human, combined IND/IDE** study of **on-premises LLM-directed robotic
 pancreaticoduodenectomy (the Whipple procedure)** with **perioperative
-daraxonrasib (RMC-6236)** in KRAS-mutated pancreatic ductal adenocarcinoma. The
-daraxonrasib drug arm proceeds under an IND (21 CFR part 312, Phase 1, 3+3); the
-eight-arm robotic Whipple proceeds as a significant-risk device under an IDE
-(21 CFR part 812) with the Physical AI overlay of Subpart J. Authored by Kevin
-Kawchak (ChemicalQDevice), DOI [10.5281/zenodo.xxxxxxxx](https://doi.org/10.5281/zenodo.xxxxxxxx),
+daraxonrasib (RMC-6236)** in KRAS-mutated pancreatic ductal adenocarcinoma. Authored by Kevin Kawchak (ChemicalQDevice), DOI [10.5281/zenodo.20780121](https://doi.org/10.5281/zenodo.20780121),
 June 20, 2026.
 
 ### Contents of this version
