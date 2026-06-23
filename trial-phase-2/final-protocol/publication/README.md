@@ -8,7 +8,10 @@
 [![Tables](https://img.shields.io/badge/Full--width%20tables-11-6B6B6B.svg)](.)
 [![Compiles](https://img.shields.io/badge/Overleaf-pdfLaTeX-6B6B6B.svg)](main.tex)
 [![ORCID](https://img.shields.io/badge/ORCID-0009--0007--5457--8667-A6CE39.svg)](https://orcid.org/0009-0007-5457-8667)
-[![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.xxxxxxxx-blue.svg)](https://doi.org/10.5281/zenodo.xxxxxxxx)
+[![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.20807027-800020.svg)](https://doi.org/10.5281/zenodo.20807027)
+[![Release](https://img.shields.io/badge/Release-v4.1.0-orange.svg)](../releases.md)
+
+[Publication with Author Edits](https://github.com/kevinkawchak/physical-ai-oncology-trials/tree/main/trial-phase-2/final-protocol/publication/author) (final-protocol/publication; the paper URL directory).
 
 This directory is the **paper URL directory** for the Phase II protocol: the
 author-edited, publication-ready build of the *Phase 2, Multicenter, Randomized,
