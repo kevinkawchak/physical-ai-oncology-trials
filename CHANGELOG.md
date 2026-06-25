@@ -20,6 +20,7 @@ Format follows [Keep a Changelog](https://keepachangelog.com/).
 
 ### Changed
 - Root `README.md` updated with a dedicated v4.1.0 section, doubled badge set, the `trial-phase-2/` repository-structure subtree, and a colored Phase 2 build diagram and protocol table; `releases.md` updated with the v4.1.0 release notes.
+- @kevinkawchak modified main/README to make more consistent with prior developments on 2026-06-25.
 
 ## [4.0.0] - 2026-06-20
 
