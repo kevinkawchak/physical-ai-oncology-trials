@@ -23,7 +23,7 @@
 
 This repository provides production-ready configurations, validated pipelines, and integration guides for deploying robotic systems, digital twins, and embodied AI agents in oncology. 
 
-**6/23: v4.1.0 (Physical AI Pancreatic Whipple + Daraxonrasib Phase 2 Randomized Controlled Trial Protocol v1.1.0)** *v4.1.0 delivers the multicenter randomized Phase 2 follow-up: 220 participants randomized 1:1 across 8 centers, daraxonrasib at the recommended Phase 2 dose plus the LLM-directed robotic Whipple.* [![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.20807027-blue)](https://doi.org/10.5281/zenodo.20807027)
+**6/23: v4.1.0 (Physical AI Pancreatic Whipple + Daraxonrasib Phase 2 Randomized Controlled Trial Protocol v1.1.0)** *v4.1.0 delivers the multicenter randomized Phase 2 follow-up: 220 participants randomized 1:1 across 8 centers.* [![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.20807027-blue)](https://doi.org/10.5281/zenodo.20807027)
 
 **6/20: v4.0.0 (Physical AI Pancreatic Whipple + Daraxonrasib Phase 1 Protocol v1.0.0)** *v4.0.0 delivers the first substantial Physical AI clinical trial protocol: a Phase 1, first-in-human, combined IND/IDE study of on-premises LLM-directed robotic Whipple surgery with perioperative daraxonrasib.* [![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.20780121-blue)](https://doi.org/10.5281/zenodo.20780121)
 
