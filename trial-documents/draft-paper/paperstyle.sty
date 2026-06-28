@@ -45,6 +45,7 @@
 \RequirePackage{fancyvrb}
 \RequirePackage{booktabs}
 \RequirePackage{caption}
+\RequirePackage{adjustbox}
 
 % - TikZ for the Mermaid-as-TikZ figures. -
 \RequirePackage{tikz}
@@ -173,7 +174,11 @@
   \end{lrbox}%
   \begin{center}%
   \setlength{\fboxrule}{0.4pt}\setlength{\fboxsep}{9pt}%
-  \fcolorbox{paperblack}{paperwhite}{\usebox{\mmsavebox}}%
+  % adjustbox max width scales a figure down only if it would exceed the body
+  % measure, so no figure ever runs off the right margin (small figures are
+  % unchanged). The 22pt allowance leaves room for the frame and \fboxsep.
+  \fcolorbox{paperblack}{paperwhite}{%
+    \adjustbox{max width=\dimexpr\linewidth-22pt\relax}{\usebox{\mmsavebox}}}%
   \end{center}%
   \par\addvspace{0.15\baselineskip}}
 
