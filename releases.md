@@ -4,6 +4,40 @@ Release notes for the physical-ai-oncology-trials repository.
 
 ---
 
+Phase 1 Pancreatic Cancer Trial Efficient LLM Document Generations (v4.2.0)
+v4.2.0 - Phase 1 Pancreatic Cancer Trial Efficient LLM Document Generations (Paper v1.0)
+
+## Summary
+
+This release adds trial-documents/, a single-prompt paper (paper v1.0) titled Phase 1 Pancreatic Cancer Trial Efficient LLM Document Generations, by Kevin Kawchak (ChemicalQDevice), DOI 10.5281/zenodo.xxxxxxxx, June 29, 2026. The paper shows how a repository based large language model, driven by one master prompt that first writes and then executes a schedule of sub-prompts, can hasten the entire Phase 1 process by generating every relevant large trial document through a mermaid to draft to full to final pipeline. It builds on the Oncology Trial PI LLM Adoption Guide (trial-documents/inputs/llm-adoption) as both the paper template and the practical hands-on guide, extended with a Keywords section and a Rights and Permissions (CC BY 4.0) section. The work is grounded in four AI research sources (trial-documents/research/document-types and industry-workflow) covering long-document decision gates and the before/during/after Phase 1 document workflow, and it addresses the six greatest-acceleration document targets (the initial IND and IRB package; protocol amendments with synchronized consent and site updates; cohort-review packages after safety data mature; the complete clinical-hold response; the Phase 2-to-3 briefing package and Phase 3 protocol; and the pivotal CSR and NDA/BLA modules after database lock). The paper argues, per the OUTLINE, that patients currently enrolled cannot wait for slowdowns (new document iterations now take one to four days), that effective verifications prove utility (mermaid grounding, figures match context, real-time GitHub monitorability, and repository, directory, and file name matching), and that patient lives are extended because probable benefit exceeds probable risk while only the administrative and preparation time bucket is compressed. It cites the Phase 2 protocol, the law-physical-ai-trials review/adoption/enactment directories, the single-prompt-bill auto-bill-01/02 directories, the five DARAXONRASIB entries, and the 2025 application papers as the prior single-prompt multi-file evidence leading up to this project. The entire build uses the five-step palette deep maroon 8B2E3F, steel blue 2F5D7C, terracotta D08770, light blue BFD7EA, and near-white F4F7F9 with black body text.
+
+A 425-character summary: v4.2.0 adds trial-documents/, a single-prompt paper showing how a repository based LLM generates every large Phase 1 PDAC trial document through a mermaid to draft to full to final pipeline. It covers the six highest-value acceleration targets, ships 24 colored figures reproduced exactly in LaTeX, matches paper names to repository names, and argues probable benefit over probable risk for enrolled patients who cannot wait.
+
+## Features
+
+- trial-documents/prompts: the master prompt filed verbatim (prompt-paper.md) and the full Claude Code output (output-paper.md).
+- trial-documents/sub-prompts: the four generated stage sub-prompts (mermaid, draft, full, final) adapted from the trial-protocol workflow, with a comprehensive README.
+- trial-documents/mermaid: 24 new, professionally colored Mermaid figures (deep maroon 8B2E3F, steel blue 2F5D7C, terracotta D08770, light blue BFD7EA, near-white F4F7F9), one commit per figure, each carrying real quantitative data and named source files; README and output-mermaid.md.
+- trial-documents/draft-paper: the 8-section scaffold (main.tex, paperstyle.sty, references.bib, sections/sec-01..sec-08) with bracketed [DRAFTING INSTRUCTION] pointers, plus draft-paper-LaTeX.zip.
+- trial-documents/full-paper: the 8 full sections with 24 TikZ mermaidfig figures and 6 full-width tables, plus full-paper-LaTeX.zip.
+- trial-documents/final-paper: the polished sections (clearpage per self-standing section, adjustbox max-width figures, ragged-right tables, raggedbottom), plus final-paper-LaTeX.zip. No publication subdirectory.
+- Comprehensive READMEs and relevant badges in every trial-documents directory; the paper keeps black body text and a PNG-free, logo-free ORCID hyperlink (Rule 12).
+- Root README updated with new badges, a 425-character summary, a dedicated v4.2.0 section (colored Mermaid, tables, table of contents), and the trial-documents structure tree. CHANGELOG.md updated.
+
+## Contributors
+@kevinkawchak
+@claude
+@google-gemini
+@openai
+
+## Notes
+
+- No raster images anywhere (no png or jpg); the permitted media are full-width white-background ragged-right tables and the five-color Mermaid diagrams reproduced in LaTeX as TikZ mermaidfig figures. Single dashes only; the section symbol for codified references.
+- Each LaTeX set (draft, full, final) compiles in Overleaf with pdfLaTeX and ships its own zip. The build adds no Python, YAML, or other CI-checked files, so the lint-and-format workflow (ruff check, ruff format, yamllint) on Python 3.10, 3.11, and 3.12 remains green.
+- The DOI 10.5281/zenodo.xxxxxxxx is a placeholder pending deposit. This is an independent research paper and adoption guide, not medical or regulatory advice.
+
+---
+
 Physical AI Pancreatic Whipple + Daraxonrasib Phase 2 Randomized Controlled Trial Protocol (v4.1.0)
 v4.1.0 - Physical AI Pancreatic Whipple + Daraxonrasib Phase 2 Randomized Controlled Trial Protocol
 

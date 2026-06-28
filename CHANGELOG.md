@@ -5,6 +5,22 @@ Format follows [Keep a Changelog](https://keepachangelog.com/).
 
 ## [Unreleased]
 
+## [4.2.0] - 2026-06-29
+
+### Added
+- `trial-documents/` - a single-prompt paper (paper v1.0), *Phase 1 Pancreatic Cancer Trial Efficient LLM Document Generations*, showing how a repository based LLM driven by one master prompt (Process A writes the sub-prompts, Process B executes them) hastens the entire Phase 1 process by generating every relevant large trial document through a mermaid to draft to full to final pipeline. Authored by Kevin Kawchak (ChemicalQDevice), DOI 10.5281/zenodo.xxxxxxxx, June 29, 2026.
+- `trial-documents/prompts/` - the master prompt filed verbatim (`prompt-paper.md`) and the full Claude Code output (`output-paper.md`).
+- `trial-documents/sub-prompts/` - four generated stage sub-prompts (mermaid, draft, full, final) adapted from the `trial-protocol` workflow, with a comprehensive README.
+- `trial-documents/mermaid/` - 24 new, professionally colored Mermaid figures (deep maroon `#8B2E3F`, steel blue `#2F5D7C`, terracotta `#D08770`, light blue `#BFD7EA`, near-white `#F4F7F9`), one commit per figure, each carrying real quantitative data and named source files; README and `output-mermaid.md`.
+- `trial-documents/draft-paper/` - the 8-section scaffold (`main.tex`, `paperstyle.sty`, `references.bib`, `sections/sec-01..sec-08`) with bracketed `[DRAFTING INSTRUCTION]` pointers, plus `draft-paper-LaTeX.zip`.
+- `trial-documents/full-paper/` - the 8 full sections with 24 TikZ `mermaidfig` figures and 6 full-width tables, plus `full-paper-LaTeX.zip`.
+- `trial-documents/final-paper/` - the polished sections (`\clearpage` per self-standing section, `adjustbox` max-width figures, ragged-right tables, `\raggedbottom`), plus `final-paper-LaTeX.zip`. No `publication` subdirectory.
+- Comprehensive READMEs and badges in every `trial-documents/` directory; the paper builds on the *Oncology Trial PI LLM Adoption Guide* (`inputs/llm-adoption`) as both template and guide, extended with a Keywords section and a Rights and Permissions (CC BY 4.0) section. Black body text; a PNG-free, logo-free ORCID hyperlink (Rule 12). Grounded in four AI research sources (`research/document-types`, `research/industry-workflow`).
+
+### Changed
+- Root `README.md` - new v4.2.0 badges, a 425-character summary, a dedicated v4.2.0 section (colored Mermaid, tables, table of contents), and the `trial-documents/` structure tree.
+- `releases.md` - v4.2.0 release notes added at the top.
+
 ## [4.1.0] - 2026-06-23
 
 ### Added

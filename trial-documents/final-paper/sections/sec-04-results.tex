@@ -1,0 +1,299 @@
+% sec-04-results.tex - Results (full)
+\section{Results}
+
+\subsection{A Single Prompt Produced Four Stage Outputs}
+
+Executing the single master prompt produced four stage outputs in
+\texttt{trial-documents}: 24 colored Mermaid figures, a draft scaffold, a full
+paper, and a final paper. Each LaTeX stage ships \texttt{main.tex},
+\texttt{paperstyle.sty}, \texttt{references.bib}, a \texttt{sections/} directory of
+eight section files, and an Overleaf zip, and every distinguishable file was a
+separate commit pushed in real time. Table 2 summarizes the stage outputs.
+
+\vspace{0.2em}
+\noindent\begin{tabularx}{\textwidth}{L{2.4cm} L{3.4cm} Y L{2.0cm}}
+\toprule
+\textbf{Stage} & \textbf{Directory} & \textbf{Artifacts} & \textbf{Commits} \\
+\midrule
+1 Mermaid & \texttt{mermaid/} & 24 colored Mermaid figure files, README, output-mermaid.md & 26 \\
+2 Draft & \texttt{draft-paper/} & main.tex, paperstyle.sty, references.bib, 8 section scaffolds, README, zip & 10+ \\
+3 Full & \texttt{full-paper/} & main.tex, style, bib, 8 full sections with 24 TikZ figures and tables, README, zip & 10+ \\
+4 Final & \texttt{final-paper/} & polished main, style, bib, 8 sections, README, zip; root repository updates & 10+ \\
+\bottomrule
+\end{tabularx}
+\figcaption{Table 2. The four stage outputs produced by the single prompt, each
+with one commit per distinguishable file pushed in real time.}
+
+\subsection{The Six Acceleration Targets Addressed}
+
+The six document targets where faster, validated authoring yields the greatest
+schedule value were each addressed by the method, with the binding clock identified
+for each (Figure 16, Table 3). Node color in Figure 16 encodes the gate type from
+Figure 7: maroon for hard gates, steel blue for protocol-defined gates, and
+terracotta for decision gates. Two targets are detailed further: the initial IND
+and IRB package, the single highest-value target (Figure 17), and the complete
+clinical-hold response, whose 30-day FDA review begins only when a complete response
+to every deficiency is received (Figure 18).
+
+\begin{mermaidfig}
+\node[mmin] (in) at (0,-3.75) {Faster, validated\\authoring};
+\node[mmgoal] (t1) at (5.0,0) {1. IND + IRB package};
+\node[mmgoal] (t2) at (5.0,-1.5) {2. Amendments + consent};
+\node[mmproc] (t3) at (5.0,-3.0) {3. Cohort-review pkg};
+\node[mmgoal] (t4) at (5.0,-4.5) {4. Clinical-hold response};
+\node[mmaccent] (t5) at (5.0,-6.0) {5. EOP2 + Phase 3 protocol};
+\node[mmaccent] (t6) at (5.0,-7.5) {6. CSR + NDA/BLA modules};
+\node[mmgoal] (out) at (10.4,-3.0) {Compressed\\admin/prep time\\(months to a year)};
+\node[mmctx] (note) at (0,-6.6) {Schedule value highest\\on the critical path};
+\node[mmdec] (lim) at (10.4,-6.6) {Gains capped by\\clinical events,\\fixed review clocks};
+\draw[mmedge] (in) to[out=60,in=180] (t1.west);
+\draw[mmedge] (in) to[out=40,in=180] (t2.west);
+\draw[mmedge] (in) to[out=20,in=180] (t3.west);
+\draw[mmedge] (in) to[out=-20,in=180] (t4.west);
+\draw[mmedge] (in) to[out=-40,in=180] (t5.west);
+\draw[mmedge] (in) to[out=-60,in=180] (t6.west);
+\draw[mmedge] (t1.east) to[out=0,in=120] (out.north);
+\draw[mmedge] (t2.east) to[out=0,in=150] (out.north west);
+\draw[mmedge] (t3.east)--(out.west);
+\draw[mmedge] (t4.east) to[out=0,in=200] (out.south west);
+\draw[mmedge] (t5.east) to[out=0,in=225] (out.south west);
+\draw[mmedge] (t6.east) to[out=0,in=250] (out.south);
+\draw[mmedged] (note.north) to[out=90,in=-90] (in.south);
+\draw[mmedged] (out.south) to[out=-90,in=90] (lim.north);
+\end{mermaidfig}
+\figcaption{Figure 16. The six greatest-acceleration document targets. One input,
+faster validated authoring, feeds all six ranked targets, each contributing to a
+common compression of administrative and preparation time; the schedule value is
+highest on the critical path, and the gains are capped by clinical events and fixed
+review clocks.}
+
+\vspace{0.2em}
+\noindent\begin{tabularx}{\textwidth}{L{0.6cm} L{4.2cm} L{2.6cm} Y}
+\toprule
+\textbf{\#} & \textbf{Document target} & \textbf{Gate} & \textbf{Binding clock or constraint} \\
+\midrule
+1 & Initial IND and IRB package & Hard & 30-day FDA review; IRB meeting calendar; cannot generate missing tox or stability data \\
+2 & Protocol amendments + synchronized consent/site updates & Hard & IRB approval; speed is lost if protocol, consent, and database are revised serially \\
+3 & Cohort-review packages after safety data mature & Protocol-defined & The protocol-required DLT observation window \\
+4 & Complete clinical-hold response & Hard & 30-day FDA review of a complete response to every deficiency \\
+5 & Phase 2-to-3 briefing package and Phase 3 protocol & Decision & EOP2 meeting scheduling and review \\
+6 & Pivotal CSR and NDA/BLA modules after database lock & Decision/filing & Database lock; query resolution; RTOR staging \\
+\bottomrule
+\end{tabularx}
+\figcaption{Table 3. The six acceleration targets, their gate type, and the binding
+clock that faster authoring cannot shorten (adapted from the document-types
+sources).}
+
+\begin{mermaidfig}
+\node[mmgoal] (pkg) at (5.0,0) {Initial IND + IRB package\\(highest schedule value)};
+\node[mmin] (c1) at (0,-2.0) {Clinical protocol};
+\node[mmin] (c2) at (0,-3.4) {Investigator's Brochure};
+\node[mmin] (c3) at (0,-4.8) {Nonclinical, CMC, stability};
+\node[mmin] (c4) at (10.0,-2.0) {ICF, recruitment};
+\node[mmin] (c5) at (10.0,-3.4) {Investigator forms};
+\node[mmin] (c6) at (10.0,-4.8) {Safety information};
+\node[mmproc] (clk) at (5.0,-3.4) {30-day FDA clock\\starts at submission};
+\node[mmaccent] (acc) at (2.5,-6.2) {faster assembly\\starts clock + sites sooner};
+\node[mmdec] (lim) at (7.5,-6.2) {cannot shorten\\30 days or make\\missing data};
+\draw[mmedge] (c1) to[out=0,in=160] (pkg.west);
+\draw[mmedge] (c2) to[out=0,in=180] (clk.west);
+\draw[mmedge] (c3) to[out=0,in=200] (clk.west);
+\draw[mmedge] (c4) to[out=180,in=20] (pkg.east);
+\draw[mmedge] (c5) to[out=180,in=0] (clk.east);
+\draw[mmedge] (c6) to[out=180,in=-20] (clk.east);
+\draw[mmedge] (pkg)--(clk);
+\draw[mmedge] (clk) to[out=-120,in=90] (acc.north);
+\draw[mmedge] (clk) to[out=-60,in=90] (lim.north);
+\end{mermaidfig}
+\figcaption{Figure 17. Composition of the initial IND and IRB package. Faster,
+internally consistent assembly starts the 30-day FDA clock and all sites sooner but
+cannot shorten the fixed period or generate missing toxicology or stability data.}
+
+\begin{mermaidfig}
+\node[mmdec] (h) at (0,0) {FDA clinical hold:\\trial cannot resume};
+\node[mmin] (r1) at (4.4,1.3) {Revised protocol};
+\node[mmin] (r2) at (4.4,0) {New nonclinical / CMC};
+\node[mmin] (r3) at (4.4,-1.3) {Risk + consent update};
+\node[mmproc] (asm) at (8.4,0) {Complete response:\\every deficiency};
+\node[mmproc] (rev) at (8.4,-2.0) {FDA review:\\30 calendar days};
+\node[mmgoal] (g) at (8.4,-3.8) {Hold lifted;\\enrollment resumes};
+\node[mmaccent] (acc) at (3.6,-3.0) {faster assembly\\moves restart forward};
+\draw[mmedge] (h) to[out=30,in=180] (r1.west);
+\draw[mmedge] (h) to[out=0,in=180] (r2.west);
+\draw[mmedge] (h) to[out=-30,in=180] (r3.west);
+\draw[mmedge] (r1) to[out=0,in=120] (asm.north west);
+\draw[mmedge] (r2)--(asm);
+\draw[mmedge] (r3) to[out=0,in=240] (asm.south west);
+\draw[mmedge] (asm)--(rev); \draw[mmedge] (rev)--(g);
+\draw[mmedged] (acc) to[out=0,in=180] (rev.west);
+\end{mermaidfig}
+\figcaption{Figure 18. The complete clinical-hold response. The 30-day FDA review
+begins only when a complete response to every deficiency is received, so faster
+assembly moves the potential restart date forward; an incomplete response does not
+start the useful clock.}
+
+\subsection{New Document Iterations in One to Four Days}
+
+A new iteration of any large document completed in one to four days, against a
+weeks-to-months baseline. The gain is confined to the administrative and
+preparation bucket: the clinical and operational bucket (waiting for survival
+endpoints to mature) and the fixed regulatory review bucket are unchanged
+(Figure 19). Cumulatively, compressing only the writing bucket can save months, and
+sometimes more than a year, across a program \cite{srcDocTypesGem}.
+
+\begin{mermaidfig}
+\node[mmdec] (b1) at (0,0) {Clinical / operational\\NOT compressible};
+\node[mmaccent] (b2) at (5.0,0) {Administrative / prep\\COMPRESSIBLE};
+\node[mmdec] (b3) at (10.0,0) {Regulatory review\\FIXED};
+\node[mmctx] (b1d) at (0,-1.9) {recruitment, treatment,\\PFS/OS maturation};
+\node[mmin] (b2d) at (5.0,-1.9) {data cleaning, analysis,\\document writing};
+\node[mmctx] (b3d) at (10.0,-1.9) {30-day IND review,\\30-day hold review};
+\node[mmproc] (llm) at (5.0,-3.7) {Repository LLM\\(acts on this bucket only)};
+\node[mmgoal] (g) at (5.0,-5.4) {months to a year\\saved cumulatively};
+\draw[mmedge] (b1)--(b1d); \draw[mmedge] (b2)--(b2d); \draw[mmedge] (b3)--(b3d);
+\draw[mmedge] (llm)--(b2d);
+\draw[mmedge] (llm)--(g);
+\end{mermaidfig}
+\figcaption{Figure 19. The three timeline buckets. Only the administrative and
+preparation bucket compresses; the clinical/operational bucket and the fixed
+regulatory review clocks do not. The repository LLM acts on the middle bucket only.}
+
+\subsection{Effective Verifications: Grounding and Name-Matching}
+
+Five checks make the build verifiable (Figure 20, Table 4): grounding via the 24
+Mermaid figures; figures matching the surrounding context; real-time GitHub
+visibility of each file; repository and directory name matching; and file-name
+matching. The quality gates that prevent a document from generating a rework cycle
+(amendments, regulator questions, IRB revisions, or an extra review cycle) are shown
+in Figure 21.
+
+\begin{mermaidfig}
+\node[mmgoal] (g) at (9.4,-3.0) {Grounded,\\monitorable paper};
+\node[mmdec] (k1) at (0,0) {1 Grounding};
+\node[mmdec] (k2) at (0,-1.5) {2 Figures match context};
+\node[mmdec] (k3) at (0,-3.0) {3 GitHub real-time};
+\node[mmdec] (k4) at (0,-4.5) {4 Repo/dir names match};
+\node[mmdec] (k5) at (0,-6.0) {5 File names match};
+\node[mmin] (e1) at (4.7,0) {24 Mermaid figures};
+\node[mmin] (e2) at (4.7,-1.5) {cited where discussed};
+\node[mmin] (e3) at (4.7,-3.0) {one commit per file};
+\node[mmin] (e4) at (4.7,-4.5) {trial-documents/...};
+\node[mmin] (e5) at (4.7,-6.0) {sec-04-results.tex};
+\draw[mmedge] (k1)--(e1); \draw[mmedge] (k2)--(e2); \draw[mmedge] (k3)--(e3);
+\draw[mmedge] (k4)--(e4); \draw[mmedge] (k5)--(e5);
+\draw[mmedge] (e1) to[out=0,in=150] (g.north west);
+\draw[mmedge] (e2) to[out=0,in=170] (g.west);
+\draw[mmedge] (e3)--(g.west);
+\draw[mmedge] (e4) to[out=0,in=190] (g.west);
+\draw[mmedge] (e5) to[out=0,in=210] (g.south west);
+\end{mermaidfig}
+\figcaption{Figure 20. The five name-matching and grounding verifications, each with
+a concrete example, that together make the paper grounded and monitorable.}
+
+\vspace{0.2em}
+\noindent\begin{tabularx}{\textwidth}{L{0.6cm} L{4.6cm} Y}
+\toprule
+\textbf{\#} & \textbf{Verification check} & \textbf{Concrete example} \\
+\midrule
+1 & Grounding via Mermaid figures & The 24 figures in \texttt{mermaid/} carry the document counts and review clocks reused in the prose \\
+2 & Figures match paper context & Each figure is cited in the sentence that discusses it (Figures 1 to 24) \\
+3 & AI files viewable on GitHub in real time & One commit per file is pushed at generation, so each artifact appears on the branch as it is made \\
+4 & Repository and directory names match & The paper refers to \texttt{trial-documents/mermaid} and \texttt{full-paper/sections}, which are the directories on disk \\
+5 & File names match repo file names & A cited \texttt{sec-04-results.tex} is this file; \texttt{fig-04-acceleration-targets.md} is the figure file \\
+\bottomrule
+\end{tabularx}
+\figcaption{Table 4. The five verification checks (OUTLINE theme 2) with a concrete
+example for each.}
+
+\begin{mermaidfig}
+\node[mmin] (d) at (0,0) {Draft document};
+\node[mmdec] (q1) at (3.3,0) {consistent?};
+\node[mmdec] (q2) at (6.6,0) {validated data?};
+\node[mmdec] (q3) at (9.9,0) {clickable DOI/URL,\\single dashes?};
+\node[mmgoal] (g) at (9.9,-2.2) {Submission-ready\\(no extra cycle)};
+\node[mmaccent] (rev) at (5.0,-2.2) {Revise};
+\node[mmctx] (note) at (3.3,-3.8) {poor docs add amendments,\\regulator questions,\\IRB revisions, extra cycle};
+\draw[mmedge] (d)--(q1); \draw[mmedge] (q1)--(q2); \draw[mmedge] (q2)--(q3);
+\draw[mmedge] (q3)--(g);
+\draw[mmedged] (q1) to[out=-90,in=60] (rev.north east);
+\draw[mmedged] (q2) to[out=-90,in=90] (rev.north);
+\draw[mmedged] (rev) to[out=180,in=-90] (d.south);
+\draw[mmedged] (rev)--(note);
+\end{mermaidfig}
+\figcaption{Figure 21. Document quality gates. A draft that fails consistency, data
+support, or formatting checks is revised rather than submitted, preventing the
+amendments, regulator questions, IRB revisions, or extra review cycle that
+inconsistent documents cause.}
+
+\subsection{Prior Single-Prompt Multi-File Developments as Evidence}
+
+This project is the latest in a line of single-prompt, multi-file builds. The Phase
+2 protocol directory \cite{phase2protocol} is the most directly analogous: like this
+paper, it was grown from Mermaid figures through draft, full, and final LaTeX under
+one prompt. The law and bill repositories did the same for legislative text:
+the review \cite{lawnarrative}, adoption \cite{adoptionguide}, and enactment
+\cite{lawenactment} directories, and the two auto-bill directories
+\cite{hr9510v5, bill01v4}. Table 5 lists them.
+
+\vspace{0.2em}
+\noindent\begin{tabularx}{\textwidth}{L{4.4cm} L{3.6cm} Y}
+\toprule
+\textbf{Repository / directory} & \textbf{Output type} & \textbf{DOI} \\
+\midrule
+\texttt{trial-phase-2} & Phase 2 protocol (mermaid/draft/full/final) & \href{https://doi.org/10.5281/zenodo.20807027}{10.5281/zenodo.20807027} \\
+\texttt{law-physical-ai-trials/review} & Narrative case for verified trials & \href{https://doi.org/10.5281/zenodo.20685379}{10.5281/zenodo.20685379} \\
+\texttt{law-physical-ai-trials/adoption} & Oncology Trial PI LLM Adoption Guide & \href{https://doi.org/10.5281/zenodo.20843290}{10.5281/zenodo.20843290} \\
+\texttt{law-physical-ai-trials/enactment} & Framework for enacting H. R. 9510 & \href{https://doi.org/10.5281/zenodo.20726461}{10.5281/zenodo.20726461} \\
+\texttt{single-prompt-bill/auto-bill-02} & H. R. 9510 Bill v5.0 & \href{https://doi.org/10.5281/zenodo.20619762}{10.5281/zenodo.20619762} \\
+\texttt{single-prompt-bill/auto-bill-01} & H. R. 9510 Bill v4.0 & \href{https://doi.org/10.5281/zenodo.20576907}{10.5281/zenodo.20576907} \\
+\bottomrule
+\end{tabularx}
+\figcaption{Table 5. Prior single-prompt multi-file developments cited as evidence
+for the analogous approach used here.}
+
+\subsection{2025 Application Papers Establishing LLM Trust}
+
+LLM trust for this application was established across 2024 to 2026 (Figure 22,
+Table 6). The 2025 application papers progressed from drug-cost reasoning and
+clinical decision support \cite{bevacds, costmab, autollmagent} through glioblastoma
+meta-analysis
+\cite{gbmmeta10yr}, lung adenocarcinoma \cite{lungadeno}, PDAC digital-twin
+proposals \cite{kawchak_2025_15735068}, a 100,000-patient in silico Phase III
+\cite{kawchak_2025_16415815}, QSP simulation \cite{kawchak_2025_17001137}, FDA
+digital-twin compliance \cite{kawchak_2025_17239510}, end-to-end oncology-trial LLM
+efficiency \cite{e2eoncoeff}, glioblastoma drug-synergy and patient-matching
+machine learning \cite{gbmsynergy, aipeerreview}, and a 16-LLM code-generation
+competition \cite{codegen16}.
+
+\begin{mermaidfig}
+\node[mmin] (y1) at (0,0) {2024\\LMM chem + Cancer vs CAI};
+\node[mmin] (y2) at (3.5,0) {2025 H1\\cost, CDS, GBM meta, lung};
+\node[mmproc] (y3) at (7.2,0) {2025 H2\\PDAC twin, 100k Phase III};
+\node[mmproc] (y4) at (10.9,0) {Dec 2025\\16-LLM code competition};
+\node[mmproc] (y5) at (1.8,-2.2) {Mar 2026\\National Platform};
+\node[mmproc] (y6) at (5.6,-2.2) {2026\\21 CFR, H. R. 9510 v5.0};
+\node[mmproc] (y7) at (9.4,-2.2) {Jun 2026\\Phase 1 + Phase 2 protocols};
+\node[mmaccent] (this) at (5.6,-4.2) {This paper (v1.0)\\single-prompt document generation};
+\draw[mmedge] (y1)--(y2); \draw[mmedge] (y2)--(y3); \draw[mmedge] (y3)--(y4);
+\draw[mmedge] (y4) to[out=-90,in=0] (y7.east);
+\draw[mmedge] (y7)--(y6); \draw[mmedge] (y6)--(y5);
+\draw[mmedge] (y5) to[out=-90,in=180] (this.west);
+\draw[mmedge] (y7) to[out=-90,in=0] (this.east);
+\end{mermaidfig}
+\figcaption{Figure 22. The author LLM-trust evidence timeline from 2024 to 2026,
+terminating in this single-prompt document-generation paper.}
+
+\vspace{0.2em}
+\noindent\begin{tabularx}{\textwidth}{L{2.0cm} L{5.0cm} Y}
+\toprule
+\textbf{Date} & \textbf{Work} & \textbf{Contribution to trust} \\
+\midrule
+2025-06 & PDAC digital-twin proposals \cite{kawchak_2025_15735068} & End-to-end PDAC trial proposal scaffolding \\
+2025-07 & 100,000-patient in silico Phase III \cite{kawchak_2025_16415815} & Large-scale simulated trial generation \\
+2025-08 & QSP metastatic PDAC simulation \cite{kawchak_2025_17001137} & Code, VVUQ, and playbook from protocol to prediction \\
+2025-10 & FDA digital-twin compliance; oncology LLM efficiency \cite{kawchak_2025_17239510, e2eoncoeff} & Compliance-aware, efficient document workflows \\
+2025-11/12 & GBM drug synergy; AI peer review; 16-LLM competition \cite{gbmsynergy, aipeerreview, codegen16} & Verified, comparative LLM code generation \\
+\bottomrule
+\end{tabularx}
+\figcaption{Table 6. Representative 2025 application papers and their contribution to
+the LLM trust on which this project builds.}
