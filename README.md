@@ -1,7 +1,7 @@
 # End-to-End Physical AI Unification of Oncology Clinical Trials
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Release](https://img.shields.io/badge/Release-v4.1.0-brightgreen.svg)](https://github.com/kevinkawchak/physical-ai-oncology-trials)
+[![Release](https://img.shields.io/badge/Release-v4.2.0-brightgreen.svg)](https://github.com/kevinkawchak/physical-ai-oncology-trials)
 [![Last Updated](https://img.shields.io/badge/Updated-June%202026-blue.svg)](https://github.com/kevinkawchak/physical-ai-oncology-trials)
 [![Protocol](https://img.shields.io/badge/Protocol-MCP-purple.svg)](https://github.com/kevinkawchak/physical-ai-oncology-trials)
 [![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.18445179-blue)](https://doi.org/10.5281/zenodo.18445179)
@@ -17,10 +17,16 @@
 [![Phase 2 Design](https://img.shields.io/badge/Design-Multicenter%208%20centers%201%3A1-blue.svg)](trial-phase-2)
 [![Phase 2 Primary](https://img.shields.io/badge/Primary-PFS%20HR-00417A.svg)](trial-phase-2/final-protocol/publication)
 [![Protocol DOI v1.1.0](https://img.shields.io/badge/Protocol%20DOI%20v1.1.0-10.5281%2Fzenodo.20807027-blue.svg)](https://doi.org/10.5281/zenodo.20807027)
+[![Paper](https://img.shields.io/badge/Paper%20v1.0-Efficient%20LLM%20Document%20Generations-8B2E3F.svg)](trial-documents)
+[![Document Generation](https://img.shields.io/badge/Method-Single%20prompt%20mermaid%E2%86%92draft%E2%86%92full%E2%86%92final-2F5D7C.svg)](trial-documents)
+[![Acceleration](https://img.shields.io/badge/Acceleration-6%20targets%2C%201--4%20day%20iterations-D08770.svg)](trial-documents/final-paper)
+[![Paper DOI v1.0](https://img.shields.io/badge/Paper%20DOI%20v1.0-10.5281%2Fzenodo.xxxxxxxx-blue.svg)](https://doi.org/10.5281/zenodo.xxxxxxxx)
 
 **Comprehensive developments for integrating physical AI into oncology clinical trials, by Claude Code Opus 4.8 Max, Cowork; with Assistance from ChatGPT 5.5 Thinking Extended and Google Gemini 3.1 Pro.**
 
 This repository provides production-ready configurations, validated pipelines, and integration guides for deploying robotic systems, digital twins, and embodied AI agents in oncology. 
+
+**6/29: v4.2.0 (Phase 1 Pancreatic Cancer Trial Efficient LLM Document Generations, Paper v1.0)** *v4.2.0 adds trial-documents/, a single-prompt paper that hastens the entire Phase 1 process by generating every relevant large trial document through a mermaid to draft to full to final pipeline, with 24 colored figures and a probable-benefit-over-probable-risk argument.* [![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.xxxxxxxx-blue)](https://doi.org/10.5281/zenodo.xxxxxxxx)
 
 **6/23: v4.1.0 (Physical AI Pancreatic Whipple + Daraxonrasib Phase 2 Randomized Controlled Trial Protocol v1.1.0)** *v4.1.0 delivers the multicenter randomized Phase 2 follow-up: 220 participants randomized 1:1.* [![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.20807027-blue)](https://doi.org/10.5281/zenodo.20807027)
 
@@ -83,6 +89,87 @@ python scripts/verify_installation.py
 # Detect available simulation frameworks
 python unification/cross_platform_tools/framework_detector.py
 ```
+---
+
+## Phase 1 Pancreatic Cancer Trial Efficient LLM Document Generations (v4.2.0)
+
+This release adds [`trial-documents/`](trial-documents): a single-prompt paper
+(paper v1.0), *Phase 1 Pancreatic Cancer Trial Efficient LLM Document Generations*,
+that shows how a repository based large language model, driven by one master prompt
+that first writes and then executes a schedule of sub-prompts, hastens the entire
+Phase 1 process by generating every relevant large trial document through a mermaid
+to draft to full to final pipeline. Authored by Kevin Kawchak (ChemicalQDevice),
+paper v1.0, DOI [10.5281/zenodo.xxxxxxxx](https://doi.org/10.5281/zenodo.xxxxxxxx),
+June 29, 2026.
+
+**425-character summary.** v4.2.0 adds trial-documents/, a single-prompt paper
+showing how a repository based LLM generates every large Phase 1 PDAC trial document
+through a mermaid to draft to full to final pipeline. It covers the six highest-value
+acceleration targets, ships 24 colored figures reproduced exactly in LaTeX, matches
+paper names to repository names, and argues probable benefit over probable risk for
+enrolled patients who cannot wait.
+
+### Contents of this version
+
+- [Build pipeline](#build-pipeline-v420) (mermaid -> draft -> full -> final)
+- [Stage outputs](#stage-outputs-v420)
+- [The six acceleration targets](#the-six-acceleration-targets-v420)
+- [trial-documents structure](#trial-documents-structure-v420)
+
+### Build pipeline (v4.2.0)
+
+```mermaid
+%%{init: {'theme':'base','themeVariables':{'fontSize':'13px','lineColor':'#6C757D'}}}%%
+flowchart LR
+    MP["Master prompt<br/>prompts/prompt-paper.md"]:::goal
+    S1["Stage 1 mermaid<br/>24 colored figures"]:::input
+    S2["Stage 2 draft-paper<br/>scaffold + instructions"]:::input
+    S3["Stage 3 full-paper<br/>prose + TikZ + tables"]:::accent
+    S4["Stage 4 final-paper<br/>polished + zip"]:::goal
+    REL["Release v4.2.0<br/>README + releases + CHANGELOG"]:::proc
+    MP --> S1 --> S2 --> S3 --> S4 --> REL
+    classDef goal   fill:#8B2E3F,stroke:#000000,stroke-width:1.5px,color:#FFFFFF
+    classDef proc   fill:#2F5D7C,stroke:#000000,stroke-width:1.4px,color:#FFFFFF
+    classDef accent fill:#D08770,stroke:#000000,stroke-width:1.3px,color:#111111
+    classDef input  fill:#BFD7EA,stroke:#2F5D7C,stroke-width:1.2px,color:#111111
+```
+
+### Stage outputs (v4.2.0)
+
+| Stage | Directory | Output |
+|:--|:--|:--|
+| Bootstrap | `trial-documents/prompts`, `sub-prompts` | master prompt, output, 4 sub-prompts, READMEs |
+| 1 mermaid | `trial-documents/mermaid` | 24 colored Mermaid figures (5-step palette) |
+| 2 draft | `trial-documents/draft-paper` | 8 section scaffolds + zip |
+| 3 full | `trial-documents/full-paper` | 8 full sections, 24 TikZ figures, 6 tables + zip |
+| 4 final | `trial-documents/final-paper` | polished sections + zip (no publication dir) |
+
+### The six acceleration targets (v4.2.0)
+
+| # | Document target | Gate | Binding clock |
+|:--|:--|:--|:--|
+| 1 | Initial IND and IRB package | Hard | 30-day FDA review; IRB calendar |
+| 2 | Protocol amendments + synchronized consent | Hard | IRB approval; serial-revision loss |
+| 3 | Cohort-review packages after safety data mature | Protocol-defined | DLT observation window |
+| 4 | Complete clinical-hold response | Hard | 30-day FDA review of a complete response |
+| 5 | Phase 2-to-3 briefing package and Phase 3 protocol | Decision | EOP2 scheduling |
+| 6 | Pivotal CSR and NDA/BLA modules after database lock | Decision/filing | Database lock; RTOR staging |
+
+### trial-documents structure (v4.2.0)
+
+```
+trial-documents/
+  README.md                 build hub (badges, pipeline, milestones)
+  prompts/                  prompt-paper.md (verbatim) + output-paper.md
+  sub-prompts/              prompt-1-mermaid .. prompt-4-final-paper
+  mermaid/        (Stage 1) 24 colored Mermaid figures + README + output
+  draft-paper/    (Stage 2) main.tex, paperstyle.sty, references.bib, sections/, zip
+  full-paper/     (Stage 3) same set, 24 TikZ figures + 6 tables
+  final-paper/    (Stage 4) same set, polished (no publication subdirectory)
+  inputs/                   llm-adoption template + references.bib
+  research/                 document-types (2) + industry-workflow (2) AI sources
+```
+
 ---
 
 ## Physical AI Pancreatic Whipple + Daraxonrasib Phase 2 Randomized Controlled Trial Protocol (v4.1.0)
