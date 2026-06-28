@@ -7,7 +7,7 @@ flowchart TB
 
   T1["1. Initial IND and IRB package<br/>protocol, IB, nonclinical, CMC<br/>Hard gate: starts 30-day clock"]:::goal
   T2["2. Protocol amendments<br/>synchronized consent/site updates<br/>Hard gate: avoids enrollment pauses"]:::goal
-  T3["3. Cohort-review packages<br/>after safety data mature<br/>DLT, AE, PK/PD tables"]:::accent
+  T3["3. Cohort-review packages<br/>after safety data mature<br/>DLT, AE, PK/PD tables"]:::proc
   T4["4. Complete clinical-hold response<br/>addresses every deficiency<br/>Hard gate: 30-day FDA review"]:::goal
   T5["5. Phase 2-to-3 briefing package<br/>EOP2 book and Phase 3 protocol<br/>dose-response, endpoints, estimands"]:::accent
   T6["6. Pivotal CSR and NDA/BLA modules<br/>after database lock<br/>CTD Modules 2 and 5; RTOR staging"]:::accent

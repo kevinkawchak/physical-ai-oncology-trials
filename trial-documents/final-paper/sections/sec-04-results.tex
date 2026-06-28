@@ -28,7 +28,9 @@ with one commit per distinguishable file pushed in real time.}
 
 The six document targets where faster, validated authoring yields the greatest
 schedule value were each addressed by the method, with the binding clock identified
-for each (Figure 16, Table 3). Two targets are detailed further: the initial IND
+for each (Figure 16, Table 3). Node color in Figure 16 encodes the gate type from
+Figure 7: maroon for hard gates, steel blue for protocol-defined gates, and
+terracotta for decision gates. Two targets are detailed further: the initial IND
 and IRB package, the single highest-value target (Figure 17), and the complete
 clinical-hold response, whose 30-day FDA review begins only when a complete response
 to every deficiency is received (Figure 18).
@@ -37,7 +39,7 @@ to every deficiency is received (Figure 18).
 \node[mmin] (in) at (0,-3.75) {Faster, validated\\authoring};
 \node[mmgoal] (t1) at (5.0,0) {1. IND + IRB package};
 \node[mmgoal] (t2) at (5.0,-1.5) {2. Amendments + consent};
-\node[mmaccent] (t3) at (5.0,-3.0) {3. Cohort-review pkg};
+\node[mmproc] (t3) at (5.0,-3.0) {3. Cohort-review pkg};
 \node[mmgoal] (t4) at (5.0,-4.5) {4. Clinical-hold response};
 \node[mmaccent] (t5) at (5.0,-6.0) {5. EOP2 + Phase 3 protocol};
 \node[mmaccent] (t6) at (5.0,-7.5) {6. CSR + NDA/BLA modules};
@@ -253,7 +255,8 @@ for the analogous approach used here.}
 
 LLM trust for this application was established across 2024 to 2026 (Figure 22,
 Table 6). The 2025 application papers progressed from drug-cost reasoning and
-clinical decision support \cite{bevacds} through glioblastoma meta-analysis
+clinical decision support \cite{bevacds, costmab, autollmagent} through glioblastoma
+meta-analysis
 \cite{gbmmeta10yr}, lung adenocarcinoma \cite{lungadeno}, PDAC digital-twin
 proposals \cite{kawchak_2025_15735068}, a 100,000-patient in silico Phase III
 \cite{kawchak_2025_16415815}, QSP simulation \cite{kawchak_2025_17001137}, FDA
