@@ -1,0 +1,42 @@
+% sec-08-references-backmatter.tex - References and Back Matter (draft scaffold)
+\section{References and Back Matter}
+
+\draftinstr{The reference list renders below through the \texttt{ieeetr} style from
+\texttt{references.bib}. Confirm every reference has a clickable URL and a clickable
+DOI URL, and that no link runs off the right side (UrlBreaks). The back matter must
+include, in order: Acknowledgments; Author and ORCID; Ethical Disclosures; Data
+Availability; Rights and Permissions (CC); and Cite This Article.}
+
+\bmhead{Acknowledgments}
+\draftinstr{Acknowledge Claude Code Opus 4.8 (1M context) as the build model and
+ChatGPT 5.5 (Thinking Extended) and Gemini 3.1 Pro for the four research sources and
+manual editing assistance. State paper v1.0 assembled by Kevin Kawchak.}
+
+\bmhead{Author and ORCID}
+\draftinstr{Kevin Kawchak, CEO ChemicalQDevice. ORCID iD as a plain hyperlink (no
+logo, Rule 12): \texttt{https://orcid.org/0009-0007-5457-8667}. Correspondence:
+\texttt{kevink@chemicalqdevice.com}.}
+
+\bmhead{Ethical Disclosures}
+\draftinstr{Independent research paper and adoption guide. No real patients were
+enrolled, no protected health information was used, and no IRB approval was sought
+or obtained. Not medical or regulatory advice; not endorsed by the FDA, NIH, HHS,
+an IRB, ICH, or any sponsor.}
+
+\bmhead{Data Availability}
+\draftinstr{All paper sources (mermaid, draft-paper, full-paper, final-paper) are in
+the public repository and archived on Zenodo under CC BY 4.0 at DOI
+\texttt{10.5281/zenodo.xxxxxxxx} (placeholder filled at deposit).}
+
+\bmhead{Rights and Permissions}
+\draftinstr{Insert the CC section verbatim: This article is distributed under the
+terms of the Creative Commons Attribution 4.0 International License (CC BY 4.0)
+\dots\ visit \texttt{https://creativecommons.org/licenses/by/4.0/}.}
+
+\bmhead{Cite This Article}
+\draftinstr{Kawchak K. Phase 1 Pancreatic Cancer Trial Efficient LLM Document
+Generations. Zenodo. 2026; 10.5281/zenodo.xxxxxxxx.}
+
+% Bibliography (ieeetr); \nocite{*} emits the full assembled reference list.
+\phantomsection\addcontentsline{toc}{section}{References}
+\begingroup\raggedright\nocite{*}\bibliographystyle{ieeetr}\bibliography{references}\endgroup
