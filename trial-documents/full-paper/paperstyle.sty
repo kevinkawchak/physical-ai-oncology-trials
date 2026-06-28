@@ -1,0 +1,229 @@
+% ============================================================
+% paperstyle.sty
+% Style for the paper "Phase 1 Pancreatic Cancer Trial Efficient LLM Document
+% Generations" (trial-documents/{draft,full,final}-paper). Paper v1.0,
+% repository v4.2.0.
+%
+% WHAT THIS STYLE IS. It adapts the trial-documents/inputs/llm-adoption paper
+% template (single-column article, BLACK body text and BLACK links and BLACK
+% headings - the template color is kept) and merges the senior-author formatting
+% primitives proven in trial-protocol/final-protocol/publication: full-width
+% ragged-right table columns (L, C, R, Y); a centered white-background ASCII
+% figure (asciifig); and the Mermaid-as-TikZ figure (mermaidfig with the mm*
+% node styles) recolored to this paper's five-step palette (#8B2E3F deep maroon,
+% #2F5D7C steel blue, #D08770 terracotta, #BFD7EA light blue, #F4F7F9 near-white)
+% plus grayscale. The three permitted media - tables, ASCII, and
+% Mermaid-as-TikZ - share one white background and one black-ruled centered
+% frame. No raster images anywhere (Rule 3: no png or jpg). No ORCID logo is
+% used (Rule 12); the ORCID iD is written as a plain hyperlink.
+%
+% Senior-author formatting is centralized here: RaggedRight body with even
+% interword spacing and no right-margin overflow; maximal widow/orphan/broken
+% penalties so no single line is stranded; long URLs break on any character;
+% single hyphens only; the section symbol for every codified reference.
+% ============================================================
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{paperstyle}[2026/06/29 v1.0 Phase 1 PDAC LLM document-generation paper style]
+
+% - Times-like serif body (mathptmx is universal on Overleaf). -
+\RequirePackage{mathptmx}
+\RequirePackage[letterpaper,top=1.0in,bottom=1.0in,left=1.1in,right=1.1in,%
+  headheight=15pt,headsep=16pt,footskip=24pt]{geometry}
+
+\RequirePackage{xcolor}
+\RequirePackage[T1]{fontenc}
+\RequirePackage[utf8]{inputenc}
+\RequirePackage{textcomp}
+\RequirePackage[protrusion=true,expansion=false]{microtype}
+\RequirePackage{array}
+\RequirePackage{longtable}
+\RequirePackage{tabularx}
+\RequirePackage{xltabular}
+\RequirePackage{ragged2e}
+\RequirePackage{needspace}
+\RequirePackage{enumitem}
+\RequirePackage{fancyvrb}
+\RequirePackage{booktabs}
+\RequirePackage{caption}
+
+% - TikZ for the Mermaid-as-TikZ figures. -
+\RequirePackage{tikz}
+\usetikzlibrary{shapes.geometric,arrows.meta,positioning,fit,backgrounds,calc}
+
+% - Paper palette (figures only; body text stays black). -
+\definecolor{paperred}{HTML}{8B2E3F}    % deep maroon  - goals, outcomes, decisions
+\definecolor{paperblue}{HTML}{2F5D7C}    % steel blue   - LLM, system, process
+\definecolor{papersand}{HTML}{D08770}    % terracotta   - acceleration, emphasis
+\definecolor{paperlight}{HTML}{BFD7EA}   % light blue   - inputs, source files
+\definecolor{paperbg}{HTML}{F4F7F9}      % near-white   - context, support
+\definecolor{papergray}{HTML}{6C757D}    % professional gray
+\definecolor{paperwhite}{rgb}{1,1,1}
+\definecolor{paperblack}{rgb}{0,0,0}
+\definecolor{paperwarn}{HTML}{D9D9D9}    % decision / gate fill
+\definecolor{paperdark}{HTML}{222222}    % near-black emphasis fill
+\colorlet{accentcol}{paperblack}          % headings stay black (template color kept)
+\pagecolor{paperwhite}
+
+% - Even spacing, no right-margin overflow, no big interword gaps. -
+\tolerance=2000
+\emergencystretch=3em
+\hbadness=4000
+\hyphenpenalty=70
+\exhyphenpenalty=70
+\RaggedRight
+\setlength{\RaggedRightParindent}{0pt}
+\setlength{\RaggedRightRightskip}{0pt plus 2em}
+
+% - No stranded lines (widows / orphans / broken). -
+\widowpenalty=10000
+\clubpenalty=10000
+\displaywidowpenalty=10000
+\brokenpenalty=10000
+\predisplaypenalty=10000
+\postdisplaypenalty=10000
+% - Ragged bottom so pages are not vertically stretched, removing large
+%   inter-paragraph gaps; each major section starts with \clearpage in main.tex. -
+\raggedbottom
+
+% - Break long URLs on any character so no link runs off the right margin. -
+\def\UrlBreaks{\do\/\do-\do.\do=\do_\do?\do\&\do\%\do\#\do\:\do\a\do\b\do\c%
+\do\d\do\e\do\f\do\g\do\h\do\i\do\j\do\k\do\l\do\m\do\n\do\o\do\p\do\q\do\r%
+\do\s\do\t\do\u\do\v\do\w\do\x\do\y\do\z\do\A\do\B\do\C\do\D\do\E\do\F\do\G%
+\do\H\do\I\do\J\do\K\do\L\do\M\do\N\do\O\do\P\do\Q\do\R\do\S\do\T\do\U\do\V%
+\do\W\do\X\do\Y\do\Z\do\0\do\1\do\2\do\3\do\4\do\5\do\6\do\7\do\8\do\9}
+
+% The ieeetr style lowercases title fields, so a \S in a title is emitted as \s;
+% provide \s so the bibliography renders every codified reference correctly.
+\providecommand{\s}{\S}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{3.4pt plus 1pt minus 0.5pt}
+\frenchspacing % even single inter-sentence spacing (senior-author polish)
+
+% - Running header: page left, short title center, version right. -
+\RequirePackage{fancyhdr}
+\providecommand{\paperversion}{v1.0}
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0pt}
+\fancyhead[L]{\footnotesize\thepage}
+\fancyhead[C]{\footnotesize\scshape Phase 1 PDAC Efficient LLM Document Generations}
+\fancyhead[R]{\footnotesize\paperversion}
+\fancypagestyle{plain}{%
+  \fancyhf{}%
+  \renewcommand{\headrulewidth}{0pt}%
+  \fancyfoot[C]{\footnotesize\thepage}}
+
+% - Section headings: bold black serif with a thin black rule, numbered. -
+\RequirePackage{titlesec}
+\titleformat{\section}{\large\bfseries\color{paperblack}}{\thesection}{0.6em}{}[{\color{paperblack}\titlerule[0.6pt]}]
+\titleformat{\subsection}{\normalsize\bfseries\color{paperblack}}{\thesubsection}{0.5em}{}
+\titleformat{\subsubsection}{\normalsize\bfseries\itshape\color{paperblack}}{\thesubsubsection}{0.5em}{}
+\titlespacing*{\section}{0pt}{1.4ex plus 0.4ex}{0.8ex}
+\titlespacing*{\subsection}{0pt}{1.0ex plus 0.3ex}{0.5ex}
+
+% - Table columns: left-aligned ragged-right fixed widths (L), flexible Y,
+%   right-aligned numeric R, centered C; every cell starts ragged-right so there
+%   are no large interword gaps, and tables sit at the body measure (\textwidth). -
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
+\newcolumntype{C}[1]{>{\centering\arraybackslash}p{#1}}
+\newcolumntype{R}[1]{>{\raggedleft\arraybackslash}p{#1}}
+\newcolumntype{Y}{>{\raggedright\arraybackslash}X}
+\newcommand{\ragcol}[1]{>{\raggedright\arraybackslash}p{#1}}
+\renewcommand{\arraystretch}{1.18}
+\setlength{\tabcolsep}{5pt}
+
+% - Mermaid-as-TikZ node styles (paper palette). Emphasis by fill and stroke
+%   weight; white text on the dark maroon/steel fills, black text on light fills.
+%   These map 1:1 from the Mermaid classDef classes (goal/proc/accent/input/ctx/
+%   warn) so the LaTeX figure looks the same as the Python Mermaid figure. -
+\tikzset{
+  mmevery/.style={>={Stealth[length=2.2mm]},line width=0.6pt,font=\footnotesize,
+    every node/.append style={align=center}},
+  mmgoal/.style={rectangle,rounded corners=2pt,draw=paperblack,line width=1pt,
+    fill=paperred,minimum height=8mm,inner sep=3pt,text width=30mm,text=paperwhite},
+  mmproc/.style={rectangle,rounded corners=2pt,draw=paperblack,fill=paperblue,
+    minimum height=8mm,inner sep=3pt,text width=30mm,text=paperwhite},
+  mmaccent/.style={rectangle,rounded corners=2pt,draw=paperblack,fill=papersand,
+    minimum height=8mm,inner sep=3pt,text width=30mm,text=paperblack},
+  mmin/.style={rectangle,rounded corners=2pt,draw=paperblue,fill=paperlight,
+    minimum height=8mm,inner sep=3pt,text width=30mm,text=paperblack},
+  mmctx/.style={rectangle,rounded corners=2pt,draw=papergray,fill=paperbg,
+    minimum height=8mm,inner sep=3pt,text width=30mm,text=paperblack},
+  mmdec/.style={diamond,aspect=2,draw=paperblack,fill=paperwarn,inner sep=1pt,
+    text width=24mm,text=paperblack},
+  mmdark/.style={rectangle,rounded corners=2pt,draw=paperblack,line width=1pt,
+    fill=paperdark,minimum height=8mm,inner sep=3pt,text width=30mm,text=paperwhite},
+  mmedge/.style={->,draw=papergray,line width=0.7pt},
+  mmedged/.style={->,draw=papergray,dashed,line width=0.7pt},
+  mmlabel/.style={font=\scriptsize\itshape,fill=paperwhite,inner sep=1pt}
+}
+
+% mermaidfig: capture a tikzpicture into a content-width box, frame it on white,
+% and center it, mirroring asciifig so the two media carry equal visual weight.
+\newsavebox{\mmsavebox}
+\newenvironment{mermaidfig}{%
+  \par\addvspace{0.55\baselineskip}%
+  \needspace{8\baselineskip}%
+  \begin{lrbox}{\mmsavebox}%
+  \begin{tikzpicture}[mmevery]%
+}{%
+  \end{tikzpicture}%
+  \end{lrbox}%
+  \begin{center}%
+  \setlength{\fboxrule}{0.4pt}\setlength{\fboxsep}{9pt}%
+  \fcolorbox{paperblack}{paperwhite}{\usebox{\mmsavebox}}%
+  \end{center}%
+  \par\addvspace{0.15\baselineskip}}
+
+% ASCII figure: centered, white-background, black-ruled, monospace box that
+% preserves spacing exactly, as in a fenced Markdown block.
+\newsavebox{\asciifigbox}
+\newcommand{\asciifigplace}{%
+  \begin{center}%
+  \setlength{\fboxrule}{0.4pt}\setlength{\fboxsep}{9pt}%
+  \fcolorbox{paperblack}{paperwhite}{\usebox{\asciifigbox}}%
+  \end{center}%
+  \par\addvspace{0.15\baselineskip}}
+\newenvironment{asciifig}{%
+  \VerbatimEnvironment
+  \par\addvspace{0.55\baselineskip}%
+  \needspace{6\baselineskip}%
+  \begin{lrbox}{\asciifigbox}%
+  \begin{BVerbatim}[fontsize=\footnotesize,baselinestretch=0.96]%
+}{%
+  \end{BVerbatim}%
+  \end{lrbox}%
+  \asciifigplace}
+
+% Figure / table caption: small centered italic line. Single hyphens only.
+\newcommand{\figcaption}[1]{%
+  \par\nopagebreak
+  \begin{center}\begin{minipage}{0.92\linewidth}%
+  \centering\footnotesize\itshape #1%
+  \end{minipage}\end{center}%
+  \addvspace{0.5\baselineskip}}
+
+% Bracketed drafting-instruction marker for the scaffold (draft stage only).
+\newcommand{\draftinstr}[1]{\par\addvspace{2pt}%
+  {\setlength{\parindent}{0pt}\small\color{papergray}\textbf{[DRAFTING INSTRUCTION]}\itshape\ #1\par}%
+  \addvspace{2pt}}
+
+% Keywords / subject line: bold label then content.
+\providecommand{\keywordname}{\textbf{Keywords}}
+\providecommand{\keywords}[1]{\par\addvspace{\medskipamount}%
+  {\setlength{\parindent}{0pt}\keywordname\enspace #1\par}}
+
+% Back-matter heading bookmarked into the contents.
+\providecommand{\bmhead}[1]{\par\addvspace{0.5\baselineskip}\needspace{2\baselineskip}%
+  \phantomsection\addcontentsline{toc}{section}{#1}{\noindent\large\bfseries\color{paperblack}#1}\par\addvspace{2pt}}
+
+% Font-independent empty checkbox.
+\providecommand{\cboxx}{\raisebox{0.12ex}{\framebox[1.25ex]{\rule{0pt}{0.95ex}}}}
+
+% All links black (template color kept). xurl-style breaking is handled above.
+\RequirePackage[colorlinks=true,allcolors=black,pdfusetitle]{hyperref}
+\RequirePackage{url}
+\captionsetup{font=small,labelfont=bf,justification=raggedright,singlelinecheck=false}
+\endinput
