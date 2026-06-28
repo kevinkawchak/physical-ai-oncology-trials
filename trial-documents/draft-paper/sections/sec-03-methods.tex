@@ -1,0 +1,58 @@
+% sec-03-methods.tex - Methods (draft scaffold)
+\section{Methods}
+
+\subsection{Repository Based LLM and Input Curation}
+\draftinstr{Describe the repository-based LLM method from
+\texttt{inputs/llm-adoption/main.tex} (Repository Setup, LLM Limitations): single
+input directory with subdirectories; pre-chunked sources with READMEs; total input
+under 5 MB; READMEs under 25K tokens; sectioned outputs as right-sized chunks.
+Render \texttt{mermaid/fig-12-repo-llm-architecture.md} as a TikZ figure. List the
+exact inputs: \texttt{inputs/llm-adoption}, \texttt{inputs/references.bib},
+\texttt{research/document-types}, \texttt{research/industry-workflow}.}
+
+\subsection{Single Prompt, Sub-Prompt Schedule, and Stages}
+\draftinstr{Explain Process A (generate sub-prompts) and Process B (execute them
+sequentially) under one master prompt \cite{adoptionguide}. Render
+\texttt{mermaid/fig-02-subprompt-schedule.md} and
+\texttt{fig-01-single-prompt-pipeline.md}. Name the four sub-prompts in
+\texttt{sub-prompts/} and the four stages (\texttt{mermaid}, \texttt{draft-paper},
+\texttt{full-paper}, \texttt{final-paper}). Note adaptation from the trial-protocol
+workflow (\texttt{trial-protocol/sub-prompts}).}
+
+\subsection{Phase 1 Document Landscape and the Six Acceleration Targets}
+\draftinstr{Summarize the large Phase 1 documents and the six ACCELERATION targets.
+Render \texttt{mermaid/fig-03-phase1-document-landscape.md},
+\texttt{fig-04-acceleration-targets.md}, \texttt{fig-23-ind-irb-initial-package.md},
+and \texttt{fig-24-clinical-hold-response.md}. Build a full-width table of the six
+targets with the gate type and the schedule-value note. Source from
+\texttt{research/document-types/ChatGPT-5-5-Thinking-Extended-DocTypes-2026-06-26.md}
+and \texttt{Gemini-3-1-Pro-DocTypes-2026-06-26.md}.}
+
+\subsection{Document Decision-Gate Taxonomy}
+\draftinstr{Explain hard gate / protocol-defined gate / decision gate. Render
+\texttt{mermaid/fig-05-document-gate-taxonomy.md}. Build a full-width table mapping
+each gate type to example documents and to whether faster authoring helps. Source
+from \texttt{research/document-types/ChatGPT-5-5-Thinking-Extended-DocTypes-2026-06-26.md}.}
+
+\subsection{Before, During, and After Phase 1: Data and Document Workflow}
+\draftinstr{Describe the before/during/after workflow. Render
+\texttt{mermaid/fig-06-data-collection-pipeline.md},
+\texttt{fig-07-pretrial-authoring.md}, \texttt{fig-08-intratrial-authoring.md}, and
+\texttt{fig-09-posttrial-authoring.md}. Include EDC, eCRF, eCOA/ePRO, CTCAE, RECIST,
+SDV, database lock, eDMS (Veeva Vault), TransCelerate templates, ICH E3 CSR, ICH E2F
+DSUR. Source from \texttt{research/industry-workflow/*}.}
+
+\subsection{Figures, Tables, and Formatting Method}
+\draftinstr{Explain the five-color palette and the Mermaid-to-TikZ fidelity method.
+Render \texttt{mermaid/fig-19-five-color-palette.md} and
+\texttt{fig-14-grounding-mermaid-to-tikz.md}. State the formatting strategies
+learned from \texttt{trial-protocol/final-protocol/publication} (full-width
+ragged-right tables, clearpage per section, vspace/hspace, no overlaps). Note the
+paper section architecture \texttt{mermaid/fig-18-paper-section-architecture.md}.}
+
+\subsection{Real-Time Auto-Commit and Auto-PR Monitorability}
+\draftinstr{Describe the auto-commit/auto-PR process. Render
+\texttt{mermaid/fig-13-autocommit-monitorability.md}. State Rule 6/7/8 commit
+discipline (one commit per file; second-to-last fixes errors; last does repository
+updates). Source from \texttt{prompts/prompt-paper.md} and
+\texttt{inputs/llm-adoption/main.tex}.}
