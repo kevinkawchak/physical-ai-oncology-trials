@@ -1,14 +1,15 @@
 # trial-documents/final-paper - Stage 4 final paper
 
-[![Stage](https://img.shields.io/badge/Stage-4%20Final-8B2E3F.svg)](.)
-[![Sections](https://img.shields.io/badge/Sections-8%20.tex-2F5D7C.svg)](sections)
-[![Figures](https://img.shields.io/badge/TikZ%20figures-24-D08770.svg)](sections)
-[![Quality](https://img.shields.io/badge/Quality-maximum%20(polished)-8B2E3F.svg)](.)
-[![Paper](https://img.shields.io/badge/Paper-v1.0-BFD7EA.svg)](.)
-[![Repository](https://img.shields.io/badge/Repository-v4.2.0-2F5D7C.svg)](../../README.md)
 [![License](https://img.shields.io/badge/License-CC%20BY%204.0-yellow.svg)](https://creativecommons.org/licenses/by/4.0/)
+[![Paper](https://img.shields.io/badge/Paper-v1.0-8B2E3F.svg)](final-paper)
+[![Repository](https://img.shields.io/badge/Repository-v4.2.0-2F5D7C.svg)](../README.md)
+[![Topic](https://img.shields.io/badge/Topic-Phase%201%20PDAC%20document%20generation-2F5D7C.svg)](.)
+[![Figures](https://img.shields.io/badge/Mermaid%20%2B%20TikZ%20figures-24-2F5D7C.svg)](mermaid)
+[![Stages](https://img.shields.io/badge/Stages-mermaid%20%E2%86%92%20draft%20%E2%86%92%20full%20%E2%86%92%20final-2F5D7C.svg)](.)
+[![Build](https://img.shields.io/badge/Build-single%20prompt%2C%20auto--commit-2F5D7C.svg)](prompts/prompt-paper.md)
+[![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.21018646-blue.svg)](https://doi.org/10.5281/zenodo.21018646)
 
-Stage 4 of the mermaid -> draft -> full -> final build for the paper *Phase 1
+[Publication with Author Edits](https://github.com/kevinkawchak/physical-ai-oncology-trials/tree/main/trial-documents/final-paper/publication) (final-paper/publication). Stage 4 of the mermaid -> draft -> full -> final build for the paper *Phase 1
 Pancreatic Cancer Trial Efficient LLM Document Generations* (paper v1.0, repository
 v4.2.0). This is the polished, maximum-quality source. There is no `publication`
 subdirectory (per the rules).
