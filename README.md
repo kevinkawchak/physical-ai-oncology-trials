@@ -25,7 +25,7 @@
 
 This repository provides production-ready configurations, validated pipelines, and integration guides for deploying robotic systems, digital twins, and embodied AI agents in oncology. 
 
-**6/29: v4.2.0 (Phase 1 Pancreatic Cancer Trial Efficient LLM Document Generations, Paper v1.0)** *v4.2.0 adds trial-documents/, a single-prompt paper that hastens the entire Phase 1 process by generating every relevant large trial document through a mermaid to draft to full to final pipeline, with 24 colored figures and a probable-benefit-over-probable-risk argument.* [![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.xxxxxxxx-blue)](https://doi.org/10.5281/zenodo.xxxxxxxx)
+**6/29: v4.2.0 (Phase 1 Pancreatic Cancer Trial Efficient LLM Document Generations, Paper v1.0)** *v4.2.0 adds trial-documents/, a single-prompt paper that hastens the entire Phase 1 process by generating every relevant documents.* [![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.21018646-blue)](https://doi.org/10.5281/zenodo.21018646)
 
 **6/23: v4.1.0 (Physical AI Pancreatic Whipple + Daraxonrasib Phase 2 Randomized Controlled Trial Protocol v1.1.0)** *v4.1.0 delivers the multicenter randomized Phase 2 follow-up: 220 participants randomized 1:1.* [![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.20807027-blue)](https://doi.org/10.5281/zenodo.20807027)
 
