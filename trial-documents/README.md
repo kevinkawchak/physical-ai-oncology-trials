@@ -29,7 +29,7 @@ guide, and is grounded in four AI research sources in [`research/`](research).
 
 - **Author:** Kevin Kawchak, CEO ChemicalQDevice
   ([ORCID 0009-0007-5457-8667](https://orcid.org/0009-0007-5457-8667))
-- **DOI:** [`10.5281/zenodo.xxxxxxxx`](https://doi.org/10.5281/zenodo.xxxxxxxx)
+- **DOI:** [`10.5281/zenodo.21018646`](https://doi.org/10.5281/zenodo.21018646)
   (placeholder filled at deposit) - **Date:** June 29, 2026 - **Paper:** v1.0 -
   **Repository:** v4.2.0
 
@@ -117,4 +117,4 @@ Released under CC BY 4.0. Author: Kevin Kawchak, CEO ChemicalQDevice.
 
 *Independent research paper and practical adoption guide. Not medical or regulatory
 advice; not endorsed by the FDA, NIH, HHS, IRB, ICH, or any sponsor. The DOI
-placeholder `10.5281/zenodo.xxxxxxxx` is filled at deposit.*
+placeholder `10.5281/zenodo.21018646` is filled at deposit.*
