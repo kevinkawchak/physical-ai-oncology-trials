@@ -4,12 +4,12 @@
 [![Paper](https://img.shields.io/badge/Paper-v1.0-8B2E3F.svg)](final-paper)
 [![Repository](https://img.shields.io/badge/Repository-v4.2.0-2F5D7C.svg)](../README.md)
 [![Topic](https://img.shields.io/badge/Topic-Phase%201%20PDAC%20document%20generation-2F5D7C.svg)](.)
-[![Figures](https://img.shields.io/badge/Mermaid%20%2B%20TikZ%20figures-24-D08770.svg)](mermaid)
+[![Figures](https://img.shields.io/badge/Mermaid%20%2B%20TikZ%20figures-24-2F5D7C.svg)](mermaid)
 [![Stages](https://img.shields.io/badge/Stages-mermaid%20%E2%86%92%20draft%20%E2%86%92%20full%20%E2%86%92%20final-2F5D7C.svg)](.)
-[![Build](https://img.shields.io/badge/Build-single%20prompt%2C%20auto--commit-D08770.svg)](prompts/prompt-paper.md)
-[![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.xxxxxxxx-blue.svg)](https://doi.org/10.5281/zenodo.xxxxxxxx)
+[![Build](https://img.shields.io/badge/Build-single%20prompt%2C%20auto--commit-2F5D7C.svg)](prompts/prompt-paper.md)
+[![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.21018646-blue.svg)](https://doi.org/10.5281/zenodo.21018646)
 
-This directory holds the autonomous, single-prompt build of a new paper, *Phase 1
+[Publication with Author Edits](https://github.com/kevinkawchak/physical-ai-oncology-trials/tree/main/trial-documents/final-paper/publication) (final-paper/publication). This directory holds the autonomous, single-prompt build of a new paper, *Phase 1
 Pancreatic Cancer Trial Efficient LLM Document Generations* (paper v1.0, within
 repository v4.2.0). The paper shows how a repository based large language model
 (LLM), driven by one master prompt that first writes and then executes a schedule of
