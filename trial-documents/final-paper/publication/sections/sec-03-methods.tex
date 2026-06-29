@@ -1,0 +1,371 @@
+% sec-03-methods.tex - Methods (full)
+\section{Methods}
+
+\subsection{Repository Based LLM and Input Curation}
+
+The method places a finite set of appropriately sized, high-quality inputs in a
+single repository directory so that a 1M-context LLM can process them efficiently
+\cite{adoptionguide}. The inputs are the paper template
+(\texttt{inputs/llm-adoption}), the bibliography (\texttt{inputs/references.bib}),
+and the four research sources (\texttt{research/document-types} and
+\texttt{research/industry-workflow}), each pre-chunked with its own README so the
+next processing step executes optimally. Two practical limits are respected: total
+input is kept under 5 MB (0.84 MB prior to publication files), and individual README files are kept under roughly 25K
+tokens to avoid per-file errors. Outputs are generated in sections (one
+\texttt{.tex} per paper section) so that text and code form right-sized chunks for
+downstream reuse. Figure 4 shows architecture.
+
+\begin{mermaidfig}
+\node[mmin] (i1) at (0,0) {inputs/llm-adoption\\(paper template)};
+\node[mmin] (i2) at (0,-1.7) {inputs/references.bib\\(author works)};
+\node[mmin] (i3) at (0,-3.4) {research/*, chunked\\files, READMEs};
+\node[mmproc] (ctx) at (4.5,-1.7) {Total input $<$ 5 MB\\README $<$ 25K tokens};
+\node[mmproc] (gen) at (9.0,-1.7) {sub-prompts produce\\sectioned outputs};
+\node[mmgoal] (o1) at (0,-5) {mermaid};
+\node[mmin] (o2) at (4,-5) {draft-paper};
+\node[mmaccent] (o3) at (8,-5) {full-paper};
+\node[mmgoal] (o4) at (12,-5) {final-paper};
+\draw[mmedge] (i1) to[out=0,in=120] (ctx.west);
+\draw[mmedge] (i2)--(ctx.west);
+\draw[mmedge] (i3) to[out=0,in=240] (ctx.west);
+\draw[mmedge] (ctx)--(gen);
+\draw[mmedge] (gen.south) to[out=-90,in=70, looseness=0.6] (o2.north);
+\draw[mmedge] (gen.south) to[out=-90,in=70] (o3.north);
+\draw[mmedge] (o1)--(o2); \draw[mmedge] (o2)--(o3); \draw[mmedge] (o3)--(o4);
+\end{mermaidfig}
+\vspace{-0.7cm}
+\figcaption{Figure 4. Curated inputs feed a 1M-context model under two size limits; sub-prompts produce
+sectioned\\outputs that become the four stage directories, each reusable as a
+right-sized chunk for future builds.}
+
+\subsection{Single Prompt, Sub-Prompt Schedule, and Stages}
+
+A single master prompt (\texttt{prompts/prompt-paper.md}) drives the whole build.
+\emph{Process A} reads that prompt and writes the four stage sub-prompts in
+\texttt{sub-prompts/}; \emph{Process B} then executes them in order, growing the
+work from Mermaid figures to a draft, a full, and a final LaTeX paper, with outputs
+accumulating as project-scale context for the next stage \cite{adoptionguide}. The
+schedule is adapted from the trial-protocol build
+(\texttt{trial-protocol/sub-prompts}). Figure 5 shows the generate-then-execute
+structure.
+
+\begin{mermaidfig}
+\node[mmgoal] (mp) at (5.4,-0.2) {Master prompt\\generate then execute};
+\node[mmin] (sp1) at (0,-2.0) {prompt-1-mermaid};
+\node[mmin] (sp2) at (3.6,-2.0) {prompt-2-draft};
+\node[mmin] (sp3) at (7.2,-2.0) {prompt-3-full};
+\node[mmin] (sp4) at (10.8,-2.0) {prompt-4-final};
+\node[mmproc] (st1) at (0,-4) {Stage 1\\mermaid};
+\node[mmproc] (st2) at (3.6,-4) {Stage 2\\draft};
+\node[mmproc] (st3) at (7.2,-4) {Stage 3\\full};
+\node[mmgoal] (st4) at (10.8,-4) {Stage 4\\final};
+\node[mmaccent] (acc) at (5.4,-6) {context\\across stages};
+\draw[mmedge] (mp) to[out=180,in=90, looseness=0.7] (sp1.north);
+\draw[mmedge] (mp)--(sp2); \draw[mmedge] (mp)--(sp3);
+\draw[mmedge] (mp) to[out=0,in=90, looseness=0.7] (sp4.north);
+\draw[mmedged] (sp1)--(st1); \draw[mmedged] (sp2)--(st2);
+\draw[mmedged] (sp3)--(st3); \draw[mmedged] (sp4)--(st4);
+\draw[mmedge] (st1)--(st2); \draw[mmedge] (st2)--(st3); \draw[mmedge] (st3)--(st4);
+\draw[mmedged] (st3.south) to[out=5,in=85] (acc.north);
+\draw[mmedged] (acc.east) to[out=0,in=-100] (st4.south);
+\end{mermaidfig}
+\vspace{-0.7cm}
+\figcaption{Figure 5. Process A generates the four sub-prompts; Process B executes
+them sequentially as Stages 1 to 4.\\Outputs accumulate as context that informs the
+next stage, so the final paper is produced under one prompt.}
+
+\subsection{The Phase 1 Document Landscape}
+
+Phase 1 oncology trials depend on large documents before, during, and after the
+study \cite{srcWorkflowGem, srcDocTypesGPT}. Before the trial: the initial IND
+dossier, the Investigator's Brochure, the clinical trial protocol, and the informed
+consent form (often 20 or more pages, written to a 6th-to-8th grade reading level).
+During the trial: serious adverse event and SUSAR safety narratives on 7-day and
+15-day clocks, the annual Development Safety Update Report, protocol amendments, and
+dose-escalation meeting minutes. After the trial: tables, listings, and figures, the
+clinical study report under ICH E3, manuscripts and congress abstracts, and lay
+summaries. Figure 6 maps this landscape.
+
+\begin{mermaidfig}
+\node[mmaccent] (hub) at (4.4,-2.4) {Repository LLM\\document generation};
+\node[mmin] (b1) at (0,0) {IND dossier};
+\node[mmin] (b2) at (0,-1.5) {Investigator's Brochure};
+\node[mmin] (b3) at (0,-3.0) {Clinical protocol};
+\node[mmin] (b4) at (0,-4.5) {Informed consent (ICF)};
+\node[mmproc] (d1) at (4.4,0) {SAE/SUSAR 7/15-day};
+\node[mmproc] (d2) at (9,1.1) {DSUR (annual)};
+\node[mmproc] (d3) at (9,-0.4) {Protocol amendments};
+\node[mmproc] (d4) at (9,-1.9) {Dose-escalation minutes};
+\node[mmgoal] (a1) at (9,-3.6) {TLFs};
+\node[mmgoal] (a2) at (9,-5.1) {CSR (ICH E3)};
+\node[mmgoal] (a3) at (4.4,-4.5) {Manuscripts / lay summaries};
+\draw[mmedge] (b1.east) to (hub.west);
+\draw[mmedge] (b2.east) to (hub.west);
+\draw[mmedge] (b3.east) to (hub.west);
+\draw[mmedge] (b4.east) to (hub.west);
+\draw[mmedge] (hub.north) to (d1.south);
+\draw[mmedge] (hub.east) to (d2.west);
+\draw[mmedge] (hub.east) to (d3.west); 
+\draw[mmedge] (hub.east) to (d4.west);
+\draw[mmedge] (hub.east) to (a1.west);
+\draw[mmedge] (hub.east) to (a2.west);
+\draw[mmedge] (hub.south) to (a3.north);
+\end{mermaidfig}
+\vspace{-0.7cm}
+\figcaption{Figure 6. The large Phase 1 oncology document landscape, grouped into
+before-trial inputs (left), during-trial process documents (upper right), and
+after-trial outputs (lower right), all generated by the repository LLM.}
+
+\subsection{Document Decision-Gate Taxonomy}
+
+Whether faster authoring speeds a trial depends on the kind of gate a document
+controls \cite{srcDocTypesGPT}. A hard gate means the trial legally or ethically
+cannot proceed; a protocol-defined gate means the trial's own rules block the next
+cohort, arm, or adaptation; and a decision gate means progress is legally possible
+but the sponsor will not invest without an internal or regulatory decision. Faster
+creation speeds the trial only when the document is on the critical path. Figure 7
+shows taxonomy and Table 1 states it in full.
+
+\begin{mermaidfig}
+\node[mmdec] (q) at (4.6,-0.3) {Is the document\\on the critical path?};
+\node[mmgoal] (g1) at (0,-2.6) {Hard gate};
+\node[mmproc] (g2) at (4.6,-2.6) {Protocol-defined gate};
+\node[mmaccent] (g3) at (9.2,-2.6) {Decision gate};
+\node[mmin] (e1) at (0,-4.575) {IND, IRB approval,\\clinical-hold response,\\material amendments};
+\node[mmin] (e2) at (4.6,-4.4) {cohort-review pkg,\\interim SAP / DSMB};
+\node[mmin] (e3) at (9.2,-4.4) {EOP2 briefing,\\go/no-go at lock};
+\node[mmctx] (n) at (4.6,-6.3) {Faster authoring helps only on the critical path};
+\draw[mmedge] (q) to (g1.north);
+\draw[mmedge] (q)--(g2);
+\draw[mmedge] (q) to (g3.north);
+\draw[mmedge] (g1)--(e1); \draw[mmedge] (g2)--(e2); \draw[mmedge] (g3)--(e3);
+\draw[mmedged] (e2)--(n);
+\end{mermaidfig}
+\vspace{-0.7cm}
+\figcaption{Figure 7. The hard / protocol-defined / decision gate taxonomy. The
+schedule\\value of faster authoring is realized only for documents on the critical
+path.}
+
+\vspace{0.2em}
+\noindent\begin{tabularx}{\textwidth}{L{2.8cm} L{4.4cm} Y}
+\toprule
+\textbf{Gate type} & \textbf{Meaning} & \textbf{Example documents and effect of faster authoring} \\
+\midrule
+Hard gate & The trial legally or ethically cannot proceed & Initial IND, IRB approval, clinical-hold response, and material amendments; faster authoring starts the review clock and all sites sooner but cannot shorten a fixed review period. \\
+Protocol gate & The trial's own rules block the next cohort, arm, or adaptation & Cohort-review packages and the interim-analysis statistical plan or DSMB charter; faster authoring shortens the pause after the data mature but not the observation window itself. \\
+Decision gate & Legally possible, but the sponsor will not invest without a decision & The End-of-Phase 2 briefing book and the go/no-go assessment after database lock; faster authoring lets the sponsor request the meeting and begin scheduling sooner. \\
+\bottomrule
+\end{tabularx}
+\vspace{-0.4cm}
+\figcaption{Table 1. The three document decision-gate types, their meaning, and the
+effect\\of faster authoring (adapted from the document-types research sources).}
+
+\subsection{Before, During, and After Phase 1: Data and Document Workflow}
+
+Data collection in modern oncology trials runs through a digital ecosystem
+\cite{srcWorkflowGem}. Before the trial, clinical research coordinators extract data
+from electronic health records into an electronic data capture (EDC) system and
+record baseline tumor measurements by RECIST. During the trial, electronic case
+report forms capture dose, pharmacokinetic, and pharmacodynamic data; electronic
+clinical outcome and patient-reported outcome devices capture symptoms; and adverse
+events are graded by CTCAE, with dose-limiting toxicities captured in the 3+3
+window. After the trial, data undergo source document verification by clinical
+research associates before the database is locked. Figure 8 shows the pipeline.
+
+\begin{mermaidfig}
+\node[mmin] (e1) at (0,0) {EHR extraction\\(CRCs)};
+\node[mmin] (e2) at (0,-1.7) {EDC entry\\(Rave, Oracle)};
+\node[mmin] (e3) at (0,-3.4) {RECIST baseline};
+\node[mmproc] (d1) at (4.2,0) {eCRF: dose, PK/PD};
+\node[mmproc] (d2) at (4.2,-1.7) {eCOA / ePRO symptoms};
+\node[mmproc] (d3) at (4.2,-3.4) {AE logs (CTCAE),\\DLT in 3+3 window};
+\node[mmproc] (a1) at (8.6,-0.85) {SDV by CRAs};
+\node[mmgoal] (a2) at (8.6,-2.55) {Database LOCK};
+\node[mmaccent] (a3) at (12.6,-1.7) {locked data\\feeds documents};
+\draw[mmedge] (e1)--(e2); \draw[mmedge] (e2)--(e3);
+\draw[mmedge] (e1) to[out=0,in=180] (d1.west);
+\draw[mmedge] (e2) to[out=0,in=180] (d2.west);
+\draw[mmedge] (e3) to[out=0,in=180] (d3.west);
+\draw[mmedge] (d1) to[out=0,in=150] (a1.west);
+\draw[mmedge] (d2) to[out=0,in=180] (a1.west);
+\draw[mmedge] (d3) to[out=0,in=180] (a2.west);
+\draw[mmedge] (a1)--(a2);
+\draw[mmedge] (a2) to[out=0,in=180] (a3.west);
+\end{mermaidfig}
+\vspace{-0.7cm}
+\figcaption{Figure 8. The before / during / after data-collection pipeline, from
+EHR extraction\\through EDC, eCRF, eCOA/ePRO, and CTCAE-graded adverse events to
+source document\\verification and database lock, after which the locked data feed
+document generation.}
+
+Medical writers act as the project managers of document creation, working in an
+electronic document management system such as Veeva Vault with controlled,
+version-tracked authoring and standardized templates \cite{srcWorkflowGPT,
+srcWorkflowGem}. Figures 9, 10, and 11 show the before, during, and after authoring
+flows respectively.
+
+\begin{mermaidfig}
+\node[mmin] (i1) at (0,0) {PI clinical rationale};
+\node[mmin] (i2) at (0,-1.5) {Biostatistician rules};
+\node[mmin] (i3) at (0,-3.0) {TransCelerate template};
+\node[mmproc] (w) at (4.5,-1.5) {Medical writers\\in eDMS (Veeva Vault)};
+\node[mmproc] (o1) at (9.0,0) {IND application};
+\node[mmproc] (o2) at (9.0,-1.5) {Protocol, IB};
+\node[mmproc] (o3) at (9.0,-3.0) {ICF (6th-8th grade)};
+\node[mmgoal] (g) at (9.0,-4.6) {IRB / FDA submit\\30-day FDA clock};
+\draw[mmedge] (i1) to[out=0,in=150] (w.north west);
+\draw[mmedge] (i2)--(w);
+\draw[mmedge] (i3) to[out=0,in=210] (w.south west);
+\draw[mmedge] (w) to[out=0,in=180] (o1.west);
+\draw[mmedge] (w)--(o2);
+\draw[mmedge] (w) to[out=0,in=180] (o3.west);
+\draw[mmedge] (o3)--(g);
+\end{mermaidfig}
+\vspace{-0.7cm}
+\figcaption{Figure 9. Pre-trial authoring. PI, biostatistician, and template inputs
+are compiled\\by medical writers in an eDMS into the IND, protocol, Investigator's
+Brochure,\\and informed consent form, which start the 30-day FDA clock on
+submission.}
+
+\begin{mermaidfig}
+\node[mmin] (t1) at (0.3,0) {SAE / SUSAR event};
+\node[mmin] (t2) at (0.3,-1.6) {Emerging PK/PD};
+\node[mmin] (t3) at (0.3,-3.2) {Cohort completion};
+\node[mmproc] (p1) at (4.6,0) {Safety narrative\\7 / 15-day};
+\node[mmproc] (p2) at (4.6,-1.6) {DSUR; amendments};
+\node[mmproc] (p3) at (4.6,-3.2) {Dose-escalation minutes};
+\node[mmgoal] (pi) at (9.2,-1.6) {PI: causality and\\scientific justification};
+\node[mmaccent] (s) at (9.2,-3.6) {LLM synchronizes\\protocol + consent +\\site documents};
+\draw[mmedge] (t1)--(p1); \draw[mmedge] (t2)--(p2); \draw[mmedge] (t3)--(p3);
+\draw[mmedge] (p1) to[out=0,in=150] (pi.north west);
+\draw[mmedge] (p2)--(pi);
+\draw[mmedge] (p3) to[out=0,in=210] (pi.south west);
+\draw[mmedge] (pi)--(s);
+\end{mermaidfig}
+\vspace{-0.7cm}
+\figcaption{Figure 10. During-trial authoring is driven by safety data: narratives
+on 7-day and\\15-day clocks, the DSUR, amendments, and escalation minutes, with the
+PI assessing\\causality and the LLM synchronizing the protocol, consent, and site
+documents.}
+
+\begin{mermaidfig}
+\node[mmgoal] (lk) at (0,-1.5) {Database LOCK};
+\node[mmproc] (tlf) at (3.8,-1.5) {Biostatistics:\\TLFs};
+\node[mmproc] (csr) at (7.6,-1.5) {Writers: narrative\\-> CSR (ICH E3)};
+\node[mmaccent] (pi) at (11.4,-1.5) {PI review,\\sign-off};
+\node[mmin] (m1) at (7.6,-0.2) {Manuscripts / abstracts};
+\node[mmin] (m2) at (7.6,-2.8) {Lay summaries};
+\draw[mmedge] (lk)--(tlf); \draw[mmedge] (tlf)--(csr); \draw[mmedge] (csr)--(pi);
+\draw[mmedge] (csr.north) to (m1.south);
+\draw[mmedge] (csr.south) to (m2.north);
+\end{mermaidfig}
+\vspace{-0.7cm}
+\figcaption{Figure 11. After-trial authoring: from database lock, biostatisticians
+generate tables,\\listings, and figures; writers draft the narrative into the CSR
+under ICH E3; the\\PI reviews and signs off; and manuscripts and lay summaries
+branch off.}
+
+\subsection{Figures, Tables, and Formatting Method}
+
+All figures use one five-step palette so that emphasis reads by fill and stroke
+weight alone and each Mermaid figure reproduces 1:1 as a TikZ \texttt{mermaidfig}
+(Figure 12). Body text stays black, as in the paper template; only figures carry
+color. Tables are set to the body-text width with ragged-right
+(\texttt{>\{\textbackslash raggedright\textbackslash arraybackslash\}}) columns so
+no cell shows large interword gaps, following the formatting strategies in
+\texttt{trial-protocol/final-protocol/publication}. Paper section architecture
+maps each section to a \texttt{.tex} file (Figure 14), and figure grounding with Mermaid sources (Figure 15).
+
+\clearpage
+
+\begin{mermaidfig}
+\node[mmgoal] (c1) at (4,0) {goal \#8B2E3F};
+\node[mmproc] (c2) at (4,-1.5) {proc \#2F5D7C};
+\node[mmaccent] (c3) at (4,-3.0) {accent \#D08770};
+\node[mmin] (c4) at (11,1) {input \#BFD7EA};
+\node[mmctx] (c5) at (7.4,1) {ctx \#F4F7F9};
+\node[mmdec] (c6) at (8.8,-3.5) {warn \#D9D9D9};
+\node[mmproc] (t) at (8.8,-1.5) {TikZ mm*\\node style};
+\node[mmgoal] (g) at (12.7,-1.5) {LaTeX specific\\manuscript figure};
+\draw[mmedge] (c1) to[out=0,in=120, looseness=0.7] (t.north west);
+\draw[mmedge] (c2)--(t); 
+\draw[mmedge] (c3) to[out=0,in=210, looseness=0.7] (t.south west);
+\draw[mmedge] (c4.south) to (t.north);
+\draw[mmedge] (c5)--(t.north); 
+\draw[mmedge] (c6.north) to (t.south);
+\draw[mmedge] (t)--(g);
+\end{mermaidfig}
+\vspace{-0.7cm}
+\figcaption{Figure 12. The five-color palette (plus the gray decision fill) maps 1:1
+from the Mermaid \texttt{classDef}\\classes to the TikZ \texttt{mm*} node styles, so
+every figure looks the same in LaTeX as on GitHub.}
+
+\begin{mermaidfig}
+\node[mmproc] (g1) at (0,0) {LLM generates file};
+\node[mmproc] (g2) at (3.6,0) {git commit};
+\node[mmproc] (g3) at (7.2,0) {push to branch};
+\node[mmaccent] (g4) at (10.8,0) {single PR\\(continuously updated)};
+\node[mmgoal] (g5) at (10.8,-2.2) {author reviews\\on GitHub};
+\node[mmctx] (g6) at (3.6,-2.2) {one commit per file\\(Rules 6, 7, 8)};
+\draw[mmedge] (g1)--(g2); \draw[mmedge] (g2)--(g3); \draw[mmedge] (g3)--(g4);
+\draw[mmedge] (g4)--(g5);
+\draw[mmedged] (g5) to[out=180,in=0] (g6.east);
+\draw[mmedged] (g6.west) to[out=180,in=-90] (g1.south);
+\end{mermaidfig}
+\vspace{-0.7cm}
+\figcaption{Figure 13. The real-time auto-commit and auto-PR loop. Each generated
+file is committed and pushed at once into one continuously updated pull request that
+the author monitors, with one commit per file per the commit rules.}
+
+\begin{mermaidfig}
+\node[mmproc] (main) at (0,-3.75) {main.tex\\\textbackslash input assembles all};
+\node[mmgoal] (s1) at (-4.5,-1.5) {Abstract + Keywords};
+\node[mmproc] (s2) at (-4.5,-3.0) {Introduction};
+\node[mmctx] (s3) at (-4.5,-4.5) {Table of Contents};
+\node[mmproc] (s4) at (-4.5,-6.0) {Methods};
+\node[mmproc] (s5) at (4.5,-1.5) {Results};
+\node[mmproc] (s6) at (4.5,-3.0) {Discussion};
+\node[mmproc] (s7) at (4.5,-4.5) {Limitations};
+\node[mmgoal] (s8) at (4.5,-6.0) {Conclusions};
+\node[mmctx] (s9) at (0,-7) {References + Back Matter (CC)};
+\draw[mmedge] (main.west) to[out=180,in=0] (s1.east);
+\draw[mmedge] (main.west) to[out=180,in=0] (s2.east);
+\draw[mmedge] (main.west) to[out=180,in=0] (s3.east);
+\draw[mmedge] (main.west) to[out=180,in=0] (s4.east);
+\draw[mmedge] (main.east) to[out=0,in=180] (s5.west);
+\draw[mmedge] (main.east) to[out=0,in=180] (s6.west);
+\draw[mmedge] (main.east) to[out=0,in=180] (s7.west);
+\draw[mmedge] (main.east) to[out=0,in=180] (s8.west);
+\draw[mmedge] (main.270) to[out=270,in=90] (s9.north);
+\end{mermaidfig}
+\vspace{-0.7cm}
+\figcaption{Figure 14. The paper section architecture. Each PAPER FORMAT section is
+one \texttt{sections/*.tex}\\file assembled by \texttt{main.tex}; the Table of
+Contents is generated after the Introduction.}
+
+\begin{mermaidfig}
+\node[mmin] (m) at (0,0) {mermaid/fig-NN.md\\(Python Mermaid)};
+\node[mmproc] (d) at (4.1,0) {nodes, edges, palette,\\quantitative data};
+\node[mmproc] (t) at (8.2,0) {TikZ mermaidfig\\(mm* styles)};
+\node[mmgoal] (l) at (12.3,0) {Identical figure\\in draft/full/final};
+\node[mmdec] (v) at (6.15,-2.2) {Verify twice:\\no overlaps, looseness,\\box spacing};
+\draw[mmedge] (m)--(d); \draw[mmedge] (d)--(t); \draw[mmedge] (t)--(l);
+\draw[mmedged] (v.north west) to (d.south);
+\draw[mmedged] (v.north east) to (t.south);
+\end{mermaidfig}
+\vspace{-0.7cm}
+\figcaption{Figure 15. Figure grounding: each Mermaid source is reproduced as a TikZ
+\texttt{mermaidfig} of\\the same complexity, then verified twice for overlaps, arrow
+looseness, and box spacing.}
+
+\subsection{Real-Time Auto-Commit and Auto-PR Monitorability}
+
+To keep the human in the loop, the build commits each file to GitHub the moment it
+is generated and opens a single continuously updated pull request, so the author can
+review artifacts as they appear without intervention (Figure 13). Commit discipline
+follows the rules: one commit for each of \texttt{main.tex}, the style file, the
+bibliography, and the README, and one commit per section \texttt{.tex}; the
+second-to-last commit of each stage fixes all errors, and the last performs the
+remaining repository updates.
+
+

@@ -1,0 +1,36 @@
+% sec-06-limitations.tex - Limitations and Future Work (full)
+\section{Limitations and Future Work}
+
+\subsection{Limitations}
+
+The approach does not rely
+on live internet search for large projects, because specifying single external URLs
+is unreliable at scale; instead it depends on a curated repository of appropriately
+sized inputs \cite{adoptionguide}. Because the LLM does not always have access to a
+PDF compiler, some senior-author formatting (table column widths, figure-caption
+spacing, and occasional page breaks) must still be applied by hand, and the paper
+explicitly performs that pass in the final stage. Total input is kept under roughly
+5 MB and individual files under per-file token limits, which bounds how much source
+material a single build can absorb. High-dimensional or approximate inputs can make
+outputs less deterministic, and oversized or overly complex inputs can surface server
+errors that signal reduced quality. Most fundamentally, the method changes none of
+the clinical realities: it does not alter tumor biology, shorten dose-limiting
+toxicity windows or survival follow-up, or compress the fixed regulatory review
+clocks, and every generated document must still pass human medical, statistical, and
+regulatory review before use. The build is an independent research artifact, not an
+active IND or IDE and not regulatory advice.
+
+\subsection{Future Work}
+
+Future work extends the method along three axes. First, coverage: applying the same
+single-prompt pipeline to the Phase 2-to-3 briefing package and the Phase 3 protocol
+\cite{phase2protocol}, and to the cohort-review and clinical-hold response packages
+under their real clocks. Second, integration: connecting the build to live electronic
+data capture and electronic document management feeds so that tables are generated
+directly from validated data, and adding automated verification of generated
+documents in the spirit of the verification-before-generation standard
+\cite{hr9510v5}. Third, breadth: extending beyond PDAC to glioblastoma and lung
+adenocarcinoma \cite{gbmsynergy, lungadeno}, and connecting to the national platform
+and site-documentation pipelines so that a site can produce its full document set on
+demand \cite{natplatform}. Each extension preserves the same discipline: grounded
+figures, name-matched files, real-time monitorability, human in the loop.

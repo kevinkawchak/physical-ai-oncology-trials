@@ -1,0 +1,81 @@
+% main.tex - FINAL paper "Phase 1 Pancreatic Cancer Trial Efficient LLM Document
+% Generations". Paper v1.0; repository v4.2.0. Stage 4 of the mermaid -> draft ->
+% full -> final build. The final stage applies the senior-author polish: each
+% major section starts on a fresh page via \clearpage so it is self-standing, the
+% widest figures are tightened to fit the body measure, and the formatting is
+% re-verified throughout.
+% Compile on Overleaf with pdfLaTeX:
+%   pdflatex main -> bibtex main -> pdflatex main -> pdflatex main
+\documentclass[11pt]{article}
+\usepackage{paperstyle}
+\renewcommand{\paperversion}{v1.0}
+
+\title{Phase 1 Pancreatic Cancer Trial Efficient LLM Document Guidance}
+\author{Kevin Kawchak}
+\date{June 29, 2026}
+
+\begin{document}
+\thispagestyle{plain}
+
+% ---------- Cover ----------
+\begin{center}
+{\color{paperblack}\rule{\linewidth}{1.6pt}}
+% \vspace*{0.3cm}
+{\LARGE\bfseries Phase 1 Pancreatic Cancer Trial:\\ \vspace{0.2cm}Efficient LLM Document Guidance}\\
+[-0.15em]
+{\color{paperblack}\rule{\linewidth}{1.6pt}}
+\end{center}
+
+\vspace{-0.65cm}
+
+\begin{center}\small
+Kevin Kawchak \;|\; \href{https://orcid.org/0009-0007-5457-8667}{ORCID 0009-0007-5457-8667} \;|\;
+CEO ChemicalQDevice \\
+\href{https://doi.org/10.5281/zenodo.21018646}{10.5281/zenodo.21018646} \;|\;
+\href{mailto:kevink@chemicalqdevice.com}{kevink@chemicalqdevice.com}
+\end{center}
+
+\vspace{-0.7cm}
+
+\begin{center}\footnotesize
+\textbf{Date:} June 29, 2026 \quad
+\textbf{Paper version:} v1.0 \quad
+\textbf{Repository Version:} v4.2.0\\
+\textbf{Repository:} \href{https://github.com/kevinkawchak/physical-ai-oncology-trials/tree/main/trial-documents}{kevinkawchak/physical-ai-oncology-trials.../trial-documents}
+\end{center}
+
+\vspace{-0.3cm}
+
+\noindent\footnotesize\textit{Independent research paper and practical adoption
+guide. It is not medical or regulatory advice and is not endorsed by the FDA, NIH,
+HHS, an IRB, ICH, or any sponsor. The DOI placeholder
+\texttt{10.5281/zenodo.21018646} is filled at deposit. All figures derive from the
+author's repository sources and are illustrative unless tied to a cited
+reference.}\normalsize\par
+
+\vspace{-0.3em}
+{\color{paperblack}\rule{\linewidth}{1.6pt}}
+
+% ---------- Front matter, then body. Order follows PAPER FORMAT:
+% Abstract, Keywords, Introduction, Table of Contents, Methods, Results,
+% Discussion, Limitations and Future Work, Conclusions, References, Back Matter.
+% Final-stage polish: each major section starts on a fresh page (\clearpage) so it
+% is self-standing and no line is stranded across a boundary. ----------
+\vspace{-0.2cm}
+\input{sections/sec-01-abstract}
+\input{sections/sec-02-introduction}
+\clearpage
+
+% ---------- Clickable table of contents (after the Introduction per PAPER FORMAT)
+\renewcommand{\contentsname}{Table of Contents}
+{\setlength{\parskip}{0pt}\small\tableofcontents}
+\clearpage
+
+\input{sections/sec-03-methods} 
+\input{sections/sec-04-results} 
+\input{sections/sec-05-discussion}\clearpage
+\input{sections/sec-06-limitations} 
+\input{sections/sec-07-conclusions}\clearpage
+\input{sections/sec-08-references-backmatter}
+
+\end{document}

@@ -1,0 +1,156 @@
+% sec-02-introduction.tex - Introduction (full)
+\section{Introduction}
+
+A Phase 1 oncology trial is, from a documentation standpoint, a relay of large
+written artifacts. Before a single patient is dosed, an Investigational New Drug
+(IND) dossier, an Investigator's Brochure, a clinical trial protocol, and an
+informed consent form must be authored and approved; during the trial, safety
+narratives, amendments, and cohort-review packages must be produced on short
+clocks; and after the trial, a clinical study report and downstream regulatory
+modules must be assembled. Each of these documents can sit on the critical path of
+the next decision. This paper (paper v1.0, within repository v4.2.0) shows that a
+single repository based large language model (LLM) prompt, which first writes and
+then executes a schedule of sub-prompts, can generate every one of these documents
+through a mermaid to draft to full to final pipeline, and can do so in a way that
+is monitorable and verifiable in real time.
+
+\subsection{Patients Currently Enrolled in Trial Cannot Wait for Slowdowns}
+
+Pancreatic ductal adenocarcinoma (PDAC) has a five-year overall survival below 13
+percent and is among the most lethal solid tumors, so a patient already enrolled in
+a Phase 1 PDAC study has little survival margin to spare on administrative delay
+\cite{kawchak_2025_15735068, natplatform}. The clinical and operational time of a
+trial (recruitment, treatment, and waiting for progression-free and overall
+survival to mature) cannot be compressed by writing faster, and neither can the
+fixed regulatory review clocks. What can be compressed is the administrative and
+preparation time spent authoring the large documents between steps. Faster
+paperwork therefore means faster treatment: an internally consistent package can
+reach the IRB and the FDA sooner, sites can activate sooner, and the next cohort can
+open sooner. In this work, a new iteration of any large document (a fresh draft, a
+full revision, or a final polish) completes in one to four days rather than the
+weeks to months a sequential human authoring cycle typically consumes. Figure 1
+shows the single-prompt pipeline that produces these iterations, and Figure 2 shows
+the one-to-four-day cadence against the traditional baseline.
+
+\begin{mermaidfig}
+\node[mmgoal] (mp) at (0,0) {Master prompt\\prompts/prompt-paper.md};
+\node[mmproc] (a) at (0,-1.95) {Process A\\generate sub-prompts 1-4};
+\node[mmin] (s1) at (0,-3.9) {Stage 1 mermaid\\24 colored figures};
+\node[mmin] (s2) at (0,-5.85) {Stage 2 draft-paper\\scaffold + bracketed instr.};
+\node[mmaccent] (s3) at (0,-7.8) {Stage 3 full-paper\\prose + TikZ + tables};
+\node[mmgoal] (s4) at (0,-9.75) {Stage 4 final-paper\\polished + Overleaf zip};
+\node[mmproc] (rel) at (0,-11.7) {README + releases + CHANGELOG v4.2.0\\Edits, Publication};
+\node[mmctx] (gh) at (6.0,-5.85) {GitHub\\real-time\\auto-commit\\auto-PR monitor};
+\draw[mmedge] (mp)--(a);
+\draw[mmedge] (a)--(s1);
+\draw[mmedge] (s1)--(s2);
+\draw[mmedge] (s2)--(s3);
+\draw[mmedge] (s3)--(s4);
+\draw[mmedge] (s4)--(rel);
+\draw[mmedged] (s1.east) to[out=0,in=150] (gh.north west);
+\draw[mmedged] (s2.east) -- (gh.west);
+\draw[mmedged] (s3.east) to[out=0,in=210] (gh.south west);
+\draw[mmedged] (s4.east) to[out=0,in=240] (gh.south);
+\draw[mmedged] (gh.north) to[out=120,in=20] (s1.east);
+\end{mermaidfig}
+\vspace{-0.7cm}
+\figcaption{Figure 1. The single-prompt "mermaid" to "draft" to "full" to "final" build
+pipeline. One master\\prompt drives Process A (generate the four sub-prompts) and
+then Process B (execute them in order).\\Dashed edges show that every stage
+auto-commits and opens a pull request on GitHub in real time, and\\the curved
+feedback edge shows author review returning into the build, all without manual
+intervention.}
+
+\begin{mermaidfig}
+\node[mmdark] (t0) at (0,0) {Traditional baseline\\weeks to months\\per iteration};
+\node[mmctx] (t1) at (0,-1.8) {sequential drafting};
+\node[mmctx] (t2) at (0,-3.3) {manual table assembly};
+\node[mmctx] (t3) at (0,-4.8) {serial review rounds};
+\node[mmaccent] (n0) at (7.2,0) {Single-prompt method\\1 to 4 days\\per new iteration};
+\node[mmin] (n1) at (7.2,-1.8) {draft scaffold};
+\node[mmin] (n2) at (7.2,-3.3) {full version};
+\node[mmin] (n3) at (7.2,-4.8) {final polish};
+\node[mmgoal] (g) at (3.6,-6.4) {Administrative / prep\\time compressed};
+\draw[mmedge] (t0)--(t1); \draw[mmedge] (t1)--(t2); \draw[mmedge] (t2)--(t3);
+\draw[mmedge] (n0)--(n1); \draw[mmedge] (n1)--(n2); \draw[mmedge] (n2)--(n3);
+\draw[mmedge] (n3) to[out=-90,in=0] (g.east);
+\draw[mmedged] (t3) to[out=-90,in=180] (g.west);
+\end{mermaidfig}
+\vspace{-0.7cm}
+\figcaption{Figure 2. The traditional
+baseline (left) spends weeks to months per large-document iteration in sequential\\
+drafting, manual table assembly, and serial review. The single-prompt method
+(right) produces a draft, a full\\version, and a final polish in one to four days,
+compressing the administrative and preparation bucket only.}
+
+\subsection{Effective Verifications Prove Utility}
+
+Speed is worthless if it cannot be trusted, so the method is built to be verified
+rather than asserted. Five checks make the build self-evidently grounded. First, the
+prose is grounded in 24 colored Mermaid figures that carry the real quantitative
+content (document counts, reporting windows, and review clocks) rather than
+decoration. Second, each figure matches the surrounding paper context and is cited
+where it is discussed. Third, every generated file is committed to GitHub in real
+time, so the author can view each artifact as it appears on the branch. Fourth, the
+paper's repository and directory names match the repository names exactly, so a
+reader can navigate from a sentence to the directory it describes. Fifth, the
+paper's file names match the repository file names, so a cited
+\texttt{sections/sec-04-results.tex} is the file on disk. These five checks are
+collected in the Results.
+
+\subsection{Patient Lives Extended: Probable Benefit Exceeds Probable Risk}
+
+The motivation is ultimately clinical. The probable benefits of the method are
+faster paperwork, faster treatment, a compressed administrative and preparation
+bucket, and more figures available for human oversight. The probable risks are the
+familiar LLM failure modes: an occasional generation error, a formatting artifact,
+or an unverified claim. Each risk is reduced to a low residual by a process control:
+human-in-the-loop review of commits, Mermaid grounding, paper-to-repository
+name matching, real-time GitHub monitorability, and a senior-author proofreading
+pass. Figure 3 weighs the two sides. For a population whose disease will not wait,
+withholding a method that safely compresses preparation time carries its own cost,
+and the balance favors using it.
+
+\begin{mermaidfig}
+\node[mmin] (r1) at (0.35,0) {Possible LLM error\\(server/massive input)};
+\node[mmin] (r2) at (0.35,-1.7) {Formatting artifacts};
+\node[mmin] (r3) at (0.35,-3.4) {Hallucinated context};
+\node[mmproc] (m1) at (4.7,0) {Human-in-the-loop\\review per commit};
+\node[mmproc] (m2) at (4.7,-1.7) {Mermaid grounding\\and name-matching};
+\node[mmproc] (m3) at (4.7,-3.4) {Real-time GitHub\\and author proofread};
+\node[mmdec] (d) at (9.2,-1.7) {Benefit vs\\risk};
+\node[mmgoal] (g) at (9.2,-4.2) {Benefit $>$ risk for\\terminal patients};
+\node[mmaccent] (b) at (9.2,0.6) {Faster paperwork,\\faster treatment};
+\draw[mmedge] (r1)--(m1); \draw[mmedge] (r2)--(m2); \draw[mmedge] (r3)--(m3);
+\draw[mmedge] (m1) to[out=0,in=120] (d.north west);
+\draw[mmedge] (m2)--(d);
+\draw[mmedge] (m3) to[out=0,in=240] (d.south west);
+\draw[mmedge] (b)--(d);
+\draw[mmedge] (d)--(g);
+\end{mermaidfig}
+\vspace{-0.7cm}
+\figcaption{Figure 3. Each probable risk
+(left) is reduced to a low residual by a process control (center); the decision
+node (right) integrates the mitigated risks with the weighted benefits and resolves
+in favor of terminal patients.}
+
+\subsection{Scope, Contributions, and Relationship to the Adoption Guide}
+
+This paper builds directly on the \emph{Oncology Trial PI LLM Adoption Guide}
+\cite{adoptionguide}, which it uses both as the paper template and as the practical
+hands-on guide whose Repository Setup, Prompt Proficiency, Project Proficiency, and
+Figure and Table guidance it turns into a worked Phase 1 pancreatic cancer document-generation
+study.
+
+The contributions are fourfold: (1) a single-prompt mermaid to draft to full
+to final pipeline that produces a complete scientific paper and, by the same
+mechanism, the large Phase 1 trial documents; (2) explicit coverage of the six
+document targets where faster authoring yields the greatest schedule value; (3)
+twenty-four new, professionally colored figures that reproduce identically from
+Python Mermaid to LaTeX TikZ; and (4) a real-time, monitorable, name-matched build.
+The demonstration is anchored to a real-world program: the on-premises LLM directed
+robotic Whipple with perioperative daraxonrasib (RMC-6236), whose Phase 1
+\cite{phase1protocol} and Phase 2 \cite{phase2protocol} protocols and whose
+60-second simulation \cite{kawchak_2026_20196639} were themselves single-prompt
+multi-file builds, and to the National Platform for Physical AI Oncology Trials as
+the governing framework \cite{natplatform}.

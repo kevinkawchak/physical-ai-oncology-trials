@@ -1,0 +1,105 @@
+% sec-05-discussion.tex - Discussion (full)
+\section{Discussion}
+
+\subsection{Probable Benefit Exceeds Probable Risk}
+
+The central claim is that, for a Phase 1 PDAC population, the probable benefit of
+repository based LLM document generation exceeds its probable risk. The benefits are
+concrete and on the critical path: faster paperwork, faster treatment, a compressed
+administrative and preparation bucket, and a larger number of figures available for
+human oversight than a manual process would produce. The risks are the known LLM
+failure modes, and each is bounded by a specific control rather than left to trust.
+An occasional generation or server error is caught by human-in-the-loop review at
+every commit; a formatting artifact is caught because each figure is grounded in a
+Mermaid source and each file is visible on GitHub; an unverified claim is caught by
+the name-matching and proofreading passes. The residual risk after these controls is
+low, while the benefit is realized on every iteration. For patients whose disease
+will not pause, the alternative (continuing to author large documents by slower
+sequential means) carries its own, often larger, cost in delayed treatment.
+
+\subsection{Mechanism: Compressing Administrative and Preparation Time}
+
+The mechanism is specific. A clinical trial timeline divides into clinical and
+operational time, administrative and preparation time, and fixed regulatory review
+time \cite{srcDocTypesGem}. Writing faster does not make a tumor respond faster and
+does not compel a regulator to review faster; it compresses only the middle bucket.
+That bucket, however, contains the document white space between phases, which is
+often where months are lost. By generating the six highest-value documents
+prospectively and in synchronized form (so that protocol, consent, database, and
+site documents move together rather than serially), the method removes precisely the
+idle authoring time that separates the end of one step from the start of the next.
+
+\subsection{Prior Developments as Evidence for This Project}
+
+This paper did not arrive without precedent. The author's 2024 to 2026 works
+established, in stages, that LLMs can be trusted for oncology trial artifacts: from
+drug-cost reasoning and clinical decision support, through glioblastoma meta-analysis
+and lung adenocarcinoma reviews \cite{gbmmeta10yr, lungadeno}, to PDAC digital-twin
+proposals and large in silico trials \cite{kawchak_2025_15735068,
+kawchak_2025_16415815, kawchak_2025_17001137}, to compliance-aware efficiency and
+verified comparative code generation \cite{e2eoncoeff, codegen16}. The National
+Platform for Physical AI Oncology Trials provided the governing framework
+\cite{natplatform}, and the Phase 1 \cite{phase1protocol} and Phase 2
+\cite{phase2protocol} protocols, together with the law and bill repositories
+\cite{lawnarrative, adoptionguide, lawenactment, hr9510v5, bill01v4}, demonstrated
+the single-prompt multi-file build on real regulatory and legislative documents.
+Applying the same single-prompt approach to the document-generation problem itself is
+the natural next step.
+
+\subsection{Why Trust the Method: Verification, Not Faith}
+
+The method is designed around verification before generation \cite{hr9510v5}: a
+document is trusted because it is grounded, name-matched, monitorable, and quality-
+gated, not because the model is assumed correct. This matters as AI outputs grow more
+complex and voluminous. The adoption guide frames the underlying question politely
+but pointedly: as AI-directed artifacts become larger and more intricate, why would
+human-only review remain sufficient, rather than a discipline that makes every claim
+traceable to a source and every figure traceable to a Mermaid file? Figure 21 quality gates are operational answer.
+
+\subsection{Relationship to the Real-World Daraxonrasib Trial}
+
+The documents accelerated here are exactly those the real daraxonrasib PDAC program
+requires. Figure 23 traces the document thread from a KRAS-mutated PDAC patient and
+the daraxonrasib (RMC-6236) plus LLM-directed robotic Whipple intervention, through
+the Phase 1 combined IND/IDE protocol \cite{phase1protocol} and the 3+3
+dose-escalation cohort-review packages that establish the recommended Phase 2 dose,
+to the amendments, the Phase 1-to-2 transition documents, and the randomized Phase 2
+protocol \cite{phase2protocol, kawchak_2026_20196639}. Figure 24 closes the argument:
+faster authoring shortens the white space between these documents, which advances
+treatment and, for this population, extends progression-free and overall survival.
+
+\begin{mermaidfig}
+\node[mmin] (pt) at (0.2,0) {KRAS-mutated PDAC\\daraxonrasib + robotic Whipple};
+\node[mmproc] (p1) at (4.7,0) {Phase 1 IND/IDE protocol};
+\node[mmproc] (p2) at (9.2,0) {3+3 cohort review\\establish RP2D};
+\node[mmproc] (p3) at (9.2,-1.8) {Amendments +\\synchronized consent};
+\node[mmproc] (p4) at (4.7,-1.8) {Phase 1-to-2 CSR\\and EOP2 briefing};
+\node[mmgoal] (p5) at (0.2,-1.8) {Phase 2 randomized\\protocol};
+\node[mmaccent] (acc) at (4.7,-3.7) {each document built by the single-prompt workflow};
+\draw[mmedge] (pt)--(p1); \draw[mmedge] (p1)--(p2);
+\draw[mmedge] (p2)--(p3); \draw[mmedge] (p3)--(p4); \draw[mmedge] (p4)--(p5);
+\draw[mmedged] (acc.north) to (p4.south);
+\end{mermaidfig}
+\vspace{-0.7cm}
+\figcaption{Figure 23. The real-world daraxonrasib PDAC document thread, from patient
+and\\intervention through the Phase 1 protocol, cohort-review packages, amendments,
+and\\transition documents to Phase 2 randomized protocol, each built by
+single-prompt workflow.}
+
+\begin{mermaidfig}
+\node[mmaccent] (a) at (0,-0.2) {Faster validated\\authoring};
+\node[mmproc] (b) at (4.4,-0.2) {Earlier IND/IRB,\\site activation};
+\node[mmproc] (c) at (8.8,-0.2) {Earlier first dose,\\faster cohorts};
+\node[mmproc] (d) at (8.8,-2.0) {Shorter white space\\between phases};
+\node[mmgoal] (e) at (4.4,-2.0) {Earlier access to\\effective therapy};
+\node[mmgoal] (f) at (0,-2.0) {Extended PFS / OS};
+\node[mmctx] (g) at (0,-3.8) {does not change tumor biology or fixed review clocks};
+\draw[mmedge] (a)--(b); \draw[mmedge] (b)--(c); \draw[mmedge] (c)--(d);
+\draw[mmedge] (d)--(e); \draw[mmedge] (e)--(f);
+\draw[mmedged] (g.north) to (f.south);
+\end{mermaidfig}
+\vspace{-0.7cm}
+\figcaption{Figure 24. The patient time-saved cascade. Faster authoring advances
+each step from\\submission to first dose, shortening the white space between phases
+and, for this population,\\extending progression-free, overall survival, without
+changing tumor biology or fixed review clocks.}
