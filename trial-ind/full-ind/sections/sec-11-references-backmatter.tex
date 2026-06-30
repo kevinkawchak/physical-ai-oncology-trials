@@ -1,0 +1,125 @@
+% sec-11-references-backmatter.tex - References and Back Matter (full)
+% Unnumbered back matter so the numbered IND sections end at 11 (Relevant
+% Information), matching the ReGARDD IND Table-of-Contents numbering.
+\section*{References and Back Matter}
+\addcontentsline{toc}{section}{References and Back Matter}
+
+This back matter closes Initial Investigational New Drug Application v1.0 for the
+LLM-Directed PDAC Robotic Daraxonrasib Phase 1 study, assembled within repository
+v4.3.0. The complete reference list renders below through the \texttt{ieeetr}
+bibliography style from \texttt{references.bib}. Every entry carries a clickable
+URL and, where a digital object identifier is assigned, a clickable DOI URL with
+the DOI text shown in full; long links break on any character so that no link runs
+off the right margin of the text block. The reference base supporting this
+application is intentionally comprehensive and spans seven evidentiary strands:
+the FDA Phase 1 and combination drug-device regulatory guidances; the daraxonrasib
+(RMC-6236) clinical and mechanistic literature underpinning the RASolute 302 and
+RASolve 301 programs and the June 2025 Breakthrough Therapy designation; the
+21 CFR Part 312 (IND) and Part 50 (informed consent) and ICH Physical Artificial
+Intelligence regulatory adaptations; the five author computational works dated 2025
+to 2026 (the 60-second PDAC Whipple plus daraxonrasib simulation, the artificial
+intelligence digital-twin PDAC simulation, the quantitative systems pharmacology
+metastatic-PDAC simulation with verification, validation, and uncertainty
+quantification, the 100,000-patient in silico Phase 3 five-arm PDAC triplicate, and
+the end-to-end PDAC digital-twin trial proposals); the H.R. 9510 Verification Before
+Generation in Physical AI Oncology Trials Act of 2026 and the national platform and
+clinical-trust frameworks; the sixteen-large-language-model code-generation
+evaluation against the FDA Adverse Event Reporting System; and the proposed clinical
+research protocol v1.0.0 (DOI 10.5281/zenodo.20780121) that this IND operationalizes.
+
+The back matter elements that follow document authorship and contributor
+attribution, the open-weights build model used to assemble this application, the
+ethical and independence disclosures that bound the entire repository, the data
+availability and licensing terms, and the recommended citation. Table 1 records the
+provenance of each major content strand so that a reviewer can trace every
+quantitative claim in IND Sections 3 through 11 back to its grounding source.
+
+\begin{table}[htbp]
+\centering
+\caption{Provenance map for the major evidentiary strands of IND v1.0. Each strand
+is traced to its grounding source and to the IND sections it supports.}
+\begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}p{3.7cm} Y >{\raggedright\arraybackslash}p{2.5cm}}
+\toprule
+\textbf{Evidentiary strand} & \textbf{Grounding source and key facts} & \textbf{Supports IND sections} \\
+\midrule
+Daraxonrasib mechanism and class & Oral RAS(ON) multi-selective (pan-RAS) inhibitor binding GTP-bound mutant RAS in complex with cyclophilin A; once-daily dosing \cite{daraxwhipple} & 3.1, 8.1 \\
+Dose-escalation design & 3+3 escalation across DL1 160 mg, DL2 220 mg, DL3 300 mg once daily; 28-day DLT window; RP2D at or below MTD \cite{phase1guidance} & 4, 6.1 \\
+Robotic Whipple device & On-premises LLM-directed eight-arm system, 56 degrees of freedom, 640 sensor channels, force caps 3 N per arm and 18 N cumulative \cite{onpremwhippl} & 5, 7 \\
+Verification before generation & Ten-gate ACCEPT/BLOCK/ESCALATE suite; LLM as second-opinion advisory oracle only; full autonomy prohibited under 21 CFR \S 312.21(e) \cite{congress9510,clintrustpai} & 5, 10, 11 \\
+Perioperative pause-and-restart & ISGPS fistula grade plus serum trough versus 0.5 ng/mL; 32-iteration sweep yielding T+7d 29/32, T+14d 3/32, T+21d 0/32 \cite{paisitedocpk} & 6.1, 9 \\
+Computational evidence base & 100,000-patient in silico Phase 3, QSP metastatic-PDAC simulation, and digital-twin trials \cite{chatgpt100kp,qspmetpancre,fdadigtwinpc,pdacdigtwinp} & 8, 9 \\
+Regulatory framework & 21 CFR Part 312 and Part 50 Physical AI adaptations; ICH harmonization \cite{cfr312paiuni,cfr050paiuni,ichpaistduni} & 1, 6, 10, 11 \\
+\bottomrule
+\end{tabularx}
+\figcaption{Table 1. Provenance map linking each evidentiary strand to its grounding
+reference and to the IND sections it supports.}
+\end{table}
+
+\bmhead{Acknowledgments}
+This Investigational New Drug Application was assembled with Claude Code (Opus 4.8
+Ultracode build, 1M context) as the build model, operating under the single-prompt
+mermaid to draft to full to final pipeline described in IND Section 11 and committing
+each stage in real time. The author thanks ChatGPT 5.5 (Thinking Extended) and
+Gemini 3.1 Pro for research-source assistance and for manual editing support. This
+v1.0 application was edited and approved by Kevin Kawchak and added to repository
+v4.3.0 under
+\href{https://github.com/kevinkawchak/physical-ai-oncology-trials/tree/main/trial-ind}{kevinkawchak/physical-ai-oncology-trials/tree/main/trial-ind}.
+The repository contributors are @kevinkawchak, @claude, @google-gemini, and
+@openai. No funding body, sponsor, or regulatory authority directed, reviewed, or
+endorsed the preparation of this document.
+
+\bmhead{Author and ORCID}
+Kevin Kawchak, Chief Executive Officer, ChemicalQDevice, San Diego, California.
+ORCID iD:
+\href{https://orcid.org/0009-0007-5457-8667}{https://orcid.org/0009-0007-5457-8667}.
+Correspondence: \href{mailto:kevink@chemicalqdevice.com}{kevink@chemicalqdevice.com}.
+In the proposed study the author would serve as Sponsor-Investigator on behalf of
+ChemicalQDevice; the resulting financial interest is disclosed under 21 CFR Part 54
+and is mitigated by the independent three-tier oversight structure (Data Safety
+Monitoring Board, Independent Safety Monitor, and Physical AI Safety Review
+Committee) detailed in the proposed clinical research and additional information
+sections.
+
+\bmhead{Ethical Disclosures}
+This is an independent research and regulatory-authoring demonstration. No real
+patients were enrolled, no protected health information was used, and no
+Institutional Review Board approval was sought or obtained. The exemplar case
+PAT-PDAC-0001 and all quantitative simulation outputs are synthetic and
+illustrative. This document is not an active Investigational New Drug Application or
+Investigational Device Exemption, is not a submitted or approved protocol, and does
+not constitute medical, surgical, or regulatory advice. It is not endorsed by the
+United States Food and Drug Administration, the National Institutes of Health, the
+Department of Health and Human Services, any Institutional Review Board, the
+International Council for Harmonisation, or any sponsor. Any future first-in-human
+conduct of the design described here would require a separately submitted IND and
+IDE, a 30-day FDA review period without clinical hold, and prospective IRB approval.
+
+\bmhead{Data Availability}
+All application sources, spanning the \texttt{mermaid}, \texttt{draft-ind},
+\texttt{full-ind}, and \texttt{final-ind} build stages, are available in the public
+GitHub repository and archived on Zenodo under the Creative Commons Attribution 4.0
+International (CC BY 4.0) license at DOI
+\href{https://doi.org/10.5281/zenodo.xxxxxxxx}{10.5281/zenodo.xxxxxxxx}. The
+underlying proposed clinical research protocol v1.0.0 is archived separately at DOI
+\href{https://doi.org/10.5281/zenodo.20780121}{10.5281/zenodo.20780121}. No
+proprietary, embargoed, or patient-identifiable data are contained in or required to
+reproduce this application.
+
+\bmhead{Rights and Permissions}
+This article is distributed under the terms of the Creative Commons Attribution 4.0
+International License (CC BY 4.0), which permits unrestricted use, distribution, and
+reproduction in any medium, provided the original author and source are properly
+credited, a link to the Creative Commons license is provided, and any modifications
+made are indicated. To view a copy of this license, visit
+\url{https://creativecommons.org/licenses/by/4.0/}.
+
+\bmhead{Cite This Article}
+Kawchak K. Phase 1 PDAC IND: AI Generation. Zenodo. 2026;
+\href{https://doi.org/10.5281/zenodo.xxxxxxxx}{10.5281/zenodo.xxxxxxxx}. IND v1.0,
+repository v4.3.0.
+
+\clearpage
+
+% Bibliography (ieeetr); \nocite{*} emits the full assembled reference list.
+\phantomsection\addcontentsline{toc}{section}{References}
+\begingroup\raggedright\nocite{*}\bibliographystyle{ieeetr}\bibliography{references}\endgroup
