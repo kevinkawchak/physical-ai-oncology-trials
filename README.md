@@ -1,8 +1,8 @@
 # End-to-End Physical AI Unification of Oncology Clinical Trials
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Release](https://img.shields.io/badge/Release-v4.2.0-brightgreen.svg)](https://github.com/kevinkawchak/physical-ai-oncology-trials)
-[![Last Updated](https://img.shields.io/badge/Updated-June%202026-blue.svg)](https://github.com/kevinkawchak/physical-ai-oncology-trials)
+[![Release](https://img.shields.io/badge/Release-v4.3.0-brightgreen.svg)](https://github.com/kevinkawchak/physical-ai-oncology-trials)
+[![Last Updated](https://img.shields.io/badge/Updated-July%202026-blue.svg)](https://github.com/kevinkawchak/physical-ai-oncology-trials)
 [![Protocol](https://img.shields.io/badge/Protocol-MCP-purple.svg)](https://github.com/kevinkawchak/physical-ai-oncology-trials)
 [![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.18445179-blue)](https://doi.org/10.5281/zenodo.18445179)
 [![Python](https://img.shields.io/badge/Python-3.10%20|%203.11%20|%203.12-blue.svg)](https://www.python.org/)
@@ -19,10 +19,16 @@
 [![Protocol DOI v1.1.0](https://img.shields.io/badge/Protocol%20DOI%20v1.1.0-10.5281%2Fzenodo.20807027-blue.svg)](https://doi.org/10.5281/zenodo.20807027)
 [![Document Generation](https://img.shields.io/badge/Method-Single%20prompt%20mermaid%E2%86%92draft%E2%86%92full%E2%86%92final-2F5D7C.svg)](trial-documents)
 [![Paper DOI v1.0](https://img.shields.io/badge/Paper%20DOI%20v1.0-10.5281%2Fzenodo.21018646-blue.svg)](https://doi.org/10.5281/zenodo.21018646)
+[![IND](https://img.shields.io/badge/IND-Phase%201%20PDAC%20AI%20Generation-000000.svg)](trial-ind)
+[![IND Figures](https://img.shields.io/badge/Grayscale%20figures-22-3F3F3F.svg)](trial-ind/mermaid)
+[![IND Method](https://img.shields.io/badge/Method-mermaid%E2%86%92draft%E2%86%92full%E2%86%92final-6C757D.svg)](trial-ind/sub-prompts)
+[![IND DOI v1.0](https://img.shields.io/badge/IND%20DOI%20v1.0-10.5281%2Fzenodo.xxxxxxxx-blue.svg)](https://doi.org/10.5281/zenodo.xxxxxxxx)
 
 **Comprehensive developments for integrating physical AI into oncology clinical trials, by Claude Code Opus 4.8 Max, Cowork; with Assistance from ChatGPT 5.5 Thinking Extended and Google Gemini 3.1 Pro.**
 
 This repository provides production-ready configurations, validated pipelines, and integration guides for deploying robotic systems, digital twins, and embodied AI agents in oncology. 
+
+**7/1: v4.3.0 (Phase 1 PDAC IND: AI Generation, IND v1.0)** *v4.3.0 adds trial-ind/, a single-prompt Phase 1 PDAC IND that hastens the entire IND document-package process across the ReGARDD table of contents and ships 22 grayscale Mermaid figures reproduced exactly in LaTeX, reaching about ten times the source paper.* [![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.xxxxxxxx-blue)](https://doi.org/10.5281/zenodo.xxxxxxxx)
 
 **6/29: v4.2.0 (Phase 1 Pancreatic Cancer Trial Efficient LLM Document Generations, Paper v1.0)** *v4.2.0 adds trial-documents/, a single-prompt paper that hastens the entire Phase 1 process by generating every relevant documents.* [![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.21018646-blue)](https://doi.org/10.5281/zenodo.21018646)
 
@@ -87,6 +93,91 @@ python scripts/verify_installation.py
 # Detect available simulation frameworks
 python unification/cross_platform_tools/framework_detector.py
 ```
+---
+
+## Phase 1 PDAC IND: AI Generation (v4.3.0)
+
+This release adds [`trial-ind/`](trial-ind): a single-prompt Phase 1 Investigational
+New Drug (IND) application, *Phase 1 PDAC IND: AI Generation* (IND v1.0), that hastens
+the entire Phase 1 IND document-package process and ships 22 grayscale Mermaid figures,
+each from a unique perspective, reproduced exactly in LaTeX. The IND follows the ReGARDD
+IND Table of Contents, keeps the current paper template color (black body text), and
+renders every figure in a strictly grayscale eight-tone ramp. It is built for the
+LLM-Directed PDAC Robotic Daraxonrasib trial, carrying the daraxonrasib 3+3 dose
+escalation (DL1 160, DL2 220, DL3 300 mg), the eight-arm robotic Whipple device data,
+and the perioperative advisory, across twelve ReGARDD sections reaching about ten times
+the source paper. Authored by Kevin Kawchak (ChemicalQDevice), IND v1.0, DOI
+[10.5281/zenodo.xxxxxxxx](https://doi.org/10.5281/zenodo.xxxxxxxx), July 1, 2026.
+
+**425-character summary.** v4.3.0 adds trial-ind/, a single-prompt Phase 1 PDAC IND
+that hastens the entire IND document-package process and ships 22 grayscale Mermaid
+figures reproduced exactly in LaTeX. It follows the ReGARDD IND table of contents across
+12 sections, carries the daraxonrasib 3+3 and eight-arm robotic Whipple data, reaches
+about ten times the source paper, and auto-commits every file to GitHub in real time for
+live monitoring.
+
+### Contents of this version
+
+- [Build pipeline](#build-pipeline-v430) (mermaid -> draft -> full -> final)
+- [Stage outputs](#stage-outputs-v430)
+- [IND at a glance](#ind-at-a-glance-v430)
+- [trial-ind structure](#trial-ind-structure-v430)
+
+### Build pipeline (v4.3.0)
+
+```mermaid
+%%{init: {'theme':'base','themeVariables':{'fontSize':'13px','lineColor':'#6C757D'}}}%%
+flowchart LR
+    MP["Master prompt<br/>prompts/prompt-ind.md"]:::goal
+    S1["Stage 1 mermaid<br/>22 grayscale figures"]:::input
+    S2["Stage 2 draft-ind<br/>12 scaffolds + instructions"]:::input
+    S3["Stage 3 full-ind<br/>prose + TikZ + tables"]:::accent
+    S4["Stage 4 final-ind<br/>polished + zip"]:::goal
+    REL["Release v4.3.0<br/>README + releases + CHANGELOG"]:::proc
+    MP --> S1 --> S2 --> S3 --> S4 --> REL
+    classDef goal   fill:#000000,stroke:#000000,stroke-width:1.5px,color:#FFFFFF
+    classDef proc   fill:#3F3F3F,stroke:#000000,stroke-width:1.4px,color:#FFFFFF
+    classDef accent fill:#6C757D,stroke:#000000,stroke-width:1.3px,color:#FFFFFF
+    classDef input  fill:#ECECEC,stroke:#3F3F3F,stroke-width:1.2px,color:#111111
+```
+
+### Stage outputs (v4.3.0)
+
+| Stage | Directory | Output |
+|:--|:--|:--|
+| Bootstrap | `trial-ind/prompts`, `sub-prompts` | master prompt, output, 4 sub-prompts, READMEs |
+| 1 mermaid | `trial-ind/mermaid` | 22 grayscale Mermaid figures (8-tone ramp) |
+| 2 draft | `trial-ind/draft-ind` | 12 ReGARDD section scaffolds + zip |
+| 3 full | `trial-ind/full-ind` | 12 full sections, 20 TikZ figures, 31 tables + zip |
+| 4 final | `trial-ind/final-ind` | polished sections, 22 figures, ~90 tables + zip (no publication dir) |
+
+### IND at a glance (v4.3.0)
+
+| Item | Value |
+|:--|:--|
+| Drug | Daraxonrasib (RMC-6236), oral RAS(ON) multi-selective inhibitor |
+| Indication | Resectable / borderline KRAS G12-mutated PDAC; ECOG 0-1 |
+| Design | Phase 1, first-in-human, combined IND / IDE; 3+3 dose finding |
+| Dose levels | DL1 160 mg, DL2 220 mg, DL3 300 mg once daily; 28-day DLT |
+| Device | On-premises LLM-directed eight-arm robotic Whipple (56 DOF, 640 channels) |
+| Sample size | Up to 18 treated (about 36 screened), single academic site |
+| Primary endpoints | 30-day device / procedure SAE rate; MTD / RP2D; task-completion feasibility |
+| Document scale | 12 ReGARDD sections, 22 grayscale figures, ~90 full-width tables, ~10x the source paper |
+
+### trial-ind structure (v4.3.0)
+
+```
+trial-ind/
+  README.md                 build hub (badges, pipeline, milestones)
+  prompts/                  prompt-ind.md (verbatim) + output-ind.md
+  sub-prompts/              prompt-1-mermaid .. prompt-4-final-ind
+  mermaid/        (Stage 1) 22 grayscale Mermaid figures + README + output
+  draft-ind/      (Stage 2) main.tex, indstyle.sty, references.bib, sections/, zip
+  full-ind/       (Stage 3) same set, 20 TikZ figures + 31 tables
+  final-ind/      (Stage 4) same set, polished, 22 figures (no publication subdirectory)
+  inputs/                   ReGARDD IND template, FDA 1571 instructions, ReGARDD guidance, references.bib
+```
+
 ---
 
 ## Phase 1 Pancreatic Cancer Trial Efficient LLM Document Generations (v4.2.0)
@@ -437,6 +528,28 @@ physical-ai-oncology-trials/
 ├── V1_RELEASE.md
 ├── LICENSE
 ├── requirements.txt
+│
+├── trial-ind/                         # ★ Phase 1 PDAC IND: AI Generation (v4.3.0)
+│   ├── README.md                      # build hub (IND v1.0 / repo v4.3.0)
+│   ├── prompts/                       # prompt-ind.md (master, verbatim) + output-ind.md
+│   ├── sub-prompts/                   # prompt-1-mermaid .. prompt-4-final-ind
+│   ├── mermaid/                       # Stage 1: 22 grayscale Mermaid figures + README + output
+│   ├── draft-ind/                     # Stage 2: 12 ReGARDD section scaffolds + zip
+│   ├── full-ind/                      # Stage 3: 12 full sections, 20 TikZ, 31 tables + zip
+│   ├── final-ind/                     # Stage 4: polished, 22 figures, ~90 tables + zip (no publication dir)
+│   └── inputs/                        # ReGARDD IND template, FDA 1571 instructions, references.bib
+│
+├── trial-documents/                   # ★ Phase 1 PDAC Efficient LLM Document Generations Paper (v4.2.0)
+│   ├── README.md                      # build hub (paper v1.0 / repo v4.2.0)
+│   ├── prompts/                       # prompt-paper.md (verbatim) + output-paper.md
+│   ├── sub-prompts/                   # 4 generated stage sub-prompts
+│   ├── mermaid/                       # Stage 1: 24 colored Mermaid figures (5-step palette)
+│   ├── draft-paper/                   # Stage 2: 8 section scaffolds + zip
+│   ├── full-paper/                    # Stage 3: 8 full sections, 24 TikZ, 6 tables + zip
+│   ├── final-paper/                   # Stage 4: polished sections + zip
+│   │   └── publication/               # author-edited paper URL directory (the paper)
+│   ├── inputs/                        # llm-adoption template + references.bib
+│   └── research/                      # document-types + industry-workflow AI sources
 │
 ├── trial-phase-2/                     # ★ Physical AI Whipple + Daraxonrasib Phase 2 Randomized Controlled Trial Protocol (v4.1.0)
 │   ├── README.md                      # build hub (v1.1.0 / repo v4.1.0)
