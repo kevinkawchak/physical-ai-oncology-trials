@@ -229,3 +229,38 @@ For AI generation, a realistic IND document generator should therefore support a
 	7.	headers, footers, version numbers, and confidentiality markings;
 	8.	searchable, submission-ready PDF publication.
 
+### prompt-3
+Are any of these deliverables in color? 
+
+### output-3
+Yes, but color is generally selective rather than standard throughout the IND. Most pages remain black text on a white background, with color used only where it improves scientific interpretation.
+
+Deliverable	Typical color use
+FDA forms, cover letter, table of contents	Usually black and white
+Clinical protocol	Mostly black and white; cohort schemas, timelines, or treatment-flow diagrams may use restrained color
+Investigator’s Brochure	Mostly black and white; PK/PD graphs, safety plots, molecular diagrams, or product photographs may be colored
+CMC sections	Color may appear in manufacturing-flow diagrams, chromatograms, spectra, container-closure photographs, or analytical images
+Nonclinical reports	Most likely to contain necessary color, particularly histopathology, microscopy, gross-pathology photographs, imaging, or stained tissue sections
+Clinical pharmacology reports	Multi-series PK, exposure-response, or biomarker graphs frequently use color
+Informed Consent Form	Normally black and white; institutional branding or patient diagrams may introduce limited color
+SAP, DMP, monitoring and safety plans	Predominantly black and white; occasional workflow diagrams or risk matrices
+Cohort-review packages	Often contain colored safety, enrollment, PK, or dose-escalation charts
+Clinical Study Report and TFL package	Tables are usually black and white; selected graphs and figures may be colored
+
+FDA recommends black as the normal font color, with blue permitted for hyperlinks. It warns that light colors may not reproduce well on grayscale printers and says colored pages should be test-printed in grayscale before submission.  ￼
+
+FDA also says grayscale and color should be used only when they improve reviewability because they increase file size. Its specifications explicitly accommodate color photographs at 600 dpi in 24-bit RGB, confirming that scientifically necessary color content is permitted.  ￼
+
+Practical design rule
+
+Use color for:
+	•	differentiating multiple PK or dose curves;
+	•	identifying cohorts or treatment arms;
+	•	histology and microscopy;
+	•	heat maps or risk matrices;
+	•	complex process and study-flow diagrams.
+
+Do not rely on color alone. Add direct labels, symbols, patterns, or different line styles so the information remains understandable when printed in grayscale.
+
+A realistic AI-generated IND should therefore have a conservative black-and-white regulatory style, with limited, consistent color reserved for scientifically meaningful figures and diagrams.
+
