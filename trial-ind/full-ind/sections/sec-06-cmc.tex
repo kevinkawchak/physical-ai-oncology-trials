@@ -1,0 +1,411 @@
+% sec-06-cmc.tex - Chemistry, Manufacturing and Control (full stage)
+\section{Chemistry, Manufacturing and Control Information}
+
+\subsection{Chemistry, Manufacturing and Control}
+
+This section presents the Chemistry, Manufacturing and Control (CMC)
+information for the investigational drug daraxonrasib (RMC-6236) supporting the
+Phase 1, first-in-human, open-label, single-arm investigation described
+elsewhere in this Investigational New Drug application (IND v1.0, repository
+v4.3.0). It is organized and submitted in accordance with 21 CFR \S
+312.23(a)(7), which requires sufficient information about the composition,
+manufacture, and control of the drug substance and the drug product to assure
+the proper identification, quality, purity, and strength of the investigational
+drug, scaled to the early phase of investigation, the limited number of
+participants, and the short duration of exposure characteristic of a Phase 1
+study \cite{phase1guidance}. Consistent with the FDA guidance on the content
+and format of CMC information for a Phase 1 study, the emphasis here is on the
+information needed to assure participant safety, including identity, strength,
+quality, purity, and stability, rather than on the detailed validation data
+appropriate to later phases \cite{phase1guidance}. As the investigation
+proceeds and the manufacturing process and analytical methods mature, the CMC
+information will be updated through information amendments under 21 CFR \S
+312.31 as required.
+
+The investigational regimen couples this oral drug with an on-premises large
+language model (LLM) directed eight-arm robotic pancreaticoduodenectomy
+(Whipple) platform that is the subject of the parallel investigational device
+exemption content of this submission. The device is a durable instrument and is
+not a drug, a biologic, or a consumable manufactured lot; its design,
+specification, calibration, and quality controls are addressed in the device
+description and the Physical AI System Description fields of 21 CFR \S
+312.23(g), not in this CMC section
+\cite{daraxwhipple,onpremwhippl}. Accordingly, the four CMC subsections below
+address only the orally administered drug substance and drug product, the
+non-applicable placebo, and labeling, followed by the environmental assessment.
+The CMC information architecture and the mapping of each subsection to its
+content is shown in Figure 16.
+
+\begin{mermaidfig}
+\node[mmgoal] (cmc) at (5.2,0)      {Chemistry, Manufacturing\\and Control ($\S$7)};
+\node[mmproc] (ds)  at (0,-2.6)     {7.1.1 Drug substance\\daraxonrasib\\(RMC-6236)};
+\node[mmproc] (dp)  at (3.6,-2.6)   {7.1.2 Drug product\\oral tablet,\\160 / 220 / 300 mg};
+\node[mmctx]  (pl)  at (7.0,-2.6)   {7.1.3 Placebo product\\not applicable\\(open-label)};
+\node[mmproc] (lb)  at (10.4,-2.6)  {7.1.4 Labeling\\``Caution:\\investigational''\\21 CFR 312.6};
+\node[mmproc] (ea)  at (12.6,-0.2)  {7.2 Environmental\\assessment /\\categorical\\exclusion 25.31};
+\node[mmin]   (ds1) at (0,-5.4)     {Characterization,\\specification,\\impurities};
+\node[mmin]   (dp1) at (3.6,-5.4)   {Composition,\\container-closure,\\child-resistant};
+\node[mmin]   (st)  at (7.0,-5.4)   {Stability program\\(supports shelf life)};
+\draw[mmedge] (cmc) -- (ds);
+\draw[mmedge] (cmc) -- (dp);
+\draw[mmedge] (cmc) -- (pl);
+\draw[mmedge] (cmc) -- (lb);
+\draw[mmedge] (cmc.east) to[out=0,in=90,looseness=0.6] (ea.north);
+\draw[mmedge] (ds) -- (ds1);
+\draw[mmedge] (dp) -- (dp1);
+\draw[mmedge] (dp) to[out=-90,in=90,looseness=0.7] (st.north);
+\end{mermaidfig}
+\figcaption{Figure 16. The Chemistry, Manufacturing and Control information
+architecture for $\S$7. The drug substance (daraxonrasib, RMC-6236) is described
+by characterization, specification, and impurity controls; the drug product is
+the oral tablet at the 160, 220, and 300 mg strengths with its composition and
+child-resistant, light-protective container-closure under 21 CFR $\S$312.6,
+supported by a stability program; the placebo product is not applicable for this
+open-label study; labeling carries the investigational caution statement; and an
+environmental assessment or categorical exclusion under 21 CFR $\S$25.31 is
+provided.}
+
+\subsubsection{Drug Substance}
+
+\paragraph{Nomenclature, description, and pharmacological class.}
+The drug substance is daraxonrasib, also designated by the developmental code
+RMC-6236, an orally bioavailable small molecule of the RAS(ON)
+multi-selective (pan-RAS) inhibitor class. Daraxonrasib acts by binding the
+active, guanosine triphosphate (GTP) bound state of mutant RAS in a tri-complex
+with the endogenous chaperone cyclophilin A, thereby occluding the
+RAS to effector interface and suppressing downstream mitogen-activated protein
+kinase and phosphoinositide 3-kinase signaling across the common KRAS
+oncoprotein variants found in pancreatic ductal adenocarcinoma (PDAC), including
+the G12D, G12V, and G12R substitutions targeted by this protocol
+\cite{daraxwhipple,pdac060s2030}. The agent received FDA Breakthrough Therapy
+designation in June 2025 for previously treated metastatic PDAC bearing a KRAS
+G12 mutation, and 300 mg administered orally once daily is the recommended
+Phase 2 dose established in the pan-KRAS RASolute 302 program to which the dose
+and exposure assumptions of this protocol are anchored
+\cite{daraxwhipple,pdac060s2030}. The drug substance is a non-biologic, chirally
+defined organic small molecule; it is not a radioactive drug, is not a
+controlled substance, and is not a peptide, protein, or nucleic acid. The drug
+substance is presented as a solid, and in the finished product it is formulated
+as an immediate-release oral tablet.
+
+\paragraph{Manufacturer and method of preparation.}
+The drug substance is manufactured by, or under contract to, the sponsor's
+designated active pharmaceutical ingredient manufacturer under current good
+manufacturing practice (cGMP) appropriate to the investigational stage, and is
+released against the drug-substance specification summarized in Table 7. The
+synthetic route is a defined, multi-step convergent organic synthesis with
+isolated, characterized intermediates and controlled reagents, catalysts, and
+solvents; in-process controls govern the critical steps, and the final isolation
+and drying steps establish the solid-state form, particle size distribution, and
+residual-solvent profile of the substance. The name, address, and
+establishment information of the drug-substance manufacturer, the detailed
+reaction scheme, the list of starting materials and reagents, the in-process
+controls, and the batch records are provided in the supporting CMC documentation
+on file with the sponsor and are cross-referenced here consistent with the
+Phase 1 level of CMC detail \cite{phase1guidance}. A statement that the drug
+substance is manufactured in compliance with cGMP, and the certificate of
+analysis for the clinical batch, accompany each shipment.
+
+\paragraph{Characterization.}
+The structure and identity of daraxonrasib are established by a panel of
+orthogonal physicochemical methods. Structural elucidation and confirmation use
+proton and carbon nuclear magnetic resonance spectroscopy, high-resolution mass
+spectrometry, infrared spectroscopy, and ultraviolet to visible spectroscopy;
+elemental analysis confirms empirical composition. Chiral purity is confirmed by
+chiral high-performance liquid chromatography (HPLC) to assure the correct
+stereochemical configuration of the defined stereocenters. The solid-state form
+(polymorph) is characterized by X-ray powder diffraction and differential
+scanning calorimetry, and the manufacturing process is controlled to deliver the
+intended crystalline form, because solid-state form governs dissolution and
+hence the oral exposure on which the pharmacokinetically gated restart advisory
+of the protocol depends. Hygroscopicity, aqueous and physiological-pH
+solubility, the partition coefficient, and the pKa are determined to support the
+biopharmaceutic understanding of the tablet. These characterization data
+constitute the reference standard against which clinical batches are compared.
+
+\paragraph{Specification and control of impurities.}
+The drug-substance specification, with tests, analytical procedures, and
+acceptance criteria appropriate to a first-in-human Phase 1 study, is given in
+Table 7. Organic impurities (process-related and degradation-related), residual
+solvents, and elemental impurities are controlled to limits consistent with the
+applicable International Council for Harmonisation (ICH) quality guidelines (ICH
+Q3A for impurities in new drug substances, ICH Q3C for residual solvents, and
+ICH Q3D for elemental impurities), as adapted to the limited duration and
+participant exposure of a Phase 1 investigation
+\cite{ichpaistduni,phase1guidance}. Any individual or total impurity exceeding
+its qualification threshold is qualified by reference to the nonclinical
+toxicology program summarized in the pharmacology and toxicology section of this
+IND. Genotoxic-impurity risk is assessed and controlled under the ICH M7
+framework, with structural alerts evaluated and relevant potential mutagenic
+impurities controlled to the threshold of toxicological concern. The acceptance
+criteria below are interim Phase 1 specifications and will be tightened as
+process knowledge and additional batch data accumulate.
+
+\begin{table}[t]
+\centering
+\caption{Drug-substance specification for daraxonrasib (RMC-6236): interim
+Phase 1 release and stability tests, analytical procedures, and acceptance
+criteria.}
+\label{tab:cmc-ds-spec}
+\begin{tabularx}{\textwidth}{L{4.1cm} L{4.0cm} Y}
+\toprule
+\textbf{Attribute / test} & \textbf{Analytical procedure} & \textbf{Acceptance criterion (interim Phase 1)} \\
+\midrule
+Appearance & Visual & White to off-white solid; free of foreign matter \\
+Identity (spectroscopic) & IR; UV to visible & Conforms to reference standard \\
+Identity (chromatographic) & HPLC retention time & Retention time matches reference standard \\
+Identity (structural) & 1H and 13C NMR; HRMS & Consistent with assigned structure \\
+Stereochemical purity & Chiral HPLC & Single defined stereoisomer; undesired enantiomer not more than 0.5 percent \\
+Assay (content) & HPLC with UV detection & 98.0 to 102.0 percent on the anhydrous, solvent-free basis \\
+Organic impurities (each) & HPLC, related substances & Not more than 0.5 percent per specified or unspecified impurity (ICH Q3A) \\
+Organic impurities (total) & HPLC, related substances & Not more than 2.0 percent total \\
+Genotoxic impurities & LC-MS or GC-MS, ICH M7 & Below the threshold of toxicological concern for specified mutagenic impurities \\
+Residual solvents & Headspace GC & Within ICH Q3C Class limits for solvents used in synthesis \\
+Elemental impurities & ICP-MS & Within ICH Q3D oral permitted daily exposure limits \\
+Water content & Karl Fischer titration & Not more than 1.0 percent w/w \\
+Residue on ignition / sulfated ash & USP general chapter & Not more than 0.2 percent \\
+Solid-state form & X-ray powder diffraction & Conforms to the designated reference polymorph \\
+Particle size distribution & Laser diffraction & Within the validated process range supporting dissolution \\
+Microbial limits & USP total aerobic / yeast and mold & Within USP limits for an oral non-sterile substance \\
+\bottomrule
+\end{tabularx}
+\figcaption{Table 7. Interim Phase 1 drug-substance specification. Acceptance
+criteria are scaled to the early phase of investigation and will be tightened as
+batch and process data accumulate; impurity limits reference ICH Q3A, Q3C, Q3D,
+and M7 as adapted for Phase 1.}
+\end{table}
+
+\subsubsection{Drug Product}
+
+\paragraph{Description and composition.}
+The drug product is an immediate-release, film-coated oral tablet supplied in the
+three strengths required to compose the once-daily doses of the 3+3 escalation:
+160 mg for dose level 1 (DL1), 220 mg for dose level 2 (DL2), and 300 mg for
+dose level 3 (DL3), the last of which corresponds to the RASolute 302 recommended
+Phase 2 dose \cite{daraxwhipple,pdac060s2030}. The three strengths are
+dose-proportional, sharing a common qualitative composition and a common blend so
+that the only quantitative difference among strengths is the content of drug
+substance and the corresponding fill weight, with the tablets differentiated by
+size, debossing, or both to prevent dose confusion in this open-label study. The
+qualitative and representative quantitative composition is given in Table 8. The
+excipients are standard, compendial pharmaceutical excipients used at
+conventional levels; the formulation contains a filler or diluent, a binder, a
+disintegrant, a glidant, a lubricant, and a non-functional aqueous film coat. No
+excipient of human or animal origin presenting a transmissible spongiform
+encephalopathy risk is used, and no novel excipient is included.
+
+\begin{table}[t]
+\centering
+\caption{Representative qualitative and quantitative composition of the
+daraxonrasib immediate-release oral tablet (per the 160 mg strength; the 220 mg
+and 300 mg strengths are dose-proportional from a common blend).}
+\label{tab:cmc-dp-comp}
+\begin{tabularx}{\textwidth}{L{4.4cm} L{4.6cm} Y}
+\toprule
+\textbf{Component} & \textbf{Function} & \textbf{Quantity (160 mg strength) and notes} \\
+\midrule
+Daraxonrasib (RMC-6236) & Active pharmaceutical ingredient & 160 mg per tablet (220 mg / 300 mg in higher strengths) \\
+Microcrystalline cellulose & Filler / diluent & Quantity sufficient to target fill weight \\
+Lactose monohydrate or mannitol & Filler / diluent & Compendial grade, conventional level \\
+Povidone or hypromellose & Binder & Conventional level \\
+Croscarmellose sodium & Disintegrant & Conventional level for immediate release \\
+Colloidal silicon dioxide & Glidant & Conventional level \\
+Magnesium stearate & Lubricant & Conventional level (typically not more than 1.0 percent) \\
+Film coat (hypromellose-based) & Aqueous non-functional coat & Applied to target weight gain; removed as water on drying \\
+Purified water & Coating vehicle & Removed during processing (not present in finished tablet) \\
+\bottomrule
+\end{tabularx}
+\figcaption{Table 8. Drug-product composition. All excipients are compendial and
+used at conventional levels; the film coat is non-functional and cosmetic. The
+220 mg and 300 mg strengths are manufactured dose-proportionally from a common
+blend, differing only in drug-substance content and fill weight and in tablet
+size or debossing for identification.}
+\end{table}
+
+\paragraph{Manufacture.}
+The drug product is manufactured under cGMP appropriate to the investigational
+stage by the sponsor's designated drug-product manufacturer. The process is a
+conventional solid-oral-dosage process: dispensing and screening of the drug
+substance and excipients, blending (with wet or dry granulation as defined in the
+batch record), lubrication, compression of the final blend into core tablets on a
+rotary tablet press under in-process controls for tablet weight, hardness,
+thickness, and friability, and aqueous film coating of the cores in a perforated
+coating pan to a target weight gain, followed by drying. In-process controls at
+compression include tablet weight and weight uniformity, hardness, thickness,
+disintegration, and visual inspection; the coating step is controlled for weight
+gain and appearance. The batch formula, the master and executed batch records,
+the in-process control limits, and the name and address of the drug-product
+manufacturer are provided in the supporting CMC documentation and are
+cross-referenced here at the Phase 1 level of detail \cite{phase1guidance}. A
+certificate of analysis accompanies each clinical batch, and each batch is
+released against the drug-product specification before use.
+
+\paragraph{Drug-product specification.}
+Each clinical batch is tested and released against a drug-product specification
+that includes appearance, identity of the drug substance (by HPLC retention time
+and a spectroscopic method), assay (95.0 to 105.0 percent of label claim by HPLC),
+content uniformity by the USP uniformity-of-dosage-units test, degradation
+products controlled to interim Phase 1 limits consistent with ICH Q3B (not more
+than 0.5 percent per specified or unspecified degradant and not more than 2.0
+percent total), dissolution by the USP apparatus and medium validated for the
+product (for example, not less than 80 percent dissolved in 30 minutes as a
+provisional immediate-release criterion to be confirmed by the developing
+dissolution method), water content, and microbial limits within USP acceptance
+criteria for an oral non-sterile product. The dissolution method and acceptance
+criterion are provisional and will be finalized as biopharmaceutic and stability
+data accrue.
+
+\paragraph{Container-closure system.}
+The drug product is packaged in a child-resistant, light-protective,
+moisture-protective container-closure system, namely high-density polyethylene
+bottles with a child-resistant, induction-sealed closure and an appropriate
+desiccant, or equivalent child-resistant unit-dose blister packaging. The
+container-closure components contacting the product are of compendial
+pharmaceutical grade and are suitable for an oral solid dosage form; the
+child-resistant feature satisfies the special-packaging expectation for an
+investigational oral oncology agent, and the light-protective and
+moisture-protective features support the stability claim. Packaging and labeling
+operations are performed under cGMP, and the investigational caution statement and
+the label content described in Table 9 and in $\S$7.1.4 appear on the immediate
+and any secondary container in accordance with 21 CFR \S 312.6 \cite{phase1guidance}.
+
+\paragraph{Stability program.}
+Stability of the drug product is supported by an ongoing stability program
+conducted under ICH Q1A conditions on representative batches in the proposed
+container-closure system, using stability-indicating analytical methods. The
+program comprises long-term, intermediate, and accelerated conditions, with
+attributes monitored at each station including appearance, assay, degradation
+products, dissolution, and water content; a photostability evaluation under ICH
+Q1B and an in-use stability evaluation for the multi-dose bottle presentation are
+included. The program and its current status are summarized in Table 10. The
+provisional shelf life (expiry or retest period) assigned to the clinical drug
+product is supported by the available long-term and accelerated data and is
+applied through expiry dating on the label; product is dispensed only within the
+labeled expiry or retest date. Stability is monitored throughout the
+investigation, and the shelf life will be extended through information amendments
+as additional long-term data become available \cite{phase1guidance}. The drug
+substance is also placed on a parallel ICH Q1A stability program to establish its
+retest period.
+
+\begin{table}[t]
+\centering
+\caption{Drug-product stability program for the daraxonrasib oral tablet:
+storage conditions, time points, attributes monitored, and purpose.}
+\label{tab:cmc-stability}
+\begin{tabularx}{\textwidth}{L{3.5cm} L{3.3cm} L{4.2cm} Y}
+\toprule
+\textbf{Condition} & \textbf{Storage} & \textbf{Time points (months)} & \textbf{Attributes monitored / purpose} \\
+\midrule
+Long-term (ICH Q1A) & 25 C / 60 percent RH & 0, 3, 6, 9, 12, 18, 24 & Appearance, assay, degradants, dissolution, water; supports assigned shelf life \\
+Intermediate (ICH Q1A) & 30 C / 65 percent RH & 0, 6, 12 & Same panel; triggered if a significant change occurs at accelerated \\
+Accelerated (ICH Q1A) & 40 C / 75 percent RH & 0, 1, 2, 3, 6 & Same panel; supports provisional dating and excursion assessment \\
+Photostability (ICH Q1B) & ICH option 1 light exposure & Single challenge & Confirms need for light-protective packaging \\
+In-use stability & 25 C / 60 percent RH, bottle opened & Per protocol after first opening & Supports the labeled in-use period for the multi-dose bottle \\
+Temperature excursion & Per documented excursion & As incurred & Supports continued-use decisions for monitored excursions \\
+\bottomrule
+\end{tabularx}
+\figcaption{Table 10. Drug-product stability program. Stability-indicating
+methods are used at every station; the provisional shelf life is supported by the
+long-term and accelerated data and is extended by information amendment as
+additional long-term data accrue.}
+\end{table}
+
+\subsubsection{Placebo Product}
+
+This is an open-label, single-arm, first-in-human study; there is no comparator
+arm, no masking of treatment assignment, and consequently no placebo product. The
+absence of a placebo is consistent with the dose-finding and early-feasibility
+objectives of a Phase 1 investigation and with ICH E9 principles for early-phase
+trials \cite{ichpaistduni,phase1guidance}. In accordance with the ReGARDD IND
+content map, this subsection is retained for completeness and to preserve the
+table-of-contents numbering, and the placebo product is recorded here as not
+applicable. The bias-control measures appropriate to an open-label design,
+including the masking of the pathologist who determines R0 resection status and
+the central blinded radiographic reader, are described in the study protocol and
+in $\S$6.1 of this IND rather than through a placebo. Should a future amendment
+introduce a randomized or placebo-controlled component, a corresponding placebo
+product description, composition, and matching strategy would be submitted by
+information amendment at that time.
+
+\subsubsection{Labeling}
+
+The investigational drug product is labeled in accordance with 21 CFR \S 312.6,
+which provides that the immediate package of an investigational drug intended for
+human use bear a label with the statement ``Caution: New Drug. Limited by Federal
+(or United States) law to investigational use,'' and that the label and labeling
+bear no false or misleading statement and make no claim that the drug is safe or
+effective for the purposes under investigation \cite{phase1guidance}. Because the
+study is open-label, the participant-facing label identifies the product and the
+assigned once-daily dose level; no information that would unblind a masked outcome
+assessor (for example, the masked pathologist or the central radiographic reader)
+appears on any label or in any labeling provided to those assessors. The required
+content of the immediate-container label and of the supplied labeling is
+summarized in Table 9. The label is affixed during cGMP packaging operations and
+is verified at the investigational-product pharmacy against the dispensing record
+before any unit is released to a participant. The investigational device and its
+single-use accessories carry the investigational-device caution statement under
+21 CFR part 812 and are not relabeled or repackaged at the site; their labeling is
+addressed in the device content of this submission.
+
+\begin{table}[t]
+\centering
+\caption{Investigational-product label and labeling content for the daraxonrasib
+oral tablet under 21 CFR \S 312.6.}
+\label{tab:cmc-labeling}
+\begin{tabularx}{\textwidth}{L{4.6cm} Y}
+\toprule
+\textbf{Label element} & \textbf{Content and basis} \\
+\midrule
+Investigational caution statement & ``Caution: New Drug. Limited by Federal (or United States) law to investigational use'' (21 CFR \S 312.6) \\
+Product identity and strength & Daraxonrasib (RMC-6236) oral tablet; 160 mg, 220 mg, or 300 mg as assigned \\
+Protocol and IND reference & Protocol number and IND number; sponsor protocol identifier \\
+Lot and batch identification & Manufacturing lot number and a unique container identifier for accountability \\
+Storage conditions & ``Store at controlled room temperature; protect from light and moisture; keep in original container'' \\
+Expiry or retest date & Date supported by the stability program; not dispensed beyond this date \\
+Quantity and directions & Net contents and the once-daily directions for use; ``Swallow whole; do not crush, split, or chew'' \\
+Child-resistant statement & ``Keep out of reach of children''; child-resistant closure per special packaging \\
+Sponsor identification & Name and address of the sponsor-investigator (ChemicalQDevice) \\
+Unblinding control & No information appearing on labeling provided to masked assessors that would reveal dose level or outcome \\
+\bottomrule
+\end{tabularx}
+\figcaption{Table 9. Label and labeling content. The immediate package bears the
+21 CFR \S 312.6 investigational caution statement and makes no claim of safety or
+effectiveness; the label supports drug accountability and protects the masked
+outcome assessors of this open-label study.}
+\end{table}
+
+\subsection{Environmental Assessment}
+
+The sponsor claims a categorical exclusion from the requirement to prepare an
+environmental assessment or an environmental impact statement under 21 CFR \S
+25.31(e), which categorically excludes from environmental review the action of
+issuing an investigational exemption for a new drug intended to be administered to
+human subjects, provided that the conditions of 21 CFR \S 25.15(c) and \S
+25.15(d) are met and provided that no extraordinary circumstances exist that would
+result in a significant environmental effect. The investigation described in this
+IND meets these conditions. Daraxonrasib will be administered orally to a small
+investigational population of up to 18 treated participants at a single academic
+site, at clinical doses of 160 to 300 mg once daily over a limited perioperative
+schedule; the quantities of drug substance and drug product manufactured,
+distributed, and used are correspondingly small and are confined to the
+controlled clinical setting and its regulated pharmaceutical-waste stream. The
+estimated concentration of the drug substance entering the environment at the
+expected use level is below the threshold at which an environmental assessment is
+ordinarily required, and no extraordinary circumstances are present: the action
+does not significantly affect the quality of the human environment, does not
+involve a substance that is persistent, bioaccumulative, or otherwise of
+recognized environmental concern at the quantities used, and does not affect any
+species or habitat protected under federal environmental law
+\cite{phase1guidance}. Investigational product that is unused, returned,
+expired, or otherwise unsuitable is destroyed only after sponsor authorization
+and in accordance with applicable federal, state, and local regulations governing
+the disposal of pharmaceutical waste, and the destruction is documented in the
+drug-accountability record. To the sponsor's knowledge, no data or information
+exist that would indicate that the proposed investigation may significantly
+affect the quality of the human environment. Accordingly, neither an
+environmental assessment nor an environmental impact statement is required for
+this submission, and the categorical exclusion under 21 CFR \S 25.31(e) is
+claimed. Should the scope of the investigation expand in a manner that would
+exceed the conditions of the categorical exclusion, an environmental assessment
+under 21 CFR \S 25.40 would be submitted by information amendment before
+implementing the change.

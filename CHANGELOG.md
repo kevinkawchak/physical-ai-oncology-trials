@@ -5,6 +5,23 @@ Format follows [Keep a Changelog](https://keepachangelog.com/).
 
 ## [Unreleased]
 
+## [4.3.0] - 2026-07-01
+
+### Added
+- `trial-ind/` - a single-prompt Phase 1 Investigational New Drug (IND) application, *Phase 1 PDAC IND: AI Generation* (IND v1.0), that hastens the entire Phase 1 IND document-package process and provides 22 grayscale Mermaid figures, each from a unique perspective, reproduced exactly in LaTeX. It follows the ReGARDD IND Table of Contents across twelve sections for the LLM-Directed PDAC Robotic Daraxonrasib trial and reaches about ten times the character count of the source paper. Authored by Kevin Kawchak (ChemicalQDevice), DOI 10.5281/zenodo.xxxxxxxx, July 1, 2026.
+- `trial-ind/prompts/` - the master prompt filed verbatim (`prompt-ind.md`) and the full Claude Code output (`output-ind.md`).
+- `trial-ind/sub-prompts/` - four generated stage sub-prompts (mermaid, draft, full, final) adapted from the `trial-protocol` workflow, with a comprehensive README.
+- `trial-ind/mermaid/` - 22 new grayscale Mermaid figures on an eight-tone ramp (ink `#000000`, near-black `#222222`, slate `#3F3F3F`, gray `#6C757D`, silver `#9AA0A6`, mist `#D9D9D9`, cloud `#ECECEC`, near-white `#F5F5F5`), one commit per figure, each carrying real quantitative data and named source files; README and `output-mermaid.md`. The figures adapt, in context and recolored to grayscale, the acceleration figures of `trial-documents/final-paper/publication` (Figures 6, 9, 11, 15, 16, 17, 19, 20, 23, 24) plus the clinical content of `trial-protocol/final-protocol/publication`.
+- `trial-ind/draft-ind/` - the 12-section ReGARDD scaffold (`main.tex`, `indstyle.sty`, `references.bib`, `sections/sec-00..sec-11`) with bracketed `[DRAFTING INSTRUCTION]` pointers, plus `draft-ind-LaTeX.zip`.
+- `trial-ind/full-ind/` - the 12 full sections with 20 TikZ `mermaidfig` figures and 31 full-width tables (about 315,000 characters), plus `full-ind-LaTeX.zip`.
+- `trial-ind/final-ind/` - the polished sections (`\clearpage` per self-standing section, unified Figure 1 to 22 numbering, section-based table numbering, `adjustbox` max-width figures, ragged-right tables, `\needspace`, `\raggedbottom`), about 597,000 characters with all 22 figures and about 90 tables, plus `final-ind-LaTeX.zip`. No `publication` subdirectory.
+- Comprehensive READMEs and badges in every `trial-ind/` directory; the IND adapts `regulatory/Adaption-21-CFR-Part-312/source/Physical_AI_21_CFR_Part_312.sty` as the paper template (with a back matter section) into the shared grayscale `indstyle.sty`, keeps the current template color (black body text), and uses a PNG-free, logo-free ORCID hyperlink (Rule 12). Grounded in the ReGARDD IND template, the FDA Form 1571 instructions, and the ReGARDD academic-research guidance in `trial-ind/inputs/`.
+
+### Changed
+- Root `README.md` - new v4.3.0 badges, a 425-character summary, a dedicated v4.3.0 section (grayscale Mermaid build diagram, stage-outputs and IND-at-a-glance tables, table of contents), and the `trial-ind/` (and previously missing `trial-documents/`) repository-structure subtree; the Release badge and Last Updated badge advanced to v4.3.0 / July 2026.
+- `releases.md` - v4.3.0 release notes added at the top.
+- The build adds only `.tex`, `.md`, `.sty`, `.bib`, and `.zip` files (no Python or YAML), so the `lint-and-format` workflow (`ruff check`, `ruff format`, `yamllint`) on Python 3.10, 3.11, and 3.12 remains green.
+
 ## [4.2.0] - 2026-06-29
 
 ### Added

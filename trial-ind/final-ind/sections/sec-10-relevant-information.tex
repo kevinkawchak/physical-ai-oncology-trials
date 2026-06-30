@@ -1,0 +1,552 @@
+% sec-10-relevant-information.tex - Relevant Information (final stage)
+\section{Relevant Information}
+
+This section provides the additional relevant information that the U.S. Food and
+Drug Administration may request under 21 CFR \S 312.23(a)(11), together with the
+method-level grounding and verification disclosures that apply because this
+Investigational New Drug application (IND v1.0) was assembled by an artificial
+intelligence build operating over the repository at version v4.3.0. The
+disclosures are placed here, at the close of the package, so that a reviewer can
+read the entire submission first, on its clinical, statistical, and regulatory
+merits, and then evaluate exactly how the document was constructed: how each
+figure and number was grounded to a named source file, how each figure was cited
+where its content is discussed, how the build is monitored in real time on a
+public version-control system, how the repository and file naming mirror the
+document structure, and where the residual limitations of the method lie. Nothing
+in this section substitutes for the clinical, statistical, and regulatory
+substance of the preceding sections; rather, it states the controls that give a
+reviewer confidence that the substance is internally consistent across the
+package, traceable to named source files, and reproducible from those sources by a
+third party. The verification posture described here is aligned with the
+verification-before-generation discipline that the program has advanced for
+physical artificial intelligence in oncology trials, the same discipline codified
+in the H.R. 9510 framing on which the device-directed component of the trial rests
+\cite{congress9510, clintrustpai}, and it is consistent with the
+phased-development expectations that govern an initial Phase 1 submission
+\cite{phase1guidance}. The disclosures should be read as a transparency artifact
+offered in the spirit of 21 CFR \S 312.23(a)(11), not as a request for any special
+regulatory accommodation: every generated document, this IND included, remains
+subject to the same human medical, statistical, and regulatory review as a
+conventionally authored submission.
+
+The structure of the section is as follows. We first state the method-level
+grounding and verification discipline and present, in summary and then in detail,
+the five name-matching and grounding verifications that the build applies to every
+artifact it emits (Figure 21 and Table 11.1). We then describe the finer-grained
+figure-grounding discipline that keeps each rendered figure provably identical to
+its Mermaid source (Figure 22 and Table 11.2). We next document the real-time
+auto-commit and auto-pull-request monitorability of the build, the repository,
+directory, and file name matching that makes the package self-describing (Table
+11.3), and the principal limitations of the method together with the mitigation
+applied to each (Table 11.4). A short worked example ties the abstractions to a
+single concrete trial number (Table 11.5), and a closing compilation statement
+records how a reviewer can reproduce the compiled PDF directly from the repository.
+
+\subsection{Method-Level Grounding and Verification}
+
+The IND was produced by a single-prompt, multi-file build that proceeds through
+four stages, mermaid to draft to full to final, with the present final stage
+expanding each full-stage section toward the package length target and applying the
+senior-author formatting pass that a PDF compiler is required to verify. To keep
+that build verifiable rather than merely fluent, the method applies five
+name-matching and grounding verifications to every artifact it emits. The five
+verifications are summarized in Figure 21 and detailed, with a concrete IND example
+for each, in Table 11.1. They are not abstract quality slogans; each one is a check
+that a reviewer can independently reproduce by inspecting the public repository
+tree, the rendered document, and the commit and pull-request history. The five
+together yield a grounded, monitorable IND in which every figure names its source,
+every figure is cited where its section discusses it, every file is visible on
+GitHub as it is written, the repository and directory names mirror the document
+structure, and the section file names map one to one onto the regulatory sections
+they contain.
+
+This discipline matters for a regulatory submission in a way that distinguishes it
+from generic large-language-model authoring. A submission to FDA is read for
+internal consistency: a dose level stated in the General Investigational Plan must
+match the dose level in the protocol synopsis, in the dose-escalation figure, and
+in the safety narrative; a force cap stated in the device description must match
+the cap in the safety-reporting triggers. Ungrounded generation is fluent but does
+not guarantee that the same number appears identically wherever it is reused, and a
+single drifted number in a Phase 1 oncology submission can change the reviewer's
+understanding of the risk. The grounding discipline forecloses that drift by
+binding every quantitative claim a figure carries to a named source file from which
+the surrounding prose draws the same value, so that the figure and the text cannot
+diverge \cite{oncotrialllm, pdacdigtwinp}.
+
+\needspace{8\baselineskip}
+\begin{mermaidfig}
+\node[mmdec] (k1) at (0,0) {1 Grounding};
+\node[mmdec] (k2) at (0,-2.0) {2 Figures match context};
+\node[mmdec] (k3) at (0,-4.0) {3 GitHub real-time};
+\node[mmdec] (k4) at (0,-6.0) {4 Repo / dir names match};
+\node[mmdec] (k5) at (0,-8.0) {5 File names match};
+\node[mmin] (e1) at (5.0,0) {22 grayscale Mermaid figures, each sourced};
+\node[mmin] (e2) at (5.0,-2.0) {each figure cited where its \S section discusses it};
+\node[mmin] (e3) at (5.0,-4.0) {one commit per file, auto-pushed to one PR};
+\node[mmin] (e4) at (5.0,-6.0) {trial-ind/ matches the repository tree};
+\node[mmin] (e5) at (5.0,-8.0) {sec-06-cmc.tex matches the CMC section};
+\node[mmgoal] (g) at (10.4,-4.0) {Grounded,\\monitorable IND};
+\draw[mmedge] (k1) -- (e1);
+\draw[mmedge] (k2) -- (e2);
+\draw[mmedge] (k3) -- (e3);
+\draw[mmedge] (k4) -- (e4);
+\draw[mmedge] (k5) -- (e5);
+\draw[mmedge] (e1) to[out=0,in=150,looseness=0.6] (g.west);
+\draw[mmedge] (e2) to[out=0,in=165,looseness=0.6] (g.west);
+\draw[mmedge] (e3) -- (g.west);
+\draw[mmedge] (e4) to[out=0,in=195,looseness=0.6] (g.west);
+\draw[mmedge] (e5) to[out=0,in=210,looseness=0.6] (g.west);
+\end{mermaidfig}
+\figcaption{Figure 21. Five name-matching and grounding verifications, each with a
+concrete IND example: grounding (every one of the 22 grayscale figures names its
+source files); figures match context (each is cited where its section discusses
+it); GitHub real-time (one commit per file, auto-pushed to one continuously
+updated pull request); repository and directory names match (the trial-ind tree
+mirrors the document structure); and file names match (sec-06-cmc.tex maps to the
+Chemistry, Manufacturing and Control section). Together they yield a grounded,
+monitorable IND.}
+
+\subsubsection{The Five Verifications in Detail}
+
+\textit{Verification 1, grounding.} Every quantitative claim that a figure carries
+is traceable to a named source file rather than invented at generation time. The
+22 grayscale figures of this IND each declare, in their Mermaid source under
+\texttt{trial-ind/mermaid/}, the source files from which their nodes, edge labels,
+and numbers were drawn, and those numbers are the same document counts, dose
+levels, force caps, sampling rates, and review clocks reused in the surrounding
+prose. For example, the dose levels of 160 mg, 220 mg, and 300 mg once daily, the
+28 day dose-limiting-toxicity window, and the maximum enrollment of 18 treated
+subjects appear identically in the dose-escalation figure, in the General
+Investigational Plan, and in the protocol from which they originate. The same
+binding holds for the device parameters that recur across the safety sections:
+the eight robotic arms, the 56 total degrees of freedom (8 arms times 7 each), the
+640 sensor channels (80 per arm), the 100 kHz force sampling and 10 kHz sampling
+for other channels, the per-arm force cap of 3 N and the cumulative cap of 18 N,
+the 10 kHz safety heartbeat with its 100 microsecond watchdog, the cross-arm
+emergency stop at 3 ms to 0.0 N, and the hardware emergency stop at 500 ms under
+21 CFR \S 312.404 all appear with identical values wherever they are reused. This
+binds the figures to the trial facts and prevents a figure from drifting away from
+the text it illustrates \cite{oncotrialllm, pdacdigtwinp}.
+
+\textit{Verification 2, figures match context.} Each figure is cited in the
+sentence or paragraph that discusses it, in the section where that discussion
+belongs, so that no figure floats unreferenced and no claim in the prose lacks its
+illustrating figure. The daraxonrasib mechanism-of-action figure is cited in the
+introductory material that names the drug and its pharmacological class, the 3+3
+dose-escalation automaton is cited in the General Investigational Plan, the
+chemistry information architecture is cited in the Chemistry, Manufacturing and
+Control section, the perioperative pause-and-restart advisory is cited where the
+restart-day decision is described, and the two figures of the present section are
+cited here, as Figure 21 and Figure 22. A reviewer can confirm this by following
+any figure number from its caption back to the citing sentence, and the converse:
+every figure number that appears in prose resolves to exactly one rendered figure.
+
+\textit{Verification 3, GitHub real time.} Each distinguishable file is committed
+and pushed at the moment it is written, and those commits accumulate on a single
+continuously updated pull request, so that the IND is observable on GitHub as it is
+constructed rather than only after completion. This gives the sponsor-investigator,
+and in principle an auditor, a real-time view of provenance: who or what wrote each
+file, in what order, and against which commit. The auto-commit and
+auto-pull-request behavior is the documentary analogue of the audit-trail and
+monitorability expectations that govern the device-directed component of the trial,
+under which the device preserves a window of records from 24 hours before to 72
+hours after each physical artificial intelligence adverse event under 21 CFR part
+11 \cite{paiautospons, paisitedocpk}.
+
+\textit{Verification 4, repository and directory names match.} The directory tree
+named in the prose is the directory tree on disk. References to
+\texttt{trial-ind/mermaid/}, \texttt{trial-ind/full-ind/sections/},
+\texttt{trial-ind/final-ind/sections/}, and \texttt{trial-ind/inputs/} denote the
+actual directories of the repository at version v4.3.0, so a reader can navigate
+from any path mentioned in the document straight to the corresponding location in
+the public tree without translation. The four stage directories, \texttt{mermaid/},
+\texttt{draft-ind/}, \texttt{full-ind/}, and \texttt{final-ind/}, mirror the four
+build stages in the same left-to-right order in which the prose describes them.
+
+\textit{Verification 5, file names match.} The section file names map one to one
+onto the regulatory sections they contain. \texttt{sec-06-cmc.tex} is the
+Chemistry, Manufacturing and Control section, \texttt{sec-07-pharmacology-toxicology.tex}
+is the Pharmacology and Toxicology section, \texttt{sec-10-relevant-information.tex}
+is the present section, and \texttt{fig-09-five-grounding-verifications.md} is the
+Mermaid source for Figure 21. The naming convention makes the package
+self-describing and removes ambiguity about which file holds which content, so a
+reviewer can confirm that no section is missing and no file is misnamed simply by
+listing the directory.
+
+\needspace{10\baselineskip}
+\noindent\begin{tabularx}{\textwidth}{L{0.5cm} L{4.2cm} Y}
+\toprule
+\textbf{\#} & \textbf{Verification check} & \textbf{Concrete IND example} \\
+\midrule
+1 & Grounding via Mermaid figures & The 22 grayscale figures in \texttt{trial-ind/mermaid/} each name their source files and carry the dose levels (160, 220, 300 mg QD), the 28 day DLT window, the force caps (3 N per arm, 18 N cumulative), and the 30 day FDA clock reused verbatim in the prose \\
+2 & Figures match IND context & Each figure is cited in the sentence that discusses it, in the section where that discussion belongs (mechanism in the Introduction, 3+3 automaton in the Plan, CMC architecture in the CMC section, these two figures here) \\
+3 & AI files viewable on GitHub in real time & One commit per file is pushed at generation, accumulating on a single continuously updated pull request, so each artifact appears on the branch as it is made \\
+4 & Repository and directory names match & The prose refers to \texttt{trial-ind/mermaid} and \texttt{full-ind/sections}, which are the directories on disk in repository v4.3.0 \\
+5 & File names match repository file names & A cited \texttt{sec-06-cmc.tex} is the CMC section; \texttt{fig-09-five-grounding-verifications.md} is the Mermaid source for Figure 21 \\
+\bottomrule
+\end{tabularx}
+\figcaption{Table 11.1. The five name-matching and grounding verifications, each
+with a concrete example drawn from this IND. Every check is independently
+reproducible from the public repository tree, the rendered document, and the commit
+and pull-request history.}
+
+\subsubsection{Why Grounding Is the Load-Bearing Control}
+
+Of the five verifications, grounding is the one on which the regulatory value of
+the package most depends, and it is worth stating precisely what it does and does
+not guarantee. Grounding guarantees that a number rendered in a figure or asserted
+in prose is the same number that appears in the named source file from which it was
+drawn; it does not, by itself, guarantee that the source number is clinically
+correct. Clinical correctness is established by the human medical, statistical, and
+regulatory review that every generated document must pass before use, and by the
+underlying protocol, investigator brochure, and chemistry record that the build
+ingests as curated inputs. What grounding contributes is the elimination of a
+specific and common failure mode of language-model authoring, namely the silent
+substitution of a plausible but unsourced value. Because the dose levels, the DLT
+window, the enrollment cap, the device force caps, and the safety-reporting clocks
+are each carried from a single source through every figure and every paragraph that
+reuses them, a reviewer who verifies one occurrence has effectively verified all of
+them, and any divergence would be visible as a mismatch against the named source.
+This is the property that lets a reviewer audit the package efficiently rather than
+re-checking every restatement of every number independently
+\cite{oncotrialllm, llmcomp16fda}.
+
+The grounding discipline is reinforced by the fixed grayscale encoding of node
+roles in the figures. Because the eight-tone ramp is defined once in
+\texttt{indstyle.sty} and every figure draws its node fills from that ramp, the
+tonal meaning of a node, goal, process, accent, step, input, context, decision, or
+dark, is identical across all 22 figures and across all four build stages. A
+decision diamond in the 3+3 automaton carries the same tone as a decision diamond
+in the perioperative advisory or in the figure-grounding diagram of the present
+section, so a reviewer learns the visual vocabulary once and reads every figure
+with it. This consistency is itself a grounding property: it ties the visual
+encoding to a single source of truth in the style file rather than to per-figure
+choices that could drift \cite{fdadigtwinpc}.
+
+\subsection{Figure Grounding: Mermaid to TikZ}
+
+A second, finer-grained discipline governs the figures themselves: every figure in
+this IND is authored once as a grayscale Mermaid source in
+\texttt{trial-ind/mermaid/} and then reproduced as a TikZ figure of identical
+complexity in the LaTeX document, with no simplification of nodes, edges, edge
+labels, or quantitative content. The translation pathway and its verify-twice
+checkpoint are shown in Figure 22. The Mermaid source defines the nodes, edges,
+grayscale palette, and quantitative data; the conversion preserves all of these;
+the TikZ \texttt{mermaidfig} environment renders them using the \texttt{mm*} node
+styles defined in \texttt{indstyle.sty} (the same eight-tone ramp that maps one to
+one from the Mermaid classDef classes); and the result is verified twice, for
+text-box and arrow overlaps, for the specified arrow looseness, and for proper box
+spacing, before it appears identically in the draft, full, and final stages. A
+figure that fails the verify-twice checkpoint is returned to the TikZ step and
+corrected; only a figure that passes is allowed to render in the document.
+
+\needspace{8\baselineskip}
+\begin{mermaidfig}
+\node[mmin] (src) at (0,0) {mermaid/fig-NN.md\\(GitHub Mermaid)};
+\node[mmproc] (con) at (4.4,0) {nodes, edges, grayscale palette, quantitative data};
+\node[mmproc] (tikz) at (8.8,0) {TikZ mermaidfig\\(mm* node styles)};
+\node[mmgoal] (out) at (13.2,0) {Identical figure in draft / full / final};
+\node[mmdec] (v) at (13.2,-3.2) {Verify twice: no overlaps, arrow looseness, box spacing};
+\draw[mmedge] (src) -- (con);
+\draw[mmedge] (con) -- (tikz);
+\draw[mmedge] (tikz) -- (out);
+\draw[mmedge] (out) -- (v);
+\draw[mmedge] (v.west) to[out=180,in=-90,looseness=0.6] node[mmlabel,pos=0.55] {pass} (out.south west);
+\draw[mmedged] (v.north west) to[out=150,in=-60,looseness=0.6] node[mmlabel,pos=0.5] {fail} (tikz.south);
+\end{mermaidfig}
+\figcaption{Figure 22. Figure grounding. Each Mermaid source in \texttt{mermaid/} is
+reproduced as a TikZ \texttt{mermaidfig} of the same complexity (the same nodes,
+edges, grayscale palette, and quantitative data), then verified twice for text-box
+and arrow overlaps, for the specified arrow looseness, and for proper box spacing,
+before it appears identically in the draft, full, and final stages. A figure that
+fails is returned to the TikZ step; only a figure that passes renders.}
+
+The practical effect of this discipline is that the figure a reviewer sees in the
+compiled PDF is provably the same diagram, with the same numbers, as the Mermaid
+source committed to the repository. There is no separate figure-rendering pipeline,
+no raster export, and no opportunity for a number to be transcribed differently
+between the source and the rendered figure. All figures are vector TikZ; the IND
+contains no PNG or JPG images and no \texttt{\textbackslash includegraphics} calls.
+The grayscale ramp is fixed in the style file, so the tonal encoding of node roles
+(goal, process, accent, step, input, context, decision, dark) is identical across
+all 22 figures and across the four build stages \cite{fdadigtwinpc}.
+
+\subsubsection{The Verify-Twice Checkpoint}
+
+The verify-twice checkpoint is named for the fact that each figure is inspected on
+two independent criteria before it is admitted to the document, and that the
+inspection is repeated after any correction so that a fix to one criterion cannot
+silently break the other. The first criterion is geometric: no two text boxes
+overlap and no arrow crosses through a box. The build enforces explicit spacing
+rules that a reviewer can verify against the rendered coordinates, namely that
+side-by-side box centers are at least 4.0 cm apart in the horizontal direction,
+that stacked box centers are at least 1.7 cm apart in the vertical direction, that
+the node text width is 30 mm, and that decision diamonds, which are wider than
+rectangles for the same text, are given extra room. The second criterion is the
+routing of curved arrows: every curved edge uses a \texttt{to[out,in,looseness]}
+specification with a looseness held between 0.4 and 0.7, which keeps the curve
+gentle enough to avoid sweeping across a neighboring box while still separating
+parallel edges that converge on the same target. Table 11.2 records these geometric
+checks together with the threshold applied to each, so that a reviewer can confirm
+the layout discipline against the rendered figure rather than taking it on
+assertion \cite{fdadigtwinpc, natlpaiplatf}.
+
+\needspace{10\baselineskip}
+\noindent\begin{tabularx}{\textwidth}{L{4.6cm} L{3.2cm} Y}
+\toprule
+\textbf{Geometric check} & \textbf{Threshold} & \textbf{Purpose} \\
+\midrule
+Side-by-side box centers & $\geq$ 4.0 cm in x & Prevents horizontal text-box overlap at the fixed 30 mm node text width \\
+Stacked box centers & $\geq$ 1.7 cm in y & Prevents vertical overlap of stacked boxes and their captions \\
+Node text width & 30 mm fixed & Uniform box sizing so spacing thresholds apply identically to every figure \\
+Decision diamonds (mmdec) & Extra room reserved & Diamonds are wider than rectangles for the same text and need clearance \\
+Curved-arrow looseness & 0.4 to 0.7 & Keeps curves gentle so arrows do not sweep across neighboring boxes \\
+Arrow-box intersection & None permitted & No edge may pass through a node it does not connect \\
+\bottomrule
+\end{tabularx}
+\figcaption{Table 11.2. The verify-twice geometric checks applied to every figure
+before it is admitted to the document, with the threshold and purpose of each. The
+checks are repeated after any correction so that a fix to one cannot silently break
+another; only a figure that passes both inspections renders in the draft, full, and
+final stages.}
+
+Because the checkpoint is geometric and the thresholds are explicit, it is
+deterministic in a way that a subjective "does this look right" review is not. Two
+reviewers applying the 4.0 cm and 1.7 cm thresholds to the same rendered figure
+reach the same verdict, and a figure that passes in the draft stage continues to
+pass in the full and final stages because the node coordinates and the style file
+are unchanged across stages. This is what allows the program to assert that the
+figure is identical from Mermaid source to final PDF: not merely that it looks
+similar, but that it satisfies the same enumerated geometric and quantitative
+criteria at every stage \cite{fdadigtwinpc}.
+
+\subsection{Real-Time Auto-Commit and Auto-Pull-Request Monitorability}
+
+The build is monitorable in real time. As each section file, style file, figure
+source, and supporting file is written, it is committed individually and pushed to
+the remote, and the accumulating commits are surfaced on a single open pull request
+that updates continuously over the life of the build. This means that the
+provenance of the IND is not reconstructed after the fact from a final snapshot;
+it is visible while the document is being produced. A reader with access to the
+public repository can watch the \texttt{trial-ind/final-ind/} tree fill in section
+by section, can inspect the diff for any individual file, and can read the commit
+history as an ordered, timestamped record of how the package came together. This
+real-time monitorability is the documentary counterpart of the trial's own
+audit-trail commitments, under which the device preserves a window of records from
+24 hours before to 72 hours after each physical artificial intelligence adverse
+event, and it is consistent with the broader transparency posture that the program
+has argued is necessary before higher-autonomy systems are used in oncology trials
+\cite{congress9510, clintrustpai, natlpaiplatf}. The same single-prompt,
+auto-commit, auto-pull-request method has been demonstrated across prior multi-file
+builds in the program, including the companion Phase 2 protocol and the
+legislative-text repositories, which establishes that the approach is reproducible
+rather than specific to this submission \cite{oncotrialllm, paipredict4x}.
+
+It is important to be precise about what this monitorability does and does not
+provide in a regulatory sense. It provides a tamper-evident, timestamped,
+ordered record of document construction that an auditor can replay commit by
+commit; it does not provide, and is not offered as, the formal part 11 audit trail
+that governs the trial's clinical and device data, which is a separate system with
+its own controls. The two are analogues, not the same system: the build's
+version-control history documents how the application was written, while the
+trial's part 11 audit trail documents how clinical and device events are recorded
+during conduct of the study. Stating this distinction plainly avoids any
+implication that authoring a submission with a monitorable build relieves the
+sponsor-investigator of the independent obligation to maintain part 11 audit trails
+during the trial itself \cite{paiautospons, paisitedocpk}.
+
+\subsection{Repository, Directory, and File Name Matching}
+
+The repository, directory, and file naming is itself a control. The IND lives under
+\texttt{trial-ind/} in the public repository, and within it the four build stages
+occupy \texttt{mermaid/}, \texttt{draft-ind/}, \texttt{full-ind/}, and
+\texttt{final-ind/}, mirroring the mermaid to draft to full to final progression.
+Within each LaTeX stage the section files follow a fixed
+\texttt{sec-NN-<name>.tex} convention whose number and name match the ReGARDD table
+of contents, so that the file that holds the Chemistry, Manufacturing and Control
+section is named \texttt{sec-06-cmc.tex}, the file that holds the Pharmacology and
+Toxicology section is named \texttt{sec-07-pharmacology-toxicology.tex}, and the
+figure that this section reproduces first is sourced from
+\texttt{fig-09-five-grounding-verifications.md}. Table 11.3 records the directory
+and file-naming correspondences that make the package self-describing, so that a
+reviewer can move from any path named in the prose directly to the corresponding
+location on disk without translation, and can confirm that no section is missing
+and no file is misnamed.
+
+\needspace{10\baselineskip}
+\noindent\begin{tabularx}{\textwidth}{L{4.6cm} L{4.0cm} Y}
+\toprule
+\textbf{Path in repository v4.3.0} & \textbf{Holds} & \textbf{Name-match guarantee} \\
+\midrule
+\texttt{trial-ind/} & The full IND across four stages & Top-level directory named for the IND it contains \\
+\texttt{trial-ind/mermaid/} & The 22 grayscale figure sources & Stage 1 directory; \texttt{fig-NN-<name>.md} files \\
+\texttt{trial-ind/full-ind/sections/} & The full-stage section files & Stage 3 sections; one \texttt{sec-NN-<name>.tex} per top-level section \\
+\texttt{trial-ind/final-ind/sections/} & The final-stage section files & Stage 4 sections; the same one-to-one \texttt{sec-NN} mapping \\
+\texttt{sec-06-cmc.tex} & Chemistry, Manufacturing and Control & File name matches the CMC section it contains \\
+\texttt{sec-10-relevant-information.tex} & Relevant Information (this section) & File name matches the section it contains \\
+\texttt{fig-09-five-grounding-verifications.md} & Source for Figure 21 & Figure file name matches the figure it renders \\
+\bottomrule
+\end{tabularx}
+\figcaption{Table 11.3. Repository, directory, and file name-matching for the IND
+(Verification 5). Every path named in the prose denotes the actual location on disk
+in repository v4.3.0, making the package self-describing and navigable.}
+
+The name-matching control has a second, quieter benefit for regulatory review:
+completeness checking. Because the ReGARDD table of contents enumerates the
+top-level sections, and because each top-level section corresponds to exactly one
+\texttt{sec-NN-<name>.tex} file whose number and name match the contents entry, a
+reviewer can verify that the package is complete by listing the
+\texttt{sections/} directory and confirming that the numbered files run
+consecutively with no gap. A missing section would appear as a missing file in the
+sequence, and a misfiled section would appear as a name that does not match its
+contents entry. The same logic applies to the figures: the 22 figure sources in
+\texttt{trial-ind/mermaid/} are numbered consecutively, so a gap in the figure
+numbering would be visible as a missing source file. This turns the naming
+convention into a lightweight but real completeness check that does not depend on
+reading the prose \cite{paisitedocpk, natlpaiplatf}.
+
+\subsection{Limitations of the AI-Generation Method}
+
+The grounding and verification controls above constrain the build but do not
+eliminate its limitations, and those limitations are stated plainly here so that a
+reviewer weighs the package accordingly. Table 11.4 enumerates the principal
+limitations together with the mitigation applied to each. The most important point
+is the one that no method-level control can change: the AI-generation method alters
+none of the clinical realities of the trial. It does not change tumor biology, it
+does not shorten the 28 day dose-limiting-toxicity observation window or the 30 and
+90 day safety follow-up or the survival follow-up to 24 months, and it does not
+compress the fixed 30 day FDA review clock or the IRB meeting calendar. What the
+method compresses is the administrative and document-preparation bucket alone; the
+clinical and operational bucket and the fixed regulatory-review bucket are
+unchanged \cite{phase1guidance, pdac060s2030}. Every generated document, this IND
+included, must still pass human medical, statistical, and regulatory review before
+use, and the build is an independent research artifact, not an active IND or
+investigational device exemption and not regulatory advice
+\cite{cfr312paiuni, cfr050paiuni}.
+
+Several narrower limitations follow from how the build operates. The method does not
+rely on live internet search for a project of this size, because specifying single
+external URLs is unreliable at scale; it depends instead on a curated repository of
+appropriately sized inputs, which bounds the source material a single build can
+absorb. Because the model does not always have access to a PDF compiler during
+generation, a portion of senior-author formatting, including table column widths,
+figure-caption spacing, and occasional page breaks, must still be applied by hand,
+and the final stage performs that pass explicitly. Total input is kept under roughly
+5 MB with individual files held under per-file token limits, which caps how much
+source material a single build can ingest. High-dimensional or approximate inputs
+can make outputs less deterministic, and oversized or overly complex inputs can
+surface server errors that signal reduced quality; the build mitigates this by
+keeping inputs curated and appropriately sized. These constraints are the same ones
+characterized for the broader single-prompt method and are disclosed here for the
+specific case of an IND \cite{ichpaistduni, chatgpt100kp, llmcomp16fda}.
+
+A further limitation deserves explicit emphasis for a Phase 1 oncology submission.
+The method's controls are controls on \textit{document construction}, not on
+\textit{clinical judgment}. They ensure that the dose-escalation rule rendered in
+the figure is the rule stated in the protocol, but they do not, and cannot, decide
+whether 160 mg once daily is the correct starting dose, whether the 28 day DLT
+window is the correct observation period, or whether the 3 N per-arm force cap is
+the correct safety limit. Those decisions are made by the human investigators,
+informed by the daraxonrasib clinical experience that supports the 300 mg once daily
+RASolute 302 recommended Phase 2 dose, by the preclinical and computational evidence
+base, and by the device engineering record, and they are subject to FDA and IRB
+review. The AI-generation method is a faithful and auditable scribe of those
+decisions; it is not a substitute for them. The boundary is the same staged-autonomy
+boundary that governs the device: just as the on-premises language model in the
+operating room is a second-opinion advisory oracle only, with full autonomy
+prohibited under 21 CFR \S 312.21(e), the document-generation build is an advisory
+authoring tool whose output is gated by human review \cite{congress9510,
+clintrustpai}.
+
+\needspace{12\baselineskip}
+\noindent\begin{tabularx}{\textwidth}{L{4.8cm} Y}
+\toprule
+\textbf{Limitation} & \textbf{Mitigation applied in this IND} \\
+\midrule
+The method changes no clinical reality (tumor biology, DLT window, survival follow-up) & The 28 day DLT window, 30 and 90 day safety follow-up, and 24 month survival follow-up are preserved exactly as specified in the protocol; the build compresses only document preparation \\
+The method cannot shorten fixed regulatory clocks & The 30 day FDA review and the IRB meeting calendar are stated as binding and unchanged; faster authoring only starts the clock sooner \\
+The method controls construction, not clinical judgment & Dose levels, DLT window, and force caps are authored faithfully from the protocol but decided by human investigators under FDA and IRB review \\
+Generated content can be fluent but wrong without grounding & The five name-matching and grounding verifications and the figure verify-twice checkpoint bind every figure and number to a named source file \\
+No live internet search at scale; URLs unreliable in bulk & Inputs are a curated repository of appropriately sized files rather than ad hoc external URLs \\
+No PDF compiler during generation; some formatting needs a manual pass & Senior-author formatting (column widths, caption spacing, page breaks) is applied explicitly in the final stage \\
+Bounded input budget (under ~5 MB total; per-file token limits) & Source material is curated and apportioned so each build stays within limits without truncation \\
+High-dimensional or oversized inputs reduce determinism and can surface server errors & Inputs are kept appropriately sized; complex content is split so the build remains deterministic and stable \\
+The artifact is research, not an active regulatory submission & The package is labeled an independent research artifact, not an active IND or IDE and not regulatory advice; human review is required before any use \\
+\bottomrule
+\end{tabularx}
+\figcaption{Table 11.4. Principal limitations of the AI-generation method and the
+mitigation applied to each in this IND. The clinical and fixed-regulatory
+limitations are intrinsic and cannot be removed; the method-level limitations are
+mitigated by grounding, verification, and a human review requirement.}
+
+\subsubsection{A Worked Example of Grounding}
+
+To make the grounding discipline concrete rather than abstract, consider a single
+trial number followed from its source to its rendered occurrences. The recommended
+Phase 2 dose of daraxonrasib, 300 mg once daily, is established in the daraxonrasib
+clinical record (the RASolute 302 program) and is the value of the third and
+highest dose level, DL3, in this trial's 3+3 escalation. From that one source the
+number propagates, unchanged, to several places: it is DL3 in the dose-escalation
+figure; it is the top of the dose-level ladder in the General Investigational Plan;
+it is the dose at which a maximum tolerated dose determination would conclude if no
+more than one of six subjects experienced a dose-limiting toxicity at that level;
+and it is the dose carried into the precision discussion of the statistical plan,
+where the maximum enrollment of 18 subjects (three levels of six) bounds the
+confidence intervals. Table 11.5 traces this single value through its occurrences
+and pairs it with the companion enrollment and precision figures, so a reviewer can
+verify the entire chain from one source.
+
+\needspace{10\baselineskip}
+\noindent\begin{tabularx}{\textwidth}{L{4.6cm} L{3.4cm} Y}
+\toprule
+\textbf{Grounded value} & \textbf{Source of record} & \textbf{Where it recurs identically in the IND} \\
+\midrule
+300 mg once daily (DL3) & Daraxonrasib RASolute 302 RP2D & Top dose level in the dose-escalation figure, the General Investigational Plan ladder, and the MTD/RP2D narrative \\
+28 day DLT window & Protocol v1.0.0 & Dose-escalation automaton, safety narrative, and the co-primary endpoint defining MTD/RP2D \\
+18 treated subjects (3 levels $\times$ 6) & Protocol enrollment cap & Number-of-subjects figure, statistical precision table, and halt-rule denominators \\
+Precision at 0 of 18 & Exact Clopper-Pearson & 0\% observed, 95\% CI 0\% to 18\%, stated identically in the statistical plan and any figure that cites it \\
+Precision at 1 of 18 & Exact Clopper-Pearson & 5.6\% observed, 95\% CI 0.1\% to 27\%, stated identically wherever the single-event precision is discussed \\
+\bottomrule
+\end{tabularx}
+\figcaption{Table 11.5. A worked grounding example. One source value, the 300 mg
+once daily recommended Phase 2 dose, propagates unchanged through the
+dose-escalation figure, the General Investigational Plan, and the statistical
+precision discussion, alongside the 28 day DLT window, the 18 subject enrollment
+cap, and the exact Clopper-Pearson precision figures, so a reviewer can verify the
+whole chain from a single source.}
+
+The worth of the example is that it shows grounding operating at the level of
+review, not just of authoring. A reviewer who confirms that DL3 is 300 mg once
+daily in the dose-escalation figure, and that the source of record for that value
+is the daraxonrasib RASolute 302 recommended Phase 2 dose, has simultaneously
+confirmed every other place the value appears, because the grounding discipline
+guarantees they are the same value drawn from the same source. The same holds for
+the 28 day DLT window, the 18 subject cap, and the exact Clopper-Pearson precision
+figures of 0 percent (95 percent confidence interval 0 percent to 18 percent) at 0
+of 18 and 5.6 percent (95 percent confidence interval 0.1 percent to 27 percent) at
+1 of 18. The grounding does not make these clinical or statistical choices correct;
+it makes them consistent and auditable, which is exactly the property a reviewer
+needs to evaluate them efficiently \cite{oncotrialllm, pdac060s2030}.
+
+\subsection{Compilation Statement}
+
+All LaTeX sources for this IND compile in Overleaf with pdfLaTeX. The final-stage
+document is built from \texttt{main.tex}, the shared style file
+\texttt{indstyle.sty}, the bibliography \texttt{references.bib}, and the
+\texttt{sections/} directory of section files, with every figure rendered as vector
+TikZ inside the \texttt{mermaidfig} environment and every table set full width with
+the ragged-right column types defined in the style file. There are no raster images,
+no \texttt{\textbackslash includegraphics} calls, and no external image
+dependencies, so the package compiles from its own sources without additional
+assets. The bibliography is processed with the \texttt{ieeetr} style, and the
+codified references throughout the package use the section symbol, for example 21
+CFR \S 312.23, exactly as rendered by the style file. A reviewer can therefore
+reproduce the compiled PDF directly from the repository at version v4.3.0 by
+uploading the stage directory to Overleaf and compiling with pdfLaTeX, which closes
+the loop from grounded source to verifiable, reproducible document. The
+reproducibility is exact in the sense that the same sources produce the same
+document: the figures are deterministic TikZ with fixed coordinates, the tables are
+fixed-width tabularx with explicitly stated column widths, and the style file pins
+the grayscale ramp, the page geometry, and the typographic penalties, so a
+third-party compile yields a PDF that matches the submitted one figure for figure
+and table for table \cite{phase1guidance, daraxwhipple, onpremwhippl}.

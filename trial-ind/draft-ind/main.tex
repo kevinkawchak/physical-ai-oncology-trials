@@ -1,0 +1,84 @@
+% main.tex - DRAFT IND "Phase 1 PDAC IND: AI Generation". IND Draft v1.0;
+% repository v4.3.0. Stage 2 of the mermaid -> draft -> full -> final build. The
+% draft stage lays out every ReGARDD IND Table-of-Contents section as its own
+% sections/sec-*.tex file and fills each with bracketed [DRAFTING INSTRUCTION]
+% markers (\draftinstr) that name the exact physical-ai-oncology-trials files the
+% full stage will process.
+% Compile on Overleaf with pdfLaTeX:
+%   pdflatex main -> bibtex main -> pdflatex main -> pdflatex main
+\documentclass[11pt]{article}
+\usepackage{indstyle}
+\renewcommand{\indversion}{v1.0}
+
+\title{Phase 1 PDAC IND: AI Generation}
+\author{Kevin Kawchak}
+\date{July 1, 2026}
+
+\begin{document}
+\thispagestyle{plain}
+
+% ---------- Cover page ----------
+\begin{center}
+{\color{indink}\rule{\linewidth}{1.6pt}}
+{\LARGE\bfseries Phase 1 PDAC IND:\\ \vspace{0.18cm}AI Generation}\\[0.15em]
+{\large\bfseries Draft 1.0}\\[-0.1em]
+{\color{indink}\rule{\linewidth}{1.6pt}}
+\end{center}
+
+\vspace{-0.4cm}
+
+\begin{center}\small
+\href{https://doi.org/10.5281/zenodo.xxxxxxxx}{10.5281/zenodo.xxxxxxxx} \;|\;
+\href{https://orcid.org/0009-0007-5457-8667}{ORCID 0009-0007-5457-8667} \\
+CEO Kevin Kawchak, ChemicalQDevice \;|\;
+\href{mailto:kevink@chemicalqdevice.com}{kevink@chemicalqdevice.com}
+\end{center}
+
+\vspace{-0.2cm}
+
+\begin{center}\footnotesize
+\textbf{IND version:} v1.0 \quad \textbf{Repository version:} v4.3.0 \quad
+\textbf{Date:} July 1, 2026 \quad \textbf{San Diego}\\
+\textbf{Repository:} \href{https://github.com/kevinkawchak/physical-ai-oncology-trials/tree/main/trial-ind}{kevinkawchak/physical-ai-oncology-trials/tree/main/trial-ind}
+\end{center}
+
+\vspace{-0.15cm}
+
+\noindent\footnotesize\textit{Independent research paper and practical adoption
+guide. It is not medical or regulatory advice and is not endorsed by the FDA, NIH,
+HHS, an IRB, ICH, or any sponsor. All figures derive from the author's repository
+sources and are illustrative unless tied to a cited reference. Disclaimer: this
+work is independent and is not endorsed or sponsored by any trial sponsor, CRO,
+site, IRB, regulator, or medical society; and was adapted using Claude Code Opus
+4.8. The DOI placeholder \texttt{10.5281/zenodo.xxxxxxxx} is filled at
+deposit.}\normalsize\par
+
+\vspace{-0.2em}
+{\color{indink}\rule{\linewidth}{1.6pt}}
+
+% ---------- ReGARDD order: Cover Letter and FDA 1571 precede the Table of
+% Contents; the Introduction and the numbered IND sections follow. Each major
+% section starts on a fresh page (\clearpage) so it is self-standing. ----------
+\input{sections/sec-00-cover-letter}\clearpage
+\input{sections/sec-01-fda-forms}\clearpage
+
+% ---------- Numbered Table of Contents section (item 2 in the ReGARDD IND TOC,
+% immediately after the Cover Letter and FDA 1571). \@starttoc prints the entries
+% with no second heading, so the numbered "Table of Contents" heading stands alone
+% and the Introduction that follows is numbered 3, matching the ReGARDD numbering. ----------
+\section{Table of Contents}
+{\setlength{\parskip}{0pt}\small\makeatletter\@starttoc{toc}\makeatother}
+\clearpage
+
+\input{sections/sec-02-introduction}\clearpage
+\input{sections/sec-03-general-investigational-plan}\clearpage
+\input{sections/sec-04-investigator-brochure}\clearpage
+\input{sections/sec-05-proposed-clinical-research}\clearpage
+\input{sections/sec-06-cmc}\clearpage
+\input{sections/sec-07-pharmacology-toxicology}\clearpage
+\input{sections/sec-08-previous-human-experience}\clearpage
+\input{sections/sec-09-additional-information}\clearpage
+\input{sections/sec-10-relevant-information}\clearpage
+\input{sections/sec-11-references-backmatter}
+
+\end{document}

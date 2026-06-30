@@ -4,6 +4,40 @@ Release notes for the physical-ai-oncology-trials repository.
 
 ---
 
+Phase 1 PDAC IND: AI Generation (v4.3.0)
+v4.3.0 - Phase 1 PDAC IND: AI Generation (IND v1.0)
+
+## Summary
+
+This release adds trial-ind/, a single-prompt Phase 1 Investigational New Drug (IND) application titled Phase 1 PDAC IND: AI Generation (IND v1.0), by Kevin Kawchak (ChemicalQDevice), DOI 10.5281/zenodo.xxxxxxxx, July 1, 2026. The IND demonstrates how a repository based large language model, driven by one master prompt that first writes and then executes a schedule of stage sub-prompts, hastens the entire Phase 1 IND document-package process while providing 22 high quality grayscale Mermaid figures, each from a unique perspective, generated in real time and reproduced exactly in LaTeX. It is built for the LLM-Directed PDAC Robotic Daraxonrasib trial established in trial-protocol/final-protocol/publication, follows the ReGARDD IND Table of Contents across twelve sections (Cover Letter and FDA Forms 1571 and 3674 ahead of a numbered Table of Contents, then Introduction, General Investigational Plan, Investigator Brochure, Proposed Clinical Research, Chemistry, Manufacturing and Control, Pharmacology and Toxicology, Previous Human Experience, Additional Information, Relevant Information, and References and Back Matter), and keeps the current paper template color (black body text) while rendering every figure in a strictly grayscale eight-tone ramp. The final IND reaches about ten times the character count of the source paper trial-documents/final-paper/publication, carrying the quantitative data needed for Phase 1 review: the daraxonrasib 3+3 dose escalation (DL1 160, DL2 220, DL3 300 mg, 28-day DLT window), the eight-arm robotic Whipple device specification (56 degrees of freedom, 640 sensor channels, 3 N per-arm and 18 N cumulative force caps, 3 ms cross-arm emergency stop), the five-vessel no-fly gate, the perioperative pause-and-restart advisory (29, 3, and 0 of 32 iterations), the Dutch 2025 benchmark comparators, the safety-reporting clocks, and the analysis populations with exact Clopper-Pearson precision. The build adapts regulatory/Adaption-21-CFR-Part-312/source/Physical_AI_21_CFR_Part_312.sty as the paper template (with a back matter section) into the shared grayscale indstyle.sty, and is grounded in the ReGARDD IND template, the FDA Form 1571 instructions, the ReGARDD academic-research guidance, and the principal-investigator large-document guidance in trial-documents/inputs/llm-adoption.
+
+A 425-character summary: v4.3.0 adds trial-ind/, a single-prompt Phase 1 PDAC IND that hastens the entire IND document-package process and ships 22 grayscale Mermaid figures reproduced exactly in LaTeX. It follows the ReGARDD IND table of contents across 12 sections, carries the daraxonrasib 3+3 and eight-arm robotic Whipple data, reaches about ten times the source paper, and auto-commits every file to GitHub in real time for live monitoring.
+
+## Features
+
+- trial-ind/prompts: the master prompt filed verbatim (prompt-ind.md) and the full Claude Code output (output-ind.md).
+- trial-ind/sub-prompts: four generated stage sub-prompts (mermaid, draft, full, final) adapted from the trial-protocol workflow, with a comprehensive README.
+- trial-ind/mermaid: 22 new grayscale Mermaid figures on an eight-tone ramp, one commit per figure, each carrying real quantitative data and named source files; README and output-mermaid.md. The figures adapt in context, recolored to grayscale, the acceleration figures of the source paper (Figures 6, 9, 11, 15, 16, 17, 19, 20, 23, 24) plus the clinical content of the Phase 1 protocol.
+- trial-ind/draft-ind: the 12-section ReGARDD scaffold (main.tex, indstyle.sty, references.bib, sections/sec-00..sec-11) with bracketed [DRAFTING INSTRUCTION] pointers, plus draft-ind-LaTeX.zip.
+- trial-ind/full-ind: the 12 full sections with 20 TikZ mermaidfig figures and 31 full-width tables (about 315,000 characters), plus full-ind-LaTeX.zip.
+- trial-ind/final-ind: the polished sections (clearpage per self-standing section, unified Figure 1 to 22 numbering, section-based table numbering, ragged-right full-width tables, needspace, raggedbottom), about 597,000 characters with all 22 figures and about 90 tables, plus final-ind-LaTeX.zip. No publication subdirectory.
+- Comprehensive READMEs and relevant badges in every trial-ind directory; the IND keeps black body text and a PNG-free, logo-free ORCID hyperlink (Rule 12).
+- Root README updated with new badges, a 425-character summary, a dedicated v4.3.0 section (grayscale Mermaid build diagram, stage-outputs and IND-at-a-glance tables, table of contents), and the trial-ind structure tree. CHANGELOG.md updated.
+
+## Contributors
+@kevinkawchak
+@claude
+@google-gemini
+@openai
+
+## Notes
+
+- No raster images anywhere (no png or jpg); the permitted media are full-width white-background ragged-right tables and the grayscale Mermaid diagrams reproduced in LaTeX as TikZ mermaidfig figures. Single dashes only; the section symbol for codified references.
+- Each LaTeX set (draft, full, final) compiles in Overleaf with pdfLaTeX and ships its own zip. The build adds no Python, YAML, or other CI-checked files, so the lint-and-format workflow (ruff check, ruff format, yamllint) on Python 3.10, 3.11, and 3.12 remains green.
+- The DOI 10.5281/zenodo.xxxxxxxx is a placeholder pending deposit. This is an independent research paper and adoption guide, not medical or regulatory advice, and is not endorsed by the FDA, NIH, HHS, an IRB, ICH, or any sponsor.
+
+---
+
 Phase 1 Pancreatic Cancer Trial Efficient LLM Document Generations (v4.2.0)
 v4.2.0 - Phase 1 Pancreatic Cancer Trial Efficient LLM Document Generations (Paper v1.0)
 

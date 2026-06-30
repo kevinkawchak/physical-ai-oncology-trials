@@ -1,0 +1,41 @@
+% sec-11-references-backmatter.tex - References and Back Matter (draft scaffold)
+% Unnumbered back matter so the numbered IND sections end at 11 (Relevant
+% Information), matching the ReGARDD IND Table-of-Contents numbering.
+\section*{References and Back Matter}
+\addcontentsline{toc}{section}{References and Back Matter}
+
+\draftinstr{Adapt the back matter from
+\texttt{trial-documents/final-paper/publication/sections/sec-08-references-backmatter.tex}:
+Acknowledgments, Author and ORCID, Ethical Disclosures, Data Availability, Rights
+and Permissions (CC BY 4.0), and Cite This Article, then the bibliography. Keep
+black links; ensure every reference renders a clickable URL and a clickable DOI URL
+with DOI text, and that no link runs off the right margin.}
+
+\bmhead{Acknowledgments}
+\draftinstr{Credit Claude Code (Opus 4.8 Ultracode, 1M context) as the build model
+and thank ChatGPT 5.5 and Gemini 3.1 Pro; state IND v1.0, repository v4.3.0.}
+
+\bmhead{Author and ORCID}
+Kevin Kawchak, Chief Executive Officer, ChemicalQDevice. ORCID iD:
+\href{https://orcid.org/0009-0007-5457-8667}{https://orcid.org/0009-0007-5457-8667}.
+Correspondence: \href{mailto:kevink@chemicalqdevice.com}{kevink@chemicalqdevice.com}.
+
+\bmhead{Ethical Disclosures}
+\draftinstr{State the independent-work disclaimer (no real patients, no PHI, no IRB
+approval sought; not an active IND; not medical or regulatory advice; not endorsed
+by FDA, NIH, HHS, IRB, ICH, or any sponsor).}
+
+\bmhead{Data Availability}
+\draftinstr{State GitHub + Zenodo availability under CC BY 4.0, DOI
+10.5281/zenodo.xxxxxxxx.}
+
+\bmhead{Rights and Permissions}
+\draftinstr{CC BY 4.0 statement with the license URL.}
+
+\bmhead{Cite This Article}
+\draftinstr{Kawchak K. Phase 1 PDAC IND: AI Generation. Zenodo. 2026;
+10.5281/zenodo.xxxxxxxx.}
+
+\clearpage
+\phantomsection\addcontentsline{toc}{section}{References}
+\begingroup\raggedright\nocite{*}\bibliographystyle{ieeetr}\bibliography{references}\endgroup

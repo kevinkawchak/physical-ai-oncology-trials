@@ -1,0 +1,572 @@
+% sec-05-proposed-clinical-research.tex - Proposed Clinical Research (full-ind)
+\section{Proposed clinical research}
+
+The proposed clinical research is presented in this section of the investigational
+new drug (IND) application in the form required by 21 CFR \S 312.23(a)(6). It
+consists of the study protocol for the planned Phase 1 first-in-human
+investigation, the informed consent that governs each participant's enrollment,
+and the investigator and facilities information that establishes that the study
+will be conducted by qualified persons at adequate facilities. The investigation
+described here is a prospective, open-label, single-arm, first-in-human study that
+combines a standard 3+3 dose-finding evaluation of perioperative daraxonrasib
+(RMC-6236) with an early-feasibility evaluation of an on-premises large language
+model (LLM) directed eight-arm robotic pancreaticoduodenectomy (Whipple) system, a
+significant-risk Class II collaborative device. Because the device participates in
+the delivery of the investigational drug, the study is conducted under a combined
+IND (21 CFR \S 312) and investigational device exemption (IDE, 21 CFR \S 812)
+submission with a single integrated protocol, a single informed consent carrying
+the Physical AI opt-out, and a single integrated safety governance structure. The
+full clinical protocol, version 1.0.0, is bound to this IND as a supporting
+document and is archived with the digital object identifier
+DOI 10.5281/zenodo.20780121
+(\href{https://doi.org/10.5281/zenodo.20780121}{https://doi.org/10.5281/zenodo.20780121});
+the synopsis and supporting tables in \S 6.1 summarize that bound document, and
+every quantitative value reported here is traceable to it
+\cite{daraxwhipple,onpremwhippl}.
+
+\subsection{Study Protocol}
+
+\subsubsection*{Protocol identification and overview}
+
+The bound protocol is entitled the LLM-Directed PDAC Robotic Daraxonrasib Phase 1
+study (protocol version 1.0.0, DOI 10.5281/zenodo.20780121). It is a prospective,
+open-label, single-arm, first-in-human dose-finding and early-feasibility study in
+adults with histologically or cytologically confirmed, resectable or
+borderline-resectable, KRAS G12-mutated pancreatic ductal adenocarcinoma (PDAC)
+who are candidates for pancreaticoduodenectomy. The central hypothesis is that the
+combined drug-device intervention can be delivered with an acceptable early safety
+profile and can complete the assigned operative tasks under continuous human
+oversight while a recommended Phase 2 dose (RP2D) of daraxonrasib is identified,
+supporting progression to a later-phase efficacy study. Enrollment is planned for
+up to $n=18$ treated participants (approximately 36 screened) at a single academic
+medical center, assigned across three daraxonrasib dose levels by the 3+3 rule
+with staggered sentinel enrollment, at a planned accrual of approximately one to
+two participants per month. The investigation is structured around the
+early-feasibility pathway recognized for significant-risk devices, which generates
+the device-performance and safety evidence required before any controlled
+comparison is undertaken \cite{phase1guidance,daraxwhipple}.
+
+\subsubsection*{Objectives and endpoints}
+
+The protocol specifies three co-primary objectives, each evaluated with exact
+two-sided 95\% Clopper-Pearson confidence intervals because the design is
+descriptive and non-confirmatory under ICH E9 with no formal power calculation and
+no multiplicity adjustment. The first co-primary endpoint is the incidence of
+device- or procedure-related serious adverse events through 30 days, including any
+Clavien-Dindo Grade III or higher complication. The second co-primary endpoint is
+the maximum tolerated dose (MTD) and the RP2D of perioperative daraxonrasib,
+determined by the 3+3 rule across a 28-day dose-limiting toxicity (DLT) window. The
+third co-primary endpoint is technical feasibility, defined as the proportion of
+participants completing the assigned operative tasks without unplanned conversion
+attributable to device malfunction or unsafe device behavior. The secondary
+endpoints are the margin-negative (R0) resection rate on day-90 pathology
+(per-protocol), the International Study Group of Pancreatic Surgery (ISGPS) Grade B
+or C postoperative pancreatic-fistula rate, the Clavien-Dindo Grade III or higher
+complication rate at 90 days, 30-day and 90-day mortality, the conversion rate, and
+operative parameters (estimated blood loss, operating-room time, and length of
+stay), each benchmarked descriptively against the 2025 Dutch nationwide robotic
+pancreaticoduodenectomy cohort (conversion 10.1\%, Clavien-Dindo III+ 41.3\%, ISGPS
+B/C 24.4\%, 30-day mortality 3.9\%). Exploratory endpoints are progression-free and
+overall survival to 24 months by RECIST version 1.1 with Kaplan-Meier estimation,
+the concordance of the LLM advisory with the hard-coded safety gate, and the
+sim-to-real gap in millimeters and newtons \cite{daraxwhipple,oncotrialllm}.
+
+Table~\ref{tab:sec05-soa} presents the schedule of activities that governs the
+timing of every assessment, from screening through the operative episode and the
+24-month overall-survival follow-up.
+
+\begin{table}[t]
+\caption{Schedule of activities (summary) for the bound Phase 1 protocol. The
+intensive safety-collection window spans consent through the 30-day postoperative
+visit and encompasses the 28-day daraxonrasib dose-limiting toxicity window.}
+\label{tab:sec05-soa}
+\centering
+\begin{tabularx}{\textwidth}{L{4.3cm} C{1.4cm} C{1.6cm} C{1.6cm} Y}
+\toprule
+\textbf{Assessment} & \textbf{Screen} & \textbf{Pre-op / day 0} & \textbf{Post-op to day 30} & \textbf{Long-term follow-up} \\
+\midrule
+Informed consent and Physical AI opt-out election & X & - & - & re-consent on amendment \\
+Eligibility, ECOG, KRAS G12 genotype, staging imaging & X & - & - & - \\
+Multidisciplinary resectability review & X & X & - & - \\
+Daraxonrasib pre-operative course (oral once daily) & - & X & - & - \\
+Protocol-mandated operative pause of daraxonrasib & - & X & - & - \\
+Robotic Whipple (8 operative phases P1 to P8) & - & X & - & - \\
+Pre-procedure safety matrix and USL confirmation & - & X & - & re-check after any change \\
+Perioperative pause-and-restart advisory (T+7/14/21d) & - & - & X & - \\
+Vitals, hematology, chemistry, hepatic/pancreatic indices & X & X & X & per follow-up schedule \\
+Serum daraxonrasib trough assay & - & X & X & as indicated \\
+ISGPS fistula grading (PJ dominant) & - & - & X & - \\
+Adverse-event and Physical AI AE capture & X & X & X & SAE/PAI AE to 24 months \\
+RECIST v1.1 imaging (central read) & X & - & X & per follow-up schedule \\
+Pathology, R0 margin (day-90 read, per-protocol) & - & - & X & day 90 \\
+Progression-free and overall survival & - & - & - & to 24 months (q12 weeks) \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\subsubsection*{Study design and dose escalation}
+
+The drug component proceeds under the IND pathway and the device component under
+the IDE pathway, with a single integrated protocol and a single safety governance
+structure. The escalation uses three dose levels anchored to the pan-KRAS RASolute
+302 program, in which 300 mg once daily is the established RP2D: DL1 is 160 mg once
+daily (starting dose, chosen below the reference dose to preserve a conservative
+first-in-human margin), DL2 is 220 mg once daily, and DL3 is the 300 mg once-daily
+reference dose. Three participants are enrolled at each level and observed across a
+28-day DLT window. If no DLT occurs among the first three, the cohort escalates; if
+one of three experiences a DLT, the cohort expands to six; a single DLT among six
+permits escalation, whereas two or more DLTs at a level fix the MTD at the
+preceding level. The MTD is the highest level at which fewer than two of six
+DLT-evaluable participants experience a DLT, and the RP2D is selected at or below
+the MTD. With a maximum of three levels of six, the design treats up to 18
+participants. The estimation precision that this sample supports is illustrated by
+the exact Clopper-Pearson intervals: an observed rate of 0 of 18 yields 0\% (95\%
+CI 0 to 18\%), 1 of 18 yields 5.6\% (95\% CI 0.1 to 27\%), 0 of 3 yields 0\% (95\%
+CI 0 to 71\%), and 0 of 6 yields 0\% (95\% CI 0 to 46\%) \cite{daraxwhipple}. The
+analysis populations are the Safety population (all dosed participants), the
+DLT-evaluable population, the Per-protocol population, and the modified
+intention-to-treat (mITT) population.
+
+The device has no pharmacologic dose; its dose analogue is the readiness evidence
+required before any patient-facing activity, escalated only by passing the
+mandatory Phase 0 simulation-validation gate. Three conditions must be met and
+documented before the first robotic case: a Unified Safety Level (USL) rating of at
+least 7.0 on the surgical-readiness scale; at least 1000 simulated procedures
+completed across at least two independent simulation frameworks (for example Isaac,
+MuJoCo, Gazebo, or PyBullet) so that the readiness finding is not an artifact of any
+single simulator; and a sim-to-real fidelity within prespecified limits, a
+trajectory gap of less than 2 mm and a tip-force gap of less than 0.5 N between the
+simulation prediction and the operative record. The gate is re-run after any
+software, model, or configuration change before any further patient-facing use
+\cite{onpremwhippl,fdadigtwinpc}.
+
+\subsubsection*{Population and eligibility}
+
+The study population comprises adults with histologically or cytologically confirmed,
+resectable or borderline-resectable, KRAS G12-mutated PDAC who are eligible for
+perioperative daraxonrasib under the broad pan-KRAS RASolute 302 criteria and whose
+tumor and vascular anatomy are compatible with the eight-arm robotic system.
+Participant selection is equitable; eligibility is determined solely by the
+scientific and safety criteria, and limited English proficiency is not an exclusion
+criterion. The synthetic reference exemplar PAT-PDAC-0001 (a 68-year-old with a
+3.4 cm head-of-pancreas tumor abutting the superior mesenteric vein at $75^\circ$,
+KRAS G12D, microsatellite stable, CA 19-9 of 412 U/mL, ECOG performance status 1,
+after a completed neoadjuvant modified FOLFIRINOX course of four cycles) illustrates
+a representative eligible participant and does not represent an enrolled individual.
+The full eligibility criteria are summarized in Table~\ref{tab:sec05-eligibility}.
+
+\begin{table}[t]
+\caption{Key inclusion and exclusion criteria for the bound Phase 1 protocol.}
+\label{tab:sec05-eligibility}
+\centering
+\begin{tabularx}{\textwidth}{Y Y}
+\toprule
+\textbf{Inclusion criteria (all required)} & \textbf{Exclusion criteria (any one excludes)} \\
+\midrule
+Signed informed consent before any study-specific procedure, including explicit Physical AI opt-out election or declination & Distant metastatic disease on staging \\
+Age 18 years or older at consent & Vascular involvement precluding a margin-negative (R0) resection, or anatomy incompatible with the eight-arm robotic approach \\
+Histologically or cytologically confirmed resectable or borderline-resectable PDAC on multidisciplinary review & Prior pancreatic resection or prior surgery precluding the planned reconstruction \\
+Documented KRAS G12 mutation (for example G12D, G12V, or G12R) on a validated assay & Uncontrolled intercurrent illness or comorbidity making major surgery or daraxonrasib unsafe \\
+ECOG performance status 0 or 1 & Pregnancy or lactation, or unwillingness to use adequate contraception where applicable \\
+Adequate organ and marrow function for major pancreaticobiliary surgery and daraxonrasib & Known contraindication or hypersensitivity to daraxonrasib or a required excipient, or an unmanageable drug interaction \\
+Measured baseline CA 19-9 recorded for serial assessment; eligible for daraxonrasib under RASolute 302 pan-KRAS criteria & Inability to provide informed consent or to comply with the Schedule of Activities \\
+Tumor and vascular anatomy compatible with the eight-arm robotic system on preoperative imaging & Anatomy or comorbidity otherwise incompatible with safe conduct of the combined intervention \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\subsubsection*{Intervention: drug and device}
+
+Daraxonrasib is an orally bioavailable RAS(ON) multi-selective (pan-RAS)
+small-molecule inhibitor that binds the active, guanosine-triphosphate-bound state
+of mutant RAS in complex with cyclophilin A, suppressing downstream effector
+signaling across the common KRAS variants in PDAC; it received FDA Breakthrough
+Therapy designation in June 2025 for previously treated metastatic KRAS G12-mutant
+PDAC. In this study it is administered orally once daily in a perioperative
+schedule comprising a defined pre-operative course, a protocol-mandated pause across
+the operative window, and a postoperative restart governed by the advisory in
+\S 6.1 below. The device component is an eight-arm parallel coelomic surgical
+platform carrying 56 mechanical degrees of freedom (8 arms $\times$ 7 per-arm
+degrees of freedom) and a 640-channel mixed-rate sensor stack (80 channels per arm),
+with force channels sampling at 100 kHz and all remaining channels at the 10 kHz
+command rate, and a positioning accuracy of 0.05 mm root mean square at a peak tip
+velocity of 1,200 mm/s. An on-premises repository-pinned, open-weights LLM acts as a
+second-opinion advisory oracle held strictly outside the robot vendor kinematic
+stack and hash-pinned to a deterministic seed and a repository commit; it is never
+an autonomous controller, and full autonomy is prohibited at this phase consistent
+with 21 CFR \S 312.21(e). The advisory is gated by a verification-before-generation
+ten-gate suite returning ACCEPT, BLOCK, or ESCALATE, aligned with H.R. 9510, the
+Verification Before Generation in Physical AI Oncology Trials Act of 2026
+\cite{congress9510,onpremwhippl}.
+
+The hard cyber-physical safety envelope comprises a per-arm tip-force cap of
+$\leq 3$ N, a cumulative cross-arm tip-force cap of $\leq 18$ N enforced at the
+heartbeat boundary, a 10 kHz heartbeat coordination bus broadcasting a 64-byte frame
+on a $100\,\mu$s per-arm watchdog deadline, an emergency arm park within $50\,\mu$s
+of a missed or out-of-parameter frame, a cross-arm emergency stop (E-stop) that
+halts the full platform in $\leq 3$ ms at a 0.0 N force clamp, and a
+software-independent hardware E-stop meeting the 21 CFR \S 312.404 requirement of
+$\leq 500$ ms. A vascular no-fly gate sampled at 10 kHz evaluates instrument-tip
+proximity to five named vessels (superior mesenteric vein, portal vein, hepatic
+artery, celiac axis, and superior mesenteric artery) against three concentric
+thresholds: a soft-warning zone at 3.0 mm raises an LLM advisory, a no-fly zone
+(1.0 mm at the superior mesenteric and portal veins; 1.5 mm at the hepatic artery,
+celiac axis, and superior mesenteric artery) blocks the command, and a hard-stop
+zone at 5.0 mm forces the $\leq 3$ ms E-stop; across a representative 100-tick
+verdict sample the gate returned clear on 83 ticks, soft-warning on 6, no-fly on 6,
+and hard-stop on 5. The operation proceeds across eight operative phases: phases P1
+through P4 comprise dissection and specimen removal, phase P5 the duct-to-mucosa
+pancreaticojejunostomy under a controller ring-tension band of 0.30 to 0.60 N, phase
+P6 the end-to-side hepaticojejunostomy at 0.20 to 0.50 N, phase P7 the antecolic
+gastrojejunostomy at 0.40 to 0.80 N, and phase P8 final imaging, hemostasis, and
+drain placement \cite{onpremwhippl}.
+
+\subsubsection*{Perioperative daraxonrasib pause-and-restart advisory}
+
+The two components are coupled at one decision point only: the perioperative
+pause-and-restart advisory for the drug is informed by the operative and pathology
+results of the device procedure. Daraxonrasib is paused before surgery and restarted
+postoperatively on a day chosen by an advisory that is LLM-bound and human-confirmed,
+never autonomous. The advisory takes two inputs, the pancreaticojejunostomy ISGPS
+fistula grade (A, B, or C) and the serum daraxonrasib trough relative to a 0.5 ng/mL
+threshold, and recommends a restart at postoperative day T+7d, T+14d, or T+21d (or a
+continued hold). In the 32-iteration deterministic simulation sweep, baseline serum
+was 0.45 ng/mL at the operative timepoint across all iterations (below the 0.5 ng/mL
+trough threshold), and the advisory recommended T+7d in 29 of 32 iterations (90.6\%,
+Grade A fistula with sub-threshold trough), T+14d in 3 of 32 (9.4\%, Grade B or
+delayed serum rise), and T+21d or continued hold in 0 of 32 (reserved for Grade C,
+which also maps to the drug stopping rule). Figure~18 reproduces the advisory logic
+and the sweep distribution.
+
+\begin{mermaidfig}
+\node[mmin]  (pause) at (0,0)        {Daraxonrasib paused\\before surgery};
+\node[mmin]  (in1)   at (0,-2.0)     {Input 1: PJ ISGPS\\fistula grade A / B / C};
+\node[mmin]  (in2)   at (0,-4.0)     {Input 2: serum trough\\vs 0.5 ng/mL threshold};
+\node[mmproc] (llm)  at (5.6,-2.0)   {LLM advisory\\(hash-pinned)\\+ human confirmation\\(never autonomous)};
+\node[mmgoal] (t7)   at (11.2,0)     {Restart T+7d\\29 of 32 (Grade A,\\sub-threshold trough)};
+\node[mmstep] (t14)  at (11.2,-2.0)  {Restart T+14d\\3 of 32 (Grade B or\\delayed serum rise)};
+\node[mmdark] (t21)  at (11.2,-4.0)  {Restart T+21d or hold\\0 of 32 (Grade C)};
+\draw[mmedge] (pause) to[out=0,in=180,looseness=0.6] (llm.west);
+\draw[mmedge] (in1) -- (llm.west);
+\draw[mmedge] (in2) to[out=0,in=180,looseness=0.6] (llm.west);
+\draw[mmedge] (llm) to[out=0,in=180,looseness=0.6] (t7.west);
+\draw[mmedge] (llm) -- (t14.west);
+\draw[mmedge] (llm) to[out=0,in=180,looseness=0.6] (t21.west);
+\end{mermaidfig}
+\figcaption{Figure 18. The perioperative daraxonrasib pause-and-restart advisory.
+The drug is paused before surgery and the postoperative restart day is set by a
+hash-pinned, human-confirmed LLM advisory (never autonomous) from two inputs: the
+pancreaticojejunostomy ISGPS fistula grade (A, B, or C) and the serum daraxonrasib
+trough relative to a 0.5 ng/mL threshold. In the 32-iteration deterministic sweep
+the advisory recommended restart at T+7 days in 29 of 32 iterations (Grade A with
+sub-threshold trough), T+14 days in 3 of 32 (Grade B or delayed serum rise), and
+T+21 days or continued hold in 0 of 32 (reserved for Grade C).}
+
+\subsubsection*{Assessments and the vascular and halt safety chain}
+
+Clinical safety assessments comprise vital signs, a directed physical examination,
+hematology, serum chemistry including hepatic and pancreatic indices, coagulation
+studies, the serum daraxonrasib trough assay, and protocol-specified imaging, at the
+frequencies in the schedule of activities. In addition, the device generates a
+continuous safety telemetry stream that is a source of protocol observations under
+21 CFR \S 312.23(g): per-arm and cumulative force profiles, trajectory accuracy
+against the 0.05 mm specification, every vascular safety-zone verdict, every
+heartbeat and watchdog event, and every E-stop activation, each captured at its
+recorded rate in the hash-chained audit trail. The halt chain is layered: the 10 kHz
+heartbeat bus broadcasts a 64-byte frame on a $100\,\mu$s per-arm watchdog deadline;
+a frame that is on time continues the command state, whereas a missed or
+out-of-parameter frame parks the affected arm within $50\,\mu$s and escalates to the
+cross-arm E-stop that halts the platform in $\leq 3$ ms at a 0.0 N force clamp,
+backed by the software-independent hardware E-stop. Postoperative pancreatic fistula
+is graded by the ISGPS definition as a biochemical leak, Grade B (requiring a change
+in management), or Grade C (requiring reoperation or causing organ failure or death),
+and the pancreaticojejunostomy grade is the dominant determinant and the input to the
+restart advisory and the drug stopping rule \cite{daraxwhipple,oncotrialllm}.
+
+\subsubsection*{Safety reporting clocks and the six Physical AI triggers}
+
+Adverse events are captured through two parallel and equally binding streams, a
+conventional pharmacovigilance stream for clinical events graded by CTCAE version 5.0,
+and a Physical AI safety stream for device- and AI-related events under 21 CFR
+\S 312.32(f). Serious adverse events are reported by the investigator to the sponsor
+within 24 hours of awareness, and the sponsor submits IND/IDE safety reports on the
+regulatory clocks: any unexpected fatal or life-threatening suspected adverse
+reaction is reported as soon as possible but no later than 7 calendar days after
+initial receipt of the information, and any other serious and unexpected suspected
+adverse reaction is reported no later than 15 calendar days after the determination
+that the event is reportable (21 CFR \S 312.32). In addition, six Physical AI
+reporting triggers are reported under \S 312.32(g): a serious Physical AI adverse
+event on the 7- or 15-day timeline as applicable; a system-drug interaction causing
+incorrect drug administration, regardless of seriousness, within 15 days; a
+cybersecurity incident within 15 days (or 7 days if it has the potential to cause
+patient harm); sustained AI model degradation below the pre-specified acceptance
+criteria for three or more consecutive procedures or a cumulative 24 hours; a
+sim-to-real divergence beyond twice the validated gap tolerance (trajectory deviation
+greater than 4 mm or force discrepancy greater than 1.0 N); and a digital-twin
+discrepancy beyond the pre-specified accuracy thresholds. For every Physical AI
+adverse event, the complete hash-chained audit trail from 24 hours before the event
+to 72 hours after the event is preserved under 21 CFR part 11 and made available to
+the FDA on request. Figure~19 reproduces the clocks and the six triggers
+\cite{phase1guidance,cfr312paiuni}.
+
+\begin{mermaidfig}
+\node[mmin]  (ev)  at (0,-2.4)      {Adverse event\\(clinical or\\Physical AI)};
+\node[mmgoal] (c7) at (5.4,0)       {7 calendar days\\fatal / life-threatening\\suspected adverse reaction};
+\node[mmgoal] (c15) at (5.4,-2.4)   {15 calendar days\\other serious + unexpected\\suspected adverse reaction};
+\node[mmproc] (g1) at (5.4,-4.4)    {1 Serious Physical AI AE (7 / 15d)};
+\node[mmproc] (g2) at (5.4,-5.8)    {2 System-drug interaction (15d)};
+\node[mmproc] (g3) at (10.8,-4.4)   {3 Cybersecurity incident (15d; 7d if harm)};
+\node[mmproc] (g4) at (10.8,-5.8)   {4 Model degradation ($\geq 3$ procedures / 24h)};
+\node[mmproc] (g5) at (5.4,-7.2)    {5 Sim-to-real divergence $> 2\times$ ($>4$ mm / $>1.0$ N)};
+\node[mmproc] (g6) at (10.8,-7.2)   {6 Digital-twin discrepancy};
+\node[mmdark] (aud) at (10.8,-2.4)  {Hash-chained audit trail\\$-24$h to $+72$h\\(21 CFR part 11)};
+\draw[mmedge] (ev) to[out=60,in=180,looseness=0.6] (c7.west);
+\draw[mmedge] (ev) -- (c15.west);
+\draw[mmedge] (ev) to[out=-80,in=180,looseness=0.5] (g1.west);
+\draw[mmedge] (ev) to[out=-90,in=180,looseness=0.5] (g2.west);
+\draw[mmedge] (ev) to[out=-95,in=180,looseness=0.5] (g5.west);
+\draw[mmedge] (g3) -- (aud.south);
+\draw[mmedge] (g4) to[out=90,in=-90,looseness=0.7] (aud.south);
+\draw[mmedge] (g6) to[out=90,in=-30,looseness=0.7] (aud.south);
+\end{mermaidfig}
+\figcaption{Figure 19. The safety-reporting clocks and the six Physical AI reporting
+triggers. A fatal or life-threatening suspected adverse reaction is reported within
+7 calendar days and any other serious and unexpected suspected adverse reaction
+within 15 calendar days (21 CFR \S 312.32). The six Physical AI triggers of
+\S 312.32(g) are a serious Physical AI adverse event (7- or 15-day), a system-drug
+interaction (15-day), a cybersecurity incident (15-day, or 7-day if patient harm is
+possible), sustained model degradation (at least 3 consecutive procedures or 24
+cumulative hours), a sim-to-real divergence exceeding twice the validated tolerance
+(trajectory over 4 mm or force over 1.0 N), and a digital-twin discrepancy. Each
+preserves the hash-chained audit trail from minus 24 to plus 72 hours under 21 CFR
+part 11.}
+
+\subsubsection*{Discontinuation and stopping rules}
+
+The protocol distinguishes discontinuation of an intervention from withdrawal from
+the study; a participant who stops one or both components for a protocol-defined
+reason remains in the study for safety and survival follow-up unless consent for that
+follow-up is withdrawn. The investigational device is discontinued for the index
+procedure, with conversion to the appropriate fallback technique, whenever any of
+five prespecified conditions occurs: a conversion to open or manual technique judged
+by the supervising surgeon to better serve patient safety or oncologic adequacy
+(conversion is always available and is never itself a protocol violation); repeated
+excursions against the $\leq 3$ N per-arm or $\leq 18$ N cumulative caps; any breach
+of a vascular no-fly zone (1.0 mm at the superior mesenteric and portal veins;
+1.5 mm at the hepatic artery, celiac axis, and superior mesenteric artery) or a
+recurring pattern of no-fly approaches; any sim-to-real divergence beyond twice the
+validated tolerance (trajectory deviation greater than 4 mm or force discrepancy
+greater than 1.0 N), which also triggers a \S 312.32(g) report; and any hard-stop
+cross-arm E-stop event, after which device resumption requires that the cause be
+identified and the system re-pass the pre-procedure safety matrix. Daraxonrasib is
+discontinued in an individual participant for a drug-attributable DLT during the
+28-day window, for any other unacceptable toxicity not resolving with protocol dose
+interruption and reduction, for a confirmed ISGPS Grade C fistula (which precludes
+restart and maps to the T+21d or continued-hold arm of the advisory), for pregnancy,
+for contraindicating intercurrent illness, or at the participant's request
+\cite{onpremwhippl,daraxwhipple}.
+
+Two binding halt rules govern the study as a whole and are applied by the data
+safety monitoring board (DSMB): a device- or procedure-related serious adverse event
+in at least one of three participants within a cohort, or two device-related deaths
+at any time, triggers DSMB review and a halt. On any hold or closure, enrollment and
+patient-facing robotic activity stop immediately, affected participants are
+transitioned to appropriate clinical care, and a controlled decommissioning and
+data-preservation procedure seals the complete hash-chained command and telemetry
+record for the regulatory retention period.
+
+\subsubsection*{Statistical considerations and oversight}
+
+The statistical approach is descriptive and estimation-based, non-confirmatory, and
+follows ICH E9 and the TRIPOD+AI reporting standard for the model-assisted advisory
+component. No formal power calculation is performed; exact two-sided 95\%
+Clopper-Pearson confidence intervals are reported for the binomial endpoints, and a
+two-sided alpha of 0.05 is used only in a supportive sense with no multiplicity
+adjustment. Independent safety oversight operates on three tiers: the DSMB reviews
+accumulating safety data at each cohort boundary and at any triggered review and
+holds halt authority; the Independent Safety Monitor (ISM) is designated for each
+procedure and provides real-time case-level oversight with the authority to call a
+stop; and the Physical AI Safety Review Committee meets on a cadence not exceeding
+90 days (and ad hoc on any triggering event) to review the autonomy-bearing behavior
+of the system, the verification-before-generation gate-surface decisions, the USL
+rating, and any software change, and to recommend USL reassessment or oversight
+changes. Seven Physical AI record types (the LLM advisory record, the robot command
+record, the sensor and telemetry record, the safety-limit-event record, the
+verification-before-generation gate-surface record, the human-override and
+intervention record, and the binding hash-chained audit trail) are retained for the
+period required by 21 CFR \S 312.57, at least two years after a marketing
+application is approved or, if none is filed, two years after the investigation is
+discontinued and the FDA is notified \cite{daraxwhipple,clintrustpai}.
+
+The full protocol, version 1.0.0, with its complete schedule of activities,
+statistical analysis plan, and Physical AI System Description meeting the eleven
+fields of 21 CFR \S 312.23(g), is the bound supporting document for this section and
+is archived at DOI 10.5281/zenodo.20780121
+(\href{https://doi.org/10.5281/zenodo.20780121}{https://doi.org/10.5281/zenodo.20780121}).
+
+\subsection{Informed Consent}
+
+Informed consent is obtained by a qualified member of the research team who is not
+the treating surgeon, before any study-specific procedure, in language the
+participant can understand and with adequate time and opportunity to ask questions,
+consistent with 21 CFR part 50 and ICH E6(R3) \cite{cfr050paiuni,ichpaistduni}. The
+consent process incorporates each of the basic and additional elements of informed
+consent required by 21 CFR \S 50.25, and a copy of the form and any participant
+information sheet are submitted with the protocol. The consent discussion covers the
+diagnosis, the alternatives (including standard open or conventional robotic
+pancreaticoduodenectomy without the investigational advisory layer), and the
+prognosis of a malignancy with a total five-year survival below 13\%; the
+perioperative daraxonrasib regimen, its once-daily oral administration, the
+protocol-mandated operative pause, and the toxicities characteristic of the RAS(ON)
+inhibitor class; and, in addition to the standard elements, an explicit and distinct
+disclosure of the on-premises LLM-directed eight-arm robotic system, its role as a
+second-opinion advisory oracle held outside the vendor kinematic stack, its
+continuous human oversight with immediate manual override, and its system-specific
+risks. The voluntary nature of participation, the right to withdraw at any time
+without penalty and without loss of any benefit to which the participant is otherwise
+entitled, and the maintenance of confidentiality under the HIPAA Safe Harbor
+de-identification method are stated at consent and reaffirmed at each contact.
+
+The consent form addresses the therapeutic misconception directly. Because the
+population is vulnerable, facing the most technically demanding curative-intent
+abdominal operation for a lethal cancer, the form and the consent conversation make
+explicit that the study is a first-in-human, dose-finding, and early-feasibility
+investigation whose primary purpose is to characterize safety and feasibility rather
+than to confer individual therapeutic benefit, and that the LLM directs no autonomous
+action. The staged-autonomy model is explained: in this Phase 1 the system operates
+only at the clinician-controlled (teleoperation or supervised) and supervised
+semiautonomous levels under continuous human oversight, full autonomy is prohibited
+consistent with 21 CFR \S 312.21(e), and any future move to higher autonomy is
+reserved for a later phase and gated by independent review. An independent consent
+monitor is used when indicated, and qualified interpreters and translated materials
+are provided so that consent is meaningful for participants with limited English
+proficiency \cite{clintrustpai,oncotrialllm}.
+
+A defining feature of this trial class is the documented Physical AI opt-out. Under
+21 CFR \S 312.60(f), as adapted for Physical AI investigations, the participant is
+offered, and may exercise, a documented right to request administration of the
+operative intervention without the Physical AI advisory layer where clinically
+feasible, without penalty and without affecting eligibility for the remainder of the
+study or for clinical care \cite{cfr312paiuni}. The participant's election or
+declination of the opt-out is recorded in the source document and the case report
+form, and the schedule of activities (Table~\ref{tab:sec05-soa}) captures that
+election at the consent visit. Where an unanticipated problem changes the risk
+profile of the combined intervention, including a relevant Physical AI safety event,
+the consent document is updated and currently enrolled participants are re-consented
+before any further study procedure, consistent with the original opt-out.
+
+\subsection{Investigator and Facilities Data}
+
+The investigation is conducted at a single academic medical center through its
+institutional multidisciplinary pancreatic-cancer program. Eligible individuals are
+identified at tumor-board review and at surgical and medical-oncology clinics, and
+the study is described to them by a member of the research team who is not the
+treating surgeon, to reduce the potential for undue influence. The site possesses an
+established high-volume pancreaticobiliary surgical service, a robotic surgical
+program, an investigational-product pharmacy with controlled, temperature-monitored
+storage and a drug-accountability log, an anatomic-pathology service applying a
+standardized synoptic margin protocol with masked independent adjudication, a central
+imaging capability for RECIST version 1.1 reads by a blinded reviewer, and the
+clinical laboratory capacity for the serum daraxonrasib trough assay and the
+hematologic, hepatic, renal, and pancreatic safety panels. The device facilities
+include the qualified clinical environment in which the eight-arm platform is
+maintained and calibrated between procedures, the operator control stations, the
+on-premises compute environment that hosts the repository-pinned advisory LLM in
+network isolation from the vendor kinematic stack under a deny-by-default
+authentication and authorization model, and the 21 CFR part 11 records environment
+that maintains the hash-chained, append-only audit trail. Day-to-day monitoring is
+delegated to a robotics- and artificial-intelligence-competent clinical research
+organization (CRO) over the site team, which comprises the operating surgeon, a
+primary operator, and a qualified backup operator ready to assume control or invoke
+the manual override at any time \cite{onpremwhippl,paisitedocpk}.
+
+The governance structure that supervises these investigators and facilities is the
+three-tier oversight architecture described in \S 6.1: the Sponsor-Investigator
+answers to a reviewing IRB and to the independent DSMB, convenes the Physical AI
+Safety Review Committee on a cadence not exceeding 90 days, designates the
+Independent Safety Monitor for each procedure, and delegates monitoring to the CRO.
+Figure~20 presents the governance and safety-oversight structure that binds the
+investigators, the facilities, and the independent reviewers together.
+
+\begin{mermaidfig}
+\node[mmgoal] (si)  at (4.2,0)       {Sponsor-Investigator\\ChemicalQDevice};
+\node[mmstep] (irb) at (0,-2.6)      {Reviewing IRB\\SR device + IND};
+\node[mmstep] (dsmb) at (4.2,-2.6)   {Data and Safety\\Monitoring Board\\(halt authority)};
+\node[mmstep] (pais) at (8.4,-2.6)   {Physical AI Safety\\Review Committee\\$\leq 90$-day cadence};
+\node[mmin]  (cro)  at (-1.0,-5.2)   {CRO / clinical\\monitor (robotics\\+ AI competent)};
+\node[mmstep] (ism) at (8.4,-5.2)    {Independent Safety\\Monitor (per\\procedure, stop authority)};
+\node[mmin]  (site) at (4.2,-7.4)    {Site team: surgeon,\\operator, backup\\operator};
+\draw[mmedge] (si) -- (irb.north);
+\draw[mmedge] (si) -- (dsmb);
+\draw[mmedge] (si) -- (pais.north);
+\draw[mmedge] (si) to[out=180,in=90,looseness=0.7] (cro.north);
+\draw[mmedge] (cro) to[out=-90,in=180,looseness=0.7] (site.west);
+\draw[mmedged] (dsmb) -- node[mmlabel,pos=0.55]{stop / continue} (site.north);
+\draw[mmedged] (pais) -- node[mmlabel,pos=0.5]{USL changes} (ism.north);
+\draw[mmedged] (ism) to[out=-90,in=0,looseness=0.7] (site.east);
+\end{mermaidfig}
+\figcaption{Figure 20. Study governance and safety oversight. The
+Sponsor-Investigator answers to the reviewing IRB and the DSMB (halt authority),
+convenes a Physical AI Safety Review Committee on a cadence not exceeding 90 days,
+designates an Independent Safety Monitor (per-procedure, stop authority), and
+delegates monitoring to a robotics- and AI-competent CRO over the site team (surgeon,
+operator, and a qualified backup operator).}
+
+\subsubsection{FDA Form 1572}
+
+A Statement of Investigator (FDA Form 1572) is executed by each investigator
+responsible for the conduct of the study at the clinical site, in satisfaction of
+21 CFR \S 312.53(c), and is assembled with the submission together with the
+investigator's current curriculum vitae and the documentation of relevant
+qualifications. The executed Form 1572 attests that the investigator has the
+training and experience to assume responsibility for the proper conduct of the
+investigation, identifies the name and address of the clinical site and of the
+clinical laboratory and other facilities to be used, names the reviewing IRB
+responsible for review and approval of the study, lists the sub-investigators (the
+operating surgeon, the primary and backup device operators, the medical oncologist,
+the pathologist, and the research coordinators) who will assist in the conduct of
+the investigation, and identifies the protocol by its title and version. By signing,
+the investigator commits to conduct the study in accordance with the protocol, to
+personally conduct or supervise the investigation, to inform participants that the
+drug and device are being used for investigational purposes and to ensure that
+consent and IRB requirements are met, to report adverse events to the sponsor in
+accordance with 21 CFR \S 312.64, to read and understand the investigator's brochure
+and the Physical AI System Description, to ensure that all associates and staff are
+informed of their obligations, to maintain adequate and accurate records available
+for inspection under 21 CFR \S 312.68, and to comply with all other requirements of
+21 CFR part 312. The executed forms, with attachments, are bound into the submission
+and are updated whenever a sub-investigator or facility changes \cite{phase1guidance}.
+
+\subsubsection{Disclosure of Financial Interests}
+
+Financial interests are disclosed and managed in accordance with 21 CFR part 54,
+Financial Disclosure by Clinical Investigators, and the certification and disclosure
+statements (FDA Forms 3454 and 3455 as applicable) are collected before participation
+and updated through one year after completion of the study. The disclosure makes
+explicit the principal conflict of interest in this investigation: the
+Sponsor-Investigator, Kevin Kawchak, is the chief executive officer of
+ChemicalQDevice, the entity that develops the on-premises LLM-directed eight-arm
+robotic Physical AI system under study and holds the combined IND and IDE. This
+relationship is disclosed in full to the FDA and to the reviewing IRB, and it is
+managed by the independent oversight structure described in \S 6.3 so that safety and
+escalation decisions are not made by a party with a financial interest in the outcome
+alone \cite{cfr312paiuni,clintrustpai}.
+
+The mitigation is structural and operates at every decision point that could be
+influenced by the conflict. The DSMB, composed of members independent of the conduct
+of the study with surgical, oncologic, biostatistical, and device-safety expertise,
+holds the binding halt authority and applies the prespecified halt rules (a device-
+or procedure-related serious adverse event in at least one of three participants
+within a cohort, or two device-related deaths at any time). The Independent Safety
+Monitor, designated for each procedure and independent of the operating team, holds
+real-time stop authority at the case level. The Physical AI Safety Review Committee
+reviews the autonomy-bearing behavior of the system, the verification-before-generation
+gate-surface decisions, the USL rating, and any software change on a cadence not
+exceeding 90 days, and recommends USL reassessment or oversight changes. Routine
+monitoring is delegated to a CRO independent of the device manufacturer, and audits
+may be conducted by a designee independent of the conduct of the study. Because the
+binding safety, escalation, and halt decisions rest with these independent bodies
+rather than with the Sponsor-Investigator, the financial conflict is disclosed and
+mitigated to a degree commensurate with the first-in-human, autonomy-bearing nature
+of the investigation, and any identified conflict is disclosed and managed before it
+can affect the conduct, analysis, or reporting of the study \cite{daraxwhipple}.
