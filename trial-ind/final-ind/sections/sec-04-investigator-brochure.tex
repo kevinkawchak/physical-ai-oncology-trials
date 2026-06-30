@@ -1,0 +1,688 @@
+% sec-04-investigator-brochure.tex - Investigator Brochure (final IND)
+% Phase 1 PDAC IND: AI Generation. IND v1.0; repository v4.3.0.
+\section{Investigator Brochure}
+
+This section is the investigational new drug (IND) level summary of the
+Investigator's Brochure (IB) for the large language model (LLM) directed eight-arm
+robotic pancreaticoduodenectomy with perioperative daraxonrasib Phase 1 study. It is
+provided here as a clearly labeled supporting document under 21 CFR
+\S 312.23(a)(5) and \S 312.55, drawing together, in one place and at IND-summary
+depth, the physical, chemical, and pharmaceutical properties of the
+investigational drug daraxonrasib (RMC-6236); the available nonclinical
+pharmacology, pharmacokinetics, and toxicology that underpin the conservative
+160 mg first-in-human starting dose; a full description of the investigational
+eight-arm collaborative surgical device (56 degrees of freedom, 640 sensor
+channels, the per-arm and cumulative force caps, the layered emergency-stop chain,
+and the five-vessel no-fly gate); and a structured summary of the data with
+explicit guidance for the investigator. The full, standalone Investigator's
+Brochure is a separate bound document submitted with this IND and incorporated by
+reference; the present section is the IND-level synopsis and the pointer to that
+document, consistent with the ReGARDD convention of using a distinct section to
+indicate and include a supporting document. The clinical-conduct detail that the
+IB summarizes is carried in the study protocol (\S 6 of this IND), the chemistry,
+manufacturing, and control information (\S 7), and the pharmacology and
+toxicology information (\S 8), and the investigator is directed to those sections
+and to the bound IB for the controlling text \cite{phase1guidance,daraxwhipple}.
+
+The Investigator's Brochure occupies a defined place in the architecture of an
+IND. Under 21 CFR \S 312.23(a)(5) the sponsor must furnish, for a study to be
+conducted by an investigator other than the sponsor, a copy of the IB; and under
+21 CFR \S 312.55 the sponsor must give each participating investigator a current
+brochure and must keep each investigator informed of new safety information as it
+emerges. The brochure is, in the language of the International Council for
+Harmonisation (ICH) E6(R3) Good Clinical Practice guideline, a compilation of the
+clinical and nonclinical data on the investigational article that are relevant to
+its study in human subjects, assembled to provide the investigators and others
+involved in the trial with the information needed to understand the rationale for,
+and to comply with, the key features of the protocol. For a combined drug-device
+intervention of the kind studied here the brochure must do double duty, providing
+the reference safety information for both the drug evaluated under 21 CFR part 312
+and the device evaluated under 21 CFR part 812, and the present section is written
+to reflect that dual structure throughout \cite{ichpaistduni,cfr312paiuni}.
+
+\subsection*{Supporting Document Status and Scope}
+
+The Investigator's Brochure assembles, for the clinical investigator and the
+reviewing institutional review board (IRB), all reference safety and efficacy
+information needed to conduct the study and to assess the expectedness of adverse
+events. Because the intervention has two inseparable components, an investigational
+drug evaluated under 21 CFR part 312 and an investigational device evaluated under
+21 CFR part 812 in a single combined IND and investigational device exemption (IDE)
+submission, the IB has two coordinated parts: the daraxonrasib drug brochure and a
+Physical AI device supplement that functions as the reference safety information for
+the device and the on-premises advisory large language model. An adverse event is
+judged unexpected, and therefore potentially reportable on an expedited timeline,
+when it is not listed at the observed specificity or severity in the daraxonrasib
+IB (for drug events) or in the Physical AI supplement and System Description (for
+device events), as specified in \S 8 of this IND and in the protocol assessment
+section. The IB is reviewed and reissued at least annually and whenever new safety
+information materially changes the risk profile, and currently enrolled
+participants are re-consented when such a change occurs. The version of the IB in
+effect at the time of each procedure is recorded in the case report form so that
+expectedness determinations are traceable to a fixed reference text
+\cite{daraxwhipple,cfr312paiuni}.
+
+The scope of this section is deliberately bounded. It is the IND-level synopsis
+of the brochure and the formal pointer to the bound document; it is not the
+controlling clinical-conduct text, which is the protocol (\S 6), and it is not the
+controlling chemistry or nonclinical text, which is carried in the chemistry,
+manufacturing, and control information (\S 7) and the pharmacology and toxicology
+information (\S 8). Where this synopsis and any of those modules might appear to
+differ, the bound IB and the cited module govern, and the values restated here are
+restated precisely so that no discrepancy arises. The brochure and this synopsis
+share one internally consistent set of quantitative facts: the three protocol dose
+levels of 160 mg, 220 mg, and 300 mg once daily; the 28-day dose-limiting toxicity
+(DLT) observation window; the 0.5 ng/mL serum trough threshold that governs the
+perioperative pause-and-restart advisory; and the device safety envelope with its
+3 N per-arm and 18 N cumulative tip-force caps, its 10 kHz heartbeat coordination
+bus, its layered emergency-stop chain, and its five-vessel no-fly gate. These
+values appear once in the brochure and are carried forward unchanged into every
+module of the IND \cite{daraxwhipple,onpremwhippl}.
+
+The composition of the initial IND and IRB package into which this brochure is
+bound is shown in Figure 14. The clinical protocol, the Investigator's Brochure,
+the nonclinical, chemistry, and stability data, the informed consent and
+recruitment materials, the investigator forms (FDA Forms 1571, 1572, and 3674),
+and the safety information are assembled into one internally consistent package
+whose submission starts the fixed 30-day review clock of 21 CFR \S 312.40(b).
+Faster, internally consistent assembly starts that clock and all participating
+sites sooner, but it cannot shorten the statutory 30-day period and it cannot
+generate toxicology or stability data that do not exist; the brochure is one
+indispensable component of that package and is the reference safety text against
+which every adverse event is later judged \cite{phase1guidance,paisitedocpk}.
+
+\needspace{8\baselineskip}
+\begin{mermaidfig}
+\node[mmgoal] (pkg)  at (5.2,0)       {Initial IND + IRB package\\(highest schedule value)};
+\node[mmin]   (p)    at (-1.0,2.6)    {Clinical protocol\\(Phase 1, 3+3, n=18)};
+\node[mmin]   (ib)   at (3.4,2.6)     {Investigator's\\Brochure};
+\node[mmin]   (nc)   at (7.8,2.6)     {Nonclinical, CMC,\\stability};
+\node[mmin]   (icf)  at (-1.0,-2.6)   {ICF + recruitment\\(Physical AI opt-out)};
+\node[mmin]   (form) at (3.4,-2.6)    {Investigator forms\\1571 / 1572 / 3674};
+\node[mmin]   (safe) at (7.8,-2.6)    {Safety\\information};
+\node[mmproc] (clk)  at (5.2,-5.4)    {30-day FDA clock\\starts at submission};
+\node[mmaccent] (acc) at (1.4,-7.8)   {Faster assembly starts\\the clock and all\\sites sooner};
+\node[mmdec]  (lim)  at (9.0,-7.8)    {Cannot shorten 30 days\\or create missing\\toxicology / stability};
+\draw[mmedge] (p)   -- (pkg);
+\draw[mmedge] (ib)  -- (pkg);
+\draw[mmedge] (nc)  to[out=-90,in=40,looseness=0.5] (clk.north east);
+\draw[mmedge] (icf) -- (pkg);
+\draw[mmedge] (form) to[out=-90,in=140,looseness=0.5] (clk.north west);
+\draw[mmedge] (safe) to[out=-90,in=60,looseness=0.5] (clk.north east);
+\draw[mmedge] (pkg) -- (clk);
+\draw[mmedge] (clk) -- (acc);
+\draw[mmedge] (clk) -- (lim);
+\end{mermaidfig}
+\figcaption{Figure 14. Composition of the initial IND and IRB package. The clinical
+protocol, the Investigator's Brochure, the nonclinical, chemistry, and stability
+data, the informed consent and recruitment materials, the investigator forms (1571,
+1572, 3674), and the safety information are assembled into one internally consistent
+package. Faster, internally consistent assembly starts the 30-day FDA clock of
+21 CFR \S 312.40(b) and all participating sites sooner but cannot shorten the fixed
+period or generate missing toxicology or stability data.}
+
+\subsection*{Physical, Chemical, and Pharmaceutical Properties of Daraxonrasib}
+
+Daraxonrasib (development code RMC-6236) is an orally bioavailable, small-molecule,
+RAS(ON) multi-selective (pan-RAS) inhibitor. Its pharmacological mechanism is a
+tri-complex mode of action: the molecule binds the active, guanosine triphosphate
+(GTP) bound conformation of mutant RAS in a ternary complex with the abundant
+intracellular chaperone cyclophilin A, and in doing so it sterically and
+allosterically blocks the engagement of downstream effectors, suppressing the
+mitogen-activated protein kinase (MAPK) and phosphoinositide 3-kinase (PI3K)
+signaling that drives pancreatic ductal adenocarcinoma (PDAC). Because it targets
+the shared GTP-bound state rather than a single codon substitution, daraxonrasib is
+active across the spectrum of common oncogenic KRAS variants relevant to PDAC,
+including the G12D, G12V, and G12R substitutions that define the eligible population
+of this study. The agent is administered as an oral tablet, once daily, and is
+supplied in the strengths required to compose the three protocol dose levels of
+160 mg, 220 mg, and 300 mg once daily. Tablets are swallowed whole with water and
+are not crushed, split, or chewed; they are packaged in child-resistant,
+light-protective containers labeled under 21 CFR \S 312.6 with the
+investigational-use caution statement, the protocol number, the lot number, and the
+storage conditions, and are stored at controlled room temperature in a secured,
+temperature-monitored, access-controlled location until dispensed. The detailed
+chemistry, manufacturing, and control characterization of the drug substance and
+drug product, including appearance, composition, container-closure system, and the
+stability program that governs the labeled expiry, is provided in \S 7 of this IND;
+the present summary restates only the properties most relevant to the investigator
+at the point of care \cite{daraxwhipple,pdac060s2030}.
+
+The properties most material to the investigator are collected in Table 5.1. The
+distinguishing pharmacological feature of daraxonrasib relative to mutation-selective
+KRAS inhibitors is its breadth: a single agent addresses the three KRAS G12 variants
+that together account for the great majority of PDAC, removing the need to genotype
+to a single allele before treatment and matching the agent to the broad pan-KRAS
+eligibility of the RASolute 302 program from which the protocol dose assumptions are
+drawn. The mechanistic class, the route, the schedule, the dose levels, and the
+clinical-context investigational status are stated together so that the investigator
+can read the drug's identity and its place in this study from a single tabulation
+\cite{daraxwhipple,natlpaiplatf}.
+
+\needspace{10\baselineskip}
+\begin{table}[t]
+\caption{Daraxonrasib (RMC-6236) physical, chemical, and pharmaceutical properties material to the investigator.}
+\label{tab:sec04-drugprops}
+\centering
+\begin{tabularx}{\textwidth}{L{4.0cm} Y}
+\toprule
+\textbf{Property} & \textbf{Description} \\
+\midrule
+Development code & RMC-6236 \\
+Pharmacological class & Oral RAS(ON) multi-selective (pan-RAS) small-molecule inhibitor \\
+Molecular mechanism & Tri-complex inhibitor: binds the GTP-bound active conformation of mutant RAS in a ternary complex with cyclophilin A, blocking effector engagement and suppressing MAPK and PI3K signaling \\
+KRAS variant coverage & Active across common oncogenic KRAS codon-12 variants, including G12D, G12V, and G12R (the eligible PDAC genotypes) \\
+Dosage form & Oral tablet, swallowed whole with water; not crushed, split, or chewed \\
+Route and schedule & Oral, once daily (continuous, except across the protocol perioperative pause) \\
+Protocol dose levels & 160 mg, 220 mg, and 300 mg once daily (DL1, DL2, DL3) \\
+Storage and packaging & Child-resistant, light-protective containers; controlled room temperature; secured, temperature-monitored, access-controlled \\
+Investigational-use labeling & 21 CFR \S 312.6 caution statement, protocol number, lot number, storage conditions \\
+Regulatory standing & FDA Breakthrough Therapy (June 2025) for previously treated metastatic PDAC with KRAS G12; investigational in the perioperative curative-intent surgical context here \\
+\bottomrule
+\end{tabularx}
+\figcaption{Table 5.1. Physical, chemical, and pharmaceutical properties of
+daraxonrasib restated at IND-summary depth; the controlling chemistry,
+manufacturing, and control text is in \S 7 of this IND and in the bound IB.}
+\end{table}
+
+The clinical and regulatory standing of daraxonrasib supports its use as the drug
+component of this first-in-human perioperative study. The agent received FDA
+Breakthrough Therapy designation in June 2025 for previously treated metastatic
+PDAC harboring a KRAS G12 mutation, and the dose and exposure assumptions of this
+protocol are anchored to the pan-KRAS RASolute 302 program, in which 300 mg once
+daily is the established recommended Phase 2 dose (RP2D). In the present study the
+drug is investigational specifically in the perioperative, curative-intent
+surgical context and for its use in combination with the investigational device;
+the escalation deliberately begins one and two steps below the established RP2D to
+preserve a conservative first-in-human margin in this new clinical setting
+\cite{daraxwhipple,natlpaiplatf}.
+
+The dose levels and their relationship to the established RP2D are worth making
+explicit because the entire first-in-human safety argument rests on them. The
+three dose levels are DL1 at 160 mg once daily, DL2 at 220 mg once daily, and DL3
+at 300 mg once daily, with the highest level set equal to the established RASolute
+302 RP2D. The intermediate level represents an increment of 60 mg, or about
+37.5 percent, above the starting dose, and the top level a further increment of
+80 mg, or about 36.4 percent, above the intermediate level. The starting dose of
+160 mg is therefore about 53.3 percent of the established RP2D, leaving roughly a
+factor of 1.9 between first exposure in this surgical setting and the dose already
+characterized for safety in the metastatic program. That margin is intentional: in
+the perioperative window the drug is paused before surgery and restarted only on a
+fistula-grade-keyed and trough-keyed schedule, so the conservative starting dose
+protects the participant during the period of greatest physiologic stress while the
+3+3 escalation establishes the maximum tolerated dose (MTD) and the RP2D in this new
+context \cite{daraxwhipple,oncotrialllm}.
+
+\subsection*{Nonclinical Pharmacology, Pharmacokinetics, and Toxicology}
+
+The pharmacology of daraxonrasib is summarized in \S 8.1.1 of this IND and rests on
+the RAS(ON) tri-complex mechanism described above: selective engagement of the
+GTP-bound mutant RAS in complex with cyclophilin A, with downstream suppression of
+effector signaling and consequent antiproliferative and pro-apoptotic activity in
+KRAS-mutant PDAC models. Drug distribution and pharmacodynamics support a
+once-daily oral schedule with sustained target coverage. The pharmacokinetic
+behavior most relevant to this protocol is the relationship between the daily dose,
+the serum trough concentration, and the 0.5 ng/mL trough threshold that governs the
+perioperative pause-and-restart advisory. A 32-iteration deterministic
+pharmacokinetic sweep, performed to characterize the perioperative window,
+returned a baseline serum daraxonrasib concentration of 0.45 ng/mL at the operative
+timepoint across all 32 iterations, that is, below the 0.5 ng/mL trough threshold
+in every iteration, consistent with the protocol-mandated pre-operative pause; the
+advisory then recommended a postoperative restart on day T+7 in 29 of 32 iterations
+(90.6 percent, corresponding to a Grade A fistula with a sub-threshold trough),
+on day T+14 in 3 of 32 iterations (9.4 percent, corresponding to a Grade B or
+delayed serum rise), and on day T+21 in 0 of 32 iterations. This sweep is
+described in the study protocol (\S 6 of this IND) and is summarized in \S 8 and
+\S 3.4 \cite{qspmetpancre,fdadigtwinpc,pdacdigtwinp}.
+
+The perioperative sweep deserves a worked reading because it is the quantitative
+backbone of the restart advisory. The baseline serum concentration of 0.45 ng/mL at
+the operative timepoint sits 0.05 ng/mL, or 10 percent, below the 0.5 ng/mL
+threshold, and it does so in all 32 of 32 iterations rather than on average; the
+sub-threshold finding is therefore robust to the parameter variation the sweep
+explores, which is exactly the property a perioperative pause rule needs. The
+restart-day distribution of 29 iterations at T+7, 3 iterations at T+14, and 0
+iterations at T+21 maps directly onto the fistula-grade logic: the common case is a
+Grade A fistula with a sub-threshold trough, which the advisory resolves to the
+earliest safe restart at day T+7, while the minority case of a Grade B or
+delayed-rise trajectory defers the restart to day T+14, and no iteration in this
+deterministic sweep reached the T+21 tier, which is reserved for the slower
+trajectories and, with a Grade C fistula, maps instead to a continued hold and to
+the drug stopping rule. Table 5.2 lays the sweep out so that the advisory's behavior
+can be read at a glance \cite{qspmetpancre,fdadigtwinpc,pdacdigtwinp}.
+
+\needspace{9\baselineskip}
+\begin{table}[t]
+\caption{32-iteration deterministic perioperative pharmacokinetic sweep and the resulting restart-day distribution.}
+\label{tab:sec04-sweep}
+\centering
+\begin{tabularx}{\textwidth}{L{4.6cm} C{2.4cm} C{2.0cm} Y}
+\toprule
+\textbf{Restart tier} & \textbf{Iterations} & \textbf{Share} & \textbf{Clinical correlate} \\
+\midrule
+Baseline at operative timepoint & 32 of 32 & 100\% & Serum 0.45 ng/mL, below the 0.5 ng/mL threshold in every iteration; supports the pre-operative pause \\
+Restart day T+7 & 29 of 32 & 90.6\% & Grade A fistula with a sub-threshold trough; earliest safe restart \\
+Restart day T+14 & 3 of 32 & 9.4\% & Grade B fistula or a delayed serum rise; restart deferred one week \\
+Restart day T+21 & 0 of 32 & 0\% & Reserved for slower trajectories; with a Grade C fistula maps to a continued hold and the stopping rule \\
+\bottomrule
+\end{tabularx}
+\figcaption{Table 5.2. The deterministic perioperative pharmacokinetic sweep
+underpinning the pause-and-restart advisory. The baseline serum concentration of
+0.45 ng/mL falls below the 0.5 ng/mL trough threshold in all 32 iterations, and the
+restart day is keyed to the pancreaticojejunostomy ISGPS fistula grade and the serum
+trough; the controlling text is the protocol (\S 6) and \S 8 of this IND.}
+\end{table}
+
+The toxicology integrated summary (\S 8.1.2) states the safety margins that
+underpin the conservative DL1 160 mg first-in-human starting dose. The class
+toxicity profile of RAS(ON) multi-selective inhibition is dominated by
+gastrointestinal effects (diarrhea, nausea) and dermatologic effects (rash), which
+are managed symptomatically and through the protocol dose-interruption and
+dose-reduction rules; rescue management of these class effects, including
+antidiarrheals and aggressive dermatologic care, is specified in the protocol. The
+160 mg starting dose sits a full step below the 220 mg intermediate level and two
+steps below the 300 mg established RP2D, providing a deliberate margin for the
+perioperative surgical setting in which the drug is paused across the operative
+window and restarted only on a fistula-grade-keyed and trough-keyed schedule. The
+full data tabulation (\S 8.1.3) tabulates the supporting studies; for this
+AI-generated submission the supporting nonclinical and in silico evidence base
+includes the author's quantitative-systems-pharmacology metastatic-PDAC simulation
+with verification, validation, and uncertainty quantification; the artificial
+intelligence digital-twin PDAC simulations; the 100,000-patient in silico Phase 3
+five-arm PDAC evaluation; and the end-to-end PDAC digital-twin trial work, each
+grounded in the references identified in the figure below. The pharmacology and
+toxicology integrated-summary structure that organizes \S 8 is reproduced in
+Figure 13 \cite{qspmetpancre,fdadigtwinpc,pdacdigtwinp,chatgpt100kp}.
+
+The class toxicity profile is the reference against which drug-related expectedness
+is judged, so the investigator should hold it clearly in mind. The dominant events
+are gastrointestinal (diarrhea and nausea) and dermatologic (rash), and these are
+anticipated, dose-related, and reversible with the protocol management rules; their
+appearance at the listed severities is expected and does not by itself trigger
+expedited reporting, whereas an event that is not listed at the observed specificity
+or severity in the daraxonrasib IB is unexpected and is assessed against the 7-day
+and 15-day clocks of 21 CFR \S 312.32. Management proceeds through symptomatic
+care, dose interruption, and, if a DLT-defining event occurs within the 28-day
+window, the dose-reduction and 3+3 cohort rules; antidiarrheals and aggressive
+dermatologic care are deployed early to keep these class effects below the severity
+at which they would interrupt dosing. Table 5.3 sets out the class effects, their
+expected behavior, and the management pathway so that the investigator can
+distinguish an expected, manageable class effect from a reportable unexpected event
+\cite{daraxwhipple,ichpaistduni}.
+
+\needspace{9\baselineskip}
+\begin{table}[t]
+\caption{Daraxonrasib class toxicity profile, expectedness reference, and protocol management pathway.}
+\label{tab:sec04-tox}
+\centering
+\begin{tabularx}{\textwidth}{L{3.4cm} L{4.0cm} Y}
+\toprule
+\textbf{Class effect} & \textbf{Expected behavior} & \textbf{Management and reporting reference} \\
+\midrule
+Diarrhea & Common, dose-related, reversible; listed in the daraxonrasib IB & Early antidiarrheals; dose interruption if severe; a DLT-defining event in the 28-day window engages the 3+3 dose-reduction rules \\
+Nausea & Common, dose-related; listed in the IB & Antiemetic prophylaxis and treatment; dose interruption if severe; graded by CTCAE v5.0 \\
+Rash (dermatologic) & Common, dose-related; listed in the IB & Aggressive dermatologic care begun early; dose interruption if severe; reduction per protocol \\
+Unlisted event & Not listed at the observed specificity or severity & Unexpected; assess against 21 CFR \S 312.32 (7-day fatal or life-threatening; 15-day other serious and unexpected) \\
+\bottomrule
+\end{tabularx}
+\figcaption{Table 5.3. The drug class toxicity profile that serves as the
+expectedness reference for daraxonrasib. Gastrointestinal and dermatologic events at
+the listed severities are expected and managed per protocol; an event not listed at
+the observed specificity or severity is unexpected and is assessed against the
+regulatory reporting clocks.}
+\end{table}
+
+\needspace{8\baselineskip}
+\begin{mermaidfig}
+\node[mmgoal] (pt)    at (5.2,0)      {Pharmacology and\\Toxicology (\S 8)};
+\node[mmproc] (ph)    at (0,-2.6)     {8.1.1 Pharmacology\\summary and\\conclusions};
+\node[mmproc] (tx)    at (5.2,-2.6)   {8.1.2 Toxicology:\\integrated summary};
+\node[mmproc] (ft)    at (10.4,-2.6)  {8.1.3 Toxicology:\\full data tabulation};
+\node[mmin]   (pd)    at (-3.2,-5.4)  {Mechanism,\\distribution, RAS(ON)\\pharmacodynamics};
+\node[mmin]   (dsim)  at (1.2,-5.4)   {Digital-twin and QSP\\simulation evidence};
+\node[mmin]   (safem) at (5.6,-5.4)   {Safety margins; DL1\\160 mg conservative\\first-in-human};
+\node[mmin]   (sweep) at (10.4,-5.4)  {32-iteration\\perioperative PK sweep\\(0.45 ng/mL baseline)};
+\draw[mmedge] (pt) -- (ph);
+\draw[mmedge] (pt) -- (tx);
+\draw[mmedge] (pt) -- (ft);
+\draw[mmedge] (ph) -- (pd);
+\draw[mmedge] (ph) to[out=-35,in=120,looseness=0.6] (dsim.north);
+\draw[mmedge] (tx) -- (safem);
+\draw[mmedge] (ft) -- (sweep);
+\end{mermaidfig}
+\figcaption{Figure 13. The pharmacology and toxicology integrated-summary structure
+for \S 8. The pharmacology summary covers the RAS(ON) mechanism, drug distribution,
+and pharmacodynamics; the integrated toxicology summary states the safety margins
+underpinning the conservative DL1 160 mg first-in-human starting dose; and the full
+data tabulation tabulates the supporting studies, here grounded in the author's
+digital-twin and quantitative-systems-pharmacology simulation evidence and the
+32-iteration perioperative pharmacokinetic sweep (0.45 ng/mL baseline serum trough
+at the operative timepoint across all iterations).}
+
+The supporting in silico evidence base named in the full data tabulation deserves to
+be enumerated because it is the principal nonclinical foundation of this
+AI-generated submission. The quantitative-systems-pharmacology metastatic-PDAC
+simulation supplies a mechanistic model of drug exposure and effect with explicit
+verification, validation, and uncertainty quantification; the artificial-intelligence
+digital-twin PDAC simulations supply patient-level trajectory modeling that informs
+the perioperative window; the 100,000-patient in silico Phase 3 five-arm PDAC
+evaluation supplies a large-scale comparative-effectiveness context; and the
+end-to-end PDAC digital-twin trial work supplies the integrated trial-simulation
+framework from which the perioperative sweep is drawn. Each is a computational rather
+than a wet-laboratory study, and the brochure presents it as such; the reviewer is
+directed to \S 8.1.3 for the full tabulation and to the cited records for the
+underlying methods and results \cite{qspmetpancre,fdadigtwinpc,chatgpt100kp,pdacdigtwinp}.
+
+\subsection*{Investigational Device Description: the Eight-Arm Robotic System}
+
+The investigational device is an on-premises, LLM-directed, eight-arm parallel
+coelomic surgical platform that conducts the pancreaticoduodenectomy and generates
+the operative and pathology inputs to the perioperative drug-restart advisory. The
+on-premises, repository-pinned LLM acts strictly as a second-opinion advisory
+oracle held outside the robot vendor kinematic stack and is never an autonomous
+controller; full autonomy is prohibited consistent with 21 CFR \S 312.21(e), and
+in this Phase 1 study the device operates only at the clinician-controlled
+teleoperated and supervised semiautonomous autonomy levels under continuous human
+oversight with immediate manual override. The platform carries 56 mechanical
+degrees of freedom, composed of eight arms with seven degrees of freedom each
+(8 multiplied by 7), and a 640-channel mixed-rate sensor stack of 80 channels per
+arm. Force channels sample at 100 kHz and all remaining channels sample at the
+10 kHz command rate. Positioning accuracy is 0.05 mm root mean square at a peak tip
+velocity of 1,200 mm/s. The cyber-physical safety envelope comprises a per-arm
+tip-force cap of no more than 3 N and a cumulative cross-arm tip-force cap of no
+more than 18 N enforced at the heartbeat boundary; a 10 kHz heartbeat coordination
+bus broadcasting a 64-byte frame on a 100 microsecond per-arm watchdog deadline; an
+emergency arm park within 50 microseconds of a missed or out-of-parameter frame; a
+cross-arm emergency stop (E-stop) that halts the full platform within 3 ms at a
+0.0 N force clamp; and a software-independent hardware E-stop that meets the 21 CFR
+\S 312.404 requirement of no more than 500 ms. The device specifications are
+summarized in Table 5.4, and the layered safety envelope, including the five-vessel
+no-fly gate, is summarized in Table 5.5 \cite{daraxwhipple,onpremwhippl}.
+
+The numeric structure of the platform is internally consistent and worth stating as
+an arithmetic identity: the 56 mechanical degrees of freedom are exactly eight arms
+multiplied by seven degrees of freedom per arm, and the 640 sensor channels are
+exactly eight arms multiplied by 80 channels per arm. The mixed-rate sensing
+partitions cleanly: the force channels, which carry the per-arm and cumulative
+tip-force signals that the safety caps police, sample at 100 kHz, a factor of ten
+faster than the 10 kHz command rate at which the remaining channels and the
+heartbeat coordination bus operate. That ten-to-one ratio is deliberate, because
+force is the physical quantity whose excursion must be caught fastest. The
+positioning accuracy of 0.05 mm root mean square is maintained at a peak tip velocity
+of 1,200 mm/s, and both are verified in the pre-procedure safety matrix at the start
+of each case rather than assumed from a prior calibration \cite{daraxwhipple,onpremwhippl}.
+
+\needspace{12\baselineskip}
+\begin{table}[t]
+\caption{Eight-arm LLM-directed robotic Whipple device specifications (Investigator's Brochure device supplement; 21 CFR \S 312.23(g) hardware fields).}
+\label{tab:sec04-device}
+\centering
+\begin{tabularx}{\textwidth}{L{4.2cm} L{4.4cm} Y}
+\toprule
+\textbf{Specification} & \textbf{Value} & \textbf{Notes} \\
+\midrule
+Architecture & Eight-arm parallel coelomic platform & On-premises LLM advisory oracle outside vendor kinematic stack \\
+Degrees of freedom & 56 total (8 arms x 7 DOF) & Cooperating arms, phase-keyed tool assignment P1 to P8 \\
+Sensor channels & 640 total (80 per arm) & Force at 100 kHz; all other channels at 10 kHz command rate \\
+Positioning accuracy & 0.05 mm RMS at 1,200 mm/s & Verified in the pre-procedure safety matrix each case \\
+Per-arm tip-force cap & 3 N maximum & Enforced continuously per arm \\
+Cumulative force cap & 18 N maximum & Enforced at the heartbeat boundary across all arms \\
+Heartbeat bus & 10 kHz, 64-byte frame & 100 microsecond per-arm watchdog deadline \\
+Emergency arm park & 50 microseconds maximum & On a missed or out-of-parameter frame \\
+Cross-arm E-stop & 3 ms maximum, 0.0 N clamp & Software escalation halting the full platform \\
+Hardware E-stop & 500 ms maximum & Software-independent; meets 21 CFR \S 312.404 \\
+Autonomy level (Phase 1) & Teleoperated / supervised & Continuous human oversight; full autonomy prohibited (\S 312.21(e)) \\
+\bottomrule
+\end{tabularx}
+\figcaption{Table 5.4. Device specifications carried in the Investigator's Brochure
+device supplement and the Physical AI System Description; the controlling
+hardware, software, and safety-system text is in \S 6 and \S 7 of this IND and in
+the bound IB.}
+\end{table}
+
+The eight cooperating arms are coordinated by the 10 kHz heartbeat bus and carry
+phase-keyed tool assignments across the eight operative phases. Phases P1 through
+P4 comprise the dissection and specimen removal: Arms 1 and 2 perform the active
+dissection under the vessel control of Arm 3 (bipolar plus retractor) and the
+near-infrared indocyanine-green imaging of Arm 4, with Arm 7 providing suction and
+irrigation throughout. The specimen is removed at the end of P4 and reconstruction
+begins. The three reconstructive anastomoses are then constructed in sequence under
+closed-loop ring-tension control by the Arm 5 anastomosis probe, which issues a
+soft warning whenever measured ring tension falls outside its controller band: the
+duct-to-mucosa pancreaticojejunostomy (PJ) in P5 with a band of 0.30 to 0.60 N, the
+end-to-side hepaticojejunostomy (HJ) in P6 with a band of 0.20 to 0.50 N, and the
+antecolic gastrojejunostomy (GJ) in P7 with a band of 0.40 to 0.80 N; P8 covers
+final imaging, hemostasis, and drain placement. The pancreaticojejunostomy is the
+dominant determinant of postoperative pancreatic-fistula risk and is therefore the
+anastomosis whose ISGPS fistula grade supplies the input to the perioperative
+drug-restart advisory \cite{daraxwhipple,paisitedocpk}.
+
+The phase-keyed tool assignment and the per-anastomosis ring-tension bands are
+collected in Table 5.6 so that the investigator can see the operative choreography
+and its closed-loop controls in one place. The three ring-tension bands are
+anastomosis-specific because the three reconstructions differ in tissue and in
+consequence: the pancreaticojejunostomy band of 0.30 to 0.60 N reflects the soft,
+friable pancreatic remnant and the fistula risk that makes this anastomosis the
+keyed input to the restart advisory; the hepaticojejunostomy band of 0.20 to 0.50 N
+reflects the thinner-walled biliary tissue; and the gastrojejunostomy band of 0.40
+to 0.80 N reflects the more robust gastric and jejunal walls. A measured tension
+outside the controller band raises a soft warning from the Arm 5 anastomosis probe
+rather than halting the platform, because a tension excursion is an advisory signal
+to the operating surgeon, not a vascular-proximity hazard; the hard halts are
+reserved for the no-fly gate and the heartbeat watchdog described below
+\cite{daraxwhipple,onpremwhippl}.
+
+\needspace{10\baselineskip}
+\begin{table}[t]
+\caption{Phase-keyed tool assignment and closed-loop ring-tension control across the eight operative phases.}
+\label{tab:sec04-phases}
+\centering
+\begin{tabularx}{\textwidth}{L{2.0cm} L{5.4cm} Y}
+\toprule
+\textbf{Phase} & \textbf{Activity and arm assignment} & \textbf{Closed-loop control} \\
+\midrule
+P1 to P4 & Dissection and specimen removal: Arms 1 and 2 dissect under Arm 3 vessel control (bipolar plus retractor) and Arm 4 near-infrared ICG imaging; Arm 7 suction and irrigation throughout & Five-vessel no-fly gate active at 10 kHz; force caps enforced; specimen removed at the end of P4 \\
+P5 (PJ) & Duct-to-mucosa pancreaticojejunostomy by the Arm 5 anastomosis probe & Ring-tension band 0.30 to 0.60 N; soft warning outside band; ISGPS grade keys the restart advisory \\
+P6 (HJ) & End-to-side hepaticojejunostomy & Ring-tension band 0.20 to 0.50 N; soft warning outside band \\
+P7 (GJ) & Antecolic gastrojejunostomy & Ring-tension band 0.40 to 0.80 N; soft warning outside band \\
+P8 & Final imaging, hemostasis, and drain placement & Imaging confirmation; no-fly gate and force caps remain active \\
+\bottomrule
+\end{tabularx}
+\figcaption{Table 5.6. The eight operative phases, the phase-keyed arm and tool
+assignment, and the per-anastomosis closed-loop ring-tension bands. The
+pancreaticojejunostomy (P5) is the dominant fistula-risk determinant and supplies
+the ISGPS grade to the perioperative drug-restart advisory.}
+\end{table}
+
+\subsection*{Safety Envelope: Force Caps, E-Stop Chain, and the No-Fly Gate}
+
+The device safety envelope is enforced before and during every procedure rather
+than reconstructed afterward. The vascular safety-zone gate ticks at 10 kHz and
+evaluates the instrument-tip proximity to each of five named vessels, the superior
+mesenteric vein (SMV), the portal vein (PV), the hepatic artery (HA), the celiac
+axis (CA), and the superior mesenteric artery (SMA), against three concentric
+thresholds: a soft-warning zone at 3.0 mm that raises an advisory but does not block
+the command, a no-fly zone that blocks the command (1.0 mm at the SMV and PV; 1.5 mm
+at the HA, CA, and SMA), and a hard-stop zone at 5.0 mm that forces a cross-arm
+E-stop within 3 ms. Across a representative 100-tick verdict sample the gate
+returned clear on 83 ticks, soft warning on 6, no-fly on 6, and hard-stop on 5,
+exercising all five vessels across all eight operative phases. The halt chain that
+backs the gate is layered: an on-time heartbeat frame continues the command state,
+whereas a missed or out-of-parameter frame parks the affected arm within 50
+microseconds and escalates to the cross-arm E-stop, and the software-independent
+hardware E-stop backs the software chain at the 500 ms outer bound. The safety
+envelope is summarized in Table 5.5 \cite{daraxwhipple,clintrustpai}.
+
+The geometry of the no-fly gate is worth stating precisely because it is
+asymmetric by design. The soft-warning radius of 3.0 mm and the hard-stop radius of
+5.0 mm are uniform across all five vessels, but the blocking no-fly radius is
+vessel-specific: 1.0 mm at the two veins (SMV and PV) and the larger 1.5 mm at the
+three arteries (HA, CA, and SMA). The arterial margin is set wider because an
+arterial injury is the more catastrophic event, so the gate blocks the command at a
+greater standoff for the hepatic artery, the celiac axis, and the superior
+mesenteric artery than for the two veins. The ordering of the three radii is fixed
+and monotone, with the hard-stop radius (5.0 mm) outside the soft-warning radius
+(3.0 mm), which in turn lies outside the blocking radius (1.0 or 1.5 mm); a tip
+approaching a vessel therefore crosses the hard-stop boundary first and triggers an
+E-stop before it could reach the blocking or warning radii, which is the
+conservative ordering a vascular-safety gate requires. The representative 100-tick
+verdict sample partitions exactly into 83 clear, 6 soft warning, 6 no-fly, and 5
+hard-stop ticks, summing to 100, and exercises all five vessels across all eight
+operative phases \cite{daraxwhipple,clintrustpai}.
+
+\needspace{11\baselineskip}
+\begin{table}[t]
+\caption{Device safety envelope: force caps, layered emergency-stop chain, and the five-vessel no-fly gate.}
+\label{tab:sec04-safety}
+\centering
+\begin{tabularx}{\textwidth}{L{3.6cm} L{4.6cm} Y}
+\toprule
+\textbf{Safety element} & \textbf{Threshold / action} & \textbf{Basis and verdict sample} \\
+\midrule
+Per-arm force cap & 3 N maximum per arm & Continuous; force channels at 100 kHz \\
+Cumulative force cap & 18 N maximum across arms & Enforced at the heartbeat boundary \\
+Heartbeat and watchdog & 10 kHz bus, 100 microsecond deadline & On-time frame continues command state \\
+Arm park & 50 microseconds maximum & Triggered by a missed or out-of-parameter frame \\
+Cross-arm E-stop & 3 ms maximum, 0.0 N clamp & Software escalation; halts full platform \\
+Hardware E-stop & 500 ms maximum & Independent of software; 21 CFR \S 312.404 \\
+Soft-warning zone & 3.0 mm, all five vessels & Advisory only; 6 of 100 ticks \\
+No-fly zone (block) & 1.0 mm SMV/PV; 1.5 mm HA/CA/SMA & Command blocked; 6 of 100 ticks \\
+Hard-stop zone & 5.0 mm, all five vessels & Forces E-stop; 5 of 100 ticks \\
+Clear verdict & Outside all zones & Command proceeds; 83 of 100 ticks \\
+\bottomrule
+\end{tabularx}
+\figcaption{Table 5.5. The cyber-physical safety envelope and the five-vessel
+no-fly gate (SMV, PV, hepatic artery, celiac axis, SMA), sampled at 10 kHz; the
+representative 100-tick verdict sample partitions into 83 clear, 6 soft warning,
+6 no-fly, and 5 hard-stop ticks. The controlling text is in the protocol assessment
+section (\S 6 and \S 8 of this IND).}
+\end{table}
+
+Every advisory command, every safety-gate verdict, every force and trajectory
+sample at the recorded rates, and every E-stop event is written to a 21 CFR part 11
+hash-chained, append-only audit trail, so that compliance with the cyber-physical
+envelope is verifiable for each case and any deviation is time-stamped and
+detectable. The audit trail also satisfies the preservation requirement from 24
+hours before to 72 hours after any reportable Physical AI adverse event. Before any
+patient-facing robotic activity, the platform must clear the Phase 0 simulation
+validation gate (a Unified Safety Level of at least 7.0; at least 1,000 simulations
+across at least two simulation frameworks; a sim-to-real trajectory gap below 2 mm;
+and a tip-force gap below 0.5 N), and the gate is re-cleared after any change. The
+on-premises LLM is hash-pinned to a deterministic seed and repository commit and is
+governed by a verification-before-generation gate suite, aligned with H.R. 9510,
+the Verification Before Generation in Physical AI Oncology Trials Act of 2026
+\cite{congress9510,clintrustpai,paiautospons}.
+
+The Phase 0 simulation validation gate is a hard precondition rather than a target,
+and its four criteria are conjunctive: the Unified Safety Level must reach at least
+7.0; at least 1,000 simulations must be run across at least two independent
+simulation frameworks; the sim-to-real trajectory gap must fall below 2 mm; and the
+sim-to-real tip-force gap must fall below 0.5 N. All four must hold simultaneously
+before any patient-facing robotic activity, and the gate is re-cleared in full after
+any change to the platform, the model, or the safety configuration, so that no
+modification is allowed to reach a patient without a fresh validation. The
+sim-to-real tolerances connect directly to the Physical AI reporting trigger for
+sim-to-real divergence: a trajectory gap beyond twice the 2 mm tolerance (that is,
+above 4 mm) or a tip-force gap beyond twice the 0.5 N tolerance (that is, above
+1.0 N) is a reportable divergence under the six Physical AI triggers of 21 CFR
+\S 312.32(g). The investigator should read the Phase 0 gate, the run-time safety
+envelope, and the reporting triggers as one continuous chain of defenses, each
+checked against a fixed numeric criterion \cite{congress9510,clintrustpai}.
+
+\subsection*{Summary of Data and Guidance for the Investigator}
+
+The investigator should treat the daraxonrasib drug brochure and the Physical AI
+device supplement as the two controlling reference texts for expectedness and risk.
+For the drug, the established 300 mg once-daily RP2D and the class toxicity profile
+(gastrointestinal and dermatologic effects) define the expected events; the study
+deliberately starts at 160 mg once daily to preserve a conservative first-in-human
+margin in the perioperative setting, and the 28-day dose-limiting toxicity window,
+the 3+3 escalation, and the dose-interruption and dose-reduction rules govern
+management. For the device, the force caps, the layered E-stop chain, and the
+five-vessel no-fly gate define the expected safety behavior; any robotic
+malfunction, AI prediction error, sensor failure, communication loss, unauthorized
+access, digital-twin divergence, or event requiring activation of the E-stop is a
+Physical AI adverse event under 21 CFR \S 312.32(f) and is assessed against this
+supplement for expectedness. The perioperative pause-and-restart advisory is
+LLM-bound and human-confirmed and never autonomous; the investigator confirms the
+restart day keyed to the pancreaticojejunostomy ISGPS fistula grade and the serum
+trough relative to 0.5 ng/mL, with a Grade C fistula mapping to T+21 or a continued
+hold and to the drug stopping rule. All adverse events are graded by CTCAE version
+5.0 and reported on the regulatory timelines (no later than 7 calendar days for an
+unexpected fatal or life-threatening suspected adverse reaction and no later than
+15 calendar days for any other serious and unexpected suspected adverse reaction),
+with the six Physical AI reporting triggers of \S 312.32(g) layered on top
+\cite{daraxwhipple,cfr312paiuni,ichpaistduni}.
+
+The six Physical AI reporting triggers of 21 CFR \S 312.32(g) layered on top of the
+ordinary drug-safety clocks are stated in Table 5.7 so that the investigator can
+match an observed device or model event to the correct reporting clock without
+ambiguity. The first trigger is a serious Physical AI adverse event, reported on the
+ordinary 7-day or 15-day clock by seriousness and expectedness; the second is a
+system-drug interaction, reported within 15 days; the third is a cybersecurity
+incident, reported within 15 days or within 7 days if there is potential for patient
+harm; the fourth is a sustained AI model degradation, defined as degradation across
+at least three consecutive procedures or at least 24 cumulative hours; the fifth is a
+sim-to-real divergence beyond twice the tolerance (trajectory above 4 mm or tip-force
+above 1.0 N); and the sixth is a digital-twin discrepancy. These triggers operate in
+addition to, not instead of, the ordinary serious-adverse-reaction reporting of
+\S 312.32(c), and the device supplement is the expectedness reference for each
+\cite{cfr312paiuni,clintrustpai,paiautospons}.
+
+\needspace{11\baselineskip}
+\begin{table}[t]
+\caption{The six Physical AI reporting triggers of 21 CFR \S 312.32(g) and their clocks, layered on the ordinary drug-safety reporting.}
+\label{tab:sec04-triggers}
+\centering
+\begin{tabularx}{\textwidth}{L{0.7cm} L{4.6cm} Y}
+\toprule
+\textbf{\#} & \textbf{Trigger} & \textbf{Reporting clock and definition} \\
+\midrule
+1 & Serious Physical AI adverse event & 7 days (unexpected fatal or life-threatening) or 15 days (other serious and unexpected), as for a drug suspected adverse reaction \\
+2 & System-drug interaction & Within 15 days \\
+3 & Cybersecurity incident & Within 15 days, or within 7 days if there is potential for patient harm \\
+4 & Sustained AI model degradation & Reportable; degradation across at least 3 consecutive procedures or at least 24 cumulative hours \\
+5 & Sim-to-real divergence & Divergence beyond twice the tolerance: trajectory above 4 mm or tip-force above 1.0 N \\
+6 & Digital-twin discrepancy & Reportable discrepancy between the digital twin and the observed system \\
+\bottomrule
+\end{tabularx}
+\figcaption{Table 5.7. The six Physical AI reporting triggers of 21 CFR
+\S 312.32(g), layered on top of the ordinary 7-day and 15-day drug-safety clocks.
+The Physical AI device supplement of the Investigator's Brochure is the
+expectedness reference against which each trigger is judged; the audit trail is
+preserved from 24 hours before to 72 hours after any reportable Physical AI adverse
+event.}
+\end{table}
+
+The categories of event that constitute a Physical AI adverse event under 21 CFR
+\S 312.32(f) are enumerated so that the investigator does not have to infer them.
+A robotic malfunction, an AI prediction error, a sensor failure, a communication
+loss, an instance of unauthorized access, a digital-twin divergence, and any event
+that requires activation of the emergency stop each constitute a Physical AI adverse
+event and each is assessed against the device supplement for expectedness. The
+audit trail is the evidentiary record for that assessment: because every advisory
+command, every gate verdict, every force and trajectory sample, and every E-stop
+event is hash-chained and append-only, the sequence of events around any reportable
+occurrence can be reconstructed exactly, and the preservation window from 24 hours
+before to 72 hours after the event ensures the relevant record survives. The
+three-tier oversight structure (the data safety monitoring board with halt
+authority, the independent safety monitor with per-procedure real-time stop
+authority, and the Physical AI Safety Review Committee on a cadence of no more than
+90 days) reviews these events, and the binding halt rules (one or more device or
+procedure serious adverse events within a cohort, or two device-related deaths at
+any time) trigger a board review and possible halt \cite{cfr312paiuni,clintrustpai,paiautospons}.
+
+The investigator is reminded that the controlling clinical-conduct text is the
+study protocol and that the present section is an IND-level summary; the full
+standalone Investigator's Brochure is a separate bound document submitted with this
+IND and is the authoritative reference safety information for both the drug and the
+device. The investigator should hold a current copy of the bound IB, record its
+version in the case report form for each procedure, and consult \S 6, \S 7, and
+\S 8 of this IND for the drug-and-device intervention detail, the chemistry,
+manufacturing, and control information, and the pharmacology and toxicology
+information that the IB summarizes. The brochure is reviewed and reissued at least
+annually and whenever new safety information materially changes the risk profile,
+and currently enrolled participants are re-consented when such a change occurs, so
+that the reference text against which every expectedness determination is made
+remains current throughout the conduct of the study
+\cite{phase1guidance,daraxwhipple,oncotrialllm}.
