@@ -141,3 +141,91 @@ Rank	Example	Type and status	URL	What to examine
 6)	FDA eCTD Module 1 example submissions	Technical submission example	FDA Module 1 example submissions￼	Shows how an “Initial IND” is represented in the electronic backbone, including application type, submission type, leaf titles, and Form 1571 placement. It illustrates publishing structure rather than scientific content.  ￼
 
 EMA states that information and documents submitted through CTIS are made available through the public portal under the revised transparency rules. Consequently, the CTIS examples are the closest public equivalents to completed CTA dossiers, though personal data and commercially confidential information may be redacted or withheld.  ￼
+
+### prompt-3
+Does the IND contain images, tables, or other types of formatting?
+
+### output-3
+Yes. An initial IND is not just plain text and is usually not one monolithic document. It is a structured collection of forms, reports, protocols, summaries, and supporting files organized in eCTD. Most narrative documents are submitted as individual searchable PDFs, with an electronic table of contents and standardized placement. Commercial INDs are subject to FDA’s eCTD requirements; eCTD is optional but encouraged for many noncommercial investigator-sponsored INDs.  ￼
+
+Common formatting inside an IND
+
+Content type	Typical examples	Where it commonly appears
+Tables	Drug-product specifications, batch analyses, stability results, formulation composition, toxicology findings, adverse-event summaries, dose calculations, inclusion/exclusion criteria, visit schedules	CMC, nonclinical summaries, protocol, Investigator’s Brochure
+Figures and graphs	PK concentration-time curves, exposure margins, dose-response plots, stability trends, toxicology charts, biomarker plots	Pharmacology/toxicology, clinical pharmacology, protocol rationale
+Study-design diagrams	Dose-escalation schema, cohort structure, sentinel-dosing sequence, expansion-cohort design, participant flow	Clinical protocol and protocol synopsis
+Process diagrams	Drug-substance manufacturing flow, drug-product manufacturing flow, analytical-control strategy, sample handling	CMC and pharmacy documentation
+Scientific images	Molecular structures, chromatograms, spectra, gel images, histopathology or microscopy images, device or container-closure photographs	CMC, analytical validation, pharmacology and toxicology
+Forms	FDA Forms 1571 and 1572, investigator information, financial disclosure forms, certifications	Administrative Module 1
+Formatted lists	Abbreviations, references, risks, stopping rules, dose-modification rules, adverse events of special interest	Protocol, Investigator’s Brochure, safety documents
+Appendices	Schedule of activities, laboratory ranges, pharmacy instructions, sample CRFs, supporting reports, references	Protocol, IB, study reports and technical sections
+Navigation formatting	Numbered headings, detailed table of contents, bookmarks, hyperlinks, cross-references, document version histories	Throughout the dossier
+
+FDA regulations explicitly require an IND table of contents and prescribe an ordered set of sections, including the investigational plan, protocols, CMC information, and pharmacology/toxicology information. The table of contents should let reviewers find material quickly.  ￼  ￼
+
+How images are handled
+
+Images are allowed, but they are usually:
+	•	embedded in the relevant searchable PDF;
+	•	numbered and captioned as figures;
+	•	referenced directly in the surrounding text;
+	•	used to communicate scientific or operational information rather than decoration;
+	•	kept legible at normal reviewer magnification.
+
+FDA’s current eCTD file-format specification says documents should be searchable PDFs and that images and other document types should generally be rendered into PDF while retaining searchable text whenever possible. JPEG and PNG are also accepted file formats in specified eCTD contexts.  ￼
+
+A scanned, image-only document should generally be avoided when a text-based PDF can be produced. For example, a manufacturing-flow diagram can be graphical, but its labels should remain readable and preferably searchable.
+
+Representative page designs
+
+Protocol page
+
+A protocol page might contain:
+
+6.3 Dose Escalation
+
+A paragraph explaining the escalation method, followed by:
+
+Cohort	Planned dose	Participants	Escalation condition
+1	0.3 mg/kg	3–6	Escalate if fewer than 2 DLTs
+2	0.6 mg/kg	3–6	SRC review required
+3	1.2 mg/kg	3–6	PK and safety review
+
+Below the table could be a cohort-flow diagram showing enrollment, the DLT window, Safety Review Committee review, and the next-dose decision.
+
+CMC page
+
+A CMC section might contain:
+
+Test	Method	Acceptance criterion	Batch result
+Identity	HPLC	Conforms	Conforms
+Assay	HPLC	95.0%–105.0%	99.1%
+Impurities	HPLC	NMT specified limit	Pass
+Sterility	Compendial	No growth	Pass
+
+It may also include a manufacturing-process flowchart or stability graph.
+
+Nonclinical page
+
+A toxicology section might combine:
+	•	a study-design table;
+	•	animal exposure tables;
+	•	clinical-observation summaries;
+	•	organ-weight tables;
+	•	toxicokinetic graphs;
+	•	selected annotated histopathology images where necessary.
+
+Source file versus submitted file
+
+Internally, authors commonly prepare material in Word, Excel, statistical software, diagramming tools, or structured-content systems. The final IND submission, however, generally contains searchable published PDFs for narrative documents rather than all editable source files. Specialized datasets, metadata, and certain permitted native files may be submitted separately in their required formats. FDA also expects granular study documents to be supplied as individual PDFs and uses bookmarks and hyperlinks to facilitate review.  ￼
+
+For AI generation, a realistic IND document generator should therefore support at least:
+	1.	structured headings and numbering;
+	2.	controlled tables;
+	3.	figure and table captions;
+	4.	diagrams and flowcharts;
+	5.	citations and cross-references;
+	6.	bookmarks and hyperlinks;
+	7.	headers, footers, version numbers, and confidentiality markings;
+	8.	searchable, submission-ready PDF publication.
+
