@@ -1,0 +1,701 @@
+% sec-03-general-investigational-plan.tex - General Investigational Plan (full IND)
+% Phase 1 PDAC IND: AI Generation. IND v1.0; repository v4.3.0.
+\section{General Investigational Plan}
+
+This General Investigational Plan describes, at the level of detail required by
+21 CFR \S 312.23(a)(3)(iv), the rationale for the investigation, the indication to
+be studied, the general approach to evaluating the investigational articles, the
+trials to be conducted during the first year, the estimated number of subjects to
+be exposed, and the foreseeable drug-related and device-related risks together with
+their mitigations. The investigation is a single, integrated, first-in-human study
+of two regulated articles administered in combination: perioperative oral
+daraxonrasib (RMC-6236), an investigational pan-RAS(ON) multi-selective
+small-molecule inhibitor evaluated under the investigational new drug pathway, and
+an on-premises large language model (LLM) directed eight-arm robotic
+pancreaticoduodenectomy (Whipple) system, a significant-risk Class II collaborative
+device evaluated under the investigational device exemption pathway. The study
+carries a single protocol, a single informed consent bearing the Physical AI
+opt-out, and a single three-tier safety governance structure. The plan that follows
+is intentionally quantitative so that the reviewer can assess the design, the dose
+schedule, the operating characteristics, and the benefit-risk balance from the
+numbers themselves \cite{phase1guidance,daraxwhipple}.
+
+\subsection{Rationale}
+
+The scientific rationale rests on a population of profound unmet need and a
+mechanistically matched intervention. Pancreatic ductal adenocarcinoma (PDAC)
+remains among the most lethal of solid tumors: the five-year overall survival is
+below 13 percent, and the disease is the third leading cause of cancer death in the
+United States and the fourth in the European Union \cite{pdac060s2030}. The great
+majority of PDAC is driven by an activating KRAS mutation at codon 12, most commonly
+KRAS G12D, G12V, or G12R, and until recently this oncogenic dependency was
+considered pharmacologically intractable. Daraxonrasib (RMC-6236) is an oral
+once-daily RAS(ON) multi-selective (pan-RAS) inhibitor that binds the GTP-bound,
+active conformation of mutant RAS in a tri-complex with cyclophilin A and thereby
+suppresses downstream effector signaling through the MAPK and PI3K pathways. The
+agent received FDA Breakthrough Therapy designation in June 2025 for previously
+treated metastatic PDAC harboring a KRAS G12 mutation, and the 300 mg once-daily
+dose is the established recommended Phase 2 dose of the RASolute 302 pan-KRAS
+program \cite{daraxwhipple,oncotrialllm}. Pairing a genotype-matched systemic agent
+with a margin-negative curative-intent resection in the resectable and
+borderline-resectable setting is a scientifically coherent strategy for a disease in
+which the resection margin is the strongest modifiable determinant of survival.
+
+The second component of the rationale is the surgical platform itself. The Whipple
+operation is the most technically demanding curative-intent abdominal procedure, and
+its early morbidity is dominated by pancreatic fistula, intra-abdominal hemorrhage,
+sepsis, and failure to rescue. The investigational eight-arm robotic system is
+engineered to perform this operation within hard cyber-physical limits under
+continuous human oversight: eight arms each with seven degrees of freedom (56
+degrees of freedom total), 640 sensor channels (80 per arm) sampled at 100 kHz for
+force and 10 kHz for other modalities, a positional accuracy of 0.05 mm RMS at
+1200 mm/s, per-arm tip-force caps at or below 3 N and a cumulative cross-arm cap at
+or below 18 N, a 10 kHz safety heartbeat with a 100 microsecond watchdog, arm-park
+within 50 microseconds, a cross-arm emergency stop within 3 ms to 0.0 N, and a
+hardware emergency stop within 500 ms consistent with 21 CFR \S 312.404
+\cite{onpremwhippl,daraxwhipple}. A vascular no-fly gate continuously protects five
+named vessels (the superior mesenteric vein, portal vein, hepatic artery, celiac
+axis, and superior mesenteric artery) with a 3.0 mm advisory soft-warning zone, a
+1.0 mm no-fly zone for the superior mesenteric and portal veins and a 1.5 mm no-fly
+zone for the arterial structures, and a 5.0 mm hard-stop zone that triggers an
+emergency stop. The on-premises LLM operates strictly as a second-opinion advisory
+oracle, hash-pinned to a deterministic seed and a repository commit, isolated
+outside the vendor kinematic stack, and prohibited from full autonomy consistent
+with 21 CFR \S 312.21(e); every advisory passes a ten-gate
+verification-before-generation suite returning ACCEPT, BLOCK, or ESCALATE, aligned
+with H.R. 9510, the Verification Before Generation in Physical AI Oncology Trials
+Act of 2026 \cite{congress9510,clintrustpai}.
+
+The schedule rationale is distinct from, and complementary to, the clinical
+rationale. This IND is itself the highest-value product of a verified single-prompt
+authoring method whose purpose is to compress the administrative and preparation
+time that separates clinical milestones, without ever altering tumor biology or any
+fixed regulatory clock. Figure 1 ranks the six document targets where faster,
+validated authoring yields the greatest schedule value. The initial IND and IRB
+package, the subject of this build, is the highest-value target because it sits on
+the critical path; one input, faster validated authoring, feeds all six targets, and
+each contributes to a common compression of administrative and preparation time
+measured in months to a year. Crucially, the gains are capped by clinical events and
+by fixed review clocks: faster authoring cannot shorten the 30-day FDA review or
+manufacture missing toxicology or stability data \cite{paipredict4x,natlpaiplatf}.
+
+\begin{mermaidfig}
+\node[mmin]    (in) at (0,-4.5)     {Faster, validated\\IND authoring};
+\node[mmgoal]  (t1) at (6.0,0)      {1. Initial IND + IRB\\package (this build)};
+\node[mmgoal]  (t2) at (6.0,-1.8)   {2. Protocol amendments\\+ synchronized consent};
+\node[mmproc]  (t3) at (6.0,-3.6)   {3. Cohort-review package\\after DLT data mature};
+\node[mmgoal]  (t4) at (6.0,-5.4)   {4. Complete clinical-hold\\response};
+\node[mmaccent](t5) at (6.0,-7.2)   {5. EOP2 briefing +\\Phase 3 protocol};
+\node[mmaccent](t6) at (6.0,-9.0)   {6. CSR + NDA/BLA\\modules at lock};
+\node[mmgoal]  (out)at (12.0,-3.0)  {Compressed admin /\\prep time\\(months to a year)};
+\node[mmdec]   (lim)at (12.0,-7.4)  {Capped by clinical\\events and fixed\\review clocks};
+\draw[mmedge] (in.east) to[out=70,in=180,looseness=0.5]  (t1.west);
+\draw[mmedge] (in.east) to[out=45,in=180,looseness=0.5]  (t2.west);
+\draw[mmedge] (in.east) to[out=20,in=180,looseness=0.5]  (t3.west);
+\draw[mmedge] (in.east) to[out=-20,in=180,looseness=0.5] (t4.west);
+\draw[mmedge] (in.east) to[out=-45,in=180,looseness=0.5] (t5.west);
+\draw[mmedge] (in.east) to[out=-70,in=180,looseness=0.5] (t6.west);
+\draw[mmedge] (t1.east) to[out=0,in=120,looseness=0.6] (out.west);
+\draw[mmedge] (t2.east) to[out=0,in=150,looseness=0.6] (out.west);
+\draw[mmedge] (t3.east) -- (out.west);
+\draw[mmedge] (t4.east) to[out=0,in=200,looseness=0.6] (out.west);
+\draw[mmedge] (t5.east) to[out=0,in=225,looseness=0.6] (out.west);
+\draw[mmedge] (t6.east) to[out=0,in=250,looseness=0.6] (out.west);
+\draw[mmedged] (out.south) to[out=-90,in=90] (lim.north);
+\end{mermaidfig}
+\figcaption{Figure 1. The six greatest-acceleration IND document targets, ranked,
+with the initial IND and IRB package the highest-value target and the subject of
+this build. One input, faster validated authoring, feeds all six; each contributes
+to a common compression of administrative and preparation time of months to a year.
+The schedule value is highest on the critical path, and the gains are capped by
+clinical events and fixed review clocks (they cannot shorten the 30-day FDA review
+or manufacture missing data).}
+
+The mechanism of the schedule benefit is specific and is shown in Figure 2. A
+clinical-trial timeline divides into three buckets: a clinical and operational
+bucket (recruitment, surgery, the dose-limiting-toxicity window, and
+progression-free and overall-survival maturation), which is not compressible; an
+administrative and preparation bucket (data cleaning, analysis, and document
+authoring), which is compressible; and a fixed regulatory-review bucket (the 30-day
+IND review and the 30-day clinical-hold review), which is fixed. The repository LLM
+acts on the middle bucket only. The exact per-document savings are: the initial IND
+and IRB package falls from 8 to 12 weeks to 1 to 4 days; a protocol amendment with
+synchronized consent falls from 2 to 4 weeks to 1 to 2 days; a cohort-review package
+falls from 1 to 2 weeks to about 1 day; a complete clinical-hold response falls from
+3 to 6 weeks to 2 to 4 days; an annual development safety update report (DSUR) falls
+from 4 to 8 weeks to 2 to 3 days; and a clinical study report under ICH E3 falls
+from 3 to 6 months to 1 to 2 weeks, summing to months to a year saved cumulatively
+\cite{paipredict4x,paisitedocpk}.
+
+\begin{mermaidfig}
+\node[mmdec]  (b1) at (0,0)        {Clinical /\\operational\\NOT compressible};
+\node[mmaccent](b2)at (5.6,0)      {Administrative /\\preparation\\COMPRESSIBLE};
+\node[mmdec]  (b3) at (11.2,0)     {Regulatory review\\FIXED};
+\node[mmctx]  (b1d)at (0,-2.4)     {Recruitment, surgery,\\DLT window, PFS / OS\\maturation};
+\node[mmctx]  (b3d)at (11.2,-2.4)  {30-day IND review,\\30-day clinical-hold\\review};
+\node[mmproc] (llm)at (5.6,-2.4)   {Repository LLM acts\\on this bucket only};
+\node[mmin]   (s1) at (1.4,-5.0)   {IND + IRB package:\\8-12 weeks to 1-4 days};
+\node[mmin]   (s2) at (5.6,-5.0)   {Protocol amendment +\\consent: 2-4 weeks to\\1-2 days};
+\node[mmin]   (s3) at (9.8,-5.0)   {Cohort-review package:\\1-2 weeks to ~1 day};
+\node[mmin]   (s4) at (1.4,-7.4)   {Clinical-hold response:\\3-6 weeks to 2-4 days};
+\node[mmin]   (s5) at (5.6,-7.4)   {Annual DSUR:\\4-8 weeks to 2-3 days};
+\node[mmin]   (s6) at (9.8,-7.4)   {CSR (ICH E3):\\3-6 months to 1-2 weeks};
+\node[mmgoal] (g)  at (5.6,-9.6)   {Months to a year saved\\cumulatively};
+\draw[mmedge] (b1) -- (b1d);
+\draw[mmedge] (b3) -- (b3d);
+\draw[mmedge] (b2) -- (llm);
+\draw[mmedge] (llm.south) to[out=-120,in=90,looseness=0.6] (s1.north);
+\draw[mmedge] (llm.south) -- (s2.north);
+\draw[mmedge] (llm.south) to[out=-60,in=90,looseness=0.6] (s3.north);
+\draw[mmedge] (s1) -- (s4);
+\draw[mmedge] (s2) -- (s5);
+\draw[mmedge] (s3) -- (s6);
+\draw[mmedge] (s4.south) to[out=-90,in=150,looseness=0.6] (g.west);
+\draw[mmedge] (s5.south) -- (g.north);
+\draw[mmedge] (s6.south) to[out=-90,in=30,looseness=0.6] (g.east);
+\end{mermaidfig}
+\figcaption{Figure 2. The three timeline buckets. Only the administrative and
+preparation bucket compresses; the clinical and operational bucket and the fixed
+regulatory review clocks do not. The repository LLM acts on the middle bucket only,
+with exact per-document savings: initial IND and IRB package 8 to 12 weeks to 1 to 4
+days; protocol amendment with synchronized consent 2 to 4 weeks to 1 to 2 days;
+cohort-review package 1 to 2 weeks to about 1 day; complete clinical-hold response 3
+to 6 weeks to 2 to 4 days; annual DSUR 4 to 8 weeks to 2 to 3 days; clinical study
+report 3 to 6 months to 1 to 2 weeks, summing to months to a year saved
+cumulatively.}
+
+These two rationales meet at the patient. Figure 3 traces the patient time-saved
+cascade: faster validated authoring advances each step from IND and IRB submission
+and site activation, through the elapse of the 30-day clock and the first dose, to
+faster 3+3 cohort turnover toward the recommended Phase 2 dose, shortening the white
+space between phases and, for this low-survival population, extending
+progression-free and overall survival, without changing tumor biology or any fixed
+review clock. The cascade is the patient-level expression of the schedule benefit
+and is the bridge between the rationale here and the favorable benefit-risk balance
+developed in \S 4.6 \cite{paipredict4x,pdac060s2030}.
+
+\begin{mermaidfig}
+\node[mmaccent](a) at (0,0)     {Faster validated\\IND authoring};
+\node[mmproc] (b) at (4.2,0)    {Earlier IND / IRB\\submission +\\activation};
+\node[mmproc] (c) at (8.4,0)    {Earlier 30-day clock\\elapses; first dose};
+\node[mmproc] (d) at (12.6,0)   {Faster 3+3 cohort\\turnover to RP2D};
+\node[mmproc] (e) at (12.6,-2.6){Shorter white space\\between phases};
+\node[mmgoal] (f) at (8.4,-2.6) {Earlier access to\\effective therapy};
+\node[mmgoal] (g) at (4.2,-2.6) {Extended PFS / OS\\(5-year OS < 13\%)};
+\node[mmctx]  (n) at (8.4,-4.8) {Does not change tumor biology\\or fixed review clocks};
+\draw[mmedge] (a) -- (b);
+\draw[mmedge] (b) -- (c);
+\draw[mmedge] (c) -- (d);
+\draw[mmedge] (d) -- (e);
+\draw[mmedge] (e) -- (f);
+\draw[mmedge] (f) -- (g);
+\draw[mmedged] (n.west) to[out=180,in=-90,looseness=0.7] (g.south);
+\end{mermaidfig}
+\figcaption{Figure 3. The patient time-saved cascade. Faster validated authoring
+advances each step from IND submission to first dose, then through faster 3+3 cohort
+turnover to the recommended Phase 2 dose, shortening the white space between phases
+and, for this low-survival population (five-year overall survival under 13 percent),
+extending progression-free and overall survival, without changing tumor biology or
+the fixed regulatory review clocks.}
+
+\subsection{Indication to be Studied}
+
+The indication to be studied is histologically or cytologically confirmed pancreatic
+ductal adenocarcinoma that is resectable or borderline-resectable on
+multidisciplinary radiologic review, harbors a documented KRAS G12 mutation (for
+example G12D, G12V, or G12R) on a validated tumor genotyping assay, occurs in an
+adult of at least 18 years with an Eastern Cooperative Oncology Group (ECOG)
+performance status of 0 or 1, and is anatomically compatible with the eight-arm
+robotic system and with a planned pancreaticoduodenectomy. Eligibility for
+perioperative daraxonrasib follows the broad pan-KRAS criteria of the RASolute 302
+program \cite{daraxwhipple}. The indication is deliberately narrow at this
+first-in-human stage so that the safety and feasibility readouts are interpretable:
+distant metastatic disease, vascular involvement precluding a margin-negative
+resection, prior pancreatic resection precluding the planned reconstruction,
+uncontrolled intercurrent illness, pregnancy or lactation, and known
+contraindication to daraxonrasib are exclusionary. Table 1 summarizes the
+eligibility frame that defines the indication; the full inclusion and exclusion
+criteria are set out in the protocol and reproduced in the proposed clinical
+research module of this IND.
+
+\noindent\begin{tabularx}{\textwidth}{L{3.0cm} Y Y}
+\toprule
+\textbf{Domain} & \textbf{Inclusion (must meet all)} & \textbf{Exclusion (any one disqualifies)} \\
+\midrule
+Disease and stage & Histologically or cytologically confirmed PDAC; resectable or borderline-resectable on multidisciplinary review. & Distant metastatic disease on staging; vascular involvement precluding R0 resection or anatomy incompatible with the eight-arm system. \\
+\addlinespace
+Genotype & Documented KRAS G12 mutation (G12D, G12V, or G12R) on a validated assay; eligible under pan-KRAS RASolute 302 criteria. & Absence of a qualifying KRAS G12 mutation. \\
+\addlinespace
+Performance and organ function & ECOG performance status 0 or 1; adequate hematologic, hepatic, and renal function for major pancreaticobiliary surgery and daraxonrasib. & Uncontrolled cardiac, pulmonary, hepatic, renal, or active infectious disease making surgery or dosing unsafe. \\
+\addlinespace
+Surgical candidacy & Candidate for pancreaticoduodenectomy; tumor and vascular anatomy compatible with port placement and the working volume. & Prior pancreatic resection or prior surgery precluding the planned reconstruction. \\
+\addlinespace
+Age and consent & Age at least 18 years; signed informed consent including explicit election or declination of the Physical AI opt-out. & Inability to consent or to comply with the Schedule of Activities. \\
+\addlinespace
+Other & Measured baseline CA 19-9 recorded for serial assessment (no threshold imposed). & Pregnancy or lactation; known contraindication or hypersensitivity to daraxonrasib or a required excipient; unmanageable drug interaction. \\
+\bottomrule
+\end{tabularx}
+\figcaption{Table 1. Eligibility summary defining the indication to be studied.
+Selection is equitable and is determined solely by the scientific and safety
+criteria; limited English proficiency is not an exclusion, and qualified
+interpreters and translated consent materials are provided.}
+
+A synthetic reference exemplar, designated PAT-PDAC-0001, illustrates a
+representative eligible participant and is used for design illustration only: a
+68-year-old with a 3.4 cm head-of-pancreas tumor abutting the superior mesenteric
+vein at 75 degrees, KRAS G12D, microsatellite stable, a baseline CA 19-9 of 412
+U/mL, ECOG performance status 1, after a completed neoadjuvant modified FOLFIRINOX
+course of four cycles. This exemplar does not represent an enrolled individual but
+fixes the anatomic and oncologic context in which the eligibility frame and the
+device no-fly gating are exercised \cite{daraxwhipple}.
+
+\subsection{General Approach for Evaluation of Treatment}
+
+The general approach is a prospective, open-label, single-arm, first-in-human study
+that combines a standard Phase 1 3+3 dose-finding evaluation of perioperative
+daraxonrasib with an early-feasibility evaluation of the LLM-directed eight-arm
+robotic Whipple system. A single-arm, open-label design is scientifically and
+ethically appropriate, and a randomized comparator arm is not, because the
+first-in-human objectives, characterizing early safety, identifying a recommended
+Phase 2 dose, and demonstrating that a novel surgical system can perform its
+intended function within hard cyber-physical limits, are not comparative-efficacy
+questions and are answered most safely in a small, intensively monitored cohort with
+sentinel staggered enrollment and case-by-case data and safety monitoring board
+(DSMB) review. The early-feasibility pathway recognized by FDA for significant-risk
+devices is explicitly structured around small first-in-human cohorts that generate
+the device-performance and safety evidence needed before any controlled comparison
+\cite{phase1guidance}. The 2025 Dutch nationwide cohort of 1000 robotic
+pancreaticoduodenectomies provides a robust external human benchmark for the
+secondary surgical-quality endpoints, so the absence of an internal control does not
+leave the surgical results uninterpretable \cite{daraxwhipple}.
+
+\subsubsection{Objectives and Endpoints}
+
+The study carries three co-primary objectives, one for each axis of the combined
+IND/IDE investigation, beneath which sit secondary oncologic-surgical quality
+endpoints benchmarked against the Dutch 2025 cohort and exploratory non-confirmatory
+endpoints. The first co-primary objective characterizes the early safety of the
+combined intervention; its endpoint is the incidence of device-related or
+procedure-related serious adverse events through 30 days after the procedure,
+including Clavien-Dindo grade III or higher complications, with device or procedure
+attribution adjudicated by an independent reviewer blinded to the daraxonrasib dose
+level. The second co-primary objective determines the maximum tolerated dose (MTD)
+and recommended Phase 2 dose (RP2D) of perioperative daraxonrasib, defined
+operationally by the rate of dose-limiting toxicities (DLTs) within the 28-day DLT
+window of the 3+3 escalation. The third co-primary objective establishes the
+technical feasibility of the eight-arm robotic Whipple under continuous human
+oversight; its endpoint is the proportion of procedures that complete all
+prespecified assigned operative tasks without unplanned conversion caused by device
+malfunction or unsafe device behavior. Figure 4 renders the objective-to-endpoint
+hierarchy, and Table 2 sets out the full mapping with justifications and the Dutch
+2025 comparators \cite{daraxwhipple,phase1guidance}.
+
+\begin{mermaidfig}
+\node[mmgoal] (pr) at (0,0)       {PRIMARY (co-primary)\\safety + feasibility};
+\node[mmstep] (p1) at (-4.6,-2.6) {Device / procedure SAE\\incidence through 30 days};
+\node[mmstep] (p2) at (0,-2.6)    {MTD / RP2D of\\daraxonrasib\\(3+3, 28-day DLT)};
+\node[mmstep] (p3) at (4.6,-2.6)  {Assigned tasks completed\\without unsafe\\conversion};
+\node[mmaccent](se)at (0,-5.2)    {SECONDARY\\oncologic-surgical};
+\node[mmin]   (s1) at (-4.6,-7.6) {R0 rate; ISGPS\\B/C fistula};
+\node[mmin]   (s2) at (0,-7.6)    {Clavien-Dindo III+;\\30 / 90-day mortality};
+\node[mmin]   (s3) at (4.6,-7.6)  {Conversion rate; operative\\parameters (vs Dutch 2025)};
+\node[mmctx]  (ex) at (0,-10.0)   {EXPLORATORY\\non-confirmatory};
+\node[mmin]   (e1) at (0,-12.0)   {PFS / OS to 24 mo (RECIST);\\LLM concordance;\\sim-to-real gap};
+\draw[mmedge] (pr) -- (p1);
+\draw[mmedge] (pr) -- (p2);
+\draw[mmedge] (pr) -- (p3);
+\draw[mmedged] (pr) -- (se);
+\draw[mmedge] (se) -- (s1);
+\draw[mmedge] (se) -- (s2);
+\draw[mmedge] (se) -- (s3);
+\draw[mmedged] (se) -- (ex);
+\draw[mmedge] (ex) -- (e1);
+\end{mermaidfig}
+\figcaption{Figure 4. The objective-to-endpoint hierarchy of the general
+investigational plan. Three co-primary objectives (device or procedure
+serious-adverse-event incidence through 30 days, the maximum tolerated dose and
+recommended Phase 2 dose of daraxonrasib by 3+3 over the 28-day window, and
+completion of assigned operative tasks without unsafe conversion) sit above
+secondary oncologic-surgical quality endpoints (R0 rate, ISGPS grade B/C fistula,
+Clavien-Dindo grade III or higher, 30 and 90-day mortality, conversion rate, and
+operative parameters benchmarked against the Dutch 2025 robotic cohort) and
+exploratory, non-confirmatory endpoints (progression-free and overall survival to 24
+months by RECIST, LLM advisory concordance, and the sim-to-real gap).}
+
+\noindent\begin{tabularx}{\textwidth}{L{2.4cm} L{4.7cm} Y}
+\toprule
+\textbf{Tier} & \textbf{Objective and endpoint} & \textbf{Justification / comparator} \\
+\midrule
+\multicolumn{3}{l}{\textit{Co-primary}} \\
+\midrule
+Safety & Device-related or procedure-related SAE incidence through 30 days, including Clavien-Dindo grade III+, dose-blinded attribution. & Standard first-in-human safety anchor; captures the early lethal cascade of fistula, hemorrhage, sepsis, and failure to rescue. \\
+\addlinespace
+Dose-finding & MTD and RP2D of perioperative daraxonrasib by the DLT rate within the 28-day window of the 3+3 across DL1 to DL3. & Established dose-finding design for targeted oncology agents; anchored to the RASolute 302 pan-KRAS program. \\
+\addlinespace
+Feasibility & Proportion of procedures completing all assigned operative tasks without unplanned conversion from device malfunction or unsafe behavior. & FDA-recognized early-feasibility readout for a significant-risk device. \\
+\midrule
+\multicolumn{3}{l}{\textit{Secondary (descriptive, Dutch 2025 comparators)}} \\
+\midrule
+Oncologic adequacy & R0 (microscopically margin-negative) resection rate at day-90 pathology. & Strongest modifiable surgical determinant of survival; descriptive comparison with Dutch 2025. \\
+\addlinespace
+Fistula & ISGPS grade B/C postoperative pancreatic fistula rate. & Leading driver of post-Whipple morbidity; Dutch 2025 comparator 24.4 percent. \\
+\addlinespace
+Major complications & Clavien-Dindo grade III+ complication rate through 90 days. & Validated severity threshold; Dutch 2025 comparator 41.3 percent. \\
+\addlinespace
+Mortality & 30-day and 90-day all-cause mortality. & Standard short-term survival safety measures; Dutch 2025 30-day comparator 3.9 percent. \\
+\addlinespace
+Conversion & Unplanned conversion rate from the robotic system to open or conventional approach. & Contextualizes feasibility; Dutch 2025 comparator 10.1 percent. \\
+\addlinespace
+Operative parameters & Estimated blood loss, operative time, and length of stay. & Mean and median with range; Dutch 2025 learning-curve context. \\
+\midrule
+\multicolumn{3}{l}{\textit{Exploratory (non-confirmatory)}} \\
+\midrule
+Survival & PFS and OS assessed to 24 months by RECIST v1.1, Kaplan-Meier. & Preliminary, hypothesis-generating signal; the small single-arm sample precludes confirmatory inference. \\
+\addlinespace
+Advisory reliability & Concordance between the LLM advisory output and the independent hard-coded safety gate. & Characterizes the second-opinion oracle and informs autonomy-graduation decisions reserved for later phases. \\
+\addlinespace
+Simulation fidelity & Sim-to-real gap in trajectory (mm) and tip force (N). & Validates the Phase 0 simulation-validation gate; targets less than 2 mm and less than 0.5 N. \\
+\bottomrule
+\end{tabularx}
+\figcaption{Table 2. The objective-to-endpoint mapping with justifications and the
+Dutch 2025 nationwide robotic-pancreatoduodenectomy comparators. Comparisons are
+descriptive only; the single-arm design supports estimation, not inferential
+between-group testing.}
+
+\subsubsection{Dose-Escalation Approach}
+
+Daraxonrasib is administered orally once daily. The escalation uses exact doses
+anchored to the RASolute 302 pan-KRAS program, in which the 300 mg once-daily dose
+is the established RP2D. To preserve a conservative first-in-human margin in the
+perioperative setting, the escalation begins below that reference dose and steps up
+to it: DL1 is 160 mg once daily (the starting dose), DL2 is 220 mg once daily, and
+DL3 is the 300 mg once-daily reference dose. Three participants enroll at each level
+and are observed over a 28-day DLT window. If no DLT occurs among the first three,
+the cohort escalates; if one of three experiences a DLT, the cohort expands to six;
+a single DLT among six permits escalation, whereas two or more DLTs at a level
+define that level as exceeding the MTD and fix the MTD at the preceding level. The
+MTD is the highest level at which fewer than two of six DLT-evaluable participants
+experience a DLT, and the RP2D is selected at or below the MTD with integration of
+all safety, tolerability, and available pharmacokinetic data. Figure 5 renders the
+decision automaton and Table 3 states the rule explicitly for each cohort outcome
+\cite{daraxwhipple,phase1guidance}.
+
+\begin{mermaidfig}
+\node[mmin]  (dl1) at (0,0)       {DL1: 160 mg QD\\enroll 3};
+\node[mmdec] (g1)  at (0,-2.6)    {DLT in\\28-day window?};
+\node[mmstep](e1)  at (4.6,-2.6)  {Expand to 6\\at this level};
+\node[mmin]  (dl2) at (0,-5.4)    {DL2: 220 mg QD\\enroll 3};
+\node[mmdec] (g2)  at (0,-8.0)    {DLT?};
+\node[mmstep](e2)  at (4.6,-8.0)  {Expand to 6};
+\node[mmin]  (dl3) at (0,-10.8)   {DL3: 300 mg QD\\enroll 3};
+\node[mmdec] (g3)  at (0,-13.4)   {DLT?};
+\node[mmstep](e3)  at (4.6,-13.4) {Expand to 6};
+\node[mmdark](mtd) at (9.4,-8.0)  {MTD = prior level\\($\geq$ 2 of 6 DLT)};
+\node[mmgoal](rp)  at (9.4,-13.4) {RP2D at or below MTD\\integrating PK + safety};
+\draw[mmedge] (dl1) -- (g1);
+\draw[mmedge] (g1) -- node[left,font=\scriptsize]{0 of 3} (dl2);
+\draw[mmedge] (g1) -- node[above,font=\scriptsize]{1 of 3} (e1);
+\draw[mmedge] (e1) to[out=-90,in=0,looseness=0.6] node[right,font=\scriptsize,pos=0.2]{1 of 6} (dl2.east);
+\draw[mmedge] (e1) to[out=0,in=90,looseness=0.7] node[right,font=\scriptsize,pos=0.3]{$\geq$ 2 of 6} (mtd.north);
+\draw[mmedge] (dl2) -- (g2);
+\draw[mmedge] (g2) -- node[left,font=\scriptsize]{0 of 3} (dl3);
+\draw[mmedge] (g2) -- node[above,font=\scriptsize]{1 of 3} (e2);
+\draw[mmedge] (e2) to[out=-90,in=180,looseness=0.6] node[left,font=\scriptsize,pos=0.3]{1 of 6} (dl3.west);
+\draw[mmedge] (e2) -- node[above,font=\scriptsize]{$\geq$ 2 of 6} (mtd);
+\draw[mmedge] (dl3) -- (g3);
+\draw[mmedge] (g3) -- node[above,font=\scriptsize]{0 of 3 / 1 of 6} (rp);
+\draw[mmedge] (e3) to[out=90,in=-90,looseness=0.7] node[right,font=\scriptsize,pos=0.4]{$\geq$ 2 of 6} (mtd.south);
+\draw[mmedge] (g3) -- node[above,font=\scriptsize,pos=0.6]{1 of 3} (e3);
+\draw[mmedge] (mtd) -- (rp);
+\end{mermaidfig}
+\figcaption{Figure 5. The standard 3+3 dose-escalation automaton across the three
+daraxonrasib dose levels (DL1 160 mg, DL2 220 mg, DL3 300 mg once daily). Three
+participants enroll at each level; with no dose-limiting toxicity in the 28-day
+window the cohort escalates, with one of three it expands to six, and two or more of
+six fixes the maximum tolerated dose at the prior level. The recommended Phase 2 dose
+is selected at or below the maximum tolerated dose, integrating pharmacokinetic and
+safety data. The design maximum is three levels times six, up to 18 treated.}
+
+\noindent\begin{tabularx}{\textwidth}{L{2.6cm} L{2.4cm} L{3.4cm} Y}
+\toprule
+\textbf{Cohort observation} & \textbf{DLT count} & \textbf{Decision} & \textbf{Consequence} \\
+\midrule
+First 3 at a level & 0 of 3 & Escalate & Open the next higher dose level; current level deemed tolerated at the cohort of 3. \\
+\addlinespace
+First 3 at a level & 1 of 3 & Expand to 6 & Enroll 3 additional participants at the same level before any escalation decision. \\
+\addlinespace
+First 3 at a level & $\geq$ 2 of 3 & MTD exceeded & Do not enroll further at this level; the MTD is the preceding (lower) level. \\
+\addlinespace
+Expanded 6 at a level & 1 of 6 & Escalate & Single DLT in six permits escalation to the next higher level. \\
+\addlinespace
+Expanded 6 at a level & $\geq$ 2 of 6 & MTD exceeded & The level exceeds the MTD; the MTD is the preceding level. \\
+\addlinespace
+Highest level (DL3) & 0 of 3 or 1 of 6 & RP2D candidate & DL3 (300 mg) tolerated; RP2D selected at or below DL3 integrating PK and safety. \\
+\addlinespace
+Any level & $\geq$ 2 of 6 & Declare MTD / RP2D & MTD fixed at prior level; RP2D at or below MTD. \\
+\bottomrule
+\end{tabularx}
+\figcaption{Table 3. The 3+3 dose-escalation decision rule. The maximum tolerated
+dose is the highest level at which fewer than two of six DLT-evaluable participants
+experience a dose-limiting toxicity within the 28-day window; the recommended Phase
+2 dose is selected at or below the MTD. The design maximum is three levels times six,
+up to 18 treated.}
+
+\subsubsection{Device Readiness and Statistical Framework}
+
+The device has no pharmacologic dose; its dose analogue is the readiness evidence
+required before any patient-facing robotic activity, escalated only by passing a
+mandatory Phase 0 simulation-validation gate. Three conditions must be met and
+documented before the first robotic case: a Unified Safety Level (USL) rating of at
+least 7.0 on the surgical-readiness scale; completion of at least 1000 simulated
+procedures across at least two independent frameworks (for example Isaac, MuJoCo,
+Gazebo, or PyBullet), so the finding is not an artifact of any single simulator; and
+a sim-to-real fidelity within prespecified limits, a trajectory gap less than 2 mm
+and a tip-force gap less than 0.5 N between the simulation prediction and the
+operative record. The gate is re-validated after any change to the system. These
+limits operate together with the intra-operative hard caps (a cross-arm
+emergency-stop budget at or below 3 ms, per-arm tip-force caps at or below 3 N, a
+cumulative cross-arm cap at or below 18 N, and vascular no-fly gating) so the device
+dose analogue is met only when both the simulation evidence and the real-time safety
+envelope are demonstrably in place \cite{onpremwhippl,daraxwhipple}.
+
+The statistical framework is that of a small, intensively monitored, single-arm
+investigation whose primary purpose is to characterize early safety and to identify
+a recommended dose, not to test a comparative-efficacy hypothesis. The analyses are
+predominantly descriptive and estimation-based, follow ICH E9, and are reported in
+accordance with TRIPOD+AI for the model-assisted advisory component
+\cite{ichpaistduni}. No power calculation is performed because the study tests no
+confirmatory efficacy hypothesis. Every proportion is accompanied by an exact
+(Clopper-Pearson) two-sided 95 percent confidence interval rather than a
+normal-approximation interval, which is unreliable near the bounds and at small
+sample sizes; time-to-event variables are summarized by Kaplan-Meier with the number
+at risk; missing data are not imputed for the primary or safety analyses; and a
+nominal alpha of 0.05 two-sided applies to supportive estimation only, with no
+multiplicity adjustment because the analyses are descriptive and non-confirmatory.
+Four analysis populations are applied consistently: the Safety population (all who
+received any intervention), the DLT-evaluable population (all dosed participants who
+completed the 28-day window or had a DLT within it), the Per-Protocol population,
+and the modified intention-to-treat population \cite{ichpaistduni,phase1guidance}.
+
+\subsection{Description of First Year Trial(s)}
+
+During the first year, a single trial is conducted at a single academic medical
+center: the combined IND/IDE first-in-human study of perioperative daraxonrasib and
+the LLM-directed eight-arm robotic Whipple. Enrollment is planned for up to 18
+treated participants, allocated across the three daraxonrasib dose levels (DL1
+through DL3) by the 3+3 rule with staggered sentinel enrollment, from approximately
+36 screened. Recruitment proceeds at approximately one to two participants per month
+through the institutional multidisciplinary pancreatic-cancer program, with eligible
+individuals identified at tumor-board review and described to them by a member of the
+research team who is not the treating surgeon, to reduce undue influence. The planned
+accrual rate, the sentinel staggered enrollment of the 3+3 design, and the Phase 0
+readiness gate together give an enrollment period sufficient to treat 18 participants
+from approximately 36 screened \cite{daraxwhipple,phase1guidance}.
+
+Sentinel staggering is a binding feature of the first-year conduct: no two
+participants in a cohort undergo surgery within the same DLT-evaluation interval
+until the supervising surgeon and the DSMB have reviewed the preceding case. After
+each participant completes the 28-day DLT-evaluation window and before the next
+participant in the cohort undergoes surgery, the accumulating safety data are
+reviewed; after each dose-level cohort is complete, the DSMB convenes for a formal
+interim safety review and an escalation, expansion, hold, or halt decision. The
+prespecified halt rules are quantitative and binding: enrollment and escalation halt
+for a mandatory DSMB review if the device-related or procedure-related serious-AE
+rate reaches or exceeds one third within a cohort, or if two device-related deaths
+occur at any point. Additional pause triggers include any unexpected device-related
+serious AE, any breach of a hard cyber-physical safety limit (emergency-stop
+latency, positional, or force envelope), and any failure of the pre-procedure
+safety-matrix verification. The DSMB may halt, pause, modify, or permit continuation,
+and a halt for an immediate hazard is implemented at once \cite{daraxwhipple}.
+
+The device operates within a phase-graduated staged-autonomy model. In this Phase 1
+study the system runs only at the clinician-controlled (teleoperation or supervised)
+level and the supervised semiautonomous level, both under continuous human oversight
+with an immediate manual override; full autonomy is prohibited at this phase
+consistent with 21 CFR \S 312.21(e). Any future move to higher autonomy (Stage 2
+supervised semiautonomous expansion or Stage 3 higher autonomy) is reserved for a
+later phase and gated by independent safety review, a USL reassessment, and DSMB
+concurrence. The perioperative daraxonrasib pause-and-restart advisory is exercised
+in every case: daraxonrasib is paused before surgery and the restart day is set by
+an LLM-bound, human-confirmed advisory whose inputs are the postoperative pancreatic
+fistula grade by ISGPS (A, B, or C) and the serum daraxonrasib trough relative to a
+0.5 ng/mL threshold, with outputs of T+7 days, T+14 days, T+21 days, or hold. A
+32-iteration deterministic sweep returned a baseline serum of 0.45 ng/mL
+(sub-threshold) in all iterations, a T+7-day restart in 29 of 32 (90.6 percent,
+Grade A and sub-threshold), a T+14-day restart in 3 of 32 (9.4 percent, Grade B or
+delayed), and no T+21-day restart \cite{daraxwhipple,clintrustpai}.
+
+The first-year objectives map onto the endpoint hierarchy of Figure 4: the
+co-primary safety, dose-finding, and feasibility readouts are accrued as cohorts
+complete, the secondary surgical-quality endpoints are estimated against the Dutch
+2025 benchmark as the per-protocol set matures, and the exploratory survival,
+advisory-concordance, and sim-to-real measures begin to accumulate through the day-90
+pathology review and the 24-month survival follow-up. The realistic first-year
+deliverable is completion of the DL1 and DL2 cohorts and initiation of the DL3
+cohort, with an interim determination of the MTD and a provisional RP2D if DL3 is
+reached and tolerated, together with the device-feasibility and telemetry summaries
+that support progression to a later-phase efficacy study \cite{daraxwhipple}.
+
+\subsection{Number of Subjects to be Evaluated}
+
+The planned sample size is up to 18 treated participants, allocated across three
+daraxonrasib dose levels (DL1 through DL3) by the 3+3 rule, from approximately 36
+screened. This number is not derived from a power calculation, because the study
+tests no confirmatory efficacy hypothesis; it is determined jointly by the
+dose-finding design and by the early-feasibility precedent for significant-risk
+devices, and it is justified by its operating characteristics. The 3+3 rule enrolls
+cohorts of three: a level with no DLT in three escalates, a level with one DLT in
+three expands to six, and a level with two or more DLTs in up to six is exceeded,
+defining the dose below it as the MTD. The maximum exposure at any single dose level
+is therefore six participants, and three escalation levels give a design maximum of
+three times six, equal to 18 treated participants; many realizations terminate with
+fewer. This ceiling is consistent with the FDA early-feasibility convention of
+generally fewer than ten participants per device-feasibility cohort while providing
+the per-dose exposure the drug-arm 3+3 escalation requires \cite{phase1guidance}.
+
+Rather than power, the design is characterized by its operating characteristics and
+by the precision of estimation at the planned sample sizes. The probability that the
+3+3 rule escalates past a given dose level is a function of the true DLT probability
+at that level: a dose with a true DLT rate near 10 percent is very likely to be
+tolerated and escalated, whereas a dose with a true DLT rate of 40 percent or higher
+is very likely to be identified as excessively toxic and to define the MTD at the
+level below. The exact-interval precision is summarized in Table 4. Zero events in
+three yields an exact two-sided 95 percent confidence interval of approximately 0 to
+71 percent; zero in six, approximately 0 to 46 percent; zero in 18, approximately 0
+to 18 percent; and one event in 18, a point estimate of 5.6 percent with an interval
+of approximately 0.1 to 27 percent. These intervals make explicit both the value and
+the limits of a first-in-human cohort: a clean safety record across the full cohort
+of 18 bounds the true event rate below roughly one in five, while a single event
+still excludes rates above roughly one quarter \cite{phase1guidance,ichpaistduni}.
+
+\noindent\begin{tabularx}{\textwidth}{L{2.8cm} L{3.0cm} Y}
+\toprule
+\textbf{Quantity} & \textbf{Planned value} & \textbf{Operating characteristic / precision} \\
+\midrule
+Cohort size & 3, expand to 6 & 3+3 rule: escalate on 0/3; expand on 1/3; exceed dose on $\geq$ 2/6. \\
+\addlinespace
+Per-dose maximum & 6 & Maximum exposure at any one dose level before the MTD is declared. \\
+\addlinespace
+Dose levels & 3 (DL1 to DL3) & Three-level escalation; design maximum 3 x 6 = 18 treated. \\
+\addlinespace
+Total treated & up to 18 (approx. 36 screened) & At or below the early-feasibility convention of generally fewer than 10 per device cohort, summed across dose levels. \\
+\addlinespace
+0 events / 3 & point estimate 0\% & Exact two-sided 95\% CI approximately 0\% to 71\%. \\
+\addlinespace
+0 events / 6 & point estimate 0\% & Exact two-sided 95\% CI approximately 0\% to 46\%. \\
+\addlinespace
+0 events / 18 & point estimate 0\% & Exact two-sided 95\% CI approximately 0\% to 18\%. \\
+\addlinespace
+1 event / 18 & point estimate 5.6\% & Exact two-sided 95\% CI approximately 0.1\% to 27\%. \\
+\addlinespace
+Significance level & $\alpha$ = 0.05 (two-sided) & Applies to supportive estimation only; no $\alpha$ is spent on dose selection. \\
+\bottomrule
+\end{tabularx}
+\figcaption{Table 4. Operating characteristics and exact-interval (Clopper-Pearson)
+precision at the planned sample sizes. The dose-finding behavior is that of the
+standard 3+3 rule; no statistical power is computed because the study tests no
+confirmatory efficacy hypothesis.}
+
+The four analysis populations apportion the 18 participants across the analyses
+without altering the total exposure: the Safety population comprises all who received
+any intervention and is the primary population for safety and primary-endpoint
+analyses; the DLT-evaluable population comprises those who completed the 28-day
+window or had a DLT within it and drives the escalation and MTD determination; the
+Per-Protocol population supports the secondary surgical-quality analyses; and the
+modified intention-to-treat population supports the supportive and exploratory
+efficacy summaries. Because the cohort is small and intensively monitored,
+individual participant data are tabulated in full, so that every aggregate statistic
+can be traced to its contributing records \cite{ichpaistduni}.
+
+\subsection{Drug Related Risks}
+
+The foreseeable risks of the investigation arise from three sources, the
+investigational drug, the investigational device, and the surgical procedure, and
+each is bounded by a specific control rather than left to clinical judgment alone.
+The anticipated risks of daraxonrasib are those characteristic of RAS-pathway
+inhibition and of the RASolute 302 experience, including gastrointestinal effects
+(nausea, diarrhea, and stomatitis), dermatologic effects (rash), hepatic enzyme
+elevation, and the class effects of MAPK-pathway suppression; in the perioperative
+setting the additional concern is impaired wound healing and anastomotic integrity,
+which is the explicit reason for the pause-and-restart advisory that holds
+daraxonrasib before surgery and resumes it only on a human-confirmed,
+fistula-grade-and-trough-informed schedule (T+7, T+14, T+21 days, or hold). Drug
+toxicity is captured through the 28-day DLT window, the dose-blinded SAE attribution,
+the exact-interval safety reporting, and the binding cohort-level halt rules
+\cite{daraxwhipple,oncotrialllm}. Table 5 summarizes the principal risks, their
+sources, and their mitigations.
+
+\noindent\begin{tabularx}{\textwidth}{L{3.4cm} Y Y}
+\toprule
+\textbf{Risk source} & \textbf{Foreseeable risk} & \textbf{Mitigation} \\
+\midrule
+Daraxonrasib (drug) & GI effects (nausea, diarrhea, stomatitis), rash, hepatic enzyme elevation, MAPK-pathway class effects; impaired perioperative wound healing. & 28-day DLT window; conservative 160 mg starting dose below the 300 mg RP2D; pause-and-restart advisory keyed to ISGPS grade and 0.5 ng/mL trough; cohort-level halt rules. \\
+\addlinespace
+Robotic system (device) & Device malfunction, unsafe trajectory, excessive tip force, vascular injury near the SMV, PV, HA, CA, or SMA. & Force caps $\leq$ 3 N per arm and $\leq$ 18 N cumulative; cross-arm E-stop $\leq$ 3 ms; hardware E-stop $\leq$ 500 ms; 10 kHz heartbeat with 100 microsecond watchdog; vascular no-fly gating; Phase 0 gate (USL $\geq$ 7.0, $\geq$ 1000 sims, sim-to-real $<$ 2 mm and $<$ 0.5 N). \\
+\addlinespace
+LLM advisory layer & Erroneous or unverified advisory output; over-reliance (therapeutic misconception); model degradation. & Second-opinion advisory only; full autonomy prohibited (\S 312.21(e)); ten-gate verification-before-generation (ACCEPT/BLOCK/ESCALATE); hash-pinned deterministic seed and commit; Physical AI opt-out; advisory-to-gate concordance monitored. \\
+\addlinespace
+Whipple procedure & Pancreatic fistula, hemorrhage, intra-abdominal infection, sepsis, failure to rescue, unplanned conversion. & Sentinel staggered enrollment with case-by-case DSMB review; three-tier oversight (DSMB, Independent Safety Monitor, Physical AI Safety Review Committee); conversion pathway with continuous human override. \\
+\addlinespace
+Schedule and population & Delay to effective therapy in a low-survival disease. & Verified single-prompt authoring compresses only the administrative bucket, advancing first dose without altering tumor biology or fixed review clocks (Figure 3). \\
+\bottomrule
+\end{tabularx}
+\figcaption{Table 5. Principal drug-related, device-related, procedural, and
+schedule-related risks with their controls. Each risk is bounded by a specific,
+prespecified mitigation; the residual risk after these controls is judged acceptable
+for the population and the stage of investigation.}
+
+The device-related and procedural risks are bounded by the cyber-physical safety
+envelope and the three-tier oversight structure. The hard caps (per-arm tip force at
+or below 3 N, cumulative cross-arm force at or below 18 N, cross-arm emergency stop
+within 3 ms to 0.0 N, and hardware emergency stop within 500 ms), the 10 kHz
+heartbeat with the 100 microsecond watchdog, and the five-vessel no-fly gating limit
+the magnitude of any single excursion, while the Phase 0 gate (USL at least 7.0, at
+least 1000 simulations across at least two frameworks, and a sim-to-real gap below 2
+mm and 0.5 N) ensures the system is demonstrably ready before any patient-facing
+activity. The LLM advisory risks (an erroneous or unverified advisory and the
+therapeutic misconception of over-reliance on the system) are bounded by the
+advisory-only role, the prohibition on full autonomy under 21 CFR \S 312.21(e), the
+ten-gate verification-before-generation suite, the hash-pinned deterministic seed
+and commit, the Physical AI opt-out in the consent, and the monitoring of
+advisory-to-gate concordance. Safety reporting follows the 21 CFR \S 312.32 clocks
+(fatal or life-threatening suspected adverse reactions within 7 calendar days and
+other serious and unexpected reactions within 15 calendar days), augmented by the
+six Physical AI reporting triggers under \S 312.32(g) and an audit trail preserved
+from 24 hours before to 72 hours after each Physical AI adverse event under 21 CFR
+part 11 \cite{cfr312paiuni,congress9510}.
+
+The benefit-risk balance is favorable for this population and at this stage. The
+population is vulnerable, with a lethal malignancy whose five-year survival is below
+13 percent and for whom the resection margin is the strongest modifiable determinant
+of survival; the intervention pairs a genotype-matched systemic agent with a
+margin-negative curative-intent resection delivered within hard cyber-physical limits
+under continuous human oversight. The schedule benefit reaches the patient through
+the cascade of Figure 3: faster validated authoring advances IND and IRB submission
+and site activation, the elapse of the 30-day clock and the first dose, and the 3+3
+cohort turnover toward the RP2D, shortening the white space between phases and, for
+this low-survival population, extending progression-free and overall survival,
+without changing tumor biology or any fixed review clock. For patients whose disease
+will not pause, the alternative of slower sequential authoring carries its own,
+often larger, cost in delayed treatment. With each foreseeable risk bounded by a
+prespecified control, with the conservative 160 mg starting dose, the sentinel
+staggered enrollment, the binding halt rules, and the three-tier oversight, the
+probable benefit of the investigation exceeds its probable risk, and the General
+Investigational Plan supports the proposed first-year conduct \cite{pdac060s2030,daraxwhipple,clintrustpai}.
+
+\subsection{References}
+
+The clinical, statistical, and acceleration content of this plan is grounded in the
+trial protocol and the supporting evidence base. The Phase 1 first-in-human guidance
+and the early-feasibility framework inform the single-arm dose-finding design and the
+operating characteristics \cite{phase1guidance}. The daraxonrasib robotic Whipple
+program and the on-premises eight-arm system specifications supply the drug, device,
+and advisory facts \cite{daraxwhipple,onpremwhippl,oncotrialllm}. The Physical AI
+adaptations of 21 CFR Part 312 and Part 50 and the ICH guidance govern the safety
+reporting, consent, and statistical conventions \cite{cfr312paiuni,cfr050paiuni,ichpaistduni}.
+H.R. 9510 and the clinical-trust framework establish the verification-before-generation
+discipline \cite{congress9510,clintrustpai}. The PDAC epidemiology, the acceleration
+mechanism, and the supporting computational evidence are drawn from the population
+and document-acceleration sources \cite{pdac060s2030,paipredict4x,natlpaiplatf,paisitedocpk,paiautospons,llmcomp16fda,fdadigtwinpc,qspmetpancre,chatgpt100kp,pdacdigtwinp}.
+The full bibliography is consolidated in the references and back-matter section of
+this IND.
