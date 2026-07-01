@@ -1,0 +1,257 @@
+% ============================================================
+% indstyle.sty
+% Style for "Phase 1 PDAC IND: AI Generation" (trial-ind/{draft,full,final}-ind).
+% IND draft v1.0; repository v4.3.0.
+%
+% WHAT THIS STYLE IS. It adapts the repository paper template
+% regulatory/Adaption-21-CFR-Part-312/source/Physical_AI_21_CFR_Part_312.sty
+% (the 21 CFR Part 312 adaptation - single-column article, a thin-ruled section
+% style, clickable links) and KEEPS THE CURRENT TEMPLATE COLOR: BLACK body text,
+% BLACK links, and BLACK headings, exactly as in the source paper template
+% trial-documents/final-paper/publication/paperstyle.sty. It then merges the
+% senior-author formatting primitives proven in
+% trial-protocol/final-protocol/publication: full-width ragged-right table
+% columns (L, C, R, Y); a centered white-background ASCII figure (asciifig); and
+% the Mermaid-as-TikZ figure (mermaidfig with the mm* node styles). For this IND
+% the mm* node styles are recolored to a professional GRAYSCALE ramp (ink black,
+% near-black #222222, slate #3F3F3F, gray #6C757D, silver #9AA0A6, mist #D9D9D9,
+% cloud #ECECEC, near-white #F5F5F5) so every figure is grayscale yet retains
+% full tonal contrast and the same 1:1 mapping from the Mermaid classDef classes
+% (goal/proc/accent/input/ctx/warn/dark/step). A back-matter section command
+% (\bmhead) is provided (the 21 CFR Part 312 template adds a back matter section).
+% The three permitted media - tables, ASCII, and Mermaid-as-TikZ - share one
+% white background and one black-ruled centered frame. No raster images anywhere
+% (Rule 3: no png or jpg). No ORCID logo (Rule 12); the ORCID iD is a plain link.
+%
+% Senior-author formatting is centralized here: RaggedRight body with even
+% interword spacing and no right-margin overflow; maximal widow/orphan/broken
+% penalties so no single line is stranded; long URLs break on any character;
+% single hyphens only; the section symbol for every codified reference.
+% ============================================================
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{indstyle}[2026/06/30 v1.0 Phase 1 PDAC IND AI-generation style]
+
+% - Times-like serif body (mathptmx is universal on Overleaf). -
+\RequirePackage{mathptmx}
+\RequirePackage[letterpaper,top=1.0in,bottom=1.0in,left=1.1in,right=1.1in,%
+  headheight=15pt,headsep=16pt,footskip=24pt]{geometry}
+
+\RequirePackage{xcolor}
+\RequirePackage[T1]{fontenc}
+\RequirePackage[utf8]{inputenc}
+\RequirePackage{textcomp}
+\RequirePackage[protrusion=true,expansion=false]{microtype}
+\RequirePackage{array}
+\RequirePackage{longtable}
+\RequirePackage{tabularx}
+\RequirePackage{xltabular}
+\RequirePackage{ragged2e}
+\RequirePackage{needspace}
+\RequirePackage{enumitem}
+\RequirePackage{fancyvrb}
+\RequirePackage{booktabs}
+\RequirePackage{caption}
+\RequirePackage{adjustbox}
+
+% - TikZ for the Mermaid-as-TikZ figures. -
+\RequirePackage{tikz}
+\usetikzlibrary{shapes.geometric,arrows.meta,positioning,fit,backgrounds,calc}
+
+% - IND grayscale ramp (figures only; body text stays black). Eight tones give
+%   clear emphasis tiers while keeping every figure strictly grayscale. -
+\definecolor{indink}{rgb}{0,0,0}          % pure black  - goals, decisions, outcomes
+\definecolor{inddark}{HTML}{222222}        % near-black  - emphasis fills
+\definecolor{indslate}{HTML}{3F3F3F}       % dark slate  - LLM / process / system
+\definecolor{indgray}{HTML}{6C757D}        % gray        - acceleration / emphasis
+\definecolor{indsilver}{HTML}{9AA0A6}       % silver      - secondary process
+\definecolor{indmist}{HTML}{D9D9D9}        % mist        - decision / gate fill
+\definecolor{indcloud}{HTML}{ECECEC}       % cloud       - inputs / source files
+\definecolor{indbg}{HTML}{F5F5F5}          % near-white  - context / support
+\definecolor{indwhite}{rgb}{1,1,1}
+\colorlet{accentcol}{indink}                % headings stay black (template color kept)
+\pagecolor{indwhite}
+
+% - Even spacing, no right-margin overflow, no big interword gaps. -
+\tolerance=2000
+\emergencystretch=3em
+\hbadness=4000
+\hyphenpenalty=70
+\exhyphenpenalty=70
+\RaggedRight
+\setlength{\RaggedRightParindent}{0pt}
+\setlength{\RaggedRightRightskip}{0pt plus 2em}
+
+% - No stranded lines (widows / orphans / broken). -
+\widowpenalty=10000
+\clubpenalty=10000
+\displaywidowpenalty=10000
+\brokenpenalty=10000
+\predisplaypenalty=10000
+\postdisplaypenalty=10000
+% - Ragged bottom so pages are not vertically stretched, removing large
+%   inter-paragraph gaps; each major section starts with \clearpage in main.tex. -
+\raggedbottom
+
+% - Break long URLs on any character so no link runs off the right margin. -
+\def\UrlBreaks{\do\/\do-\do.\do=\do_\do?\do\&\do\%\do\#\do\:\do\a\do\b\do\c%
+\do\d\do\e\do\f\do\g\do\h\do\i\do\j\do\k\do\l\do\m\do\n\do\o\do\p\do\q\do\r%
+\do\s\do\t\do\u\do\v\do\w\do\x\do\y\do\z\do\A\do\B\do\C\do\D\do\E\do\F\do\G%
+\do\H\do\I\do\J\do\K\do\L\do\M\do\N\do\O\do\P\do\Q\do\R\do\S\do\T\do\U\do\V%
+\do\W\do\X\do\Y\do\Z\do\0\do\1\do\2\do\3\do\4\do\5\do\6\do\7\do\8\do\9}
+
+% The ieeetr style lowercases title fields, so a \S in a title is emitted as \s;
+% provide \s so the bibliography renders every codified reference correctly.
+\providecommand{\s}{\S}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{3.4pt plus 1pt minus 0.5pt}
+\frenchspacing % even single inter-sentence spacing (senior-author polish)
+
+% - Running header: page left, short title center, version right. -
+\RequirePackage{fancyhdr}
+\providecommand{\indversion}{v1.0}
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0pt}
+\fancyhead[L]{\footnotesize\thepage}
+\fancyhead[C]{\footnotesize\scshape Phase 1 PDAC IND: AI Generation}
+\fancyhead[R]{\footnotesize\indversion}
+\fancypagestyle{plain}{%
+  \fancyhf{}%
+  \renewcommand{\headrulewidth}{0pt}%
+  \fancyfoot[C]{\footnotesize\thepage}}
+
+% - Section headings: bold black serif with a thin black rule, numbered. -
+\RequirePackage{titlesec}
+\titleformat{\section}{\large\bfseries\color{indink}}{\thesection}{0.6em}{}[{\color{indink}\titlerule[0.6pt]}]
+\titleformat{\subsection}{\normalsize\bfseries\color{indink}}{\thesubsection}{0.5em}{}
+\titleformat{\subsubsection}{\normalsize\bfseries\itshape\color{indink}}{\thesubsubsection}{0.5em}{}
+\titlespacing*{\section}{0pt}{1.4ex plus 0.4ex}{0.8ex}
+\titlespacing*{\subsection}{0pt}{1.0ex plus 0.3ex}{0.5ex}
+\titlespacing*{\subsubsection}{0pt}{0.9ex plus 0.3ex}{0.4ex}
+
+% - Table columns: left-aligned ragged-right fixed widths (L), flexible Y,
+%   right-aligned numeric R, centered C; every cell starts ragged-right so there
+%   are no large interword gaps, and tables sit at the body measure (\textwidth). -
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
+\newcolumntype{C}[1]{>{\centering\arraybackslash}p{#1}}
+\newcolumntype{R}[1]{>{\raggedleft\arraybackslash}p{#1}}
+\newcolumntype{Y}{>{\raggedright\arraybackslash}X}
+\newcommand{\ragcol}[1]{>{\raggedright\arraybackslash}p{#1}}
+\renewcommand{\arraystretch}{1.18}
+\setlength{\tabcolsep}{5pt}
+
+% - Mermaid-as-TikZ node styles (IND grayscale ramp). Emphasis by fill and stroke
+%   weight; white text on the dark fills, black text on the light fills. These map
+%   1:1 from the Mermaid classDef classes (goal/proc/accent/input/ctx/warn/dark/
+%   step) so the LaTeX figure looks the same as the Python Mermaid figure. -
+\tikzset{
+  mmevery/.style={>={Stealth[length=2.2mm]},line width=0.6pt,font=\footnotesize,
+    every node/.append style={align=center}},
+  mmgoal/.style={rectangle,rounded corners=2pt,draw=indink,line width=1pt,
+    fill=indink,minimum height=8mm,inner sep=3pt,text width=30mm,text=indwhite},
+  mmproc/.style={rectangle,rounded corners=2pt,draw=indink,fill=indslate,
+    minimum height=8mm,inner sep=3pt,text width=30mm,text=indwhite},
+  mmaccent/.style={rectangle,rounded corners=2pt,draw=indink,fill=indgray,
+    minimum height=8mm,inner sep=3pt,text width=30mm,text=indwhite},
+  mmstep/.style={rectangle,rounded corners=2pt,draw=indink,fill=indsilver,
+    minimum height=8mm,inner sep=3pt,text width=30mm,text=indink},
+  mmin/.style={rectangle,rounded corners=2pt,draw=indslate,fill=indcloud,
+    minimum height=8mm,inner sep=3pt,text width=30mm,text=indink},
+  mmctx/.style={rectangle,rounded corners=2pt,draw=indgray,fill=indbg,
+    minimum height=8mm,inner sep=3pt,text width=30mm,text=indink},
+  mmdec/.style={diamond,aspect=2,draw=indink,fill=indmist,inner sep=1pt,
+    text width=24mm,text=indink},
+  mmdark/.style={rectangle,rounded corners=2pt,draw=indink,line width=1pt,
+    fill=inddark,minimum height=8mm,inner sep=3pt,text width=30mm,text=indwhite},
+  mmperson/.style={ellipse,draw=indink,fill=indwhite,inner sep=2pt,
+    text width=26mm,minimum height=9mm,text=indink},
+  mmlane/.style={rectangle,draw=indink,dashed,inner sep=5pt,rounded corners=1pt},
+  mmlanetitle/.style={font=\scriptsize\bfseries},
+  mmedge/.style={->,draw=indslate,line width=0.7pt},
+  mmedged/.style={->,draw=indgray,dashed,line width=0.7pt},
+  mmlabel/.style={font=\scriptsize\itshape,fill=indwhite,inner sep=1pt}
+}
+
+% mermaidfig: capture a tikzpicture into a content-width box, frame it on white,
+% and center it, mirroring asciifig so the two media carry equal visual weight.
+% adjustbox max width scales a figure down only if it would exceed the body
+% measure, so no figure ever runs off the right margin (small figures unchanged).
+\newsavebox{\mmsavebox}
+\newenvironment{mermaidfig}{%
+  \par\addvspace{0.55\baselineskip}%
+  \needspace{8\baselineskip}%
+  \begin{lrbox}{\mmsavebox}%
+  \begin{tikzpicture}[mmevery]%
+}{%
+  \end{tikzpicture}%
+  \end{lrbox}%
+  \begin{center}%
+  \setlength{\fboxrule}{0.4pt}\setlength{\fboxsep}{9pt}%
+  \fcolorbox{indink}{indwhite}{%
+    \adjustbox{max width=\dimexpr\linewidth-22pt\relax}{\usebox{\mmsavebox}}}%
+  \end{center}%
+  \par\addvspace{0.15\baselineskip}}
+
+% ASCII figure: centered, white-background, black-ruled, monospace box that
+% preserves spacing exactly, as in a fenced Markdown block.
+\newsavebox{\asciifigbox}
+\newcommand{\asciifigplace}{%
+  \begin{center}%
+  \setlength{\fboxrule}{0.4pt}\setlength{\fboxsep}{9pt}%
+  \fcolorbox{indink}{indwhite}{\usebox{\asciifigbox}}%
+  \end{center}%
+  \par\addvspace{0.15\baselineskip}}
+\newenvironment{asciifig}{%
+  \VerbatimEnvironment
+  \par\addvspace{0.55\baselineskip}%
+  \needspace{6\baselineskip}%
+  \begin{lrbox}{\asciifigbox}%
+  \begin{BVerbatim}[fontsize=\footnotesize,baselinestretch=0.96]%
+}{%
+  \end{BVerbatim}%
+  \end{lrbox}%
+  \asciifigplace}
+\newenvironment{asciifigsmall}{%
+  \VerbatimEnvironment
+  \par\addvspace{0.55\baselineskip}%
+  \needspace{6\baselineskip}%
+  \begin{lrbox}{\asciifigbox}%
+  \begin{BVerbatim}[fontsize=\scriptsize,baselinestretch=0.96]%
+}{%
+  \end{BVerbatim}%
+  \end{lrbox}%
+  \asciifigplace}
+
+% Figure / table caption: small centered italic line. Single hyphens only.
+\newcommand{\figcaption}[1]{%
+  \par\nopagebreak
+  \begin{center}\begin{minipage}{0.92\linewidth}%
+  \centering\footnotesize\itshape #1%
+  \end{minipage}\end{center}%
+  \addvspace{0.5\baselineskip}}
+
+% Bracketed drafting-instruction marker for the scaffold (draft stage only).
+\newcommand{\draftinstr}[1]{\par\addvspace{2pt}%
+  {\setlength{\parindent}{0pt}\small\color{indgray}\textbf{[DRAFTING INSTRUCTION]}\itshape\ #1\par}%
+  \addvspace{2pt}}
+
+% Keywords / subject line: bold label then content.
+\providecommand{\keywordname}{\textbf{Keywords}}
+\providecommand{\keywords}[1]{\par\addvspace{\medskipamount}%
+  {\setlength{\parindent}{0pt}\keywordname\enspace #1\par}}
+
+% Back-matter heading bookmarked into the contents (the 21 CFR Part 312 template
+% adds a back matter section; this provides its headings).
+\providecommand{\bmhead}[1]{\par\addvspace{0.5\baselineskip}\needspace{2\baselineskip}%
+  \phantomsection\addcontentsline{toc}{section}{#1}{\noindent\large\bfseries\color{indink}#1}\par\addvspace{2pt}}
+
+% Font-independent empty checkbox.
+\providecommand{\cboxx}{\raisebox{0.12ex}{\framebox[1.25ex]{\rule{0pt}{0.95ex}}}}
+
+% All links black (template color kept). xurl-style breaking is handled above.
+\RequirePackage[colorlinks=true,allcolors=black,pdfusetitle]{hyperref}
+\RequirePackage{url}
+\captionsetup{font=small,labelfont=bf,justification=raggedright,singlelinecheck=false}
+\endinput
