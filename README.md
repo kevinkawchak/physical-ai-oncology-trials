@@ -19,7 +19,7 @@
 [![Protocol DOI v1.1.0](https://img.shields.io/badge/Protocol%20DOI%20v1.1.0-10.5281%2Fzenodo.20807027-blue.svg)](https://doi.org/10.5281/zenodo.20807027)
 [![Document Generation](https://img.shields.io/badge/Method-Single%20prompt%20mermaid%E2%86%92draft%E2%86%92full%E2%86%92final-2F5D7C.svg)](trial-documents)
 [![Paper DOI v1.0](https://img.shields.io/badge/Paper%20DOI%20v1.0-10.5281%2Fzenodo.21018646-blue.svg)](https://doi.org/10.5281/zenodo.21018646)
-[![IND](https://img.shields.io/badge/IND-Phase%201%20PDAC%20AI%20Generation-000000.svg)](trial-ind)
+[![IND](https://img.shields.io/badge/IND-Phase%201%20PDAC%20AI%20Generation-blue.svg)](trial-ind)
 [![IND Figures](https://img.shields.io/badge/Grayscale%20figures-22-3F3F3F.svg)](trial-ind/mermaid)
 [![IND Method](https://img.shields.io/badge/Method-mermaid%E2%86%92draft%E2%86%92full%E2%86%92final-6C757D.svg)](trial-ind/sub-prompts)
 [![IND DOI v1.0](https://img.shields.io/badge/IND%20DOI%20v1.0-10.5281%2Fzenodo.21097442-blue.svg)](https://doi.org/10.5281/zenodo.21097442)
