@@ -100,14 +100,7 @@ python unification/cross_platform_tools/framework_detector.py
 This release adds [`trial-ind/`](trial-ind): a single-prompt Phase 1 Investigational
 New Drug (IND) application, *Phase 1 PDAC IND: AI Generation* (IND v1.0), that hastens
 the entire Phase 1 IND document-package process and ships 22 grayscale Mermaid figures,
-each from a unique perspective, reproduced exactly in LaTeX. The IND follows the ReGARDD
-IND Table of Contents, keeps the current paper template color (black body text), and
-renders every figure in a strictly grayscale eight-tone ramp. It is built for the
-LLM-Directed PDAC Robotic Daraxonrasib trial, carrying the daraxonrasib 3+3 dose
-escalation (DL1 160, DL2 220, DL3 300 mg), the eight-arm robotic Whipple device data,
-and the perioperative advisory, across twelve ReGARDD sections reaching about ten times
-the source paper. Authored by Kevin Kawchak (ChemicalQDevice), IND v1.0, DOI
-[10.5281/zenodo.xxxxxxxx](https://doi.org/10.5281/zenodo.xxxxxxxx), July 1, 2026.
+each from a unique perspective, reproduced exactly in LaTeX. Authored by Kevin Kawchak (ChemicalQDevice), IND v1.0, DOI [10.5281/zenodo.21097442](https://doi.org/10.5281/zenodo.21097442), July 1, 2026.
 
 **425-character summary.** v4.3.0 adds trial-ind/, a single-prompt Phase 1 PDAC IND
 that hastens the entire IND document-package process and ships 22 grayscale Mermaid
@@ -188,7 +181,7 @@ that shows how a repository based large language model, driven by one master pro
 that first writes and then executes a schedule of sub-prompts, hastens the entire
 Phase 1 process by generating every relevant large trial document through a mermaid
 to draft to full to final pipeline. Authored by Kevin Kawchak (ChemicalQDevice),
-paper v1.0, DOI [10.5281/zenodo.xxxxxxxx](https://doi.org/10.5281/zenodo.xxxxxxxx),
+paper v1.0, DOI [10.5281/zenodo.21018646](https://doi.org/10.5281/zenodo.21018646)
 June 29, 2026.
 
 **425-character summary.** v4.2.0 adds trial-documents/, a single-prompt paper
