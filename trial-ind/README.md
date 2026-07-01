@@ -4,11 +4,11 @@
 [![IND](https://img.shields.io/badge/IND-Phase%201%20First--in--Human-000000.svg)](.)
 [![Indication](https://img.shields.io/badge/Indication-KRAS%20PDAC-3F3F3F.svg)](.)
 [![Intervention](https://img.shields.io/badge/Intervention-Robotic%20Whipple%20%2B%20Daraxonrasib-3F3F3F.svg)](.)
-[![Template](https://img.shields.io/badge/Template-ReGARDD%20IND-6C757D.svg)](inputs/ReGARDD_IND_Template.docx)
-[![Figures](https://img.shields.io/badge/Grayscale%20figures-22-000000.svg)](mermaid)
-[![Method](https://img.shields.io/badge/Method-mermaid%E2%86%92draft%E2%86%92full%E2%86%92final-6C757D.svg)](sub-prompts)
+[![Template](https://img.shields.io/badge/Template-ReGARDD%20IND-6C757D.svg)](https://github.com/kevinkawchak/physical-ai-oncology-trials/tree/main/trial-ind/final-ind/publication)
+[![Figures](https://img.shields.io/badge/Grayscale%20figures-22-000000.svg)](https://github.com/kevinkawchak/physical-ai-oncology-trials/tree/main/trial-ind/final-ind/publication)
+[![Method](https://img.shields.io/badge/Method-mermaid%E2%86%92draft%E2%86%92full%E2%86%92final-6C757D.svg)](https://github.com/kevinkawchak/physical-ai-oncology-trials/tree/main/trial-ind/final-ind/publication)
 [![ORCID](https://img.shields.io/badge/ORCID-0009--0007--5457--8667-6C757D.svg)](https://orcid.org/0009-0007-5457-8667)
-[![Repository](https://img.shields.io/badge/Repository-v4.3.0-6C757D.svg)](../README.md)
+[![Repository](https://img.shields.io/badge/Repository-v4.3.0-6C757D.svg)](https://github.com/kevinkawchak/physical-ai-oncology-trials/tree/main/trial-ind/final-ind/publication)
 [![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.21097442-blue.svg)](https://doi.org/10.5281/zenodo.21097442)
 
 [Publication with Author Edits](https://github.com/kevinkawchak/physical-ai-oncology-trials/tree/main/trial-ind/final-ind/publication) (final-ind/publication). This directory builds a complete, comprehensive **Phase 1 Investigational New Drug
