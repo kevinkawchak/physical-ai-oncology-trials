@@ -1,15 +1,17 @@
 # final-ind - Stage 4 (polished) (IND v1.0)
 
 [![License](https://img.shields.io/badge/License-CC%20BY%204.0-yellow.svg)](https://creativecommons.org/licenses/by/4.0/)
-[![Stage](https://img.shields.io/badge/Stage-4%20final-000000.svg)](../sub-prompts/prompt-4-final-ind.md)
-[![Sections](https://img.shields.io/badge/IND%20sections-12-000000.svg)](sections)
-[![Figures](https://img.shields.io/badge/TikZ%20figures-22-6C757D.svg)](.)
-[![Compiles](https://img.shields.io/badge/Overleaf-pdfLaTeX-6C757D.svg)](main.tex)
-[![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.xxxxxxxx-blue.svg)](https://doi.org/10.5281/zenodo.xxxxxxxx)
+[![IND](https://img.shields.io/badge/IND-Phase%201%20First--in--Human-000000.svg)](.)
+[![Indication](https://img.shields.io/badge/Indication-KRAS%20PDAC-3F3F3F.svg)](.)
+[![Intervention](https://img.shields.io/badge/Intervention-Robotic%20Whipple%20%2B%20Daraxonrasib-3F3F3F.svg)](.)
+[![Template](https://img.shields.io/badge/Template-ReGARDD%20IND-6C757D.svg)](inputs/ReGARDD_IND_Template.docx)
+[![Figures](https://img.shields.io/badge/Grayscale%20figures-22-000000.svg)](mermaid)
+[![Method](https://img.shields.io/badge/Method-mermaid%E2%86%92draft%E2%86%92full%E2%86%92final-6C757D.svg)](sub-prompts)
 [![ORCID](https://img.shields.io/badge/ORCID-0009--0007--5457--8667-6C757D.svg)](https://orcid.org/0009-0007-5457-8667)
-[![Repository](https://img.shields.io/badge/Repository-v4.3.0-blue.svg)](../../README.md)
+[![Repository](https://img.shields.io/badge/Repository-v4.3.0-6C757D.svg)](../README.md)
+[![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.21097442-blue.svg)](https://doi.org/10.5281/zenodo.21097442)
 
-Stage 4 of the `trial-ind/` build: the final IND, at maximum context and formatting
+[Publication with Author Edits](https://github.com/kevinkawchak/physical-ai-oncology-trials/tree/main/trial-ind/final-ind/publication) (final-ind/publication). Stage 4 of the `trial-ind/` build: the final IND, at maximum context and formatting
 quality. It carries over the full IND, deepens the regulatory and clinical prose
 toward the ten-times character target, unifies the figure numbering into a single
 document sequence (Figure 1 to Figure 22, so all 22 grayscale figures appear) and
