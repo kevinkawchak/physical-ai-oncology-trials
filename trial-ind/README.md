@@ -7,11 +7,11 @@
 [![Template](https://img.shields.io/badge/Template-ReGARDD%20IND-6C757D.svg)](inputs/ReGARDD_IND_Template.docx)
 [![Figures](https://img.shields.io/badge/Grayscale%20figures-22-000000.svg)](mermaid)
 [![Method](https://img.shields.io/badge/Method-mermaid%E2%86%92draft%E2%86%92full%E2%86%92final-6C757D.svg)](sub-prompts)
-[![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.xxxxxxxx-blue.svg)](https://doi.org/10.5281/zenodo.xxxxxxxx)
 [![ORCID](https://img.shields.io/badge/ORCID-0009--0007--5457--8667-6C757D.svg)](https://orcid.org/0009-0007-5457-8667)
 [![Repository](https://img.shields.io/badge/Repository-v4.3.0-blue.svg)](../README.md)
+[![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.21097442-blue.svg)](https://doi.org/10.5281/zenodo.21097442)
 
-This directory builds a complete, comprehensive **Phase 1 Investigational New Drug
+[Publication with Author Edits](https://github.com/kevinkawchak/physical-ai-oncology-trials/tree/main/trial-ind/final-ind/publication) (final-ind/publication). This directory builds a complete, comprehensive **Phase 1 Investigational New Drug
 (IND) application** for the *LLM-Directed PDAC Robotic Daraxonrasib* trial, and at
 the same time demonstrates how a repository-based large language model, driven by a
 single master prompt, **hastens the entire Phase 1 IND document-package process**
