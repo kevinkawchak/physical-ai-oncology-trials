@@ -1,0 +1,1234 @@
+% sec-02-introduction.tex - Introduction (final)
+\section{Introduction}
+
+\subsection{Introductory Statement}
+
+This Investigational New Drug (IND) application (IND v1.0, repository v4.3.0)
+supports a Phase 1, first-in-human, combined IND and Investigational Device
+Exemption (IDE) clinical investigation of on-premises large language model (LLM)
+directed eight-arm robotic pancreaticoduodenectomy (Whipple) with perioperative
+daraxonrasib (RMC-6236) in patients with KRAS G12-mutated pancreatic ductal
+adenocarcinoma (PDAC). The investigation is filed under 21 CFR \S 312 for the
+investigational drug and is coupled to a significant-risk early-feasibility device
+study under 21 CFR \S 812 for the LLM-directed robotic platform; the two pathways
+are coordinated within a single integrated protocol because the device conducts the
+resection that generates the operative and pathology inputs to the daraxonrasib
+restart advisory \cite{daraxwhipple, onpremwhippl}. The sponsor-investigator is
+ChemicalQDevice (Kevin Kawchak, Chief Executive Officer), and the conduct,
+oversight, and reporting commitments described throughout this dossier are made in
+accordance with the applicable provisions of 21 CFR \S 312.23 and the FDA Phase 1
+content and format guidance \cite{phase1guidance, cfr312paiuni}.
+
+This Introduction is structured to satisfy the introductory-statement requirement
+of 21 CFR \S 312.23(a)(3)(i), which directs the sponsor to provide a brief
+introductory statement and general investigational plan that names the drug and its
+active ingredients, identifies the pharmacological class, states the structural
+formula, describes the dosage form and route of administration, gives the broad
+objectives and planned duration of the investigation, and summarizes the previous
+human experience and the status of the drug in other countries. Each of these
+codified content elements is addressed in a dedicated subsection below, in the
+ReGARDD content order, so that a reviewer can map every regulatory expectation onto
+a labeled location in this dossier. Where a content element is developed at greater
+depth elsewhere (for example the full structural characterization in the Chemistry,
+Manufacturing, and Control information, or the full safety architecture in the
+General Investigational Plan and the Investigator's Brochure), this Introduction
+states the substance concisely and gives the explicit cross-reference rather than
+duplicating the downstream text, consistent with the FDA expectation that the IND
+read as one internally consistent document \cite{phase1guidance}.
+
+The clinical problem this investigation addresses is severe and time-sensitive.
+PDAC is the third leading cause of cancer death in the United States and the fourth
+in the European Union, with total five-year overall survival below 13 percent
+\cite{pdac060s2030}. The pancreaticoduodenectomy is the most technically demanding
+of all curative-intent abdominal oncology operations: it requires resection and
+reconstruction of four luminal structures (the pancreas, the duodenum, the common
+bile duct, and the stomach or pylorus) and dissection around five named vessels
+(the superior mesenteric vein, the portal vein, the hepatic artery, the celiac
+axis, and the superior mesenteric artery). The leading lethal postoperative
+sequence is the fistula-sepsis cascade: a clinically relevant pancreatic fistula
+that progresses to intra-abdominal infection, hemorrhage, sepsis, and failure to
+rescue. 
+
+The 2025 Dutch nationwide cohort of 1000 robotic
+pancreaticoduodenectomies, which anchors the contemporary human baseline, reported
+a conversion rate of 10.1 percent, Clavien-Dindo grade III or higher complications
+of 41.3 percent, International Study Group on Pancreatic Surgery (ISGPS) grade B or
+C fistula of 24.4 percent, and 30-day mortality of 3.9 percent. Even expert,
+high-volume robotic surgery therefore leaves a substantial residual of conversions,
+high-grade complications, and clinically relevant fistulae. The intervention
+studied here pairs a precise, auditable, on-premises LLM-directed robotic Whipple
+with the RAS(ON) multi-selective inhibitor daraxonrasib, targeting an in-window R0
+resection while layering hard cyber-physical safety limits and optimizing
+perioperative drug-restart.
+
+\clearpage
+
+\needspace{10\baselineskip}
+\begin{table}[t]
+\caption{Contemporary human baseline for robotic pancreaticoduodenectomy. The 2025
+Dutch nationwide cohort of 1000 robotic pancreaticoduodenectomies anchors
+benchmark against which secondary feasibility and safety endpoints of this
+Phase 1 investigation are interpreted descriptively, not as a powered comparator.}
+\label{tab:sec02-baseline}
+\centering
+\begin{tabularx}{\textwidth}{L{2.95cm} C{2.4cm} Y}
+\toprule
+\textbf{Outcome} & \textbf{Dutch 2025 cohort} & \textbf{Relevance to this investigation} \\
+\midrule
+Unplanned conversion to open & 10.1\% & Anchors technical-feasibility co-primary endpoint (finished without unplanned device attributable conversion) \\
+Clavien-Dindo grade III or higher & 41.3\% & Anchors the 30-day device-related and procedure-related serious-adverse-event co-primary endpoint \\
+ISGPS grade B or C pancreatic fistula & 24.4\% & Anchors the secondary fistula endpoint and informs the restart-advisory fistula input \\
+30-day mortality & 3.9\% & Anchors 30-day and 90-day mortality secondary endpoints \\
+\bottomrule
+\end{tabularx}
+\end{table}
+\vspace*{-1.4cm}
+\figcaption{Table 3.1. Contemporary human baseline for robotic
+pancreaticoduodenectomy from the 2025\\Dutch nationwide  cohort. These outcomes frame
+the unmet need quantitatively and contextualize the\\ secondary endpoints; they are
+not used as a powered statistical comparator in this first-in-human study.}
+
+To make the contemporary human baseline explicit for the reviewer, Table 3.1
+collects the principal Dutch nationwide robotic-cohort outcomes against which the
+secondary feasibility and safety endpoints of this investigation are interpreted.
+These figures are not used as a formal statistical comparator; the Phase 1 design
+is descriptive and non-confirmatory and enrolls only up to 18 treated participants,
+which is far too small to power a comparison against a national registry. The
+baseline is presented because it frames the unmet need quantitatively and because
+it defines the order of magnitude of the conversion, high-grade complication, and
+fistula rates that the integrated drug-device intervention is designed to reduce
+over its staged-autonomy lifecycle. A first-in-human study cannot and does not
+promise a reduction in these endpoints; it establishes whether the combined
+intervention can be delivered safely and feasibly at all, which is the necessary
+precondition for any later efficacy claim.
+
+The device that conducts the resection is an eight-arm parallel coelomic surgical
+platform carrying 56 mechanical degrees of freedom (eight arms with seven
+degrees of freedom each) and a 640-channel mixed-rate sensor stack (80 channels per
+arm), with force channels sampling at 100 kHz and all remaining channels at the
+10 kHz command rate, positioning accuracy of 0.05 mm root mean square at a peak tip
+velocity of 1200 mm/s. An on-premises repository-pinned LLM acts as a second-opinion
+advisory oracle held strictly outside the robot vendor kinematic stack and hash-pinned
+to a deterministic seed and a specific commit, never as an autonomous controller;
+full autonomy is prohibited consistent with 21 CFR \S 312.21(e). 
+
+The hard
+cyber-physical safety envelope comprises a per-arm tip-force cap of 3 N or less, a
+cumulative cross-arm tip-force cap of 18 N or less enforced at the heartbeat
+boundary, a 10 kHz heartbeat coordination bus broadcasting a 64-byte frame on a 100
+microsecond per-arm watchdog deadline, an emergency arm park within 50 microseconds
+of a missed or out-of-parameter frame, a cross-arm emergency stop that halts the
+full platform in 3 ms or less, and a software-independent hardware emergency stop in
+500 ms or less consistent with 21 CFR \S 312.404. A vascular no-fly gate samples at
+10 kHz around five named vessels (the superior mesenteric vein, portal vein, hepatic
+artery, celiac axis, and superior mesenteric artery), with a soft-warning advisory
+zone at 3.0 mm, a no-fly blocking zone at 1.0 mm for the superior mesenteric and
+portal veins and 1.5 mm for the hepatic artery, celiac axis, and superior mesenteric
+artery, and a hard-stop emergency-stop zone at 5.0 mm. 
+
+\clearpage
+
+\needspace{14\baselineskip}
+\begin{table}[t]
+\caption{Hard cyber-physical safety envelope enforced below the advisory layer.
+Every limit is enforced in hardware or deterministic firmware; the on-premises
+advisory LLM cannot relax or override any limit. Response times are upper bounds.}
+\label{tab:sec02-envelope}
+\centering
+\begin{tabularx}{\textwidth}{L{4.8cm} L{3.6cm} Y}
+\toprule
+\textbf{Safety mechanism} & \textbf{Quantitative limit} & \textbf{Regulatory anchor and function} \\
+\midrule
+Per-arm tip-force cap & 3 N or less per arm & Bounds local tissue and vascular load on each of the eight arms \\
+Cumulative cross-arm tip-force cap & 18 N or less, all arms & Enforced at the heartbeat boundary across the parallel platform \\
+Heartbeat coordination bus & 10 kHz, 64-byte frame, 100 microsecond watchdog & Deterministic per-arm coordination; missed frame triggers protection \\
+Emergency arm park & 50 microseconds or less & Parks an arm on a missed or out-of-parameter frame \\
+Cross-arm emergency stop & 3 ms or less to 0.0 N & Halts the full eight-arm platform from any arm event \\
+Hardware emergency stop & 500 ms or less, software-independent & 21 CFR \S 312.404; floor below all firmware and the advisory layer \\
+Vascular no-fly gate & soft 3.0 mm, block 1.0 to 1.5 mm, hard-stop 5.0 mm, 10 kHz & Distance-keyed protection around five named vessels \\
+\bottomrule
+\end{tabularx}
+\end{table}
+\vspace*{-1.4cm}
+\figcaption{Table 3.2. Hard cyber-physical safety envelope. The per-arm and
+cumulative tip-force caps, the\\10 kHz heartbeat with 100 microsecond watchdog, the
+graded emergency-stop response times, and\\the distance-keyed vascular no-fly gate
+are enforced deterministically below the non-autonomous advisory\\layer, with the
+software-independent hardware emergency stop providing the floor under 21 CFR
+\S 312.404.}
+
+In this Phase 1 the device
+operates only at the clinician-controlled and supervised-semiautonomous levels under
+continuous human oversight with immediate manual override, consistent with the
+staged-autonomy posture in which higher autonomy is reserved for future stages
+\cite{daraxwhipple, onpremwhippl, clintrustpai}.
+
+The hard cyber-physical safety envelope is presented quantitatively in Table 3.2 so
+that the numeric limits the device enforces, the response times it guarantees, and
+the regulatory anchor for each are visible in one place at the outset of the
+dossier. The envelope is deliberately constructed so that every limit is enforced
+in hardware or in deterministic firmware below the LLM advisory layer; the advisory
+LLM cannot relax, override, or widen any of these limits, and a missed or
+out-of-parameter heartbeat frame triggers the protective response regardless of any
+advisory output. This separation of a deterministic, software-independent safety
+floor from a non-autonomous advisory layer is the central design principle that
+makes the integrated drug-device intervention suitable for a first-in-human study,
+and it is developed in full in the General Investigational Plan and the
+Investigator's Brochure.
+
+
+
+The eligible population is adults (18 years or older) with histologically or
+cytologically confirmed, resectable or borderline-resectable PDAC; documented KRAS
+G12 mutation (G12D, G12V, or G12R); ECOG performance status 0 or 1; and candidacy
+for pancreaticoduodenectomy, eligible under the broad pan-KRAS criteria of the
+RASolute 302 program. An exemplar screening subject, PAT-PDAC-0001, is a 68-year-old
+with a 3.4 cm head-of-pancreas tumor abutting the superior mesenteric vein at 75
+degrees, KRAS G12D, microsatellite-stable disease, CA 19-9 of 412 U/mL, ECOG 1, and
+four cycles of neoadjuvant modified FOLFIRINOX, illustrating the borderline-resectable
+phenotype the investigation targets. This exemplar is a worked illustration of the
+eligibility logic and is not an enrolled participant; it is used throughout the
+dossier to make the screening, simulation sign-off, operative, and restart-advisory
+pathways concrete for the reviewer. For PAT-PDAC-0001 the 75-degree venous abutment
+falls within the borderline-resectable definition (tumor-vessel contact of 180
+degrees or less without occlusion), the KRAS G12D genotype satisfies the molecular
+criterion, the ECOG 1 status satisfies the performance criterion, and the
+completion of four cycles of neoadjuvant modified FOLFIRINOX satisfies the
+candidacy criterion, so the subject would proceed to the Phase 0 simulation-validation
+sign-off and the baseline Unified Safety Level verification before any
+patient-facing robotic activity.
+
+The investigational plan rests on a three-part acceleration thesis that is the
+animating premise of the present repository. A patient already enrolled in a Phase
+1 PDAC study has little survival margin to spare on administrative delay; the
+clinical and operational time of a trial (recruitment, treatment, and waiting for
+progression-free and overall survival to mature) cannot be compressed by writing
+faster, and neither can the fixed regulatory review clocks, but the administrative
+and preparation time spent authoring the large documents between steps can be
+compressed substantially \cite{oncotrialllm, paipredict4x}. Faster, internally
+consistent paperwork therefore means faster treatment: a complete and consistent
+package reaches the Institutional Review Board (IRB) and the FDA sooner, the 30-day
+IND safety clock starts sooner, sites activate sooner, and the next dose-escalation
+cohort opens sooner. This IND, like the protocol and the supporting publication
+from which it is assembled, was generated through a single-prompt mermaid to draft
+to full to final pipeline whose every artifact is committed and reviewable in real
+time, and the same mechanism that produced this dossier maintains the safety
+reports, amendments, and study reports that the trial will require throughout its
+lifecycle.
+
+The acceleration thesis distinguishes three categories of trial time with sharp
+care, because conflating them is the most common way that claims about AI-assisted
+trial conduct overreach. The first category is clinical and biological time: the
+months a participant is treated, the interval to disease progression, and the time
+for overall survival to mature. This time is fixed by human physiology and the
+natural history of PDAC and cannot be shortened by any authoring tool; a faster
+document does not make a tumor respond faster. The second category is regulatory
+review time: the statutory 30-day IND safety review under 21 CFR \S 312.40(b), the
+IRB review interval, and the cohort-boundary safety reviews of the Data Safety
+Monitoring Board. 
+
+These intervals are bounded by regulation and by the deliberate
+pace of safety review and are not compressed by faster authoring. The third
+category is administrative and preparation time: the weeks spent drafting,
+cross-checking, formatting, and revising the large regulated documents that sit
+between every clinical and regulatory step. Only the third category is addressed by
+the single-prompt workflow, and the acceleration claim is bounded strictly to it.
+Because the third category nonetheless sits on the critical path before the 30-day
+clock can start and between every cohort, compressing it advances the start of the
+fixed clocks rather than shortening them, which is the precise and defensible form
+of the acceleration thesis \cite{oncotrialllm, paipredict4x}.
+
+Figure 4 places this IND within the full Phase 1 oncology document landscape it
+inhabits. Before submission the repository LLM generates the IND dossier, the
+Investigator's Brochure, the clinical protocol, and the informed consent form;
+during the trial it produces the 7-day and 15-day safety reports, the annual
+Development Safety Update Report (DSUR), protocol amendments, and dose-escalation
+minutes; and after the trial it assembles the tables, listings, and figures, the
+ICH E3 clinical study report, and the downstream manuscripts and lay summaries. The
+IND package is the first and rate-limiting artifact in this relay, which is why the
+acceleration thesis is most consequential here \cite{oncotrialllm}.
+
+\needspace{8\baselineskip}
+\begin{mermaidfig}
+\node[mmaccent](hub) at (5.4,-3.0)  {Repository LLM\\IND document\\generation};
+\node[mmin]    (b1)  at (0.3,0)       {IND dossier\\(1571 to 11)};
+\node[mmin]    (b2)  at (0.3,-1.9)    {Investigator's\\Brochure};
+\node[mmin]    (b3)  at (0.3,-3.8)    {Clinical protocol};
+\node[mmin]    (b4)  at (0.3,-5.7)    {Informed consent\\(ICF)};
+\node[mmproc]  (d1)  at (10.5,0)    {SAE / SUSAR\\7 / 15-day};
+\node[mmproc]  (d2)  at (10.5,-1.9) {DSUR (annual)};
+\node[mmproc]  (d3)  at (10.5,-3.8) {Protocol\\amendments};
+\node[mmproc]  (d4)  at (10.5,-5.7) {Dose-escalation\\minutes};
+\node[mmgoal]  (a1)  at (5.4,-6.8)  {Tables, listings,\\figures};
+\node[mmgoal]  (a2)  at (5.4,-8.4)  {CSR (ICH E3)};
+\node[mmgoal]  (a3)  at (5.4,-10) {Manuscripts /\\lay summaries};
+\draw[mmedge] (b1.east) to[out=0,in=160,looseness=0.6] (hub.north west);
+\draw[mmedge] (b2.east) to[out=0,in=175,looseness=0.6] (hub.west);
+\draw[mmedge] (b3.east) to[out=0,in=185,looseness=0.6] (hub.west);
+\draw[mmedge] (b4.east) to[out=0,in=200,looseness=0.6] (hub.south west);
+\draw[mmedge] (hub.north east) to[out=20,in=180,looseness=0.6] (d1.west);
+\draw[mmedge] (hub.east) to[out=5,in=180,looseness=0.6] (d2.west);
+\draw[mmedge] (hub.east) to[out=-5,in=180,looseness=0.6] (d3.west);
+\draw[mmedge] (hub.south east) to[out=-20,in=180,looseness=0.6] (d4.west);
+\draw[mmedge] (hub) -- (a1);
+\draw[mmedge] (a1) -- (a2);
+\draw[mmedge] (a2) -- (a3);
+\end{mermaidfig}
+\vspace*{-0.5cm}
+\figcaption{Figure 4. The large Phase 1 oncology document landscape around the IND,
+grouped into before-submission inputs (the IND dossier, Investigator's Brochure,
+protocol, and consent), during-trial process documents (7 and 15-day safety
+reports, the annual DSUR, amendments, and dose-escalation minutes), and after-trial
+outputs (tables, listings, figures, the ICH E3 clinical study report, and
+manuscripts and lay summaries), all generated by the repository LLM around the
+central hub. This figure renders in the Introduction to place the IND in the full
+document lifecycle.}
+
+The relay structure of Figure 4 has a direct regulatory consequence that motivates
+the entire dossier. The before-submission inputs (the IND dossier, the
+Investigator's Brochure, the protocol, and the consent form) must be complete,
+mutually consistent, and cross-referenced before the 30-day IND safety clock under
+21 CFR \S 312.40(b) can begin; any internal inconsistency between, for example, the
+dose levels stated in the Introduction, the escalation rule stated in the General
+Investigational Plan, and the dose-modification table in the protocol is a source
+of review questions that delays the clock. The single-prompt workflow addresses
+precisely this failure mode by generating every artifact from one pinned source of
+trial facts, so that the dose levels, the safety-reporting clocks, the eligibility
+criteria, and the endpoint definitions are identical wherever they appear. 
+
+The
+during-trial process documents (the 7-day and 15-day safety reports, the annual
+DSUR, the amendments, and the dose-escalation minutes) inherit the same fact base,
+so a protocol amendment automatically propagates a consistent change to the consent
+form and the safety-reporting plan rather than requiring manual reconciliation
+across documents. The after-trial outputs (the tables, listings, and figures, the
+ICH E3 clinical study report, and the manuscripts and lay summaries) close the loop
+by drawing from the same committed record. The reviewer therefore encounters a
+dossier in which every number that appears more than once appears identically,
+which is the practical meaning of the internal-consistency expectation in the FDA
+Phase 1 guidance \cite{phase1guidance, oncotrialllm}.
+
+The remainder of this Introduction follows the ReGARDD IND content sequence. It
+names the drug and its active ingredients (\S 3.1.1), states the pharmacological
+class (\S 3.1.2) and structural description (\S 3.1.3), summarizes the dosage form
+(\S 3.1.4), the route of administration (\S 3.1.5), and the duration of the
+proposed clinical investigation (\S 3.1.6); it then summarizes previous human
+experience (\S 3.2), the status of the drug in other countries (\S 3.3), and the
+preclinical and computational evidence (\S 3.4), with the supporting references
+collected in \S 3.5. Quantitative and design detail introduced here is developed
+in full in the General Investigational Plan (\S 4), the Investigator's Brochure
+(\S 5), the proposed clinical research (\S 6), the Chemistry, Manufacturing, and
+Control information (\S 7), and the Pharmacology and Toxicology information (\S 8).
+
+\subsubsection{Name of the Drug and All Active Ingredients}
+
+The investigational drug is daraxonrasib, also known by its development code
+RMC-6236. Daraxonrasib is the single active ingredient of the drug product; there
+are no additional active pharmaceutical ingredients. It is an orally bioavailable,
+RAS(ON) multi-selective (pan-RAS) small-molecule inhibitor that binds the active,
+guanosine-triphosphate-bound (ON) state of mutant RAS in a tri-complex with the
+intracellular chaperone cyclophilin A, suppressing downstream effector signaling
+across the common KRAS oncoprotein variants found in PDAC \cite{daraxwhipple,
+onpremwhippl}. The molecular target population for this investigation is defined by
+the KRAS G12 alleles (G12D, G12V, and G12R) that predominate in pancreatic ductal
+adenocarcinoma; daraxonrasib provides broad pan-KRAS coverage that spans these
+alleles, which is the property that makes it suitable for the protocol's
+molecularly defined eligibility \cite{daraxwhipple}.
+
+The nomenclature used throughout this dossier is fixed here to avoid ambiguity. The
+nonproprietary (generic) name is daraxonrasib; the development code is RMC-6236; the
+two terms refer to the same single chemical entity and are used interchangeably,
+with daraxonrasib preferred in clinical text and RMC-6236 retained where the source
+material uses the code. Because the drug product contains daraxonrasib as its only
+active ingredient and no second active pharmaceutical ingredient, the IND requires
+no separate active-ingredient characterization for a fixed-dose combination, and the
+combination character of the intervention is created not by a second drug but by the
+pairing of the single drug with the investigational LLM-directed device. This
+distinction is material to the regulatory framing: the integrated intervention is a
+drug-device combination in the operational sense that the device generates the
+operative and pathology inputs to the drug-restart advisory, but the drug product
+itself remains a single-active-ingredient oral tablet, and the device carries no
+pharmacologic dose of its own.
+
+Figure 5 reproduces the mechanism and pharmacological-class schematic for
+daraxonrasib that grounds \S 3.1.1 through \S 3.1.3. Daraxonrasib forms the
+tri-complex with cyclophilin A, binds the active GTP-bound state of mutant RAS,
+intercepts the KRAS G12 variants that define the trial population, suppresses
+downstream MAPK and PI3K effector signaling, and thereby reduces tumor-cell
+proliferation and survival; it is dosed orally once daily at the three escalation
+levels (DL1 160 mg, DL2 220 mg, DL3 300 mg) and carries FDA Breakthrough Therapy
+designation granted in June 2025 for previously treated metastatic KRAS G12 PDAC
+\cite{daraxwhipple, onpremwhippl}.
+
+\needspace{8\baselineskip}
+\begin{mermaidfig}
+\node[mmgoal] (drx)   at (0,0)       {Daraxonrasib (RMC-6236)\\oral RAS(ON)\\multi-selective\\(pan-RAS) inhibitor};
+\node[mmproc] (cypa)  at (0,-2.6)    {Tri-complex with\\cyclophilin A};
+\node[mmproc] (rason) at (4.6,-2.6)  {Binds active GTP-bound\\mutant RAS (RAS(ON))};
+\node[mmin]   (kras)  at (4.6,0)     {KRAS G12 variants\\G12D / G12V / G12R};
+\node[mmaccent](eff)  at (4.6,-5.2)  {Suppresses downstream\\MAPK / PI3K effector\\signaling};
+\node[mmgoal] (prol)  at (0,-5.2)    {Reduced tumor-cell\\proliferation and survival};
+\node[mmctx]  (route) at (9.4,0.395)  {Route: oral, once daily\\DL1 160 / DL2 220 /\\DL3 300 mg};
+\node[mmdark] (btd)   at (9.4,-2.05)  {FDA Breakthrough Therapy\\(June 2025), pretreated\\metastatic KRAS G12 PDAC};
+\draw[mmedge] (drx) -- (cypa);
+\draw[mmedge] (cypa) -- (rason);
+\draw[mmedge] (kras) -- (rason);
+\draw[mmedge] (rason) -- (eff);
+\draw[mmedge] (eff) -- (prol);
+\draw[mmedged] (drx.north east) to (route.north west);
+\draw[mmedged] (drx.south east) to (btd.north west);
+\end{mermaidfig}
+\vspace*{-0.5cm} 
+\figcaption{Figure 5. Daraxonrasib forms a tri-complex with cyclophilin A and
+binds the active, guanosine-triphosphate-bound\\state of mutant RAS, including the
+KRAS G12 variants (G12D, G12V, G12R) that define the trial population, suppressing
+downstream MAPK and PI3K effector signaling and reducing tumor-cell proliferation
+and survival.\\It is dosed orally once daily at DL1 160 mg, DL2 220 mg, and DL3 300
+mg, and holds FDA Breakthrough\\Therapy designation (June 2025) for previously
+treated metastatic KRAS G12 PDAC. This figure renders in\\ \S 3.1.1 (Name of Drug and
+Active Ingredients), \S 3.1.2 (Pharmacological Class), and \S 3.1.3 (Structural
+Formula).}
+
+In the present investigation daraxonrasib is studied in a perioperative,
+curative-intent surgical context that is distinct from its late-phase metastatic
+program: it is administered orally once daily in a defined preoperative course,
+paused across the operative window, and restarted postoperatively on a day chosen
+by the LLM-bound, human-confirmed advisory described in \S 3.1.5 and developed in
+the proposed clinical research. Because the drug is paired with an investigational
+device in the drug-delivery pathway, the combined IND and IDE submission carries a
+full Physical AI System Description meeting the eleven fields of 21 CFR
+\S 312.23(g) \cite{cfr312paiuni}, the substance of which is presented in the CMC
+and device sections of this dossier.
+
+The eleven-field Physical AI System Description required under 21 CFR \S 312.23(g)
+is the structural anchor that ties the drug and device components together for the
+reviewer, and its fields are introduced here so the named subsections that develop
+them can be located. The description records the intended use and indication; the
+system architecture, including the eight-arm platform, the 640-channel sensor
+stack, and the on-premises advisory LLM held outside the vendor kinematic stack; the
+autonomy level, fixed at the clinician-controlled and supervised-semiautonomous
+tiers with full autonomy prohibited; the hardware and software safety architecture,
+including the heartbeat, the watchdog, the graded emergency stops, and the vascular
+no-fly gate; the verification-before-generation gate suite that screens every
+advisory output; the human-factors and oversight model; the cybersecurity and
+audit-trail provisions under 21 CFR part 11; the data-governance and model-pinning
+provisions; the change-control and re-validation provisions; the reporting triggers
+under 21 CFR \S 312.32(g); and the record-retention provisions. Each field is
+developed in the General Investigational Plan, the Investigator's Brochure, and the
+CMC information, and the cross-references are given at each point of first mention so
+the reviewer can trace any field to its full treatment.
+
+\clearpage
+
+\subsubsection{Pharmacological Class of the Drug}
+
+Daraxonrasib belongs to the RAS(ON) multi-selective small-molecule inhibitor class.
+Pharmacologically, the agent is a tri-complex inhibitor: it does not act on the
+inactive, guanosine-diphosphate-bound (OFF) conformation that earlier-generation
+allele-specific inhibitors target, but instead engages the active, GTP-bound (ON)
+conformation of mutant RAS by recruiting the abundant intracellular chaperone
+cyclophilin A to form a high-affinity ternary complex on the RAS surface
+\cite{daraxwhipple, onpremwhippl}. This ON-state, chaperone-mediated mechanism
+confers multi-selective (pan-RAS) coverage across KRAS, NRAS, and HRAS variants,
+and in particular across the KRAS G12 alleles (G12D, G12V, G12R) that account for
+the large majority of RAS-driven PDAC. By occupying the active oncoprotein, the
+inhibitor blocks engagement of downstream effectors and suppresses the mitogen
+activated protein kinase (MAPK) and phosphoinositide 3-kinase (PI3K) signaling
+axes, with the consequence of reduced tumor-cell proliferation and survival, as
+summarized in Figure 5.
+
+The class distinction between ON-state multi-selective inhibition and the
+allele-specific OFF-state inhibition of earlier agents is not a matter of taxonomy
+alone; it determines both the breadth of the eligible population and the anticipated
+safety profile, and it is therefore developed here in the depth the reviewer needs
+to interpret the dose-finding design. Allele-specific OFF-state inhibitors bind a
+single mutant conformation (for example a specific G12C pocket) and consequently
+cover only one allele, which excludes the majority of PDAC patients whose tumors
+carry G12D, G12V, or G12R. An ON-state pan-RAS inhibitor that engages the active
+oncoprotein through a cyclophilin A tri-complex covers the spectrum of KRAS G12
+alleles in one agent, which is exactly the property that lets this protocol adopt the
+broad pan-KRAS eligibility of the RASolute 302 program rather than restricting to a
+single allele. The breadth of coverage is the molecular reason the eligible
+population is defined by the presence of any KRAS G12 mutation rather than by a
+single variant.
+
+The class assignment is material to the safety profile anticipated in this Phase 1
+study and to the dose-finding rationale. As a multi-selective RAS pathway
+inhibitor, daraxonrasib carries the on-target, mechanism-based toxicities
+characteristic of broad RAS and MAPK pathway suppression, including
+gastrointestinal effects (nausea, diarrhea, stomatitis), dermatologic and
+mucocutaneous events (rash), and hepatic enzyme elevations; these are the toxicity
+categories that the 3+3 escalation is specifically designed to detect and bound and
+that inform the dose-limiting toxicity (DLT) definitions in \S 4. The class also
+informs the perioperative pause-and-restart logic, because broad pathway inhibition
+during the immediate postoperative window carries a theoretical risk to wound and
+anastomotic healing if restart is mistimed, which is why restart day is
+keyed to fistula grade and drug trough rather than fixed.
+
+Table 3.3 organizes the anticipated mechanism-based toxicity categories that follow
+from the pharmacological class, the physiological basis for each, and the way each
+category is detected and bounded in this Phase 1 design. The table is presented here
+because the class assignment is the single most important determinant of what the
+3+3 escalation is built to find: the dose-limiting toxicity definitions in the
+General Investigational Plan are constructed around exactly these categories, and the
+perioperative pause-and-restart logic exists to manage the wound-healing concern that
+the same broad pathway suppression creates. Presenting the categories at the level of
+the Introduction lets the reviewer see the through-line from pharmacological class to
+DLT definition to restart advisory before encountering each in its full subsection.
+
+\needspace{12\baselineskip}
+\begin{table}[t]
+\caption{Anticipated mechanism-based toxicity categories of RAS(ON) multi-selective
+inhibition and how each is detected and bounded in this Phase 1 design. The
+categories follow from the pharmacological class and define what the 3+3 escalation
+and the dose-limiting-toxicity definitions are constructed to find.}
+\label{tab:sec02-toxcat}
+\centering
+\begin{tabularx}{\textwidth}{L{3.6cm} Y Y}
+\toprule
+\textbf{Toxicity category} & \textbf{Mechanistic basis} & \textbf{Detection and bounding in this design} \\
+\midrule
+Gastrointestinal (nausea, diarrhea, stomatitis) & Broad MAPK pathway suppression in rapidly dividing gut epithelium & Graded continuously; contributes to DLT definitions across the 28-day window \\
+Dermatologic and mucocutaneous (rash) & On-target effect of RAS and MAPK suppression in skin and mucosa & Graded continuously; severe events meet DLT thresholds in the escalation \\
+Hepatic enzyme elevation & Pathway-related hepatocellular effect of broad RAS inhibition & Laboratory monitoring across the DLT window; thresholds in the DLT definition \\
+Wound and anastomotic healing & Theoretical impairment of healing under broad pathway suppression & Managed by the perioperative pause and the fistula-keyed restart advisory \\
+\bottomrule
+\end{tabularx}
+\end{table}
+\vspace*{-1.4cm}
+\figcaption{Table 3.3. Mechanism-based toxicity categories of RAS(ON)
+multi-selective inhibition. The\\gastrointestinal, dermatologic and mucocutaneous,
+and hepatic categories define the dose\\limiting toxicity targets of the 3+3
+escalation, and the wound-healing concern motivates the\\perioperative pause and restart advisory that keys the restart day to fistula grade and drug
+trough.}
+
+\subsubsection{Structural Formula of the Drug}
+
+Daraxonrasib (RMC-6236) is a synthetic, non-peptidic small-molecule organic
+compound of defined molecular structure designed to bind the RAS-cyclophilin A
+interface and engage the active GTP-bound state of mutant RAS. It is a single,
+well-characterized chemical entity rather than a mixture, a biologic, or a
+nucleic-acid therapeutic, and it is the sole active ingredient of the drug product.
+The molecule is the macrocyclic tri-complex inhibitor scaffold characteristic of
+the RAS(ON) class, engineered for oral bioavailability and once-daily exposure, and
+its structure supports the broad pan-KRAS coverage that defines the molecularly
+selected trial population.
+
+The structural class carries two functional implications that the reviewer should
+hold while reading the CMC information. First, the macrocyclic scaffold is the
+structural feature that allows the molecule to present a binding surface complementary
+to both the cyclophilin A chaperone and the active RAS oncoprotein simultaneously,
+which is the structural basis for the tri-complex mechanism and therefore for the
+pan-RAS coverage; the structure and the mechanism are not separable claims. Second,
+the engineering for oral bioavailability and once-daily exposure is the structural
+basis for the oral tablet dosage form and the once-daily route developed in
+\S 3.1.4 and \S 3.1.5, so the structural description, the dosage form, and the route
+of administration form one coherent account of how the single active ingredient is
+delivered. The Introduction states these implications qualitatively; the
+quantitative structural characterization that substantiates them is consolidated in
+the CMC information.
+
+\clearpage
+
+\needspace{12\baselineskip}
+\begin{table}[t]
+\caption{Daraxonrasib dose-level structure for the Phase 1 3+3 escalation. DL3 (300
+mg once daily) corresponds to the pan-KRAS RASolute 302 recommended Phase 2 dose;
+DL1 and DL2 sit below it to preserve a conservative first-in-human margin. The DLT
+window is 28 days, and the recommended Phase 2 dose (RP2D) is selected at or below
+the maximum tolerated dose (MTD).}
+\label{tab:sec02-doselevels}
+\centering
+\begin{tabularx}{\textwidth}{L{1.6cm} L{2.5cm} C{1.7cm} L{3.0cm} Y}
+\toprule
+\textbf{Dose level} & \textbf{Daily dose} & \textbf{DLT window} & \textbf{3+3 cohort} & \textbf{Role and rationale} \\
+\midrule
+DL1 & 160 mg QD & 28 days & 3, expand to 6 if 1 DLT & Conservative starting dose, two steps below the RASolute 302 reference \\
+DL2 & 220 mg QD & 28 days & 3, expand to 6 if 1 DLT & Intermediate level, one step below the reference dose \\
+DL3 & 300 mg QD & 28 days & 3, expand to 6 if 1 DLT & RASolute 302 rec. Phase 2 dose; highest planned level \\
+\bottomrule
+\end{tabularx}
+\end{table}
+\vspace*{-1.4cm}
+\figcaption{Table 3.4. Daraxonrasib oral dose levels and the 3+3 escalation
+structure. At each level\\three participants are observed across the 28-day DLT
+window; the cohort escalates on 0 of 3,\\expands to 6 on 1 of 3, escalates on 1 of
+6, and fixes the MTD at the preceding level on 2 or more of 6.}
+
+The complete structural formula of daraxonrasib, including the molecular formula,
+molecular weight, stereochemistry, the structural diagram of the macrocyclic
+scaffold, the chemical name, and the characterization data establishing identity
+and purity, is provided in the Chemistry, Manufacturing, and Control information of
+this submission at \S 7.1.1 (Drug Substance), consistent with 21 CFR \S 312.23(a)(7)
+\cite{phase1guidance, cfr312paiuni}. Presenting the full structural characterization
+in the CMC section avoids duplication and keeps the structural, physicochemical, and
+manufacturing detail consolidated where the reviewer expects it; this Introduction
+provides only the qualitative structural description and the cross-reference. The
+mechanism schematic in Figure 5 summarizes the functional relationship between the
+structure and its pharmacological target.
+
+\subsubsection{Formulation of the Dosage Form(s) to be Used}
+
+Daraxonrasib is supplied as oral tablets in the strengths required to compose the
+three once-daily dose levels evaluated in the 3+3 escalation: DL1 at 160 mg, DL2 at
+220 mg, and DL3 at 300 mg. The 300 mg once-daily level (DL3) corresponds to the
+recommended Phase 2 dose established in the pan-KRAS RASolute 302 program, and the
+escalation begins one and two steps below it (160 mg and 220 mg) to preserve a
+conservative first-in-human margin for the novel perioperative surgical context
+\cite{daraxwhipple, onpremwhippl}. Tablets are swallowed whole with water and are
+not crushed, split, or chewed unless a future protocol amendment provides validated
+instructions. No compounding or reconstitution is required; preparation consists of
+the site pharmacist verifying participant identity, the assigned dose level, and the
+expiry, then dispensing the once-daily oral dose with administration instructions.
+
+Tablets are packaged in child-resistant, light-protective containers labeled in
+accordance with 21 CFR \S 312.6, bearing the investigational caution statement
+``Caution: New Drug. Limited by Federal (or United States) law to investigational
+use,'' together with the protocol number, lot number, storage conditions, and a
+unique container identifier; because the study is open-label, the participant-facing
+label identifies the product and the assigned daily dose. The product is stored at
+controlled room temperature in a secured, access-controlled, temperature-monitored
+location within the investigational-product pharmacy, in its original
+light-protective packaging, with continuous temperature monitoring and documented
+excursion handling, and is dispensed only within its labeled expiry or retest date.
+The dose-level structure that the dosage form must support is summarized in Table
+3.4; the full formulation composition, appearance, packaging, stability, and labeling
+detail is provided in \S 7.1.2 (Drug Product) and \S 7.1.4 (Labeling).
+
+
+
+The dose-level spacing is chosen so that the escalation explores a clinically
+meaningful exposure range while preserving a conservative first-in-human margin in
+the novel perioperative surgical context. The step from DL1 to DL2 is 60 mg (a 37.5
+percent relative increment over the 160 mg starting dose), and the step from DL2 to
+DL3 is 80 mg (a 36.4 percent relative increment over the 220 mg intermediate dose),
+so the two steps are of comparable relative magnitude and neither introduces a large
+exposure jump between adjacent cohorts. Because DL3 is the established RASolute 302
+recommended Phase 2 dose rather than a dose above prior human experience, the
+escalation does not seek a new maximum tolerated dose above the known tolerable
+exposure; instead it confirms tolerability of the established exposure within the new
+perioperative surgical setting and identifies the recommended Phase 2 dose at or
+below it. This is the conservative posture appropriate to a first-in-human study
+that combines a drug with established late-phase exposure and a device with no prior
+human experience: the drug exposure stays within the prior human range while
+novel combination is characterized for safety and feasibility.
+
+\subsubsection{Route of Administration}
+
+Daraxonrasib is administered by the oral route, once daily, on a perioperative
+schedule comprising a defined preoperative course, a protocol-mandated pause
+spanning the operative window, and a postoperative restart whose timing is governed
+by an advisory. The preoperative course establishes systemic exposure before
+surgery; the pause spans the immediate operative and early-recovery window during
+which broad RAS pathway suppression could impair wound and anastomotic healing; and
+the restart returns systemic therapy at the earliest safe point to suppress
+micrometastatic outgrowth. The drug is not delivered by the device, which has no
+pharmacologic dose of its own; the device conducts the resection and reconstruction
+and supplies the operative and pathology inputs that restart advisory consumes
+\cite{daraxwhipple}.
+
+The perioperative pause-and-restart advisory is LLM-bound and human-confirmed, never
+autonomous. It takes two inputs and produces one of three restart recommendations.
+The inputs are the pancreaticojejunostomy ISGPS postoperative pancreatic-fistula
+grade (A, B, or C) and the serum daraxonrasib trough relative to a 0.5 ng/mL
+threshold. The outputs are a restart on postoperative day T+7d, T+14d, or T+21d, or
+a continued hold. In the prespecified 32-iteration deterministic simulation sweep,
+baseline serum was 0.45 ng/mL at the operative timepoint across all iterations
+(below the 0.5 ng/mL trough), and the advisory recommended T+7d in 29 of 32
+iterations (90.6 percent.
+
+Grade A fistula with sub-threshold trough), T+14d in 3 of
+32 iterations (9.4 percent, Grade B fistula or a delayed serum rise), and T+21d in 0
+of 32 iterations; Grade C fistula maps to T+21d or a continued hold and to the drug
+stop rule. Because the pancreaticojejunostomy is the dominant determinant of
+postoperative pancreatic-fistula risk, the fistula-grade input to the drug advisory
+is based on that anastomosis. The advisory is one of only two coupling points
+between the drug and device components of the integrated intervention, and it keeps
+the restart decision human-confirmed and fully traceable in the audit trail. The
+detailed advisory logic and the simulation sweep are presented in the proposed
+clinical research and Investigator's Brochure sections of this dossier.
+
+\clearpage
+
+\needspace{12\baselineskip}
+\begin{table}[t]
+\caption{Perioperative daraxonrasib pause-and-restart advisory logic. The advisory
+takes the pancreaticojejunostomy ISGPS fistula grade and the serum trough relative
+to 0.5 ng/mL and recommends a restart day or a hold; every recommendation is
+human-confirmed and preserved in the audit trail. The 32-iteration deterministic
+sweep distribution follows from this logic at the sub-threshold 0.45 ng/mL baseline.}
+\label{tab:sec02-restart}
+\centering
+\begin{tabularx}{\textwidth}{L{2.6cm} L{3.4cm} L{2.6cm} Y}
+\toprule
+\textbf{Fistula grade} & \textbf{Serum trough} & \textbf{Recommendation} & \textbf{Sweep frequency and notes} \\
+\midrule
+Grade A & Below 0.5 ng/mL & Restart T+7d & 29 of 32 (90.6\%); modal outcome at 0.45 ng/mL baseline \\
+Grade B & At or above 0.5 ng/mL, or delayed rise & Restart T+14d & 3 of 32 (9.4\%); Grade B or delayed serum rise \\
+Grade B or A & Delayed threshold crossing & Restart T+21d & 0 of 32 in the sweep; reserved for late rise \\
+Grade C & Any & Restart T+21d or hold & Engages the drug stop rule; continued hold permitted \\
+\bottomrule
+\end{tabularx}
+\end{table}
+\vspace*{-1.4cm}
+\figcaption{Table 3.5. Perioperative pause-and-restart advisory decision logic. The
+pancreaticojejunostomy fistula grade\\and the serum trough relative to 0.5 ng/mL map
+to a restart day (T+7d, T+14d, or T+21d) or a continued\\hold; the 32-iteration
+deterministic sweep yields 29 of 32 at T+7d, 3 of 32 at T+14d, and 0 of 32 at\\T+21d
+at the sub-threshold 0.45 ng/mL baseline, with every recommendation human-confirmed.}
+
+The mapping from the two inputs to the four possible outputs is fully prespecified
+and deterministic, which is what allows the 32-iteration sweep to characterize the
+advisory before any human exposure. Table 3.5 sets out the decision logic so that the
+reviewer can see exactly how each combination of fistula grade and serum trough maps
+to a restart day or a hold, and can verify that the simulation distribution (29 of 32
+at T+7d, 3 of 32 at T+14d, 0 of 32 at T+21d) follows from the logic given the
+sub-threshold baseline serum of 0.45 ng/mL observed across all iterations. Working
+the exemplar through the logic makes this concrete: for a participant who achieves a
+Grade A pancreaticojejunostomy result with a serum trough of 0.45 ng/mL (below the
+0.5 ng/mL threshold), the advisory recommends restart at T+7d, the modal outcome in
+the sweep, subject to human confirmation and the audit trail. A Grade B result, or a
+delayed serum rise crossing the threshold, shifts the recommendation to T+14d, and a
+Grade C result maps to T+21d or a continued hold and engages the drug stop rule. In
+every case the recommendation is advisory and human-confirmed; the LLM does not
+start, hold, or change the dose, and the recorded decision and its inputs are
+preserved in the hash-chained audit trail.
+
+
+
+\subsubsection{Duration of the Proposed Clinical Investigation(s)}
+
+The duration of the proposed clinical investigation is defined at two levels: the
+per-participant timeline and the overall study timeline. For each participant, the
+investigation comprises up to 28 days of screening (Day -28 to Day -1) during which
+histologic confirmation, KRAS G12 confirmation, staging, and eligibility are
+established; a baseline day (Day -1) that carries the Phase 0 simulation sign-off
+and the Unified Safety Level (USL) and safety-matrix verification; surgery on Day 0;
+an acute window (Day 1 to Day 7) carrying the ISGPS fistula grading and the
+daraxonrasib restart advisory; the Day 30 primary safety window during which
+device-related and procedure-related serious adverse events, including Clavien-Dindo
+grade III or higher complications, are ascertained; Day 90 pathology and mortality
+assessment, which carries the R0 resection determination and the 90-day mortality
+endpoint; and long-term follow-up every 12 weeks to the 24-month overall-survival
+endpoint, during which progression-free survival (PFS) and overall survival (OS)
+are assessed by RECIST v1.1 \cite{daraxwhipple}.
+
+\clearpage
+
+\needspace{14\baselineskip}
+\begin{table}[t]
+\caption{Per-participant timeline of the proposed investigation. Each window carries
+the assessments and gates shown; no patient-facing robotic activity occurs before
+the Phase 0 simulation-validation gate is satisfied at the baseline day.}
+\label{tab:sec02-timeline}
+\centering
+\begin{tabularx}{\textwidth}{L{3.0cm} L{2.4cm} Y}
+\toprule
+\textbf{Window} & \textbf{Timing} & \textbf{Principal assessments and gates} \\
+\midrule
+Screening & Day -28 to -1 & Histologic and KRAS G12 confirmation; staging; eligibility determination \\
+Baseline & Day -1 & Phase 0 simulation sign-off; Unified Safety Level and safety-matrix verification \\
+Surgery & Day 0 & LLM-directed eight-arm robotic Whipple; operative parameter capture \\
+Acute window & Day 1 to 7 & ISGPS fistula grading; daraxonrasib restart advisory; serum trough \\
+Primary safety & Day 30 & Device-related and procedure-related SAE, including Clavien-Dindo III or higher \\
+Pathology and mortality & Day 90 & R0 resection determination; 90-day mortality endpoint \\
+Long-term follow-up & Every 12 weeks to 24 months & PFS and OS by RECIST v1.1 \\
+\bottomrule
+\end{tabularx}
+\end{table}
+\vspace*{-1.45cm}
+\figcaption{Table 3.6. Per-participant timeline from screening through the 24-month
+overall-survival endpoint.\\The Phase 0 simulation-validation gate at the baseline
+day precedes any patient-facing robotic\\activity; the acute window carries the
+fistula grading and the restart advisory; and the Day 30 and\\Day 90 windows carry
+the primary safety endpoint and the R0 and mortality endpoints respectively.}
+
+Table 3.6 lays out the per-participant timeline as a single schedule so the
+reviewer can see how the screening, baseline, operative, acute, primary-safety,
+pathology, and long-term-follow-up windows align with the assessments and the
+regulatory anchors that govern each. The timeline is constructed so that no
+patient-facing robotic activity can occur before the Phase 0 simulation-validation
+gate is satisfied at the baseline day, so that the acute window carries both the
+fistula grading and the drug-restart advisory, and so that the Day 30 window
+ascertains the primary safety endpoint while the Day 90 window carries the R0
+determination and the 90-day mortality endpoint. The long-term follow-up then runs
+on a 12-week cadence to the 24-month overall-survival endpoint.
+
+
+
+The daraxonrasib DLT observation window is 28 days from the start of dosing at each
+dose level, which governs the cadence of the 3+3 escalation. At the study level, the
+investigation enrolls up to 18 treated participants (approximately 36 screened) at a
+single academic site, with an anticipated accrual of approximately one to two
+participants per month under sentinel staggered enrollment; with three dose levels
+of up to six DLT-evaluable participants each, the maximum of 18 follows directly
+(three levels times six). Adding the per-participant follow-up to 24-month OS to the
+accrual period, the total study duration is governed primarily by the time required
+to mature the overall-survival endpoint in the last-enrolled participant. A
+mandatory Phase 0 simulation-validation gate (at least 1000 simulated procedures
+across at least two independent frameworks, with a USL rating of at least 7.0 and a
+sim-to-real trajectory gap below 2 mm and tip-force gap below 0.5 N) precedes any
+patient-facing robotic activity and is re-validated after any qualifying change, so
+the patient-facing portion of the investigation does not begin until that gate is
+satisfied. The first-year operational plan and the projected enrollment cadence are
+developed in the General Investigational Plan (\S 4).
+
+A worked accrual illustration grounds the study-level duration. At an anticipated
+accrual of one to two participants per month under sentinel staggered enrollment, and
+with the maximum of 18 treated participants distributed across three dose levels of
+up to six DLT-evaluable participants each, the accrual period spans roughly nine to
+eighteen months in the absence of escalation pauses; sentinel staggering and the
+28-day DLT window between cohort decisions add deliberate intervals that lengthen
+this span, because a cohort must complete its DLT window and pass the cohort-boundary
+safety review before the next opens. The total study duration is then dominated not
+by accrual but by the per-participant follow-up to the 24-month overall-survival
+endpoint in the last-enrolled participant: even if accrual completes near month
+eighteen, the last participant's overall-survival endpoint matures roughly twenty-four
+months later, so the overall-survival readout governs the study end date. This is the
+expected structure for a first-in-human study whose primary endpoints are safety,
+dose, and feasibility but whose exploratory survival endpoints require long maturation.
+
+The investigation is statistically descriptive and non-confirmatory, consistent with
+ICH E9 principles for early-phase trials and with TRIPOD+AI for the AI-enabled
+components; there is no power calculation and no comparator arm. Estimation uses
+exact Clopper-Pearson 95 percent confidence intervals, and the maximum sample of 18
+participants yields the precision appropriate to a first-in-human dose-finding and
+early-feasibility study: an observed proportion of 0 of 18 corresponds to 0 percent
+(95 percent CI 0 to 18 percent), 1 of 18 corresponds to 5.6 percent (95 percent CI
+0.1 to 27 percent), 0 of 3 to a CI of 0 to 71 percent, and 0 of 6 to a CI of 0 to 46
+percent. The three co-primary endpoints are the incidence of device-related and
+procedure-related serious adverse events through the Day 30 window (including
+Clavien-Dindo grade III or higher), the maximum tolerated dose and recommended Phase
+2 dose of daraxonrasib determined by the 3+3 escalation across the 28-day DLT window,
+and technical feasibility defined as the proportion of participants completing the
+assigned operative tasks without unplanned conversion attributable to device
+malfunction or unsafe behavior. 
+
+Binding halt rules govern progression: a
+device-related or procedure-related serious adverse event in at least one of three
+participants within a cohort, or two device-related deaths at any time, triggers Data
+Safety Monitoring Board review and possible halt. Safety reporting follows the
+7-calendar-day clock for fatal or life-threatening suspected adverse reactions and
+the 15-calendar-day clock for other serious and unexpected reactions under 21 CFR
+\S 312.32, augmented by six Physical AI reporting triggers under 21 CFR \S 312.32(g)
+and a -24 hour to +72 hour audit-trail preservation window around each Physical AI
+adverse event \cite{phase1guidance, cfr312paiuni}.
+
+The precision of the maximum-sample estimates deserves explicit interpretation
+because it is the quantitative reason a first-in-human study of this size is
+descriptive rather than confirmatory. With 18 treated participants and exact
+Clopper-Pearson intervals, an observed event count of zero across the whole study
+still admits an upper 95 percent confidence bound near 18 percent, and a single
+observed event yields a point estimate of 5.6 percent with an interval that extends
+to roughly 27 percent. At the cohort level the precision is necessarily wider still:
+zero of three events admits an upper bound near 71 percent, and zero of six admits an
+upper bound near 46 percent. These wide intervals are not a deficiency of the design;
+they are the honest reflection of what a sample of this size can establish, and they
+are the reason the study claims only safety, dose, and feasibility and reserves any
+efficacy inference for the later, larger Phase 2. Table 3.7 collects these worked
+precision figures so the reviewer can read the attainable certainty directly.
+
+\needspace{12\baselineskip}
+\begin{table}[t]
+\caption{Worked precision of the maximum-sample and cohort-level estimates under
+exact Clopper-Pearson 95 percent confidence intervals. The wide intervals reflect
+the descriptive, non-confirmatory character of a first-in-human study and are the
+quantitative basis for reserving efficacy inference to the later Phase 2.}
+\label{tab:sec02-precision}
+\centering
+\begin{tabularx}{\textwidth}{L{3.0cm} C{3.0cm} C{3.4cm} Y}
+\toprule
+\textbf{Observed} & \textbf{Point estimate} & \textbf{95\% Clopper-Pearson CI} & \textbf{Interpretation} \\
+\midrule
+0 of 18 & 0\% & 0 to 18\% & Whole-study zero-event upper bound \\
+1 of 18 & 5.6\% & 0.1 to 27\% & Whole-study single-event estimate \\
+0 of 3 & 0\% & 0 to 71\% & Cohort-level zero-event upper bound \\
+0 of 6 & 0\% & 0 to 46\% & Expanded-cohort zero-event upper bound \\
+\bottomrule
+\end{tabularx}
+\end{table}
+\vspace*{-1.35cm}
+\figcaption{Table 3.7. Worked precision of the maximum-sample and cohort-level
+estimates. Even a whole-study zero-event observation admits an upper 95 percent
+confidence bound near 18 percent, and a single event yields a point estimate of 5.6
+percent; these bounds are the quantitative basis for the descriptive,
+non-confirmatory framing.}
+
+\subsection{Summary of Previous Human Experience}
+
+Daraxonrasib has an active and advancing clinical development program in
+RAS-mutated solid tumors, with the most mature human experience in pancreatic
+cancer. The FDA granted daraxonrasib Breakthrough Therapy designation in June 2025
+for previously treated metastatic PDAC with KRAS G12 mutations, reflecting
+preliminary clinical evidence of a meaningful advantage over available therapy in
+this population \cite{daraxwhipple, onpremwhippl}. The late-phase program comprises
+RASolute 302, a Phase 3 study in previously treated metastatic PDAC, and RASolve
+301, a first-line program; the broad pan-KRAS eligibility of RASolute 302 defines
+the molecular eligibility adopted in this protocol, and 300 mg once daily is the
+established recommended Phase 2 dose carried forward as the highest dose level (DL3)
+in the present escalation \cite{daraxwhipple}. The previous human experience with
+daraxonrasib therefore establishes a pan-KRAS antitumor rationale, a tolerability
+and exposure basis for the dose levels studied here, and a regulatory recognition
+(Breakthrough Therapy) of unmet need in the same molecular population. Perioperative pause-and-restart logic additionally respects RASolve 301
+checkpoint-inhibitor combination context.
+
+The present investigation differs from the prior daraxonrasib human experience in
+two material respects that define the scope of the first-in-human determination for
+this IND. First, it studies the drug in a perioperative, curative-intent surgical
+setting (resectable and borderline-resectable disease) rather than in the
+metastatic, palliative setting of the late-phase program, so the wound-healing and
+anastomotic-healing considerations are new and motivate the pause-and-restart
+advisory. Second, it couples the drug to an investigational LLM-directed robotic
+device, which has no prior human experience and which is evaluated here as a
+significant-risk early-feasibility Class II collaborative platform under the IDE
+pathway; the device-related and procedure-related safety endpoints in \S 4 are
+specific to this novel combination. The full marketed-experience, prior-clinical,
+and clinical-care experience analysis is presented in the Previous Human Experience
+section of this dossier (\S 9).
+
+It is worth stating precisely what carries over from the prior human experience and
+what does not, because the first-in-human determination for this IND turns on that
+boundary. What carries over is the drug-level exposure and tolerability basis: the
+300 mg once-daily recommended Phase 2 dose has been characterized in the late-phase
+metastatic program, so DL3 in this escalation is an established exposure rather than
+a dose beyond prior human experience, and the lower levels DL1 and DL2 sit below it.
+The pan-KRAS antitumor rationale and the molecular eligibility likewise carry over,
+because the RASolute 302 program established the breadth of the pan-KRAS coverage and
+the molecular criterion this protocol adopts. What does not carry over is everything
+specific to the new combination: the perioperative surgical setting with its
+wound-healing and anastomotic-healing considerations is new, the LLM-directed robotic
+device has no prior human experience, and the integrated drug-device coupling through
+the restart advisory is novel. The first-in-human determination is therefore made
+with respect to combination and surgical setting, while the drug exposure
+itself remains within the prior human range.
+
+Figure 6 threads this IND into the real-world daraxonrasib PDAC program. The
+KRAS-mutated PDAC patient who receives daraxonrasib with the robotic Whipple is the
+origin of a document thread that runs from this initial Phase 1 IND, through the 3+3
+cohort-review packages that establish the recommended Phase 2 dose, the amendments
+with synchronized consent, and the Phase 1-to-2 clinical study report and
+end-of-Phase-2 briefing, to the Phase 2 randomized protocol at the 300 mg
+recommended Phase 2 dose, with each document built by the same single-prompt
+workflow that produced this dossier.
+
+\needspace{8\baselineskip}
+\begin{mermaidfig}
+\node[mmin]   (pt) at (0,0)      {KRAS-mutated PDAC patient\\daraxonrasib + robotic Whipple};
+\node[mmgoal] (p1) at (0,-2.4)   {Initial IND (this build)\\Phase 1, 3+3, n=18};
+\node[mmproc] (cr) at (4.7,-2.4) {3+3 cohort-review\\packages; establish RP2D};
+\node[mmproc] (am) at (9.4,-2.4) {Amendments +\\synchronized consent};
+\node[mmproc] (tr) at (9.4,0)    {Phase 1-to-2 CSR\\+ EOP2 briefing};
+\node[mmgoal] (p2) at (4.7,0)    {Phase 2 randomized\\protocol (300 mg RP2D)};
+\node[mmaccent](m) at (4.7,-4.8) {Each document built by the\\single-prompt workflow};
+\draw[mmedge] (pt) -- (p1);
+\draw[mmedge] (p1) -- (cr);
+\draw[mmedge] (cr) -- (am);
+\draw[mmedge] (am) -- (tr);
+\draw[mmedge] (tr) -- (p2);
+\draw[mmedged] (m.north) to[out=90,in=-90,looseness=0.5] (cr.south);
+\end{mermaidfig}
+\vspace*{-0.6cm}
+\figcaption{Figure 6. The real-world daraxonrasib PDAC document thread, from the
+KRAS-mutated patient and the intervention through this initial Phase 1 IND, the 3+3
+cohort-review packages that establish the recommended Phase 2 dose, the amendments
+with synchronized consent, and the Phase 1-to-2 clinical study report and
+end-of-Phase-2 briefing,\\to the Phase 2 randomized protocol at the 300 mg
+recommended Phase 2 dose, each document built by the single-prompt workflow. This
+figure renders in the Introduction (\S 3.2) to thread the IND into the real program.}
+
+The document thread of Figure 6 is the practical embodiment of the previous-human-experience
+account: the prior late-phase program establishes the 300 mg recommended Phase 2
+dose that this Phase 1 carries forward, and this Phase 1 in turn establishes the
+recommended Phase 2 dose for the perioperative combination that a subsequent Phase 2
+randomized protocol would adopt. Each link in the thread is a regulated document that
+the same single-prompt workflow generates and maintains, so the dose, the eligibility
+criteria, and the safety architecture remain consistent from the initial IND through
+the cohort-review packages and amendments to the Phase 1-to-2 clinical study report
+and the end-of-Phase-2 briefing. The reviewer can therefore read the IND not as an
+isolated artifact but as the first, rate-limiting document of a coherent program in
+which every downstream document inherits same pinned trial facts.
+
+The investigational design is further grounded by a body of computational and
+in silico evidence developed by the sponsor-investigator throughout 2025 and 2026,
+which supplies the simulation scaffolding adapted in this protocol and independently
+complements the daraxonrasib drug-development program. This evidence comprises a
+60-second PDAC robotic Whipple and daraxonrasib simulation; an AI digital-twin
+pancreatic-cancer simulation for in silico FDA compliance and cost efficiency
+\cite{fdadigtwinpc}; a quantitative systems pharmacology (QSP) metastatic-PDAC trial
+simulation with code, verification, validation, and uncertainty quantification, and
+a reproducible playbook \cite{qspmetpancre}; a 100,000-patient in silico Phase 3
+five-arm PDAC trial triplicate \cite{chatgpt100kp}; and end-to-end PDAC digital-twin
+clinical-trial proposals \cite{pdacdigtwinp}. The sponsor-investigator's record of
+LLM evaluation and trust over August 2024 to June 2026 further grounds the device
+governance, including a comparative code-generation evaluation of 16 proprietary
+versus open-source LLMs against the FDA Adverse Event Reporting System
+\cite{llmcomp16fda}, the on-premises advisory-LLM and verification-before-generation
+design \cite{clintrustpai}, and the legislative framing aligned with H.R. 9510, the
+Verification Before Generation in Physical AI Oncology Trials Act of 2026
+\cite{congress9510}. The previous human experience and the supporting computational
+evidence together motivate the favorable benefit-risk determination for this
+low-survival, limited-alternative population.
+
+Table 3.8 collects the previous-human-experience and computational-evidence base in
+one place, distinguishing the drug-level clinical experience, the regulatory
+recognition, and the in silico evidence, and recording the role each plays in
+grounding the present design. The table makes explicit that the human experience and
+the regulatory recognition pertain to the drug and its molecular target, while the
+computational evidence pertains to the device, the integrated combination, and the
+simulation scaffolding that substitutes for and supplements conventional preclinical
+testing for the Physical AI system. Reading these together is the basis for the
+benefit-risk determination in a population with five-year overall survival below 13
+percent and limited alternatives.
+
+
+
+\subsection{Status of Drug in Other Countries}
+
+Daraxonrasib is an investigational agent that has not received marketing approval
+in the United States or in any other jurisdiction for any indication; it is studied
+worldwide under investigational authorizations within its sponsor's RAS(ON)
+development program, and its U.S. Breakthrough Therapy designation (June 2025) is a
+development-stage designation rather than a marketing authorization
+\cite{daraxwhipple, onpremwhippl}. The drug has therefore not been withdrawn from
+marketing in any country for reasons of safety or effectiveness, and there is no
+adverse foreign regulatory action to report under 21 CFR \S 312.23(a)(5). Within the
+present investigation, the LLM-directed robotic device component is similarly
+investigational and is studied under the IDE pathway as a significant-risk Class II
+collaborative device; it carries no marketing clearance or approval in any
+jurisdiction.
+
+The negative statement required by 21 CFR \S 312.23(a)(5) is made affirmatively
+here: there is no country in which daraxonrasib has been withdrawn from marketing for
+any reason, because it has never been marketed in any country; there is no adverse
+foreign regulatory action of any kind to report; and there is no marketing
+authorization, clearance, or approval for either the drug or the device in any
+jurisdiction. The U.S. Breakthrough Therapy designation is a development-stage
+designation that expedites review and does not constitute or imply a marketing
+authorization. This affirmative negative statement is the precise content the
+regulation requires, and it is recorded here so the reviewer can confirm the
+status-in-other-countries element is satisfied without ambiguity.
+
+Although this Phase 1 investigation is conducted at a single United States academic
+site under the combined IND and IDE, the dossier is authored to align with the
+principal international device and trial frameworks so that the same documentation
+can support future multi-jurisdiction extension without re-derivation. The
+cross-jurisdiction alignment that the device safety architecture and the
+Physical AI System Description are designed to satisfy is summarized in Table 3.9. 
+
+\clearpage
+
+\needspace{14\baselineskip}
+\begin{table}[t]
+\caption{Previous human experience and computational evidence grounding the
+investigation. Drug-level clinical experience and regulatory recognition pertain to
+daraxonrasib and its molecular target; the in silico evidence pertains to the
+device, the integrated combination, and the simulation scaffolding.}
+\label{tab:sec02-evidence}
+\centering
+\begin{tabularx}{\textwidth}{L{5cm} L{3.0cm} Y}
+\toprule
+\textbf{Evidence element} & \textbf{Type} & \textbf{Role in grounding this design} \\
+\midrule
+RASolute 302 (Phase 3, pretreated metastatic PDAC) & Drug clinical experience & Defines pan-KRAS eligibility; establishes 300 mg RP2D carried forward as DL3 \\
+RASolve 301 (first-line program) & Drug clinical experience & Informs combination context respected by the restart logic \\
+Breakthrough Therapy designation (June 2025) & Regulatory recognition & Recognizes unmet need in the same KRAS G12 molecular population \\
+60-second PDAC Whipple and daraxonrasib simulation & Computational & Simulation scaffolding adapted in the protocol \\
+AI digital-twin PDAC simulation \cite{fdadigtwinpc} & Computational & In silico FDA-compliance and cost-efficiency basis \\
+QSP metastatic-PDAC simulation with VVUQ \cite{qspmetpancre} & Computational & Code, verification, validation, uncertainty quantification; reproducible playbook \\
+100{,}000-patient in silico Phase 3 triplicate \cite{chatgpt100kp} & Computational & Large reproducible in silico trial experience \\
+End-to-end PDAC digital-twin proposals \cite{pdacdigtwinp} & Computational & Digital-twin clinical-trial design basis \\
+16-LLM code-generation evaluation vs FDA AERS \cite{llmcomp16fda} & LLM evaluation & Grounds device and authoring governance \\
+\bottomrule
+\end{tabularx}
+\end{table}
+\vspace*{-1.35cm}
+\figcaption{Table 3.8. Previous human experience and computational evidence base.
+The drug-level clinical\\experience and the Breakthrough Therapy recognition ground
+the pharmacologic rationale, the\\eligibility, and the dose levels; the computational
+and LLM-evaluation evidence grounds the device,\\the integrated combination, and the
+simulation scaffolding that precedes any human exposure.}
+
+The
+hard cyber-physical safety envelope (the 10 kHz heartbeat with a 100 microsecond
+watchdog, the cross-arm emergency stop of 3 ms or less, the per-arm tip-force cap of
+3 N or less and cumulative cap of 18 N or less, and the vascular no-fly gating) and
+the 21 CFR part 11 hash-chained audit trail are constructed to map onto the
+corresponding requirements of the European Union Medical Device Regulation, the
+China National Medical Products Administration, the Japan Pharmaceuticals and
+Medical Devices Agency, the United Kingdom Medicines and Healthcare products
+Regulatory Agency, Health Canada, and the Australian Therapeutic Goods
+Administration \cite{natlpaiplatf, cfr312paiuni}.
+
+\needspace{14\baselineskip}
+\begin{table}[t]
+\caption{Cross-jurisdiction regulatory status and alignment. Daraxonrasib is
+investigational with no marketing authorization in any country; the device is
+investigational under the IDE. The dossier is authored to align with the principal
+international frameworks for future multi-jurisdiction extension.}
+\label{tab:sec02-jurisdiction}
+\centering
+\begin{tabularx}{\textwidth}{L{2.6cm} L{3.4cm} Y}
+\toprule
+\textbf{Jurisdiction} & \textbf{Framework} & \textbf{Status and alignment for this investigation} \\
+\midrule
+United States & FDA, 21 CFR \S 312 / \S 812 & Combined IND / IDE; daraxonrasib investigational with Breakthrough Therapy designation (June 2025); device significant-risk Class II under IDE \\
+European Union & EU MDR 2017/745 & No marketing authorization; safety envelope and audit trail authored to map onto MDR essential requirements \\
+China & NMPA & No marketing authorization; device safety architecture aligned for future NMPA submission \\
+Japan & PMDA & No marketing authorization; Physical AI System Description aligned to PMDA expectations \\
+United Kingdom & MHRA & No marketing authorization; trial and device documentation aligned to MHRA framework \\
+Canada & Health Canada & No marketing authorization; dossier structured for future Health Canada extension \\
+Australia & TGA & No marketing authorization; safety and audit-trail design aligned to TGA requirements \\
+\bottomrule
+\end{tabularx}
+\end{table}
+\vspace*{-1.35cm}
+\figcaption{Table 3.9. Cross-jurisdiction status of daraxonrasib and the LLM-directed
+device. The agent and\\device are investigational in every jurisdiction; the
+documentation is authored once to align with the\\principal international device and
+trial frameworks so it can support future multi-jurisdiction extension.}
+
+The cross-jurisdiction alignment in Table 3.9 is a documentation-authoring posture,
+not a regulatory submission to any of the named authorities; no application has been
+filed with the European Union, China, Japan, the United Kingdom, Canada, or
+Australia, and none is implied by the alignment. The purpose of authoring the safety
+architecture and the Physical AI System Description against the corresponding
+international requirements is to avoid re-derivation if the program later extends to
+those jurisdictions: because the hard cyber-physical safety envelope and the 21 CFR
+part 11 hash-chained audit trail are constructed to map onto the essential
+requirements of the European Union Medical Device Regulation and the expectations of
+the other named authorities, a future submission would reuse the same architecture
+rather than re-engineer it. The reviewer should read the table as evidence that the
+single-site United States investigation has been designed with international
+portability in mind, while regulatory status today remains investigational in
+every jurisdiction with no marketing authorization.
+
+\subsection{Overview of Preclinical Data}
+
+The preclinical and computational basis for this investigation supports both the
+pharmacologic rationale for daraxonrasib in KRAS G12-mutated PDAC and the safety and
+feasibility rationale for the LLM-directed robotic device, and is presented in full
+in the Pharmacology and Toxicology information (\S 8) and the Investigator's
+Brochure (\S 5). On the pharmacology side, daraxonrasib acts through the
+mechanism-based, on-target suppression of RAS pathway signaling described in
+\S 3.1.2: by engaging the active GTP-bound state of mutant RAS in a tri-complex with
+cyclophilin A, it suppresses MAPK and PI3K effector signaling and reduces tumor-cell
+proliferation and survival across the KRAS G12 alleles that define the trial
+population \cite{daraxwhipple}. The drug-distribution, exposure, and tolerability
+assumptions that anchor the three dose levels (DL1 160 mg, DL2 220 mg, DL3 300 mg)
+are carried forward from the pan-KRAS RASolute 302 program, in which 300 mg once
+daily is the recommended Phase 2 dose, and the anticipated mechanism-based toxicity
+profile (gastrointestinal, dermatologic and mucocutaneous, and hepatic) informs the
+DLT definitions and the perioperative pause-and-restart logic \cite{onpremwhippl}.
+
+On the device and combined-intervention side, the preclinical evidence is dominated
+by a structured program of high-fidelity simulation and digital-twin work that
+substitutes for and supplements conventional preclinical testing for the Physical AI
+system, consistent with the verification, validation, and uncertainty
+quantification (VVUQ) discipline that the protocol applies. The mandatory Phase 0
+simulation-validation gate requires at least 1000 simulated procedures across at
+least two independent frameworks (for example Isaac, MuJoCo, Gazebo, and PyBullet),
+a Unified Safety Level rating of at least 7.0, and a sim-to-real gap below 2 mm in
+trajectory and below 0.5 N in tip force, with re-validation after any qualifying
+change; this gate is the principal preclinical safety bar that the device must clear
+before any patient-facing activity.
+
+The supporting computational evidence base
+includes the 60-second PDAC robotic Whipple and daraxonrasib simulation, the AI
+digital-twin pancreatic-cancer simulation for in silico FDA compliance and cost
+efficiency \cite{fdadigtwinpc}, the QSP metastatic-PDAC trial simulation with code,
+VVUQ, and a reproducible playbook \cite{qspmetpancre}, the 100,000-patient in silico
+Phase 3 five-arm PDAC trial triplicate \cite{chatgpt100kp}, and the end-to-end PDAC
+digital-twin clinical-trial proposals \cite{pdacdigtwinp}. Together these establish
+that the integrated drug-device intervention has been characterized in silico across
+a large and reproducible body of simulated experience before any human exposure, and
+that the on-premises advisory LLM operates strictly as a bounded, hash-pinned,
+second-opinion oracle with full autonomy prohibited consistent with 21 CFR
+\S 312.21(e) \cite{clintrustpai, congress9510}. The integrated pharmacology and
+toxicology summary, including the structure of the pharmacology summary, the
+integrated toxicology summary, and full data tabulation, is presented in \S 8.
+
+The Phase 0 simulation-validation gate deserves explicit treatment because it is the
+preclinical safety bar that takes the place, for the Physical AI system, of the
+conventional animal-toxicology package that would precede a drug-only first-in-human
+study. The gate is quantitative and prespecified: it requires at least 1000 simulated
+procedures across at least two independent simulation frameworks, so that the result
+does not depend on the idiosyncrasies of any single simulator; a Unified Safety Level
+rating of at least 7.0, which is the composite safety threshold the device must reach;
+and a sim-to-real gap below 2 mm in trajectory and below 0.5 N in tip force, which
+bounds how far the simulated behavior may diverge from the physical platform before
+the validation is considered to hold. The gate is re-validated after any qualifying
+change, so that a modification to the platform, the firmware, or the advisory model
+cannot reach a patient without re-clearing the bar. Figure 7 shows the pre-submission
+authoring workflow that assembles the dossier in which this gate and rest of
+device safety architecture are documented.
+
+Figure 7 documents how the present submission was authored. The principal
+investigator's clinical rationale for KRAS-mutated PDAC, the biostatistician's 3+3
+and exact-confidence-interval rules, and the ReGARDD IND template under 21 CFR part
+312 are compiled by the repository LLM under medical-writer review in an electronic
+document-management system into the eleven IND modules (the FDA 1571 through the
+relevant-information section), the protocol and Investigator's Brochure, and the
+informed consent form at a sixth to eighth grade reading level with the Physical AI
+opt-out, all of which start the 30-day FDA clock on submission.
+
+\needspace{8\baselineskip}
+\begin{mermaidfig}
+\node[mmin]   (pi)  at (0,0)      {PI clinical rationale\\(KRAS PDAC, unmet need)};
+\node[mmin]   (bs)  at (0,-2.2)   {Biostatistician\\3+3 rule, Clopper-Pearson};
+\node[mmin]   (tm)  at (0,-4.4)   {ReGARDD IND template\\+ 21 CFR part 312};
+\node[mmproc] (llm) at (4.8,-2.2) {Repository LLM\\+ medical-writer review\\(eDMS)};
+\node[mmaccent](m1) at (9.6,0)    {IND modules 1-11\\(1571 to Relevant Info)};
+\node[mmaccent](m2) at (9.6,-2.2) {Protocol + Investigator's\\Brochure};
+\node[mmaccent](m3) at (9.6,-4.4) {ICF (6th-8th grade)\\+ Physical AI opt-out};
+\node[mmgoal] (clk) at (14.0,-2.2){IRB / FDA submission\\30-day FDA clock starts};
+\draw[mmedge] (pi.east) to[out=0,in=150,looseness=0.6] (llm.west);
+\draw[mmedge] (bs) -- (llm);
+\draw[mmedge] (tm.east) to[out=0,in=210,looseness=0.6] (llm.west);
+\draw[mmedge] (llm.east) to[out=30,in=180,looseness=0.6] (m1.west);
+\draw[mmedge] (llm.east) -- (m2.west);
+\draw[mmedge] (llm.east) to[out=-30,in=180,looseness=0.6] (m3.west);
+\draw[mmedge] (m1.east) to[out=0,in=150,looseness=0.6] (clk.west);
+\draw[mmedge] (m2) -- (clk);
+\draw[mmedge] (m3.east) to[out=0,in=210,looseness=0.6] (clk.west);
+\end{mermaidfig}
+\vspace{-0.75cm}
+\figcaption{Figure 7. Pre-submission authoring. The principal investigator's
+clinical rationale, the biostatistician's 3+3 and exact-confidence-interval rules,
+and the ReGARDD IND template under 21 CFR part 312 are compiled by the repository
+LLM under medical-writer review into the eleven IND modules, the protocol and
+Investigator's Brochure, and the informed consent form with the Physical AI opt-out,
+which start the 30-day FDA clock on submission. This figure renders in the
+Introduction and \S 6.1 (Study Protocol) to document how the submission was authored.}
+
+The preclinical and computational basis, the pre-submission authoring workflow, and
+the verification-before-generation discipline together support the central claim that
+the integrated drug-device intervention has been characterized in silico across a
+large and reproducible body of simulated experience before any human exposure, and
+that every advisory output is screened by a verification-before-generation gate suite
+that issues an accept, block, or escalate verdict, with the on-premises LLM bound
+strictly to a second-opinion advisory role and full autonomy prohibited under 21 CFR
+\S 312.21(e) \cite{clintrustpai, congress9510}. The integrated pharmacology and
+toxicology summary, including the structure of the pharmacology summary, the
+integrated toxicology summary, and the full data tabulation, is presented in \S 8,
+and the device safety architecture and the Physical AI System Description are
+developed in \S 4 and \S 5.
+
+\subsection{References}
+
+The references cited throughout this Introduction are drawn from the IND reference
+library and are collected, formatted, and rendered in the References and Back Matter
+section of this dossier. The principal sources grounding the clinical subject, the
+daraxonrasib mechanism and class, the device safety architecture, the indication,
+the duration timeline, and the acceleration thesis include the FDA Phase 1 content
+and format guidance \cite{phase1guidance}, the oncology-trial LLM authoring basis
+\cite{oncotrialllm}, the daraxonrasib robotic Whipple and on-premises device sources
+\cite{daraxwhipple, onpremwhippl}, the 21 CFR Part 312, Part 50, and ICH Physical AI
+unification adaptations \cite{cfr312paiuni, cfr050paiuni, ichpaistduni}, the PDAC
+epidemiology and acceleration sources \cite{pdac060s2030, paipredict4x,
+natlpaiplatf}, the verification-before-generation and clinical-trust Physical AI
+sources \cite{congress9510, clintrustpai, paiautospons, paisitedocpk}, the
+comparative LLM evaluation against the FDA Adverse Event Reporting System
+\cite{llmcomp16fda}, and the computational digital-twin and QSP evidence base
+\cite{fdadigtwinpc, qspmetpancre, chatgpt100kp, pdacdigtwinp}. Each citation key
+resolves against the IND reference library, and the assembled list renders in the
+References and Back Matter section.

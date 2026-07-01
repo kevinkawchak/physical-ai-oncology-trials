@@ -1,0 +1,506 @@
+% sec-01-fda-forms.tex - FDA Forms 1571 and 3674 (final stage)
+\section{FDA Forms 1571 and 3674}
+
+The administrative gateway to this initial Investigational New Drug
+(IND) application is the pair of executed Food and Drug Administration
+(FDA) forms that open every Center for Drug Evaluation and Research (CDER)
+submission: FDA Form 1571 (Investigational New Drug Application) and FDA
+Form 3674 (Certification of Compliance, under 42 U.S.C. \S 282(j)). These
+two forms are positioned, together with the Cover Letter, ahead of the
+Table of Contents so that a reviewer encounters the sponsor agreement, the
+serial number, the contents map, and the clinicaltrials.gov certification
+before any scientific module. They are the regulatory envelope around the
+LLM-Directed PDAC Robotic Daraxonrasib Phase 1 protocol (protocol
+v1.0.0), a first-in-human, prospective, open-label, single-arm,
+early-feasibility study that combines an IND under 21 CFR Part 312 with an
+Investigational Device Exemption (IDE) framework under 21 CFR Part 812 for
+an on-premises, LLM-directed, eight-arm robotic pancreaticoduodenectomy
+(Whipple) device used together with oral daraxonrasib (RMC-6236), an oral
+RAS(ON) multi-selective (pan-RAS) inhibitor \cite{daraxwhipple,
+onpremwhippl}. This section summarizes the field-by-field content and the
+governing logic of each form; the executed, signed PDF versions of FDA
+Form 1571 and FDA Form 3674 are assembled with the physical submission and
+are not reproduced inside this LaTeX source, in keeping with FDA's
+expectation that the original signed forms accompany the package
+\cite{phase1guidance, cfr312paiuni}.
+
+The two forms discharge two distinct legal functions that together
+constitute the administrative predicate for FDA's acceptance of the file.
+Form 1571 is the instrument through which the sponsor-investigator,
+ChemicalQDevice (Kevin Kawchak, Chief Executive Officer, as the named
+sponsor-investigator), formally undertakes the obligations of a sponsor
+under 21 CFR Part 312, subpart D, and simultaneously supplies the
+cover-sheet metadata (serial number, contents, monitoring and safety
+responsibilities) that FDA's document-control system uses to file each
+piece of the record. Form 3674 is the instrument through which the
+sponsor discharges the separate statutory duty, created by section 402(j)
+of the Public Health Service (PHS) Act and enforced through 21 U.S.C.
+\S 355 and 42 U.S.C. \S 282(j), to certify the clinicaltrials.gov status
+of every clinical investigation referenced in the application. A defect
+in either form, an unsigned box 13 on Form 1571 or an unselected
+certification box on Form 3674, is a clerical deficiency that can stall
+acceptance of an otherwise complete scientific package, which is why this
+section treats both forms with the same rigor applied to the protocol and
+the Investigator's Brochure \cite{phase1guidance, paisitedocpk}.
+
+\needspace{8\baselineskip}
+Figure 3 traces the cover-sheet flow from the Cover Letter through Form
+1571 (its serial logic and dual purpose) into Form 3674 (its three
+mutually exclusive certification boxes) and onward to the assembled IND
+that starts the 30-day FDA review clock under 21 CFR \S 312.40.
+
+\begin{mermaidfig}
+\node[mmaccent] (cl)   at (-0.4,0)      {Cover Letter\\sponsor-investigator,\\drug, serial 0000};
+\node[mmgoal]   (f1)   at (-0.4,-2.4)   {FDA Form 1571\\(1) sponsor agreement\\(2) cover sheet for\\every submission};
+\node[mmin]     (ser)  at (-4.8,-4.9) {Box 10 serial number\\initial = 0000\\(0001, 0002 ... follow)};
+\node[mmproc]   (f3)   at (4.4,-4.9)  {FDA Form 3674\\clinicaltrials.gov\\certification of compliance};
+\node[mmctx]    (ba)   at (-0.4,-8.2)  {Box A\\no clinical\\investigation};
+\node[mmdec]    (bb)   at (4.4,-8.1)  {Box B\\402(j) PHS Act\\does NOT apply\\(typical Phase 1)};
+\node[mmctx]    (bc)   at (9.2,-8.2)  {Box C\\402(j) applies;\\will comply};
+\node[mmgoal]   (sub)  at (-0.4,-10.8) {Assembled IND\\submitted to FDA;\\30-day review\\clock starts};
+\draw[mmedge] (cl) -- (f1);
+\draw[mmedge] (f1) to[out=200,in=70,looseness=0.3] (ser.north);
+\draw[mmedge] (f1) to[out=340,in=110,looseness=0.3] (f3.north);
+\draw[mmedge] (f3.south) to[out=250,in=70,looseness=0.3] (ba.north);
+\draw[mmedge] (f3.south) -- (bb.north);
+\draw[mmedge] (f3.south) to[out=300,in=110,looseness=0.3] (bc.north);
+\draw[mmedge] (bb) to[out=250,in=20,looseness=0.3] node[mmlabel]{selected for this trial} (sub.east);
+\draw[mmedge] (ser.south) to[out=-90,in=180,looseness=0.3] (sub.west);
+\end{mermaidfig}
+\vspace{-0.7cm}
+\figcaption{Figure 3. The Cover Letter, FDA Form 1571, and FDA Form 3674
+cover-sheet flow. Form 1571 serves the dual purpose of a
+sponsor-investigator agreement and a cover sheet for every submission; the
+initial serial number in box 10 is 0000. Form 3674 certifies
+clinicaltrials.gov compliance through one of Box A (no clinical
+investigation), Box B (an investigation to which 42 U.S.C. \S 282(j) /
+section 402(j) of the PHS Act does not apply, the typical Phase 1
+selection), or Box C (the requirements apply). The Cover Letter and the
+FDA forms precede the Table of Contents.}
+
+\subsection{FDA Form 1571 - Investigational New Drug Application}
+
+FDA Form 1571 serves a dual purpose that defines its central place in the
+submission. First, it is the binding sponsor-investigator agreement: by
+signing box 13, the sponsor-investigator, ChemicalQDevice (Kevin Kawchak,
+Chief Executive Officer, as the named sponsor-investigator), commits that
+the investigation will not begin until 30 days after FDA receives the IND
+(unless notified sooner that the studies may proceed), that a reviewing
+Institutional Review Board (IRB) compliant with 21 CFR Part 56 will be
+responsible for the initial and continuing review of each study, that the
+investigation will be conducted in accordance with all applicable
+regulatory requirements, and that an investigator will obtain informed
+consent under 21 CFR Part 50 \cite{cfr050paiuni, ichpaistduni}. Second,
+and on a recurring basis, Form 1571 is the cover sheet that accompanies
+every subsequent submission to the IND file, including protocol
+amendments, information amendments, IND safety reports, annual reports,
+and general correspondence; each such submission carries its own Form 1571
+bearing the next sequential serial number so that the agency can
+reconstruct the complete history of the file \cite{phase1guidance}.
+
+The form opens with sponsor identification and contact fields. Box 1
+(Name of Sponsor) and boxes 2 through 5 (Address, including street, city,
+state, and ZIP) carry the sponsor-investigator entity ChemicalQDevice and
+its San Diego, California place of business; box 6 (Telephone Number)
+and the associated electronic-contact information complete the routing so
+that the assigned project manager and the safety contact can be reached.
+Box 7 captures the name(s) of any contract research organization, which
+for this single-academic-site study is limited to the named clinical site
+and the entities providing investigational product and device support.
+The IND Number field is left blank on the initial submission because the
+number is assigned by FDA upon receipt; once assigned, that pre-assigned
+or receipt-assigned IND number is carried on the Form 1571 of every later
+serial submission. Box 9 (Name of Drug) records daraxonrasib (RMC-6236),
+the oral RAS(ON) multi-selective small-molecule inhibitor that binds the
+GTP-bound active state of mutant RAS in complex with cyclophilin A and
+suppresses downstream effector signaling, administered once daily
+\cite{daraxwhipple, pdac060s2030}.
+
+The general-information block describes the proposed research and the
+phase of investigation. The form indicates that this is a Phase 1
+investigation (the first-in-human checkbox), names the indication as
+histologically or cytologically confirmed resectable or
+borderline-resectable pancreatic ductal adenocarcinoma (PDAC) with a
+documented KRAS G12 mutation (G12D, G12V, or G12R) in patients who are
+candidates for pancreaticoduodenectomy, and lists the protocol title and
+the combined IND and IDE nature of the application. The contents-of-the-
+application checkboxes (box 12) are marked to indicate which items of 21
+CFR \S 312.23 are included in this serial submission: the Table of
+Contents, the Introductory Statement and General Investigational Plan, the
+Investigator's Brochure, the study protocol(s), Chemistry, Manufacturing,
+and Controls (CMC) information, pharmacology and toxicology information,
+previous human experience, and additional information. Box 11 designates
+the individuals responsible for monitoring the conduct and progress of the
+clinical investigation and the person(s) responsible for review and
+evaluation of information relevant to the safety of the drug; for this
+study those responsibilities map onto the three-tier oversight structure
+(the Data and Safety Monitoring Board, the Independent Safety Monitor, and
+the Physical AI Safety Review Committee) described in the protocol
+\cite{paiautospons, clintrustpai}.
+
+Because the present application is a combined drug-device study, the box 12
+contents block carries an additional editorial burden relative to a
+drug-only Phase 1 IND. The CMC item must cross-reference not only the drug
+substance and drug product modules for daraxonrasib but also the
+device-description and engineering-control material that establishes the
+on-premises eight-arm robotic Whipple platform as a significant-risk
+investigational device, including its 56 degrees of freedom (eight arms at
+seven degrees of freedom each), its 640 sensor channels (80 per arm), its
+positional accuracy of 0.05 mm RMS at 1200 mm/s, and its layered force
+limits (no more than 3 N per arm and no more than 18 N cumulative). The
+pharmacology and toxicology item must reference the computational evidence
+base (the 60-second PDAC Whipple-plus-daraxonrasib simulation, the
+artificial-intelligence digital-twin PDAC simulation, the quantitative
+systems pharmacology metastatic-PDAC simulation with verification,
+validation, and uncertainty quantification, and the 100,000-patient in
+silico Phase 3 five-arm PDAC study) that supports the integrated
+risk assessment \cite{fdadigtwinpc, qspmetpancre, chatgpt100kp,
+pdacdigtwinp}. Marking box 12 accurately therefore tells the reviewer, in
+a single glance, that the file is internally complete across both the drug
+and the device dimensions of the study.
+
+Box 10 is the serial number. FDA requires every submission to an IND
+to be numbered consecutively, and the initial submission is serial number
+0000. Each subsequent submission to this IND file is numbered
+sequentially as 0001, 0002, 0003, and so forth, in the chronological order
+in which the agency receives it, regardless of the submission type. For
+this initial IND the serial number is therefore 0000, and that value
+appears both in box 10 of Form 1571 and in the Cover Letter so that a
+reviewer can immediately confirm that this is the originating submission
+that starts the 30-day review period under 21 CFR \S 312.40
+\cite{phase1guidance, cfr312paiuni}. Table 1.1 summarizes the principal
+Form 1571 fields and the value or status of each for this initial
+submission.
+
+\needspace{14\baselineskip}
+\begin{center}
+\begin{xltabular}{\textwidth}{>{\raggedright\arraybackslash}p{4.0cm} Y >{\raggedright\arraybackslash}p{5.5cm}}
+\toprule
+\textbf{Form 1571 field} & \textbf{Description and content} & \textbf{Value / status (serial 0000)} \\
+\midrule
+\endfirsthead
+\toprule
+\textbf{Form 1571 field} & \textbf{Description and content} & \textbf{Value / status (serial 0000)} \\
+\midrule
+\endhead
+\bottomrule
+\endfoot
+Boxes 1 to 6: Sponsor and contact & Sponsor-investigator name, mailing address, and telephone for the responsible entity. & ChemicalQDevice; San Diego, California; sponsor-investigator Kevin Kawchak, CEO. \\
+IND Number & Assigned by FDA on receipt; carried on every later serial submission. & Blank on initial submission (to be assigned). \\
+Box 7: CRO / site & Contract research organizations and clinical site(s) supporting the study. & Single academic clinical site; no separate CRO. \\
+Box 9: Name of Drug & Investigational drug and active ingredient. & Daraxonrasib (RMC-6236), oral RAS(ON) pan-RAS inhibitor. \\
+Phase / indication & Phase of investigation and the disease studied. & Phase 1, first-in-human; resectable or borderline resectable KRAS G12 PDAC. \\
+Box 10: Serial Number & Consecutive numbering of every submission to the file. & 0000 (initial); 0001, 0002 ... follow. \\
+Box 11: Monitoring / safety & Persons responsible for monitoring conduct and for safety review. & DSMB, Independent Safety Monitor, Physical AI Safety Review Committee. \\
+Box 12: Contents & Checkboxes for the 21 CFR \S 312.23 items included. & Introductory statement, general plan, IB, protocol, CMC, pharm/tox, prior human experience, additional information. \\
+Box 13: Sponsor agreement & Signed commitments (30-day wait, IRB review, GCP, informed consent). & Signed by sponsor-investigator; executed PDF assembled with submission. \\
+\bottomrule
+\end{xltabular}
+\end{center}
+\vspace{-1.75cm}
+\figcaption{Table 1.1. Field-by-field summary of FDA Form 1571 for the
+initial IND (serial number 0000). The executed\\and signed PDF of the form
+is assembled with the physical submission and is not reproduced in this
+source.}
+
+Box 13 deserves separate treatment because it is the legally operative
+clause of the entire form. The four commitments enumerated there map
+directly onto specific provisions of 21 CFR Part 312 and Part 50, and the
+sponsor-investigator's signature converts them from regulatory text into a
+personal undertaking enforceable by the agency. The 30-day wait
+corresponds to 21 CFR \S 312.40(b), which prohibits initiation of the
+clinical investigation until 30 days after FDA receives the IND unless the
+agency notifies the sponsor that studies may begin earlier; for this
+first-in-human Physical AI study the sponsor does not seek early
+initiation and will hold all patient-facing activity until the full 30-day
+period has elapsed and the Phase 0 simulation-validation gate (a unified
+safety level of at least 7.0, at least 1000 simulations across at least
+two frameworks, sim-to-real trajectory under 2 mm and tip-force under
+0.5 N) has been satisfied \cite{cfr312paiuni, paipredict4x}. The IRB
+commitment corresponds to 21 CFR Part 56 and is reinforced by the
+protocol's reliance on a single reviewing IRB. The general-compliance
+commitment incorporates the good clinical practice expectations of ICH
+E6(R3), and the informed-consent commitment corresponds to 21 CFR Part 50
+as supplemented by the Physical AI opt-out provision the protocol grounds
+in 21 CFR \S 312.60(f) \cite{cfr050paiuni, ichpaistduni}. Table 1.2 sets
+out the four box-13 commitments alongside their codified anchors and the
+study-specific manner of discharge.
+
+\needspace{12\baselineskip}
+\begin{center}
+\begin{xltabular}{\textwidth}{>{\raggedright\arraybackslash}p{4.0cm} >{\raggedright\arraybackslash}p{3.0cm} Y}
+\toprule
+\textbf{Box 13 commitment} & \textbf{Codified anchor} & \textbf{How discharged in this study} \\
+\midrule
+\endfirsthead
+\toprule
+\textbf{Box 13 commitment} & \textbf{Codified anchor} & \textbf{How discharged in this study} \\
+\midrule
+\endhead
+\bottomrule
+\endfoot
+Investigation will not begin before 30 days after FDA receipt. & 21 CFR \S 312.40(b) & No early-initiation request; all patient-facing activity held until the 30-day clock elapses and the Phase 0 simulation gate passes. \\
+A Part 56 IRB will perform initial and continuing review. & 21 CFR Part 56 & Single reviewing IRB engaged for the academic site; continuing review at the protocol-specified cadence with cohort-boundary checkpoints. \\
+The investigation will follow all applicable requirements. & 21 CFR Part 312; ICH E6(R3) & Three-tier oversight (DSMB, Independent Safety Monitor, Physical AI Safety Review Committee), binding halt rules enforce ongoing compliance. \\
+An investigator will obtain informed consent. & 21 CFR Part 50; \S 312.60(f) & Consent under Part 50 and ICH E6(R3) with a Physical AI opt-out, therapeutic-misconception language, and staged-autonomy disclosure. \\
+\bottomrule
+\end{xltabular}
+\end{center}
+\vspace{-1.75cm}
+\figcaption{Table 1.2. The four box 13 sponsor-investigator commitments,
+their codified anchors in 21 CFR, and\\the manner in which each is
+discharged in the LLM-directed PDAC robotic daraxonrasib Phase 1 study.}
+
+The dual purpose of Form 1571 has a practical consequence for the
+lifecycle of this Physical AI study. Because each protocol amendment,
+information amendment, and IND safety report under 21 CFR \S 312.32 will
+itself be filed under a new serial number on its own Form 1571, the form
+becomes the running index of the entire investigational record, including
+the Physical AI specific reporting events. The protocol defines six
+Physical AI reporting triggers under 21 CFR \S 312.32(g) (a serious
+Physical AI adverse event reported on the 7-day or 15-day clock; a
+system-drug interaction within 15 days; a cybersecurity incident within 15
+days, or within 7 days where there is potential for patient harm;
+sustained AI model degradation over at least three consecutive procedures
+or 24 cumulative hours; sim-to-real divergence exceeding twice tolerance,
+that is a trajectory deviation greater than 4 mm or a force deviation
+greater than 1.0 N; and a digital-twin discrepancy), and each such report
+will enter the file as a serially numbered submission cover-sheeted by
+Form 1571 \cite{paiautospons, congress9510}. In this way the form binds
+the administrative numbering scheme to the safety-surveillance scheme of
+the trial.
+
+A worked example makes the serial-numbering discipline concrete. Suppose
+the initial IND (serial 0000) clears the 30-day review and the study
+opens; the first protocol amendment that adds a clarifying eligibility
+criterion would be filed as serial 0001, an information amendment updating
+the Investigator's Brochure as serial 0002, and the first IND safety
+report (for instance, a fatal or life-threatening suspected adverse
+reaction filed on the 7 calendar day clock under 21 CFR \S 312.32(c)(1)(i))
+as serial 0003, each cover-sheeted by its own Form 1571 carrying the
+FDA-assigned IND number and the next consecutive serial. If a sustained
+AI model degradation trigger fires (model performance below threshold over
+at least three consecutive procedures or 24 cumulative hours), the
+resulting Physical AI safety report under \S 312.32(g) would take the next
+serial in turn. The annual report required by 21 CFR \S 312.33 would
+likewise be a serially numbered Form 1571 submission. Because the serial
+sequence is strictly chronological and type-agnostic, a reviewer can
+reconstruct the full procedural history of the file, drug and device
+events interleaved, simply by reading the serial numbers in order
+\cite{phase1guidance, paisitedocpk}.
+
+The recurring cover-sheet role of Form 1571 should not be confused with
+FDA Form 1572 (Statement of Investigator), which is a separate document
+addressed elsewhere in this IND under proposed clinical research. Form
+1571 binds the sponsor and indexes the file; Form 1572 binds each clinical
+investigator to the protocol and to the obligations of 21 CFR \S 312.60.
+For this single-site, sponsor-investigator study the two roles converge in
+practice on the same organization, but the forms remain distinct
+instruments with distinct signatories and distinct regulatory functions,
+and conflating them is a common cause of refuse-to-file findings that this
+submission is structured to avoid \cite{phase1guidance, paiautospons}.
+
+\subsection{FDA Form 3674 - Certification of Compliance}
+
+FDA Form 3674 is the certification, required by section 402(j) of the
+Public Health Service (PHS) Act (codified at 42 U.S.C. \S 282(j)), that
+the sponsor has complied with the registration and results-reporting
+requirements of clinicaltrials.gov to the extent those requirements apply
+to the submission. The form presents three mutually exclusive
+certification boxes, exactly one of which must be selected, and the
+selection determines what the sponsor is affirming about the
+clinicaltrials.gov status of the studies referenced in the application
+\cite{phase1guidance}. The logic of the three boxes is summarized in
+Table 1.3.
+
+\needspace{12\baselineskip}
+\begin{center}
+\begin{xltabular}{\textwidth}{>{\raggedright\arraybackslash}p{1.2cm} Y >{\raggedright\arraybackslash}p{5.5cm}}
+\toprule
+\textbf{Box} & \textbf{What the box certifies} & \textbf{Applicability to this Phase 1} \\
+\midrule
+\endfirsthead
+\toprule
+\textbf{Box} & \textbf{What the box certifies} & \textbf{Applicability to this Phase 1} \\
+\midrule
+\endhead
+\bottomrule
+\endfoot
+Box A & The submission does not reference any clinical trial; that is, there is no clinical investigation at all. & Not selected. This submission references a Phase 1 clinical investigation. \\
+Box B & The submission references a clinical trial, but the requirements of 42 U.S.C. \S 282(j) (section 402(j) of the PHS Act) do not apply to that trial. & Selected. This is a Phase 1 investigation; a Phase 1 trial of a drug is excluded from the "applicable clinical trial" definition that triggers mandatory 402(j) registration and results reporting. \\
+Box C & The submission references a clinical trial that is an applicable clinical trial to which 42 U.S.C. \S 282(j) does apply, and sponsor certifies it has complied (or will comply) with registration, results reporting. & Not selected for this initial Phase 1. Would apply to a later applicable (for example, Phase 2 or later controlled) trial. \\
+\bottomrule
+\end{xltabular}
+\end{center}
+\vspace{-1.75cm}
+\figcaption{Table 1.3. The Box A / B / C certification logic of FDA Form
+3674 and the selection for this initial\\Phase 1 IND. Exactly one box is
+checked; Box B is selected with the rationale stated in the text.}
+
+For this initial Phase 1 IND, Box B is selected. The rationale is that
+the study referenced in this application is a Phase 1, first-in-human
+investigation of daraxonrasib together with the LLM-directed robotic
+Whipple device, and a Phase 1 trial of a drug falls outside the
+statutory definition of an "applicable clinical trial" that triggers the
+mandatory clinicaltrials.gov registration and results-reporting
+obligations of 42 U.S.C. \S 282(j). Under that definition, the
+controlled clinical investigations of a drug or biologic that are subject
+to mandatory registration are generally those other than Phase 1 trials;
+because the present study is Phase 1 (up to n = 18 treated subjects, with
+approximately 36 screened, at a single academic site, using a 3+3 dose
+escalation across dose levels of 160 mg, 220 mg, and 300 mg once daily
+with a 28-day dose-limiting-toxicity window), the section 402(j)
+requirements do not apply to it, and Box B is therefore the correct and
+typical Phase 1 selection \cite{phase1guidance, oncotrialllm}.
+
+It is worth stating precisely why the "applicable clinical trial" test
+resolves to Box B here, because the device dimension of this study could
+otherwise invite confusion. The section 402(j) definition reaches two
+families of investigations: applicable drug clinical trials, which are
+controlled clinical investigations (other than Phase 1 investigations) of
+a drug subject to section 505 of the Federal Food, Drug, and Cosmetic Act;
+and applicable device clinical trials, which are prospective clinical
+studies of health outcomes comparing an intervention against a control in
+a device subject to section 510(k), 515, or 522, together with certain
+pediatric postmarket surveillance. The present study is a single-arm,
+open-label, non-comparative early-feasibility study with no control arm
+and no comparison of health outcomes between groups; it does not meet the
+"controlled clinical investigation comparing an intervention with a
+control" element of either family, and its drug component is expressly a
+Phase 1 investigation excluded from the drug-trial definition. On both the
+drug axis and the device axis, therefore, the trial falls outside the
+mandatory-registration perimeter, and Box B is the legally accurate
+selection rather than a mere convention \cite{phase1guidance,
+clintrustpai}. Table 1.4 records this analysis as a compact decision
+trail.
+
+\needspace{12\baselineskip}
+\begin{center}
+\begin{xltabular}{\textwidth}{>{\raggedright\arraybackslash}p{5.5cm} >{\raggedright\arraybackslash}p{2cm} Y}
+\toprule
+\textbf{Definitional element of 402(j)} & \textbf{Met by this study?} & \textbf{Reason} \\
+\midrule
+\endfirsthead
+\toprule
+\textbf{Definitional element of 402(j)} & \textbf{Met by this study?} & \textbf{Reason} \\
+\midrule
+\endhead
+\bottomrule
+\endfoot
+Controlled investigation of a drug, other than Phase 1. & No & Drug component is expressly a Phase 1, first in human investigation, enumerated exclusion. \\
+Controlled device study comparing an intervention with a control on health outcomes. & No & Single-arm, open-label, non-comparative early-feasibility design with no control group and no between-group outcome comparison. \\
+Applicable pediatric postmarket device surveillance. & No & Adult population (age $\geq$ to 18); no postmarket surveillance mandate is involved. \\
+Net result: applicable clinical trial under 402(j)? & No & Box B (requirements do not apply) is the legally accurate selection. \\
+\bottomrule
+\end{xltabular}
+\end{center}
+\vspace{-1.75cm}
+\figcaption{Table 1.4. Decision trail showing why the study is not an
+"applicable clinical trial" under 42 U.S.C.\\ \S 282(j) on either the drug
+axis or the device axis, supporting the Box B selection on Form 3674.}
+
+Selecting Box B does not signify that the trial will go unregistered.
+The sponsor records that, notwithstanding the inapplicability of the
+mandatory 402(j) requirements, voluntary registration on
+clinicaltrials.gov is intended and is encouraged as a matter of
+transparency, and that any human clinical trial supported in whole or in
+part by National Institutes of Health (NIH) funding is subject to the NIH
+policy on clinical-trial registration and results information submission,
+which independently requires registration on clinicaltrials.gov
+regardless of the Form 3674 box selected. The first-in-human Physical AI
+nature of this study, and the public-trust considerations attached to an
+LLM-directed surgical device operating under verification-before-
+generation safeguards aligned with H.R. 9510 (the Verification Before
+Generation in Physical AI Oncology Trials Act of 2026), further support
+voluntary, prospective registration so that the design, the staged
+autonomy limits, and the safety endpoints are publicly visible before the
+first dose \cite{congress9510, clintrustpai, paipredict4x}. 
+
+Registering
+the design prospectively also exposes, to public scrutiny, the binding
+halt rules (DSMB review and potential halt on a device or procedure
+serious adverse event in at least one of three subjects within a cohort,
+or on two device-related deaths at any time) and the three co-primary
+endpoints (device and procedure serious-adverse-event incidence through 30
+days, the maximum tolerated dose and recommended Phase 2 dose of
+daraxonrasib via the 3+3 design, and technical feasibility), so that
+trial's pre-specified stopping logic cannot be revised silently after
+results \cite{paiautospons, oncotrialllm}.
+
+The voluntary-registration posture interacts with the program's planned
+trajectory in a way that the sponsor anticipates on the face of this
+submission. Should the program advance to a later applicable clinical
+trial (for example, a randomized or otherwise controlled Phase 2 study of
+daraxonrasib with the robotic platform), that later study would meet the
+"controlled clinical investigation other than Phase 1" element of the
+402(j) drug-trial definition, Box C would then be selected on that
+submission's Form 3674, and the corresponding clinicaltrials.gov
+registration (within 21 days of enrolling the first subject) and results
+reporting (generally within one year of the primary completion date) would
+be certified. Maintaining a single, continuously updated
+clinicaltrials.gov record from the Phase 1 stage forward therefore eases
+the eventual transition from voluntary Box B registration to mandatory Box
+C certification without a gap in the public record \cite{phase1guidance,
+paisitedocpk}. Table 1.5 contrasts the present Phase 1 posture with the
+anticipated later-phase posture across the dimensions a reviewer is most
+likely to check.
+
+\needspace{12\baselineskip}
+\begin{center}
+\begin{xltabular}{\textwidth}{>{\raggedright\arraybackslash}p{3.6cm} Y Y}
+\toprule
+\textbf{Dimension} & \textbf{This Phase 1 IND (serial 0000)} & \textbf{Anticipated later applicable trial} \\
+\midrule
+\endfirsthead
+\toprule
+\textbf{Dimension} & \textbf{This Phase 1 IND (serial 0000)} & \textbf{Anticipated later applicable trial} \\
+\midrule
+\endhead
+\bottomrule
+\endfoot
+Form 3674 box & Box B (requirements do not apply). & Box C (requirements apply; compliance certified). \\
+Trigger for registration & Voluntary, plus NIH policy if NIH-funded. & Mandatory under 42 U.S.C. \S 282(j). \\
+Registration timing & Prospective, before first dose, as a transparency measure. & Within 21 days of first-subject enrollment. \\
+Results reporting & Voluntary; supports public trust in the Physical AI design. & Generally within one year of primary completion date. \\
+Design feature driving the result & Phase 1, single-arm, non-comparative early feasibility. & Controlled or comparative design (for example, randomized Phase 2). \\
+\bottomrule
+\end{xltabular}
+\end{center}
+\vspace{-1.75cm}
+\figcaption{Table 1.5. Form 3674 posture for the present Phase 1 IND
+contrasted with the anticipated posture for a later applicable clinical
+trial, showing the planned transition from a voluntary Box B registration
+to a mandatory Box C.}
+
+As with Form 1571, the certification on Form 3674 is provided on the
+executed, signed PDF that is assembled with the physical submission; the
+signature attests that the information on the certification is true and
+complete and acknowledges that a knowing and willful false certification
+is a criminal offense under 18 U.S.C. \S 1001, and that a false
+certification may also subject the certifier to civil monetary penalties
+and to the withholding or recovery of grant funds under the enforcement
+provisions of 42 U.S.C. \S 282(j)(5). Because Form 3674 must
+accompany an IND submission that references one or more clinical trials,
+a current Form 3674 is filed with the initial IND (serial 0000) and is
+re-filed, with the box selection re-evaluated, whenever a later
+submission adds or materially changes a referenced clinical
+investigation, keeping the clinicaltrials.gov certification synchronized
+with the evolving scope of the program \cite{phase1guidance,
+paisitedocpk}. In practice the sponsor treats any amendment that
+introduces a new protocol, converts the single-arm design to a controlled
+design, or adds a comparator as an event that requires a fresh Form 3674
+and a fresh evaluation of the Box A / B / C selection, mirroring the
+serial-numbering discipline that Form 1571 imposes on the file.
+
+Taken together, the executed Form 1571 and Form 3674, placed ahead of the
+Table of Contents with the Cover Letter, complete the administrative
+envelope that initiates FDA's review of this LLM-directed PDAC robotic
+daraxonrasib Phase 1 application. Form 1571 supplies the binding sponsor
+agreement and the serial-numbered cover sheet that will index every future
+drug and device event in the file; Form 3674 supplies the
+clinicaltrials.gov certification, here Box B, with a documented decision
+trail and a stated voluntary-registration posture that anticipates the
+eventual Box C transition. The fidelity of these two forms, verified
+field by field against 21 CFR \S 312.23 and the section 402(j) definition,
+is the clerical foundation on which the scientific modules that follow are
+allowed to rest \cite{phase1guidance, cfr312paiuni, congress9510}.

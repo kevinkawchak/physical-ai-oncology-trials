@@ -1,0 +1,793 @@
+% sec-07-pharmacology-toxicology.tex - Pharmacology and Toxicology (final stage)
+\section{Pharmacology and Toxicology Information}
+
+\subsection{Pharmacology and Drug Distribution}
+
+This section presents the pharmacology and toxicology information supporting the
+Phase 1, first-in-human, open-label, single-arm investigation of perioperative
+daraxonrasib (RMC-6236) in resectable and borderline-resectable pancreatic
+ductal adenocarcinoma (PDAC) described elsewhere in this Investigational New
+Drug application (IND v1.0, repository v4.3.0). It is organized and submitted in
+accordance with 21 CFR \S 312.23(a)(8), which requires adequate information
+about the pharmacological and toxicological studies of the drug, on the basis of
+which the sponsor has concluded that it is reasonably safe to conduct the
+proposed clinical investigation, including an integrated summary of the
+toxicological effects of the drug in animals and in vitro and, where applicable,
+a full data tabulation and the names and qualifications of the individuals who
+evaluated the studies \cite{phase1guidance}. 
+
+Consistent with the FDA guidance on
+the content and format of an IND for a Phase 1 study, the depth of the
+pharmacology and toxicology information presented here is scaled to the early
+phase of investigation, to the small number of participants (up to eighteen
+treated, of approximately thirty-six screened, at a single academic site
+enrolling at roughly one to two participants per month), and to the short,
+bounded duration of drug exposure characteristic of a perioperative dose-finding
+study \cite{phase1guidance}. The governing regulatory architecture of this
+submission is a combined IND under 21 CFR Part 312 paired with an investigational
+device exemption under 21 CFR Part 812 for the on-premises large language model
+(LLM) directed eight-arm robotic pancreaticoduodenectomy platform, and the
+pharmacology and toxicology content of \S 8 addresses only the drug article;
+the device carries no pharmacologic dose and is treated under the device sections
+of this application \cite{daraxwhipple,onpremwhippl}.
+
+Daraxonrasib is a clinically advanced investigational agent with an established
+nonclinical and clinical pharmacology package generated within its late-phase
+sponsor program, and it carries FDA Breakthrough Therapy designation granted in
+June 2025 for previously treated metastatic PDAC harboring KRAS G12 mutations
+\cite{daraxwhipple}. The present IND does not seek to recapitulate that
+established package; rather, it cross-references the existing nonclinical
+pharmacology and toxicology of daraxonrasib and supplements it with the
+study-specific computational pharmacology, drug-distribution, and toxicology
+evidence that is unique to the perioperative, curative-intent surgical context
+and to the combined drug-device use evaluated here \cite{daraxwhipple,onpremwhippl}.
+That supplementary evidence is the principal subject of this section and consists
+of three classes of in silico work: an AI digital-twin PDAC simulation
+\cite{fdadigtwinpc}, a quantitative systems pharmacology (QSP) metastatic-PDAC
+trial simulation with verification, validation, and uncertainty quantification
+(VVUQ) \cite{qspmetpancre}, and a 100,000-patient in silico Phase 3 five-arm
+PDAC trial conducted in triplicate \cite{chatgpt100kp,pdacdigtwinp}. The combined
+regimen also pairs the oral drug with an on-premises large language model (LLM)
+directed eight-arm robotic pancreaticoduodenectomy (Whipple) platform that is the
+subject of the parallel investigational device exemption content of this
+submission; the device has no pharmacologic dose and is not addressed as a
+pharmacology or toxicology article here, but the operative and pathology outputs
+of the device procedure are inputs to the perioperative drug pause-and-restart
+advisory and therefore bear on the drug-distribution discussion that follows
+\cite{daraxwhipple}.
+
+\clearpage
+
+\needspace{10\baselineskip}
+\begin{table}[t]
+\centering
+\caption{Mapping of \S 8 content to the constituent requirements of 21 CFR
+\S 312.23(a)(8), with the source of each element for this clinically advanced
+agent.}
+\label{tab:sec07-map}
+\begin{tabularx}{\textwidth}{L{4.5cm} L{3.3cm} Y}
+\toprule
+\textbf{Regulatory requirement} & \textbf{Location in this IND} & \textbf{Source of the evidence} \\
+\midrule
+Pharmacological effects and mechanism of action (21 CFR \S 312.23(a)(8)(i)) & \S 8.1.1 Pharmacology Summary and Conclusions & Established RAS(ON) tri-complex mechanism cross-referenced to the sponsor program; restated for the perioperative indication \cite{daraxwhipple}. \\
+Absorption, distribution, metabolism, excretion (21 CFR \S 312.23(a)(8)(i)) & \S 8.1.1, drug-distribution paragraph and Table 8.3 & Study-specific 32-iteration deterministic perioperative pharmacokinetic sweep; oral once-daily exposure anchored to the 300 mg reference dose \cite{onpremwhippl}. \\
+Integrated summary of toxicological effects (21 CFR \S 312.23(a)(8)(ii)) & \S 8.1.2 Toxicology: Integrated Summary & Established nonclinical toxicology cross-referenced; supplemented by QSP and digital-twin computational toxicology \cite{qspmetpancre,fdadigtwinpc}. \\
+Full data tabulation and evaluator qualifications (21 CFR \S 312.23(a)(8)(ii)) & \S 8.1.3 Toxicology: Full Data Tabulation & Established package incorporated by reference; study-specific computational works tabulated as supporting documents \cite{phase1guidance,daraxwhipple}. \\
+\bottomrule
+\end{tabularx}
+\end{table}
+\vspace*{-1.375cm}
+\figcaption{Table 8.1. Mapping of the pharmacology and toxicology section to the
+three constituent requirements\\of 21 CFR \S 312.23(a)(8). Established nonclinical
+content is incorporated by cross-reference;\\the perioperative drug-distribution
+and computational evidence is supplied de novo.}
+
+The remainder of this section is organized into the three subsections required
+by the integrated-summary structure of 21 CFR \S 312.23(a)(8): a pharmacology
+summary and conclusions, an integrated toxicology summary, and a full data
+tabulation. The pharmacology summary states the RAS(ON) mechanism of action, the
+pharmacodynamics, and the drug-distribution basis for the perioperative
+pause-and-restart schedule, including the 32-iteration deterministic
+pharmacokinetic sweep anchored to a 0.45 ng/mL operative-window baseline serum
+concentration. The integrated toxicology summary states the safety margins
+supporting the conservative DL1 160 mg once-daily first-in-human starting dose
+and the dose-limiting toxicity (DLT) framework that bounds the escalation. The
+full data tabulation summarizes the tabulated computational studies that are
+provided as supporting documents to this IND. The overall structure of \S 8 and
+its relationship to the computational-evidence base is described in Figure 17,
+which is rendered with the Investigator Brochure content of \S 5 and is not
+reproduced here; the present section relies on tables and prose.
+
+\paragraph{Regulatory mapping of \S 8 to 21 CFR \S 312.23(a)(8).}
+Before turning to the substantive pharmacology, it is useful to state explicitly
+how the content of this section maps to the three constituent requirements of the
+governing regulation, so that a reviewer can confirm completeness at a glance.
+Table 8.1 sets out that mapping. The regulation at 21 CFR \S 312.23(a)(8)(i)
+calls for a pharmacology and drug-distribution section describing the
+pharmacological effects and mechanism of action of the drug in animals and the
+absorption, distribution, metabolism, and excretion of the drug, if known; the
+regulation at 21 CFR \S 312.23(a)(8)(ii) calls for an integrated summary of the
+toxicological effects of the drug in animals and in vitro; and where appropriate
+a full data tabulation and a statement of the names and qualifications of the
+individuals who evaluated the studies. For a clinically advanced agent the depth
+of original nonclinical tabulation is reduced by cross-reference to the
+established sponsor package, and the study-specific computational and
+perioperative drug-distribution evidence is supplied de novo, as the table
+records \cite{phase1guidance,daraxwhipple}.
+
+
+
+\subsubsection{Pharmacology Summary and Conclusions}
+
+\paragraph{Mechanism of action and pharmacological class.}
+Daraxonrasib (RMC-6236) is an orally bioavailable, RAS(ON) multi-selective
+(pan-RAS) small-molecule inhibitor. It acts by binding the active, guanosine
+triphosphate (GTP) bound state of mutant RAS in a tri-complex with the
+ubiquitous chaperone protein cyclophilin A, and the resulting daraxonrasib to
+cyclophilin A to RAS(ON) complex sterically occludes the effector-binding
+interface, suppressing downstream mitogen-activated protein kinase and
+phosphoinositide 3-kinase effector signaling \cite{daraxwhipple}. Because the
+agent targets the shared active conformation rather than a single mutant side
+chain, it provides broad coverage across the common KRAS oncoprotein variants
+found in PDAC, including the G12D, G12V, and G12R alleles that define the
+molecular eligibility for this study \cite{daraxwhipple,onpremwhippl}. The
+pharmacological class is therefore a RAS(ON) multi-selective inhibitor, and the
+mechanistic rationale for evaluating the agent in resectable and
+borderline-resectable PDAC is the suppression of micrometastatic outgrowth
+during the perioperative window when systemic therapy must otherwise be
+interrupted for surgery. 
+
+The dose and exposure assumptions used throughout this
+IND are anchored to the pan-KRAS RASolute 302 program, in which 300 mg once
+daily is the established recommended Phase 2 dose, and to the broader late-phase
+program comprising RASolute 302 and the first-line RASolve 301 study
+\cite{daraxwhipple}. Because daraxonrasib engages the shared GTP-bound
+conformation common to the principal mutant alleles rather than discriminating
+among individual side chains, the molecular eligibility used in this study, namely
+documented KRAS G12 status (G12D, G12V, or G12R), is satisfied by the same broad
+pan-KRAS criteria that define eligibility in RASolute 302, and no allele-specific
+dose adjustment is anticipated within the studied range
+\cite{daraxwhipple,onpremwhippl}. This multi-selectivity is the pharmacologic
+property that distinguishes the agent from allele-locked inhibitors and that
+motivates its evaluation as the systemic backbone of the perioperative,
+curative-intent regimen described in this IND.
+
+The biochemical logic of the tri-complex mechanism merits a more granular
+statement, because it is the basis on which the perioperative schedule re-uses an
+established exposure-response relationship rather than generating a new one. In
+the canonical RAS cycle, the oncoprotein toggles between an inactive
+GDP-bound state and an active GTP-bound state; oncogenic G12 substitutions
+impair the intrinsic and GTPase-activating-protein-stimulated hydrolysis of GTP
+and thereby bias the protein toward the active, signaling-competent
+conformation. Allele-specific covalent inhibitors of the prior generation
+captured a single mutant in a defined pocket and were therefore limited to one or
+two alleles. Daraxonrasib instead recruits the abundant intracellular
+immunophilin cyclophilin A and presents a composite surface that binds the
+GTP-bound state across the spectrum of G12 and other RAS variants, so that a
+single agent suppresses the dominant oncogenic driver in the large majority of
+PDAC tumors, in which KRAS mutation is nearly universal and the G12D, G12V, and
+G12R alleles predominate \cite{daraxwhipple,pdac060s2030}. The pharmacological
+consequence relevant to \S 8 is that target engagement, and hence the
+pharmacodynamic effect, is governed by free systemic drug concentration acting on
+a target whose conformational availability is shared across the eligible alleles;
+this is what allows the perioperative pause-and-restart schedule to be reasoned
+about in terms of a single serum-concentration threshold rather than an
+allele-by-allele exposure model \cite{onpremwhippl,qspmetpancre}.
+
+\needspace{12\baselineskip}
+\begin{table}[t]
+\centering
+\caption{Pharmacological class attributes of daraxonrasib and their implications
+for perioperative PDAC study.}
+\label{tab:sec07-class}
+\begin{tabularx}{\textwidth}{L{3.3cm} L{4.6cm} Y}
+\toprule
+\textbf{Attribute} & \textbf{Property of daraxonrasib} & \textbf{Implication for this study} \\
+\midrule
+Molecular target & GTP-bound (active) state of mutant RAS, captured in a tri-complex with cyclophilin A & Engages the shared signaling-competent conformation rather than a single side chain; one agent covers the eligible alleles \cite{daraxwhipple}. \\
+Allele coverage & Multi-selective across KRAS G12 variants including G12D, G12V, G12R & Molecular eligibility (documented KRAS G12) is satisfied by the broad pan-KRAS criteria of RASolute 302; no allele-specific dose change anticipated \cite{onpremwhippl}. \\
+Route and schedule & Oral, once daily & Compatible with a perioperative pause-and-restart schedule keyed to surgical recovery; exposure is interruptible and re-establishable \cite{onpremwhippl}. \\
+Downstream effect & Suppression of MAPK and PI3K effector signaling & Mechanistic surrogate for suppression of micrometastatic outgrowth during the operative interruption window. \\
+Reference exposure & 300 mg once daily established as the RASolute 302 recommended Phase 2 dose & The entire studied range (160 mg to 300 mg) sits at or below a characterized exposure \cite{daraxwhipple}. \\
+Class toxicities & On-target gastrointestinal and dermatologic / mucocutaneous events & Predictable, dose-related, and bounded by the 3+3 DLT framework and protocol supportive care \cite{onpremwhippl}. \\
+\bottomrule
+\end{tabularx}
+\end{table}
+\vspace*{-1.4cm}
+\figcaption{Table 8.2. Pharmacological class attributes of daraxonrasib as a
+RAS(ON) multi-selective inhibitor\\and their implications for the perioperative,
+curative-intent PDAC study. The shared-conformation\\mechanism is what permits a
+single serum-concentration threshold to govern the perioperative schedule.}
+
+Table 8.2 places daraxonrasib in its pharmacological class relative to the prior
+generation of RAS-pathway inhibitors and records, for each defining attribute,
+the property of daraxonrasib and the implication of that property for the present
+perioperative study. The table is intended to make explicit why the agent is a
+suitable systemic backbone for a curative-intent perioperative regimen in a
+broadly KRAS-mutant disease.
+
+\paragraph{Pharmacodynamics.}
+The pharmacodynamic profile of daraxonrasib follows directly from its mechanism:
+target engagement is a function of the fraction of GTP-bound mutant RAS that is
+captured in the inhibitory tri-complex, which in turn tracks systemic drug
+exposure. The pharmacodynamic markers relevant to this perioperative study, the
+direction of the on-treatment change, and the way each marker is used in the
+study are summarized in Table 8.3. The dominant on-target, class-characteristic
+toxicities, principally gastrointestinal events (nausea, diarrhea, stomatitis)
+and dermatologic and mucocutaneous events, are themselves pharmacodynamic
+consequences of pan-RAS pathway suppression and are managed by the supportive-care
+and dose-modification machinery of the protocol rather than by withholding the
+mechanism \cite{onpremwhippl}.
+
+\clearpage
+
+\needspace{14\baselineskip}
+\begin{table}[t]
+\centering
+\caption{Pharmacodynamic markers of daraxonrasib relevant to perioperative
+PDAC study and use in protocol.}
+\label{tab:sec07-pd}
+\begin{tabularx}{\textwidth}{L{3.7cm} L{4.4cm} Y}
+\toprule
+\textbf{Pharmacodynamic marker} & \textbf{On-treatment direction} & \textbf{Use in this study} \\
+\midrule
+RAS(ON) tri-complex target engagement & Increases with exposure & Mechanistic basis for exposure-anchored dose escalation; not measured directly in participants but modeled in the QSP and digital-twin evidence \cite{qspmetpancre}. \\
+Downstream MAPK / PI3K effector signaling & Suppressed & Mechanistic surrogate for antitumor effect; informs the micrometastatic-outgrowth rationale for restarting drug early postoperatively. \\
+Serum daraxonrasib trough concentration & Rises to steady state on continuous dosing; falls during the protocol mandated operative pause & Objective adherence confirmation and the quantitative input (relative to the 0.5 ng/mL threshold) to the perioperative restart advisory (\S 5, \S 6). \\
+Gastrointestinal and dermatologic class effects & Increase with exposure & On-target pharmacodynamic toxicities detected and bounded by the 3+3 DLT framework; by protocol supportive care. \\
+CA 19-9 tumor marker (exploratory) & Expected to fall with antitumor response & Exploratory biochemical correlate of systemic disease control across the perioperative course. \\
+\bottomrule
+\end{tabularx}
+\end{table}
+\vspace*{-1.245cm}
+\figcaption{Table 8.3. Pharmacodynamic markers of daraxonrasib and their use in the perioperative\\PDAC study. Target engagement and effector suppression are
+mechanistic;\\the serum trough is the operative quantitative input to the restart
+advisory.}
+
+A defining feature of the perioperative pharmacodynamics is the deliberate,
+schedule-driven oscillation of exposure: continuous pre-operative dosing drives
+target engagement and effector suppression to a working steady state; the
+protocol-mandated pre-operative pause then allows systemic exposure to wash out
+below the 0.5 ng/mL trough threshold so that the operative window is conducted at
+a sub-threshold concentration; and the human-confirmed postoperative restart
+re-establishes exposure at the earliest point that does not jeopardize anastomotic
+healing. The pharmacodynamic intent of this oscillation is to minimize the
+duration over which micrometastatic disease is released from pan-RAS suppression
+while honoring the surgical-safety constraint. Because the present study does not
+directly assay tumor-tissue RAS occupancy in participants, the pharmacodynamic
+chain from exposure to effector suppression to antitumor effect is represented in
+the QSP and digital-twin computational evidence rather than measured in vivo, and
+the serum trough is used as the single objective, real-time quantitative input to
+the schedule \cite{qspmetpancre,fdadigtwinpc,onpremwhippl}. The exploratory CA
+19-9 tumor marker and standard imaging response provide biochemical and
+radiographic correlates of systemic disease control across the perioperative
+course but are not gating for the schedule.
+
+
+
+\paragraph{Drug distribution and the perioperative pharmacokinetic basis.}
+Daraxonrasib is administered orally, once daily, in a perioperative schedule
+consisting of a defined pre-operative course, a protocol-mandated pause spanning
+the operative window, and a postoperative restart whose timing is governed by an
+LLM-bound, human-confirmed advisory \cite{onpremwhippl}. The drug-distribution
+question that this schedule poses is when, after surgery, systemic exposure
+should be re-established so as to suppress micrometastatic outgrowth at the
+earliest point that does not jeopardize anastomotic healing. The advisory takes
+two inputs, the pancreaticojejunostomy (PJ) International Study Group of
+Pancreatic Surgery (ISGPS) postoperative pancreatic-fistula grade (A, B, or C)
+and the serum daraxonrasib trough relative to a 0.5 ng/mL threshold, and it
+recommends a restart on postoperative day T+7d, T+14d, or T+21d, or a continued
+hold \cite{onpremwhippl}. The advisory is bound to a deterministic seed and a
+specific repository commit and is always human-confirmed; it is never an
+autonomous controller, consistent with the prohibition on full autonomy at 21
+CFR \S 312.21(e) \cite{cfr312paiuni}. The drug-distribution logic of the schedule
+is therefore explicit and re-traceable: the pre-operative pause is required to
+clear systemic exposure ahead of the operation, the operative-window trough is
+measured against a single fixed threshold rather than estimated, and the
+postoperative restart is keyed jointly to that trough and to the dominant
+determinant of fistula risk, the pancreaticojejunostomy, so that systemic
+exposure is re-established neither before the highest-risk anastomosis has
+declared its healing trajectory nor so late that the therapeutic window for
+micrometastatic suppression is lost \cite{onpremwhippl,qspmetpancre}.
+
+The two-input, four-output structure of the advisory is set out in full in Table
+8.4, which gives the decision rule for every combination of ISGPS fistula grade
+and trough status. The decision matrix is fully enumerated and deterministic;
+the LLM advisory functions only as a second-opinion oracle whose recommendation
+is checked against this hard-coded matrix, and any disagreement escalates to
+human adjudication rather than overriding the matrix \cite{onpremwhippl,clintrustpai}.
+The deferral logic embodied in the matrix is conservative in the direction of
+surgical safety: a higher fistula grade always defers the restart by at least one
+week relative to the same trough status at a lower grade, and a Grade C fistula
+never restarts within the schedule without a separate human determination, mapping
+instead to the longest deferral or to the protocol drug stop rule.
+
+
+
+The pharmacokinetic basis for this schedule was characterized in a 32-iteration
+deterministic simulation sweep, the results of which are summarized in Table 8.5.
+Across all 32 iterations the baseline serum daraxonrasib concentration at the
+operative timepoint was 0.45 ng/mL, that is, below the 0.5 ng/mL trough
+threshold, reflecting the washout produced by the protocol-mandated
+pre-operative pause \cite{onpremwhippl}. Under these sub-threshold operative-window
+conditions the advisory recommended a restart on postoperative day T+7d in 29 of
+32 iterations (90.6 percent), corresponding to an ISGPS Grade A fistula with a
+sub-threshold trough; it recommended T+14d in 3 of 32 iterations (9.4 percent),
+corresponding to an ISGPS Grade B fistula or a delayed serum rise; and it
+recommended T+21d in 0 of 32 iterations (0.0 percent) in this sweep. An ISGPS
+Grade C fistula maps to a T+21d restart or a continued hold and to the drug
+stop rule of the protocol. The restart-day distribution and the uniform 0.45
+ng/mL baseline are quantitative drug-distribution conclusions that support perioperative schedule and advisory thresholds.
+
+\clearpage
+
+\needspace{14\baselineskip}
+\begin{table}[t]
+\centering
+\caption{Perioperative restart-advisory decision matrix: the two inputs (ISGPS
+pancreatic-fistula grade and serum daraxonrasib trough relative to 0.5 ng/mL) and
+the recommended restart day.}
+\label{tab:sec07-matrix}
+\begin{tabularx}{\textwidth}{L{2.7cm} L{3.1cm} L{3.1cm} Y}
+\toprule
+\textbf{ISGPS PJ grade} & \textbf{Trough below 0.5 ng/mL} & \textbf{Trough at or above 0.5 ng/mL} & \textbf{Rationale} \\
+\midrule
+Grade A (biochemical leak only) & Restart T+7d & Restart T+14d & Lowest-risk anastomotic course; earliest re-establishment of exposure when washout is confirmed, deferred one week if exposure has not yet cleared. \\
+Grade B (clinically relevant fistula) & Restart T+14d & Restart T+21d & Clinically relevant fistula requires a longer healing interval; restart deferred to protect the pancreaticojejunostomy. \\
+Grade C (severe fistula) & Restart T+21d or continued hold & Continued hold & Severe fistula; longest deferral or hold, with separate human determination; defers to the protocol drug stop rule. \\
+\midrule
+\multicolumn{4}{>{\raggedright\arraybackslash}p{\dimexpr\textwidth-2\tabcolsep}}{\textbf{Governance.} The matrix is hard-coded and deterministic; the LLM advisory is a hash-pinned second-opinion oracle bound to a deterministic seed and repository commit, isolated outside the vendor kinematic stack, and always human-confirmed. Full autonomy is prohibited (21 CFR \S 312.21(e)); disagreement between advisory and matrix escalates to human adjudication.} \\
+\bottomrule
+\end{tabularx}
+\end{table}
+\vspace*{-1.25cm}
+\figcaption{Table 8.4. A
+higher fistula grade always defers the restart relative to the same trough status
+at a\\lower grade; Grade C never restarts within the schedule without a separate
+human determination.}
+
+A short worked numeric example makes the drug-distribution arithmetic concrete.
+The operative-window baseline of 0.45 ng/mL sits 0.05 ng/mL below the 0.5 ng/mL
+threshold, a 10 percent margin (0.05 of 0.50), which is the quantitative
+expression of the pre-operative washout that the pause is designed to produce. In
+the sweep, the 29 of 32 T+7d recommendations and the 3 of 32 T+14d
+recommendations sum to 32 of 32, confirming that every iteration in this sweep
+fell into the two earliest restart categories, with no iteration reaching T+21d
+or a hold; this is the expected behavior when the operative-window inputs are
+dominated by Grade A fistulae at a confirmed sub-threshold trough, per the matrix
+of Table 8.4. 
+
+\clearpage
+
+\needspace{12\baselineskip}
+\begin{table}[t]
+\centering
+\caption{Perioperative pharmacokinetic sweep: 32-iteration deterministic
+restart-advisory distribution at a uniform 0.45 ng/mL operative-window baseline
+serum daraxonrasib concentration.}
+\label{tab:sec07-pk}
+\begin{tabularx}{\textwidth}{L{2.5cm} L{1.9cm} L{2.0cm} Y}
+\toprule
+\textbf{Advisory output} & \textbf{Iterations (of 32)} & \textbf{Proportion} & \textbf{Determining condition} \\
+\midrule
+Restart T+7d & 29 & 90.6\% & ISGPS Grade A fistula with sub-threshold trough (serum 0.45 ng/mL $<$ 0.5 ng/mL); earliest safe re-establishment of systemic exposure. \\
+Restart T+14d & 3 & 9.4\% & ISGPS Grade B fistula or a delayed serum rise; restart deferred one week to protect anastomotic healing. \\
+Restart T+21d & 0 & 0.0\% & ISGPS Grade C fistula maps here or to a continued hold; not triggered in this sweep given the uniform Grade A / B inputs. \\
+Continued hold & 0 & 0.0\% & Grade C fistula with persistent risk; defers to the protocol drug stop rule. \\
+\midrule
+\textbf{Baseline (all 32)} & 32 & 100\% & Operative-window serum daraxonrasib 0.45 ng/mL (sub-threshold) in every iteration, reflecting pre-operative washout. \\
+\bottomrule
+\end{tabularx}
+\end{table}
+\vspace*{-1.35cm}
+\figcaption{Table 8.5. The operative-window baseline serum daraxonrasib concentration was 0.45
+ng/mL (below the 0.5 ng/mL trough threshold) in iterations; advisory
+recommended T+7d in 29 of 32, T+14d in 3 of 32, and T+21d in 0 of 32.}
+
+The 90.6 percent T+7d proportion (29 of 32) and the 9.4 percent
+T+14d proportion (3 of 32) are exact and reproducible because the sweep is
+deterministic and seed-bound; re-running the sweep at the pinned commit returns
+the identical distribution, which is the property that makes the advisory
+auditable under the deterministic-and-human-confirmed governance model
+\cite{onpremwhippl,clintrustpai}.
+
+
+
+\paragraph{Absorption, distribution, metabolism, and excretion in the perioperative context.}
+The absorption, distribution, metabolism, and excretion (ADME) properties of
+daraxonrasib that are material to this study are those that govern how quickly the
+pre-operative pause clears systemic exposure and how quickly the postoperative
+restart re-establishes it. Daraxonrasib is orally bioavailable and is dosed once
+daily, which is consistent with steady-state accumulation on continuous dosing and
+with washout over a small number of days once dosing is held; the operative-window
+baseline of 0.45 ng/mL observed uniformly across the 32-iteration sweep is the
+quantitative signature of that washout under the protocol pause \cite{onpremwhippl}.
+For the purposes of this Phase 1 study the detailed clinical ADME parameters,
+including the absolute and relative bioavailability, the volume of distribution,
+the metabolic pathways, and the routes of excretion, are those characterized in
+the established late-phase sponsor program and are incorporated by reference; the
+present submission does not generate new clinical ADME data but uses the
+established once-daily exposure behavior to justify the timing of the pause and the
+restart \cite{daraxwhipple,phase1guidance}. The perioperative drug-distribution
+contribution that is unique to this IND is therefore not a new ADME dataset but the
+explicit, deterministic mapping from the two measurable perioperative inputs
+(fistula grade and serum trough) to a restart day, validated across the
+32-iteration sweep and represented mechanistically in the QSP model
+\cite{qspmetpancre,onpremwhippl}.
+
+A second drug-distribution consideration specific to the combined regimen is the
+potential for a system-drug interaction between the operative course on the robotic
+platform and the systemic pharmacology of daraxonrasib. There is no pharmacokinetic
+interaction in the conventional sense, because the device administers no
+pharmacologic agent; the interaction of regulatory interest is operational, namely
+that an operative complication detected by the device and pathology workflow (most
+importantly a clinically relevant pancreatic fistula) defers the re-establishment
+of systemic drug exposure. This operational coupling is precisely what the restart
+advisory encodes, and it is also the reason that a system-drug interaction is one of
+the six enumerated Physical AI reporting triggers under 21 CFR \S 312.32(g),
+reportable within fifteen calendar days; the drug-distribution schedule and the
+device safety surveillance are thereby linked through the advisory and through the
+safety-reporting framework \cite{onpremwhippl,cfr312paiuni}.
+
+\paragraph{Pharmacology conclusions.}
+On the basis of the established RAS(ON) multi-selective mechanism, the broad
+pan-KRAS coverage encompassing the G12 alleles that predominate in PDAC, the
+exposure-anchored pharmacodynamics summarized in Table 8.3, the enumerated restart
+matrix in Table 8.4, and the deterministic perioperative pharmacokinetic sweep
+summarized in Table 8.5, the sponsor concludes that the pharmacology of
+daraxonrasib supports the proposed perioperative, once-daily oral schedule and the
+exposure thresholds used by the restart advisory. The 0.45 ng/mL sub-threshold
+operative-window baseline and the resulting predominant T+7d restart recommendation
+provide a quantitative basis for re-establishing systemic exposure early, while the
+deferral logic for higher fistula grades preserves anastomotic healing, so that the
+schedule is reasonably expected to balance micrometastatic suppression against
+surgical risk in the study population \cite{onpremwhippl,qspmetpancre}.
+
+\subsubsection{Toxicology: Integrated Summary}
+
+\paragraph{Conservative first-in-human starting dose and its safety margin.}
+The first-in-human starting dose in this study is DL1, 160 mg once daily, which
+is deliberately set below the RASolute 302 reference recommended Phase 2 dose of
+300 mg once daily \cite{daraxwhipple}. The escalation then steps up through DL2
+at 220 mg once daily to DL3 at the 300 mg once-daily reference dose, so that the
+entire dosing range evaluated in this study (160 mg to 300 mg) lies at or below
+an exposure that has already been characterized in the late-phase sponsor
+program \cite{daraxwhipple,onpremwhippl}. The starting dose therefore carries a
+built-in safety margin in two senses: it is approximately 53 percent of the
+established reference dose by milligram amount (160 of 300 mg), and it sits
+within, rather than above, the exposure range for which the established
+nonclinical and clinical toxicology of daraxonrasib already supports
+administration. Because the agent is clinically advanced and its established
+toxicology package supports dosing at and above the doses studied here, the
+conservative DL1 starting dose, combined with the bounded perioperative exposure
+duration, provides the integrated-summary basis for the sponsor's conclusion that
+it is reasonably safe to begin the proposed clinical investigation
+\cite{phase1guidance,daraxwhipple}.
+
+The arithmetic of the safety margin warrants an explicit statement, because it is
+the quantitative core of the integrated toxicology conclusion. The 160 mg starting
+dose is 160 of 300, or 53.3 percent, of the reference recommended Phase 2 dose;
+equivalently, it is a 46.7 percent reduction below that reference. The intermediate
+DL2 at 220 mg is 73.3 percent of the reference (220 of 300) and a 26.7 percent
+reduction; the top DL3 at 300 mg equals the reference exactly, at 100 percent. The
+step from DL1 to DL2 is a 60 mg increment (a 37.5 percent increase over 160 mg),
+and the step from DL2 to DL3 is an 80 mg increment (a 36.4 percent increase over
+220 mg), so the relative increments are comparable and modest, and at no point does
+the escalation exceed the characterized reference exposure. This is a materially
+more conservative posture than a conventional first-in-human escalation that would
+begin at a small fraction of a no-observed-adverse-effect-level-derived dose and
+climb into uncharacterized territory; here every studied dose is at or below an
+exposure already administered to humans in the late-phase program
+\cite{daraxwhipple,phase1guidance}.
+
+\paragraph{Dose-limiting toxicity framework.}
+The toxicology of the escalation is bounded prospectively by a standard 3+3
+dose-limiting toxicity (DLT) framework with sentinel staggered enrollment, rather
+than retrospectively. Three participants are enrolled at each dose level and
+observed across a 28-day DLT window. If no DLT occurs among the first three, the
+cohort escalates; if one of three experiences a DLT, the cohort expands to six; a
+single DLT among six permits escalation, whereas two or more DLTs at a level fix
+the maximum tolerated dose (MTD) at the preceding level. The MTD is the highest
+level at which fewer than two of six DLT-evaluable participants experience a DLT,
+and the recommended Phase 2 dose is selected at or below the MTD
+\cite{onpremwhippl}. The dose levels and their relationship to the reference
+dose and the DLT framework are summarized in Table 8.6. The class-characteristic
+on-target toxicities of pan-RAS inhibition, principally gastrointestinal events
+(nausea, diarrhea, stomatitis) and dermatologic and mucocutaneous events, are
+the toxicities most likely to manifest as DLTs and are precisely the events the
+28-day window is designed to detect and bound; perioperative exposure
+additionally raises a theoretical risk to wound and anastomotic healing if
+restart timing is suboptimal, which is the specific hazard the pause-and-restart
+advisory (Table 8.5) is designed to mitigate \cite{onpremwhippl}.
+
+The maximum sample size of the dose-finding portion is eighteen treated
+participants, comprising three dose levels at up to six DLT-evaluable participants
+each (3 levels times 6 equals 18), with approximately thirty-six screened to yield
+that treated number, and with staggered sentinel enrollment so that the first
+participant at each level is observed through an initial safety interval before the
+remaining participants of that cohort are dosed. The precision that this sample
+size affords is modest and non-confirmatory, consistent with the descriptive,
+estimation-based statistical posture of the study under ICH E9: a level with zero
+DLTs in three participants carries an exact 95 percent Clopper-Pearson upper
+confidence bound of approximately 71 percent on the true DLT rate, and zero DLTs in
+six participants carries an upper bound of approximately 46 percent; across the full
+eighteen treated, a zero-event result corresponds to a 0 percent point estimate with
+an exact 95 percent interval of approximately 0 to 18 percent, and a single event
+corresponds to a 5.6 percent point estimate with an interval of approximately 0.1 to
+27 percent \cite{onpremwhippl}. These figures are stated so that the toxicological
+inference drawn from the 3+3 escalation is understood to be a safety-screening
+inference, not a precise estimate of the toxicity rate.
+
+\clearpage
+
+\needspace{12\baselineskip}
+\begin{table}[t]
+\centering
+\caption{Integrated toxicology summary: dose levels, safety margin relative to
+the reference dose, and the 3+3 dose-limiting toxicity framework.}
+\label{tab:sec07-tox}
+\begin{tabularx}{\textwidth}{L{1.4cm} L{2.1cm} L{2.4cm} Y}
+\toprule
+\textbf{Level} & \textbf{Dose (oral QD)} & \textbf{Fraction of 300 mg reference} & \textbf{Toxicology basis and escalation rule} \\
+\midrule
+DL1 & 160 mg & 53\% & Conservative first-in-human starting dose; below the RASolute 302 reference; 3 enrolled, 28-day DLT window; 0/3 escalate, 1/3 expand to 6. \\
+DL2 & 220 mg & 73\% & Intermediate level; entered only after DL1 clears the DLT window; same 3+3 expansion and escalation logic. \\
+DL3 & 300 mg & 100\% & Equal to the established RASolute 302 recommended Phase 2 dose; highest level studied; MTD if fewer than 2/6 DLTs. \\
+\midrule
+\multicolumn{4}{>{\raggedright\arraybackslash}p{\dimexpr\textwidth-2\tabcolsep}}{\textbf{DLT rule.} MTD is the highest level with fewer than 2 of 6 DLT-evaluable DLTs; RP2D is selected at or below the MTD. Two device-or-procedure related deaths at any time, or one device-or-procedure serious adverse event within a cohort, trigger DSMB review and a binding halt.} \\
+\bottomrule
+\end{tabularx}
+\end{table}
+\vspace*{-1.3cm}
+\figcaption{Table 8.6. Integrated toxicology summary. The 160 mg starting dose is
+53 percent of the 300 mg\\reference dose, and the entire 160 mg to 300 mg range
+lies at or below an exposure characterized\\in the established daraxonrasib
+program; the 3+3 framework bounds the escalation prospectively.}
+
+\paragraph{Anticipated toxicity profile, severity grading, and management.}
+The integrated toxicology summary is most informative when the anticipated
+on-target toxicities are stated alongside their expected severity distribution and
+their protocol management, because these are the events the 28-day DLT window must
+characterize. Table 8.7 sets out the principal anticipated toxicities of pan-RAS
+inhibition in this perioperative context, the mechanism by which each arises, and
+the protocol response. The gastrointestinal and dermatologic or mucocutaneous
+events are the dominant, dose-related, class-characteristic toxicities and are the
+events most likely to constitute a DLT at the higher dose levels; they are managed
+in the first instance by protocol supportive care and, where they meet
+dose-modification criteria, by dose interruption or reduction rather than by
+abandoning the mechanism. The perioperative-specific hazard, namely a theoretical
+impairment of wound or anastomotic healing if systemic exposure is re-established
+before the pancreaticojejunostomy has declared a safe healing trajectory, is not a
+pharmacologic toxicity of the drug per se but a schedule hazard, and it is mitigated
+structurally by the deferral logic of the restart advisory rather than by
+supportive care \cite{onpremwhippl}.
+
+\needspace{16\baselineskip}
+\begin{table}[t]
+\centering
+\caption{Anticipated toxicity profile of perioperative daraxonrasib, mechanism,
+and protocol management.}
+\label{tab:sec07-toxprofile}
+\begin{tabularx}{\textwidth}{L{3.2cm} L{4.6cm} Y}
+\toprule
+\textbf{Anticipated toxicity} & \textbf{Mechanism / origin} & \textbf{Protocol detection and management} \\
+\midrule
+Gastrointestinal (nausea, diarrhea, stomatitis) & On-target pan-RAS effector suppression in gastrointestinal epithelium & Dominant class effect; most likely DLT category; protocol supportive care, antiemetics and antidiarrheals; dose interruption or reduction if dose-modification criteria met \cite{onpremwhippl}. \\
+Dermatologic / mucocutaneous (rash, mucositis) & On-target effector suppression in skin and mucosa & Common class effect; graded over the 28-day window; topical and supportive management; dose modification if severe. \\
+Wound / anastomotic healing risk & Schedule hazard if exposure re-established before pancreaticojejunostomy healing declared & Not a pharmacologic toxicity per se; mitigated structurally by the deferral logic of the restart advisory keyed to ISGPS grade (Table 8.4). \\
+Cytopenias and laboratory abnormalities & Class and disease-related & Routine on-study laboratory surveillance; reported through the safety framework; dose modification per protocol. \\
+System-drug interaction events & Operative complication deferring drug restart & Reportable Physical AI trigger within 15 calendar days (21 CFR \S 312.32(g)); coupled to the advisory \cite{cfr312paiuni}. \\
+\bottomrule
+\end{tabularx}
+\end{table}
+\vspace*{-1.35cm}
+\figcaption{Table 8.7.
+The gastrointestinal and dermatologic events are the dominant, dose-related class
+effects and most likely DLT category; the anastomotic-healing hazard is a
+schedule hazard mitigated structurally by restart advisory.}
+
+\paragraph{Binding halt rules and the safety-reporting interface.}
+The integrated toxicology framework is reinforced by binding halt rules that
+operate independently of the DLT escalation logic and that bridge the drug and
+device safety surveillance. One device-or-procedure related serious adverse event
+within a cohort, or two device-or-procedure related deaths at any time, triggers
+review by the Data Safety Monitoring Board (DSMB) and a binding halt, with the DSMB
+holding halt authority at cohort boundaries and on a triggered basis
+\cite{onpremwhippl}. This halt machinery sits within a three-tier oversight
+structure comprising the DSMB, a per-procedure Independent Safety Monitor with
+real-time stop authority, and a Physical AI Safety Review Committee on a cadence of
+no more than ninety days, all reporting to a reviewing institutional review board.
+
+The toxicological events characterized by the 3+3 window and the halt rules
+described above feed the safety-reporting framework required by 21 CFR \S 312.32:
+a fatal or life-threatening suspected adverse reaction is reported within seven
+calendar days, and any other serious and unexpected suspected adverse reaction
+within fifteen calendar days; in addition, the combined drug-device regimen carries
+six enumerated Physical AI reporting triggers under 21 CFR \S 312.32(g), with audit
+trails preserved from twenty-four hours before to seventy-two hours after each
+Physical AI adverse event under 21 CFR Part 11 \cite{cfr312paiuni,onpremwhippl}.
+The integrated toxicology conclusion thus rests not only on the conservative dose
+and the DLT framework but on a surveillance and reporting apparatus that bounds the
+realized risk during conduct.
+
+\clearpage
+
+\paragraph{Computational toxicology and QSP evidence.}
+The integrated toxicology conclusion is reinforced by study-specific computational
+toxicology evidence. A quantitative systems pharmacology (QSP) metastatic-PDAC
+trial simulation, conducted with code, verification, validation, and uncertainty
+quantification (VVUQ), and an accompanying playbook, models the exposure to
+response and exposure to toxicity relationships of daraxonrasib in a mechanistic
+systems framework and supports the plausibility of the exposure thresholds and
+the dose range studied here \cite{qspmetpancre}. An AI digital-twin
+pancreatic-cancer simulation, developed for in silico regulatory-compliance and
+cost-efficiency purposes, provides a complementary patient-level
+toxicodynamic representation \cite{fdadigtwinpc}. These computational works do
+not substitute for the established nonclinical toxicology of daraxonrasib;
+rather, they supplement it with study-specific, in silico characterization of the
+perioperative context, and they are tabulated as supporting documents in the full
+data tabulation below \cite{qspmetpancre,fdadigtwinpc}.
+
+The evidentiary weight that may properly be assigned to each computational work is
+governed by its verification and validation status, and the integrated toxicology
+summary is careful not to overstate it. The QSP metastatic-PDAC simulation carries
+a documented VVUQ record and an accompanying playbook, so its exposure-response and
+exposure-toxicity relationships are accompanied by an explicit account of model
+verification, validation against reference behavior, and quantified uncertainty;
+this is the strongest of the computational evidence streams for toxicological
+inference and is the one on which the plausibility of the dose range and the
+exposure thresholds principally rests \cite{qspmetpancre}. 
+
+The digital-twin
+simulation provides a patient-level toxicodynamic and disease-progression
+representation oriented toward regulatory compliance and cost-efficiency, and it is
+used as a corroborating, individual-patient view rather than as a primary basis for
+the dose decision \cite{fdadigtwinpc}. The 100,000-patient in silico Phase 3,
+run in triplicate, contributes population-scale plausibility for the regimen and
+the trial design rather than a direct toxicological margin
+\cite{chatgpt100kp,pdacdigtwinp}. None of these works is offered in lieu of the
+established nonclinical toxicology; each is offered as study-specific in silico
+supplementation, and each is identified, with its form and evidentiary
+contribution, in the full data tabulation of \S 8.1.3.
+
+\paragraph{Integrated toxicology conclusion.}
+Taking together the conservative 160 mg first-in-human starting dose set at 53
+percent of an already-characterized reference exposure, the prospective 3+3 DLT
+framework with a 28-day window and sentinel staggered enrollment, the binding
+halt rules, the perioperative pause-and-restart advisory that mitigates the
+theoretical anastomotic-healing hazard, and the supporting QSP and digital-twin
+computational toxicology, the sponsor concludes that the toxicological profile of
+daraxonrasib supports the conclusion that it is reasonably safe to conduct the
+proposed Phase 1 investigation at the doses and schedule specified, within the
+meaning of 21 CFR \S 312.23(a)(8) \cite{phase1guidance,cfr312paiuni}.
+
+\subsubsection{Toxicology: Full Data Tabulation}
+
+\paragraph{Scope and form of the tabulation.}
+For a clinically advanced agent such as daraxonrasib, the full data tabulation
+required by 21 CFR \S 312.23(a)(8)(ii) for the established nonclinical
+toxicology studies is provided by cross-reference to the sponsor's existing
+nonclinical package, and the qualifications of the individuals who evaluated
+those studies are stated in that package \cite{phase1guidance,daraxwhipple}.
+What is tabulated here, and provided as supporting documents to this IND, is the
+study-specific computational-evidence base that characterizes daraxonrasib and
+the perioperative drug-device regimen in silico. These works were generated by
+the sponsor-investigator over 2025 and 2026 and comprise the digital-twin, QSP,
+and large-scale in silico Phase 3 simulations described above. Their identity,
+the evidence each contributes, and the location of each as a supporting document
+are tabulated in Table 8.8.
+
+\needspace{16\baselineskip}
+\begin{table}[t]
+\centering
+\caption{Full data tabulation: study-specific computational-evidence supporting
+documents for the pharmacology and toxicology of the perioperative daraxonrasib
+PDAC regimen.}
+\label{tab:sec07-comp}
+\begin{tabularx}{\textwidth}{L{3cm} L{1.9cm} Y}
+\toprule
+\textbf{Computational study} & \textbf{Form} & \textbf{Evidence contributed to \S 8} \\
+\midrule
+AI digital-twin PDAC simulation \cite{fdadigtwinpc} & Patient-level digital twin & In silico, regulatory-compliance-oriented toxicodynamic and disease-progression representation of PDAC; supports the perioperative drug-distribution and toxicology reasoning at the individual-patient level. \\
+QSP metastatic-PDAC trial simulation with VVUQ \cite{qspmetpancre} & Mechanistic QSP model + VVUQ + playbook & Exposure-to-response and exposure-to-toxicity relationships in a verified, validated, uncertainty-quantified systems-pharmacology framework; underpins the dose range and exposure thresholds. \\
+100,000-patient in silico Phase 3, 5-arm PDAC, triplicate \cite{chatgpt100kp,pdacdigtwinp} & Large-scale virtual trial (triplicate) & Population-scale in silico characterization of a five-arm PDAC Phase 3 across 100,000 virtual patients, run in triplicate; supports the population-level plausibility of the regimen and the trial design. \\
+End-to-end PDAC digital-twin trial proposals \cite{pdacdigtwinp} & Trial-design proposals & End-to-end digital-twin clinical-trial scaffolding adapted for the perioperative drug-device design described in this IND. \\
+\midrule
+\multicolumn{3}{>{\raggedright\arraybackslash}p{\dimexpr\textwidth-2\tabcolsep}}{\textbf{Cross-reference.} The established nonclinical toxicology full data tabulation for daraxonrasib (RMC-6236) is provided by reference to the sponsor's existing nonclinical package; the qualifications of the evaluators are stated there. The 32-iteration perioperative pharmacokinetic sweep (Table 8.5) is tabulated above.} \\
+\bottomrule
+\end{tabularx}
+\end{table}
+\vspace*{-1.4cm}
+\figcaption{Table 8.8. Full data tabulation of the study-specific computational
+evidence (digital-twin, QSP\\with VVUQ, and the 100,000-patient in silico Phase 3
+PDAC triplicate) provided as supporting\\documents, with the established
+nonclinical toxicology incorporated by cross-reference.}
+
+\paragraph{Verification, validation, and uncertainty-quantification status of the tabulated evidence.}
+Because the study-specific evidence is computational, the full data tabulation
+records not only the identity of each work but the verification and validation
+posture that determines how much weight it bears, in keeping with the emerging
+expectation that in silico evidence submitted in support of a clinical
+investigation be accompanied by an explicit VVUQ account \cite{qspmetpancre,clintrustpai}.
+Table 8.9 sets out, for each tabulated work, the verification and validation status,
+the form of uncertainty treatment, and the evidentiary role assigned to the work in
+this submission. The QSP metastatic-PDAC simulation is the only tabulated work with
+a complete documented VVUQ record and playbook, and it is correspondingly the
+primary computational basis for the dose-range and exposure-threshold plausibility;
+the remaining works are corroborating. This explicit stratification of evidentiary
+weight by VVUQ status is intended to forestall any inference that population-scale
+or single-patient simulation substitutes for the established nonclinical toxicology,
+which it does not.
+
+\needspace{16\baselineskip}
+\begin{table}[t]
+\centering
+\caption{Verification, validation, and uncertainty-quantification status of the
+tabulated computational evidence and the evidentiary role assigned to each work.}
+\label{tab:sec07-vvuq}
+\begin{tabularx}{\textwidth}{L{3.4cm} L{4.2cm} Y}
+\toprule
+\textbf{Computational study} & \textbf{VVUQ status} & \textbf{Evidentiary role in this IND} \\
+\midrule
+QSP metastatic-PDAC simulation \cite{qspmetpancre} & Documented VVUQ record and playbook (verification, validation, uncertainty quantification) & Primary computational basis for the plausibility of the dose range (160 mg to 300 mg) and the exposure thresholds; mechanistic exposure-response and exposure-toxicity. \\
+AI digital-twin PDAC simulation \cite{fdadigtwinpc} & Regulatory-compliance-oriented; patient-level representation & Corroborating individual-patient toxicodynamic and disease-progression view; not a primary basis for the dose decision. \\
+100,000-patient in silico Phase 3, triplicate \cite{chatgpt100kp,pdacdigtwinp} & Triplicate replication across a 5-arm population & Population-scale plausibility for the regimen and the trial design; not a direct toxicological margin. \\
+End-to-end digital-twin trial proposals \cite{pdacdigtwinp} & Design-stage scaffolding & Trial-design adaptation; not a toxicological dataset. \\
+\midrule
+\multicolumn{3}{>{\raggedright\arraybackslash}p{\dimexpr\textwidth-2\tabcolsep}}{\textbf{Note.} None of the computational works substitutes for the established nonclinical toxicology of daraxonrasib, which is incorporated by reference. Computational evidence is offered as study-specific in silico supplementation only, with evidentiary weight stratified by VVUQ status.} \\
+\bottomrule
+\end{tabularx}
+\end{table}
+\vspace*{-1.3cm}
+\figcaption{Table 8.9. Verification, validation, and uncertainty-quantification
+status of the tabulated computational\\evidence. The QSP simulation with a
+documented VVUQ record is the primary computational basis;\\the remaining works are
+corroborating and do not substitute for the established nonclinical toxicology.}
+
+\paragraph{Evaluators and incorporation by reference.}
+The study-specific computational studies tabulated in Table 8.8 were designed,
+executed, and evaluated by the sponsor-investigator and the study computational
+team, whose qualifications are stated in the Investigator and Facilities data of
+this submission; the verification, validation, and uncertainty-quantification
+methodology applied to the QSP work is documented in that study's accompanying
+VVUQ record \cite{qspmetpancre}. The established nonclinical pharmacology and
+toxicology of daraxonrasib, including the full data tabulations and evaluator
+qualifications for those studies, is incorporated by reference to the sponsor's
+existing nonclinical package consistent with the Phase 1 IND content guidance
+\cite{phase1guidance,daraxwhipple}. As the investigation proceeds, any new
+nonclinical or computational toxicology information bearing on participant safety
+will be submitted through information amendments under 21 CFR \S 312.31 and, where
+a safety signal meets the reporting thresholds, through IND safety reports under
+21 CFR \S 312.32 \cite{cfr312paiuni}.
+
+\paragraph{Lifecycle maintenance of the pharmacology and toxicology record.}
+The pharmacology and toxicology information in this section is a living record over
+the life of the IND, and the sponsor states explicitly how it will be maintained.
+New information from the ongoing late-phase sponsor program that bears on the
+nonclinical or clinical pharmacology and toxicology of daraxonrasib will be
+reflected through information amendments under 21 CFR \S 312.31, and updates to the
+Investigator Brochure will carry the most current integrated risk picture into the
+consent and protocol machinery of \S 5 and \S 6. Should any safety signal arise in
+this study that meets the reporting thresholds, it will be submitted as an IND
+safety report under 21 CFR \S 312.32 within the seven-day or fifteen-day clock as
+applicable, including the Physical AI triggers under 21 CFR \S 312.32(g) that are
+unique to the combined drug-device regimen; the audit-trail preservation window of
+twenty-four hours before to seventy-two hours after each Physical AI adverse event
+under 21 CFR Part 11 ensures that the underlying data for any such report are
+retained and re-traceable \cite{cfr312paiuni,onpremwhippl}. Any change to the
+perioperative restart advisory, including any change to the 0.5 ng/mL threshold, the
+deterministic seed, or the pinned repository commit, would require re-validation of
+the sweep and would be carried into this section through the same amendment
+machinery, so that the drug-distribution conclusions of \S 8.1.1 always correspond
+to the validated configuration in force \cite{onpremwhippl,clintrustpai}.
+
+\paragraph{Conclusion of the pharmacology and toxicology information.}
+The pharmacology summary (\S 8.1.1), the integrated toxicology summary
+(\S 8.1.2), and the full data tabulation (\S 8.1.3) together provide adequate
+information about the pharmacological and toxicological properties of
+daraxonrasib, scaled to a Phase 1 study, on the basis of which the sponsor has
+concluded that it is reasonably safe to conduct the proposed perioperative,
+once-daily oral investigation in resectable and borderline-resectable PDAC at the
+160 mg, 220 mg, and 300 mg dose levels under the 3+3 dose-limiting toxicity
+framework, in satisfaction of 21 CFR \S 312.23(a)(8)
+\cite{phase1guidance,cfr312paiuni,daraxwhipple}.
