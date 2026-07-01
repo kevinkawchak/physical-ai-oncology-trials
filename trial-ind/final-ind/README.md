@@ -11,7 +11,7 @@
 [![Repository](https://img.shields.io/badge/Repository-v4.3.0-6C757D.svg)](../README.md)
 [![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.21097442-blue.svg)](https://doi.org/10.5281/zenodo.21097442)
 
-[Publication with Author Edits](https://github.com/kevinkawchak/physical-ai-oncology-trials/tree/main/trial-ind/final-ind/publication) (final-ind/publication). Stage 4 of the `trial-ind/` build: the final IND, at maximum context and formatting
+[Publication with Author Edits](https://github.com/kevinkawchak/physical-ai-oncology-trials/tree/main/trial-ind/final-ind/publication) (this directory). Stage 4 of the `trial-ind/` build: the final IND, at maximum context and formatting
 quality. It carries over the full IND, deepens the regulatory and clinical prose
 toward the ten-times character target, unifies the figure numbering into a single
 document sequence (Figure 1 to Figure 22, so all 22 grayscale figures appear) and
