@@ -28,7 +28,7 @@
 
 This repository provides production-ready configurations, validated pipelines, and integration guides for deploying robotic systems, digital twins, and embodied AI agents in oncology. 
 
-**7/1: v4.3.0 (Phase 1 PDAC IND: AI Generation, IND v1.0)** *v4.3.0 adds trial-ind/, a single-prompt Phase 1 PDAC IND that hastens the entire IND document-package process across the ReGARDD table of contents and ships 22 grayscale Mermaid figures reproduced exactly in LaTeX, reaching about ten times the source paper.* [![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.21097442-blue)](https://doi.org/10.5281/zenodo.21097442)
+**7/1: v4.3.0 (Phase 1 PDAC IND: AI Generation, IND v1.0)** *v4.3.0 adds trial-ind/, a single-prompt Phase 1 PDAC IND that hastens the entire IND document-package process across the ReGARDD table of contents and ships 22 grayscale figures.* [![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.21097442-blue)](https://doi.org/10.5281/zenodo.21097442)
 
 **6/29: v4.2.0 (Phase 1 Pancreatic Cancer Trial Efficient LLM Document Generations, Paper v1.0)** *v4.2.0 adds trial-documents/, a single-prompt paper that hastens the entire Phase 1 process by generating every relevant documents.* [![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.21018646-blue)](https://doi.org/10.5281/zenodo.21018646)
 
