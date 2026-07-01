@@ -8,7 +8,7 @@
 [![Figures](https://img.shields.io/badge/Grayscale%20figures-22-000000.svg)](mermaid)
 [![Method](https://img.shields.io/badge/Method-mermaid%E2%86%92draft%E2%86%92full%E2%86%92final-6C757D.svg)](sub-prompts)
 [![ORCID](https://img.shields.io/badge/ORCID-0009--0007--5457--8667-6C757D.svg)](https://orcid.org/0009-0007-5457-8667)
-[![Repository](https://img.shields.io/badge/Repository-v4.3.0-blue.svg)](../README.md)
+[![Repository](https://img.shields.io/badge/Repository-v4.3.0-6C757D.svg)](../README.md)
 [![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.21097442-blue.svg)](https://doi.org/10.5281/zenodo.21097442)
 
 [Publication with Author Edits](https://github.com/kevinkawchak/physical-ai-oncology-trials/tree/main/trial-ind/final-ind/publication) (final-ind/publication). This directory builds a complete, comprehensive **Phase 1 Investigational New Drug
