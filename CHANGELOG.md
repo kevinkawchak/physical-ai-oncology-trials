@@ -21,6 +21,7 @@ Format follows [Keep a Changelog](https://keepachangelog.com/).
 - Root `README.md` - new v4.3.0 badges, a 425-character summary, a dedicated v4.3.0 section (grayscale Mermaid build diagram, stage-outputs and IND-at-a-glance tables, table of contents), and the `trial-ind/` (and previously missing `trial-documents/`) repository-structure subtree; the Release badge and Last Updated badge advanced to v4.3.0 / July 2026.
 - `releases.md` - v4.3.0 release notes added at the top.
 - The build adds only `.tex`, `.md`, `.sty`, `.bib`, and `.zip` files (no Python or YAML), so the `lint-and-format` workflow (`ruff check`, `ruff format`, `yamllint`) on Python 3.10, 3.11, and 3.12 remains green.
+- @kevinkawchak added 7/7: (Clinical Trial Funding Application) URL to main/README.md. main/funding created with 7/7: (Clinical Trial Funding Application) source files, and pdf on 2026-07-07.
 
 ## [4.2.0] - 2026-06-29
 
