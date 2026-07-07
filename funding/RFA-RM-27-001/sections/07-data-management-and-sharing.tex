@@ -1,0 +1,41 @@
+% EDITING: type inside the final {...} of each field. Change the shown font size
+% (for example, font=10pt) in that same field block when needed.
+
+\GrantSection{7}{Data Management, Sharing, Repositories, and Cybersecurity}
+
+\GrantGuidance{The 2026 NIH pilot DMS format uses structured yes/no questions, a 300-word limitation rationale when sharing is restricted, and a short table of anticipated scientific data types and repositories. Adapt this module when another sponsor uses different data-sharing terms.}
+
+\begin{tabularx}{\linewidth}{>{\bfseries}p{0.72\linewidth}X}
+Maximum appropriate sharing of data underlying publications and other findings? & \GrantTableField[id=dms-q1,font=12pt,width=0.95\linewidth,maxchars=12]{Yes}\\[5pt]
+Shared by publication or, for other findings, by end of performance period? & \GrantTableField[id=dms-q2,font=12pt,width=0.95\linewidth,maxchars=12]{Yes}\\[5pt]
+Available for at least the period required by repository and/or journal policy? & \GrantTableField[id=dms-q3,font=12pt,width=0.95\linewidth,maxchars=12]{Yes}\\[5pt]
+Human-participant privacy, rights, and confidentiality protected, including access controls? & \GrantTableField[id=dms-q5,font=12pt,width=0.95\linewidth,maxchars=20]{Yes}\\[5pt]
+Subject to NIH Genomic Data Sharing policy? & \GrantTableField[id=dms-gds,font=12pt,width=0.95\linewidth,maxchars=20]{No}
+\end{tabularx}
+
+\GrantTextArea[
+  id=dms-limitations, font=10pt, height=2.3in, maxchars=2400
+]{Limitations on sharing and ethical, legal, or technical rationale (300 words maximum for NIH baseline)}{The project will maximize sharing of de-identified scientific data, protocols, analysis code, data dictionaries, and supporting metadata consistent with participant safety and law. Open public release will not be used for direct identifiers, dates or combinations of indirect identifiers that create more than a very small re-identification risk, raw operative video containing recognizable anatomy or staff audio, detailed device telemetry that could reveal institutional cybersecurity architecture, or data whose release would conflict with consent, HIPAA, FDA obligations, or contractual restrictions on third-party software. Such materials, if shared at all, will use controlled-access repositories, curated de-identification, data-use ^^Jterms, and documented review of requester qualifications and use purpose. If future NIH-funded genomic sequencing is added by amendment, the DMS plan will be updated to address the Genomic Data Sharing policy and the appropriate controlled-access repository. These limits are not intended to impede reproducibility; rather, they preserve participant rights while allowing broad release of the data needed to validate reported conclusions.
+}
+
+\GrantSubsection{Expected scientific data and repositories}
+\begin{tabularx}{\linewidth}{p{0.43\linewidth}p{0.43\linewidth}X}
+\textbf{Data type / species / modality} & \textbf{Repository or example repository} & \textbf{Access}\\
+\GrantTableField[id=dms-type-1,font=6pt,width=0.98\linewidth,maxchars=180]{De-identified protocol, summary results, recruitment status, metadata} & \GrantTableField[id=dms-repo-1,font=6pt,width=0.98\linewidth,maxchars=160]{ClinicalTrials.gov} & \GrantTableField[id=dms-access-1,font=6pt,width=0.98\linewidth,maxchars=40]{Public}\\[4pt]
+\GrantTableField[id=dms-type-2,font=6pt,width=0.98\linewidth,maxchars=180]{De-identified clinical, safety, operative, case report form datasets} & \GrantTableField[id=dms-repo-2,font=6pt,width=0.98\linewidth,maxchars=160]{Controlled-access repository or secure data enclave} & \GrantTableField[id=dms-access-2,font=6pt,width=0.98\linewidth,maxchars=40]{Controlled}\\[4pt]
+\GrantTableField[id=dms-type-3,font=6pt,width=0.98\linewidth,maxchars=180]{De-identified radiology, pathology, imaging files, metadata} & \GrantTableField[id=dms-repo-3,font=6pt,width=0.98\linewidth,maxchars=160]{NCI Imaging Data Commons or The Cancer Imaging Archive} & \GrantTableField[id=dms-access-3,font=6pt,width=0.98\linewidth,maxchars=40]{Open}\\[4pt]
+\GrantTableField[id=dms-type-4,font=6pt,width=0.98\linewidth,maxchars=180]{Analysis code, SAP, simulation code, data dictionaries} & \GrantTableField[id=dms-repo-4,font=6pt,width=0.98\linewidth,maxchars=160]{GitHub with Zenodo DOI archiving} & \GrantTableField[id=dms-access-4,font=6pt,width=0.98\linewidth,maxchars=40]{Public}
+\end{tabularx}
+
+\GrantTextArea[
+  id=dms-standards, font=10pt, height=1.85in, maxchars=1400
+]{Data standards, metadata, provenance, versioning, quality control, and reproducibility}{Data capture and release will use standard terminologies and reproducibility controls whenever feasible, including structured case-report forms, prespecified variable definitions, versioned dictionaries, and explicit provenance linking from source artifact to cleaned analysis dataset. Clinical and safety data will use standard coding systems such as CTCAE and MedDRA where appropriate; imaging will retain modality-standard metadata; derived analysis datasets will be tied to the SAP, code commit, container or runtime version, and database-lock date. Repository deposits will include README files, data dictionaries, protocol version, analytic assumptions, QC summaries, and machine-readable checksums or equivalent integrity records. Reproducibility will be strengthened by immutable release tags, DOI-backed archives for public code packages, and retained scripts sufficient to regenerate the reported tables and figures \citep{phase1guidance,oncotrialllm,qspmetpancre,pdacdigtwinp}.
+}
+\GrantTextArea[
+  id=dms-security, font=10pt, height=1.95in, maxchars=1600
+]{Security architecture, role-based access, encryption, incident response, backup, and disaster recovery}{The project will use a least-privilege security architecture separating direct identifiers, clinical source records, analytic datasets, and public-release materials. Access will be role-based, MFA-protected where available, and tied to documented onboarding and offboarding procedures. Data in transit and at rest will be encrypted using institution-approved methods; audit logs will record authentication, access, extraction, modification, and release events; and electronic systems used for regulated records will follow 21 CFR^^JPart 11 expectations as applicable \citep{cfr312paiuni}. Incident response will include immediate containment, sponsor and security-officer notification, forensic preservation of logs, risk assessment, corrective action, and required regulatory or participant notices. Backups will follow a 3-2-1 style strategy or functionally equivalent institutional standard, with tested restore procedures, versioned snapshots, and disaster-recovery drills for the EDC, document repository, and critical study artifacts.
+}
+\GrantTextArea[
+  id=dms-governance, font=10pt, height=1.75in, maxchars=1350
+]{Governance, stewardship roles, costs, repository fees, and plan-update process}{The sponsor-investigator will hold overall stewardship responsibility, with delegated roles for data management, biostatistics, ClinicalTrials.gov submission, repository preparation, cybersecurity, and records retention. A named data steward will maintain the release inventory, confirm de-identification and metadata completeness, and coordinate repository submissions at publication and project close. Budget planning should explicitly reserve funds for EDC hosting, secure storage, repository deposit or curation fees if incurred, long-term archival storage, and staff time for QC, documentation, and access-review workflows. The DMS plan will be reviewed at least annually and whenever a material protocol change occurs, particularly if new imaging, biospecimen, genomic, or device-log data types are added \citep{nih_rfa_rm_27_001}.
+}

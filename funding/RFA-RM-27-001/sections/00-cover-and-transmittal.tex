@@ -1,0 +1,44 @@
+% EDITING: type inside the final {...} of each field. Change the shown font size
+% (for example, font=10pt) in that same field block when needed.
+
+\thispagestyle{empty}
+\vspace*{-0.25in}
+{\color{GrantNavy}\rule{\linewidth}{2pt}}\par
+\vspace{0.12in}
+{\Huge\bfseries\color{GrantNavy}Clinical Trial Funding Application}\par
+{\Large\color{GrantBlue}NIH-adaptable concept and submission template}\par
+\vspace{0.08in}
+{\color{GrantRule}\rule{\linewidth}{0.8pt}}\par
+
+\GrantGuidance{This package is a drafting and funder-outreach template, not an official substitute for an agency portal, SF424 forms, ASSIST, Grants.gov Workspace, or a funder's required application system. Verify the live solicitation before submitting a new application.  \href{https://doi.org/10.5281/zenodo.21232965}{10.5281/zenodo.21232965}}
+
+\GrantLineField[id=cover-funder,font=14pt,maxchars=160]{Target funding organization}{\DefaultFunder}
+\GrantLineField[id=cover-program,font=14pt,maxchars=180]{Program / award title}{\DefaultProgram}
+\GrantLineField[id=cover-opportunity,font=14pt,maxchars=100]{Custom opportunity, solicitation, call, or program number}{\DefaultOpportunityNumber}
+\GrantLineField[id=cover-project-title,font=12pt,maxchars=220]{Proposed project title}{Daraxonrasib Phase 1 LLM-Directed Robotic Whipple in KRAS-Mutated PDAC}
+
+\begin{tabularx}{\linewidth}{X X}
+\textbf{Applicant / PD-PI} & \textbf{Applicant organization}\\[-1pt]
+\GrantTableField[id=cover-pi,font=12pt,width=0.97\linewidth,maxchars=140]{\ApplicantName, \ApplicantDegrees} &
+\GrantTableField[id=cover-org,font=12pt,width=0.97\linewidth,maxchars=140]{\ApplicantOrganization}\\[6pt]
+\textbf{Applicant email} & \textbf{Telephone}\\[-1pt]
+\GrantTableField[id=cover-email,font=12pt,width=0.97\linewidth,maxchars=160]{\ApplicantEmail} &
+\GrantTableField[id=cover-phone,font=12pt,width=0.97\linewidth,maxchars=60]{\ApplicantPhone}\\[6pt]
+\textbf{Submission / transmittal date} & \textbf{Requested project period}\\[-1pt]
+\GrantTableField[id=cover-date,font=12pt,width=0.97\linewidth,maxchars=30]{July 7, 2026} &
+\GrantTableField[id=cover-period,font=12pt,width=0.97\linewidth,maxchars=60]{\DefaultProjectPeriod}
+\end{tabularx}
+
+\vspace{0.12in}
+\GrantSubsection{Transmittal message}
+\GrantTextArea[
+  id=transmittal-recipient, font=12pt, height=0.56in, maxchars=500
+]{Recipient name, title, and organization}{Patricia Labosky, Ph.D., Program Leader, NIH Common Fund, Office of Strategic Coordination, Office of the Director, National Institutes of Health
+}
+\GrantTextArea[
+  id=transmittal-body, font=10pt, height=3.6in, maxchars=2400
+]{Professional transmittal / cover message}{Dear Dr. Labosky: ^^J ^^JChemicalQDevice respectfully submits this application to the NIH Director's Pioneer Award for "Daraxonrasib Phase 1 LLM-Directed Robotic Whipple in KRAS-Mutated PDAC." The proposed work builds a first-in-human, verification-first clinical-trial architecture that combines perioperative daraxonrasib, robotic pancreaticoduodenectomy, and auditable LLM-centered document and operations support. The application is grounded in a recent public portfolio that includes the Phase 1 IND package, the companion Phase 1 protocol, the Phase 2 comparative follow-on protocol, oncology-trial repository workflows for synchronized document generation, and three PDAC modeling streams - large-scale in silico, QSP, and digital-twin studies - used to structure feasibility logic, scenario stress testing, and trial-readiness reasoning \citep{phase1ind,phase1guidance,onpremwhippl,daraxwhipple,oncotrialllm,qspmetpancre,chatgpt100kp,fdadigtwinpc}. Consistent with the Pioneer mechanism, the project is not a routine scale-up of existing work; it proposes a materially new research direction in which drug, device, verification, and regulated clinical operations are co-designed as a single governed translational system with broad implications for future Physical AI oncology trials \citep{nih_rfa_rm_27_001,clintrustpai,vvuqllmverif,h2pancrevvuq}. Thank you for your time and consideration of this application. ^^J ^^JSincerely, ^^JKevin Kawchak ^^JCEO ChemicalQDevice
+}
+
+\vfill
+{\footnotesize\color{GrantGray}Baseline design source: NIH Director's Pioneer Award, RFA-RM-27-001. The opportunity identifier field accepts arbitrary agency, foundation, nonprofit, or corporate program-number formats.}
