@@ -1,0 +1,43 @@
+\documentclass[11pt,letterpaper]{article}
+
+\usepackage{clinicaltrialgrant}
+\input{config/applicant}
+\input{config/opportunity}
+
+% QUICK SWITCH: use false for a clean funder-facing document.
+\newif\ifTemplateAppendix
+\TemplateAppendixtrue
+
+\begin{document}
+\begin{Form}
+
+% SECTION ORDER: comment out any line you do not need.
+% Direct links to every file are in START_HERE.md and START_HERE.html.
+\input{sections/00-cover-and-transmittal}
+\input{sections/01-opportunity-and-organization}
+\input{sections/02-project-summary} 
+\input{sections/03-research-strategy}
+\input{sections/04-clinical-trial-synopsis}
+\input{sections/05-human-subjects-and-regulatory}
+\input{sections/06-statistics-safety-and-operations}
+\input{sections/07-data-management-and-sharing}
+\input{sections/08-facilities-and-resources}
+\input{sections/09-budget-milestones-and-sustainability}
+\input{sections/10-investigator-profile}
+\input{sections/11-assurances-and-attachments}
+
+\end{Form}
+
+\ifTemplateAppendix
+  \clearpage
+  \input{sections/99-template-notes}
+  \bibliographystyle{plainnat}
+  \bibliography{references}
+\fi
+
+\vspace{0.25cm}
+
+\textbf{Citation:} Kawchak K. Clinical Trial Funding Application, RFA-RM-27-001, Kawchak K. Zenodo. 2026;
+\href{https://doi.org/10.5281/zenodo.21232965}{10.5281/zenodo.21232965}. 
+
+\end{document}
