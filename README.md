@@ -1239,29 +1239,6 @@ See `unification/README.md` for the complete cooperation model.
 
 ---
 
-### Key Capabilities
-
-| Module | Purpose | Regulatory Basis |
-|--------|---------|-----------------|
-| PHI/PII Management | Detect and classify protected health information | HIPAA 45 CFR 164.514 |
-| De-Identification | Safe Harbor and Expert Determination methods | 45 CFR 164.514(b) |
-| Access Control | Role-based access with audit trails | 21 CFR Part 11, HIPAA Security Rule |
-| Breach Response | Automated incident response and notification | 45 CFR 164.400-414 |
-| DUA Templates | Data Use Agreement generation for multi-site sharing | 45 CFR 164.514(e) |
-
----
-
-### Key Capabilities
-
-| Module | Purpose | Key Regulations |
-|--------|---------|----------------|
-| FDA Compliance | Submission tracking (510(k), De Novo, PMA, Breakthrough) | FDA AI/ML Guidance (Jan 2025) |
-| IRB Management | AI-specific protocol preparation and review | SACHRP, MRCT Framework (Jul 2025) |
-| ICH-GCP | E6(R3) compliance verification and audit | ICH E6(R3) (effective Sep 2025) |
-| Regulatory Intelligence | Multi-jurisdiction monitoring and deadline tracking | FDA, EMA, ICH, WHO |
-
----
-
 ## Citation
 
 If you use this repository in your research, please cite:
