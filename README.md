@@ -177,13 +177,6 @@ to draft to full to final pipeline. Authored by Kevin Kawchak (ChemicalQDevice),
 paper v1.0, DOI [10.5281/zenodo.21018646](https://doi.org/10.5281/zenodo.21018646)
 June 29, 2026.
 
-**425-character summary.** v4.2.0 adds trial-documents/, a single-prompt paper
-showing how a repository based LLM generates every large Phase 1 PDAC trial document
-through a mermaid to draft to full to final pipeline. It covers the six highest-value
-acceleration targets, ships 24 colored figures reproduced exactly in LaTeX, matches
-paper names to repository names, and argues probable benefit over probable risk for
-enrolled patients who cannot wait.
-
 ### Contents of this version
 
 - [Build pipeline](#build-pipeline-v420) (mermaid -> draft -> full -> final)
