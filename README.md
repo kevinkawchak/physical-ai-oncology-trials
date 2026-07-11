@@ -102,13 +102,6 @@ New Drug (IND) application, *Phase 1 PDAC IND: AI Generation* (IND v1.0), that h
 the entire Phase 1 IND document-package process and ships 22 grayscale Mermaid figures,
 each from a unique perspective, reproduced exactly in LaTeX. Authored by Kevin Kawchak (ChemicalQDevice), IND v1.0, DOI [10.5281/zenodo.21097442](https://doi.org/10.5281/zenodo.21097442), July 1, 2026.
 
-**425-character summary.** v4.3.0 adds trial-ind/, a single-prompt Phase 1 PDAC IND
-that hastens the entire IND document-package process and ships 22 grayscale Mermaid
-figures reproduced exactly in LaTeX. It follows the ReGARDD IND table of contents across
-12 sections, carries the daraxonrasib 3+3 and eight-arm robotic Whipple data, reaches
-about ten times the source paper, and auto-commits every file to GitHub in real time for
-live monitoring.
-
 ### Contents of this version
 
 - [Build pipeline](#build-pipeline-v430) (mermaid -> draft -> full -> final)
