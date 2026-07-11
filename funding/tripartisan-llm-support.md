@@ -1,6 +1,6 @@
-### Frontier Model Tripartisan Support
+## Frontier Model Tripartisan Support
 
-Daraxonrasib Phase 1 LLM-Directed Robotic Whipple in KRAS-Mutated PDAC Trial: https://doi.org/10.5281/zenodo.21232965
+### Daraxonrasib Phase 1 LLM-Directed Robotic Whipple in KRAS-Mutated PDAC Trial
 
 A. Claude Code
 - Investigational New Drug Applications
@@ -29,3 +29,6 @@ C. Google Gemini
 - Trial Related Photorealistic Images
 - Test: Spark Agent for Google Suite, Web
 - Automate Gmail, Administrative Tasks
+
+Reference:
+https://doi.org/10.5281/zenodo.21232965
