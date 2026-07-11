@@ -2,7 +2,7 @@
 
 OpenAI deep research was utilized in a June 2025 work featuring 40 Pancreatic Ductal Adenocarcinoma (PDAC) meta-analyses totaling over 400,000 words, many based on clinical trials. Gemini ranked a daraxonrasib drug combination as the top candidate for ChemicalQDevice to receive funding. The Gemini finding then served as an input for OpenAI and Anthropic to generate daraxonrasib-based financial proposals. (1)
 
-An August 2025 AI generated Quantitative Systems Pharmacology (QSP) metastatic pancreatic cancer Python clinical trial simulation was verified as numerically and biologically stable. The median overall survival was 12.8 months with the daraxonrasib combination, and 5.4 months with chemotherapy. (2)
+An August 2025 AI generated Quantitative Systems Pharmacology (QSP) metastatic pancreatic cancer Python clinical trial simulation was verified as numerically and biologically stable. The median overall survival (mOS) was 12.8 months with the daraxonrasib combination, and 5.4 months with chemotherapy. (2)
 
 The May 2026 Revolution Medicines RASolute 302 trial had similar outcomes. “The median overall survival in the RAS G12 population was 13.2 months with daraxonrasib and 6.6 months with chemotherapy”. Differences between the a) QSP Simulation and b) RASolute 302 include Sample Size: a) 1000, b) 241; Experimental Drug: a) daraxonrasib combination, b) daraxonrasib; and Molecular Selection: a) KRAS G12C, b) Primarily G12D/G12V. (3)
 
