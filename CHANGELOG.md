@@ -22,6 +22,7 @@ Format follows [Keep a Changelog](https://keepachangelog.com/).
 - `releases.md` - v4.3.0 release notes added at the top.
 - The build adds only `.tex`, `.md`, `.sty`, `.bib`, and `.zip` files (no Python or YAML), so the `lint-and-format` workflow (`ruff check`, `ruff format`, `yamllint`) on Python 3.10, 3.11, and 3.12 remains green.
 - @kevinkawchak added 7/7: (Clinical Trial Funding Application) URL to main/README.md. main/funding created with 7/7: (Clinical Trial Funding Application) source files, and pdf on 2026-07-07.
+- @kevinkawchak repositoned the reference in physical-ai-oncology-trials/blob/main/funding/tripartisan-llm-support.md; and remove extra main/README.md summaries on 2026-07-11.
 
 ## [4.2.0] - 2026-06-29
 
