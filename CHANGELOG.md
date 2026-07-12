@@ -23,6 +23,7 @@ Format follows [Keep a Changelog](https://keepachangelog.com/).
 - The build adds only `.tex`, `.md`, `.sty`, `.bib`, and `.zip` files (no Python or YAML), so the `lint-and-format` workflow (`ruff check`, `ruff format`, `yamllint`) on Python 3.10, 3.11, and 3.12 remains green.
 - @kevinkawchak added 7/7: (Clinical Trial Funding Application) URL to main/README.md. main/funding created with 7/7: (Clinical Trial Funding Application) source files, and pdf on 2026-07-07.
 - @kevinkawchak repositoned the reference in physical-ai-oncology-trials/blob/main/funding/tripartisan-llm-support.md; and removed extra main/README.md summaries on 2026-07-11.
+- @kevinkawchak added Daraxonrasib Efficient LLM Trial Simulations.pdf and Physical AI Oncology Trial Competition Proposal.pdf to physical-ai-oncology-trials/tree/main/funding/supplementary; and added supplementary/README.md on 2026-07-12.
 
 ## [4.2.0] - 2026-06-29
 
