@@ -7,7 +7,7 @@
 - Empirical, QSP, and digital twin platforms
 
 ### Physical AI Oncology Trial Competition Proposal.pdf
-[Open PDF](https://github.com/kevinkawchak/LLMs-Pharmaceutical/blob/main/Guidance/Physical%20AI%20Oncology%20Trial%20Competition%20Proposal.pdf)
+[Open PDF](https://github.com/kevinkawchak/physical-ai-oncology-trials/blob/main/funding/supplementary/Physical%20AI%20Oncology%20Trial%20Competition%20Proposal.pdf)
 
 - Original Jan 13, 2026 Physical AI oncology trial proposal
 - End-to-end platform of hybrid edge-cloud AI architecture + LLMs
