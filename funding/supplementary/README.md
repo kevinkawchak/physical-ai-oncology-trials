@@ -1,7 +1,7 @@
 ## Supplementary Funding Documents
 
 ### Daraxonrasib Efficient LLM Trial Simulations.pdf
-[Open PDF](https://github.com/kevinkawchak/LLMs-Pharmaceutical/blob/main/Guidance/Daraxonrasib%20Efficient%20LLM%20Trial%20Simulations.pdf)
+[Open PDF](https://github.com/kevinkawchak/physical-ai-oncology-trials/blob/main/funding/supplementary/Daraxonrasib%20Efficient%20LLM%20Trial%20Simulations.pdf)
 
 - Python notebook and no-code simulations
 - Empirical, QSP, and digital twin platforms
