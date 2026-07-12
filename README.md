@@ -26,6 +26,9 @@
 
 This repository provides production-ready configurations, validated pipelines, and integration guides for deploying robotic systems, digital twins, and embodied AI agents in oncology. 
 
+**7/12: (Clinical Trial Funding Application v2.0)** *RFA-RM-27-001, Kawchak K. The application proposes a first-in-human, combined drug-device investigation of perioperative daraxonrasib and an eight-arm robotic pancreaticoduodenectomy."*  
+[![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.21317266-blue)](https://doi.org/10.5281/zenodo.21317266)
+
 **7/7: (Clinical Trial Funding Application)** *RFA-RM-27-001. ChemicalQDevice respectfully submits this application to the NIH Director's Pioneer Award for "Daraxonrasib Phase 1 LLM-Directed Robotic Whipple in KRAS-Mutated PDAC."* [![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.21232965-blue)](https://doi.org/10.5281/zenodo.21232965)
 
 **7/1: v4.3.0 (Phase 1 PDAC IND: AI Generation, IND v1.0)** *v4.3.0 adds trial-ind/, a single-prompt Phase 1 PDAC IND that hastens the entire IND document-package process across the ReGARDD table of contents and ships 22 grayscale figures.* [![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.21097442-blue)](https://doi.org/10.5281/zenodo.21097442)
