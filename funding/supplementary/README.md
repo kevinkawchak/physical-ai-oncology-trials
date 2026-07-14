@@ -12,6 +12,8 @@
 - Original Jan 13, 2026 Physical AI oncology trial proposal
 - End-to-end platform of hybrid edge-cloud AI architecture + LLMs
 
+---
+
 ### Physical AI Oncology Trial Founding Documents
 
 Physical AI oncology clinical trials industry was founded across the following funding, trial, and legislation documents. The works are supported by 16 GitHub repositories, and part of 53 total LLM works. (1,2) Many iterations were required to pinpoint an exact cancer patient trial.
@@ -58,8 +60,8 @@ Kawchak, K. (2026). Verification Before Generation Act of 2026. Zenodo. https://
 Bill Version 1 - VVUQ Established
 Kawchak, K. (2026). VVUQ Physical AI Oncology Trial Bill. Zenodo. https://doi.org/10.5281/zenodo.20454870
 
-References:
+References:  
 (1) GitHub Repositories
-Kawchak, K. [@kevinkawchak]. Repositories [GitHub profile]. GitHub. Retrieved July 14, 2026, from https://github.com/kevinkawchak?tab=repositories
-(2) ORCID Profile 
+Kawchak, K. [@kevinkawchak]. Repositories [GitHub profile]. GitHub. Retrieved July 14, 2026, from https://github.com/kevinkawchak?tab=repositories  
+(2) ORCID Profile
 Kawchak, K. Kevin Kawchak [ORCID profile]. ORCID. Retrieved July 14, 2026, from https://orcid.org/0009-0007-5457-8667
