@@ -25,7 +25,7 @@ Format follows [Keep a Changelog](https://keepachangelog.com/).
 - @kevinkawchak repositoned the reference in physical-ai-oncology-trials/blob/main/funding/tripartisan-llm-support.md; and removed extra main/README.md summaries on 2026-07-11.
 - @kevinkawchak added Daraxonrasib Efficient LLM Trial Simulations.pdf and Physical AI Oncology Trial Competition Proposal.pdf to physical-ai-oncology-trials/tree/main/funding/supplementary; and added supplementary/README.md on 2026-07-12.
 - @kevinkawchak added "https://www.chemicalqdevice.com" to /main settings, which now features reduced 150KB .jpg images for faster load times; and image alt text to improve search engine rankings.
-- @kevinkawchak added README.md files missing in /main ditectories and 2026-07-14.
+- @kevinkawchak added README.md files missing in /main directories on 2026-07-14.
 
 ## [4.2.0] - 2026-06-29
 
