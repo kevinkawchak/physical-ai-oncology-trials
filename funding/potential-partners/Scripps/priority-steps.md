@@ -6,7 +6,8 @@ OBJECTIVE
 Position the public AI oncology portfolio so that Scripps Research or Scripps Health contacts Kevin Kawchak after reviewing the work. The AI work should lead the conversation. The proposed pancreatic cancer trial should be introduced only after Scripps expresses interest.
 
 No response can be guaranteed. This plan is designed to maximize the likelihood of credible inbound contact without representing that Scripps has already reviewed, endorsed or agreed to host the project.
-	1.	Use Scripps as the priority organization.
+
+1. Use Scripps as the priority organization.
 
 Primary research organization:
 Scripps Research Translational Institute
@@ -15,8 +16,9 @@ Clinical organization:
 Scripps Health and Scripps Clinical Research Services
 
 Reason for selection:
-Scripps Research has identified leadership roles in artificial intelligence and digital clinical trials. Its Digital Trials Center collaborates with outside companies, organizations and academic institutions. Scripps Health has a centralized office administering clinical trials and an established pancreatic cancer program. (Scripps Research￼)
-	2.	Lead with a public AI-oncology portfolio, not a request to host an experimental operation.
+Scripps Research has identified leadership roles in artificial intelligence and digital clinical trials. Its Digital Trials Center collaborates with outside companies, organizations and academic institutions. Scripps Health has a centralized office administering clinical trials and an established pancreatic cancer program. (Scripps Research)
+
+2. Lead with a public AI-oncology portfolio, not a request to host an experimental operation.
 
 Use this portfolio title:
 
@@ -34,14 +36,20 @@ Kevin Kawchak
 kevink@chemicalqdevice.com
 ChemicalQDevice
 San Diego, California
-	3.	Feature five works from the attached portfolio.
+
+3. Feature five works from the attached portfolio.
 
 Feature these items in this order:
-	1.	QSP Metastatic Pancreatic Cancer AI Clinical Trial Simulation: From Protocol to Prediction, Code, VVUQ and Playbook.
-	2.	ChatGPT 100,000-Patient, 24-Month, Five-Arm Pancreatic Cancer In Silico Phase III Clinical Trial.
-	3.	Phase 1 Pancreatic Cancer Trial: Efficient LLM Document Guidance.
-	4.	Investigational New Drug Application — Daraxonrasib Phase 1 LLM-Advised Robotic Whipple Trial.
-	5.	Oncology Trial Principal Investigator LLM Adoption Guide and the related verification, validation and uncertainty-quantification materials.
+
+1. QSP Metastatic Pancreatic Cancer AI Clinical Trial Simulation: From Protocol to Prediction, Code, VVUQ and Playbook.
+
+2. ChatGPT 100,000-Patient, 24-Month, Five-Arm Pancreatic Cancer In Silico Phase III Clinical Trial.
+
+3. Phase 1 Pancreatic Cancer Trial: Efficient LLM Document Guidance.
+
+4. Investigational New Drug Application — Daraxonrasib Phase 1 LLM-Advised Robotic Whipple Trial.
+
+5. Oncology Trial Principal Investigator LLM Adoption Guide and the related verification, validation and uncertainty-quantification materials.
 
 For every item, provide:
 
@@ -53,7 +61,8 @@ Human-review process.
 Known limitations.
 Regulatory status.
 A statement that the work is investigational and has not established clinical safety or efficacy.
-	4.	Create a two-page “Scripps Review Brief.”
+
+4. Create a two-page “Scripps Review Brief.”
 
 Page 1 should explain the AI contribution:
 
@@ -84,7 +93,8 @@ Validation of bounded AI recommendations.
 Application of AI to oncology research without giving the model autonomous clinical authority.
 
 Do not make the robotic Whipple procedure the central subject of this brief.
-	5.	Publish one consolidated evidence page.
+
+5. Publish one consolidated evidence page.
 
 The page should contain:
 
@@ -109,7 +119,8 @@ A direct invitation for Scripps investigators to contact Kevin.
 Use this invitation:
 
 Researchers, clinical-trial leaders and medical-AI investigators interested in independently evaluating this portfolio’s verification, provenance, simulation or regulatory-document methods are invited to contact Kevin Kawchak at kevink@chemicalqdevice.com.
-	6.	Send one visibility notice to Scripps Research after the page is public.
+
+6. Send one visibility notice to Scripps Research after the page is public.
 
 Primary address:
 dtc@scripps.edu
@@ -132,8 +143,9 @@ Addie Fortmann, PhD
 Chief Research Officer, Scripps Health
 fortmann.adelaide@scrippshealth.org
 
-These addresses are publicly associated with the recipients’ professional research work. The Digital Trials Center’s official collaboration address is dtc@scripps.edu. (Scripps Research Digital Trials Center￼)
-	7.	Make the visibility notice informational rather than demanding.
+These addresses are publicly associated with the recipients’ professional research work. The Digital Trials Center’s official collaboration address is dtc@scripps.edu. (Scripps Research Digital Trials Center)
+
+7. Make the visibility notice informational rather than demanding.
 
 Do not begin by asking Scripps to:
 
@@ -150,14 +162,16 @@ Allow an AI system to participate in surgery.
 Hold an IND or IDE.
 
 Instead, state that the public portfolio is available for independent review and that Scripps may contact Kevin if its AI, translational-science or clinical-trial teams see a potential fit.
-	8.	Use the AI work as the reason Scripps would contact Kevin.
+
+8. Use the AI work as the reason Scripps would contact Kevin.
 
 The central positioning statement should be:
 
 Kevin Kawchak has assembled a public, repository-based body of AI oncology work that spans large-scale literature synthesis, quantitative simulation, trial-document generation, regulatory adaptation and cross-model review. The immediate collaboration opportunity is independent evaluation of the AI methods and assurance framework. A future pancreatic cancer study is one possible clinical application, not the sole value of the work.
-	9.	Ask Addie Fortmann to route any interest internally.
 
-Addie Fortmann is identified by Scripps Health as its Chief Research Officer, and Scripps Clinical Research Services is responsible for administering clinical trials across multiple specialties. (Scripps.org￼)
+9. Ask Addie Fortmann to route any interest internally.
+
+Addie Fortmann is identified by Scripps Health as its Chief Research Officer, and Scripps Clinical Research Services is responsible for administering clinical trials across multiple specialties. (Scripps.org)
 
 After she or another Scripps representative responds, request internal introductions to:
 
@@ -174,7 +188,8 @@ An institutional regulatory specialist.
 An AI or digital-medicine investigator.
 
 A research-contracting representative.
-	10.	Request introductions to the following clinical colleagues only after Scripps responds.
+
+10. Request introductions to the following clinical colleagues only after Scripps responds.
 
 Darren Sigal, MD
 Gastrointestinal medical oncologist with a clinical interest in pancreatic cancer and experience developing clinical studies.
@@ -192,8 +207,9 @@ Scripps Cancer Center
 San Diego, CA 92121
 Phone: 858-554-8984
 
-No currently verified public professional email address was located for either clinician. Ask Scripps Clinical Research Services or Addie Fortmann to arrange the introduction instead of guessing an email address. (Scripps.org￼)
-	11.	Arrange the first in-person AI meeting at the Digital Trials Center.
+No currently verified public professional email address was located for either clinician. Ask Scripps Clinical Research Services or Addie Fortmann to arrange the introduction instead of guessing an email address. (Scripps.org)
+
+11. Arrange the first in-person AI meeting at the Digital Trials Center.
 
 Proposed location:
 
@@ -213,8 +229,9 @@ Edward Ramos or a digital-trials representative.
 
 A Scripps Health research-operations representative.
 
-The purpose should be to evaluate the AI portfolio, not approve the clinical trial. (Scripps Research Digital Trials Center￼)
-	12.	Arrange the second meeting through Scripps Clinical Research Services.
+The purpose should be to evaluate the AI portfolio, not approve the clinical trial. (Scripps Research Digital Trials Center)
+
+12. Arrange the second meeting through Scripps Clinical Research Services.
 
 Location:
 
@@ -251,8 +268,9 @@ Sponsor responsibilities.
 
 FDA submission responsibilities.
 
-Insurance and indemnification. (Scripps.org￼)
-	13.	Prepare the Scripps Pilot Study Award package for the next funding cycle.
+Insurance and indemnification. (Scripps.org)
+
+13. Prepare the Scripps Pilot Study Award package for the next funding cycle.
 
 The 2026 application deadline was February 13, 2026 and has passed. Prepare the materials now for a future cycle rather than describing the current cycle as open.
 
@@ -292,8 +310,9 @@ Maximum of ten references.
 
 NIH-format biosketches.
 
-The 2026 program offered four awards of up to $50,000 in direct costs. Its emphasis is translational science: generalizable methods that improve the translational process, rather than simply advancing one drug or one disease-specific trial. (Scripps Research￼)
-	14.	Frame the pilot-funding concept around the AI method.
+The 2026 program offered four awards of up to $50,000 in direct costs. Its emphasis is translational science: generalizable methods that improve the translational process, rather than simply advancing one drug or one disease-specific trial. (Scripps Research)
+
+14. Frame the pilot-funding concept around the AI method.
 
 Use this prospective pilot title:
 
@@ -316,7 +335,8 @@ Which disagreements among AI models predict genuine document defects?
 Can standardized assurance gates be transferred across different diseases and trial types?
 
 The pancreatic cancer materials can serve as a use case, but the result should be generalizable beyond pancreatic cancer.
-	15.	Prepare the forms that may follow institutional interest.
+
+15. Prepare the forms that may follow institutional interest.
 
 Likely submissions include:
 
@@ -345,7 +365,8 @@ Data-use and intellectual-property agreements.
 NCATS Human Subjects Prior Approval materials if a future CTSA pilot award supports human-subject research.
 
 Do not submit patient-facing or clinical forms until a qualified Scripps investigator and Scripps research administration have accepted responsibility for their portions of the project.
-	16.	Generate independent evidence that gives Scripps a reason to respond.
+
+16. Generate independent evidence that gives Scripps a reason to respond.
 
 Before requesting clinical hosting, obtain at least two of the following:
 
@@ -364,7 +385,8 @@ A public demonstration showing provenance, model disagreement and human resoluti
 A software test suite with reproducible results.
 
 Inbound contact is more likely when Scripps can inspect independent evidence rather than only self-authored claims.
-	17.	Use San Diego visibility without suggesting institutional endorsement.
+
+17. Use San Diego visibility without suggesting institutional endorsement.
 
 Publish the portfolio through:
 
@@ -401,7 +423,8 @@ Scripps clinical trial.
 Scripps investigators are participating.
 
 Any reference to Scripps participation must wait for written authorization.
-	18.	Use this 30-day sequence.
+
+18. Use this 30-day sequence.
 
 Days 1–7:
 
@@ -440,7 +463,8 @@ Offer a 30-minute AI-portfolio review meeting.
 Let Scripps decide which internal investigators should participate.
 
 Introduce the clinical-trial concept only after interest in the AI framework is established.
-	19.	Use this success threshold.
+
+19. Use this success threshold.
 
 A successful first response is not a commitment to host the trial.
 
@@ -459,20 +483,7 @@ An invitation to prepare a pilot concept.
 A request for an institutional feasibility summary.
 
 The next objective is to convert that initial interest into a structured AI-validation collaboration. The clinical trial becomes a later workstream.
-	20.	Use this final positioning sentence consistently.
 
-The immediate opportunity is for Scripps to independently evaluate a substantial public portfolio of verification-first AI oncology work. If that evaluation identifies a credible institutional fit, Kevin Kawchak is available to discuss funding, translational validation and a future Scripps-hosted clinical application.Use this as the one-time notice after the public portfolio is ready:I am making available a public portfolio of AI-assisted oncology research spanning quantitative pancreatic cancer simulations, clinical-trial document development, regulatory adaptation, provenance tracking and independent cross-model review.
+20. Use this final positioning sentence consistently.
 
-The immediate collaboration opportunity is not a request for Scripps to endorse or host a clinical trial. It is an opportunity for Scripps investigators to independently evaluate whether the portfolio’s verification, auditability and digital-trial methods have translational value.
-
-The portfolio, supporting repositories and a two-page review brief are available here:
-
-[INSERT PUBLIC PORTFOLIO LINK]
-
-Please feel free to route this to the appropriate artificial-intelligence, digital-clinical-trials, translational-science or clinical-research colleagues. Should the work align with a Scripps research priority, I would welcome contact from the relevant team.
-
-Kevin Kawchak
-Chief Executive Officer
-ChemicalQDevice
-San Diego, California
-kevink@chemicalqdevice.com
+The immediate opportunity is for Scripps to independently evaluate a substantial public portfolio of verification-first AI oncology work. If that evaluation identifies a credible institutional fit, Kevin Kawchak is available to discuss funding, translational validation and a future Scripps-hosted clinical application.
