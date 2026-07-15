@@ -1,4 +1,6 @@
-Physical AI oncology clinical trials industry was founded across the following funding, trial, and legislation documents. The works are supported by 16 GitHub repositories, and part of 53 total LLM works. (1,2) Many iterations were required to pinpoint an exact cancer patient trial.
+## Physical AI Oncology Trial Founding Documents  
+
+Physical AI oncology clinical trials industry was founded across the following funding, trial, and legislation documents. The works are supported by 16 GitHub repositories, and part of 53 total LLM works. (1,2) Many iterations were required to pinpoint an exact cancer patient trial.  
 
 Funding
 Kawchak, K. (2026). Clinical Trial Funding Application v2.0, RFA-RM-27-001, Kawchak K. Zenodo. https://doi.org/10.5281/zenodo.21317266
@@ -41,6 +43,8 @@ Kawchak, K. (2026). Verification Before Generation Act of 2026. Zenodo. https://
 
 Bill Version 1 - VVUQ Established
 Kawchak, K. (2026). VVUQ Physical AI Oncology Trial Bill. Zenodo. https://doi.org/10.5281/zenodo.20454870
+
+[PDF: 53 LLM Works](https://drive.google.com/file/d/1yZN9F4JRZ2njMFPot29kOs9HZ1yxbvj3/view?usp=drivesdk)
 
 References:  
 (1) GitHub Repositories
