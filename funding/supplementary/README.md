@@ -1,5 +1,10 @@
 ## Supplementary Funding Documents
 
+### Physical AI Oncology Trial Founding Documents.md
+[Open MD](https://github.com/kevinkawchak/physical-ai-oncology-trials/blob/main/funding/supplementary/Daraxonrasib%20Efficient%20LLM%20Trial%20Simulations.pdf)
+
+Physical AI oncology clinical trials industry was founded across the following funding, trial, and legislation documents. The works are supported by 16 GitHub repositories, and part of 53 total LLM works. Many iterations were required to pinpoint an exact cancer patient trial.
+
 ### Daraxonrasib Efficient LLM Trial Simulations.pdf
 [Open PDF](https://github.com/kevinkawchak/physical-ai-oncology-trials/blob/main/funding/supplementary/Daraxonrasib%20Efficient%20LLM%20Trial%20Simulations.pdf)
 
@@ -11,7 +16,3 @@
 
 - Original Jan 13, 2026 Physical AI oncology trial proposal
 - End-to-end platform of hybrid edge-cloud AI architecture + LLMs
-
-### Physical AI Oncology Trial Founding Documents
-
-Physical AI oncology clinical trials industry was founded across the following funding, trial, and legislation documents. The works are supported by 16 GitHub repositories, and part of 53 total LLM works. (1,2) Many iterations were required to pinpoint an exact cancer patient trial.
