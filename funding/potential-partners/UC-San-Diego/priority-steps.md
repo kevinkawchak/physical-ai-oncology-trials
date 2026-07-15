@@ -1,5 +1,6 @@
+
 DARAXONRASIB / ROBOTIC WHIPPLE CLINICAL TRIAL
-PRIORITIZED NEXT STEPS — JULY 13, 2026
+PRIORITIZED NEXT STEPS - JULY 13, 2026
 
 1. Correct the proposal’s scientific and regulatory positioning before sending it anywhere.
 
@@ -21,14 +22,14 @@ Investigator-Sponsored Resectable PDAC Trial Proposal — Daraxonrasib Drug Supp
 
 Request:
 
-• A scientific feasibility meeting.
-• Confirmation of whether Revolution Medicines would consider drug supply and/or research funding.
-• Access to the current Investigator’s Brochure.
-• A Letter of Authorization allowing FDA to reference relevant chemistry, manufacturing, pharmacology, toxicology, and safety information in the company’s files.
-• Medical-monitor and pharmacovigilance requirements.
-• Guidance on dose, washout, perioperative interruption, drug accountability, and safety reporting.
-• Assessment of overlap or competition with RASolute 304 and other company-sponsored studies.
-• The date of the next External Sponsored Research submission window; the public portal currently indicates that submissions are closed.
+- A scientific feasibility meeting.  
+- Confirmation of whether Revolution Medicines would consider drug supply and/or research funding.  
+- Access to the current Investigator’s Brochure.  
+- A Letter of Authorization allowing FDA to reference relevant chemistry, manufacturing, pharmacology, toxicology, and safety information in the company’s files.  
+- Medical-monitor and pharmacovigilance requirements.  
+- Guidance on dose, washout, perioperative interruption, drug accountability, and safety reporting.  
+- Assessment of overlap or competition with RASolute 304 and other company-sponsored studies.  
+- The date of the next External Sponsored Research submission window; the public portal currently indicates that submissions are closed.  
 
 Attach only a one-page nonconfidential overview, two-page clinical synopsis, Kevin’s biosketch, preliminary budget range, and a one-page dependency matrix. Do not initially send the entire LaTeX package. Revolution Medicines states that its external research program may support investigator-sponsored or collaborative clinical studies with drug and/or funding. (Revolution Medicines)
 
@@ -48,12 +49,12 @@ In-Person Feasibility Meeting — Perioperative KRAS-Inhibitor and Robotic Whipp
 
 Ask for a 45-minute in-person meeting with both physicians and a Clinical Trials Office representative. Request discussion of:
 
-• Whether the patient population and perioperative treatment concept are clinically supportable.
-• Whether Dr. White or another qualified pancreatic surgeon could serve as clinical site PI.
-• Whether Dr. Botta or another GI oncologist could lead systemic therapy and safety management.
-• Surgical volume and estimated annual eligible-patient count.
-• Availability of the actual robotic platform.
-• Institutional willingness to host an investigator-initiated trial sponsored by a small San Diego company.
+- Whether the patient population and perioperative treatment concept are clinically supportable.  
+- Whether Dr. White or another qualified pancreatic surgeon could serve as clinical site PI.  
+- Whether Dr. Botta or another GI oncologist could lead systemic therapy and safety management.  
+- Surgical volume and estimated annual eligible-patient count.  
+- Availability of the actual robotic platform.  
+- Institutional willingness to host an investigator-initiated trial sponsored by a small San Diego company.  
 
 Proposed meeting location:
 Moores Cancer Center
@@ -89,9 +90,9 @@ The center has robotic surgery and simulation facilities, but that does not esta
 
 Complete:
 
-• UC San Diego Investigator-Initiated Trial Concept Form.
-• UC San Diego Budget Web Survey.
-• PI-IIT Budget Questionnaire.
+- UC San Diego Investigator-Initiated Trial Concept Form.
+- UC San Diego Budget Web Survey.
+- PI-IIT Budget Questionnaire.
 
 Return the completed budget questionnaire to:
 CTOBudgeting@health.ucsd.edu
@@ -118,16 +119,16 @@ Email: actri-ctss@health.ucsd.edu
 
 Ask ACTRI Clinical Trial Support Services for:
 
-• Product and software classification.
-• IND and IDE strategy.
-• Protocol and informed-consent development.
-• IRB preparation.
-• Data and safety monitoring plan.
-• DSMB support.
-• Monitoring plan.
-• Site activation checklist.
-• ClinicalTrials.gov support.
-• A determination of which party is capable of serving as sponsor-investigator.
+- Product and software classification.
+- IND and IDE strategy.
+- Protocol and informed-consent development.
+- IRB preparation.
+- Data and safety monitoring plan.
+- DSMB support.
+- Monitoring plan.
+- Site activation checklist.
+- ClinicalTrials.gov support.
+- A determination of which party is capable of serving as sponsor-investigator.
 
 Do this before finalizing the NIH narrative because the regulatory strategy, site responsibilities, and budget must be internally consistent. (actri.ucsd.edu)
 
@@ -178,14 +179,14 @@ Pre-RFD — Daraxonrasib, Robotic Surgical Workflow, and LLM Advisory System
 
 Describe each component separately:
 
-• Investigational drug.
-• Robotic surgical platform and instruments.
-• LLM advisory software.
-• Data inputs and outputs.
-• Whether recommendations are visible to clinicians during surgery.
-• Whether the surgeon can independently review the basis of recommendations.
-• Whether software output controls equipment or only provides advice.
-• Sponsor and manufacturer roles.
+- Investigational drug.
+- Robotic surgical platform and instruments.
+- LLM advisory software.
+- Data inputs and outputs.
+- Whether recommendations are visible to clinicians during surgery.
+- Whether the surgeon can independently review the basis of recommendations.
+- Whether software output controls equipment or only provides advice.
+- Sponsor and manufacturer roles.
 
 Ask for preliminary classification, lead FDA center, and whether separate drug and device submissions are expected. (U.S. Food and Drug Administration)
 
@@ -213,12 +214,12 @@ Do not assume the existing daraxonrasib development program automatically covers
 
 Obtain written answers to these questions:
 
-• Will Revolution Medicines hold or cross-reference the IND?
-• Will ChemicalQDevice serve as sponsor?
-• Can a UC San Diego physician serve as sponsor-investigator?
-• Who will perform safety reporting, monitoring, pharmacovigilance, drug accountability, data management, and annual FDA reports?
-• Who will pay for insurance, indemnification, subject injury, and device/software validation?
-• Who owns the resulting data and inventions?
+- Will Revolution Medicines hold or cross-reference the IND?
+- Will ChemicalQDevice serve as sponsor?
+- Can a UC San Diego physician serve as sponsor-investigator?
+- Who will perform safety reporting, monitoring, pharmacovigilance, drug accountability, data management, and annual FDA reports?
+- Who will pay for insurance, indemnification, subject injury, and device/software validation?
+- Who owns the resulting data and inventions?
 
 The NIH applicant, clinical site PI, FDA sponsor, IND holder, and device manufacturer do not have to be the same entity, but their responsibilities must be explicit.
 
@@ -226,13 +227,13 @@ The NIH applicant, clinical site PI, FDA sponsor, IND holder, and device manufac
 
 Complete or verify:
 
-• SAM.gov registration for ChemicalQDevice LLC.
-• Unique Entity Identifier and CAGE information.
-• Grants.gov organization registration.
-• eRA Commons organization registration.
-• Separate eRA Commons accounts for the Signing Official and PD/PI if Kevin will occupy both roles.
-• ORCID linked to the PD/PI’s eRA Commons profile.
-• SBA Company Registry if pursuing an SBIR application in parallel.
+- SAM.gov registration for ChemicalQDevice LLC.
+- Unique Entity Identifier and CAGE information.
+- Grants.gov organization registration.
+- eRA Commons organization registration.
+- Separate eRA Commons accounts for the Signing Official and PD/PI if Kevin will occupy both roles.
+- ORCID linked to the PD/PI’s eRA Commons profile.
+- SBA Company Registry if pursuing an SBIR application in parallel.
 
 NIH warns that registrations can require six weeks or longer. Grants.gov support:
 support@grants.gov
@@ -251,12 +252,12 @@ RFA-RM-27-001 Eligibility and Clinical-Trial Structure Questions — ChemicalQDe
 
 Ask:
 
-• Whether the proposed clinical trial fits the DP1’s expected level of feasibility and readiness.
-• Whether a for-profit applicant may rely on a university clinical site not yet under contract at submission.
-• Whether the proposed clinical site PI can be discussed as a collaborator even though only the PD/PI is entered as senior/key personnel.
-• Whether the tentative science codes “2 CTR” and “4 IE” or “8 BCB” are appropriate.
-• How to describe manufacturer dependencies without including prohibited letters of collaboration.
-• Whether the 51% effort expectation applies exactly as interpreted.
+- Whether the proposed clinical trial fits the DP1’s expected level of feasibility and readiness.
+- Whether a for-profit applicant may rely on a university clinical site not yet under contract at submission.
+- Whether the proposed clinical site PI can be discussed as a collaborator even though only the PD/PI is entered as senior/key personnel.
+- Whether the tentative science codes “2 CTR” and “4 IE” or “8 BCB” are appropriate.
+- How to describe manufacturer dependencies without including prohibited letters of collaboration.
+- Whether the 51% effort expectation applies exactly as interpreted.
 
 Do not ask NIH to pre-review or approve the scientific merits. (Simpler Grants)
 
@@ -273,16 +274,16 @@ Expected project period: September 1, 2027–August 31, 2032
 
 Required approach:
 
-• One PD/PI only.
-• No Specific Aims attachment.
-• Five-page Essay.pdf under the required Research Strategy headings.
-• One-page Facilities and Other Resources attachment.
-• No Bibliography and References Cited attachment.
-• No Equipment attachment.
-• No detailed modular or research-and-related budget forms.
-• Include a Data Management and Sharing Plan.
-• Include Current and Pending Support for the PI.
-• Describe site capability, accrual, statistics, safety monitoring, and data management because the application includes a clinical trial.
+- One PD/PI only.
+- No Specific Aims attachment.
+- Five-page Essay.pdf under the required Research Strategy headings.
+- One-page Facilities and Other Resources attachment.
+- No Bibliography and References Cited attachment.
+- No Equipment attachment.
+- No detailed modular or research-and-related budget forms.
+- Include a Data Management and Sharing Plan.
+- Include Current and Pending Support for the PI.
+- Describe site capability, accrual, statistics, safety monitoring, and data management because the application includes a clinical trial.
 
 Use an internal submission target of September 2, 2026. Late applications are not accepted. (Simpler Grants)
 
@@ -292,18 +293,18 @@ The ZIP does not identify three qualified referees or provide their contact info
 
 Choose three established individuals who already know Kevin’s work and can assess:
 
-• Creativity and independence.
-• Ability to lead a high-risk interdisciplinary program.
-• Scientific or engineering contributions.
-• Capacity to execute the proposed work.
+- Creativity and independence.
+- Ability to lead a high-risk interdisciplinary program.
+- Scientific or engineering contributions.
+- Capacity to execute the proposed work.
 
 Give each referee:
 
-• Kevin’s exact last name as shown in eRA Commons.
-• Kevin’s eRA Commons username.
-• Opportunity number RFA-RM-27-001.
-• The August 9–September 9 submission window.
-• The two-page maximum.
+- Kevin’s exact last name as shown in eRA Commons.
+- Kevin’s eRA Commons username.
+- Opportunity number RFA-RM-27-001.
+- The August 9–September 9 submission window.
+- The two-page maximum.
 
 Letters must be submitted independently through the eRA reference-letter system. Email and paper letters are not accepted. Letters of collaboration are not accepted with the application. (NIH Common Fund)
 
@@ -311,18 +312,18 @@ Letters must be submitted independently through the eRA reference-letter system.
 
 The document should state:
 
-• Annual pancreaticoduodenectomy volume.
-• Annual KRAS-mutated PDAC population.
-• Number likely to have resectable or borderline-resectable disease.
-• Expected molecular-screening failure rate.
-• Expected consent rate.
-• Estimated enrollment per month.
-• Competing trials.
-• Operating-room and robotic capacity.
-• Pharmacy capability for investigational drug.
-• Required pathology and biospecimen workflows.
-• Intensive-care and postoperative safety coverage.
-• A realistic timeline to enroll up to 18 participants.
+- Annual pancreaticoduodenectomy volume.
+- Annual KRAS-mutated PDAC population.
+- Number likely to have resectable or borderline-resectable disease.
+- Expected molecular-screening failure rate.
+- Expected consent rate.
+- Estimated enrollment per month.
+- Competing trials.
+- Operating-room and robotic capacity.
+- Pharmacy capability for investigational drug.
+- Required pathology and biospecimen workflows.
+- Intensive-care and postoperative safety coverage.
+- A realistic timeline to enroll up to 18 participants.
 
 Have the prospective surgeon, oncologist, statistician, and Clinical Trials Office review and sign off internally before using the estimates in the NIH application.
 
@@ -330,22 +331,22 @@ Have the prospective surgeon, oncologist, statistician, and Clinical Trials Offi
 
 Required functions include:
 
-• Clinical site PI/pancreatic surgeon.
-• GI medical oncologist.
-• Research pharmacist.
-• Biostatistician.
-• Clinical research coordinator.
-• Regulatory specialist.
-• Data manager.
-• Independent medical monitor.
-• DSMB members.
-• Safety/pharmacovigilance lead.
-• Research software and cybersecurity lead.
-• Human-factors specialist.
-• Robotic surgery engineer.
-• Pathology and biospecimen lead.
-• IND/IDE regulatory counsel.
-• Clinical-trial insurance and indemnification counsel.
+- Clinical site PI/pancreatic surgeon.
+- GI medical oncologist.
+- Research pharmacist.
+- Biostatistician.
+- Clinical research coordinator.
+- Regulatory specialist.
+- Data manager.
+- Independent medical monitor.
+- DSMB members.
+- Safety/pharmacovigilance lead.
+- Research software and cybersecurity lead.
+- Human-factors specialist.
+- Robotic surgery engineer.
+- Pathology and biospecimen lead.
+- IND/IDE regulatory counsel.
+- Clinical-trial insurance and indemnification counsel.
 
 Do not name individuals as committed collaborators until they have agreed to the role and the institution has approved the arrangement.
 
@@ -356,12 +357,12 @@ Phone: 240-276-5300
 
 Send a nonconfidential technology summary and request a call about the appropriate funding route for:
 
-• Preclinical validation.
-• LLM verification and human-factors work.
-• Regulatory preparation.
-• Surgical simulation.
-• Device/software development.
-• A later clinical study.
+- Preclinical validation.
+- LLM verification and human-factors work.
+- Regulatory preparation.
+- Surgical simulation.
+- Device/software development.
+- A later clinical study.
 
 This may be a more practical funding route for the enabling technology if the DP1 clinical-trial package cannot be made submission-ready by September. (sbir.cancer.gov)
 
@@ -376,10 +377,10 @@ Phone: 619-314-5878
 
 Ask about:
 
-• Current and upcoming grant cycles.
-• Eligibility of a for-profit applicant working with a San Diego academic site.
-• Whether an application should be led by the UC San Diego clinical PI.
-• Introductions to pancreatic-cancer investigators and local philanthropic partners.
+- Current and upcoming grant cycles.
+- Eligibility of a for-profit applicant working with a San Diego academic site.
+- Whether an application should be led by the UC San Diego clinical PI.
+- Introductions to pancreatic-cancer investigators and local philanthropic partners.
 
 Attend the Curebound Cancer Challenge on August 1, 2026, at UC San Diego/RIMAC. Use it for relationship-building with researchers, clinicians, patients, advocates, and donors—not for patient recruitment or promotion of an unapproved trial. (Curebound)
 
@@ -406,12 +407,12 @@ San Diego, CA 92101
 
 Request Springboard advising focused on:
 
-• Life-science fundraising strategy.
-• Manufacturer and hospital partnerships.
-• Regulatory and reimbursement planning.
-• Investor-ready financial projections.
-• Governance and clinical-development expertise.
-• Introductions to San Diego medtech and biotech executives.
+- Life-science fundraising strategy.
+- Manufacturer and hospital partnerships.
+- Regulatory and reimbursement planning.
+- Investor-ready financial projections.
+- Governance and clinical-development expertise.
+- Introductions to San Diego medtech and biotech executives.
 
 Springboard advising is offered throughout the year and can help convert the concept into a financeable company and development plan. (Connect Foundation)
 
@@ -424,15 +425,15 @@ Determine whether ChemicalQDevice, UC San Diego, Revolution Medicines, or anothe
 
 Do not advertise, recruit, screen, consent, enroll, administer study drug, or use the investigational workflow in patients until all applicable requirements are complete, including:
 
-• Effective IND or documented FDA determination.
-• IDE approval or documented determination that an IDE is not required.
-• IRB approval.
-• Executed site and manufacturer agreements.
-• Approved informed consent.
-• Insurance and indemnification.
-• Site initiation and staff training.
-• ClinicalTrials.gov registration.
-• Drug release and accountability procedures. (ClinicalTrials.gov)
+- Effective IND or documented FDA determination.
+- IDE approval or documented determination that an IDE is not required.
+- IRB approval.
+- Executed site and manufacturer agreements.
+- Approved informed consent.
+- Insurance and indemnification.
+- Site initiation and staff training.
+- ClinicalTrials.gov registration.
+- Drug release and accountability procedures. (ClinicalTrials.gov)
 
 24. Use the following internal go/no-go schedule.
 
