@@ -1,7 +1,7 @@
 ## Supplementary Funding Documents
 
 ### Physical AI Oncology Trial Founding Documents.md
-[Open MD](https://github.com/kevinkawchak/physical-ai-oncology-trials/blob/main/funding/supplementary/Daraxonrasib%20Efficient%20LLM%20Trial%20Simulations.pdf)
+[Open MD](https://github.com/kevinkawchak/physical-ai-oncology-trials/blob/main/funding/supplementary/Physical%20AI%20Oncology%20Trial%20Founding%20Documents.md)
 
 Physical AI oncology clinical trials industry was founded across the following funding, trial, and legislation documents. The works are supported by 16 GitHub repositories, and part of 53 total LLM works. Many iterations were required to pinpoint an exact cancer patient trial.
 
