@@ -1,4 +1,4 @@
-# Scripps AI and Clinical Research Partnership Overview
+# Scripps AI and Clinical Research Potential Partnership Overview
 
 ## Purpose
 
