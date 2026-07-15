@@ -1,4 +1,4 @@
-# UC San Diego and Scripps Clinical Trial Potential Partnerships
+# UC San Diego and Scripps Clinical Research Potential Partnerships
 
 
 ## UC San Diego Clinical Trial Partnership Overview
