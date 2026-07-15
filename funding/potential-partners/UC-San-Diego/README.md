@@ -1,4 +1,4 @@
-# UC San Diego Clinical Trial Partnership Overview
+# UC San Diego Clinical Trial Potential Partnership Overview
 
 ## Purpose
 
