@@ -16,3 +16,9 @@ Physical AI oncology clinical trials industry was founded across the following f
 
 - Original Jan 13, 2026 Physical AI oncology trial proposal
 - End-to-end platform of hybrid edge-cloud AI architecture + LLMs
+
+### Four Station Oncology Trial Robot Competition
+[Open Simulation](https://kevinkawchak.github.io/robot-competition-clinical/v12/)
+
+- MuJoCo-based clinical trial simulation with Unitree H2 humanoid robots
+- Competition across four simultaneous stations with doctors, nurses, patients
