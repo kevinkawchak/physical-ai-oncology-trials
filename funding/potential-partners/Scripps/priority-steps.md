@@ -47,7 +47,7 @@ Feature these items in this order:
 
 3. Phase 1 Pancreatic Cancer Trial: Efficient LLM Document Guidance.
 
-4. Investigational New Drug Application — Daraxonrasib Phase 1 LLM-Advised Robotic Whipple Trial.
+4. Investigational New Drug Application - Daraxonrasib Phase 1 LLM-Advised Robotic Whipple Trial.
 
 5. Oncology Trial Principal Investigator LLM Adoption Guide and the related verification, validation and uncertainty-quantification materials.
 
