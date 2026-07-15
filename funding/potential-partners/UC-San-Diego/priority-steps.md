@@ -1,4 +1,3 @@
-
 DARAXONRASIB / ROBOTIC WHIPPLE CLINICAL TRIAL
 PRIORITIZED NEXT STEPS - JULY 13, 2026
 
@@ -18,7 +17,7 @@ Optional Cc: inquiries@revmed.com
 Medical information phone: 1-844-273-8633
 
 Suggested subject:
-Investigator-Sponsored Resectable PDAC Trial Proposal — Daraxonrasib Drug Supply and IND Support
+Investigator-Sponsored Resectable PDAC Trial Proposal - Daraxonrasib Drug Supply and IND Support
 
 Request:
 
@@ -36,16 +35,16 @@ Attach only a one-page nonconfidential overview, two-page clinical synopsis, Kev
 3. Approach the two most relevant prospective UC San Diego clinical collaborators.
 
 To: rewhite@ucsd.edu
-Rebekah White, MD — pancreatic surgical oncologist
+Rebekah White, MD - pancreatic surgical oncologist
 
 To: gbotta@ucsd.edu
-Gregory Botta, MD, PhD — gastrointestinal medical oncologist and clinical-trial investigator
+Gregory Botta, MD, PhD - gastrointestinal medical oncologist and clinical-trial investigator
 
 Cc: cancercto@ucsd.edu
 Moores Cancer Center Clinical Trials Office
 
 Suggested subject:
-In-Person Feasibility Meeting — Perioperative KRAS-Inhibitor and Robotic Whipple Trial
+In-Person Feasibility Meeting - Perioperative KRAS-Inhibitor and Robotic Whipple Trial
 
 Ask for a 45-minute in-person meeting with both physicians and a Clinical Trials Office representative. Request discussion of:
 
@@ -106,8 +105,8 @@ octa@health.ucsd.edu
 Phone: 858-822-2940
 
 Named contacts:
-Sanaz Masha — smasha@health.ucsd.edu
-Sosi Maraslian — smaraslian@health.ucsd.edu
+Sanaz Masha - smasha@health.ucsd.edu
+Sosi Maraslian - smaraslian@health.ucsd.edu
 
 Complete UC San Diego’s CDA/NDA request before sharing confidential engineering details or unpublished manufacturer information.
 
@@ -175,7 +174,7 @@ combination@fda.gov
 Phone: 301-796-8930
 
 Subject line:
-Pre-RFD — Daraxonrasib, Robotic Surgical Workflow, and LLM Advisory System
+Pre-RFD - Daraxonrasib, Robotic Surgical Workflow, and LLM Advisory System
 
 Describe each component separately:
 
@@ -248,7 +247,7 @@ Peer-review or NOFO interpretation:
 NOFOReviewContact@csr.nih.gov
 
 Suggested subject:
-RFA-RM-27-001 Eligibility and Clinical-Trial Structure Questions — ChemicalQDevice LLC
+RFA-RM-27-001 Eligibility and Clinical-Trial Structure Questions - ChemicalQDevice LLC
 
 Ask:
 
@@ -382,7 +381,7 @@ Ask about:
 - Whether an application should be led by the UC San Diego clinical PI.
 - Introductions to pancreatic-cancer investigators and local philanthropic partners.
 
-Attend the Curebound Cancer Challenge on August 1, 2026, at UC San Diego/RIMAC. Use it for relationship-building with researchers, clinicians, patients, advocates, and donors—not for patient recruitment or promotion of an unapproved trial. (Curebound)
+Attend the Curebound Cancer Challenge on August 1, 2026, at UC San Diego/RIMAC. Use it for relationship-building with researchers, clinicians, patients, advocates, and donors-not for patient recruitment or promotion of an unapproved trial. (Curebound)
 
 21. Establish a relationship with the Pancreatic Cancer Action Network.
 
