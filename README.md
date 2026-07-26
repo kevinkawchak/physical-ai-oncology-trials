@@ -1230,7 +1230,7 @@ See `unification/README.md` for the complete cooperation model.
 
 ## Citation
 
-If you use this repository in your research, please cite:
+If you use this repository in your research, please cite using BibTeX:
 
 ```bibtex
 @software{kawchak2026physicalai,
