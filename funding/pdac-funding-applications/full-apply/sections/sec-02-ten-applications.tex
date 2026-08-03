@@ -1,38 +1,161 @@
-% sec-02: the ten recipients, their mechanisms, and their asks.  Figure 3 (d2).
+% sec-02: the ten recipients, their mechanisms, and their asks.
+% Resolved from applications/README.md and the ten app-*/README.md files.
+% Figures 3 (d2 grid) and 6 (graphviz DAG).
 \section{The Ten Applications}
-
-\draftinstr{full-apply writes 5,000 to 6,000 characters from
-\appfile{funding/pdac-funding-applications/applications/README.md} \S1, \S2 and
-\S7, plus each of the ten \appfile{applications/app-*/README.md} files for the
-per-recipient ask and anchor. Do not restate the applications; state what the
-set as a whole demonstrates.}
 
 \subsection{Selection Rule}
 
-\draftinstr{One paragraph: a recipient qualifies only if the report names its
-program or the mechanism it runs. Give the anchor chunk for each of the ten and
-state that no recipient was included on plausibility alone.}
+A recipient qualifies for this set only if \textit{Science: A New Golden Age}
+either names its programme or names the mechanism that programme runs. Nothing
+was included on plausibility. The rule matters because it is what makes the set
+an argument rather than a mailing list: every application can open by quoting the
+recipient's own mechanism back to it, in the administration's wording, and then
+answer it.
 
-\figslot{d2-type / scored grid}{6.6}{Ten applications on four attributes. The
-science column is constant by construction: the same trial is described ten
-times, and only the mechanism, the term, and the ask change.}
+Three mechanism families emerged from applying that rule. \textbf{Person-based},
+where the report names the NIH Director's Pioneer Award by title and cites
+HHMI-style support as the evidence. \textbf{Organization-type}, where the report
+names X-Labs as the first federal programme designed to fund independent
+research organizations outside traditional academia, names focused research
+organizations as time-bound nonprofits built to dissolve, names the ARPA
+program-manager model, and names SBIR as opening doors for technician-founded
+ventures. \textbf{Partnership and cost share}, where the report holds up the
+Foundation for the NIH and the Accelerating Medicines Partnership as its model,
+names the Genesis Mission and its Robotics line, and asks agencies to prioritise
+non-federal cost share \cite{kratsiosvought2026fy2028priorities}.
+
+\begin{appfloat}[!tb]
+\begin{appfig}[d2-type / scored grid]
+% Five columns on a fixed pitch, placed by anchor from the left neighbour so
+% they cannot drift; eleven rows of equal minimum height.  Column widths are
+% 4.0, 2.9, 2.5, 2.2 and 2.3 cm, totalling 13.9 cm.
+\node[d2cellh,text width=3.6cm,minimum width=4.0cm,minimum height=6.0mm] (h0) at (0,0) {Recipient};
+\node[d2cellh,text width=2.5cm,minimum width=2.9cm,minimum height=6.0mm,anchor=west] (h1) at (h0.east) {Mechanism};
+\node[d2cellh,text width=2.1cm,minimum width=2.5cm,minimum height=6.0mm,anchor=west] (h2) at (h1.east) {Term};
+\node[d2cellh,text width=1.8cm,minimum width=2.2cm,minimum height=6.0mm,anchor=west] (h3) at (h2.east) {Direct ask};
+\node[d2cellh,text width=1.9cm,minimum width=2.3cm,minimum height=6.0mm,anchor=west] (h4) at (h3.east) {Lead};
+\foreach \r/\prev/\rec/\mech/\term/\ask/\lead/\lf in {%
+  1/h0/{01 NIH Pioneer Award}/{person-based}/{5 years}/{\$3.5M}/{surgical}/d2soft,
+  2/r1/{02 ARPA-H}/{milestone}/{36 months}/{\$2.1M}/{surgical}/d2soft,
+  3/r2/{03 NSF TIP X-Labs}/{organization}/{5 years}/{\$3.5M}/{surgical}/d2soft,
+  4/r3/{04 DOE Genesis Mission}/{mission}/{5 years}/{\$3.5M}/{surgical}/d2soft,
+  5/r4/{05 NIH SEED SBIR}/{small business}/{9 + 24 mo}/{\$1.6M}/{surgical}/d2soft,
+  6/r5/{06 FNIH AMP}/{consortium}/{5 years}/{\$3.5M}/{medical}/d2cellg,
+  7/r6/{07 HHMI Investigator}/{person-based}/{7 years}/{\$0.7M/yr}/{medical}/d2cellg,
+  8/r7/{08 NCI CTEP}/{concept review}/{5 years}/{\$3.5M}/{medical}/d2cellg,
+  9/r8/{09 Convergent FRO}/{time-bound}/{5 years}/{\$3.5M}/{medical}/d2cellg,
+  10/r9/{10 UC San Diego Moores}/{institutional}/{one meeting}/{none}/{medical}/d2cellg}{%
+  \node[d2celll,text width=3.6cm,minimum width=4.0cm,minimum height=6.0mm,anchor=north west]
+    (r\r) at (\prev.south west) {\rec};
+  \node[d2cell,text width=2.5cm,minimum width=2.9cm,minimum height=6.0mm,anchor=west]
+    (m\r) at (r\r.east) {\mech};
+  \node[d2cell,text width=2.1cm,minimum width=2.5cm,minimum height=6.0mm,anchor=west]
+    (t\r) at (m\r.east) {\term};
+  \node[d2cell,text width=1.8cm,minimum width=2.2cm,minimum height=6.0mm,anchor=west]
+    (a\r) at (t\r.east) {\ask};
+  \node[\lf,text width=1.9cm,minimum width=2.3cm,minimum height=6.0mm,anchor=west]
+    (v\r) at (a\r.east) {\lead};}
+\node[font=\tiny\itshape,text=protogray,anchor=north west,text width=136mm]
+  at ([yshift=-2.5mm]r10.south west) {The science column is omitted because it
+  would be constant: the same population, the same 3+3 escalation, the same
+  co-primary endpoints, and the same advisory boundary appear in all ten.};
+\end{appfig}
+\vspace{-0.7cm}
+\figcaption{Ten applications on four attributes. The science column is constant
+by construction: the same trial is described ten times, and only the mechanism,
+the term, and the ask change.}
+\end{appfloat}
 
 \subsection{What Differs, and What Does Not}
 
-\draftinstr{full-apply builds Table 2: a full-width table with columns Number,
-Recipient, Mechanism family, Term, Direct ask, and Perspective. Ten rows. Draw
-values from the application READMEs; do not recompute them.}
+\begin{apptable}
+\begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}p{0.7cm} >{\raggedright\arraybackslash}p{3.4cm} >{\raggedright\arraybackslash}p{2.6cm} >{\raggedright\arraybackslash}X}
+\headrow \thead{No} & \thead{Recipient} & \thead{Mechanism family} & \thead{The anchor sentence in the report}\\
+\midrule
+01 & NIH Common Fund, Director's Pioneer Award & Person-based & ``scaling long-horizon grants for the best and brightest modeled on \dots\ Director's Pioneer Award'' \\
+02 & ARPA-H mission office & Organization-type & The ARPA program-manager model, with ARPA-H and ARPA-E as the live examples \\
+03 & NSF TIP Directorate, X-Labs & Organization-type & ``the first federal program designed to fund independent research organizations outside traditional academia'' \\
+04 & DOE Office of Science, Genesis Mission & Partnership & Robotics mission: ``to initiate the era of physical AI-driven scientific discovery'' \\
+05 & NIH SEED, SBIR and STTR & Organization-type & ``Programs like SBIR open doors for technician-founded ventures'' \\
+06 & Foundation for the NIH, AMP & Partnership & FNIH and the Accelerating Medicines Partnership held up as the model \\
+07 & HHMI Investigator Program & Person-based & Person-based funding of roughly \$10 million over seven years \\
+08 & NCI Cancer Therapy Evaluation Program & Partnership & Prioritised foundational biological sciences; the report's own cancer framing \\
+09 & Convergent Research, FRO programme & Organization-type & Focused research organizations as time-bound nonprofit research startups \\
+10 & UC San Diego Moores Cancer Center & Partnership & Regional innovation clusters; non-federal cost share \\
+\end{tabularx}
+\end{apptable}
+\tabcap{The ten recipients with the sentence in the report that qualifies each.
+No recipient appears without an anchor, which is what makes the set an argument
+inside the funder's own frame rather than a mailing list.}
 
-\draftinstr{Then two paragraphs on the deliberate constant: the trial, the
-population, the endpoints and the governance are identical across all ten, so a
-reviewer comparing two of them sees only a mechanism difference.}
+What is constant is the trial. Every one of the ten describes the same
+population, resectable or borderline-resectable KRAS G12-mutated pancreatic
+ductal adenocarcinoma; the same design, open-label, single-arm, 3+3 escalation,
+up to 18 treated participants; the same co-primary endpoints; and the same
+advisory boundary, with arm-level stop specified at 3 milliseconds and
+system-wide stop at 500 milliseconds \cite{onpremwhippl,phase1ind}.
 
-\subsection{Redundancy}
+That constancy is the point. A reviewer who compares two applications from this
+set is comparing two funding mechanisms applied to one piece of science, with
+the science held fixed. It is the closest thing an individual applicant can
+construct to a controlled comparison of mechanisms, and it is only possible
+because the protocol was published before the applications were written.
 
-\figslot{graphviz-type / dependency DAG}{6.2}{Ten awards against eight trial
-activities. Six activities have two or more upstream awards and survive any
-single refusal; the two that do not are drawn heavier, and both are regulatory.}
+\subsection{Redundancy Across the Set}
 
-\draftinstr{One paragraph reading the figure: name the two single-source
-activities, IND activation and IRB approval, and say why they are funded first
-in every application that can fund them.}
+Sending ten applications is not ten times one application. Because the ten fund
+overlapping activity sets, most of the programme survives a refusal from any one
+recipient. Figure 6 makes that concrete, and identifies the two activities that
+do not.
+
+\begin{appfloat}[!tb]
+\begin{appfig}[graphviz-type / dependency DAG]
+% Ten awards in two columns of five at x = 0 and 2.4, pitch 1.15, so the left
+% cluster matches the right in height and the edge fan does not cross itself.
+% Eight activities at x = 8.6, pitch 1.30.  The corridor between x = 4.2 and
+% x = 7.4 carries every edge and holds no node.
+\foreach \i/\x/\y/\lab in {1/0/2.3/{01 Pioneer}, 2/0/1.15/{02 ARPA-H}, 3/0/0/{03 X-Labs},
+  4/0/-1.15/{04 Genesis}, 5/0/-2.3/{05 SBIR}, 6/2.5/2.3/{06 FNIH}, 7/2.5/1.15/{07 HHMI},
+  8/2.5/0/{08 CTEP}, 9/2.5/-1.15/{09 FRO}, 10/2.5/-2.3/{10 Moores}}{
+  \node[gvnode,text width=17mm] (w\i) at (\x,\y) {\lab};}
+\begin{scope}[on background layer]
+\node[gvcluster,fit=(w1)(w5)(w6)(w10),inner sep=7pt] (cl) {};
+\end{scope}
+\node[gvctitle,anchor=south west] at ([yshift=1mm]cl.north west) {Ten applications};
+
+\foreach \i/\y/\lab/\sty in {1/3.0/{Site agreement}/gvbox, 2/1.7/{IND activation}/gvboxk,
+  3/0.4/{IRB approval}/gvboxk, 4/-0.9/{Interlock rig}/gvbox, 5/-2.2/{Logging schema}/gvbox,
+  6/-3.5/{Cohort accrual}/gvbox}{
+  \node[\sty,text width=24mm] (t\i) at (9.0,\y) {\lab};}
+\node[gvbox,text width=24mm] (t7) at (9.0,-4.8) {Specimen pipeline};
+\node[gvbox,text width=24mm] (t8) at (9.0,-6.1) {Public release};
+\begin{scope}[on background layer]
+\node[gvcluster2,fit=(t1)(t8),inner sep=7pt] (ca) {};
+\end{scope}
+\node[gvctitle,anchor=south west] at ([yshift=1mm]ca.north west) {Trial activities};
+
+\foreach \s/\t in {w1/t1, w1/t2, w1/t6, w2/t2, w2/t4, w2/t6, w3/t4, w3/t5, w3/t8,
+  w4/t5, w4/t8, w5/t4, w5/t5, w6/t7, w6/t6, w7/t6, w7/t7, w8/t6, w8/t7, w8/t8,
+  w9/t5, w9/t7, w9/t8, w10/t1, w10/t3}{
+  \draw[gvedge] (\s.east) -- (\t.west);}
+\node[font=\tiny\itshape,text=protogray,anchor=north,text width=118mm,align=center]
+  at (5.6,-7.2) {IND activation has two upstream awards and IRB approval has
+  one. Both are drawn heavier, and both are regulatory rather than technical,
+  which is why every application that can fund them funds them in year one.};
+\end{appfig}
+\vspace{-0.7cm}
+\figcaption{Ten awards against eight trial activities. Six activities have two or
+more upstream awards and survive any single refusal; the two that do not are
+drawn heavier, and both are regulatory.}
+\end{appfloat}
+
+Six of the eight activities have two or more upstream awards. The interlock rig
+is funded by applications 02, 03, and 05; the logging schema by 03, 04, 05, and
+09; cohort accrual by 01, 02, 06, 07, and 08. Any single refusal in that set
+leaves the activity funded.
+
+The two exceptions are regulatory. IND activation is reachable only through
+applications 01 and 02, and IRB approval only through application 10, which asks
+for no money at all. That asymmetry is the programme's real structure: the
+scarce resource is not funding but institutional standing, and the one
+application that could supply it is the one with nothing to offer in return.
