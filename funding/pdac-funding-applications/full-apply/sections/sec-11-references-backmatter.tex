@@ -1,35 +1,60 @@
-% sec-11: references, abbreviations, availability, back matter.
+% sec-11: abbreviations, availability, contributions, citation, references.
 \section*{Back Matter}
 \phantomsection\addcontentsline{toc}{section}{Back Matter}
 
 \bmhead{Abbreviations}
 
-\draftinstr{full-apply builds a full-width two-column abbreviation table.
-Include at least: AMP, ARPA-H, CTEP, ctDNA, DLT, DOI, FNIH, FRO, HHMI, IND, IRB,
-ISGPS, KRAS, LLM, MTD, NIH, NSF, ODE, OS, PDAC, PFS, PK, PD, QSP, RP2D, SAE,
-SBIR, TIP, VVUQ.}
+\begin{apptable}
+\begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}p{1.5cm} >{\raggedright\arraybackslash}X >{\raggedright\arraybackslash}p{1.5cm} >{\raggedright\arraybackslash}X}
+\headrow \thead{Short} & \thead{Expansion} & \thead{Short} & \thead{Expansion}\\
+\midrule
+AE & Adverse event & MTD & Maximum tolerated dose \\
+AMP & Accelerating Medicines Partnership & NCI & National Cancer Institute \\
+ARPA-H & Advanced Research Projects Agency for Health & NIH & National Institutes of Health \\
+CTCAE & Common Terminology Criteria for Adverse Events & NSF & National Science Foundation \\
+CTEP & Cancer Therapy Evaluation Program & ODE & Ordinary differential equation \\
+ctDNA & Circulating tumour DNA & OS & Overall survival \\
+DLT & Dose-limiting toxicity & PD & Pharmacodynamics \\
+DOI & Digital object identifier & PDAC & Pancreatic ductal adenocarcinoma \\
+FNIH & Foundation for the National Institutes of Health & PFS & Progression-free survival \\
+FRO & Focused research organization & PK & Pharmacokinetics \\
+HHMI & Howard Hughes Medical Institute & QSP & Quantitative systems pharmacology \\
+IIT & Investigator-initiated trial & RP2D & Recommended Phase 2 dose \\
+IND & Investigational new drug & SAE & Serious adverse event \\
+IRB & Institutional review board & SBIR & Small Business Innovation Research \\
+ISGPS & International Study Group of Pancreatic Surgery & TIP & Technology, Innovation and Partnerships \\
+LLM & Large language model & VVUQ & Verification, validation and uncertainty quantification \\
+\end{tabularx}
+\end{apptable}
+\tabcap{Abbreviations used in this paper, set in two column pairs at the body
+measure. Trial-specific terms follow the definitions in the published Phase 1
+protocol rather than being redefined here.}
 
 \bmhead{Data and Code Availability}
 
-\draftinstr{One paragraph: every work cited to a DOI is openly deposited; the
-repository is at the URL on the cover; simulation code, verification notebooks,
-and every figure's TikZ source are in it. State the repository version, v4.4.0.}
+{\sloppy Every work cited to a digital object identifier is openly deposited.
+The repository is at
+\url{https://github.com/kevinkawchak/physical-ai-oncology-trials},
+version v4.4.0 \cite{repo2026}.\par} It contains the ten application file sets with
+their email text and Overleaf bundles, the twenty figure specifications across
+five machine-readable diagram platforms, the three build stages of this paper,
+the master prompt and the thirteen sub-prompts, and the TikZ source of every
+figure printed here. No raster image is used anywhere in this paper or in any of
+the ten attachments.
 
 \bmhead{Author Contributions and Conflicts}
 
-\draftinstr{One paragraph. Kevin Kawchak is the sole author. He is chief
-executive of ChemicalQDevice and holds no equity in Revolution Medicines or any
-robotic surgery vendor. No sponsor, contract research organization, or medical
-society reviewed this paper. The work was adapted using Claude Code Opus 5.}
+Kevin Kawchak is the sole author. He is chief executive of ChemicalQDevice and
+holds no equity in Revolution Medicines or in any robotic surgery vendor. No
+sponsor, contract research organization, institutional review board, regulator,
+or medical society reviewed this paper or authorised any statement in it. The
+work was adapted using Claude Code Opus 5.
 
 \bmhead{Citation}
 
-\draftinstr{full-apply writes the citation block: Kawchak K. 10 Funding
-Applications: A Phase 1, First-in-Human, PDAC Clinical Trial Protocol of a
-LLM-Directed Robotic Whipple with Daraxonrasib (RMC-6236). Zenodo. 2026;
-10.5281/zenodo.xxxxxxxx, hyperlinked to
-https://doi.org/10.5281/zenodo.xxxxxxxx. The placeholder is deliberate and is
-kept through final-apply.}
+Kawchak K. 10 Funding Applications: A Phase 1, First-in-Human, PDAC Clinical
+Trial Protocol of a LLM-Directed Robotic Whipple with Daraxonrasib (RMC-6236).
+Zenodo. 2026; \dlink{10.5281/zenodo.xxxxxxxx}.
 
 \vspace{0.2em}
 \apprule{0.5pt}
