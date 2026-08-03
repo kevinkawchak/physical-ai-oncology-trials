@@ -6,21 +6,20 @@
 
 \textbf{The model has no path to the arms.} Advisory output is rendered to a
 display. No generated token reaches a motion controller, and no software in the
-advisory path holds write access to the robot's command channel. The operating
-surgeon approves every motion \cite{onpremwhippl}.
+advisory path holds write access to the command channel. The operating surgeon
+approves every motion \cite{onpremwhippl}.
 
 \textbf{Stopping is bounded and measured.} Arm-level stop is specified at 3
-milliseconds and system-wide stop at 500 milliseconds. Both are measured on the
+milliseconds and system-wide stop at 500 milliseconds, both measured on the
 bench before the first participant is screened and re-measured at every cohort
 boundary. A specification that is asserted rather than measured is not a
 boundary; it is a hope.
 
 \textbf{Every artifact is verified before use.} The model runs on premises,
 pinned to a repository commit, and writes a timestamped record for every
-recommendation. Conversion to open operation ordered for patient safety is
-recorded as clinically appropriate; conversion caused by device, advisory, or
-integration failure is counted separately against the feasibility endpoint
-\cite{phase1ind}.
+recommendation. Conversion ordered for patient safety is recorded as clinically
+appropriate; conversion caused by device, advisory, or integration failure
+counts separately against the feasibility endpoint \cite{phase1ind}.
 
 \begin{appfloat}[!tb]
 \begin{appfig}[diagrams (python)-type / clustered topology]
@@ -78,10 +77,10 @@ model reaches a motion controller at any point.}
 \subsection{The Operative Day}
 
 Two figures are needed for one operative day, and neither implies the other. The
-sequence gives the conversation, message by message, which is what an operating
-team recognises. The state machine gives the guards, which is what a reviewer
-checks. A sequence with no guards cannot say what is forbidden; a state machine
-with no messages cannot say who speaks.
+sequence gives the conversation, which is what an operating team recognises; the
+state machine gives the guards, which is what a reviewer checks. A sequence with
+no guards cannot say what is forbidden, and a state machine with no messages
+cannot say who speaks.
 
 \begin{appfloat}[!tb]
 \begin{appfig}[mermaid-type / sequence diagram]
@@ -234,10 +233,9 @@ independent re-analysis of the cohort possible at all.}
 
 \subsection{Who Produced Which Artifact}
 
-The documents this paper summarises were themselves produced by a small set of
-frontier models with separated roles, and separating them is what makes the
-review chain meaningful: no model reviews its own output
-\cite{repo2026}.
+The documents this paper summarises were produced by a small set of frontier
+models with separated roles, and the separation is what makes the review chain
+meaningful: no model reviews its own output \cite{repo2026}.
 
 \begin{apptable}
 \begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}p{2.9cm} >{\raggedright\arraybackslash}p{2.4cm} >{\raggedright\arraybackslash}X}
