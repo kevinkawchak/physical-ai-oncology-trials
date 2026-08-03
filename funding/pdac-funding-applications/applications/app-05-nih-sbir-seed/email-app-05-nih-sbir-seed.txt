@@ -1,0 +1,79 @@
+FROM: kevink@chemicalqdevice.com
+
+TO: seedinfo@nih.gov
+CC: NIHSBIR@mail.nih.gov
+
+SUBJECT: SBIR inquiry - small business, governed on-premises surgical advisory system for the robotic Whipple, Phase 1 PDAC
+
+--- BODY ---
+Dear NIH SEED Team,
+
+I am writing as the founder of a small business to ask which institute and which
+SBIR omnibus topic best fit a governed on-premises surgical advisory system, and
+whether a direct-to-Phase-II route is available given the work already completed.
+
+"Science: A New Golden Age" (July 2026) asks the roughly $200 billion annual
+federal research portfolio to open pathways grounded in demonstrated skill
+rather than academic pedigree alone, and names SBIR as the program that "opens
+doors for technician-founded ventures, directing resources toward ideas that do
+not always start with a dissertation." ChemicalQDevice is that kind of venture.
+
+The commercial product is not the robot and not the drug. It is the governance
+package that makes an on-premises language model usable in a regulated operating
+room: an advisory logging schema, a bench stop-latency measurement method, and a
+regulatory dossier that a qualified pancreatic surgery program can adopt without
+rebuilding either the platform or the protocol. The clinical vehicle is a Phase 1,
+first-in-human, open-label, single-arm 3+3 escalation in up to 18 participants
+with resectable or borderline-resectable KRAS G12-mutated pancreatic ductal
+adenocarcinoma, combining perioperative daraxonrasib (RMC-6236) with a staged
+eight-arm robotic pancreaticoduodenectomy.
+
+Phase I, nine months and $306,000, retires three technical risks: an interlock
+that stops within 3 milliseconds per arm and 500 milliseconds system-wide, a
+logging schema that captures every recommendation and replays a case from the
+audit record, and a site workflow study with a dry run in a non-clinical theatre.
+The gate into Phase II is a measured number, not a review. Phase II, 24 months
+and $1,300,000, covers IND activation, monitoring, clinical conduct, escalation
+to a recommended Phase 2 dose, and the public data release.
+
+On unit economics, which is the part a Phase I reviewer actually underwrites:
+industry benchmarks put a single virtual trial run above $120,000 and 4.5 months
+and a ten-arm quantitative systems pharmacology trial above $2 million and
+several months to a year. This company completed three such work products at an
+estimated $36,330 each in about a month each.
+
+I intend to partner at UC San Diego Moores Cancer Center at the feasibility stage
+only; UC San Diego is not a sponsor, site, or endorser of this work. The attached
+five-page inquiry carries the phased pathway, the risk dependency structure, the
+cost benchmarks, and the budget by layer.
+
+Sincerely,
+CEO Kevin Kawchak
+ChemicalQDevice
+July 10th, 2026
+--- END BODY ---
+
+ATTACHMENTS COMPILED FROM THIS DIRECTORY
+1. app-05-nih-sbir-seed.pdf
+   Compile from main.tex: pdflatex -> bibtex -> pdflatex -> pdflatex
+   Five pages or fewer. No DOI is asserted for this document.
+
+ATTACHMENTS THE AUTHOR MUST ADD BY HAND
+1. Clinical Trial Funding Application v2.0, RFA-RM-27-001, Kawchak K.
+   https://doi.org/10.5281/zenodo.21317266
+2. Phase 1 Pancreatic Cancer Trial: Efficient LLM Document Guidance.
+   https://doi.org/10.5281/zenodo.21018646
+3. Daraxonrasib Efficient LLM Trial Simulations (compile the source set at
+   funding/supplementary/source-files/Daraxonrasib-Efficient-LLM-Trial-Simulations.zip,
+   or attach funding/supplementary/Daraxonrasib Efficient LLM Trial
+   Simulations.pdf).
+
+BEFORE SENDING
+- Confirm both addresses against the current NIH SEED and NIH SBIR contact
+  pages, and check the open omnibus solicitation for the correct institute
+  assignment before any formal submission.
+- Confirm small-business eligibility and registration status (SAM, SBA company
+  registry, eRA Commons) are current before the application deadline.
+- Confirm the compiled PDF page count and that every DOI link opens.
+- Confirm no sentence describes UC San Diego as a partner, sponsor, site, or
+  endorser.

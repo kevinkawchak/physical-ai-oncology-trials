@@ -1,0 +1,36 @@
+% sec-02: the Phase I / Phase II / commercialization pathway.  Figure 1 is a
+% mermaid-type flowchart with a fast-grant branch.
+\section{Phase I, Phase II, and What Comes After}
+
+\begin{appfloat}[!tb]
+\begin{appfig}[mermaid-type / phased flowchart]
+% Three bands: Phase I, Phase II, post-award.  Columns 3.5 apart, bands 2.15
+% apart, so the decision diamond cannot touch the band above or below it.
+\node[mmsoft] (p1a) at (0,0) {Phase I, 9 months\\Bench stop latency and logging schema};
+\node[mmsoft] (p1b) at (3.6,0) {Phase I\\Site agreement and IRB submission};
+\node[mmdec] (d1) at (7.2,0) {Stop latency within 3 ms per arm?};
+\node[mmgray] (stop) at (10.7,0) {Redesign the interlock, resubmit Phase I};
+\draw[mmedgeb] (p1a) -- (p1b);
+\draw[mmedgeb] (p1b) -- (d1);
+\draw[mmedge] (d1) -- node[mmlabel,pos=0.42] {no} (stop);
+\node[mmmid] (p2a) at (0,-2.3) {Phase II, 24 months\\IND activation and cohort 1};
+\node[mmmid] (p2b) at (3.6,-2.3) {Phase II\\Escalation to RP2D};
+\node[mmmid] (p2c) at (7.2,-2.3) {Phase II\\90-day morbidity set};
+\draw[mmedgeb] (d1.south) to[out=-90,in=90,looseness=0.8] node[mmlabel,pos=0.55] {yes} (p2a.north east);
+\draw[mmedgeb] (p2a) -- (p2b);
+\draw[mmedgeb] (p2b) -- (p2c);
+\node[mmgoal] (c1) at (0,-4.6) {Reference deployment at the first site};
+\node[mmgoal] (c2) at (3.6,-4.6) {Governance package licensed to further sites};
+\node[mmgoal] (c3) at (7.2,-4.6) {Phase 2 trial opened on the same package};
+\draw[mmedgeb] (p2c.south) to[out=-90,in=90,looseness=0.8] (c1.north east);
+\draw[mmedgeb] (c1) -- (c2);
+\draw[mmedgeb] (c2) -- (c3);
+\node[mmlanetitle,anchor=west] at (9.1,-2.3) {Phase II};
+\node[mmlanetitle,anchor=west] at (9.1,-4.6) {After the award};
+\node[mmlanetitle,anchor=west] at (9.1,-1.15) {};
+\end{appfig}
+\vspace{-0.7cm}
+\figcaption{The Phase I, Phase II, and post-award pathway. The single gate
+between Phase I and Phase II is a measured number, not a review, and a failure
+there returns to Phase I rather than ending the venture.}
+\end{appfloat}
