@@ -1,0 +1,29 @@
+% sec-03: the pharmacologic case and the simulation record.
+\section{Pharmacologic Case}
+
+Daraxonrasib (RMC-6236) is a RAS(ON) multi-selective inhibitor. RASolute 302
+reported median overall survival of \textbf{13.2 months} against \textbf{6.6}
+for chemotherapy in the RAS G12 population of previously treated metastatic
+pancreatic cancer \cite{rasolute302}. A ten-arm quantitative systems
+pharmacology simulation with 250 ordinary differential equations per patient had
+returned \textbf{12.8} against \textbf{5.4 months} nine months earlier
+\cite{qspmetpancre}. That proximity is chronology, not validation: 1000
+simulated against 241 enrolled, a combination against a single agent, KRAS G12C
+against a primarily G12D and G12V population.
+
+\begin{apptable}
+\begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}p{3.15cm} >{\raggedright\arraybackslash}p{1.85cm} >{\raggedright\arraybackslash}p{1.85cm} >{\raggedright\arraybackslash}X}
+\headrow \thead{Source and date} & \thead{Test arm} & \thead{Control} & \thead{Reading and limitation}\\
+\midrule
+QSP simulation, Aug 2025 & 12.8 mo mOS & 5.4 mo mOS & Best arm HR 0.25; assumes no acquired resistance and ideal pharmacodynamics \\
+Digital twin, Oct 2025 & 12.1 mo mOS & not applicable & Best mPFS HR 0.31; no patient-specific PK or tumour growth parameters \\
+RASolute 302, May 2026 & 13.2 mo mOS & 6.6 mo mOS & Metastatic, previously treated; says nothing about the resectable setting \\
+\end{tabularx}
+\end{apptable}
+\tabcap{Each source with its stated limitation in the same row, so no line of the
+table can be read without the caveat that qualifies it. Limitations are the
+authors' own, not added here.}
+
+Neither simulation nor the metastatic readout establishes anything about
+perioperative exposure in resectable disease, which is what this concept
+proposes to measure directly in the resection specimen.

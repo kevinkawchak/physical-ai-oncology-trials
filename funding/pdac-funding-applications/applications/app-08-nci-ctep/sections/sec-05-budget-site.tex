@@ -1,0 +1,61 @@
+% sec-05: schedule of assessments, budget, partner site.  Figure 4 is a d2-type
+% assessment schedule grid.
+\section{Schedule, Budget, and the Partner Site}
+
+\begin{appfloat}[!tb]
+\begin{appfig}[d2-type / schedule of assessments grid]
+% Six columns on a 2.05cm pitch, five rows.  A filled cell marks a scheduled
+% assessment; an empty cell is left white rather than crossed, so the pattern
+% reads at a glance.
+\node[d2cellh,text width=3.0cm,minimum width=3.4cm,minimum height=6.2mm] (h0) at (0,0) {Assessment};
+\foreach \i/\lab in {1/{Day $-14$}, 2/{Day $-1$}, 3/{Day 0 resection}, 4/{Day $+30$}, 5/{Day $+90$}}{
+  \pgfmathsetmacro{\prev}{int(\i-1)}
+  \node[d2cellh,text width=1.6cm,minimum width=2.0cm,minimum height=6.2mm,anchor=west] (h\i) at (h\prev.east) {\lab};}
+\foreach \r/\lab/\a/\b/\c/\d/\e in {%
+  1/{Plasma pharmacokinetics}/1/1/1/0/0,
+  2/{Tumour pathway PD}/0/0/1/0/0,
+  3/{ctDNA}/1/0/0/1/1,
+  4/{Pathologic response}/0/0/1/0/0,
+  5/{Adverse events, CTCAE}/1/1/1/1/1}{}
+\node[d2celll,text width=3.0cm,minimum width=3.4cm,minimum height=6.2mm,anchor=north west] (r1) at (h0.south west) {Plasma pharmacokinetics};
+\node[d2cellk,text width=1.6cm,minimum width=2.0cm,minimum height=6.2mm,anchor=west] (r1a) at (r1.east) {\checkmark};
+\node[d2cellk,text width=1.6cm,minimum width=2.0cm,minimum height=6.2mm,anchor=west] (r1b) at (r1a.east) {\checkmark};
+\node[d2cellk,text width=1.6cm,minimum width=2.0cm,minimum height=6.2mm,anchor=west] (r1c) at (r1b.east) {\checkmark};
+\node[d2cell,text width=1.6cm,minimum width=2.0cm,minimum height=6.2mm,anchor=west] (r1d) at (r1c.east) {};
+\node[d2cell,text width=1.6cm,minimum width=2.0cm,minimum height=6.2mm,anchor=west] (r1e) at (r1d.east) {};
+\node[d2celll,text width=3.0cm,minimum width=3.4cm,minimum height=6.2mm,anchor=north west] (r2) at (r1.south west) {Tumour pathway PD};
+\node[d2cell,text width=1.6cm,minimum width=2.0cm,minimum height=6.2mm,anchor=west] (r2a) at (r2.east) {};
+\node[d2cell,text width=1.6cm,minimum width=2.0cm,minimum height=6.2mm,anchor=west] (r2b) at (r2a.east) {};
+\node[d2cellk,text width=1.6cm,minimum width=2.0cm,minimum height=6.2mm,anchor=west] (r2c) at (r2b.east) {\checkmark};
+\node[d2cell,text width=1.6cm,minimum width=2.0cm,minimum height=6.2mm,anchor=west] (r2d) at (r2c.east) {};
+\node[d2cell,text width=1.6cm,minimum width=2.0cm,minimum height=6.2mm,anchor=west] (r2e) at (r2d.east) {};
+\node[d2celll,text width=3.0cm,minimum width=3.4cm,minimum height=6.2mm,anchor=north west] (r3) at (r2.south west) {ctDNA clearance};
+\node[d2cellk,text width=1.6cm,minimum width=2.0cm,minimum height=6.2mm,anchor=west] (r3a) at (r3.east) {\checkmark};
+\node[d2cell,text width=1.6cm,minimum width=2.0cm,minimum height=6.2mm,anchor=west] (r3b) at (r3a.east) {};
+\node[d2cell,text width=1.6cm,minimum width=2.0cm,minimum height=6.2mm,anchor=west] (r3c) at (r3b.east) {};
+\node[d2cellk,text width=1.6cm,minimum width=2.0cm,minimum height=6.2mm,anchor=west] (r3d) at (r3c.east) {\checkmark};
+\node[d2cellk,text width=1.6cm,minimum width=2.0cm,minimum height=6.2mm,anchor=west] (r3e) at (r3d.east) {\checkmark};
+\node[d2celll,text width=3.0cm,minimum width=3.4cm,minimum height=6.2mm,anchor=north west] (r4) at (r3.south west) {Pathologic response};
+\node[d2cell,text width=1.6cm,minimum width=2.0cm,minimum height=6.2mm,anchor=west] (r4a) at (r4.east) {};
+\node[d2cell,text width=1.6cm,minimum width=2.0cm,minimum height=6.2mm,anchor=west] (r4b) at (r4a.east) {};
+\node[d2cellk,text width=1.6cm,minimum width=2.0cm,minimum height=6.2mm,anchor=west] (r4c) at (r4b.east) {\checkmark};
+\node[d2cell,text width=1.6cm,minimum width=2.0cm,minimum height=6.2mm,anchor=west] (r4d) at (r4c.east) {};
+\node[d2cell,text width=1.6cm,minimum width=2.0cm,minimum height=6.2mm,anchor=west] (r4e) at (r4d.east) {};
+\node[d2celll,text width=3.0cm,minimum width=3.4cm,minimum height=6.2mm,anchor=north west] (r5) at (r4.south west) {Adverse events, CTCAE};
+\node[d2cellk,text width=1.6cm,minimum width=2.0cm,minimum height=6.2mm,anchor=west] (r5a) at (r5.east) {\checkmark};
+\node[d2cellk,text width=1.6cm,minimum width=2.0cm,minimum height=6.2mm,anchor=west] (r5b) at (r5a.east) {\checkmark};
+\node[d2cellk,text width=1.6cm,minimum width=2.0cm,minimum height=6.2mm,anchor=west] (r5c) at (r5b.east) {\checkmark};
+\node[d2cellk,text width=1.6cm,minimum width=2.0cm,minimum height=6.2mm,anchor=west] (r5d) at (r5c.east) {\checkmark};
+\node[d2cellk,text width=1.6cm,minimum width=2.0cm,minimum height=6.2mm,anchor=west] (r5e) at (r5d.east) {\checkmark};
+\end{appfig}
+\vspace{-0.7cm}
+\figcaption{The schedule of assessments. Only two assessments are taken at the
+resection itself, which is what makes specimen handling the single hardest
+operational item in the study.}
+\end{appfloat}
+
+The request is \textbf{\$700,000 per year for five years}, \$3,500,000 total,
+with the correlative pharmacodynamic work costed inside it rather than deferred
+to a supplement \cite{fundapp2}. Moores Cancer Center is the intended partner of
+choice, approached at the feasibility stage only. UC San Diego is not a partner,
+sponsor, site, or endorser, because no written authorization exists.

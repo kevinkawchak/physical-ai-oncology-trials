@@ -1,0 +1,75 @@
+% sec-04: DLT adjudication and safety reporting.  Figure 2 is a plantuml-type
+% state diagram of adjudication; figure 3 is a graphviz-type reporting graph.
+\section{Adjudication and Safety Reporting}
+
+A combined drug and device study in a surgical population has one structural
+hazard that a standard escalation does not: an adverse event can be attributed
+to the drug, to the operation, or to the advisory system, and the dose decision
+depends on which. Attribution is therefore adjudicated by a blinded reviewer
+before the toxicity window closes.
+
+\begin{appfloat}[!tb]
+\begin{appfig}[plantuml-type / adjudication state]
+% Five states in one rank plus two terminal states, ranks 3.4 and 2.15 apart.
+% Guards sit on the transitions.
+\node[umlinit] (i) at (-1.4,0) {};
+\node[umlstate] (s1) at (0.5,0) {Event recorded with raw attribution};
+\node[umlstatesoft] (s2) at (4.0,0) {Blinded adjudication opened};
+\node[umlstateon] (s3) at (7.5,0) {Attribution fixed};
+\node[umlstategray] (s4) at (2.2,-2.2) {Counted as procedure-related};
+\node[umlstategray] (s5) at (6.0,-2.2) {Counted as advisory-related};
+\node[umlstateon] (s6) at (9.9,-2.2) {Counted as a DLT};
+\node[umlfinal] (f) at (11.6,-2.2) {};
+\draw[umlarrow] (i) -- (s1);
+\draw[umlarrow] (s1) -- node[umlguard,pos=0.5] {[within window]} (s2);
+\draw[umlarrow] (s2) -- node[umlguard,pos=0.5] {[reviewer agrees]} (s3);
+\draw[umlarrow] (s3.south west) -- node[umlguard,pos=0.5] {[surgical]} (s4.north east);
+\draw[umlarrow] (s3.south) -- node[umlguard,pos=0.45] {[advisory]} (s5.north);
+\draw[umlarrow] (s3.south east) -- node[umlguard,pos=0.5] {[drug]} (s6.north west);
+\draw[umlarrow] (s6) -- (f);
+\draw[umldash] (s4.east) -- node[umlguard,pos=0.5] {feasibility endpoint} (s5.west);
+\node[font=\tiny\itshape,text=protogray,anchor=north,text width=100mm,align=center]
+  at (5.0,-3.2) {Only the drug branch reaches the dose decision. The other two
+  branches feed the feasibility endpoint, so a procedure-related event never
+  suppresses a dose level it did not cause.};
+\end{appfig}
+\vspace{-0.7cm}
+\figcaption{Adverse-event adjudication as a guarded state machine. Only the drug
+branch reaches the dose decision; the surgical and advisory branches feed the
+feasibility endpoint instead.}
+\end{appfloat}
+
+Reporting follows attribution. An event adjudicated as drug-related enters the
+IND safety report; one adjudicated as device- or procedure-related enters the
+device reporting path and the feasibility count; one adjudicated as
+advisory-related enters both the device path and the advisory audit.
+
+\begin{appfloat}[!tb]
+\begin{appfig}[graphviz-type / reporting dependency]
+% One source, three attribution nodes, four destinations.  Ranks at x = 0, 3.5,
+% 7.3, 11.0; vertical pitch 1.5, so no destination label reaches a neighbour.
+\node[gvkey,text width=22mm] (ev) at (0,0) {Adjudicated event};
+\node[gvboxs] (t1) at (3.6,1.5) {Drug-related};
+\node[gvboxs] (t2) at (3.6,0) {Procedure-related};
+\node[gvboxs] (t3) at (3.6,-1.5) {Advisory-related};
+\node[gvbox] (r1) at (7.5,2.1) {IND safety report, 21 CFR 312.32};
+\node[gvbox] (r2) at (7.5,0.7) {Dose decision, 3+3};
+\node[gvbox] (r3) at (7.5,-0.7) {Feasibility endpoint count};
+\node[gvbox] (r4) at (7.5,-2.1) {Advisory audit and log review};
+\node[gvmid,text width=24mm] (dsmb) at (11.2,0) {Independent safety monitor, every cohort};
+\draw[gvedgeb] (ev) -- (t1);\draw[gvedgeb] (ev) -- (t2);\draw[gvedgeb] (ev) -- (t3);
+\draw[gvedge] (t1) -- (r1);\draw[gvedge] (t1) -- (r2);
+\draw[gvedge] (t2) -- (r3);\draw[gvedge] (t2) -- (r1);
+\draw[gvedge] (t3) -- (r3);\draw[gvedge] (t3) -- (r4);
+\draw[gvedgeg] (r1) -- (dsmb);\draw[gvedgeg] (r2) -- (dsmb);
+\draw[gvedgeg] (r3) -- (dsmb);\draw[gvedgeg] (r4) -- (dsmb);
+\node[font=\tiny\itshape,text=protogray,anchor=north,text width=104mm,align=center]
+  at (5.6,-3.0) {Only the drug branch reaches the dose decision, and every
+  branch reaches the independent monitor. Nothing is filtered before the monitor
+  sees it \cite{ecfr2026part312}.};
+\end{appfig}
+\vspace{-0.7cm}
+\figcaption{Where an event goes once its attribution is fixed. Every branch
+reaches the independent safety monitor, and only the drug branch reaches the
+dose decision.}
+\end{appfloat}

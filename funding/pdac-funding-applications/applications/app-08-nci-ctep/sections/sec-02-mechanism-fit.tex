@@ -1,0 +1,35 @@
+% sec-02: the escalation design.  Figure 1 is a mermaid-type decision flowchart
+% of the 3+3 rule as it will actually be executed.
+\section{Dose Escalation as It Will Be Executed}
+
+\begin{appfloat}[!tb]
+\begin{appfig}[mermaid-type / decision flowchart]
+% Two ranks of decisions, 3.6 apart horizontally, 2.25 vertically.  Every
+% decision diamond has 1.1 clear on each side, so no label overlaps a node.
+\node[mmsoft] (c1) at (0,0) {Enrol 3 at dose level $n$};
+\node[mmdec] (d1) at (3.7,0) {0 of 3 with a DLT?};
+\node[mmgoal] (up) at (7.6,0) {Escalate to level $n+1$};
+\node[mmdec] (d2) at (3.7,-2.35) {1 of 3 with a DLT?};
+\node[mmsoft] (c2) at (7.6,-2.35) {Expand to 6 at level $n$};
+\node[mmdec] (d3) at (11.2,-2.35) {1 of 6 with a DLT?};
+\node[mmstep] (stop) at (3.7,-4.7) {Stop escalation; level $n-1$ is the MTD};
+\node[mmgoal] (rp2d) at (11.2,-4.7) {Declare RP2D at level $n$};
+\draw[mmedgeb] (c1) -- (d1);
+\draw[mmedgeb] (d1) -- node[mmlabel,pos=0.42] {yes} (up);
+\draw[mmedge] (d1) -- node[mmlabel,pos=0.45] {no} (d2);
+\draw[mmedge] (d2) -- node[mmlabel,pos=0.42] {yes} (c2);
+\draw[mmedgek] (d2) -- node[mmlabel,pos=0.45] {$\geq$ 2 of 3} (stop);
+\draw[mmedge] (c2) -- (d3);
+\draw[mmedgeb] (d3) -- node[mmlabel,pos=0.42] {yes} (rp2d);
+\draw[mmedgek] (d3.south) to[out=-90,in=0,looseness=0.7] node[mmlabel,pos=0.4] {$\geq$ 2 of 6} (stop.east);
+\draw[mmedgeb] (up.north) to[out=90,in=90,looseness=0.55] (c1.north);
+\node[font=\tiny\itshape,text=protogray,anchor=north,text width=104mm,align=center]
+  at (5.6,-5.6) {Surgical adverse events are adjudicated before the toxicity
+  window closes, so a procedure-related event never enters the dose decision as
+  though it were drug-related.};
+\end{appfig}
+\vspace{-0.7cm}
+\figcaption{The 3+3 rule as it will be executed, including the return edge to
+the next cohort. The adjudication note is the part that distinguishes this from
+a standard escalation in a non-surgical population.}
+\end{appfloat}

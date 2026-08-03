@@ -1,0 +1,62 @@
+% ============================================================
+% main.tex - Application 08 of 10.
+% NCI Cancer Therapy Evaluation Program (CTEP).
+% Medical oncology perspective.  August 3, 2026.
+% Cover variant 8: four-field study-registration header.
+% Figures: 4 (mermaid-type 3+3 decision, plantuml-type DLT adjudication state,
+% d2-type schedule grid, graphviz-type safety reporting dependency).
+% pdflatex main -> bibtex main -> pdflatex main -> pdflatex main
+% ============================================================
+\documentclass[11pt]{article}
+\usepackage{appstyle}
+\apphdr{CTEP Concept Submission, Perioperative Daraxonrasib}
+
+\title{Perioperative Daraxonrasib in Resectable KRAS-Mutated PDAC}
+\author{Kevin Kawchak}
+\date{August 3, 2026}
+
+\begin{document}
+\thispagestyle{plain}
+
+% ---------------- COVER ----------------
+{\raggedright\large\bfseries\color{protoblue} CTEP Concept Submission:
+Perioperative Daraxonrasib (RMC-6236) in Resectable KRAS-Mutated Pancreatic
+Ductal Adenocarcinoma\par}
+
+\vspace{0.2em}
+
+\apprecord{\textbf{Phase} \;1, first in human\\\textbf{Design} \;Open label,
+single arm, 3+3}{\textbf{Population} \;Resectable or borderline-resectable\\KRAS
+G12-mutated PDAC}{\textbf{Enrollment} \;Up to 18 treated
+participants\\\textbf{Sites} \;One, agreement pending}{\textbf{Co-primary}
+\;DLT and MTD or RP2D; 30-day\\device- or procedure-related SAEs}
+
+\vspace{0.1em}
+\apprule{0.8pt}
+
+\noindent\small CEO Kevin Kawchak\,\orcidicon{0009-0007-5457-8667},
+ChemicalQDevice \;|\;
+\href{mailto:kevink@chemicalqdevice.com}{kevink@chemicalqdevice.com} \;|\;
+\href{https://orcid.org/0009-0007-5457-8667}{0009-0007-5457-8667}\\
+San Diego, California \;|\; August 3, 2026 \;|\; Intended partner site: UC San
+Diego Moores Cancer Center (feasibility stage)\normalsize\par
+
+\vspace{0.05em}
+
+\noindent\footnotesize\textit{Submitted as an independent scientist under the
+funding approach set out in} Science: A New Golden Age \textit{(July 2026). Not
+medical or regulatory advice, and not endorsed by the FDA, NIH, NCI, HHS, an
+IRB, ICH, or any sponsor. UC San Diego is named as the intended partner of
+choice and is not a sponsor, site, or endorser.}\normalsize\par
+
+\vspace{-0.1em}
+\apprule{0.4pt}
+
+\input{sections/sec-01-independent-scientist}
+\input{sections/sec-02-mechanism-fit}
+\input{sections/sec-03-evidence}
+\input{sections/sec-04-operation-governance}
+\input{sections/sec-05-budget-site}
+\input{sections/sec-06-backmatter}
+
+\end{document}
