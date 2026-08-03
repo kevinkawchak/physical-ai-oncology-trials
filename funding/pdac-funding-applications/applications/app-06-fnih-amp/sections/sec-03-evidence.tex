@@ -1,0 +1,35 @@
+% sec-03: the medical oncology evidence, led by the drug.
+\section{Pharmacologic Rationale and the Prior Record}
+
+Daraxonrasib (RMC-6236) is a RAS(ON) multi-selective inhibitor. In May 2026,
+RASolute 302 reported median overall survival of \textbf{13.2 months} against
+\textbf{6.6 months} for chemotherapy in the RAS G12 population of previously
+treated metastatic pancreatic cancer \cite{rasolute302}. Nine months earlier, a
+ten-arm quantitative systems pharmacology simulation with 250 ordinary
+differential equations per patient had returned \textbf{12.8} against
+\textbf{5.4 months} for a daraxonrasib combination \cite{qspmetpancre}.
+
+The proximity of those two results is a chronology observation and a
+hypothesis-supporting one. It is \textbf{not} a validation claim. Three
+differences are material and are stated wherever the comparison appears: sample
+size, 1000 simulated against 241 enrolled; intervention, a daraxonrasib
+combination against daraxonrasib as a single agent; and molecular selection,
+KRAS G12C against a primarily G12D and G12V population.
+
+\begin{apptable}
+\begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}p{3.4cm} >{\raggedright\arraybackslash}p{1.9cm} >{\raggedright\arraybackslash}p{1.9cm} >{\raggedright\arraybackslash}X}
+\headrow \thead{Source and date} & \thead{Test arm} & \thead{Control} & \thead{Reading}\\
+\midrule
+QSP simulation, Aug 2025 & 12.8 mo mOS & 5.4 mo mOS & Best arm HR 0.25; 6 of 7 archetypes below HR 1.00 \\
+Digital twin, Oct 2025 & 12.1 mo mOS & not applicable & Best mPFS HR 0.31; credibility 81.9 under ASME V\&V 40 \\
+RASolute 302, May 2026 & 13.2 mo mOS & 6.6 mo mOS & Independent readout, RAS G12 metastatic population \\
+\end{tabularx}
+\end{apptable}
+\tabcap{The simulated and observed results side by side. The 2025 simulated
+2.4-fold survival ratio and the 2026 observed 2.0-fold ratio are reported as a
+chronology and not as a validation of the model.}
+
+None of that evidence speaks to the resectable setting, which is precisely why
+the consortium question is worth asking. The metastatic readout tells the field
+that the pathway is druggable in humans; it does not say what a
+curative-intent resection specimen looks like after perioperative exposure.
