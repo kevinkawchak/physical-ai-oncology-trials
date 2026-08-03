@@ -1,0 +1,90 @@
+FROM: kevink@chemicalqdevice.com
+
+TO: HRHR@od.nih.gov
+CC: commonfund@mail.nih.gov
+
+SUBJECT: Pioneer Award inquiry - independent scientist, Phase 1 first-in-human LLM-advised robotic Whipple with daraxonrasib in KRAS-mutated PDAC
+
+--- BODY ---
+Dear NIH Director's Pioneer Award Program Staff,
+
+I am writing as an independent scientist to ask whether the Director's Pioneer
+Award is the right mechanism for a Phase 1, first-in-human pancreatic cancer
+study I have prepared alone, and to request guidance on the next step before a
+formal application window.
+
+The White House report "Science: A New Golden Age" (July 2026) asks the federal
+research portfolio, roughly $200 billion annually, to prioritize the individual
+scientist over legacy institutions, and it names the Director's Pioneer Award by
+title as the model for the long-horizon individual grants it wants scaled. This
+inquiry is written against that position. Over fourteen months, working from a
+single public repository and without institutional support or indirect cost, I
+have produced a Phase 1 protocol, a Phase 2 protocol, an Investigational New Drug
+application, two prior funding applications, five legislative drafts, and four
+guidance works. Three quantitative pancreatic cancer trial simulations were
+completed at roughly one thirtieth of the industry cost benchmark per run.
+
+The proposed study is a Phase 1, open-label, single-arm, 3+3 dose escalation in
+up to 18 participants with resectable or borderline-resectable KRAS G12-mutated
+pancreatic ductal adenocarcinoma. It combines perioperative daraxonrasib
+(RMC-6236) with a staged eight-arm robotic pancreaticoduodenectomy and an
+on-premises large language model whose output is strictly advisory. The model has
+no path to the robotic arms, the operating surgeon approves every motion, and
+arm-level stop is specified at 3 milliseconds with system-wide stop at 500
+milliseconds. Co-primary endpoints are 30-day device- or procedure-related
+serious adverse events, dose-limiting toxicity with determination of the maximum
+tolerated dose or recommended Phase 2 dose, and completion of protocol-assigned
+robotic tasks without unsafe conversion.
+
+The attached five-page document sets out the fit to the mechanism, the
+quantitative evidence, the governance boundaries, and a five-year milestone and
+go/no-go schedule at $700,000 per year. I intend to partner at UC San Diego
+Moores Cancer Center, approached at the feasibility stage only; UC San Diego is
+not a sponsor, site, or endorser of this work, and I describe it nowhere as one.
+
+Two specific questions. First, does a first-in-human combined drug and device
+study of this shape fall inside the Pioneer Award's scope, or would the Common
+Fund direct it elsewhere? Second, is there a pre-application conversation
+available to an applicant who is not affiliated with a degree-granting
+institution?
+
+I would welcome a short call at your convenience.
+
+Sincerely,
+CEO Kevin Kawchak
+ChemicalQDevice
+July 10th, 2026
+--- END BODY ---
+
+ATTACHMENTS COMPILED FROM THIS DIRECTORY
+1. app-01-nih-pioneer-award.pdf
+   Compile from main.tex in this directory:
+   pdflatex main -> bibtex main -> pdflatex main -> pdflatex main
+   Five pages. No DOI is asserted for this document.
+
+ATTACHMENTS THE AUTHOR MUST ADD BY HAND
+1. Clinical Trial Funding Application v2.0, RFA-RM-27-001, Kawchak K.
+   https://doi.org/10.5281/zenodo.21317266
+   (Local copy: funding/pdfs/Clinical Trial Funding Application v2.0,
+   RFA-RM-27-001, Kawchak K..pdf)
+2. On-Premises LLM-Directed Robotic Pancreaticoduodenectomy with Perioperative
+   Daraxonrasib (RMC-6236) in KRAS-Mutated Pancreatic Ductal Adenocarcinoma.
+   https://doi.org/10.5281/zenodo.20780121
+3. Oncology Trial PI LLM Adoption Guide.
+   https://doi.org/10.5281/zenodo.20843290
+
+EXTERNAL WORK TO CITE BUT NOT ATTACH
+- O'Reilly EM et al. Daraxonrasib or Chemotherapy in Previously Treated
+  Metastatic Pancreatic Cancer. N Engl J Med. 2026.
+  https://doi.org/10.1056/NEJMoa2605555
+  (Do not attach the publisher PDF; link it in the body if asked.)
+
+BEFORE SENDING
+- Confirm both recipient addresses against the NIH Common Fund High-Risk,
+  High-Reward Research contact page on the day of sending. Program mailboxes
+  change, and a bounced inquiry is not resubmitted automatically.
+- Confirm the compiled PDF is five pages and that every DOI link opens.
+- Confirm no sentence in the body or the attachment describes UC San Diego as a
+  partner, sponsor, site, or endorser.
+- Total attachment size should stay under 10 MB; if it does not, send items 2
+  and 3 as DOI links rather than files.

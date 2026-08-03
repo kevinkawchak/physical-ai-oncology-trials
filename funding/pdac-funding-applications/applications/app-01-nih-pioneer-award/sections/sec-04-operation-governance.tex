@@ -1,0 +1,37 @@
+% sec-04: the operation and its governance (surgical lead).  Sources:
+% onpremwhippl protocol, phase1ind, tripartisan-llm-support.md.
+\section{The Operation and Its Governance}
+
+The intervention is a staged eight-arm robotic pancreaticoduodenectomy with
+perioperative daraxonrasib and an on-premises large language model whose output
+is advisory only \cite{onpremwhippl,phase1ind}. Three boundaries make the study
+a governed system rather than an autonomous one.
+
+\textbf{The model has no path to the arms.} Advisory output is rendered to a
+display. No generated token reaches a motion controller, and no software in the
+advisory path holds write access to the robot's command channel. The operating
+surgeon approves every motion.
+
+\textbf{Stopping is bounded and measured.} Arm-level stop is specified at 3
+milliseconds and system-wide stop at 500 milliseconds. Both are measured on the
+bench before the first patient and re-measured at each cohort boundary.
+
+\textbf{Every artifact is verified before use.} The model runs on premises,
+pinned to a repository commit, and logs a timestamped record for each
+recommendation. Conversion to open operation ordered for patient safety is
+recorded as clinically appropriate; conversion caused by device, advisory, or
+integration failure is counted separately against the feasibility endpoint.
+
+\begin{apptable}
+\begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}p{3.55cm} >{\raggedright\arraybackslash}p{3.15cm} >{\raggedright\arraybackslash}X}
+\headrow \thead{Parameter} & \thead{Value} & \thead{Basis}\\
+\midrule
+Population & Resectable or borderline-resectable KRAS G12-mutated PDAC & Phase 1 protocol \\
+Design and size & Open-label, single-arm, 3+3 dose escalation, up to 18 treated participants & Phase 1 protocol and IND \\
+Co-primary endpoints & 30-day device- or procedure-related SAEs; DLT and MTD or RP2D; protocol tasks completed without unsafe conversion & Phase 1 protocol \\
+Follow-up & 28-day screening; 30-day and 90-day safety; 24-month overall survival at one qualified site, agreement pending & Phase 1 protocol \\
+\end{tabularx}
+\end{apptable}
+\tabcap{Trial parameters carried unchanged from the published Phase 1 protocol
+and the Investigational New Drug application, so the award is evaluated against
+a protocol that already exists rather than one to be written later.}

@@ -1,0 +1,67 @@
+% sec-05: budget, milestones, partner site.  Sources: RFA-RM-27-001-v2 budget
+% module, potential-partners/UC-San-Diego.  Figure 3 is a graphviz-type DAG.
+\section{Budget, Milestones, and the Partner Site}
+
+The request is \textbf{\$700,000 per year for five years}, \$3,500,000 total, no
+cost share, no program income anticipated \cite{fundapp2}. The report asks that
+long-duration grants be fully funded in year one; issued that way, year one
+closes the site agreement, the IRB submission, and IND activation together
+rather than in sequence.
+
+\begin{apptable}
+\begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}p{1.35cm} >{\raggedright\arraybackslash}p{2.35cm} >{\raggedright\arraybackslash}X >{\raggedright\arraybackslash}p{2.5cm}}
+\headrow \thead{Year} & \thead{Direct cost} & \thead{Milestone} & \thead{Go / no-go}\\
+\midrule
+1 & \$700,000 & Site agreement, IRB approval, IND activation, bench stop-latency verification & IND active and site executed \\
+2 & \$700,000 & Dose level 1 cohort, first three participants, 30-day safety review & No unexpected grade 4 event \\
+3 & \$700,000 & Escalation to RP2D, cohorts 2 and 3, interim advisory audit & MTD or RP2D declared \\
+4 to 5 & \$1,400,000 & Full accrual to 18 participants, 90-day morbidity set, 24-month survival follow-up, public data and code release & Accrual at plan; package released with a DOI \\
+\end{tabularx}
+\end{apptable}
+\tabcap{Five-year milestone and go/no-go schedule at \$700,000 per year. Each
+gate is a stated, checkable condition, so the award can be stopped at a cohort
+boundary rather than only at a renewal date.}
+
+\subsection{UC San Diego Moores Cancer Center}
+
+Moores Cancer Center is the intended partner of choice, approached at the
+feasibility stage only: a nonconfidential scientific overview, a joint
+feasibility meeting with pancreatic surgery, gastrointestinal medical oncology,
+and trial operations, confirmation of a qualified investigator willing to lead
+or sponsor, then an investigator-initiated trial intake with a budget and
+accrual estimate. UC San Diego is not described here as a partner, sponsor,
+site, or endorser, because no written authorization exists.
+
+\begin{appfloat}[!tb]
+\begin{appfig}[graphviz-type / dependency DAG]
+% Four ranks at x = 0, 3.6, 7.4, 11.1.  Vertical pitch 1.55, node height 7mm,
+% so the minimum gap between two boxes in a rank is 8.5mm and no edge crosses a
+% node.  The dashed edge marks the one node with no redundant upstream path.
+\node[gvkey] (aw) at (0,0) {Pioneer Award\\five-year term};
+\node[gvboxs] (site) at (3.6,1.05) {Site agreement};
+\node[gvboxs] (irb) at (3.6,-1.05) {IRB approval and active IND};
+\node[gvbox] (bench) at (7.4,1.75) {Bench stop-latency verification};
+\node[gvbox] (acc) at (7.4,0.0) {Cohort accrual, 3+3};
+\node[gvbox] (mon) at (7.4,-1.75) {Independent safety monitoring};
+\node[gvmid] (rp2d) at (11.1,0.95) {RP2D declared};
+\node[gvmid] (pub) at (11.1,-0.95) {Public data and code release};
+\draw[gvedgeb] (aw) -- (site);
+\draw[gvedgeb] (aw) -- (irb);
+\draw[gvedge] (site) -- (bench);
+\draw[gvedge] (site) -- (acc);
+\draw[gvedge] (irb) -- (acc);
+\draw[gvedge] (irb) -- (mon);
+\draw[gvedge] (bench) -- (rp2d);
+\draw[gvedge] (acc) -- (rp2d);
+\draw[gvedge] (acc) -- (pub);
+\draw[gvedge] (mon) -- (pub);
+\node[font=\tiny\itshape,text=protogray,anchor=north,text width=62mm,align=center]
+  at (3.6,-1.95) {IND activation is the only node with no redundant upstream
+  path, which is why year one funds it first.};
+\draw[gvedged] (3.6,-1.85) -- (irb.south);
+\end{appfig}
+\vspace{-0.7cm}
+\figcaption{What the award unblocks, and where the program still has a single
+point of failure. Every activity except IND activation has at least two
+upstream routes.}
+\end{appfloat}
