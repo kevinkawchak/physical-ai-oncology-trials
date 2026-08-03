@@ -35,8 +35,8 @@ subdirectory (per the rules).
 | [`main.tex`](main.tex) | Polished assembly with `\clearpage` per section |
 | [`paperstyle.sty`](paperstyle.sty) | Shared polished style (adjustbox, ragged-right tables, mermaidfig) |
 | [`references.bib`](references.bib) | Bibliography (clickable DOI and DOI URL per entry) |
-| [`prompt-final-paper.md`](prompt-final-paper.md) | The Stage 4 sub-prompt executed here |
-| [`output-final-paper.md`](output-final-paper.md) | The Stage 4 narrative output |
+| [`prompt-final-paper.md`](../prompt-final-paper.md) | The Stage 4 sub-prompt executed here |
+| [`output-final-paper.md`](../output-final-paper.md) | The Stage 4 narrative output |
 | [`sections/`](sections) | Eight polished section `.tex` files (Rule 6) |
 | `final-paper-LaTeX.zip` | The Overleaf bundle |
 
@@ -50,11 +50,11 @@ pdflatex main  ->  bibtex main  ->  pdflatex main  ->  pdflatex main
 
 | Source | Supplies |
 |:--|:--|
-| [`../full-paper`](../full-paper) | The full sections refined here |
-| [`../mermaid`](../mermaid) | The 24 figures reproduced as TikZ |
-| [`../research`](../research) | The document-types and industry-workflow grounding |
-| [`../inputs/references.bib`](../inputs/references.bib) | The author-works citation keys |
-| [`../../trial-protocol/final-protocol/publication`](../../trial-protocol/final-protocol/publication) | The clearpage, vspace/hspace, and column-width formatting strategies |
+| [`../full-paper`](../../full-paper) | The full sections refined here |
+| [`../mermaid`](../../mermaid) | The 24 figures reproduced as TikZ |
+| [`../research`](../../research) | The document-types and industry-workflow grounding |
+| [`../inputs/references.bib`](../../inputs/references.bib) | The author-works citation keys |
+| [`../../trial-protocol/final-protocol/publication`](../../../trial-protocol/final-protocol/publication) | The clearpage, vspace/hspace, and column-width formatting strategies |
 
 ## License
 

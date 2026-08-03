@@ -196,10 +196,10 @@ unification/
 
 ## Roadmap
 
-### Q1 2026 ★ [Standards Available](../q1-2026-standards/)
-- [ ] Complete Isaac ↔ MuJoCo bidirectional conversion → See [Objective 1](../q1-2026-standards/objective-1-bidirectional-conversion/)
-- [ ] Publish unified robot model repository (50+ models) → See [Objective 2](../q1-2026-standards/objective-2-robot-model-repository/)
-- [ ] Release validation benchmark suite v1.0 → See [Objective 3](../q1-2026-standards/objective-3-validation-benchmark/)
+### Q1 2026 ★ [Standards Available](q1-2026-standards/)
+- [ ] Complete Isaac ↔ MuJoCo bidirectional conversion → See Objective 1 in [q1-2026-standards/](q1-2026-standards/) (`objective-1-bidirectional-conversion/`, archived in `q1-2026-standards.zip`)
+- [ ] Publish unified robot model repository (50+ models) → See Objective 2 in [q1-2026-standards/](q1-2026-standards/) (`objective-2-robot-model-repository/`, archived in `q1-2026-standards.zip`)
+- [ ] Release validation benchmark suite v1.0 → See Objective 3 in [q1-2026-standards/](q1-2026-standards/) (`objective-3-validation-benchmark/`, archived in `q1-2026-standards.zip`)
 
 ### Q1 2026 (USL Standard)
 - [x] Establish Unification Standard Level (USL) scoring framework → See [usl/](usl/)

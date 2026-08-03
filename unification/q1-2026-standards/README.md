@@ -210,7 +210,7 @@ Contributions to these standards are welcome from all consortium members. Before
 3. Include validation tests
 4. Document with appropriate citations
 
-See [implementation-guide/README.md](implementation-guide/README.md) for detailed contribution guidelines.
+See `implementation-guide/README.md` inside [q1-2026-standards.zip](q1-2026-standards.zip) for detailed contribution guidelines.
 
 ---
 

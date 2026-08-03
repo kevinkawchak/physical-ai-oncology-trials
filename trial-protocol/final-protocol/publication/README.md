@@ -10,7 +10,7 @@
 [![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.20780121-blue.svg)](https://doi.org/10.5281/zenodo.20780121)
 
 [Zenodo Protocol Files](https://doi.org/10.5281/zenodo.20780121). This directory is the output of **Stage 4** (sub-prompt
-[`../sub-prompts/prompt-4-final-protocol.md`](../sub-prompts/prompt-4-final-protocol.md)):
+[`../sub-prompts/prompt-4-final-protocol.md`](../../sub-prompts/prompt-4-final-protocol.md)):
 the **polished, final** Phase 1 protocol, at maximum context and formatting
 quality. It starts from the full protocol and implements the corrections
 identified there. There is no `publication` subdirectory.
