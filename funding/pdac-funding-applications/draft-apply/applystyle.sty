@@ -1,8 +1,14 @@
 % ============================================================
-% appstyle.sty
-% Shared style for the ten Phase 1 PDAC independent-scientist funding
-% application attachments, funding/pdac-funding-applications/applications/.
-% Repository v4.4.0.  August 3, 2026.
+% applystyle.sty
+% Style for "10 Funding Applications: A Phase 1, First-in-Human, PDAC Clinical
+% Trial Protocol of a LLM-Directed Robotic Whipple with Daraxonrasib
+% (RMC-6236)".  Draft 1.0, repository v4.4.0, August 3, 2026.
+%
+% It is appstyle.sty from ../applications/ with the paper furniture a
+% twelve-section publication needs and the ten application-attachment cover
+% variants removed: a masthead cover that varies from the RFA-RM-27-001-v2
+% centred form-field theme, a ten-cell application strip, a clickable table of
+% contents, and a running header.
 %
 % WHAT THIS STYLE IS.  It adapts patientstyle.sty from
 % funding/supplementary/source-files/patient-robot-advocacy.zip and keeps that
@@ -40,7 +46,7 @@
 % of one file.
 % ============================================================
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesPackage{appstyle}[2026/08/03 v4.4.0 PDAC independent-scientist funding application style]
+\ProvidesPackage{applystyle}[2026/08/03 v4.4.0 10 Funding Applications summary paper style]
 
 % ---------- Fonts: Times-like serif body; Helvetica-like sans and a monospace
 % ---------- face for the diagram vocabularies that are sans or mono natively.
@@ -136,8 +142,8 @@
 \renewcommand{\headrulewidth}{0.4pt}
 \renewcommand{\footrulewidth}{0pt}
 \fancyhead[L]{\footnotesize\thepage}
-\fancyhead[C]{\footnotesize\scshape Phase 1 PDAC Funding Application}
-\fancyhead[R]{\footnotesize August 3, 2026}
+\fancyhead[C]{\footnotesize\scshape 10 Funding Applications, Phase 1 PDAC}
+\fancyhead[R]{\footnotesize Draft 1.0}
 \fancypagestyle{plain}{%
   \fancyhf{}%
   \renewcommand{\headrulewidth}{0pt}%
@@ -658,125 +664,43 @@
   \draw[protoblack,line width=0.9pt] (#1-0.13,#2+0.13) -- (#1+0.13,#2-0.13);}
 
 % ============================================================
-% COVER FURNITURE.  Ten variants; each application's main.tex selects one, so
-% the ten attachments do not read as ten copies of a single template.  All ten
-% vary in appearance from the RFA-RM-27-001-v2 centred form-field theme.
+% PAPER FURNITURE.  The summary paper's cover deliberately varies from the
+% RFA-RM-27-001-v2 centred form-field theme: a left-accent masthead, a ten-cell
+% application strip, and a rule-separated identity block.  The environment and
+% macro names appfig, appfloat, apptable and figcaption are kept unchanged from
+% appstyle.sty, so a figure written for an application attachment compiles here
+% without edit.
 % ============================================================
-% \appbanner{line 1}{line 2} - variant 1: full-width Corporate Blue banner.
-\newcommand{\appbanner}[2]{%
-  \noindent\begin{tikzpicture}
-    \node[rectangle,fill=protoblue,text=protowhite,text width=\dimexpr\textwidth-20pt\relax,
-          inner sep=8pt,align=center,rounded corners=2pt] (bn) {%
-      {\large\bfseries #1}\\[0.30em]{\footnotesize #2}};
-    \draw[pablue1,line width=1.6pt] ([yshift=-2.6pt]bn.south west) -- ([yshift=-2.6pt]bn.south east);
-  \end{tikzpicture}\par}
-% \appledger{a}{b}{c} - variant 2: three-column milestone ledger above the title.
-\newcommand{\appledger}[3]{%
-  \par\addvspace{0.3em}%
-  \noindent\begin{tikzpicture}
-    \node[rectangle,draw=protoblue,line width=0.8pt,fill=protowhite,rounded corners=2pt,
-          text width=0.297\textwidth,inner sep=5pt,align=left,font=\scriptsize] (m1) at (0,0) {#1};
-    \node[rectangle,draw=pablue1,line width=0.8pt,fill=pablue2,rounded corners=2pt,
-          text width=0.297\textwidth,inner sep=5pt,align=left,font=\scriptsize,
-          anchor=west] (m2) at ([xshift=0.012\textwidth]m1.east) {#2};
-    \node[rectangle,draw=protogray,line width=0.8pt,fill=pagrayl,rounded corners=2pt,
-          text width=0.297\textwidth,inner sep=5pt,align=left,font=\scriptsize,
-          anchor=west] (m3) at ([xshift=0.012\textwidth]m2.east) {#3};
-  \end{tikzpicture}\par\addvspace{0.3em}}
-% \appaccentblock{title}{subtitle} - variant 3: left accent bar beside the title.
-\newcommand{\appaccentblock}[2]{%
+% \paymast{eyebrow}{title}{subtitle} - the left-accent masthead.
+\newcommand{\paymast}[3]{%
   \par\noindent\begin{tikzpicture}
-    \node[rectangle,fill=protowhite,text width=\dimexpr\textwidth-26pt\relax,
-          inner sep=7pt,align=left,anchor=north west] (tb) at (0.28,0)
-          {{\large\bfseries\color{protoblue} #1}\\[0.28em]{\footnotesize #2}};
-    \fill[protoblue] ([xshift=-0.28cm]tb.north west) rectangle ([xshift=-0.13cm]tb.south west);
+    \node[rectangle,fill=protowhite,text width=\dimexpr\textwidth-30pt\relax,
+          inner sep=8pt,align=left,anchor=north west] (mh) at (0.34,0)
+          {{\footnotesize\sffamily\bfseries\color{pablue1} #1}\\[0.42em]
+           {\LARGE\bfseries\color{protoblue} #2}\\[0.42em]
+           {\small #3}};
+    \fill[protoblue] ([xshift=-0.34cm]mh.north west) rectangle ([xshift=-0.12cm]mh.south west);
   \end{tikzpicture}\par}
-% \appmissiontile{mission}{title}{subtitle} - variant 4: national-mission tile.
-\newcommand{\appmissiontile}[3]{%
-  \par\noindent\begin{tikzpicture}
-    \node[rectangle,fill=pablue1,text=protowhite,rounded corners=2pt,inner xsep=7pt,
-          inner ysep=3pt,font=\footnotesize\bfseries\sffamily,anchor=north west] (ms) at (0,0) {#1};
-    \node[rectangle,draw=protoblue,line width=1pt,fill=protowhite,rounded corners=2pt,
-          text width=\dimexpr\textwidth-22pt\relax,inner sep=7pt,align=left,
-          anchor=north west] (tt) at ([yshift=-5pt]ms.south west)
-          {{\large\bfseries\color{protoblue} #2}\\[0.28em]{\footnotesize #3}};
-  \end{tikzpicture}\par}
-% \apptwopanel{left}{right} - variant 5: technical objective beside market case.
-\newcommand{\apptwopanel}[2]{%
+% \paystrip - the ten-cell application strip.  Two rows of five so each cell is
+% wide enough for a recipient name at \tiny without hyphenation.
+\newcommand{\paycell}[4]{%
+  \node[rectangle,draw=pablue1,line width=0.5pt,rounded corners=1.5pt,fill=#3,
+        text width=0.163\textwidth,minimum height=6.4mm,inner sep=2.5pt,align=center,
+        font=\tiny\sffamily,anchor=west] (#1) at (#2,#4) {};}
+\newcommand{\paystrip}[2]{%
   \par\addvspace{0.3em}%
-  \noindent\begin{tikzpicture}
-    \node[rectangle,draw=protoblue,line width=0.9pt,fill=protowhite,rounded corners=3pt,
-          text width=0.452\textwidth,inner sep=6pt,align=left,font=\footnotesize] (l) at (0,0) {#1};
-    \node[rectangle,draw=pablue1,line width=0.9pt,fill=pablue2,rounded corners=3pt,
-          text width=0.452\textwidth,inner sep=6pt,align=left,font=\footnotesize,
-          anchor=west] (r) at ([xshift=0.020\textwidth]l.east) {#2};
+  \noindent\begin{tikzpicture}[x=0.1985\textwidth]
+    \foreach \i/\lab [count=\n from 0] in {#1}{%
+      \node[rectangle,draw=protoblue,line width=0.6pt,rounded corners=1.5pt,
+            fill=pablue2,text width=0.166\textwidth,minimum height=6.6mm,
+            inner sep=2.5pt,align=center,font=\tiny\sffamily,text=protoblue]
+            at (\n,0) {\lab};}
+    \foreach \i/\lab [count=\n from 0] in {#2}{%
+      \node[rectangle,draw=protogray,line width=0.6pt,rounded corners=1.5pt,
+            fill=pagrayl,text width=0.166\textwidth,minimum height=6.6mm,
+            inner sep=2.5pt,align=center,font=\tiny\sffamily]
+            at (\n,-0.72) {\lab};}
   \end{tikzpicture}\par\addvspace{0.3em}}
-% \appconsortium{a}{b} - variant 6: two-party consortium strip.
-\newcommand{\appconsortium}[2]{%
-  \par\addvspace{0.3em}%
-  \noindent\begin{tikzpicture}
-    \node[rectangle,fill=protoblue,text=protowhite,rounded corners=3pt,
-          text width=0.415\textwidth,inner sep=6pt,align=center,font=\footnotesize] (a) at (0,0) {#1};
-    \node[circle,draw=protoblue,line width=0.8pt,fill=protowhite,inner sep=1.6pt,
-          font=\scriptsize\bfseries,text=protoblue,anchor=west] (j)
-          at ([xshift=0.020\textwidth]a.east) {$+$};
-    \node[rectangle,draw=protoblue,line width=0.9pt,fill=pablue2,rounded corners=3pt,
-          text width=0.415\textwidth,inner sep=6pt,align=center,font=\footnotesize,
-          anchor=west] (b) at ([xshift=0.020\textwidth]j.east) {#2};
-  \end{tikzpicture}\par\addvspace{0.3em}}
-% \appperson{block} - variant 7: investigator block above a compact title rule.
-\newcommand{\appperson}[1]{%
-  \par\noindent\begin{tikzpicture}
-    \node[rectangle,draw=pablue1,line width=0.8pt,fill=pablue2,rounded corners=3pt,
-          text width=\dimexpr\textwidth-24pt\relax,inner sep=7pt,align=left,
-          font=\footnotesize] (pb) at (0,0) {#1};
-  \end{tikzpicture}\par}
-% \apprecord{a}{b}{c}{d} - variant 8: four-field study-registration header.
-\newcommand{\apprecord}[4]{%
-  \par\addvspace{0.3em}%
-  \noindent\begin{tikzpicture}[x=1pt,y=1pt]
-    \node[rectangle,fill=protoblue,text=protowhite,text width=\dimexpr0.5\textwidth-14pt\relax,
-          inner sep=4.5pt,align=left,font=\scriptsize,anchor=north west] (r1) at (0,0) {#1};
-    \node[rectangle,draw=protoblue,line width=0.5pt,fill=protowhite,
-          text width=\dimexpr0.5\textwidth-14pt\relax,inner sep=4.5pt,align=left,
-          font=\scriptsize,anchor=north west] (r2) at (r1.north east) {#2};
-    \node[rectangle,draw=protogray,line width=0.5pt,fill=pagrayl,
-          text width=\dimexpr0.5\textwidth-14pt\relax,inner sep=4.5pt,align=left,
-          font=\scriptsize,anchor=north west] (r3) at (r1.south west) {#3};
-    \node[rectangle,draw=pablue1,line width=0.5pt,fill=pablue2,
-          text width=\dimexpr0.5\textwidth-14pt\relax,inner sep=4.5pt,align=left,
-          font=\scriptsize,anchor=north west] (r4) at (r3.north east) {#4};
-  \end{tikzpicture}\par\addvspace{0.3em}}
-% \apptimeline{y1}{y2}{y3}{y4}{y5} - variant 9: five-year dissolution strip.
-% The fill deepens left to right, so the strip reads as a term running down to a
-% stated end date.  Fills are listed explicitly rather than chosen by a
-% conditional inside the key list, because \ifnum expands too late there.
-\newcommand{\apptl@cell}[4]{%
-  \node[rectangle,draw=protoblue,line width=0.7pt,rounded corners=2pt,
-        text width=0.150\textwidth,inner sep=4pt,align=center,
-        font=\tiny,fill=#3] (#1) at (#2,0) {#4};}
-\newcommand{\apptimeline}[5]{%
-  \par\addvspace{0.3em}%
-  \noindent\begin{tikzpicture}[x=0.194\textwidth]
-    \apptl@cell{tl1}{0}{pablue2}{#1}%
-    \apptl@cell{tl2}{1}{pablue2}{#2}%
-    \apptl@cell{tl3}{2}{pagrayl}{#3}%
-    \apptl@cell{tl4}{3}{pagrayl}{#4}%
-    \apptl@cell{tl5}{4}{protowhite}{#5}%
-    \draw[->,>=Stealth,draw=protoblue,line width=0.7pt] (tl1.east) -- (tl2.west);
-    \draw[->,>=Stealth,draw=protoblue,line width=0.7pt] (tl2.east) -- (tl3.west);
-    \draw[->,>=Stealth,draw=protoblue,line width=0.7pt] (tl3.east) -- (tl4.west);
-    \draw[->,>=Stealth,draw=protoblue,line width=0.7pt] (tl4.east) -- (tl5.west);
-  \end{tikzpicture}\par\addvspace{0.3em}}
-% \approuting{to}{re}{via} - variant 10: institutional intake routing block.
-\newcommand{\approuting}[3]{%
-  \par\noindent\begin{tikzpicture}
-    \node[rectangle,draw=protoblue,line width=0.9pt,fill=protowhite,
-          text width=\dimexpr\textwidth-24pt\relax,inner sep=7pt,align=left,
-          font=\footnotesize] (rb) at (0,0)
-          {\textbf{\color{protoblue}TO:}\; #1\\[0.16em]\textbf{\color{protoblue}RE:}\; #2\\[0.16em]
-           \textbf{\color{protoblue}VIA:}\; #3};
-  \end{tikzpicture}\par}
 % \appbadge{text} / \appbadgel{text} - inline badges shared by all variants.
 \newcommand{\appbadge}[1]{%
   \tikz[baseline=(bd.base)]{\node[rectangle,rounded corners=2pt,fill=protoblue,
@@ -787,6 +711,25 @@
     font=\scriptsize\bfseries] (bd) {#1};}}
 % \apprule{width} - the thin accent rule used between cover blocks.
 \newcommand{\apprule}[1]{{\color{protoblue}\rule{\linewidth}{#1}}}
+% \draftinstr{...} - a bracketed drafting instruction, draft stage only.  Every
+% one names the exact repository file or directory a later stage must process.
+% No \draftinstr survives into full-apply or final-apply.
+\newcommand{\draftinstr}[1]{\par\addvspace{3pt}%
+  {\setlength{\parindent}{0pt}\small\color{protogray}%
+   \textbf{[DRAFTING INSTRUCTION]}\itshape\ #1\par}%
+  \addvspace{3pt}}
+% \figslot{tag}{height in cm}{caption} - a sized placeholder carrying its final
+% figure number and type tag, so figure numbering never moves after this stage.
+\newcommand{\figslot}[3]{%
+  \begin{appfloat}[!tb]
+  \begin{appfig}[#1]
+  \draw[pagraym,line width=0.5pt] (0,0) rectangle (13.6,#2);
+  \node[font=\scriptsize\sffamily,text=protogray] at (6.8,{#2/2}) {placeholder, drawn in full-apply};
+  \end{appfig}
+  \vspace{-0.7cm}
+  \figcaption{#3}
+  \end{appfloat}}
+
 % \pfb - a zero-width break opportunity, for use inside \texttt paths and TikZ
 % labels, so a long repository path can never overflow the measure.
 \newcommand{\pfb}{\discretionary{}{}{}}
@@ -798,11 +741,35 @@
     \node[circle,fill=orcidgreen,minimum size=9.2pt,inner sep=0pt](orc){};
     \node at (orc){\textcolor{white}{\sffamily\bfseries\fontsize{5.4}{5.4}\selectfont iD}};}}}
 
+% ---------- Table of contents.  article.cls opens every section entry with
+% ---------- \addvspace{1.0em}, which over twelve sections spills the contents
+% ---------- onto a second page that is then mostly empty.  The lead is reduced
+% ---------- to 0.20em, which keeps the sections visually grouped and brings the
+% ---------- contents back to a single page.
+\makeatletter
+\renewcommand*\l@section[2]{%
+  \ifnum \c@tocdepth >\z@
+    \addpenalty\@secpenalty
+    \addvspace{0.20em \@plus\p@}%
+    \setlength\@tempdima{1.5em}%
+    \begingroup
+      \parindent \z@ \rightskip \@pnumwidth
+      \parfillskip -\@pnumwidth
+      \leavevmode \bfseries
+      \advance\leftskip\@tempdima
+      \hskip -\leftskip
+      #1\nobreak\hfil
+      \nobreak\hb@xt@\@pnumwidth{\hss #2\kern-\p@\kern\p@}\par
+    \endgroup
+  \fi}
+\makeatother
+
 \providecommand{\keywordname}{\textbf{Keywords}}
 \providecommand{\keywords}[1]{\par\addvspace{\smallskipamount}%
   {\setlength{\parindent}{0pt}\footnotesize\keywordname\enspace #1\par}}
 \providecommand{\bmhead}[1]{\par\addvspace{0.45\baselineskip}\needspace{2\baselineskip}%
-  {\noindent\normalsize\bfseries\color{accentcol}#1}\par\addvspace{2pt}}
+  \phantomsection\addcontentsline{toc}{section}{#1}%
+  {\noindent\large\bfseries\color{accentcol}#1}\par\addvspace{2pt}}
 \providecommand{\cboxx}{\raisebox{0.12ex}{\framebox[1.25ex]{\rule{0pt}{0.95ex}}}}
 
 \RequirePackage[hidelinks,pdfusetitle]{hyperref}

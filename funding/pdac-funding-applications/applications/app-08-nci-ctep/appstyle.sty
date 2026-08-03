@@ -790,8 +790,7 @@
 % \pfb - a zero-width break opportunity, for use inside \texttt paths and TikZ
 % labels, so a long repository path can never overflow the measure.
 \newcommand{\pfb}{\discretionary{}{}{}}
-% \appfile{path} - a repository path in monospace at the surrounding size.
-\newcommand{\appfile}[1]{{\ttfamily\hyphenchar\font=-1\relax #1}}
+% \appfile{path} is defined at the foot of this file, after url and hyperref.
 
 % ---------- PNG-free ORCID iD mark. ----------
 \newcommand{\orcidicon}[1]{%
@@ -818,6 +817,24 @@
 \do\H\do\I\do\J\do\K\do\L\do\M\do\N\do\O\do\P\do\Q\do\R\do\S\do\T\do\U\do\V%
 \do\W\do\X\do\Y\do\Z\do\0\do\1\do\2\do\3\do\4\do\5\do\6\do\7\do\8\do\9}
 \Urlmuskip=0mu plus 3mu\relax
+% \appfile{path} - a repository path in monospace.  \nolinkurl and \path both
+% failed to break these paths inside a \draftinstr argument, so the scanner
+% below inserts an explicit break opportunity after every character: a path can
+% then wrap anywhere and can never overflow the measure.  \penalty300 keeps TeX
+% preferring a real word space when one is available.
+\makeatletter
+\def\app@fend{\app@fend}
+\def\app@fscan#1{%
+  \ifx\app@fend#1%
+    \let\app@fnext\relax
+  \else
+    #1\penalty300\relax
+    \let\app@fnext\app@fscan
+  \fi
+  \app@fnext}
+\newcommand{\appfile}[1]{{\ttfamily\hyphenchar\font=-1\relax
+  \app@fscan#1\app@fend}}
+\makeatother
 % \dlink{10.5281/zenodo.NNNNNNN} - a DOI printed as text and hyperlinked, so
 % every reference carries both the DOI string and a clickable target.
 \newcommand{\dlink}[1]{\href{https://doi.org/#1}{#1}}
