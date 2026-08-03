@@ -1,0 +1,54 @@
+% sec-02: the institutional-fit matrix.  Figure 1 is a d2-type container grid
+% reproducing the report's Table 1 logic for this specific program.  Cells are
+% placed by anchor so the five columns cannot drift and no cell overlaps.
+\section{Why No Existing Institution Fits}
+
+Chapter II's institutional-fit table scores four performer types against seven
+activities. Applied to the five activities this program actually needs, the
+result is the gap the X-Labs mechanism was created to fill: every existing type
+covers some, none covers all five, and the two that could operate on patients
+are the two least able to release the software openly.
+
+\begin{appfloat}[!tb]
+\begin{appfig}[d2-type / scored container grid]
+\node[d2cellh,text width=3.5cm,minimum width=3.9cm,minimum height=6.4mm] (h0) at (0,0) {Activity this program needs};
+\node[d2cellh,text width=2.1cm,minimum width=2.5cm,minimum height=6.4mm,anchor=west] (h1) at (h0.east) {University dept.};
+\node[d2cellh,text width=2.1cm,minimum width=2.5cm,minimum height=6.4mm,anchor=west] (h2) at (h1.east) {Device company};
+\node[d2cellh,text width=2.1cm,minimum width=2.5cm,minimum height=6.4mm,anchor=west] (h3) at (h2.east) {Federal laboratory};
+\node[d2cellh,text width=2.1cm,minimum width=2.5cm,minimum height=6.4mm,anchor=west] (h4) at (h3.east) {This performer};
+
+\node[d2celll,text width=3.5cm,minimum width=3.9cm,minimum height=6.4mm,anchor=north west] (a0) at (h0.south west) {Operate under an active IND};
+\node[d2cellk,text width=2.1cm,minimum width=2.5cm,minimum height=6.4mm,anchor=west] (a1) at (a0.east) {well suited};
+\node[d2cellg,text width=2.1cm,minimum width=2.5cm,minimum height=6.4mm,anchor=west] (a2) at (a1.east) {less suited};
+\node[d2cellg,text width=2.1cm,minimum width=2.5cm,minimum height=6.4mm,anchor=west] (a3) at (a2.east) {less suited};
+\node[d2cell,text width=2.1cm,minimum width=2.5cm,minimum height=6.4mm,anchor=west] (a4) at (a3.east) {by contract};
+
+\node[d2celll,text width=3.5cm,minimum width=3.9cm,minimum height=6.4mm,anchor=north west] (b0) at (a0.south west) {Maintain a verification harness};
+\node[d2cell,text width=2.1cm,minimum width=2.5cm,minimum height=6.4mm,anchor=west] (b1) at (b0.east) {partly};
+\node[d2cellk,text width=2.1cm,minimum width=2.5cm,minimum height=6.4mm,anchor=west] (b2) at (b1.east) {well suited};
+\node[d2cellk,text width=2.1cm,minimum width=2.5cm,minimum height=6.4mm,anchor=west] (b3) at (b2.east) {well suited};
+\node[d2cellk,text width=2.1cm,minimum width=2.5cm,minimum height=6.4mm,anchor=west] (b4) at (b3.east) {well suited};
+
+\node[d2celll,text width=3.5cm,minimum width=3.9cm,minimum height=6.4mm,anchor=north west] (c0) at (b0.south west) {Publish negative operative results};
+\node[d2cell,text width=2.1cm,minimum width=2.5cm,minimum height=6.4mm,anchor=west] (c1) at (c0.east) {partly};
+\node[d2cellg,text width=2.1cm,minimum width=2.5cm,minimum height=6.4mm,anchor=west] (c2) at (c1.east) {less suited};
+\node[d2cell,text width=2.1cm,minimum width=2.5cm,minimum height=6.4mm,anchor=west] (c3) at (c2.east) {partly};
+\node[d2cellk,text width=2.1cm,minimum width=2.5cm,minimum height=6.4mm,anchor=west] (c4) at (c3.east) {well suited};
+
+\node[d2celll,text width=3.5cm,minimum width=3.9cm,minimum height=6.4mm,anchor=north west] (d0) at (c0.south west) {Hold the regulatory package as a product};
+\node[d2cellg,text width=2.1cm,minimum width=2.5cm,minimum height=6.4mm,anchor=west] (d1) at (d0.east) {less suited};
+\node[d2cellk,text width=2.1cm,minimum width=2.5cm,minimum height=6.4mm,anchor=west] (d2) at (d1.east) {well suited};
+\node[d2cell,text width=2.1cm,minimum width=2.5cm,minimum height=6.4mm,anchor=west] (d3) at (d2.east) {partly};
+\node[d2cellk,text width=2.1cm,minimum width=2.5cm,minimum height=6.4mm,anchor=west] (d4) at (d3.east) {well suited};
+
+\node[d2celll,text width=3.5cm,minimum width=3.9cm,minimum height=6.4mm,anchor=north west] (e0) at (d0.south west) {Release code and data openly};
+\node[d2cell,text width=2.1cm,minimum width=2.5cm,minimum height=6.4mm,anchor=west] (e1) at (e0.east) {partly};
+\node[d2cellg,text width=2.1cm,minimum width=2.5cm,minimum height=6.4mm,anchor=west] (e2) at (e1.east) {less suited};
+\node[d2cell,text width=2.1cm,minimum width=2.5cm,minimum height=6.4mm,anchor=west] (e3) at (e2.east) {partly};
+\node[d2cellk,text width=2.1cm,minimum width=2.5cm,minimum height=6.4mm,anchor=west] (e4) at (e3.east) {well suited};
+\end{appfig}
+\vspace{-0.7cm}
+\figcaption{The report's institutional-fit logic applied to the five activities
+this program needs. No existing performer type covers all five, and the clinical
+row is covered only by contracting a qualified site.}
+\end{appfloat}

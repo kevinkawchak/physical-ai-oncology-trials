@@ -524,6 +524,17 @@
 \newcommand{\glyphscalpel}[2]{\begin{scope}[shift={(#1.center)},draw=#2,line width=0.45pt]
   \draw (-0.26,-0.20) -- (-0.02,-0.02);\draw (-0.02,-0.02) -- (0.24,0.24) -- (0.26,0.06)
     -- (0.06,-0.14) -- cycle;\end{scope}}
+\newcommand{\glyphlink}[2]{\begin{scope}[shift={(#1.center)},draw=#2,line width=0.5pt]
+  \draw[rounded corners=0.07cm] (-0.26,-0.02) rectangle (-0.02,0.10);
+  \draw[rounded corners=0.07cm] (0.02,-0.10) rectangle (0.26,0.02);
+  \draw (-0.06,0.04) -- (0.06,-0.04);\end{scope}}
+\newcommand{\glyphhand}[2]{\begin{scope}[shift={(#1.center)},draw=#2,line width=0.45pt]
+  \draw (-0.16,-0.28) -- (-0.16,0.04) arc (180:0:0.05) -- (-0.06,0.18) arc (180:0:0.05)
+    -- (0.04,0.10) arc (180:0:0.05) -- (0.14,-0.02) -- (0.14,-0.28) -- cycle;\end{scope}}
+\newcommand{\glyphteam}[2]{\begin{scope}[shift={(#1.center)},draw=#2,line width=0.45pt]
+  \draw (-0.13,0.14) circle (0.075);\draw (0.13,0.14) circle (0.075);
+  \draw (-0.27,-0.20) arc (180:0:0.14 and 0.20);\draw (-0.01,-0.20) arc (180:0:0.14 and 0.20);
+  \end{scope}}
 
 % \dgnode{style}{x}{y}{glyph}{label}{name} - icon tile with the label beneath.
 % Defines two nodes: <name> (the tile) and <name>l (the label), so a surrounding
