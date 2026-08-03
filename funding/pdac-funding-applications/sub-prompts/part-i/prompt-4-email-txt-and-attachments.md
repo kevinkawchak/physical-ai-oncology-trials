@@ -16,14 +16,14 @@ CC: <exact recipient address, when a second office must see it>
 
 SUBJECT: <exact subject line>
 
---- BODY ---
+=== BODY ===
 <exact body contents>
 
 Sincerely,
 CEO Kevin Kawchak
 ChemicalQDevice
 July 10th, 2026
---- END BODY ---
+=== END BODY ===
 
 ATTACHMENTS COMPILED FROM THIS DIRECTORY
 1. <pdf the author compiles from main.tex>

@@ -827,7 +827,7 @@
   \let\appoldbibliography\thebibliography
   \renewcommand{\thebibliography}[1]{%
     \appoldbibliography{#1}\raggedright\emergencystretch=8em\relax
-    \setlength{\itemsep}{1.2pt}\setlength{\parsep}{0pt}}}
+    \setlength{\itemsep}{0.8pt}\setlength{\parsep}{0pt}\setlength{\topsep}{0pt}}}
 % \apprefs{...} - the reference list set in two columns at \scriptsize.  A
 % five-page application cannot afford a single-column list of long protocol
 % titles, and two columns halve its height without shrinking the type further.
@@ -835,6 +835,7 @@
 % set above the columns rather than inside them.
 \newenvironment{apprefs}%
   {\needspace{4\baselineskip}%
+   \setlength{\multicolsep}{0pt}\setlength{\columnsep}{13pt}%
    \begin{multicols}{2}\scriptsize\raggedright
    \setlength{\emergencystretch}{10em}%
    \renewcommand{\section}[2]{}}%
