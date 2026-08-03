@@ -1,0 +1,40 @@
+% sec-03: what the dataset would contain and why nobody has it.
+\section{The Gap the Dataset Fills}
+
+Daraxonrasib (RMC-6236) has a metastatic readout. RASolute 302 reported median
+overall survival of \textbf{13.2 months} against \textbf{6.6} for chemotherapy
+in the RAS G12 population of previously treated metastatic pancreatic cancer
+\cite{rasolute302}. A ten-arm quantitative systems pharmacology simulation had
+returned \textbf{12.8} against \textbf{5.4 months} nine months earlier
+\cite{qspmetpancre}; that proximity is chronology, not validation, and the three
+differences are sample size 1000 against 241, a combination against a single
+agent, and KRAS G12C against a primarily G12D and G12V population.
+
+\begin{appfloat}[!tb]
+\begin{appfig}[d2-type / deliverable containers]
+% Three containers side by side, 4.6cm pitch, three tiles each.  Each container
+% is one release; the middle one is the deliverable the FRO exists to produce.
+\foreach \i/\x/\a/\b/\c in {1/0/{Advisory log schema}/{Stop-latency method}/{Audit replay tool},
+  2/4.7/{Paired plasma and tissue PK-PD}/{ctDNA clearance series}/{Pathologic response grade},
+  3/9.4/{Negative and inconclusive cohorts}/{Analysis code, pinned}/{Protocol and IND package}}{
+  \node[d2soft,text width=36mm,minimum height=8mm,anchor=north west] (z\i a) at (\x,0) {\a};
+  \node[d2soft,text width=36mm,minimum height=8mm,anchor=north west] (z\i b) at ([yshift=-2mm]z\i a.south west) {\b};
+  \node[d2soft,text width=36mm,minimum height=8mm,anchor=north west] (z\i c) at ([yshift=-2mm]z\i b.south west) {\c};}
+\begin{scope}[on background layer]
+\node[d2cont,fit=(z1a)(z1c),inner sep=6pt] (k1) {};
+\node[d2step,fit=(z2a)(z2c),inner sep=6pt] (k2) {};
+\node[d2cont,fit=(z3a)(z3c),inner sep=6pt] (k3) {};
+\end{scope}
+\node[d2title,anchor=south west] at ([yshift=1.2mm]k1.north west) {Released in year 2: the harness};
+\node[d2title,anchor=south west] at ([yshift=1.2mm]k2.north west) {Released in year 4: the deliverable};
+\node[d2title,anchor=south west] at ([yshift=1.2mm]k3.north west) {Released in year 5: the record};
+\node[font=\tiny\itshape,text=protogray,anchor=north,text width=112mm,align=center]
+  at (6.9,-3.5) {Only the middle container requires the trial to succeed. The
+  harness is useful even if escalation stops early, and the record is published
+  whatever the result.};
+\end{appfig}
+\vspace{-0.7cm}
+\figcaption{Three releases across the term, only one of which depends on the
+trial succeeding. An FRO that produces nothing unless its central hypothesis
+holds is not a well-designed FRO.}
+\end{appfloat}

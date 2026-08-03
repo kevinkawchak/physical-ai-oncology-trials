@@ -748,16 +748,25 @@
           font=\scriptsize,anchor=north west] (r4) at (r3.north east) {#4};
   \end{tikzpicture}\par\addvspace{0.3em}}
 % \apptimeline{y1}{y2}{y3}{y4}{y5} - variant 9: five-year dissolution strip.
+% The fill deepens left to right, so the strip reads as a term running down to a
+% stated end date.  Fills are listed explicitly rather than chosen by a
+% conditional inside the key list, because \ifnum expands too late there.
+\newcommand{\apptl@cell}[4]{%
+  \node[rectangle,draw=protoblue,line width=0.7pt,rounded corners=2pt,
+        text width=0.150\textwidth,inner sep=4pt,align=center,
+        font=\tiny,fill=#3] (#1) at (#2,0) {#4};}
 \newcommand{\apptimeline}[5]{%
   \par\addvspace{0.3em}%
-  \noindent\begin{tikzpicture}[x=0.185\textwidth]
-    \foreach \i/\t [count=\n from 0] in {1/#1,2/#2,3/#3,4/#4,5/#5}{%
-      \node[rectangle,draw=protoblue,line width=0.6pt,rounded corners=2pt,
-            text width=0.155\textwidth,inner sep=4pt,align=center,font=\tiny,
-            fill=\ifnum\i<3 pablue2\else\ifnum\i<5 pagrayl\else protowhite\fi\fi]
-            (t\i) at (\n,0) {\t};}
-    \foreach \i in {1,...,4}{\draw[->,>=Stealth,draw=protoblue,line width=0.7pt]
-      (t\i.east) -- (t\the\numexpr\i+1\relax.west);}
+  \noindent\begin{tikzpicture}[x=0.194\textwidth]
+    \apptl@cell{tl1}{0}{pablue2}{#1}%
+    \apptl@cell{tl2}{1}{pablue2}{#2}%
+    \apptl@cell{tl3}{2}{pagrayl}{#3}%
+    \apptl@cell{tl4}{3}{pagrayl}{#4}%
+    \apptl@cell{tl5}{4}{protowhite}{#5}%
+    \draw[->,>=Stealth,draw=protoblue,line width=0.7pt] (tl1.east) -- (tl2.west);
+    \draw[->,>=Stealth,draw=protoblue,line width=0.7pt] (tl2.east) -- (tl3.west);
+    \draw[->,>=Stealth,draw=protoblue,line width=0.7pt] (tl3.east) -- (tl4.west);
+    \draw[->,>=Stealth,draw=protoblue,line width=0.7pt] (tl4.east) -- (tl5.west);
   \end{tikzpicture}\par\addvspace{0.3em}}
 % \approuting{to}{re}{via} - variant 10: institutional intake routing block.
 \newcommand{\approuting}[3]{%

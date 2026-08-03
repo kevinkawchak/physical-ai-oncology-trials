@@ -1,0 +1,31 @@
+% sec-02: the five-year arc.  Figure 1 is a mermaid-type flowchart ending in
+% dissolution, with the handoff edges made explicit.
+\section{The Five-Year Arc}
+
+\begin{appfloat}[!tb]
+\begin{appfig}[mermaid-type / flowchart to dissolution]
+% One rank of five years plus a handoff rank beneath.  Columns 2.85 apart,
+% ranks 2.4 apart, so no handoff arrow crosses a year node.
+\foreach \i/\x/\lab/\sty in {1/0/{Y1 Build the harness, open the site}/mmsoft,
+  2/2.9/{Y2 First cohort, first specimens}/mmsoft,
+  3/5.8/{Y3 Escalate, publish negatives}/mmmid,
+  4/8.7/{Y4 Complete accrual, release dataset}/mmmid,
+  5/11.6/{Y5 Hand off and dissolve}/mmgoal}{
+  \node[\sty] (y\i) at (\x,0) {\lab};}
+\foreach \i in {1,...,4}{\pgfmathsetmacro{\j}{int(\i+1)}\draw[mmedgeb] (y\i) -- (y\j);}
+\node[mmgray] (h1) at (1.45,-2.4) {Harness and logging schema to any site};
+\node[mmgray] (h2) at (5.8,-2.4) {Specimen dataset to the public archive};
+\node[mmgray] (h3) at (10.15,-2.4) {Protocol and IND to a successor sponsor};
+\draw[mmedged] (y5.south west) to[out=-135,in=0,looseness=0.65] (h3.east);
+\draw[mmedged] (y5.south) to[out=-90,in=0,looseness=0.5] (h2.east);
+\draw[mmedged] (y5.south west) to[out=-160,in=0,looseness=0.35] (h1.east);
+\node[font=\tiny\itshape,text=protogray,anchor=north,text width=110mm,align=center]
+  at (5.8,-3.35) {Three handoffs, all in year 5, all to named classes of
+  recipient rather than to a successor organization. Nothing is retained, and no
+  year six is budgeted.};
+\end{appfig}
+\vspace{-0.7cm}
+\figcaption{The five-year arc and its three year-five handoffs. The organization
+has no continuing operations after the handoffs, which is what distinguishes an
+FRO from a centre or an institute.}
+\end{appfloat}
