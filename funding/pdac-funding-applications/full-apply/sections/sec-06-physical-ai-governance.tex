@@ -1,0 +1,59 @@
+% sec-06: the advisory boundary, stop authority, verification.
+% Figures 9, 10, 12, 13, 15.
+\section{Physical AI Governance}
+
+\draftinstr{full-apply writes 7,000 to 8,000 characters from
+\appfile{applications/app-01-nih-pioneer-award/sections/sec-04-operation-governance.tex},
+\appfile{applications/app-04-doe-genesis-mission/sections/} (topology, closed
+loop, Gold Standard Science records),
+\appfile{applications/app-08-nci-ctep/sections/sec-04-operation-governance.tex}
+(adjudication), and \appfile{funding/tripartisan-llm-support.md} (the three
+model roles). This is the section a clinician reads first.}
+
+\subsection{Three Boundaries}
+
+\draftinstr{Three short paragraphs: the model has no path to the arms; stopping
+is bounded at 3 ms per arm and 500 ms system-wide and is measured, not asserted;
+every artifact is verified before use and logged with a timestamp.}
+
+\figslot{diagrams (python)-type / clustered topology}{6.6}{Nine components, one
+trust boundary, and one direction of travel. Records leave for the public
+archive; nothing returns, and no path from the model reaches a motion controller
+at any point.}
+
+\subsection{The Operative Day}
+
+\figslot{mermaid-type / sequence}{6.8}{One operative day as a message sequence.
+Every arrow reaching the robot leaves a human first, and the two audit writes
+are the only messages that cross the hospital trust boundary.}
+
+\figslot{plantuml-type / state with guards}{5.6}{Six advisory states and the
+guard on every transition. Two guards can only be satisfied by a human action,
+and they are the two that separate a rendered recommendation from an executed
+motion.}
+
+\draftinstr{One paragraph explaining why both figures are needed: the sequence
+gives the conversation, the state machine gives the guards, and neither implies
+the other.}
+
+\subsection{How a Failure Propagates}
+
+\figslot{graphviz-type / fault tree}{6.4}{One top event and every path to it.
+Three of the four branches are AND gates, so no single failure reaches the
+patient, and the one OR branch is the one governed by procedure rather than by
+hardware.}
+
+\subsection{What Is Released}
+
+\figslot{d2-type / sql tables}{6.2}{Six tables and the five keys that join them.
+Every released record can be traced to one participant and one operative step,
+which is what makes an independent re-analysis of the cohort possible at all.}
+
+\draftinstr{full-apply builds Table 7 here: the three frontier-model roles from
+\appfile{funding/tripartisan-llm-support.md}, verbatim, with columns Vendor,
+Role, and Artifact produced.}
+
+\figslot{diagrams (python)-type / clustered by vendor}{5.8}{Three vendors, nine
+roles, and the single review chain that connects them. No model reviews its own
+output, and the chain is drawn as a cycle because the second reviewer's finding
+returns to the author.}
