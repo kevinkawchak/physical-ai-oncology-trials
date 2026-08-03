@@ -427,15 +427,24 @@ This is to avoid sycophantic tendencies of the judging LM model.
 **Hallucinations — structured output schema:**
 ```python
 source_categories = [
-    "log", "sourcecode", "docs",
-    "execution_output.test", "execution_output.analysis", "none",
+    "log",
+    "sourcecode",
+    "docs",
+    "execution_output.test",
+    "execution_output.analysis",
+    "none",
 ]
 
 claim_categories = [
-    "loss_reason", "win_reason", "game_results",
-    "possible_improvement", "player_code_behavior",
-    "performed_edits", "misc",
+    "loss_reason",
+    "win_reason",
+    "game_results",
+    "possible_improvement",
+    "player_code_behavior",
+    "performed_edits",
+    "misc",
 ]
+
 
 class Incident(BaseModel):
     step_index: int
@@ -444,6 +453,7 @@ class Incident(BaseModel):
     source_category: Literal[*source_categories]
     source: str
     detailed_reasoning: str
+
 
 class HallucinationResponseSchema(BaseModel):
     items: list[Incident]
@@ -456,8 +466,13 @@ _read_subcategories = ["source", "logs", "docs", "other"]
 _read_subsubcategories = ["new", "old"]
 
 _write_subcategories = [
-    "docs", "source.main", "source.main.backup",
-    "source.opponent", "source.analysis", "source.tests", "other",
+    "docs",
+    "source.main",
+    "source.main.backup",
+    "source.opponent",
+    "source.analysis",
+    "source.tests",
+    "other",
 ]
 _write_subsubcategories = ["create", "modify_old", "modify_new"]
 
@@ -471,12 +486,14 @@ _all_categories = (
     + [f"execute.{sub}.{subsub}" for sub in _execute_subcategories for subsub in _execute_subsubcategories]
 )
 
+
 class ActionCategoryResponse(BaseModel):
     category: Literal[*_all_categories]
     base_action: str
     success: bool
     notes: str = ""
     target_paths: list[str] = []
+
 
 class ActionCategoriesModelResponse(BaseModel):
     categories: list[ActionCategoryResponse]

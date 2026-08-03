@@ -1,4 +1,46 @@
-# Scripps AI and Clinical Research Potential Partnership Overview
+# Scripps - the alternate route
+
+[![License](https://img.shields.io/badge/License-CC%20BY%204.0-yellow.svg)](https://creativecommons.org/licenses/by/4.0/)
+[![Role](https://img.shields.io/badge/Role-alternate%20site-6C757D.svg)](.)
+[![Strategy](https://img.shields.io/badge/Strategy-AI--first%2C%20not%20trial--first-3C7DB2.svg)](.)
+[![Status](https://img.shields.io/badge/Status-no%20agreement%20exists-9AA1A8.svg)](.)
+[![Repository](https://img.shields.io/badge/Repository-v4.4.0-6C757D.svg)](../../../README.md)
+
+Scripps is the **alternate route**, and it is deliberately sequenced the other
+way round from [UC San Diego](../UC-San-Diego): establish independent
+credibility for the AI methods first, introduce the pancreatic cancer programme
+only once that interest exists. Nothing has been agreed, and Scripps is not
+described as a partner, sponsor, trial site, or endorser anywhere in this
+repository.
+
+## Files
+
+| File | What it is |
+|:--|:--|
+| `README.md` | This overview: purpose, strategic focus, recommended sequence, required positioning, success criteria, working goal |
+| [`priority-steps.md`](priority-steps.md) | The operational plan: prioritised next steps for the AI-first route |
+
+## Why both routes are kept
+
+| | UC San Diego | Scripps |
+|:--|:--|:--|
+| Entry point | Pancreatic surgery and GI medical oncology | AI validation and digital-trial methods |
+| First ask | A feasibility meeting on the trial | An independent review of the AI portfolio |
+| The trial appears | At step 3 | At step 9 |
+| Risk if it fails | The trial has no site | The AI work has no independent reviewer |
+
+Application 03 uses this contrast directly: its Figure 3 shows the branch taken
+if the first site agreement does not execute, and that branch is a second
+qualified site rather than the end of the programme.
+
+## What v4.4.0 takes from here (Rule 5)
+
+| Item | Where it is used |
+|:--|:--|
+| The AI-first sequencing | The second-site branch in application 03, Figure 3 |
+| The required-positioning list, which is stricter on simulation | The evidence-tier separation in applications 01 and 10, where simulation is never set in the same class as a peer-reviewed readout |
+
+---
 
 ## Purpose
 

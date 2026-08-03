@@ -1,0 +1,34 @@
+% sec-09: the eight-stage build and the five diagram vocabularies.  Figure 18.
+\section{Build Method}
+
+\draftinstr{full-apply writes 4,500 to 5,500 characters from
+\appfile{funding/pdac-funding-applications/prompts/prompt-apply.md},
+\appfile{funding/pdac-funding-applications/sub-prompts/} (both schedules), and
+the five stage READMEs. Describe the method as a reproducible procedure, not as
+a narrative of what happened.}
+
+\subsection{Two Schedules, Thirteen Sub-Prompts}
+
+\draftinstr{full-apply builds Table 11: columns Part, Stage, Output directory,
+Figures specified, and Commit floor. Thirteen rows, five for PART I and eight
+for PART II. Source from
+\appfile{sub-prompts/part-i/README.md} and \appfile{sub-prompts/part-ii/README.md}.}
+
+\subsection{Why the Diagram Split Is Uneven}
+
+\draftinstr{full-apply builds Table 12: columns Type, Count, and The question it
+answers. Five rows: mermaid 6, plantuml 3, d2 4, diagrams-python 3, graphviz 4.
+State that the split follows purpose and that an equal split would have forced
+at least four figures into the wrong vocabulary.}
+
+\figslot{diagrams (python)-type / clustered by layer}{7.2}{Five layers, executed
+twice. The left column is one operator with an LLM toolchain and a public
+repository; the right is the institutional equivalent. Only the bottom layer is
+common to both.}
+
+\subsection{What Is Reproducible and What Is Not}
+
+\draftinstr{Two paragraphs. Reproducible: the prompt, the sub-prompts, the
+sources, the commit sequence, and every figure's construction notes. Not
+reproducible: the model's judgement at each step, which is why the author's
+review is a required stage rather than an optional one.}

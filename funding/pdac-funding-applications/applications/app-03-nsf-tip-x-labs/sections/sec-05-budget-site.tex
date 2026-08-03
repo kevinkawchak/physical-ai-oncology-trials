@@ -1,0 +1,56 @@
+% sec-05: the X-Labs pathway and the partner site.  Figure 3 is a mermaid-type
+% flowchart of the pathway from concept outline to a standing organization.
+\section{Pathway, Budget, and the Partner Site}
+
+The request is \textbf{\$700,000 per year for five years}, \$3,500,000 total,
+with no cost share \cite{fundapp2}. The organization is designed to be legible
+to the X-Labs review: a named performer, a contracted clinical site, public
+outputs, and a defined end state rather than an open-ended institute.
+
+\begin{appfloat}[!tb]
+\begin{appfig}[mermaid-type / flowchart with decision]
+% Single rank of five states with one decision diamond.  Horizontal pitch 3.3,
+% so the diamond's 2.1 aspect cannot touch its neighbours.
+\node[mmsoft] (a) at (0,0) {Concept outline\\this document};
+\node[mmgray] (b) at (3.3,0) {NSF TIP review\\organization type};
+\node[mmdec] (c) at (6.7,0) {Site agreement executed?};
+\node[mmmid] (d) at (10.2,0) {Award and\\standing performer};
+\node[mmgray] (e) at (6.7,-2.2) {Re-scope to a\\second qualified site};
+\node[mmgoal] (f) at (10.2,-2.2) {Public protocol,\\code, and safety set};
+\draw[mmedgeb] (a) -- (b);
+\draw[mmedgeb] (b) -- (c);
+\draw[mmedgeb] (c) -- node[mmlabel,pos=0.42] {yes} (d);
+\draw[mmedge] (c) -- node[mmlabel,pos=0.45] {no} (e);
+\draw[mmedgeb] (d) -- (f);
+\draw[mmedged] (e) to[out=0,in=180,looseness=0.7] (f);
+\node[font=\tiny\sffamily,text=protogray,anchor=north,text width=100mm,align=center]
+  at (5.1,-3.3) {The no branch does not end the program. A second qualified
+  pancreatic surgery site substitutes without changing the protocol, because the
+  performer, not the site, holds the regulatory package.};
+\end{appfig}
+\vspace{-0.7cm}
+\figcaption{The pathway from this concept outline to a standing independent
+performer, including the branch taken if the first site agreement does not
+execute.}
+\end{appfloat}
+
+Moores Cancer Center is the intended partner of choice, approached at the
+feasibility stage only: a nonconfidential scientific overview, a joint
+feasibility meeting with pancreatic surgery, gastrointestinal medical oncology,
+and trial operations, then an investigator-initiated intake with a budget and
+accrual estimate. UC San Diego is not a partner, sponsor, site, or endorser,
+because no written authorization exists.
+
+\begin{apptable}
+\begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}p{1.4cm} >{\raggedright\arraybackslash}p{4.1cm} >{\raggedright\arraybackslash}X}
+\headrow \thead{Year} & \thead{Public good released} & \thead{Who can reuse it without permission}\\
+\midrule
+1 & Bench stop-latency method and rig drawings & Any robotic surgery program running a comparable platform \\
+2 & Advisory logging schema and audit tooling & Any site running an on-premises model in a regulated workflow \\
+3 & Escalation dataset with negative results & Any sponsor designing a combined drug and device Phase 1 \\
+4 to 5 & Full safety set, verification package, and archived code & Any investigator repeating or contesting the result \\
+\end{tabularx}
+\end{apptable}
+\tabcap{The public goods released in each year of the term. The X-Labs case
+rests on these being usable by others without permission, which is what
+distinguishes the performer from a company laboratory.}

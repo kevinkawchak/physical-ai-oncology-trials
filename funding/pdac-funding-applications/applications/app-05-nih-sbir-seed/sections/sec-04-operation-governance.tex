@@ -1,0 +1,51 @@
+% sec-04: technical risk.  Figure 2 is a graphviz-type dependency DAG over the
+% technical risks a Phase I must retire.
+\section{The Technical Risk a Phase I Must Retire}
+
+\begin{appfloat}[!tb]
+\begin{appfig}[graphviz-type / risk dependency DAG]
+% Four ranks at x = 0, 3.7, 7.4, 11.0; vertical pitch 1.6.  Solid edges are
+% technical dependencies, dashed edges are regulatory ones, so the two kinds of
+% blocking never share a line style.
+\node[gvkey] (ph1) at (0,0) {SBIR Phase I};
+\node[gvboxs] (r1) at (3.7,1.6) {Interlock design: stop within 3 ms per arm};
+\node[gvboxs] (r2) at (3.7,0) {Logging schema captures every recommendation};
+\node[gvboxs] (r3) at (3.7,-1.6) {Site workflow accepts the advisory display};
+\node[gvbox] (v1) at (7.4,1.6) {Bench verification passes};
+\node[gvbox] (v2) at (7.4,0) {Audit replay reproduces a case};
+\node[gvbox] (v3) at (7.4,-1.6) {Dry-run in a non-clinical theatre};
+\node[gvmid] (g) at (11.0,0) {Phase II gate cleared};
+\draw[gvedgeb] (ph1) -- (r1);
+\draw[gvedgeb] (ph1) -- (r2);
+\draw[gvedgeb] (ph1) -- (r3);
+\draw[gvedge] (r1) -- (v1);
+\draw[gvedge] (r2) -- (v2);
+\draw[gvedge] (r3) -- (v3);
+\draw[gvedge] (v1) -- (g);
+\draw[gvedge] (v2) -- (g);
+\draw[gvedge] (v3) -- (g);
+\draw[gvedged] (r2) to[out=-40,in=200,looseness=0.7] node[font=\tiny,pos=0.5,fill=protowhite,inner sep=1pt] {regulatory} (v3);
+\node[font=\tiny\itshape,text=protogray,anchor=north,text width=110mm,align=center]
+  at (5.5,-2.5) {Solid edges are technical dependencies; the dashed edge is the
+  one regulatory dependency, because the dry run cannot be scheduled until the
+  logging schema is fixed for the IRB submission.};
+\end{appfig}
+\vspace{-0.7cm}
+\figcaption{The three technical risks a Phase I retires, each with its own
+verification, and the single regulatory dependency that couples the logging
+schema to the scheduling of the dry run.}
+\end{appfloat}
+
+The operation itself is a staged eight-arm robotic pancreaticoduodenectomy with
+perioperative daraxonrasib in resectable or borderline-resectable KRAS
+G12-mutated PDAC: open-label, single-arm, 3+3 escalation, up to 18 treated
+participants, 30-day and 90-day safety, and 24-month overall survival follow-up
+\cite{onpremwhippl,phase1ind}.
+
+\vspace{0.1em}
+\noindent\footnotesize\textbf{Positioning note.} \textit{First in human refers
+to the integrated surgical and advisory workflow, not to daraxonrasib, which is
+investigational and already in Phase 3 evaluation. The robotic configuration is
+specified by manufacturer, model, cleared configuration, arm count, and software
+version at the site agreement, and no drug supply or letter of authorization is
+in place with the agent's developer.}\normalsize\par

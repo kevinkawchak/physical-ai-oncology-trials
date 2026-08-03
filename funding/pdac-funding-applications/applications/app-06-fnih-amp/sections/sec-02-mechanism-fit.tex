@@ -1,0 +1,65 @@
+% sec-02: the consortium structure.  Figure 1 is a d2-type nested container
+% diagram of who contributes what and who receives what.
+\section{Who Contributes What}
+
+\begin{appfloat}[!tb]
+\begin{appfig}[d2-type / nested consortium containers]
+% Three containers on a 4.55cm pitch, three tiles each, plus a shared output
+% container below.  Container titles sit above their children, never inside.
+\foreach \i/\x/\a/\b/\c in {1/0/{Published protocol and IND}/{Audited simulation package}/{Analysis plan and code},
+                            2/4.6/{Patients and operative expertise}/{Pharmacy, IRB, and monitoring}/{Pathology and specimen handling},
+                            3/9.2/{Investigational drug supply}/{Regulatory cross-reference}/{Assay and bioanalytical support}}{
+  \node[d2soft,text width=36mm,minimum height=8mm,anchor=north west] (x\i a) at (\x,0) {\a};
+  \node[d2soft,text width=36mm,minimum height=8mm,anchor=north west] (x\i b) at ([yshift=-2mm]x\i a.south west) {\b};
+  \node[d2soft,text width=36mm,minimum height=8mm,anchor=north west] (x\i c) at ([yshift=-2mm]x\i b.south west) {\c};}
+\begin{scope}[on background layer]
+\node[d2cont,fit=(x1a)(x1c),inner sep=6pt] (c1) {};
+\node[d2cont,fit=(x2a)(x2c),inner sep=6pt] (c2) {};
+\node[d2cont2,fit=(x3a)(x3c),inner sep=6pt] (c3) {};
+\end{scope}
+\node[d2title,anchor=south west] at ([yshift=1.2mm]c1.north west) {Independent scientist};
+\node[d2title,anchor=south west] at ([yshift=1.2mm]c2.north west) {Academic cancer center};
+\node[d2title2,anchor=south west] at ([yshift=1.2mm]c3.north west) {Drug developer};
+\node[d2key,text width=112mm,minimum height=9mm,anchor=north] (out) at ([yshift=-9mm]c2.south)
+  {Shared output: a specimen-level perioperative pharmacodynamic dataset, released openly, owned by none of the three};
+\draw[d2edgeb] (c1.south) -- (out.north west);
+\draw[d2edgeb] (c2.south) -- (out.north);
+\draw[d2edgeb] (c3.south) -- (out.north east);
+\end{appfig}
+\vspace{-0.7cm}
+\figcaption{The three contributing parties and the single shared output. Each
+container holds only what that party can supply, and the output belongs to none
+of them, which is what makes the question pre-competitive.}
+\end{appfloat}
+
+The order in which the three parties commit matters more than the totals. A
+drug cross-reference that arrives after the IRB submission forces a resubmission;
+a site agreement that arrives after the drug supply wastes the supply window.
+
+\begin{appfloat}[!tb]
+\begin{appfig}[mermaid-type / sequence diagram]
+% Four lifelines 3.05 apart; eight messages 0.72 apart, so no arrow label
+% touches the message above or below it.
+\foreach \i/\x/\lab in {1/0/{Independent scientist}, 2/3.1/{FNIH}, 3/6.2/{Drug developer}, 4/9.3/{Academic center}}{
+  \node[mmactor] (a\i) at (\x,0) {\lab};
+  \draw[mmlife] (\x,-0.42) -- (\x,-6.35);}
+\foreach \y/\f/\t/\msg in {%
+  -0.85/0/3.1/{1. Concept and published protocol},
+  -1.57/3.1/6.2/{2. Pre-competitive question confirmed},
+  -2.29/6.2/3.1/{3. Cross-reference letter issued},
+  -3.01/3.1/9.3/{4. Site feasibility request},
+  -3.73/9.3/3.1/{5. Investigator and accrual estimate},
+  -4.45/3.1/0/{6. Consortium agreement executed},
+  -5.17/0/9.3/{7. IRB submission with fixed analysis plan},
+  -5.89/9.3/0/{8. First participant screened}}{
+  \draw[mmmsg] (\f,\y) -- (\t,\y) node[midway,above,font=\tiny\sffamily,fill=protowhite,inner sep=1.2pt] {\msg};}
+\node[font=\tiny\itshape,text=protogray,anchor=north west,text width=100mm]
+  at (-0.6,-6.55) {Message 3 must precede message 7. A cross-reference that
+  arrives after the IRB submission forces a resubmission and costs the accrual
+  window.};
+\end{appfig}
+\vspace{-0.7cm}
+\figcaption{The order in which the four parties must act. The dependency that
+governs the schedule is message 3 preceding message 7, not the size of any one
+contribution.}
+\end{appfloat}

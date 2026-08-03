@@ -72,15 +72,11 @@ privacy/
 from privacy.phi_pii_management.phi_detector import PHIDetector
 
 detector = PHIDetector(
-    detection_mode="comprehensive",
-    data_sources=["clinical_notes", "dicom_headers", "genomic_metadata"]
+    detection_mode="comprehensive", data_sources=["clinical_notes", "dicom_headers", "genomic_metadata"]
 )
 
 # Scan a clinical dataset for PHI
-scan_result = detector.scan_dataset(
-    dataset_path="trial_data/enrollment_records/",
-    output_report="phi_scan_report.json"
-)
+scan_result = detector.scan_dataset(dataset_path="trial_data/enrollment_records/", output_report="phi_scan_report.json")
 
 print(f"PHI instances found: {scan_result.total_findings}")
 print(f"Risk level: {scan_result.risk_assessment}")
@@ -94,16 +90,16 @@ for finding in scan_result.findings[:5]:
 from privacy.de_identification.deidentification_pipeline import DeidentificationPipeline
 
 pipeline = DeidentificationPipeline(
-    method="safe_harbor",       # or "expert_determination"
-    hipaa_identifiers="all_18", # Remove all 18 HIPAA identifiers
-    preserve_clinical_utility=True
+    method="safe_harbor",  # or "expert_determination"
+    hipaa_identifiers="all_18",  # Remove all 18 HIPAA identifiers
+    preserve_clinical_utility=True,
 )
 
 # De-identify a clinical trial dataset
 result = pipeline.deidentify(
     input_path="trial_data/raw_patient_records/",
     output_path="trial_data/deidentified/",
-    data_types=["structured_ehr", "clinical_notes", "dicom_images"]
+    data_types=["structured_ehr", "clinical_notes", "dicom_images"],
 )
 
 print(f"Records processed: {result.records_processed}")
@@ -116,24 +112,17 @@ print(f"Re-identification risk: {result.residual_risk:.4f}")
 ```python
 from privacy.access_control.access_control_manager import AccessControlManager
 
-acm = AccessControlManager(
-    compliance_framework="21_cfr_part_11",
-    audit_enabled=True
-)
+acm = AccessControlManager(compliance_framework="21_cfr_part_11", audit_enabled=True)
 
 # Define trial-specific roles
-acm.define_role("principal_investigator", permissions=[
-    "read_phi", "write_clinical_data", "export_deidentified",
-    "approve_enrollment", "view_audit_logs"
-])
+acm.define_role(
+    "principal_investigator",
+    permissions=["read_phi", "write_clinical_data", "export_deidentified", "approve_enrollment", "view_audit_logs"],
+)
 
-acm.define_role("data_analyst", permissions=[
-    "read_deidentified", "run_queries", "export_aggregated"
-])
+acm.define_role("data_analyst", permissions=["read_deidentified", "run_queries", "export_aggregated"])
 
-acm.define_role("ai_system", permissions=[
-    "read_deidentified", "write_model_outputs"
-])
+acm.define_role("ai_system", permissions=["read_deidentified", "write_model_outputs"])
 
 # Assign users and verify access
 acm.assign_role(user_id="PI-001", role="principal_investigator")
@@ -146,10 +135,7 @@ print(f"Access granted: {access.granted}, Reason: {access.reason}")
 ```python
 from privacy.dua_templates.dua_generator import DUAGenerator
 
-generator = DUAGenerator(
-    template="multi_site_ai_research",
-    jurisdiction="us_hipaa"
-)
+generator = DUAGenerator(template="multi_site_ai_research", jurisdiction="us_hipaa")
 
 dua = generator.generate(
     data_provider="Memorial Sloan Kettering Cancer Center",
@@ -157,7 +143,7 @@ dua = generator.generate(
     data_description="De-identified CT imaging and treatment outcomes for AI model training",
     permitted_uses=["model_training", "validation", "publication"],
     retention_period_years=7,
-    security_requirements=["encryption_at_rest", "encryption_in_transit", "mfa"]
+    security_requirements=["encryption_at_rest", "encryption_in_transit", "mfa"],
 )
 
 dua.export("agreements/msk_consortium_dua_2026.pdf")

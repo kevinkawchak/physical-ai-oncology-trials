@@ -32,8 +32,7 @@ The regulatory landscape for AI in oncology clinical trials is evolving rapidly 
 from regulatory.regulatory_intelligence.regulatory_tracker import RegulatoryTracker
 
 tracker = RegulatoryTracker(
-    jurisdictions=["fda", "ema", "ich"],
-    topics=["ai_ml_devices", "oncology", "clinical_trials"]
+    jurisdictions=["fda", "ema", "ich"], topics=["ai_ml_devices", "oncology", "clinical_trials"]
 )
 
 updates = tracker.get_recent_updates(days=30)

@@ -1,8 +1,8 @@
 # End-to-End Physical AI Unification of Oncology Clinical Trials
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Release](https://img.shields.io/badge/Release-v4.3.0-brightgreen.svg)](https://github.com/kevinkawchak/physical-ai-oncology-trials)
-[![Last Updated](https://img.shields.io/badge/Updated-July%202026-blue.svg)](https://github.com/kevinkawchak/physical-ai-oncology-trials)
+[![Release](https://img.shields.io/badge/Release-v4.4.0-brightgreen.svg)](https://github.com/kevinkawchak/physical-ai-oncology-trials)
+[![Last Updated](https://img.shields.io/badge/Updated-August%202026-blue.svg)](https://github.com/kevinkawchak/physical-ai-oncology-trials)
 [![Protocol](https://img.shields.io/badge/Protocol-MCP-purple.svg)](https://github.com/kevinkawchak/physical-ai-oncology-trials)
 [![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.18445179-blue)](https://doi.org/10.5281/zenodo.18445179)
 [![Python](https://img.shields.io/badge/Python-3.10%20|%203.11%20|%203.12-blue.svg)](https://www.python.org/)
@@ -21,10 +21,15 @@
 [![Paper DOI v1.0](https://img.shields.io/badge/Paper%20DOI%20v1.0-10.5281%2Fzenodo.21018646-blue.svg)](https://doi.org/10.5281/zenodo.21018646)
 [![IND](https://img.shields.io/badge/IND-Phase%201%20PDAC%20AI%20Generation-blue.svg)](trial-ind)
 [![IND DOI v1.0](https://img.shields.io/badge/IND%20DOI%20v1.0-10.5281%2Fzenodo.21097442-blue.svg)](https://doi.org/10.5281/zenodo.21097442)
+[![Funding Applications](https://img.shields.io/badge/Funding-10%20Independent%20Scientist%20Applications-00417A.svg)](funding/pdac-funding-applications)
+[![Policy Basis](https://img.shields.io/badge/Policy-Science%3A%20A%20New%20Golden%20Age-3C7DB2.svg)](funding/science-golden-age)
+[![Summary Paper DOI](https://img.shields.io/badge/Paper%20DOI%20v1.0-10.5281%2Fzenodo.xxxxxxxx-blue.svg)](https://doi.org/10.5281/zenodo.xxxxxxxx)
 
 **Comprehensive developments for integrating physical AI into oncology clinical trials, by Claude Code, Cowork; with Assistance from ChatGPT and Google Gemini.**
 
 This repository provides production-ready configurations, validated pipelines, and integration guides for deploying robotic systems, digital twins, and embodied AI agents in oncology. 
+
+**8/3: v4.4.0 (10 PDAC Independent-Scientist Funding Applications + Summary Paper)** *v4.4.0 adds funding/pdac-funding-applications/: ten recipient-unique Phase 1 pancreatic cancer funding application email file sets written under the White House "Science: A New Golden Age" individual-scientist approach, plus a 20-figure summary paper across five machine-readable diagram platforms.* [![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.xxxxxxxx-blue)](https://doi.org/10.5281/zenodo.xxxxxxxx)
 
 **7/12: (Clinical Trial Funding Application v2.0)** *RFA-RM-27-001, Kawchak K. The application proposes a first-in-human, combined drug-device investigation of perioperative daraxonrasib and an eight-arm robotic pancreaticoduodenectomy."*  
 [![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.21317266-blue)](https://doi.org/10.5281/zenodo.21317266)
@@ -96,6 +101,121 @@ python scripts/verify_installation.py
 # Detect available simulation frameworks
 python unification/cross_platform_tools/framework_detector.py
 ```
+---
+
+## 10 PDAC Independent-Scientist Funding Applications (v4.4.0)
+
+[![Applications](https://img.shields.io/badge/Applications-10%20email%20file%20sets-00417A.svg)](funding/pdac-funding-applications/applications)
+[![Split](https://img.shields.io/badge/Split-5%20surgical%20%2F%205%20medical%20oncology-3C7DB2.svg)](funding/pdac-funding-applications/applications)
+[![Figures](https://img.shields.io/badge/Summary%20paper%20figures-20-6C757D.svg)](funding/pdac-funding-applications/final-apply)
+[![Platforms](https://img.shields.io/badge/Diagram%20platforms-5-6C757D.svg)](funding/pdac-funding-applications/sub-prompts/part-ii)
+[![Partner](https://img.shields.io/badge/Partner%20of%20choice-UC%20San%20Diego%20Moores-6C757D.svg)](funding/potential-partners/UC-San-Diego)
+[![Rasters](https://img.shields.io/badge/PNG%20%2F%20JPG-none-9AA1A8.svg)](funding/pdac-funding-applications)
+
+**A 425-character summary.** v4.4.0 adds `funding/pdac-funding-applications/`:
+ten recipient-unique Phase 1 pancreatic cancer funding applications written as an
+independent scientist under the White House report's $200 billion
+individual-scientist realignment, five surgical and five medical oncology, all
+naming UC San Diego Moores Cancer Center, plus a 20-figure summary paper built
+through five diagram stages then draft, full and final. Every source compiles at
+zero errors.
+
+### The build, end to end
+
+```mermaid
+%%{init: {'theme':'base','themeVariables':{'fontSize':'12px','lineColor':'#6C757D'}}}%%
+flowchart TB
+    POL["Science: A New Golden Age<br/>~$200B portfolio, individual scientist"]:::goal
+    MP["One master prompt<br/>prompts/prompt-apply.md"]:::mid
+    P1["PART I: 5 sub-prompts<br/>10 application file sets"]:::accent
+    P2["PART II: 8 sub-prompts<br/>20 figures, one summary paper"]:::accent
+    SA["Set A, surgical<br/>01 Pioneer, 02 ARPA-H, 03 X-Labs,<br/>04 Genesis, 05 SBIR"]:::soft
+    SB["Set B, medical oncology<br/>06 FNIH, 07 HHMI, 08 CTEP,<br/>09 FRO, 10 UCSD Moores"]:::soft
+    DG["5 diagram stages<br/>mermaid, plantuml, d2,<br/>diagrams-python, graphviz"]:::input
+    ST["draft-apply -> full-apply -> final-apply"]:::input
+    REL["Release v4.4.0"]:::proc
+    POL --> MP
+    MP --> P1
+    MP --> P2
+    P1 --> SA
+    P1 --> SB
+    P2 --> DG --> ST
+    SA --> REL
+    SB --> REL
+    ST --> REL
+    classDef goal fill:#00417A,stroke:#00417A,stroke-width:1.5px,color:#FFFFFF
+    classDef mid fill:#3C7DB2,stroke:#00417A,stroke-width:1px,color:#FFFFFF
+    classDef accent fill:#6C757D,stroke:#00417A,stroke-width:1px,color:#FFFFFF
+    classDef soft fill:#DCE8F1,stroke:#3C7DB2,stroke-width:1px,color:#00417A
+    classDef input fill:#E9ECEF,stroke:#6C757D,stroke-width:1px,color:#000000
+    classDef proc fill:#00417A,stroke:#00417A,stroke-width:1.2px,color:#FFFFFF
+```
+
+### The ten recipients
+
+| # | Recipient | Perspective | Term | Direct ask |
+|:--|:--|:--|:--|:--|
+| 01 | NIH Common Fund, Director's Pioneer Award | Surgical | 5 years | $3,500,000 |
+| 02 | ARPA-H mission office | Surgical | 36 months, 3 gates | $2,100,000 |
+| 03 | NSF TIP Directorate, X-Labs | Surgical | 5 years | $3,500,000 |
+| 04 | DOE Office of Science, Genesis Mission | Surgical | 5 years | $3,500,000 |
+| 05 | NIH SEED, SBIR and STTR | Surgical | 9 + 24 months | $1,606,000 |
+| 06 | Foundation for the NIH, AMP | Medical oncology | 5 years | $3,500,000 cash |
+| 07 | HHMI Investigator Program | Medical oncology | 7 years | $700,000 per year |
+| 08 | NCI Cancer Therapy Evaluation Program | Medical oncology | 5 years | $3,500,000 |
+| 09 | Convergent Research, FRO programme | Medical oncology | 5 years, dissolves | $3,500,000 |
+| 10 | UC San Diego Moores Cancer Center | Medical oncology | one meeting | none |
+
+Each qualifies only because *Science: A New Golden Age* names its programme or
+the mechanism it runs. The trial is constant across all ten, so a reviewer
+comparing two of them is comparing two mechanisms with the science held fixed.
+
+### The twenty figures, by platform and purpose
+
+| Platform | Count | The question only this vocabulary can state |
+|:--|:--|:--|
+| Mermaid-type | 6 | What happens next, what decides, how long, who spoke in what order |
+| PlantUML-type | 3 | Who is permitted to act, under what guard, and what runs concurrently |
+| D2-type | 4 | What contains what, what tabulates against what, what joins to what |
+| Diagrams (python)-type | 3 | What runs where, across which trust boundary |
+| Graphviz-type | 4 | What depends on what, how a failure propagates |
+
+The split follows purpose rather than quota. No PNG or JPG is generated
+anywhere: every figure is pure TikZ, and the diagrams-python stage emits a
+machine-readable specification rather than a `.py` file, which also keeps the
+repository's three `lint-and-format` checks green.
+
+### Stage outputs
+
+| Stage | Directory | Output | Verified |
+|:--|:--|:--|:--|
+| PART I | [`applications/`](funding/pdac-funding-applications/applications) | 10 email `.txt`, 10 attachments, 10 zips | 0 errors, 4 to 5 pages each |
+| Diagrams | [`mermaid/`](funding/pdac-funding-applications/mermaid) .. [`graphviz/`](funding/pdac-funding-applications/graphviz) | 20 figure specifications | source + TikZ notes |
+| Stage 6 | [`draft-apply/`](funding/pdac-funding-applications/draft-apply) | Skeleton, 20 slots, drafting instructions | 0 errors, 20 pages |
+| Stage 7 | [`full-apply/`](funding/pdac-funding-applications/full-apply) | 20 figures drawn, 18 tables | 0 errors, 33 pages |
+| Stage 8 | [`final-apply/`](funding/pdac-funding-applications/final-apply) | Senior-author pass, no `publication/` | 0 errors, 34 pages |
+
+### Table of contents for the summary paper
+
+| § | Section | Figures |
+|:--|:--|:--|
+| 0 | Abstract, how to read, inventories | none |
+| 1 | The $200 billion realignment and the individual scientist | 1, 2 |
+| 2 | The ten applications | 3, 6 |
+| 3 | Set A: the surgical perspective | 5, 8 |
+| 4 | Set B: the medical oncology perspective | 19 |
+| 5 | Trial evidence | 4, 7, 16 |
+| 6 | Physical AI governance | 9, 10, 12, 13, 14, 15 |
+| 7 | UC San Diego Moores Cancer Center | none, by design |
+| 8 | Budget and leverage | 11, 17 |
+| 9 | Build method | 18 |
+| 10 | Risks and limits | 20 |
+| 11 | Back matter | none |
+
+Nothing in v4.4.0 is a submission of record. Every application is a draft the
+author compiles, verifies, and sends; UC San Diego is named as the intended
+partner of choice and nowhere as a partner, sponsor, trial site, or endorser.
+
 ---
 
 ## Phase 1 PDAC IND: AI Generation (v4.3.0)
@@ -510,6 +630,24 @@ physical-ai-oncology-trials/
 ├── V1_RELEASE.md
 ├── LICENSE
 ├── requirements.txt
+│
+├── funding/                           # ★ 10 PDAC Independent-Scientist Applications (v4.4.0)
+│   ├── README.md                      # funding hub: structure, DOIs, source map
+│   ├── pdac-funding-applications/     # v4.4.0 build
+│   │   ├── prompts/                   # prompt-apply.md (master, verbatim) + output-apply.md
+│   │   ├── sub-prompts/part-i/        # 5 sub-prompts: the ten application file sets
+│   │   ├── sub-prompts/part-ii/       # 8 sub-prompts: the summary paper
+│   │   ├── applications/              # app-01 .. app-10: .txt, main.tex, sections/, zip
+│   │   ├── mermaid/ plantuml/ d2/     # figure specifications, 6 + 3 + 4
+│   │   ├── diagrams-python/ graphviz/ # figure specifications, 3 + 4
+│   │   ├── draft-apply/               # Stage 6: skeleton, 20 slots, drafting instructions
+│   │   ├── full-apply/                # Stage 7: 20 figures drawn, 18 tables + zip
+│   │   └── final-apply/               # Stage 8: senior-author pass + zip (no publication dir)
+│   ├── science-golden-age/            # the July 2026 White House report, chunked + BibTeX
+│   ├── RFA-RM-27-001/ RFA-RM-27-001-v2/  # the two completed NIH applications (LaTeX sources)
+│   ├── pdfs/                          # compiled PDFs of both applications
+│   ├── supplementary/                 # founding documents + 3 LaTeX source zips
+│   └── potential-partners/            # UC San Diego (partner of choice) and Scripps
 │
 ├── trial-ind/                         # ★ Phase 1 PDAC IND: AI Generation (v4.3.0)
 │   ├── README.md                      # build hub (IND v1.0 / repo v4.3.0)

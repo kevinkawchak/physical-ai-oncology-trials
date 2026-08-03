@@ -236,6 +236,7 @@ model_output = softmax([2.1, 0.3, 0.1])
 
 # Solution: Uncertainty estimation
 from uncertainty import MCDropout
+
 uncertainty_model = MCDropout(base_model, n_samples=20)
 mean, std = uncertainty_model.predict_with_uncertainty(x)
 # Now have uncertainty estimate

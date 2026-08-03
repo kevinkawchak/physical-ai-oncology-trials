@@ -69,6 +69,7 @@ from isaaclab.scene import InteractiveScene
 from isaaclab.assets import RigidObject, Articulation
 from isaaclab.sensors import Camera, ContactSensor
 
+
 class SurgicalTaskEnv(DirectRLEnv):
     """Base environment for surgical robotics tasks."""
 
@@ -84,35 +85,21 @@ class SurgicalTaskEnv(DirectRLEnv):
         """Configure surgical scene."""
         # Add surgical robot (dVRK-style)
         self.robot = Articulation(
-            prim_path="/World/Robot",
-            cfg=self.cfg.robot_cfg,
-            init_state=self.cfg.robot_init_state
+            prim_path="/World/Robot", cfg=self.cfg.robot_cfg, init_state=self.cfg.robot_init_state
         )
 
         # Add deformable tissue
-        self.tissue = DeformableObject(
-            prim_path="/World/Tissue",
-            cfg=self.cfg.tissue_cfg
-        )
+        self.tissue = DeformableObject(prim_path="/World/Tissue", cfg=self.cfg.tissue_cfg)
 
         # Add camera (endoscopic view)
         self.camera = Camera(
-            prim_path="/World/Camera",
-            cfg=CameraCfg(
-                width=640,
-                height=480,
-                focal_length=4.0,
-                horizontal_aperture=3.6
-            )
+            prim_path="/World/Camera", cfg=CameraCfg(width=640, height=480, focal_length=4.0, horizontal_aperture=3.6)
         )
 
         # Add contact sensors
         self.contact_sensor = ContactSensor(
             prim_path="/World/Robot/ee_link",
-            cfg=ContactSensorCfg(
-                history_length=10,
-                filter_prim_paths=["/World/Tissue"]
-            )
+            cfg=ContactSensorCfg(history_length=10, filter_prim_paths=["/World/Tissue"]),
         )
 
     def _get_observations(self):
@@ -123,7 +110,7 @@ class SurgicalTaskEnv(DirectRLEnv):
             "ee_pos": self.robot.data.body_pos_w[:, self.ee_idx],
             "ee_quat": self.robot.data.body_quat_w[:, self.ee_idx],
             "contact_force": self.contact_sensor.data.net_forces_w,
-            "image": self.camera.data.output["rgb"]
+            "image": self.camera.data.output["rgb"],
         }
         return obs
 
@@ -133,10 +120,7 @@ class SurgicalTaskEnv(DirectRLEnv):
         task_reward = self._check_task_completion()
 
         # Safety penalties
-        force_penalty = torch.clamp(
-            self.contact_sensor.data.net_forces_w.norm(dim=-1) - 5.0,
-            min=0.0
-        ) * 0.1
+        force_penalty = torch.clamp(self.contact_sensor.data.net_forces_w.norm(dim=-1) - 5.0, min=0.0) * 0.1
 
         # Efficiency reward
         time_penalty = 0.001
@@ -201,12 +185,13 @@ class NeedleInsertionEnvCfg(DirectRLEnvCfg):
 from isaaclab.algos import PPO
 from isaaclab.utils import get_device
 
+
 def train_needle_insertion():
     # Environment setup
     env = NeedleInsertionEnv(
         cfg=NeedleInsertionEnvCfg(),
         num_envs=4096,  # Parallel environments
-        device=get_device()
+        device=get_device(),
     )
 
     # Algorithm configuration
@@ -220,26 +205,17 @@ def train_needle_insertion():
         max_grad_norm=1.0,
         num_epochs=5,
         batch_size=8192,
-        num_mini_batches=4
+        num_mini_batches=4,
     )
 
     # Initialize algorithm
-    agent = PPO(
-        env=env,
-        cfg=ppo_cfg,
-        network_cfg=NetworkCfg(
-            hidden_layers=[512, 256, 128],
-            activation="elu"
-        )
-    )
+    agent = PPO(env=env, cfg=ppo_cfg, network_cfg=NetworkCfg(hidden_layers=[512, 256, 128], activation="elu"))
 
     # Training loop
     agent.train(
-        total_timesteps=10_000_000,
-        log_interval=10,
-        save_interval=100,
-        checkpoint_dir="checkpoints/needle_insertion"
+        total_timesteps=10_000_000, log_interval=10, save_interval=100, checkpoint_dir="checkpoints/needle_insertion"
     )
+
 
 if __name__ == "__main__":
     train_needle_insertion()
@@ -254,36 +230,22 @@ from isaaclab.utils import RandomizationCfg
 oncology_randomization = RandomizationCfg(
     # Visual randomization
     lighting=RandomizationCfg.LightingCfg(
-        intensity_range=(0.7, 1.3),
-        color_temperature_range=(3000, 6500),
-        position_noise=0.1
+        intensity_range=(0.7, 1.3), color_temperature_range=(3000, 6500), position_noise=0.1
     ),
-
     # Physics randomization
     tissue_properties=RandomizationCfg.MaterialCfg(
         stiffness_range=(0.5, 2.0),  # Relative to nominal
         friction_range=(0.3, 0.8),
-        damping_range=(0.8, 1.2)
+        damping_range=(0.8, 1.2),
     ),
-
     # Geometric randomization
-    object_pose=RandomizationCfg.PoseCfg(
-        position_noise_mm=5.0,
-        orientation_noise_deg=5.0
-    ),
-
+    object_pose=RandomizationCfg.PoseCfg(position_noise_mm=5.0, orientation_noise_deg=5.0),
     # Action randomization (for robustness)
-    action=RandomizationCfg.ActionCfg(
-        delay_range_ms=(0, 20),
-        noise_std=0.01
-    )
+    action=RandomizationCfg.ActionCfg(delay_range_ms=(0, 20), noise_std=0.01),
 )
 
 # Apply during training
-env = NeedleInsertionEnv(
-    cfg=NeedleInsertionEnvCfg(),
-    randomization_cfg=oncology_randomization
-)
+env = NeedleInsertionEnv(cfg=NeedleInsertionEnvCfg(), randomization_cfg=oncology_randomization)
 ```
 
 ---
@@ -295,20 +257,16 @@ env = NeedleInsertionEnv(
 ```python
 # Available surgical robot configurations
 from isaaclab_healthcare.robots import (
-    DVRKCfg,           # da Vinci Research Kit
-    STARCfg,           # Smart Tissue Autonomous Robot
-    UR5SurgicalCfg,    # UR5 with surgical end-effector
-    FrankaSurgicalCfg  # Franka Emika for lab automation
+    DVRKCfg,  # da Vinci Research Kit
+    STARCfg,  # Smart Tissue Autonomous Robot
+    UR5SurgicalCfg,  # UR5 with surgical end-effector
+    FrankaSurgicalCfg,  # Franka Emika for lab automation
 )
 
 # Load dVRK with surgical instruments
 robot = Articulation(
     prim_path="/World/DVRK",
-    cfg=DVRKCfg(
-        end_effector="needle_driver",
-        enable_force_torque_sensor=True,
-        control_mode="impedance"
-    )
+    cfg=DVRKCfg(end_effector="needle_driver", enable_force_torque_sensor=True, control_mode="impedance"),
 )
 ```
 
@@ -316,20 +274,10 @@ robot = Articulation(
 
 ```python
 # ORBIT-Surgical integration
-from orbit_surgical.envs import (
-    NeedlePickEnv,
-    NeedleHandoverEnv,
-    SuturingEnv,
-    TissueRetractionEnv,
-    GauzeCuttingEnv
-)
+from orbit_surgical.envs import NeedlePickEnv, NeedleHandoverEnv, SuturingEnv, TissueRetractionEnv, GauzeCuttingEnv
 
 # Create benchmark environment
-env = NeedlePickEnv(
-    num_envs=1024,
-    device="cuda:0",
-    headless=True
-)
+env = NeedlePickEnv(num_envs=1024, device="cuda:0", headless=True)
 ```
 
 ---
@@ -341,6 +289,7 @@ env = NeedlePickEnv(
 ```python
 # export_policy.py
 import torch.onnx
+
 
 def export_to_onnx(model, env, output_path):
     """Export trained policy to ONNX for edge deployment."""
@@ -355,21 +304,15 @@ def export_to_onnx(model, env, output_path):
         output_path,
         input_names=["observation"],
         output_names=["action"],
-        dynamic_axes={
-            "observation": {0: "batch"},
-            "action": {0: "batch"}
-        },
-        opset_version=17
+        dynamic_axes={"observation": {0: "batch"}, "action": {0: "batch"}},
+        opset_version=17,
     )
 
     print(f"Exported policy to {output_path}")
 
+
 # Usage
-export_to_onnx(
-    model=trained_agent.policy,
-    env=env,
-    output_path="policies/needle_insertion.onnx"
-)
+export_to_onnx(model=trained_agent.policy, env=env, output_path="policies/needle_insertion.onnx")
 ```
 
 ### Deployment on Edge (Jetson/IGX)
@@ -379,13 +322,11 @@ export_to_onnx(
 import onnxruntime as ort
 import numpy as np
 
+
 class EdgePolicy:
     def __init__(self, onnx_path):
         # Load ONNX model
-        self.session = ort.InferenceSession(
-            onnx_path,
-            providers=["CUDAExecutionProvider", "CPUExecutionProvider"]
-        )
+        self.session = ort.InferenceSession(onnx_path, providers=["CUDAExecutionProvider", "CPUExecutionProvider"])
 
         self.input_name = self.session.get_inputs()[0].name
         self.output_name = self.session.get_outputs()[0].name
@@ -396,12 +337,10 @@ class EdgePolicy:
         if obs_np.ndim == 1:
             obs_np = obs_np[np.newaxis, :]
 
-        action = self.session.run(
-            [self.output_name],
-            {self.input_name: obs_np}
-        )[0]
+        action = self.session.run([self.output_name], {self.input_name: obs_np})[0]
 
         return action[0]
+
 
 # Deploy on robot
 policy = EdgePolicy("policies/needle_insertion.onnx")
@@ -421,20 +360,18 @@ while running:
 # multi_gpu_train.py
 from isaaclab.utils.distributed import setup_distributed
 
+
 def train_distributed():
     # Setup distributed training
     rank, world_size = setup_distributed()
 
     # Create environment with proper GPU assignment
-    env = NeedleInsertionEnv(
-        cfg=NeedleInsertionEnvCfg(),
-        num_envs=4096 // world_size,
-        device=f"cuda:{rank}"
-    )
+    env = NeedleInsertionEnv(cfg=NeedleInsertionEnvCfg(), num_envs=4096 // world_size, device=f"cuda:{rank}")
 
     # Training with gradient synchronization
     agent = PPO(env=env, cfg=ppo_cfg, distributed=True)
     agent.train(total_timesteps=10_000_000)
+
 
 # Launch with: torchrun --nproc_per_node=4 multi_gpu_train.py
 ```
@@ -448,18 +385,15 @@ from isaaclab.utils import MemoryEfficientCfg
 mem_cfg = MemoryEfficientCfg(
     # Gradient checkpointing
     checkpoint_layers=True,
-
     # Mixed precision
     use_amp=True,
     amp_dtype="float16",
-
     # Replay buffer
     buffer_device="cpu",  # Keep buffer on CPU
     batch_prefetch=True,
-
     # Observation compression
     compress_images=True,
-    image_dtype="uint8"
+    image_dtype="uint8",
 )
 ```
 
@@ -475,11 +409,8 @@ agent = PPO(
     env=env,
     cfg=ppo_cfg,
     logger_cfg=LoggerCfg(
-        log_dir="runs/needle_insertion",
-        log_to_tensorboard=True,
-        log_to_wandb=True,
-        video_interval=1000
-    )
+        log_dir="runs/needle_insertion", log_to_tensorboard=True, log_to_wandb=True, video_interval=1000
+    ),
 )
 
 # Launch TensorBoard
@@ -493,11 +424,7 @@ agent = PPO(
 from isaaclab.utils import visualize_policy
 
 visualize_policy(
-    env=env,
-    policy=trained_agent.policy,
-    num_episodes=10,
-    record_video=True,
-    output_path="videos/needle_insertion.mp4"
+    env=env, policy=trained_agent.policy, num_episodes=10, record_video=True, output_path="videos/needle_insertion.mp4"
 )
 ```
 
@@ -516,13 +443,10 @@ newton_config = NewtonPhysics(
     solver="implicit",
     gpu_accelerated=True,
     differentiable=True,  # Gradient propagation through simulation
-    contact_model="newton_contact"
+    contact_model="newton_contact",
 )
 
-env = SurgicalEnv(
-    physics_engine=newton_config,
-    num_envs=4096
-)
+env = SurgicalEnv(physics_engine=newton_config, num_envs=4096)
 ```
 
 **Key Newton Features:**
@@ -542,14 +466,11 @@ Isaac Lab-Arena provides large-scale benchmarking for generalist robot policies:
 from isaac_lab_arena import BenchmarkRunner
 
 runner = BenchmarkRunner(
-    benchmarks=["libero", "robocasa", "surgical_tasks"],
-    policy_path="policies/surgical_assistant.onnx"
+    benchmarks=["libero", "robocasa", "surgical_tasks"], policy_path="policies/surgical_assistant.onnx"
 )
 
 results = runner.evaluate(
-    num_episodes=10000,
-    parallel_envs=4096,
-    metrics=["success_rate", "completion_time", "safety_violations"]
+    num_episodes=10000, parallel_envs=4096, metrics=["success_rate", "completion_time", "safety_violations"]
 )
 ```
 

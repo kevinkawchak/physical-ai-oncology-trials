@@ -1,0 +1,187 @@
+% sec-05: chronology, simulations, RASolute 302.  Figures 4, 7, 16.
+\section{Trial Evidence}
+
+\subsection{The Chronology}
+
+\begin{appfloat}[!tb]
+\begin{appfig}[mermaid-type / gantt]
+% Time axis of 15 months at 0.78cm per month.  Six author rows 0.62 apart, then
+% a rule, then the external row.  The two 2025 overlaps are the only bars in the
+% darker fill, because the overlap is the figure's point.
+\foreach \m/\lab in {0/{Jun 25}, 3/{Sep 25}, 6/{Dec 25}, 9/{Mar 26}, 12/{Jun 26}, 14/{Aug 26}}{
+  \draw[pagraym,line width=0.3pt] (\m*0.78,0.42) -- (\m*0.78,-4.35);
+  \node[font=\tiny\sffamily,text=protogray,anchor=south] at (\m*0.78,0.45) {\lab};}
+\fill[pagrayl] (0.78,-0.32) rectangle (2.34,-1.56);
+\node[mmbar,minimum width=1.56cm,anchor=west] at (0,0) {};
+\node[font=\tiny\sffamily,anchor=west] at (1.64,0) {Drug identification, 40 PDAC meta-analyses};
+\node[mmbark,minimum width=1.56cm,anchor=west] at (0.78,-0.62) {};
+\node[font=\tiny\sffamily,anchor=west] at (2.42,-0.62) {QSP simulation, 10 arms, 250 ODEs};
+\node[mmbark,minimum width=1.56cm,anchor=west] at (2.34,-1.24) {};
+\node[font=\tiny\sffamily,anchor=west] at (3.98,-1.24) {Digital twin, 1000 patients, 55 tests};
+\node[mmbar,minimum width=2.34cm,anchor=west] at (7.80,-1.86) {};
+\node[font=\tiny\sffamily,anchor=west] at (10.22,-1.86) {Protocols, IND, bill drafts};
+\node[mmbar,minimum width=0.78cm,anchor=west] at (10.14,-2.48) {};
+\node[font=\tiny\sffamily,anchor=west] at (11.00,-2.48) {Two funding applications, 5 days apart};
+\node[mmbar,minimum width=0.78cm,anchor=west] at (10.92,-3.10) {};
+\node[font=\tiny\sffamily,anchor=west] at (11.78,-3.10) {Ten application file sets};
+\draw[pagrayd,line width=0.5pt] (0,-3.55) -- (13.0,-3.55);
+\node[mmbarg,minimum width=0.30cm,anchor=west] at (8.58,-3.95) {};
+\node[font=\tiny\sffamily,anchor=west] at (8.96,-3.95) {RASolute 302 readout, independent};
+\node[mmlanetitle,anchor=east,align=right] at (-0.15,-1.24) {Author\\work};
+\node[mmlanetitle,anchor=east,align=right] at (-0.15,-3.95) {External};
+\node[font=\tiny\itshape,text=protogray,anchor=north west,text width=112mm]
+  at (0,-4.55) {The shaded band marks the two months in which two activities ran
+  at once. Bar length is elapsed time, not effort.};
+\end{appfig}
+\vspace{-0.7cm}
+\figcaption{Fourteen months of author work against the one external readout.\\
+Bar length is elapsed time, not effort, and the two 2025 overlaps\\
+are what a single operator could not have run sequentially.}
+\end{appfloat}
+
+In June 2025 deep-research meta-analysis over forty pancreatic cancer literature
+areas, more than 400,000 words, produced a ranked shortlist from which
+daraxonrasib emerged as the leading candidate \cite{daraxident}. In August 2025
+a quantitative systems pharmacology simulation, ten arms and 250 ordinary
+differential equations per patient, returned median overall survival of 12.8
+months against 5.4 for chemotherapy \cite{qspmetpancre}. In October 2025 a
+1000-patient digital twin returned a best progression-free survival hazard ratio
+of 0.31 with an ASME V\&V 40 and ICH M15 aligned credibility score of 81.9
+across 55 verification notebook tests \cite{daraxsims,asmevv40,ichm15}.
+
+In May 2026, nine months after the QSP run, RASolute 302 reported 13.2 months
+against 6.6 in the RAS G12 population of previously treated metastatic
+pancreatic cancer \cite{rasolute302}. Between June and July 2026 the regulatory
+package was written and two complete NIH funding applications were deposited
+five days apart \cite{fundapp1,fundapp2}.
+
+\subsection{What the Numbers Are, and What They Are Not}
+
+\begin{apptable}
+\begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}p{2.6cm} >{\raggedright\arraybackslash}p{1.5cm} >{\raggedright\arraybackslash}p{1.6cm} >{\raggedright\arraybackslash}p{1.5cm} >{\raggedright\arraybackslash}X}
+\headrow \thead{Source} & \thead{Date} & \thead{Test arm} & \thead{Control} & \thead{Stated limitation, in the authors' own words}\\
+\midrule
+Empirical triplicate, 100,000 patients & Jul 2025 & G3+ AE 8.0\% & G3+ AE 25.0\% & KRAS G12C log file favours experimental while the KRAS-mutant report favours control; trial-to-trial variability \\
+QSP simulation, 10 arms & Aug 2025 & 12.8 mo mOS, HR 0.25 & 5.4 mo mOS & Assumes no acquired resistance and ideal pharmacodynamics; G3+ AE consistently high in all arms \\
+Digital twin, 1000 patients & Oct 2025 & 12.1 mo mOS, mPFS HR 0.31 & not applicable & No patient-specific PK, PD, or tumour growth parameters; simple Emax model, no immune compartments \\
+RASolute 302 & May 2026 & 13.2 mo mOS & 6.6 mo mOS & Metastatic and previously treated; silent on the resectable setting \\
+\end{tabularx}
+\end{apptable}
+\tabcap{Four sources with the limitation each set of authors stated, carried in
+the same row as the result. No row can be read without the caveat that qualifies
+it, which is the condition on citing any of them.}
+
+The 2025 simulated ratio of 2.4-fold and the 2026 observed ratio of 2.0-fold are
+close. That proximity is a chronology observation and a hypothesis-supporting
+one. It is \textbf{not} a validation claim, and three differences are material:
+1000 simulated against 241 enrolled; a combination against a single agent; and
+KRAS G12C against a primarily G12D and G12V population. Those clauses appear in
+all ten applications, in the same paragraph as the numbers, for the same reason
+they appear here.
+
+\begin{appfloat}[!tb]
+\begin{appfig}[d2-type / nested containers]
+% Four nested containers drawn on the background layer so no container edge
+% crosses a leaf.  Titles sit at each container's top-left, outside the child
+% field, 1.2mm above the edge.
+\node[d2soft,text width=40mm,minimum height=7.5mm] (l1) at (0,0) {QSP, 10 arms, 250 ODEs\\mOS 12.8 vs 5.4};
+\node[d2soft,text width=40mm,minimum height=7.5mm,anchor=north west] (l2) at ([yshift=-2.6mm]l1.south west) {Empirical triplicate\\100,000 patients};
+\begin{scope}[on background layer]
+\node[d2cont2,fit=(l1)(l2),inner sep=6pt] (c1) {};
+\end{scope}
+\node[d2title2,anchor=south west] at ([yshift=1.2mm]c1.north west) {Tier 1: in silico exploration};
+\node[d2soft,text width=40mm,minimum height=7.5mm,anchor=north west] (l3) at ([yshift=-8mm]c1.south west) {Digital twin, credibility 81.9\\55 verification tests};
+\node[d2soft,text width=40mm,minimum height=7.5mm,anchor=north west] (l4) at ([yshift=-2.6mm]l3.south west) {ASME V\&V 40 and ICH M15\\alignment};
+\begin{scope}[on background layer]
+\node[d2cont,fit=(c1)(l3)(l4),inner sep=7pt] (c2) {};
+\end{scope}
+\node[d2title,anchor=south west] at ([yshift=1.2mm]c2.north west) {Tier 2: verified computation};
+\node[d2key,text width=40mm,minimum height=7.5mm,anchor=north west] (l5) at ([yshift=-8mm]c2.south west) {RASolute 302\\mOS 13.2 vs 6.6, RAS G12};
+\begin{scope}[on background layer]
+\node[d2cont,fit=(c2)(l5),inner sep=7pt] (c3) {};
+\end{scope}
+\node[d2title,anchor=south west] at ([yshift=1.2mm]c3.north west) {Tier 3: peer-reviewed clinical result};
+\node[d2gray,text width=40mm,minimum height=7.5mm,anchor=north west] (l6) at ([yshift=-8mm]c3.south west) {This Phase 1, up to 18\\participants, no result yet};
+\begin{scope}[on background layer]
+\node[d2ghost,fit=(c3)(l6),inner sep=7pt] (c4) {};
+\end{scope}
+\node[d2title2,anchor=south west] at ([yshift=1.2mm]c4.north west) {Tier 4: proposed clinical research};
+\node[font=\tiny\itshape,text=protogray,anchor=north west,text width=58mm]
+  at ([xshift=54mm,yshift=-6mm]c4.north west) {The outer container is dashed
+  because it holds no evidence yet. Nothing inside a container may be cited as
+  though it were the container: a tier 1 result is not a tier 3 result, and the
+  proposed trial is not a result at all.};
+\end{appfig}
+\vspace{-0.7cm}
+\figcaption{Four evidence tiers drawn as containment rather than as a ladder.\\
+Nothing inside a container may be cited as though it were the\\
+container, which is the whole of the paper's evidentiary discipline.}
+\end{appfloat}
+
+\subsection{Cost and Schedule}
+
+\begin{apptable}
+\begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}p{4.3cm} >{\raggedright\arraybackslash}p{2.6cm} >{\raggedright\arraybackslash}p{2.5cm} >{\raggedright\arraybackslash}X}
+\headrow \thead{Work product} & \thead{Industry cost} & \thead{Industry schedule} & \thead{This author}\\
+\midrule
+Empirical virtual trial, triplicate & above \$120,000 per run & 4.5 months & \$36,330 estimated, about one month \\
+Ten-arm QSP virtual trial & above \$2,000,000 & several months to over a year & \$36,330 estimated, about one month \\
+Digital-twin simulator platform & \$28,000 to \$700,000 & 3 to 16 weeks & \$36,330 estimated, about one month \\
+\end{tabularx}
+\end{apptable}
+\tabcap{Three work products against their industry cost and schedule benchmarks.
+The author figures are estimates from the source set and are reported as such,
+not as audited accounts.}
+
+\subsection{Provenance}
+
+\begin{appfloat}[!tb]
+\begin{appfig}[graphviz-type / citation graph]
+% Two clusters, left at x = 1.2 and right at x = 8.6, so the two lines are
+% visibly parallel.  The corridor between them holds only the two dashed
+% crossing edges; its emptiness is the argument.
+\foreach \i/\y/\lab in {1/0/{VVUQ Bill v1}, 2/-1.3/{Verification Before Generation v2},
+  3/-2.6/{H. R. 9510 v3}, 4/-3.9/{H. R. 9510 v4}, 5/-5.2/{H. R. 9510 v5},
+  6/-6.5/{From H. R. 9510 to Federal Law}, 7/-7.8/{Earning the Clinician's Trust},
+  8/-9.1/{Earning the Congress's Vote}}{
+  \node[gvnode,text width=22mm] (b\i) at (1.2,\y) {\lab};}
+\begin{scope}[on background layer]
+\node[gvcluster,fit=(b1)(b8),inner sep=7pt] (cb) {};
+\end{scope}
+\node[gvctitle,anchor=south west] at ([yshift=1mm]cb.north west) {Legislative line};
+\foreach \i/\y/\lab/\sty in {1/0/{Phase 1 Protocol}/gvkey, 2/-1.3/{Phase 2 Protocol}/gvnode,
+  3/-2.6/{PI LLM Adoption Guide}/gvnode, 4/-3.9/{Phase 1 LLM Guidance}/gvnode,
+  5/-5.2/{IND application}/gvkey, 6/-6.5/{Funding Application v1}/gvnode,
+  7/-7.8/{Funding Application v2}/gvnode}{
+  \node[\sty,text width=22mm] (p\i) at (8.6,\y) {\lab};}
+\begin{scope}[on background layer]
+\node[gvcluster2,fit=(p1)(p7),inner sep=7pt] (cp) {};
+\end{scope}
+\node[gvctitle,anchor=south west] at ([yshift=1mm]cp.north west) {Trial line};
+\foreach \i/\j in {1/2, 2/3, 3/4, 4/5, 5/6, 6/7, 7/8}{\draw[gvedge] (b\i) -- (b\j);}
+\draw[gvedge] (p1) -- (p2);
+\draw[gvedge] (p1) to[out=0,in=0,looseness=1.1] (p3);
+\draw[gvedge] (p3) -- (p4);
+\draw[gvedge] (p4) -- (p5);
+\draw[gvedge] (p2) to[out=0,in=0,looseness=0.9] (p5);
+\draw[gvedge] (p5) -- (p6);
+\draw[gvedge] (p6) -- (p7);
+\draw[gvedged] (b5.east) -- node[font=\tiny,pos=0.5,fill=protowhite,inner sep=1pt] {verification frame} (p1.west);
+\draw[gvedged] (b7.east) -- node[font=\tiny,pos=0.5,fill=protowhite,inner sep=1pt] {clinician objections} (p3.west);
+\end{appfig}
+\vspace{-0.7cm}
+\figcaption{Fourteen deposited works and the citation edges between them. The\\
+bill line and the trial line run in parallel and meet only twice,\\
+which is why the legislative drafts are not on the trial's path.}
+\end{appfloat}
+
+Two edges cross the corridor: the verification frame from the five bill versions
+into the Phase 1 protocol, and the clinician objections into the principal
+investigator adoption guide. Everything else in the legislative line stays
+there.
+
+That separation answers a question a reviewer will ask. The trial does not
+depend on legislation passing. The bill work supplied a verification vocabulary
+and a catalogue of objections, and nothing in the protocol, the investigational
+new drug application, or the ten applications is contingent on H. R. 9510 being
+enacted \cite{hr9510billv5,clintrust}.

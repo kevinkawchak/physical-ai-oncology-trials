@@ -1,0 +1,114 @@
+% ============================================================
+% main.tex - FULL stage (Stage 7 of the eight-stage PART II build).
+% "10 Funding Applications: A Phase 1, First-in-Human, PDAC Clinical Trial
+% Protocol of a LLM-Directed Robotic Whipple with Daraxonrasib (RMC-6236)".
+% Draft 1.0, repository v4.4.0.  San Diego, August 3, 2026.
+%
+% This stage resolves every [DRAFTING INSTRUCTION] left by draft-apply against
+% the exact file it named, draws all twenty figures in full, and populates
+% fourteen full-width tables with author-source quantitative data.  No
+% \draftinstr and no \figslot survives into this stage.
+%
+% Compile on Overleaf with pdfLaTeX:
+%   pdflatex main -> bibtex main -> pdflatex main -> pdflatex main
+% ============================================================
+\documentclass[11pt]{article}
+\usepackage{applystyle}
+
+\title{10 Funding Applications: A Phase 1, First-in-Human, PDAC Clinical Trial
+Protocol of a LLM-Directed Robotic Whipple with Daraxonrasib (RMC-6236)}
+\author{Kevin Kawchak}
+\date{August 3, 2026}
+
+\begin{document}
+\thispagestyle{plain}
+
+% =====================================================================
+% COVER PAGE.  Varied deliberately from the RFA-RM-27-001-v2 centred
+% form-field theme: a left-accent masthead, a badge line, a ten-cell
+% application strip, and a rule-separated identity block.
+% =====================================================================
+\paymast{ChemicalQDevice \;|\; Independent Research Paper \;|\; Draft 1.0}%
+{10 Funding Applications}%
+{A Phase 1, First-in-Human, PDAC Clinical Trial Protocol of a LLM-Directed
+Robotic Whipple with Daraxonrasib (RMC-6236)}
+
+\vspace{0.2em}
+
+\begin{center}
+\appbadge{Draft 1.0} \enspace \appbadgel{Repository v4.4.0} \enspace
+\appbadgel{20 figures} \enspace \appbadgel{10 recipients}
+\end{center}
+
+\vspace{-0.35em}
+
+\paystrip{1/{01 NIH Pioneer Award},2/{02 ARPA-H},3/{03 NSF TIP X-Labs},4/{04 DOE Genesis Mission},5/{05 NIH SEED SBIR}}%
+{6/{06 FNIH AMP},7/{07 HHMI Investigator},8/{08 NCI CTEP},9/{09 Convergent FRO},10/{10 UC San Diego Moores}}
+
+\vspace{-0.2em}
+\apprule{0.9pt}
+
+\begin{center}\small
+CEO Kevin Kawchak\,\orcidicon{0009-0007-5457-8667}, ChemicalQDevice \;|\;
+\href{mailto:kevink@chemicalqdevice.com}{kevink@chemicalqdevice.com}\\
+\href{https://doi.org/10.5281/zenodo.xxxxxxxx}{10.5281/zenodo.xxxxxxxx} \;|\;
+\href{https://orcid.org/0009-0007-5457-8667}{0009-0007-5457-8667}\\
+San Diego \;|\; August 3, 2026
+\end{center}
+
+\vspace{-0.3em}
+\apprule{0.5pt}
+
+\noindent\footnotesize\textit{Independent research paper and practical adoption
+guide. It is not medical or regulatory advice and is not endorsed by the FDA,
+NIH, HHS, an IRB, ICH, or any sponsor. All figures derive from the author's
+repository sources and are illustrative unless tied to a cited
+reference.}\normalsize\par
+
+\vspace{0.15em}
+
+\noindent\footnotesize\textbf{Disclaimer:} \textit{This work is independent and
+is not endorsed or sponsored by any trial sponsor, CRO, site, IRB, regulator, or
+medical society; and was adapted using Claude Code Opus 5.}\normalsize\par
+
+\vspace{0.15em}
+
+{\sloppy\noindent\footnotesize The paper (v1.0) is at
+\url{https://doi.org/10.5281/zenodo.xxxxxxxx}
+and the repository (v4.4.0) is at
+\url{https://github.com/kevinkawchak/physical-ai-oncology-trials}.
+The ten application file sets summarised here are in
+\href{https://github.com/kevinkawchak/physical-ai-oncology-trials/tree/main/funding/pdac-funding-applications}{funding/pdac-funding-applications}.\normalsize\par}
+
+\renewcommand{\keywordname}{\textbf{Keywords}}
+\keywords{Independent scientist; Federal research portfolio; Pancreatic ductal
+adenocarcinoma; Robotic pancreaticoduodenectomy; Daraxonrasib; Physical AI;
+On-premises LLM; Phase 1 trial; Funding mechanisms}
+
+\vspace{0.3em}
+\apprule{0.6pt}
+
+% ---------- Clickable table of contents ----------
+\renewcommand{\contentsname}{\color{accentcol}Table of Contents}
+{\setlength{\parskip}{0pt}\footnotesize\linespread{0.94}\selectfont\tableofcontents}
+
+\vspace{-0.1em}
+\apprule{0.6pt}
+
+\clearpage
+
+% ---------- Body: one \input per section (Rule 6) ----------
+\input{sections/sec-00-front}
+\input{sections/sec-01-golden-age-mandate}\clearpage
+\input{sections/sec-02-ten-applications}\clearpage
+\input{sections/sec-03-surgical-set}\clearpage
+\input{sections/sec-04-medical-oncology-set}\clearpage
+\input{sections/sec-05-trial-evidence}\clearpage
+\input{sections/sec-06-physical-ai-governance}\clearpage
+\input{sections/sec-07-moores-partnership}
+\input{sections/sec-08-budget-and-leverage}\clearpage
+\input{sections/sec-09-build-method}\clearpage
+\input{sections/sec-10-risks-and-limits}
+\input{sections/sec-11-references-backmatter}
+
+\end{document}

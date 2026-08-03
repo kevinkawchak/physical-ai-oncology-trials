@@ -30,6 +30,7 @@
 # Consensus-based decision making for safety-critical actions
 from agentic import ConsensusAgent
 
+
 class SafetyConsensusAgent:
     def __init__(self, n_samples: int = 5, threshold: float = 0.8):
         self.n_samples = n_samples
@@ -47,7 +48,7 @@ class SafetyConsensusAgent:
         most_common, count = action_counts.most_common(1)[0]
 
         if count / self.n_samples >= self.threshold:
-            return Decision(action=most_common, confidence=count/self.n_samples)
+            return Decision(action=most_common, confidence=count / self.n_samples)
         else:
             # No consensus - escalate to human
             return Decision(action="ESCALATE", confidence=0)
@@ -146,6 +147,7 @@ LLM CANNOT be in the reactive loop - latency prohibitive
 # Context management with summarization
 from agentic import ContextManager
 
+
 class ProcedureContextManager:
     def __init__(self, max_tokens: int = 50000):
         self.max_tokens = max_tokens
@@ -202,6 +204,7 @@ class ProcedureContextManager:
 # Tool call validation for medical contexts
 from agentic import ToolCallValidator
 
+
 class MedicalToolValidator:
     def validate_call(self, tool_name: str, params: dict) -> ValidationResult:
         # Check required parameters
@@ -209,32 +212,20 @@ class MedicalToolValidator:
             required = ["patient_id", "medication", "dose", "route"]
             missing = [r for r in required if r not in params]
             if missing:
-                return ValidationResult(
-                    valid=False,
-                    error=f"Missing required parameters: {missing}"
-                )
+                return ValidationResult(valid=False, error=f"Missing required parameters: {missing}")
 
             # Validate patient ID format
             if not self.is_valid_patient_id(params["patient_id"]):
-                return ValidationResult(
-                    valid=False,
-                    error="Invalid patient ID format"
-                )
+                return ValidationResult(valid=False, error="Invalid patient ID format")
 
             # Cross-check with patient database
             patient = self.lookup_patient(params["patient_id"])
             if patient is None:
-                return ValidationResult(
-                    valid=False,
-                    error="Patient not found in database"
-                )
+                return ValidationResult(valid=False, error="Patient not found in database")
 
             # Verify medication is in patient's protocol
             if params["medication"] not in patient.protocol_medications:
-                return ValidationResult(
-                    valid=False,
-                    error="Medication not in patient protocol - REQUIRES HUMAN REVIEW"
-                )
+                return ValidationResult(valid=False, error="Medication not in patient protocol - REQUIRES HUMAN REVIEW")
 
         return ValidationResult(valid=True)
 ```
@@ -290,7 +281,7 @@ from agentic import ResourceCoordinator
 coordinator = ResourceCoordinator(
     shared_resources=["ct_scanner", "or_robot", "pathology_processor"],
     lock_timeout_seconds=300,
-    conflict_resolution="priority_based"
+    conflict_resolution="priority_based",
 )
 
 # Agents must request resources through coordinator
@@ -331,37 +322,30 @@ async with coordinator.lock("ct_scanner", agent_id="biopsy_agent", priority=HIGH
 # Mandatory human-in-the-loop for high-risk actions
 from agentic import SafetyGate
 
+
 class OncologyAgentWithSafetyGates:
     def __init__(self):
         self.safety_gates = {
             "medication_administration": SafetyGate(
-                requires_confirmation=True,
-                timeout_action="abort",
-                confirmation_channel="bedside_display"
+                requires_confirmation=True, timeout_action="abort", confirmation_channel="bedside_display"
             ),
             "invasive_procedure": SafetyGate(
                 requires_confirmation=True,
                 required_confirmations=2,  # Surgeon + nurse
-                timeout_action="abort"
+                timeout_action="abort",
             ),
-            "patient_identification": SafetyGate(
-                requires_confirmation=True,
-                verification_method="barcode_scan"
-            ),
+            "patient_identification": SafetyGate(requires_confirmation=True, verification_method="barcode_scan"),
             "sample_transport": SafetyGate(
                 requires_confirmation=False,  # Lower risk
-                logging_required=True
-            )
+                logging_required=True,
+            ),
         }
 
     async def execute_action(self, action: Action):
         gate = self.safety_gates.get(action.category)
 
         if gate and gate.requires_confirmation:
-            confirmed = await gate.request_confirmation(
-                action=action,
-                context=self.current_context
-            )
+            confirmed = await gate.request_confirmation(action=action, context=self.current_context)
             if not confirmed:
                 return ActionResult(status="ABORTED", reason="Human declined")
 
@@ -404,9 +388,9 @@ agent = MedicalKnowledgeAgent(
         NCCNGuidelines(version="2025.4"),
         FDADrugDatabase(last_updated="2026-01-15"),
         InstitutionalProtocols(hospital="example_cancer_center"),
-        PubMed(search_recency="6_months")
+        PubMed(search_recency="6_months"),
     ],
-    knowledge_update_frequency="daily"
+    knowledge_update_frequency="daily",
 )
 
 # Agent retrieves current information before decisions
@@ -500,6 +484,7 @@ response = agent.plan_treatment(
 ```python
 # Resilient agentic system architecture
 from agentic import ResilientAgent
+
 
 class ResilientOncologyAgent:
     def __init__(self):

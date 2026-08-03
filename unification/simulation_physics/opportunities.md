@@ -57,7 +57,7 @@ def validate_cross_framework(policy_path: str) -> ValidationReport:
     return ValidationReport(
         results=results,
         agreement_score=agreement,
-        recommendation="safe_to_deploy" if agreement > 0.9 else "needs_review"
+        recommendation="safe_to_deploy" if agreement > 0.9 else "needs_review",
     )
 ```
 
@@ -127,6 +127,7 @@ class FederatedTrainingCoordinator:
 
         return self.global_policy
 
+
 # Benefits:
 # - HIPAA/GDPR compliant (data never leaves institution)
 # - Combines diverse training scenarios
@@ -157,13 +158,9 @@ benchmark = OncologyBenchmark(task="needle_insertion")
 
 # Evaluate submission on all supported frameworks
 results = benchmark.evaluate(
-    policy=Submission(
-        organization="Stanford",
-        policy_path="policies/needle_v3.onnx",
-        training_framework="isaac"
-    ),
+    policy=Submission(organization="Stanford", policy_path="policies/needle_v3.onnx", training_framework="isaac"),
     test_frameworks=["isaac", "mujoco", "pybullet"],
-    num_episodes=1000
+    num_episodes=1000,
 )
 
 # Generate leaderboard entry
@@ -194,6 +191,7 @@ benchmark.submit_results(results)
 # USD composition for patient-specific surgery scene
 from pxr import Usd, UsdGeom
 
+
 def create_patient_scene(patient_id: str, procedure: str):
     stage = Usd.Stage.CreateNew(f"scenes/{patient_id}_{procedure}.usd")
 
@@ -207,9 +205,7 @@ def create_patient_scene(patient_id: str, procedure: str):
 
     # Add patient-specific anatomy (from DICOM)
     anatomy_prim = stage.DefinePrim("/World/PatientAnatomy")
-    anatomy_prim.GetReferences().AddReference(
-        f"patient_data/{patient_id}/anatomy.usd"
-    )
+    anatomy_prim.GetReferences().AddReference(f"patient_data/{patient_id}/anatomy.usd")
 
     # Add tumor model with variants for growth scenarios
     tumor_prim = stage.DefinePrim("/World/PatientAnatomy/Tumor")
@@ -259,19 +255,18 @@ import rclpy
 from rclpy.node import Node
 from unified_sim import SimulationBackend
 
+
 class UnifiedSurgicalSimulator(Node):
     def __init__(self):
-        super().__init__('unified_simulator')
+        super().__init__("unified_simulator")
 
         # Detect available backend
         self.backend = SimulationBackend.auto_detect()
         self.get_logger().info(f"Using backend: {self.backend.name}")
 
         # Same publishers/subscribers regardless of backend
-        self.joint_pub = self.create_publisher(JointState, '/joint_states', 10)
-        self.cmd_sub = self.create_subscription(
-            JointCommand, '/joint_commands', self.command_callback, 10
-        )
+        self.joint_pub = self.create_publisher(JointState, "/joint_states", 10)
+        self.cmd_sub = self.create_subscription(JointCommand, "/joint_commands", self.command_callback, 10)
 
         # Physics loop
         self.timer = self.create_timer(0.002, self.physics_step)
@@ -332,26 +327,19 @@ class UnifiedSurgicalSimulator(Node):
 # Site configuration detection and adaptation
 from unification import SiteCapabilities, WorkflowAdapter
 
+
 def configure_site(site_id: str):
     capabilities = SiteCapabilities.detect()
 
     if capabilities.has_nvidia_gpu:
-        return WorkflowAdapter(
-            training="isaac",
-            validation="mujoco",
-            deployment="isaac_ros"
-        )
+        return WorkflowAdapter(training="isaac", validation="mujoco", deployment="isaac_ros")
     elif capabilities.has_tpu:
-        return WorkflowAdapter(
-            training="mjx",
-            validation="mujoco",
-            deployment="gazebo_ros"
-        )
+        return WorkflowAdapter(training="mjx", validation="mujoco", deployment="gazebo_ros")
     else:
         return WorkflowAdapter(
             training="mujoco_cpu",  # Slower but compatible
             validation="mujoco",
-            deployment="gazebo_ros"
+            deployment="gazebo_ros",
         )
 ```
 
@@ -384,12 +372,9 @@ def generate_fda_validation_report(policy_path: str):
     consistency = report.compute_consistency_metrics()
 
     # Generate compliance documentation
-    report.add_section("21 CFR Part 11 Compliance",
-                      generate_audit_trail(policy_path))
-    report.add_section("IEC 62304 Traceability",
-                      generate_software_lifecycle_docs())
-    report.add_section("Cross-Platform Validation",
-                      consistency)
+    report.add_section("21 CFR Part 11 Compliance", generate_audit_trail(policy_path))
+    report.add_section("IEC 62304 Traceability", generate_software_lifecycle_docs())
+    report.add_section("Cross-Platform Validation", consistency)
 
     return report
 ```
@@ -419,19 +404,13 @@ def generate_fda_validation_report(policy_path: str):
 # Framework-controlled ablation study
 from unification import AblationStudy
 
-study = AblationStudy(
-    algorithm="ppo",
-    task="needle_insertion",
-    frameworks=["isaac", "mujoco", "pybullet"]
-)
+study = AblationStudy(algorithm="ppo", task="needle_insertion", frameworks=["isaac", "mujoco", "pybullet"])
 
 # Test reward shaping across frameworks
-study.add_ablation("reward_shaping",
-                   values=["sparse", "dense", "curriculum"])
+study.add_ablation("reward_shaping", values=["sparse", "dense", "curriculum"])
 
 # Test observation spaces
-study.add_ablation("observations",
-                   values=["state_only", "state+force", "state+vision"])
+study.add_ablation("observations", values=["state_only", "state+force", "state+vision"])
 
 # Run across all frameworks
 results = study.run(seeds=5, timesteps=1_000_000)
@@ -460,11 +439,9 @@ def discover_failure_modes(policy_path: str):
 
             if trajectory.failed:
                 failure_type = classify_failure(trajectory)
-                failures.setdefault(framework, []).append({
-                    "type": failure_type,
-                    "state": trajectory.failure_state,
-                    "action": trajectory.failure_action
-                })
+                failures.setdefault(framework, []).append(
+                    {"type": failure_type, "state": trajectory.failure_state, "action": trajectory.failure_action}
+                )
 
     # Find framework-specific vs universal failures
     universal = find_common_failures(failures)

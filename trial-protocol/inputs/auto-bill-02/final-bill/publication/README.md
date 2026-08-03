@@ -13,7 +13,7 @@ PDF and LaTeX source files are available on [Zenodo](https://doi.org/10.5281/zen
 Generation in Physical AI Oncology Trials Act of 2026*, **the Financial Data
 Amendment** to the Federal Food, Drug, and Cosmetic Act (21 U.S.C. § 301 et
 seq.), current through Public Law 119-93. It is the
-[`../full-bill`](../full-bill) with the senior-author corrections learned
+[`../full-bill`](../../full-bill) with the senior-author corrections learned
 across both prior draft-to-full-to-final cycles, and it marks **repository
 release v2.0.0**. Its context and formatting quality are intended to match and
 exceed the prior `VVUQ-05/final-bill` (v3.0) and `auto-bill-01/final-bill`

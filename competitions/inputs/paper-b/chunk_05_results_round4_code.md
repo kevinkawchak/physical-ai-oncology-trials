@@ -27,11 +27,9 @@ The 152 line Gpt-5.2-pro Round 4 detect_signal_emergence_improved function, whic
 ### Gpt-5.2-pro Round 4 Code Submission, 152 Lines
 
 ```python
-def detect_signal_emergence_improved(demo_df: pd.DataFrame,
-                                    drug_df: pd.DataFrame,
-                                    reac_df: pd.DataFrame,
-                                    min_cases: int = 3,
-                                    prr_threshold: float = 2.0) -> pd.DataFrame:
+def detect_signal_emergence_improved(
+    demo_df: pd.DataFrame, drug_df: pd.DataFrame, reac_df: pd.DataFrame, min_cases: int = 3, prr_threshold: float = 2.0
+) -> pd.DataFrame:
     """
     Improved implementation of Task 1 (TASK_1_SPEC).
 
@@ -43,10 +41,7 @@ def detect_signal_emergence_improved(demo_df: pd.DataFrame,
     Returns a DataFrame with columns:
     ['drug_name', 'reaction', 'emergence_quarter', 'emergence_prr', 'total_cases', 'is_signal']
     """
-    required_out_cols = [
-        "drug_name", "reaction", "emergence_quarter",
-        "emergence_prr", "total_cases", "is_signal"
-    ]
+    required_out_cols = ["drug_name", "reaction", "emergence_quarter", "emergence_prr", "total_cases", "is_signal"]
 
     def _empty() -> pd.DataFrame:
         return pd.DataFrame(columns=required_out_cols)
@@ -99,39 +94,26 @@ def detect_signal_emergence_improved(demo_df: pd.DataFrame,
         return _empty()
 
     # --- Merge DRUG + REAC + DEMO on primaryid (inner joins as reference) ---
-    merged = (
-        drugs.merge(reac[["primaryid", "pt"]], on="primaryid", how="inner")
-             .merge(demo_q, on="primaryid", how="inner")
+    merged = drugs.merge(reac[["primaryid", "pt"]], on="primaryid", how="inner").merge(
+        demo_q, on="primaryid", how="inner"
     )
     if merged.empty:
         return _empty()
 
     # --- Per-quarter component counts (unique primaryid) ---
-    quarter_totals = (
-        merged.groupby("quarter", sort=False)
-              .agg(total_cases=("primaryid", "nunique"))
-              .reset_index()
-    )
+    quarter_totals = merged.groupby("quarter", sort=False).agg(total_cases=("primaryid", "nunique")).reset_index()
     drug_quarter = (
-        merged.groupby(["drugname", "quarter"], sort=False)["primaryid"]
-              .nunique()
-              .reset_index(name="drug_cases")
+        merged.groupby(["drugname", "quarter"], sort=False)["primaryid"].nunique().reset_index(name="drug_cases")
     )
-    reac_quarter = (
-        merged.groupby(["pt", "quarter"], sort=False)["primaryid"]
-              .nunique()
-              .reset_index(name="reac_cases")
-    )
+    reac_quarter = merged.groupby(["pt", "quarter"], sort=False)["primaryid"].nunique().reset_index(name="reac_cases")
     pair_quarter = (
-        merged.groupby(["drugname", "pt", "quarter"], sort=False)["primaryid"]
-              .nunique()
-              .reset_index(name="pair_cases")
+        merged.groupby(["drugname", "pt", "quarter"], sort=False)["primaryid"].nunique().reset_index(name="pair_cases")
     )
 
     analysis = (
         pair_quarter.merge(drug_quarter, on=["drugname", "quarter"], how="left")
-                    .merge(reac_quarter, on=["pt", "quarter"], how="left")
-                    .merge(quarter_totals, on="quarter", how="left")
+        .merge(reac_quarter, on=["pt", "quarter"], how="left")
+        .merge(quarter_totals, on="quarter", how="left")
     )
 
     # Reference PRR definition used in notebook:
@@ -140,9 +122,7 @@ def detect_signal_emergence_improved(demo_df: pd.DataFrame,
     analysis["prr"] = np.where(analysis["expected"] > 0, analysis["pair_cases"] / analysis["expected"], 0.0)
 
     # --- Signal emergence (first quarter meeting threshold) ---
-    signals = analysis[
-        (analysis["prr"] >= float(prr_threshold)) & (analysis["pair_cases"] >= int(min_cases))
-    ].copy()
+    signals = analysis[(analysis["prr"] >= float(prr_threshold)) & (analysis["pair_cases"] >= int(min_cases))].copy()
     if signals.empty:
         return _empty()
 
@@ -150,31 +130,28 @@ def detect_signal_emergence_improved(demo_df: pd.DataFrame,
     first_emergence = signals.groupby(["drugname", "pt"]).first().reset_index()
 
     total_by_pair = (
-        merged.groupby(["drugname", "pt"], sort=False)["primaryid"]
-              .nunique()
-              .reset_index(name="total_cases_all")
+        merged.groupby(["drugname", "pt"], sort=False)["primaryid"].nunique().reset_index(name="total_cases_all")
     )
 
     result_df = first_emergence[["drugname", "pt", "quarter", "prr"]].merge(
         total_by_pair, on=["drugname", "pt"], how="left"
     )
 
-    result_df = result_df.rename(columns={
-        "drugname": "drug_name",
-        "pt": "reaction",
-        "quarter": "emergence_quarter",
-        "prr": "emergence_prr",
-        "total_cases_all": "total_cases",
-    })
+    result_df = result_df.rename(
+        columns={
+            "drugname": "drug_name",
+            "pt": "reaction",
+            "quarter": "emergence_quarter",
+            "prr": "emergence_prr",
+            "total_cases_all": "total_cases",
+        }
+    )
     result_df["emergence_prr"] = result_df["emergence_prr"].astype(float).round(3)
     result_df["total_cases"] = result_df["total_cases"].fillna(0).astype(int)
     result_df["is_signal"] = True
 
-    return (
-        result_df[required_out_cols]
-        .sort_values("emergence_prr", ascending=False)
-        .reset_index(drop=True)
-    )
+    return result_df[required_out_cols].sort_values("emergence_prr", ascending=False).reset_index(drop=True)
+
 
 # REQUIRED: Set result variable
 result = detect_signal_emergence_improved(demo_df, drug_df, reac_df)

@@ -1,0 +1,86 @@
+% sec-05: budget, kill criteria, partner site.  Figure 3 is a graphviz-type
+% fault tree over the paths to program failure.
+\section{Budget, Kill Criteria, and the Partner Site}
+
+The request is \textbf{\$2,100,000 over thirty-six months}, \$700,000 per year,
+with no cost share and no program income \cite{fundapp2}. Moores Cancer Center
+is the intended partner of choice, approached at the feasibility stage only:
+a nonconfidential overview, a joint feasibility meeting with pancreatic surgery,
+gastrointestinal medical oncology, and trial operations, then an
+investigator-initiated intake with a budget and accrual estimate. UC San Diego
+is not a partner, sponsor, site, or endorser, because no written authorization
+exists.
+
+\begin{appfloat}[!tb]
+\begin{appfig}[graphviz-type / fault tree]
+% One top event, two OR branches, one AND branch.  Gate glyphs sit between
+% ranks; ranks are 1.7 apart so no edge passes through a gate.
+\node[gvboxk,text width=34mm] (top) at (4.4,0) {Program fails to reach a defensible RP2D};
+\umlgateor{4.4}{-1.05}
+\draw[gvedge] (4.4,-0.78) -- (top.south);
+\node[gvboxs] (b1) at (0.6,-2.3) {Regulatory path never opens};
+\node[gvboxs] (b2) at (4.4,-2.3) {Safety signal stops escalation};
+\node[gvboxs] (b3) at (8.2,-2.3) {Accrual falls below plan};
+\draw[gvedge] (b1.north) -- (3.9,-1.35);
+\draw[gvedge] (b2.north) -- (4.4,-1.4);
+\draw[gvedge] (b3.north) -- (4.9,-1.35);
+\umlgateand{0.6}{-3.35}
+\draw[gvedge] (0.6,-3.08) -- (b1.south);
+\node[gvboxg] (c1) at (-0.9,-4.6) {IND not activated};
+\node[gvboxg] (c2) at (2.1,-4.6) {No site agreement executed};
+\draw[gvedge] (c1.north) -- (0.28,-3.65);
+\draw[gvedge] (c2.north) -- (0.92,-3.65);
+\node[gvboxg] (d1) at (4.4,-4.6) {Grade 4 event attributed to device or advisory path};
+\draw[gvedge] (d1.north) -- (b2.south);
+\node[gvboxg] (e1) at (8.2,-4.6) {Fewer than two evaluable participants per level};
+\draw[gvedge] (e1.north) -- (b3.south);
+\node[font=\tiny\itshape,text=protogray,anchor=north,text width=96mm,align=center]
+  at (4.4,-5.4) {Gate 1 tests the AND branch, Gate 2 the centre branch, Gate 3
+  the right branch. Because the left branch is an AND, either half alone is
+  recoverable within the schedule.};
+\end{appfig}
+\vspace{-0.7cm}
+\figcaption{Every path to program failure, and the gate that tests it. The left
+branch is an AND gate, so a single missing item there is recoverable inside the
+thirty-six month schedule.}
+\end{appfloat}
+
+\begin{appfloat}[!tb]
+\begin{appfig}[d2-type / layered stack]
+% Four stacked layers, each a container with its own cost strip.  Layers are
+% 1.25 apart and 8.4cm wide, so the cost strip at the right never overlaps the
+% layer label at the left.
+\foreach \i/\y/\lab/\amt/\fill in {%
+  1/0/{Clinical conduct: site, pharmacy, monitoring}/{\$960{,}000}/d2key,
+  2/-1.25/{Regulatory: IND maintenance, safety reporting}/{\$430{,}000}/d2mid,
+  3/-2.5/{Engineering: bench stop-latency rig, logging}/{\$470{,}000}/d2soft,
+  4/-3.75/{Data release: verification package, archive}/{\$240{,}000}/d2gray}{%
+  \node[\fill,text width=62mm,minimum height=9mm,anchor=west] (L\i) at (0,\y) {\lab};
+  \node[rectangle,draw=protoblue,line width=0.6pt,fill=protowhite,text width=22mm,
+        minimum height=9mm,inner sep=2pt,font=\tiny\sffamily,align=center,anchor=west]
+        (C\i) at ([xshift=4mm]L\i.east) {\amt};}
+\draw[d2edgeb] ([yshift=2mm]L1.north west) -- ([yshift=2mm]L1.north east);
+\node[d2title,anchor=south west] at ([yshift=3mm]L1.north west) {Total direct cost over 36 months: \$2,100,000. No cost share requested.};
+\node[font=\tiny\sffamily,text=protogray,anchor=north west,text width=88mm]
+  at ([yshift=-3mm]L4.south west) {Layers are drawn in the order the money is
+  committed, not in the order it is spent: clinical conduct is obligated at the
+  site agreement, data release only at Gate 3.};
+\end{appfig}
+\vspace{-0.7cm}
+\figcaption{Where every dollar of the request lands, layer by layer. The layers
+are ordered by when the money is committed rather than by when it is spent,
+which is what a gate decision actually turns on.}
+\end{appfloat}
+
+\begin{apptable}
+\begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}p{1.5cm} >{\raggedright\arraybackslash}p{2.15cm} >{\raggedright\arraybackslash}X}
+\headrow \thead{Gate} & \thead{Month} & \thead{Kill criterion, checked from program data}\\
+\midrule
+Gate 1 & 12 & IND not active, or measured arm-level stop latency above 3 ms, or system-wide stop above 500 ms \\
+Gate 2 & 21 & Any unexpected grade 4 event attributed to the device or the advisory path in cohort 1 \\
+Gate 3 & 33 & Fewer than two evaluable participants at any dose level, or no dose level declared tolerable \\
+\end{tabularx}
+\end{apptable}
+\tabcap{The three kill criteria in full. Each is a number the program itself
+produces, so the decision to continue does not depend on the performer's own
+assessment of progress.}

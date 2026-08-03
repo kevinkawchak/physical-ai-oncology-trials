@@ -29,7 +29,7 @@ from ssl import MAE, VideoMAE
 encoder = MAE(
     backbone="ViT-L/14",
     mask_ratio=0.75,  # Mask 75% of patches
-    dataset="surgical_video_100k_hours"
+    dataset="surgical_video_100k_hours",
 )
 
 # Pre-training learns:
@@ -42,7 +42,7 @@ encoder = MAE(
 surgical_detector = encoder.fine_tune(
     task="instrument_segmentation",
     labeled_data=500,  # Only 500 labeled examples needed
-    performance=0.94   # Achieves 94% with minimal labels
+    performance=0.94,  # Achieves 94% with minimal labels
 )
 ```
 
@@ -78,23 +78,13 @@ surgical_detector = encoder.fine_tune(
 # Contrastive learning for surgical vision-language
 from ssl import CLIP
 
-model = CLIP(
-    image_encoder="ViT-B/16",
-    text_encoder="BioClinicalBERT",
-    temperature=0.07
-)
+model = CLIP(image_encoder="ViT-B/16", text_encoder="BioClinicalBERT", temperature=0.07)
 
 # Train on image-caption pairs from surgical videos
-model.train(
-    images=surgical_frames,
-    captions=procedure_descriptions
-)
+model.train(images=surgical_frames, captions=procedure_descriptions)
 
 # Zero-shot classification
-prediction = model.classify(
-    image=current_frame,
-    categories=["dissection", "hemostasis", "suturing", "idle"]
-)
+prediction = model.classify(image=current_frame, categories=["dissection", "hemostasis", "suturing", "idle"])
 ```
 
 ### SimCLR for Surgical Domains
@@ -129,18 +119,14 @@ prediction = model.classify(
 # Temporal contrastive learning for surgical video
 from ssl import VideoContrastive
 
-model = VideoContrastive(
-    backbone="Video-Swin-T",
-    temporal_window=16,
-    sampling_strategy="uniform"
-)
+model = VideoContrastive(backbone="Video-Swin-T", temporal_window=16, sampling_strategy="uniform")
 
 # Self-supervised objectives
 objectives = [
-    "frame_order_prediction",    # Learn temporal coherence
-    "speed_prediction",          # Learn motion patterns
-    "future_frame_prediction",   # Learn dynamics
-    "masked_frame_reconstruction"  # Learn content
+    "frame_order_prediction",  # Learn temporal coherence
+    "speed_prediction",  # Learn motion patterns
+    "future_frame_prediction",  # Learn dynamics
+    "masked_frame_reconstruction",  # Learn content
 ]
 
 model.train(surgical_videos, objectives=objectives)
@@ -180,8 +166,7 @@ model.train(surgical_videos, objectives=objectives)
 from ssl import RobotStateEncoder
 
 encoder = RobotStateEncoder(
-    modalities=["joint_positions", "joint_velocities", "torques", "gripper_state"],
-    contrastive_objective="InfoNCE"
+    modalities=["joint_positions", "joint_velocities", "torques", "gripper_state"], contrastive_objective="InfoNCE"
 )
 
 # Positive pairs: same robot state at different time scales
@@ -189,10 +174,7 @@ encoder = RobotStateEncoder(
 encoder.train(robot_trajectories)
 
 # Use learned representations for downstream RL
-policy = RL_Policy(
-    observation_encoder=encoder.freeze(),
-    action_space=dvrk_action_space
-)
+policy = RL_Policy(observation_encoder=encoder.freeze(), action_space=dvrk_action_space)
 ```
 
 ### Sensor Fusion Representations
@@ -228,26 +210,18 @@ policy = RL_Policy(
 # World model pre-training for surgical simulation
 from ssl import WorldModel
 
-world_model = WorldModel(
-    observation_encoder="ViT-S",
-    dynamics_model="Transformer",
-    decoder="CNN"
-)
+world_model = WorldModel(observation_encoder="ViT-S", dynamics_model="Transformer", decoder="CNN")
 
 # Pre-train on diverse surgical videos
 world_model.train(
     videos=surgical_archive,
-    objectives=[
-        "observation_reconstruction",
-        "latent_dynamics_prediction",
-        "reward_prediction"
-    ]
+    objectives=["observation_reconstruction", "latent_dynamics_prediction", "reward_prediction"],
 )
 
 # Use for imagination-based RL
 policy = DreamerV3(
     world_model=world_model,  # Pre-trained
-    imagination_horizon=15
+    imagination_horizon=15,
 )
 ```
 
@@ -283,11 +257,7 @@ policy = DreamerV3(
 # Self-supervised semantic discovery
 from ssl import DINO
 
-model = DINO(
-    backbone="ViT-B/14",
-    head="multi-crop",
-    temperature=0.04
-)
+model = DINO(backbone="ViT-B/14", head="multi-crop", temperature=0.04)
 
 model.train(surgical_images)
 
@@ -327,18 +297,10 @@ from meta import MAML
 encoder = SSLEncoder.load("surgical_dino_v2")
 
 # Meta-learning head
-meta_learner = MAML(
-    backbone=encoder.freeze(),
-    inner_lr=0.01,
-    outer_lr=0.001,
-    adaptation_steps=5
-)
+meta_learner = MAML(backbone=encoder.freeze(), inner_lr=0.01, outer_lr=0.001, adaptation_steps=5)
 
 # Adapt to new surgical task with 5 examples
-adapted_policy = meta_learner.adapt(
-    new_task_examples,
-    num_examples=5
-)
+adapted_policy = meta_learner.adapt(new_task_examples, num_examples=5)
 ```
 
 ---

@@ -1,0 +1,52 @@
+% sec-04: the clinical vehicle and what is handed off.  Figure 3 is a
+% diagrams-python-type view of the platform after dissolution.
+\section{What Survives the Organization}
+
+The clinical vehicle is a Phase 1, open-label, single-arm 3+3 escalation of
+perioperative daraxonrasib in up to 18 participants with resectable or
+borderline-resectable KRAS G12-mutated PDAC, with a staged eight-arm robotic
+pancreaticoduodenectomy and an on-premises language model confined to advisory
+output \cite{onpremwhippl,phase1ind}. The organization dissolves; the following
+does not.
+
+\begin{appfloat}[!tb]
+\begin{appfig}[diagrams (python)-type / post-dissolution handoff]
+% One dissolving cluster on the left, three receiving clusters on the right.
+% Tiles 2.5 apart; the dashed boundary marks the dissolution date.
+\dgnode{dgtile}{0}{0}{\glyphgear}{Verification harness}{p1}
+\dgnode{dgtile}{2.5}{0}{\glyphdb}{Specimen dataset}{p2}
+\dgnode{dgtile}{1.25}{-2.5}{\glyphdoc}{Protocol and IND}{p3}
+\begin{scope}[on background layer]
+\node[dgcluster,fit=(p1)(p1l)(p2)(p2l)(p3)(p3l),inner sep=8pt] (org) {};
+\end{scope}
+\node[dgctitle,anchor=south west] at ([yshift=1.2mm]org.north west) {The organization, years 1 to 5};
+\dgnodeg{dgtileg}{7.0}{0.6}{\glyphteam}{Any qualified surgical site}{q1}
+\dgnodeg{dgtileg}{9.6}{0.6}{\glyphcloud}{Public archive with a DOI}{q2}
+\dgnodeg{dgtileg}{8.3}{-2.5}{\glyphshield}{A successor sponsor of record}{q3}
+\begin{scope}[on background layer]
+\node[dgcluster2,fit=(q1)(q1l)(q2)(q2l)(q3)(q3l),inner sep=8pt] (rec) {};
+\end{scope}
+\node[dgctitle2,anchor=south west] at ([yshift=1.2mm]rec.north west) {Recipients, from year 5 onward};
+\draw[protoblack,dashed,line width=0.9pt] (5.0,1.6) -- (5.0,-3.6);
+\node[font=\tiny\sffamily\bfseries,text=protoblack,rotate=90,anchor=south] at (4.85,-1.0) {dissolution};
+\draw[dgedgeb] (p1) -- (q1);
+\draw[dgedgeb] (p2) -- (q2);
+\draw[dgedgeb] (p3) -- (q3);
+\node[font=\tiny\itshape,text=protogray,anchor=north,text width=104mm,align=center]
+  at (5.0,-4.0) {Each artifact has exactly one named recipient class, agreed in
+  year 1 rather than negotiated in year 5, which is the failure mode that leaves
+  a dissolved organization's outputs stranded.};
+\end{appfig}
+\vspace{-0.7cm}
+\figcaption{What crosses the dissolution boundary, and to whom. Recipient
+classes are named in year one, because negotiating them in year five is how a
+dissolved organization strands its own outputs.}
+\end{appfloat}
+
+\vspace{0.1em}
+\noindent\footnotesize\textbf{Positioning note.} \textit{First in human refers
+to the integrated surgical and advisory workflow, not to daraxonrasib, which is
+investigational and already in Phase 3 evaluation. The robotic configuration is
+specified by manufacturer, model, cleared configuration, arm count, and software
+version at the site agreement, and no drug supply or letter of authorization is
+in place with the agent's developer.}\normalsize\par

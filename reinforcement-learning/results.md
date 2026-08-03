@@ -387,7 +387,7 @@ config = {
     "hierarchy": "3_level",
     "offline_pretraining": True,
     "sim2real_validation": "mandatory",
-    "expected_success": "85-95%"
+    "expected_success": "85-95%",
 }
 ```
 

@@ -1,0 +1,105 @@
+% sec-00: abstract, how to read, figure and table inventory.
+% Resolved from: applications/README.md 1 and 2, science-golden-age chunk-01,
+% daraxonrasib-llm-story.md, and the five diagram stage READMEs.
+\section*{Abstract}
+\phantomsection\addcontentsline{toc}{section}{Abstract}
+
+In July 2026 the White House asked the federal research portfolio, approximately
+\$200 billion annually, to prioritise the individual scientist over legacy
+institutions \cite{kratsios2026sciencegoldenage}. This paper reports what happens
+when one unaffiliated scientist takes that literally and writes ten funding
+applications for the same Phase 1 pancreatic cancer trial, each addressing the
+mechanism its recipient runs.
+
+The trial is constant across all ten: an open-label, single-arm, 3+3 escalation
+of perioperative daraxonrasib (RMC-6236) in up to 18 participants with
+resectable or borderline-resectable KRAS G12-mutated pancreatic ductal
+adenocarcinoma, performed as a staged eight-arm robotic pancreaticoduodenectomy
+with an on-premises language model confined to advisory output
+\cite{onpremwhippl,phase1ind}. Five lead with the operation and five with the
+drug; both sets describe the same hybrid procedure. UC San Diego Moores Cancer
+Center is named in all ten as the intended partner of choice, at the feasibility
+stage only, and described nowhere as a partner, sponsor, site, or endorser.
+
+The evidence is stated with its limits attached. An August 2025 quantitative
+systems pharmacology simulation returned median overall survival of 12.8 months
+against 5.4 for chemotherapy \cite{qspmetpancre}; in May 2026 RASolute 302
+reported 13.2 against 6.6 months in the RAS G12 metastatic population
+\cite{rasolute302}. That proximity is chronology, not validation, and neither
+result speaks to the resectable setting, which is what the trial would measure.
+
+The applications carry no digital object identifiers. This paper carries one.
+
+\bmhead{How to Read This Paper}
+
+This is a summary of ten application file sets, not an application. Every claim
+in it can be checked against a named file in a public repository
+\cite{repo2026}.
+
+It is not medical or regulatory advice, and not a claim that any institution,
+sponsor, or drug developer has agreed to anything. No patient has been treated.
+The trial does not exist until a site, an institutional review board, an active
+investigational new drug application, monitoring, insurance, and a sponsor of
+record are all in place.
+
+Three reading paths. A \textbf{funder} should read \S2 and \S8. A
+\textbf{clinician} should read \S6 and \S5. A \textbf{metascience reader}
+should read \S1 and \S9.
+
+\bmhead{Figure and Table Inventory}
+
+Twenty figures across five machine-readable diagram platforms. The split follows
+what each figure has to answer rather than an equal quota: an even division
+would have forced at least four figures into a vocabulary that cannot state
+their subject.
+
+\begin{apptable}
+\begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}p{0.9cm} >{\raggedright\arraybackslash}p{2.9cm} >{\raggedright\arraybackslash}p{1.1cm} >{\raggedright\arraybackslash}X}
+\headrow \thead{Fig} & \thead{Type} & \thead{Sec} & \thead{The question it answers}\\
+\midrule
+1 & mermaid & \S1 & How does one policy sentence become ten addressed applications? \\
+2 & plantuml & \S1 & Where does an unaffiliated proposal stall, and what removes each stall? \\
+3 & d2 & \S2 & How do the ten compare on mechanism, term, ask, and lead? \\
+4 & mermaid & \S5 & How long did each activity run, and what overlapped? \\
+5 & plantuml & \S3 & Who is authorised to take which action? \\
+6 & graphviz & \S2 & Which award unblocks which activity, and what is redundant? \\
+7 & d2 & \S5 & Which evidence tier contains which, and what may not be cited as what? \\
+8 & mermaid & \S3 & What are the reviewer's gates, and which section answers each? \\
+9 & diagrams & \S6 & What runs inside the trust boundary, and what may cross it? \\
+10 & graphviz & \S6 & By what path could an unintended motion reach the patient? \\
+11 & d2 & \S8 & Where does each dollar land, and what is contributed rather than paid? \\
+12 & mermaid & \S6 & Who says what to whom across one operative day? \\
+13 & plantuml & \S6 & Under what guard does the advisory system change state? \\
+14 & diagrams & \S6 & Which model produced which artifact, and who reviewed it? \\
+15 & d2 & \S6 & What joins to what in the released dataset? \\
+16 & graphviz & \S5 & Which prior work fed which, and where do the two lines meet? \\
+17 & mermaid & \S8 & How long is each review clock against the site milestone? \\
+18 & diagrams & \S9 & How does one operator's stack compare with a program office? \\
+19 & plantuml & \S4 & What runs in parallel once any one award lands? \\
+20 & graphviz & \S10 & Which field can falsify the programme's central claim? \\
+\end{tabularx}
+\end{apptable}
+\tabcap{The twenty figures, their platform, their section, and the question each
+exists to answer. Six are mermaid-type, four d2-type, four graphviz-type, three
+plantuml-type, and three diagrams-python-type.}
+
+\begin{apptable}
+\begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}p{1.1cm} >{\raggedright\arraybackslash}p{1.1cm} >{\raggedright\arraybackslash}X >{\raggedright\arraybackslash}p{4.3cm}}
+\headrow \thead{Table} & \thead{Sec} & \thead{Contents} & \thead{Source directory}\\
+\midrule
+1 to 2 & \S0 & Figure and table inventories & The five stage directories \\
+3 to 4 & \S1 & Where the enterprise stalls; the four goals answered & \appfile{funding/science-golden-age/} \\
+5 to 6 & \S2 & The ten recipients; what differs and what does not & \appfile{applications/} \\
+7 & \S3 & Set A figure inventory by type & \appfile{applications/app-01} to \appfile{app-05} \\
+8 & \S4 & Consortium measurements against resection timing & \appfile{applications/app-06} \\
+9 to 11 & \S5 & Results with stated limitations; cost and schedule; the fourteen works & \appfile{funding/supplementary/source-files/} \\
+12 & \S6 & The three frontier-model roles & \appfile{funding/tripartisan-llm-support.md} \\
+13 to 14 & \S7 & Three positioning corrections; two site routes & \appfile{funding/potential-partners/} \\
+15 & \S8 & One budget in ten shapes & \appfile{funding/RFA-RM-27-001-v2/} \\
+16 to 17 & \S9 & The thirteen sub-prompts; the diagram split & \appfile{sub-prompts/} \\
+18 to 19 & \S10 & What is not claimed; risks the programme cannot retire alone & Application back matter \\
+\end{tabularx}
+\end{apptable}
+\tabcap{The paper's nineteen tables, the section each appears in, and the
+repository directory its values are drawn from. No value in any table is
+computed here for the first time.}

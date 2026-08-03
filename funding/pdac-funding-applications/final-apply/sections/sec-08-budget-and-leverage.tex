@@ -1,0 +1,136 @@
+% sec-08: budget, cost share, leverage.  Figures 11 (d2 layers) and 17 (gantt).
+\section{Budget and Leverage}
+
+\subsection{One Budget, Ten Shapes}
+
+The underlying cost is one number: \$700,000 per year of direct cost,
+\$3,500,000 over five years, no cost share, no programme income anticipated
+\cite{fundapp2}. What changes across the ten is the shape that number takes,
+because a mechanism is in part a claim about time.
+
+\begin{apptable}
+\begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}p{0.7cm} >{\raggedright\arraybackslash}p{2.9cm} >{\raggedright\arraybackslash}p{2.0cm} >{\raggedright\arraybackslash}p{2.0cm} >{\raggedright\arraybackslash}X}
+\headrow \thead{No} & \thead{Recipient} & \thead{Term} & \thead{Direct ask} & \thead{Shape, and why the mechanism requires it}\\
+\midrule
+01 & NIH Pioneer Award & 5 years & \$3,500,000 & Fully funded in year one, as the annex asks for long-duration grants \\
+02 & ARPA-H & 36 months & \$2,100,000 & Compressed to three gates, because an ARPA bet should reach a defensible dose or stop \\
+03 & NSF TIP X-Labs & 5 years & \$3,500,000 & One public good released per year, so the organization is judged annually \\
+04 & DOE Genesis Mission & 5 years & \$3,500,000 & Mission artifacts released in years 1, 2 to 3, and 3 to 5 \\
+05 & NIH SEED SBIR & 9 + 24 months & \$1,606,000 & Split at a measured gate: \$306,000 Phase I, \$1,300,000 Phase II \\
+06 & FNIH AMP & 5 years & \$3,500,000 cash & Cash only; drug, theatre, pathology and assay support are contributed \\
+07 & HHMI Investigator & 7 years & \$700,000 per year & Clinical cost only; the balance funds the post-readout pharmacology \\
+08 & NCI CTEP & 5 years & \$3,500,000 & Correlative work costed inside, not deferred to a supplement \\
+09 & Convergent FRO & 5 years & \$3,500,000 & No year six is budgeted, and year five carries closure costs explicitly \\
+10 & UC San Diego Moores & one meeting & none & The only ask that is not money \\
+\end{tabularx}
+\end{apptable}
+\tabcap{One underlying budget in ten shapes. The mechanism determines the shape:
+a gated agency compresses the term, a small-business route splits it at a
+measured gate, and a time-bound organization budgets its own closure.}
+
+\begin{appfloat}[!tb]
+\begin{appfig}[d2-type / layered stack]
+% Left container: four cash layers, each 6.2cm wide with its amount in a
+% separate 2.0cm strip 3mm to the right, so the amount never crowds the label.
+% Right container: five contributed layers at the same pitch.  Two edges only.
+\foreach \i/\y/\lab/\amt/\sty in {%
+  1/0/{Clinical conduct: site, pharmacy, monitoring}/{\$1{,}600{,}000}/d2key,
+  2/-1.15/{IND maintenance and safety reporting}/{\$720{,}000}/d2mid,
+  3/-2.30/{Interlock rig, logging, audit replay}/{\$780{,}000}/d2soft,
+  4/-3.45/{Verification package and archive}/{\$400{,}000}/d2gray}{%
+  \node[\sty,text width=52mm,minimum height=8.4mm,anchor=west] (L\i) at (0,\y) {\lab};
+  \node[rectangle,draw=protoblue,line width=0.5pt,fill=protowhite,text width=17mm,
+        minimum height=8.4mm,inner sep=2pt,font=\tiny\sffamily,align=center,anchor=west]
+        (M\i) at ([xshift=3mm]L\i.east) {\amt};}
+\begin{scope}[on background layer]
+\node[d2cont,fit=(L1)(M1)(L4)(M4),inner sep=7pt] (cc) {};
+\end{scope}
+\node[d2title,anchor=south west] at ([yshift=1.2mm]cc.north west) {Federal or foundation cash, \$3,500,000 over five years};
+\foreach \i/\y/\lab in {1/0/{Investigational drug supply}, 2/-1.15/{Regulatory cross-reference},
+  3/-2.30/{Theatre and robotic platform time}, 4/-3.45/{Pathology and specimen handling}}{
+  \node[d2cell,text width=40mm,minimum height=8.4mm,anchor=west] (R\i) at (9.4,\y) {\lab};}
+\begin{scope}[on background layer]
+\node[d2cont2,fit=(R1)(R4),inner sep=7pt] (cn) {};
+\end{scope}
+\node[d2title2,anchor=south west] at ([yshift=1.2mm]cn.north west) {Non-federal contributed share, unpriced};
+\draw[d2edgeb] (M1.east) -- node[font=\tiny\sffamily,above,inner sep=1.5pt] {same activity} (R3.west);
+\draw[d2edgeb] (M2.east) -- node[font=\tiny\sffamily,above,inner sep=1.5pt] {same activity} (R2.west);
+\node[font=\tiny\itshape,text=protogray,anchor=north west,text width=126mm]
+  at ([yshift=-3mm]cc.south west) {Layers are ordered by when the money is
+  committed rather than by when it is spent, because a reviewer's question is
+  what is obligated at signature. The contributed column is deliberately
+  unpriced: no agreement exists, so any figure would be invented.};
+\end{appfig}
+\vspace{-0.7cm}
+\figcaption{Five years of cash on the left, contributed non-federal value on\\
+the right, and the two layers that appear on both sides. The\\
+contributed column is what the annex asks agencies to prioritise.}
+\end{appfloat}
+
+\subsection{Leverage}
+
+The annexed FY 2028 memorandum asks agencies to ``expand the use of non-Federal
+cost share, so that Federal dollars draw in and are amplified by private and
+other non-Federal investment rather than standing alone''
+\cite{kratsiosvought2026fy2028priorities}. Application 06 is written to that
+instruction: the cash ask covers clinical conduct and regulatory work, and drug
+supply, theatre time, pathology, and bioanalytical support are contributed.
+
+The contributed column carries no dollar figure, deliberately. No agreement
+exists with any developer or site, so a valuation would be invented, and an
+invented cost-share figure is worse than none: it converts a real structural
+argument into an unverifiable number. The claim made is qualitative and
+checkable, that four named categories of cost would not appear in the federal
+request.
+
+\subsection{The Binding Constraint Is Not Money}
+
+\begin{appfloat}[!tb]
+\begin{appfig}[mermaid-type / gantt]
+% Thirteen months at 0.94cm per month.  Ten submission rows in three bands,
+% 0.52 apart, then a rule, then three site rows.  The site-agreement date is
+% drawn as a full-height rule because it is the binding constraint.
+\foreach \m/\lab in {0/{Aug 26}, 3/{Nov 26}, 6/{Feb 27}, 9/{May 27}, 12/{Aug 27}}{
+  \draw[pagraym,line width=0.3pt] (\m*0.94,0.35) -- (\m*0.94,-7.0);
+  \node[font=\tiny\sffamily,text=protogray,anchor=south] at (\m*0.94,0.38) {\lab};}
+\foreach \i/\y/\w/\lab/\sty in {%
+  1/0/3.76/{05 NIH SEED SBIR, omnibus cycle}/mmbar,
+  2/-0.52/2.82/{09 Convergent FRO, rolling}/mmbar,
+  3/-1.04/0.94/{10 UC San Diego feasibility meeting}/mmbar,
+  4/-1.56/5.64/{02 ARPA-H, solicitation dependent}/mmbark,
+  5/-2.08/5.64/{04 DOE Genesis Mission, white paper}/mmbark,
+  6/-2.60/6.58/{06 FNIH AMP, convening decision}/mmbark,
+  7/-3.12/5.64/{08 NCI CTEP, concept review}/mmbark,
+  8/-3.64/10.34/{01 NIH Pioneer Award, next window}/mmbarg,
+  9/-4.16/9.40/{03 NSF TIP X-Labs, solicitation}/mmbarg,
+  10/-4.68/11.28/{07 HHMI Investigator, competition}/mmbarg}{
+  \node[\sty,minimum width=\w cm,anchor=west] at (0,\y) {};
+  \node[font=\tiny\sffamily,anchor=west] at (\w+0.12,\y) {\lab};}
+\draw[pagrayd,line width=0.5pt] (0,-5.05) -- (13.0,-5.05);
+\node[mmband,minimum width=2.82cm,minimum height=0.34cm,anchor=west] at (1.88,-5.45) {};
+\node[font=\tiny\sffamily,anchor=west] at (4.82,-5.45) {IIT intake and budget};
+\node[mmdec,text width=13mm,scale=0.6] at (0.94,-6.1) {feasibility meeting};
+\node[mmdec,text width=13mm,scale=0.6] at (5.64,-6.1) {site agreement};
+\draw[protoblue,line width=1pt,dashed] (5.64,0.55) -- (5.64,-6.7);
+\node[font=\tiny\sffamily\bfseries,text=protoblue,anchor=south] at (5.64,0.58) {binding};
+\node[mmlanetitle,anchor=east,align=right] at (-0.15,-0.52) {Fast};
+\node[mmlanetitle,anchor=east,align=right] at (-0.15,-2.60) {Standard};
+\node[mmlanetitle,anchor=east,align=right] at (-0.15,-4.16) {Annual};
+\node[mmlanetitle,anchor=east,align=right] at (-0.15,-5.75) {Site};
+\end{appfig}
+\vspace{-0.7cm}
+\figcaption{Ten submissions sent on one day and ten review clocks that are not the\\
+same length. The site milestones beneath them are the binding\\
+constraint: no award can start before the site agreement executes.}
+\end{appfloat}
+
+Seven of the ten review clocks close before the projected site-agreement date
+and three run past it. The programme's schedule is therefore governed by the
+institution rather than by any funder: an award arriving in month four cannot
+begin work until month six at the earliest, and the two regulatory activities
+identified in \S2 cannot start until the site is executed however much money is
+in hand.
+
+That is why application 10, the one with no financial ask, is the most
+consequential of the ten. It is the only one addressed to the party that
+controls the constraint.

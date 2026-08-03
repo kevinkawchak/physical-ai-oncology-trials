@@ -1,0 +1,29 @@
+% sec-03: the clinical concept and the evidence, medical oncology lead.
+\section{The Clinical Concept}
+
+The concept is a Phase 1, open-label, single-arm 3+3 dose escalation of
+perioperative daraxonrasib in up to 18 participants with resectable or
+borderline-resectable KRAS G12-mutated PDAC, with a robotic
+pancreaticoduodenectomy and an on-premises language model whose output is
+advisory only \cite{onpremwhippl,phase1ind}. Co-primary endpoints are
+dose-limiting toxicity with determination of the MTD or recommended Phase 2
+dose, 30-day device- or procedure-related serious adverse events, and completion
+of protocol-assigned robotic tasks without unsafe conversion.
+
+\begin{apptable}
+\begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}p{3.15cm} >{\raggedright\arraybackslash}p{1.85cm} >{\raggedright\arraybackslash}p{1.85cm} >{\raggedright\arraybackslash}X}
+\headrow \thead{Source and date} & \thead{Test arm} & \thead{Control} & \thead{Setting and limitation}\\
+\midrule
+QSP simulation, Aug 2025 & 12.8 mo mOS & 5.4 mo mOS & Metastatic, in silico; assumes no acquired resistance \\
+Digital twin, Oct 2025 & 12.1 mo mOS & not applicable & In silico; credibility 81.9 under ASME V\&V 40 and ICH M15 \\
+RASolute 302, May 2026 & 13.2 mo mOS & 6.6 mo mOS & Metastatic, previously treated; silent on resectable disease \\
+\end{tabularx}
+\end{apptable}
+\tabcap{The evidence base with its setting and limitation in the same row. No
+row supports the resectable setting, which is the honest starting point for a
+feasibility discussion.}
+
+The proximity between the August 2025 simulation and the May 2026 readout is a
+chronology observation, not a validation claim: 1000 simulated against 241
+enrolled, a combination against a single agent, KRAS G12C against a primarily
+G12D and G12V population \cite{qspmetpancre,rasolute302}.

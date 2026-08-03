@@ -1,0 +1,55 @@
+% sec-05: feasibility questions and the dependency that governs the schedule.
+% Figure 3 is a d2-type feasibility grid; figure 4 a graphviz-type approval DAG.
+\section{What the Meeting Would Decide}
+
+\begin{appfloat}[!tb]
+\begin{appfig}[d2-type / feasibility question grid]
+\node[d2cellh,text width=3.9cm,minimum width=4.3cm,minimum height=6.4mm] (h0) at (0,0) {Question};
+\node[d2cellh,text width=3.4cm,minimum width=3.8cm,minimum height=6.4mm,anchor=west] (h1) at (h0.east) {Who answers it};
+\node[d2cellh,text width=3.4cm,minimum width=3.8cm,minimum height=6.4mm,anchor=west] (h2) at (h1.east) {If the answer is no};
+\node[d2celll,text width=3.9cm,minimum width=4.3cm,minimum height=7.6mm,anchor=north west] (a0) at (h0.south west) {Is the population and perioperative concept clinically supportable?};
+\node[d2soft,text width=3.4cm,minimum width=3.8cm,minimum height=7.6mm,anchor=west] (a1) at (a0.east) {Surgery and GI oncology};
+\node[d2gray,text width=3.4cm,minimum width=3.8cm,minimum height=7.6mm,anchor=west] (a2) at (a1.east) {The concept stops here};
+\node[d2celll,text width=3.9cm,minimum width=4.3cm,minimum height=7.6mm,anchor=north west] (b0) at (a0.south west) {Is a qualified surgeon willing to be site PI?};
+\node[d2soft,text width=3.4cm,minimum width=3.8cm,minimum height=7.6mm,anchor=west] (b1) at (b0.east) {Division of Surgical Oncology};
+\node[d2gray,text width=3.4cm,minimum width=3.8cm,minimum height=7.6mm,anchor=west] (b2) at (b1.east) {Seek a second site};
+\node[d2celll,text width=3.9cm,minimum width=4.3cm,minimum height=7.6mm,anchor=north west] (c0) at (b0.south west) {What is the annual eligible-patient count?};
+\node[d2soft,text width=3.4cm,minimum width=3.8cm,minimum height=7.6mm,anchor=west] (c1) at (c0.east) {Clinical Trials Office};
+\node[d2gray,text width=3.4cm,minimum width=3.8cm,minimum height=7.6mm,anchor=west] (c2) at (c1.east) {Extend the accrual window};
+\node[d2celll,text width=3.9cm,minimum width=4.3cm,minimum height=7.6mm,anchor=north west] (d0) at (c0.south west) {Is the proposed robotic configuration available and permissible?};
+\node[d2soft,text width=3.4cm,minimum width=3.8cm,minimum height=7.6mm,anchor=west] (d1) at (d0.east) {Center for the Future of Surgery};
+\node[d2mid,text width=3.4cm,minimum width=3.8cm,minimum height=7.6mm,anchor=west] (d2) at (d1.east) {Respecify the platform};
+\node[d2celll,text width=3.9cm,minimum width=4.3cm,minimum height=7.6mm,anchor=north west] (e0) at (d0.south west) {Who can serve as sponsor-investigator?};
+\node[d2soft,text width=3.4cm,minimum width=3.8cm,minimum height=7.6mm,anchor=west] (e1) at (e0.east) {OCTA and ACTRI};
+\node[d2mid,text width=3.4cm,minimum width=3.8cm,minimum height=7.6mm,anchor=west] (e2) at (e1.east) {Applicant holds the IND};
+\end{appfig}
+\vspace{-0.7cm}
+\figcaption{The five questions the feasibility meeting exists to answer, who
+answers each, and what happens if the answer is no. Only the first row ends the
+concept outright.}
+\end{appfloat}
+
+\begin{appfloat}[!tb]
+\begin{appfig}[graphviz-type / approval dependency]
+% Six approval nodes, four ranks at x = 0, 3.6, 7.3, 10.8; pitch 1.5.
+\node[gvkey,text width=22mm] (m) at (0,0) {Feasibility meeting};
+\node[gvboxs] (pi) at (3.6,1.2) {Site PI identified};
+\node[gvboxs] (cda) at (3.6,-1.2) {CDA executed, route decided};
+\node[gvbox] (iit) at (7.4,1.2) {IIT intake and budget};
+\node[gvbox] (spi) at (7.4,-1.2) {Sponsor-investigator determined};
+\node[gvmid] (irb) at (11.0,0) {IRB submission, made once};
+\draw[gvedgeb] (m) -- (pi);\draw[gvedgeb] (m) -- (cda);
+\draw[gvedge] (pi) -- (iit);\draw[gvedge] (cda) -- (spi);
+\draw[gvedge] (cda) -- (iit);
+\draw[gvedge] (iit) -- (irb);\draw[gvedge] (spi) -- (irb);
+\draw[gvedged] (spi) to[out=140,in=-140,looseness=0.8] node[font=\tiny,pos=0.5,fill=protowhite,inner sep=1pt] {must precede} (iit);
+\node[font=\tiny\itshape,text=protogray,anchor=north,text width=104mm,align=center]
+  at (5.5,-2.15) {The dashed edge is the only ordering that cannot be relaxed.
+  Everything else can proceed in parallel once the feasibility meeting has
+  happened.};
+\end{appfig}
+\vspace{-0.7cm}
+\figcaption{The approval dependency from the feasibility meeting to a single IRB
+submission. One ordering cannot be relaxed; the rest of the work proceeds in
+parallel.}
+\end{appfloat}

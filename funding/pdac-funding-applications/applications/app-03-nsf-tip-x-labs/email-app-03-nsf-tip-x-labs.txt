@@ -1,0 +1,79 @@
+FROM: kevink@chemicalqdevice.com
+
+TO: tip@nsf.gov
+CC: info@nsf.gov
+
+SUBJECT: X-Labs concept outline - independent research organization for physical AI surgical oncology, Phase 1 PDAC
+
+=== BODY ===
+Dear NSF TIP Directorate,
+
+I am writing to ask whether the X-Labs program is the right home for an
+independent research organization I am forming, and what the current route is
+for a concept outline from a performer with no degree-granting affiliation.
+
+"Science: A New Golden Age" (July 2026) describes X-Labs as the first federal
+program designed to fund independent research organizations outside traditional
+academia, and it asks the roughly $200 billion annual federal research portfolio
+to stop deferring to the incumbents that consume it. The report's own
+institutional-fit analysis is the argument I want to make.
+
+The program is a Phase 1 study combining perioperative
+daraxonrasib (RMC-6236) with a staged eight-arm robotic pancreaticoduodenectomy
+and an on-premises large language model confined to advisory output. It needs
+five activities held together: operating under an active IND, maintaining a
+verification harness, publishing negative operative results, holding the
+regulatory package as a maintained product, and releasing code and data openly.
+A university department can do the first but not the fourth. A device company
+can do the second and fourth but will not do the third or the fifth. A federal
+laboratory can verify but does not operate. No existing performer type covers
+all five, which is precisely the gap the X-Labs mechanism was created to fill.
+
+The track record is a single operator. Between June 2025 and July 2026 I
+identified the drug from forty pancreatic cancer meta-analyses, produced three
+quantitative trial simulations, and wrote a complete regulatory package. The
+August 2025 quantitative systems pharmacology run returned median overall
+survival of 12.8 months against 5.4 for chemotherapy; RASolute 302 reported 13.2
+against 6.6 months nine months later. I present that proximity as chronology and
+not as validation, and I state the three differences wherever it appears.
+
+The request is $700,000 per year for five years, no cost share, with a public
+good released each year: the bench stop-latency method in year 1, the advisory
+logging schema in year 2, the escalation dataset including negative results in
+year 3, and the full safety and verification package in years 4 and 5. I intend
+to partner at UC San Diego Moores Cancer Center at the feasibility stage only;
+UC San Diego is not a sponsor, site, or endorser of this work.
+
+The attached five-page concept outline carries the institutional-fit comparison,
+the performer track record, the trial parameters, and the pathway including the
+branch taken if the first site agreement does not execute.
+
+Sincerely,
+CEO Kevin Kawchak
+ChemicalQDevice
+July 10th, 2026
+=== END BODY ===
+
+ATTACHMENTS COMPILED FROM THIS DIRECTORY
+1. app-03-nsf-tip-x-labs.pdf
+   Compile from main.tex: pdflatex -> bibtex -> pdflatex -> pdflatex
+   Five pages or fewer. No DOI is asserted for this document.
+
+ATTACHMENTS THE AUTHOR MUST ADD BY HAND
+1. H. R. 9510 (Bill v5.0) 2026. https://doi.org/10.5281/zenodo.20619762
+2. Physical AI Oncology Trial Founding Documents (export the Markdown ledger to
+   PDF, or link it).
+   https://github.com/kevinkawchak/physical-ai-oncology-trials/blob/main/funding/supplementary/Physical%20AI%20Oncology%20Trial%20Founding%20Documents.md
+3. Clinical Trial Funding Application v2.0, RFA-RM-27-001, Kawchak K.
+   https://doi.org/10.5281/zenodo.21317266
+
+BEFORE SENDING
+- Do not describe daraxonrasib as first-in-human anywhere. It is
+  investigational and already in Phase 3 evaluation. The supportable claim is
+  the first prospective clinical evaluation of the integrated surgical and LLM
+  advisory workflow, subject to FDA and institutional confirmation.
+- Confirm the TIP Directorate contact address and whether X-Labs is currently
+  accepting concept outlines by email or only through a posted solicitation.
+- Confirm the compiled PDF page count and that every DOI link opens.
+- Confirm no sentence describes UC San Diego as a partner, sponsor, site, or
+  endorser.

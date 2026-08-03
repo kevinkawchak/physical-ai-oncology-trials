@@ -28,20 +28,14 @@ Demonstrated capabilities in surgical settings:
 from agentic import LLMController, SafetyMonitor
 
 controller = LLMController(
-    model="claude-sonnet-4",
-    robot_interface="unitree_g1",
-    safety_constraints=ONCOLOGY_WARD_SAFETY
+    model="claude-sonnet-4", robot_interface="unitree_g1", safety_constraints=ONCOLOGY_WARD_SAFETY
 )
 
 # Clinician issues natural language command
 response = controller.execute(
     command="Prepare the cisplatin infusion for bed 3, patient Johnson. "
-            "Verify the dosage matches the protocol before connecting.",
-    context={
-        "patient_id": "PT-2847",
-        "protocol": "ONCO-2025-042",
-        "current_location": "pharmacy_prep"
-    }
+    "Verify the dosage matches the protocol before connecting.",
+    context={"patient_id": "PT-2847", "protocol": "ONCO-2025-042", "current_location": "pharmacy_prep"},
 )
 
 # Agent autonomously:
@@ -70,14 +64,14 @@ from agentic import HierarchicalPlanner
 
 planner = HierarchicalPlanner(
     high_level="claude-opus-4",  # Procedure planning
-    mid_level="surgical_vla",    # Subtask execution
-    low_level="reactive_policy"  # Real-time control
+    mid_level="surgical_vla",  # Subtask execution
+    low_level="reactive_policy",  # Real-time control
 )
 
 procedure_plan = planner.generate(
     goal="Perform CT-guided lung biopsy on right upper lobe nodule",
     patient_data=imaging_data,
-    constraints=["avoid major vessels", "single needle pass preferred"]
+    constraints=["avoid major vessels", "single needle pass preferred"],
 )
 
 # Generated plan:
@@ -117,21 +111,21 @@ camera_agent = Agent(
     role="Surgical Camera Operator",
     goal="Maintain optimal visualization of surgical field",
     backstory="Expert in laparoscopic camera positioning",
-    tools=[camera_control, zoom_adjustment, focus_tracking]
+    tools=[camera_control, zoom_adjustment, focus_tracking],
 )
 
 retractor_agent = Agent(
     role="Tissue Retractor",
     goal="Provide exposure while minimizing tissue trauma",
     backstory="Specialized in gentle tissue manipulation",
-    tools=[retractor_control, force_sensing, position_hold]
+    tools=[retractor_control, force_sensing, position_hold],
 )
 
 surgeon_assistant = Agent(
     role="Surgical Assistant",
     goal="Anticipate surgeon needs and provide instruments",
     backstory="Experienced surgical technologist",
-    tools=[instrument_selection, handover_execution, suction_irrigation]
+    tools=[instrument_selection, handover_execution, suction_irrigation],
 )
 
 # Orchestrate multi-agent cooperation
@@ -139,7 +133,7 @@ surgical_crew = Crew(
     agents=[camera_agent, retractor_agent, surgeon_assistant],
     tasks=[maintain_visualization, provide_exposure, assist_dissection],
     process="hierarchical",  # Surgeon commands propagate through hierarchy
-    manager_llm="claude-sonnet-4"
+    manager_llm="claude-sonnet-4",
 )
 ```
 
@@ -157,6 +151,7 @@ surgical_crew = Crew(
 # Multi-site trial coordination agent
 from langgraph import StateGraph, Agent
 
+
 class TrialCoordinator:
     def __init__(self, sites: list[str]):
         self.graph = StateGraph()
@@ -165,29 +160,15 @@ class TrialCoordinator:
         for site in sites:
             self.graph.add_node(
                 f"site_{site}",
-                Agent(
-                    tools=[
-                        enrollment_tracker,
-                        protocol_checker,
-                        adverse_event_reporter,
-                        sample_logistics
-                    ]
-                )
+                Agent(tools=[enrollment_tracker, protocol_checker, adverse_event_reporter, sample_logistics]),
             )
 
         # Central coordination
-        self.graph.add_node(
-            "central_coordinator",
-            Agent(tools=[cross_site_analytics, regulatory_reporting])
-        )
+        self.graph.add_node("central_coordinator", Agent(tools=[cross_site_analytics, regulatory_reporting]))
 
     def coordinate(self, event: str, site: str):
         """Route events through appropriate agents"""
-        return self.graph.invoke({
-            "event": event,
-            "origin_site": site,
-            "timestamp": datetime.now()
-        })
+        return self.graph.invoke({"event": event, "origin_site": site, "timestamp": datetime.now()})
 ```
 
 ---
@@ -226,28 +207,30 @@ registry.register(
     name="query_patient_eligibility",
     description="Check if patient meets trial inclusion/exclusion criteria",
     input_schema={"patient_id": str, "protocol_id": str},
-    handler=eligibility_checker.check
+    handler=eligibility_checker.check,
 )
 
 registry.register(
     name="schedule_imaging",
     description="Schedule CT/MRI/PET for trial protocol timepoint",
     input_schema={"patient_id": str, "modality": str, "timepoint": str},
-    handler=imaging_scheduler.schedule
+    handler=imaging_scheduler.schedule,
 )
 
 registry.register(
     name="execute_robot_task",
     description="Command robot to perform specified clinical task",
     input_schema={"task": str, "robot_id": str, "safety_level": str},
-    handler=robot_controller.execute
+    handler=robot_controller.execute,
 )
 
 # Agent uses tools through MCP
 agent = MCPClient(tools=registry, model="claude-sonnet-4")
-agent.run("Verify patient 2847 eligibility for ONCO-2025-042, "
-          "then schedule their week 4 PET scan and prepare the "
-          "sample collection robot for tomorrow's biopsy")
+agent.run(
+    "Verify patient 2847 eligibility for ONCO-2025-042, "
+    "then schedule their week 4 PET scan and prepare the "
+    "sample collection robot for tomorrow's biopsy"
+)
 ```
 
 **Security Considerations for Clinical MCP Deployment**:
@@ -280,8 +263,8 @@ agent = RAIAgent(
     safety_config={
         "max_velocity": 0.5,  # m/s in patient areas
         "collision_avoidance": True,
-        "emergency_stop_enabled": True
-    }
+        "emergency_stop_enabled": True,
+    },
 )
 
 # Voice-activated command
@@ -324,6 +307,7 @@ Natural language interface for ROS systems:
 # Clinical workflow agent for trial day operations
 from langgraph import StateGraph, START, END
 
+
 class TrialDayAgent:
     def __init__(self):
         self.workflow = StateGraph(TrialDayState)
@@ -343,17 +327,13 @@ class TrialDayAgent:
             {
                 "eligible": "procedure_execution",
                 "ineligible": "documentation",  # Log screen failure
-                "uncertain": "escalate_to_coordinator"
-            }
+                "uncertain": "escalate_to_coordinator",
+            },
         )
 
     async def run_trial_day(self, date: datetime):
         """Execute full trial day workflow"""
-        initial_state = TrialDayState(
-            date=date,
-            patients=self.get_scheduled_patients(date),
-            status="starting"
-        )
+        initial_state = TrialDayState(date=date, patients=self.get_scheduled_patients(date), status="starting")
         return await self.workflow.ainvoke(initial_state)
 ```
 
@@ -406,15 +386,12 @@ agent = ContextAwareAgent(
         EMRConnector(patient_id="PT-2847"),
         ImagingConnector(pacs_server="hospital.pacs.local"),
         GenomicsConnector(lab_system="foundation_medicine"),
-        VitalsMonitor(bedside_monitor="bed_3")
-    ]
+        VitalsMonitor(bedside_monitor="bed_3"),
+    ],
 )
 
 # Agent synthesizes all context for decision
-plan = agent.plan_procedure(
-    procedure="liver_biopsy",
-    target="segment_7_lesion"
-)
+plan = agent.plan_procedure(procedure="liver_biopsy", target="segment_7_lesion")
 
 # Agent considers:
 # - Prior biopsy attempts (none for this lesion)
@@ -460,17 +437,13 @@ controller = SharedAutonomyController(
         "transport": "full_autonomy",
         "patient_interaction": "shared_control",
         "invasive_procedure": "teleoperation",
-        "planning": "advisory"
+        "planning": "advisory",
     }
 )
 
 # Controller adjusts autonomy based on task and context
 current_task = "surgical_retraction"
-autonomy = controller.get_autonomy_level(
-    task=current_task,
-    risk_level="medium",
-    operator_experience="expert_surgeon"
-)
+autonomy = controller.get_autonomy_level(task=current_task, risk_level="medium", operator_experience="expert_surgeon")
 # Returns: "shared_control" with surgeon override capability
 ```
 
@@ -497,13 +470,9 @@ from agentic import ComplianceAgent
 
 compliance = ComplianceAgent(
     protocol_document="ONCO-2025-042_v3.pdf",
-    monitoring_systems=[
-        robot_action_log,
-        medication_administration,
-        imaging_schedule,
-        adverse_event_reports
-    ]
+    monitoring_systems=[robot_action_log, medication_administration, imaging_schedule, adverse_event_reports],
 )
+
 
 # Continuous monitoring
 async def monitor_trial():
@@ -556,18 +525,13 @@ fleet = FleetManager(
         Robot("unitree_g1_01", location="pharmacy"),
         Robot("unitree_g1_02", location="or_suite"),
         Robot("mobile_01", location="pathology"),
-        Robot("mobile_02", location="charging_station")
+        Robot("mobile_02", location="charging_station"),
     ],
-    coordination_strategy="task_auction"
+    coordination_strategy="task_auction",
 )
 
 # Optimal task assignment
-fleet.assign_task(
-    task="urgent_sample_transport",
-    from_location="or_3",
-    to_location="pathology",
-    priority="high"
-)
+fleet.assign_task(task="urgent_sample_transport", from_location="or_3", to_location="pathology", priority="high")
 # Fleet manager selects best available robot considering:
 # - Current location and battery status
 # - Other pending tasks

@@ -105,16 +105,10 @@ from q1_2026_standards.objective_1 import IsaacMuJoCoConverter
 converter = IsaacMuJoCoConverter()
 
 # Isaac → MuJoCo
-converter.isaac_to_mujoco(
-    source="models/surgical_arm.usd",
-    output="models/surgical_arm.xml"
-)
+converter.isaac_to_mujoco(source="models/surgical_arm.usd", output="models/surgical_arm.xml")
 
 # MuJoCo → Isaac
-converter.mujoco_to_isaac(
-    source="models/surgical_arm.xml",
-    output="models/surgical_arm.usd"
-)
+converter.mujoco_to_isaac(source="models/surgical_arm.xml", output="models/surgical_arm.usd")
 ```
 
 ### 3. Validate Robot Models (Objective 2)
@@ -123,11 +117,7 @@ converter.mujoco_to_isaac(
 from q1_2026_standards.objective_2 import ModelValidator
 
 validator = ModelValidator()
-results = validator.validate_model(
-    "models/dvrk_psm.urdf",
-    target_formats=["mjcf", "usd"],
-    physics_validation=True
-)
+results = validator.validate_model("models/dvrk_psm.urdf", target_formats=["mjcf", "usd"], physics_validation=True)
 ```
 
 ### 4. Run Benchmark Suite (Objective 3)
@@ -139,7 +129,7 @@ runner = BenchmarkRunner()
 results = runner.run_suite(
     frameworks=["isaac", "mujoco"],
     scenarios=["needle_insertion", "tissue_manipulation"],
-    output_report="benchmark_results.html"
+    output_report="benchmark_results.html",
 )
 ```
 
@@ -220,7 +210,7 @@ Contributions to these standards are welcome from all consortium members. Before
 3. Include validation tests
 4. Document with appropriate citations
 
-See [implementation-guide/README.md](implementation-guide/README.md) for detailed contribution guidelines.
+See `implementation-guide/README.md` inside [q1-2026-standards.zip](q1-2026-standards.zip) for detailed contribution guidelines.
 
 ---
 

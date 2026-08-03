@@ -1,0 +1,43 @@
+% sec-05: budget by phase and the partner site.  Figure 3 is a d2-type layered
+% stack showing where Phase I and Phase II money lands.
+\section{Budget by Phase, and the Partner Site}
+
+\begin{appfloat}[!tb]
+\begin{appfig}[d2-type / two-phase layered stack]
+% Two containers side by side, three layers each, 6.1cm wide, 0.95 apart.
+\foreach \i/\y/\lab/\amt in {1/0/{Interlock rig and bench method}/{\$118{,}000},
+  2/-0.95/{Logging schema and audit replay}/{\$96{,}000},
+  3/-1.90/{Site workflow study and dry run}/{\$92{,}000}}{
+  \node[d2soft,text width=42mm,minimum height=7.4mm,anchor=west] (P\i) at (0,\y) {\lab};
+  \node[rectangle,draw=pablue1,line width=0.5pt,fill=protowhite,text width=15mm,
+        minimum height=7.4mm,inner sep=2pt,font=\tiny\sffamily,align=center,anchor=west]
+        (Q\i) at ([xshift=3mm]P\i.east) {\amt};}
+\begin{scope}[on background layer]
+\node[d2cont,fit=(P1)(Q1)(P3)(Q3),inner sep=7pt] (c1) {};
+\end{scope}
+\node[d2title,anchor=south west] at ([yshift=1.2mm]c1.north west) {Phase I, 9 months, \$306,000};
+\foreach \i/\y/\lab/\amt in {1/0/{IND activation and monitoring}/{\$430{,}000},
+  2/-0.95/{Clinical conduct and pharmacy}/{\$690{,}000},
+  3/-1.90/{Data release and archive}/{\$180{,}000}}{
+  \node[d2mid,text width=42mm,minimum height=7.4mm,anchor=west] (R\i) at (8.2,\y) {\lab};
+  \node[rectangle,draw=protoblue,line width=0.5pt,fill=protowhite,text width=15mm,
+        minimum height=7.4mm,inner sep=2pt,font=\tiny\sffamily,align=center,anchor=west]
+        (S\i) at ([xshift=3mm]R\i.east) {\amt};}
+\begin{scope}[on background layer]
+\node[d2cont,fit=(R1)(S1)(R3)(S3),inner sep=7pt] (c2) {};
+\end{scope}
+\node[d2title,anchor=south west] at ([yshift=1.2mm]c2.north west) {Phase II, 24 months, \$1,300,000};
+\draw[d2edgeb] (c1.east) -- node[font=\tiny\sffamily,above,inner sep=1.5pt] {gate} (c2.west);
+\end{appfig}
+\vspace{-0.7cm}
+\figcaption{Phase I and Phase II budgets by layer, with the measured gate
+between them. No cost share is requested, and no program income is anticipated
+in either phase.}
+\end{appfloat}
+
+Moores Cancer Center is the intended partner of choice, approached at the
+feasibility stage only: a nonconfidential overview, a joint feasibility meeting
+with pancreatic surgery, gastrointestinal medical oncology, and trial
+operations, then an investigator-initiated intake with a budget and accrual
+estimate. UC San Diego is not a partner, sponsor, site, or endorser, because no
+written authorization exists.

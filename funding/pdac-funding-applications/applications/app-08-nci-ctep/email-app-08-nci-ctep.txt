@@ -1,0 +1,95 @@
+FROM: kevink@chemicalqdevice.com
+
+TO: ncictepinfo@mail.nih.gov
+CC: ncinExT@mail.nih.gov
+
+SUBJECT: Concept submission inquiry - perioperative daraxonrasib in resectable KRAS-mutated PDAC, unaffiliated investigator
+
+=== BODY ===
+Dear NCI Cancer Therapy Evaluation Program,
+
+I am writing to ask how an unaffiliated investigator should route a Phase 1
+concept in resectable pancreatic ductal adenocarcinoma, and whether CTEP would
+review it in the absence of a cooperative group affiliation.
+
+"Science: A New Golden Age" (July 2026) uses this disease area as its own
+example of scientific triumph, writing that "within living memory, cancer has
+been transformed from a death sentence to a treatable condition for millions of
+Americans." Pancreatic ductal adenocarcinoma is where that sentence is least
+true; five-year survival remains in the low teens. The report asks the roughly
+$200 billion annual federal research portfolio to invest directly in individual
+researchers, and its annex asks agencies to prioritise foundational biological
+science over the broader life-sciences category.
+
+The concept is a Phase 1, open-label, single-arm 3+3 dose
+escalation of perioperative daraxonrasib (RMC-6236) in up to 18 participants
+with resectable or borderline-resectable KRAS G12-mutated disease, with a staged
+eight-arm robotic pancreaticoduodenectomy and an on-premises language model
+confined to advisory output. Co-primary endpoints are dose-limiting toxicity
+with determination of the MTD or recommended Phase 2 dose, and 30-day device- or
+procedure-related serious adverse events.
+
+The design point I would most like reviewed is attribution. A combined drug and
+device study in a surgical population carries a structural hazard a standard
+escalation does not: an adverse event may be attributable to the drug, to the
+operation, or to the advisory system, and the dose decision depends on which.
+Attribution is therefore adjudicated by a blinded reviewer before the toxicity
+window closes. Only the drug branch reaches the dose decision; the surgical and
+advisory branches feed the feasibility endpoint. Every branch reaches the
+independent safety monitor without filtering.
+
+Unusually for a concept, the protocol already exists and is published with a
+DOI, as is the Investigational New Drug application, and the statistical and
+safety plan is fixed rather than indicative. The correlative pharmacodynamic
+work, plasma pharmacokinetics at days minus 14, minus 1 and plus 1, tumour
+pathway pharmacodynamics in the resection specimen, ctDNA clearance, and
+pathologic response grade, is costed inside the $700,000 per year budget rather
+than deferred to a supplement. What is genuinely missing is a network and a
+qualified site.
+
+On the drug: RASolute 302 reported median overall survival of 13.2 months
+against 6.6 for chemotherapy in the RAS G12 metastatic population. None of that
+speaks to the resectable setting, which is what this concept proposes to measure
+directly in the specimen. I intend to partner at UC San Diego Moores Cancer
+Center at the feasibility stage only; UC San Diego is not a sponsor, site, or
+endorser.
+
+Sincerely,
+CEO Kevin Kawchak
+ChemicalQDevice
+July 10th, 2026
+=== END BODY ===
+
+ATTACHMENTS COMPILED FROM THIS DIRECTORY
+1. app-08-nci-ctep.pdf
+   Compile from main.tex: pdflatex -> bibtex -> pdflatex -> pdflatex
+   Five pages or fewer. No DOI is asserted for this document.
+
+ATTACHMENTS THE AUTHOR MUST ADD BY HAND
+1. Investigational New Drug Application - Daraxonrasib, Phase 1, LLM-Directed
+   Robotic Whipple in KRAS-Mutated PDAC.
+   https://doi.org/10.5281/zenodo.21097442
+2. On-Premises LLM-Directed Robotic Pancreaticoduodenectomy with Perioperative
+   Daraxonrasib (RMC-6236) in KRAS-Mutated Pancreatic Ductal Adenocarcinoma.
+   https://doi.org/10.5281/zenodo.20780121
+3. A Phase 2, Daraxonrasib + LLM Guided Robotic PDAC Whipple Procedure,
+   Clinical Trial Protocol. https://doi.org/10.5281/zenodo.20807027
+
+EXTERNAL WORK TO CITE BUT NOT ATTACH
+- O'Reilly EM et al. Daraxonrasib or Chemotherapy in Previously Treated
+  Metastatic Pancreatic Cancer. N Engl J Med. 2026.
+  https://doi.org/10.1056/NEJMoa2605555
+
+BEFORE SENDING
+- Do not describe daraxonrasib as first-in-human anywhere. It is
+  investigational and already in Phase 3 evaluation. The supportable claim is
+  the first prospective clinical evaluation of the integrated surgical and LLM
+  advisory workflow, subject to FDA and institutional confirmation.
+- Confirm both addresses against the current CTEP and NExT contact pages, and
+  check whether the NExT programme portal is the correct route for a concept
+  that includes an investigational agent not supplied by NCI.
+- State clearly in any follow-up that no agreement exists with the agent's
+  developer for supply or cross-reference.
+- Confirm the compiled PDF page count and that every DOI link opens.
+- Confirm no sentence describes UC San Diego as a partner, sponsor, site, or
+  endorser.

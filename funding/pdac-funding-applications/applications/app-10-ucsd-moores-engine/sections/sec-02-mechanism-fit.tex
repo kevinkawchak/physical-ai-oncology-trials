@@ -1,0 +1,33 @@
+% sec-02: the intake sequence.  Figure 1 is a mermaid-type sequence diagram of
+% the eleven-step institutional route recorded in priority-steps.md.
+\section{The Route Being Followed}
+
+\begin{appfloat}[!tb]
+\begin{appfig}[mermaid-type / intake sequence]
+% Five lifelines 2.9 apart; nine messages 0.72 apart.  Labels are set on a
+% white ground so a message never overprints a lifeline.
+\foreach \i/\x/\lab in {1/0/{Applicant}, 2/2.95/{Surgery and GI oncology},
+  3/5.9/{Clinical Trials Office}, 4/8.85/{OCTA and ACTRI}, 5/11.8/{IRB}}{
+  \node[mmactor] (a\i) at (\x,0) {\lab};
+  \draw[mmlife] (\x,-0.42) -- (\x,-7.1);}
+\foreach \y/\f/\t/\msg in {%
+  -0.85/0/2.95/{1. Nonconfidential overview and feasibility request},
+  -1.57/2.95/0/{2. Clinical supportability and site PI interest},
+  -2.29/0/5.9/{3. Eligible-patient volume and OR capacity},
+  -3.01/5.9/0/{4. Preliminary accrual estimate},
+  -3.73/0/8.85/{5. CDA request and contracting-route decision},
+  -4.45/8.85/0/{6. Sponsor-investigator determination},
+  -5.17/0/5.9/{7. IIT concept form and budget questionnaire},
+  -5.89/5.9/8.85/{8. Coverage analysis and budget},
+  -6.61/8.85/11.8/{9. IRB submission, once and only once}}{
+  \draw[mmmsg] (\f,\y) -- (\t,\y) node[midway,above,font=\tiny\sffamily,fill=protowhite,inner sep=1.2pt] {\msg};}
+\node[font=\tiny\itshape,text=protogray,anchor=north west,text width=108mm]
+  at (-0.6,-7.3) {Message 6 must precede message 9. Determining who can serve as
+  sponsor-investigator after an IRB submission has been made forces the
+  submission to be repeated.};
+\end{appfig}
+\vspace{-0.7cm}
+\figcaption{The institutional route, message by message. The ordering
+constraint that matters is the sponsor-investigator determination preceding the
+IRB submission, not the total number of steps.}
+\end{appfloat}

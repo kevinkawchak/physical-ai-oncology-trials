@@ -27,6 +27,7 @@ Despite integration challenges, unifying agentic and generative AI systems offer
 # MCP server for surgical robot control
 from mcp import MCPServer, Tool, Resource
 
+
 class SurgicalRobotMCPServer(MCPServer):
     def __init__(self, robot_interface):
         super().__init__(name="surgical-robot")
@@ -38,26 +39,20 @@ class SurgicalRobotMCPServer(MCPServer):
         input_schema={
             "position": {"type": "array", "items": {"type": "number"}},
             "orientation": {"type": "array", "items": {"type": "number"}},
-            "speed": {"type": "number", "default": 0.1}
-        }
+            "speed": {"type": "number", "default": 0.1},
+        },
     )
     def move_to_pose(self, position, orientation, speed=0.1):
         return self.robot.move_cartesian(position, orientation, speed)
 
-    @Tool(
-        name="get_force_reading",
-        description="Get current force/torque sensor reading",
-        input_schema={}
-    )
+    @Tool(name="get_force_reading", description="Get current force/torque sensor reading", input_schema={})
     def get_force_reading(self):
         return self.robot.get_force_torque()
 
-    @Resource(
-        uri="robot://status",
-        description="Current robot state"
-    )
+    @Resource(uri="robot://status", description="Current robot state")
     def robot_status(self):
         return self.robot.get_status()
+
 
 # Any MCP-compatible LLM can now control the robot
 # Claude, GPT, Gemini, local LLMs all use same interface
@@ -81,22 +76,14 @@ class SurgicalRobotMCPServer(MCPServer):
 from mcp_client import MCPClient
 
 # Stanford's surgical planner (runs on Claude)
-stanford_planner = MCPClient(
-    server="mcp://stanford.edu/surgical-planner",
-    tools=["plan_trajectory", "analyze_imaging"]
-)
+stanford_planner = MCPClient(server="mcp://stanford.edu/surgical-planner", tools=["plan_trajectory", "analyze_imaging"])
 
 # JHU's robot controller (runs on local LLM)
-jhu_controller = MCPClient(
-    server="mcp://jhu.edu/dvrk-controller",
-    tools=["execute_motion", "read_sensors"]
-)
+jhu_controller = MCPClient(server="mcp://jhu.edu/dvrk-controller", tools=["execute_motion", "read_sensors"])
 
 # NVIDIA's visual servoing (runs on GR00T)
-nvidia_vision = MCPClient(
-    server="mcp://nvidia.com/visual-servo",
-    tools=["track_target", "estimate_pose"]
-)
+nvidia_vision = MCPClient(server="mcp://nvidia.com/visual-servo", tools=["track_target", "estimate_pose"])
+
 
 # Unified workflow using all providers
 async def perform_biopsy(target_location):
@@ -107,9 +94,7 @@ async def perform_biopsy(target_location):
     tracking = await nvidia_vision.call("track_target", initial=target_location)
 
     # Execution (local LLM + dVRK)
-    result = await jhu_controller.call("execute_motion",
-                                        trajectory=plan.trajectory,
-                                        visual_feedback=tracking.stream)
+    result = await jhu_controller.call("execute_motion", trajectory=plan.trajectory, visual_feedback=tracking.stream)
 
     return result
 ```
@@ -126,6 +111,7 @@ async def perform_biopsy(target_location):
 # Unified VLA interface
 from unified_vla import UnifiedVLA, ActionFormat
 
+
 class OncolgyVLAWrapper:
     """Framework-agnostic VLA interface for oncology tasks."""
 
@@ -140,10 +126,7 @@ class OncolgyVLAWrapper:
         self.vla = self._load_vla()
 
     def predict_action(
-        self,
-        image: np.ndarray,
-        instruction: str,
-        robot_state: Dict[str, np.ndarray]
+        self, image: np.ndarray, instruction: str, robot_state: Dict[str, np.ndarray]
     ) -> Dict[str, np.ndarray]:
         """
         Get action prediction from VLA.
@@ -154,17 +137,9 @@ class OncolgyVLAWrapper:
         raw_action = self.vla.infer(image, instruction, robot_state)
 
         # Convert to unified format
-        return ActionFormat.standardize(
-            raw_action,
-            source_format=self.backend,
-            target_format="unified"
-        )
+        return ActionFormat.standardize(raw_action, source_format=self.backend, target_format="unified")
 
-    def fine_tune(
-        self,
-        dataset_path: str,
-        dataset_format: str = "auto"
-    ) -> None:
+    def fine_tune(self, dataset_path: str, dataset_format: str = "auto") -> None:
         """
         Fine-tune VLA on oncology-specific data.
 
@@ -176,12 +151,11 @@ class OncolgyVLAWrapper:
         # Fine-tune with backend-specific trainer
         self.vla.fine_tune(converted_dataset)
 
+
 # Usage - same code works with any VLA
 vla = OncolgyVLAWrapper(backend="auto")  # Auto-detects available backend
 action = vla.predict_action(
-    image=camera.read(),
-    instruction="Insert needle into target tissue",
-    robot_state=robot.get_state()
+    image=camera.read(), instruction="Insert needle into target tissue", robot_state=robot.get_state()
 )
 robot.execute(action)
 ```
@@ -200,6 +174,7 @@ robot.execute(action)
 
 ```python
 # Unified Action Protocol (UAP)
+
 
 @dataclass
 class UnifiedAction:
@@ -260,6 +235,7 @@ class UnifiedAction:
 
 from unified_agents import AgentTeam, Agent, Role
 
+
 class SurgicalTeam(AgentTeam):
     """AI agent team mirroring surgical team structure."""
 
@@ -267,40 +243,48 @@ class SurgicalTeam(AgentTeam):
         super().__init__()
 
         # Attending surgeon (high-level decisions)
-        self.add_agent(Agent(
-            role=Role.DECISION_MAKER,
-            name="attending_surgeon_ai",
-            capabilities=["procedure_planning", "critical_decisions"],
-            model="claude-opus-4",
-            authority_level=10
-        ))
+        self.add_agent(
+            Agent(
+                role=Role.DECISION_MAKER,
+                name="attending_surgeon_ai",
+                capabilities=["procedure_planning", "critical_decisions"],
+                model="claude-opus-4",
+                authority_level=10,
+            )
+        )
 
         # Resident (procedure execution)
-        self.add_agent(Agent(
-            role=Role.EXECUTOR,
-            name="resident_ai",
-            capabilities=["trajectory_planning", "motion_execution"],
-            model="groot_n1.6",
-            authority_level=7
-        ))
+        self.add_agent(
+            Agent(
+                role=Role.EXECUTOR,
+                name="resident_ai",
+                capabilities=["trajectory_planning", "motion_execution"],
+                model="groot_n1.6",
+                authority_level=7,
+            )
+        )
 
         # Scrub nurse (instrument management)
-        self.add_agent(Agent(
-            role=Role.SUPPORT,
-            name="scrub_nurse_ai",
-            capabilities=["instrument_tracking", "handoff_execution"],
-            model="openvla",
-            authority_level=5
-        ))
+        self.add_agent(
+            Agent(
+                role=Role.SUPPORT,
+                name="scrub_nurse_ai",
+                capabilities=["instrument_tracking", "handoff_execution"],
+                model="openvla",
+                authority_level=5,
+            )
+        )
 
         # Circulating nurse (logistics)
-        self.add_agent(Agent(
-            role=Role.LOGISTICS,
-            name="circulating_ai",
-            capabilities=["supply_management", "documentation"],
-            model="claude-sonnet-4",
-            authority_level=5
-        ))
+        self.add_agent(
+            Agent(
+                role=Role.LOGISTICS,
+                name="circulating_ai",
+                capabilities=["supply_management", "documentation"],
+                model="claude-sonnet-4",
+                authority_level=5,
+            )
+        )
 
     async def execute_procedure(self, procedure_plan):
         """Execute surgical procedure with coordinated agents."""
@@ -314,7 +298,7 @@ class SurgicalTeam(AgentTeam):
                 await asyncio.gather(
                     self.resident_ai.execute(step.motion),
                     self.scrub_nurse_ai.prepare(step.next_instruments),
-                    self.circulating_ai.document(step)
+                    self.circulating_ai.document(step),
                 )
 ```
 
@@ -330,16 +314,10 @@ class SurgicalTeam(AgentTeam):
 from unified_agents import AgentAdapter
 
 # CrewAI agent
-crewai_agent = CrewAgent(
-    role="Surgical Assistant",
-    tools=[instrument_tool, handoff_tool]
-)
+crewai_agent = CrewAgent(role="Surgical Assistant", tools=[instrument_tool, handoff_tool])
 
 # Wrap for LangGraph compatibility
-langgraph_compatible = AgentAdapter.from_crewai(
-    crewai_agent,
-    target_framework="langgraph"
-)
+langgraph_compatible = AgentAdapter.from_crewai(crewai_agent, target_framework="langgraph")
 
 # Now usable in LangGraph workflow
 graph = StateGraph(SurgicalState)
@@ -359,15 +337,13 @@ graph.add_node("assistant", langgraph_compatible.as_node())
 
 from federated_ai import FederatedTrainer, SecureAggregator
 
+
 class OncologyFederatedVLA:
     """Federated VLA training across clinical sites."""
 
     def __init__(self, sites: List[str]):
         self.sites = sites
-        self.aggregator = SecureAggregator(
-            method="federated_averaging",
-            encryption="homomorphic"
-        )
+        self.aggregator = SecureAggregator(method="federated_averaging", encryption="homomorphic")
         self.global_model = self._initialize_vla()
 
     async def training_round(self) -> Dict[str, float]:
@@ -420,6 +396,7 @@ class OncologyFederatedVLA:
 
 from unified_safety import SafetyFramework, Constraint, Action
 
+
 class OncologySafetyFramework(SafetyFramework):
     """Unified safety constraints for oncology AI systems."""
 
@@ -427,41 +404,45 @@ class OncologySafetyFramework(SafetyFramework):
         super().__init__()
 
         # Layer 1: Physical constraints (hard limits)
-        self.add_constraint(Constraint(
-            name="force_limit",
-            type="hard",
-            check=lambda action: action.force_limit <= 5.0,  # N
-            message="Force exceeds safe limit"
-        ))
+        self.add_constraint(
+            Constraint(
+                name="force_limit",
+                type="hard",
+                check=lambda action: action.force_limit <= 5.0,  # N
+                message="Force exceeds safe limit",
+            )
+        )
 
-        self.add_constraint(Constraint(
-            name="velocity_limit",
-            type="hard",
-            check=lambda action: np.max(np.abs(action.velocities)) <= 0.1,  # m/s
-            message="Velocity exceeds safe limit"
-        ))
+        self.add_constraint(
+            Constraint(
+                name="velocity_limit",
+                type="hard",
+                check=lambda action: np.max(np.abs(action.velocities)) <= 0.1,  # m/s
+                message="Velocity exceeds safe limit",
+            )
+        )
 
         # Layer 2: Procedural constraints (protocol compliance)
-        self.add_constraint(Constraint(
-            name="sterile_field",
-            type="soft",
-            check=self._check_sterile_field,
-            message="Action may breach sterile field"
-        ))
+        self.add_constraint(
+            Constraint(
+                name="sterile_field",
+                type="soft",
+                check=self._check_sterile_field,
+                message="Action may breach sterile field",
+            )
+        )
 
         # Layer 3: Clinical constraints (medical knowledge)
-        self.add_constraint(Constraint(
-            name="critical_structure",
-            type="soft",
-            check=self._check_critical_structures,
-            message="Action approaches critical structure"
-        ))
+        self.add_constraint(
+            Constraint(
+                name="critical_structure",
+                type="soft",
+                check=self._check_critical_structures,
+                message="Action approaches critical structure",
+            )
+        )
 
-    def validate_action(
-        self,
-        action: Action,
-        context: Dict
-    ) -> ValidationResult:
+    def validate_action(self, action: Action, context: Dict) -> ValidationResult:
         """Validate action against all constraints."""
 
         violations = []
@@ -472,21 +453,14 @@ class OncologySafetyFramework(SafetyFramework):
 
                 if constraint.type == "hard":
                     # Hard constraints immediately block action
-                    return ValidationResult(
-                        allowed=False,
-                        violations=violations,
-                        requires_override=False
-                    )
+                    return ValidationResult(allowed=False, violations=violations, requires_override=False)
 
         if violations:
             # Soft constraints allow override with authorization
-            return ValidationResult(
-                allowed=False,
-                violations=violations,
-                requires_override=True
-            )
+            return ValidationResult(allowed=False, violations=violations, requires_override=True)
 
         return ValidationResult(allowed=True)
+
 
 # Apply to any AI output
 safety = OncologySafetyFramework()
@@ -557,15 +531,12 @@ for ai_action in ai_actions:
 ```python
 # Fallback-aware AI controller
 
+
 class ResilientAIController:
     """Controller with graceful degradation."""
 
     def __init__(self):
-        self.layers = {
-            "cloud": CloudAIClient(),
-            "on_premise": OnPremiseVLA(),
-            "edge": EdgePolicy()
-        }
+        self.layers = {"cloud": CloudAIClient(), "on_premise": OnPremiseVLA(), "edge": EdgePolicy()}
         self.current_layer = "cloud"
 
     async def get_action(self, observation: Dict) -> Action:
@@ -574,20 +545,14 @@ class ResilientAIController:
         # Try cloud first (best capability)
         if self.layers["cloud"].is_available():
             try:
-                return await asyncio.wait_for(
-                    self.layers["cloud"].predict(observation),
-                    timeout=2.0
-                )
+                return await asyncio.wait_for(self.layers["cloud"].predict(observation), timeout=2.0)
             except asyncio.TimeoutError:
                 self._log_fallback("cloud", "on_premise")
 
         # Fall back to on-premise (good capability)
         if self.layers["on_premise"].is_available():
             try:
-                return await asyncio.wait_for(
-                    self.layers["on_premise"].predict(observation),
-                    timeout=0.5
-                )
+                return await asyncio.wait_for(self.layers["on_premise"].predict(observation), timeout=0.5)
             except asyncio.TimeoutError:
                 self._log_fallback("on_premise", "edge")
 
@@ -608,15 +573,11 @@ class ResilientAIController:
 
 from regulatory_ai import ComplianceDocGenerator
 
-doc_gen = ComplianceDocGenerator(
-    frameworks=["21_cfr_part_11", "iec_62304", "iso_13482"]
-)
+doc_gen = ComplianceDocGenerator(frameworks=["21_cfr_part_11", "iec_62304", "iso_13482"])
 
 # Generate from AI system logs
 documentation = doc_gen.generate(
-    system_logs=training_logs,
-    deployment_config=deployment_config,
-    validation_results=validation_results
+    system_logs=training_logs, deployment_config=deployment_config, validation_results=validation_results
 )
 
 # Outputs:
@@ -650,8 +611,8 @@ result = benchmark.evaluate(
         "needle_insertion_accuracy",
         "tissue_retraction_safety",
         "instrument_handoff_speed",
-        "procedure_planning_quality"
-    ]
+        "procedure_planning_quality",
+    ],
 )
 
 # Compare against baselines

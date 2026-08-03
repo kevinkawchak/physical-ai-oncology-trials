@@ -43,17 +43,11 @@ from privacy.phi_pii_management.phi_detector import PHIDetector, PHICategory
 detector = PHIDetector(
     detection_mode="comprehensive",
     data_sources=["clinical_notes", "dicom_headers", "genomic_metadata"],
-    custom_patterns={
-        "mrn": r"MRN[-:]?\s*\d{6,10}",
-        "accession": r"ACC[-:]?\s*\d{8,12}"
-    }
+    custom_patterns={"mrn": r"MRN[-:]?\s*\d{6,10}", "accession": r"ACC[-:]?\s*\d{8,12}"},
 )
 
 # Scan a clinical trial dataset
-result = detector.scan_dataset(
-    dataset_path="trial_data/enrollment_records/",
-    output_report="phi_scan_report.json"
-)
+result = detector.scan_dataset(dataset_path="trial_data/enrollment_records/", output_report="phi_scan_report.json")
 
 # Review findings by category
 for category in PHICategory:

@@ -67,7 +67,10 @@ regulatory-submit/
 
 ```python
 from regulatory_submit.presub_generator import (
-    PreSubGenerator, DeviceCategory, RegulatoryPathway, AIModelDescription,
+    PreSubGenerator,
+    DeviceCategory,
+    RegulatoryPathway,
+    AIModelDescription,
 )
 
 generator = PreSubGenerator(sponsor="My Oncology Consortium")
@@ -79,12 +82,15 @@ package = generator.create_package(
     oncology_indication="NSCLC stages I-IIIA",
 )
 
-generator.add_ai_model(package, AIModelDescription(
-    model_name="TumorSeg-3D",
-    model_type="segmentation",
-    training_data_size=12500,
-    performance_metrics={"dice": 0.912, "sensitivity": 0.945},
-))
+generator.add_ai_model(
+    package,
+    AIModelDescription(
+        model_name="TumorSeg-3D",
+        model_type="segmentation",
+        training_data_size=12500,
+        performance_metrics={"dice": 0.912, "sensitivity": 0.945},
+    ),
+)
 
 generator.populate_risk_considerations(package)
 generator.auto_generate_questions(package)
@@ -113,17 +119,21 @@ markdown = engine.generate_markdown(document)
 
 ```python
 from regulatory_submit.classification_advisor import (
-    ClassificationAdvisor, DeviceCharacteristics, AIDeviceType,
+    ClassificationAdvisor,
+    DeviceCharacteristics,
+    AIDeviceType,
 )
 
 advisor = ClassificationAdvisor()
-recommendation = advisor.analyze(DeviceCharacteristics(
-    device_name="AI Surgical Planner",
-    device_type=AIDeviceType.TREATMENT_PLANNING,
-    intended_use="AI-assisted surgical planning",
-    novel_algorithm=True,
-    life_threatening_condition=True,
-))
+recommendation = advisor.analyze(
+    DeviceCharacteristics(
+        device_name="AI Surgical Planner",
+        device_type=AIDeviceType.TREATMENT_PLANNING,
+        intended_use="AI-assisted surgical planning",
+        novel_algorithm=True,
+        life_threatening_condition=True,
+    )
+)
 print(f"Pathway: {recommendation.recommended_pathway.value}")
 ```
 
@@ -147,7 +157,9 @@ docs = generator.generate_all(doc_set)
 
 ```python
 from regulatory_submit.clinical_evidence import (
-    ClinicalEvidenceBuilder, EvidenceLevel, MetricType,
+    ClinicalEvidenceBuilder,
+    EvidenceLevel,
+    MetricType,
 )
 
 builder = ClinicalEvidenceBuilder(sponsor="My Oncology Consortium")
@@ -156,8 +168,13 @@ report = builder.create_report(
     intended_use="AI-assisted surgical planning for NSCLC",
 )
 builder.add_benchmark_result(
-    report, "Validation Study", EvidenceLevel.RETROSPECTIVE,
-    MetricType.ACCURACY, "Expert Agreement", 0.856, 200,
+    report,
+    "Validation Study",
+    EvidenceLevel.RETROSPECTIVE,
+    MetricType.ACCURACY,
+    "Expert Agreement",
+    0.856,
+    200,
 )
 markdown = builder.generate_markdown(report)
 ```

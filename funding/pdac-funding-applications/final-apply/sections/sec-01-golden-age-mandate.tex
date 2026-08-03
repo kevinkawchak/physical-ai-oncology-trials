@@ -1,0 +1,174 @@
+% sec-01: the $200 billion realignment and the individual scientist.
+% Resolved from science-golden-age chunk-01 and chunk-03.  Figures 1 and 2.
+\section{The \$200 Billion Realignment and the Individual Scientist}
+
+\subsection{What the Report Actually Says}
+
+The July 2026 report to the President, \textit{Science: A New Golden Age},
+states four overarching goals \cite{kratsios2026sciencegoldenage}: prioritise
+the individual scientist over legacy institutions; change how research dollars
+are allocated, distributed and assessed; set clear scientific goals and build
+capacity to translate them; and prepare the enterprise for the AI revolution.
+
+The first is stated without hedging: ``If we are serious about expanding what
+our scientists can do, we must invest directly in American researchers and the
+bold ideas that drive them. Too much of our research enterprise has come to
+serve itself rather than the scientists within it.'' The Summary turns that into
+an instruction with a named model attached: ``bet on people, not just
+projects,'' by ``scaling long-horizon grants for the best and brightest modeled
+on National Institutes of Health (NIH) Director's Pioneer Award.''
+
+Chapter II attaches a number. Federal agencies distribute approximately
+\textbf{\$200 billion} in annual research and development funding, and the
+finding about that portfolio is the sentence this paper is written against:
+there is ``no systematic framework for identifying where those dollars could
+catalyze the greatest scientific returns, with deference instead given to the
+same incumbents that consume the funding.''
+
+The corrective has three parts: realign toward risk taking, strip away the
+administrative burden that consumes close to half of an investigator's working
+hours, and embed continuous evidence-based improvement. What the report does not
+do is say who should receive the realigned money. This paper is one answer,
+submitted ten times.
+
+\begin{appfloat}[!tb]
+\begin{appfig}[mermaid-type / flowchart]
+% Four ranks.  Policy at y = 0, portfolio at y = -1.9, three mechanism families
+% at y = -3.9 on a 4.9 pitch, ten recipients at y = -6.0 on a 2.35 pitch inside
+% each family.  Families are 4.9 apart, so no leaf can touch a neighbouring
+% family's leaf and no edge crosses a node.
+\node[mmgoal,text width=52mm] (pol) at (5.5,0)
+  {\textit{Science: A New Golden Age}, July 2026\\prioritize the individual
+   scientist over legacy institutions};
+\node[mmmid,text width=52mm] (b200) at (5.5,-1.9)
+  {approximately \$200 billion annual federal R\&D\\``no systematic framework''};
+\draw[mmedgeb] (pol) -- (b200);
+
+\node[mmsoft,text width=30mm] (per) at (0.6,-3.9) {Person-based,\\long horizon};
+\node[mmsoft,text width=30mm] (org) at (5.5,-3.9) {Organization-type,\\novel performer};
+\node[mmsoft,text width=30mm] (par) at (10.4,-3.9) {Partnership\\and cost share};
+\draw[mmedgeb] (b200) -- (per);
+\draw[mmedgeb] (b200) -- (org);
+\draw[mmedgeb] (b200) -- (par);
+
+\node[mmin,text width=21mm] (a01) at (-0.6,-6.0) {01 NIH Pioneer};
+\node[mmin,text width=21mm] (a07) at (1.8,-6.0) {07 HHMI};
+\node[mmin,text width=21mm] (a02) at (2.2,-7.4) {02 ARPA-H};
+\node[mmin,text width=21mm] (a03) at (4.6,-6.0) {03 X-Labs};
+\node[mmin,text width=21mm] (a09) at (7.0,-6.0) {09 FRO};
+\node[mmin,text width=21mm] (a05) at (4.6,-7.4) {05 SBIR};
+\node[mmin,text width=21mm] (a04) at (9.2,-6.0) {04 Genesis};
+\node[mmin,text width=21mm] (a06) at (11.6,-6.0) {06 FNIH};
+\node[mmin,text width=21mm] (a08) at (9.2,-7.4) {08 NCI CTEP};
+\node[mmgray,text width=21mm] (a10) at (11.6,-7.4) {10 UCSD Moores};
+\foreach \s/\t in {per/a01, per/a07, org/a03, org/a09, par/a04, par/a06}{
+  \draw[mmedge] (\s) -- (\t);}
+\draw[mmedge] (org.south) to[out=-120,in=90,looseness=0.8] (a02.north);
+\draw[mmedge] (org.south) to[out=-90,in=90,looseness=0.8] (a05.north);
+\draw[mmedge] (par.south) to[out=-110,in=90,looseness=0.8] (a08.north);
+\draw[mmedge] (par.south) to[out=-70,in=90,looseness=0.8] (a10.north);
+\node[font=\tiny\itshape,text=protogray,anchor=north,text width=112mm,align=center]
+  at (5.5,-8.2) {Recipient 10 is tinted because it is the only one that is not a
+  funder: it is the partner institution, and what is asked of it is a
+  feasibility review rather than money.};
+\end{appfig}
+\vspace{-0.7cm}
+\figcaption{One sentence of federal policy, three mechanism families, and the\\
+ten recipients each family reaches. The split is by mechanism, not\\
+by agency, which is why one recipient is not a federal funder.}
+\end{appfloat}
+
+\subsection{Where the Enterprise Stalls}
+
+The report's diagnosis is quantitative, and every number below is the report's
+own or is drawn from the primary source its end notes name.
+
+\begin{apptable}
+\begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}p{5.0cm} >{\raggedright\arraybackslash}p{2.4cm} >{\raggedright\arraybackslash}X}
+\headrow \thead{Finding} & \thead{Value} & \thead{Mechanism the report names against it}\\
+\midrule
+Research time lost to administration & near one half & Burden reduction; applications of a few pages \\
+New federal requirements on grants, 1991 to January 2025 & at least 270 & Requirement rescission; metascience units \\
+Negotiated indirect cost rates & 50 to 60 percent & Indirect-cost reform; private funders accept 10 to 15 \\
+Grant lead time & up to 20 months & Fast grants decided in under one month \\
+NIH principal investigator average age, 1980 to 2008 & 39 rising to 51 & Early-career independence; portable fellowships \\
+Fall in new drugs per billion dollars since 1950 & roughly eightyfold & Portfolio construction across exploration and exploitation \cite{scannell2012eroom} \\
+Publication-rate advantage of person-based funding & nearly double & HHMI-style support, roughly \$10M over seven years \cite{azoulay2011incentives} \\
+\end{tabularx}
+\end{apptable}
+\tabcap{The report's diagnosis in seven numbers, each paired with the mechanism
+it names as the corrective. The last row is the only one that reports an
+outcome rather than a friction.}
+
+An unaffiliated scientist meets a subset of these frictions and one the table
+does not contain: the eligibility screen. Most federal mechanisms require a host
+institution before a proposal can be reviewed at all, so the merit question is
+never reached. Figure 2 states the resulting state machine and names, for each
+stall, the mechanism the report offers against it.
+
+\begin{appfloat}[!tb]
+\begin{appfig}[plantuml-type / state diagram with guards]
+% Four progress states on the upper rank at y = 0, pitch 3.4.  Three blocked
+% states on the lower rank at y = -2.5, each directly below the state it
+% interrupts, so the pairing is read from vertical alignment rather than from
+% following an edge.  Return curves use bend left=16 with stated looseness.
+\node[umlinit] (i) at (-1.6,0) {};
+\node[umlstate,text width=24mm] (s1) at (0.2,0) {Drafted};
+\node[umlstate,text width=24mm] (s2) at (3.6,0) {Submitted};
+\node[umlstate,text width=24mm] (s3) at (7.0,0) {Reviewed};
+\node[umlstateon,text width=24mm] (s4) at (10.4,0) {Funded};
+\node[umlfinal] (f) at (12.2,0) {};
+\draw[umlarrow] (i) -- (s1);
+\draw[umlarrow] (s1) -- node[umlguard,pos=0.5] {[eligible host]} (s2);
+\draw[umlarrow] (s2) -- node[umlguard,pos=0.5] {[passes screen]} (s3);
+\draw[umlarrow] (s3) -- node[umlguard,pos=0.5] {[risk tolerated]} (s4);
+\draw[umlarrow] (s4) -- (f);
+
+\node[umlstategray,text width=27mm] (b1) at (0.2,-2.5) {Blocked: no degree-granting host};
+\node[umlstategray,text width=27mm] (b2) at (3.6,-2.5) {Blocked: 270 added requirements};
+\node[umlstategray,text width=27mm] (b3) at (7.0,-2.5) {Blocked: panel consensus favours the incumbent};
+\draw[umlarrow] (s1.south) -- (b1.north);
+\draw[umlarrow] (s2.south) -- (b2.north);
+\draw[umlarrow] (s3.south) -- (b3.north);
+\draw[umldash] (b1.east) to[out=20,in=-90,looseness=0.9]
+  node[umlguard,pos=0.55] {X-Labs, FRO, SBIR} (s1.south east);
+\draw[umldash] (b2.east) to[out=20,in=-90,looseness=0.9]
+  node[umlguard,pos=0.55] {fast grants} (s2.south east);
+\draw[umldash] (b3.east) to[out=20,in=-90,looseness=0.9]
+  node[umlguard,pos=0.55] {Pioneer, HHMI} (s3.south east);
+\end{appfig}
+\vspace{-0.7cm}
+\figcaption{The five states a proposal from an unaffiliated scientist passes\\
+through, and the three at which the report says the enterprise\\
+currently stalls. Each stall names the mechanism that removes it.}
+\end{appfloat}
+
+\subsection{Why an Independent Scientist Is the Test Case}
+
+Between June 2025 and July 2026 one person produced fourteen deposited works:
+two clinical protocols, an investigational new drug application, two funding
+applications, five legislative drafts, and four guidance works
+\cite{foundingdocs}, none carrying indirect cost. Three trial simulations were
+completed at an estimated \$36,330 each against an industry benchmark running
+from \$120,000 for a single empirical virtual trial to more than \$2 million for
+a ten-arm quantitative systems pharmacology trial \cite{daraxsims}.
+
+The claim is a ratio and nothing more. Not that the work is better than an
+institution's, and not that institutions are unnecessary: only that the part of
+the pipeline which used to require a program office no longer does, and that the
+part which still requires an institution, patients and a theatre and a review
+board, is exactly the part these ten applications are asking to reach.
+
+\begin{apptable}
+\begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}p{4.6cm} >{\raggedright\arraybackslash}X}
+\headrow \thead{Transmittal-letter goal} & \thead{What the ten applications supply against it}\\
+\midrule
+Prioritise the individual scientist over legacy institutions & One named applicant, no host institution, fourteen deposited works before any award \\
+Change how research dollars are allocated and assessed & Ten mechanism families addressed on the same science, so the mechanism is the only variable \\
+Set clear goals and build translational capacity & A published protocol and IND, and a governance package designed to be site-portable \\
+Prepare the enterprise for the AI revolution & An advisory system whose boundary is measured in milliseconds and released as an open schema \\
+\end{tabularx}
+\end{apptable}
+\tabcap{The report's four overarching goals, and the specific thing the
+application set supplies against each. The second row is what makes the set a
+comparison rather than ten separate requests.}

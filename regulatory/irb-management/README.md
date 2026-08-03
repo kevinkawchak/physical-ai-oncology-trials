@@ -41,16 +41,13 @@ Per HHS SACHRP and the MRCT Center Framework (July 2025):
 ```python
 from regulatory.irb_management.irb_protocol_manager import IRBProtocolManager
 
-irb = IRBProtocolManager(
-    institution="Memorial Sloan Kettering Cancer Center",
-    irb_type="central"
-)
+irb = IRBProtocolManager(institution="Memorial Sloan Kettering Cancer Center", irb_type="central")
 
 protocol = irb.create_protocol(
     title="Physical AI-Guided Surgical Resection for NSCLC",
     pi_name="Dr. Sarah Chen",
     ai_components=["real-time tumor detection", "robotic instrument guidance"],
-    participant_count=200
+    participant_count=200,
 )
 
 ai_review = irb.generate_ai_review_checklist(protocol)

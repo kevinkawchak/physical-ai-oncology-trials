@@ -1,0 +1,65 @@
+% sec-03: quantitative evidence.  Sources: daraxonrasib-llm-story.md, the
+% Daraxonrasib-Efficient-LLM-Trial-Simulations source set, and RASolute 302.
+% Figure 2 is a d2-type grid of the evidence tiers.
+\section{Evidence}
+
+In August 2025 a quantitative systems pharmacology simulation, ten arms and 250
+ordinary differential equations per patient, returned a median overall survival
+of \textbf{12.8 months} for the daraxonrasib combination against \textbf{5.4
+months} for chemotherapy \cite{qspmetpancre}. In May 2026 the RASolute 302
+readout reported \textbf{13.2} against \textbf{6.6 months} in the RAS G12
+population \cite{rasolute302}. The proximity is a chronology observation, not a
+validation claim: sample size was 1000 simulated against 241 enrolled, the
+intervention a combination against a single agent, and the selection KRAS G12C
+against a primarily G12D and G12V population.
+
+\begin{apptable}
+\begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}p{3.2cm} >{\raggedright\arraybackslash}p{1.85cm} >{\raggedright\arraybackslash}p{1.85cm} >{\raggedright\arraybackslash}X}
+\headrow \thead{Source} & \thead{Test arm} & \thead{Control} & \thead{Reading}\\
+\midrule
+QSP simulation, Aug 2025 & 12.8 mo mOS & 5.4 mo mOS & Best arm HR 0.25; 6 of 7 patient archetypes below HR 1.00 \\
+Digital twin, Oct 2025 & 12.1 mo mOS & not applicable & Best mPFS HR 0.31; credibility score 81.9 under ASME V\&V 40 and ICH M15 \\
+RASolute 302, May 2026 & 13.2 mo mOS & 6.6 mo mOS & Independent registrational readout in the RAS G12 population \\
+\end{tabularx}
+\end{apptable}
+\tabcap{Two author simulations and one independent readout. The 2025 simulated
+2.4-fold survival ratio and the 2026 observed 2.0-fold ratio are reported as a
+chronology, not as a validation of the simulation.}
+
+Industry benchmarks put a single virtual trial run above \$120,000 and a
+quantitative systems pharmacology trial above \$2 million. The three simulations
+here cost an estimated \$36,330 each and took about a month each
+\cite{daraxsims}: the concrete form of the report's argument that one scientist
+with modern tools can attempt work previously associated with larger
+organizations.
+
+\begin{appfloat}[!tb]
+\begin{appfig}[d2-type / container grid]
+% A true grid: four columns on a 3.35cm pitch, five equal rows, header row in
+% Corporate Blue.  Cells are placed by anchor so columns cannot drift.
+\node[d2cellh,text width=2.9cm,minimum width=3.3cm,minimum height=6.4mm] (h1) at (0,0) {Evidence tier};
+\node[d2cellh,text width=2.9cm,minimum width=3.3cm,minimum height=6.4mm,anchor=west] (h2) at (h1.east) {Artifact};
+\node[d2cellh,text width=2.9cm,minimum width=3.3cm,minimum height=6.4mm,anchor=west] (h3) at (h2.east) {Strength of claim};
+\node[d2cellh,text width=2.9cm,minimum width=3.3cm,minimum height=6.4mm,anchor=west] (h4) at (h3.east) {What it decided};
+\node[d2celll,text width=2.9cm,minimum width=3.3cm,minimum height=6.4mm,anchor=north west] (a1) at (h1.south west) {1. In silico};
+\node[d2cell,text width=2.9cm,minimum width=3.3cm,minimum height=6.4mm,anchor=west] (a2) at (a1.east) {QSP, 10 arms, 250 ODEs};
+\node[d2cellg,text width=2.9cm,minimum width=3.3cm,minimum height=6.4mm,anchor=west] (a3) at (a2.east) {Hypothesis only};
+\node[d2cell,text width=2.9cm,minimum width=3.3cm,minimum height=6.4mm,anchor=west] (a4) at (a3.east) {Arm selection};
+\node[d2celll,text width=2.9cm,minimum width=3.3cm,minimum height=6.4mm,anchor=north west] (b1) at (a1.south west) {2. Verified twin};
+\node[d2cell,text width=2.9cm,minimum width=3.3cm,minimum height=6.4mm,anchor=west] (b2) at (b1.east) {1000 patients, 55 tests};
+\node[d2cellg,text width=2.9cm,minimum width=3.3cm,minimum height=6.4mm,anchor=west] (b3) at (b2.east) {Credibility 81.9};
+\node[d2cell,text width=2.9cm,minimum width=3.3cm,minimum height=6.4mm,anchor=west] (b4) at (b3.east) {Sample size};
+\node[d2celll,text width=2.9cm,minimum width=3.3cm,minimum height=6.4mm,anchor=north west] (c1) at (b1.south west) {3. Registrational};
+\node[d2cell,text width=2.9cm,minimum width=3.3cm,minimum height=6.4mm,anchor=west] (c2) at (c1.east) {RASolute 302};
+\node[d2cellk,text width=2.9cm,minimum width=3.3cm,minimum height=6.4mm,anchor=west] (c3) at (c2.east) {Peer reviewed};
+\node[d2cell,text width=2.9cm,minimum width=3.3cm,minimum height=6.4mm,anchor=west] (c4) at (c3.east) {Dose rationale};
+\node[d2celll,text width=2.9cm,minimum width=3.3cm,minimum height=6.4mm,anchor=north west] (d1) at (c1.south west) {4. Proposed};
+\node[d2cell,text width=2.9cm,minimum width=3.3cm,minimum height=6.4mm,anchor=west] (d2) at (d1.east) {This Phase 1 study};
+\node[d2cellg,text width=2.9cm,minimum width=3.3cm,minimum height=6.4mm,anchor=west] (d3) at (d2.east) {No claim yet};
+\node[d2cell,text width=2.9cm,minimum width=3.3cm,minimum height=6.4mm,anchor=west] (d4) at (d3.east) {Safety and RP2D};
+\end{appfig}
+\vspace{-0.7cm}
+\figcaption{Four evidence tiers kept apart, so that simulation, verification, and
+a peer-reviewed clinical result are never read as one class. Row four is what the
+award would produce and carries no evidentiary weight today.}
+\end{appfloat}

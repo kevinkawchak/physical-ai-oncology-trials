@@ -1,0 +1,173 @@
+% sec-03: Set A, applications 01 to 05.  Figures 5 (plantuml use case) and
+% 8 (mermaid decision flowchart).
+\section{Set A: The Surgical Perspective}
+
+\subsection{What Leads in Set A}
+
+In the five surgical applications the operation leads. Daraxonrasib is present
+in all five, but it enters as the perioperative arm the operation is timed
+around rather than as the headline, and the endpoint table is led by conversion,
+anastomotic integrity, operative time, estimated blood loss, R0 margin status,
+and 90-day morbidity graded to the international definition
+\cite{bassi2017isgps}.
+
+That ordering is not cosmetic. A reviewer at a mechanism office asks whether the
+hard part is buildable; a reviewer at a clinical programme asks whether the hard
+part is survivable. Set A answers the first, and the hard part it names is the
+operation with a language model in the room.
+
+\subsection{Who Is Authorised to Do What}
+
+The single most common objection to a language model in an operating theatre is
+that the boundary is asserted rather than specified. Applications 02 and 10 each
+carry a three-actor slice of the authority question. Figure 5 gives the whole
+set, including the two actors that appear in no application figure: the research
+pharmacist and the institutional review board.
+
+\begin{appfloat}[!tb]
+\begin{appfig}[plantuml-type / use case]
+% Six human actors in the left column at x = 0, pitch 1.55.  Eleven use cases in
+% two columns inside the boundary at x = 5.0 and 8.6, pitch 1.30.  The advisory
+% model sits alone on the right at x = 12.6 so its associations are read against
+% the human ones.  Four struck links mark the paths it does not have.
+\node[umlpkg,minimum width=7.6cm,minimum height=8.4cm] (sys) at (6.8,-3.4) {};
+\node[umlpkgtab,anchor=north west] at ([xshift=1mm,yshift=-1mm]sys.north west) {Trial system boundary};
+\node[umlusekey,text width=22mm] (u1) at (5.0,-0.4) {Approve a robotic motion};
+\node[umlusekey,text width=22mm] (u2) at (5.0,-1.7) {Order conversion to open};
+\node[umlusekey,text width=22mm] (u3) at (5.0,-3.0) {Trigger arm or system stop};
+\node[umlusecase,text width=22mm] (u4) at (5.0,-4.3) {Exchange or dock an instrument};
+\node[umlusecase,text width=22mm] (u5) at (5.0,-5.6) {Set or hold the drug dose};
+\node[umlusecase,text width=22mm] (u6) at (8.6,-0.4) {Adjudicate attribution};
+\node[umlusecase,text width=22mm] (u7) at (8.6,-1.7) {Halt the cohort};
+\node[umlusecase,text width=22mm] (u8) at (8.6,-3.0) {Suspend the study};
+\node[umlusegray,text width=22mm] (u9) at (8.6,-4.3) {Render advisory text};
+\node[umlusegray,text width=22mm] (u10) at (8.6,-5.6) {Write to the audit log};
+\node[umlusegray,text width=22mm] (u11) at (8.6,-6.9) {Read telemetry, read only};
+\umlactor{a1}{0}{-0.3}{Operating surgeon}
+\umlactor{a2}{0}{-2.0}{Bedside assistant}
+\umlactor{a3}{0}{-3.7}{GI medical oncologist}
+\umlactor{a4}{0}{-5.4}{Research pharmacist}
+\umlactor{a5}{0}{-7.1}{Independent safety monitor}
+\umlactor{a6}{2.3}{-7.7}{IRB}
+\umlactor{a7}{12.6}{-4.6}{On-premises advisory model}
+\draw[umlassoc] (a1) -- (u1.west);
+\draw[umlassoc] (a1) -- (u2.west);
+\draw[umlassoc] (a1) -- (u3.west);
+\draw[umlassoc] (a2) -- (u4.west);
+\draw[umlassoc] (a3) -- (u5.west);
+\draw[umlassoc] (a3) -- (u6.west);
+\draw[umlassoc] (a4) -- (u5.west);
+\draw[umlassoc] (a5) -- (u7.west);
+\draw[umlassoc] (a6) -- (u8.west);
+\draw[umlassoc] (a7) -- (u9.east);
+\draw[umlassoc] (a7) -- (u10.east);
+\draw[umlassoc] (a7) -- (u11.east);
+\foreach \tx/\ty in {11.1/-0.9, 11.1/-2.0, 11.1/-3.1, 11.1/-6.2}{\pxmark{\tx}{\ty}}
+\node[umlnote,anchor=north west,text width=34mm] (n1) at (10.6,0.4)
+  {No association exists from the model to motion approval, conversion, stop, or
+   dose. The four denials are structural, not procedural.};
+\end{appfig}
+\vspace{-0.7cm}
+\figcaption{Seven actors and the eleven actions each may take. Every action has
+at least one human association; the advisory model has exactly one, and the
+struck links are the four it is denied by construction.}
+\end{appfloat}
+
+Three fills separate three authority classes. Corporate Blue marks the three
+actions only the operating surgeon takes. Pale blue marks the shared clinical
+and oversight actions. Gray marks the three actions the model may take, all of
+which produce text or read data and none of which moves anything. A reader who
+ignores the labels entirely still reads the structure correctly.
+
+\subsection{Applications 01 to 05}
+
+\textbf{01, NIH Director's Pioneer Award.} The unit of risk is the individual
+rather than the aim. The bet, that a targeted RAS(ON) inhibitor and a robotic
+operation can be evaluated as one governed system, does not survive
+decomposition into three independent project aims, because the drug schedule,
+the operative plan, and the advisory boundary are only interesting together. The
+ask is \$700,000 per year for five years, with a stated go or no-go condition at
+each of three gates.
+
+\textbf{02, ARPA-H.} Written as a gated programme rather than a project
+narrative, because the report endorses the ARPA model on the specific ground
+that a program manager can end a bet. Three gates at months 12, 21, and 33, each
+carrying a numeric kill criterion checkable from programme data: IND not active
+or measured stop latency above specification; any unexpected grade 4 event
+attributed to the device or the advisory path; fewer than two evaluable
+participants at any dose level.
+
+\textbf{03, NSF TIP X-Labs.} Argues organization type rather than money. The
+programme needs five activities held together, operating under an active IND,
+maintaining a verification harness, publishing negative operative results,
+holding the regulatory package as a maintained product, and releasing code and
+data openly. No existing performer type covers all five, and that gap is what
+the report says X-Labs was created to fill.
+
+\textbf{04, DOE Genesis Mission.} The FY 2028 annex defines the Robotics
+national mission as ``general-purpose autonomous systems capable of dexterous
+manipulation, mobility, and reliable operation in real-world environments, to
+initiate the era of physical AI-driven scientific discovery''
+\cite{kratsiosvought2026fy2028priorities}. A human operating room is the hardest
+available instance of that sentence. Three artifacts are offered to the mission
+rather than to the clinic: a trust-boundary topology, a closed loop with one
+measured human gate, and open data formats \cite{eo14363genesismission}.
+
+\textbf{05, NIH SEED SBIR.} The only application in which the commercial product
+carries the argument. The deliverable is not the robot and not the drug but the
+governance package that makes an on-premises model usable in a regulated
+theatre: a logging schema, a bench stop-latency method, and a regulatory dossier
+a qualified programme can adopt without rebuilding either.
+
+\subsection{What a Reviewer Actually Asks}
+
+\begin{appfloat}[!tb]
+\begin{appfig}[mermaid-type / flowchart with decisions]
+% Five decision diamonds on one rank at y = 0, pitch 2.9, aspect 2.1.  The
+% section that answers each sits directly above it at y = 1.9, so the pairing is
+% read from position and the dashed edges only confirm it.
+\foreach \i/\x/\q in {1/0/{1. Is the person credible?}, 2/2.9/{2. Is the science plausible?},
+  3/5.8/{3. Is the site reachable?}, 4/8.7/{4. Is the budget proportionate?},
+  5/11.6/{5. Is the claim bounded?}}{
+  \node[mmdec,text width=21mm] (g\i) at (\x,0) {\q};}
+\foreach \i/\x/\s in {1/0/{\S1: 14 deposited works}, 2/2.9/{\S3: QSP, twin, RASolute 302},
+  3/5.8/{\S5: Moores feasibility route}, 4/8.7/{\S5: \$700K per year, gated},
+  5/11.6/{back matter: scope of claims}}{
+  \node[mmsoft,text width=25mm] (s\i) at (\x,1.9) {\s};
+  \draw[mmedged] (s\i) -- (g\i);}
+\foreach \i/\j in {1/2, 2/3, 3/4, 4/5}{
+  \draw[mmedgeb] (g\i) -- node[mmlabel,pos=0.5] {yes} (g\j);}
+\node[mmgray,text width=24mm] (e1) at (1.45,-2.2) {Review ends};
+\node[mmgray,text width=24mm] (e2) at (8.7,-2.2) {Ask is revised};
+\node[mmgoal,text width=24mm] (fund) at (11.6,-2.2) {Proceed};
+\draw[mmedgek] (g1.south) -- node[mmlabel,pos=0.55] {no} (e1.north west);
+\draw[mmedgek] (g2.south) -- node[mmlabel,pos=0.55] {no} (e1.north east);
+\draw[mmedge] (g3.south) -- node[mmlabel,pos=0.55] {no} (e2.north west);
+\draw[mmedge] (g4.south) -- node[mmlabel,pos=0.55] {no} (e2.north);
+\draw[mmedgeb] (g5.south) -- node[mmlabel,pos=0.5] {yes} (fund.north);
+\end{appfig}
+\vspace{-0.7cm}
+\figcaption{The five questions a reviewer asks in order, and the section of the
+application that answers each. A no at gate 1 or gate 2 ends the review; a no at
+gates 3 to 5 changes the ask rather than ending it.}
+\end{appfloat}
+
+The asymmetry between the first two gates and the last three is why the
+applications are ordered as they are. Credibility and plausibility are settled
+in the first two sections of every attachment, before any ask appears, because a
+reviewer who is unconvinced there never reaches the budget.
+
+\begin{apptable}
+\begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}p{0.7cm} >{\raggedright\arraybackslash}p{1.5cm} >{\raggedright\arraybackslash}p{4.6cm} >{\raggedright\arraybackslash}X}
+\headrow \thead{No} & \thead{Figures} & \thead{Types used} & \thead{Type deliberately not used, and why}\\
+\midrule
+01 & 3 & mermaid, d2, graphviz & No plantuml or diagrams: no authority question, no topology question \\
+02 & 4 & mermaid, plantuml, d2, graphviz & No diagrams: nothing is deployed across a boundary in this argument \\
+03 & 3 & d2, diagrams, mermaid & No plantuml or graphviz: the argument is organization type, not authority or dependency \\
+04 & 4 & diagrams, mermaid, graphviz, d2 & No plantuml: the guards are stated in prose and drawn in the summary paper instead \\
+05 & 3 & mermaid, graphviz, d2 & No plantuml or diagrams: a phased commercial argument needs neither \\
+\end{tabularx}
+\end{apptable}
+\tabcap{Figure inventory for Set A, including the platform each application
+deliberately did not use. Recording the omission is what keeps the type choice
+a decision rather than a default.}

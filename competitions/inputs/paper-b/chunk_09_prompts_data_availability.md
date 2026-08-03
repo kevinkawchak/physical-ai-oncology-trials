@@ -97,6 +97,8 @@ def detect_signal_emergence_improved(demo_df, drug_df, reac_df, min_cases=3, prr
     # Your improved implementation
     ...
     return result_df
+
+
 # REQUIRED: Set result variable
 result = detect_signal_emergence_improved(demo_df, drug_df, reac_df)
 print(f"Found {len(result)} signals")

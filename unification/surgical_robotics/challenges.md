@@ -30,28 +30,32 @@ Achieving interoperability between surgical robotic platforms requires addressin
 # Example: Action space mismatch
 
 # dVRK PSM action (7 joints + gripper)
-dvrk_action = np.array([
-    0.1,    # outer_yaw
-    -0.05,  # outer_pitch
-    0.15,   # insertion (prismatic)
-    0.02,   # outer_roll
-    0.0,    # wrist_pitch
-    0.1,    # wrist_yaw
-    0.0,    # wrist_roll
-    0.5     # gripper (0-1)
-])
+dvrk_action = np.array(
+    [
+        0.1,  # outer_yaw
+        -0.05,  # outer_pitch
+        0.15,  # insertion (prismatic)
+        0.02,  # outer_roll
+        0.0,  # wrist_pitch
+        0.1,  # wrist_yaw
+        0.0,  # wrist_roll
+        0.5,  # gripper (0-1)
+    ]
+)
 
 # Franka action (7 joints + gripper)
-franka_action = np.array([
-    0.0,    # joint1
-    -0.785, # joint2
-    0.0,    # joint3
-    -2.356, # joint4
-    0.0,    # joint5
-    1.571,  # joint6
-    0.785,  # joint7
-    0.04    # gripper (meters)
-])
+franka_action = np.array(
+    [
+        0.0,  # joint1
+        -0.785,  # joint2
+        0.0,  # joint3
+        -2.356,  # joint4
+        0.0,  # joint5
+        1.571,  # joint6
+        0.785,  # joint7
+        0.04,  # gripper (meters)
+    ]
+)
 
 # Different semantics, ranges, and coupling
 ```
@@ -126,9 +130,10 @@ franka_action = np.array([
 # Franka (native impedance control)
 franka.set_impedance(
     stiffness=np.array([600, 600, 600, 30, 30, 30]),  # N/m, Nm/rad
-    damping_ratio=np.array([0.7, 0.7, 0.7, 0.7, 0.7, 0.7])
+    damping_ratio=np.array([0.7, 0.7, 0.7, 0.7, 0.7, 0.7]),
 )
 franka.move_to_position(target_pose)
+
 
 # UR5 (no native impedance - must implement in software)
 def ur_impedance_control_loop(target_pose, stiffness, damping):

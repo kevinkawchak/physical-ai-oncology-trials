@@ -1,0 +1,54 @@
+% sec-03: what one independent performer has already produced.  Figure 2 is a
+% diagrams-python-type clustered stack comparing that to a program office.
+\section{The Performer's Track Record}
+
+Between June 2025 and July 2026, without institutional support, one scientist
+identified the drug from forty pancreatic cancer meta-analyses, produced three
+quantitative trial simulations, and wrote a complete regulatory package
+\cite{foundingdocs,daraxident}. The August 2025 quantitative systems
+pharmacology run, ten arms and 250 ordinary differential equations per patient,
+returned median overall survival of \textbf{12.8 months} against \textbf{5.4}
+for chemotherapy \cite{qspmetpancre}; RASolute 302 reported \textbf{13.2}
+against \textbf{6.6 months} nine months later \cite{rasolute302}. The proximity
+is chronology, not validation: 1000 simulated against 241 enrolled, a
+combination against a single agent, KRAS G12C against a primarily G12D and G12V
+population.
+
+\begin{appfloat}[!tb]
+\begin{appfig}[diagrams (python)-type / clustered stack]
+% Two dashed clusters, four tiles each, on a 2.5cm pitch.  Tile labels sit
+% 5.4mm below the tile centre, so cluster titles cannot overlap them.
+\dgnode{dgtile}{0}{0}{\glyphdoc}{Literature and\\meta-analysis}{n1}
+\dgnode{dgtile}{2.5}{0}{\glyphcpu}{Simulation and\\verification}{n2}
+\dgnode{dgtile}{5.0}{0}{\glyphshield}{Regulatory\\authoring}{n3}
+\dgnode{dgtile}{7.5}{0}{\glyphlink}{Release and\\archiving}{n4}
+\begin{scope}[on background layer]
+\node[dgcluster,fit=(n1)(n1l)(n2)(n2l)(n3)(n3l)(n4)(n4l),inner sep=8pt] (cl1) {};
+\end{scope}
+\node[dgctitle,anchor=south west] at ([yshift=1.2mm]cl1.north west) {One independent performer, June 2025 to July 2026, one operator};
+
+\dgnodeg{dgtileg}{0}{-3.15}{\glyphuser}{Scientific\\writing group}{m1}
+\dgnodeg{dgtileg}{2.5}{-3.15}{\glyphchart}{Modeling and\\simulation team}{m2}
+\dgnodeg{dgtileg}{5.0}{-3.15}{\glyphgear}{Regulatory\\affairs unit}{m3}
+\dgnodeg{dgtileg}{7.5}{-3.15}{\glyphdb}{Data management\\office}{m4}
+\begin{scope}[on background layer]
+\node[dgcluster2,fit=(m1)(m1l)(m2)(m2l)(m3)(m3l)(m4)(m4l),inner sep=8pt] (cl2) {};
+\end{scope}
+\node[dgctitle2,anchor=south west] at ([yshift=1.2mm]cl2.north west) {The equivalent institutional program office, four functions, four teams};
+
+\draw[dgedgeb] (n1) -- (n2);
+\draw[dgedgeb] (n2) -- (n3);
+\draw[dgedgeb] (n3) -- (n4);
+\draw[dgedged] (m1) -- (m2);
+\draw[dgedged] (m2) -- (m3);
+\draw[dgedged] (m3) -- (m4);
+\node[font=\tiny\sffamily,text=protogray,anchor=west,text width=38mm,align=left]
+  at (9.4,-1.55) {Same four functions. The upper row was executed by one person
+  with an LLM toolchain; the lower row is what the same scope normally
+  requires.};
+\end{appfig}
+\vspace{-0.7cm}
+\figcaption{The same four functions, executed once by a single performer and
+once by the institutional program office the report describes. The comparison is
+the concrete form of the report's individual-scientist argument.}
+\end{appfloat}

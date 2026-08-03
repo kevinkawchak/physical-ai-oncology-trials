@@ -1,0 +1,290 @@
+% sec-06: the advisory boundary, stop authority, verification.
+% Figures 9, 10, 12, 13, 14, 15.
+\section{Physical AI Governance}
+
+\subsection{Three Boundaries}
+
+\textbf{The model has no path to the arms.} Advisory output is rendered to a
+display. No generated token reaches a motion controller, and no software in the
+advisory path holds write access to the command channel. The operating surgeon
+approves every motion \cite{onpremwhippl}.
+
+\textbf{Stopping is bounded and measured.} Arm-level stop is specified at 3
+milliseconds and system-wide stop at 500 milliseconds, both measured on the
+bench before the first participant is screened and re-measured at every cohort
+boundary. A specification that is asserted rather than measured is not a
+boundary; it is a hope.
+
+\textbf{Every artifact is verified before use.} The model runs on premises,
+pinned to a repository commit, and writes a timestamped record for every
+recommendation. Conversion ordered for patient safety is recorded as clinically
+appropriate; conversion caused by device, advisory, or integration failure
+counts separately against the feasibility endpoint \cite{phase1ind}.
+
+\begin{appfloat}[!tb]
+\begin{appfig}[diagrams (python)-type / clustered topology]
+% Three stacked clusters inside the boundary so the boundary rule can run full
+% height without crossing one.  Tiles 2.4 apart, labels 5.4mm below tile
+% centres.  The struck link marks the path from the model to the controller.
+\dgnodew{dgtiled}{0}{0}{\glyphrobot}{Eight-arm robotic platform}{t1}
+\dgnode{dgtile}{2.4}{0}{\glyphcpu}{Motion controller}{t2}
+\dgnode{dgtile}{4.8}{0}{\glyphmon}{Advisory display}{t3}
+\begin{scope}[on background layer]
+\node[dgcluster,fit=(t1)(t1l)(t2)(t2l)(t3)(t3l),inner sep=7pt] (co) {};
+\end{scope}
+\node[dgctitle,anchor=south west] at ([yshift=1mm]co.north west) {Operative};
+\dgnode{dgtile}{0}{-2.7}{\glyphai}{On-premises model, pinned commit}{t4}
+\dgnode{dgtile}{2.4}{-2.7}{\glyphdb}{Local audit log}{t5}
+\dgnode{dgtile}{4.8}{-2.7}{\glyphserver}{Offline model registry}{t6}
+\begin{scope}[on background layer]
+\node[dgcluster,fit=(t4)(t4l)(t5)(t5l)(t6)(t6l),inner sep=7pt] (ca) {};
+\end{scope}
+\node[dgctitle,anchor=south west] at ([yshift=1mm]ca.north west) {Advisory};
+\dgnode{dgtile}{0}{-5.4}{\glyphlock}{Identity broker and access control}{t7}
+\dgnode{dgtile}{2.4}{-5.4}{\glyphsignal}{Site monitoring endpoint}{t8}
+\begin{scope}[on background layer]
+\node[dgcluster2,fit=(t7)(t7l)(t8)(t8l),inner sep=7pt] (cc) {};
+\end{scope}
+\node[dgctitle2,anchor=south west] at ([yshift=1mm]cc.north west) {Control};
+\dgnodeg{dgtileg}{9.4}{-2.7}{\glyphcloud}{Public archive, DOI minted}{o1}
+\begin{scope}[on background layer]
+\node[dgcluster2,fit=(o1)(o1l),inner sep=7pt] (cx) {};
+\end{scope}
+\node[dgctitle2,anchor=south west] at ([yshift=1mm]cx.north west) {Outside};
+\draw[protoblack,line width=1pt] (7.2,1.2) -- (7.2,-6.3);
+\node[font=\tiny\sffamily\bfseries,text=protoblack,rotate=90,anchor=south] at (7.05,-2.5) {trust boundary};
+\draw[dgedgeb] (t4) -- (t3);
+\draw[dgedgeb] (t4) -- (t5);
+\draw[dgedgeb] (t3) -- node[font=\tiny\sffamily,pos=0.5,fill=protowhite,inner sep=1pt] {human} (t2);
+\draw[dgedgeb] (t2) -- (t1);
+\draw[dgedge] (t6) -- (t4);
+\draw[dgedge] (t7) -- (t4);
+\draw[dgedge] (t5) -- (t8);
+\draw[dgedged] (t5.east) to[out=20,in=180,looseness=0.8] (o1.west);
+\pxmark{2.4}{-1.35}
+\node[font=\tiny\sffamily,text=protogray,anchor=west,text width=26mm,align=left]
+  at (2.75,-1.35) {no path from the model to the controller};
+\node[font=\tiny\sffamily,text=protogray,anchor=north,text width=44mm,align=center]
+  at (9.4,-4.6) {Records leave. Nothing returns: there is no inbound edge across
+  the boundary.};
+\end{appfig}
+\vspace{-0.7cm}
+\figcaption{Nine components, one trust boundary, and one direction of travel.\\
+Records leave for the public archive; nothing returns, and no path\\
+from the model reaches a motion controller at any point.}
+\end{appfloat}
+
+\subsection{The Operative Day}
+
+Two figures are needed for one operative day, and neither implies the other. The
+sequence gives the conversation, which is what an operating team recognises; the
+state machine gives the guards, which is what a reviewer checks. A sequence with
+no guards cannot say what is forbidden, and a state machine with no messages
+cannot say who speaks.
+
+\begin{appfloat}[!tb]
+\begin{appfig}[mermaid-type / sequence diagram]
+% Five lifelines 2.9 apart; eleven messages 0.62 apart.  Every label sits on a
+% white ground so a message never overprints a lifeline.
+\foreach \i/\x/\lab in {1/0/{Operating surgeon}, 2/2.9/{Console and controller},
+  3/5.8/{Eight-arm platform}, 4/8.7/{On-premises model}, 5/11.6/{Audit log}}{
+  \node[mmactor,text width=20mm] (a\i) at (\x,0) {\lab};
+  \draw[mmlife] (\x,-0.45) -- (\x,-7.35);}
+\foreach \y/\f/\t/\msg in {%
+  -0.90/0/2.9/{1. set operative plan for the step},
+  -1.52/2.9/8.7/{2. telemetry snapshot, read only},
+  -2.14/8.7/0/{3. advisory text rendered to a display},
+  -2.76/8.7/11.6/{4. recommendation written with timestamp},
+  -3.38/0/2.9/{5. approve, modify, or reject},
+  -4.00/2.9/5.8/{6. motion command},
+  -4.62/5.8/2.9/{7. force and position feedback},
+  -5.24/0/11.6/{8. decision written with latency},
+  -6.10/0/2.9/{9. request stop},
+  -6.72/2.9/5.8/{10. arm stop 3 ms, system stop 500 ms}}{
+  \draw[mmmsg] (\f,\y) -- (\t,\y)
+    node[midway,above,font=\tiny\sffamily,fill=protowhite,inner sep=1.2pt] {\msg};}
+\draw[pagrayd,dashed,line width=0.4pt] (-0.9,-5.65) -- (12.5,-5.65);
+\pxmark{7.25}{-5.65}
+\node[font=\tiny\sffamily,text=protogray,anchor=west,text width=44mm,align=left]
+  at (7.6,-5.65) {no message exists from the model to the console or to the platform};
+\end{appfig}
+\vspace{-0.7cm}
+\figcaption{One operative day as a message sequence. Every arrow reaching\\
+the robot leaves a human first, and the two audit writes are\\
+the only messages that cross the hospital trust boundary.}
+\end{appfloat}
+
+\begin{appfloat}[!tb]
+\begin{appfig}[plantuml-type / state diagram with guards]
+% Four normal states on the upper rank at y = 0, pitch 3.3.  Two terminal-side
+% states on the lower rank at y = -2.4.  The two human-only transitions leave
+% one state, so they are drawn at bend left=14 and bend right=14 with equal
+% looseness; any larger bend re-enters the Composing box.
+\node[umlinit] (i) at (-1.5,0) {};
+\node[umlstatesoft,text width=24mm] (s1) at (0.3,0) {Idle};
+\node[umlstatesoft,text width=24mm] (s2) at (3.6,0) {Reading telemetry};
+\node[umlstatesoft,text width=24mm] (s3) at (6.9,0) {Composing};
+\node[umlstate,text width=24mm] (s4) at (10.2,0) {Rendered};
+\node[umlstateon,text width=24mm] (s5) at (10.2,-2.4) {Accepted};
+\node[umlstategray,text width=24mm] (s6) at (6.9,-2.4) {Rejected};
+\node[umlstatesoft,text width=24mm] (s7) at (3.6,-2.4) {Logged};
+\node[umlstategray,text width=24mm] (s8) at (0.3,-2.4) {Degraded};
+\node[umlfinal] (f) at (-1.5,-2.4) {};
+\draw[umlarrow] (i) -- (s1);
+\draw[umlarrow] (s1) -- node[umlguard,pos=0.5] {[case open]} (s2);
+\draw[umlarrow] (s2) -- node[umlguard,pos=0.5] {[snapshot complete]} (s3);
+\draw[umlarrow] (s3) -- node[umlguard,pos=0.5] {[template check passes]} (s4);
+\draw[umlarrow] (s4) to[bend left=14] node[umlguard,pos=0.5] {[surgeon accepts]} (s5);
+\draw[umlarrow] (s4.south west) to[bend right=14] node[umlguard,pos=0.45] {[surgeon rejects]} (s6.north east);
+\draw[umlarrow] (s5) -- (s7);
+\draw[umlarrow] (s6) -- (s7);
+\draw[umlarrow] (s7) -- node[umlguard,pos=0.5] {[step closed]} (s8);
+\draw[umlarrow] (s8) -- (f);
+\draw[umldash] (s2.south) -- node[umlguard,pos=0.55] {[telemetry stale $>$ 250 ms]} (s8.north east);
+\draw[umldash] (s3.south) -- node[umlguard,pos=0.5] {[model latency $>$ 2 s]} (s8.north);
+\node[umlbar,minimum width=3mm,minimum height=1.4mm] at (10.9,-0.95) {};
+\node[umlbar,minimum width=3mm,minimum height=1.4mm] at (8.9,-1.25) {};
+\node[font=\tiny\itshape,text=protogray,anchor=north,text width=110mm,align=center]
+  at (5.2,-3.3) {The two marked transitions are the only ones a human can fire,
+  and they are the two that separate a rendered recommendation from an executed
+  motion. Degraded renders nothing: it is silence, not a fallback mode.};
+\end{appfig}
+\vspace{-0.7cm}
+\figcaption{Six advisory states and the guard on every transition. Two guards\\
+can only be satisfied by a human action, and they are the two that\\
+separate a rendered recommendation from an executed motion.}
+\end{appfloat}
+
+\subsection{How a Failure Propagates}
+
+\begin{appfloat}[!tb]
+\begin{appfig}[graphviz-type / fault tree]
+% One top event, one OR gate, four branches, four gates, eight leaves.  Ranks at
+% y = 0, -1.05, -2.4, -3.45, -4.9.  Every edge is vertical or near-vertical and
+% none crosses a gate glyph.
+\node[gvboxk,text width=44mm] (top) at (5.6,0) {Unintended motion reaches the patient};
+\umlgateor{5.6}{-1.05}
+\draw[gvedge] (5.6,-0.79) -- (top.south);
+\foreach \i/\x/\lab in {1/0.4/{Command path fails}, 2/3.9/{Stop path fails},
+  3/7.4/{Advisory mistaken for a command}, 4/10.9/{Wrong step authorised}}{
+  \node[gvboxs,text width=25mm] (b\i) at (\x,-2.4) {\lab};}
+\draw[gvedge] (b1.north) -- (5.28,-1.35);
+\draw[gvedge] (b2.north) -- (5.44,-1.38);
+\draw[gvedge] (b3.north) -- (5.76,-1.38);
+\draw[gvedge] (b4.north) -- (5.92,-1.35);
+\umlgateand{0.4}{-3.45}
+\umlgateand{3.9}{-3.45}
+\umlgateand{7.4}{-3.45}
+\umlgateor{10.9}{-3.45}
+\foreach \i/\x in {1/0.4, 2/3.9, 3/7.4, 4/10.9}{\draw[gvedge] (\x,-3.19) -- (b\i.south);}
+\foreach \i/\x/\a/\b in {1/0.4/{Controller fault}/{Interlock not armed},
+  2/3.9/{Arm stop $>$ 3 ms}/{System stop $>$ 500 ms},
+  3/7.4/{Display omits the advisory banner}/{Surgeon does not confirm},
+  4/10.9/{Plan and telemetry disagree}/{No second confirmation}}{
+  \node[gvboxg,text width=21mm] (l\i a) at (\x-1.2,-4.9) {\a};
+  \node[gvboxg,text width=21mm] (l\i b) at (\x+1.2,-4.9) {\b};
+  \draw[gvedge] (l\i a.north) -- (\x-0.28,-3.72);
+  \draw[gvedge] (l\i b.north) -- (\x+0.28,-3.72);}
+\node[font=\tiny\itshape,text=protogray,anchor=north,text width=118mm,align=center]
+  at (5.6,-5.7) {Three branches are AND gates, so no single failure reaches the
+  patient. The fourth is an OR gate and both of its leaves are procedural, which
+  is the argument: hardware redundancy does not cover a procedural gap.};
+\end{appfig}
+\vspace{-0.7cm}
+\figcaption{One top event and every path to it. Three of the four branches are AND\\
+gates, so no single failure reaches the patient, and the one OR branch\\
+is the one governed by procedure rather than by hardware.}
+\end{appfloat}
+
+\subsection{What Is Released}
+
+\begin{appfloat}[!tb]
+\begin{appfig}[d2-type / sql tables]
+% Participant centred above; five dependents fanned below at two levels, so no
+% join edge passes under a table.  operative_step sits directly beneath
+% participant because it carries the schema's only two-hop path.
+\node[d2sql,text width=32mm] (pt) at (5.6,1.6)
+  {\textbf{participant}\nodepart{two}participant\_id : uuid PK\\dose\_level : int\\kras\_variant : text\\resectability : text};
+\node[d2sql,text width=32mm] (os) at (5.6,-1.5)
+  {\textbf{operative\_step}\nodepart{two}step\_id : uuid PK\\participant\_id : uuid FK\\step\_ordinal : int\\arm\_ids : int array};
+\node[d2sql,text width=30mm] (ad) at (0.4,-1.5)
+  {\textbf{advisory\_decision}\nodepart{two}decision\_id : uuid PK\\step\_id : uuid FK\\accepted : bool\\latency\_ms : float};
+\node[d2sql,text width=30mm] (se) at (10.8,-1.5)
+  {\textbf{stop\_event}\nodepart{two}stop\_id : uuid PK\\step\_id : uuid FK\\measured\_ms : float\\scope : text};
+\node[d2sql,text width=30mm] (ae) at (0.4,-4.6)
+  {\textbf{adverse\_event}\nodepart{two}ae\_id : uuid PK\\participant\_id : uuid FK\\attribution : enum\\ctcae\_grade : int};
+\node[d2sql,text width=30mm] (sp) at (10.8,-4.6)
+  {\textbf{specimen}\nodepart{two}specimen\_id : uuid PK\\participant\_id : uuid FK\\pathway\_pd : float\\response\_grade : text};
+\draw[d2edgeb] (os.north) -- (pt.south);
+\draw[d2edge] (ad.east) -- (os.west);
+\draw[d2edge] (se.west) -- (os.east);
+\draw[d2edge] (ae.north) to[out=90,in=180,looseness=0.7] (pt.west);
+\draw[d2edge] (sp.north) to[out=90,in=0,looseness=0.7] (pt.east);
+\node[font=\tiny\itshape,text=protogray,anchor=north,text width=112mm,align=center]
+  at (5.6,-6.4) {Every released record traces to one participant and one
+  operative step. That is what makes an independent re-analysis possible without
+  access to the site.};
+\end{appfig}
+\vspace{-0.7cm}
+\figcaption{Six tables and the five keys that join them. Every released record can\\
+be traced to one participant and one operative step, which is what\\
+makes an independent re-analysis of the cohort possible at all.}
+\end{appfloat}
+
+\subsection{Who Produced Which Artifact}
+
+The documents this paper summarises were produced by a small set of frontier
+models with separated roles, and the separation is what makes the review chain
+meaningful: no model reviews its own output \cite{repo2026}.
+
+\begin{apptable}
+\begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}p{2.9cm} >{\raggedright\arraybackslash}p{2.4cm} >{\raggedright\arraybackslash}X}
+\headrow \thead{Model} & \thead{Role} & \thead{Artifacts produced}\\
+\midrule
+Claude Code & Author & Investigational new drug applications; trial protocols; FDA, ICH and NIH regulation adaptions; legislation revisions; machine-readable diagrams; repository platforms \\
+ChatGPT Codex & First reviewer & Verification, validation and uncertainty quantification of author outputs; meta-analyses of trial papers; external standards; PDF reading and writing \\
+Google Gemini & Second reviewer & Second peer review; accelerated code problem solving; meta-verification of prior stages; administrative automation \\
+\end{tabularx}
+\end{apptable}
+\tabcap{The three frontier-model roles, taken verbatim from the repository's own
+record. The separation is the point: the author model does not review itself,
+and the second reviewer checks the first.}
+
+\begin{appfloat}[!tb]
+\begin{appfig}[diagrams (python)-type / clustered by vendor]
+% Three vendor clusters on three ranks 3.0 apart, three tiles each at x = 0,
+% 2.6, 5.2.  Two return edges at bend left=22 keep clear of the tile field.
+\dgnode{dgtile}{0}{0}{\glyphdoc}{IND and protocols}{v1}
+\dgnode{dgtile}{2.6}{0}{\glyphshield}{Regulation adaptions}{v2}
+\dgnode{dgtile}{5.2}{0}{\glyphchart}{Machine-readable diagrams}{v3}
+\begin{scope}[on background layer]
+\node[dgcluster,fit=(v1)(v1l)(v2)(v2l)(v3)(v3l),inner sep=7pt] (k1) {};
+\end{scope}
+\node[dgctitle,anchor=south west] at ([yshift=1mm]k1.north west) {A. Claude Code, author};
+\dgnode{dgtilem}{0}{-3.0}{\glyphgear}{VVUQ of author outputs}{w1}
+\dgnode{dgtilem}{2.6}{-3.0}{\glyphflask}{Trial meta-analyses}{w2}
+\dgnode{dgtilem}{5.2}{-3.0}{\glyphdoc}{External standards, PDF}{w3}
+\begin{scope}[on background layer]
+\node[dgcluster,fit=(w1)(w1l)(w2)(w2l)(w3)(w3l),inner sep=7pt] (k2) {};
+\end{scope}
+\node[dgctitle,anchor=south west] at ([yshift=1mm]k2.north west) {B. ChatGPT Codex, first reviewer};
+\dgnodeg{dgtileg}{0}{-6.0}{\glyphteam}{Second peer review}{x1}
+\dgnodeg{dgtileg}{2.6}{-6.0}{\glyphcpu}{Code problem solving}{x2}
+\dgnodeg{dgtileg}{5.2}{-6.0}{\glyphlink}{Meta-verification}{x3}
+\begin{scope}[on background layer]
+\node[dgcluster2,fit=(x1)(x1l)(x2)(x2l)(x3)(x3l),inner sep=7pt] (k3) {};
+\end{scope}
+\node[dgctitle2,anchor=south west] at ([yshift=1mm]k3.north west) {C. Google Gemini, second reviewer};
+\draw[dgedgeb] (k1.south) -- (k2.north);
+\draw[dgedgeb] (k2.south) -- (k3.north);
+\draw[dgedged] (k3.east) to[bend left=22] node[font=\tiny\sffamily,pos=0.5,fill=protowhite,inner sep=1pt] {findings return} (k1.east);
+\draw[dgedged] (k3.east) to[bend left=16] (k2.east);
+\node[font=\tiny\itshape,text=protogray,anchor=north,text width=100mm,align=center]
+  at (2.6,-7.3) {The chain is a cycle rather than a line, because a review
+  finding that is recorded but not acted on is not a review.};
+\end{appfig}
+\vspace{-0.7cm}
+\figcaption{Three vendors, nine roles, and the single review chain that connects\\
+them. No model reviews its own output, and the chain is drawn as a\\
+cycle because the second reviewer's finding returns to the author.}
+\end{appfloat}

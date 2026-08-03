@@ -110,10 +110,7 @@ regulatory/
 ```python
 from regulatory.fda_compliance.fda_submission_tracker import FDASubmissionTracker
 
-tracker = FDASubmissionTracker(
-    sponsor="Physical AI Oncology Consortium",
-    device_class="II"
-)
+tracker = FDASubmissionTracker(sponsor="Physical AI Oncology Consortium", device_class="II")
 
 # Register a new AI device submission
 submission = tracker.create_submission(
@@ -121,7 +118,7 @@ submission = tracker.create_submission(
     device_name="AI-Guided Surgical Planning System",
     intended_use="AI-assisted tumor resection planning using patient-specific digital twins",
     ai_ml_components=["tumor_segmentation_model", "surgical_path_optimizer"],
-    breakthrough_designation=True
+    breakthrough_designation=True,
 )
 
 # Generate pre-submission package checklist
@@ -135,10 +132,7 @@ for item in checklist.items:
 ```python
 from regulatory.irb_management.irb_protocol_manager import IRBProtocolManager
 
-irb = IRBProtocolManager(
-    institution="Memorial Sloan Kettering Cancer Center",
-    irb_type="central"
-)
+irb = IRBProtocolManager(institution="Memorial Sloan Kettering Cancer Center", irb_type="central")
 
 # Create AI-specific protocol submission
 protocol = irb.create_protocol(
@@ -147,10 +141,10 @@ protocol = irb.create_protocol(
     ai_components=[
         "real-time tumor boundary detection",
         "robotic instrument guidance",
-        "digital twin treatment simulation"
+        "digital twin treatment simulation",
     ],
     participant_count=200,
-    trial_phase="pivotal"
+    trial_phase="pivotal",
 )
 
 # Generate AI-specific review requirements
@@ -163,10 +157,7 @@ print(f"AI-specific review items: {len(ai_review.items)}")
 ```python
 from regulatory.ich_gcp.gcp_compliance_checker import GCPComplianceChecker
 
-checker = GCPComplianceChecker(
-    guideline_version="E6_R3",
-    jurisdiction="us_fda"
-)
+checker = GCPComplianceChecker(guideline_version="E6_R3", jurisdiction="us_fda")
 
 # Run compliance verification
 report = checker.verify_compliance(
@@ -177,8 +168,8 @@ report = checker.verify_compliance(
         "sponsor_obligations",
         "digital_technology_provisions",
         "data_governance",
-        "quality_management"
-    ]
+        "quality_management",
+    ],
 )
 
 print(f"Compliance score: {report.overall_score:.1f}%")
@@ -191,8 +182,7 @@ print(f"Findings: {report.total_findings}")
 from regulatory.regulatory_intelligence.regulatory_tracker import RegulatoryTracker
 
 tracker = RegulatoryTracker(
-    jurisdictions=["fda", "ema", "ich"],
-    topics=["ai_ml_devices", "oncology", "clinical_trials", "digital_health"]
+    jurisdictions=["fda", "ema", "ich"], topics=["ai_ml_devices", "oncology", "clinical_trials", "digital_health"]
 )
 
 # Get current regulatory updates

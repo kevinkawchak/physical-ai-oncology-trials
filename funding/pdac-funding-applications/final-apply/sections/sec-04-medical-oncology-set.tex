@@ -1,0 +1,112 @@
+% sec-04: Set B, applications 06 to 10.  Figure 19 (plantuml activity).
+\section{Set B: The Medical Oncology Perspective}
+
+\subsection{What Leads in Set B}
+
+In the five medical oncology applications the drug and the patient selection
+lead. Daraxonrasib (RMC-6236) is a RAS(ON) multi-selective inhibitor given
+perioperatively in KRAS G12-mutated resectable or borderline-resectable disease,
+and the operation is described in full but as the instrumented setting that
+makes the pharmacology measurable.
+
+The endpoint table reorders accordingly: dose-limiting toxicity and the 3+3
+escalation first, then sampling timed around the resection, then pathologic
+response, ctDNA clearance, and 24-month overall survival. The operation matters
+for one reason no metastatic study can supply: it is the only setting yielding
+paired pre-treatment and on-treatment human tumour tissue under controlled
+timing.
+
+\begin{apptable}
+\begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}p{3.3cm} >{\raggedright\arraybackslash}p{3.3cm} >{\raggedright\arraybackslash}X}
+\headrow \thead{Measurement} & \thead{Timing relative to resection} & \thead{Why no other setting supplies it}\\
+\midrule
+Plasma pharmacokinetics & Days $-14$, $-1$, and $+1$ & Exposure in a surgical population has not been characterised by any sponsor \\
+Tumour pathway pharmacodynamics & Resection specimen, day 0 & Cannot be obtained in the metastatic setting at all \\
+ctDNA clearance kinetics & Days $-14$, $+30$, $+90$ & Defines a shared surrogate anchored to a known resection date \\
+Pathologic response grade & Resection specimen, day 0 & Anchors every later perioperative RAS study to one scale \\
+\end{tabularx}
+\end{apptable}
+\tabcap{The four measurements the consortium in application 06 exists to make,
+when each is taken relative to the resection, and the reason a metastatic trial
+cannot supply any of them.}
+
+\subsection{Applications 06 to 10}
+
+\textbf{06, Foundation for the NIH.} A pre-competitive question no party owns:
+what happens pharmacologically when a RAS(ON) inhibitor is given around a
+curative-intent resection. The one shared output is owned by none of the three
+contributors, which is what makes it pre-competitive.
+
+\textbf{07, HHMI Investigator Program.} Tests the one place the report's
+person-based argument might not reach, an investigator with no academic
+appointment. The programme is written as a state machine rather than a set of
+aims, and every failure transition re-enters it.
+
+\textbf{08, NCI Cancer Therapy Evaluation Program.} The most clinically
+technical, because a concept review is a technical review. An adverse event here
+may be attributable to the drug, the operation, or the advisory system, and the
+dose decision depends on which, so attribution is adjudicated blind before the
+toxicity window closes.
+
+\textbf{09, Convergent Research.} The only application whose organization states
+its own end date: no year six is budgeted, only one of three releases depends on
+the trial succeeding, and every artifact has a recipient class fixed in year one.
+
+\textbf{10, UC San Diego Moores Cancer Center.} Different in kind: addressed to
+the partner institution, asking for a 45-minute feasibility meeting rather than
+money, and carrying three positioning corrections from the author's site
+research.
+
+\subsection{What Happens If Any One Lands}
+
+\begin{appfloat}[!tb]
+\begin{appfig}[plantuml-type / activity with fork and join]
+% Fork and join bars are 9.2cm wide, wider than the outermost lane, so they
+% visibly span all four.  Four lanes at x = 0.4, 3.4, 6.4, 9.4; two boxes per
+% lane at y = -1.0 and y = -2.3, giving 0.3 of clear space between lanes.
+\node[umlinit] (st) at (4.9,1.5) {};
+\node[umlkey,text width=44mm] (fund) at (4.9,0.75) {Any one of the ten applications is funded};
+\draw[umlarrow] (st) -- (fund);
+\node[umlbar,minimum width=9.2cm] (fk) at (4.9,-0.05) {};
+\draw[umlarrow] (fund) -- (fk);
+\foreach \i/\x/\a/\b in {1/0.4/{Execute the site agreement}/{Open the IRB submission},
+  2/3.4/{Build the interlock rig}/{Measure stop latency on the bench},
+  3/6.4/{Fix the advisory logging schema}/{Stand up the audit replay tool},
+  4/9.4/{Request the drug cross-reference}/{Confirm pharmacy and supply chain}}{
+  \node[umlbox,text width=24mm] (p\i) at (\x,-1.05) {\a};
+  \node[umlbox,text width=24mm] (q\i) at (\x,-2.35) {\b};
+  \draw[umlarrow] (\x,-0.11) -- (p\i.north);
+  \draw[umlarrow] (p\i) -- (q\i);
+  \draw[umlarrow] (q\i.south) -- (\x,-3.34);}
+\node[umlbar,minimum width=9.2cm] (jn) at (4.9,-3.4) {};
+\node[mmdec,text width=26mm] (d) at (4.9,-4.6) {Site agreement executed?};
+\draw[umlarrow] (jn) -- (d);
+\node[umlstateon,text width=32mm] (yes) at (1.6,-6.1) {Activate the IND, screen the first participant};
+\node[umlstategray,text width=32mm] (no) at (8.2,-6.1) {Hold the cohort, re-scope to a second qualified site};
+\draw[umlarrow] (d.south west) -- node[umlguard,pos=0.5] {[yes]} (yes.north east);
+\draw[umlarrow] (d.south east) -- node[umlguard,pos=0.5] {[no]} (no.north west);
+\node[umlfinal] (f1) at (1.6,-7.2) {};
+\node[umlfinal] (f2) at (8.2,-7.2) {};
+\draw[umlarrow] (yes) -- (f1);
+\draw[umlarrow] (no) -- (f2);
+\end{appfig}
+\vspace{-0.7cm}
+\figcaption{One award, four parallel workstreams, one join. The join condition is\\
+the site agreement, not the money, which is why nine of the ten asks\\
+can be satisfied by any single award rather than by all ten.}
+\end{appfloat}
+
+The join condition is worth stating plainly. Three of the four workstreams
+complete without reference to which funder paid. Only the site agreement gates
+what follows, and no funder can supply it.
+
+\subsection{The Two Sets Describe One Operation}
+
+Set A and Set B are not two programmes. They describe the same hybrid procedure,
+carrying surgical and medical oncology arms together.
+
+What differs is what each leads with, and that is a claim about reviewers rather
+than about science. A surgical reviewer asked to evaluate a drug schedule will
+defer to the medical oncology literature, and the reverse holds too. Writing the
+same trial twice, each time leading with what the reader can actually assess, is
+the only honest way to ask both.

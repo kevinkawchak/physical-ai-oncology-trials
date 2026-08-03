@@ -1,0 +1,41 @@
+% sec-02: the 36-month milestone schedule.  Figure 1 is a mermaid-type gantt.
+\section{Thirty-Six Months, Three Gates}
+
+The program is scoped to thirty-six months rather than five years, because an
+ARPA bet should either produce a recommended Phase 2 dose and a clean safety set
+or be stopped. Gate 1 closes the regulatory and bench work, Gate 2 closes the
+first treated cohort, and Gate 3 closes escalation. A gate that fails ends the
+program; it does not trigger a replan.
+
+\begin{appfloat}[!tb]
+\begin{appfig}[mermaid-type / gantt with gates]
+% Time axis 0 to 36 months at 0.30cm per month.  Five swim rows 0.85 apart, so
+% bars never touch.  Gate rules are drawn full height and labelled above.
+\draw[pagrayd,line width=0.4pt] (0,0.5) -- (0,-4.15);
+\foreach \m in {0,6,12,18,24,30,36}{
+  \draw[pagraym,line width=0.3pt] (\m*0.30,0.35) -- (\m*0.30,-4.15);
+  \node[font=\tiny\sffamily,text=protogray,anchor=south] at (\m*0.30,0.38) {M\m};}
+\node[mmbar,minimum width=2.7cm,anchor=west] (b1) at (0,0) {};
+\node[font=\tiny\sffamily,anchor=west] at (0.08,0) {Site agreement and IRB};
+\node[mmbar,minimum width=2.7cm,anchor=west] (b2) at (0.9,-0.85) {};
+\node[font=\tiny\sffamily,anchor=west] at (0.98,-0.85) {IND activation};
+\node[mmbark,minimum width=1.8cm,anchor=west] (b3) at (2.7,-1.7) {};
+\node[font=\tiny\sffamily,anchor=west] at (2.78,-1.7) {Bench stop latency};
+\node[mmbark,minimum width=3.6cm,anchor=west] (b4) at (3.6,-2.55) {};
+\node[font=\tiny\sffamily,anchor=west] at (3.68,-2.55) {Cohort 1, three participants};
+\node[mmbarg,minimum width=4.5cm,anchor=west] (b5) at (6.3,-3.4) {};
+\node[font=\tiny\sffamily,anchor=west] at (6.38,-3.4) {Escalation to RP2D and follow-up};
+\foreach \g/\x/\lab in {1/3.6/Gate 1, 2/6.3/Gate 2, 3/9.9/Gate 3}{
+  \draw[protoblue,line width=1pt,dashed] (\x,0.55) -- (\x,-4.15);
+  \node[mmlabel,text=protoblue,anchor=south,font=\tiny\sffamily\bfseries] at (\x,0.60) {\lab};}
+\node[font=\tiny\sffamily,text=protogray,anchor=north west,text width=105mm]
+  at (0,-4.35) {Kill criteria. Gate 1: IND not active or measured stop latency
+  above 3 ms per arm. Gate 2: any unexpected grade 4 event attributable to the
+  device or the advisory path. Gate 3: fewer than two evaluable participants
+  per dose level.};
+\end{appfig}
+\vspace{-0.7cm}
+\figcaption{The thirty-six month schedule with its three gates. Each gate
+carries a numeric kill criterion, so the program manager can end the bet on data
+rather than on a narrative review.}
+\end{appfloat}

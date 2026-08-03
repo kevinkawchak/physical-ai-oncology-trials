@@ -1,5 +1,44 @@
-# UC San Diego and Scripps Clinical Research Potential Partnerships
+# potential-partners - candidate clinical sites
 
+[![License](https://img.shields.io/badge/License-CC%20BY%204.0-yellow.svg)](https://creativecommons.org/licenses/by/4.0/)
+[![Sites](https://img.shields.io/badge/Candidate%20sites-2-00417A.svg)](.)
+[![Partner of choice](https://img.shields.io/badge/Partner%20of%20choice-UC%20San%20Diego%20Moores-3C7DB2.svg)](UC-San-Diego)
+[![Status](https://img.shields.io/badge/Status-feasibility%20stage%20only-6C757D.svg)](.)
+[![Repository](https://img.shields.io/badge/Repository-v4.4.0-6C757D.svg)](../../README.md)
+
+Site research for the Phase 1 PDAC programme. Neither institution has agreed to
+anything, and neither is described as a partner, sponsor, trial site, or
+endorser anywhere in this repository.
+
+| Directory | Institution | Role in v4.4.0 |
+|:--|:--|:--|
+| [`UC-San-Diego/`](UC-San-Diego) | UC San Diego Moores Cancer Center | **Partner of choice.** Named in all ten application file sets; application 10 is addressed to it |
+| [`Scripps/`](Scripps) | Scripps Research and Scripps Health | Alternate route, AI-first rather than trial-first. Supplies the second-site branch in application 03 |
+
+## How v4.4.0 uses this directory (Rule 5)
+
+| Source | Used in |
+|:--|:--|
+| [`UC-San-Diego/README.md`](UC-San-Diego/README.md) | §5 of every application file set: the partnership sequence, the required positioning, and the success criteria |
+| [`UC-San-Diego/priority-steps.md`](UC-San-Diego/priority-steps.md) | [Application 10](../pdac-funding-applications/applications/app-10-ucsd-moores-engine) in full: recipient routing, the five feasibility questions, the CDA and OCTA constraint, the ACTRI sponsor-investigator determination, the escalation path, and the three positioning corrections now carried by all ten applications |
+| [`Scripps/README.md`](Scripps/README.md) | The alternate-performer argument in application 03 and the second-site branch in its Figure 3 |
+| [`Scripps/priority-steps.md`](Scripps/priority-steps.md) | The AI-first sequencing contrast in the summary paper's §7 |
+
+## The positioning constraint, in one place
+
+Everything in `funding/` obeys these, and they originate here:
+
+1. The AI system is bounded and advisory. Licensed clinicians retain final
+   authority over diagnosis, treatment, surgery, and safety decisions.
+2. Simulation results, draft protocol concepts, unvalidated software, proposed
+   clinical research, and established clinical evidence are labelled separately.
+3. Neither institution is publicly described as a partner, sponsor, trial site,
+   or endorser unless written authorization is obtained.
+4. A patient-facing trial proceeds only after the site, manufacturer, FDA
+   pathway, funding, sponsor responsibilities, contracts, insurance, IRB
+   approval, and operational resources are documented.
+
+---
 
 ## UC San Diego Clinical Trial Partnership Overview
 

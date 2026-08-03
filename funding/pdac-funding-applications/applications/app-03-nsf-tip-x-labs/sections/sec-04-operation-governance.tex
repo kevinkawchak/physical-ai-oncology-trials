@@ -1,0 +1,32 @@
+% sec-04: the operation and the advisory boundary (surgical lead).
+\section{The Operation and the Advisory Boundary}
+
+The intervention is a staged eight-arm robotic pancreaticoduodenectomy with
+perioperative daraxonrasib and an on-premises language model whose output is
+advisory only \cite{onpremwhippl,phase1ind}. The model has no path to the arms:
+no generated token reaches a motion controller and no software in the advisory
+path holds write access to the command channel. Arm-level stop is specified at
+3 milliseconds and system-wide stop at 500 milliseconds, measured on the bench
+before the first patient and again at every cohort boundary.
+
+\begin{apptable}
+\begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}p{3.4cm} >{\raggedright\arraybackslash}p{3.1cm} >{\raggedright\arraybackslash}X}
+\headrow \thead{Parameter} & \thead{Value} & \thead{Source}\\
+\midrule
+Population & Resectable or borderline-resectable KRAS G12-mutated PDAC & Phase 1 protocol \\
+Design and size & Open-label, single-arm, 3+3 escalation, up to 18 treated participants & Phase 1 protocol and IND \\
+Co-primary endpoints & 30-day device- or procedure-related SAEs; DLT and MTD or RP2D; tasks completed without unsafe conversion & Phase 1 protocol \\
+Follow-up & 28-day screening; 30-day and 90-day safety; 24-month overall survival & Phase 1 protocol \\
+\end{tabularx}
+\end{apptable}
+\tabcap{Trial parameters carried unchanged from the published Phase 1 protocol
+and the Investigational New Drug application, so the concept is evaluated
+against a protocol that already exists.}
+
+\vspace{0.1em}
+\noindent\footnotesize\textbf{Positioning note.} \textit{First in human refers
+to the integrated surgical and advisory workflow, not to daraxonrasib, which is
+investigational and already in Phase 3 evaluation. The robotic configuration is
+specified by manufacturer, model, cleared configuration, arm count, and software
+version at the site agreement, and no drug supply or letter of authorization is
+in place with the agent's developer.}\normalsize\par

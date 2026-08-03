@@ -189,15 +189,13 @@ ssl_config = {
     # Architectural prevention
     "projector_hidden_dim": 4096,
     "predictor": True,
-
     # Training prevention
     "weight_decay": 0.04,
     "batch_size": 4096,
     "temperature": 0.1,
-
     # Monitoring
     "track_feature_variance": True,
-    "track_effective_rank": True
+    "track_effective_rank": True,
 }
 ```
 

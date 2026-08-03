@@ -32,16 +32,11 @@ from isaaclab.algos import PPO
 env = SurgicalEnv(
     task="needle_insertion",
     num_envs=4096,  # Parallel environments
-    device="cuda:0"
+    device="cuda:0",
 )
 
 # Train policy - 2M samples in ~30 minutes
-policy = PPO(
-    env=env,
-    learning_rate=3e-4,
-    batch_size=8192,
-    num_iterations=1000
-)
+policy = PPO(env=env, learning_rate=3e-4, batch_size=8192, num_iterations=1000)
 
 results = policy.train()
 # Expected: 90%+ success rate after 30 min training
@@ -80,20 +75,17 @@ domain_randomization = {
     "lighting_intensity": UniformRange(0.7, 1.3),
     "camera_noise_std": 0.02,
     "texture_augmentation": True,
-
     # Physics domain
     "tissue_stiffness": UniformRange(0.5, 2.0),
     "friction_coefficient": UniformRange(0.3, 0.8),
     "damping": UniformRange(0.8, 1.2),
-
     # Geometric domain
     "object_scale": UniformRange(0.9, 1.1),
     "position_noise_mm": 5.0,
     "orientation_noise_deg": 5.0,
-
     # Action domain
     "action_delay_ms": UniformRange(0, 20),
-    "action_noise_std": 0.01
+    "action_noise_std": 0.01,
 }
 
 # Results: 88% sim-to-real transfer rate (vs 55% without randomization)
@@ -176,22 +168,15 @@ from safe_rl import CPO  # Constrained Policy Optimization
 safety_constraints = [
     # Velocity constraints
     Constraint("max_velocity", threshold=0.1, type="inequality"),  # m/s
-
     # Force constraints
     Constraint("max_force", threshold=5.0, type="inequality"),  # N
-
     # Workspace constraints
     Constraint("workspace_violation", threshold=0, type="equality"),
-
     # Critical structure avoidance
     Constraint("distance_to_artery", threshold=5.0, type="inequality"),  # mm
 ]
 
-policy = CPO(
-    env=surgical_env,
-    constraints=safety_constraints,
-    constraint_violation_penalty=100.0
-)
+policy = CPO(env=surgical_env, constraints=safety_constraints, constraint_violation_penalty=100.0)
 
 # Policy learns to achieve task while respecting all constraints
 ```
@@ -232,7 +217,7 @@ from marl import MAPPO
 agents = {
     "camera_agent": CameraControlAgent(),
     "retractor_agent": RetractionAgent(),
-    "assistant_agent": InstrumentAssistant()
+    "assistant_agent": InstrumentAssistant(),
 }
 
 # Centralized training with decentralized execution
@@ -240,7 +225,7 @@ mappo = MAPPO(
     agents=agents,
     shared_reward=True,  # Team reward
     communication=True,  # Agents can share observations
-    centralized_critic=True  # Shared value function during training
+    centralized_critic=True,  # Shared value function during training
 )
 
 # Train cooperative policies
@@ -285,7 +270,7 @@ rl_policy = BCPlusRL(
     initial_policy=bc_policy,
     env=surgical_env,
     il_weight=0.3,  # Blend IL and RL objectives
-    exploration_noise=0.1
+    exploration_noise=0.1,
 )
 
 rl_policy.fine_tune(episodes=50000)
@@ -324,14 +309,14 @@ dataset = SurgicalDataset(
     source="institutional_archive",
     procedures=["nephrectomy", "prostatectomy"],
     years=(2020, 2025),
-    size=50000  # episodes
+    size=50000,  # episodes
 )
 
 # Train without any online interaction
 policy = IQL(
     dataset=dataset,
     conservative_weight=0.5,  # Prevent OOD actions
-    expectile=0.7
+    expectile=0.7,
 )
 
 policy.train(iterations=100000)
@@ -433,10 +418,7 @@ def surgical_reward(state, action, next_state):
 from ensemble import PolicyEnsemble
 
 # Train multiple policies with different seeds
-policies = [
-    train_policy(seed=i, env=surgical_env)
-    for i in range(5)
-]
+policies = [train_policy(seed=i, env=surgical_env) for i in range(5)]
 
 ensemble = PolicyEnsemble(policies)
 

@@ -1,0 +1,70 @@
+% sec-04: authority boundaries.  Figure 2 is a plantuml-type use case diagram.
+\section{Who Is Authorized to Do What}
+
+The program has three authorities that must not blur: the operating surgeon
+holds clinical authority, the program manager holds programmatic authority, and
+the advisory model holds none. Writing that down precisely is not a formality,
+because the single most common objection to an LLM in an operating room is that
+the boundary is asserted rather than specified.
+
+\begin{appfloat}[!tb]
+\begin{appfig}[plantuml-type / use case]
+% Three actors on the left, one on the right, use cases in a bounded system box.
+% Actors are 1.7 apart vertically; ellipses are 1.35 apart, so no association
+% line crosses an ellipse.
+\node[umlpkg,minimum width=6.6cm,minimum height=5.5cm] (sys) at (4.6,-1.35) {};
+\node[umlpkgtab,anchor=north west] at ([xshift=1mm,yshift=-1mm]sys.north west) {Trial system boundary};
+\node[umlusekey] (u1) at (4.6,0.05) {Approve every robotic motion};
+\node[umlusecase] (u2) at (4.6,-1.3) {Order conversion to open operation};
+\node[umlusecase] (u3) at (4.6,-2.65) {Render advisory text to a display};
+\umlactor{a1}{0}{0.15}{Operating surgeon}
+\umlactor{a2}{0}{-2.0}{ARPA-H program manager}
+\umlactor{a3}{9.4}{-2.55}{On-premises advisory model}
+\draw[umlassoc] (a1) -- (u1.west);
+\draw[umlassoc] (a1) -- (u2.west);
+\draw[umlassoc] (a2) -- node[umlguard,pos=0.55] {gate decisions only} (u2.west);
+\draw[umlassoc] (a3) -- (u3.east);
+\draw[umldash] (u3.north) to[out=100,in=-80,looseness=0.8] node[umlguard,pos=0.5] {advisory input} (u1.south);
+\node[umlnote,anchor=north west,text width=42mm] (n1) at (7.8,0.55)
+  {The model has no association with the two authorized actions. No generated
+  token reaches a motion controller.};
+\draw[umldash] (n1.west) -- (u1.east);
+\pxmark{7.35}{-2.55}
+\node[font=\tiny\sffamily,text=protogray,anchor=north,text width=34mm,align=center]
+  at (7.35,-2.95) {no path to the arms};
+\end{appfig}
+\vspace{-0.7cm}
+\figcaption{Authority as an association diagram. Only the surgeon is associated
+with the two authorized actions; the advisory model is associated with one
+action, and the struck link is the one it does not have.}
+\end{appfloat}
+
+The operation itself is a staged eight-arm robotic pancreaticoduodenectomy with
+perioperative daraxonrasib \cite{onpremwhippl,phase1ind}. Arm-level stop is
+specified at 3 milliseconds and system-wide stop at 500 milliseconds, both
+measured on the bench before the first patient and re-measured at every cohort
+boundary. Conversion ordered for patient safety counts as clinically
+appropriate; conversion caused by device, advisory, or integration failure
+counts against the feasibility endpoint and is reported separately.
+
+\begin{apptable}
+\begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}p{3.5cm} >{\raggedright\arraybackslash}p{3.0cm} >{\raggedright\arraybackslash}X}
+\headrow \thead{Surgical measure} & \thead{Recorded as} & \thead{Gate that reads it}\\
+\midrule
+Protocol tasks completed without unsafe conversion & Count and proportion, with attribution & Gate 2 and Gate 3 \\
+Operative time and estimated blood loss & Minutes and millilitres per case & Gate 3, trend only \\
+Pancreatic fistula, ISGPS grade & Grade B or C at 90 days \cite{bassi2017isgps} & Gate 3 \\
+R0 margin status & Proportion of resections & Gate 3, supportive \\
+\end{tabularx}
+\end{apptable}
+\tabcap{Four surgical measures, how each is recorded, and which gate reads it.
+Attribution is recorded at the time of the event rather than reconstructed at
+the gate.}
+
+\vspace{0.1em}
+\noindent\footnotesize\textbf{Positioning note.} \textit{First in human refers
+to the integrated surgical and advisory workflow, not to daraxonrasib, which is
+investigational and already in Phase 3 evaluation. The robotic configuration is
+specified by manufacturer, model, cleared configuration, arm count, and software
+version at the site agreement, and no drug supply or letter of authorization is
+in place with the agent's developer.}\normalsize\par

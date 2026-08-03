@@ -1,0 +1,34 @@
+% sec-04: Gold Standard Science mapping.  Figure 3 is a graphviz-type record
+% node view of the verification artifacts.
+\section{Gold Standard Science, Artifact by Artifact}
+
+Executive Order 14303 sets nine principles for federally funded research
+\cite{eo14303goldstandard}. Rather than assert compliance, this program names
+the artifact that discharges each principle and the field a reviewer reads.
+
+\begin{appfloat}[!tb]
+\begin{appfig}[graphviz-type / record nodes]
+% Three record nodes, each a ruled box with a header strip and three fields.
+% Nodes are 5.1 apart, so the widest field cannot reach a neighbour.
+\foreach \i/\x/\ttl in {1/0/{stop\_latency\_record}, 2/5.1/{advisory\_decision\_record}, 3/10.2/{escalation\_cohort\_record}}{
+  \node[gvcellh,text width=3.9cm,minimum height=5.2mm,anchor=north west] (H\i) at (\x,0) {\ttl};}
+\foreach \i/\f in {1/{arm\_id : int}, 2/{case\_id : uuid}, 3/{dose\_level : int}}{
+  \node[gvcells,text width=3.9cm,minimum height=5.0mm,anchor=north west] (A\i) at (H\i.south west) {\f};}
+\foreach \i/\f in {1/{measured\_ms : float}, 2/{accepted : bool}, 3/{dlt\_count : int}}{
+  \node[gvcell,text width=3.9cm,minimum height=5.0mm,anchor=north west] (B\i) at (A\i.south west) {\f};}
+\foreach \i/\f in {1/{bench\_or\_intraop : enum}, 2/{latency\_ms : float}, 3/{negative\_results : text}}{
+  \node[gvcell,text width=3.9cm,minimum height=5.0mm,anchor=north west] (C\i) at (B\i.south west) {\f};}
+\foreach \i/\f in {1/{principle: reproducibility}, 2/{principle: transparency}, 3/{principle: negative results}}{
+  \node[gvcellg,text width=3.9cm,minimum height=5.0mm,anchor=north west] (D\i) at (C\i.south west) {\f};}
+\draw[gvedgeb] (D1.east) -- (A2.west);
+\draw[gvedgeb] (D2.east) -- (A3.west);
+\node[font=\tiny\itshape,text=protogray,anchor=north west,text width=140mm]
+  at (0,-3.0) {Every record is joined on case identifier and released with the
+  cohort. The principle field is not decoration: it is the reviewer's index from
+  Executive Order 14303 into the exact column that discharges it.};
+\end{appfig}
+\vspace{-0.7cm}
+\figcaption{Three verification records, field by field, each carrying the Gold
+Standard Science principle it discharges. The join is on case identifier, and
+all three are released with the cohort.}
+\end{appfloat}

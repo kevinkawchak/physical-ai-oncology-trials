@@ -17,7 +17,7 @@ toward the ten-times character target, unifies the figure numbering into a singl
 document sequence (Figure 1 to Figure 22, so all 22 grayscale figures appear) and
 the table numbering into section sequences (Table 1.1, Table 3.1, and so on), and
 applies the senior-author polish learned from
-[`../../trial-protocol/final-protocol/publication`](../../trial-protocol/final-protocol/publication):
+[`../../trial-protocol/final-protocol/publication`](../../../trial-protocol/final-protocol/publication):
 `\clearpage` per self-standing section, tuned full-width table column widths,
 `\vspace`/`\hspace`/`\needspace` to remove large empty space without overcrowding,
 even `\RaggedRight` interword spacing with no right-margin overflow, no stranded or
@@ -50,11 +50,11 @@ references. There is no `publication` subdirectory under `final-ind`.
 
 | Source | Used for |
 |:--|:--|
-| [`../full-ind/`](../full-ind) | the full IND, refined here (not overwritten) |
-| [`../mermaid/fig-01 .. fig-22`](../mermaid) | the grayscale figures at full fidelity |
-| [`../../trial-protocol/final-protocol/publication`](../../trial-protocol/final-protocol/publication) | the `\clearpage` / `\vspace` / table-width proof-reading techniques and the clinical data |
-| [`../../trial-documents/final-paper/publication/sections/sec-08-references-backmatter.tex`](../../trial-documents/final-paper/publication/sections/sec-08-references-backmatter.tex) | the back matter adapted here |
-| [`../inputs`](../inputs) | the ReGARDD IND template, FDA 1571 instructions, ReGARDD guidance, references |
+| [`../full-ind/`](../../full-ind) | the full IND, refined here (not overwritten) |
+| [`../mermaid/fig-01 .. fig-22`](../../mermaid) | the grayscale figures at full fidelity |
+| [`../../trial-protocol/final-protocol/publication`](../../../trial-protocol/final-protocol/publication) | the `\clearpage` / `\vspace` / table-width proof-reading techniques and the clinical data |
+| [`../../trial-documents/final-paper/publication/sections/sec-08-references-backmatter.tex`](../../../trial-documents/final-paper/publication/sections/sec-08-references-backmatter.tex) | the back matter adapted here |
+| [`../inputs`](../../inputs) | the ReGARDD IND template, FDA 1571 instructions, ReGARDD guidance, references |
 
 ## Compile (Overleaf, pdfLaTeX)
 

@@ -1,0 +1,51 @@
+% sec-02: fit to the Director's Pioneer Award mechanism.  Figure 1 is a
+% mermaid-type flowchart: the pipeline that already ran, and where the award
+% enters it.  Sources: chunk-01, chunk-03, chunk-08.
+\section{Fit to the Director's Pioneer Award}
+
+The Pioneer Award funds a person for a long horizon rather than a project for a
+short one, and it is the one mechanism the report names by title.
+
+\textbf{The unit of risk is the individual, not the aim.} The bet is that a
+targeted RAS(ON) inhibitor and a robotic operation can be evaluated as one
+governed system, with a language model confined to advisory output. It does not
+survive decomposition into three independent R01 aims: the drug schedule, the
+operative plan, and the advisory boundary are only interesting together.
+
+\textbf{The work sits in the mid-scale gap, and the preparatory risk is
+retired.} Chapter II defines mid-scale science as tens of millions of dollars,
+teams of ten to a hundred, and half a decade, and says no institution fills it.
+The fourteen prior works came before any federal dollar was requested; what
+remains is what cannot be done alone, namely a qualified surgery program, an
+IRB, monitored safety infrastructure, and patients.
+
+\begin{appfloat}[!tb]
+\begin{appfig}[mermaid-type / flowchart]
+% Two bands, four columns.  Columns at x = 0, 3.6, 7.2, 10.8; bands 2.35 apart,
+% so no node in the lower band can touch a node in the upper band.
+\node[mmsoft] (id) at (0,0) {Jun 2025\\Drug identified from 40 PDAC meta-analyses};
+\node[mmsoft] (sim) at (3.6,0) {Aug 2025\\QSP simulation, 250 ODEs per patient};
+\node[mmsoft] (reg) at (7.2,0) {Jun 2026\\Protocols, IND, and bill drafts};
+\node[mmmid] (app) at (10.8,0) {Aug 2026\\This application};
+\draw[mmedgeb] (id) -- (sim);
+\draw[mmedgeb] (sim) -- (reg);
+\draw[mmedgeb] (reg) -- (app);
+
+\node[mmgoal] (yr1) at (0,-2.35) {Year 1\\Site agreement, IRB, IND activation};
+\node[mmstep] (yr2) at (3.6,-2.35) {Years 2 to 3\\Escalation, 3+3, first six patients};
+\node[mmstep] (yr3) at (7.2,-2.35) {Years 4 to 5\\Accrual and 24-month follow-up};
+\node[mmgoal] (out) at (10.8,-2.35) {Output\\RP2D, safety set, public evidence package};
+\draw[mmedgeb] (yr1) -- (yr2);
+\draw[mmedgeb] (yr2) -- (yr3);
+\draw[mmedgeb] (yr3) -- (out);
+\draw[mmedgeb] (app.south) to[out=-90,in=90,looseness=0.9] (yr1.north);
+
+\node[mmlanetitle,anchor=east] at (-1.35,0) {Self-funded\\and complete};
+\node[mmlanetitle,anchor=east] at (-1.35,-2.35) {Requested\\five-year term};
+\draw[pagrayd,dashed,line width=0.5pt] (-1.3,-1.18) -- (12.2,-1.18);
+\end{appfig}
+\vspace{-0.7cm}
+\figcaption{Work already completed without federal funding sits above the rule;
+the five-year term requested here sits below it. The award enters at the one
+point where an individual scientist cannot proceed alone.}
+\end{appfloat}

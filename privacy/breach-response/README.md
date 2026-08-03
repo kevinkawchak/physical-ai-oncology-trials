@@ -42,7 +42,7 @@ from privacy.breach_response.breach_response_protocol import BreachResponseManag
 brm = BreachResponseManager(
     organization="Physical AI Oncology Consortium",
     hipaa_covered_entity=True,
-    state_jurisdictions=["CA", "TX", "NY", "MA"]
+    state_jurisdictions=["CA", "TX", "NY", "MA"],
 )
 
 # Report a detected incident
@@ -51,7 +51,7 @@ incident = brm.report_incident(
     description="Unauthorized access to patient imaging database detected",
     phi_types_involved=["medical_record_numbers", "diagnostic_images", "dates"],
     individuals_affected=150,
-    discovery_date="2026-02-01"
+    discovery_date="2026-02-01",
 )
 
 # Run four-factor risk assessment

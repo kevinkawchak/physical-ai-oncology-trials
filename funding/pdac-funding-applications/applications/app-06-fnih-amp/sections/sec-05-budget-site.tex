@@ -1,0 +1,42 @@
+% sec-05: cost share, leverage, partner site.  Figure 2 is a graphviz-type
+% dependency graph showing which contribution unblocks which measurement.
+\section{Cost Share, Leverage, and the Partner Site}
+
+The federal or foundation ask is \textbf{\$700,000 per year for five years},
+\$3,500,000 total \cite{fundapp2}. The consortium's contributed value, drug
+supply, site infrastructure, pathology, and bioanalytical support, is not
+requested in cash and is the non-federal share the annex asks agencies to
+prioritise \cite{kratsiosvought2026fy2028priorities}.
+
+\begin{appfloat}[!tb]
+\begin{appfig}[graphviz-type / contribution dependency graph]
+% Three source clusters feeding four measurement nodes.  Ranks at x = 0, 4.3,
+% 8.9; vertical pitch 1.35, so no edge label overlaps a node.
+\node[gvkey,text width=26mm] (s1) at (0,1.35) {Independent scientist: protocol, IND, analysis plan};
+\node[gvsoft,text width=26mm] (s2) at (0,-0.15) {Academic center: patients, theatre, pathology};
+\node[gvgray,text width=26mm] (s3) at (0,-1.65) {Drug developer: supply and cross-reference};
+\node[gvbox] (m1) at (4.4,2.1) {Plasma PK, days $-14$, $-1$, $+1$};
+\node[gvbox] (m2) at (4.4,0.7) {Tumour pathway PD at resection};
+\node[gvbox] (m3) at (4.4,-0.7) {ctDNA clearance kinetics};
+\node[gvbox] (m4) at (4.4,-2.1) {Pathologic response grade};
+\node[gvmid,text width=27mm] (o) at (8.9,0) {Open specimen-level dataset, owned by none of the three};
+\draw[gvedgeb] (s1) -- (m1);\draw[gvedgeb] (s1) -- (m3);
+\draw[gvedge] (s2) -- (m2);\draw[gvedge] (s2) -- (m4);\draw[gvedge] (s2) -- (m3);
+\draw[gvedged] (s3) -- (m1);\draw[gvedged] (s3) -- (m2);
+\draw[gvedge] (m1) -- (o);\draw[gvedge] (m2) -- (o);
+\draw[gvedge] (m3) -- (o);\draw[gvedge] (m4) -- (o);
+\node[font=\tiny\itshape,text=protogray,anchor=north,text width=104mm,align=center]
+  at (4.4,-2.85) {Two of the four measurements have two independent upstream
+  contributors and survive the loss of one party. Tumour pathway
+  pharmacodynamics does not, which is why the drug cross-reference is the first
+  agreement to close.};
+\end{appfig}
+\vspace{-0.7cm}
+\figcaption{Which contribution unblocks which measurement. Only tumour pathway
+pharmacodynamics depends on a single party on each side, which sets the order in
+which the consortium agreements must close.}
+\end{appfloat}
+
+Moores Cancer Center is the intended partner of choice for the academic side,
+approached at the feasibility stage only. UC San Diego is not a partner,
+sponsor, site, or endorser, because no written authorization exists.

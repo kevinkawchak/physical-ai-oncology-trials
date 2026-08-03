@@ -4,6 +4,43 @@ Release notes for the physical-ai-oncology-trials repository.
 
 ---
 
+10 PDAC Independent-Scientist Funding Applications + Summary Paper (v4.4.0)
+v4.4.0 - 10 PDAC Independent-Scientist Funding Applications and Summary Paper
+
+## Summary
+
+This release adds funding/pdac-funding-applications/, built from one master prompt in two parts. PART I is ten recipient-unique Phase 1 pancreatic cancer trial funding application email file sets, no DOIs, each written in Kevin Kawchak's name as an independent scientist under the funding approach set out in the White House report Science: A New Golden Age (July 2026), and each naming UC San Diego Moores Cancer Center as the intended partner of choice at the feasibility stage only. The report asks the roughly $200 billion annual federal research and development portfolio to prioritize the individual scientist over legacy institutions, finding that it has no systematic framework for identifying where those dollars could catalyze the greatest scientific returns and defers instead to the same incumbents that consume the funding. Every recipient qualifies only because the report names its programme or the mechanism it runs: the NIH Director's Pioneer Award by title, the ARPA program-manager model, NSF TIP X-Labs as the first federal programme designed to fund independent research organizations outside traditional academia, the Genesis Mission's Robotics line, SBIR as opening doors for technician-founded ventures, FNIH and the Accelerating Medicines Partnership as the public-private model, HHMI-style person-based funding, prioritized foundational biological sciences, focused research organizations built to dissolve, and regional innovation clusters with non-federal cost share. Applications 01 to 05 lead with the operation and 06 to 10 with the drug and patient selection; both sets describe the same hybrid procedure, a staged eight-arm robotic pancreaticoduodenectomy with perioperative daraxonrasib (RMC-6236) and an on-premises large language model confined to advisory output, open-label, single-arm, 3+3 escalation, up to 18 treated participants. Because the trial is constant across all ten, a reviewer comparing two applications is comparing two funding mechanisms with the science held fixed. Each set carries an email .txt with exact recipients, subject, body, a four-line closing ending July 10th, 2026, compiled and manual attachment lists and a pre-send checklist; a five-page LaTeX attachment with its own cover variant; self-contained appstyle.sty and references.bib; one .tex per section; a comprehensive README; and an Overleaf zip. PART II is the summary paper 10 Funding Applications: A Phase 1, First-in-Human, PDAC Clinical Trial Protocol of a LLM-Directed Robotic Whipple with Daraxonrasib (RMC-6236), Draft 1.0, DOI 10.5281/zenodo.xxxxxxxx, San Diego, August 3, 2026, built through eight stages: five diagram-specification directories then draft-apply, full-apply and final-apply. It carries twenty figures across five machine-readable platforms in an uneven 6/3/4/3/4 split chosen by purpose rather than quota, eighteen full-width tables, and no publication subdirectory. No PNG or JPG is generated anywhere: every figure is pure TikZ on the patient-robot-advocacy palette with no black fill, and the diagrams-python stage emits a machine-readable specification rather than a .py file, which keeps the repository's three lint-and-format checks green. Every LaTeX source was compiled with pdfLaTeX and BibTeX before commit: thirteen source sets, zero errors, zero overfull boxes, zero underfull boxes, zero undefined citations. One substantive correction is recorded rather than absorbed: the author's own UC San Diego priority-steps notes that daraxonrasib must not be described as first-in-human, since it is investigational and already in Phase 3 evaluation, and nine of the ten applications carried that error until the PART I audit pass.
+
+A 425-character summary: v4.4.0 adds funding/pdac-funding-applications/: ten recipient-unique Phase 1 pancreatic cancer funding applications written as an independent scientist under the White House report's $200 billion individual-scientist realignment, five surgical and five medical oncology, all naming UC San Diego Moores Cancer Center, plus a 20-figure summary paper built through five diagram stages then draft, full and final. Every source compiles at zero errors.
+
+## Features
+
+- funding/pdac-funding-applications/prompts: the master prompt filed verbatim (prompt-apply.md) and the full Claude Code output (output-apply.md), which records the six defects found and fixed during the build, the first-in-human correction, and the two instructions that could not be followed literally.
+- funding/pdac-funding-applications/sub-prompts: thirteen stage sub-prompts in two schedules that never share a stage, five for PART I and eight for PART II, each with a comprehensive README.
+- funding/pdac-funding-applications/applications: ten application file sets, app-01-nih-pioneer-award through app-10-ucsd-moores-engine, with ten cover variants so no two attachments read as copies of one template, and 34 figures across the ten. Each compiles at zero errors within the five-page limit.
+- funding/pdac-funding-applications/mermaid, plantuml, d2, diagrams-python, graphviz: twenty figure specifications, each carrying the figure number, a balanced three-line caption, valid source in the native platform syntax, TikZ construction notes with stated node pitches, and the repository files it draws on.
+- funding/pdac-funding-applications/draft-apply: main.tex, applystyle.sty, references.bib, twelve sections with bracketed [DRAFTING INSTRUCTION] markers naming exact repository files, twenty sized figure slots, plus draft-apply-LaTeX.zip.
+- funding/pdac-funding-applications/full-apply: every instruction resolved, all twenty figures drawn, eighteen full-width tables populated with author-source data, plus full-apply-LaTeX.zip.
+- funding/pdac-funding-applications/final-apply: the senior-author pass with float barriers at every section, clearpage discipline, all twenty captions rebalanced to three explicit lines with a median spread of five characters, and prose tightened in two passes, plus final-apply-LaTeX.zip. No publication subdirectory.
+- Comprehensive READMEs with badges and Rule 5 source maps in every directory under funding/, including the three that were previously byte-identical copies of the old funding hub README.
+- Root README updated with new badges, a 425-character summary, one dedicated v4.4.0 section with a mermaid build diagram and four tables, and the funding/ structure tree. CHANGELOG.md updated.
+
+## Contributors
+@kevinkawchak
+@claude
+@google-gemini
+@openai
+
+## Notes
+
+The ten applications carry no DOIs of their own; the DOIs that appear in them are citations of prior published work. The summary paper carries one DOI, left in the placeholder form 10.5281/zenodo.xxxxxxxx with a hyperlink to https://doi.org/10.5281/zenodo.xxxxxxxx.
+
+Nothing in this release is a submission of record. Every application is a draft the author compiles, verifies, and sends, and every .txt opens its pre-send checklist with an instruction to confirm the recipient address against the funder's current contact page. UC San Diego and Moores Cancer Center are named as the intended partner of choice and are described nowhere as a partner, sponsor, trial site, or endorser; no agreement of any kind exists. No drug supply, letter of authorization, or regulatory cross-reference is in place with the agent's developer, and no robotic configuration has been specified or cleared. No patient has been treated.
+
+Two instructions could not be followed as literally specified. The prompt asks for a comprehensive README in every directory of robotic-surgeries/tree/main/patient-robot-advocacy, but Rule 1 restricts commits to physical-ai-oncology-trials, so nothing was written to that repository; every new and existing directory under funding/ did receive one. The summary paper reaches 1/3.14 of the parent work on prose characters and 1/2.85 on source characters against a target of approximately 1/4; the exact figures and the two levers that would close the gap are recorded in final-apply/README.md rather than applied, because both remove content rather than words.
+
+---
+
 Phase 1 PDAC IND: AI Generation (v4.3.0)
 v4.3.0 - Phase 1 PDAC IND: AI Generation (IND v1.0)
 
