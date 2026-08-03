@@ -1,0 +1,39 @@
+% sec-02: the research programme's states.  Figure 1 is a plantuml-type state
+% diagram with explicit guards on every transition.
+\section{The Programme, as States Rather Than Aims}
+
+A project application lists aims. A person-based application should say what the
+programme does when an aim fails, which is a question about states and guards.
+
+\begin{appfloat}[!tb]
+\begin{appfig}[plantuml-type / state diagram with guards]
+% Six states, ranks 3.5 apart horizontally and 2.4 vertically.  Guards are
+% written on the transition, never floating, so no guard can be misread as
+% attached to a neighbouring edge.
+\node[umlinit] (i) at (-1.5,0) {};
+\node[umlstateon] (s1) at (0.4,0) {Perioperative exposure characterised};
+\node[umlstatesoft] (s2) at (4.2,0) {Pathway suppression demonstrated in tissue};
+\node[umlstatesoft] (s3) at (8.0,0) {Surrogate anchored to pathologic response};
+\node[umlstategray] (s4) at (4.2,-2.4) {Agent changed, question retained};
+\node[umlstategray] (s5) at (0.4,-2.4) {Schedule changed, agent retained};
+\node[umlstate] (s6) at (8.0,-2.4) {Randomised Phase 2 opened};
+\node[umlfinal] (f) at (10.4,-2.4) {};
+\draw[umlarrow] (i) -- (s1);
+\draw[umlarrow] (s1) -- node[umlguard,pos=0.5] {[exposure adequate]} (s2);
+\draw[umlarrow] (s2) -- node[umlguard,pos=0.5] {[suppression $>$ 50\%]} (s3);
+\draw[umlarrow] (s3) -- node[umlguard,pos=0.5] {[surrogate correlates]} (s6);
+\draw[umlarrow] (s6) -- (f);
+\draw[umlarrow] (s2.south) -- node[umlguard,pos=0.45] {[no suppression]} (s4.north);
+\draw[umlarrow] (s1.south) -- node[umlguard,pos=0.45] {[exposure inadequate]} (s5.north);
+\draw[umlarrow] (s5) -- node[umlguard,pos=0.5] {[re-dosed]} (s4);
+\draw[umlarrow] (s4.east) -- node[umlguard,pos=0.5] {[new agent in class]} (s6.south west);
+\node[font=\tiny\itshape,text=protogray,anchor=north,text width=104mm,align=center]
+  at (4.6,-3.5) {No transition leaves the diagram. Every failure re-enters the
+  programme with the pathway question intact, which is exactly what a project
+  grant cannot express and a person-based award can.};
+\end{appfig}
+\vspace{-0.7cm}
+\figcaption{The programme written as states with explicit guards. Every failure
+transition re-enters the diagram rather than leaving it, because the pathway
+question survives the loss of any single agent or schedule.}
+\end{appfloat}

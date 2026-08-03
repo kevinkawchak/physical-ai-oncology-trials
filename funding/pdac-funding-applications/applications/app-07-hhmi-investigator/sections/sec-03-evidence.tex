@@ -1,0 +1,41 @@
+% sec-03: the medical oncology evidence, plus the person's productivity record.
+\section{The Record So Far}
+
+Daraxonrasib (RMC-6236) is a RAS(ON) multi-selective inhibitor. RASolute 302
+reported median overall survival of \textbf{13.2 months} against \textbf{6.6}
+for chemotherapy in the RAS G12 population of previously treated metastatic
+pancreatic cancer \cite{rasolute302}. Nine months earlier, a ten-arm
+quantitative systems pharmacology simulation with 250 ordinary differential
+equations per patient had returned \textbf{12.8} against \textbf{5.4 months}
+\cite{qspmetpancre}. The proximity is chronology and hypothesis support, not
+validation: 1000 simulated against 241 enrolled, a combination against a single
+agent, KRAS G12C against a primarily G12D and G12V population.
+
+\begin{appfloat}[!tb]
+\begin{appfig}[mermaid-type / chronology with an external marker]
+% One time axis, two bands.  Author events above, external events below, so an
+% author claim can never be confused with an independent readout.
+\draw[pagrayd,line width=0.5pt] (0,0) -- (12.2,0);
+\foreach \x/\lab in {0/{Jun 2025}, 3.05/{Aug 2025}, 6.1/{Oct 2025}, 9.15/{May 2026}, 12.2/{Aug 2026}}{
+  \draw[pagrayd,line width=0.5pt] (\x,-0.12) -- (\x,0.12);
+  \node[font=\tiny\sffamily,text=protogray,anchor=north] at (\x,-0.2) {\lab};}
+\node[mmsoft,anchor=south,text width=25mm] (e1) at (0,0.35) {Drug identified from 40 meta-analyses};
+\node[mmsoft,anchor=south,text width=25mm] (e2) at (3.05,0.35) {QSP run: 12.8 vs 5.4 months};
+\node[mmsoft,anchor=south,text width=25mm] (e3) at (6.1,0.35) {Digital twin: credibility 81.9};
+\node[mmmid,anchor=south,text width=25mm] (e5) at (12.2,0.35) {This inquiry};
+\node[mmgrayd,anchor=north,text width=27mm] (x1) at (9.15,-0.75) {RASolute 302: 13.2 vs 6.6 months, independent};
+\draw[mmedged] (x1.north) -- (9.15,-0.15);
+\node[mmlanetitle,anchor=west,align=left] at (-1.75,0.95) {Author\\record};
+\node[mmlanetitle,anchor=west,align=left] at (-1.75,-1.1) {External\\readout};
+\end{appfig}
+\vspace{-0.7cm}
+\figcaption{The programme's chronology, with the author's own record above the
+axis and the one independent readout below it. Separating the bands is what
+keeps the comparison honest.}
+\end{appfloat}
+
+The digital-twin work carries an ASME V\&V 40 and ICH M15 aligned credibility
+score of \textbf{81.9} across 55 verification notebook tests
+\cite{daraxsims,asmevv40,ichm15}, and each of the three simulations cost an
+estimated \$36,330 against an industry benchmark of \$120,000 to \$2,000,000 per
+run.
