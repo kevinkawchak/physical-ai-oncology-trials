@@ -1,4 +1,37 @@
-# UC San Diego Clinical Trial Potential Partnership Overview
+# UC-San-Diego - the partner of choice
+
+[![License](https://img.shields.io/badge/License-CC%20BY%204.0-yellow.svg)](https://creativecommons.org/licenses/by/4.0/)
+[![Role](https://img.shields.io/badge/Role-partner%20of%20choice-00417A.svg)](.)
+[![Named in](https://img.shields.io/badge/Named%20in-all%2010%20applications-3C7DB2.svg)](../../pdac-funding-applications/applications)
+[![Addressed by](https://img.shields.io/badge/Addressed%20by-application%2010-6C757D.svg)](../../pdac-funding-applications/applications/app-10-ucsd-moores-engine)
+[![Status](https://img.shields.io/badge/Status-no%20agreement%20exists-9AA1A8.svg)](.)
+[![Repository](https://img.shields.io/badge/Repository-v4.4.0-6C757D.svg)](../../../README.md)
+
+UC San Diego Moores Cancer Center is the **intended partner of choice** for the
+Phase 1 PDAC programme, approached at the feasibility stage only. Nothing has
+been agreed, and UC San Diego is not described as a partner, sponsor, trial
+site, or endorser anywhere in this repository.
+
+## Files
+
+| File | What it is |
+|:--|:--|
+| `README.md` | This overview: purpose, strategic focus, recommended sequence, required positioning, success criteria, working goal |
+| [`priority-steps.md`](priority-steps.md) | The operational plan of July 13, 2026: eleven prioritised next steps with named offices and contacts, the drug-developer request, the Center for the Future of Surgery technical session, the IIT intake, the CDA route, ACTRI start-up support, and the IRB workstream |
+
+## What v4.4.0 takes from here (Rule 5)
+
+| Item | Where it is used |
+|:--|:--|
+| The twelve-step recommended sequence | §5 of applications 01, 03, 05, 06, 09 |
+| The required-positioning list | The disclaimer on every application cover and the back matter of all ten |
+| The success criteria | The five feasibility questions in application 10, Figure 3 |
+| The three positioning corrections in `priority-steps.md` §1 | A positioning note in nine applications and a pre-send checklist line in all ten: daraxonrasib is not first-in-human; the robotic configuration is specified at the site agreement; no drug supply or letter of authorization exists |
+| The recipient routing and escalation path in `priority-steps.md` §3 and §4 | The `TO`, `CC`, and `BEFORE SENDING` blocks of application 10's email |
+| The CDA and OCTA constraint in `priority-steps.md` §7 | Application 10's pre-send instruction not to send engineering detail before a CDA is in place |
+| The ACTRI sponsor-investigator determination in `priority-steps.md` §8 | Application 10, Figure 4: the one ordering that cannot be relaxed |
+
+---
 
 ## Purpose
 
