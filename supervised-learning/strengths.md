@@ -23,11 +23,7 @@
 # Production instrument detection
 from surgical_vision import InstrumentDetector
 
-detector = InstrumentDetector(
-    model="yolov9_surgical",
-    confidence_threshold=0.8,
-    nms_threshold=0.45
-)
+detector = InstrumentDetector(model="yolov9_surgical", confidence_threshold=0.8, nms_threshold=0.45)
 
 # Real-time inference
 for frame in surgical_video_stream:
@@ -73,10 +69,7 @@ for frame in surgical_video_stream:
 # Multi-organ segmentation for abdominal surgery
 from surgical_vision import OrganSegmenter
 
-segmenter = OrganSegmenter(
-    model="nnUNet_abdominal",
-    organs=["liver", "kidney", "spleen", "pancreas", "stomach"]
-)
+segmenter = OrganSegmenter(model="nnUNet_abdominal", organs=["liver", "kidney", "spleen", "pancreas", "stomach"])
 
 mask = segmenter.segment(ct_volume)
 # Returns: 3D mask with organ labels
@@ -139,8 +132,7 @@ mask = segmenter.segment(ct_volume)
 from surgical_ai import SkillAssessor
 
 assessor = SkillAssessor(
-    model="skill_transformer_v3",
-    metrics=["economy_of_motion", "tissue_respect", "time_efficiency"]
+    model="skill_transformer_v3", metrics=["economy_of_motion", "tissue_respect", "time_efficiency"]
 )
 
 assessment = assessor.evaluate(surgical_video)
@@ -206,7 +198,7 @@ from surgical_vision import DepthEstimator
 
 estimator = DepthEstimator(
     model="monodepth2_surgical",
-    output_range=(10, 150)  # mm
+    output_range=(10, 150),  # mm
 )
 
 depth_map = estimator.estimate(endoscopic_frame)
@@ -292,15 +284,12 @@ from surgical_ar import GuidanceSystem
 guidance = GuidanceSystem(
     tumor_segmentation=tumor_model,
     vessel_detection=vessel_model,
-    margin_recommendation=5.0  # mm
+    margin_recommendation=5.0,  # mm
 )
 
 # Overlay on surgical view
 augmented_frame = guidance.overlay(
-    frame=endoscopic_image,
-    show_tumor_margin=True,
-    show_vessels=True,
-    show_recommended_path=True
+    frame=endoscopic_image, show_tumor_margin=True, show_vessels=True, show_recommended_path=True
 )
 ```
 

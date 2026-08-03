@@ -46,6 +46,7 @@ import numpy as np
 import gymnasium as gym
 from gymnasium import spaces
 
+
 class SurgicalEnv(gym.Env):
     """Gymnasium environment for surgical robotics."""
 
@@ -61,12 +62,8 @@ class SurgicalEnv(gym.Env):
         p.setAdditionalSearchPath(pybullet_data.getDataPath())
 
         # Action and observation spaces
-        self.action_space = spaces.Box(
-            low=-1.0, high=1.0, shape=(7,), dtype=np.float32
-        )
-        self.observation_space = spaces.Box(
-            low=-np.inf, high=np.inf, shape=(23,), dtype=np.float32
-        )
+        self.action_space = spaces.Box(low=-1.0, high=1.0, shape=(7,), dtype=np.float32)
+        self.observation_space = spaces.Box(low=-np.inf, high=np.inf, shape=(23,), dtype=np.float32)
 
         # Load environment
         self._load_environment()
@@ -75,28 +72,20 @@ class SurgicalEnv(gym.Env):
         """Load surgical scene."""
         # Physics parameters
         p.setGravity(0, 0, -9.81)
-        p.setTimeStep(1/240)  # 240 Hz physics
+        p.setTimeStep(1 / 240)  # 240 Hz physics
 
         # Ground plane
         self.plane_id = p.loadURDF("plane.urdf")
 
         # Operating table
         table_shape = p.createCollisionShape(p.GEOM_BOX, halfExtents=[0.4, 0.3, 0.4])
-        table_visual = p.createVisualShape(p.GEOM_BOX, halfExtents=[0.4, 0.3, 0.4],
-                                           rgbaColor=[0.7, 0.7, 0.7, 1])
+        table_visual = p.createVisualShape(p.GEOM_BOX, halfExtents=[0.4, 0.3, 0.4], rgbaColor=[0.7, 0.7, 0.7, 1])
         self.table_id = p.createMultiBody(
-            baseMass=0,
-            baseCollisionShapeIndex=table_shape,
-            baseVisualShapeIndex=table_visual,
-            basePosition=[0, 0, 0.4]
+            baseMass=0, baseCollisionShapeIndex=table_shape, baseVisualShapeIndex=table_visual, basePosition=[0, 0, 0.4]
         )
 
         # Surgical robot (using Kuka as proxy)
-        self.robot_id = p.loadURDF(
-            "kuka_iiwa/model.urdf",
-            basePosition=[0, -0.5, 0.8],
-            useFixedBase=True
-        )
+        self.robot_id = p.loadURDF("kuka_iiwa/model.urdf", basePosition=[0, -0.5, 0.8], useFixedBase=True)
 
         # Get joint info
         self.num_joints = p.getNumJoints(self.robot_id)
@@ -110,29 +99,18 @@ class SurgicalEnv(gym.Env):
 
     def _create_tissue(self):
         """Create deformable tissue phantom."""
-        tissue_shape = p.createCollisionShape(
-            p.GEOM_BOX,
-            halfExtents=[0.1, 0.1, 0.02]
-        )
-        tissue_visual = p.createVisualShape(
-            p.GEOM_BOX,
-            halfExtents=[0.1, 0.1, 0.02],
-            rgbaColor=[0.9, 0.6, 0.6, 1]
-        )
+        tissue_shape = p.createCollisionShape(p.GEOM_BOX, halfExtents=[0.1, 0.1, 0.02])
+        tissue_visual = p.createVisualShape(p.GEOM_BOX, halfExtents=[0.1, 0.1, 0.02], rgbaColor=[0.9, 0.6, 0.6, 1])
         self.tissue_id = p.createMultiBody(
             baseMass=0.1,
             baseCollisionShapeIndex=tissue_shape,
             baseVisualShapeIndex=tissue_visual,
-            basePosition=[0, 0, 0.85]
+            basePosition=[0, 0, 0.85],
         )
 
         # Make tissue soft (lateral friction for sliding resistance)
         p.changeDynamics(
-            self.tissue_id, -1,
-            lateralFriction=0.8,
-            spinningFriction=0.1,
-            rollingFriction=0.01,
-            restitution=0.1
+            self.tissue_id, -1, lateralFriction=0.8, spinningFriction=0.1, rollingFriction=0.01, restitution=0.1
         )
 
     def step(self, action):
@@ -143,10 +121,7 @@ class SurgicalEnv(gym.Env):
         # Apply action
         for i, joint in enumerate(self.joint_indices[:7]):
             p.setJointMotorControl2(
-                self.robot_id, joint,
-                p.VELOCITY_CONTROL,
-                targetVelocity=target_velocities[i],
-                force=100
+                self.robot_id, joint, p.VELOCITY_CONTROL, targetVelocity=target_velocities[i], force=100
             )
 
         # Step simulation
@@ -182,14 +157,16 @@ class SurgicalEnv(gym.Env):
         # Contact force
         contact_force = self._get_contact_force()
 
-        return np.concatenate([
-            joint_positions,      # 7
-            joint_velocities,     # 7
-            ee_pos,               # 3
-            ee_orn,               # 4
-            target_pos - ee_pos,  # 3
-            [contact_force]       # 1
-        ]).astype(np.float32)
+        return np.concatenate(
+            [
+                joint_positions,  # 7
+                joint_velocities,  # 7
+                ee_pos,  # 3
+                ee_orn,  # 4
+                target_pos - ee_pos,  # 3
+                [contact_force],  # 1
+            ]
+        ).astype(np.float32)
 
     def _get_contact_force(self):
         """Get contact force on end effector."""
@@ -245,14 +222,8 @@ class SurgicalEnv(gym.Env):
         # Randomize tissue position
         if seed is not None:
             np.random.seed(seed)
-        tissue_pos = [
-            0.0 + np.random.uniform(-0.05, 0.05),
-            0.0 + np.random.uniform(-0.05, 0.05),
-            0.85
-        ]
-        p.resetBasePositionAndOrientation(
-            self.tissue_id, tissue_pos, [0, 0, 0, 1]
-        )
+        tissue_pos = [0.0 + np.random.uniform(-0.05, 0.05), 0.0 + np.random.uniform(-0.05, 0.05), 0.85]
+        p.resetBasePositionAndOrientation(self.tissue_id, tissue_pos, [0, 0, 0, 1])
 
         return self._get_observation(), {}
 
@@ -275,11 +246,14 @@ from stable_baselines3 import PPO
 from stable_baselines3.common.vec_env import SubprocVecEnv
 from stable_baselines3.common.callbacks import EvalCallback
 
+
 def make_env(rank):
     def _init():
         env = SurgicalEnv()
         return env
+
     return _init
+
 
 def train():
     # Create vectorized environment
@@ -291,11 +265,7 @@ def train():
 
     # Callbacks
     eval_callback = EvalCallback(
-        eval_env,
-        best_model_save_path='./checkpoints/',
-        log_path='./logs/',
-        eval_freq=10000,
-        n_eval_episodes=5
+        eval_env, best_model_save_path="./checkpoints/", log_path="./logs/", eval_freq=10000, n_eval_episodes=5
     )
 
     # Create and train model
@@ -310,15 +280,13 @@ def train():
         gae_lambda=0.95,
         clip_range=0.2,
         verbose=1,
-        tensorboard_log="./tensorboard/"
+        tensorboard_log="./tensorboard/",
     )
 
-    model.learn(
-        total_timesteps=1_000_000,
-        callback=eval_callback
-    )
+    model.learn(total_timesteps=1_000_000, callback=eval_callback)
 
     model.save("surgical_policy")
+
 
 if __name__ == "__main__":
     train()
@@ -334,6 +302,7 @@ if __name__ == "__main__":
 # deformable_tissue.py
 import pybullet as p
 
+
 def create_deformable_tissue(position=[0, 0, 0.9]):
     """Create deformable tissue using soft body."""
 
@@ -344,15 +313,16 @@ def create_deformable_tissue(position=[0, 0, 0.9]):
         scale=0.1,
         mass=0.1,
         useNeoHookean=1,
-        NeoHookeanMu=50,      # Shear modulus
+        NeoHookeanMu=50,  # Shear modulus
         NeoHookeanLambda=100,  # Bulk modulus
         NeoHookeanDamping=0.01,
         useSelfCollision=1,
         frictionCoeff=0.5,
-        useFaceContact=1
+        useFaceContact=1,
     )
 
     return tissue_id
+
 
 def create_cloth_tissue(position=[0, 0, 0.9]):
     """Create tissue as cloth for surface interaction."""
@@ -367,7 +337,7 @@ def create_cloth_tissue(position=[0, 0, 0.9]):
         useMassSpring=1,
         springElasticStiffness=100,
         springDampingStiffness=0.1,
-        useSelfCollision=1
+        useSelfCollision=1,
     )
 
     return cloth_id
@@ -384,6 +354,7 @@ def create_cloth_tissue(position=[0, 0, 0.9]):
 import pybullet as p
 import numpy as np
 
+
 class EndoscopicCamera:
     def __init__(self, robot_id, ee_link):
         self.robot_id = robot_id
@@ -398,9 +369,7 @@ class EndoscopicCamera:
         self.far = 1.0
 
         # Projection matrix
-        self.projection_matrix = p.computeProjectionMatrixFOV(
-            self.fov, self.aspect, self.near, self.far
-        )
+        self.projection_matrix = p.computeProjectionMatrixFOV(self.fov, self.aspect, self.near, self.far)
 
     def get_image(self):
         """Get camera image from end effector pose."""
@@ -417,17 +386,11 @@ class EndoscopicCamera:
         target_pos = camera_pos + rot_matrix[:, 2] * 0.1  # Look forward
         up_vector = -rot_matrix[:, 1]  # Up is -Y in EE frame
 
-        view_matrix = p.computeViewMatrix(
-            camera_pos.tolist(),
-            target_pos.tolist(),
-            up_vector.tolist()
-        )
+        view_matrix = p.computeViewMatrix(camera_pos.tolist(), target_pos.tolist(), up_vector.tolist())
 
         # Render
         _, _, rgb, depth, segmentation = p.getCameraImage(
-            self.width, self.height,
-            view_matrix, self.projection_matrix,
-            renderer=p.ER_BULLET_HARDWARE_OPENGL
+            self.width, self.height, view_matrix, self.projection_matrix, renderer=p.ER_BULLET_HARDWARE_OPENGL
         )
 
         return rgb, depth, segmentation
@@ -457,6 +420,7 @@ class ForceSensor:
 import pybullet as p
 import numpy as np
 
+
 class DomainRandomizer:
     def __init__(self, env):
         self.env = env
@@ -474,7 +438,7 @@ class DomainRandomizer:
         p.setGravity(0, 0, gravity)
 
         # Timestep variation
-        timestep = 1/240 * np.random.uniform(0.9, 1.1)
+        timestep = 1 / 240 * np.random.uniform(0.9, 1.1)
         p.setTimeStep(timestep)
 
     def _randomize_visual(self):

@@ -32,7 +32,7 @@ Unifying agentic and generative AI systems across organizations requires address
 groot_action = {
     "trajectory": np.array(shape=(50, 7)),  # 50 timesteps, 7 joints
     "gripper": np.array(shape=(50, 1)),
-    "duration_ms": 2000
+    "duration_ms": 2000,
 }
 
 # OpenVLA output (discrete action tokens)
@@ -102,7 +102,7 @@ crewai_agent = Agent(
     role="Surgical Assistant",
     goal="Provide instruments and maintain sterility",
     tools=[instrument_selector, handoff_executor],
-    llm="claude-sonnet-4"
+    llm="claude-sonnet-4",
 )
 
 # LangGraph agent definition (completely different paradigm)
@@ -216,11 +216,11 @@ local_response = "Executing needle insertion at coordinates (x, y, z)"
 # Latency constraints for surgical tasks
 
 LATENCY_REQUIREMENTS = {
-    "force_feedback_control": 2,     # ms - hard real-time
-    "visual_servoing": 33,           # ms - 30 Hz minimum
-    "trajectory_adjustment": 100,    # ms - soft real-time
-    "procedure_planning": 5000,      # ms - acceptable for planning
-    "documentation": 30000,          # ms - non-critical
+    "force_feedback_control": 2,  # ms - hard real-time
+    "visual_servoing": 33,  # ms - 30 Hz minimum
+    "trajectory_adjustment": 100,  # ms - soft real-time
+    "procedure_planning": 5000,  # ms - acceptable for planning
+    "documentation": 30000,  # ms - non-critical
 }
 
 # Cloud AI only suitable for procedure_planning, documentation

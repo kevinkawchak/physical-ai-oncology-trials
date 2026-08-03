@@ -74,7 +74,7 @@ config = {
     "visual_encoder": "ResNet-18",
     "demonstrations": 200,  # Per task
     "training_epochs": 500,
-    "gpu": "NVIDIA RTX 4090"
+    "gpu": "NVIDIA RTX 4090",
 }
 ```
 
@@ -137,18 +137,10 @@ domain_randomization = {
         "stiffness_range": (0.5, 2.0),  # Relative to nominal
         "size_range_mm": (5, 80),
         "shape_variation": "gaussian_noise",
-        "vascularity": (0.1, 0.9)
+        "vascularity": (0.1, 0.9),
     },
-    "patient_variation": {
-        "bmi_range": (18, 45),
-        "tissue_color_variation": 0.15,
-        "bleeding_propensity": (0.5, 1.5)
-    },
-    "environmental": {
-        "lighting_intensity": (0.7, 1.3),
-        "camera_noise": 0.02,
-        "instrument_wear": (0.0, 0.3)
-    }
+    "patient_variation": {"bmi_range": (18, 45), "tissue_color_variation": 0.15, "bleeding_propensity": (0.5, 1.5)},
+    "environmental": {"lighting_intensity": (0.7, 1.3), "camera_noise": 0.02, "instrument_wear": (0.0, 0.3)},
 }
 
 # Results with oncology-specific randomization:
@@ -277,18 +269,16 @@ video_learning_results = {
     "dataset": "Institutional surgical video archive",
     "procedures": ["nephrectomy", "prostatectomy", "colectomy"],
     "total_hours": 2500,
-
     "extraction_results": {
         "tool_trajectories": "89% accuracy vs manual annotation",
         "tissue_interaction_events": "82% recall",
-        "phase_boundaries": "94% accuracy"
+        "phase_boundaries": "94% accuracy",
     },
-
     "policy_training": {
         "needle_driving": "73% success (sim)",
         "tissue_retraction": "69% success (sim)",
-        "instrument_exchange": "81% success (sim)"
-    }
+        "instrument_exchange": "81% success (sim)",
+    },
 }
 ```
 

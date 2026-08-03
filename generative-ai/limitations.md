@@ -152,7 +152,7 @@ gap_analysis = Sim2RealGap()
 results = gap_analysis.evaluate(
     sim_policy=trained_in_isaac,
     real_environment=dvrk_testbench,
-    tasks=["needle_insertion", "tissue_retraction", "suturing"]
+    tasks=["needle_insertion", "tissue_retraction", "suturing"],
 )
 
 # Typical results (2025):
@@ -225,11 +225,7 @@ def verify_safety(policy, specification):
     # Statistical testing provides probabilistic bounds only
 
     # Best current practice: extensive simulation testing
-    results = monte_carlo_safety_test(
-        policy=policy,
-        num_scenarios=100000,
-        specification=specification
-    )
+    results = monte_carlo_safety_test(policy=policy, num_scenarios=100000, specification=specification)
 
     # Returns statistical confidence, not guarantee
     return results.failure_rate, results.confidence_interval
@@ -265,7 +261,7 @@ policy = DiffusionPolicy(action_chunk_size=16)
 # Causal smoothing: low-pass filter on action sequences
 smoother = CausalSmoother(
     cutoff_hz=5.0,  # Remove high-frequency jitter
-    preserve_onset=True  # Maintain responsiveness to new commands
+    preserve_onset=True,  # Maintain responsiveness to new commands
 )
 
 raw_actions = policy.sample(observation)

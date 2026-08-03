@@ -280,7 +280,7 @@ converter.convert(
     source_path="robots/surgical_arm.urdf",
     source_format="urdf",
     target_formats=["mjcf", "sdf", "usd"],
-    output_dir="robots/converted/"
+    output_dir="robots/converted/",
 )
 ```
 
@@ -296,7 +296,7 @@ exporter.export(
     policy_path="checkpoints/needle_insertion_isaac.pt",
     source_framework="isaac",
     target_frameworks=["mujoco", "pybullet"],
-    output_dir="policies/exported/"
+    output_dir="policies/exported/",
 )
 ```
 
@@ -312,7 +312,7 @@ results = validator.validate_policy(
     policy_path="policies/surgical_policy.onnx",
     test_scenarios=["needle_insertion", "tissue_retraction"],
     frameworks=["isaac", "mujoco", "pybullet"],
-    tolerance=0.05  # 5% performance variance allowed
+    tolerance=0.05,  # 5% performance variance allowed
 )
 
 validator.generate_report(results, "validation_report.html")

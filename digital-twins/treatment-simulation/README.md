@@ -37,11 +37,7 @@ from digital_twins.patient_modeling import TumorTwinPipeline
 
 # Load patient digital twin
 pipeline = TumorTwinPipeline(model_type="reaction_diffusion")
-patient_dt = pipeline.create_twin(
-    patient_id="ONCO-001",
-    imaging_data=imaging_data,
-    tumor_segmentation=tumor_mask
-)
+patient_dt = pipeline.create_twin(patient_id="ONCO-001", imaging_data=imaging_data, tumor_segmentation=tumor_mask)
 
 # Initialize treatment simulator
 simulator = TreatmentSimulator(patient_twin=patient_dt)
@@ -52,14 +48,11 @@ radiation_protocol = {
     "technique": "IMRT",
     "total_dose_gy": 60,
     "fractions": 30,
-    "fraction_schedule": "daily_weekdays"
+    "fraction_schedule": "daily_weekdays",
 }
 
 # Simulate treatment response
-response = simulator.predict_response(
-    treatment=radiation_protocol,
-    horizon_days=90
-)
+response = simulator.predict_response(treatment=radiation_protocol, horizon_days=90)
 
 print(f"Predicted tumor reduction: {response.volume_change_percent:.1f}%")
 print(f"Estimated local control probability: {response.control_probability:.1%}")
@@ -71,28 +64,14 @@ print(f"Estimated local control probability: {response.control_probability:.1%}"
 # Define chemoradiation protocol
 chemoradiation = {
     "modalities": [
-        {
-            "type": "chemotherapy",
-            "drug": "cisplatin",
-            "dose_mg_m2": 40,
-            "schedule": "weekly",
-            "cycles": 6
-        },
-        {
-            "type": "radiation",
-            "total_dose_gy": 60,
-            "fractions": 30,
-            "concurrent": True
-        }
+        {"type": "chemotherapy", "drug": "cisplatin", "dose_mg_m2": 40, "schedule": "weekly", "cycles": 6},
+        {"type": "radiation", "total_dose_gy": 60, "fractions": 30, "concurrent": True},
     ],
-    "sequencing": "concurrent"
+    "sequencing": "concurrent",
 }
 
 # Simulate combined response
-combined_response = simulator.predict_response(
-    treatment=chemoradiation,
-    horizon_days=180
-)
+combined_response = simulator.predict_response(treatment=chemoradiation, horizon_days=180)
 ```
 
 ---
@@ -143,9 +122,8 @@ class ChemotherapyModel:
 
     def cell_kill_fraction(self, concentration):
         """Calculate cell kill using Hill equation."""
-        return concentration ** self.hill_coefficient / (
-            self.ec50 ** self.hill_coefficient +
-            concentration ** self.hill_coefficient
+        return concentration**self.hill_coefficient / (
+            self.ec50**self.hill_coefficient + concentration**self.hill_coefficient
         )
 ```
 
@@ -171,8 +149,7 @@ class ImmunotherapyModel:
 
         for _ in range(n_steps):
             # T-cell dynamics with checkpoint blockade
-            dT = (self.t_cell_activation_rate * T * V / (V + 1000) -
-                  self.immune_exhaustion_rate * T)
+            dT = self.t_cell_activation_rate * T * V / (V + 1000) - self.immune_exhaustion_rate * T
             dV = 0.1 * V - self.tumor_killing_rate * T * V / (V + 100)
 
             T = max(0, T + dt * dT)
@@ -195,19 +172,15 @@ class ImmunotherapyModel:
 treatment_options = [
     {"name": "Surgery alone", "protocol": surgery_protocol},
     {"name": "Chemoradiation", "protocol": chemoradiation},
-    {"name": "Immunotherapy + RT", "protocol": immuno_rt}
+    {"name": "Immunotherapy + RT", "protocol": immuno_rt},
 ]
 
 comparison = simulator.compare_treatments(
-    treatments=treatment_options,
-    metrics=["tumor_control", "toxicity_risk", "quality_of_life"]
+    treatments=treatment_options, metrics=["tumor_control", "toxicity_risk", "quality_of_life"]
 )
 
 # Generate decision support report
-report = comparison.generate_report(
-    format="clinical",
-    include_confidence_intervals=True
-)
+report = comparison.generate_report(format="clinical", include_confidence_intervals=True)
 ```
 
 ### Adaptive Treatment Planning
@@ -220,8 +193,8 @@ adaptive_plan = simulator.adaptive_simulation(
     adaptation_rules={
         "if_responding": "maintain_dose",
         "if_stable": "dose_escalate",
-        "if_progressing": "consider_alternative"
-    }
+        "if_progressing": "consider_alternative",
+    },
 )
 ```
 
@@ -238,16 +211,11 @@ from unification.simulation_physics import IsaacMuJoCoBridge
 bridge = IsaacMuJoCoBridge()
 
 # After simulating radiation shrinkage
-post_rt_anatomy = simulator.get_post_treatment_anatomy(
-    treatment=radiation_protocol,
-    timepoint_days=60
-)
+post_rt_anatomy = simulator.get_post_treatment_anatomy(treatment=radiation_protocol, timepoint_days=60)
 
 # Generate updated surgical scene
 surgical_scene = bridge.create_scene(
-    patient_anatomy=post_rt_anatomy,
-    robot_model="dvrk_psm",
-    include_tumor_margins=True
+    patient_anatomy=post_rt_anatomy, robot_model="dvrk_psm", include_tumor_margins=True
 )
 
 # Train surgical policy on treatment-modified anatomy
@@ -267,8 +235,8 @@ mc_results = simulator.monte_carlo_simulation(
     n_samples=1000,
     parameter_uncertainty={
         "alpha": 0.1,  # 10% uncertainty
-        "beta": 0.2
-    }
+        "beta": 0.2,
+    },
 )
 
 print(f"Tumor control probability: {mc_results.tcp_mean:.1%}")

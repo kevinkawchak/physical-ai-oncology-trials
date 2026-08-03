@@ -36,15 +36,12 @@ ICH E6(R3), adopted January 2025 and effective in the U.S. as of September 2025,
 ```python
 from regulatory.ich_gcp.gcp_compliance_checker import GCPComplianceChecker
 
-checker = GCPComplianceChecker(
-    guideline_version="E6_R3",
-    jurisdiction="us_fda"
-)
+checker = GCPComplianceChecker(guideline_version="E6_R3", jurisdiction="us_fda")
 
 report = checker.verify_compliance(
     protocol_path="protocols/NSCLC_AI_surgical_v3.0.pdf",
     trial_master_file="tmf/",
-    check_categories=["digital_technology_provisions", "data_governance"]
+    check_categories=["digital_technology_provisions", "data_governance"],
 )
 
 print(f"Compliance score: {report.overall_score:.1f}%")

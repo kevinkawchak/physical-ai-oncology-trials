@@ -156,6 +156,7 @@ import jax.numpy as jnp
 from mujoco import mjx
 import mujoco
 
+
 class MJXSurgicalEnv:
     """GPU-accelerated surgical environment using MJX."""
 
@@ -179,6 +180,7 @@ class MJXSurgicalEnv:
     @jax.jit
     def step(self, actions):
         """Parallel step across all environments."""
+
         def single_step(data, action):
             # Apply action
             data = data.replace(ctrl=action)
@@ -197,18 +199,18 @@ class MJXSurgicalEnv:
 
             return data, obs, reward, done
 
-        self.batch_data, obs, rewards, dones = jax.vmap(single_step)(
-            self.batch_data, actions
-        )
+        self.batch_data, obs, rewards, dones = jax.vmap(single_step)(self.batch_data, actions)
         return obs, rewards, dones, {}
 
     def _get_obs(self, data):
         """Extract observation from simulation state."""
-        return jnp.concatenate([
-            data.qpos,  # Joint positions
-            data.qvel,  # Joint velocities
-            data.sensordata  # Force/torque sensor
-        ])
+        return jnp.concatenate(
+            [
+                data.qpos,  # Joint positions
+                data.qvel,  # Joint velocities
+                data.sensordata,  # Force/torque sensor
+            ]
+        )
 
     def _compute_reward(self, data):
         """Compute task reward."""
@@ -243,6 +245,7 @@ from flax import linen as nn
 from flax.training import train_state
 import optax
 
+
 class PolicyNetwork(nn.Module):
     action_dim: int
 
@@ -253,8 +256,9 @@ class PolicyNetwork(nn.Module):
         x = nn.Dense(256)(x)
         x = nn.relu(x)
         mean = nn.Dense(self.action_dim)(x)
-        log_std = self.param('log_std', nn.initializers.zeros, (self.action_dim,))
+        log_std = self.param("log_std", nn.initializers.zeros, (self.action_dim,))
         return mean, log_std
+
 
 def train_surgical_policy():
     # Create environment
@@ -266,11 +270,7 @@ def train_surgical_policy():
 
     # Optimizer
     tx = optax.adam(3e-4)
-    state = train_state.TrainState.create(
-        apply_fn=policy.apply,
-        params=params,
-        tx=tx
-    )
+    state = train_state.TrainState.create(apply_fn=policy.apply, params=params, tx=tx)
 
     # Training loop
     for iteration in range(1000):
@@ -308,7 +308,7 @@ print(available_envs)
 env = registry.make(
     "arm_reach",
     num_envs=1024,
-    backend="mjx"  # GPU-accelerated
+    backend="mjx",  # GPU-accelerated
 )
 
 # Run with trained policy
@@ -334,22 +334,21 @@ from sensor_msgs.msg import JointState
 from geometry_msgs.msg import WrenchStamped
 import mujoco
 
+
 class MuJoCoSimulator(Node):
     def __init__(self):
-        super().__init__('mujoco_simulator')
+        super().__init__("mujoco_simulator")
 
         # Load model
-        self.model = mujoco.MjModel.from_xml_path('surgical_robot.xml')
+        self.model = mujoco.MjModel.from_xml_path("surgical_robot.xml")
         self.data = mujoco.MjData(self.model)
 
         # Publishers
-        self.joint_pub = self.create_publisher(JointState, 'joint_states', 10)
-        self.wrench_pub = self.create_publisher(WrenchStamped, 'ee_wrench', 10)
+        self.joint_pub = self.create_publisher(JointState, "joint_states", 10)
+        self.wrench_pub = self.create_publisher(WrenchStamped, "ee_wrench", 10)
 
         # Subscribers
-        self.cmd_sub = self.create_subscription(
-            JointState, 'joint_commands', self.command_callback, 10
-        )
+        self.cmd_sub = self.create_subscription(JointState, "joint_commands", self.command_callback, 10)
 
         # Simulation timer (500 Hz)
         self.timer = self.create_timer(0.002, self.simulation_step)
@@ -377,6 +376,7 @@ class MuJoCoSimulator(Node):
         # Apply joint commands
         self.data.ctrl[:] = msg.position
 
+
 def main():
     rclpy.init()
     node = MuJoCoSimulator()
@@ -396,6 +396,7 @@ import mujoco
 import numpy as np
 from scipy.optimize import minimize
 
+
 def identify_tissue_parameters(real_data, model_path):
     """Identify tissue stiffness from real force-displacement data."""
 
@@ -409,20 +410,20 @@ def identify_tissue_parameters(real_data, model_path):
 
         # Run simulation
         sim_forces = []
-        for displacement in real_data['displacements']:
+        for displacement in real_data["displacements"]:
             data.ctrl[0] = displacement
             mujoco.mj_step(model, data)
             sim_forces.append(data.sensordata[2])  # Z-force
 
         # Compute error
-        error = np.mean((np.array(sim_forces) - real_data['forces'])**2)
+        error = np.mean((np.array(sim_forces) - real_data["forces"]) ** 2)
         return error
 
     # Optimize parameters
     result = minimize(
         simulation_error,
         x0=[0.01, 1.0],  # Initial guess
-        method='Nelder-Mead'
+        method="Nelder-Mead",
     )
 
     return result.x  # Identified parameters
@@ -439,11 +440,7 @@ MuJoCo Warp (MJWarp) provides NVIDIA GPU optimization for MuJoCo, maintained joi
 from mujoco_warp import MJWarpEnv
 
 # Create GPU-accelerated environment
-env = MJWarpEnv(
-    model_path="surgical_robot.xml",
-    num_envs=4096,
-    device="cuda:0"
-)
+env = MJWarpEnv(model_path="surgical_robot.xml", num_envs=4096, device="cuda:0")
 
 # Native NVIDIA Warp backend for CUDA-level performance
 # without low-level coding

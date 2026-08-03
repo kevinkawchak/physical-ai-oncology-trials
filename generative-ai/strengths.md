@@ -81,9 +81,7 @@ tumor_mask = LoadImage()("intraop_mri_segmentation.nii.gz")
 
 # Generate trajectory respecting tumor margins
 trajectory = policy.sample(
-    observation=current_state,
-    condition={"avoid_regions": tumor_mask, "margin_mm": 5.0},
-    num_inference_steps=15
+    observation=current_state, condition={"avoid_regions": tumor_mask, "margin_mm": 5.0}, num_inference_steps=15
 )
 ```
 
@@ -139,9 +137,9 @@ synthetic_episodes = generator.generate(
         "tumor_size_mm": (5, 50),
         "patient_bmi": (18, 40),
         "breathing_motion": True,
-        "lighting_variation": "surgical_OR"
+        "lighting_variation": "surgical_OR",
     },
-    num_episodes=10000
+    num_episodes=10000,
 )
 ```
 
@@ -172,9 +170,7 @@ world_model = WorldModel("cosmos-predict-medical")
 # Simulate radiation treatment response
 treatment_plan = RadiationPlan(dose_gy=60, fractions=30)
 predicted_response = world_model.rollout(
-    initial_state=patient.tumor_state,
-    actions=treatment_plan.to_actions(),
-    horizon_days=90
+    initial_state=patient.tumor_state, actions=treatment_plan.to_actions(), horizon_days=90
 )
 
 # Evaluate tumor volume reduction
@@ -228,7 +224,7 @@ vlm = SurgicalVLM.from_pretrained("gp-vls-large")
 # Initialize policy with VLM visual encoder
 policy = PolicyNetwork(
     visual_encoder=vlm.visual_encoder,  # Frozen or fine-tuned
-    action_decoder=MLPDecoder(hidden_dims=[512, 256, 7])
+    action_decoder=MLPDecoder(hidden_dims=[512, 256, 7]),
 )
 
 # Fine-tune on oncology-specific demonstrations

@@ -90,10 +90,7 @@ from digital_twins.patient_modeling import TumorTwinPipeline
 from monai.transforms import LoadImage
 
 # Initialize pipeline with TumorTwin framework
-pipeline = TumorTwinPipeline(
-    model_type="reaction_diffusion",
-    solver="gpu_parallel"
-)
+pipeline = TumorTwinPipeline(model_type="reaction_diffusion", solver="gpu_parallel")
 
 # Load patient imaging data
 ct_scan = LoadImage()("patient_001_ct.nii.gz")
@@ -104,17 +101,13 @@ patient_dt = pipeline.create_twin(
     patient_id="ONCO-2026-001",
     imaging_data={"ct": ct_scan, "mri": mri_scan},
     tumor_segmentation="patient_001_tumor_mask.nii.gz",
-    clinical_data={
-        "age": 62,
-        "tumor_grade": "III",
-        "molecular_markers": {"EGFR": "positive", "KRAS": "wild_type"}
-    }
+    clinical_data={"age": 62, "tumor_grade": "III", "molecular_markers": {"EGFR": "positive", "KRAS": "wild_type"}},
 )
 
 # Calibrate model to longitudinal data
 patient_dt.calibrate(
     longitudinal_scans=["scan_week_0.nii.gz", "scan_week_4.nii.gz"],
-    treatment_history=[{"drug": "cisplatin", "dose_mg": 75, "day": 0}]
+    treatment_history=[{"drug": "cisplatin", "dose_mg": 75, "day": 0}],
 )
 
 print(f"Tumor volume: {patient_dt.current_volume_cm3:.2f} cm^3")
@@ -134,26 +127,15 @@ chemotherapy = {
     "drug": "paclitaxel",
     "dose_mg_m2": 175,
     "schedule": "every_3_weeks",
-    "cycles": 6
+    "cycles": 6,
 }
 
-radiation = {
-    "type": "radiation",
-    "total_dose_gy": 60,
-    "fractions": 30,
-    "technique": "IMRT"
-}
+radiation = {"type": "radiation", "total_dose_gy": 60, "fractions": 30, "technique": "IMRT"}
 
 # Simulate treatment response
-chemo_response = simulator.predict_response(
-    treatment=chemotherapy,
-    horizon_days=180
-)
+chemo_response = simulator.predict_response(treatment=chemotherapy, horizon_days=180)
 
-radiation_response = simulator.predict_response(
-    treatment=radiation,
-    horizon_days=90
-)
+radiation_response = simulator.predict_response(treatment=radiation, horizon_days=90)
 
 # Compare treatment outcomes
 print(f"Chemo predicted tumor reduction: {chemo_response.volume_change_percent:.1f}%")
@@ -169,7 +151,7 @@ from digital_twins.clinical_integration import InSilicoTrialSimulator
 trial_sim = InSilicoTrialSimulator(
     n_virtual_patients=1000,
     tumor_type="non_small_cell_lung_cancer",
-    stage_distribution={"IIIA": 0.4, "IIIB": 0.35, "IV": 0.25}
+    stage_distribution={"IIIA": 0.4, "IIIB": 0.35, "IV": 0.25},
 )
 
 # Define trial arms
@@ -178,10 +160,7 @@ experimental_arm = {"drug": "novel_immunotherapy", "dose": "escalating"}
 
 # Run in-silico trial
 results = trial_sim.run_trial(
-    control=control_arm,
-    experimental=experimental_arm,
-    primary_endpoint="progression_free_survival",
-    duration_months=24
+    control=control_arm, experimental=experimental_arm, primary_endpoint="progression_free_survival", duration_months=24
 )
 
 print(f"Predicted PFS improvement: {results.hazard_ratio:.2f}")
@@ -212,24 +191,21 @@ from tumortwin import ReactionDiffusionModel, PatientData
 
 # Load patient data structure
 patient = PatientData.from_dicom(
-    t1_path="T1_pre.dcm",
-    t1ce_path="T1CE_pre.dcm",
-    t2_path="T2_pre.dcm",
-    flair_path="FLAIR_pre.dcm"
+    t1_path="T1_pre.dcm", t1ce_path="T1CE_pre.dcm", t2_path="T2_pre.dcm", flair_path="FLAIR_pre.dcm"
 )
 
 # Initialize model with MRI-derived parameters
 model = ReactionDiffusionModel(
     diffusion_coefficient=0.1,  # mm^2/day (white matter)
-    proliferation_rate=0.05,    # /day
-    carrying_capacity=1.0
+    proliferation_rate=0.05,  # /day
+    carrying_capacity=1.0,
 )
 
 # Calibrate to patient-specific data
 model.calibrate(
     patient_data=patient,
     longitudinal_timepoints=[0, 30, 60],  # days
-    optimization_method="bayesian"
+    optimization_method="bayesian",
 )
 
 # Predict tumor evolution
@@ -258,32 +234,20 @@ from unification.simulation_physics import IsaacMuJoCoBridge
 
 # Create surgical digital twin from patient imaging
 surgical_dt = SurgicalDigitalTwin.from_imaging(
-    ct_scan="patient_ct.nii.gz",
-    organ_segmentation="organ_labels.nii.gz",
-    tumor_mask="tumor_mask.nii.gz"
+    ct_scan="patient_ct.nii.gz", organ_segmentation="organ_labels.nii.gz", tumor_mask="tumor_mask.nii.gz"
 )
 
 # Export to simulation frameworks
 bridge = IsaacMuJoCoBridge()
 
 # Generate Isaac Sim scene for robot training
-isaac_scene = surgical_dt.export_to_isaac(
-    robot_model="dvrk_psm",
-    include_soft_tissue=True,
-    deformation_model="fem"
-)
+isaac_scene = surgical_dt.export_to_isaac(robot_model="dvrk_psm", include_soft_tissue=True, deformation_model="fem")
 
 # Generate MuJoCo model for physics validation
-mujoco_model = surgical_dt.export_to_mujoco(
-    include_contact_dynamics=True,
-    tissue_stiffness_kpa=5.0
-)
+mujoco_model = surgical_dt.export_to_mujoco(include_contact_dynamics=True, tissue_stiffness_kpa=5.0)
 
 # Validate physics equivalence
-validation = bridge.validate_equivalence(
-    isaac_scene, mujoco_model,
-    test_trajectories=["approach", "grasp", "retract"]
-)
+validation = bridge.validate_equivalence(isaac_scene, mujoco_model, test_trajectories=["approach", "grasp", "retract"])
 ```
 
 ---
@@ -299,29 +263,22 @@ from digital_twins.clinical_integration import ClinicalConnector
 connector = ClinicalConnector(
     pacs_endpoint="https://hospital.pacs.local",
     fhir_endpoint="https://hospital.fhir.local/R4",
-    credentials_path="/secure/credentials.json"
+    credentials_path="/secure/credentials.json",
 )
 
 # Query patient imaging studies
 studies = connector.query_imaging(
-    patient_id="MRN-123456",
-    modality=["CT", "MR"],
-    body_part="CHEST",
-    date_range=("2025-01-01", "2026-01-31")
+    patient_id="MRN-123456", modality=["CT", "MR"], body_part="CHEST", date_range=("2025-01-01", "2026-01-31")
 )
 
 # Create digital twin from clinical data
 patient_dt = connector.create_digital_twin(
-    patient_id="MRN-123456",
-    imaging_studies=studies,
-    include_clinical_notes=True,
-    include_lab_results=True
+    patient_id="MRN-123456", imaging_studies=studies, include_clinical_notes=True, include_lab_results=True
 )
 
 # Generate treatment recommendations
 recommendations = patient_dt.generate_recommendations(
-    treatment_options=["surgery", "chemoradiation", "immunotherapy"],
-    optimization_target="quality_adjusted_life_years"
+    treatment_options=["surgery", "chemoradiation", "immunotherapy"], optimization_target="quality_adjusted_life_years"
 )
 ```
 
@@ -350,15 +307,11 @@ validation_report = validator.validate(
     digital_twin=patient_dt,
     clinical_outcomes="outcomes_database.csv",
     metrics=["prediction_accuracy", "calibration", "discrimination"],
-    confidence_level=0.95
+    confidence_level=0.95,
 )
 
 # Generate regulatory documentation
-validator.generate_documentation(
-    output_path="regulatory_docs/",
-    include_audit_trail=True,
-    include_model_card=True
-)
+validator.generate_documentation(output_path="regulatory_docs/", include_audit_trail=True, include_model_card=True)
 ```
 
 ---

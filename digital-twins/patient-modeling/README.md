@@ -49,31 +49,25 @@ Patient-specific digital twin modeling transforms medical imaging data into cali
 
 ```python
 from digital_twins.patient_modeling import ImagingPipeline
-from monai.transforms import (
-    Compose, LoadImage, EnsureChannelFirst,
-    Spacing, ScaleIntensity, CropForeground
-)
+from monai.transforms import Compose, LoadImage, EnsureChannelFirst, Spacing, ScaleIntensity, CropForeground
 
 # Standard preprocessing pipeline
-preprocess = Compose([
-    LoadImage(image_only=True),
-    EnsureChannelFirst(),
-    Spacing(pixdim=(1.0, 1.0, 1.0)),  # Isotropic 1mm
-    ScaleIntensity(minv=0.0, maxv=1.0),
-    CropForeground()
-])
+preprocess = Compose(
+    [
+        LoadImage(image_only=True),
+        EnsureChannelFirst(),
+        Spacing(pixdim=(1.0, 1.0, 1.0)),  # Isotropic 1mm
+        ScaleIntensity(minv=0.0, maxv=1.0),
+        CropForeground(),
+    ]
+)
 
 pipeline = ImagingPipeline(
-    modalities=["T1", "T1CE", "T2", "FLAIR"],
-    preprocessing=preprocess,
-    segmentation_model="nnunet_brain_tumor"
+    modalities=["T1", "T1CE", "T2", "FLAIR"], preprocessing=preprocess, segmentation_model="nnunet_brain_tumor"
 )
 
 # Process patient imaging
-processed = pipeline.process(
-    patient_dir="/data/patient_001/",
-    output_dir="/processed/patient_001/"
-)
+processed = pipeline.process(patient_dir="/data/patient_001/", output_dir="/processed/patient_001/")
 ```
 
 ### 2. Tumor Segmentation
@@ -88,16 +82,12 @@ segmentor = SegResNet(
     blocks_up=[1, 1, 1],
     init_filters=16,
     in_channels=4,  # T1, T1CE, T2, FLAIR
-    out_channels=4  # Background, NCR, ED, ET
+    out_channels=4,  # Background, NCR, ED, ET
 )
 segmentor.load_state_dict(torch.load("brats_segresnet.pth"))
 
 # Run inference with sliding window
-inferer = SlidingWindowInferer(
-    roi_size=(128, 128, 128),
-    sw_batch_size=4,
-    overlap=0.5
-)
+inferer = SlidingWindowInferer(roi_size=(128, 128, 128), sw_batch_size=4, overlap=0.5)
 
 segmentation = inferer(processed["imaging"], segmentor)
 ```
@@ -107,10 +97,7 @@ segmentation = inferer(processed["imaging"], segmentor)
 ```python
 from digital_twins.patient_modeling import ParameterEstimator
 
-estimator = ParameterEstimator(
-    model_type="reaction_diffusion",
-    optimization="bayesian"
-)
+estimator = ParameterEstimator(model_type="reaction_diffusion", optimization="bayesian")
 
 # Estimate patient-specific parameters
 parameters = estimator.estimate(
@@ -119,8 +106,8 @@ parameters = estimator.estimate(
     time_interval_days=30,
     prior_distributions={
         "diffusion": ("lognormal", 0.1, 0.5),  # mm^2/day
-        "proliferation": ("lognormal", 0.05, 0.3)  # /day
-    }
+        "proliferation": ("lognormal", 0.05, 0.3),  # /day
+    },
 )
 
 print(f"Estimated diffusion: {parameters['diffusion']:.3f} mm^2/day")
@@ -157,37 +144,23 @@ import tumortwin as tt
 
 # Load patient dataset
 patient = tt.PatientData(
-    patient_id="GBM_001",
-    imaging_dir="/data/GBM_001/",
-    treatment_file="/data/GBM_001/treatment.csv"
+    patient_id="GBM_001", imaging_dir="/data/GBM_001/", treatment_file="/data/GBM_001/treatment.csv"
 )
 
 # Initialize reaction-diffusion model
-model = tt.ReactionDiffusionModel(
-    domain=patient.brain_mask,
-    resolution_mm=1.0
-)
+model = tt.ReactionDiffusionModel(domain=patient.brain_mask, resolution_mm=1.0)
 
 # Calibrate to longitudinal data
-calibration = tt.BayesianCalibration(
-    model=model,
-    patient=patient,
-    n_samples=1000
-)
+calibration = tt.BayesianCalibration(model=model, patient=patient, n_samples=1000)
 posterior = calibration.run()
 
 # Create digital twin
 digital_twin = tt.DigitalTwin(
-    model=model,
-    parameters=posterior.map_estimate,
-    uncertainty=posterior.credible_interval(0.95)
+    model=model, parameters=posterior.map_estimate, uncertainty=posterior.credible_interval(0.95)
 )
 
 # Predict tumor evolution
-prediction = digital_twin.predict(
-    horizon_days=180,
-    output_times=[30, 60, 90, 120, 150, 180]
-)
+prediction = digital_twin.predict(horizon_days=180, output_times=[30, 60, 90, 120, 150, 180])
 ```
 
 ---

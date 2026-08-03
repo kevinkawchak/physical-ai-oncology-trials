@@ -43,6 +43,7 @@ Action format: Each move is `[from_planet_id, angle_in_radians, num_ships]`.
 import math
 from kaggle_environments.envs.orbit_wars.orbit_wars import Planet
 
+
 def agent(obs):
     moves = []
     player = obs.get("player", 0) if isinstance(obs, dict) else obs.player
@@ -70,6 +71,7 @@ The module exports named tuples for easier field access:
 
 ```python
 from kaggle_environments.envs.orbit_wars.orbit_wars import Planet, Fleet, CENTER, ROTATION_RADIUS_LIMIT
+
 
 def agent(obs):
     planets = [Planet(*p) for p in obs.get("planets", [])]

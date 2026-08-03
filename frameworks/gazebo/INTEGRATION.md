@@ -212,41 +212,34 @@ from launch import LaunchDescription
 from launch.actions import ExecuteProcess, IncludeLaunchDescription
 from launch_ros.actions import Node
 
+
 def generate_launch_description():
-    return LaunchDescription([
-        # Start Gazebo with surgical world
-        ExecuteProcess(
-            cmd=['gz', 'sim', '-r', 'surgical_world.sdf'],
-            output='screen'
-        ),
-
-        # ROS-Gazebo bridge
-        Node(
-            package='ros_gz_bridge',
-            executable='parameter_bridge',
-            arguments=[
-                '/joint_states@sensor_msgs/msg/JointState[gz.msgs.Model',
-                '/endoscope/image@sensor_msgs/msg/Image[gz.msgs.Image',
-                '/ft_sensor@geometry_msgs/msg/WrenchStamped[gz.msgs.Wrench',
-                '/joint1_cmd@std_msgs/msg/Float64]gz.msgs.Double',
-            ],
-            output='screen'
-        ),
-
-        # Robot state publisher
-        Node(
-            package='robot_state_publisher',
-            executable='robot_state_publisher',
-            parameters=[{'robot_description': robot_description}]
-        ),
-
-        # Surgical controller node
-        Node(
-            package='surgical_control',
-            executable='surgical_controller',
-            output='screen'
-        ),
-    ])
+    return LaunchDescription(
+        [
+            # Start Gazebo with surgical world
+            ExecuteProcess(cmd=["gz", "sim", "-r", "surgical_world.sdf"], output="screen"),
+            # ROS-Gazebo bridge
+            Node(
+                package="ros_gz_bridge",
+                executable="parameter_bridge",
+                arguments=[
+                    "/joint_states@sensor_msgs/msg/JointState[gz.msgs.Model",
+                    "/endoscope/image@sensor_msgs/msg/Image[gz.msgs.Image",
+                    "/ft_sensor@geometry_msgs/msg/WrenchStamped[gz.msgs.Wrench",
+                    "/joint1_cmd@std_msgs/msg/Float64]gz.msgs.Double",
+                ],
+                output="screen",
+            ),
+            # Robot state publisher
+            Node(
+                package="robot_state_publisher",
+                executable="robot_state_publisher",
+                parameters=[{"robot_description": robot_description}],
+            ),
+            # Surgical controller node
+            Node(package="surgical_control", executable="surgical_controller", output="screen"),
+        ]
+    )
 ```
 
 ### Controller Node
@@ -260,23 +253,18 @@ from geometry_msgs.msg import WrenchStamped
 from std_msgs.msg import Float64
 import numpy as np
 
+
 class SurgicalController(Node):
     def __init__(self):
-        super().__init__('surgical_controller')
+        super().__init__("surgical_controller")
 
         # Subscribers
-        self.joint_sub = self.create_subscription(
-            JointState, '/joint_states', self.joint_callback, 10
-        )
-        self.image_sub = self.create_subscription(
-            Image, '/endoscope/image', self.image_callback, 10
-        )
-        self.ft_sub = self.create_subscription(
-            WrenchStamped, '/ft_sensor', self.ft_callback, 10
-        )
+        self.joint_sub = self.create_subscription(JointState, "/joint_states", self.joint_callback, 10)
+        self.image_sub = self.create_subscription(Image, "/endoscope/image", self.image_callback, 10)
+        self.ft_sub = self.create_subscription(WrenchStamped, "/ft_sensor", self.ft_callback, 10)
 
         # Publishers
-        self.joint_cmd_pub = self.create_publisher(Float64, '/joint1_cmd', 10)
+        self.joint_cmd_pub = self.create_publisher(Float64, "/joint1_cmd", 10)
 
         # State
         self.current_joints = None
@@ -287,7 +275,7 @@ class SurgicalController(Node):
         self.timer = self.create_timer(0.02, self.control_loop)
 
         # Load policy
-        self.policy = self.load_policy('trained_policy.onnx')
+        self.policy = self.load_policy("trained_policy.onnx")
 
     def control_loop(self):
         if self.current_joints is None:
@@ -301,11 +289,13 @@ class SurgicalController(Node):
 
         # Apply force limits
         if self.current_force is not None:
-            force_magnitude = np.linalg.norm([
-                self.current_force.wrench.force.x,
-                self.current_force.wrench.force.y,
-                self.current_force.wrench.force.z
-            ])
+            force_magnitude = np.linalg.norm(
+                [
+                    self.current_force.wrench.force.x,
+                    self.current_force.wrench.force.y,
+                    self.current_force.wrench.force.z,
+                ]
+            )
             if force_magnitude > 5.0:  # N
                 action = action * 0.5  # Reduce speed
 
@@ -322,6 +312,7 @@ class SurgicalController(Node):
 
     def ft_callback(self, msg):
         self.current_force = msg
+
 
 def main():
     rclpy.init()
@@ -342,20 +333,19 @@ from ros4healthcare import HealthcareRobotNode
 from ros4healthcare.sensors import PhysiologicalSensor
 from ros4healthcare.safety import SafetyMonitor
 
+
 class OncologyRobotNode(HealthcareRobotNode):
     def __init__(self):
-        super().__init__('oncology_robot')
+        super().__init__("oncology_robot")
 
         # Add physiological monitoring
-        self.vital_sensor = PhysiologicalSensor(
-            sensor_types=['heart_rate', 'blood_pressure', 'spo2']
-        )
+        self.vital_sensor = PhysiologicalSensor(sensor_types=["heart_rate", "blood_pressure", "spo2"])
 
         # Add safety monitoring
         self.safety_monitor = SafetyMonitor(
             force_threshold=5.0,  # N
             velocity_threshold=0.1,  # m/s
-            patient_proximity_threshold=0.5  # m
+            patient_proximity_threshold=0.5,  # m
         )
 
     def on_safety_violation(self, violation):
@@ -388,6 +378,7 @@ class OncologyRobotNode(HealthcareRobotNode):
 # export_policy.py
 import torch
 
+
 def export_for_gazebo(policy_path, output_path):
     """Export policy for Gazebo ROS 2 deployment."""
 
@@ -397,16 +388,11 @@ def export_for_gazebo(policy_path, output_path):
     # Export to ONNX
     dummy_input = torch.randn(1, obs_dim)
     torch.onnx.export(
-        policy,
-        dummy_input,
-        output_path,
-        input_names=['observation'],
-        output_names=['action'],
-        opset_version=17
+        policy, dummy_input, output_path, input_names=["observation"], output_names=["action"], opset_version=17
     )
 
     # Also export as ROS 2 parameter file
-    with open(output_path.replace('.onnx', '.yaml'), 'w') as f:
+    with open(output_path.replace(".onnx", ".yaml"), "w") as f:
         f.write(f"""
 surgical_controller:
   ros__parameters:
@@ -416,7 +402,8 @@ surgical_controller:
     velocity_limit: 0.1
 """)
 
-export_for_gazebo('checkpoints/best.pt', 'policies/surgical.onnx')
+
+export_for_gazebo("checkpoints/best.pt", "policies/surgical.onnx")
 ```
 
 ---

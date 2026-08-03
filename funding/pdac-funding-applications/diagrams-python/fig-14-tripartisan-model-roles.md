@@ -35,8 +35,8 @@ with Diagram("Frontier model roles", direction="TB"):
     fig >> vvuq
     vvuq >> peer
     meta >> peer
-    peer >> ind          # findings return to the author
-    metaver >> vvuq      # and to the first reviewer
+    peer >> ind  # findings return to the author
+    metaver >> vvuq  # and to the first reviewer
 ```
 
 ## TikZ construction notes

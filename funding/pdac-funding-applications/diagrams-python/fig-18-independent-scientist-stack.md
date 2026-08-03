@@ -33,7 +33,7 @@ with Diagram("Two ways to run the same five layers", direction="TB"):
         r5 = Node("Clinical: in-house trial unit")
     l1 >> l2 >> l3 >> l4 >> l5
     r1 >> r2 >> r3 >> r4 >> r5
-    l5 - r5   # the only shared layer
+    l5 - r5  # the only shared layer
 ```
 
 ## TikZ construction notes

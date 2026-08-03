@@ -39,10 +39,7 @@ Multi-site AI oncology trials require formal Data Use Agreements before sharing 
 ```python
 from privacy.dua_templates.dua_generator import DUAGenerator
 
-generator = DUAGenerator(
-    template="multi_site_ai_research",
-    jurisdiction="us_hipaa"
-)
+generator = DUAGenerator(template="multi_site_ai_research", jurisdiction="us_hipaa")
 
 dua = generator.generate(
     data_provider="Memorial Sloan Kettering Cancer Center",
@@ -50,7 +47,7 @@ dua = generator.generate(
     data_description="De-identified CT imaging and treatment outcomes",
     permitted_uses=["model_training", "validation", "publication"],
     retention_period_years=7,
-    security_requirements=["encryption_at_rest", "encryption_in_transit", "mfa"]
+    security_requirements=["encryption_at_rest", "encryption_in_transit", "mfa"],
 )
 
 dua.export("agreements/msk_consortium_dua_2026.pdf")

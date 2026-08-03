@@ -54,6 +54,7 @@ Even with extensive domain randomization:
 Solution: Must have fallback mechanisms for OOD scenarios
 """
 
+
 class RobustPolicy:
     def __init__(self, policy, ood_detector):
         self.policy = policy
@@ -158,6 +159,7 @@ Practical: Requires careful combination, extensive tuning
 ```python
 # Safe exploration requires constraints
 from safe_rl import SafetyLayer
+
 
 class ConstrainedExploration:
     def __init__(self, policy, safety_layer):
@@ -277,10 +279,10 @@ No satisfactory solution for true long-horizon surgical procedures
 # Typical hyperparameter search requirements
 hyperparameter_search = {
     "learning_rate": [1e-5, 3e-5, 1e-4, 3e-4, 1e-3],  # 5 values
-    "batch_size": [64, 256, 1024],                      # 3 values
-    "gamma": [0.95, 0.99, 0.995],                       # 3 values
-    "entropy_coef": [0.0, 0.01, 0.05],                  # 3 values
-    "network_size": ["small", "medium", "large"],      # 3 values
+    "batch_size": [64, 256, 1024],  # 3 values
+    "gamma": [0.95, 0.99, 0.995],  # 3 values
+    "entropy_coef": [0.0, 0.01, 0.05],  # 3 values
+    "network_size": ["small", "medium", "large"],  # 3 values
 }
 
 # Total combinations: 5 × 3 × 3 × 3 × 3 = 405

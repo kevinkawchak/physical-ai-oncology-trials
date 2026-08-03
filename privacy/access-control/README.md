@@ -43,26 +43,18 @@ Clinical trial data requires granular access controls that distinguish between h
 ```python
 from privacy.access_control.access_control_manager import AccessControlManager
 
-acm = AccessControlManager(
-    compliance_framework="21_cfr_part_11",
-    audit_enabled=True,
-    mfa_required=True
-)
+acm = AccessControlManager(compliance_framework="21_cfr_part_11", audit_enabled=True, mfa_required=True)
 
 # Define roles and assign users
-acm.define_role("principal_investigator", permissions=[
-    "read_phi", "write_clinical_data", "export_deidentified",
-    "approve_enrollment", "view_audit_logs"
-])
+acm.define_role(
+    "principal_investigator",
+    permissions=["read_phi", "write_clinical_data", "export_deidentified", "approve_enrollment", "view_audit_logs"],
+)
 
 acm.assign_role(user_id="PI-001", role="principal_investigator")
 
 # Check access with full audit logging
-access = acm.check_access(
-    user_id="PI-001",
-    resource="patient_records",
-    action="read_phi"
-)
+access = acm.check_access(user_id="PI-001", resource="patient_records", action="read_phi")
 print(f"Access granted: {access.granted}")
 ```
 

@@ -163,6 +163,7 @@ This method uses Windows Task Scheduler to run one simulation hour every real ho
 
 ```python
 """Hourly runner for 168-hour simulation via Task Scheduler."""
+
 import subprocess
 import sys
 import os
@@ -341,6 +342,7 @@ This method runs a single Python script that loops through all 168 hours with a 
 
 ```python
 """Continuous 168-hour real-time simulation runner."""
+
 import subprocess
 import sys
 import os

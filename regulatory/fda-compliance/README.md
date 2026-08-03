@@ -37,16 +37,13 @@ As of December 2025, the FDA has authorized over 1,300 AI/ML-enabled medical dev
 ```python
 from regulatory.fda_compliance.fda_submission_tracker import FDASubmissionTracker
 
-tracker = FDASubmissionTracker(
-    sponsor="Physical AI Oncology Consortium",
-    device_class="II"
-)
+tracker = FDASubmissionTracker(sponsor="Physical AI Oncology Consortium", device_class="II")
 
 submission = tracker.create_submission(
     submission_type="de_novo",
     device_name="AI-Guided Surgical Planning System",
     intended_use="AI-assisted tumor resection planning",
-    ai_ml_components=["tumor_segmentation_model", "surgical_path_optimizer"]
+    ai_ml_components=["tumor_segmentation_model", "surgical_path_optimizer"],
 )
 
 checklist = tracker.generate_presub_checklist(submission)

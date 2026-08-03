@@ -37,12 +37,12 @@ with Diagram("On-premises advisory topology", direction="LR"):
             monitor = Node("Site monitoring endpoint")
     with Cluster("Outside"):
         archive = Node("Public archive, DOI minted")
-    model >> display >> controller >> platform      # via a human at the display
+    model >> display >> controller >> platform  # via a human at the display
     registry >> model
     identity >> model
     model >> log
     log >> monitor
-    log >> archive                                   # the only crossing
+    log >> archive  # the only crossing
 ```
 
 ## TikZ construction notes

@@ -45,15 +45,15 @@ pipeline = DeidentificationPipeline(
     method="safe_harbor",
     hipaa_identifiers="all_18",
     preserve_clinical_utility=True,
-    date_handling="year_only",       # Keep year, remove month/day
-    age_handling="cap_at_89",        # Ages >89 grouped as 90+
-    geography_handling="state_only"  # Keep state, remove sub-state
+    date_handling="year_only",  # Keep year, remove month/day
+    age_handling="cap_at_89",  # Ages >89 grouped as 90+
+    geography_handling="state_only",  # Keep state, remove sub-state
 )
 
 result = pipeline.deidentify(
     input_path="trial_data/raw/",
     output_path="trial_data/deidentified/",
-    data_types=["structured_ehr", "clinical_notes", "dicom_images"]
+    data_types=["structured_ehr", "clinical_notes", "dicom_images"],
 )
 
 print(f"Records processed: {result.records_processed}")
