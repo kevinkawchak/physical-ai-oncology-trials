@@ -5,6 +5,28 @@ Format follows [Keep a Changelog](https://keepachangelog.com/).
 
 ## [Unreleased]
 
+## [4.4.0] - 2026-08-03
+
+### Added
+- `funding/pdac-funding-applications/` - ten recipient-unique Phase 1 pancreatic cancer trial funding application email file sets (no DOIs) plus one summary paper, built from a single master prompt in two parts. Written in Kevin Kawchak's name as an independent scientist under the funding approach set out in *Science: A New Golden Age* (July 2026), which asks the roughly $200 billion annual federal R&D portfolio to prioritize the individual scientist over legacy institutions. Every recipient qualifies only because the report names its programme or the mechanism it runs.
+- `funding/pdac-funding-applications/prompts/` - the master prompt filed verbatim (`prompt-apply.md`) and the full Claude Code output (`output-apply.md`).
+- `funding/pdac-funding-applications/sub-prompts/part-i/` and `part-ii/` - thirteen stage sub-prompts in two schedules that never share a stage, five driving the ten application file sets and eight driving the summary paper.
+- `funding/pdac-funding-applications/applications/` - `app-01-nih-pioneer-award` through `app-10-ucsd-moores-engine`. Applications 01 to 05 lead with the operation, 06 to 10 with the drug and patient selection; both sets describe the same hybrid procedure. Each carries an email `.txt` (exact recipients, subject, body, four-line closing ending `July 10th, 2026`, compiled and manual attachment lists, pre-send checklist), a five-page LaTeX attachment with its own cover variant, self-contained `appstyle.sty` and `references.bib`, one `.tex` per section, a README, and an Overleaf zip.
+- `funding/pdac-funding-applications/mermaid/`, `plantuml/`, `d2/`, `diagrams-python/`, `graphviz/` - twenty figure specifications in an uneven 6/3/4/3/4 split chosen by purpose rather than quota, each with valid native source, TikZ construction notes with stated node pitches, and a balanced three-line caption.
+- `funding/pdac-funding-applications/draft-apply/` - the twelve-section skeleton with bracketed `[DRAFTING INSTRUCTION]` markers naming exact repository files, twenty sized figure slots, plus `draft-apply-LaTeX.zip`.
+- `funding/pdac-funding-applications/full-apply/` - every instruction resolved, all twenty figures drawn, eighteen full-width tables populated, plus `full-apply-LaTeX.zip`.
+- `funding/pdac-funding-applications/final-apply/` - the senior-author pass: float barriers at every section, `\clearpage` discipline, all twenty captions rebalanced to three explicit lines, prose tightened in two passes, plus `final-apply-LaTeX.zip`. No `publication` subdirectory.
+
+### Changed
+- `funding/README.md` rewritten as a hub with the directory tree, both DOI applications, the ten new file sets, a Rule 5 source map, and the positioning constraints that apply to everything in the tree.
+- `funding/RFA-RM-27-001/README.md`, `funding/RFA-RM-27-001-v2/README.md` and `funding/pdfs/README.md` were byte-identical copies of the old funding hub README and said nothing about their own contents; all three are now directory-specific with badges, structure, and an explicit source map. `funding/supplementary/README.md` and `funding/supplementary/source-files/README.md` were copies of each other and are likewise rewritten.
+- `funding/potential-partners/` and both site directories gained badge headers and Rule 5 source maps; existing prose retained.
+- Root `README.md`: release badge to v4.4.0, updated badge to August 2026, three new v4.4.0 badges, a dated headline entry, one new section (*10 PDAC Independent-Scientist Funding Applications*) with a mermaid build diagram and four tables, and the `funding/` subtree added to the repository structure.
+
+### Fixed
+- Nine of the ten applications described daraxonrasib as first-in-human. The author's own `funding/potential-partners/UC-San-Diego/priority-steps.md` records that it is investigational and already in Phase 3 evaluation, and that the supportable claim concerns the integrated surgical and advisory workflow. Each application now carries a positioning note, every email body and subject is corrected, and all ten carry the instruction in their pre-send checklist.
+- Six LaTeX defects found during the build and fixed: an `\unskip` added to the `apptable` environment, whose closing newline pushed every table 2.74pt past the right margin; figures moved into `[!tb]` floats, which recovered up to a page of stranded whitespace per application; `\appfile` rewritten as a character scanner, since a repository path has no spaces and overflowed by up to 188pt with both `\nolinkurl` and `\path` failing inside a macro argument; `\apptimeline` rewritten to place five cells explicitly, since choosing fills with `\ifnum` inside a TikZ key list expands too late; `\glyphlink`, `\glyphcloud`, `\glyphsignal`, `\glyphhand` and `\glyphteam` restored after being dropped in the style adaptation; and two unbreakable `\href` display strings changed to `\url`.
+
 ## [4.3.0] - 2026-07-01
 
 ### Added
