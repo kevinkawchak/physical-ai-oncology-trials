@@ -1,0 +1,50 @@
+% sec-02: the on-premises topology.  Figure 1 is a diagrams-python-type
+% clustered infrastructure diagram with an explicit trust boundary.
+\section{What Runs Where}
+
+The Genesis Mission's data infrastructure work assumes instruments that emit
+open, curated records. This program's contribution is a topology in which the
+model is useful and still cannot act: everything that could influence a motion
+sits inside the hospital boundary, and nothing that leaves it can return.
+
+\begin{appfloat}[!tb]
+\begin{appfig}[diagrams (python)-type / clustered topology]
+% Two dashed clusters separated by a solid trust boundary at x = 6.35.  Tiles
+% are 2.4 apart, labels 5.4mm below tile centres, so no label crosses a cluster
+% edge.  The struck link marks the direction that does not exist.
+\dgnodew{dgtiled}{0}{0}{\glyphrobot}{Eight-arm robotic platform}{t1}
+\dgnode{dgtile}{2.4}{0}{\glyphcpu}{Motion controller}{t2}
+\dgnode{dgtile}{4.8}{0}{\glyphmon}{Advisory display}{t3}
+\dgnode{dgtile}{2.4}{-2.5}{\glyphai}{On-premises model, pinned commit}{t4}
+\dgnode{dgtile}{4.8}{-2.5}{\glyphdb}{Local audit log}{t5}
+\dgnode{dgtile}{0}{-2.5}{\glyphlock}{Site identity and access control}{t6}
+\begin{scope}[on background layer]
+\node[dgcluster,fit=(t1)(t1l)(t2)(t2l)(t3)(t3l)(t4)(t4l)(t5)(t5l)(t6)(t6l),inner sep=8pt] (in) {};
+\end{scope}
+\node[dgctitle,anchor=south west] at ([yshift=1.2mm]in.north west) {Inside the hospital boundary};
+
+\dgnodeg{dgtileg}{8.9}{0}{\glyphcloud}{Public archive, DOI minted}{o1}
+\dgnodeg{dgtileg}{8.9}{-2.5}{\glyphdoc}{Open schema and method release}{o2}
+\begin{scope}[on background layer]
+\node[dgcluster2,fit=(o1)(o1l)(o2)(o2l),inner sep=8pt] (out) {};
+\end{scope}
+\node[dgctitle2,anchor=south west] at ([yshift=1.2mm]out.north west) {Outside};
+
+\draw[protoblack,line width=1pt] (7.05,1.15) -- (7.05,-3.5);
+\node[font=\tiny\sffamily\bfseries,text=protoblack,rotate=90,anchor=south] at (6.90,-1.2) {trust boundary};
+\draw[dgedgeb] (t4) -- (t3);
+\draw[dgedgeb] (t4) -- (t5);
+\draw[dgedgeb] (t3) -- node[font=\tiny\sffamily,pos=0.5,fill=protowhite,inner sep=1pt] {human} (t2);
+\draw[dgedgeb] (t2) -- (t1);
+\draw[dgedge] (t6) -- (t4);
+\draw[dgedged] (t5) -- (7.6,-2.5);
+\draw[dgedged] (t5.north) to[out=60,in=180,looseness=0.8] (7.6,-0.35);
+\pxmark{7.05}{-1.25}
+\node[font=\tiny\sffamily,text=protogray,anchor=west,text width=30mm,align=left]
+  at (7.25,-1.25) {no inbound path from outside the boundary};
+\end{appfig}
+\vspace{-0.7cm}
+\figcaption{The deployment topology and its trust boundary. Records leave for
+the public archive; nothing returns, and the only path from advisory text to a
+motion passes through a licensed human.}
+\end{appfloat}

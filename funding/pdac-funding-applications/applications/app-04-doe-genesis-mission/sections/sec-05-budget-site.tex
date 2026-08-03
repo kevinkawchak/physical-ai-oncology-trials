@@ -1,0 +1,39 @@
+% sec-05: mission alignment grid, budget, partner site.  Figure 4 is a d2-type
+% grid mapping the four Genesis Mission challenges onto this testbed.
+\section{Mission Alignment, Budget, and the Partner Site}
+
+The request is \textbf{\$700,000 per year for five years}, \$3,500,000 total,
+with no cost share \cite{fundapp2}. The operation is a staged eight-arm robotic
+pancreaticoduodenectomy with perioperative daraxonrasib in resectable or
+borderline-resectable KRAS G12-mutated PDAC, open-label, single-arm, 3+3
+escalation, up to 18 treated participants \cite{onpremwhippl,phase1ind}.
+Arm-level stop is specified at 3 milliseconds and system-wide stop at 500
+milliseconds, measured on the bench and re-measured at each cohort boundary.
+
+\begin{appfloat}[!tb]
+\begin{appfig}[d2-type / mission alignment grid]
+\node[d2cellh,text width=3.5cm,minimum width=3.9cm,minimum height=6.4mm] (g0) at (0,0) {Genesis Mission challenge};
+\node[d2cellh,text width=4.3cm,minimum width=4.7cm,minimum height=6.4mm,anchor=west] (g1) at (g0.east) {What this testbed supplies};
+\node[d2cellh,text width=3.3cm,minimum width=3.7cm,minimum height=6.4mm,anchor=west] (g2) at (g1.east) {Released in};
+\node[d2celll,text width=3.5cm,minimum width=3.9cm,minimum height=7.6mm,anchor=north west] (p0) at (g0.south west) {Problem selection};
+\node[d2soft,text width=4.3cm,minimum width=4.7cm,minimum height=7.6mm,anchor=west] (p1) at (p0.east) {A named disease with a published protocol already in hand};
+\node[d2cell,text width=3.3cm,minimum width=3.7cm,minimum height=7.6mm,anchor=west] (p2) at (p1.east) {Year 1};
+\node[d2celll,text width=3.5cm,minimum width=3.9cm,minimum height=7.6mm,anchor=north west] (q0) at (p0.south west) {Institutional capacity};
+\node[d2soft,text width=4.3cm,minimum width=4.7cm,minimum height=7.6mm,anchor=west] (q1) at (q0.east) {One independent performer contracting one qualified site};
+\node[d2cell,text width=3.3cm,minimum width=3.7cm,minimum height=7.6mm,anchor=west] (q2) at (q1.east) {Year 1};
+\node[d2celll,text width=3.5cm,minimum width=3.9cm,minimum height=7.6mm,anchor=north west] (r0) at (q0.south west) {Data infrastructure};
+\node[d2mid,text width=4.3cm,minimum width=4.7cm,minimum height=7.6mm,anchor=west] (r1) at (r0.east) {Open advisory logging schema and stop-latency method};
+\node[d2cell,text width=3.3cm,minimum width=3.7cm,minimum height=7.6mm,anchor=west] (r2) at (r1.east) {Years 2 and 3};
+\node[d2celll,text width=3.5cm,minimum width=3.9cm,minimum height=7.6mm,anchor=north west] (s0) at (r0.south west) {AI with experimental infrastructure};
+\node[d2key,text width=4.3cm,minimum width=4.7cm,minimum height=7.6mm,anchor=west] (s1) at (s0.east) {A closed loop whose actuator is a surgical robot};
+\node[d2cell,text width=3.3cm,minimum width=3.7cm,minimum height=7.6mm,anchor=west] (s2) at (s1.east) {Years 3 to 5};
+\end{appfig}
+\vspace{-0.7cm}
+\figcaption{The Genesis Mission's four named challenges, what this testbed
+supplies against each, and the year the corresponding artifact is released into
+the public record.}
+\end{appfloat}
+
+Moores Cancer Center is the intended partner of choice, approached at the
+feasibility stage only. UC San Diego is not a partner, sponsor, site, or
+endorser, because no written authorization exists.

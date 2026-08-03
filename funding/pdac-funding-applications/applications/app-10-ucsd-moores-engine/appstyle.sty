@@ -524,6 +524,13 @@
 \newcommand{\glyphscalpel}[2]{\begin{scope}[shift={(#1.center)},draw=#2,line width=0.45pt]
   \draw (-0.26,-0.20) -- (-0.02,-0.02);\draw (-0.02,-0.02) -- (0.24,0.24) -- (0.26,0.06)
     -- (0.06,-0.14) -- cycle;\end{scope}}
+\newcommand{\glyphcloud}[2]{\begin{scope}[shift={(#1.center)},draw=#2,line width=0.45pt]
+  \draw (-0.22,-0.06) arc (180:360:0.22 and 0.14);
+  \draw (-0.22,-0.06) arc (200:80:0.11);\draw (-0.05,0.10) arc (170:10:0.12 and 0.13);
+  \draw (0.18,0.06) arc (120:-10:0.09);\end{scope}}
+\newcommand{\glyphsignal}[2]{\begin{scope}[shift={(#1.center)},draw=#2,line width=0.45pt]
+  \fill[#2] (0,-0.20) circle (0.045);
+  \foreach \r in {0.11,0.19,0.27}{\draw (\r,-0.20) arc (0:75:\r);\draw (-\r,-0.20) arc (180:105:\r);}\end{scope}}
 \newcommand{\glyphlink}[2]{\begin{scope}[shift={(#1.center)},draw=#2,line width=0.5pt]
   \draw[rounded corners=0.07cm] (-0.26,-0.02) rectangle (-0.02,0.10);
   \draw[rounded corners=0.07cm] (0.02,-0.10) rectangle (0.26,0.02);

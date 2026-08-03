@@ -1,0 +1,53 @@
+% sec-03: closed-loop framing plus quantitative evidence.  Figure 2 is a
+% mermaid-type state diagram of the loop with its human gate.
+\section{A Closed Loop with a Human Gate}
+
+The report calls closed-loop autonomous experimentation a strategic imperative
+and notes that materials work taking around twenty years from laboratory to
+deployment could be compressed by an order of magnitude
+\cite{kratsios2026sciencegoldenage}. A clinical loop cannot be autonomous, and
+this proposal does not ask for that. It asks for the loop to be closed
+everywhere it can be, with one deliberate human gate that is measured rather
+than assumed.
+
+\begin{appfloat}[!tb]
+\begin{appfig}[mermaid-type / state diagram]
+% Five states around a loop, 3.1 apart horizontally and 2.3 vertically, with a
+% guarded transition at the human gate.  Curved returns use looseness 0.8 so
+% they cannot re-enter a state box.
+\node[umlinit] (i) at (-1.9,0) {};
+\node[mmsoft] (s1) at (0,0) {Observe\\intraoperative telemetry};
+\node[mmsoft] (s2) at (3.5,0) {Propose\\advisory text};
+\node[mmdec] (g) at (7.0,0) {Surgeon accepts?};
+\node[mmgoal] (s3) at (10.4,0) {Execute\\approved motion};
+\node[mmgray] (s4) at (5.25,-2.4) {Record decision,\\latency, and outcome};
+\node[mmgray] (s5) at (10.4,-2.4) {Update the public dataset};
+\draw[mmedgek] (i) -- (s1);
+\draw[mmedgeb] (s1) -- (s2);
+\draw[mmedgeb] (s2) -- (g);
+\draw[mmedgeb] (g) -- node[mmlabel,pos=0.42] {yes} (s3);
+\draw[mmedge] (g.south) -- node[mmlabel,pos=0.5] {no} (s4.north east);
+\draw[mmedge] (s3) -- (s5);
+\draw[mmedge] (s5) -- (s4);
+\draw[mmedged] (s4.west) to[out=180,in=-90,looseness=0.8] (s1.south);
+\node[font=\tiny\sffamily,text=protogray,anchor=north,text width=96mm,align=center]
+  at (5.0,-3.4) {Both branches of the gate are recorded. A rejected
+  recommendation is data, not a failure, and the rejection rate is a reported
+  endpoint rather than an internal metric.};
+\end{appfig}
+\vspace{-0.7cm}
+\figcaption{The loop, closed everywhere except at one measured human gate. Both
+branches are recorded, so the rejection rate becomes a reported quantity rather
+than an internal metric.}
+\end{appfloat}
+
+Quantitatively, the loop is already primed. An August 2025 quantitative systems
+pharmacology run returned median overall survival of \textbf{12.8 months} for
+the daraxonrasib combination against \textbf{5.4} for chemotherapy
+\cite{qspmetpancre}; RASolute 302 reported \textbf{13.2} against \textbf{6.6
+months} in the RAS G12 population nine months later \cite{rasolute302}. The
+proximity is chronology, not validation: 1000 simulated against 241 enrolled, a
+combination against a single agent, KRAS G12C against a primarily G12D and G12V
+population. The digital-twin work carries an ASME V\&V 40 and ICH M15 aligned
+credibility score of \textbf{81.9} over 55 verification notebook tests
+\cite{daraxsims,asmevv40,ichm15}.

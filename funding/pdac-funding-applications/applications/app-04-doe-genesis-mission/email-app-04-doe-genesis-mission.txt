@@ -1,0 +1,81 @@
+FROM: kevink@chemicalqdevice.com
+
+TO: sc.genesis@science.doe.gov
+CC: sc.asc@science.doe.gov
+
+SUBJECT: Genesis Mission white paper - Robotics mission testbed, physical AI in a human operating room, Phase 1 PDAC
+
+--- BODY ---
+Dear DOE Office of Science, Genesis Mission Team,
+
+I am submitting an unsolicited white paper as an independent scientist and
+asking whether the Genesis Mission's Robotics line, or the American Science and
+Security Platform's integration work, is the right place to route it.
+
+The FY 2028 budget priorities memorandum annexed to "Science: A New Golden Age"
+defines the Robotics national mission as "general-purpose autonomous systems
+capable of dexterous manipulation, mobility, and reliable operation in real-world
+environments, to initiate the era of physical AI-driven scientific discovery."
+An eight-arm robotic pancreaticoduodenectomy under a governed advisory model is
+that sentence applied to a human operating room, which is the least forgiving
+real-world environment available.
+
+The proposal is a Phase 1, first-in-human, open-label, single-arm 3+3 escalation
+in up to 18 participants with resectable or borderline-resectable KRAS
+G12-mutated pancreatic ductal adenocarcinoma, combining perioperative
+daraxonrasib (RMC-6236) with the robotic operation and an on-premises language
+model confined to advisory output. Three specific contributions are aimed at the
+Mission rather than at the clinic.
+
+First, a topology in which the model is useful and still cannot act. Everything
+capable of influencing a motion sits inside the hospital trust boundary; records
+leave for a public archive and nothing returns. The only path from advisory text
+to a motion passes through a licensed human.
+
+Second, a closed loop with one measured human gate. Both branches of the gate,
+accepted and rejected, are recorded, so the rejection rate becomes a reported
+endpoint rather than an internal metric.
+
+Third, open formats. The advisory logging schema and the stop-latency
+measurement method are released, not merely described, which is what the annex
+asks federal purchasing power to drive across instrument vendors. Arm-level stop
+is specified at 3 milliseconds and system-wide stop at 500 milliseconds.
+
+Gold Standard Science is discharged artifact by artifact rather than asserted:
+three verification record types, joined on case identifier, each carrying the
+Executive Order 14303 principle it satisfies, released with the cohort including
+negative results.
+
+The request is $700,000 per year for five years, no cost share. Prior modeling
+carries an ASME V&V 40 and ICH M15 aligned credibility score of 81.9 across 55
+verification notebook tests. I intend to partner at UC San Diego Moores Cancer
+Center at the feasibility stage only; UC San Diego is not a sponsor, site, or
+endorser of this work.
+
+Sincerely,
+CEO Kevin Kawchak
+ChemicalQDevice
+July 10th, 2026
+--- END BODY ---
+
+ATTACHMENTS COMPILED FROM THIS DIRECTORY
+1. app-04-doe-genesis-mission.pdf
+   Compile from main.tex: pdflatex -> bibtex -> pdflatex -> pdflatex
+   Five pages or fewer. No DOI is asserted for this document.
+
+ATTACHMENTS THE AUTHOR MUST ADD BY HAND
+1. Investigational New Drug Application - Daraxonrasib, Phase 1, LLM-Directed
+   Robotic Whipple in KRAS-Mutated PDAC.
+   https://doi.org/10.5281/zenodo.21097442
+2. On-Premises LLM-Directed Robotic Pancreaticoduodenectomy with Perioperative
+   Daraxonrasib (RMC-6236) in KRAS-Mutated Pancreatic Ductal Adenocarcinoma.
+   https://doi.org/10.5281/zenodo.20780121
+3. H. R. 9510 (Bill v5.0) 2026. https://doi.org/10.5281/zenodo.20619762
+
+BEFORE SENDING
+- Confirm the Genesis Mission and American Science Cloud contact addresses
+  against the current DOE Office of Science pages. If DOE requires white papers
+  through a laboratory point of contact, send this as an inquiry first.
+- Confirm the compiled PDF page count and that every DOI link opens.
+- Confirm no sentence describes UC San Diego as a partner, sponsor, site, or
+  endorser.
