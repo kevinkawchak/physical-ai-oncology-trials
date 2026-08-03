@@ -1,0 +1,34 @@
+% sec-03: quantitative evidence, ARPA framing (what is already de-risked).
+\section{What Is Already De-Risked}
+
+An ARPA program should not spend its first year discovering whether the
+hypothesis is worth testing. Three questions that would normally occupy that
+year are answered and published.
+
+\textbf{Is the drug worth the operation?} An August 2025 quantitative systems
+pharmacology simulation, ten arms and 250 ordinary differential equations per
+patient, returned median overall survival of \textbf{12.8 months} for the
+daraxonrasib combination against \textbf{5.4 months} for chemotherapy
+\cite{qspmetpancre}. In May 2026 RASolute 302 reported \textbf{13.2} against
+\textbf{6.6 months} in the RAS G12 population \cite{rasolute302}. The proximity
+is chronology, not validation: 1000 simulated against 241 enrolled, a
+combination against a single agent, and KRAS G12C against a primarily G12D and
+G12V population.
+
+\textbf{Can the modeling be audited?} The digital-twin work carries an ASME
+V\&V 40 and ICH M15 aligned credibility score of \textbf{81.9} across 55
+verification notebook tests \cite{daraxsims,asmevv40,ichm15}.
+
+\begin{apptable}
+\begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}p{3.6cm} >{\raggedright\arraybackslash}p{2.6cm} >{\raggedright\arraybackslash}X}
+\headrow \thead{De-risked item} & \thead{Result} & \thead{Why it matters at a gate}\\
+\midrule
+Arm selection & mOS HR 0.25, best arm & Gate 2 does not have to re-derive the regimen \\
+Model credibility & Score 81.9, 55 tests & Gate 1 inherits an audited model rather than a new one \\
+Regulatory package & IND drafted, protocol published & Gate 1 is an activation check, not an authoring task \\
+Cost per simulation & \$36,330 against a \$120,000 to \$2,000,000 benchmark & The performer's burn rate is already demonstrated \\
+\end{tabularx}
+\end{apptable}
+\tabcap{Four items retired before any federal dollar was requested, and the gate
+each one removes work from. Every figure is drawn from the author's published
+simulation and regulatory sources.}

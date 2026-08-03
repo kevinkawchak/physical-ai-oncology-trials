@@ -1,0 +1,80 @@
+FROM: kevink@chemicalqdevice.com
+
+TO: solicitations@arpa-h.gov
+CC: info@arpa-h.gov
+
+SUBJECT: Proposal abstract - independent performer, 36-month milestone-bounded Phase 1 robotic Whipple with daraxonrasib in KRAS-mutated PDAC
+
+--- BODY ---
+Dear ARPA-H Mission Office,
+
+I am submitting a proposal abstract as a single independent performer and asking
+which mission office, if any, should receive the full submission.
+
+The program is a 36-month, milestone-bounded Phase 1 first-in-human study
+combining perioperative daraxonrasib (RMC-6236) with a staged eight-arm robotic
+pancreaticoduodenectomy and an on-premises large language model whose output is
+strictly advisory. It is written to be run the way the ARPA model is meant to be
+run: three gates, each carrying a numeric kill criterion that a program manager
+can check against data the program itself produces, rather than a narrative
+progress review.
+
+Gate 1 at month 12 fails if the IND is not active, if measured arm-level stop
+latency exceeds 3 milliseconds, or if system-wide stop exceeds 500 milliseconds.
+Gate 2 at month 21 fails on any unexpected grade 4 event attributed to the device
+or the advisory path in the first cohort. Gate 3 at month 33 fails if fewer than
+two evaluable participants are accrued at any dose level, or if no dose level is
+declared tolerable.
+
+Much of what would normally consume an ARPA program's first eighteen months is
+already finished and published. A Phase 1 protocol, a Phase 2 protocol, an
+Investigational New Drug application, and four guidance works exist and carry
+DOIs. Three quantitative pancreatic cancer trial simulations were completed at
+roughly $36,330 each against an industry benchmark of $120,000 to $2,000,000 per
+run, and the digital-twin work carries an ASME V&V 40 and ICH M15 aligned
+credibility score of 81.9 across 55 verification notebook tests.
+
+The request is $2,100,000 over 36 months, $700,000 per year, with no cost share.
+The transition out of the program is an RP2D, a public safety set, and an open
+verification package any qualified site can reuse. I intend to partner at UC San
+Diego Moores Cancer Center at the feasibility stage only; UC San Diego is not a
+sponsor, site, or endorser of this work.
+
+The attached five-page abstract carries the gate schedule, the authority
+boundaries, the surgical measures, and the budget by layer. I would appreciate
+direction on the appropriate mission office and on whether a solo performer
+without a subrecipient institution is eligible to submit.
+
+Sincerely,
+CEO Kevin Kawchak
+ChemicalQDevice
+July 10th, 2026
+--- END BODY ---
+
+ATTACHMENTS COMPILED FROM THIS DIRECTORY
+1. app-02-arpa-h.pdf
+   Compile from main.tex: pdflatex -> bibtex -> pdflatex -> pdflatex
+   Five pages. No DOI is asserted for this document.
+
+ATTACHMENTS THE AUTHOR MUST ADD BY HAND
+1. Investigational New Drug Application - Daraxonrasib, Phase 1, LLM-Directed
+   Robotic Whipple in KRAS-Mutated PDAC.
+   https://doi.org/10.5281/zenodo.21097442
+2. On-Premises LLM-Directed Robotic Pancreaticoduodenectomy with Perioperative
+   Daraxonrasib (RMC-6236) in KRAS-Mutated Pancreatic Ductal Adenocarcinoma.
+   https://doi.org/10.5281/zenodo.20780121
+3. Phase 1 Pancreatic Cancer Trial: Efficient LLM Document Guidance.
+   https://doi.org/10.5281/zenodo.21018646
+
+EXTERNAL WORK TO CITE BUT NOT ATTACH
+- O'Reilly EM et al. Daraxonrasib or Chemotherapy in Previously Treated
+  Metastatic Pancreatic Cancer. N Engl J Med. 2026.
+  https://doi.org/10.1056/NEJMoa2605555
+
+BEFORE SENDING
+- Confirm both addresses against the current ARPA-H contact page, and check
+  whether an open solicitation requires submission through a portal instead of
+  by email. If a portal is open, send this as a courtesy notice only.
+- Confirm the compiled PDF is five pages and that every DOI link opens.
+- Confirm no sentence describes UC San Diego as a partner, sponsor, site, or
+  endorser.
