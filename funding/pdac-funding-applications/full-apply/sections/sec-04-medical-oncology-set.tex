@@ -1,42 +1,136 @@
-% sec-04: Set B, applications 06 to 10.  Figure 19.
+% sec-04: Set B, applications 06 to 10.  Figure 19 (plantuml activity).
 \section{Set B: The Medical Oncology Perspective}
-
-\draftinstr{full-apply writes 6,000 to 7,000 characters from
-\appfile{applications/app-06-fnih-amp/} through
-\appfile{applications/app-10-ucsd-moores-engine/}, one subsection per
-application. Application 10 is different in kind and must be described as such:
-it is addressed to the partner institution and asks for a feasibility review,
-not for money.}
 
 \subsection{What Leads in Set B}
 
-\draftinstr{One paragraph: the drug and the patient selection lead. The
-endpoint table is led by dose-limiting toxicity and the 3+3 escalation,
-perioperative pharmacokinetics and pharmacodynamics, pathologic response, ctDNA
-clearance, and 24-month overall survival. The operation is the instrumented
-setting rather than the headline.}
+In the five medical oncology applications the drug and the patient selection
+lead. Daraxonrasib (RMC-6236) is a RAS(ON) multi-selective inhibitor, given
+perioperatively in KRAS G12-mutated resectable or borderline-resectable disease,
+and the operation is described in full but as the instrumented setting that
+makes the pharmacology measurable.
 
-\draftinstr{full-apply builds Table 4: the four consortium measurements against
-their timing relative to resection, from
-\appfile{applications/app-06-fnih-amp/sections/sec-04-operation-governance.tex}.}
+The endpoint table reorders accordingly: dose-limiting toxicity and the 3+3
+escalation first, then pharmacokinetic and pharmacodynamic sampling timed around
+the resection, then pathologic response, ctDNA clearance, and 24-month overall
+survival. The operation matters to the pharmacology for one specific reason,
+which no metastatic study can supply: it is the only setting in which paired
+pre-treatment and on-treatment human tumour tissue can be obtained under
+controlled timing.
 
-\subsection{Applications 06 to 10, One Paragraph Each}
+\begin{apptable}
+\begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}p{3.3cm} >{\raggedright\arraybackslash}p{3.3cm} >{\raggedright\arraybackslash}X}
+\headrow \thead{Measurement} & \thead{Timing relative to resection} & \thead{Why no other setting supplies it}\\
+\midrule
+Plasma pharmacokinetics & Days $-14$, $-1$, and $+1$ & Exposure in a surgical population has not been characterised by any sponsor \\
+Tumour pathway pharmacodynamics & Resection specimen, day 0 & Cannot be obtained in the metastatic setting at all \\
+ctDNA clearance kinetics & Days $-14$, $+30$, $+90$ & Defines a shared surrogate anchored to a known resection date \\
+Pathologic response grade & Resection specimen, day 0 & Anchors every later perioperative RAS study to one scale \\
+\end{tabularx}
+\end{apptable}
+\tabcap{The four measurements the consortium in application 06 exists to make,
+when each is taken relative to the resection, and the reason a metastatic trial
+cannot supply any of them.}
 
-\draftinstr{Five short subsections. 06 FNIH AMP: a pre-competitive question no
-party owns. 07 HHMI: the programme written as states rather than aims, so every
-failure transition re-enters it. 08 NCI CTEP: attribution adjudicated before the
-toxicity window closes. 09 Convergent FRO: three releases, only one of which
-depends on the trial succeeding. 10 UC San Diego Moores: a feasibility review
-with three positioning corrections carried from the author's own priority
-steps.}
+\subsection{Applications 06 to 10}
 
-\figslot{plantuml-type / activity with fork and join}{6.4}{One award, four
-parallel workstreams, one join. The join condition is the site agreement, not
-the money, which is why nine of the ten asks can be satisfied by any single
-award rather than by all ten.}
+\textbf{06, Foundation for the NIH.} Proposes a narrow pre-competitive question
+that no single party owns: what happens pharmacologically when a RAS(ON)
+inhibitor is given around a curative-intent pancreatic resection. Three parties
+contribute, an independent scientist, an academic cancer center, and a drug
+developer, and the single shared output, a specimen-level pharmacodynamic
+dataset, is released openly and owned by none of them. That is what makes it
+pre-competitive: it differentiates no product.
+
+\textbf{07, HHMI Investigator Program.} Tests the one place the report's
+person-based argument might not reach, an investigator with no academic
+appointment, and asks the eligibility question directly rather than burying it.
+The programme is written as a state machine rather than a set of aims, and its
+defining property is that every failure transition re-enters the programme: if
+exposure is inadequate the schedule changes and the agent is retained; if
+pathway suppression is not demonstrated the agent changes and the question is
+retained.
+
+\textbf{08, NCI Cancer Therapy Evaluation Program.} The most clinically
+technical of the ten, because a concept review is a technical review. It puts
+one design point forward: a combined drug and device study in a surgical
+population carries a hazard a standard escalation does not, in that an adverse
+event may be attributable to the drug, to the operation, or to the advisory
+system, and the dose decision depends on which. Attribution is therefore
+adjudicated by a blinded reviewer before the toxicity window closes, and only
+the drug branch reaches the dose decision.
+
+\textbf{09, Convergent Research.} The only application whose organization states
+its own end date. Three properties are put forward to be tested: the
+organization closes in year five and the budget contains no year six; three
+releases are scheduled of which only the specimen dataset depends on the trial
+succeeding; and every artifact has one named recipient class fixed in year one,
+because negotiating recipients in year five is how a dissolved organization
+strands its own outputs.
+
+\textbf{10, UC San Diego Moores Cancer Center.} Different in kind. It is
+addressed to the partner institution rather than to a funder, asks for a
+45-minute feasibility meeting rather than money, and carries three positioning
+corrections drawn from the author's own site research: daraxonrasib is not
+first-in-human; the robotic configuration must be named by manufacturer, model,
+cleared configuration, arm count, instruments, and software version before
+feasibility can be assessed; and no drug supply or letter of authorization
+exists.
+
+\subsection{What Happens If Any One Lands}
+
+\begin{appfloat}[!tb]
+\begin{appfig}[plantuml-type / activity with fork and join]
+% Fork and join bars are 9.2cm wide, wider than the outermost lane, so they
+% visibly span all four.  Four lanes at x = 0.4, 3.4, 6.4, 9.4; two boxes per
+% lane at y = -1.0 and y = -2.3, giving 0.3 of clear space between lanes.
+\node[umlinit] (st) at (4.9,1.5) {};
+\node[umlkey,text width=44mm] (fund) at (4.9,0.75) {Any one of the ten applications is funded};
+\draw[umlarrow] (st) -- (fund);
+\node[umlbar,minimum width=9.2cm] (fk) at (4.9,-0.05) {};
+\draw[umlarrow] (fund) -- (fk);
+\foreach \i/\x/\a/\b in {1/0.4/{Execute the site agreement}/{Open the IRB submission},
+  2/3.4/{Build the interlock rig}/{Measure stop latency on the bench},
+  3/6.4/{Fix the advisory logging schema}/{Stand up the audit replay tool},
+  4/9.4/{Request the drug cross-reference}/{Confirm pharmacy and supply chain}}{
+  \node[umlbox,text width=24mm] (p\i) at (\x,-1.05) {\a};
+  \node[umlbox,text width=24mm] (q\i) at (\x,-2.35) {\b};
+  \draw[umlarrow] (\x,-0.11) -- (p\i.north);
+  \draw[umlarrow] (p\i) -- (q\i);
+  \draw[umlarrow] (q\i.south) -- (\x,-3.34);}
+\node[umlbar,minimum width=9.2cm] (jn) at (4.9,-3.4) {};
+\node[mmdec,text width=26mm] (d) at (4.9,-4.6) {Site agreement executed?};
+\draw[umlarrow] (jn) -- (d);
+\node[umlstateon,text width=32mm] (yes) at (1.6,-6.1) {Activate the IND, screen the first participant};
+\node[umlstategray,text width=32mm] (no) at (8.2,-6.1) {Hold the cohort, re-scope to a second qualified site};
+\draw[umlarrow] (d.south west) -- node[umlguard,pos=0.5] {[yes]} (yes.north east);
+\draw[umlarrow] (d.south east) -- node[umlguard,pos=0.5] {[no]} (no.north west);
+\node[umlfinal] (f1) at (1.6,-7.2) {};
+\node[umlfinal] (f2) at (8.2,-7.2) {};
+\draw[umlarrow] (yes) -- (f1);
+\draw[umlarrow] (no) -- (f2);
+\end{appfig}
+\vspace{-0.7cm}
+\figcaption{One award, four parallel workstreams, one join. The join condition
+is the site agreement, not the money, which is why nine of the ten asks can be
+satisfied by any single award rather than by all ten.}
+\end{appfloat}
+
+The join condition is worth stating plainly. Four workstreams run in parallel
+once any one award lands, and three of them, the interlock rig, the logging
+schema, and the pharmacy confirmation, complete without reference to which
+funder paid. Only the site agreement gates what follows, and no funder can
+supply it.
 
 \subsection{The Two Sets Describe One Operation}
 
-\draftinstr{Two paragraphs stating plainly that Set A and Set B describe the
-same hybrid procedure and differ only in what they lead with. Cite
-\appfile{applications/README.md} \S2.}
+Set A and Set B are not two programmes. They describe the same hybrid procedure,
+which carries surgical and medical oncology arms together: a staged eight-arm
+robotic pancreaticoduodenectomy with perioperative daraxonrasib and an
+on-premises advisory model, in up to 18 participants under a 3+3 escalation.
+
+What differs is what each set leads with, and that difference is a claim about
+reviewers rather than about science. A surgical reviewer asked to evaluate a
+drug schedule will defer to the medical oncology literature; a medical oncology
+reviewer asked to evaluate an anastomosis will defer to the surgical literature.
+Writing the same trial twice, each time leading with what the reader can
+actually assess, is the only honest way to ask both.
