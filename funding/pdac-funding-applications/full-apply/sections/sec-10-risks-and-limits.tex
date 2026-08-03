@@ -1,38 +1,95 @@
 % sec-10: what is not claimed, and what would falsify the case.  Figure 20.
 \section{Risks and Limits}
 
-\draftinstr{full-apply writes 4,000 to 5,000 characters. This section must be
-written against the paper, not for it. Source the limitations from
-\appfile{funding/supplementary/source-files/Daraxonrasib-Efficient-LLM-Trial-Simulations.zip}
-(the authors' own stated limitations), from
-\appfile{funding/potential-partners/UC-San-Diego/priority-steps.md} \S1 (the
-three positioning corrections), and from the back matter of the ten
-applications.}
-
 \subsection{What Is Not Claimed}
 
-\draftinstr{full-apply builds Table 13: columns Claim a reader might infer, and
-What is actually true. At least six rows, including: that the simulations
-validate RASolute 302; that daraxonrasib is first-in-human; that a robotic
-configuration has been specified or cleared; that drug supply or a
-cross-reference exists; that UC San Diego has agreed to anything; that any
-patient has been treated.}
+This section is written against the paper rather than for it. Each row below
+pairs an inference a reader might reasonably draw with what is actually true.
+
+\begin{apptable}
+\begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}p{5.6cm} >{\raggedright\arraybackslash}X}
+\headrow \thead{Inference a reader might draw} & \thead{What is actually true}\\
+\midrule
+The simulations validate RASolute 302 & They preceded it. The proximity is a chronology observation, and three differences are material: 1000 simulated against 241 enrolled, a combination against a single agent, KRAS G12C against a primarily G12D and G12V population \\
+Daraxonrasib is first-in-human & It is investigational and already in Phase 3 evaluation. The supportable claim concerns the integrated surgical and advisory workflow \\
+A robotic configuration has been specified or cleared & None has. Manufacturer, model, cleared configuration, arm count, instruments and software version are named at the site agreement \\
+Drug supply or a cross-reference exists & Neither exists. No agreement of any kind is in place with the agent's developer \\
+UC San Diego has agreed to something & It has not. One application asks for a 45-minute feasibility meeting \\
+A patient has been treated & None has. The trial does not exist until a site, an IRB, an active IND, monitoring, insurance, and a sponsor of record are all in place \\
+The advisory system holds a regulatory clearance & It holds none, and the applications ask for the study that would generate the evidence a clearance would require \\
+\end{tabularx}
+\end{apptable}
+\tabcap{Seven inferences a reader might reasonably draw, and what is actually
+true in each case. Every row corresponds to a sentence carried in the back
+matter of all ten applications.}
 
 \subsection{What Would Falsify the Case}
 
-\figslot{graphviz-type / record nodes}{5.6}{Five verification artifacts and the
-reviewer question each field answers. Every field is released with the cohort,
-and the two marked fields are the ones that can falsify the programme's central
-claim.}
+A claim that cannot fail is not a claim. Two released fields can falsify the
+programme's central assertion, and both are released whatever they show.
 
-\draftinstr{Two paragraphs naming the two falsifying fields explicitly:
-\texttt{credibility\_score} failing to reproduce at 81.9, and
-\texttt{negative\_results} being absent from a released cohort. State that both
-are released whatever they show.}
+\begin{appfloat}[!tb]
+\begin{appfig}[graphviz-type / record nodes]
+% Five record columns, each a stack of five anchored cells 2.7cm wide and 0.35
+% apart.  No edges: joins are figure 15's subject, and an edge here would import
+% the wrong question.
+\foreach \i/\x/\ttl/\fa/\fb/\fc/\q/\hl in {%
+  1/0/{stop\_latency\_record}/{arm\_id : int}/{measured\_ms : float}/{bench\_or\_intraop}/{Is the interlock as fast as claimed?}/gvcell,
+  2/2.9/{advisory\_decision}/{case\_id : uuid}/{accepted : bool}/{latency\_ms : float}/{How often is advice rejected?}/gvcell,
+  3/5.8/{escalation\_cohort}/{dose\_level : int}/{dlt\_count : int}/{negative\_results}/{Were negatives reported?}/gvcells,
+  4/8.7/{simulation\_credibility}/{test\_id : int}/{passed : bool}/{credibility\_score}/{Does 81.9 reproduce?}/gvcells,
+  5/11.6/{provenance\_record}/{artifact\_id : uuid}/{model\_commit : sha}/{reviewer : enum}/{Who checked this, and when?}/gvcell}{%
+  \node[gvcellh,text width=24mm,minimum height=5.4mm] (h\i) at (\x,0) {\ttl};
+  \node[gvcell,text width=24mm,minimum height=5.0mm,anchor=north] (a\i) at (h\i.south) {\fa};
+  \node[gvcell,text width=24mm,minimum height=5.0mm,anchor=north] (b\i) at (a\i.south) {\fb};
+  \node[\hl,text width=24mm,minimum height=5.0mm,anchor=north] (c\i) at (b\i.south) {\fc};
+  \node[gvcellg,text width=24mm,minimum height=7.6mm,anchor=north,font=\tiny\itshape] (d\i) at (c\i.south) {\q};}
+\node[font=\tiny\itshape,text=protogray,anchor=north,text width=128mm,align=center]
+  at (5.8,-3.3) {The two tinted fields are the ones that can falsify the
+  programme. No edges are drawn: joins are the subject of the data-schema
+  figure, and an edge here would import the wrong question.};
+\end{appfig}
+\vspace{-0.7cm}
+\figcaption{Five verification artifacts and the reviewer question each field
+answers. Every field is released with the cohort, and the two marked fields are
+the ones that can falsify the programme's central claim.}
+\end{appfloat}
+
+The first falsifier is \texttt{credibility\_score}. The digital-twin work carries
+a score of 81.9 under ASME V\&V 40 and ICH M15 alignment across 55 verification
+notebook tests \cite{daraxsims,asmevv40,ichm15}. If an independent run of those
+tests does not reproduce that score, the modelling tier of the evidence stack
+loses its standing, and with it the arm-selection rationale.
+
+The second is \texttt{negative\_results}. The applications commit to releasing
+negative and inconclusive cohorts, and \S6's Gold Standard Science mapping makes
+that a field rather than a promise \cite{eo14303goldstandard}. A released cohort
+with that field empty falsifies the programme's claim to Gold Standard alignment
+directly, whatever the clinical result was.
 
 \subsection{Risks the Programme Cannot Retire Alone}
 
-\draftinstr{full-apply builds Table 14: columns Risk, Who can retire it, and
-What the applicant can do meanwhile. Rows: no qualified site; no drug supply; no
-sponsor-investigator determination; robotic configuration not permissible;
-accrual below plan.}
+\begin{apptable}
+\begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}p{3.8cm} >{\raggedright\arraybackslash}p{3.4cm} >{\raggedright\arraybackslash}X}
+\headrow \thead{Risk} & \thead{Who can retire it} & \thead{What the applicant can do meanwhile}\\
+\midrule
+No qualified site & An academic cancer center & Keep the regulatory package with the performer, so a second site substitutes without a protocol change \\
+No drug supply or cross-reference & The agent's developer & State plainly in every document that none exists, and design the request so it can be answered in one letter \\
+No sponsor-investigator determination & Institutional contracting and regulatory offices & Ask for the determination before the IRB submission, not after \\
+Robotic configuration not permissible & The site's surgical robotics programme & Leave the configuration unspecified until the site names it \\
+Accrual below plan & The site's referral base & Extend the accrual window rather than widening eligibility \\
+\end{tabularx}
+\end{apptable}
+\tabcap{Five risks the programme cannot retire on its own, who can retire each,
+and the action available meanwhile. None of the five is retired by funding,
+which is why the funding argument and the feasibility argument are separate.}
+
+\subsection{The Limit of the Whole Exercise}
+
+Ten applications on one piece of science demonstrate that the mechanism is a
+variable an individual applicant can address. They do not demonstrate that the
+science is right, that the operation is safe, or that the drug helps in the
+resectable setting. Those questions are settled by the trial, and the trial does
+not exist. What this paper reports is the state of the argument as of August 3,
+2026, with every number traceable to a named file and every claim paired with
+the limitation its authors stated.

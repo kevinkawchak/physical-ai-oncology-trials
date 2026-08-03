@@ -1,34 +1,123 @@
 % sec-09: the eight-stage build and the five diagram vocabularies.  Figure 18.
 \section{Build Method}
 
-\draftinstr{full-apply writes 4,500 to 5,500 characters from
-\appfile{funding/pdac-funding-applications/prompts/prompt-apply.md},
-\appfile{funding/pdac-funding-applications/sub-prompts/} (both schedules), and
-the five stage READMEs. Describe the method as a reproducible procedure, not as
-a narrative of what happened.}
-
 \subsection{Two Schedules, Thirteen Sub-Prompts}
 
-\draftinstr{full-apply builds Table 11: columns Part, Stage, Output directory,
-Figures specified, and Commit floor. Thirteen rows, five for PART I and eight
-for PART II. Source from
-\appfile{sub-prompts/part-i/README.md} and \appfile{sub-prompts/part-ii/README.md}.}
+The whole build runs from one master prompt. That prompt generates thirteen
+stage sub-prompts in two schedules, and the schedules never share a stage: five
+drive the ten application file sets, eight drive this paper. Each sub-prompt
+names its output directory, its commit floor, and the repository files it may
+read.
+
+\begin{apptable}
+\begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}p{1.2cm} >{\raggedright\arraybackslash}p{0.7cm} >{\raggedright\arraybackslash}p{3.5cm} >{\raggedright\arraybackslash}X >{\raggedright\arraybackslash}p{1.5cm}}
+\headrow \thead{Part} & \thead{No} & \thead{Stage} & \thead{Output} & \thead{Figures}\\
+\midrule
+PART I & 1 & Recipients and templates & Recipient list, cover variants, style and bib contract & none \\
+PART I & 2 & Set A, surgical & Applications 01 to 05 & 17 \\
+PART I & 3 & Set B, medical oncology & Applications 06 to 10 & 17 \\
+PART I & 4 & Email and attachments & Ten `.txt` files, ten Overleaf zips & none \\
+PART I & 5 & READMEs and audit & Every `funding/**` README; the error-fix pass & none \\
+PART II & 1 & mermaid & Six figure specifications & 6 \\
+PART II & 2 & plantuml & Three figure specifications & 3 \\
+PART II & 3 & d2 & Four figure specifications & 4 \\
+PART II & 4 & diagrams (python) & Three figure specifications & 3 \\
+PART II & 5 & graphviz & Four figure specifications & 4 \\
+PART II & 6 & draft-apply & Skeleton, drafting instructions, 20 figure slots & 20 placed \\
+PART II & 7 & full-apply & Every instruction resolved, every figure drawn & 20 drawn \\
+PART II & 8 & final-apply & Senior-author proof-reading pass & 20 polished \\
+\end{tabularx}
+\end{apptable}
+\tabcap{The thirteen stage sub-prompts in two schedules. The application stages
+carry 34 figures across ten attachments; the paper stages carry 20, specified
+once and drawn twice.}
 
 \subsection{Why the Diagram Split Is Uneven}
 
-\draftinstr{full-apply builds Table 12: columns Type, Count, and The question it
-answers. Five rows: mermaid 6, plantuml 3, d2 4, diagrams-python 3, graphviz 4.
-State that the split follows purpose and that an equal split would have forced
-at least four figures into the wrong vocabulary.}
+An equal split across five platforms would be four figures each. The split used
+here is 6, 3, 4, 3, 4, and the difference is not arbitrary.
 
-\figslot{diagrams (python)-type / clustered by layer}{7.2}{Five layers, executed
-twice. The left column is one operator with an LLM toolchain and a public
-repository; the right is the institutional equivalent. Only the bottom layer is
-common to both.}
+\begin{apptable}
+\begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}p{3.5cm} >{\raggedright\arraybackslash}p{1.2cm} >{\raggedright\arraybackslash}X}
+\headrow \thead{Platform} & \thead{Count} & \thead{The question only this vocabulary can state}\\
+\midrule
+Mermaid-type & 6 & What happens next, what decides, how long, and who spoke in what order \\
+PlantUML-type & 3 & Who is permitted to act, under what guard a state changes, and what runs concurrently \\
+D2-type & 4 & What contains what, what tabulates against what, and what joins to what \\
+Diagrams (python)-type & 3 & What runs where, across which trust boundary, and on whose hardware \\
+Graphviz-type & 4 & What depends on what, how a failure propagates, and what a single record answers \\
+\end{tabularx}
+\end{apptable}
+\tabcap{The five platforms, their share of the twenty figures, and the question
+each is the only one able to state. Forcing an equal split would have moved at
+least four figures into a vocabulary that cannot carry their subject.}
 
-\subsection{What Is Reproducible and What Is Not}
+Mermaid takes the largest share because the paper's spine is chronological: a
+policy document, ten submissions, a fourteen-month record, and one operative day
+are all sequences. PlantUML takes the smallest because only three subjects in
+the paper are formal enough to need a guard grammar. Had the split been forced
+to four each, the authority diagram would have become a flowchart, which cannot
+draw the absence of a permission; the evidence tiers would have become a ladder,
+which asserts order where the paper means containment; and the fault tree would
+have become a dependency graph, which cannot distinguish an AND branch from an
+OR branch.
 
-\draftinstr{Two paragraphs. Reproducible: the prompt, the sub-prompts, the
-sources, the commit sequence, and every figure's construction notes. Not
-reproducible: the model's judgement at each step, which is why the author's
-review is a required stage rather than an optional one.}
+\subsection{One Operator Against a Program Office}
+
+\begin{appfloat}[!tb]
+\begin{appfig}[diagrams (python)-type / clustered by layer]
+% Two clusters at x = 0 and x = 7.4, five tiles each at the same y positions so
+% layers align horizontally and a row is a like-for-like comparison.  Cost notes
+% sit to the right of the right-hand column, outside both clusters.
+\foreach \i/\y/\g/\lab in {1/0/{\glyphdoc}/{Literature: 40 meta-analyses},
+  2/-2.1/{\glyphchart}/{Modeling: 3 simulations}, 3/-4.2/{\glyphshield}/{Regulatory: protocol and IND},
+  4/-6.3/{\glyphcloud}/{Release: DOI and repository}, 5/-8.4/{\glyphflask}/{Clinical: contracted site}}{
+  \dgnode{dgtile}{0}{\y}{\g}{\lab}{p\i}}
+\begin{scope}[on background layer]
+\node[dgcluster,fit=(p1)(p1l)(p5)(p5l),inner sep=7pt] (cl) {};
+\end{scope}
+\node[dgctitle,anchor=south west] at ([yshift=1mm]cl.north west) {One independent scientist, 14 months};
+\foreach \i/\y/\g/\lab in {1/0/{\glyphteam}/{Scientific writing group},
+  2/-2.1/{\glyphcpu}/{Modeling and simulation team}, 3/-4.2/{\glyphgear}/{Regulatory affairs unit},
+  4/-6.3/{\glyphdb}/{Data management office}, 5/-8.4/{\glyphuser}/{In-house trial unit}}{
+  \dgnodeg{dgtileg}{7.4}{\y}{\g}{\lab}{q\i}}
+\begin{scope}[on background layer]
+\node[dgcluster2,fit=(q1)(q1l)(q5)(q5l),inner sep=7pt] (cr) {};
+\end{scope}
+\node[dgctitle2,anchor=south west] at ([yshift=1mm]cr.north west) {The equivalent institutional program office};
+\foreach \i in {1,...,4}{\pgfmathtruncatemacro{\j}{\i+1}
+  \draw[dgedgeb] (p\i l.south) -- (p\j.north);
+  \draw[dgedged] (q\i l.south) -- (q\j.north);}
+\node[dgtilem,minimum width=9mm,minimum height=9mm] (sh) at (3.7,-8.4) {};
+\glyphlink{sh}{protowhite}
+\node[dglabel,anchor=north] at ([yshift=-5.4mm]sh.center) {shared layer};
+\draw[dgbi] (p5) -- (sh);
+\draw[dgbi] (sh) -- (q5);
+\pnote{9.6}{-2.1}{\$36{,}330 per run\\against \$120{,}000 to \$2M}
+\pnote{9.6}{-4.2}{no indirect cost against\\50 to 60 percent}
+\node[font=\tiny\itshape,text=protogray,anchor=north,text width=104mm,align=center]
+  at (3.7,-9.9) {Layers align horizontally, so a row is a like-for-like function
+  comparison and a column is one organization's whole stack. Only the bottom
+  layer is shared, and it is the one neither can do alone.};
+\end{appfig}
+\vspace{-0.7cm}
+\figcaption{Five layers, executed twice. The left column is one operator with an
+LLM toolchain and a public repository; the right is the institutional
+equivalent. Only the bottom layer is common to both.}
+\end{appfloat}
+
+\subsection{What Is Reproducible, and What Is Not}
+
+Reproducible: the master prompt, the thirteen sub-prompts, the named repository
+sources, the commit sequence, the figure construction notes, and the compile
+command. A reader with the repository can rebuild every artifact in it and
+check every number against the file it came from.
+
+Not reproducible: the judgement exercised at each step. Which recipient
+qualifies, which vocabulary a figure needs, which sentence in a 123-page policy
+report is the one worth quoting, and which of the author's own claims is wrong,
+these are decisions, and a second run would make some of them differently. That
+is why the author's review is a required stage of this build rather than an
+optional one, and why the PART I audit pass, which found the first-in-human
+error in nine of ten applications, is recorded in \S7 rather than absorbed
+silently.
