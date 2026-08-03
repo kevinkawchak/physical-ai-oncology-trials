@@ -66,8 +66,8 @@ flowchart TB
 | Milestone | Stage | Output directory | Status |
 |:--|:--|:--|:--|
 | M0 | Bootstrap (Process A) | `prompts/`, `sub-prompts/` | complete |
-| M1 | PART I, applications 01-05 (surgical) | [`applications/`](applications) | pending |
-| M2 | PART I, applications 06-10 (medical oncology) | [`applications/`](applications) | pending |
+| M1 | PART I, applications 01-05 (surgical) | [`applications/`](applications) | complete |
+| M2 | PART I, applications 06-10 (medical oncology) | [`applications/`](applications) | complete |
 | M3 | PART II Stage 1, mermaid-type | [`mermaid/`](mermaid) | pending |
 | M4 | PART II Stage 2, plantuml-type | [`plantuml/`](plantuml) | pending |
 | M5 | PART II Stage 3, d2-type | [`d2/`](d2) | pending |
