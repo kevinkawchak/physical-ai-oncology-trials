@@ -1,0 +1,61 @@
+% ============================================================
+% main.tex - Application 10 of 10.
+% UC San Diego Moores Cancer Center: investigator-initiated trial intake and
+% feasibility request.  Medical oncology perspective.  August 3, 2026.
+% Cover variant 10: institutional intake routing block.
+% Figures: 4 (mermaid-type intake sequence, plantuml-type role authority,
+% d2-type feasibility grid, graphviz-type approval dependency).
+% Grounded in funding/potential-partners/UC-San-Diego/priority-steps.md.
+% pdflatex main -> bibtex main -> pdflatex main -> pdflatex main
+% ============================================================
+\documentclass[11pt]{article}
+\usepackage{appstyle}
+\apphdr{Moores Feasibility Request, Perioperative KRAS PDAC}
+
+\title{Feasibility Request: Perioperative KRAS Inhibitor and Robotic Whipple}
+\author{Kevin Kawchak}
+\date{August 3, 2026}
+
+\begin{document}
+\thispagestyle{plain}
+
+% ---------------- COVER ----------------
+\approuting{Moores Cancer Center pancreatic surgical oncology, gastrointestinal
+medical oncology, and the Clinical Trials Office}{A 45-minute in-person
+feasibility meeting on a perioperative KRAS-inhibitor and robotic
+pancreaticoduodenectomy concept}{Investigator-initiated trial intake, no
+institutional commitment sought at this stage}
+
+\vspace{0.3em}
+
+{\raggedright\large\bfseries\color{protoblue} UC San Diego Moores Cancer Center:
+Investigator-Initiated Trial Feasibility Request\par}
+
+\vspace{0.1em}
+\apprule{0.8pt}
+
+\noindent\small CEO Kevin Kawchak\,\orcidicon{0009-0007-5457-8667},
+ChemicalQDevice, a San Diego company \;|\;
+\href{mailto:kevink@chemicalqdevice.com}{kevink@chemicalqdevice.com}\\
+\href{https://orcid.org/0009-0007-5457-8667}{0009-0007-5457-8667} \;|\;
+San Diego, California \;|\; August 3, 2026\normalsize\par
+
+\vspace{0.05em}
+
+\noindent\footnotesize\textit{This document seeks a feasibility review only. It
+is not medical or regulatory advice and is not endorsed by the FDA, NIH, HHS, an
+IRB, ICH, or any sponsor. UC San Diego and Moores Cancer Center are not
+described here or anywhere as a partner, sponsor, trial site, or endorser, and
+no such description will be made without written authorization.}\normalsize\par
+
+\vspace{-0.1em}
+\apprule{0.4pt}
+
+\input{sections/sec-01-independent-scientist}
+\input{sections/sec-02-mechanism-fit}
+\input{sections/sec-03-evidence}
+\input{sections/sec-04-operation-governance}
+\input{sections/sec-05-budget-site}
+\input{sections/sec-06-backmatter}
+
+\end{document}

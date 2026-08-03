@@ -1,0 +1,40 @@
+% sec-04: role authority.  Figure 2 is a plantuml-type use case diagram; the
+% point is that every clinical authority stays with UC San Diego clinicians.
+\section{Where Authority Would Sit}
+
+The single question a site asks first is who decides. In this concept every
+clinical authority sits with UC San Diego clinicians, and the applicant holds
+none of it.
+
+\begin{appfloat}[!tb]
+\begin{appfig}[plantuml-type / role authority]
+% Three actors left, one right; four use cases in a bounded system box.
+% Ellipses 1.3 apart so association lines cannot cross one.
+\node[umlpkg,minimum width=6.4cm,minimum height=6.6cm] (sys) at (5.0,-1.95) {};
+\node[umlpkgtab,anchor=north west] at ([xshift=1mm,yshift=-1mm]sys.north west) {Clinical authority};
+\node[umlusekey] (u1) at (5.0,-0.15) {Approve every robotic motion};
+\node[umlusekey] (u2) at (5.0,-1.45) {Order conversion or abort};
+\node[umlusecase] (u3) at (5.0,-2.75) {Decide dose escalation and holds};
+\node[umlusecase] (u4) at (5.0,-4.05) {Adjudicate adverse-event attribution};
+\umlactor{a1}{0}{-0.15}{Site PI, pancreatic surgery}
+\umlactor{a2}{0}{-2.6}{GI medical oncologist}
+\umlactor{a3}{0}{-4.6}{Clinical Trials Office and IRB}
+\umlactor{a4}{10.2}{-3.2}{Applicant, ChemicalQDevice}
+\draw[umlassoc] (a1) -- (u1.west);
+\draw[umlassoc] (a1) -- (u2.west);
+\draw[umlassoc] (a2) -- (u3.west);
+\draw[umlassoc] (a2) -- (u4.west);
+\draw[umlassoc] (a3) -- node[umlguard,pos=0.55] {oversight} (u4.west);
+\node[umlnote,anchor=north west,text width=40mm] (n1) at (8.5,-0.4)
+  {The applicant supplies the protocol, the software, the logging schema, and
+  the analysis code, and holds no clinical decision right.};
+\draw[umldash] (n1.west) -- (u1.east);
+\pxmark{7.6}{-3.2}
+\node[font=\tiny\sffamily,text=protogray,anchor=north,text width=30mm,align=center]
+  at (7.6,-3.55) {no association with any clinical action};
+\end{appfig}
+\vspace{-0.7cm}
+\figcaption{Where clinical authority sits. Every authorized action is associated
+with a UC San Diego clinician, and the struck link shows the applicant has no
+association with any of them.}
+\end{appfloat}

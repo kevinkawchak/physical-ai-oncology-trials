@@ -1,0 +1,106 @@
+FROM: kevink@chemicalqdevice.com
+
+TO: rewhite@ucsd.edu, gbotta@ucsd.edu
+CC: cancercto@ucsd.edu
+
+SUBJECT: In-Person Feasibility Meeting - Perioperative KRAS-Inhibitor and Robotic Whipple Trial
+
+--- BODY ---
+Dear Dr. White and Dr. Botta,
+
+I am writing to request a 45-minute in-person meeting with the two of you and a
+Moores Cancer Center Clinical Trials Office representative, to review the
+feasibility of a perioperative KRAS-inhibitor and robotic pancreaticoduodenectomy
+concept. I am asking for a feasibility review only. No institutional commitment,
+endorsement, or public association is being sought, and none will be described
+without written authorization.
+
+Three corrections before anything else, because each would otherwise mislead.
+Daraxonrasib (RMC-6236) is not first-in-human; it is investigational and already
+in Phase 3 evaluation. The supportable claim is the first prospective clinical
+evaluation of the proposed integrated surgical and LLM advisory workflow,
+subject to FDA and institutional confirmation. The robotic configuration must be
+named by manufacturer, model, cleared configuration, arm count, instruments,
+software version, and intended use before feasibility or regulatory status can
+be assessed; specifying it is an agenda item, not a claim I am making. And no
+drug supply, letter of authorization, or regulatory cross-reference is in place
+with the agent's developer.
+
+The concept is a Phase 1, open-label, single-arm 3+3 dose escalation of
+perioperative daraxonrasib in up to 18 participants with resectable or
+borderline-resectable KRAS G12-mutated pancreatic ductal adenocarcinoma. The
+language model is confined to advisory output: no generated token reaches a
+motion controller, and the operating surgeon approves every motion.
+
+Five questions I would like the meeting to settle:
+
+1. Is the patient population and the perioperative treatment concept clinically
+   supportable at all?
+2. Could a qualified pancreatic surgeon serve as clinical site PI, and could a
+   GI medical oncologist lead systemic therapy and safety management?
+3. What is the annual eligible-patient count, and what is operating-room and
+   pharmacy capacity for a research case?
+4. Is the proposed robotic configuration available and clinically permissible
+   here, which I would follow up with the Center for the Future of Surgery?
+5. Is the institution willing in principle to host an investigator-initiated
+   trial sponsored by a small San Diego company?
+
+Where authority would sit is settled in the attachment and I want to state it
+plainly here: every clinical decision right, motion approval, conversion,
+escalation, and adverse-event adjudication, sits with UC San Diego clinicians. I
+supply the protocol, the software, the logging schema, and the analysis code, and
+hold no clinical decision right.
+
+On evidence, I would rather be direct about the limits. RASolute 302 reported
+median overall survival of 13.2 months against 6.6 for chemotherapy in the RAS
+G12 metastatic population. My own August 2025 quantitative systems pharmacology
+simulation returned 12.8 against 5.4 months nine months earlier; I present that
+as chronology, not validation, and the differences are sample size 1000 against
+241, a combination against a single agent, and KRAS G12C against a primarily
+G12D and G12V population. None of it speaks to resectable disease, which is the
+honest starting point for this discussion.
+
+The attachment is five pages: the route being followed, where authority sits,
+the five feasibility questions with who answers each, and the one ordering
+constraint that cannot be relaxed, which is that the sponsor-investigator
+determination must precede the IRB submission.
+
+I can meet at Moores Cancer Center, 3855 Health Sciences Drive, at your
+convenience.
+
+Sincerely,
+CEO Kevin Kawchak
+ChemicalQDevice
+July 10th, 2026
+--- END BODY ---
+
+ATTACHMENTS COMPILED FROM THIS DIRECTORY
+1. app-10-ucsd-moores-engine.pdf
+   Compile from main.tex: pdflatex -> bibtex -> pdflatex -> pdflatex
+   Five pages or fewer. No DOI is asserted for this document.
+
+ATTACHMENTS THE AUTHOR MUST ADD BY HAND
+1. On-Premises LLM-Directed Robotic Pancreaticoduodenectomy with Perioperative
+   Daraxonrasib (RMC-6236) in KRAS-Mutated Pancreatic Ductal Adenocarcinoma.
+   https://doi.org/10.5281/zenodo.20780121
+2. Investigational New Drug Application - Daraxonrasib, Phase 1, LLM-Directed
+   Robotic Whipple in KRAS-Mutated PDAC.
+   https://doi.org/10.5281/zenodo.21097442
+3. Clinical Trial Funding Application v2.0, RFA-RM-27-001, Kawchak K.
+   https://doi.org/10.5281/zenodo.21317266
+4. A one-page nonconfidential overview and a one-page dependency matrix,
+   prepared from funding/potential-partners/UC-San-Diego/priority-steps.md.
+
+BEFORE SENDING
+- Send only the five-page attachment and the four items above. Do not send the
+  full LaTeX package or any unpublished engineering detail before a CDA is in
+  place through OCTA (octa@health.ucsd.edu).
+- If there is no response within three business days, forward the original
+  request to Dr. Diane Simeone (dsimeone@health.ucsd.edu) and to Kate Trulock
+  (ktrulock@health.ucsd.edu) for Dr. Andrew Lowy, asking for the appropriate
+  pancreatic-surgery site PI and trial-operations contact. Do not ask senior
+  leadership to endorse a grant before a surgeon, an oncologist, and the trial
+  office have reviewed basic feasibility.
+- Confirm all recipient addresses are current before sending.
+- Do not describe UC San Diego or Moores Cancer Center as a partner, sponsor,
+  site, or endorser anywhere in the message or the attachment.
