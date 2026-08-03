@@ -68,11 +68,11 @@ flowchart TB
 | M0 | Bootstrap (Process A) | `prompts/`, `sub-prompts/` | complete |
 | M1 | PART I, applications 01-05 (surgical) | [`applications/`](applications) | complete |
 | M2 | PART I, applications 06-10 (medical oncology) | [`applications/`](applications) | complete |
-| M3 | PART II Stage 1, mermaid-type | [`mermaid/`](mermaid) | pending |
-| M4 | PART II Stage 2, plantuml-type | [`plantuml/`](plantuml) | pending |
-| M5 | PART II Stage 3, d2-type | [`d2/`](d2) | pending |
-| M6 | PART II Stage 4, diagrams-python-type | [`diagrams-python/`](diagrams-python) | pending |
-| M7 | PART II Stage 5, graphviz-type | [`graphviz/`](graphviz) | pending |
+| M3 | PART II Stage 1, mermaid-type | [`mermaid/`](mermaid) | complete |
+| M4 | PART II Stage 2, plantuml-type | [`plantuml/`](plantuml) | complete |
+| M5 | PART II Stage 3, d2-type | [`d2/`](d2) | complete |
+| M6 | PART II Stage 4, diagrams-python-type | [`diagrams-python/`](diagrams-python) | complete |
+| M7 | PART II Stage 5, graphviz-type | [`graphviz/`](graphviz) | complete |
 | M8 | PART II Stage 6, draft-apply | [`draft-apply/`](draft-apply) | pending |
 | M9 | PART II Stage 7, full-apply | [`full-apply/`](full-apply) | pending |
 | M10 | PART II Stage 8, final-apply | [`final-apply/`](final-apply) | pending |
