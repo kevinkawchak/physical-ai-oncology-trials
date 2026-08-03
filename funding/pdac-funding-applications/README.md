@@ -73,9 +73,9 @@ flowchart TB
 | M5 | PART II Stage 3, d2-type | [`d2/`](d2) | complete |
 | M6 | PART II Stage 4, diagrams-python-type | [`diagrams-python/`](diagrams-python) | complete |
 | M7 | PART II Stage 5, graphviz-type | [`graphviz/`](graphviz) | complete |
-| M8 | PART II Stage 6, draft-apply | [`draft-apply/`](draft-apply) | pending |
-| M9 | PART II Stage 7, full-apply | [`full-apply/`](full-apply) | pending |
-| M10 | PART II Stage 8, final-apply | [`final-apply/`](final-apply) | pending |
+| M8 | PART II Stage 6, draft-apply | [`draft-apply/`](draft-apply) | complete |
+| M9 | PART II Stage 7, full-apply | [`full-apply/`](full-apply) | complete |
+| M10 | PART II Stage 8, final-apply | [`final-apply/`](final-apply) | complete |
 | M11 | Release v4.4.0 | root `README.md`, `CHANGELOG.md`, `releases.md` | pending |
 
 ## 3. Directory map
