@@ -3,11 +3,10 @@
 
 \subsection{Two Schedules, Thirteen Sub-Prompts}
 
-The whole build runs from one master prompt. That prompt generates thirteen
-stage sub-prompts in two schedules, and the schedules never share a stage: five
-drive the ten application file sets, eight drive this paper. Each sub-prompt
-names its output directory, its commit floor, and the repository files it may
-read.
+The whole build runs from one master prompt, which generates thirteen stage
+sub-prompts in two schedules that never share a stage: five drive the ten
+application file sets, eight drive this paper. Each names its output directory,
+its commit floor, and the repository files it may read.
 
 \begin{apptable}
 \begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}p{1.2cm} >{\raggedright\arraybackslash}p{0.7cm} >{\raggedright\arraybackslash}p{3.5cm} >{\raggedright\arraybackslash}X >{\raggedright\arraybackslash}p{1.5cm}}
@@ -54,13 +53,11 @@ least four figures into a vocabulary that cannot carry their subject.}
 
 Mermaid takes the largest share because the paper's spine is chronological: a
 policy document, ten submissions, a fourteen-month record, and one operative day
-are all sequences. PlantUML takes the smallest because only three subjects in
-the paper are formal enough to need a guard grammar. Had the split been forced
-to four each, the authority diagram would have become a flowchart, which cannot
-draw the absence of a permission; the evidence tiers would have become a ladder,
-which asserts order where the paper means containment; and the fault tree would
-have become a dependency graph, which cannot distinguish an AND branch from an
-OR branch.
+are all sequences. PlantUML takes the smallest because only three subjects need
+a guard grammar. Forced to four each, the authority diagram would have become a
+flowchart, which cannot draw the absence of a permission; the evidence tiers a
+ladder, which asserts order where the paper means containment; and the fault
+tree a dependency graph, which cannot distinguish AND from OR.
 
 \subsection{One Operator Against a Program Office}
 
@@ -108,16 +105,15 @@ equivalent. Only the bottom layer is common to both.}
 
 \subsection{What Is Reproducible, and What Is Not}
 
-Reproducible: the master prompt, the thirteen sub-prompts, the named repository
-sources, the commit sequence, the figure construction notes, and the compile
-command. A reader with the repository can rebuild every artifact in it and
-check every number against the file it came from.
+Reproducible: the master prompt, the thirteen sub-prompts, the named sources,
+the commit sequence, the figure construction notes, and the compile command. A
+reader with the repository can rebuild every artifact and check every number
+against the file it came from.
 
-Not reproducible: the judgement exercised at each step. Which recipient
-qualifies, which vocabulary a figure needs, which sentence in a 123-page policy
-report is the one worth quoting, and which of the author's own claims is wrong,
-these are decisions, and a second run would make some of them differently. That
-is why the author's review is a required stage of this build rather than an
-optional one, and why the PART I audit pass, which found the first-in-human
-error in nine of ten applications, is recorded in \S7 rather than absorbed
-silently.
+Not reproducible: the judgement at each step. Which recipient qualifies, which
+vocabulary a figure needs, which sentence in a 123-page report is worth quoting,
+and which of the author's own claims is wrong, these are decisions, and a second
+run would make some differently. That is why the author's review is a required
+stage rather than an optional one, and why the PART I audit pass, which found
+the first-in-human error in nine of ten applications, is recorded in \S7 rather
+than absorbed silently.
