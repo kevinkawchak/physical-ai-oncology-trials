@@ -9,7 +9,7 @@
 [![Method](https://img.shields.io/badge/Method-5%20diagram%20stages%20%E2%86%92%20draft%20%E2%86%92%20full%20%E2%86%92%20final-6C757D.svg)](sub-prompts)
 [![ORCID](https://img.shields.io/badge/ORCID-0009--0007--5457--8667-6C757D.svg)](https://orcid.org/0009-0007-5457-8667)
 [![Repository](https://img.shields.io/badge/Repository-v4.4.0-6C757D.svg)](../../README.md)
-[![Summary paper DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.xxxxxxxx-blue.svg)](https://doi.org/10.5281/zenodo.xxxxxxxx)
+[![Summary paper DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.21787424-blue.svg)](https://doi.org/10.5281/zenodo.21787424)
 
 This directory builds two deliverables from one master prompt
 ([`prompts/prompt-apply.md`](prompts/prompt-apply.md)):
