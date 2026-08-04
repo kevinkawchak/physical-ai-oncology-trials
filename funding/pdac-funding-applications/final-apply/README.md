@@ -8,7 +8,7 @@
 [![Publication dir](https://img.shields.io/badge/publication%2F-none%2C%20by%20instruction-9AA1A8.svg)](.)
 [![Paper DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.21787424-blue.svg)](https://doi.org/10.5281/zenodo.21787424)
 
-The senior author's proof-reading pass over
+[See Publication for the Author’s Final Edits.](https://github.com/kevinkawchak/physical-ai-oncology-trials/tree/main/funding/pdac-funding-applications/final-apply/publication) The senior author's proof-reading pass over
 [`../full-apply`](../full-apply). No new argument is introduced; every existing
 one is made to sit correctly on the page. **There is no `publication/`
 subdirectory at this stage, by instruction.**
