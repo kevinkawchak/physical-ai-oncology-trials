@@ -8,10 +8,9 @@
 [![Publication dir](https://img.shields.io/badge/publication%2F-none%2C%20by%20instruction-9AA1A8.svg)](.)
 [![Paper DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.21787424-blue.svg)](https://doi.org/10.5281/zenodo.21787424)
 
-Publication: The senior author's proof-reading pass over
-[`../full-apply`](../full-apply). No new argument is introduced; every existing
-one is made to sit correctly on the page. **There is no `publication/`
-subdirectory at this stage, by instruction.**
+Publication: The senior author's proof-reading pass over. No new argument is introduced; every existing
+one is made to sit correctly on the page. 
+
 
 ## What this stage changed
 
@@ -80,15 +79,6 @@ into §2, which would save roughly 3,500.
 pdflatex main -> bibtex main -> pdflatex main -> pdflatex main
 0 errors   0 overfull hboxes   0 underfull hboxes   0 undefined citations   34 pages
 ```
-
-## Files used from other directories (Rule 5)
-
-| Source | Used where |
-|:--|:--|
-| [`../full-apply/`](../full-apply) | The entire content of this stage, then edited |
-| [`../../supplementary/source-files/patient-robot-advocacy.zip`](../../supplementary/source-files) | The float-carriage, spacing, penalty and table-column methods listed above, and the 131,774-character prose baseline |
-| [`../mermaid/`](../mermaid), [`../plantuml/`](../plantuml), [`../d2/`](../d2), [`../diagrams-python/`](../diagrams-python), [`../graphviz/`](../graphviz) | The construction notes each figure was re-checked against |
-| [`../applications/`](../applications) | §2, §3, §4 and §8 values, re-verified against the ten READMEs |
 
 ## License
 
