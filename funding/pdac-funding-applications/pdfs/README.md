@@ -11,8 +11,7 @@
 [![Repository](https://img.shields.io/badge/Repository-v4.4.0-6C757D.svg)](../../README.md)
 [![Summary paper DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.21787424-blue.svg)](https://doi.org/10.5281/zenodo.21787424)
 
-This directory builds two deliverables from one master prompt
-([`prompts/prompt-apply.md`](prompts/prompt-apply.md)):
+This directory builds two deliverables from one master prompt.
 
 - **PART I.** Ten complete, recipient-unique **Phase 1 pancreatic cancer trial
   funding application email file sets** (no DOIs), each written in Kevin
@@ -24,8 +23,7 @@ This directory builds two deliverables from one master prompt
   surgical and medical oncology arms together.
 - **PART II.** One **summary paper** (one DOI) describing the ten applications,
   built through the eight-stage sub-prompt schedule below, at approximately one
-  quarter of the character count of the parent
-  [`patient-robot-advocacy`](../supplementary/source-files) source set.
+  quarter of the character count of the parent source set.
 
 Nothing here is a submission of record. Every application is a draft the author
 compiles, verifies, and sends; every recipient address must be confirmed against
