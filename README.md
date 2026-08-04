@@ -29,7 +29,7 @@
 
 This repository provides production-ready configurations, validated pipelines, and integration guides for deploying robotic systems, digital twins, and embodied AI agents in oncology. 
 
-**8/3: v4.4.0 (10 PDAC Independent-Scientist Funding Applications + Summary Paper)** *v4.4.0 adds funding/pdac-funding-applications/: ten recipient-unique Phase 1 pancreatic cancer funding application email file sets written under the White House "Science: A New Golden Age" individual-scientist approach, plus a 20-figure summary paper across five machine-readable diagram platforms.* [![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.xxxxxxxx-blue)](https://doi.org/10.5281/zenodo.xxxxxxxx)
+**8/3: v4.4.0 (10 PDAC Funding Applications + Summary)** *v4.4.0 adds funding/pdac-funding-applications/: ten recipient-unique Phase 1 pancreatic cancer funding application email file sets written under White House "Science: A New Golden Age".* [![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.xxxxxxxx-blue)](https://doi.org/10.5281/zenodo.xxxxxxxx)
 
 **7/12: (Clinical Trial Funding Application v2.0)** *RFA-RM-27-001, Kawchak K. The application proposes a first-in-human, combined drug-device investigation of perioperative daraxonrasib and an eight-arm robotic pancreaticoduodenectomy."*  
 [![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.21317266-blue)](https://doi.org/10.5281/zenodo.21317266)
