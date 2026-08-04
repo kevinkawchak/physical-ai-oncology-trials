@@ -1,14 +1,6 @@
 # pdac-funding-applications - 10 Independent-Scientist Applications + Summary Paper (v4.4.0)
 
 [![License](https://img.shields.io/badge/License-CC%20BY%204.0-yellow.svg)](https://creativecommons.org/licenses/by/4.0/)
-[![Applications](https://img.shields.io/badge/Applications-10%20email%20file%20sets-00417A.svg)](applications)
-[![Policy basis](https://img.shields.io/badge/Policy-Science%3A%20A%20New%20Golden%20Age-3C7DB2.svg)](../science-golden-age)
-[![Mechanism](https://img.shields.io/badge/Mechanism-Independent%20Scientist%20%2F%20%24200B-6C757D.svg)](../science-golden-age/chunk-03-chapter-two-revitalizing-science-and-technology-enterprise.md)
-[![Partner](https://img.shields.io/badge/Partner%20of%20choice-UC%20San%20Diego%20Moores-6C757D.svg)](../potential-partners/UC-San-Diego)
-[![Figures](https://img.shields.io/badge/Summary%20paper%20figures-20-00417A.svg)](final-apply)
-[![Method](https://img.shields.io/badge/Method-5%20diagram%20stages%20%E2%86%92%20draft%20%E2%86%92%20full%20%E2%86%92%20final-6C757D.svg)](sub-prompts)
-[![ORCID](https://img.shields.io/badge/ORCID-0009--0007--5457--8667-6C757D.svg)](https://orcid.org/0009-0007-5457-8667)
-[![Repository](https://img.shields.io/badge/Repository-v4.4.0-6C757D.svg)](../../README.md)
 [![Summary paper DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.21787424-blue.svg)](https://doi.org/10.5281/zenodo.21787424)
 
 This directory builds two deliverables from one master prompt.
