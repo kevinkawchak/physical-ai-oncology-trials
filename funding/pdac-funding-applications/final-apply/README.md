@@ -6,7 +6,7 @@
 [![Tables](https://img.shields.io/badge/Tables-18-6C757D.svg)](.)
 [![Compiles](https://img.shields.io/badge/pdfLaTeX-0%20errors%2C%200%20overfull%2C%200%20underfull-6C757D.svg)](.)
 [![Publication dir](https://img.shields.io/badge/publication%2F-none%2C%20by%20instruction-9AA1A8.svg)](.)
-[![Paper DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.xxxxxxxx-blue.svg)](https://doi.org/10.5281/zenodo.xxxxxxxx)
+[![Paper DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.21787424-blue.svg)](https://doi.org/10.5281/zenodo.21787424
 
 The senior author's proof-reading pass over
 [`../full-apply`](../full-apply). No new argument is introduced; every existing
