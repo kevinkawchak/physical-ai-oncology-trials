@@ -1,4 +1,4 @@
-# Publication final-apply - Stage 8 of the PART II schedule (senior-author pass)
+# Publication: final-apply - Stage 8 of the PART II schedule (senior-author pass)
 
 [![License](https://img.shields.io/badge/License-CC%20BY%204.0-yellow.svg)](https://creativecommons.org/licenses/by/4.0/)
 [![Stage](https://img.shields.io/badge/Stage-8%20of%208-00417A.svg)](../sub-prompts/part-ii/prompt-8-final-apply.md)
