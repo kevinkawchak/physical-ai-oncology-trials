@@ -1326,23 +1326,6 @@ All referenced repositories have been updated within October 2025 - March 2026:
 
 ---
 
-## Multi-Organization Cooperation
-
-The unification framework supports collaboration across institutions:
-
-| Organization Type | Contribution Area | Integration Point |
-|-------------------|-------------------|-------------------|
-| Academic Labs | Algorithms, benchmarks | ORBIT-Surgical, skill library |
-| Industry R&D | Hardware, deployment | ros2_surgical, safety validation |
-| Healthcare Systems | Clinical validation | Multi-site coordination |
-| Regulatory Bodies | Compliance standards | IEC 62304 documentation |
-| Privacy Officers | PHI/PII management, de-identification | `privacy/` framework tools |
-| Regulatory Affairs | FDA/IRB/ICH-GCP compliance | `regulatory/` framework tools |
-
-See `unification/README.md` for the complete cooperation model.
-
----
-
 ## Citation
 
 If you use this repository in your research, please cite using BibTeX:
