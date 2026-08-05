@@ -195,27 +195,6 @@ repository's three `lint-and-format` checks green.
 | Stage 7 | [`full-apply/`](funding/pdac-funding-applications/full-apply) | 20 figures drawn, 18 tables | 0 errors, 33 pages |
 | Stage 8 | [`final-apply/`](funding/pdac-funding-applications/final-apply) | Senior-author pass, no `publication/` | 0 errors, 34 pages |
 
-### Table of contents for the summary paper
-
-| § | Section | Figures |
-|:--|:--|:--|
-| 0 | Abstract, how to read, inventories | none |
-| 1 | The $200 billion realignment and the individual scientist | 1, 2 |
-| 2 | The ten applications | 3, 6 |
-| 3 | Set A: the surgical perspective | 5, 8 |
-| 4 | Set B: the medical oncology perspective | 19 |
-| 5 | Trial evidence | 4, 7, 16 |
-| 6 | Physical AI governance | 9, 10, 12, 13, 14, 15 |
-| 7 | UC San Diego Moores Cancer Center | none, by design |
-| 8 | Budget and leverage | 11, 17 |
-| 9 | Build method | 18 |
-| 10 | Risks and limits | 20 |
-| 11 | Back matter | none |
-
-Nothing in v4.4.0 is a submission of record. Every application is a draft the
-author compiles, verifies, and sends; UC San Diego is named as the intended
-partner of choice and nowhere as a partner, sponsor, trial site, or endorser.
-
 ---
 
 ## Phase 1 PDAC IND: AI Generation (v4.3.0)
