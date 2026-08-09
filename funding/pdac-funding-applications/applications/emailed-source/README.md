@@ -11,7 +11,7 @@
 [![Repository](https://img.shields.io/badge/Repository-v4.4.0-6C757D.svg)](../../README.md)
 
 
-[Application PDFs](https://github.com/kevinkawchak/physical-ai-oncology-trials/tree/main/funding/pdac-funding-applications/pdfs/emailed-applications) This directory builds two deliverables from one master prompt.
+[Application PDFs.](https://github.com/kevinkawchak/physical-ai-oncology-trials/tree/main/funding/pdac-funding-applications/pdfs/emailed-applications) This directory builds two deliverables from one master prompt.
 
 - **PART I.** Ten complete, recipient-unique **Phase 1 pancreatic cancer trial
   funding application email file sets** (no DOIs), each written in Kevin
