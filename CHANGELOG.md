@@ -16,7 +16,7 @@ Format follows [Keep a Changelog](https://keepachangelog.com/).
 - `funding/pdac-funding-applications/draft-apply/` - the twelve-section skeleton with bracketed `[DRAFTING INSTRUCTION]` markers naming exact repository files, twenty sized figure slots, plus `draft-apply-LaTeX.zip`.
 - `funding/pdac-funding-applications/full-apply/` - every instruction resolved, all twenty figures drawn, eighteen full-width tables populated, plus `full-apply-LaTeX.zip`.
 - `funding/pdac-funding-applications/final-apply/` - the senior-author pass: float barriers at every section, `\clearpage` discipline, all twenty captions rebalanced to three explicit lines, prose tightened in two passes, plus `final-apply-LaTeX.zip`. No `publication` subdirectory.
-- @kevinkawchak added respective application pdf, and application source code links to respective physical-ai-oncology-trials/tree/main/funding/pdac-funding-applications directories.
+- @kevinkawchak added respective application pdf, and application source code links to respective physical-ai-oncology-trials/tree/main/funding/pdac-funding-applications directories on 2026-08-08.
 
 ### Changed
 - `funding/README.md` rewritten as a hub with the directory tree, both DOI applications, the ten new file sets, a Rule 5 source map, and the positioning constraints that apply to everything in the tree.
