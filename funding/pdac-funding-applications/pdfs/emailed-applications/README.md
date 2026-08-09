@@ -3,7 +3,7 @@
 [![License](https://img.shields.io/badge/License-CC%20BY%204.0-yellow.svg)](https://creativecommons.org/licenses/by/4.0/)
 [![Summary paper DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.21787424-blue.svg)](https://doi.org/10.5281/zenodo.21787424)
 
-[Paper Source Code](https://github.com/kevinkawchak/physical-ai-oncology-trials/tree/main/funding/pdac-funding-applications/pdfs/emailed-applications)This directory builds two deliverables from one master prompt.
+[Paper Source Code.](https://github.com/kevinkawchak/physical-ai-oncology-trials/tree/main/funding/pdac-funding-applications/applications/emailed-source) This directory builds two deliverables from one master prompt.
 
 - **PART I.** Ten complete, recipient-unique **Phase 1 pancreatic cancer trial
   funding application email file sets** (no DOIs), each written in Kevin
