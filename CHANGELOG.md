@@ -16,6 +16,7 @@ Format follows [Keep a Changelog](https://keepachangelog.com/).
 - `funding/pdac-funding-applications/draft-apply/` - the twelve-section skeleton with bracketed `[DRAFTING INSTRUCTION]` markers naming exact repository files, twenty sized figure slots, plus `draft-apply-LaTeX.zip`.
 - `funding/pdac-funding-applications/full-apply/` - every instruction resolved, all twenty figures drawn, eighteen full-width tables populated, plus `full-apply-LaTeX.zip`.
 - `funding/pdac-funding-applications/final-apply/` - the senior-author pass: float barriers at every section, `\clearpage` discipline, all twenty captions rebalanced to three explicit lines, prose tightened in two passes, plus `final-apply-LaTeX.zip`. No `publication` subdirectory.
+- @kevinkawchak added respective application pdf, and application source code links to respective physical-ai-oncology-trials/tree/main/funding/pdac-funding-applications directories.
 
 ### Changed
 - `funding/README.md` rewritten as a hub with the directory tree, both DOI applications, the ten new file sets, a Rule 5 source map, and the positioning constraints that apply to everything in the tree.
@@ -26,6 +27,7 @@ Format follows [Keep a Changelog](https://keepachangelog.com/).
 ### Fixed
 - Nine of the ten applications described daraxonrasib as first-in-human. The author's own `funding/potential-partners/UC-San-Diego/priority-steps.md` records that it is investigational and already in Phase 3 evaluation, and that the supportable claim concerns the integrated surgical and advisory workflow. Each application now carries a positioning note, every email body and subject is corrected, and all ten carry the instruction in their pre-send checklist.
 - Six LaTeX defects found during the build and fixed: an `\unskip` added to the `apptable` environment, whose closing newline pushed every table 2.74pt past the right margin; figures moved into `[!tb]` floats, which recovered up to a page of stranded whitespace per application; `\appfile` rewritten as a character scanner, since a repository path has no spaces and overflowed by up to 188pt with both `\nolinkurl` and `\path` failing inside a macro argument; `\apptimeline` rewritten to place five cells explicitly, since choosing fills with `\ifnum` inside a TikZ key list expands too late; `\glyphlink`, `\glyphcloud`, `\glyphsignal`, `\glyphhand` and `\glyphteam` restored after being dropped in the style adaptation; and two unbreakable `\href` display strings changed to `\url`.
+
 
 ## [4.3.0] - 2026-07-01
 
