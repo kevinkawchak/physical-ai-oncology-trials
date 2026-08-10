@@ -1,4 +1,9 @@
 % sec-01: outline item A.  Figures 1 (mermaid), 2 (d2), 3 (graphviz).
+% FINAL stage improvements: Figure 1 gains a survivor count and a legend row;
+% Figure 2 gains a column-5 tally so the two well-suited rows can be counted
+% without reading them; Figure 3 gains an explicit equals rule under the three
+% totals.  A \clearpage before the last subsection clears the 143pt overfull
+% vbox that stage 7 found on page 9.
 \section{The Novel-Performer Case}
 
 \subsection{Three Clauses, One Applicant}
@@ -55,6 +60,9 @@ resources toward ideas that do not always start with a dissertation''.
 \draw[mmedged] (t1.south) -- node[mmlabel,pos=0.55] {yes} (f1.north);
 \draw[mmedged] (t2.south) -- node[mmlabel,pos=0.55] {no} (f2.north);
 \draw[mmedgeb,line width=1pt] (t4.south) -- node[mmlabel,pos=0.55] {no, 2.6 FTE} (pass.north);
+\legkey{0}{-3.95}{pablue2}{clause under test}
+\legkey{4.2}{-3.95}{pagrayl}{clause eliminated}
+\legkey{8.4}{-3.95}{protoblue}{clause surviving, 1 of 3}
 \node[font=\tiny\itshape,text=protogray,anchor=north west,text width=132mm]
   at (0,-4.35) {The two clauses that fail, fail on size and on legal form, not
   on merit or on subject matter. T3 is the only test this company passes by
@@ -158,11 +166,13 @@ research, and neither is a mechanism a firm applies to
   -5.46/d2gray2/{Less suited}}{
   \node[\sty,minimum width=20mm,text width=17mm,minimum height=7.2mm] at (12.95,\y) {\lab};}
 \draw[protoblue,line width=0.9pt] (11.90,0.42) -- (11.90,-5.85);
-\legkey{0.0}{-6.45}{protowhite}{Well or partly suited, the report's own scoring}
-\legkey{6.6}{-6.45}{pagrayl}{Less suited}
-\legkey{9.6}{-6.45}{protoblue}{Well suited, this company}
+\node[d2cellk,minimum width=20mm,text width=17mm,minimum height=6.2mm,
+      font=\tiny\sffamily\bfseries] at (12.95,-6.02) {2 well, 3 partly, 2 less};
+\legkey{0.0}{-6.60}{protowhite}{Well or partly suited, the report's own scoring}
+\legkey{6.6}{-6.60}{pagrayl}{Less suited}
+\legkey{9.6}{-6.60}{protoblue}{Well suited, this company}
 \node[font=\tiny\itshape,text=protogray,anchor=north west,text width=132mm]
-  at (0,-6.85) {The rule at the right marks where the report's own columns end
+  at (0,-7.00) {The rule at the right marks where the report's own columns end
   and the column this paper adds begins. The four left-hand columns are the
   report's scoring restated in words, because its plus, tilde and cross glyphs
   are not legible at this measure.};
@@ -245,6 +255,9 @@ with a fixed appropriation can read directly.
      at (11.25,-2.5) {Total to funder};
 \node[gvcellh,minimum width=13mm,text width=10.6mm,minimum height=5.4mm,anchor=north west]
      at (13.35,-2.5) {\$1,606,000};
+\draw[protoblue,line width=0.6pt] (0,-3.10) -- (14.65,-3.10);
+\node[font=\tiny\sffamily\bfseries,text=protoblue,anchor=north west] at (0,-3.16)
+  {one direct base, three totals};
 \draw[gvedgeb] (1.65,-3.28) to[bend right=26]
   node[font=\tiny,fill=protowhite,inner sep=1.5pt,pos=0.5] {premium \$531,000, 33.1 percent} (5.55,-3.28);
 \draw[gvedgeb] (9.30,-3.28) to[bend left=26]
