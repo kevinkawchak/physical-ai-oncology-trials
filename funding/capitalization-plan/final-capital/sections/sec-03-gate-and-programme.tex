@@ -1,5 +1,9 @@
 % sec-03: outline item C.  Figures 7 (mermaid), 8 (d2), 9 (graphviz).
 % The arithmetic spine.  Tables 8 to 11 reconcile exactly.
+% FINAL stage improvements: Figure 7's four guards are keyed G1 to G4 inside
+% the gate state itself so the note beneath it is a legend rather than the only
+% place the guards are named; Figure 8 gains a percentage column head on the
+% ratio bars; Figure 9 gains a per-cluster package count.
 \section{The \$1.6M Gate and the \$3.5M Programme}
 
 \subsection{One Budget, Reused Without Re-derivation}
@@ -47,7 +51,7 @@ percent of direct costs that this plan does not claim.}
 \node[umlstateon,text width=27mm] (u2) at (4.30,0)
   {Phase I active\\306,000 total cost\\months 1 to 9};
 \node[umlstate,text width=25mm,line width=1pt] (u3) at (7.55,0)
-  {Gate\\four guards evaluated\\no spend authority};
+  {Gate, month 9\\G1 G2 G3 G4\\no spend authority};
 \node[umlstateon,text width=27mm] (u4) at (10.85,0)
   {Phase II active\\1,300,000 total\\months 10 to 33};
 \node[umlstatesoft,text width=25mm] (u5) at (14.05,0)
@@ -194,6 +198,8 @@ resubmitted for three participants, which is the Descoped state of Figure 7.}
   \hbarrow{1.75}{1.92}{pagraym}{}{60.1 pct}
   \node[font=\tiny\sffamily,text=protogray,anchor=north west,text width=30mm] at (0,1.45)
     {Bars share one 3.2 cm scale, so the lower two sum to the upper exactly.};
+  \node[font=\tiny\sffamily\bfseries,text=protoblue,anchor=south west] at (0,3.15)
+    {Share of the programme reached};
 \end{scope}
 \node[font=\tiny\itshape,text=protogray,anchor=north west,text width=132mm]
   at (0,-5.35) {The left column is reused verbatim from the July 2026 funding
@@ -248,7 +254,7 @@ full verification re-run with the permanent archive.
 \node[gvctitle,anchor=south west] at ([yshift=1mm]cp1.north west)
   {Reachable at 306,000, months 1 to 9};
 \node[gvcellh,minimum width=20mm,text width=17mm,anchor=south east]
-  at ([xshift=-1mm,yshift=1mm]cp1.north east) {\$306,000};
+  at ([xshift=-1mm,yshift=1mm]cp1.north east) {5 WP, \$306,000};
 \foreach \i/\x/\y/\lab/\sty in {6/6.20/0/{WP6 site activation and first dosing}/gvbox,
   7/9.05/0/{WP7 first advised robotic Whipple}/gvbox,
   8/11.90/0/{WP8 dose level 1 cleared, DSMB}/gvbox,
@@ -263,7 +269,7 @@ full verification re-run with the permanent archive.
 \node[gvctitle,anchor=south west] at ([yshift=1mm]cp2.north west)
   {Reachable at 1,606,000, months 10 to 33};
 \node[gvcellh,minimum width=20mm,text width=17mm,anchor=south east]
-  at ([xshift=-1mm,yshift=1mm]cp2.north east) {\$1,300,000};
+  at ([xshift=-1mm,yshift=1mm]cp2.north east) {7 WP, \$1,300,000};
 \foreach \i/\x/\y/\lab in {13/6.20/-5.55/{WP13 participants 7 to 18, DL3 and DL4},
   14/9.05/-5.55/{WP14 correlative PK, ctDNA, tissue},
   15/11.90/-5.55/{WP15 full VVUQ re-run and file},
@@ -276,7 +282,7 @@ full verification re-run with the permanent archive.
 \node[gvctitle,text=protogray,anchor=south west] at ([yshift=1mm]cpg.north west)
   {Unreachable at 1,606,000, needs 2,104,000 more};
 \node[gvcellg,minimum width=20mm,text width=17mm,anchor=south east]
-  at ([xshift=-1mm,yshift=1mm]cpg.north east) {\$2,104,000};
+  at ([xshift=-1mm,yshift=1mm]cpg.north east) {5 WP, \$2,104,000};
 \draw[gvedge] (w1) -- (w2);
 \draw[gvedge] (w3.east) -- (w5.west);
 \draw[gvedge] (w4.east) -- (w5.west);

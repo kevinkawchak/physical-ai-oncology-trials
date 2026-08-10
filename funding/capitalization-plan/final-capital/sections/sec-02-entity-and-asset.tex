@@ -1,4 +1,7 @@
 % sec-02: outline item B.  Figures 4 (diagrams), 5 (d2), 6 (plantuml).
+% FINAL stage improvements: Figure 4 gains a dated baseline strip so the
+% seven-month asymmetry is visible inside the figure; Figure 5 gains a primary
+% and foreign key legend; Figure 6 gains an explicit count on each boundary.
 \section{The Entity and the Asset}
 
 \subsection{What the Entity Is}
@@ -60,8 +63,14 @@ thirty-three months this plan covers.
   node[font=\tiny\sffamily,fill=protowhite,inner sep=1.5pt,pos=0.5] {supplies} (za.north west);
 \draw[dgedged] (zl.south east) -- node[font=\tiny\sffamily,fill=protowhite,inner sep=1.5pt,pos=0.5]
   {depends on} (za.north east);
+\node[d2cellg,minimum width=64mm,text width=61mm,minimum height=6mm,
+      font=\tiny\sffamily,anchor=north west] at (0,-8.75)
+  {13 January 2026 baseline: owned 2, licensed 3, contracted 0, absent 7};
+\node[d2cellk,minimum width=64mm,text width=61mm,minimum height=6mm,
+      font=\tiny\sffamily,anchor=north west] at (6.9,-8.75)
+  {11 August 2026: owned 13, licensed 3, contracted 0, absent 7};
 \node[font=\tiny\itshape,text=protogray,anchor=north west,text width=132mm]
-  at (-1.3,-8.95) {The contracted zone is drawn at the size a three-tile zone
+  at (-1.3,-9.65) {The contracted zone is drawn at the size a three-tile zone
   would occupy, so its emptiness reads as absence at scale rather than as a
   small box. The pill glyph appears twice: the same object is licensed to
   somebody else and absent from this company.};
@@ -151,6 +160,8 @@ write one.
 \node[umlnote,text width=40mm,anchor=north west] at (5.30,-5.55)
   {An empty table is a finding. It is drawn with its header and no body row,
   because a missing table would instead be an omission.};
+\legkey{10.60}{-5.75}{protoblue}{primary key, an owned identifier}
+\legkey{10.60}{-6.20}{pagrayd}{foreign key, a milestone this row blocks}
 \node[font=\tiny\itshape,text=protogray,anchor=north west,text width=132mm]
   at (0,-7.55) {No row of the owned table is encumbered and no row of the
   licensed table is exclusive, so nothing in either can be pledged. The
@@ -220,7 +231,7 @@ whole content of the table and the reason \S8 exists.}
 \node[umlpkg,fit=(s1)(s2)(s3)(s4)(s5)(s6),inner sep=6pt] (bs) {};
 \end{scope}
 \node[umlpkgtab,anchor=south west] at ([yshift=0.6mm]bs.north west)
-  {ChemicalQDevice, sponsor scope};
+  {ChemicalQDevice, sponsor scope, 6 cases};
 \foreach \i/\x/\y/\lab in {1/2.30/-2.85/{Consent a participant},
   2/5.55/-2.85/{Assign a dose level}, 3/8.80/-2.85/{Perform the operation},
   4/2.30/-4.20/{Adjudicate an endpoint}, 5/5.55/-4.20/{Grade a fistula, ISGPS},
@@ -230,7 +241,7 @@ whole content of the table and the reason \S8 exists.}
 \node[umlpkg,fit=(u1)(u2)(u3)(u4)(u5)(u6),inner sep=6pt] (bu) {};
 \end{scope}
 \node[umlpkgtab,anchor=south west] at ([yshift=0.6mm]bu.north west)
-  {UC San Diego Moores, site scope};
+  {UC San Diego Moores, site scope, 6 cases};
 \foreach \i/\x/\lab in {1/2.30/{Supply investigational drug},
   2/6.15/{Schedule theatre and robotic time}, 3/10.00/{Cross reference the developer IND}}{
   \node[umlusegray,text width=27mm] (b\i) at (\x,-6.95) {\lab};}
@@ -238,7 +249,7 @@ whole content of the table and the reason \S8 exists.}
 \node[umlpkg,fill=pagrayl,fit=(b1)(b2)(b3),inner sep=6pt] (bb) {};
 \end{scope}
 \node[umlpkgtab,fill=pagraym,anchor=south west] at ([yshift=0.6mm]bb.north west)
-  {Blocked, no instrument exists};
+  {Blocked, no instrument exists, 3 cases};
 \foreach \t in {s1,s2,s3}{\draw[umlassoc] (ceo) -- (\t);}
 \foreach \t in {u1,u2,u3}{\draw[umlassoc] (pi) -- (\t);}
 \draw[umlassoc] (irb) -- (u4);
