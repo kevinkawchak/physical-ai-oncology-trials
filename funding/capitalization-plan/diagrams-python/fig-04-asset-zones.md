@@ -24,9 +24,12 @@ No `.py` file is emitted. The listing below is the node and cluster graph in
 with Diagram("ChemicalQDevice asset zones, August 2026", direction="LR"):
     with Cluster("Owned outright, no encumbrance"):
         owned = [
-            Node("Phase 1 protocol"),      Node("Phase 2 protocol"),
-            Node("IND package, drafted"),  Node("QSP and VVUQ suite"),
-            Node("Repository, MIT"),       Node("Ten application sets"),
+            Node("Phase 1 protocol"),
+            Node("Phase 2 protocol"),
+            Node("IND package, drafted"),
+            Node("QSP and VVUQ suite"),
+            Node("Repository, MIT"),
+            Node("Ten application sets"),
             Node("Four legislative drafts"),
         ]
     with Cluster("Licensed, none exclusive"):
@@ -36,11 +39,13 @@ with Diagram("ChemicalQDevice asset zones, August 2026", direction="LR"):
             Node("Daraxonrasib, developer"),
         ]
     with Cluster("Contracted"):
-        contracted = []          # zero nodes, by fact
+        contracted = []  # zero nodes, by fact
     with Cluster("Absent, none obtainable alone"):
         absent = [
-            Node("Site agreement"), Node("IRB approval"),
-            Node("Drug supply"),    Node("Letter of authorization"),
+            Node("Site agreement"),
+            Node("IRB approval"),
+            Node("Drug supply"),
+            Node("Letter of authorization"),
         ]
     owned >> Edge(label="supplies") >> absent
     licensed >> Edge(label="depends on", style="dashed") >> absent

@@ -23,13 +23,16 @@ No `.py` file is emitted.
 with Diagram("Artifact custody after a stop", direction="LR"):
     with Cluster("Public custodian, Zenodo and GitHub, permanent"):
         pub = [
-            Node("Protocols, Phase 1 and 2"), Node("IND package, as deposited"),
-            Node("QSP stack and VVUQ suite"), Node("Twelve milestone artifacts"),
+            Node("Protocols, Phase 1 and 2"),
+            Node("IND package, as deposited"),
+            Node("QSP stack and VVUQ suite"),
+            Node("Twelve milestone artifacts"),
             Node("Replay bundles and hashes"),
         ]
     with Cluster("Sponsor file, ChemicalQDevice, two years"):
         spn = [
-            Node("Monitoring reports"), Node("3454 and 3455 filings"),
+            Node("Monitoring reports"),
+            Node("3454 and 3455 filings"),
             Node("FDA correspondence"),
         ]
     with Cluster("Site file, UC San Diego, per policy"):
