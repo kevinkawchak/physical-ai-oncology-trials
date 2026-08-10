@@ -1,0 +1,85 @@
+% sec-11: abbreviations, availability, contributions, citation, references.
+\section*{Back Matter}
+\phantomsection\addcontentsline{toc}{section}{Back Matter}
+
+\bmhead{Abbreviations}
+
+\begin{apptable}
+\begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}p{1.5cm} >{\raggedright\arraybackslash}X >{\raggedright\arraybackslash}p{1.5cm} >{\raggedright\arraybackslash}X}
+\headrow \thead{Short} & \thead{Expansion} & \thead{Short} & \thead{Expansion}\\
+\midrule
+AE & Adverse event & LLM & Large language model \\
+CRC & Clinical research coordinator & MTD & Maximum tolerated dose \\
+CRF & Case report form & MTDC & Modified total direct cost \\
+CTA & Clinical trial agreement & NIH & National Institutes of Health \\
+CTCAE & Common Terminology Criteria for Adverse Events & PDAC & Pancreatic ductal adenocarcinoma \\
+ctDNA & Circulating tumour DNA & PD & Pharmacodynamics \\
+DLT & Dose-limiting toxicity & PK & Pharmacokinetics \\
+DOI & Digital object identifier & QSP & Quantitative systems pharmacology \\
+DSMB & Data and safety monitoring board & RP2D & Recommended Phase 2 dose \\
+F and A & Facilities and administrative cost & SAE & Serious adverse event \\
+FDA & Food and Drug Administration & SAFE & Simple agreement for future equity \\
+FRO & Focused research organization & SBA & Small Business Administration \\
+FTE & Full-time equivalent & SBIR & Small Business Innovation Research \\
+IIT & Investigator-initiated trial & SEED & NIH Small Business Education and Entrepreneurial Development \\
+IND & Investigational new drug & STTR & Small Business Technology Transfer \\
+IRB & Institutional review board & VCOC & Venture capital operating company \\
+ISGPS & International Study Group of Pancreatic Surgery & VVUQ & Verification, validation and uncertainty quantification \\
+LOA & Letter of authorization & WP & Work package \\
+\end{tabularx}
+\end{apptable}
+\vspace{-0.65cm}
+\tabcap{Abbreviations used in this paper, set in two column pairs at the body
+measure. Trial-specific terms follow the definitions in the published Phase 1
+protocol rather than being redefined here.}
+
+\bmhead{Data and Code Availability}
+
+\draftinstr{One paragraph. The repository is at
+\url{https://github.com/kevinkawchak/physical-ai-oncology-trials}, version
+v4.5.0. State what this directory contains: the eight-stage sub-prompt schedule,
+the twenty figure specifications across five machine-readable platforms, the
+three build stages with their Overleaf bundles, the master prompt and the full
+output, and the TikZ source of every figure printed here. State that no raster
+image is used anywhere. Cite \texttt{repo2026}.}
+
+\bmhead{Author Contributions and Conflicts}
+
+\draftinstr{One paragraph, and the conflict statement must be the strongest in
+any of the author's papers because this one is about money. Kevin Kawchak is the
+sole author, sole officer and sole owner of ChemicalQDevice, and holds no equity
+in Revolution Medicines or in any robotic surgery vendor. He is the sponsor and
+is not, and under this plan will not become, a clinical investigator on the
+trial; every \S54.2 trigger that his position would fire is the reason \S4
+exists. No sponsor, contract research organization, institutional review board,
+regulator, or medical society reviewed this paper or authorised any statement in
+it. No term sheet, SAFE or subscription agreement exists. The work was adapted
+using Claude Code Opus 5.}
+
+\bmhead{Citation}
+
+Kawchak K. From Independent Scientist to Novel Performer: A Small-Business
+Operating, Milestone, and Capitalization Plan for a Phase 1 LLM-Advised Robotic
+Whipple (ChemicalQDevice). Zenodo. 2026; \dlink{10.5281/zenodo.xxxxxxxx}.
+
+\vspace{0.2em}
+\apprule{0.5pt}
+\vspace{-0.1em}
+
+\draftinstr{At this stage the body carries no \texttt{\textbackslash cite}
+command, because every citation is still named inside a drafting instruction.
+\texttt{\textbackslash nocite\{*\}} is therefore issued below, so the draft
+compiles the complete bibliography and the author can check at this stage that
+every entry resolves, that every DOI prints as text with a clickable target, and
+that no reference line runs past the right margin. Stage 7 replaces every named
+key with a real \texttt{\textbackslash cite} and removes the
+\texttt{\textbackslash nocite}, so the final list is ordered by first appearance
+under \texttt{unsrt} rather than by database order.}
+
+\bmhead{References}
+\vspace{-0.35em}
+\begin{apprefs}
+\nocite{*}
+\bibliographystyle{unsrt}
+\bibliography{references}
+\end{apprefs}

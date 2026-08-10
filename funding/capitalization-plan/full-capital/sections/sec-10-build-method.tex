@@ -1,0 +1,154 @@
+% sec-10: how the document was built, and what survives it.  Figure 20.
+\section{Build Method and Reproducibility}
+
+\subsection{The Eight-Stage Build}
+
+The paper was built as one schedule of eight stages: five diagram-specification
+stages, then a draft, a full and a final paper stage. Two rules shaped it. One
+commit per file at the moment the file is written, so a reader can watch the
+branch rather than wait for it. And no Python file anywhere, so the repository's
+three lint-and-format jobs stay green; the diagrams stage emits a
+machine-readable specification instead, and every tile it describes is drawn in
+LaTeX by a vector glyph macro.
+
+\begin{apptable}
+\begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}p{1.3cm} >{\raggedright\arraybackslash}p{3.9cm} >{\raggedright\arraybackslash}X >{\raggedright\arraybackslash}p{1.7cm}}
+\headrow \thead{Stage} & \thead{Output directory} & \thead{Figures or sections produced} & \thead{Commits}\\
+\midrule
+1 & \appfile{mermaid/} & Figures 1, 7, 12, 13, 19 & 6 \\
+2 & \appfile{plantuml/} & Figures 6, 10, 15 & 4 \\
+3 & \appfile{d2/} & Figures 2, 5, 8, 11, 16 & 6 \\
+4 & \appfile{diagrams-python/} & Figures 4, 18, 20 & 4 \\
+5 & \appfile{graphviz/} & Figures 3, 9, 14, 17 & 5 \\
+6 & \appfile{draft-capital/} & Twelve sections, twenty sized slots & 10 or more \\
+7 & \appfile{full-capital/} & Twenty figures drawn, twenty-one tables & 10 or more \\
+8 & \appfile{final-capital/} & The senior-author pass & 10 or more \\
+\end{tabularx}
+\end{apptable}
+\vspace{-0.65cm}
+\tabcap{The eight stages, their output directory and their commit count. There
+is no publication subdirectory at stage 8, by instruction, and no stage batches
+its work to the end.}
+
+\subsection{Why the Diagram Split Is Uneven}
+
+Five mermaid, three plantuml, five d2, three diagrams, four graphviz. The split
+follows purpose rather than quota, and the two five-counts fall where this paper
+argues most often. Mermaid answers what happens next and how long, and a
+capitalization plan is mostly a claim about sequence. D2 answers what contains
+what and what is priced against what, and the rest of the plan is tables. The
+per-figure reasoning is in the five directory READMEs and is not restated here.
+
+\subsection{What Survives a Stop}
+
+\begin{appfloat}[!tb]
+\begin{appfig}[diagrams-python-type / custody clusters]
+% The public cluster is drawn larger than the other three combined, because it
+% holds more and because that proportion is the argument.  Its border is solid
+% pablue1 while the other three are dashed: solid is permanent, dashed is
+% conditional.
+\dgnodew{dgtiled}{0}{0}{\glyphdoc}{Protocols, Phase 1 and 2}{v1}
+\dgnode{dgtile}{2.7}{0}{\glyphflask}{IND package, as deposited}{v2}
+\dgnodew{dgtilem}{5.4}{0}{\glyphcpu}{QSP stack and VVUQ suite}{v3}
+\dgnode{dgtile}{0}{-2.2}{\glyphchart}{Twelve milestone artifacts}{v4}
+\dgnodew{dgtiled}{2.7}{-2.2}{\glyphlock}{Replay bundles and hashes}{v5}
+\begin{scope}[on background layer]
+\node[dgcluster,draw=pablue1,solid,line width=0.9pt,
+      fit=(v1)(v1l)(v2)(v2l)(v3)(v3l)(v4)(v4l)(v5)(v5l),inner sep=7pt] (cpub) {};
+\end{scope}
+\node[dgctitle,anchor=south west] at ([yshift=1.2mm]cpub.north west)
+  {Public custodian, Zenodo and GitHub, permanent};
+\node[d2cellg,minimum width=24mm,text width=21mm,anchor=north east]
+  at ([xshift=-1.5mm,yshift=-1.5mm]cpub.north east) {no retention limit};
+\dgnodeg{dgtileg}{8.70}{0}{\glyphmon}{Monitoring reports}{w1}
+\dgnodeg{dgtileg}{11.40}{0}{\glyphdoc}{Forms 3454 and 3455}{w2}
+\dgnodeg{dgtileg}{8.70}{-2.2}{\glyphlink}{FDA correspondence}{w3}
+\begin{scope}[on background layer]
+\node[dgcluster2,fit=(w1)(w1l)(w2)(w2l)(w3)(w3l),inner sep=7pt] (cspn) {};
+\end{scope}
+\node[dgctitle2,anchor=south west] at ([yshift=1.2mm]cspn.north west)
+  {Sponsor file, ChemicalQDevice};
+\node[d2cellg,minimum width=24mm,text width=21mm,anchor=north east]
+  at ([xshift=-1.5mm,yshift=-1.5mm]cspn.north east) {two years, 312.57};
+\dgnodeg{dgtilek}{0}{-5.0}{\glyphdoc}{Source documents}{x1}
+\dgnodeg{dgtilek}{2.7}{-5.0}{\glyphhand}{Consent forms}{x2}
+\dgnodeg{dgtilek}{5.4}{-5.0}{\glyphdb}{Medical records}{x3}
+\begin{scope}[on background layer]
+\node[dgcluster2,fit=(x1)(x1l)(x2)(x2l)(x3)(x3l),inner sep=7pt] (csit) {};
+\end{scope}
+\node[dgctitle2,anchor=south west] at ([yshift=1.2mm]csit.north west)
+  {Site file, UC San Diego};
+\node[d2cellg,minimum width=24mm,text width=21mm,anchor=north east]
+  at ([xshift=-1.5mm,yshift=-1.5mm]csit.north east) {per policy, 312.62};
+\dgnodeg{dgtileg}{8.70}{-5.0}{\glyphbank}{IND and amendments}{y1}
+\dgnodeg{dgtileg}{11.40}{-5.0}{\glyphsignal}{Expedited safety reports}{y2}
+\begin{scope}[on background layer]
+\node[dgcluster2,fit=(y1)(y1l)(y2)(y2l),inner sep=7pt] (cfda) {};
+\end{scope}
+\node[dgctitle2,anchor=south west] at ([yshift=1.2mm]cfda.north west)
+  {Agency file, FDA};
+\dgnodew{dgtiled}{14.10}{-2.5}{\glyphteam}{Third party}{z1}
+\draw[dgedgeb,line width=1pt] (cpub.east) to[bend left=16]
+  node[font=\tiny\sffamily,fill=protowhite,inner sep=1.5pt,pos=0.55]
+  {reproducible without any custodian} (z1.north west);
+\draw[dgedged] (cspn.south) -- node[font=\tiny\sffamily,fill=protowhite,inner sep=1.5pt,pos=0.5]
+  {on request only} (cfda.north);
+\draw[dgedged] (csit.east) -- node[font=\tiny\sffamily,fill=protowhite,inner sep=1.5pt,pos=0.5]
+  {never leaves the site} (cfda.west);
+\draw[dgedged] (csit.south east) -- (9.60,-6.90);
+\pxmark{9.90}{-6.90}
+\node[font=\tiny\sffamily,text=protogray,anchor=west] at (10.30,-6.90)
+  {no participant-level path to a third party};
+\node[d2cellk,text width=24mm,minimum height=9mm] at (14.10,-5.20)
+  {five of seven work products reproducible};
+\node[font=\tiny\itshape,text=protogray,anchor=north west,text width=132mm]
+  at (0,-7.55) {The public cluster's border is solid and the other three are
+  dashed: solid is permanent, dashed is conditional on somebody continuing to
+  hold the file. The blocked edge is drawn to a third of its length and
+  terminated, so it reads as a path that does not complete.};
+\end{appfig}
+\vspace{-0.65cm}
+\figcaption{Four custodians and what each still holds if the programme stops.\\
+Everything a third party needs to reproduce the computation sits\\
+with the first custodian, which needs no one to stay in business.}
+\end{appfloat}
+
+Five of seven work products are fully reproducible from the public custodian
+alone: the ten-arm simulation, the 1000-patient digital twin, the 55-test
+verification suite with its credibility score, the replay of any advisory
+decision, and this paper with all twenty figures. The interlock bench
+verification is partly reproducible, since the report and the manifest are
+public but the rig is not. Only participant-level clinical results are
+unreachable, because the source documents never leave the site
+\cite{ecfr2026part312records}.
+
+That is the argument this figure exists to make, and it is made once. If the
+company dissolves at any milestone, the computational work does not become
+unavailable, because it was never in the company's custody in the first place
+\cite{repo2026}.
+
+\subsection{Verification of This Document}
+
+Every source set in this build was compiled with pdfLaTeX twice and BibTeX
+before its commit, at zero errors, zero overfull boxes, zero undefined
+citations, and zero undefined references. No raster image is used anywhere in
+this paper: every figure is pure TikZ on an eight-token palette with no black
+fill, and the palette audit is a search for the deleted near-black fill token,
+which returns nothing.
+
+The figure-to-caption distance is identical at 6.06 pt for all twenty figures
+and all twenty-one tables. The audit that proves it is arithmetic rather than
+visual: the count of \texttt{\textbackslash vspace\{-0.65cm\}} in the section
+sources equals the count of \texttt{\textbackslash figcaption} plus the count of
+\texttt{\textbackslash tabcap}, and the style file closes both carriers with a
+single rigid skip that no section can override.
+
+Three defects were found and fixed during the build rather than carried forward,
+and they are recorded because a verification section that reports only successes
+is not a record. The three-cell cover ledger exceeded the measure by 14.34 pt,
+because three cells at 0.288 of the text width plus two gaps plus six inner
+separations do not fit inside it. A directory path set in a monospace face
+overflowed a 3.3 cm table column by 11.23 pt in three rows, because Courier
+offers no break point inside a path. And a TikZ node width written as
+\texttt{\{\textbackslash w*0.415\} cm} is parsed by the mathematics engine as
+one expression and fails; the unit belongs inside the braces.

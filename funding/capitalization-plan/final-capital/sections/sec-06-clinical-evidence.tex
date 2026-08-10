@@ -1,0 +1,247 @@
+% sec-06: the quantitative case.  Figures 16 (d2), 17 (graphviz).
+% FINAL stage improvements: Figure 16's tier column is given a three-swatch
+% legend so tier is readable without the table; Figure 17's four ranks are
+% numbered, so a reader can follow one chain across the figure by number rather
+% than by tracing an edge.
+\section{The Clinical Evidence a Funder Is Buying}
+
+\subsection{Six Quantities a Reviewer Can Check}
+
+Every quantity below is published or deposited, every one carries the limitation
+its own authors stated, and no in-silico result is presented as a clinical one.
+The discipline matters more here than anywhere else in the document, because a
+capitalization plan that overstates its evidence is asking for money under a
+false description. Table 16 states all six with their comparator, their evidence
+tier and the limitation their own authors gave them.
+
+\begin{apptable}
+\begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}p{2.7cm} >{\raggedright\arraybackslash}p{1.9cm} >{\raggedright\arraybackslash}p{2.1cm} >{\raggedright\arraybackslash}p{1.4cm} >{\raggedright\arraybackslash}X}
+\headrow \thead{Source} & \thead{Test arm} & \thead{Comparator} & \thead{Tier} & \thead{Limitation, in its own authors' words}\\
+\midrule
+RASolute 302, May 2026 & 13.2 mo mOS & 6.6 mo mOS & Trial & Metastatic and previously treated; silent on the resectable setting \\
+QSP simulation, 10 arms, 250 ODEs & 12.8 mo mOS, HR 0.25 & 5.4 mo mOS & In silico & Assumes no acquired resistance and ideal pharmacodynamics; grade 3 plus high in all arms \\
+Digital twin, 1000 patients & 12.1 mo mOS & not applicable & Twin & No patient-specific PK, PD or tumour growth parameters; simple Emax model \\
+Digital twin, PFS hazard ratio & HR 0.31 & not applicable & Twin & Same source, same limitation; no immune compartments \\
+VVUQ credibility, 55 tests & score 81.9 & V and V 40 gate & Twin & A pre-trial credibility score; not a post-trial validation \\
+Empirical triplicate, 100,000 records & G3 plus 8.0 pct & G3 plus 25.0 pct & In silico & The G12C log favours experimental while the KRAS-mutant report favours control \\
+\end{tabularx}
+\end{apptable}
+\vspace{-0.65cm}
+\tabcap{Table 16. Six quantities with their comparator, their evidence tier, and\\
+the limitation each set of authors stated. No row can be read without the\\
+caveat that qualifies it, which is the condition on citing any of them.}
+
+Figure 16 draws the same six as intervals a reviewer can measure, each beside
+its comparator and the limitation that qualifies it.
+
+\begin{appfloat}[!tb]
+\begin{appfig}[d2-type / grid with interval measures]
+% A seven by five grid on the left and an interval panel on the right,
+% separated by a 10mm corridor that no element spans.  All four value columns
+% take the identical 17mm width.
+\foreach \c/\x/\lab in {0/1.65/{Quantity}, 1/3.90/{Test arm}, 2/5.70/{Comparator},
+  3/7.50/{Tier}, 4/9.30/{Date}}{
+  \ifnum\c=0
+    \node[d2cellh,text width=31mm,minimum height=7.0mm] at (\x,0) {\lab};
+  \else
+    \node[d2cellh,minimum width=17mm,text width=14mm,minimum height=7.0mm] at (\x,0) {\lab};
+  \fi}
+\foreach \y/\q in {-0.76/{RASolute 302 median OS, RAS G12},
+  -1.52/{QSP simulation median OS, 10 arms},
+  -2.28/{Digital twin median OS, 1000 patients},
+  -3.04/{Digital twin PFS hazard ratio},
+  -3.80/{VVUQ credibility score, 55 tests},
+  -4.56/{Empirical triplicate, grade 3 plus}}{
+  \node[d2celll,text width=31mm,minimum height=7.0mm] at (1.65,\y) {\q};}
+\foreach \y/\asty/\a/\b/\csty/\c/\d in {%
+  -0.76/d2key/{13.2 months}/{6.6 months}/d2cell/{Trial}/{2026-05},
+  -1.52/d2cellk/{12.8 months}/{5.4 months}/d2cellg/{In silico}/{2025-08},
+  -2.28/d2cellk/{12.1 months}/{not applicable}/d2cellg/{Twin}/{2025-10},
+  -3.04/d2cellk/{HR 0.31}/{not applicable}/d2cellg/{Twin}/{2025-10},
+  -3.80/d2cellk/{score 81.9}/{V and V 40 gate}/d2cellg/{Twin}/{2025-10},
+  -4.56/d2cellk/{8.0 percent}/{25.0 percent}/d2cellg/{In silico}/{2025-07}}{
+  \node[\asty,minimum width=17mm,text width=14mm,minimum height=7.0mm] at (3.90,\y) {\a};
+  \node[d2cell,minimum width=17mm,text width=14mm,minimum height=7.0mm] at (5.70,\y) {\b};
+  \node[\csty,minimum width=17mm,text width=14mm,minimum height=7.0mm] at (7.50,\y) {\c};
+  \node[d2cell,minimum width=17mm,text width=14mm,minimum height=7.0mm] at (9.30,\y) {\d};}
+\begin{scope}[shift={(11.10,-4.95)}]
+  \axisx{0}{4.4}{0}
+  \foreach \m/\lab in {0/0, 1.25/5, 2.50/10, 3.75/15}{
+    \draw[protogray,line width=0.3pt] (\m,0) -- (\m,-0.10);
+    \node[font=\tiny\sffamily,text=protogray,anchor=north] at (\m,-0.12) {\lab};}
+  \node[font=\tiny\sffamily,text=protogray,anchor=north] at (2.0,-0.42) {months, median overall survival};
+  \ciband{3.65}{2.55}{4.05}{3.30}{13.2 test}
+  \ciband{3.05}{1.15}{2.15}{1.65}{6.6 control}
+  \legkey{0}{2.35}{pablue1}{12.8 QSP, point estimate}
+  \legkey{0}{1.95}{pablue1}{12.1 twin, point estimate}
+  \legkey{0}{1.55}{pagraym}{no interval: deterministic run}
+  \ptitle{0}{4.45}{Intervals where a source reports one}
+\end{scope}
+\ptitle{0}{0.62}{Six checkable quantities}
+\legkey{4.40}{0.66}{protowhite}{trial}
+\legkey{6.20}{0.66}{pagrayl}{in silico or twin}
+\legkey{9.20}{0.66}{protoblue}{peer-reviewed clinical readout}
+\node[d2cellk,text width=24mm,minimum height=9mm] at (13.10,-5.85)
+  {2.4-fold simulated in 2025 against 2.0-fold observed in 2026};
+\node[font=\tiny\itshape,text=protogray,anchor=north west,text width=132mm]
+  at (0,-6.55) {Three quantities carry an interval and three do not. A ten-arm
+  deterministic ODE run and a 1000-patient synthetic cohort have no sampling
+  interval, and drawing one would invent precision the source does not claim.};
+\end{appfig}
+\vspace{-0.65cm}
+\figcaption{Figure 16. Six quantities a reviewer can check against a published\\
+source, each beside its comparator and its stated limitation. Two are\\
+in silico, one is a digital twin, and three are trial or registry.}
+\end{appfloat}
+
+In August 2025 a ten-arm quantitative systems pharmacology simulation returned
+median overall survival of 12.8 months against 5.4 for chemotherapy
+\cite{qspmetpancre}. In May 2026, nine months later, RASolute 302 reported 13.2
+months against 6.6 in the RAS G12 population of previously treated metastatic
+pancreatic cancer \cite{rasolute302}. The simulated ratio was 2.4-fold and the
+observed ratio was 2.0-fold.
+
+That proximity is a chronology observation and a hypothesis-supporting one. It
+is \textbf{not} a validation claim, and three differences are material: 1000
+simulated against 241 enrolled; a combination against a single agent; and KRAS
+G12C against a primarily G12D and G12V population. Those clauses appeared in all
+ten prior applications in the same paragraph as the numbers, and they appear
+here for the same reason \cite{tenapps2026}.
+
+\subsection{The Trial Being Funded}
+
+Pancreatic ductal adenocarcinoma remains the disease with the widest gap between
+incidence and survival in the United States \cite{siegel2025statistics}, and the
+standard of care after resection is adjuvant combination chemotherapy
+\cite{conroy2018folfirinox}. The candidate agent was selected from a June 2025
+meta-analysis across forty literature areas \cite{daraxident}, and the
+1000-patient digital twin that produced the hazard ratio of 0.31 and the
+credibility score of 81.9 is deposited with its verification notebooks
+\cite{daraxsims}.
+
+The trial is open-label, single-arm, 3+3 escalation, up to 18 treated
+participants, with perioperative daraxonrasib and a staged eight-arm robotic
+pancreaticoduodenectomy in which an on-premises large language model is confined
+to advisory output \cite{onpremwhippl,phase1ind}. The device specification a
+reviewer will ask for is fixed in the protocol: 56 degrees of freedom, 640
+sensor channels, a 3 N per-arm and 18 N cumulative force cap, a 3 ms cross-arm
+arm stop against a 500 ms system stop, and a five-vessel no-fly gate. Dose
+levels are 160, 220 and 300 mg with a 28-day dose-limiting toxicity window.
+
+Daraxonrasib is investigational and is already in Phase 3 evaluation. It is
+nowhere described in this paper as first in human, and the supportable novelty
+claim concerns the integrated surgical and advisory workflow rather than the
+agent. That correction was introduced during the audit pass on the ten prior
+applications and is carried forward here unchanged.
+
+\subsection{Where Each Number Lands}
+
+Figure 17 traces five published quantities to the exact filing section each one
+reaches, and labels every edge with the kind of claim it licenses.
+
+\begin{appfloat}[!tb]
+\begin{appfig}[graphviz-type / record chain]
+% Four ranks left to right, one cluster per rank.  Exactly two targets receive
+% two edges; each convergent pair is one straight edge and one bent at 18, so
+% the arrivals are 4mm apart on the target's west face.
+\foreach \i/\y/\a/\b/\c/\sty in {%
+  1/0/{RASolute 302}/{13.2 vs 6.6 months}/{NEJM 2026}/gvkey,
+  2/-1.55/{QSP simulation}/{12.8 vs 5.4 months}/{250 ODEs}/gvsoft,
+  3/-3.10/{Digital twin}/{HR 0.31, score 81.9}/{55 tests}/gvsoft,
+  4/-4.65/{Interlock bench}/{arm 3 ms, system 500 ms}/{200 runs}/gvsoft,
+  5/-6.20/{Empirical triplicate}/{8.0 vs 25.0 percent}/{100,000 records}/gvsoft}{
+  \node[\sty,text width=25mm] (q\i) at (0,\y) {\textbf{\a}\\\b\\\c};}
+\begin{scope}[on background layer]
+\node[gvcluster,fit=(q1)(q2)(q3)(q4)(q5),inner sep=6pt] (cq) {};
+\end{scope}
+\node[gvctitle,anchor=south west] at ([yshift=1mm]cq.north west) {Rank 1, published quantity};
+\foreach \i/\y/\a/\b in {7/-0.75/{IND 7}/{Previous human experience},
+  6/-2.30/{IND 6}/{Pharmacology and toxicology},
+  8/-3.85/{IND 8}/{Additional information},
+  5/-5.40/{IND 5}/{Proposed clinical research}}{
+  \node[gvboxs,text width=23mm] (n\i) at (4.35,\y) {\textbf{\a}\\\b};}
+\begin{scope}[on background layer]
+\node[gvcluster,fit=(n5)(n6)(n7)(n8),inner sep=6pt] (cn) {};
+\end{scope}
+\node[gvctitle,anchor=south west] at ([yshift=1mm]cn.north west) {Rank 2, IND section};
+\foreach \i/\y/\a/\b in {1/0/{Protocol 1}/{Background},
+  3/-1.55/{Protocol 3}/{Dose rationale},
+  9/-3.10/{Protocol 9}/{Statistical considerations},
+  6/-4.65/{Protocol 6}/{Device and interlocks},
+  7/-6.20/{Protocol 7}/{Safety monitoring}}{
+  \node[gvboxs,text width=23mm] (r\i) at (8.55,\y) {\textbf{\a}\\\b};}
+\begin{scope}[on background layer]
+\node[gvcluster,fit=(r1)(r3)(r6)(r7)(r9),inner sep=6pt] (cr) {};
+\end{scope}
+\node[gvctitle,anchor=south west] at ([yshift=1mm]cr.north west) {Rank 3, protocol section};
+\foreach \i/\y/\a/\b/\c in {5/-0.40/{M5}/{IND amendment}/{FDA acknowledgment},
+  4/-2.30/{M4}/{VVUQ freeze}/{SHA-256 manifest},
+  3/-4.20/{M3}/{Bench verification}/{p95 latency table},
+  8/-6.10/{M8}/{Dose level 1 cleared}/{DSMB minutes}}{
+  \node[gvboxg,text width=25mm] (m\i) at (12.75,\y) {\textbf{\a} \b\\\c};}
+\begin{scope}[on background layer]
+\node[gvcluster2,fit=(m3)(m4)(m5)(m8),inner sep=6pt] (cm) {};
+\end{scope}
+\node[gvctitle,text=protogray,anchor=south west] at ([yshift=1mm]cm.north west)
+  {Rank 4, milestone and artifact};
+\draw[gvedgeb] (q1) -- node[font=\tiny,fill=protowhite,inner sep=1.2pt] {cited} (n7);
+\draw[gvedge] (q2) -- node[font=\tiny,fill=protowhite,inner sep=1.2pt] {informs} (n6);
+\draw[gvedge] (q3) -- node[font=\tiny,fill=protowhite,inner sep=1.2pt] {supports} (n8);
+\draw[gvedge] (q4) -- node[font=\tiny,fill=protowhite,inner sep=1.2pt] {specifies} (n5);
+\draw[gvedge] (q5.east) to[bend right=18]
+  node[font=\tiny,fill=protowhite,inner sep=1.2pt,pos=0.6] {bounds} (n7.south west);
+\draw[gvedge] (n7) -- node[font=\tiny,fill=protowhite,inner sep=1.2pt] {frames} (r1);
+\draw[gvedge] (n6) -- node[font=\tiny,fill=protowhite,inner sep=1.2pt] {sets} (r3);
+\draw[gvedge] (n8) -- node[font=\tiny,fill=protowhite,inner sep=1.2pt] {bounds} (r9);
+\draw[gvedge] (n5) -- node[font=\tiny,fill=protowhite,inner sep=1.2pt] {fixes} (r6);
+\draw[gvedge] (n7.south east) to[bend right=16]
+  node[font=\tiny,fill=protowhite,inner sep=1.2pt,pos=0.65] {triggers} (r7.west);
+\draw[gvedgeb] (r1) -- node[font=\tiny,fill=protowhite,inner sep=1.2pt] {filed in} (m5);
+\draw[gvedge] (r3) -- node[font=\tiny,fill=protowhite,inner sep=1.2pt] {frozen at} (m4);
+\draw[gvedge] (r9.east) to[bend left=18]
+  node[font=\tiny,fill=protowhite,inner sep=1.2pt,pos=0.55] {frozen at} (m4.south west);
+\draw[gvedge] (r6) -- node[font=\tiny,fill=protowhite,inner sep=1.2pt] {verified at} (m3);
+\draw[gvedge] (r7) -- node[font=\tiny,fill=protowhite,inner sep=1.2pt] {cleared at} (m8);
+\node[font=\tiny\itshape,text=protogray,anchor=north west,text width=132mm]
+  at (0,-7.35) {Every edge carries its link type, because naming the type is
+  what stops the chain being read as an inheritance. A tier 1 result does not
+  become a tier 3 result by travelling along an arrow.};
+\end{appfig}
+\vspace{-0.65cm}
+\figcaption{Figure 17. Five published quantities and the exact filing section\\
+each one reaches. Every edge carries its link type, and every chain\\
+ends at a milestone whose artifact a program officer can request.}
+\end{appfloat}
+
+Five link types appear on the fifteen edges, and each licenses something
+different. \emph{Cited} means a published result is quoted with its own interval
+and limitation, and does not license restating a metastatic result as a
+resectable one. \emph{Informs} means a simulated result shaped a design choice,
+and does not license presenting a simulated survival figure as an expected
+outcome. \emph{Supports} means a verified computation raises confidence in a
+stated assumption, and does not substitute for a clinical measurement.
+\emph{Specifies} means a bench measurement fixes a numeric requirement, and does
+not claim the requirement has been met in a patient. \emph{Bounds} means a
+result sets a monitoring limit, and does not make that limit a predicted rate.
+
+\subsection{What the Work Cost, and What It Costs Elsewhere}
+
+\begin{apptable}
+\begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}X >{\raggedright\arraybackslash}p{2.9cm} >{\raggedright\arraybackslash}p{3.2cm} >{\raggedright\arraybackslash}p{3.0cm}}
+\headrow \thead{Work product} & \thead{Industry cost} & \thead{Industry schedule} & \thead{This author}\\
+\midrule
+Empirical virtual trial, triplicate & above \$120,000 per run & 4.5 months & \$36,330 projected, about one month \\
+Ten-arm QSP virtual trial & above \$2,000,000 & several months to over a year & \$36,330 projected, about one month \\
+Digital-twin simulator platform & \$28,000 to \$700,000 & 3 to 16 weeks & \$36,330 projected, about one month \\
+\end{tabularx}
+\end{apptable}
+\vspace{-0.65cm}
+\tabcap{Table 17. Three work products against their industry cost and\\
+schedule benchmarks. The author figures are projected from the\\
+source set and are reported as such, not as audited accounts.}
+
+The same cost discipline that produced a \$36,330 virtual trial produces a 7.5
+percent indirect rate. Both are the same fact seen twice: a firm with no
+facilities, no administrative layer and no negotiated rate agreement has very
+little between an appropriation and the work it buys. Figure 3 prices that fact
+at \$531,000 against a university route.

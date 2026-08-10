@@ -1,0 +1,297 @@
+% sec-01: outline item A.  Figures 1 (mermaid), 2 (d2), 3 (graphviz).
+\section{The Novel-Performer Case}
+
+\subsection{Three Clauses, One Applicant}
+
+\emph{Science: A New Golden Age} contains three clauses under which a Phase 1
+pancreatic cancer trial could plausibly be funded, and they are not
+interchangeable \cite{kratsios2026sciencegoldenage}.
+
+The first is the individual-scientist language of Chapter I, which asks the
+roughly \$200 billion annual federal research and development portfolio to stop
+deferring to ``the same incumbents that consume the funding''. It is the clause
+the report supports with the person-based funding comparison and with the
+productivity slowdown literature \cite{azoulay2011incentives,scannell2012eroom},
+and the ten prior applications were written under it \cite{tenapps2026}.
+
+The second is the chapter section headed \textsc{novel performers}, which
+describes ``a vast middle ground of mid-scale science'', problems ``requiring
+tens of millions of dollars, coordinated teams of ten to a hundred people, and
+timelines of half a decade''.
+
+The third is the Small Business Innovation Research clause, and it is the only
+one of the three that appears in more than one chapter. The Chapter I summary of
+recommendations asks agencies to ``focus Small Business Innovation Research
+(SBIR) and Small Business Technology Transfer (STTR) programs to build strategic
+capabilities''. Chapter III states that ``SBIR and STTR programs can be deployed
+strategically to advance new scientific and technological capabilities, coupling
+federally-seeded companies with the scientific enterprise''. Chapter IV states
+that ``Programs like SBIR open doors for technician-founded ventures, directing
+resources toward ideas that do not always start with a dissertation''.
+
+\begin{appfloat}[!tb]
+\begin{appfig}[mermaid-type / flowchart]
+% Single decision spine at y = 0, diamonds on a 3.15cm pitch so 4.9mm of clear
+% canvas separates adjacent diamond tips.  Three drop-outs on a second band at
+% y = -2.9.  No edge crosses another: the spine is horizontal and the three
+% exits are near-vertical.
+\node[mmgoal,text width=26mm] (src) at (0,0)
+  {Science: A New Golden Age\\three candidate clauses};
+\foreach \i/\x/\lab in {1/3.3/{a firm?}, 2/6.45/{ask 10 to 50M?},
+  3/9.60/{F and A base?}, 4/12.75/{team of 10 to 100?}}{
+  \node[mmdec,text width=14mm,aspect=2.2] (t\i) at (\x,0) {\lab};
+  \node[font=\tiny\sffamily\bfseries,text=protoblue,anchor=south]
+       at ([yshift=0.6mm]t\i.north) {T\i};}
+\node[mmgray,text width=28mm] (f1) at (2.6,-2.9)
+  {Clause 1 ends\\the applicant is now an entity, not a person};
+\node[mmgray,text width=30mm] (f2) at (7.5,-2.9)
+  {Clause 2 ends\\written for tens of millions; would also fail T4};
+\node[mmgoal,text width=30mm] (pass) at (12.75,-2.9)
+  {Clause 3 survives\\NIH SEED SBIR, 306K then 1.3M};
+\draw[mmedgeb] (src) -- (t1);
+\draw[mmedgeb] (t1) -- node[mmlabel] {yes} (t2);
+\draw[mmedgeb] (t2) -- node[mmlabel] {no, 1.6M} (t3);
+\draw[mmedgeb] (t3) -- node[mmlabel] {none} (t4);
+\draw[mmedged] (t1.south) -- node[mmlabel,pos=0.55] {yes} (f1.north);
+\draw[mmedged] (t2.south) -- node[mmlabel,pos=0.55] {no} (f2.north);
+\draw[mmedgeb,line width=1pt] (t4.south) -- node[mmlabel,pos=0.55] {no, 2.6 FTE} (pass.north);
+\node[font=\tiny\itshape,text=protogray,anchor=north west,text width=132mm]
+  at (0,-4.35) {The two clauses that fail, fail on size and on legal form, not
+  on merit or on subject matter. T3 is the only test this company passes by
+  lacking something rather than by having it.};
+\end{appfig}
+\vspace{-0.65cm}
+\figcaption{Three clauses of one report, four eligibility tests, and the only\\
+clause a San Diego firm with no indirect-cost base survives. The\\
+two that fail, fail on size, not on merit or on subject matter.}
+\end{appfloat}
+
+\begin{apptable}
+\begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}p{0.7cm} >{\raggedright\arraybackslash}p{3.5cm} >{\raggedright\arraybackslash}X >{\raggedright\arraybackslash}p{3.0cm}}
+\headrow \thead{Test} & \thead{Question} & \thead{Basis in the report} & \thead{ChemicalQDevice, August 2026}\\
+\midrule
+T1 & Is the applicant a firm rather than a person? & Chapter IV, SBIR opens doors for technician-founded ventures & Yes, a California corporation \\
+T2 & Is the ask ten to fifty million? & Chapter II, novel performers is written for tens of millions & No, \$1,606,000 over 33 months \\
+T3 & Is there an indirect-cost base to recover? & Chapter II, deference to the incumbents that consume the funding & No negotiated rate agreement exists \\
+T4 & Is the team ten to a hundred people? & Chapter II, coordinated teams of ten to a hundred & No, 2.6 FTE at full Phase II staffing \\
+\end{tabularx}
+\end{apptable}
+\vspace{-0.65cm}
+\tabcap{The four tests, the sentence in the report that each is drawn from, and
+this company's answer. Clause 1 fails T1, clause 2 fails T2 and T4, and clause 3
+is the only one that survives all four.}
+
+\subsection{Why the Pioneer Language Does Not Fit an Entity}
+
+What changed between the ten applications and this one is the applicant. A
+person-based mechanism funds a named scientist and follows that person's
+judgement for five to seven years. ChemicalQDevice is a California corporation
+with one officer, and a corporation is not a subject that mechanism has a way to
+fund. Nothing about the science changed; the legal form of the applicant did.
+
+That is a real loss and it is worth naming here rather than in a footnote. The
+individual-scientist framing is what made all ten prior applications distinctive,
+and it is the framing the report itself rewards most explicitly. Abandoning it
+is the first of four costs the conversion carries, and all four are set out in
+\S9 without mitigation.
+
+\subsection{Why the Novel-Performers Chapter Does Not Fit Either}
+
+The novel-performers chapter is precise about scale, and the precision is what
+excludes this company. It describes problems requiring tens of millions of
+dollars, teams of ten to a hundred people, and timelines of half a decade, and
+it names focused research organizations and the NSF TIP X-Labs as the vehicles
+built for them. Set against that: \$1,606,000, 2.6 full-time equivalents, and 33
+months.
+
+The chapter describes a real gap in the federal portfolio. This company does not
+fill it, and claiming otherwise would be exactly the kind of overreach the
+report is written against. The same holds for the two executive orders that sit
+behind the report: the Genesis Mission is a national compute and robotics
+programme and the gold-standard science order binds all federally funded
+research, and neither is a mechanism a firm applies to
+\cite{eo14363genesismission,eo14303goldstandard}.
+
+\begin{appfloat}[!tb]
+\begin{appfig}[d2-type / true grid]
+% One true grid.  All five score columns take the identical 20mm width on a
+% 2.1cm pitch, so the header row cannot drift out of register with the body.
+% Row pitch 0.78cm against a 0.72cm cell height leaves a 0.6mm rule gap.
+\foreach \c/\x/\lab in {0/1.75/{Activity}, 1/4.55/{University}, 2/6.65/{Corporate lab},
+  3/8.75/{Federal lab}, 4/10.85/{New institutions}}{
+  \ifnum\c=0
+    \node[d2cellh,text width=33mm,minimum height=7.2mm] (h\c) at (\x,0) {\lab};
+  \else
+    \node[d2cellh,minimum width=20mm,text width=17mm,minimum height=7.2mm] (h\c) at (\x,0) {\lab};
+  \fi}
+\node[d2cellk,minimum width=20mm,text width=17mm,minimum height=7.2mm,
+      font=\tiny\sffamily\bfseries] (h5) at (12.95,0) {SBIR firm 2.6 FTE};
+\foreach \r/\y/\lab in {%
+  1/-0.78/{Curiosity driven, investigator led},
+  2/-1.56/{Larger scale, engineering intensive},
+  3/-2.34/{Long horizon platform and tools},
+  4/-3.12/{Public goods data and infrastructure},
+  5/-3.90/{Mission driven, public good science},
+  6/-4.68/{Proprietary product development},
+  7/-5.46/{Workforce training and apprenticeship}}{
+  \node[d2celll,text width=33mm,minimum height=7.2mm] at (1.75,\y) {\lab};}
+\foreach \x/\y/\sty/\lab in {%
+  4.55/-0.78/d2cell/{Well suited}, 6.65/-0.78/d2cellg/{Less suited},
+  8.75/-0.78/d2cell/{Partly suited}, 10.85/-0.78/d2cell/{By design},
+  4.55/-1.56/d2cellg/{Less suited}, 6.65/-1.56/d2cell/{Partly suited},
+  8.75/-1.56/d2cell/{Partly suited}, 10.85/-1.56/d2cell/{By design},
+  4.55/-2.34/d2cellg/{Less suited}, 6.65/-2.34/d2cell/{Partly suited},
+  8.75/-2.34/d2cell/{Well suited}, 10.85/-2.34/d2cell/{By design},
+  4.55/-3.12/d2cell/{Partly suited}, 6.65/-3.12/d2cellg/{Less suited},
+  8.75/-3.12/d2cell/{Partly suited}, 10.85/-3.12/d2cell/{By design},
+  4.55/-3.90/d2cell/{Partly suited}, 6.65/-3.90/d2cellg/{Less suited},
+  8.75/-3.90/d2cell/{Partly suited}, 10.85/-3.90/d2cell/{By design},
+  4.55/-4.68/d2cellg/{Less suited}, 6.65/-4.68/d2cell/{Well suited},
+  8.75/-4.68/d2cellg/{Less suited}, 10.85/-4.68/d2cell/{By design},
+  4.55/-5.46/d2cell/{Well suited}, 6.65/-5.46/d2cell/{Partly suited},
+  8.75/-5.46/d2cellg/{Less suited}, 10.85/-5.46/d2cell/{By design}}{
+  \node[\sty,minimum width=20mm,text width=17mm,minimum height=7.2mm] at (\x,\y) {\lab};}
+\foreach \y/\sty/\lab in {%
+  -0.78/d2soft/{Partly suited}, -1.56/d2gray2/{Less suited},
+  -2.34/d2soft/{Partly suited}, -3.12/d2key/{Well suited},
+  -3.90/d2key/{Well suited}, -4.68/d2soft/{Partly suited},
+  -5.46/d2gray2/{Less suited}}{
+  \node[\sty,minimum width=20mm,text width=17mm,minimum height=7.2mm] at (12.95,\y) {\lab};}
+\draw[protoblue,line width=0.9pt] (11.90,0.42) -- (11.90,-5.85);
+\legkey{0.0}{-6.45}{protowhite}{Well or partly suited, the report's own scoring}
+\legkey{6.6}{-6.45}{pagrayl}{Less suited}
+\legkey{9.6}{-6.45}{protoblue}{Well suited, this company}
+\node[font=\tiny\itshape,text=protogray,anchor=north west,text width=132mm]
+  at (0,-6.85) {The rule at the right marks where the report's own columns end
+  and the column this paper adds begins. The four left-hand columns are the
+  report's scoring restated in words, because its plus, tilde and cross glyphs
+  are not legible at this measure.};
+\end{appfig}
+\vspace{-0.65cm}
+\figcaption{The report's own seven activities, its four institutional forms,\\
+and a fifth column it does not carry. An SBIR firm of 2.6 people\\
+is well suited to two of the seven and unsuited to two others.}
+\end{appfloat}
+
+Two well suited, three partly suited, two less suited. The two well-suited rows
+are public-goods data and infrastructure, and mission-driven public-good
+science, and both are well suited for the same structural reason: every one of
+the twelve milestone artifacts in \S5 is deposited publicly by plan, and the
+programme has one mission with a stop condition and a closure budget.
+
+A firm claiming to be well suited to all seven would be claiming to be a
+university, a corporate laboratory, a federal laboratory and a focused research
+organization at once. The report's own table exists to make that claim
+impossible to state.
+
+\clearpage
+
+\subsection{The Clause That Fits, and What It Is Worth}
+
+ChemicalQDevice has no negotiated indirect-cost rate agreement, no facilities to
+recover, and no administrative layer to fund. That is a structural fact about a
+2.6 person firm rather than a concession, and it has a price a program officer
+with a fixed appropriation can read directly.
+
+\begin{appfloat}[!tb]
+\begin{appfig}[graphviz-type / record nodes]
+% Four record nodes, each a stack of ruled cells sharing borders.  Label column
+% 21mm, value column 12mm, so the four totals sit on one vertical line at
+% x offset 33mm inside every record.  Record pitch 3.75cm against a 3.3cm
+% record width leaves 4.5mm of clear canvas between records.
+\foreach \rx/\hdr/\hsty in {0/{Direct work, identical}/gvcellh,
+  3.75/{Route A, university}/gvcellh, 7.50/{Route B, full allowance}/gvcellh,
+  11.25/{Route C, this plan}/gvcellh}{
+  \node[\hsty,minimum width=34mm,text width=31mm,minimum height=6.4mm,anchor=north west]
+       at (\rx,0.64) {\hdr};}
+\foreach \i/\a/\b in {1/{Personnel, 2.6 FTE}/{\$842,000}, 2/{Site clinical conduct}/{\$288,000},
+  3/{Compute and rig}/{\$96,000}, 4/{Monitoring and DSMB}/{\$86,000},
+  5/{Consultants, travel}/{\$84,000}}{
+  \node[gvcells,minimum width=21mm,text width=18mm,minimum height=5.0mm,anchor=north west,align=left]
+       at (0,{-5.0*(\i-1)/10}) {\a};
+  \node[gvcells,minimum width=13mm,text width=10.6mm,minimum height=5.0mm,anchor=north west]
+       at (2.1,{-5.0*(\i-1)/10}) {\b};}
+\node[gvcellh,minimum width=21mm,text width=18mm,minimum height=5.4mm,anchor=north west,align=left]
+     at (0,-2.5) {Total direct};
+\node[gvcellh,minimum width=13mm,text width=10.6mm,minimum height=5.4mm,anchor=north west]
+     at (2.1,-2.5) {\$1,396,000};
+\foreach \i/\a/\b in {1/{Direct}/{\$1,396,000}, 2/{Less equipment}/{-\$96,000},
+  3/{MTDC base}/{\$1,300,000}, 4/{F and A, 57 pct}/{\$741,000}, 5/{Fee}/{none}}{
+  \node[gvcellg,minimum width=21mm,text width=18mm,minimum height=5.0mm,anchor=north west,align=left]
+       at (3.75,{-5.0*(\i-1)/10}) {\a};
+  \node[gvcellg,minimum width=13mm,text width=10.6mm,minimum height=5.0mm,anchor=north west]
+       at (5.85,{-5.0*(\i-1)/10}) {\b};}
+\node[gvcell,fill=pagraym,minimum width=21mm,text width=18mm,minimum height=5.4mm,anchor=north west,align=left]
+     at (3.75,-2.5) {Total to funder};
+\node[gvcell,fill=pagraym,minimum width=13mm,text width=10.6mm,minimum height=5.4mm,anchor=north west]
+     at (5.85,-2.5) {\$2,137,000};
+\foreach \i/\a/\b in {1/{Direct}/{\$1,396,000}, 2/{Indirect, 40 pct}/{\$558,000},
+  3/{Subtotal}/{\$1,954,000}, 4/{Fee, 7 pct}/{\$137,000}, 5/{}/{}}{
+  \node[gvcellg,minimum width=21mm,text width=18mm,minimum height=5.0mm,anchor=north west,align=left]
+       at (7.50,{-5.0*(\i-1)/10}) {\a};
+  \node[gvcellg,minimum width=13mm,text width=10.6mm,minimum height=5.0mm,anchor=north west]
+       at (9.60,{-5.0*(\i-1)/10}) {\b};}
+\node[gvcell,fill=pagraym,minimum width=21mm,text width=18mm,minimum height=5.4mm,anchor=north west,align=left]
+     at (7.50,-2.5) {Total to funder};
+\node[gvcell,fill=pagraym,minimum width=13mm,text width=10.6mm,minimum height=5.4mm,anchor=north west]
+     at (9.60,-2.5) {\$2,091,000};
+\foreach \i/\a/\b in {1/{Direct}/{\$1,396,000}, 2/{Indirect, 7.5 pct}/{\$105,000},
+  3/{Subtotal}/{\$1,501,000}, 4/{Fee, 7 pct}/{\$105,000}, 5/{}/{}}{
+  \node[gvcells,minimum width=21mm,text width=18mm,minimum height=5.0mm,anchor=north west,align=left]
+       at (11.25,{-5.0*(\i-1)/10}) {\a};
+  \node[gvcells,minimum width=13mm,text width=10.6mm,minimum height=5.0mm,anchor=north west]
+       at (13.35,{-5.0*(\i-1)/10}) {\b};}
+\node[gvcellh,minimum width=21mm,text width=18mm,minimum height=5.4mm,anchor=north west,align=left]
+     at (11.25,-2.5) {Total to funder};
+\node[gvcellh,minimum width=13mm,text width=10.6mm,minimum height=5.4mm,anchor=north west]
+     at (13.35,-2.5) {\$1,606,000};
+\draw[gvedgeb] (1.65,-3.28) to[bend right=26]
+  node[font=\tiny,fill=protowhite,inner sep=1.5pt,pos=0.5] {premium \$531,000, 33.1 percent} (5.55,-3.28);
+\draw[gvedgeb] (9.30,-3.28) to[bend left=26]
+  node[font=\tiny,fill=protowhite,inner sep=1.5pt,pos=0.5] {premium \$485,000, 30.2 percent} (13.05,-3.28);
+\begin{scope}[shift={(1.85,-4.35)}]
+  \hbarrow{0}{3.20}{pagraym}{Route A}{\$2,137,000}
+  \hbarrow{-0.55}{3.13}{pagraym}{Route B}{\$2,091,000}
+  \hbarrow{-1.10}{2.41}{protoblue}{Route C}{\$1,606,000}
+  \axisy{0.22}{-1.32}{0}
+\end{scope}
+\node[font=\tiny\sffamily,text=protogray,anchor=north west,text width=44mm]
+  at (9.10,-3.95) {Bars share one scale: 3.2 cm is \$2,137,000. Route C is
+  75.2 percent of route A for the identical direct work.};
+\node[font=\tiny\itshape,text=protogray,anchor=north west,text width=132mm]
+  at (0,-6.05) {Every column begins at the same \$1,396,000 and every total is
+  the sum of its own column. The company may claim route B and does not; the
+  difference between B and C is \$485,000 that is never requested.};
+\end{appfig}
+\vspace{-0.65cm}
+\figcaption{The same 1,396,000 of direct work priced three ways. A university\\
+F and A rate at 57 percent adds 741,000, the full SBIR allowance\\
+adds 695,000, and the rate this plan claims adds 210,000 in all.}
+\end{appfloat}
+
+\begin{apptable}
+\begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}X >{\raggedright\arraybackslash}p{2.6cm} >{\raggedright\arraybackslash}p{2.9cm} >{\raggedright\arraybackslash}p{2.6cm}}
+\headrow \thead{Line} & \thead{Route A, university} & \thead{Route B, full allowance} & \thead{Route C, this plan}\\
+\midrule
+Direct costs & \$1,396,000 & \$1,396,000 & \$1,396,000 \\
+Equipment removed from base & -\$96,000 & not applicable & not applicable \\
+Overhead base & \$1,300,000 MTDC & \$1,396,000 direct & \$1,396,000 direct \\
+Overhead rate & 57 percent & 40 percent & 7.5 percent \\
+Overhead & \$741,000 & \$558,000 & \$105,000 \\
+Fee at 7 percent & none & \$137,000 & \$105,000 \\
+Total to the funder & \$2,137,000 & \$2,091,000 & \$1,606,000 \\
+Premium over route C & \$531,000, 33.1 pct & \$485,000, 30.2 pct & zero \\
+\end{tabularx}
+\end{apptable}
+\vspace{-0.65cm}
+\tabcap{The same direct work under three overhead regimes. The 57 percent rate
+is a typical negotiated university rate; the 40 percent is the SBIR allowance
+available without a rate agreement; the 7.5 percent is what this firm documents.}
+
+The 7.5 percent rate covers insurance, audit and accounting, and nothing else,
+because there is nothing else to cover \cite{nihsbirseed}. The company could
+claim the 40 percent allowance without documentation and does not
+\cite{ecfr2026uniformguidance}. For a program officer holding a fixed
+appropriation the consequence is arithmetic rather than rhetorical: the same
+trial, run by the same person, costs \$531,000 less than it would through an
+institution and \$485,000 less than this mechanism permits.

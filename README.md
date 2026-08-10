@@ -1,7 +1,7 @@
 # End-to-End Physical AI Unification of Oncology Clinical Trials
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Release](https://img.shields.io/badge/Release-v4.4.0-brightgreen.svg)](https://github.com/kevinkawchak/physical-ai-oncology-trials)
+[![Release](https://img.shields.io/badge/Release-v4.5.0-brightgreen.svg)](https://github.com/kevinkawchak/physical-ai-oncology-trials)
 [![Last Updated](https://img.shields.io/badge/Updated-August%202026-blue.svg)](https://github.com/kevinkawchak/physical-ai-oncology-trials)
 [![Protocol](https://img.shields.io/badge/Protocol-MCP-purple.svg)](https://github.com/kevinkawchak/physical-ai-oncology-trials)
 [![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.18445179-blue)](https://doi.org/10.5281/zenodo.18445179)
@@ -22,10 +22,16 @@
 [![Funding Applications](https://img.shields.io/badge/Funding-10%20Independent%20Scientist%20Applications-00417A.svg)](funding/pdac-funding-applications)
 [![Policy Basis](https://img.shields.io/badge/Policy-Science%3A%20A%20New%20Golden%20Age-3C7DB2.svg)](funding/science-golden-age)
 [![Summary Paper DOI](https://img.shields.io/badge/Paper%20DOI%20v1.0-10.5281%2Fzenodo.21787424-blue.svg)](https://doi.org/10.5281/zenodo.21787424)
+[![Capitalization Plan](https://img.shields.io/badge/Capitalization-ChemicalQDevice%20SBIR%20Plan-00417A.svg)](funding/capitalization-plan)
+[![SBIR Route](https://img.shields.io/badge/SBIR-%24306K%20%2B%20%241.3M%20vs%20%243.5M-3C7DB2.svg)](funding/capitalization-plan/final-capital)
+[![Milestones](https://img.shields.io/badge/Milestones-12%20auditable-6C757D.svg)](funding/capitalization-plan/final-capital)
+[![Capital Firewall](https://img.shields.io/badge/Firewall-21%20CFR%20part%2054-6C757D.svg)](funding/capitalization-plan/final-capital)
 
 **Comprehensive developments for integrating physical AI into oncology clinical trials, by Claude Code, Cowork; with Assistance from ChatGPT and Google Gemini.**
 
 This repository provides production-ready configurations, validated pipelines, and integration guides for deploying robotic systems, digital twins, and embodied AI agents in oncology. 
+
+**8/11: v4.5.0 (ChemicalQDevice Capitalization Plan)** *v4.5.0 adds funding/capitalization-plan/: the company-conversion paper From Independent Scientist to Novel Performer, an SBIR operating, milestone and capitalization plan with 20 new figures and 21 tables.* [![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.xxxxxxxx-blue)](https://doi.org/10.5281/zenodo.xxxxxxxx)
 
 **8/3: v4.4.0 (10 PDAC Funding Applications + Summary)** *v4.4.0 adds funding/pdac-funding-applications/: ten recipient-unique Phase 1 pancreatic cancer funding application email file sets written under White House "Science: A New Golden Age".* [![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.21787424-blue)](https://doi.org/10.5281/zenodo.21787424)
 
@@ -99,6 +105,143 @@ python scripts/verify_installation.py
 # Detect available simulation frameworks
 python unification/cross_platform_tools/framework_detector.py
 ```
+---
+
+## ChemicalQDevice Capitalization Plan (v4.5.0)
+
+[![Paper](https://img.shields.io/badge/Paper-From%20Independent%20Scientist%20to%20Novel%20Performer-00417A.svg)](funding/capitalization-plan/final-capital)
+[![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.xxxxxxxx-3C7DB2.svg)](https://doi.org/10.5281/zenodo.xxxxxxxx)
+[![Figures](https://img.shields.io/badge/Figures-20-6C757D.svg)](funding/capitalization-plan)
+[![Tables](https://img.shields.io/badge/Tables-21-6C757D.svg)](funding/capitalization-plan/final-capital)
+[![Platforms](https://img.shields.io/badge/Diagram%20platforms-5-6C757D.svg)](funding/capitalization-plan/sub-prompts)
+[![Stages](https://img.shields.io/badge/Build%20stages-8-9AA1A8.svg)](funding/capitalization-plan/sub-prompts)
+[![Compile](https://img.shields.io/badge/pdfLaTeX-0%20errors%2C%200%20overfull-9AA1A8.svg)](funding/capitalization-plan/final-capital)
+[![Rasters](https://img.shields.io/badge/PNG%20%2F%20JPG-none-9AA1A8.svg)](funding/capitalization-plan)
+
+**A 425-character summary.** v4.5.0 adds funding/capitalization-plan/: the ChemicalQDevice conversion paper From Independent Scientist to Novel Performer, an SBIR operating, milestone and capitalization plan. It prices one programme twice, $1,396,000 of direct work inside a $1,606,000 award against $3,500,000 over five years, costs twelve auditable milestones, and sets private capital behind a 21 CFR part 54 firewall. 20 figures, 21 tables, 0 errors.
+
+Ten applications were filed in August 2026 as an independent scientist. Nine
+address mechanisms that fund a person or an institution; one, application 05,
+addresses the only mechanism built for a company. This release converts the
+author to a small-business operator and rewrites that application as the
+document it should have been.
+
+### The build, end to end
+
+```mermaid
+%%{init: {'theme':'base','themeVariables':{'fontSize':'12px','lineColor':'#6C757D'}}}%%
+flowchart LR
+    POL["Science: A New Golden Age<br/>the SBIR clause, Chapters I, III, IV"]:::goal
+    MP["One master prompt<br/>prompts/prompt-capital.md"]:::mid
+    subgraph DG["Stages 1 to 5, twenty figure specifications"]
+        direction TB
+        D1["mermaid, 5"]:::soft
+        D2["plantuml, 3"]:::soft
+        D3["d2, 5"]:::soft
+        D4["diagrams python, 3"]:::soft
+        D5["graphviz, 4"]:::soft
+    end
+    subgraph PA["Stages 6 to 8, three paper sources"]
+        direction TB
+        S6["draft-capital<br/>20 sized slots, 32 pages"]:::input
+        S7["full-capital<br/>20 figures drawn, 43 pages"]:::input
+        S8["final-capital<br/>senior-author pass, 42 pages"]:::input
+    end
+    REL["Release v4.5.0<br/>0 errors, 0 overfull"]:::proc
+    POL --> MP
+    MP --> DG
+    DG --> PA
+    S6 --> S7 --> S8
+    PA --> REL
+    classDef goal fill:#00417A,stroke:#00417A,stroke-width:1.5px,color:#FFFFFF
+    classDef mid fill:#3C7DB2,stroke:#00417A,stroke-width:1px,color:#FFFFFF
+    classDef soft fill:#DCE8F1,stroke:#3C7DB2,stroke-width:1px,color:#00417A
+    classDef input fill:#E9ECEF,stroke:#6C757D,stroke-width:1px,color:#000000
+    classDef proc fill:#00417A,stroke:#00417A,stroke-width:1.2px,color:#FFFFFF
+```
+
+### One programme, two prices
+
+Every table in the paper reconciles to these nine numbers, and the four-layer
+split of the five-year budget is reused verbatim from the v4.4.0 work rather
+than re-derived.
+
+| Quantity | Value | Where |
+|:--|:--|:--|
+| Five-year programme, direct | $3,500,000 | §3, Table 11 |
+| SBIR Phase I, total cost, 9 months | $306,000 | §3, Tables 8 and 9 |
+| SBIR Phase II, total cost, 24 months | $1,300,000 | §3, Tables 8 and 10 |
+| SBIR route, total, 33 months | $1,606,000 | §3, Table 8 |
+| Direct work inside that award | $1,396,000 | §3, Table 11 |
+| Delta the award does not reach | $2,104,000 | §3, Table 11 |
+| Overhead and fee load on direct | 15.0 percent | §3, Table 8 |
+| Private capital behind the firewall | $5,900,000 | §4, Table 13 |
+| Private to federal leverage | 3.67 to 1 | §4, against a 3:1 target |
+
+The same $1,396,000 of direct work costs a funder $2,137,000 through a
+university at a 57 percent facilities and administrative rate, and $2,091,000 at
+the full 40 percent SBIR indirect allowance this company does not claim.
+
+### The twelve auditable milestones
+
+| ID | Months | Milestone | Cost | Stop condition |
+|:--|:--|:--|:--|:--|
+| M1 | 1 to 2 | Site feasibility executed | $24,000 | No site by month 4 |
+| M2 | 2 to 4 | IRB submission accepted | $31,000 | Two rejections |
+| M3 | 3 to 6 | Interlock rig bench verification | $96,000 | p95 latency above 250 ms |
+| M4 | 4 to 7 | VVUQ suite frozen and hashed | $73,000 | Any credibility factor below gate |
+| M5 | 6 to 9 | IND amendment safe to proceed | $82,000 | Clinical hold |
+| M6 | 10 to 13 | First participant dosed | $164,000 | No enrollment by month 15 |
+| M7 | 12 to 16 | First advised robotic Whipple | $228,000 | Any advisory override event |
+| M8 | 15 to 20 | Dose level 1 cleared, n = 3 | $196,000 | Two of three DLTs |
+| M9 | 18 to 24 | Audit replay to a third party | $131,000 | Any non-reproducible record |
+| M10 | 22 to 28 | Dose level 2 cleared, n = 6 | $242,000 | Fistula grade B or C above 30 pct |
+| M11 | 26 to 31 | Interim PK, PD and ctDNA | $187,000 | No target engagement |
+| M12 | 30 to 33 | Closeout and public deposit | $152,000 | None; terminal artifact |
+
+M1 to M5 sum to $306,000 and M6 to M12 to $1,300,000, both exactly.
+
+### The twenty figures, by platform and purpose
+
+| Platform | Count | The question only this vocabulary can state | Figures |
+|:--|:--|:--|:--|
+| Mermaid-type | 5 | What happens next, what decides, how long, who spoke in what order | 1, 7, 12, 13, 19 |
+| PlantUML-type | 3 | Who is permitted to act, under what guard, what runs concurrently | 6, 10, 15 |
+| D2-type | 5 | What contains what, what is priced against what, what joins to what | 2, 5, 8, 11, 16 |
+| Diagrams (python)-type | 3 | What sits where, across which trust boundary | 4, 18, 20 |
+| Graphviz-type | 4 | What depends on what, how a failure propagates | 3, 9, 14, 17 |
+
+The split follows purpose rather than quota. No PNG or JPG is generated
+anywhere: every figure is pure TikZ on an eight-token palette with no black
+fill, and the diagrams-python stage emits a machine-readable specification
+rather than a `.py` file, which keeps the three `lint-and-format` checks green.
+
+### Stage outputs
+
+| Stage | Directory | Output | Verified |
+|:--|:--|:--|:--|
+| 1 to 5 | [`mermaid/`](funding/capitalization-plan/mermaid) .. [`graphviz/`](funding/capitalization-plan/graphviz) | 20 figure specifications | source + TikZ notes |
+| 6 | [`draft-capital/`](funding/capitalization-plan/draft-capital) | Skeleton, 20 sized slots, drafting instructions | 0 errors, 32 pages |
+| 7 | [`full-capital/`](funding/capitalization-plan/full-capital) | 20 figures drawn, 21 tables | 0 errors, 43 pages |
+| 8 | [`final-capital/`](funding/capitalization-plan/final-capital) | Senior-author pass, no `publication/` | 0 errors, 44 pages |
+
+Every source set compiles with pdfLaTeX and BibTeX at zero errors, zero
+overfull boxes, zero underfull boxes, zero undefined citations, and zero
+undefined references. Every figure and every table carries an identical
+6.06 pt caption gap, produced by `\vspace{-0.65cm}` against a rigid 24.5 pt
+skip: 41 occurrences against 20 `\figcaption` plus 21 `\tabcap`.
+
+Stage 8 was followed by one update pass, driven by
+[`prompts/update-capital.md`](funding/capitalization-plan/prompts/update-capital.md).
+Every caption now opens with its own number, `Figure N.` or `Table N.`, on three
+centred lines; the twenty frames measure 306.00 pt against a 306 pt page centre
+and the forty-one captions sit within 0.53 pt of it, a centring defect in the
+style file having put every float 13.1 pt to the right of centre before; the
+reference list prints and links its 20 DOIs and 17 URLs, which `unsrt.bst` had
+been dropping; and every figure and table is referred to by number in the
+running text. Stages 6 and 7 are unchanged and remain the record of what they
+produced.
+
 ---
 
 ## 10 PDAC Independent-Scientist Funding Applications (v4.4.0)
@@ -608,8 +751,16 @@ physical-ai-oncology-trials/
 ├── LICENSE
 ├── requirements.txt
 │
-├── funding/                           # ★ 10 PDAC Independent-Scientist Applications (v4.4.0)
+├── funding/                           # ★ ChemicalQDevice Capitalization Plan (v4.5.0)
 │   ├── README.md                      # funding hub: structure, DOIs, source map
+│   ├── capitalization-plan/           # v4.5.0 build, one eight-stage schedule
+│   │   ├── prompts/                   # prompt-capital.md + update-capital.md + output-capital.md
+│   │   ├── sub-prompts/               # 8 stage sub-prompts, one directory each
+│   │   ├── mermaid/ plantuml/ d2/     # figure specifications, 5 + 3 + 5
+│   │   ├── diagrams-python/ graphviz/ # figure specifications, 3 + 4
+│   │   ├── draft-capital/             # Stage 6: skeleton, 20 sized slots + zip
+│   │   ├── full-capital/              # Stage 7: 20 figures drawn, 21 tables + zip
+│   │   └── final-capital/             # Stage 8: senior-author pass + zip (no publication dir)
 │   ├── pdac-funding-applications/     # v4.4.0 build
 │   │   ├── prompts/                   # prompt-apply.md (master, verbatim) + output-apply.md
 │   │   ├── sub-prompts/part-i/        # 5 sub-prompts: the ten application file sets

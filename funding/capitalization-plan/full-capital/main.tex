@@ -1,0 +1,128 @@
+% ============================================================
+% main.tex - FULL stage (Stage 7 of the eight-stage build).
+% "From Independent Scientist to Novel Performer: A Small-Business Operating,
+% Milestone, and Capitalization Plan for a Phase 1 LLM-Advised Robotic Whipple
+% (ChemicalQDevice)".  Draft 1.0, repository v4.5.0.
+% San Diego, August 11, 2026.
+%
+% This stage resolves every \draftinstr left by draft-capital by reading the
+% file it names, and draws all twenty figures in TikZ.  Nothing bracketed
+% survives.  Nineteen full-width tables are populated from author sources, and
+% every money table reconciles to the nine numbers in
+% funding/capitalization-plan/README.md.
+%
+% Column-width method, taken from the parent work: every table is tabularx at
+% \textwidth, exactly one column is X and it carries the longest prose, every
+% other column is a fixed p{} sized to its widest atomic cell plus 2\tabcolsep,
+% and every fixed column is prefixed >{\raggedright\arraybackslash}.
+%
+% Compile on Overleaf with pdfLaTeX:
+%   pdflatex main -> bibtex main -> pdflatex main -> pdflatex main
+% ============================================================
+\documentclass[11pt]{article}
+\usepackage{capstyle}
+
+\title{From Independent Scientist to Novel Performer: A Small-Business
+Operating, Milestone, and Capitalization Plan for a Phase 1 LLM-Advised Robotic
+Whipple (ChemicalQDevice)}
+\author{Kevin Kawchak}
+\date{August 11, 2026}
+
+\apphdr{Independent Scientist to Novel Performer, Full}
+
+\begin{document}
+\thispagestyle{plain}
+
+% =====================================================================
+% COVER PAGE.  Varied from two predecessors at once: it is not the
+% RFA-RM-27-001-v2 centred form-field theme, and it is not the left-accent
+% masthead over a ten-cell recipient strip used by the ten-application
+% summary paper.  A ruled panel with a top accent band sits over a
+% three-cell money ledger, because the subject is one recipient and
+% three numbers.
+% =====================================================================
+\capmast{ChemicalQDevice \;|\; Independent Research Paper \;|\; Draft 1.0}%
+{From Independent Scientist to Novel Performer}%
+{A Small-Business Operating, Milestone, and Capitalization Plan for a Phase 1
+LLM-Advised Robotic Whipple (ChemicalQDevice)}
+
+\vspace{0.15em}
+
+\begin{center}
+\appbadge{Draft 1.0} \enspace \appbadgel{Repository v4.5.0} \enspace
+\appbadgel{20 figures} \enspace \appbadgel{12 milestones}
+\end{center}
+
+\vspace{-0.15em}
+
+\capledger{SBIR Phase I}{\$306,000}{9 months, 5 milestones}%
+{SBIR Phase II}{\$1,300,000}{24 months, 7 milestones}%
+{Five-year programme}{\$3,500,000}{60 months, direct}
+
+\vspace{-0.1em}
+\apprule{0.9pt}
+
+\begin{center}\small
+CEO Kevin Kawchak\,\orcidicon{0009-0007-5457-8667}, ChemicalQDevice \;|\;
+\href{mailto:kevink@chemicalqdevice.com}{kevink@chemicalqdevice.com}\\
+\href{https://doi.org/10.5281/zenodo.xxxxxxxx}{10.5281/zenodo.xxxxxxxx} \;|\;
+\href{https://orcid.org/0009-0007-5457-8667}{0009-0007-5457-8667}\\
+San Diego \;|\; August 11, 2026
+\end{center}
+
+\vspace{-0.25em}
+\apprule{0.5pt}
+
+\noindent\footnotesize\textit{Independent research paper and practical adoption
+guide. It is not medical or regulatory advice and is not endorsed by the FDA,
+NIH, HHS, an IRB, ICH, or any sponsor. All figures derive from the author's
+repository sources and are illustrative unless tied to a cited
+reference.}\normalsize\par
+
+\vspace{0.12em}
+
+\noindent\footnotesize\textbf{Disclaimer:} \textit{This work is independent and
+is not endorsed or sponsored by any trial sponsor, CRO, site, IRB, regulator, or
+medical society; and was adapted using Claude Code Opus 5.}\normalsize\par
+
+\vspace{0.12em}
+
+{\sloppy\noindent\footnotesize The paper (v1.0) is at
+\url{https://doi.org/10.5281/zenodo.xxxxxxxx}
+and the repository (v4.5.0) is at
+\url{https://github.com/kevinkawchak/physical-ai-oncology-trials}.
+The paper files are deposited in
+\href{https://github.com/kevinkawchak/physical-ai-oncology-trials/tree/main/funding/capitalization-plan}{funding/capitalization-plan}.\normalsize\par}
+
+\renewcommand{\keywordname}{\textbf{Keywords}}
+\keywords{Small business innovation research; Novel performers; Capitalization
+plan; Milestone schedule; Indirect cost; 21 CFR part 54; Pancreatic ductal
+adenocarcinoma; Robotic pancreaticoduodenectomy; Daraxonrasib; Physical AI}
+
+\vspace{0.25em}
+\apprule{0.6pt}
+
+% ---------- Clickable table of contents ----------
+\renewcommand{\contentsname}{\color{accentcol}Table of Contents}
+{\setlength{\parskip}{0pt}\footnotesize\linespread{0.94}\selectfont\tableofcontents}
+
+\vspace{-0.1em}
+\apprule{0.6pt}
+
+\clearpage
+
+% ---------- Body: one \input per section (Rule 6) ----------
+\input{sections/sec-00-front}\clearpage
+\input{sections/sec-01-novel-performer-case}\clearpage
+\input{sections/sec-02-entity-and-asset}\clearpage
+\input{sections/sec-03-gate-and-programme}\clearpage
+\input{sections/sec-04-capital-bridge}\clearpage
+\input{sections/sec-05-twelve-milestones}\clearpage
+\input{sections/sec-06-clinical-evidence}\clearpage
+\input{sections/sec-07-operating-plan}\clearpage
+\input{sections/sec-08-san-diego-traction}\clearpage
+\input{sections/sec-09-risks-and-limits}\clearpage
+\input{sections/sec-10-build-method}\clearpage
+\input{sections/sec-11-references-backmatter}
+
+\end{document}

@@ -1,0 +1,289 @@
+% sec-04: outline item D.  Figures 10 (d2), 11 (plantuml), 12 (mermaid).
+% The tier stack is Figure 10 and the firewall is Figure 11, because the tier
+% stack is drawn and discussed first; before stage 8 the two numbers were the
+% other way round and the compiled paper printed Figure 11 a page ahead of
+% Figure 10.
+% FINAL stage improvements: Figure 10 names the milestone gate on each tier 3
+% instrument inside the tier box; Figure 11 marks the two prohibited states
+% with an explicit prohibition glyph rather than only with a fill; Figure 12
+% carries the day number in a left margin column so the 30-day obligation is
+% readable off the figure.
+\section{Non-Dilutive to Dilutive Bridge}
+
+\subsection{Three Tiers of Capital}
+
+The plan holds \$1,606,000 of non-dilutive federal money, an unpriced tier of
+contributed drug, theatre, pathology and regulatory support, and \$5,900,000 of
+dilutive private capital raised only after a milestone closes. On cash alone
+that is 3.67 to one, against the FY 2028 annexed instruction that agencies
+target ``at least a 3:1 leverage of private to Federal investment''
+\cite{kratsiosvought2026fy2028priorities}. The ratio is reached before any
+contributed value is counted, which is the argument for counting it at zero.
+Figure 10 stacks the three tiers with the two firewalls drawn as the gaps
+between them rather than stated as policy sentences.
+
+\begin{appfloat}[!tb]
+\begin{appfig}[d2-type / nested containers]
+% A bottom-to-top stack, deliberately unlike Figure 8's left-to-right ledger.
+% Each firewall rule carries 8mm of empty canvas above and below before the
+% nearest container edge, and exactly four vertical edges cross the two rules.
+\foreach \i/\x/\lab/\sty in {1/0/{SBIR Phase I\\306,000, months 1 to 9}/d2key,
+  2/4.55/{SBIR Phase II\\1,300,000, months 10 to 33}/d2key,
+  3/9.10/{Foundation cash\\0, none sought in this plan}/d2gray}{
+  \node[\sty,text width=38mm,minimum height=9mm,anchor=north west] (b\i) at (\x,-6.55) {\lab};}
+\begin{scope}[on background layer]
+\node[d2cont,fit=(b1)(b2)(b3),inner sep=7pt] (t1) {};
+\end{scope}
+\node[d2title,anchor=south west] at ([yshift=1.2mm]t1.north west)
+  {Tier 1, non-dilutive federal};
+\node[d2cellh,minimum width=22mm,text width=19mm,anchor=north east]
+  at ([xshift=-1.5mm,yshift=-1.5mm]t1.north east) {\$1,606,000};
+\draw[pablue1,line width=1pt,dashed] (-0.35,-5.35) -- (13.95,-5.35);
+\node[font=\scriptsize\sffamily\bfseries,text=pablue1,fill=protowhite,inner sep=1.5pt,anchor=west]
+  at (0.15,-5.35) {Firewall 1: 13 CFR 121.702 ownership and control test};
+\foreach \i/\x/\lab in {1/0/{Investigational drug supply}, 2/3.55/{Theatre and robotic platform time},
+  3/7.10/{Pathology and specimen handling}, 4/10.65/{Regulatory cross reference}}{
+  \node[d2cell,text width=30mm,minimum height=9mm,anchor=north west] (c\i) at (\x,-3.25) {\lab};}
+\begin{scope}[on background layer]
+\node[d2cont2,fit=(c1)(c2)(c3)(c4),inner sep=7pt] (t2) {};
+\end{scope}
+\node[d2title2,anchor=south west] at ([yshift=1.2mm]t2.north west)
+  {Tier 2, contributed value};
+\node[d2cellg,minimum width=22mm,text width=19mm,anchor=north east]
+  at ([xshift=-1.5mm,yshift=-1.5mm]t2.north east) {unpriced};
+\draw[protoblue,line width=1.1pt,dashed] (-0.35,-2.05) -- (13.95,-2.05);
+\node[font=\scriptsize\sffamily\bfseries,text=protoblue,fill=protowhite,inner sep=1.5pt,anchor=west]
+  at (0.15,-2.05) {Firewall 2: 21 CFR part 54 investigator financial disclosure};
+\foreach \i/\x/\lab/\sty in {1/0/{Seed SAFE\\900,000, after M8}/d2soft,
+  2/4.55/{Option pool\\10 percent, after M10}/d2soft,
+  3/9.10/{Series A\\5,000,000, after M12}/d2mid}{
+  \node[\sty,text width=38mm,minimum height=9mm,anchor=north west] (s\i) at (\x,0) {\lab};}
+\begin{scope}[on background layer]
+\node[d2cont,fit=(s1)(s2)(s3),inner sep=7pt] (t3) {};
+\end{scope}
+\node[d2title,anchor=south west] at ([yshift=1.2mm]t3.north west)
+  {Tier 3, dilutive private};
+\node[d2cellh,minimum width=22mm,text width=19mm,anchor=north east]
+  at ([xshift=-1.5mm,yshift=-1.5mm]t3.north east) {\$5,900,000};
+\draw[d2edged] (1.90,-5.90) -- (1.90,-4.55);
+\draw[d2edged] (11.60,-5.90) -- (11.60,-4.55);
+\draw[d2edged] (1.90,-2.60) -- (1.90,-1.35);
+\draw[d2edged] (11.60,-2.60) -- (11.60,-1.35);
+\foreach \x/\g in {1.90/{M8 must close first}, 11.60/{M12 must close first}}{
+  \node[font=\tiny\sffamily,text=protoblue,fill=protowhite,inner sep=1.2pt] at (\x,-1.75) {\g};}
+\begin{scope}[shift={(0,1.35)}]
+  \hbarrow{0}{1.20}{protoblue}{federal}{1,606,000}
+  \hbarrow{0.55}{4.40}{pablue1}{private}{5,900,000, a ratio of 3.67 to 1}
+\end{scope}
+\node[font=\tiny\itshape,text=protogray,anchor=north west,text width=132mm]
+  at (0,-7.85) {Tier 2 carries no dollar figure deliberately: no agreement
+  exists, so a valuation would be invented, and an invented cost-share figure
+  converts a real structural argument into an unverifiable number. The two
+  firewall bands carry no node, no label and no edge label; only four vertical
+  crossings.};
+\end{appfig}
+\vspace{-0.65cm}
+\figcaption{Figure 10. Three capital tiers and the two gaps between them. Federal\\
+money at the base, contributed value unpriced in the middle, private\\
+capital above, and 5,900,000 against 1,606,000 is 3.67 to one.}
+\end{appfloat}
+
+Tier 2 carries no dollar figure, for the reason the parent work gives and this
+one does not improve on: no agreement exists with any developer or site, so a
+valuation would be invented, and an invented cost-share figure converts a real
+structural argument into an unverifiable number. The claim made about tier 2 is
+qualitative and checkable, that four named categories of cost do not appear in
+the federal request.
+
+\subsection{The Capital Firewall}
+
+The author is chief executive of the sponsor and holds 100 percent of it. If he
+were also a clinical investigator on the trial, every trigger in
+21 CFR \S54.2 would fire at once \cite{ecfr2026part54}. The plan therefore
+assigns the investigator role entirely to the site: the operating surgeon and
+the principal investigator are the site's employees, hold no ChemicalQDevice
+equity, receive no compensation tied to study outcome, and each files Form FDA
+3454 with a nil return \cite{fdafindisclosure2013}. Figure 11 draws every capital
+position the company may hold as a state, with the regulation guarding each
+transition written on the transition itself.
+
+\begin{appfloat}[!tb]
+\begin{appfig}[plantuml-type / state with guards]
+% Three permitted states on a spine at y = 0, two prohibited states below a
+% dashed firewall rule at y = -1.95.  Exactly four edges cross the rule, in
+% outbound and return pairs 4mm apart at two fixed x values.
+\node[umlinit] (q0) at (-0.30,0) {};
+\node[umlstatesoft,text width=30mm] (q1) at (1.35,0)
+  {S1 non-dilutive only\\founder 100 percent\\3454 nil return};
+\node[umlstatesoft,text width=30mm] (q2) at (5.75,0)
+  {S2 convertible outstanding\\SAFE signed, unconverted};
+\node[umlstateon,text width=30mm] (q3) at (10.15,0)
+  {S3 priced, founder above 50\\founder 64 percent};
+\node[umlfinal] (q9) at (13.35,0) {};
+\draw[protoblue,line width=1.1pt,dashed] (-0.30,-1.95) -- (13.90,-1.95);
+\node[font=\scriptsize\sffamily\bfseries,text=protoblue,fill=protowhite,inner sep=1.5pt,anchor=west]
+  at (0.10,-1.95) {The firewall: below this line, not while a participant is on study};
+\node[umlstategray,text width=30mm] (q4) at (5.75,-3.55)
+  {S4 priced, founder below 50\\SBIR test fails absent VCOC};
+\node[umlstategray,text width=30mm] (q5) at (10.85,-3.55)
+  {S5 investigator interest\\a 54.2 trigger has fired};
+\draw[umlarrow] (q0) -- (q1);
+\draw[umlarrow] (q1) -- node[umlguard,pos=0.5] {[SAFE executed]} (q2);
+\draw[umlarrow] (q2) -- node[umlguard,pos=0.5] {[round closes, founder 50 or more]} (q3);
+\draw[umlarrow] (q3) -- node[umlguard,pos=0.5] {[closeout]} (q9);
+\draw[umlarrow] (7.75,-0.72) to[bend right=18] node[umlguard,pos=0.32] {[dilution below 50]} (7.75,-2.85);
+\draw[umldash] (8.15,-2.85) to[bend right=18] node[umlguard,pos=0.68] {[repurchase]} (8.15,-0.72);
+\draw[umlarrow] (11.65,-0.72) to[bend left=14] node[umlguard,pos=0.32] {[equity or outcome pay]} (11.65,-2.85);
+\draw[umldash] (12.05,-2.85) to[bend left=14] node[umlguard,pos=0.68] {[divested, 3455, one year]} (12.05,-0.72);
+\pxmark{4.05}{-3.55}
+\pxmark{13.05}{-3.55}
+\node[font=\tiny\sffamily\bfseries,text=protogray,anchor=north west] at (-0.30,-2.35)
+  {prohibited while a participant is on study};
+\node[umlnote,text width=36mm,anchor=north west] at (4.05,-4.55)
+  {SBIR eligibility is lost unless the NIH venture-capital operating company
+   authority applies and no single entity exceeds 50 percent.};
+\node[umlnote,text width=36mm,anchor=north west] at (9.15,-4.55)
+  {Entry during enrollment is prohibited by this plan, not merely disclosed
+   after the fact.};
+\node[font=\tiny\itshape,text=protogray,anchor=north west,text width=132mm]
+  at (-0.30,-6.35) {Every guard sits above its own transition at a fixed 3.4 mm
+  offset with a white fill, never inside a state label. The disclosure period
+  runs for the study and one year after completion, which is why the S5 return
+  guard carries an elapsed-time term that no other guard has.};
+\end{appfig}
+\vspace{-0.65cm}
+\figcaption{Figure 11. The capital firewall as five states. Two of them, below\\
+the rule, may not be entered while a participant is on study. Every\\
+guard names its own regulation and the form the entry would require.}
+\end{appfloat}
+
+Five triggers fire a disclosure and a sixth line certifies that none has. Table
+12 states each against its citation, its threshold, and the form it is filed on.
+
+\begin{apptable}
+\begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}X >{\raggedright\arraybackslash}p{2.2cm} >{\raggedright\arraybackslash}p{4.4cm} >{\raggedright\arraybackslash}p{1.5cm}}
+\headrow \thead{Trigger} & \thead{Citation} & \thead{Threshold} & \thead{Form}\\
+\midrule
+Compensation affected by study outcome & 21 CFR \S54.2(a) & Any amount & 3455 \\
+Significant equity, sponsor not publicly traded & 21 CFR \S54.2(b) & Any equity interest & 3455 \\
+Significant equity, sponsor publicly traded & 21 CFR \S54.2(b) & Above \$50,000 & 3455 \\
+Proprietary interest in the tested product & 21 CFR \S54.2(f) & Any patent, licence or royalty & 3455 \\
+Significant payments of other sorts & 21 CFR \S54.4(a)(3)(ii) & Above \$25,000 beyond study cost & 3455 \\
+No disclosable interest & 21 CFR \S54.4(a)(1) & Certification by the sponsor & 3454 \\
+\end{tabularx}
+\end{apptable}
+\vspace{-0.65cm}
+\tabcap{Table 12. The five disclosure triggers and the certification that applies when\\
+none has fired. The disclosure period runs for the duration of the study and\\
+one year after its completion, which is why divestment alone does not clear S5.}
+
+\subsection{What the Firewall Actually Separates}
+
+\textbf{Dose assignment.} A Phase 1 3+3 escalation carries no randomization, so
+the firewall cannot bind on a randomization schedule. It binds instead on dose
+assignment, which is the Phase 1 analogue: the level a participant receives is
+assigned by the site principal investigator on the recommendation of an
+independent data and safety monitoring board. The wording is carried forward
+unchanged so that it still binds when the Phase 2 successor introduces
+randomization \cite{phase2proto}.
+
+\textbf{Endpoint adjudication.} Whether an event is a dose-limiting toxicity and
+what grade it carries is adjudicated at the site against CTCAE and, for
+pancreatic fistula, against the ISGPS grading \cite{bassi2017isgps}. No sponsor
+employee sits on the adjudication.
+
+\textbf{The analysis plan.} The statistician is contracted at a fixed fee that
+is not tied to outcome, and the analysis populations and interval method are
+locked before the first participant is dosed. A locked plan is what makes the
+fixed fee meaningful; either alone would not be enough.
+
+\subsection{The Capitalization Table}
+
+Table 13 carries the capitalization across five stages and applies the ownership
+test at each, including the one stage that fails it.
+
+\begin{apptable}
+\begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}p{1.3cm} >{\raggedright\arraybackslash}X >{\raggedright\arraybackslash}p{2.0cm} >{\raggedright\arraybackslash}p{1.9cm} >{\raggedright\arraybackslash}p{2.3cm}}
+\headrow \thead{Stage} & \thead{Instrument and gate} & \thead{Cash raised} & \thead{Founder holding} & \thead{13 CFR 121.702 test}\\
+\midrule
+0 & Founder common, 8,000,000 shares & none & 100.0 percent & Passes \\
+1 & Seed SAFE, after M8 clears & \$900,000 & 88.9 percent & Passes \\
+2 & Option pool, 10 percent, after M10 & none & 80.0 percent & Passes \\
+3 & Series A, after M12 deposits & \$5,000,000 & 64.0 percent & Passes \\
+4 & Series B, beyond this plan & not budgeted & 46.5 percent & Fails absent VCOC \\
+\end{tabularx}
+\end{apptable}
+\vspace{-0.65cm}
+\tabcap{Table 13. Five capital stages and the ownership test at each. Stages 0 to 3\\
+fall inside the thirty-three months this document covers and all four pass.\\
+Stage 4 is shown because a plan that hid it would be less useful, not more.}
+
+Stage 4 is the one that fails. A Series B at the size a Phase 2 would require
+takes the founder below 50 percent, and SBIR eligibility is then lost unless the
+venture-capital operating company authority applies and no single such entity
+holds a majority \cite{ecfr2026sbirownership,sbapolicydirective}. The plan's
+answer is not a structuring trick: stage 4 sits outside the thirty-three months
+this document covers, and no Phase II obligation extends into it.
+
+\subsection{The Sequence}
+
+Figure 12 orders the eleven messages of a financing round against the three
+lifelines no message in it reaches.
+
+\begin{appfloat}[!tb]
+\begin{appfig}[mermaid-type / sequence]
+% Six lifelines on a 2.52cm pitch, twelve messages on a uniform 0.45cm row
+% pitch, then a rule and three struck lifelines that receive nothing.
+\foreach \i/\x/\lab in {1/0/{Sponsor CEO}, 2/2.52/{Company counsel}, 3/5.04/{Investor},
+  4/7.56/{Site PI}, 5/10.08/{Site IRB}, 6/12.60/{FDA, IND file}}{
+  \node[mmactor,text width=21mm] (a\i) at (\x,0) {\lab};
+  \draw[mmlife] (\x,-0.42) -- (\x,-6.10);}
+\foreach \y/\f/\t/\msg/\sty in {%
+  -0.85/0/5.04/{1. term sheet, 900,000 SAFE, day 0}/mmmsg,
+  -1.30/5.04/0/{2. diligence request, clinical data room}/mmret,
+  -1.75/0/2.52/{3. scope the room against 21 CFR part 54}/mmmsg,
+  -2.20/2.52/0/{4. redaction list, milestone artifacts only}/mmret,
+  -2.65/0/5.04/{5. room opened, 12 artifacts, no subject data}/mmmsg,
+  -3.10/5.04/2.52/{6. confirmatory questions, corporate only}/mmmsg,
+  -3.55/2.52/5.04/{7. responses, day 21}/mmret,
+  -4.00/5.04/0/{8. signature and funding, day 28}/mmmsg,
+  -4.45/0/7.56/{9. notice of change in sponsor interest, day 30}/mmmsg,
+  -4.90/7.56/10.08/{10. report of change, PI 3454 unchanged}/mmmsg,
+  -5.35/10.08/7.56/{11. acknowledged, no amendment required}/mmret,
+  -5.80/0/12.60/{12. financial disclosure update, annual report}/mmmsg}{
+  \draw[\sty] (\f,\y) -- (\t,\y)
+    node[midway,above,font=\tiny\sffamily,fill=protowhite,inner sep=1.2pt] {\msg};}
+\foreach \y/\d in {-0.85/{day 0}, -2.65/{day 7}, -3.55/{day 21}, -4.00/{day 28},
+  -4.45/{day 30}, -5.80/{annual}}{
+  \node[font=\tiny\sffamily,text=protogray,anchor=east] at (-1.15,\y) {\d};}
+\draw[pagraym,line width=0.3pt] (-1.10,-0.60) -- (-1.10,-6.05);
+\draw[pagrayd,line width=0.5pt] (-1.6,-6.45) -- (13.6,-6.45);
+\foreach \i/\x/\lab in {1/1.30/{Dose assignment}, 2/6.10/{Endpoint adjudication},
+  3/10.90/{Statistical analysis}}{
+  \node[mmgray,text width=27mm] (n\i) at (\x,-7.35) {\lab};
+  \pxmark{\x}{-6.85}}
+\node[font=\tiny\sffamily\bfseries,text=protoblue,anchor=west] at (-1.6,-6.85)
+  {reached by nothing:};
+\node[font=\tiny\itshape,text=protogray,anchor=north west,text width=132mm]
+  at (-1.6,-8.15) {A 3+3 escalation has no randomization, so the firewall binds
+  on dose assignment rather than on a schedule. The three struck lifelines are
+  decided by the site principal investigator, by the site against CTCAE and
+  ISGPS, and by a fixed-fee statistician working to a plan locked before first
+  dose.};
+\end{appfig}
+\vspace{-0.65cm}
+\figcaption{Figure 12. Eleven messages during a financing round, and the three\\
+lifelines no message reaches. Dose assignment, endpoint adjudication,\\
+and the analysis plan are untouched between term sheet and signature.}
+\end{appfloat}
+
+Two dates in that sequence are obligations rather than courtesies. The notice to
+the site principal investigator goes out within thirty days of any change in the
+sponsor's financial position, and the IND financial disclosure commitment is
+updated at the next annual report \cite{ecfr2026part312}. Neither is triggered
+by the size of the round; both are triggered by the fact of it.
+
+Every tier 3 instrument is gated behind a milestone: the seed instrument behind
+M8, the option pool behind M10, and the Series A behind M12. No private capital
+enters the entity before dose level 1 has cleared, which is the single
+structural commitment this section exists to make.

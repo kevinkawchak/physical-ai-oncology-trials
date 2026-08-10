@@ -11,7 +11,7 @@ Cancer Trial Efficient LLM Document Generations* into `trial-documents/mermaid/`
 
 **Scope.** Produce **at least 20** new, comprehensive, professional Mermaid
 diagrams, each in its own Markdown file (`fig-NN-slug.md`) that opens with a real
-```mermaid``` fenced block so it renders natively on GitHub, followed by a short
+a ```` ```mermaid ```` fenced block so it renders natively on GitHub, followed by a short
 caption, the figure's role in the paper, and the exact repository source files the
 figure draws from (Rule 5). Every figure must be **new to this paper** - do not
 re-use any prior author figure development from `trial-protocol/mermaid`,
