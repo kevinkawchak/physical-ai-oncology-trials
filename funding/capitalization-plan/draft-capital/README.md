@@ -104,10 +104,20 @@ nothing to search for. The complete permitted source set:
 |:--|:--|
 | `pdflatex` exit code | 0 |
 | Overfull boxes | 0 |
-| Underfull boxes above `\hbadness=4000` | recorded at the close of the stage |
+| Underfull boxes above `\hbadness=4000` | 0 |
 | Undefined citations | 0 |
 | Undefined references | 0 |
+| Bibliography entries rendered | 41 |
+| Pages | 32 |
 | Raster images | none |
+
+`\nocite{*}` is issued in `sec-11` at this stage only. The draft body carries
+no real `\cite`, because every citation is still named inside a drafting
+instruction, so without it the reference list would be empty and the author
+could not check at this stage that all 41 entries resolve, that every DOI prints
+as text with a clickable target, and that no reference line runs past the right
+margin. Stage 7 replaces every named key with a real `\cite` and removes the
+`\nocite`, so the final list is ordered by first appearance under `unsrt`.
 
 Two defects were found and fixed inside this stage rather than carried forward.
 The three-cell cover ledger was 14.34 pt past the measure, because three cells

@@ -1,1 +1,49 @@
-\section{Placeholder}
+% sec-10: how the document was built, and what survives it.  Figure 20.
+\section{Build Method and Reproducibility}
+
+\subsection{The Eight-Stage Build}
+
+\draftinstr{One paragraph plus a compact eight-row table: the five diagram
+stages and the three paper stages, each with its output directory, its figure
+numbers and its commit count. Source:
+\appfile{funding/capitalization-plan/sub-prompts/README.md}. State the two rules
+that shaped the build: one commit per file the moment it is written, so the
+branch can be monitored without intervention, and no `.py` file anywhere, so the
+three \texttt{lint-and-format} jobs stay green.}
+
+\subsection{Why the Diagram Split Is Uneven}
+
+\draftinstr{One paragraph. Five mermaid, three plantuml, five d2, three
+diagrams, four graphviz. The split follows purpose and not quota: the two
+five-counts fall where the paper argues in sequence and where it argues in
+tables, which is what a capitalization plan does most. Source:
+\appfile{funding/capitalization-plan/sub-prompts/README.md}. Do not restate the
+per-figure reasoning, which is in the five directory READMEs.}
+
+\subsection{What Survives a Stop}
+
+\figslot{diagrams-python-type / custody clusters}{9.0}{Four custodians and what
+each still holds if the programme stops.\\Everything a third party needs to
+reproduce the computation sits\\with the first custodian, which needs no one to
+stay in business.}
+
+\draftinstr{After Figure 20, one paragraph on the reproducibility count: five of
+seven work products are fully reproducible from the public custodian alone, and
+the two that are not require source documents that never leave the site. Then
+the argument this figure exists to make, stated once and not repeated: if the
+company dissolves at any milestone, the computational work does not become
+unavailable, because it was never in the company's custody in the first place.
+Source: \appfile{funding/capitalization-plan/diagrams-python/fig-20-artifact-custody.md}.
+Cite \texttt{ecfr2026part312records} and \texttt{repo2026}.}
+
+\subsection{Verification of This Document}
+
+\draftinstr{A short compile record in prose, not a table: pdfLaTeX twice plus
+BibTeX, zero errors, zero overfull boxes, zero undefined citations, zero
+undefined references, no raster image anywhere, and the figure-to-caption
+distance identical at 6.06 pt for every one of the twenty figures. Name the
+audit that proves the last claim, which is that the count of
+\texttt{\textbackslash vspace\{-0.65cm\}} equals the count of
+\texttt{\textbackslash figcaption} plus the count of \texttt{\textbackslash
+tabcap}. Then name the three defects found and fixed during the build, drawn
+from the stage READMEs, so the record is a record and not an assertion.}
