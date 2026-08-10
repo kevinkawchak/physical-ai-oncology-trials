@@ -1,1 +1,62 @@
-\section{Placeholder}
+% sec-02: outline item B.  Figures 4 (diagrams), 5 (d2), 6 (plantuml).
+\section{The Entity and the Asset}
+
+\subsection{What the Entity Is}
+
+\draftinstr{Four sentences and no more: ChemicalQDevice, a California
+corporation, sole owner and sole officer Kevin Kawchak, San Diego, no employees
+at the date of writing, no negotiated indirect-cost rate agreement, no
+facilities. State that the company is more than 50 percent owned and controlled
+by one United States individual, which is the eligibility test at
+\texttt{ecfr2026sbirownership}, and that \S4 is written to keep it so.}
+
+\figslot{diagrams-python-type / clusters}{9.4}{Four zones and thirteen tiles.
+The owned zone holds everything the\\company made; the contracted zone is drawn
+at full size and holds\\nothing, because an empty zone is the finding this
+figure reports.}
+
+\subsection{Owned}
+
+\draftinstr{Set Table 6 from the thirteen owned rows in
+\appfile{funding/capitalization-plan/d2/fig-05-asset-register-records.d2.md},
+each with its instrument, date and DOI. Every DOI must print as text and link,
+using \texttt{\textbackslash dlink}. Then two paragraphs: what the thirteen rows
+cost to produce, drawing the estimate from
+\appfile{funding/pdac-funding-applications/final-apply/sections/sec-05-trial-evidence.tex},
+and what a funder is therefore not paying for. Cite \texttt{foundingdocs},
+\texttt{onpremwhippl}, \texttt{phase2proto}, \texttt{phase1ind},
+\texttt{qspmetpancre} and \texttt{tenapps2026}.}
+
+\figslot{d2-type / sql tables}{8.2}{The asset register as four typed records.
+Thirteen rows are owned\\outright, three are licensed on public terms, seven are
+absent,\\and the contracted table has no rows at all as of August 2026.}
+
+\subsection{Licensed, and Contracted}
+
+\draftinstr{One short paragraph on the three licensed rows, none exclusive, and
+one on the contracted table, which has no rows. State plainly that no clinical
+trial agreement, drug supply agreement, letter of authorization, confidentiality
+agreement, subaward or trial-specific insurance binder exists. Source:
+\appfile{funding/potential-partners/UC-San-Diego/} and
+\appfile{funding/pdac-funding-applications/final-apply/sections/sec-07-moores-partnership.tex}.}
+
+\subsection{Absent}
+
+\draftinstr{Set Table 7: the seven absent rows, each with the milestone it
+blocks and the single party that can sign it. The point of the column headed
+"company can obtain alone" is that it reads false on every row. Source:
+\appfile{funding/capitalization-plan/d2/fig-05-asset-register-records.d2.md}.}
+
+\figslot{plantuml-type / use case}{9.0}{Two system boundaries, twelve use cases,
+and the corridor between\\them holding three that neither party may execute
+today. Each of\\the three is blocked by exactly one missing signed instrument.}
+
+\draftinstr{After Figure 6, one paragraph on the corridor: three use cases sit
+in it, each blocked by exactly one signature, and no amount of company work
+removes any of the three. Then a short closing paragraph dating the register:
+on 13 January 2026 the owned table held two rows and the absent table held the
+same seven, so the seven have been unchanged for seven months while the owned
+table grew by eleven. Source:
+\appfile{funding/supplementary/source-files/Physical-AI-Oncology-Trial-Competition-Proposal.zip}
+and \appfile{funding/supplementary/Physical AI Oncology Trial Founding Documents.md}.
+Cite \texttt{paiproposal}.}
