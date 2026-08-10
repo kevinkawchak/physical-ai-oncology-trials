@@ -46,5 +46,5 @@ declared `digraph` or `graph` as appropriate.
   the two totals must differ by the stated premium; if they do not, the figure
   is wrong, not merely ugly.
 - Do not copy `funding/pdac-funding-applications/graphviz/fig-10-stop-authority-fault-tree`.
-  That tree is about who may stop an operation. Figure 14 is about what stops a
+  That tree is about who may stop an operation. Figure 15 is about what stops a
   programme, and its basic events are milestones and money, not people.

@@ -6,12 +6,12 @@ four institutional forms, with a fifth column the report does not carry.* No
 other figure compares this company to anything; Figure 1 selects a clause and
 Figure 3 decomposes a cost, and neither asks what kind of institution this is.
 
-**Caption (three balanced lines, 62 to 64 characters).**
+**Caption (3 balanced lines, 64 to 69 characters, numbered as printed).**
 
 ```
-The report's own seven activities, its four institutional forms,
-and a fifth column it does not carry. An SBIR firm of 2.6 people
-is well suited to two of the seven and unsuited to two others.
+Figure 2. The report's own seven activities, its four institutional
+forms, and a fifth column it does not carry. An SBIR firm of 2.6
+people is well suited to two of the seven and unsuited to two others.
 ```
 
 ## D2 source

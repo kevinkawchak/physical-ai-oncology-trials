@@ -12,26 +12,27 @@ commit per file at the moment the file is written, so a reader can watch the
 branch rather than wait for it. And no Python file anywhere, so the repository's
 three lint-and-format jobs stay green; the diagrams stage emits a
 machine-readable specification instead, and every tile it describes is drawn in
-LaTeX by a vector glyph macro.
+LaTeX by a vector glyph macro. Table 20 lists the eight stages, the directory
+each writes to, and the commits each took.
 
 \begin{apptable}
 \begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}p{1.3cm} >{\raggedright\arraybackslash}p{3.9cm} >{\raggedright\arraybackslash}X >{\raggedright\arraybackslash}p{1.7cm}}
 \headrow \thead{Stage} & \thead{Output directory} & \thead{Figures or sections produced} & \thead{Commits}\\
 \midrule
 1 & \appfile{mermaid/} & Figures 1, 7, 12, 13, 19 & 6 \\
-2 & \appfile{plantuml/} & Figures 6, 10, 15 & 4 \\
-3 & \appfile{d2/} & Figures 2, 5, 8, 11, 16 & 6 \\
+2 & \appfile{plantuml/} & Figures 6, 11, 14 & 4 \\
+3 & \appfile{d2/} & Figures 2, 5, 8, 10, 16 & 6 \\
 4 & \appfile{diagrams-python/} & Figures 4, 18, 20 & 4 \\
-5 & \appfile{graphviz/} & Figures 3, 9, 14, 17 & 5 \\
+5 & \appfile{graphviz/} & Figures 3, 9, 15, 17 & 5 \\
 6 & \appfile{draft-capital/} & Twelve sections, twenty sized slots & 10 or more \\
 7 & \appfile{full-capital/} & Twenty figures drawn, twenty-one tables & 10 or more \\
 8 & \appfile{final-capital/} & The senior-author pass & 10 or more \\
 \end{tabularx}
 \end{apptable}
 \vspace{-0.65cm}
-\tabcap{The eight stages, their output directory and their commit count. There
-is no publication subdirectory at stage 8, by instruction, and no stage batches
-its work to the end.}
+\tabcap{Table 20. The eight stages, their output directory and their\\
+commit count. There is no publication subdirectory at stage\\
+8, by instruction, and no stage batches its work to the end.}
 
 \subsection{Why the Diagram Split Is Uneven}
 
@@ -43,6 +44,9 @@ what and what is priced against what, and the rest of the plan is tables. The
 per-figure reasoning is in the five directory READMEs and is not restated here.
 
 \subsection{What Survives a Stop}
+
+Figure 20 places every artifact with the custodian that would still hold it if
+the programme stopped tomorrow.
 
 \begin{appfloat}[!tb]
 \begin{appfig}[diagrams-python-type / custody clusters]
@@ -113,9 +117,9 @@ per-figure reasoning is in the five directory READMEs and is not restated here.
   terminated, so it reads as a path that does not complete.};
 \end{appfig}
 \vspace{-0.65cm}
-\figcaption{Four custodians and what each still holds if the programme stops.\\
-Everything a third party needs to reproduce the computation sits\\
-with the first custodian, which needs no one to stay in business.}
+\figcaption{Figure 20. Four custodians and what each still holds if the programme\\
+stops. Everything a third party needs to reproduce the computation\\
+sits with the first custodian, which needs no one to stay in business.}
 \end{appfloat}
 
 Five of seven work products are fully reproducible from the public custodian
@@ -127,7 +131,7 @@ public but the rig is not. Only participant-level clinical results are
 unreachable, because the source documents never leave the site
 \cite{ecfr2026part312records}.
 
-That is the argument this figure exists to make, and it is made once. If the
+That is the argument Figure 20 exists to make, and it is made once. If the
 company dissolves at any milestone, the computational work does not become
 unavailable, because it was never in the company's custody in the first place
 \cite{repo2026}.
@@ -148,7 +152,16 @@ sources equals the count of \texttt{\textbackslash figcaption} plus the count of
 \texttt{\textbackslash tabcap}, and the style file closes both carriers with a
 single rigid skip that no section can override.
 
-Nine defects were found and fixed during the build rather than carried forward,
+Horizontal placement is measured rather than eyeballed. Every figure frame and
+every caption block was read back out of the compiled PDF and compared against
+the 306 pt page centre: all twenty frames sit at 306.00 pt exactly and no
+caption block is more than 0.53 pt from it, which is less than a fifth of a
+millimetre. Each of the forty-one captions opens with its own number and
+is broken by hand onto three lines balanced to the narrowest spread its word
+boundaries allow, and each of the twenty figures and twenty-one tables is
+referred to by number at least once in the running text.
+
+Twelve defects were found and fixed during the build rather than carried forward,
 and they are recorded because a verification section that reports only successes
 is not a record. Four were measurement failures in the source: a three-cell
 cover ledger 14.34 pt past the measure, four table columns whose bold headers
@@ -162,6 +175,24 @@ as one expression and fails, the unit belonging inside the braces, and a
 were layout: a 143 pt overfull vertical box where a figure, a table and a
 closing paragraph competed for one page, and a float budget inherited from the
 parent work that allowed three floats on a page this paper's figures are too
-tall for. The last was arithmetic: the draft index counted nineteen tables where
-the paper carries twenty-one, and sixteen cross-references were renumbered
-against the corrected index.
+tall for. One was arithmetic: the draft index counted nineteen tables where the
+paper carries twenty-one, and sixteen cross-references were renumbered against
+the corrected index.
+
+The last three were found by measuring the compiled PDF rather than by reading
+the source, which is why they survived to the final stage. The first was
+horizontal: this style file centred a figure frame and a caption with a leading
+and a trailing \texttt{\textbackslash hfil}, and TeX deletes a glue item that
+ends a paragraph, so the trailing one never survived to stretch and every float
+in the paper sat 13.1 pt right of centre. Both carriers now close with
+\texttt{\textbackslash null}, which ends the paragraph with a box instead. The
+second was bibliographic: \texttt{unsrt.bst} reads neither the \texttt{doi} nor
+the \texttt{url} field, so a reference list built on twenty DOIs and thirty-seven
+URLs printed none of them and offered nothing to click; the style is now
+\texttt{unsrturl}. The third was ordinal: the tier stack and the firewall in
+\S4, and the milestone activity and the fault tree in \S5, were numbered against
+the order they were drafted in rather than the order they are printed in, so the
+compiled paper put Figure 11 a page ahead of Figure 10 and Figure 15 a page
+ahead of Figure 14. The four were renumbered to the order a reader meets them,
+and the two indexes, the stage table above, the five directory READMEs and every
+cross-reference were moved with them.

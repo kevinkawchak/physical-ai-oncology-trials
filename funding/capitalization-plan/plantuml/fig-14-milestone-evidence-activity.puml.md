@@ -1,4 +1,4 @@
-# Figure 15 - Evidence production and program-officer audit, running concurrently
+# Figure 14 - Evidence production and program-officer audit, running concurrently
 
 **Type.** plantuml-type, activity with fork and join. **Section.** §5, Twelve
 Milestones a Program Officer Can Audit. **Perspective.** *What three parties do
@@ -6,11 +6,11 @@ at the same time to close one milestone, and the single step that can send a
 closed milestone backwards.* No other figure shows concurrency; Figure 13 shows
 the twelve milestones in sequence and says nothing about what happens inside one.
 
-**Caption (three balanced lines, 62 to 64 characters).**
+**Caption (3 balanced lines, 64 to 69 characters, numbered as printed).**
 
 ```
-One milestone, three concurrent evidence branches, and the join
-that has to close before a program officer can audit anything.
+Figure 14. One milestone, three concurrent evidence branches, and the
+join that has to close before a program officer can audit anything.
 The replay is the only step that can send a milestone backwards.
 ```
 

@@ -43,8 +43,8 @@ Identical to stage 1, with the source fence marked ```d2.
 - In the TikZ notes, state the cell width and row pitch numerically. Figure 2's
   grid must use one column width for all five columns so the header row cannot
   drift out of register with the body.
-- Figure 8 and Figure 11 both draw money. They must not look alike: Figure 8 is
-  a three-column ledger read left to right, Figure 11 is a three-tier stack read
+- Figure 8 and Figure 10 both draw money. They must not look alike: Figure 8 is
+  a three-column ledger read left to right, Figure 10 is a three-tier stack read
   bottom to top with a visible gap where the firewall sits.
 - Do not copy `funding/pdac-funding-applications/d2/fig-11-budget-layers`.
   That figure splits cash from contributed value. Figure 8 splits one programme

@@ -3,15 +3,15 @@
 **Type.** mermaid-type, sequenceDiagram. **Section.** §4, Non-Dilutive to
 Dilutive Bridge. **Perspective.** *The message order of a private round while a
 trial is enrolling, and the three lifelines no message is allowed to reach.* No
-other figure in this paper orders events by actor; Figure 10 states the same
+other figure in this paper orders events by actor; Figure 11 states the same
 firewall as permissions, which says what is allowed but not in what sequence.
 
-**Caption (three balanced lines, 64 to 65 characters).**
+**Caption (3 balanced lines, 66 to 69 characters, numbered as printed).**
 
 ```
-Eleven messages during a financing round, and the three lifelines
-no message reaches. Dose assignment, endpoint adjudication, and
-the analysis plan are untouched between term sheet and signature.
+Figure 12. Eleven messages during a financing round, and the three
+lifelines no message reaches. Dose assignment, endpoint adjudication,
+and the analysis plan are untouched between term sheet and signature.
 ```
 
 ## Mermaid source
@@ -89,4 +89,4 @@ apart rather than 0.45, so their labels cannot collide.
 - Forms FDA 3454 and 3455, referenced in the message at day 30
 - `trial-ind/` - the IND annual report the last message updates
 - `trial-protocol/` - the 3+3 escalation, which is why the firewall binds on dose assignment rather than on randomization
-- `funding/capitalization-plan/d2/fig-11-capital-tiers.md` - the $900,000 SAFE this sequence executes
+- `funding/capitalization-plan/d2/fig-10-capital-tiers.d2.md` - the $900,000 SAFE this sequence executes

@@ -6,12 +6,12 @@ milestone, who is holding it, and how much of the work a third party could
 reproduce from the public custodian alone.* No other figure in this paper looks
 past the programme's end.
 
-**Caption (three balanced lines, 64 to 65 characters).**
+**Caption (3 balanced lines, 66 to 70 characters, numbered as printed).**
 
 ```
-Four custodians and what each still holds if the programme stops.
-Everything a third party needs to reproduce the computation sits
-with the first custodian, which needs no one to stay in business.
+Figure 20. Four custodians and what each still holds if the programme
+stops. Everything a third party needs to reproduce the computation
+sits with the first custodian, which needs no one to stay in business.
 ```
 
 ## Specification, as a diagrams-library graph

@@ -78,7 +78,7 @@ somebody else and absent from this company.
 | `final-apply/sections/sec-06-physical-ai-governance.tex` | `../../pdac-funding-applications` | Figure 18's trust boundaries and Figure 20's replay method |
 | `final-apply/sections/sec-09-build-method.tex` | `../../pdac-funding-applications` | Figure 18's Phase I staffing |
 | `final-apply/sections/sec-10-risks-and-limits.tex` | `../../pdac-funding-applications` | Figure 20's reproduce-the-81.9 record |
-| `UC-San-Diego/` | `../../potential-partners` | Figures 4, 18 and 20, the site's functions and file |
+| `UC-San-Diego/` | `../../potential-partners` | Figures 4, 18, 20, the site's functions and file |
 | `trial-protocol/`, `trial-ind/`, `trial-phase-2/` | repository root | All three figures |
 | 21 CFR §312.57 and §312.62 | codified | Figure 20's two retention terms |
 | `final-apply/applystyle.sty` | `../../pdac-funding-applications` | The `dg*` vocabulary and all 24 `\glyph*` macros |

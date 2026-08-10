@@ -209,13 +209,25 @@
 \newcommand{\headrow}{\rowcolor{protoblue}}
 \RequirePackage{colortbl}
 % \tabcap{...} - a table caption, set to the same measure and idiom as
-% \figcaption so tables and figures read as one system.
+% \figcaption so tables and figures read as one system.  The caption opens with
+% its own number, "Table N.", and is broken by hand onto at most three centred
+% lines of near-equal width.
+% X CENTRING.  The closing \null is load-bearing and is the reason this macro,
+% \figcaption and the appfig frame all now carry one.  TeX deletes a glue item
+% that ends a paragraph, so the older idiom
+%     \noindent\hfil <box> \hfil\par
+% lost its second \hfil at \par; the surviving first \hfil then absorbed the
+% whole slack and drove the box hard against the right margin, 13.1pt off centre
+% at this measure.  \null is an empty \hbox: it ends the paragraph with a box
+% rather than with glue, the second \hfil survives, and the two \hfil then split
+% the slack evenly.  It has zero width, height and depth, so no spacing
+% invariant in this file moves.
 \newcommand{\tabcap}[1]{%
   \nointerlineskip\par\nopagebreak
   {\setlength{\parskip}{0pt}\setlength{\parindent}{0pt}%
-   \noindent\hfil
+   \noindent\null\hfil
    \begin{minipage}{0.94\linewidth}\centering\footnotesize\itshape #1\end{minipage}%
-   \hfil\par}\addvspace{0.30em}}
+   \hfil\null\par}\addvspace{0.30em}}
 
 % ============================================================
 % FIGURE FRAME.  One centred, black-ruled, white-background frame shared by
@@ -286,27 +298,32 @@
   \fi
   {\setlength{\parskip}{0pt}\setlength{\parindent}{0pt}%
    \setlength{\fboxrule}{0.4pt}\setlength{\fboxsep}{7pt}%
-   \noindent\hfil
+   \noindent\null\hfil
    \fcolorbox{protoblack}{protowhite}{%
      \begin{minipage}{\appw}%
        \raggedright\usebox{\apptagbox}\par\vspace{1.4pt}%
        {\color{pagraym}\hrule height 0.4pt}\vspace{4.5pt}%
        \noindent\usebox{\appfitted}%
      \end{minipage}}%
-   \hfil\par}%
+   \hfil\null\par}%
   \nobreak\vskip 24.5pt\relax}
 
 % ---------- Caption: small centred italic block on at most three manually
-% ---------- balanced lines.  Rigid leading and trailing space, so the whole
-% ---------- figure-plus-caption whitespace signature is identical everywhere.
+% ---------- balanced lines, opening with its own number, "Figure N.".  Rigid
+% ---------- leading and trailing space, so the whole figure-plus-caption
+% ---------- whitespace signature is identical everywhere.  The lines of one
+% ---------- caption are balanced to the narrowest spread the word boundaries
+% ---------- allow; across the paper a caption line runs 59 to 80 characters,
+% ---------- because a caption three lines long is as wide as its own text.
+% ---------- See \tabcap above for why the closing \null is load-bearing.
 \newcommand{\figcaption}[1]{%
   \nointerlineskip\nopagebreak
   {\setlength{\parskip}{0pt}\setlength{\parindent}{0pt}%
-   \noindent\hfil
+   \noindent\null\hfil
    \begin{minipage}{0.94\linewidth}%
    \centering\footnotesize\itshape #1%
    \end{minipage}%
-   \hfil\par}%
+   \hfil\null\par}%
   \ifappfloating\else\vskip 12pt\relax\fi}
 
 % ============================================================
@@ -838,9 +855,42 @@
 \newcommand{\appfile}[1]{{\ttfamily\hyphenchar\font=-1\relax
   \app@fscan#1\app@fend}}
 \makeatother
+% ============================================================
+% CLICKABLE DOIs AND URLs IN THE REFERENCE LIST.
+%
+% THE DEFECT.  references.bib carries a doi field on twenty entries and a url
+% field on thirty-seven, and the file's own header says capstyle.sty renders the
+% DOI as text with a clickable target.  It did not, because unsrt.bst reads
+% neither field: BibTeX simply drops both, and no amount of hyperref
+% configuration can hyperlink data that never reached the .bbl.  The compiled
+% reference list carried no DOI, no URL and no target at all - plain text, as
+% the author reported.
+%
+% THE FIX, IN TWO PARTS.  sections/sec-11 asks for unsrturl rather than unsrt.
+% unsrturl is the urlbst-generated companion of unsrt shipped with TeX Live and
+% with Overleaf; it is unsrt entry for entry, plus two closing blocks: an entry
+% with a doi prints \href{https://doi.org/D}{doi:D}, and an entry without one
+% prints its url through \url.  An entry carrying both, which is this bib file's
+% convention where the url is the DOI resolver, prints the DOI only, so no
+% reference shows the same target twice.  This file supplies the second part:
+% the marking that makes those targets look like targets.
+%
+% WHY THE COLOUR IS SCOPED THE WAY IT IS.  hyperref is loaded with hidelinks, so
+% the contents, the internal cross-references and the cover's prose links carry
+% no decoration, which is what a printed page wants.  A reference list is the
+% one place a reader is expected to click, so a printed DOI or URL - anything
+% set through \url, \path or \dlink - is marked in the accent colour, and
+% nothing else is.  The rule is: a link whose text IS its target is coloured; a
+% link hidden behind prose is not.  No ninth palette token is introduced.
+% ============================================================
+\renewcommand{\UrlFont}{\ttfamily\color{accentcol}}
 % \dlink{10.5281/zenodo.NNNNNNN} - a DOI printed as text and hyperlinked, so
 % every reference carries both the DOI string and a clickable target.
-\newcommand{\dlink}[1]{\href{https://doi.org/#1}{#1}}
+\newcommand{\dlink}[1]{\href{https://doi.org/#1}{\textcolor{accentcol}{#1}}}
+% urlbst's .bbl declares these with \providecommand, so declaring them here wins
+% and keeps the reference list's wording under this file's control.
+\providecommand{\urlprefix}{URL: }
+\providecommand{\doitext}{doi:}
 % Ragged-right bibliography with generous emergency stretch, so no reference
 % line runs past the right margin.
 \AtBeginDocument{%
@@ -877,7 +927,21 @@
 %   \vspace{-0.65cm}
 %   \figcaption{...}
 %   \end{appfloat}
+%
+% THE LENGTH IS NOW ZERO, AND THE CARRIER STAYS.  Stage 8 measured every frame
+% and every caption in the compiled PDF against the 306pt page centre and found
+% all of them 13.1pt to the right of it.  The cause was not the diagrams: it was
+% the trailing \hfil in this file's own centring idiom, which TeX deletes when a
+% paragraph ends in glue, leaving the leading \hfil to absorb the whole slack.
+% The three carriers now close with \null, the twenty frames measure 306.00pt
+% and the forty-one captions 305.75pt, and a 1.5mm nudge on top of that would
+% put the one figure that carries it off centre by itself.  Measured at 0mm the
+% wrapper still cost Figure 13 1.86pt, because adjustwidth is a list environment
+% and a list brings its own margin handling, so that figure is now unwrapped and
+% no figure in this paper uses the carrier.  It is kept, documented and set to
+% zero, so a future optical correction has one named length to change and one
+% named environment to wrap, and nothing else.
 % ============================================================
 \newlength{\DiagramXShift}
-\setlength{\DiagramXShift}{1.5mm}
+\setlength{\DiagramXShift}{0mm}
 \endinput

@@ -4,14 +4,14 @@
 and the $3.5M Programme. **Perspective.** *The identical four-layer budget
 priced once as a five-year envelope and once as an SBIR award, with the
 shortfall carried as a third column rather than absorbed.* No other figure
-prices anything twice; Figure 11 stacks capital by source, which says where
+prices anything twice; Figure 10 stacks capital by source, which says where
 money comes from and never what it buys.
 
-**Caption (three balanced lines, 64 to 65 characters).**
+**Caption (3 balanced lines, 64 to 71 characters, numbered as printed).**
 
 ```
-One programme, four layers, and two prices for the same work. The
-SBIR route reaches 1,396,000 of direct effort inside a 1,606,000
+Figure 8. One programme, four layers, and two prices for the same work.
+The SBIR route reaches 1,396,000 of direct effort inside a 1,606,000
 award; the third column is the 2,104,000 that it does not reach.
 ```
 
@@ -92,7 +92,7 @@ costs without a negotiated rate agreement; this plan claims 7.5 percent, and the
 ## TikZ construction notes
 
 Canvas 14.6 by 6.6 cm. A three-column ledger read left to right, deliberately
-unlike Figure 11, which is a bottom-to-top stack.
+unlike Figure 10, which is a bottom-to-top stack.
 
 | Element | Style token | Placement |
 |:--|:--|:--|

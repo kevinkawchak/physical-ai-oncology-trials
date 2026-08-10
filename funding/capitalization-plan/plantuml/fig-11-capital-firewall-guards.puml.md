@@ -1,17 +1,17 @@
-# Figure 10 - The 21 CFR part 54 capital firewall as five states with guards
+# Figure 11 - The 21 CFR part 54 capital firewall as five states with guards
 
 **Type.** plantuml-type, state with guards. **Section.** §4, Non-Dilutive to
 Dilutive Bridge. **Perspective.** *Every capital position the company can hold,
 and the exact regulatory guard on every transition between them.* No other
 figure states permission over money; Figure 12 orders the same round in time,
-and Figure 11 draws the tiers as objects rather than as states.
+and Figure 10 draws the tiers as objects rather than as states.
 
-**Caption (three balanced lines, 62 to 65 characters).**
+**Caption (3 balanced lines, 66 to 68 characters, numbered as printed).**
 
 ```
-The capital firewall as five states. Two of them, below the rule,
-may not be entered while a participant is on study. Every guard
-names its own regulation and the form the entry would require.
+Figure 11. The capital firewall as five states. Two of them, below
+the rule, may not be entered while a participant is on study. Every
+guard names its own regulation and the form the entry would require.
 ```
 
 ## PlantUML source
@@ -113,5 +113,5 @@ y = -2.35, so no guard text sits on the firewall itself.
 - 21 CFR part 54, Financial Disclosure by Clinical Investigators, §54.2 and §54.4
 - 13 CFR 121.702, the SBIR ownership and control eligibility test
 - Forms FDA 3454 and 3455
-- `funding/capitalization-plan/d2/fig-11-capital-tiers.md` - the three tiers whose occupancy these states describe
+- `funding/capitalization-plan/d2/fig-10-capital-tiers.d2.md` - the three tiers whose occupancy these states describe
 - `funding/pdac-funding-applications/final-apply/sections/sec-08-budget-and-leverage.tex` - the non-federal cost-share framing this figure constrains

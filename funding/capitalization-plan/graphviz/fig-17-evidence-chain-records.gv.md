@@ -6,12 +6,12 @@ in a filing, with the link type named on every edge.* No other figure traces
 provenance forward; Figure 16 states the same six quantities as magnitudes and
 says nothing about where they go.
 
-**Caption (three balanced lines, 60 to 63 characters).**
+**Caption (3 balanced lines, 65 to 67 characters, numbered as printed).**
 
 ```
-Five published quantities and the exact filing section each one
-reaches. Every edge carries its link type, and every chain ends
-at a milestone whose artifact a program officer can request.
+Figure 17. Five published quantities and the exact filing section
+each one reaches. Every edge carries its link type, and every chain
+ends at a milestone whose artifact a program officer can request.
 ```
 
 ## Graphviz source

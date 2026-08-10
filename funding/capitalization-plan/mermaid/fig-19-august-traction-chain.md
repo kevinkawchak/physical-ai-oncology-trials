@@ -6,12 +6,12 @@ makes possible, and the specific thing each one still does not.* No other figure
 in this paper carries a dated record of what actually happened; every other
 figure describes a plan.
 
-**Caption (three balanced lines, 63 to 65 characters).**
+**Caption (3 balanced lines, 66 to 69 characters, numbered as printed).**
 
 ```
-Four contacts between July 29 and August 8, 2026, and what each
-one actually unlocks. Every arrow ends at the same milestone, M1,
-and not one of the four is on its own sufficient to close that.
+Figure 19. Four contacts between July 29 and August 8, 2026, and what
+each one actually unlocks. Every arrow ends at the same milestone,
+M1, and not one of the four is on its own sufficient to close that.
 ```
 
 ## Mermaid source

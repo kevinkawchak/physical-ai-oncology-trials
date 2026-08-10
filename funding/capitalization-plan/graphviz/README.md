@@ -18,7 +18,7 @@ before what, and how one failure reaches everything downstream.
 |:--|:--|:--|:--|:--|
 | [`fig-03-indirect-cost-decomposition.gv.md`](fig-03-indirect-cost-decomposition.gv.md) | 3 | 1 | record nodes | What does the same direct work cost under three overhead regimes? |
 | [`fig-09-work-package-dag.gv.md`](fig-09-work-package-dag.gv.md) | 9 | 3 | DAG, three clusters | Which work packages does the money reach? |
-| [`fig-14-stop-condition-fault-tree.gv.md`](fig-14-stop-condition-fault-tree.gv.md) | 14 | 5 | fault tree | What has to fail, and in what combination? |
+| [`fig-15-stop-condition-fault-tree.gv.md`](fig-15-stop-condition-fault-tree.gv.md) | 15 | 5 | fault tree | What has to fail, and in what combination? |
 | [`fig-17-evidence-chain-records.gv.md`](fig-17-evidence-chain-records.gv.md) | 17 | 6 | record chain | Where does each published number land in a filing? |
 
 ## Why four
@@ -57,7 +57,7 @@ cost record cannot.
 | Default nodesep | Every figure states `ranksep` and `nodesep` numerically. Figure 17 uses 0.32 because a three-field record is tall, not wide |
 | Missing `cluster_` prefix | Every subgraph is named `cluster_*`, so each is drawn as a box rather than silently dissolving |
 | Record parser failure | Every record field is plain text. No literal brace, angle bracket or vertical bar appears inside a field |
-| Rank skipping in a tree | Figure 14 is strictly layered across five ranks and no edge skips more than one rank |
+| Rank skipping in a tree | Figure 15 is strictly layered across five ranks and no edge skips more than one rank |
 | Black gate fills | `\umlgateand` takes `pagraym` and `\umlgateor` takes `pagrayl`. Neither is black, and each gate's label sits beneath its glyph at a fixed 0.22 cm offset |
 | Arrow read as an equals sign | Figure 17 names the link type on all fifteen edges, and lists what each type does not license |
 
@@ -70,6 +70,6 @@ cost record cannot.
 | `final-apply/sections/sec-06-physical-ai-governance.tex` | `../../pdac-funding-applications` | Figure 17's 3 ms and 500 ms stop figures |
 | `applications/app-05-nih-sbir-seed/` | `../../pdac-funding-applications` | Figures 3 and 9, the two award amounts |
 | `chunk-03` | `../../science-golden-age` | Figure 3, the deference-to-incumbents finding it prices |
-| `trial-ind/`, `trial-protocol/` | repository root | Figure 17's section numbering, Figure 14's de-escalation rule |
-| 13 CFR 121.702, 21 CFR §54.2, 2 CFR 200.414 | codified | Figures 3 and 14 |
+| `trial-ind/`, `trial-protocol/` | repository root | Figure 17's section numbering, Figure 15's de-escalation rule |
+| 13 CFR 121.702, 21 CFR §54.2, 2 CFR 200.414 | codified | Figures 3 and 15 |
 | `final-apply/applystyle.sty` | `../../pdac-funding-applications` | The `gv*` vocabulary and the two gate glyph macros |

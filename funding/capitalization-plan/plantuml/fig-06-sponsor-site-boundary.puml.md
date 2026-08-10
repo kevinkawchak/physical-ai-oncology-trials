@@ -5,15 +5,15 @@ The Entity and the Asset. **Perspective.** *The line between what
 ChemicalQDevice can execute on its own authority and what requires an
 institution, with the three cases neither party may execute today drawn in the
 corridor between them.* No other figure in this paper draws corporate and
-contractual authority; Figure 10 draws financial permission, which is a
+contractual authority; Figure 11 draws financial permission, which is a
 different boundary over the same actors.
 
-**Caption (three balanced lines, 62 to 65 characters).**
+**Caption (3 balanced lines, 65 to 69 characters, numbered as printed).**
 
 ```
-Two system boundaries, twelve use cases, and the corridor between
-them holding three that neither party may execute today. Each of
-the three is blocked by exactly one missing signed instrument.
+Figure 6. Two system boundaries, twelve use cases, and the corridor
+between them holding three that neither party may execute today. Each
+of the three is blocked by exactly one missing signed instrument.
 ```
 
 ## PlantUML source

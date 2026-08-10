@@ -6,11 +6,11 @@ holds, with the empty zone drawn at full size rather than omitted.* No other
 figure shows the asset base as an area; Figure 5 states the same four classes as
 typed records, which gives the terms but not the proportion.
 
-**Caption (three balanced lines, 63 to 65 characters).**
+**Caption (3 balanced lines, 66 to 72 characters, numbered as printed).**
 
 ```
-Four zones and thirteen tiles. The owned zone holds everything the
-company made; the contracted zone is drawn at full size and holds
+Figure 4. Four zones and thirteen tiles. The owned zone holds everything
+the company made; the contracted zone is drawn at full size and holds
 nothing, because an empty zone is the finding this figure reports.
 ```
 

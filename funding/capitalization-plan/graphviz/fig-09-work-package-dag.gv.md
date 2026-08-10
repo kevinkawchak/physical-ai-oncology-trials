@@ -6,11 +6,11 @@ work package in the five-year programme, every dependency between them, and the
 two funding lines drawn across the graph.* No other figure shows dependency;
 Figure 8 shows the same shortfall as money, which says how much and never what.
 
-**Caption (three balanced lines, 61 to 64 characters).**
+**Caption (3 balanced lines, 61 to 67 characters, numbered as printed).**
 
 ```
-Seventeen work packages and every edge between them. Five close
-at 306,000, seven more at 1,606,000, and five are unreachable
+Figure 9. Seventeen work packages and every edge between them. Five
+close at 306,000, seven more at 1,606,000, and five are unreachable
 at that figure, all five downstream of the sixth participant.
 ```
 
@@ -69,7 +69,7 @@ digraph packages {
 ## The seventeen packages, with their money line
 
 Work packages 1 to 12 map one to one onto milestones M1 to M12, and carry the
-identical cost, so Figures 8, 9 and 13 can be checked against one another.
+identical cost, so Figures 8, 9, 13 can be checked against one another.
 
 | WP | Package | Milestone | Cluster | Direct cost | Depends on |
 |:--|:--|:--|:--|:--|:--|

@@ -7,12 +7,12 @@ inside the hospital's network.* No other figure maps employment and contract
 status; Figure 6 maps authority, which says who may act and never who is on a
 payroll.
 
-**Caption (three balanced lines, 62 to 64 characters).**
+**Caption (3 balanced lines, 63 to 71 characters, numbered as printed).**
 
 ```
-Three clusters and two trust boundaries. The company employs 2.3
-of the 2.6 FTE, contracts 0.3, and pays for none of the six site
-functions. No identified data crosses the left trust boundary.
+Figure 18. Three clusters and two trust boundaries. The company
+employs 2.3 of the 2.6 FTE, contracts 0.3, and pays for none of the
+six site functions. No identified data crosses the left trust boundary.
 ```
 
 ## Specification, as a diagrams-library graph

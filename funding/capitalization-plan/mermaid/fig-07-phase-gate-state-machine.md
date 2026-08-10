@@ -7,11 +7,11 @@ the gate transition to fire.* No other figure shows the award as a machine with
 states; Figure 13 shows the same 33 months as a calendar, which is the opposite
 projection of the same interval.
 
-**Caption (three balanced lines, 64 to 65 characters).**
+**Caption (3 balanced lines, 65 to 69 characters, numbered as printed).**
 
 ```
-One award in five states, and the four guards that must all hold
-at month nine. Two of the four are technical, one is regulatory,
+Figure 7. One award in five states, and the four guards that must all
+hold at month nine. Two of the four are technical, one is regulatory,
 and the fourth belongs to an institution the company cannot bind.
 ```
 

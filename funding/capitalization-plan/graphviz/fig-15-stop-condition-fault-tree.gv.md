@@ -1,4 +1,4 @@
-# Figure 14 - What has to fail, and in what combination, for the programme to stop
+# Figure 15 - What has to fail, and in what combination, for the programme to stop
 
 **Type.** graphviz-type, fault tree with AND and OR gates. **Section.** §5,
 Twelve Milestones a Program Officer Can Audit. **Perspective.** *Five halt
@@ -7,11 +7,11 @@ points of failure.* No other figure in this paper is about failure; Figure 7's
 state machine shows that a Terminated state exists and never shows how it is
 reached.
 
-**Caption (three balanced lines, 60 to 63 characters).**
+**Caption (3 balanced lines, 63 to 69 characters, numbered as printed).**
 
 ```
-One top event, five halt points, and ten basic events below.
-Three are AND gates, so no single failure stops the programme.
+Figure 15. One top event, five halt points, and ten basic events
+below. Three are AND gates, so no single failure stops the programme.
 The two OR branches are the month-nine gate and ownership test.
 ```
 
@@ -129,7 +129,7 @@ the macro applies, never inside it.
 
 - `funding/capitalization-plan/mermaid/fig-07-phase-gate-state-machine.md` - the four guards H1 is the failure of
 - `funding/capitalization-plan/mermaid/fig-13-twelve-milestone-calendar.md` - the twelve milestones the survival band counts
-- `funding/capitalization-plan/plantuml/fig-10-capital-firewall-guards.puml.md` - the two states H5 corresponds to
+- `funding/capitalization-plan/plantuml/fig-11-capital-firewall-guards.puml.md` - the two states H5 corresponds to
 - `funding/capitalization-plan/diagrams-python/fig-20-artifact-custody.md` - the public cluster the survival band relies on
 - `trial-protocol/` - the 3+3 de-escalation rule behind E03 and E04
 - 13 CFR 121.702 and 21 CFR §54.2, the two events beneath H5

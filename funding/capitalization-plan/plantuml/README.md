@@ -17,8 +17,8 @@ hold first, and what runs concurrently.
 | File | Figure | § | Construct | The question it answers |
 |:--|:--|:--|:--|:--|
 | [`fig-06-sponsor-site-boundary.puml.md`](fig-06-sponsor-site-boundary.puml.md) | 6 | 2 | use case, two boundaries | What may the company do alone, and what needs an institution? |
-| [`fig-10-capital-firewall-guards.puml.md`](fig-10-capital-firewall-guards.puml.md) | 10 | 4 | state with guards | Which capital positions may be held while a participant is on study? |
-| [`fig-15-milestone-evidence-activity.puml.md`](fig-15-milestone-evidence-activity.puml.md) | 15 | 5 | activity, fork and join | What three parties do at once to close one milestone? |
+| [`fig-11-capital-firewall-guards.puml.md`](fig-11-capital-firewall-guards.puml.md) | 11 | 4 | state with guards | Which capital positions may be held while a participant is on study? |
+| [`fig-14-milestone-evidence-activity.puml.md`](fig-14-milestone-evidence-activity.puml.md) | 14 | 5 | activity, fork and join | What three parties do at once to close one milestone? |
 
 ## Why three
 
@@ -35,12 +35,12 @@ of them and the reader never has to hold two permission models at once.
 
 | Defect class | How these three avoid it |
 |:--|:--|
-| Edge overlap | Figure 10's four firewall crossings are outbound and return pairs 4 mm apart at two fixed x values. Figure 15's single return edge is routed at x = -0.30, outside every branch column |
-| Over-density | Figure 6 splits twelve use cases across two boundaries of six, in two columns of three. Figure 15 splits ten steps across three branches. No rank carries more than five |
+| Edge overlap | Figure 11's four firewall crossings are outbound and return pairs 4 mm apart at two fixed x values. Figure 14's single return edge is routed at x = -0.30, outside every branch column |
+| Over-density | Figure 6 splits twelve use cases across two boundaries of six, in two columns of three. Figure 14 splits ten steps across three branches. No rank carries more than five |
 | Syntax hallucination | Every block is closed: `fork` with `end fork`, `if` with `endif`, `@startuml` with `@enduml`. `skinparam` sets colour, font and shadow only |
-| Guards in labels | Every guard is written on the transition as `[condition]`, never inside a state name. Figure 10's guards sit 3.4 mm above the line with a white fill |
+| Guards in labels | Every guard is written on the transition as `[condition]`, never inside a state name. Figure 11's guards sit 3.4 mm above the line with a white fill |
 | Boundary collision | Figure 6's three boundaries are separated by 9 mm corridors that carry no node, only crossing association lines |
-| Poor directionality | Figures 6 and 10 are drawn left to right. Figure 15 is the one figure in the paper drawn top down, because a fork and join is genuinely hierarchical in time |
+| Poor directionality | Figures 6 and 11 are drawn left to right. Figure 14 is the one figure in the paper drawn top down, because a fork and join is genuinely hierarchical in time |
 
 ## Palette
 
@@ -53,11 +53,11 @@ fill anywhere. The two fault-tree gate glyphs used elsewhere in the paper take
 
 | These figures use | From | For |
 |:--|:--|:--|
-| `trial-protocol/`, `trial-ind/`, `trial-phase-2/` | repository root | Figure 6's sponsor scope and Figure 15's retention obligations |
+| `trial-protocol/`, `trial-ind/`, `trial-phase-2/` | repository root | Figure 6's sponsor scope and Figure 14's retention obligations |
 | `UC-San-Diego/` | `../../potential-partners` | Figure 6's site scope and the missing CTA |
 | `final-apply/sections/sec-05-trial-evidence.tex` | `../../pdac-funding-applications` | Figure 6's ISGPS and DSMB assignments |
-| `final-apply/sections/sec-06-physical-ai-governance.tex` | `../../pdac-funding-applications` | Figure 15's hash-and-replay branch |
-| `final-apply/sections/sec-08-budget-and-leverage.tex` | `../../pdac-funding-applications` | Figure 10's cost-share framing |
+| `final-apply/sections/sec-06-physical-ai-governance.tex` | `../../pdac-funding-applications` | Figure 14's hash-and-replay branch |
+| `final-apply/sections/sec-08-budget-and-leverage.tex` | `../../pdac-funding-applications` | Figure 11's cost-share framing |
 | `Physical-AI-Oncology-Trial-Competition-Proposal.zip` | `../../supplementary/source-files` | Figure 6's January 13, 2026 baseline |
-| 21 CFR parts 54 and 312; 13 CFR 121.702 | codified | Figures 6, 10 and 15, every guard and every retention term |
+| 21 CFR parts 54 and 312; 13 CFR 121.702 | codified | Figures 6, 11, 14, every guard and every retention term |
 | `final-apply/applystyle.sty` | `../../pdac-funding-applications` | The `uml*` vocabulary and the `\umlactor` macro |

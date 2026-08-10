@@ -223,13 +223,24 @@ rather than a `.py` file, which keeps the three `lint-and-format` checks green.
 | 1 to 5 | [`mermaid/`](funding/capitalization-plan/mermaid) .. [`graphviz/`](funding/capitalization-plan/graphviz) | 20 figure specifications | source + TikZ notes |
 | 6 | [`draft-capital/`](funding/capitalization-plan/draft-capital) | Skeleton, 20 sized slots, drafting instructions | 0 errors, 32 pages |
 | 7 | [`full-capital/`](funding/capitalization-plan/full-capital) | 20 figures drawn, 21 tables | 0 errors, 43 pages |
-| 8 | [`final-capital/`](funding/capitalization-plan/final-capital) | Senior-author pass, no `publication/` | 0 errors, 42 pages |
+| 8 | [`final-capital/`](funding/capitalization-plan/final-capital) | Senior-author pass, no `publication/` | 0 errors, 44 pages |
 
 Every source set compiles with pdfLaTeX and BibTeX at zero errors, zero
 overfull boxes, zero underfull boxes, zero undefined citations, and zero
 undefined references. Every figure and every table carries an identical
 6.06 pt caption gap, produced by `\vspace{-0.65cm}` against a rigid 24.5 pt
 skip: 41 occurrences against 20 `\figcaption` plus 21 `\tabcap`.
+
+Stage 8 was followed by one update pass, driven by
+[`prompts/update-capital.md`](funding/capitalization-plan/prompts/update-capital.md).
+Every caption now opens with its own number, `Figure N.` or `Table N.`, on three
+centred lines; the twenty frames measure 306.00 pt against a 306 pt page centre
+and the forty-one captions sit within 0.53 pt of it, a centring defect in the
+style file having put every float 13.1 pt to the right of centre before; the
+reference list prints and links its 20 DOIs and 17 URLs, which `unsrt.bst` had
+been dropping; and every figure and table is referred to by number in the
+running text. Stages 6 and 7 are unchanged and remain the record of what they
+produced.
 
 ---
 
@@ -743,7 +754,7 @@ physical-ai-oncology-trials/
 ├── funding/                           # ★ ChemicalQDevice Capitalization Plan (v4.5.0)
 │   ├── README.md                      # funding hub: structure, DOIs, source map
 │   ├── capitalization-plan/           # v4.5.0 build, one eight-stage schedule
-│   │   ├── prompts/                   # prompt-capital.md (master, verbatim) + output-capital.md
+│   │   ├── prompts/                   # prompt-capital.md + update-capital.md + output-capital.md
 │   │   ├── sub-prompts/               # 8 stage sub-prompts, one directory each
 │   │   ├── mermaid/ plantuml/ d2/     # figure specifications, 5 + 3 + 5
 │   │   ├── diagrams-python/ graphviz/ # figure specifications, 3 + 4

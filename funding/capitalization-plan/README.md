@@ -63,6 +63,7 @@ funding/capitalization-plan/
 ├── prompts/
 │   ├── README.md
 │   ├── prompt-capital.md              the master prompt, verbatim
+│   ├── update-capital.md              the update prompt, verbatim
 │   └── output-capital.md              the full Claude Code output
 ├── sub-prompts/
 │   ├── README.md                      the eight-stage schedule
@@ -75,10 +76,10 @@ funding/capitalization-plan/
 │   ├── stage-7-full-capital/README.md
 │   └── stage-8-final-capital/README.md
 ├── mermaid/                           Figures 1, 7, 12, 13, 19
-├── plantuml/                          Figures 6, 10, 15
-├── d2/                                Figures 2, 5, 8, 11, 16
+├── plantuml/                          Figures 6, 11, 14
+├── d2/                                Figures 2, 5, 8, 10, 16
 ├── diagrams-python/                   Figures 4, 18, 20
-├── graphviz/                          Figures 3, 9, 14, 17
+├── graphviz/                          Figures 3, 9, 15, 17
 ├── draft-capital/                     stage 6: skeleton, 20 sized slots
 │   ├── main.tex  capstyle.sty  references.bib  README.md
 │   ├── sections/sec-00 .. sec-11.tex
@@ -90,8 +91,35 @@ funding/capitalization-plan/
 └── final-capital/                     stage 8: senior-author pass
     ├── main.tex  capstyle.sty  references.bib  README.md
     ├── sections/sec-00 .. sec-11.tex
+    ├── main.pdf                       44 pages, 0 overfull boxes
     └── final-capital-LaTeX.zip
 ```
+
+## The update pass
+
+One update pass followed the eight-stage build, driven by
+[`prompts/update-capital.md`](prompts/update-capital.md). It changed the paper
+in [`final-capital`](final-capital) and the documentation in this directory;
+[`draft-capital`](draft-capital) and [`full-capital`](full-capital) are the
+record of what stages 6 and 7 produced and are unchanged.
+
+| What changed | Where | Result |
+|:--|:--|:--|
+| Every caption opens with its own number | 20 `\figcaption`, 21 `\tabcap` | `Figure N.` and `Table N.`, three centred lines each |
+| Horizontal centring fixed at source | `final-capital/capstyle.sty` | All 20 frames at 306.00 pt, all 41 captions within 0.53 pt |
+| Four figures renumbered to printed order | §4 and §5 | 10 and 11 swapped, 14 and 15 swapped, everything moved with them |
+| Every float referred to in the running text | all twelve sections | 20 of 20 figures, 21 of 21 tables |
+| DOIs and URLs made clickable | `sec-11` and `capstyle.sty` | `unsrturl` in place of `unsrt`: 20 DOIs, 17 URLs, all linked |
+| The $36,330 figure described as projected | §2 and Table 17 | "projected", not "estimated" |
+| `main.pdf` and the zip rebuilt together | [`final-capital`](final-capital) | One pass, one source set, 44 pages |
+
+The horizontal-centring defect is worth stating plainly, because it had been
+invisible in the source and was only found by measuring the compiled PDF. Both
+caption carriers and the figure frame centred themselves with a leading and a
+trailing `\hfil`. TeX deletes a glue item that ends a paragraph, so the trailing
+one never survived, the leading one absorbed the whole slack, and every figure,
+table caption and figure caption in the paper sat 13.1 pt right of centre. All
+three carriers now close with `\null`.
 
 ## The twelve sections
 
@@ -123,12 +151,12 @@ funding/capitalization-plan/
 | 7 | 3 | Mermaid | The Phase I to Phase II award state machine and its four guards |
 | 8 | 3 | D2 | One programme, two prices, and the delta as a third column |
 | 9 | 3 | Graphviz | Work packages reachable at $306K, at $1.606M, and not at all |
-| 10 | 4 | PlantUML | The part 54 capital firewall as five states with guards |
-| 11 | 4 | D2 | Three capital tiers with the firewall drawn as the gap |
+| 10 | 4 | D2 | Three capital tiers with the firewall drawn as the gap |
+| 11 | 4 | PlantUML | The part 54 capital firewall as five states with guards |
 | 12 | 4 | Mermaid | Who signs what, in what order, during a financing event |
 | 13 | 5 | Mermaid | Thirty-three months, twelve milestones, twelve artifact dates |
-| 14 | 5 | Graphviz | What has to fail for the programme to stop, by combination |
-| 15 | 5 | PlantUML | Evidence production and audit running concurrently |
+| 14 | 5 | PlantUML | Evidence production and audit running concurrently |
+| 15 | 5 | Graphviz | What has to fail for the programme to stop, by combination |
 | 16 | 6 | D2 | Six published quantities with intervals a funder can check |
 | 17 | 6 | Graphviz | Published quantity to IND to protocol to milestone |
 | 18 | 7 | Diagrams | Where the 2.6 FTE, the compute, and the site functions sit |

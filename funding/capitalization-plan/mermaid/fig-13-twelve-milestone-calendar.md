@@ -6,12 +6,12 @@ and when the artifact that proves it exists.* No other figure carries the
 calendar; Figure 7 states the same interval as a state machine, which says what
 the award is doing but never how long.
 
-**Caption (three balanced lines, 63 to 65 characters).**
+**Caption (3 balanced lines, 67 to 69 characters, numbered as printed).**
 
 ```
-Thirty-three months, twelve milestones, and the artifact date on
-each. Phase I holds five at 306,000 dollars; Phase II holds seven
-at 1,300,000. The gate at month nine is the only hard boundary.
+Figure 13. Thirty-three months, twelve milestones, and the artifact
+date on each. Phase I holds five at 306,000 dollars; Phase II holds
+seven at 1,300,000. The gate at month nine is the only hard boundary.
 ```
 
 ## Mermaid source

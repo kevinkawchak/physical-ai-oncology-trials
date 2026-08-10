@@ -7,12 +7,12 @@ this paper runs an eligibility test; Figure 2 scores the company against the
 report's institutional-form table but assumes the clause has already been
 chosen.
 
-**Caption (three balanced lines, 63 to 65 characters).**
+**Caption (3 balanced lines, 66 to 69 characters, numbered as printed).**
 
 ```
-Three clauses of one report, four eligibility tests, and the only
-clause a San Diego firm with no indirect-cost base survives. The
-two that fail, fail on size, not on merit or on subject matter.
+Figure 1. Three clauses of one report, four eligibility tests, and
+the only clause a San Diego firm with no indirect-cost base survives.
+The two that fail, fail on size, not on merit or on subject matter.
 ```
 
 ## Mermaid source

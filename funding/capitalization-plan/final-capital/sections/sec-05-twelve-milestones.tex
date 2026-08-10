@@ -1,11 +1,17 @@
-% sec-05: outline item E.  Figures 13 (mermaid), 14 (graphviz), 15 (plantuml).
+% sec-05: outline item E.  Figures 13 (mermaid), 14 (plantuml), 15 (graphviz).
 % Tables 14 and 15 are keyed by the same twelve IDs.
-% FINAL stage improvements: Figure 13 is the one figure in the paper whose
-% optical centre sits left of its frame, because its left-hand lane titles are
-% narrow and its right-hand cost column is wide.  It is carried in the author's
-% \DiagramXShift adjustwidth wrapper, correction 11 of useredits.md, which
-% nudges the frame without touching the caption spacing.  Figure 14 gains a
-% gate-type legend; Figure 15 gains a branch owner on each column title.
+% FINAL stage improvements: Figure 14 gains a branch owner on each column title;
+% Figure 15 gains a gate-type legend.
+% Figure 13 no longer carries the author's \DiagramXShift adjustwidth wrapper,
+% correction 11 of useredits.md.  The wrapper was compensating for a defect in
+% capstyle.sty, where a caption or a frame ended its paragraph with glue that
+% \par then deleted, driving every float 13.1pt right of centre.  That is fixed
+% at source.  The wrapper was then measured at 0mm and still moved this figure
+% 1.86pt left of every other one, because adjustwidth is a list environment and
+% a list carries its own margin handling; removing it puts Figure 13 on 306.00pt
+% with the other nineteen.  The carrier itself is kept, documented and set to
+% 0mm at the foot of capstyle.sty, for the next figure that genuinely needs an
+% optical nudge.
 \section{Twelve Milestones a Program Officer Can Audit}
 
 \subsection{What an Auditable Milestone Is}
@@ -16,10 +22,10 @@ before the work begins, and a named funder mechanism that pays for it. All
 twelve rows below carry all four. The five Phase I rows sum to \$306,000 and the
 seven Phase II rows sum to \$1,300,000, both exactly, and a milestone table that
 does not sum to its award is the fastest way to lose a reader who has read
-several hundred of them.
+several hundred of them. Figure 13 places all twelve on the thirty-three month
+calendar with the artifact date marked on each.
 
 \begin{appfloat}[!tb]
-\begin{adjustwidth}{\DiagramXShift}{\dimexpr-\DiagramXShift\relax}
 \begin{appfig}[mermaid-type / gantt]
 % 33 months at 0.415cm per month.  Row pitch 0.52cm against a 0.36cm bar
 % height leaves 1.6mm of clear space between rows.  Row labels sit to the
@@ -63,14 +69,17 @@ several hundred of them.
   evidence artifact exists, not the date the work stops. The one-month dead band
   at the gate is real: M5 ends at month 9 and M6 begins at month 10.};
 \end{appfig}
-\end{adjustwidth}
 \vspace{-0.65cm}
-\figcaption{Thirty-three months, twelve milestones, and the artifact date on\\
-each. Phase I holds five at 306,000 dollars; Phase II holds seven\\
-at 1,300,000. The gate at month nine is the only hard boundary.}
+\figcaption{Figure 13. Thirty-three months, twelve milestones, and the artifact\\
+date on each. Phase I holds five at 306,000 dollars; Phase II holds\\
+seven at 1,300,000. The gate at month nine is the only hard boundary.}
 \end{appfloat}
 
 \subsection{The Twelve Rows}
+
+The rows are given twice. Table 14 carries the milestone, its month and its
+cost, and Table 15 keys the same twelve to what proves each one, what halts it,
+and which mechanism pays for it.
 
 \begin{apptable}
 \begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}p{0.9cm} >{\raggedright\arraybackslash}p{1.5cm} >{\raggedright\arraybackslash}X >{\raggedright\arraybackslash}p{1.7cm} >{\raggedright\arraybackslash}p{1.6cm}}
@@ -91,9 +100,9 @@ M12 & 30 to 33 & Closeout and public deposit & \$152,000 & Phase II \\
 \end{tabularx}
 \end{apptable}
 \vspace{-0.65cm}
-\tabcap{The twelve milestones with their months and cost. M1 to M5 sum to
-\$306,000 and M6 to M12 sum to \$1,300,000; the same twelve costs appear as work
-packages WP1 to WP12 in Figure 9.}
+\tabcap{Table 14. The twelve milestones with their months and cost. M1\\
+to M5 sum to \$306,000 and M6 to M12 sum to \$1,300,000; the same\\
+twelve costs appear as work packages WP1 to WP12 in Figure 9.}
 
 \begin{apptable}
 \begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}p{0.9cm} >{\raggedright\arraybackslash}p{4.2cm} >{\raggedright\arraybackslash}X >{\raggedright\arraybackslash}p{2.1cm}}
@@ -114,9 +123,9 @@ M12 & Zenodo deposit, report, repository tag & None; this is the terminal artifa
 \end{tabularx}
 \end{apptable}
 \vspace{-0.65cm}
-\tabcap{The same twelve rows keyed by ID, carrying what proves each milestone,
-what halts it, and which mechanism pays. Every stop condition is a number or a
-signed instrument; none is a judgement call.}
+\tabcap{Table 15. The same twelve rows keyed by ID, carrying what proves\\
+each milestone, what halts it, and which mechanism pays. Every stop\\
+condition is a number or a signed instrument; none is a judgement call.}
 
 M6 additionally requires that the trial be registered before the first
 participant is enrolled, and the registration record is part of that milestone's
@@ -127,6 +136,9 @@ milestone row here, deliberately. A milestone schedule that promised work no
 award pays for would not be auditable.
 
 \subsection{How a Milestone Is Closed}
+
+Figure 14 runs the three evidence branches of a single milestone concurrently
+and joins them before a program officer can audit anything.
 
 \begin{appfloat}[!tb]
 \begin{appfig}[plantuml-type / activity with fork and join]
@@ -180,8 +192,8 @@ award pays for would not be auditable.
   monitoring report proves a third party looked at both.};
 \end{appfig}
 \vspace{-0.65cm}
-\figcaption{One milestone, three concurrent evidence branches, and the join\\
-that has to close before a program officer can audit anything.\\
+\figcaption{Figure 14. One milestone, three concurrent evidence branches, and the\\
+join that has to close before a program officer can audit anything.\\
 The replay is the only step that can send a milestone backwards.}
 \end{appfloat}
 
@@ -193,6 +205,9 @@ is what joins the two, and it is written by somebody the company does not employ
 \cite{ecfr2026part312records}.
 
 \subsection{How the Programme Stops}
+
+Figure 15 puts one top event over five halt points and ten basic events, so a
+reader can see what has to fail, and in what combination, to stop the work.
 
 \begin{appfloat}[!tb]
 \begin{appfig}[graphviz-type / fault tree]
@@ -242,12 +257,12 @@ is what joins the two, and it is written by somebody the company does not employ
   regulatory and instrumental, the other is a fact about who owns the shares.};
 \end{appfig}
 \vspace{-0.65cm}
-\figcaption{One top event, five halt points, and ten basic events below.\\
-Three are AND gates, so no single failure stops the programme.\\
+\figcaption{Figure 15. One top event, five halt points, and ten basic events\\
+below. Three are AND gates, so no single failure stops the programme.\\
 The two OR branches are the month-nine gate and ownership test.}
 \end{appfloat}
 
-The two OR branches are the honest part of the figure. H1 fails on either a
+The two OR branches are the honest part of Figure 15. H1 fails on either a
 bench latency above 250 ms at the 95th percentile or an IND clinical hold; H5
 fails on either the founder falling below 50 percent or an investigator
 acquiring a \S54.2 interest. Neither is technical in the sense that more

@@ -1,16 +1,16 @@
-# Figure 11 - Three capital tiers and the two gaps between them
+# Figure 10 - Three capital tiers and the two gaps between them
 
 **Type.** d2-type, nested containers. **Section.** §4, Non-Dilutive to Dilutive
 Bridge. **Perspective.** *Where every dollar in the plan comes from, stacked by
 tier, with the firewall drawn as physical separation rather than as a policy
 sentence.* No other figure draws capital by source; Figure 8 draws it by
-purpose, and Figure 10 draws the rules that govern movement between these tiers.
+purpose, and Figure 11 draws the rules that govern movement between these tiers.
 
-**Caption (three balanced lines, 62 to 64 characters).**
+**Caption (3 balanced lines, 62 to 69 characters, numbered as printed).**
 
 ```
-Three capital tiers and the two gaps between them. Federal money
-at the base, contributed value unpriced in the middle, private
+Figure 10. Three capital tiers and the two gaps between them. Federal
+money at the base, contributed value unpriced in the middle, private
 capital above, and 5,900,000 against 1,606,000 is 3.67 to one.
 ```
 

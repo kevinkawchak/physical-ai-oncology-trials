@@ -1,6 +1,10 @@
-% sec-04: outline item D.  Figures 10 (plantuml), 11 (d2), 12 (mermaid).
-% FINAL stage improvements: Figure 11 names the milestone gate on each tier 3
-% instrument inside the tier box; Figure 10 marks the two prohibited states
+% sec-04: outline item D.  Figures 10 (d2), 11 (plantuml), 12 (mermaid).
+% The tier stack is Figure 10 and the firewall is Figure 11, because the tier
+% stack is drawn and discussed first; before stage 8 the two numbers were the
+% other way round and the compiled paper printed Figure 11 a page ahead of
+% Figure 10.
+% FINAL stage improvements: Figure 10 names the milestone gate on each tier 3
+% instrument inside the tier box; Figure 11 marks the two prohibited states
 % with an explicit prohibition glyph rather than only with a fill; Figure 12
 % carries the day number in a left margin column so the 30-day obligation is
 % readable off the figure.
@@ -15,6 +19,8 @@ that is 3.67 to one, against the FY 2028 annexed instruction that agencies
 target ``at least a 3:1 leverage of private to Federal investment''
 \cite{kratsiosvought2026fy2028priorities}. The ratio is reached before any
 contributed value is counted, which is the argument for counting it at zero.
+Figure 10 stacks the three tiers with the two firewalls drawn as the gaps
+between them rather than stated as policy sentences.
 
 \begin{appfloat}[!tb]
 \begin{appfig}[d2-type / nested containers]
@@ -77,8 +83,8 @@ contributed value is counted, which is the argument for counting it at zero.
   crossings.};
 \end{appfig}
 \vspace{-0.65cm}
-\figcaption{Three capital tiers and the two gaps between them. Federal money\\
-at the base, contributed value unpriced in the middle, private\\
+\figcaption{Figure 10. Three capital tiers and the two gaps between them. Federal\\
+money at the base, contributed value unpriced in the middle, private\\
 capital above, and 5,900,000 against 1,606,000 is 3.67 to one.}
 \end{appfloat}
 
@@ -97,7 +103,9 @@ were also a clinical investigator on the trial, every trigger in
 assigns the investigator role entirely to the site: the operating surgeon and
 the principal investigator are the site's employees, hold no ChemicalQDevice
 equity, receive no compensation tied to study outcome, and each files Form FDA
-3454 with a nil return \cite{fdafindisclosure2013}.
+3454 with a nil return \cite{fdafindisclosure2013}. Figure 11 draws every capital
+position the company may hold as a state, with the regulation guarding each
+transition written on the transition itself.
 
 \begin{appfloat}[!tb]
 \begin{appfig}[plantuml-type / state with guards]
@@ -144,10 +152,13 @@ equity, receive no compensation tied to study outcome, and each files Form FDA
   guard carries an elapsed-time term that no other guard has.};
 \end{appfig}
 \vspace{-0.65cm}
-\figcaption{The capital firewall as five states. Two of them, below the rule,\\
-may not be entered while a participant is on study. Every guard\\
-names its own regulation and the form the entry would require.}
+\figcaption{Figure 11. The capital firewall as five states. Two of them, below\\
+the rule, may not be entered while a participant is on study. Every\\
+guard names its own regulation and the form the entry would require.}
 \end{appfloat}
+
+Five triggers fire a disclosure and a sixth line certifies that none has. Table
+12 states each against its citation, its threshold, and the form it is filed on.
 
 \begin{apptable}
 \begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}X >{\raggedright\arraybackslash}p{2.2cm} >{\raggedright\arraybackslash}p{4.4cm} >{\raggedright\arraybackslash}p{1.5cm}}
@@ -162,9 +173,9 @@ No disclosable interest & 21 CFR \S54.4(a)(1) & Certification by the sponsor & 3
 \end{tabularx}
 \end{apptable}
 \vspace{-0.65cm}
-\tabcap{The five disclosure triggers and the certification that applies when
-none has fired. The disclosure period runs for the duration of the study and one
-year after its completion, which is why divestment alone does not clear S5.}
+\tabcap{Table 12. The five disclosure triggers and the certification that applies when\\
+none has fired. The disclosure period runs for the duration of the study and\\
+one year after its completion, which is why divestment alone does not clear S5.}
 
 \subsection{What the Firewall Actually Separates}
 
@@ -188,6 +199,9 @@ fixed fee meaningful; either alone would not be enough.
 
 \subsection{The Capitalization Table}
 
+Table 13 carries the capitalization across five stages and applies the ownership
+test at each, including the one stage that fails it.
+
 \begin{apptable}
 \begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}p{1.3cm} >{\raggedright\arraybackslash}X >{\raggedright\arraybackslash}p{2.0cm} >{\raggedright\arraybackslash}p{1.9cm} >{\raggedright\arraybackslash}p{2.3cm}}
 \headrow \thead{Stage} & \thead{Instrument and gate} & \thead{Cash raised} & \thead{Founder holding} & \thead{13 CFR 121.702 test}\\
@@ -200,9 +214,9 @@ fixed fee meaningful; either alone would not be enough.
 \end{tabularx}
 \end{apptable}
 \vspace{-0.65cm}
-\tabcap{Five capital stages and the ownership test at each. Stages 0 to 3 fall
-inside the thirty-three months this document covers and all four pass. Stage 4
-is shown because a plan that hid it would be less useful, not more.}
+\tabcap{Table 13. Five capital stages and the ownership test at each. Stages 0 to 3\\
+fall inside the thirty-three months this document covers and all four pass.\\
+Stage 4 is shown because a plan that hid it would be less useful, not more.}
 
 Stage 4 is the one that fails. A Series B at the size a Phase 2 would require
 takes the founder below 50 percent, and SBIR eligibility is then lost unless the
@@ -212,6 +226,9 @@ answer is not a structuring trick: stage 4 sits outside the thirty-three months
 this document covers, and no Phase II obligation extends into it.
 
 \subsection{The Sequence}
+
+Figure 12 orders the eleven messages of a financing round against the three
+lifelines no message in it reaches.
 
 \begin{appfloat}[!tb]
 \begin{appfig}[mermaid-type / sequence]
@@ -255,9 +272,9 @@ this document covers, and no Phase II obligation extends into it.
   dose.};
 \end{appfig}
 \vspace{-0.65cm}
-\figcaption{Eleven messages during a financing round, and the three lifelines\\
-no message reaches. Dose assignment, endpoint adjudication, and\\
-the analysis plan are untouched between term sheet and signature.}
+\figcaption{Figure 12. Eleven messages during a financing round, and the three\\
+lifelines no message reaches. Dose assignment, endpoint adjudication,\\
+and the analysis plan are untouched between term sheet and signature.}
 \end{appfloat}
 
 Two dates in that sequence are obligations rather than courtesies. The notice to

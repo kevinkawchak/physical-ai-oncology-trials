@@ -35,7 +35,7 @@ Identical to stage 1, with the source fence marked ```plantuml and delimited by
   `endif`. An unclosed block is a parse failure, not a layout problem.
 - `skinparam` may set colour and font only. Do not emit CSS, hex gradients, or
   a font the renderer will not have.
-- In Figure 10 the five states must be laid out on one horizontal spine so no
+- In Figure 11 the five states must be laid out on one horizontal spine so no
   transition arrow crosses a state box. Guards sit above their transition, at a
   stated vertical offset, never on the line itself.
 - Figure 6's two boundaries must not overlap. Reserve at least 8 mm of clear
@@ -43,4 +43,4 @@ Identical to stage 1, with the source fence marked ```plantuml and delimited by
   case shared by both in the corridor between them rather than inside either.
 - Do not copy `funding/pdac-funding-applications/plantuml/fig-05-actor-authority`
   or `fig-13-advisory-state-guards`. Figure 6 is about corporate and contractual
-  authority, not clinical authority. Figure 10 is about money, not advice.
+  authority, not clinical authority. Figure 11 is about money, not advice.

@@ -6,12 +6,12 @@ lacks, as four typed tables with an encumbrance field on every row.* No other
 figure enumerates the assets; Figure 4 draws the same four classes as physical
 zones, which shows the shape of the holding but not its terms.
 
-**Caption (three balanced lines, 62 to 65 characters).**
+**Caption (3 balanced lines, 65 to 70 characters, numbered as printed).**
 
 ```
-The asset register as four typed records. Thirteen rows are owned
-outright, three are licensed on public terms, seven are absent,
-and the contracted table has no rows at all as of August 2026.
+Figure 5. The asset register as four typed records. Thirteen rows
+are owned outright, three are licensed on public terms, seven are
+absent, and the contracted table has no rows at all as of August 2026.
 ```
 
 ## D2 source

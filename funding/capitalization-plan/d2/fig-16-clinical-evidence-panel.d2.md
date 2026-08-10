@@ -7,12 +7,12 @@ limitation its own authors stated.* No other figure carries clinical
 quantities; Figure 17 traces where each one goes, which is provenance rather
 than magnitude.
 
-**Caption (three balanced lines, 63 to 65 characters).**
+**Caption (3 balanced lines, 66 to 69 characters, numbered as printed).**
 
 ```
-Six quantities a reviewer can check against a published source,
-each beside its comparator and its stated limitation. Two are in
-silico, one is a digital twin, and three are trial or registry.
+Figure 16. Six quantities a reviewer can check against a published
+source, each beside its comparator and its stated limitation. Two are
+in silico, one is a digital twin, and three are trial or registry.
 ```
 
 ## D2 source

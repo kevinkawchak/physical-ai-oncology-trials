@@ -1,12 +1,19 @@
 % sec-11: abbreviations, availability, contributions, citation, references.
 % FINAL stage.  Every entry in the list below is cited from the body, so the
-% unsrt list is ordered by first appearance.  Every entry carrying a DOI prints
-% the DOI as text with a clickable target, and \UrlBreaks is re-asserted after
-% url and hyperref so no reference line runs past the right margin.
+% list is ordered by first appearance.  The style is unsrturl, not unsrt: unsrt
+% drops the doi and url fields that references.bib carries on every entry, which
+% is why the reference list used to print neither the DOI string nor a clickable
+% target.  unsrturl is unsrt entry for entry with those two fields restored, and
+% capstyle.sty marks the printed DOIs and URLs in the accent colour.  \UrlBreaks
+% is re-asserted after url and hyperref so no reference line runs past the right
+% margin.
 \section*{Back Matter}
 \phantomsection\addcontentsline{toc}{section}{Back Matter}
 
 \bmhead{Abbreviations}
+
+Table 21 expands every abbreviation this paper uses, in two column pairs at the
+body measure.
 
 \begin{apptable}
 \begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}p{1.5cm} >{\raggedright\arraybackslash}X >{\raggedright\arraybackslash}p{1.5cm} >{\raggedright\arraybackslash}X}
@@ -32,9 +39,9 @@ ISGPS & International Study Group of Pancreatic Surgery & VVUQ & Verification, v
 \end{tabularx}
 \end{apptable}
 \vspace{-0.65cm}
-\tabcap{Abbreviations used in this paper, set in two column pairs at the body
-measure. Trial-specific terms follow the definitions in the published Phase 1
-protocol rather than being redefined here.}
+\tabcap{Table 21. Abbreviations used in this paper, set in two column pairs\\
+at the body measure. Trial-specific terms follow the definitions\\
+in the published Phase 1 protocol rather than being redefined here.}
 
 \bmhead{Data and Code Availability}
 
@@ -76,6 +83,6 @@ Whipple (ChemicalQDevice). Zenodo. 2026; \dlink{10.5281/zenodo.xxxxxxxx}.
 \bmhead{References}
 \vspace{-0.35em}
 \begin{apprefs}
-\bibliographystyle{unsrt}
+\bibliographystyle{unsrturl}
 \bibliography{references}
 \end{apprefs}

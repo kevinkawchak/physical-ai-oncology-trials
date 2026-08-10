@@ -7,12 +7,12 @@ through this company's budgeted rate.* No other figure decomposes a cost;
 Figure 8 compares two programme scopes, which is a different question about a
 different pair of numbers.
 
-**Caption (three balanced lines, 64 to 65 characters).**
+**Caption (3 balanced lines, 64 to 74 characters, numbered as printed).**
 
 ```
-The same 1,396,000 of direct work priced three ways. A university
-F and A rate at 57 percent adds 741,000, the full SBIR allowance
-adds 695,000, and the rate this plan claims adds 210,000 in all.
+Figure 3. The same 1,396,000 of direct work priced three ways. A
+university F and A rate at 57 percent adds 741,000, the full SBIR
+allowance adds 695,000, and the rate this plan claims adds 210,000 in all.
 ```
 
 ## Graphviz source
