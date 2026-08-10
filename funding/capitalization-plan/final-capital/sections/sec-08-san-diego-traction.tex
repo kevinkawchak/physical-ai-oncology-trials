@@ -1,4 +1,7 @@
 % sec-08: the dated record.  Figure 19 (mermaid).
+% FINAL stage improvement: Figure 19 gains an eleven-day span marker across the
+% contact column, because the compression of the record into eleven days is
+% part of what the figure is reporting.
 \section{San Diego and the August 2026 Record}
 
 \subsection{Four Contacts, Dated}
@@ -50,6 +53,11 @@ a two-day seminar together with associated seminar events.
 \node[mmgoal,text width=30mm,minimum height=16mm] (m1) at (11.90,-2.84)
   {M1 site feasibility executed\\\$24,000, months 1 to 2};
 \node[mmlanetitle,anchor=south] at (0,0.92) {Dated contact};
+\draw[protoblue,line width=0.7pt] (-1.65,0) -- (-1.65,-5.68);
+\draw[protoblue,line width=0.7pt] (-1.75,0) -- (-1.55,0);
+\draw[protoblue,line width=0.7pt] (-1.75,-5.68) -- (-1.55,-5.68);
+\node[font=\tiny\sffamily\bfseries,text=protoblue,rotate=90,anchor=south] at (-1.80,-2.84)
+  {eleven days};
 \node[mmlanetitle,anchor=south] at (3.85,0.92) {Unlocked};
 \node[mmlanetitle,anchor=south] at (7.70,0.92) {Still not unlocked};
 \node[mmlanetitle,anchor=south] at (11.90,0.92) {Terminates at};
@@ -62,7 +70,7 @@ a two-day seminar together with associated seminar events.
 \draw[mmedged] (n4.east) to[bend right=12] (m1.west);
 \draw[mmedged] (n5.east) to[bend right=22] (m1.south west);
 \node[font=\tiny\itshape,text=protogray,anchor=north west,text width=132mm]
-  at (0,-6.85) {Rows 2 and 3 are drawn paler than the other three because they
+  at (-1.80,-6.85) {Rows 2 and 3 are drawn paler than the other three because they
   record correspondence rather than a meeting, and the distinction has to
   survive without reading the labels. All five arrows terminate at the same
   milestone and not one of the five closes it.};

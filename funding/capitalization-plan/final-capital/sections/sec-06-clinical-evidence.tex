@@ -1,4 +1,8 @@
 % sec-06: the quantitative case.  Figures 16 (d2), 17 (graphviz).
+% FINAL stage improvements: Figure 16's tier column is given a three-swatch
+% legend so tier is readable without the table; Figure 17's four ranks are
+% numbered, so a reader can follow one chain across the figure by number rather
+% than by tracing an edge.
 \section{The Clinical Evidence a Funder Is Buying}
 
 \subsection{Six Quantities a Reviewer Can Check}
@@ -70,6 +74,9 @@ that qualifies it, which is the condition on citing any of them.}
   \ptitle{0}{4.45}{Intervals where a source reports one}
 \end{scope}
 \ptitle{0}{0.62}{Six checkable quantities}
+\legkey{4.40}{0.66}{protowhite}{trial}
+\legkey{6.20}{0.66}{pagrayl}{in silico or twin}
+\legkey{9.20}{0.66}{protoblue}{peer-reviewed clinical readout}
 \node[d2cellk,text width=24mm,minimum height=9mm] at (13.10,-5.85)
   {2.4-fold simulated in 2025 against 2.0-fold observed in 2026};
 \node[font=\tiny\itshape,text=protogray,anchor=north west,text width=132mm]
@@ -140,7 +147,7 @@ applications and is carried forward here unchanged.
 \begin{scope}[on background layer]
 \node[gvcluster,fit=(q1)(q2)(q3)(q4)(q5),inner sep=6pt] (cq) {};
 \end{scope}
-\node[gvctitle,anchor=south west] at ([yshift=1mm]cq.north west) {Published quantity};
+\node[gvctitle,anchor=south west] at ([yshift=1mm]cq.north west) {Rank 1, published quantity};
 \foreach \i/\y/\a/\b in {7/-0.75/{IND 7}/{Previous human experience},
   6/-2.30/{IND 6}/{Pharmacology and toxicology},
   8/-3.85/{IND 8}/{Additional information},
@@ -149,7 +156,7 @@ applications and is carried forward here unchanged.
 \begin{scope}[on background layer]
 \node[gvcluster,fit=(n5)(n6)(n7)(n8),inner sep=6pt] (cn) {};
 \end{scope}
-\node[gvctitle,anchor=south west] at ([yshift=1mm]cn.north west) {IND section};
+\node[gvctitle,anchor=south west] at ([yshift=1mm]cn.north west) {Rank 2, IND section};
 \foreach \i/\y/\a/\b in {1/0/{Protocol 1}/{Background},
   3/-1.55/{Protocol 3}/{Dose rationale},
   9/-3.10/{Protocol 9}/{Statistical considerations},
@@ -159,7 +166,7 @@ applications and is carried forward here unchanged.
 \begin{scope}[on background layer]
 \node[gvcluster,fit=(r1)(r3)(r6)(r7)(r9),inner sep=6pt] (cr) {};
 \end{scope}
-\node[gvctitle,anchor=south west] at ([yshift=1mm]cr.north west) {Protocol section};
+\node[gvctitle,anchor=south west] at ([yshift=1mm]cr.north west) {Rank 3, protocol section};
 \foreach \i/\y/\a/\b/\c in {5/-0.40/{M5}/{IND amendment}/{FDA acknowledgment},
   4/-2.30/{M4}/{VVUQ freeze}/{SHA-256 manifest},
   3/-4.20/{M3}/{Bench verification}/{p95 latency table},
@@ -169,7 +176,7 @@ applications and is carried forward here unchanged.
 \node[gvcluster2,fit=(m3)(m4)(m5)(m8),inner sep=6pt] (cm) {};
 \end{scope}
 \node[gvctitle,text=protogray,anchor=south west] at ([yshift=1mm]cm.north west)
-  {Milestone and artifact};
+  {Rank 4, milestone and artifact};
 \draw[gvedgeb] (q1) -- node[font=\tiny,fill=protowhite,inner sep=1.2pt] {cited} (n7);
 \draw[gvedge] (q2) -- node[font=\tiny,fill=protowhite,inner sep=1.2pt] {informs} (n6);
 \draw[gvedge] (q3) -- node[font=\tiny,fill=protowhite,inner sep=1.2pt] {supports} (n8);

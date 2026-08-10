@@ -1,4 +1,7 @@
 % sec-07: the small-business operating plan.  Figure 18 (diagrams).
+% FINAL stage improvement: Figure 18's two boundary rules gain a direction mark
+% naming what may cross each, so the figure states its rule rather than
+% implying it from the absence of edges.
 \section{Small-Business Operating Plan}
 
 \subsection{Who Does the Work}
@@ -80,12 +83,16 @@ boundary, which is the point of contracting them.}
   {source verification} (9.55,-5.15);
 \draw[dgedged] (k1l.west) -- node[font=\tiny\sffamily,fill=protowhite,inner sep=1.5pt,pos=0.5]
   {locked analysis plan} (e5l.east);
-\node[font=\tiny\sffamily,text=protogray,anchor=north west,text width=30mm] at (0,-6.35)
+\node[font=\tiny\sffamily\bfseries,text=protoblue,fill=protowhite,inner sep=1.2pt,
+      anchor=north] at (5.15,-6.10) {crossing A: signed builds out, de-identified data in};
+\node[font=\tiny\sffamily\bfseries,text=protoblue,fill=protowhite,inner sep=1.2pt,
+      anchor=north] at (8.15,-6.55) {crossing B: fixed-fee work only};
+\node[font=\tiny\sffamily,text=protogray,anchor=north west,text width=30mm] at (0,-6.85)
   {No identified data crosses boundary A. The advisory model sits inside
   boundary B because it reads telemetry that is part of the medical record.};
-\pxmark{2.2}{-5.85}
+\pxmark{2.2}{-6.35}
 \node[font=\tiny\itshape,text=protogray,anchor=north west,text width=98mm]
-  at (3.4,-6.35) {The two contracted roles sit between the boundaries and inside
+  at (3.4,-6.85) {The two contracted roles sit between the boundaries and inside
   neither, which is the reason they are contracted rather than employed: a
   biostatistician inside the company would be a sponsor employee writing the
   analysis, and a monitor inside the site would not be independent.};
