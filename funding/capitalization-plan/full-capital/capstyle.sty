@@ -194,8 +194,14 @@
 % closing \unskip removes the interword space that the newline after
 % \end{tabularx} would otherwise contribute: without it every table sets one
 % space (0.25em, 2.74pt) past the right margin and reports as overfull.
+% RIGID SPACING, identical to the figure carrier.  apptable closes with the
+% same \vskip 24.5pt that appfig closes with and \tabcap opens with
+% \nointerlineskip, so the source order
+%     \end{apptable}  \vspace{-0.65cm}  \tabcap{...}
+% leaves exactly 24.5pt - 0.65cm = 6.06pt from the last rule to the first
+% caption line, for every table, exactly as for every figure.
 \newenvironment{apptable}{\par\addvspace{0.28em}\noindent\ignorespaces}%
-  {\unskip\par\addvspace{0.34em}}
+  {\unskip\par\nobreak\vskip 24.5pt\relax}
 % \thead{...} - the Corporate Blue header cell used by every table.
 \newcommand{\thead}[1]{\textcolor{protowhite}{\bfseries #1}}
 \newcommand{\headrow}{\rowcolor{protoblue}}
@@ -203,7 +209,7 @@
 % \tabcap{...} - a table caption, set to the same measure and idiom as
 % \figcaption so tables and figures read as one system.
 \newcommand{\tabcap}[1]{%
-  \par\nopagebreak
+  \nointerlineskip\par\nopagebreak
   {\setlength{\parskip}{0pt}\setlength{\parindent}{0pt}%
    \noindent\hfil
    \begin{minipage}{0.94\linewidth}\centering\footnotesize\itshape #1\end{minipage}%
@@ -235,13 +241,18 @@
 % ---------- would otherwise strand that space.  Wrapping the figure and its
 % ---------- caption in an appfloat lets running text close the page and sets
 % ---------- the figure at the head of the next one.
-\setcounter{topnumber}{3}
-\setcounter{bottomnumber}{2}
-\setcounter{totalnumber}{4}
-\renewcommand{\topfraction}{0.96}
-\renewcommand{\bottomfraction}{0.50}
-\renewcommand{\textfraction}{0.04}
-\renewcommand{\floatpagefraction}{0.92}
+% FLOAT BUDGET.  A figure in this paper is tall: the median is 8.2cm of canvas
+% plus a frame and a three-line caption.  With the parent work's topnumber of 3
+% two of them plus a full-width table were placed on one page, which overfilled
+% the vertical box by 143pt.  One float per page top, one per bottom, two in
+% total, and a float page that accepts a single figure.
+\setcounter{topnumber}{1}
+\setcounter{bottomnumber}{0}
+\setcounter{totalnumber}{1}
+\renewcommand{\topfraction}{0.86}
+\renewcommand{\bottomfraction}{0.0}
+\renewcommand{\textfraction}{0.08}
+\renewcommand{\floatpagefraction}{0.45}
 \setlength{\textfloatsep}{17pt plus 2pt minus 4pt}
 \setlength{\floatsep}{15pt plus 2pt minus 4pt}
 \setlength{\intextsep}{15pt plus 2pt minus 4pt}
@@ -261,7 +272,7 @@
   \end{tikzpicture}%
   \end{lrbox}%
   \setlength{\appmaxw}{\dimexpr\textwidth-26pt\relax}%
-  \setlength{\appmaxh}{0.70\textheight}%
+  \setlength{\appmaxh}{0.66\textheight}%
   \begin{lrbox}{\appfitted}%
     \adjustbox{max width=\appmaxw,max totalheight=\appmaxh}{\usebox{\appbox}}%
   \end{lrbox}%

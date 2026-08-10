@@ -1,1 +1,92 @@
-\section{Placeholder}
+% sec-09: risks, stop conditions, and the cost of the conversion.  No figure.
+\section{Risks, Stop Conditions, and What This Is Not}
+
+\subsection{What the Conversion Costs}
+
+Four things are worse about this document than about the ten it replaces. Each
+is stated first and answered second, in that order.
+
+\textbf{1. The individual-scientist framing is abandoned.} It is what made all
+ten prior applications distinctive, and it is the framing the report rewards
+most explicitly. The answer is that the framing was never the subject; the trial
+was. An entity applying under a person-based mechanism would be applying under
+the wrong clause, and \S1 shows the eligibility test it fails.
+
+\textbf{2. Capitalization detail is published that the author might prefer to
+keep private.} Table 13 states the founder's holding at each of five stages,
+Table 9 and Table 10 state every line of both budgets, and all of it is
+permanent under a DOI. The answer is that a milestone schedule with a redacted
+budget is not auditable, and an unauditable schedule is the thing this document
+exists to replace.
+
+\textbf{3. Three of the ten prior recipients will read this as off-mechanism.}
+The NIH Director's Pioneer Award and the HHMI Investigator Program are
+person-based, and the focused research organization route is
+organization-based and time-bound to dissolution. A company plan is the wrong
+document for all three. The answer is that it was always the wrong document for
+all three, and \S1 is the argument that it is the right one for the fourth.
+
+\textbf{4. A financing paper is not a scientific publication and fits no
+journal.} It has no hypothesis, no method, and no result in the sense a journal
+uses those words. The answer is that Zenodo is the correct venue for it and the
+only one claimed, and that the paper is labelled a plan on its cover.
+
+\subsection{The Risk Register}
+
+\begin{apptable}
+\begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}p{3.4cm} >{\raggedright\arraybackslash}p{1.5cm} >{\raggedright\arraybackslash}p{1.9cm} >{\raggedright\arraybackslash}X}
+\headrow \thead{Risk} & \thead{Attaches to} & \thead{Likelihood} & \thead{Mitigation, and whether it exists today}\\
+\midrule
+Site agreement does not execute & H4, G4, M1 & High & None today. Requires an executed CTA that no company action produces \\
+IND clinical hold issued & H1, G3, M5 & Low & The IND package is drafted and deposited; the 30-day clock is the only unknown \\
+Two of three DLTs at dose level 1 & H2, M8 & Moderate & Exists: 3+3 de-escalation is written into the protocol with a defined dose range \\
+Phase II award is not made & H3, M6 & Moderate & Exists: the Descoped state resubmits at three participants rather than six \\
+Founder falls below 50 percent & H5, stage 4 & Low inside 33 months & Exists: every tier 3 instrument is gated behind a milestone, and stage 4 sits outside the plan \\
+Investigator acquires a \S54.2 interest & H5 & Low & Exists: the investigator role is assigned wholly to the site and each files Form 3454 \\
+Advisory output mistaken for a directive & M7 & Moderate & Exists: the model is confined to advisory output and every arrow reaching the robot leaves a human first \\
+Bench p95 latency above 250 ms & H1, G1, M3 & Low & Exists: the interlock rig is a Phase I deliverable measured before any participant \\
+The 81.9 credibility score fails to reproduce & M4, WP15 & Low & Partial: the suite is hashed at M4, but the full re-run is WP15 and is unfunded at \$1,606,000 \\
+No alternate San Diego site accepts & H4 & Moderate & None today. The plan names one site and holds no fallback agreement \\
+\end{tabularx}
+\end{apptable}
+\vspace{-0.65cm}
+\tabcap{Ten risks, the halt point or milestone each attaches to, and whether the
+mitigation exists today or is merely planned. Three rows read none today or
+partial, and those three are the honest content of the table.}
+
+Three rows carry no mitigation that exists today, and they are worth reading
+together. Two of the three are the same thing seen twice: the plan depends on
+one institution and holds no alternative. The third, the verification re-run, is
+unfunded because it sits in the \$2,104,000 that the SBIR route does not reach,
+which is exactly the kind of consequence \S3 exists to make visible rather than
+to bury.
+
+\subsection{What This Document Is Not}
+
+It is not a submission of record. It is not an agreement with UC San Diego,
+Moores Cancer Center, or any other institution, and no agreement of any kind
+exists. It is not a completed raise: no term sheet, simple agreement for future
+equity, or subscription agreement exists, and every capitalization figure in
+Table 13 is a plan. It is not a claim that daraxonrasib is first in human; the
+agent is investigational and already in Phase 3 evaluation. It is not medical or
+regulatory advice. No robotic configuration has been specified or cleared. No
+patient has been treated.
+
+\subsection{The Two Single Points of Failure}
+
+Figure 14 makes them visible, and a reader who has skipped the figure should
+still meet them here.
+
+H1, the month-nine gate, is an OR branch. It fails on either a bench stop
+latency above 250 ms at the 95th percentile or an IND clinical hold. Either
+alone ends Phase I without a Phase II request.
+
+H5, the ownership test, is the other OR branch. It fails on either the founder
+falling below 50 percent or a clinical investigator acquiring an interest under
+21 CFR \S54.2. Either alone breaks the eligibility the whole plan rests on.
+
+Neither is technical in the sense that more engineering fixes it. One is
+regulatory and instrumental; the other is a fact about who owns the shares. Both
+are knowable in advance and both are measured before they can do damage, and
+that is the only reason a schedule with two single points of failure is worth
+putting in front of a program officer at all.
