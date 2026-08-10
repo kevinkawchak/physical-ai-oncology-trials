@@ -1,18 +1,21 @@
-# funding - ChemicalQDevice PDAC Trial Funding (repository v4.4.0)
+# funding - ChemicalQDevice PDAC Trial Funding (repository v4.5.0)
 
 [![License](https://img.shields.io/badge/License-CC%20BY%204.0-yellow.svg)](https://creativecommons.org/licenses/by/4.0/)
 [![Applications](https://img.shields.io/badge/Applications-12%20total-00417A.svg)](pdac-funding-applications/applications)
 [![Policy basis](https://img.shields.io/badge/Policy-Science%3A%20A%20New%20Golden%20Age-3C7DB2.svg)](science-golden-age)
 [![Partner of choice](https://img.shields.io/badge/Partner-UC%20San%20Diego%20Moores-6C757D.svg)](potential-partners/UC-San-Diego)
-[![Repository](https://img.shields.io/badge/Repository-v4.4.0-6C757D.svg)](../README.md)
+[![Repository](https://img.shields.io/badge/Repository-v4.5.0-6C757D.svg)](../README.md)
+[![Capitalization plan](https://img.shields.io/badge/v4.5.0-Capitalization%20Plan-00417A.svg)](capitalization-plan)
 [![DOI v2.0](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.21317266-blue.svg)](https://doi.org/10.5281/zenodo.21317266)
 [![DOI v1.0](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.21232965-blue.svg)](https://doi.org/10.5281/zenodo.21232965)
 
 Everything the *Daraxonrasib Phase 1 LLM-Directed Robotic Whipple in
 KRAS-Mutated PDAC* programme uses to ask for money: two completed NIH
-applications with DOIs, ten new independent-scientist application file sets, the
-White House policy corpus they are written against, the partner-site research,
-and the supplementary source sets that supply their quantitative evidence.
+applications with DOIs, ten independent-scientist application file sets, the
+company-conversion capitalization plan that rewrites the one of those ten
+addressed to a company mechanism, the White House policy corpus they are all
+written against, the partner-site research, and the supplementary source sets
+that supply their quantitative evidence.
 
 ---
 
@@ -34,6 +37,10 @@ funding/
     prompts/  sub-prompts/  applications/
     mermaid/  plantuml/  d2/  diagrams-python/  graphviz/
     draft-apply/  full-apply/  final-apply/
+  capitalization-plan/            v4.5.0: the ChemicalQDevice conversion paper
+    prompts/  sub-prompts/
+    mermaid/  plantuml/  d2/  diagrams-python/  graphviz/
+    draft-capital/  full-capital/  final-capital/
   daraxonrasib-llm-story.md       June 2025 to July 2026 drug chronology
   tripartisan-llm-support.md      The three frontier-model roles
 ```
