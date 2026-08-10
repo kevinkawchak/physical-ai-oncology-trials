@@ -1,1 +1,66 @@
-\section{Placeholder}
+% sec-05: outline item E.  Figures 13 (mermaid), 14 (graphviz), 15 (plantuml).
+% Table 13 is the single artifact most likely to convert an inquiry into a call.
+\section{Twelve Milestones a Program Officer Can Audit}
+
+\subsection{What an Auditable Milestone Is}
+
+\draftinstr{Four sentences defining the contract this section offers. A
+milestone is auditable only if it carries four things: an evidence artifact that
+exists as a file, a cost that sums into its phase, a stop condition stated
+before the work begins, and a named funder mechanism that pays for it. State
+that all twelve rows carry all four, and that the two phase totals are exact.}
+
+\figslot{mermaid-type / gantt}{7.4}{Thirty-three months, twelve milestones, and
+the artifact date on\\each. Phase I holds five at 306,000 dollars; Phase II
+holds seven\\at 1,300,000. The gate at month nine is the only hard boundary.}
+
+\subsection{The Twelve Rows}
+
+\draftinstr{Set Table 13, the central artifact of the paper. Six columns: ID,
+months, milestone, cost, evidence artifact, stop condition. Twelve rows. The
+first five must sum to \$306,000 and the last seven to \$1,300,000. Every row's
+data is in
+\appfile{funding/capitalization-plan/mermaid/fig-13-twelve-milestone-calendar.md}
+and every stop condition must be a number or a signed instrument, never a
+judgement. Because this table is wide, cut it as
+\texttt{p\{0.8cm\} p\{1.4cm\} X p\{1.6cm\}} for the first four columns and set
+the evidence artifact and stop condition as a second table, Table 14, keyed by
+the same twelve IDs, rather than compressing six columns into one measure.}
+
+\draftinstr{Set Table 14: twelve rows keyed by milestone ID, three columns for
+evidence artifact, stop condition, and the funder mechanism that pays. The
+mechanism column takes four values only: SBIR Phase I, SBIR Phase II, the
+\$2,104,000 delta, and contributed. Source:
+\appfile{funding/capitalization-plan/graphviz/fig-09-work-package-dag.gv.md}
+for the mechanism assignment, which must agree with WP1 to WP12.}
+
+\subsection{How a Milestone Is Closed}
+
+\figslot{plantuml-type / activity with fork}{10.4}{One milestone, three
+concurrent evidence branches, and the join\\that has to close before a program
+officer can audit anything.\\The replay is the only step that can send a
+milestone backwards.}
+
+\draftinstr{After Figure 15, one paragraph on why all three branches must join
+before an audit can begin: the hash proves the artifact has not moved, the
+source record proves it describes something that happened, and the monitoring
+report proves a third party looked at both. Any one alone is a claim, not
+evidence. Source:
+\appfile{funding/capitalization-plan/plantuml/fig-15-milestone-evidence-activity.puml.md}
+and \appfile{funding/pdac-funding-applications/final-apply/sections/sec-06-physical-ai-governance.tex}.
+Cite \texttt{ecfr2026part312records}.}
+
+\subsection{How the Programme Stops}
+
+\figslot{graphviz-type / fault tree}{8.6}{One top event, five halt points, and
+ten basic events below.\\Three are AND gates, so no single failure stops the
+programme.\\The two OR branches are the month-nine gate and ownership test.}
+
+\draftinstr{After Figure 14, two paragraphs. The first names the two OR branches
+as the honest part of the figure: H1 and H5 are the only single points of
+failure and neither is technical. The second explains why the top event is a
+stop \emph{without a deposited archive} rather than a stop, and walks the
+survival band: at every halt point the archive is already deposited for every
+closed milestone, so reaching the top event requires a halt plus a failure to
+deposit. Forward-reference Figure 20. Source:
+\appfile{funding/capitalization-plan/graphviz/fig-14-stop-condition-fault-tree.gv.md}.}
