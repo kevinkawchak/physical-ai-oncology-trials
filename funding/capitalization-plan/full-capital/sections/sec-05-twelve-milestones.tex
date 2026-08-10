@@ -1,1 +1,243 @@
-\section{Placeholder}
+% sec-05: outline item E.  Figures 13 (mermaid), 14 (graphviz), 15 (plantuml).
+% Tables 13 and 14 are keyed by the same twelve IDs.
+\section{Twelve Milestones a Program Officer Can Audit}
+
+\subsection{What an Auditable Milestone Is}
+
+A milestone is auditable only if it carries four things: an evidence artifact
+that exists as a file, a cost that sums into its phase, a stop condition stated
+before the work begins, and a named funder mechanism that pays for it. All
+twelve rows below carry all four. The five Phase I rows sum to \$306,000 and the
+seven Phase II rows sum to \$1,300,000, both exactly, and a milestone table that
+does not sum to its award is the fastest way to lose a reader who has read
+several hundred of them.
+
+\begin{appfloat}[!tb]
+\begin{appfig}[mermaid-type / gantt]
+% 33 months at 0.415cm per month.  Row pitch 0.52cm against a 0.36cm bar
+% height leaves 1.6mm of clear space between rows.  Row labels sit to the
+% right of their own bar and never above it.
+\foreach \m/\lab in {0/{month 0}, 6/{6}, 12/{12}, 18/{18}, 24/{24}, 30/{30}, 33/{33}}{
+  \draw[pagraym,line width=0.3pt] (\m*0.415,0.36) -- (\m*0.415,-6.35);
+  \node[font=\tiny\sffamily,text=protogray,anchor=south] at (\m*0.415,0.39) {\lab};}
+\foreach \i/\y/\s/\w/\lab/\cost in {%
+  1/0/1/1/{M1 site feasibility executed}/{\$24,000},
+  2/-0.52/2/2/{M2 IRB submission accepted}/{\$31,000},
+  3/-1.04/3/3/{M3 interlock bench verification}/{\$96,000},
+  4/-1.56/4/3/{M4 VVUQ suite frozen and hashed}/{\$73,000},
+  5/-2.08/6/3/{M5 IND amendment safe to proceed}/{\$82,000}}{
+  \node[mmbar,minimum width={\w*0.415cm},anchor=west] at ({\s*0.415},\y) {};
+  \node[mmdec,text width=2mm,minimum height=1mm,scale=0.30] at ({(\s+\w)*0.415},\y) {};
+  \node[font=\tiny\sffamily,anchor=west] at ({(\s+\w)*0.415+0.16},\y) {\lab};
+  \node[d2cell,minimum width=15mm,text width=12mm,minimum height=4.2mm,anchor=east]
+       at (14.35,\y) {\cost};}
+\draw[pagrayd,line width=0.5pt] (0,-2.47) -- (14.35,-2.47);
+\node[font=\tiny\sffamily\bfseries,anchor=east] at (14.35,-2.35) {Phase I total \$306,000};
+\foreach \i/\y/\s/\w/\lab/\cost in {%
+  6/-2.86/10/3/{M6 first participant dosed}/{\$164,000},
+  7/-3.38/12/4/{M7 first advised robotic Whipple}/{\$228,000},
+  8/-3.90/15/5/{M8 dose level 1 cleared, n is 3}/{\$196,000},
+  9/-4.42/18/6/{M9 audit replay to a third party}/{\$131,000},
+  10/-4.94/22/6/{M10 dose level 2 cleared, n is 6}/{\$242,000},
+  11/-5.46/26/5/{M11 interim PK, PD and ctDNA}/{\$187,000},
+  12/-5.98/30/3/{M12 closeout and public deposit}/{\$152,000}}{
+  \node[mmbark,minimum width={\w*0.415cm},anchor=west] at ({\s*0.415},\y) {};
+  \node[mmdec,text width=2mm,minimum height=1mm,scale=0.30] at ({(\s+\w)*0.415},\y) {};
+  \node[font=\tiny\sffamily,anchor=west] at ({(\s+\w)*0.415+0.16},\y) {\lab};
+  \node[d2cell,fill=pablue2,minimum width=15mm,text width=12mm,minimum height=4.2mm,anchor=east]
+       at (14.35,\y) {\cost};}
+\draw[protoblue,line width=1pt,dashed] (3.735,0.55) -- (3.735,-6.35);
+\node[font=\tiny\sffamily\bfseries,text=protoblue,anchor=south] at (3.735,0.58) {gate, month 9};
+\node[font=\tiny\sffamily\bfseries,anchor=east] at (14.35,-6.32) {Phase II total \$1,300,000};
+\node[mmlanetitle,anchor=east,align=right] at (-0.15,-1.04) {Phase I};
+\node[mmlanetitle,anchor=east,align=right] at (-0.15,-4.42) {Phase II};
+\node[font=\tiny\itshape,text=protogray,anchor=north west,text width=132mm]
+  at (-1.35,-6.80) {The diamond at the right end of each bar is the date the
+  evidence artifact exists, not the date the work stops. The one-month dead band
+  at the gate is real: M5 ends at month 9 and M6 begins at month 10.};
+\end{appfig}
+\vspace{-0.65cm}
+\figcaption{Thirty-three months, twelve milestones, and the artifact date on\\
+each. Phase I holds five at 306,000 dollars; Phase II holds seven\\
+at 1,300,000. The gate at month nine is the only hard boundary.}
+\end{appfloat}
+
+\subsection{The Twelve Rows}
+
+\begin{apptable}
+\begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}p{0.9cm} >{\raggedright\arraybackslash}p{1.5cm} >{\raggedright\arraybackslash}X >{\raggedright\arraybackslash}p{1.7cm} >{\raggedright\arraybackslash}p{1.6cm}}
+\headrow \thead{ID} & \thead{Months} & \thead{Milestone} & \thead{Cost} & \thead{Phase}\\
+\midrule
+M1 & 1 to 2 & Site feasibility executed & \$24,000 & Phase I \\
+M2 & 2 to 4 & IRB submission accepted & \$31,000 & Phase I \\
+M3 & 3 to 6 & Interlock rig bench verification & \$96,000 & Phase I \\
+M4 & 4 to 7 & VVUQ suite frozen and hashed & \$73,000 & Phase I \\
+M5 & 6 to 9 & IND amendment safe to proceed & \$82,000 & Phase I \\
+M6 & 10 to 13 & First participant dosed & \$164,000 & Phase II \\
+M7 & 12 to 16 & First advised robotic Whipple completed & \$228,000 & Phase II \\
+M8 & 15 to 20 & Dose level 1 cleared, three participants & \$196,000 & Phase II \\
+M9 & 18 to 24 & Audit replay demonstrated to a third party & \$131,000 & Phase II \\
+M10 & 22 to 28 & Dose level 2 cleared, six participants & \$242,000 & Phase II \\
+M11 & 26 to 31 & Interim PK, PD and ctDNA readout & \$187,000 & Phase II \\
+M12 & 30 to 33 & Closeout and public deposit & \$152,000 & Phase II \\
+\end{tabularx}
+\end{apptable}
+\tabcap{The twelve milestones with their months and cost. M1 to M5 sum to
+\$306,000 and M6 to M12 sum to \$1,300,000; the same twelve costs appear as work
+packages WP1 to WP12 in Figure 9.}
+
+\begin{apptable}
+\begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}p{0.9cm} >{\raggedright\arraybackslash}p{4.2cm} >{\raggedright\arraybackslash}X >{\raggedright\arraybackslash}p{2.1cm}}
+\headrow \thead{ID} & \thead{Evidence artifact} & \thead{Stop condition} & \thead{Mechanism}\\
+\midrule
+M1 & Countersigned feasibility memorandum & No site by month 4; Phase I withdrawn & SBIR Phase I \\
+M2 & IRB acknowledgment and protocol v1.0 & Two rejections; protocol re-scoped & SBIR Phase I \\
+M3 & 200-run latency report with p95 table & p95 above 250 ms; no first-in-human & SBIR Phase I \\
+M4 & VVUQ report and SHA-256 manifest & Any credibility factor below its gate & SBIR Phase I \\
+M5 & FDA acknowledgment, 30-day clock closed & Clinical hold; Phase II not requested & SBIR Phase I \\
+M6 & Consent, dispensing record, day-1 CRF & No enrollment by month 15; descope to three & SBIR Phase II \\
+M7 & Operative note, advisory log, replay bundle & Any advisory override event; advisory read-only & SBIR Phase II \\
+M8 & DSMB minutes and safety table & Two of three DLTs; de-escalate & SBIR Phase II \\
+M9 & Replay record and hash-match certificate & Any non-reproducible record; hold enrollment & SBIR Phase II \\
+M10 & Cumulative safety table, ISGPS grades & Grade B or C fistula above 30 percent & SBIR Phase II \\
+M11 & PK report and ctDNA clearance table & No target engagement at dose level 2 & SBIR Phase II \\
+M12 & Zenodo deposit, report, repository tag & None; this is the terminal artifact & SBIR Phase II \\
+\end{tabularx}
+\end{apptable}
+\tabcap{The same twelve rows keyed by ID, carrying what proves each milestone,
+what halts it, and which mechanism pays. Every stop condition is a number or a
+signed instrument; none is a judgement call.}
+
+Everything in the \$2,104,000 delta of \S3 lies beyond M12 and carries no
+milestone row here, deliberately. A milestone schedule that promised work no
+award pays for would not be auditable.
+
+\subsection{How a Milestone Is Closed}
+
+\begin{appfloat}[!tb]
+\begin{appfig}[plantuml-type / activity with fork and join]
+% Top down, because a fork and join is genuinely hierarchical in time.  Branch
+% pitch 5.35cm horizontal, 1.00cm vertical.  The one return edge is routed at
+% x = -0.30, outside the leftmost branch column.
+\node[umlinit] (p0) at (6.90,0.35) {};
+\node[umlbox,text width=34mm] (p1) at (6.90,-0.40) {milestone work executes};
+\node[umlbar,minimum width=88mm] (fk) at (6.90,-1.30) {};
+\foreach \i/\y/\lab in {1/-2.10/{company produces artifact}, 2/-3.10/{hash with SHA-256},
+  3/-4.10/{deposit to repository}, 4/-5.10/{tag the release}}{
+  \node[umlbox,text width=27mm] (A\i) at (1.55,\y) {\lab};}
+\foreach \i/\y/\lab in {1/-2.10/{site produces source record}, 2/-3.10/{investigator signs it},
+  3/-4.10/{retain in the site file}}{
+  \node[umlbox,text width=27mm] (B\i) at (6.90,\y) {\lab};}
+\foreach \i/\y/\lab in {1/-2.10/{independent monitor visits}, 2/-3.10/{verify source to artifact},
+  3/-4.10/{write monitoring report}}{
+  \node[umlbox,text width=27mm] (C\i) at (12.25,\y) {\lab};}
+\node[d2title,anchor=south] at (1.55,-1.72) {A, company};
+\node[d2title,anchor=south] at (6.90,-1.72) {B, site};
+\node[d2title,anchor=south] at (12.25,-1.72) {C, independent};
+\node[umlbar,minimum width=88mm] (jn) at (6.90,-5.90) {};
+\node[umlkey,text width=34mm] (p2) at (6.90,-6.70) {artifact bundle complete};
+\node[mmdec,text width=20mm] (d1) at (6.90,-7.95) {audit requested?};
+\node[mmdec,text width=20mm] (d2) at (3.10,-9.35) {hash matches?};
+\node[umlstateon,text width=26mm] (ok) at (10.90,-9.35) {milestone accepted};
+\node[umlstategray,text width=26mm] (re) at (0.55,-10.65) {milestone reopened};
+\node[umlfinal] (p9) at (13.45,-10.65) {};
+\draw[umlarrow] (p0) -- (p1);
+\draw[umlarrow] (p1) -- (fk);
+\foreach \x in {1.55,6.90,12.25}{\draw[umlarrow] (\x,-1.36) -- (\x,-1.90);}
+\draw[umlarrow] (A1) -- (A2); \draw[umlarrow] (A2) -- (A3); \draw[umlarrow] (A3) -- (A4);
+\draw[umlarrow] (B1) -- (B2); \draw[umlarrow] (B2) -- (B3);
+\draw[umlarrow] (C1) -- (C2); \draw[umlarrow] (C2) -- (C3);
+\draw[umlarrow] (1.55,-5.42) -- (1.55,-5.84);
+\draw[umlarrow] (6.90,-4.42) -- (6.90,-5.84);
+\draw[umlarrow] (12.25,-4.42) -- (12.25,-5.84);
+\draw[umlarrow] (jn) -- (p2);
+\draw[umlarrow] (p2) -- (d1);
+\draw[umlarrow] (d1.west) -- node[umlguard,pos=0.5] {[yes]} (d2.north east);
+\draw[umlarrow] (d1.east) -- node[umlguard,pos=0.5] {[no, next report]} (ok.north west);
+\draw[umlarrow] (d2.east) -- node[umlguard,pos=0.45] {[match]} (ok.west);
+\draw[umlarrow] (d2.west) -- node[umlguard,pos=0.5] {[no match]} (re.north);
+\draw[umldash] (re.west) to[bend left=36]
+  node[umlguard,pos=0.5] {[rework]} (p1.west);
+\draw[umlarrow] (ok) -- (p9);
+\node[font=\tiny\itshape,text=protogray,anchor=north west,text width=132mm]
+  at (-0.30,-11.55) {All three branches must join before an audit can begin,
+  because an audit compares them: the hash proves the artifact has not moved,
+  the source record proves it describes something that happened, and the
+  monitoring report proves a third party looked at both.};
+\end{appfig}
+\vspace{-0.65cm}
+\figcaption{One milestone, three concurrent evidence branches, and the join\\
+that has to close before a program officer can audit anything.\\
+The replay is the only step that can send a milestone backwards.}
+\end{appfloat}
+
+Any one branch alone is a claim rather than evidence. A hash with no source
+record proves that a file has not changed and says nothing about whether it
+describes an event. A source record with no hash proves an event occurred and
+says nothing about whether the artifact still matches it. The monitoring report
+is what joins the two, and it is written by somebody the company does not employ
+\cite{ecfr2026part312records}.
+
+\subsection{How the Programme Stops}
+
+\begin{appfloat}[!tb]
+\begin{appfig}[graphviz-type / fault tree]
+% Strictly layered across five ranks.  No edge skips more than one rank.  The
+% five halt-to-gate edges are fanned across a 1.2cm span on the top gate's
+% underside so their arrowheads are 3mm apart.
+\node[gvboxk,text width=46mm] (top) at (7.10,0) {Programme stops before M12 without a deposited archive};
+\umlgateor{7.10}{-1.05}
+\draw[gvedge] (7.10,-0.79) -- (top.south);
+\foreach \i/\x/\lab in {1/0.75/{H1 gate halt, month 9}, 2/4.00/{H2 safety halt, month 20},
+  3/7.10/{H3 capital halt, month 22}, 4/10.20/{H4 site halt, month 6},
+  5/13.45/{H5 ownership halt, any month}}{
+  \node[gvboxs,text width=22mm] (h\i) at (\x,-2.45) {\lab};}
+\foreach \i/\dx in {1/-0.60, 2/-0.30, 3/0, 4/0.30, 5/0.60}{
+  \draw[gvedge] (h\i.north) -- ({7.10+\dx},-1.35);}
+\umlgateor{0.75}{-3.55}
+\umlgateand{4.00}{-3.55}
+\umlgateand{7.10}{-3.55}
+\umlgateand{10.20}{-3.55}
+\umlgateor{13.45}{-3.55}
+\foreach \x in {0.75,4.00,7.10,10.20,13.45}{\draw[gvedge] (\x,-3.29) -- (\x,-2.72);}
+\foreach \x/\a/\b in {0.75/{Bench p95 above 250 ms}/{IND clinical hold issued},
+  4.00/{2 of 3 DLTs at dose level 1}/{De-escalation exhausts the range},
+  7.10/{Phase II award not made}/{Seed round unsigned by month 22},
+  10.20/{CTA not executed by month 6}/{No alternate San Diego site},
+  13.45/{Founder falls below 50 percent}/{Investigator acquires 54.2 interest}}{
+  \node[gvboxg,text width=19mm] at ({\x-0.95},-5.05) {\a};
+  \node[gvboxg,text width=19mm] at ({\x+0.95},-5.05) {\b};
+  \draw[gvedge] ({\x-0.95},-4.60) -- ({\x-0.28},-3.82);
+  \draw[gvedge] ({\x+0.95},-4.60) -- ({\x+0.28},-3.82);}
+\draw[pagrayd,line width=0.5pt] (-0.40,-6.05) -- (14.60,-6.05);
+\node[font=\tiny\sffamily\bfseries,text=protoblue,anchor=west] at (-0.40,-6.30)
+  {Already deposited at each halt:};
+\foreach \x/\lab in {0.75/{M1 to M4}, 4.00/{M1 to M8}, 7.10/{M1 to M9},
+  10.20/{M1 partial}, 13.45/{all closed}}{
+  \node[gvcellg,minimum width=24mm,text width=21mm,minimum height=5mm] at (\x,-6.85) {\lab};}
+\node[font=\tiny\itshape,text=protogray,anchor=north west,text width=132mm]
+  at (-0.40,-7.35) {The top event is a stop without a deposited archive, not a
+  stop. Three of the five branches are AND gates. The two OR branches, H1 and
+  H5, are the only single points of failure, and neither is technical: one is
+  regulatory and instrumental, the other is a fact about who owns the shares.};
+\end{appfig}
+\vspace{-0.65cm}
+\figcaption{One top event, five halt points, and ten basic events below.\\
+Three are AND gates, so no single failure stops the programme.\\
+The two OR branches are the month-nine gate and ownership test.}
+\end{appfloat}
+
+The two OR branches are the honest part of the figure. H1 fails on either a
+bench latency above 250 ms at the 95th percentile or an IND clinical hold; H5
+fails on either the founder falling below 50 percent or an investigator
+acquiring a \S54.2 interest. Neither is technical in the sense that more
+engineering fixes it, and both are knowable in advance, which is the only reason
+they are acceptable to state on a milestone schedule.
+
+The top event is deliberately not ``the programme stops''. It is a stop
+\emph{without a deposited archive}, and the band beneath the tree is why the
+distinction matters: at every halt point the archive is already deposited for
+every milestone that has closed. Reaching the top event would require a halt
+plus a separate failure to deposit, and depositing is itself a Phase I
+deliverable that does not depend on the halt's cause. Figure 20 carries the
+custody arrangement that makes that true.
