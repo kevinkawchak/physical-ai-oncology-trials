@@ -1,4 +1,7 @@
 % sec-10: how the document was built, and what survives it.  Figure 20.
+% FINAL stage improvements: Figure 20 gains a reproducibility legend keyed to
+% the solid and dashed cluster borders, and the verification subsection is
+% updated with the stage 8 numbers rather than the stage 7 ones.
 \section{Build Method and Reproducibility}
 
 \subsection{The Eight-Stage Build}
@@ -101,8 +104,10 @@ per-figure reasoning is in the five directory READMEs and is not restated here.
   {no participant-level path to a third party};
 \node[d2cellk,text width=24mm,minimum height=9mm] at (14.10,-5.20)
   {five of seven work products reproducible};
+\legkey{0}{-7.15}{protowhite}{solid border, permanent, no custodian needed}
+\legkey{6.6}{-7.15}{pagrayl}{dashed border, conditional on a custodian}
 \node[font=\tiny\itshape,text=protogray,anchor=north west,text width=132mm]
-  at (0,-7.55) {The public cluster's border is solid and the other three are
+  at (0,-7.65) {The public cluster's border is solid and the other three are
   dashed: solid is permanent, dashed is conditional on somebody continuing to
   hold the file. The blocked edge is drawn to a third of its length and
   terminated, so it reads as a path that does not complete.};
@@ -143,12 +148,20 @@ sources equals the count of \texttt{\textbackslash figcaption} plus the count of
 \texttt{\textbackslash tabcap}, and the style file closes both carriers with a
 single rigid skip that no section can override.
 
-Three defects were found and fixed during the build rather than carried forward,
+Nine defects were found and fixed during the build rather than carried forward,
 and they are recorded because a verification section that reports only successes
-is not a record. The three-cell cover ledger exceeded the measure by 14.34 pt,
-because three cells at 0.288 of the text width plus two gaps plus six inner
-separations do not fit inside it. A directory path set in a monospace face
-overflowed a 3.3 cm table column by 11.23 pt in three rows, because Courier
-offers no break point inside a path. And a TikZ node width written as
-\texttt{\{\textbackslash w*0.415\} cm} is parsed by the mathematics engine as
-one expression and fails; the unit belongs inside the braces.
+is not a record. Four were measurement failures in the source: a three-cell
+cover ledger 14.34 pt past the measure, four table columns whose bold headers
+were wider than any body cell in them, eleven digital object identifiers
+overflowing a 4.0 cm column because the printed form is unbreakable, and a
+directory path in a monospace face overflowing by 11.23 pt because Courier
+offers no break point inside a path. Two were syntax: a TikZ node width written
+as \texttt{\{\textbackslash w*0.415\} cm} is parsed by the mathematics engine
+as one expression and fails, the unit belonging inside the braces, and a
+\texttt{\textbackslash foreach} loop iterated a list with an empty body. Two
+were layout: a 143 pt overfull vertical box where a figure, a table and a
+closing paragraph competed for one page, and a float budget inherited from the
+parent work that allowed three floats on a page this paper's figures are too
+tall for. The last was arithmetic: the draft index counted nineteen tables where
+the paper carries twenty-one, and sixteen cross-references were renumbered
+against the corrected index.

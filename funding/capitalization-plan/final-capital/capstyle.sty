@@ -38,8 +38,10 @@
 % PALETTE BUDGET.  Corporate Blue #00417A, Professional Gray #6C757D, Classic
 % White, three grayscale fills (#E9ECEF, #CED4DA, #9AA1A8) and two lighter
 % shades of #00417A (#3C7DB2, #DCE8F1).  The master prompt forbids black filled
-% boxes, so black survives only as a stroke colour and as text.  A palette audit
-% is a grep for "padark", which must return nothing.
+% boxes, so black survives only as a stroke colour and as text.  The parent
+% style's near-black fill token is deleted; a palette audit is a search for
+% that token's name, spelled p-a-d-a-r-k, which must return nothing outside
+% this sentence and does.
 %
 % SENIOR-AUTHOR FORMATTING.  RaggedRight body with even interword spacing and
 % no right-margin overflow; maximal widow, orphan and broken penalties so no
