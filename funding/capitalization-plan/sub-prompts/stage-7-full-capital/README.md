@@ -3,7 +3,7 @@
 [![Stage](https://img.shields.io/badge/Stage-7%20of%208-00417A.svg)](.)
 [![Output](https://img.shields.io/badge/Output-..%2Ffull--capital-3C7DB2.svg)](../../full-capital)
 [![Figures](https://img.shields.io/badge/Figures-20%20drawn-6C757D.svg)](../../full-capital)
-[![Tables](https://img.shields.io/badge/Tables-19-6C757D.svg)](../../full-capital)
+[![Tables](https://img.shields.io/badge/Tables-21-6C757D.svg)](../../full-capital)
 [![Commits](https://img.shields.io/badge/Commits-16-9AA1A8.svg)](.)
 
 ### Instruction

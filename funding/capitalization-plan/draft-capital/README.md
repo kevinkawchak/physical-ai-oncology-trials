@@ -3,7 +3,7 @@
 [![Stage](https://img.shields.io/badge/Stage-6%20of%208-00417A.svg)](../sub-prompts/stage-6-draft-capital)
 [![Sections](https://img.shields.io/badge/Sections-12-3C7DB2.svg)](sections)
 [![Figure slots](https://img.shields.io/badge/Figure%20slots-20-6C757D.svg)](.)
-[![Tables](https://img.shields.io/badge/Tables-19-6C757D.svg)](.)
+[![Tables](https://img.shields.io/badge/Tables-3%20written%2C%2021%20indexed-6C757D.svg)](.)
 [![Compile](https://img.shields.io/badge/pdfLaTeX-0%20errors-6C757D.svg)](.)
 [![Overfull](https://img.shields.io/badge/Overfull%20boxes-0-9AA1A8.svg)](.)
 [![Rasters](https://img.shields.io/badge/PNG%20%2F%20JPG-none-9AA1A8.svg)](.)
@@ -60,7 +60,7 @@ the paper, floating or inline, whatever precedes or follows it on the page.
 
 | File | § | Title | Figure slots |
 |:--|:--|:--|:--|
-| `sec-00-front.tex` | 0 | Abstract, Executive Summary, Reader's Guide | Tables 1, 2 |
+| `sec-00-front.tex` | 0 | Abstract, Executive Summary, Reader's Guide | Tables 2, 3 |
 | `sec-01-novel-performer-case.tex` | 1 | The Novel-Performer Case | 1, 2, 3 |
 | `sec-02-entity-and-asset.tex` | 2 | The Entity and the Asset | 4, 5, 6 |
 | `sec-03-gate-and-programme.tex` | 3 | The $1.6M Gate and the $3.5M Programme | 7, 8, 9 |

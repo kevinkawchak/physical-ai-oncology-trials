@@ -6,7 +6,7 @@
 [![ORCID](https://img.shields.io/badge/ORCID-0009--0007--5457--8667-A6CE39.svg)](https://orcid.org/0009-0007-5457-8667)
 [![Figures](https://img.shields.io/badge/Figures-20-6C757D.svg)](#the-twenty-figures)
 [![Platforms](https://img.shields.io/badge/Diagram%20platforms-5-6C757D.svg)](sub-prompts)
-[![Tables](https://img.shields.io/badge/Tables-19-6C757D.svg)](final-capital)
+[![Tables](https://img.shields.io/badge/Tables-21-6C757D.svg)](final-capital)
 [![Stages](https://img.shields.io/badge/Build%20stages-8-9AA1A8.svg)](sub-prompts)
 [![Rasters](https://img.shields.io/badge/PNG%20%2F%20JPG-none-9AA1A8.svg)](.)
 
@@ -47,9 +47,9 @@ off-mechanism.
 | SBIR Phase I, total cost, 9 months | $306,000 | `../pdac-funding-applications/applications/app-05-nih-sbir-seed` |
 | SBIR Phase II, total cost, 24 months | $1,300,000 | Same |
 | SBIR route, total cost, 33 months | $1,606,000 | Sum |
-| SBIR route, direct work inside that award | $1,396,000 | §3, Table 8 |
-| Delta, direct, that $1.606M does not buy | $2,104,000 | $3,500,000 minus $1,396,000 |
-| Private capital raised behind the firewall | $5,900,000 | §4, Table 12 |
+| SBIR route, direct work inside that award | $1,396,000 | §3, Tables 8 and 11 |
+| Delta, direct, that $1.606M does not buy | $2,104,000 | §3, Table 11 |
+| Private capital raised behind the firewall | $5,900,000 | §4, Table 13 |
 | Private to federal leverage | 3.67 to 1 | Against the annex's 3:1 target |
 
 Every table in the paper reconciles to these nine numbers. Where a figure
@@ -83,7 +83,7 @@ funding/capitalization-plan/
 │   ├── main.tex  capstyle.sty  references.bib  README.md
 │   ├── sections/sec-00 .. sec-11.tex
 │   └── draft-capital-LaTeX.zip
-├── full-capital/                      stage 7: 20 figures drawn, 19 tables
+├── full-capital/                      stage 7: 20 figures drawn, 21 tables
 │   ├── main.tex  capstyle.sty  references.bib  README.md
 │   ├── sections/sec-00 .. sec-11.tex
 │   └── full-capital-LaTeX.zip
@@ -97,7 +97,7 @@ funding/capitalization-plan/
 
 | § | Section | Outline item | Figures |
 |:--|:--|:--|:--|
-| 0 | Abstract and Reader's Guide | Front matter | Tables 1, 2 |
+| 0 | Abstract and Reader's Guide | Front matter | Tables 1, 2, 3 |
 | 1 | The Novel-Performer Case | A | 1, 2, 3 |
 | 2 | The Entity and the Asset | B | 4, 5, 6 |
 | 3 | The $1.6M Gate and the $3.5M Programme | C | 7, 8, 9 |
