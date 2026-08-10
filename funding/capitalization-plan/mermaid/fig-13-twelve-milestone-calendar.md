@@ -57,7 +57,7 @@ gantt
 | M11 | 26 to 31 | Interim PK, PD and ctDNA | $187,000 | PK report and ctDNA clearance table |
 | M12 | 30 to 33 | Closeout and public deposit | $152,000 | Zenodo deposit, report, repository tag |
 
-$24{,}000 + \$31{,}000 + \$96{,}000 + \$73{,}000 + \$82{,}000 = \$306{,}000$.
+The five Phase I rows sum to $306,000, as 24 + 31 + 96 + 73 + 82 in thousands.
 The seven Phase II rows sum to $1,300,000. Both totals are exact, and a
 milestone table that does not sum to its award is the fastest way to lose a
 program officer.
@@ -97,4 +97,4 @@ is real and is drawn.
 - `funding/pdac-funding-applications/final-apply/sections/sec-08-budget-and-leverage.tex` - the four-layer budget the twelve costs are cut from
 - `trial-protocol/` - the 3+3 escalation that fixes M8 at n = 3 and M10 at n = 6
 - `trial-ind/` - the IND amendment at M5 and the annual report at M12
-- ASME V\&V 40, the credibility gate M4 freezes against
+- ASME V&V 40, the credibility gate M4 freezes against

@@ -46,7 +46,7 @@ stateDiagram-v2
 | Guard | Condition | Milestone | Who can satisfy it |
 |:--|:--|:--|:--|
 | G1 | Bench stop latency at or below 250 ms at the 95th percentile over 200 runs | M3 | ChemicalQDevice alone |
-| G2 | Every ASME V\&V 40 credibility factor at or above its gate, suite hashed | M4 | ChemicalQDevice alone |
+| G2 | Every ASME V&V 40 credibility factor at or above its gate, suite hashed | M4 | ChemicalQDevice alone |
 | G3 | IND amendment safe to proceed, 30-day clock closed, no clinical hold | M5 | FDA, on a company filing |
 | G4 | Site agreement executed and IRB approval in hand | M1, M2 | UC San Diego alone |
 
@@ -93,4 +93,4 @@ never on the line, and carries a white fill so the transition passes behind it.
 - `funding/pdac-funding-applications/final-apply/sections/sec-08-budget-and-leverage.tex` - the site agreement as the binding constraint, which is why G4 is drawn as the exception
 - `trial-ind/` - the IND amendment and the 30-day clock that G3 turns on
 - `funding/potential-partners/UC-San-Diego/` - the institution that holds G4
-- ASME V\&V 40 credibility gates, cited in the paper as `asmevv40`
+- ASME V&V 40 credibility gates, cited in the paper as `asmevv40`

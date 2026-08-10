@@ -26,7 +26,7 @@ each, not by dividing the measure evenly. The method is:
    is the column carrying the longest prose. All others are fixed `p{}`.
 2. A fixed column's width is the width of its widest atomic cell content plus
    `2\tabcolsep`, rounded up to the next 0.1 cm. A currency column holding
-   `\$1{,}300{,}000` needs 1.9 cm; a two-digit index column needs 0.7 cm; a
+   `$1,300,000` needs 1.9 cm; a two-digit index column needs 0.7 cm; a
    month range such as `10 to 13` needs 1.5 cm.
 3. Every fixed column is prefixed `>{\raggedright\arraybackslash}`, without
    exception, so no cell shows a stretched interword gap.
