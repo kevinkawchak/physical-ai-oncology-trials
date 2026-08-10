@@ -1,5 +1,11 @@
 % sec-05: outline item E.  Figures 13 (mermaid), 14 (graphviz), 15 (plantuml).
 % Tables 14 and 15 are keyed by the same twelve IDs.
+% FINAL stage improvements: Figure 13 is the one figure in the paper whose
+% optical centre sits left of its frame, because its left-hand lane titles are
+% narrow and its right-hand cost column is wide.  It is carried in the author's
+% \DiagramXShift adjustwidth wrapper, correction 11 of useredits.md, which
+% nudges the frame without touching the caption spacing.  Figure 14 gains a
+% gate-type legend; Figure 15 gains a branch owner on each column title.
 \section{Twelve Milestones a Program Officer Can Audit}
 
 \subsection{What an Auditable Milestone Is}
@@ -13,6 +19,7 @@ does not sum to its award is the fastest way to lose a reader who has read
 several hundred of them.
 
 \begin{appfloat}[!tb]
+\begin{adjustwidth}{\DiagramXShift}{\dimexpr-\DiagramXShift\relax}
 \begin{appfig}[mermaid-type / gantt]
 % 33 months at 0.415cm per month.  Row pitch 0.52cm against a 0.36cm bar
 % height leaves 1.6mm of clear space between rows.  Row labels sit to the
@@ -56,6 +63,7 @@ several hundred of them.
   evidence artifact exists, not the date the work stops. The one-month dead band
   at the gate is real: M5 ends at month 9 and M6 begins at month 10.};
 \end{appfig}
+\end{adjustwidth}
 \vspace{-0.65cm}
 \figcaption{Thirty-three months, twelve milestones, and the artifact date on\\
 each. Phase I holds five at 306,000 dollars; Phase II holds seven\\
@@ -137,9 +145,9 @@ award pays for would not be auditable.
 \foreach \i/\y/\lab in {1/-2.10/{independent monitor visits}, 2/-3.10/{verify source to artifact},
   3/-4.10/{write monitoring report}}{
   \node[umlbox,text width=27mm] (C\i) at (12.25,\y) {\lab};}
-\node[d2title,anchor=south] at (1.55,-1.72) {A, company};
-\node[d2title,anchor=south] at (6.90,-1.72) {B, site};
-\node[d2title,anchor=south] at (12.25,-1.72) {C, independent};
+\node[d2title,anchor=south] at (1.55,-1.72) {A, the company};
+\node[d2title,anchor=south] at (6.90,-1.72) {B, the site};
+\node[d2title,anchor=south] at (12.25,-1.72) {C, an independent monitor};
 \node[umlbar,minimum width=88mm] (jn) at (6.90,-5.90) {};
 \node[umlkey,text width=34mm] (p2) at (6.90,-6.70) {artifact bundle complete};
 \node[mmdec,text width=20mm] (d1) at (6.90,-7.95) {audit requested?};
@@ -216,13 +224,19 @@ is what joins the two, and it is written by somebody the company does not employ
   \draw[gvedge] ({\x-0.95},-4.60) -- ({\x-0.28},-3.82);
   \draw[gvedge] ({\x+0.95},-4.60) -- ({\x+0.28},-3.82);}
 \draw[pagrayd,line width=0.5pt] (-0.40,-6.05) -- (14.60,-6.05);
+\umlgateand{1.60}{-7.75}
+\node[font=\tiny\sffamily,text=protoblack,anchor=west] at (2.15,-7.90)
+  {both basic events required};
+\umlgateor{6.60}{-7.75}
+\node[font=\tiny\sffamily,text=protoblack,anchor=west] at (7.15,-7.90)
+  {either basic event suffices, a single point of failure};
 \node[font=\tiny\sffamily\bfseries,text=protoblue,anchor=west] at (-0.40,-6.30)
   {Already deposited at each halt:};
 \foreach \x/\lab in {0.75/{M1 to M4}, 4.00/{M1 to M8}, 7.10/{M1 to M9},
   10.20/{M1 partial}, 13.45/{all closed}}{
   \node[gvcellg,minimum width=24mm,text width=21mm,minimum height=5mm] at (\x,-6.85) {\lab};}
 \node[font=\tiny\itshape,text=protogray,anchor=north west,text width=132mm]
-  at (-0.40,-7.35) {The top event is a stop without a deposited archive, not a
+  at (-0.40,-8.55) {The top event is a stop without a deposited archive, not a
   stop. Three of the five branches are AND gates. The two OR branches, H1 and
   H5, are the only single points of failure, and neither is technical: one is
   regulatory and instrumental, the other is a fact about who owns the shares.};

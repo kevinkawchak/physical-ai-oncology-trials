@@ -1,4 +1,9 @@
 % sec-04: outline item D.  Figures 10 (plantuml), 11 (d2), 12 (mermaid).
+% FINAL stage improvements: Figure 11 names the milestone gate on each tier 3
+% instrument inside the tier box; Figure 10 marks the two prohibited states
+% with an explicit prohibition glyph rather than only with a fill; Figure 12
+% carries the day number in a left margin column so the 30-day obligation is
+% readable off the figure.
 \section{Non-Dilutive to Dilutive Bridge}
 
 \subsection{Three Tiers of Capital}
@@ -58,6 +63,8 @@ contributed value is counted, which is the argument for counting it at zero.
 \draw[d2edged] (11.60,-5.90) -- (11.60,-4.55);
 \draw[d2edged] (1.90,-2.60) -- (1.90,-1.35);
 \draw[d2edged] (11.60,-2.60) -- (11.60,-1.35);
+\foreach \x/\g in {1.90/{M8 must close first}, 11.60/{M12 must close first}}{
+  \node[font=\tiny\sffamily,text=protoblue,fill=protowhite,inner sep=1.2pt] at (\x,-1.75) {\g};}
 \begin{scope}[shift={(0,1.35)}]
   \hbarrow{0}{1.20}{protoblue}{federal}{1,606,000}
   \hbarrow{0.55}{4.40}{pablue1}{private}{5,900,000, a ratio of 3.67 to 1}
@@ -120,6 +127,10 @@ equity, receive no compensation tied to study outcome, and each files Form FDA
 \draw[umldash] (8.15,-2.85) to[bend right=18] node[umlguard,pos=0.68] {[repurchase]} (8.15,-0.72);
 \draw[umlarrow] (11.65,-0.72) to[bend left=14] node[umlguard,pos=0.32] {[equity or outcome pay]} (11.65,-2.85);
 \draw[umldash] (12.05,-2.85) to[bend left=14] node[umlguard,pos=0.68] {[divested, 3455, one year]} (12.05,-0.72);
+\pxmark{4.05}{-3.55}
+\pxmark{13.05}{-3.55}
+\node[font=\tiny\sffamily\bfseries,text=protogray,anchor=north west] at (-0.30,-2.35)
+  {prohibited while a participant is on study};
 \node[umlnote,text width=36mm,anchor=north west] at (4.05,-4.55)
   {SBIR eligibility is lost unless the NIH venture-capital operating company
    authority applies and no single entity exceeds 50 percent.};
@@ -225,15 +236,19 @@ this document covers, and no Phase II obligation extends into it.
   -5.80/0/12.60/{12. financial disclosure update, annual report}/mmmsg}{
   \draw[\sty] (\f,\y) -- (\t,\y)
     node[midway,above,font=\tiny\sffamily,fill=protowhite,inner sep=1.2pt] {\msg};}
-\draw[pagrayd,line width=0.5pt] (-1.1,-6.45) -- (13.6,-6.45);
+\foreach \y/\d in {-0.85/{day 0}, -2.65/{day 7}, -3.55/{day 21}, -4.00/{day 28},
+  -4.45/{day 30}, -5.80/{annual}}{
+  \node[font=\tiny\sffamily,text=protogray,anchor=east] at (-1.15,\y) {\d};}
+\draw[pagraym,line width=0.3pt] (-1.10,-0.60) -- (-1.10,-6.05);
+\draw[pagrayd,line width=0.5pt] (-1.6,-6.45) -- (13.6,-6.45);
 \foreach \i/\x/\lab in {1/1.30/{Dose assignment}, 2/6.10/{Endpoint adjudication},
   3/10.90/{Statistical analysis}}{
   \node[mmgray,text width=27mm] (n\i) at (\x,-7.35) {\lab};
   \pxmark{\x}{-6.85}}
-\node[font=\tiny\sffamily\bfseries,text=protoblue,anchor=west] at (-1.1,-6.85)
+\node[font=\tiny\sffamily\bfseries,text=protoblue,anchor=west] at (-1.6,-6.85)
   {reached by nothing:};
 \node[font=\tiny\itshape,text=protogray,anchor=north west,text width=132mm]
-  at (-1.1,-8.15) {A 3+3 escalation has no randomization, so the firewall binds
+  at (-1.6,-8.15) {A 3+3 escalation has no randomization, so the firewall binds
   on dose assignment rather than on a schedule. The three struck lifelines are
   decided by the site principal investigator, by the site against CTCAE and
   ISGPS, and by a fixed-fee statistician working to a plan locked before first
