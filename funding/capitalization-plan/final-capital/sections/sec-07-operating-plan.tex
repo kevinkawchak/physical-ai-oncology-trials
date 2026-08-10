@@ -1,0 +1,150 @@
+% sec-07: the small-business operating plan.  Figure 18 (diagrams).
+\section{Small-Business Operating Plan}
+
+\subsection{Who Does the Work}
+
+At full Phase II staffing the company runs on 2.6 full-time equivalents, of
+which 2.3 are employed and 0.3 are contracted at a fixed fee. At Phase I
+staffing the figure is 1.1: the chief executive at 0.6 and a verification
+engineer at 0.5. The clinical research coordinator is not hired until a
+participant can be consented, which is month 10.
+
+\begin{apptable}
+\begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}X >{\raggedright\arraybackslash}p{1.2cm} >{\raggedright\arraybackslash}p{2.9cm} >{\raggedright\arraybackslash}p{3.1cm} >{\raggedright\arraybackslash}p{2.0cm}}
+\headrow \thead{Role} & \thead{FTE} & \thead{Status} & \thead{Budget line} & \thead{Boundary}\\
+\midrule
+CEO and sponsor lead & 0.8 & Employed & Phase II personnel & Company \\
+Verification engineer & 1.0 & Employed & Phase II personnel & Company \\
+Clinical research coordinator & 0.5 & Employed, from month 10 & Phase II personnel & Company \\
+Biostatistician & 0.2 & Contracted, fixed fee & Phase II consultants & Neither \\
+Regulatory consultant & 0.1 & Contracted, fixed fee & Phase II consultants & Neither \\
+Total & 2.6 & 2.3 employed, 0.3 contracted & \$600,000 personnel and \$34,000 consultants & \\
+\end{tabularx}
+\end{apptable}
+\vspace{-0.65cm}
+\tabcap{The 2.6 FTE by employment status, the budget line that pays each, and
+the trust boundary each sits inside. The two contracted roles sit inside neither
+boundary, which is the point of contracting them.}
+
+\begin{appfloat}[!tb]
+\begin{appfig}[diagrams-python-type / clusters across trust boundaries]
+% Three clusters left to right, two trust boundaries drawn as full-height
+% dashed rules in the corridors.  Tile pitch 27mm horizontal, 22mm vertical.
+% Only four labelled edges cross the two rules, each at a distinct y.
+\dgnodew{dgtiled}{0}{0}{\glyphuser}{CEO and sponsor lead, 0.8}{e1}
+\dgnodew{dgtiled}{2.7}{0}{\glyphgear}{Verification engineer, 1.0}{e2}
+\dgnode{dgtile}{0}{-2.2}{\glyphteam}{Coordinator, 0.5}{e3}
+\dgnodew{dgtilem}{2.7}{-2.2}{\glyphcpu}{Two GPU nodes}{e4}
+\dgnode{dgtile}{1.35}{-4.4}{\glyphdb}{Artifact store and manifest}{e5}
+\begin{scope}[on background layer]
+\node[dgcluster,fit=(e1)(e1l)(e2)(e2l)(e3)(e3l)(e4)(e4l)(e5)(e5l),inner sep=7pt] (gc) {};
+\end{scope}
+\node[dgctitle,anchor=south west] at ([yshift=1.2mm]gc.north west)
+  {ChemicalQDevice premises, San Diego, no PHI};
+\node[d2cellk,minimum width=16mm,text width=13mm,anchor=north east]
+  at ([xshift=-1.5mm,yshift=-1.5mm]gc.north east) {2.3 FTE};
+\draw[protoblue,line width=1.1pt,dashed] (5.15,0.95) -- (5.15,-6.05);
+\node[font=\scriptsize\sffamily\bfseries,text=protoblue,fill=protowhite,inner sep=1.5pt,
+      rotate=90,anchor=center] at (5.15,-2.55) {trust boundary A};
+\dgnodeg{dgtileg}{6.55}{0}{\glyphchart}{Biostatistician, 0.2}{k1}
+\dgnodeg{dgtileg}{6.55}{-2.2}{\glyphdoc}{Regulatory consultant, 0.1}{k2}
+\dgnodeg{dgtileg}{6.55}{-4.4}{\glyphmon}{Independent monitor}{k3}
+\begin{scope}[on background layer]
+\node[dgcluster2,fit=(k1)(k1l)(k2)(k2l)(k3)(k3l),inner sep=7pt] (kc) {};
+\end{scope}
+\node[dgctitle2,anchor=south west] at ([yshift=1.2mm]kc.north west)
+  {Contracted, fixed fee, not employed};
+\node[d2cellg,minimum width=16mm,text width=13mm,anchor=north east]
+  at ([xshift=-1.5mm,yshift=-1.5mm]kc.north east) {0.3 FTE};
+\draw[protoblue,line width=1.1pt,dashed] (8.15,0.95) -- (8.15,-6.05);
+\node[font=\scriptsize\sffamily\bfseries,text=protoblue,fill=protowhite,inner sep=1.5pt,
+      rotate=90,anchor=center] at (8.15,-2.55) {trust boundary B};
+\dgnode{dgtile}{9.55}{0}{\glyphscalpel}{Operating surgeon}{p1}
+\dgnodew{dgtilem}{12.25}{0}{\glyphrobot}{Theatre and platform}{p2}
+\dgnode{dgtile}{9.55}{-2.2}{\glyphpill}{Investigational pharmacy}{p3}
+\dgnode{dgtile}{12.25}{-2.2}{\glyphflask}{Pathology and specimens}{p4}
+\dgnodew{dgtiled}{9.55}{-4.4}{\glyphai}{On-premises advisory model}{p5}
+\dgnodeg{dgtileg}{12.25}{-4.4}{\glyphshield}{DSMB, independent}{p6}
+\begin{scope}[on background layer]
+\node[dgcluster2,fit=(p1)(p1l)(p2)(p2l)(p3)(p3l)(p4)(p4l)(p5)(p5l)(p6)(p6l),inner sep=7pt] (sc) {};
+\end{scope}
+\node[dgctitle2,anchor=south west] at ([yshift=1.2mm]sc.north west)
+  {UC San Diego Moores, PHI, contributed};
+\node[d2cellg,minimum width=16mm,text width=13mm,anchor=north east]
+  at ([xshift=-1.5mm,yshift=-1.5mm]sc.north east) {6 functions};
+\draw[dgedgeb] (e2l.east) -- node[font=\tiny\sffamily,fill=protowhite,inner sep=1.5pt,pos=0.5]
+  {signed build} (9.55,-0.75);
+\draw[dgedgeb] (9.55,-5.15) to[bend right=12]
+  node[font=\tiny\sffamily,fill=protowhite,inner sep=1.5pt,pos=0.5] {de-identified CRF} (e5l.east);
+\draw[dgedged] (k3l.east) -- node[font=\tiny\sffamily,fill=protowhite,inner sep=1.5pt,pos=0.5]
+  {source verification} (9.55,-5.15);
+\draw[dgedged] (k1l.west) -- node[font=\tiny\sffamily,fill=protowhite,inner sep=1.5pt,pos=0.5]
+  {locked analysis plan} (e5l.east);
+\node[font=\tiny\sffamily,text=protogray,anchor=north west,text width=30mm] at (0,-6.35)
+  {No identified data crosses boundary A. The advisory model sits inside
+  boundary B because it reads telemetry that is part of the medical record.};
+\pxmark{2.2}{-5.85}
+\node[font=\tiny\itshape,text=protogray,anchor=north west,text width=98mm]
+  at (3.4,-6.35) {The two contracted roles sit between the boundaries and inside
+  neither, which is the reason they are contracted rather than employed: a
+  biostatistician inside the company would be a sponsor employee writing the
+  analysis, and a monitor inside the site would not be independent.};
+\end{appfig}
+\vspace{-0.65cm}
+\figcaption{Three clusters and two trust boundaries. The company employs 2.3\\
+of the 2.6 FTE, contracts 0.3, and pays for none of the six site\\
+functions. No identified data crosses the left trust boundary.}
+\end{appfloat}
+
+\subsection{Where the Work Happens}
+
+Six functions sit at the site and none is on the company payroll. The operating
+surgeon and assistant, the investigational pharmacy, and pathology with specimen
+handling are paid out of the site clinical conduct and laboratory lines against
+an executed clinical trial agreement. Theatre and robotic platform time and the
+host for the advisory model are contributed and unpriced. The data and safety
+monitoring board is convened by the site and paid from the independent
+monitoring line.
+
+The advisory model runs on the hospital's side of the boundary rather than the
+company's, and that is an architectural choice rather than a convenience. The
+model reads intraoperative telemetry that forms part of the medical record.
+Moving the model to the company's premises would move identified data with it,
+and the company would then hold protected health information that it has no
+reason to hold.
+
+\subsection{How a One-Person Company Runs a Trial}
+
+The reviewer's real question is whether 2.6 people can run a first-in-human
+surgical trial. The answer is structural rather than rhetorical, and it has two
+halves.
+
+The first half is the division of labour drawn in Figure 6. The company is the
+sponsor: it holds the IND, authors and amends the protocol, builds and verifies
+the interlock rig, files expedited safety reports, and deposits the archive. The
+site holds every clinical function and, more importantly, every clinical
+decision. The two are joined by an executed clinical trial agreement, which is
+the first row of the absent register in Table 7 and does not yet exist.
+
+The second half is that the three most expensive things in a trial of this kind
+do not scale with headcount and are already finished. The protocol is written.
+The simulation stack is built. The verification suite is frozen and hashed. A
+company that had to produce those three inside the award would need a team; a
+company that produced them before applying does not.
+
+\subsection{Governance Inside the Company}
+
+Six arrangements govern a firm with one officer, and they are deliberately
+unglamorous. The chief executive is the sole officer and sole director. The data
+and safety monitoring board is independent and is convened by the site. The
+biostatistician is contracted at a fixed fee with the analysis plan locked
+before the first dose. An independent monitor is retained per visit. Annual
+financial statements are prepared by an outside accountant, which together with
+insurance is what the 7.5 percent indirect rate pays for. Records are retained
+under the sponsor and investigator terms of 21 CFR \S312.57 and \S312.62
+\cite{ecfr2026part312records}.
+
+One thing is deliberately absent. No scientific advisory board is proposed. A
+one-product company at 2.6 full-time equivalents cannot service an advisory
+board honestly inside thirty-three months, and a board that meets twice and
+signs nothing is decoration rather than governance.

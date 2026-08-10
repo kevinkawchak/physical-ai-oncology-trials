@@ -1,0 +1,134 @@
+% sec-08: the dated record.  Figure 19 (mermaid).
+\section{San Diego and the August 2026 Record}
+
+\subsection{Four Contacts, Dated}
+
+Every other section of this document describes a plan. This one describes a
+record, and the register changes accordingly: what follows is four contacts and
+five responses in eleven days, stated at their actual size.
+
+On \textbf{29 July 2026} the author met one pancreatic cancer surgeon at UC San
+Diego Moores Cancer Center. One meeting, one surgeon.
+
+Between \textbf{4 and 8 August 2026} nine of the ten funding applications were
+emailed to their recipients, with their attachments and cover text as deposited
+\cite{tenapps2026}.
+
+Between \textbf{5 and 7 August 2026} five email responses were received from
+those applications.
+
+On \textbf{7 August 2026} an NIH email indicated willingness to explore
+additional pancreatic cancer inquiries concerning daraxonrasib.
+
+On \textbf{8 August 2026} UC San Diego Moores Cancer Center emailed an offer of
+a two-day seminar together with associated seminar events.
+
+\begin{appfloat}[!tb]
+\begin{appfig}[mermaid-type / flowchart]
+% Four columns left to right at a 3.85cm pitch, five rows at a 1.42cm pitch.
+% The five edges converging on M1 use a symmetric 22/12/0/-12/-22 fan, so the
+% five arrivals are at least 3mm apart on M1's west face.
+\foreach \i/\y/\sty/\lab in {%
+  1/0/mmmid/{2026-07-29\\Moores pancreatic cancer surgeon, one meeting},
+  2/-1.42/mmsoft/{2026-08-04 to 08-08\\nine applications emailed},
+  3/-2.84/mmsoft/{2026-08-05 to 08-07\\five email responses},
+  4/-4.26/mmmid/{2026-08-07\\NIH, explore daraxonrasib inquiries},
+  5/-5.68/mmmid/{2026-08-08\\Moores, two-day seminar plus events}}{
+  \node[\sty,text width=29mm] (e\i) at (0,\y) {\lab};}
+\foreach \i/\y/\lab in {1/0/{A named clinical champion candidate},
+  2/-1.42/{Nine review clocks started},
+  3/-2.84/{Five contacts and named mechanisms},
+  4/-4.26/{A channel for supply and cross reference},
+  5/-5.68/{Institutional presence, route to IIT intake}}{
+  \node[mmin,text width=27mm] (u\i) at (3.85,\y) {\lab};}
+\foreach \i/\y/\lab in {1/0/{Site agreement, IIT slot, budget},
+  2/-1.42/{Any award, any obligation},
+  3/-2.84/{A program officer commitment},
+  4/-4.26/{Letter of authorization, supply agreement},
+  5/-5.68/{IRB approval, CTA, theatre time}}{
+  \node[mmgray,text width=27mm] (n\i) at (7.70,\y) {\lab};}
+\node[mmgoal,text width=30mm,minimum height=16mm] (m1) at (11.90,-2.84)
+  {M1 site feasibility executed\\\$24,000, months 1 to 2};
+\node[mmlanetitle,anchor=south] at (0,0.92) {Dated contact};
+\node[mmlanetitle,anchor=south] at (3.85,0.92) {Unlocked};
+\node[mmlanetitle,anchor=south] at (7.70,0.92) {Still not unlocked};
+\node[mmlanetitle,anchor=south] at (11.90,0.92) {Terminates at};
+\foreach \i in {1,2,3,4,5}{
+  \draw[mmedgeb] (e\i) -- (u\i);
+  \draw[mmedge] (u\i) -- (n\i);}
+\draw[mmedged] (n1.east) to[bend left=22] (m1.north west);
+\draw[mmedged] (n2.east) to[bend left=12] (m1.west);
+\draw[mmedged] (n3.east) -- (m1.west);
+\draw[mmedged] (n4.east) to[bend right=12] (m1.west);
+\draw[mmedged] (n5.east) to[bend right=22] (m1.south west);
+\node[font=\tiny\itshape,text=protogray,anchor=north west,text width=132mm]
+  at (0,-6.85) {Rows 2 and 3 are drawn paler than the other three because they
+  record correspondence rather than a meeting, and the distinction has to
+  survive without reading the labels. All five arrows terminate at the same
+  milestone and not one of the five closes it.};
+\end{appfig}
+\vspace{-0.65cm}
+\figcaption{Four contacts between July 29 and August 8, 2026, and what each\\
+one actually unlocks. Every arrow ends at the same milestone, M1,\\
+and not one of the four is on its own sufficient to close that.}
+\end{appfloat}
+
+\subsection{What Each One Unlocks, and What It Does Not}
+
+The surgeon meeting unlocks a named clinical champion candidate. It does not
+unlock a site agreement, a slot in the investigator-initiated trial intake, or a
+budget.
+
+The nine emailed applications start nine review clocks. They do not create an
+award or an obligation of any kind on any recipient.
+
+The five responses identify five points of contact and five named mechanisms.
+They are not a program officer's commitment, and none of the five is a statement
+about this trial's merits.
+
+The NIH daraxonrasib email opens a channel for inquiries about supply and
+regulatory cross-reference. It does not produce a letter of authorization or a
+drug supply agreement.
+
+The Moores seminar offer opens institutional presence and a route toward the
+intake committee. It does not produce IRB approval, a clinical trial agreement,
+or theatre time.
+
+\subsection{Why the Institution Is the Constraint, Not the Money}
+
+The finding is carried over from the ten-application analysis rather than
+re-derived: the programme's schedule is governed by the institution and not by
+any funder, and an award arriving in month four cannot begin work until the site
+agreement executes \cite{tenapps2026}. That is guard G4 in Figure 7, the only
+guard the company cannot satisfy by working harder, and it is halt point H4 in
+Figure 14, the earliest of the five at month six.
+
+It is also why the cheapest row in the entire milestone schedule is the first
+one. M1 costs \$24,000, which is 1.5 percent of the award, and everything after
+it is downstream.
+
+\subsection{The NIH Daraxonrasib Channel}
+
+The 7 August email establishes a channel for inquiries about the agent. It is
+worth stating precisely what does not follow from it, because a reader scanning
+for traction will be tempted to read more into it than it contains. There is no
+letter of authorization. There is no drug supply agreement. There is no
+regulatory cross-reference to any existing IND. There has been no communication
+of any kind with the agent's developer.
+
+Two rows of the absent register in Table 7 would eventually be closed through
+this channel: the drug supply agreement, which blocks M6, and the letter of
+authorization, which blocks M5. Revolution Medicines is the only signatory for
+both, and no approach has been made.
+
+\subsection{The Seminar, and What It Is For}
+
+The 8 August offer of a two-day seminar with associated events is the most
+useful of the four contacts, for a reason that has nothing to do with the
+science. It is the route to institutional presence and, through it, to the
+investigator-initiated trial intake committee, which is the body that controls
+M1.
+
+All four contacts advance M1. None closes it. M1 costs \$24,000 and is the
+cheapest row in Table 14, and until it closes nothing else in this document can
+begin.

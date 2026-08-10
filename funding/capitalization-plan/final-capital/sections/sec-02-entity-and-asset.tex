@@ -1,0 +1,274 @@
+% sec-02: outline item B.  Figures 4 (diagrams), 5 (d2), 6 (plantuml).
+\section{The Entity and the Asset}
+
+\subsection{What the Entity Is}
+
+ChemicalQDevice is a California corporation. Its sole officer, sole director and
+sole owner is Kevin Kawchak. It has no employees at the date of writing, no
+negotiated indirect-cost rate agreement, and no facilities of its own. It is
+therefore more than 50 percent directly owned and controlled by one United
+States individual, which is the eligibility test the SBIR programme applies
+\cite{ecfr2026sbirownership}, and \S4 is written to keep it so through the
+thirty-three months this plan covers.
+
+\begin{appfloat}[!tb]
+\begin{appfig}[diagrams-python-type / clustered zones]
+% Four zones.  Tile pitch 27mm horizontal, 22mm vertical.  Every label is set
+% 5.4mm beneath its tile by \dgnode, and every cluster fit names both the tile
+% node and its label node, so no dashed border cuts a label.
+\dgnodew{dgtiled}{0}{0}{\glyphdoc}{Phase 1 protocol}{o1}
+\dgnode{dgtile}{2.7}{0}{\glyphdoc}{Phase 2 protocol}{o2}
+\dgnodew{dgtiled}{5.4}{0}{\glyphflask}{IND package, drafted}{o3}
+\dgnodew{dgtilem}{8.1}{0}{\glyphcpu}{QSP and VVUQ suite}{o4}
+\dgnode{dgtile}{0}{-2.2}{\glyphdb}{Repository, MIT}{o5}
+\dgnode{dgtile}{2.7}{-2.2}{\glyphbank}{Ten application sets}{o6}
+\dgnode{dgtile}{5.4}{-2.2}{\glyphdoc}{Four legislative drafts}{o7}
+\begin{scope}[on background layer]
+\node[dgcluster,fit=(o1)(o1l)(o2)(o2l)(o3)(o3l)(o4)(o4l)(o5)(o5l)(o6)(o6l)(o7)(o7l),
+      inner sep=7pt] (zo) {};
+\end{scope}
+\node[dgctitle,anchor=south west] at ([yshift=1.2mm]zo.north west)
+  {Owned outright, no encumbrance};
+\node[d2cellk,minimum width=13mm,text width=10mm,anchor=north east]
+  at ([xshift=-1.5mm,yshift=-1.5mm]zo.north east) {13 rows};
+\dgnodeg{dgtileg}{0}{-4.9}{\glyphai}{Base model weights}{l1}
+\dgnodeg{dgtileg}{2.7}{-4.9}{\glyphrobot}{Robotic platform, site}{l2}
+\dgnodeg{dgtileg}{5.4}{-4.9}{\glyphpill}{Daraxonrasib, developer}{l3}
+\begin{scope}[on background layer]
+\node[dgcluster2,fit=(l1)(l1l)(l2)(l2l)(l3)(l3l),inner sep=7pt] (zl) {};
+\end{scope}
+\node[dgctitle2,anchor=south west] at ([yshift=1.2mm]zl.north west)
+  {Licensed, none exclusive};
+\node[d2cellg,minimum width=13mm,text width=10mm,anchor=north east]
+  at ([xshift=-1.5mm,yshift=-1.5mm]zl.north east) {3 rows};
+\node[dgcluster2,minimum width=29mm,minimum height=19mm,anchor=north west] (zc) at (8.6,-4.05) {};
+\node[dgctitle2,anchor=south west] at ([yshift=1.2mm]zc.north west) {Contracted};
+\node[font=\tiny\sffamily\itshape,text=protogray,text width=24mm,align=center] at (zc.center)
+  {no rows exist as of August 2026};
+\dgnodeg{dgtilek}{0}{-7.6}{\glyphhand}{Site agreement}{a1}
+\dgnodeg{dgtilek}{2.7}{-7.6}{\glyphshield}{IRB approval}{a2}
+\dgnodeg{dgtilek}{5.4}{-7.6}{\glyphpill}{Drug supply}{a3}
+\dgnodeg{dgtilek}{8.1}{-7.6}{\glyphlink}{Letter of authorization}{a4}
+\begin{scope}[on background layer]
+\node[dgcluster2,fit=(a1)(a1l)(a2)(a2l)(a3)(a3l)(a4)(a4l),inner sep=7pt] (za) {};
+\end{scope}
+\node[dgctitle2,anchor=south west] at ([yshift=1.2mm]za.north west)
+  {Absent, none obtainable by the company alone};
+\node[d2cellg,minimum width=13mm,text width=10mm,anchor=north east]
+  at ([xshift=-1.5mm,yshift=-1.5mm]za.north east) {7 rows};
+\draw[dgedgeb] (zo.south west) to[bend right=14]
+  node[font=\tiny\sffamily,fill=protowhite,inner sep=1.5pt,pos=0.5] {supplies} (za.north west);
+\draw[dgedged] (zl.south east) -- node[font=\tiny\sffamily,fill=protowhite,inner sep=1.5pt,pos=0.5]
+  {depends on} (za.north east);
+\node[font=\tiny\itshape,text=protogray,anchor=north west,text width=132mm]
+  at (-1.3,-8.95) {The contracted zone is drawn at the size a three-tile zone
+  would occupy, so its emptiness reads as absence at scale rather than as a
+  small box. The pill glyph appears twice: the same object is licensed to
+  somebody else and absent from this company.};
+\end{appfig}
+\vspace{-0.65cm}
+\figcaption{Four zones and thirteen tiles. The owned zone holds everything the\\
+company made; the contracted zone is drawn at full size and holds\\
+nothing, because an empty zone is the finding this figure reports.}
+\end{appfloat}
+
+\subsection{Owned}
+
+\begin{apptable}
+\begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}X >{\raggedright\arraybackslash}p{1.9cm} >{\raggedright\arraybackslash}p{1.7cm} >{\raggedright\arraybackslash}p{4.4cm}}
+\headrow \thead{Asset} & \thead{Instrument} & \thead{First deposit} & \thead{Identifier}\\
+\midrule
+Phase 1 protocol & Zenodo & 2026-06-21 & \dlink{10.5281/zenodo.20780121} \\
+Phase 2 protocol & Zenodo & 2026-06-24 & \dlink{10.5281/zenodo.20807027} \\
+IND package, drafted, not filed & Zenodo & 2026-07-01 & \dlink{10.5281/zenodo.21097442} \\
+Phase 1 LLM document guidance & Zenodo & 2026-06-29 & \dlink{10.5281/zenodo.21018646} \\
+PI LLM adoption guide & Zenodo & 2026-06-26 & \dlink{10.5281/zenodo.20843290} \\
+QSP simulation stack and VVUQ suite & Zenodo & 2025-08 & \dlink{10.5281/zenodo.17001137} \\
+Daraxonrasib identification meta-analysis & Zenodo & 2025-06 & \dlink{10.5281/zenodo.15735068} \\
+Funding application v1.0 & Zenodo & 2026-07-07 & \dlink{10.5281/zenodo.21232965} \\
+Funding application v2.0 & Zenodo & 2026-07-12 & \dlink{10.5281/zenodo.21317266} \\
+Patient robot advocacy paper & Zenodo & 2026-07-31 & \dlink{10.5281/zenodo.21720120} \\
+H. R. 9510 bill v5.0 and companions & Zenodo & 2026-06-12 & \dlink{10.5281/zenodo.20619762} \\
+Repository, MIT licensed & GitHub & 2026-08 & \appfile{physical-ai-oncology-trials} v4.5.0 \\
+Ten funding application file sets & Repository & 2026-08-04 & \appfile{funding/pdac-funding-applications} \\
+\end{tabularx}
+\end{apptable}
+\vspace{-0.65cm}
+\tabcap{Thirteen owned assets, every one deposited and addressable. No row
+carries an encumbrance, no row is subject to a licence granted to a third party,
+and no row was produced under a grant that reserves rights in it.}
+
+What the thirteen rows cost to produce is on the record and is unusual enough to
+state. The empirical triplicate, the ten-arm quantitative systems pharmacology
+virtual trial, and the digital-twin platform were each produced for an estimated
+\$36,330 and in about one month, against industry benchmarks of above \$120,000,
+above \$2,000,000, and \$28,000 to \$700,000 respectively \cite{qspmetpancre}.
+Those figures are estimates from the source set and are reported as such, not as
+audited accounts; Table 17 carries them with their benchmarks.
+
+The consequence for a funder is that none of the thirteen appears in the budget.
+The protocol is written, the simulation stack is built, the verification suite
+is frozen, and the IND package is drafted \cite{foundingdocs,onpremwhippl,%
+phase2proto,phase1ind}. Four further rows are documents about how the work is
+run rather than about the trial itself: the two funding applications, the
+principal-investigator adoption guide, the large-document guidance, and the
+patient advocacy paper \cite{fundapp1,fundapp2,piadoption,phase1guidance,%
+patientadvocacy}. A request for \$1,606,000 is a request to run a trial, not to
+write one.
+
+\begin{appfloat}[!tb]
+\begin{appfig}[d2-type / sql tables]
+% Four sql_table records in two columns, plus a milestone record set apart to
+% the right.  Every field line is name : type; row counts sit in a separate
+% header strip because a count is metadata about a table, not a column of it.
+\node[d2sql,text width=34mm,anchor=north west] (rown) at (0,0)
+  {\textbf{owned}\nodepart{two}asset\_id : int, pk\\title : text\\instrument :
+   enum\\first\_deposit : date\\encumbrance : enum, none};
+\node[d2sql,text width=34mm,anchor=north west] (rlic) at (0,-4.30)
+  {\textbf{licensed}\nodepart{two}item : text\\licensor : text\\terms : text,
+   public\\exclusive : bool, false\\survives\_stop : bool};
+\node[d2sql,text width=38mm,anchor=north west,
+      rectangle split part fill={protogray,pagrayl}] (rabs) at (5.30,0)
+  {\textbf{\textcolor{protowhite}{absent}}\nodepart{two}item : text\\%
+   blocked\_milestone : fk\\signatory : text\\obtainable\_alone : bool, false};
+\node[d2sql,text width=34mm,anchor=north west,
+      rectangle split part fill={protogray,pagrayl}] (rcon) at (5.30,-4.30)
+  {\textbf{\textcolor{protowhite}{contracted}}\nodepart{two}row\_count : int, zero};
+\node[d2sql,text width=34mm,anchor=north west,
+      rectangle split part fill={pablue1,pablue2}] (rmil) at (10.60,-1.90)
+  {\textbf{\textcolor{protowhite}{milestone}}\nodepart{two}milestone\_id : text,
+   pk\\months : text\\cost\_usd : int\\artifact : text};
+\foreach \n/\c/\sty in {rown/13/d2cellk, rlic/3/d2cellg, rabs/7/d2cellg, rcon/0/d2cellg}{
+  \node[\sty,minimum width=12mm,text width=9mm,anchor=north east]
+    at ([xshift=-1.5mm,yshift=-1.2mm]\n.north east) {\c\ rows};}
+\draw[d2edgeb] (rabs.east) -- node[font=\tiny\sffamily,fill=protowhite,inner sep=1.5pt,pos=0.5]
+  {foreign key} ([yshift=6mm]rmil.west);
+\draw[d2edge] (rown.south) to[bend right=16]
+  node[font=\tiny\sffamily,fill=protowhite,inner sep=1.5pt,pos=0.5] {supplies evidence for}
+  ([yshift=-14mm]rmil.west);
+\draw[d2edged] (rcon.north) -- node[font=\tiny\sffamily,fill=protowhite,inner sep=1.5pt,pos=0.5]
+  {each row would close one} (rabs.south);
+\node[umlnote,text width=40mm,anchor=north west] at (5.30,-5.55)
+  {An empty table is a finding. It is drawn with its header and no body row,
+  because a missing table would instead be an omission.};
+\node[font=\tiny\itshape,text=protogray,anchor=north west,text width=132mm]
+  at (0,-7.55) {No row of the owned table is encumbered and no row of the
+  licensed table is exclusive, so nothing in either can be pledged. The
+  capitalization plan in section 4 therefore prices equity in the company and
+  never a right in an asset.};
+\end{appfig}
+\vspace{-0.65cm}
+\figcaption{The asset register as four typed records. Thirteen rows are owned\\
+outright, three are licensed on public terms, seven are absent,\\
+and the contracted table has no rows at all as of August 2026.}
+\end{appfloat}
+
+\subsection{Licensed, and Contracted}
+
+The four legislative drafts in the register are a separate line of work and are
+not on the trial's critical path: they supplied a verification vocabulary and a
+catalogue of clinician objections, and nothing in the protocol, the IND, or this
+plan is contingent on any of them being enacted
+\cite{hr9510billv5,congressvote,clintrust,verifygenact}.
+
+Three things are licensed and none exclusively. The base model weights are used
+under their vendor's public terms. The robotic platform is the site's asset and
+not the company's. Daraxonrasib is the developer's investigational agent, and no
+licence of any kind exists. None of the three survives a stop, because none is
+owned.
+
+The contracted table has no rows. No clinical trial agreement, no drug supply
+agreement, no letter of authorization, no confidentiality agreement, no
+subaward, and no trial-specific insurance binder is in force.
+
+\subsection{Absent}
+
+\begin{apptable}
+\begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}X >{\raggedright\arraybackslash}p{1.6cm} >{\raggedright\arraybackslash}p{3.4cm} >{\raggedright\arraybackslash}p{3.4cm}}
+\headrow \thead{Instrument absent} & \thead{Blocks} & \thead{Only signatory} & \thead{Obtainable by the company alone}\\
+\midrule
+Site agreement, executed & M1 & UC San Diego & No \\
+IRB approval & M2 & Site institutional review board & No \\
+Drug supply agreement & M6 & Revolution Medicines & No \\
+Letter of authorization, IND cross-reference & M5 & Revolution Medicines & No \\
+Theatre and robotic platform time & M7 & UC San Diego & No \\
+Trial-specific liability insurance & M6 & Carrier & No, needs an executed CTA \\
+A second full-time employee & M3 & Funded by the Phase I award & No, needs the award \\
+\end{tabularx}
+\end{apptable}
+\vspace{-0.65cm}
+\tabcap{Seven absent instruments, the milestone each blocks, and the single
+party that can supply it. The last column reads no on every row, which is the
+whole content of the table and the reason \S8 exists.}
+
+\begin{appfloat}[!tb]
+\begin{appfig}[plantuml-type / use case with boundaries]
+% Three system boundaries separated by 9mm corridors that carry no node.  Only
+% association lines cross a corridor.  Actors sit at the two margins and never
+% between boundaries.
+\umlactor{ceo}{-0.75}{1.15}{Sponsor CEO}
+\umlactor{pi}{-0.75}{-2.85}{Site PI}
+\umlactor{irb}{-0.75}{-4.75}{Site IRB}
+\umlactor{fda}{14.35}{1.15}{FDA}
+\umlactor{dev}{14.35}{-6.95}{Drug developer}
+\foreach \i/\x/\y/\lab in {1/2.30/1.15/{Author and amend the protocol},
+  2/5.55/1.15/{Hold and maintain the IND}, 3/8.80/1.15/{Build and verify the interlock rig},
+  4/2.30/-0.20/{Freeze and hash the VVUQ suite}, 5/5.55/-0.20/{File expedited safety reports},
+  6/8.80/-0.20/{Deposit the public archive}}{
+  \node[umlusecase,text width=25mm] (s\i) at (\x,\y) {\lab};}
+\begin{scope}[on background layer]
+\node[umlpkg,fit=(s1)(s2)(s3)(s4)(s5)(s6),inner sep=6pt] (bs) {};
+\end{scope}
+\node[umlpkgtab,anchor=south west] at ([yshift=0.6mm]bs.north west)
+  {ChemicalQDevice, sponsor scope};
+\foreach \i/\x/\y/\lab in {1/2.30/-2.85/{Consent a participant},
+  2/5.55/-2.85/{Assign a dose level}, 3/8.80/-2.85/{Perform the operation},
+  4/2.30/-4.20/{Adjudicate an endpoint}, 5/5.55/-4.20/{Grade a fistula, ISGPS},
+  6/8.80/-4.20/{Convene the DSMB}}{
+  \node[umlusecase,text width=25mm] (u\i) at (\x,\y) {\lab};}
+\begin{scope}[on background layer]
+\node[umlpkg,fit=(u1)(u2)(u3)(u4)(u5)(u6),inner sep=6pt] (bu) {};
+\end{scope}
+\node[umlpkgtab,anchor=south west] at ([yshift=0.6mm]bu.north west)
+  {UC San Diego Moores, site scope};
+\foreach \i/\x/\lab in {1/2.30/{Supply investigational drug},
+  2/6.15/{Schedule theatre and robotic time}, 3/10.00/{Cross reference the developer IND}}{
+  \node[umlusegray,text width=27mm] (b\i) at (\x,-6.95) {\lab};}
+\begin{scope}[on background layer]
+\node[umlpkg,fill=pagrayl,fit=(b1)(b2)(b3),inner sep=6pt] (bb) {};
+\end{scope}
+\node[umlpkgtab,fill=pagraym,anchor=south west] at ([yshift=0.6mm]bb.north west)
+  {Blocked, no instrument exists};
+\foreach \t in {s1,s2,s3}{\draw[umlassoc] (ceo) -- (\t);}
+\foreach \t in {u1,u2,u3}{\draw[umlassoc] (pi) -- (\t);}
+\draw[umlassoc] (irb) -- (u4);
+\draw[umlassoc] (irb) -- (u6);
+\draw[umldash] (fda) -- (s2);
+\draw[umldash] (fda) -- (s5);
+\draw[umldash] (dev) -- (b1);
+\draw[umldash] (dev) -- (b3);
+\node[umlnote,text width=34mm,anchor=north west] at (11.20,-2.85)
+  {Each blocked case needs exactly one signature: a supply agreement, an
+   executed CTA, and a letter of authorization.};
+\node[font=\tiny\itshape,text=protogray,anchor=north west,text width=132mm]
+  at (-1.6,-8.35) {The two corridors between boundaries carry no node at all.
+  The only ink in them is the association lines that cross, which is what makes
+  the boundaries read as boundaries.};
+\end{appfig}
+\vspace{-0.65cm}
+\figcaption{Two system boundaries, twelve use cases, and the corridor between\\
+them holding three that neither party may execute today. Each of\\
+the three is blocked by exactly one missing signed instrument.}
+\end{appfloat}
+
+Three use cases sit in the corridor, and each is blocked by exactly one
+signature. No amount of company work removes any of the three, which is the
+honest reading of the register and the reason the twelve milestones in \S5 open
+with a site feasibility memorandum rather than with an experiment.
+
+The register is dated. On 13 January 2026, when the first proposal was released,
+the owned table held two rows and the absent table held the same seven
+\cite{paiproposal}. In the seven months since, the owned table has grown by
+eleven rows and the absent table has not lost one. That asymmetry is the single
+most useful thing in this section: it says precisely which kind of work the
+author can do alone and which kind he cannot.
