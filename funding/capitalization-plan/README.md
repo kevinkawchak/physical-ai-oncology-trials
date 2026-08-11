@@ -2,7 +2,7 @@
 
 [![Version](https://img.shields.io/badge/Repository-v4.5.0-00417A.svg)](https://github.com/kevinkawchak/physical-ai-oncology-trials)
 [![Paper](https://img.shields.io/badge/Paper-Draft%201.0-00417A.svg)](final-capital)
-[![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.xxxxxxxx-3C7DB2.svg)](https://doi.org/10.5281/zenodo.xxxxxxxx)
+[![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.21887807-3C7DB2.svg)](https://doi.org/10.5281/zenodo.21887807)
 [![ORCID](https://img.shields.io/badge/ORCID-0009--0007--5457--8667-A6CE39.svg)](https://orcid.org/0009-0007-5457-8667)
 [![Figures](https://img.shields.io/badge/Figures-20-6C757D.svg)](#the-twenty-figures)
 [![Platforms](https://img.shields.io/badge/Diagram%20platforms-5-6C757D.svg)](sub-prompts)
@@ -13,7 +13,7 @@
 **From Independent Scientist to Novel Performer: A Small-Business Operating,
 Milestone, and Capitalization Plan for a Phase 1 LLM-Advised Robotic Whipple
 (ChemicalQDevice).** Draft 1.0. Kevin Kawchak, ChemicalQDevice, San Diego,
-August 11, 2026. DOI [10.5281/zenodo.xxxxxxxx](https://doi.org/10.5281/zenodo.xxxxxxxx).
+August 11, 2026. DOI [10.5281/zenodo.21887807](https://doi.org/10.5281/zenodo.21887807).
 
 ## What this is, and what changed
 
