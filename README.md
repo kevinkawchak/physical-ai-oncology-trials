@@ -23,9 +23,7 @@
 [![Policy Basis](https://img.shields.io/badge/Policy-Science%3A%20A%20New%20Golden%20Age-3C7DB2.svg)](funding/science-golden-age)
 [![Summary Paper DOI](https://img.shields.io/badge/Paper%20DOI%20v1.0-10.5281%2Fzenodo.21787424-blue.svg)](https://doi.org/10.5281/zenodo.21787424)
 [![Capitalization Plan](https://img.shields.io/badge/Capitalization-ChemicalQDevice%20SBIR%20Plan-00417A.svg)](funding/capitalization-plan)
-[![SBIR Route](https://img.shields.io/badge/SBIR-%24306K%20%2B%20%241.3M%20vs%20%243.5M-3C7DB2.svg)](funding/capitalization-plan/final-capital)
-[![Milestones](https://img.shields.io/badge/Milestones-12%20auditable-6C757D.svg)](funding/capitalization-plan/final-capital)
-[![Capital Firewall](https://img.shields.io/badge/Firewall-21%20CFR%20part%2054-6C757D.svg)](funding/capitalization-plan/final-capital)
+
 
 **Comprehensive developments for integrating physical AI into oncology clinical trials, by Claude Code, Cowork; with Assistance from ChatGPT and Google Gemini.**
 
