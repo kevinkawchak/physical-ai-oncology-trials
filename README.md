@@ -31,7 +31,7 @@
 
 This repository provides production-ready configurations, validated pipelines, and integration guides for deploying robotic systems, digital twins, and embodied AI agents in oncology. 
 
-**8/11: v4.5.0 (ChemicalQDevice Capitalization Plan)** *v4.5.0 adds funding/capitalization-plan/: the company-conversion paper From Independent Scientist to Novel Performer, an SBIR operating, milestone and capitalization plan with 20 new figures and 21 tables.* [![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.xxxxxxxx-blue)](https://doi.org/10.5281/zenodo.xxxxxxxx)
+**8/11: v4.5.0 (ChemicalQDevice Capitalization Plan)** *v4.5.0 adds funding/capitalization-plan/: the company-conversion paper From Independent Scientist to Novel Performer, an SBIR operating, milestone and capitalization plan.* [![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.21887807-blue)](https://doi.org/10.5281/zenodo.21887807)
 
 **8/3: v4.4.0 (10 PDAC Funding Applications + Summary)** *v4.4.0 adds funding/pdac-funding-applications/: ten recipient-unique Phase 1 pancreatic cancer funding application email file sets written under White House "Science: A New Golden Age".* [![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.21787424-blue)](https://doi.org/10.5281/zenodo.21787424)
 
