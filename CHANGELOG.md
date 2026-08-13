@@ -5,6 +5,27 @@ Format follows [Keep a Changelog](https://keepachangelog.com/).
 
 ## [Unreleased]
 
+## [4.6.0] - 2026-08-14
+
+### Added
+- `new-trial-system/` - the paper *Pancreatic Cancer LLM Clinical Trial System: From IND to Protocol to Legislation, Funding, and AI Peer Review*, Draft 1.0, San Diego, August 14, 2026, by Kevin Kawchak (ChemicalQDevice). It discloses the production system behind the pancreatic cancer work already deposited in this repository and argues that the prior trial system and the new one are primarily incompatible: the prior system built its documents on a month scale through teams with peer review after completion, while the new system produces the same documents on a 1 to 4 day project time scale through one author directing one master prompt, with AI peer review during development.
+- `new-trial-system/prompts/` - the master prompt filed verbatim (`prompt-new-trial.md`) under a single heading and nothing else, and the full build output (`output-new-trial.md`) under a single heading and nothing else.
+- `new-trial-system/sub-prompts/` - one eight-stage schedule: five diagram-platform stages then draft, full and final. One directory and one comprehensive README per stage, each carrying its commit order, its verification requirements and its platform-specific anti-defect rules.
+- `new-trial-system/mermaid/`, `plantuml/`, `d2/`, `diagrams-python/`, `graphviz/` - twenty-five new figure specifications in an uneven 6/4/6/4/5 split chosen by purpose rather than quota. Each carries a perspective statement naming what no other figure shows, a two-line balanced caption exactly as printed, valid native source, a TikZ construction table of absolute coordinates with a stated pitch, an edge-routing paragraph naming every edge that could cross a node and its clearance, a value table attributing every number to a repository file, and the exact sources read.
+- `new-trial-system/draft-new-trial/` - the eleven-section skeleton with `[DRAFTING INSTRUCTION]` markers naming exact repository paths through `\appfile`, twenty-five sized figure slots, twenty-five tables at their final numbers, and `draft-new-trial-LaTeX.zip`. 83,287 characters across `main.tex` and `sections/`.
+- `new-trial-system/full-new-trial/` - every instruction discharged, all twenty-five figures drawn in TikZ from their own specifications, all twenty-five tables populated from the four author-final `publication/` directories and the four input archives with direct quotation, and `full-new-trial-LaTeX.zip`. 182,854 characters.
+- `new-trial-system/final-new-trial/` - the senior-author pass: `\clearpage` discipline placed only where a section opens with a float, the float budget retuned against the measured 8.4 cm median figure height, table column widths re-cut against compiled widths, fifty captions balanced to a mean four-character spread, fifty literal section references converted to label references, and US clinical terms, dashes and the section symbol checked throughout. Plus `final-new-trial-LaTeX.zip`. 212,371 characters against a 211,643 target, which is 1.25 times the parent capitalization plan. No `publication` subdirectory, by instruction.
+- `trialstyle.sty` - `capstyle.sty` with four changes and no others: a seven-token burgundy palette in which Charcoal is a stroke and text color only so no fill is near-black; a `-0.6cm` figure and table spacing invariant giving a constant 7.44 pt caption gap; two-line captions rather than three; and a centered cover adapted from `new-trial-system/template-new-system`. All five TikZ diagram vocabularies, all 24 vector glyph macros and the clickable DOI and prose-link machinery are inherited and re-colored.
+- `references.bib` - 122 entries with no duplicate keys, formed by concatenating `new-trial-system/references/references.bib` and `trump-ai-cancer-2025-2026.bib` verbatim and adding the 23 deposits and inputs this paper reads directly. The bibliography style is `unsrturl` rather than `unsrt`, because `unsrt` reads neither the `doi` nor the `url` field.
+
+### Changed
+- `README.md` - v4.6.0 release badge, four new badges, a dated headline entry with a 425-character summary, one new section carrying a mermaid build diagram and five tables, and the `new-trial-system/` subtree added to the repository structure. The v4.5.0 summary's one non-US spelling is corrected to `program`.
+- `releases.md` - v4.6.0 release notes in the required format.
+
+### Notes
+- Nothing in this release is filed, approved, introduced or enacted. The IND is deposited rather than filed, the protocols are written rather than approved, H. R. 9510 is drafted rather than introduced, and no funding application has been awarded.
+- No PNG or JPG is generated anywhere. Every figure is pure TikZ, and the `diagrams-python` stage emits a machine-readable specification rather than a `.py` file, which keeps the repository's three `lint-and-format` checks green.
+
 ## [4.5.0] - 2026-08-11
 
 ### Added

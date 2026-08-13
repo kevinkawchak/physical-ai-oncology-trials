@@ -1,7 +1,7 @@
 # End-to-End Physical AI Unification of Oncology Clinical Trials
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Release](https://img.shields.io/badge/Release-v4.5.0-brightgreen.svg)](https://github.com/kevinkawchak/physical-ai-oncology-trials)
+[![Release](https://img.shields.io/badge/Release-v4.6.0-brightgreen.svg)](https://github.com/kevinkawchak/physical-ai-oncology-trials)
 [![Last Updated](https://img.shields.io/badge/Updated-August%202026-blue.svg)](https://github.com/kevinkawchak/physical-ai-oncology-trials)
 [![Protocol](https://img.shields.io/badge/Protocol-MCP-purple.svg)](https://github.com/kevinkawchak/physical-ai-oncology-trials)
 [![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.18445179-blue)](https://doi.org/10.5281/zenodo.18445179)
@@ -23,11 +23,17 @@
 [![Policy Basis](https://img.shields.io/badge/Policy-Science%3A%20A%20New%20Golden%20Age-3C7DB2.svg)](funding/science-golden-age)
 [![Summary Paper DOI](https://img.shields.io/badge/Paper%20DOI%20v1.0-10.5281%2Fzenodo.21787424-blue.svg)](https://doi.org/10.5281/zenodo.21787424)
 [![Capitalization Plan](https://img.shields.io/badge/Capitalization-ChemicalQDevice%20SBIR%20Plan-00417A.svg)](funding/capitalization-plan)
+[![New Trial System](https://img.shields.io/badge/New%20Trial%20System-IND%20to%20Protocol%20to%20Legislation%20to%20Funding-800020.svg)](new-trial-system)
+[![System Figures](https://img.shields.io/badge/Figures-25-800020.svg)](new-trial-system)
+[![System Tables](https://img.shields.io/badge/Tables-25-A32A3C.svg)](new-trial-system)
+[![AI Peer Review](https://img.shields.io/badge/AI%20Peer%20Review-3%20manufacturers%2C%20during%20development-A32A3C.svg)](new-trial-system/final-new-trial)
 
 
 **Comprehensive developments for integrating physical AI into oncology clinical trials, by Claude Code, Cowork; with Assistance from ChatGPT and Google Gemini.**
 
 This repository provides production-ready configurations, validated pipelines, and integration guides for deploying robotic systems, digital twins, and embodied AI agents in oncology. 
+
+**8/14: v4.6.0 (Pancreatic Cancer LLM Clinical Trial System)** *v4.6.0 adds new-trial-system/: the paper Pancreatic Cancer LLM Clinical Trial System: From IND to Protocol to Legislation, Funding, and AI Peer Review.* [![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.xxxxxxxx-blue)](https://doi.org/10.5281/zenodo.xxxxxxxx)
 
 **8/11: v4.5.0 (ChemicalQDevice Capitalization Plan)** *v4.5.0 adds funding/capitalization-plan/: the company-conversion paper From Independent Scientist to Novel Performer, an SBIR operating, milestone and capitalization plan.* [![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.21887807-blue)](https://doi.org/10.5281/zenodo.21887807)
 
@@ -105,6 +111,130 @@ python unification/cross_platform_tools/framework_detector.py
 ```
 ---
 
+## Pancreatic Cancer LLM Clinical Trial System (v4.6.0)
+
+[![Paper](https://img.shields.io/badge/Paper-Pancreatic%20Cancer%20LLM%20Clinical%20Trial%20System-800020.svg)](new-trial-system/final-new-trial)
+[![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.xxxxxxxx-A32A3C.svg)](https://doi.org/10.5281/zenodo.xxxxxxxx)
+[![Figures](https://img.shields.io/badge/Figures-25-6B6B6B.svg)](new-trial-system)
+[![Tables](https://img.shields.io/badge/Tables-25-6B6B6B.svg)](new-trial-system/final-new-trial)
+[![Platforms](https://img.shields.io/badge/Diagram%20platforms-5-6B6B6B.svg)](new-trial-system/sub-prompts)
+[![Stages](https://img.shields.io/badge/Build%20stages-8-C9C9C9.svg)](new-trial-system/sub-prompts)
+[![Sections](https://img.shields.io/badge/Sections-11-C9C9C9.svg)](new-trial-system/final-new-trial/sections)
+[![Rasters](https://img.shields.io/badge/PNG%20%2F%20JPG-none-C9C9C9.svg)](new-trial-system)
+[![Model](https://img.shields.io/badge/Model-Claude%20Code%20Opus%205-800020.svg)](https://claude.ai/code)
+
+**A 425-character summary.** v4.6.0 adds new-trial-system/: the paper Pancreatic Cancer LLM Clinical Trial System: From IND to Protocol to Legislation, Funding, and AI Peer Review. It discloses how one author and one master prompt produced an IND, two clinical trial protocols, five bill versions and fourteen funding artifacts, on a 1 to 4 day scale, reviewed during development by three model manufacturers. 25 figures, 25 tables, 8 stages, no rasters.
+
+The prior pancreatic cancer trial system built its documents on a month scale,
+through teams, with peer review arriving after completion. This release
+discloses the system that replaces it: one author, one master prompt, a 1 to 4
+day project time scale, and AI peer review that arrives during development
+rather than after it. The four deliverables it produced, an IND, two clinical
+trial protocols, a legislative framework and fourteen funding artifacts, are all
+separately deposited and separately dated, and the paper reports on them rather
+than proposing them.
+
+### The build, end to end
+
+```mermaid
+%%{init: {'theme':'base','themeVariables':{'fontSize':'12px','lineColor':'#6B6B6B'}}}%%
+flowchart LR
+    MP["One master prompt<br/>prompts/prompt-new-trial.md"]:::goal
+    subgraph DG["Stages 1 to 5, twenty-five figure specifications"]
+        direction TB
+        D1["mermaid, 6"]:::soft
+        D2["plantuml, 4"]:::soft
+        D3["d2, 6"]:::soft
+        D4["diagrams python, 4"]:::soft
+        D5["graphviz, 5"]:::soft
+    end
+    subgraph PA["Stages 6 to 8, three paper sources"]
+        direction TB
+        S6["draft-new-trial<br/>25 sized slots, 83K characters"]:::mid
+        S7["full-new-trial<br/>25 figures drawn, 183K"]:::mid
+        S8["final-new-trial<br/>senior-author pass, 212K"]:::mid
+    end
+    REL["Release v4.6.0<br/>25 figures, 25 tables"]:::proc
+    MP --> DG
+    DG --> PA
+    PA --> REL
+    classDef goal fill:#800020,stroke:#2E2E2E,stroke-width:1.5px,color:#FFFFFF
+    classDef mid fill:#A32A3C,stroke:#800020,stroke-width:1px,color:#FFFFFF
+    classDef soft fill:#E2D6D9,stroke:#A32A3C,stroke-width:1px,color:#2E2E2E
+    classDef proc fill:#C9C9C9,stroke:#2E2E2E,stroke-width:1px,color:#2E2E2E
+```
+
+### What the four deliverables measured
+
+| Deliverable | Scale reached | Elapsed | Deposited at |
+|:--|:--|:--|:--|
+| Phase 1 IND | 12 modules, 594,657 characters, 22 figures, 84 tables, 52 CFR cross-references | 4 days | [trial-ind/final-ind](trial-ind/final-ind) |
+| Phase 1 protocol | n = 18, 3+3 escalation behind a Phase 0 gate, 169,878 characters, 20 figures | 2 days | [trial-protocol/final-protocol](trial-protocol/final-protocol) |
+| Phase 2 protocol | n = 220, eight centers, hazard ratio 0.60, 199,421 characters, 22 figures | 2 days | [trial-phase-2/final-protocol](trial-phase-2/final-protocol) |
+| Legislation | 5 bill versions plus 4 companion documents | 19 days | [new-trial-system/inputs](new-trial-system/inputs) |
+| Funding | 10 applications, 2 NIH versions, 1 capitalization plan, 1,606,000 dollar ask | 74 days | [funding](funding) |
+
+### Prior system against new system
+
+| Axis | Prior system | New system |
+|:--|:--|:--|
+| Document production unit | Team-month | Prompt-hour |
+| IND assembly time | Months across a group | Four days, one author |
+| Peer review entry point | After completion | During development |
+| Review latency, one round | 7 to 8 weeks best case | Same day |
+| Reviewers per round | 2 to 3 humans | 3 model manufacturers |
+| Virtual trial cost | Above 120,000 dollars per run | 36,330 dollars projected |
+| Provenance record | Acknowledgement paragraph | Commit history plus DOI |
+| Figure format | Raster, not reusable | Machine readable, reusable |
+| Revision granularity | Whole manuscript | One file, one commit |
+| Author count | Group, plus a CRO | One, plus the models |
+
+### The five diagram platforms, by purpose and not by quota
+
+| Platform | Figures | What it owns | Specifications |
+|:--|:--|:--|:--|
+| Mermaid | 1, 4, 7, 11, 17, 21 | Order in time, and decisions taken at a point in time | [mermaid](new-trial-system/mermaid) |
+| PlantUML | 3, 10, 14, 23 | Formal notation: actors, guards, concurrency | [plantuml](new-trial-system/plantuml) |
+| D2 | 2, 8, 12, 16, 18, 22 | Nesting and tabulation | [d2](new-trial-system/d2) |
+| Diagrams (Python) | 6, 13, 20, 25 | Clustered infrastructure carrying glyphs | [diagrams-python](new-trial-system/diagrams-python) |
+| Graphviz | 5, 9, 15, 19, 24 | Records, clusters, fault and decision trees | [graphviz](new-trial-system/graphviz) |
+
+### Paper contents
+
+| Section | Title | Figures | Tables |
+|:--|:--|:--|:--|
+| 0 | Abstract, reader's guide, indexes, build record | none | 1, 2, 3 |
+| 1 | Introduction | 1, 2 | 4, 5 |
+| 2 | Methods | 3, 4, 5 | 6, 7 |
+| 3 | IND | 6, 7, 8, 9 | 8, 9, 10 |
+| 4 | Trial Protocol | 10, 11, 12, 13 | 11, 12, 13 |
+| 5 | Legislation | 14, 15, 16 | 14, 15, 16 |
+| 6 | Funding Proposals | 17, 18, 19, 20 | 17, 18, 19, 20 |
+| 7 | AI Peer Review | 21, 22, 23, 24 | 21, 22, 23, 24 |
+| 8 | Limitations and Future Work | 25 | 25 |
+| 9 | Conclusions | none | none |
+| 10 | Back matter and references | none | glossary |
+
+Sections 3 through 7 are the paper's main sections and sit within a 2,000
+character band of one another.
+
+### Palette
+
+Burgundy `#800020`, lighter burgundy 1 `#A32A3C`, lighter burgundy 2 `#E2D6D9`,
+Charcoal `#2E2E2E`, Slate Gray `#6B6B6B`, Mist Gray `#C9C9C9`, white. Charcoal is
+a stroke and a text color only, so no figure in the paper carries a black or
+near-black fill. The paper body is black text throughout.
+
+### Where to start
+
+| If you are | Open | Then |
+|:--|:--|:--|
+| A funder | [final-new-trial](new-trial-system/final-new-trial) §6, Table 18 | §2, Figure 3 |
+| A regulatory reviewer | [final-new-trial](new-trial-system/final-new-trial) §3, Table 9 | §4, Figure 10 |
+| A legislative staffer | [final-new-trial](new-trial-system/final-new-trial) §5, Table 14 | §5, Figure 14 |
+| A peer reviewer | [final-new-trial](new-trial-system/final-new-trial) §7, Table 21 | §7, Figure 24 |
+| Reproducing the method | [prompts](new-trial-system/prompts) | [sub-prompts](new-trial-system/sub-prompts) |
+
 ## ChemicalQDevice Capitalization Plan (v4.5.0)
 
 [![Paper](https://img.shields.io/badge/Paper-From%20Independent%20Scientist%20to%20Novel%20Performer-00417A.svg)](funding/capitalization-plan/final-capital)
@@ -116,7 +246,7 @@ python unification/cross_platform_tools/framework_detector.py
 [![Compile](https://img.shields.io/badge/pdfLaTeX-0%20errors%2C%200%20overfull-9AA1A8.svg)](funding/capitalization-plan/final-capital)
 [![Rasters](https://img.shields.io/badge/PNG%20%2F%20JPG-none-9AA1A8.svg)](funding/capitalization-plan)
 
-**A 425-character summary.** v4.5.0 adds funding/capitalization-plan/: the ChemicalQDevice conversion paper From Independent Scientist to Novel Performer, an SBIR operating, milestone and capitalization plan. It prices one programme twice, $1,396,000 of direct work inside a $1,606,000 award against $3,500,000 over five years, costs twelve auditable milestones, and sets private capital behind a 21 CFR part 54 firewall. 20 figures, 21 tables, 0 errors.
+**A 425-character summary.** v4.5.0 adds funding/capitalization-plan/: the ChemicalQDevice conversion paper From Independent Scientist to Novel Performer, an SBIR operating, milestone and capitalization plan. It prices one program twice, $1,396,000 of direct work inside a $1,606,000 award against $3,500,000 over five years, costs twelve auditable milestones, and sets private capital behind a 21 CFR part 54 firewall. 20 figures, 21 tables, 0 errors.
 
 Ten applications were filed in August 2026 as an independent scientist. Nine
 address mechanisms that fund a person or an institution; one, application 05,
@@ -749,7 +879,21 @@ physical-ai-oncology-trials/
 ├── LICENSE
 ├── requirements.txt
 │
-├── funding/                           # ★ ChemicalQDevice Capitalization Plan (v4.5.0)
+├── new-trial-system/                  # ★ Pancreatic Cancer LLM Clinical Trial System (v4.6.0)
+│   ├── README.md                      # directory map, section-to-figure-to-table map, palette
+│   ├── prompts/                       # prompt-new-trial.md + output-new-trial.md
+│   ├── sub-prompts/                   # 8 stage sub-prompts, one directory each
+│   ├── mermaid/ plantuml/ d2/         # figure specifications, 6 + 4 + 6
+│   ├── diagrams-python/ graphviz/     # figure specifications, 4 + 5
+│   ├── draft-new-trial/               # Stage 6: skeleton, 25 sized slots + zip
+│   ├── full-new-trial/                # Stage 7: 25 figures drawn, 25 tables + zip
+│   ├── final-new-trial/               # Stage 8: senior-author pass + zip, no publication/
+│   ├── abstracts/                     # the author's deposited abstracts, 2024 to 2026
+│   ├── inputs/                        # 3 legislation archives + the AI peer review archive
+│   ├── references/                    # references.bib + trump-ai-cancer-2025-2026.bib
+│   └── template-new-system/           # the paper template this work adapts
+│
+├── funding/                           # ChemicalQDevice Capitalization Plan (v4.5.0)
 │   ├── README.md                      # funding hub: structure, DOIs, source map
 │   ├── capitalization-plan/           # v4.5.0 build, one eight-stage schedule
 │   │   ├── prompts/                   # prompt-capital.md + update-capital.md + output-capital.md
