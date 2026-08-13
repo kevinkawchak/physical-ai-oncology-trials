@@ -1,0 +1,158 @@
+% sec-07-ai-peer-review.tex - Section 7, AI Peer Review.  A main section.
+% DRAFT stage.  Four figure slots, Figures 21 to 24, and four tables, Tables 21
+% to 24.  Primary source is the AI peer review archive under
+% new-trial-system/inputs; the funding-application review schedule comes from
+% funding/RFA-RM-27-001-v2.
+\section{AI Peer Review}
+\label{sec:peerreview}
+
+\subsection{The study the method comes from}
+
+The AI peer review method used throughout this repository was established in a
+glioblastoma study deposited November 30, 2025 \cite{aiprgliomatc}. That study
+was about clinical trial patient matching in glioblastoma, not pancreatic
+cancer, and the disease is not the point: what transfers is the review method,
+and it transfers without modification to the pancreatic cancer work described in
+sections 3 through 6.
+
+\draftinstr{Stage 7: quote directly from
+\appfile{new-trial-system/inputs/AI\_Peer\_Review\_Acceleration\_of\_LLM\_
+Generated\_Glioblastoma\_Clinical\_Trial\_Patient\_Matching\_ML\_\_FDA\_ICH\_
+ISO\_\_and\_FastAPI.zip}, main.tex, the abstract sentence beginning ``A primary
+benefit of AI peer review is the ability to appropriately conduct iterative
+analyses and corrections throughout the entire manuscript process'' and the
+sentence that follows it. State explicitly that this was a glioblastoma study
+and that the method applies to the pancreatic cancer study.}
+
+\figslot{mermaid-type / sequenceDiagram}{9.4}{Figure 21. One manuscript on two
+clocks: the prior system's serial human\\rounds over months, and the new system's
+parallel model rounds within hours.}
+
+Figure 21 lays the two regimes on one clock. The prior system's best-case review
+cycle is seven to eight weeks and its typical journal processing several months
+across one or two rounds; faster online journals reach about one month. The new
+system's round closes the same day, and it closes during development rather than
+after completion.
+
+\draftinstr{Stage 7: build Table 21 from
+\appfile{new-trial-system/d2/fig-22-peer-review-economics-grid.md} cell value
+table. Columns: Axis, Prior system, New system, Ratio. Seven rows, the last
+being corrections applied before release.}
+
+\begin{apptable}
+\begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}p{3.9cm} >{\raggedright\arraybackslash}p{3.6cm} >{\raggedright\arraybackslash}p{3.4cm} >{\raggedright\arraybackslash}X}
+\headrow \thead{Economic axis} & \thead{Prior system} & \thead{New system} & \thead{Ratio}\\
+\midrule
+Latency, one round & 7 to 8 weeks best case & Same day & About 50 to 1 \\
+Typical journal processing & Several months, 1 to 2 rounds & Hours, rounds unlimited & About 300 to 1 \\
+Reviewers per round & 2 to 3 humans & 3 model manufacturers & 1 to 1 by count \\
+Entry point & After completion & During development & Not comparable \\
+Marginal cost per round & Reviewer time, unpriced & Inference cost, tens of dollars & Orders of magnitude \\
+Artifacts absorbed per year & 2 to 6 per author & Over 30 deposited in 2026 & About 6 to 1 \\
+Corrections before release & None, review follows release & Every round, before deposit & The decisive axis \\
+\end{tabularx}
+\end{apptable}
+\vspace{-0.6cm}
+\tabcap{Table 21. Six economic axes of one review round under both regimes, and\\the
+seventh axis on which the two are not comparable at all.}
+
+\figslot{d2-type / grid}{6.4}{Figure 22. Six economic axes of one review round
+under both regimes, with\\the ratio in each cell and the volume the prior system
+would have to absorb.}
+
+\subsection{Three manufacturers, one human gate}
+
+\draftinstr{Stage 7: quote directly from
+\appfile{funding/RFA-RM-27-001-v2/LaTeX Source Files.zip},
+sections/ai-peer-review-context.tex, the paragraph assigning Claude Code the
+primary production role and ChatGPT Codex and Google Gemini the two independent
+reviewer roles, and the closing sentence stating that these systems are not
+applicants, investigators, sponsors, regulators, clinicians, or decision-makers,
+and that the PI remains responsible for source verification, regulatory
+accuracy, scientific interpretation, participant protection, and final
+submission.}
+
+\begin{apptable}
+\begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}p{2.6cm} >{\raggedright\arraybackslash}p{3.1cm} >{\raggedright\arraybackslash}X}
+\headrow \thead{Manufacturer} & \thead{Role} & \thead{What that role covers in this work}\\
+\midrule
+Anthropic & Primary production & Code, regulatory adaptations, protocols, IND materials, diagrams, repository-scale artifacts \\
+OpenAI & First independent reviewer & Verification, validation, uncertainty quantification, external standards, trial-literature synthesis, deep research, PDF review \\
+Google & Second independent reviewer & Accelerated code problem solving, meta-verification of prior stages, administrative workflow support \\
+Human PI & Final authority & Source verification, regulatory accuracy, scientific interpretation, participant protection, final submission \\
+\end{tabularx}
+\end{apptable}
+\vspace{-0.6cm}
+\tabcap{Table 22. The three model manufacturers and the human principal\\investigator,
+and the role each holds in the reviewed pancreatic cancer work.}
+
+\figslot{plantuml-type / activity with fork and join}{10.2}{Figure 23. One
+artifact reviewed concurrently by three model manufacturers,\\joined into one
+recorded disagreement set, and cleared only by the human PI.}
+
+Figure 23 shows where the concurrency sits and where it stops. Three
+manufacturers read one frozen artifact and its recorded hash, so no branch can
+observe another's output and a disagreement is evidence rather than an artifact
+of ordering. The join produces three reports over one object, and the human
+principal investigator is the only gate past it.
+
+\subsection{What the review actually found}
+
+\draftinstr{Stage 7: report the glioblastoma study's measured outcomes from the
+same archive: initial test-set performance 67.3 percent on a BioClinicalBERT
+pipeline; a triple review by three manufacturers all recommending a tabular
+model; the TabPFN-v2 replacement; test-set accuracy 94.0 percent after the
+recommendations were implemented; an evaluation standard scoring the workflow at
+87.5 percent overall quality and 0.831 efficiency; eleven unsuccessful FastAPI
+attempts followed by a successful Opus and Sonnet strategy; and three regulatory
+analyst scores of 8.0, 9.1 and 9.1 out of 10 with the reason each gave.}
+
+\begin{apptable}
+\begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}p{5.4cm} >{\raggedright\arraybackslash}p{2.6cm} >{\raggedright\arraybackslash}X}
+\headrow \thead{Measure} & \thead{Value} & \thead{What changed it}\\
+\midrule
+Test-set accuracy before review & 67.3 percent & Initial clinical BERT pipeline \\
+Test-set accuracy after review & 94.0 percent & Tabular model plus few-shot learning \\
+Overall workflow quality & 87.5 percent & Evaluation standard, eight criteria \\
+Efficiency score & 0.831 & Human, prompt, time and cost metrics \\
+Regulatory analyst scores & 8.0, 9.1, 9.1 of 10 & Three manufacturers, recorded separately \\
+Study duration, one author & 14 days & Dataset through FastAPI repository \\
+\end{tabularx}
+\end{apptable}
+\vspace{-0.6cm}
+\tabcap{Table 23. What the AI peer review changed, measured, in the glioblastoma\\study
+whose method the pancreatic cancer work in this paper inherits.}
+
+\figslot{graphviz-type / decision tree}{9.0}{Figure 24. One disagreement from
+three model reports to five terminal\\dispositions, none of which is an average
+and only one of which is silent.}
+
+Figure 24 is the reason the disagreement in Table 23 is reported as three
+separate scores rather than as a mean of 8.7. None of the five dispositions
+averages the reports, and only one leaves a disagreement without an action.
+
+\draftinstr{Stage 7: build Table 24 listing every instance of AI peer review
+across the author's works, with columns Work, Date, Reviewers, What review
+changed. Include the glioblastoma study, the code generation competition, the
+NIH application v1 and v2, and the capitalization plan. Then close the section
+by stating that AI peer reviewers are the only reviewers capable of handling
+increasingly larger, more complex, and more frequent studies, drawing that claim
+from the source study's abstract, introduction, limitations and conclusions.}
+
+\begin{apptable}
+\begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}p{5.0cm} >{\raggedright\arraybackslash}p{1.9cm} >{\raggedright\arraybackslash}p{2.6cm} >{\raggedright\arraybackslash}X}
+\headrow \thead{Work} & \thead{Date} & \thead{Reviewers} & \thead{What the review changed}\\
+\midrule
+Glioblastoma patient matching ML & Nov 30, 2025 & 3 manufacturers & Model class, 67.3 to 94.0 percent \\
+Code generation competition & Dec 22, 2025 & 16 models & Iterative learning on FDA adverse events \\
+NIH application v1.0 & Jul 7, 2026 & 2 reviewers & Structure and mechanism fit \\
+NIH application v2.0 & Jul 12, 2026 & 2 reviewers & Budget, milestones, review schedule \\
+Capitalization plan & Aug 11, 2026 & 2 reviewers & Column widths, caption balance, figure centering \\
+\end{tabularx}
+\end{apptable}
+\vspace{-0.6cm}
+\tabcap{Table 24. Five instances of AI peer review across the author's deposited\\works,
+and the specific change each review produced.}
+
+\draftinstr{Stage 8: this is a main section. Match the character count of
+sections 3, 4, 5 and 6, and verify every figure and table reference.}
