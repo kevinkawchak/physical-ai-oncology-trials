@@ -1,0 +1,98 @@
+% sec-02-methods.tex - Section 2, Methods.  DRAFT stage.
+% One page maximum of prose.  Three figure slots, Figures 3, 4 and 5, and two
+% tables, Tables 6 and 7.
+\section{Methods}
+\label{sec:methods}
+
+The method is one master prompt, decomposed by the model into sub-prompts that
+the model then executes in order, with every generated file committed and pushed
+before the next is written. Earlier 2026 papers in this repository reached a
+similar effect through a sequence of user prompts, one per stage; the difference
+is that the author had to be present at each boundary. Under the master prompt
+schedule the author is present once, at the start, and thereafter watches the
+branch.
+
+\draftinstr{Stage 7: expand to one full page. Sources are
+\appfile{funding/capitalization-plan/prompts/prompt-capital.md},
+\appfile{funding/capitalization-plan/sub-prompts/README.md}, and
+\appfile{new-trial-system/prompts/prompt-new-trial.md}. State the count of works
+built each way: multi-prompt through mid 2026, master prompt from
+pdac-funding-applications onward. Give the exact stage count, 8, and the commit
+rule, one file one commit.}
+
+\figslot{plantuml-type / activity with fork and join}{9.4}{Figure 3. The
+eight-stage build as one activity: five diagram stages fork and\\join on a shared
+specification, then three paper stages run strictly in order.}
+
+Figure 3 separates the part of the build that is genuinely concurrent from the
+part that is not. Five diagram stages run against one fixed figure plan and must
+all close before any LaTeX is written; the three paper stages that follow are
+serial, because each reads the whole of its predecessor. Table 6 counts how many
+times each method element has been used across separate deposited projects,
+which is the basis on which the method is offered as reliable rather than novel.
+
+\draftinstr{Stage 7: build Table 6 from
+\appfile{new-trial-system/abstracts/README.md} and the prompts and sub-prompts
+directories of \appfile{funding/capitalization-plan} and
+\appfile{funding/pdac-funding-applications}. Columns: Method element, Projects
+using it, First use, Evidence. Rows: master prompt, AI-generated sub-prompt
+schedule, five-platform diagram specification set, draft to full to final
+staging, one-file-one-commit real-time push, machine-readable figure reuse,
+AI peer review round, DOI deposit per artifact.}
+
+\begin{apptable}
+\begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}p{4.6cm} >{\raggedright\arraybackslash}p{1.7cm} >{\raggedright\arraybackslash}p{2.4cm} >{\raggedright\arraybackslash}X}
+\headrow \thead{Method element} & \thead{Projects} & \thead{First use} & \thead{Evidence}\\
+\midrule
+Master prompt, single turn & 3 & Jul 2026 & \appfile{funding/pdac-funding-applications/prompts} \\
+AI-generated sub-prompt schedule & 3 & Jul 2026 & \appfile{funding/capitalization-plan/sub-prompts} \\
+Five-platform diagram specification set & 3 & Jul 2026 & Five directories per project \\
+Draft, full, final staging & 8 & Mar 2026 & Every paper directory since March \\
+One file, one commit, pushed live & 3 & Jul 2026 & Branch history of each build \\
+Machine-readable figure reuse & 3 & Jul 2026 & Specifications re-read, not re-derived \\
+AI peer review round & 4 & Nov 2025 & \S7 \\
+DOI deposit per artifact & 30 or more & 2024 & \appfile{new-trial-system/abstracts/README.md} \\
+\end{tabularx}
+\end{apptable}
+\vspace{-0.6cm}
+\tabcap{Table 6. How many separate deposited projects have used each element of\\the
+method, and where the evidence for each count is held.}
+
+\figslot{mermaid-type / sequenceDiagram}{8.8}{Figure 4. One generation turn from
+master prompt to pushed commit, with the\\four participants, the two return
+paths, and the point the author can stop it.}
+
+The second half of the method is storage. Every figure in this paper exists
+first as a specification: a perspective statement, a two-line caption, valid
+source in the platform's own syntax, a construction table of absolute
+coordinates, an edge-routing paragraph, and a value table naming the repository
+file each number came from. Figure 4 shows how one such file reaches the branch,
+and Figure 5 shows what it holds once it is there.
+
+\figslot{graphviz-type / dot record}{7.0}{Figure 5. Two records for one figure:
+the machine-readable specification\\and the raster image, with the six fields
+only the first returns as input.}
+
+\draftinstr{Stage 7: build Table 7 from
+\appfile{new-trial-system/graphviz/fig-05-figure-storage-record.md}. Columns:
+Property, Specification, Raster, Consequence for the next paper. Add the
+measured total size of the twenty-five specification files in this build.}
+
+\begin{apptable}
+\begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}p{3.3cm} >{\raggedright\arraybackslash}p{3.5cm} >{\raggedright\arraybackslash}p{3.0cm} >{\raggedright\arraybackslash}X}
+\headrow \thead{Property} & \thead{Specification} & \thead{Raster} & \thead{Consequence for the next paper}\\
+\midrule
+Size on disk & 6 to 9 kilobytes & 180 to 900 kilobytes & The whole figure set fits in one file's space \\
+Caption & Two lines, exact & None & Captions are diffable across versions \\
+Coordinates & Absolute, stated & None & A node can be added without a re-layout \\
+Routing & Stated per edge & None & Overlap claims are auditable \\
+Values & Sourced per cell & None & No number in a figure is unattributable \\
+Reuse & Read back as input & Re-drawn by hand & The next paper starts from this one \\
+\end{tabularx}
+\end{apptable}
+\vspace{-0.6cm}
+\tabcap{Table 7. What a machine-readable figure specification stores that a\\raster
+does not, and what each stored field buys the next paper.}
+
+\draftinstr{Stage 8: confirm one page of prose, and that Figures 3, 4 and 5 and
+Tables 6 and 7 are each referenced once by name.}
