@@ -125,7 +125,7 @@ directory carrying each one, and the question that each of them answers.}
 18 & 6 & Capitalization numbers & What is the ask, and what does it buy? \\
 19 & 6 & RFA-RM-27-001 v2 structure & What does a full NIH application contain? \\
 20 & 6 & Cost and time benchmarks, prior against new & What does the same work cost each way? \\
-21 & 7 & Prior against new peer review, side by side & Why can the prior system not absorb this? \\
+21 & 7 & Prior against new peer review, nine measured axes & What does one review round cost each way? \\
 22 & 7 & Model roster and review role & Which model does what, and for whom? \\
 23 & 7 & AI peer review quality and efficiency metrics & How was review quality measured? \\
 24 & 7 & AI peer review instances across author works & How often has this been done before? \\
@@ -139,12 +139,14 @@ each answers, so a reader who knows the question can find the page.}
 \section*{How This Paper Was Built}
 \phantomsection\addcontentsline{toc}{section}{How This Paper Was Built}
 
-One master prompt was supplied by the author on August 14, 2026. Claude Code
+One master prompt was supplied by the author on August 12, 2026. Claude Code
 Opus 5 decomposed it into eight sub-prompts and executed them in order without
 further author intervention, committing and pushing every generated file the
-moment it was finished. The eight stages are recorded in
-\appfile{new-trial-system/sub-prompts}, and the master prompt itself is filed
-verbatim in \appfile{new-trial-system/prompts/prompt-new-trial.md}.
+moment it was finished. A second author prompt on August 13, 2026 produced this
+update stage. The whole document, its twenty-five figures and its twenty-five
+tables were therefore finished within three days. The eight stages are recorded
+in \appfile{new-trial-system/sub-prompts}, and both prompts are filed verbatim
+in \appfile{new-trial-system/prompts}.
 
 Stages 1 through 5 produced twenty-five machine-readable figure specifications,
 one file per figure, across five diagram platforms. Each specification carries a
@@ -163,9 +165,12 @@ instruction in every section naming the repository file the next stage had to
 read. The full version drew all twenty-five figures, populated all twenty-five
 tables, discharged every instruction, and wrote the prose from the four
 author-final \appfile{publication/} directories and the four input archives with
-direct quotation. This final version is the senior author's proof-reading pass:
-\S\ref{sec:introduction} through \S\ref{sec:conclusions} carry the same argument
-as the full version, set correctly on the page.
+direct quotation. The final version was the senior author's proof-reading pass.
+This update stage, deposited at
+\appfile{new-trial-system/final-new-trial/update-final}, repaired three
+\texttt{\textbackslash foreach} headers that had stopped the final stage
+compiling, redrew Figure 14 as a class diagram, and rewrote
+\S\ref{sec:peerreview} around the quantities of Table 21.
 
 Each stage produced a self-contained Overleaf bundle, and each bundle is
 deposited beside its source. A reader who wants to check the production-rate
