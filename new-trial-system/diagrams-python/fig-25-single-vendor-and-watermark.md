@@ -7,11 +7,11 @@ limitations section carries an engineering answer rather than an apology.* No
 other figure in this paper is about the system's weaknesses; every other figure
 describes what it produces or how.
 
-**Caption (2 balanced lines, 73 and 71 characters, numbered as printed).**
+**Caption (2 balanced lines, 70 and 72 characters, numbered as printed).**
 
 ```
 Figure 25. Two structural exposures, single-vendor production and text
-watermarking, each drawn with the mitigation that reduces it and its residual.
+watermarking, each with the mitigation that reduces it and its residual.
 ```
 
 ## Python diagrams source

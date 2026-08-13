@@ -8,7 +8,7 @@ because the study became randomized.* No other figure in this paper compares the
 two protocol documents; Figure 11 compares the clinical progression they
 describe, and Figure 10 stays inside one participant in one of them.
 
-**Caption (2 balanced lines, 71 and 73 characters, numbered as printed).**
+**Caption (2 balanced lines, 72 and 75 characters, numbered as printed).**
 
 ```
 Figure 12. The twelve Phase 1 protocol sections sorted into what Phase 2

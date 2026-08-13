@@ -8,7 +8,7 @@ concrete.* No other figure in this paper traces one requirement vertically;
 Figure 14 assigns duties across actors at one layer, and Figure 15 traces the
 bill's own drafting history rather than its downward effect.
 
-**Caption (2 balanced lines, 74 and 72 characters, numbered as printed).**
+**Caption (2 balanced lines, 76 and 79 characters, numbered as printed).**
 
 ```
 Figure 16. One requirement through four layers, from a statutory sentence to

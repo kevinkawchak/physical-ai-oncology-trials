@@ -8,7 +8,7 @@ figure in this paper computes ratios; Figure 21 shows the two clocks, Figure 23
 shows the concurrency inside one new-system round, and Figure 2 compares the
 systems at large without isolating review.
 
-**Caption (2 balanced lines, 71 and 73 characters, numbered as printed).**
+**Caption (2 balanced lines, 73 and 76 characters, numbered as printed).**
 
 ```
 Figure 22. Six economic axes of one review round under both regimes, with

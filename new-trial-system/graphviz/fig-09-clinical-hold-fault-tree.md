@@ -7,7 +7,7 @@ risk is stated as a logical structure rather than as a list of worries.* No
 other figure in this paper draws failure logic; Figure 6 draws what the IND was
 built from, Figure 7 when, and Figure 8 which requirement each module satisfies.
 
-**Caption (2 balanced lines, 74 and 72 characters, numbered as printed).**
+**Caption (2 balanced lines, 74 and 77 characters, numbered as printed).**
 
 ```
 Figure 9. The clinical hold as a top event over eight basal failures, with

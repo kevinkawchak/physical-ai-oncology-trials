@@ -8,7 +8,7 @@ against two separate charts.* No other figure in this paper places two time
 regimes on one axis; Figure 17 is also a gantt but plots deposit dates for
 funding artifacts across a calendar year and carries no comparison band.
 
-**Caption (2 balanced lines, 72 and 74 characters, numbered as printed).**
+**Caption (2 balanced lines, 78 and 77 characters, numbered as printed).**
 
 ```
 Figure 7. Twelve IND modules on one clock: the new system in hours across four

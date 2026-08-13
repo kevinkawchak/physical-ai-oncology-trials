@@ -8,7 +8,7 @@ draws the mechanism of a single turn; Figure 3 draws the fork and join of the
 whole eight-stage schedule, and Figure 5 draws what the turn stores rather than
 what it does.
 
-**Caption (2 balanced lines, 71 and 73 characters, numbered as printed).**
+**Caption (2 balanced lines, 75 and 78 characters, numbered as printed).**
 
 ```
 Figure 4. One generation turn from master prompt to pushed commit, with the

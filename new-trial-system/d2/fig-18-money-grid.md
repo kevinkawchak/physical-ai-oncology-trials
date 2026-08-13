@@ -8,11 +8,11 @@ capitalization numbers; Figure 17 plots when the funding artifacts appeared,
 Figure 19 routes dollars to work packages, and Figure 20 draws the machinery
 that produced the applications.
 
-**Caption (2 balanced lines, 73 and 75 characters, numbered as printed).**
+**Caption (2 balanced lines, 69 and 68 characters, numbered as printed).**
 
 ```
-Figure 18. One four-layer budget priced three ways, and the same direct work
-under a 15.0 percent company load against a 57 percent university rate.
+Figure 18. One four-layer budget priced three ways, and the identical
+direct work set under a 15.0 percent load against a 57 percent rate.
 ```
 
 ## D2 source

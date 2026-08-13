@@ -38,12 +38,12 @@ Regulatory basis & IND 21 CFR \S 312 plus IDE 21 CFR \S 812, Physical AI Subpart
 \end{tabularx}
 \end{apptable}
 \vspace{-0.6cm}
-\tabcap{Table 11. The Phase 1 protocol synopsis as deposited, with the gate that\\must
-close before any patient-facing robotic activity begins.}
+\tabcap{Table 11. The Phase 1 protocol synopsis as deposited, with the gate\\
+that must close before any patient-facing robotic activity begins.}
 
-\figslot{plantuml-type / state with guards}{9.6}{Figure 10. One participant from
-screening to the 24-month endpoint, with the\\guard on every transition and the
-two conditions that route to a study hold.}
+\figslot{plantuml-type / state with guards}{9.6}{Figure 10. One participant from screening to the 24-month endpoint,
+with the\\guard on every transition and the two conditions that route to a study
+hold.}
 
 Figure 10 takes the participant's point of view. Nine forward states run down a
 left column at a constant pitch, two exception states sit in a right column, and
@@ -79,19 +79,19 @@ Predicate & Phase 1 v1.0.0, which established the RP2D and the safety architectu
 \end{tabularx}
 \end{apptable}
 \vspace{-0.6cm}
-\tabcap{Table 12. The Phase 2 protocol synopsis as deposited, and the Phase 1\\predicate
-whose result each randomized element depends on.}
+\tabcap{Table 12. The Phase 2 protocol synopsis as deposited, and the Phase\\
+1 predicate whose result each randomized element of it depends upon.}
 
 Table 12 is the Phase 2 synopsis, and every randomized element in it depends on
 a Phase 1 result.
 
-\figslot{mermaid-type / flowchart LR}{7.8}{Figure 11. From the Phase 0 simulation
-gate through three 3+3 dose levels to\\Phase 2 randomization, with the quantity
-that must hold on each rung shown.}
+\figslot{mermaid-type / flowchart LR}{7.8}{Figure 11. From the Phase 0 simulation gate through three 3+3 dose
+levels to\\Phase 2 randomization, with the quantity that must hold on each rung
+shown.}
 
-\figslot{d2-type / containers}{8.4}{Figure 12. The twelve Phase 1 protocol
-sections sorted into what Phase 2\\carried unchanged, what it replaced, and what
-randomization made necessary.}
+\figslot{d2-type / containers}{8.4}{Figure 12. The twelve Phase 1 protocol sections sorted into what
+Phase 2\\carried unchanged, what it replaced, and what randomization made
+necessary.}
 
 Figure 11 draws the clinical progression and Figure 12 draws the documentary
 one. Four of the twelve Phase 1 sections were carried into Phase 2 unchanged,
@@ -114,14 +114,14 @@ Both, combined & Two & Jun 21 to 23 & 26 & 4 days against a full trial-design cy
 \end{tabularx}
 \end{apptable}
 \vspace{-0.6cm}
-\tabcap{Table 13. Both protocol deposits, their versions and dates, and the\\elapsed
-production time against the prior system's design cycle.}
+\tabcap{Table 13. Both protocol deposits, their versions, character counts and\\figure
+counts, and the elapsed production time against the prior system.}
 
 \subsection{The site the protocol assumes}
 
-\figslot{diagrams (python)-type / clustered infrastructure}{9.8}{Figure 13. The
-four-layer on-premises site stack, and the single boundary\\across which no
-inference request, model weight, or patient record passes.}
+\figslot{diagrams (python)-type / clustered infrastructure}{9.8}{Figure 13. The four-layer on-premises site stack, and the single
+boundary\\across which no inference request, model weight, or patient record
+passes.}
 
 Figure 13 draws the equipment a participant is operated within, and the one
 boundary that makes the protocol's on-premises claim checkable. The prohibited

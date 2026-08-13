@@ -2,17 +2,17 @@
 
 **Type.** diagrams (python)-type, clustered infrastructure. **Section.** §3,
 IND. **Perspective.** *Which clusters of existing source material fed which IND
-module, and the three modules that had no prior-system analogue to copy and were
+module, and the three modules that had no prior-system counterpart to copy and were
 therefore composed rather than adapted.* No other figure in this paper shows the
 IND's inputs; Figure 7 shows when it was assembled, Figure 8 shows the
 regulatory crosswalk it satisfies, and Figure 9 shows what would have to fail
 for it to be refused.
 
-**Caption (2 balanced lines, 72 and 74 characters, numbered as printed).**
+**Caption (2 balanced lines, 72 and 71 characters, numbered as printed).**
 
 ```
-Figure 6. Four source clusters feeding twelve IND modules, with the three
-modules that had no prior-system analogue and were composed rather than copied.
+Figure 6. Four source clusters feeding twelve IND modules, and the three
+modules that had no prior-system counterpart and were composed instead.
 ```
 
 ## Python diagrams source

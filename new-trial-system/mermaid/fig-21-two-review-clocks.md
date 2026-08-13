@@ -9,7 +9,7 @@ cost, latency, rounds and reviewer count, Figure 23 draws the concurrency inside
 one AI review round, and Figure 24 draws what happens when two reviewers
 disagree.
 
-**Caption (2 balanced lines, 73 and 75 characters, numbered as printed).**
+**Caption (2 balanced lines, 72 and 76 characters, numbered as printed).**
 
 ```
 Figure 21. One manuscript on two clocks: the prior system's serial human

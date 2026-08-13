@@ -8,7 +8,7 @@ No other figure in this paper reads the policy record; Figure 2 scores the prior
 system against the new one but assumes the demand has already been established,
 and Figure 22 compares review economics without reference to any statute.
 
-**Caption (2 balanced lines, 70 and 72 characters, numbered as printed).**
+**Caption (2 balanced lines, 72 and 74 characters, numbered as printed).**
 
 ```
 Figure 1. Eleven Federal AI and cancer actions from January 2025 to July

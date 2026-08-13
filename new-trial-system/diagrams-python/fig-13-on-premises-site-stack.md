@@ -7,7 +7,7 @@ claim checkable: no inference request crosses it.* No other figure in this paper
 draws the site; Figure 10 stays inside the participant's state, Figure 11 draws
 the study's escalation, and Figure 12 compares the two protocol documents.
 
-**Caption (2 balanced lines, 73 and 71 characters, numbered as printed).**
+**Caption (2 balanced lines, 73 and 74 characters, numbered as printed).**
 
 ```
 Figure 13. The four-layer on-premises site stack, and the single boundary

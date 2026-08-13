@@ -7,11 +7,11 @@ recorded rather than averaged is checkable.* No other figure in this paper draws
 the resolution path; Figure 23 draws the concurrency that produces the reports,
 Figure 21 the timing, and Figure 22 the economics.
 
-**Caption (2 balanced lines, 71 and 73 characters, numbered as printed).**
+**Caption (2 balanced lines, 69 and 65 characters, numbered as printed).**
 
 ```
 Figure 24. One disagreement from three model reports to five terminal
-dispositions, none of which is an average and only one of which is silent.
+dispositions, of which none is an average and only one is silent.
 ```
 
 ## DOT source

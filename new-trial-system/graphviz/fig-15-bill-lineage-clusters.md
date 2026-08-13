@@ -8,7 +8,7 @@ named source at every step.* No other figure in this paper shows the drafting
 history; Figure 14 assigns duties in the finished text and Figure 16 traces one
 requirement downward from it.
 
-**Caption (2 balanced lines, 73 and 71 characters, numbered as printed).**
+**Caption (2 balanced lines, 75 and 73 characters, numbered as printed).**
 
 ```
 Figure 15. Five bill versions across eleven days, the delta each added, and

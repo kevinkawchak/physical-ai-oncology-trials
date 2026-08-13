@@ -8,7 +8,7 @@ paper draws the clinical progression; Figure 10 draws one participant's state
 machine within a single cohort, and Figure 12 draws what the Phase 2 document
 inherits from the Phase 1 document rather than what a participant does.
 
-**Caption (2 balanced lines, 73 and 71 characters, numbered as printed).**
+**Caption (2 balanced lines, 76 and 75 characters, numbered as printed).**
 
 ```
 Figure 11. From the Phase 0 simulation gate through three 3+3 dose levels to

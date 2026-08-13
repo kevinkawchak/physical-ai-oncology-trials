@@ -10,8 +10,8 @@ about one turn's mechanism.
 **Caption (2 balanced lines, 72 and 74 characters, numbered as printed).**
 
 ```
-Figure 5. Two records for one figure: the machine-readable specification and
-the raster image, with the six fields only the first can return as input.
+Figure 5. Two records for one figure: the machine-readable specification
+and the raster image, with the six fields only the first returns as input.
 ```
 
 ## DOT source

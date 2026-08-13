@@ -11,8 +11,8 @@ describing either system's mechanics.
 **Caption (2 balanced lines, 72 and 70 characters, numbered as printed).**
 
 ```
-Figure 2. Ten operating axes on which the prior and new trial systems differ,
-each cell carrying a measured value from the author's deposited record.
+Figure 2. Ten operating axes on which the prior and the new trial system
+differ, each cell carrying a measured value from the deposited record.
 ```
 
 ## D2 source

@@ -8,7 +8,7 @@ round; Figure 21 draws two review regimes on a clock, Figure 22 tabulates their
 economics, and Figure 24 draws only what happens when the three reports
 disagree.
 
-**Caption (2 balanced lines, 71 and 73 characters, numbered as printed).**
+**Caption (2 balanced lines, 75 and 76 characters, numbered as printed).**
 
 ```
 Figure 23. One artifact reviewed concurrently by three model manufacturers,

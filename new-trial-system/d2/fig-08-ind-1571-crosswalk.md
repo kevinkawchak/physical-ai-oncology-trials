@@ -9,7 +9,7 @@ requirement to a file on disk; Figure 6 draws the IND as an assembled structure,
 Figure 7 draws when it was assembled, and Figure 9 draws what would have to
 fail for it to be refused.
 
-**Caption (2 balanced lines, 73 and 71 characters, numbered as printed).**
+**Caption (2 balanced lines, 75 and 72 characters, numbered as printed).**
 
 ```
 Figure 8. Twelve codified IND content items joined to the section file that

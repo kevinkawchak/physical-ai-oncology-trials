@@ -8,7 +8,7 @@ funding record; Figure 18 tabulates the money the artifacts ask for, Figure 19
 routes those dollars to work layers, and Figure 20 draws the machinery that
 produced the artifacts rather than when they appeared.
 
-**Caption (2 balanced lines, 74 and 72 characters, numbered as printed).**
+**Caption (2 balanced lines, 77 and 76 characters, numbered as printed).**
 
 ```
 Figure 17. Fourteen funding artifacts deposited between June and August 2026,

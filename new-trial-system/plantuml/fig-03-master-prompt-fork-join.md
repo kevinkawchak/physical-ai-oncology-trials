@@ -8,7 +8,7 @@ serial because each reads the one before it.* No other figure in this paper
 distinguishes the concurrent part of the method from the serial part; Figure 4
 draws one turn inside a stage, and Figure 5 draws what a stage stores.
 
-**Caption (2 balanced lines, 74 and 72 characters, numbered as printed).**
+**Caption (2 balanced lines, 77 and 78 characters, numbered as printed).**
 
 ```
 Figure 3. The eight-stage build as one activity: five diagram stages fork and

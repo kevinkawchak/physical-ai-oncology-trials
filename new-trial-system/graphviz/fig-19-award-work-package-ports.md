@@ -7,7 +7,7 @@ funder can see the boundary of what is being asked for.* No other figure in this
 paper routes money; Figure 18 tabulates the totals under two overhead regimes
 and Figure 20 draws the machinery that produced the applications.
 
-**Caption (2 balanced lines, 72 and 74 characters, numbered as printed).**
+**Caption (2 balanced lines, 76 and 75 characters, numbered as printed).**
 
 ```
 Figure 19. The award as a four-port record, the work package each port pays,

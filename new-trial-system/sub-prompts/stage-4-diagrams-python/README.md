@@ -26,7 +26,7 @@ glyph is a vector pictogram.
 
 | Figure | Section | Perspective no other figure takes |
 |:--|:--|:--|
-| 6 | §3 IND | The IND as an assembled object: which clusters of source material fed which module, and the three modules that had no prior-system analogue to copy |
+| 6 | §3 IND | The IND as an assembled object: which clusters of source material fed which module, and the three modules that had no prior-system counterpart to copy |
 | 13 | §4 Trial Protocol | The on-premises site stack a participant is operated within: compute, robot, data, and oversight, with the boundary that keeps inference inside the building |
 | 20 | §6 Funding Proposals | The production pipeline that turned one evidence store into fourteen funding artifacts, and where each artifact type leaves the pipeline |
 | 25 | §8 Limitations | The single-vendor dependency and the watermark provenance chain, drawn with the mitigation attached to each exposure |

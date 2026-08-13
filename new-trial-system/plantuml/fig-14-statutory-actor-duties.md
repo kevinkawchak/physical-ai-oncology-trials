@@ -7,7 +7,7 @@ other figure in this paper assigns duties to named parties; Figure 15 traces how
 the bill text itself evolved across five versions, and Figure 16 traces one
 requirement downward from statute to a site standard operating procedure.
 
-**Caption (2 balanced lines, 72 and 74 characters, numbered as printed).**
+**Caption (2 balanced lines, 75 and 73 characters, numbered as printed).**
 
 ```
 Figure 14. Six actors and eleven statutory duties, with the two duties that

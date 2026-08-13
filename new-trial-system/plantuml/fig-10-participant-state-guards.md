@@ -8,7 +8,7 @@ this paper takes the participant's point of view; Figure 11 draws the study's
 escalation ladder across cohorts, and Figure 13 draws the site infrastructure
 around the participant rather than the participant's own state.
 
-**Caption (2 balanced lines, 73 and 71 characters, numbered as printed).**
+**Caption (2 balanced lines, 76 and 76 characters, numbered as printed).**
 
 ```
 Figure 10. One participant from screening to the 24-month endpoint, with the
