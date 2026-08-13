@@ -1,0 +1,86 @@
+FROM: kevink@chemicalqdevice.com
+
+TO: solicitations@arpa-h.gov
+CC: info@arpa-h.gov
+
+SUBJECT: Proposal abstract follow-up - the production method behind the 36-month milestone-bounded Phase 1 robotic Whipple, now deposited with its gate evidence
+
+=== BODY ===
+Dear ARPA-H Mission Office,
+
+Following my earlier proposal abstract for a 36-month, milestone-bounded Phase 1
+study combining perioperative daraxonrasib (RMC-6236) with a staged eight-arm
+robotic pancreaticoduodenectomy and an on-premises advisory language model, I am
+sending the method paper that documents how the program's artifacts are produced
+and checked. The gate schedule, the kill criteria, and the budget are unchanged.
+
+The reason this matters to a program manager is throughput against a gate. ARPA
+programs fail on the calendar more often than on the science, and the attached
+paper is a measured account of a production system that removes the calendar
+risk from the document layer. One author produced an Investigational New Drug
+application in four days, two clinical trial protocols, five bill versions with
+four companion documents in eleven days, and fourteen funding artifacts, each
+committed and pushed at the moment it was written so the branch history is the
+production record rather than a report about it. The paper itself, with
+twenty-five figures and twenty-five tables across fifty-three pages, was finished
+inside three days, and major revisions to it run on a one to two day scale.
+
+For Gate 1 in particular, this changes what a twelve-month checkpoint can be
+asked to carry. If IND activity, arm-level stop latency under 3 milliseconds and
+system-wide stop under 500 milliseconds are the criteria, then the documentary
+work supporting them is no longer on the critical path; the measurement is. The
+program's first eighteen months do not have to be spent writing.
+
+Section 7 states the review regime that clears every artifact before deposit.
+Three model manufacturers read one frozen artifact and its recorded hash in
+parallel, with the human principal investigator holding final authority and two
+of five disagreement dispositions stopping the artifact rather than passing it.
+That is an auditable gate rather than a narrative progress review, which is the
+distinction the ARPA model already asks for.
+
+The request is unchanged at $2,100,000 over 36 months, $700,000 per year, with no
+cost share. I remain a single independent performer intending to partner at UC
+San Diego Moores Cancer Center at the feasibility stage only; UC San Diego is not
+a sponsor, site, or endorser of this work.
+
+Sincerely,
+CEO Kevin Kawchak
+ChemicalQDevice
+August 14, 2026
+=== END BODY ===
+
+ATTACHMENTS TO INCLUDE, IN THIS ORDER
+1. Pancreatic Cancer LLM Clinical Trial System: From IND to Protocol to
+   Legislation, Funding, and AI Peer Review. Draft 1.0, San Diego,
+   August 14, 2026. Fifty-three pages, 25 figures, 25 tables.
+   Compile from new-trial-system/final-new-trial/update-final:
+   pdflatex main -> bibtex main -> pdflatex main -> pdflatex main
+   DOI to be asserted on deposit; state "DOI pending" until Zenodo issues it.
+2. app-02-arpa-h.pdf, the original five-page abstract with the gate schedule,
+   the authority boundaries, the surgical measures, and the budget by layer.
+3. Investigational New Drug Application - Daraxonrasib, Phase 1, LLM-Directed
+   Robotic Whipple in KRAS-Mutated PDAC.
+   https://doi.org/10.5281/zenodo.21097442
+4. QSP Metastatic Pancreatic Cancer AI Clinical Trial Simulation: From Protocol
+   to Digital Twin.
+   https://doi.org/10.5281/zenodo.17001137
+5. AI Peer Review Acceleration of LLM-Generated Glioblastoma Clinical Trial
+   Patient Matching ML, FDA/ICH/ISO, and FastAPI.
+   https://doi.org/10.5281/zenodo.17752127
+
+EXTERNAL WORK TO CITE BUT NOT ATTACH
+- O'Reilly EM et al. Daraxonrasib or Chemotherapy in Previously Treated
+  Metastatic Pancreatic Cancer. N Engl J Med. 2026.
+  https://doi.org/10.1056/NEJMoa2605555
+
+BEFORE SENDING
+- Confirm both addresses against the current ARPA-H contact page, and check
+  whether an open solicitation requires submission through a portal instead of
+  by email. If a portal is open, send this as a courtesy notice only.
+- Do not describe daraxonrasib as first-in-human anywhere.
+- Keep the $36,330 simulation figure described as projected, not estimated, and
+  keep the industry benchmark stated as $120,000 to $2,000,000 per run.
+- Replace "DOI pending" with the issued DOI if Zenodo has minted one.
+- Confirm the compiled paper is fifty-three pages and that every DOI opens.
+- Confirm no sentence describes UC San Diego as a partner, sponsor, site, or
+  endorser.

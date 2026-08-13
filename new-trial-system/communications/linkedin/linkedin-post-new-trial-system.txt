@@ -1,0 +1,98 @@
+CHANNEL: LinkedIn, personal feed
+AUTHOR: Kevin Kawchak, CEO, ChemicalQDevice
+DATE TO POST: August 14, 2026
+ATTACHMENT: Pancreatic Cancer LLM Clinical Trial System: From IND to Protocol to
+Legislation, Funding, and AI Peer Review. Draft 1.0. Attach the compiled PDF as a
+document rather than a link, so the post carries the paper in the feed.
+
+=== POST ===
+Three days.
+
+That is how long it took to finish the paper attached to this post: fifty-three
+pages, twenty-five figures, twenty-five tables, eleven sections. One author. One
+prompt.
+
+The paper is not about the paper. It is about what one person can now put in
+front of a funder for pancreatic cancer, and how fast.
+
+Here is the record it documents:
+
+- An Investigational New Drug application, twelve modules under 21 CFR 312,
+  assembled in four days.
+- Two clinical trial protocols. A Phase 1 first-in-human study at n = 18 behind
+  a simulation gate of at least 1,000 runs across two frameworks, and a Phase 2
+  randomized study at n = 220 across eight centers.
+- Five versions of a Federal bill with four companion documents, deposited in
+  eleven days.
+- Fourteen funding artifacts, including a $1,606,000 small-business ask against
+  a $3,500,000 five-year direct program.
+
+The prior system produces those documents on a month scale, through teams, with
+peer review arriving after the work is finished. This one produces them on a one
+to four day scale, through one person, with review arriving during development.
+
+The part people argue with is the review. So the paper measures it instead of
+asserting it.
+
+A best-case human peer review round is seven to eight weeks. A typical journal
+processing time is several months. Three model reviewers from three different
+manufacturers - Anthropic producing, OpenAI as first independent reviewer,
+Google as second - read one frozen artifact and return three independent reports
+the same day. A human principal investigator holds final authority, and two of
+the five ways a disagreement can resolve stop the artifact rather than passing
+it.
+
+Now the number I keep coming back to.
+
+US pancreatic cancer deaths ran about 51,980 in 2025. That is roughly 142 people
+a day. One best-case review round, seven to eight weeks, spans about 7,400 of
+them.
+
+Peer review does not cause those deaths. The disease does. But when the delay is
+measured against a disease that kills 142 Americans a day, review latency stops
+being an administrative preference and becomes a quantity worth optimizing.
+
+There is a cost side too. List article processing charges commonly run $2,000 to
+$6,000 per paper, above $10,000 at some flagship titles - paid by the researcher,
+to the journal, for a page on the journal's own site. The workflow this method
+came from cost $35 in total inference across a fourteen-day study.
+
+For anyone building in this space, the method is the deliverable. The master
+prompt is filed verbatim. The eight-stage schedule is filed. All twenty-five
+figures are machine-readable specifications with absolute coordinates, not
+images, so the next paper reads them instead of redrawing them. Every file was
+committed the moment it was written, so the branch history is the production
+record rather than a report about it.
+
+What I still cannot produce by writing: a qualified site, an operating room, a
+pathology service, an IRB of record, a drug supply agreement, a device acceptance
+certificate, a clinical trial agreement. Seven institutional instruments. That is
+the entire remaining gap, and it is the reason this paper is the last document in
+the sequence rather than the next one in it.
+
+If you work on pancreatic cancer trials, physical AI in the operating room, or
+research funding, the paper is attached. I would rather hear where it is wrong
+than hear nothing.
+
+Repository: https://github.com/kevinkawchak/physical-ai-oncology-trials
+
+#PancreaticCancer #ClinicalTrials #PhysicalAI #LLM #Oncology #AIPeerReview
+#DrugDevelopment #RegulatoryScience #Robotics #IndependentResearch
+=== END POST ===
+
+NOTES FOR THE AUTHOR BEFORE POSTING
+- Attach the compiled PDF as a LinkedIn document. Documents are surfaced more
+  than external links, and the paper is the point of the post.
+- Post the DOI in the first comment once Zenodo has minted it, not in the body.
+- The opening two words are the hook. Do not move them.
+- Do not describe daraxonrasib as first-in-human anywhere in the post or in
+  replies.
+- If a commenter asks whether this replaces regulatory review, the answer is in
+  the paper and should be quoted plainly: model review is not regulatory review,
+  is not clinical validation, and does not establish correctness by agreement.
+  Nothing here substitutes for an IRB, an FDA information request, or a DSMB.
+- Do not name UC San Diego as a partner, sponsor, site, or endorser in the post
+  or in any reply.
+- Expected objection: "three models agreeing is not proof." Agree with it. Three
+  models agreeing is three reports. That is why the disagreement tree never
+  averages and why two of its five dispositions stop the artifact.

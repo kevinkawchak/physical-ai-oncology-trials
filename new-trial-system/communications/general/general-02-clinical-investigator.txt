@@ -1,0 +1,78 @@
+PERSPECTIVE: Clinical investigator and trial operations
+USE: General purpose. A surgical oncologist, a principal investigator, a clinical
+trials office, a research nurse manager. Written for somebody who will look for
+the failure mode first, because that is the correct instinct.
+LENGTH: Short. Reads in under three minutes.
+DATE: August 14, 2026
+ATTACHMENT: Pancreatic Cancer LLM Clinical Trial System: From IND to Protocol to
+Legislation, Funding, and AI Peer Review. Draft 1.0. Attach the compiled PDF.
+
+=== MESSAGE ===
+What an investigator should check first in this paper, and what to be skeptical of
+
+The attached paper reports an IND assembled in four days, two protocols, five
+bill versions with four companion documents in eleven days, and fourteen funding
+artifacts, produced by one author directing a language model. If your reaction is
+that a four-day IND sounds like a four-day IND, that is the right reaction, and
+the paper is written to be falsified rather than admired. Four checks are
+available to you without any special access.
+
+First, open Figure 8. It crosswalks each codified 21 CFR 312.23 content item to
+the named section file that satisfies it and to the repository path where that
+file is deposited. Pick any content item. The named file either satisfies it or
+it does not.
+
+Second, take any of the 52 distinct 21 CFR cross-references in the dossier and
+read the cited paragraph. The dossier either states the requirement correctly or
+it does not.
+
+Third, take any number that appears in more than one module: the day-30 safety
+window, the 3 N per-arm force cap, the n = 18 ceiling. Check that every
+occurrence agrees. Internal inconsistency across modules is the characteristic
+failure of fast document production, and it is the thing worth hunting for.
+
+Fourth, check the four-day production claim itself against the commit history,
+which records when each module was written and pushed. The claim is checkable
+because the artifacts were deposited as they were produced rather than described
+afterward.
+
+On the clinical substance, the design is conservative rather than aggressive.
+Phase 1 is n = 18 on a 3+3 escalation, and it sits behind a Phase 0 gate
+requiring at least 1,000 simulations across two frameworks before any patient
+contact. Phase 2 is n = 220 across eight high-volume centers, randomized 1:1,
+targeting a hazard ratio of 0.60 with about 140 progression-free survival events
+for 85 percent power. The human baseline is the 2025 Dutch nationwide cohort of
+1,000 robotic pancreaticoduodenectomies: conversion 10.1 percent, Clavien-Dindo
+grade III or higher 41.3 percent, ISGPS grade B or C fistula 24.4 percent, 30-day
+mortality 3.9 percent. The language model's output is advisory. The surgeon
+decides. That boundary is a protocol provision, not a preference.
+
+What the paper does not claim, and this matters more than anything it does claim:
+model peer review is not regulatory review, is not clinical validation, and does
+not establish correctness by agreement. Nothing in this system substitutes for an
+institutional review board, an FDA information request, or a data and safety
+monitoring board. Three models agreeing produces three reports, not a proof,
+which is why two of the five ways a reviewer disagreement can resolve stop the
+artifact rather than passing it.
+
+What is missing is institutional, not documentary: a qualified site, an operating
+room, a pathology service able to adjudicate margin status at day 90, an
+institutional review board of record, a drug supply agreement, a device
+acceptance certificate, and a clinical trial agreement. If you hold any of those
+and think the design is worth a conversation, I would like to have it.
+
+Kevin Kawchak
+ChemicalQDevice
+August 14, 2026
+=== END MESSAGE ===
+
+NOTES FOR THE AUTHOR
+- Keep the four checks in this order. They run from cheapest to most expensive,
+  which is how a busy investigator will actually use them.
+- Do not describe the investigational agent as first-in-human. It is already in
+  Phase 3 evaluation. The supportable claim is the first prospective clinical
+  evaluation of the integrated surgical and advisory workflow.
+- Do not name any cancer center as a partner, sponsor, site, or endorser.
+- If asked whether the model ever acts autonomously in the operating room, the
+  answer is no, and the protocol provision should be quoted rather than
+  paraphrased.

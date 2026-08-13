@@ -1,0 +1,92 @@
+FROM: kevink@chemicalqdevice.com
+
+TO: HRHR@od.nih.gov
+CC: commonfund@mail.nih.gov
+
+SUBJECT: Pioneer Award follow-up - the method paper behind the Phase 1 LLM-advised robotic Whipple application, with the four-day IND and the AI peer review record
+
+=== BODY ===
+Dear NIH High-Risk, High-Reward Research Program,
+
+This is a short follow-up to my earlier Pioneer Award inquiry regarding a Phase 1
+LLM-advised robotic pancreaticoduodenectomy with perioperative daraxonrasib
+(RMC-6236) in KRAS-mutated PDAC. Nothing about the science has changed. What has
+changed is that the method behind it is now written down and deposited, and it
+is the part of the application a Pioneer reviewer is most likely to question.
+
+The attached paper discloses the production system in full. One author, directing
+a single master prompt, produced an Investigational New Drug application in four
+days, two clinical trial protocols, five versions of a Federal bill with four
+companion documents in eleven days, and fourteen funding artifacts. The paper
+carries twenty-five figures and twenty-five tables across fifty-three pages, and
+it was itself finished inside three days. Every figure is a machine-readable
+specification rather than an image, so a reviewer who doubts one reads its
+coordinates rather than measuring a rendering.
+
+Section 7 is the section I would ask a Pioneer reviewer to read first, because it
+answers the obvious objection to a single-investigator program at this output
+rate. Review is conducted during development, not after completion, by three
+model manufacturers reading one frozen artifact and its recorded hash: Anthropic
+in the production role, OpenAI as first independent reviewer, Google as second,
+with the human principal investigator holding final authority and two of five
+disagreement dispositions stopping the artifact rather than passing it. The
+measured comparison is stated rather than asserted. A best-case human round is
+seven to eight weeks; three model reports arrive the same day. The source study
+that established the method carried a fourteen-day workflow at a total model
+spend of thirty-five dollars.
+
+The reason to care about the latency is clinical rather than administrative. US
+pancreatic cancer deaths ran about 51,980 in 2025, which is about 142 a day. One
+best-case review round spans roughly 7,400 of them. That arithmetic does not make
+peer review culpable for anything, and the paper says so plainly; it makes review
+latency a quantity a Pioneer program should be allowed to optimize.
+
+The Pioneer request itself is unchanged. I remain an unaffiliated independent
+scientist intending to partner at UC San Diego Moores Cancer Center at the
+feasibility stage only; UC San Diego is not a sponsor, site, or endorser of this
+work.
+
+Sincerely,
+CEO Kevin Kawchak
+ChemicalQDevice
+August 14, 2026
+=== END BODY ===
+
+ATTACHMENTS TO INCLUDE, IN THIS ORDER
+1. Pancreatic Cancer LLM Clinical Trial System: From IND to Protocol to
+   Legislation, Funding, and AI Peer Review. Draft 1.0, San Diego,
+   August 14, 2026. Fifty-three pages, 25 figures, 25 tables.
+   Compile from new-trial-system/final-new-trial/update-final:
+   pdflatex main -> bibtex main -> pdflatex main -> pdflatex main
+   DOI to be asserted on deposit; state "DOI pending" until Zenodo issues it.
+2. Investigational New Drug Application - Daraxonrasib, Phase 1, LLM-Directed
+   Robotic Whipple in KRAS-Mutated PDAC.
+   https://doi.org/10.5281/zenodo.21097442
+3. On-Premises LLM-Directed Robotic Pancreaticoduodenectomy with Perioperative
+   Daraxonrasib (RMC-6236) in KRAS-Mutated Pancreatic Ductal Adenocarcinoma.
+   https://doi.org/10.5281/zenodo.20780121
+4. AI Peer Review Acceleration of LLM-Generated Glioblastoma Clinical Trial
+   Patient Matching ML, FDA/ICH/ISO, and FastAPI.
+   https://doi.org/10.5281/zenodo.17752127
+5. app-01-nih-pioneer-award.pdf, the original five-page inquiry, unchanged.
+
+EXTERNAL WORK TO CITE BUT NOT ATTACH
+- O'Reilly EM et al. Daraxonrasib or Chemotherapy in Previously Treated
+  Metastatic Pancreatic Cancer. N Engl J Med. 2026.
+  https://doi.org/10.1056/NEJMoa2605555
+- Siegel RL et al. Cancer Statistics, 2025. CA Cancer J Clin. 2025;75(1):10-45.
+  https://doi.org/10.3322/caac.21871
+
+BEFORE SENDING
+- Confirm the HRHR and Common Fund addresses against the current NIH contact
+  page; the High-Risk, High-Reward inbox has changed before.
+- Do not describe daraxonrasib as first-in-human anywhere. The supportable claim
+  is the first prospective clinical evaluation of the integrated surgical and
+  LLM advisory workflow, subject to FDA and institutional confirmation.
+- The paper is a method disclosure, not a Pioneer application. Say so in the
+  first line of any cover note so it is not logged as a duplicate submission.
+- Replace "DOI pending" with the issued DOI if Zenodo has minted one before you
+  send.
+- Confirm the compiled paper is fifty-three pages and that every DOI opens.
+- Confirm no sentence describes UC San Diego as a partner, sponsor, site, or
+  endorser.
