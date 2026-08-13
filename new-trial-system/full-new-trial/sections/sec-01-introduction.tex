@@ -1,0 +1,217 @@
+% sec-01-introduction.tex - Section 1, Introduction.  FULL stage.
+% Figures 1 and 2 drawn; Tables 4 and 5 populated.  Prose held to one page.
+% Sources: new-trial-system/references/trump-ai-cancer-2025-2026.bib for every
+% citation key, and new-trial-system/d2/fig-02 for every cell of Table 5.
+\section{Introduction}
+\label{sec:introduction}
+
+Between January 2025 and July 2026 the executive branch committed to artificial
+intelligence and to cancer at the same time, and often in the same document.
+Executive Order 14179 removed barriers to American leadership in AI
+\cite{eo14179}, and Executive Order 14212 established the MAHA Commission
+\cite{eo14212}. Executive Order 14355, signed September 30, 2025, is the only
+executive order aimed squarely at both topics: it tasks the MAHA Commission, in
+coordination with HHS, the Assistant to the President for Science and
+Technology, and the Special Advisor for AI and Crypto, with developing ways to
+use AI for improved diagnoses, treatments, cures, and prevention of pediatric
+cancer, beginning with the Childhood Cancer Data Initiative and with predictive
+modeling of patient response, disease progression, and treatment toxicity
+\cite{eo14355, eo14355app, akin_eo14355}. The same day, HHS raised the
+Initiative's budget from \$50 million to \$100 million and committed to bringing
+private-sector partners in to apply advanced AI \cite{ccdidoubling_nih}. The
+MAHA Strategy of September 9, 2025 had already directed NIH and OSTP to develop
+an AI-driven approach to transform pediatric cancer research and clinical trials
+\cite{maha_strategy}.
+
+The machinery followed the mandate. Executive Order 14363 launched the Genesis
+Mission on November 24, 2025 \cite{eo14363, doe_genesis_launch}, and its NIH arm,
+the Bio Genesis Mission announced July 22, 2026, carries more than \$1.2 billion
+in obligated FY2026 and planned FY2027 funding across predicting the behavior of
+living systems, accelerating drug translation, and unlocking new pediatric
+cancer treatments \cite{biogenesis_nih, hpcwire_genesis}. Inside the agencies,
+the FDA fielded Elsa on June 2, 2025, a generative tool to help staff synthesize
+information for tasks including clinical protocol review, and followed it with
+an agency-wide agentic platform on December 1, 2025
+\cite{crs_ai_healthcare, hhs_ai_strategy}. CMS announced the WISeR model and,
+at the July 30, 2025 health technology event, an interoperability framework that
+was later institutionalized in a dedicated technology office
+\cite{cms_healthtech, cms_office_healthtech}. On June 22, 2026 HHS launched a
+department-wide effort to restore American leadership in clinical trials, of
+which Operation TrialBlazer, NCI working with cancer centers to streamline trial
+activation and improve enrollment, is the oncology arm
+\cite{trialblazer, hhstrialblazer2026}. Table 4 places ten of these actions on
+one chronology with what each supplies to a sponsor.
+
+\begin{apptable}
+\begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}p{5.25cm} >{\raggedright\arraybackslash}p{2.05cm} >{\raggedright\arraybackslash}X}
+\headrow \thead{Action} & \thead{Date} & \thead{What it supplies to a pancreatic cancer sponsor}\\
+\midrule
+EO 14179, Removing Barriers to American Leadership in AI & Jan 23, 2025 & Policy cover for AI inside a regulated submission \\
+EO 14212, MAHA Commission & Feb 13, 2025 & The parent authority EO 14355 cites \\
+FDA Elsa generative AI tool & Jun 2, 2025 & An agency that already reads AI-assisted protocol text \\
+MAHA Strategy & Sep 9, 2025 & A direction to transform trials with AI \\
+EO 14355, Unlocking Cures for Pediatric Cancer with AI & Sep 30, 2025 & The only order aimed at AI and cancer together \\
+CCDI budget doubled to \$100 million & Sep 30, 2025 & Money for AI-driven oncology data work \\
+EO 14363, Launching the Genesis Mission & Nov 24, 2025 & An integrated Federal AI platform \\
+HHS AI Strategy and the agentic platform & Dec 1 to 4, 2025 & Agency-side capacity to process AI-assisted filings \\
+HHS clinical trial effort and Operation TrialBlazer & Jun 22, 2026 & Faster trial activation at cancer centers \\
+Bio Genesis Mission & Jul 22, 2026 & Over \$1.2 billion toward AI in biology \\
+\end{tabularx}
+\end{apptable}
+\vspace{-0.6cm}
+\tabcap{Table 4. Ten Federal actions between January 2025 and July 2026, and what\\each
+supplies to a sponsor preparing a pancreatic cancer trial dossier.}
+
+The commitment is real and it is funded, and it ran alongside proposed
+reductions: the FY2027 request of April 1, 2026 proposed roughly \$41.1 billion
+for NIH against \$48.7 billion in FY2026, though NCI would receive \$7.353
+billion, an increase of \$8.9 million, and Congress added \$128 million for
+cancer research in the final FY2026 bill
+\cite{aacr_policymonitor_2026, cancerdiscovery_fy27, science_fundingbill}. What
+none of it supplies is a sponsor-side method. Compute, data, agency review
+capacity, and faster site activation are all being built. The document a sponsor
+must file is still written the way it was written in 2015, and that is the gap
+Figure 1 states and this paper closes.
+
+% ---------------------------------------------------------------------------
+% FIGURE 1.  mermaid-type, flowchart LR.  Eleven Federal actions in three
+% clusters, three capabilities, one gap, one system.  Absolute coordinates
+% throughout.  The only two edges that could cross a cluster, A3 and A2 to C3,
+% are routed at y = -2.95 below every frame.
+% ---------------------------------------------------------------------------
+\begin{appfloat}[!tb]
+\begin{appfig}[mermaid-type / flowchart LR]
+% --- cluster 1, authority
+\node[mmsoft,text width=27mm] (a1) at (0,3.15) {EO 14179\\remove barriers to\\American AI leadership};
+\node[mmsoft,text width=27mm] (a2) at (0,1.65) {EO 14212\\MAHA Commission,\\the parent authority};
+\node[mmmid,text width=27mm]  (a3) at (0,0.15) {EO 14355\\AI for pediatric cancer,\\the one order at both};
+\node[mmsoft,text width=27mm] (a4) at (0,-1.35) {EO 14363\\Genesis Mission,\\integrated AI platform};
+\begin{scope}[on background layer]
+\node[mmlane,fit=(a1)(a2)(a3)(a4),inner sep=6pt] (cl1) {};
+\end{scope}
+\node[mmlanetitle,anchor=south west] at ([yshift=1.3mm]cl1.north west) {Authority, Jan 2025 to Dec 2025};
+% --- cluster 2, money and machinery
+\node[mmsoft,text width=27mm] (m1) at (4.10,3.15) {CCDI doubled\\50M to 100M dollars};
+\node[mmmid,text width=27mm]  (m2) at (4.10,1.65) {Bio Genesis Mission\\above 1.2B obligated};
+\node[mmsoft,text width=27mm] (m3) at (4.10,0.15) {FDA Elsa, then an\\agency wide agentic\\AI platform};
+\node[mmsoft,text width=27mm] (m4) at (4.10,-1.35) {HHS AI Strategy\\and CMS WISeR};
+\begin{scope}[on background layer]
+\node[mmlane,fit=(m1)(m2)(m3)(m4),inner sep=6pt] (cl2) {};
+\end{scope}
+\node[mmlanetitle,anchor=south west] at ([yshift=1.3mm]cl2.north west) {Money and machinery, 2025 to 2026};
+% --- cluster 3, trial machinery
+\node[mmmid,text width=27mm]  (t1) at (8.20,2.40) {Operation TrialBlazer\\faster trial activation};
+\node[mmmid,text width=27mm]  (t2) at (8.20,0.90) {HHS department wide\\clinical trial effort};
+\node[mmsoft,text width=27mm] (t3) at (8.20,-0.60) {MAHA Strategy\\AI driven pediatric\\trial transformation};
+\begin{scope}[on background layer]
+\node[mmlane,fit=(t1)(t2)(t3),inner sep=6pt] (cl3) {};
+\end{scope}
+\node[mmlanetitle,anchor=south west] at ([yshift=1.3mm]cl3.north west) {Trial machinery, 2026};
+% --- capabilities
+\node[mmin,text width=25mm] (c1) at (11.85,2.40) {Supplied\\compute, data,\\and platform};
+\node[mmin,text width=25mm] (c2) at (11.85,0.55) {Supplied\\review capacity\\inside the agency};
+\node[mmin,text width=25mm] (c3) at (11.85,-1.30) {Supplied\\faster activation\\at cancer centers};
+% --- gap and system
+\node[mmgrayd,text width=33mm,minimum height=15mm] (gap) at (15.55,0.55)
+  {Not supplied\\a sponsor side method that\\produces an IND, a protocol,\\a bill and a funding file\\on a 1 to 4 day scale};
+\node[mmgoal,text width=33mm] (sys) at (15.55,-2.55) {This paper\\the new PDAC trial system};
+% --- edges, cluster to capability
+\draw[mmedge] (a1.east) -- (c1.west);
+\draw[mmedge] (a4.east) to[out=0,in=200] (c1.west);
+\draw[mmedge] (m1.east) -- (c1.west);
+\draw[mmedge] (m2.east) -- (c1.west);
+\draw[mmedge] (m3.east) -- (c2.west);
+\draw[mmedge] (m4.east) to[out=0,in=195] (c2.west);
+\draw[mmedge] (t1.east) -- (c3.west);
+\draw[mmedge] (t2.east) -- (c3.west);
+\draw[mmedge] (t3.east) -- (c3.west);
+% the two edges that must clear the money cluster: routed below every frame
+\draw[mmedge] (a3.south) -- ++(0,-1.55) -- (2.05,-2.95) -- (11.85,-2.95) -- (c3.south);
+\draw[mmedge] (a2.west) -- ++(-0.45,0) -- (-2.05,-2.95) -- (11.85,-2.95);
+% --- edges, capability to gap
+\draw[mmedged] (c1.east) -- (gap.west);
+\draw[mmedged] (c2.east) -- (gap.west);
+\draw[mmedged] (c3.east) -- (gap.west);
+\draw[mmedgeb,line width=1.1pt] (gap.south) -- (sys.north);
+\pnote{-2.05}{-4.05}{Eleven actions, three capabilities, one gap. Every action is cited to
+\texttt{trump-ai-cancer-2025-2026.bib}; no action is\\counted twice, and the gap
+node is the only Mist Gray fill on the canvas because it is the figure's
+subject.}
+\end{appfig}
+\vspace{-0.6cm}
+\figcaption{Figure 1. Eleven Federal AI and cancer actions from January 2025 to
+July\\2026, the three capabilities they supply, and the one they leave unfilled.}
+\end{appfloat}
+
+Table 5 and Figure 2 carry the same ten axes: the first as text a reader can
+cite, the second as a grid a reader can scan. The prior system is not described
+here as bad work. It is described as work whose unit is the team-month, and a
+team-month cannot produce an IND, two protocols, five bill versions and fourteen
+funding artifacts inside a single quarter. The remainder of this paper is the
+evidence for that sentence: \S2 gives the method, \S3 through \S7 give the four
+deliverables and the review regime that cleared them, and \S8 states what
+remains exposed.
+
+% ---------------------------------------------------------------------------
+% FIGURE 2.  d2-type, grid.  A true grid: one row height, three fixed column
+% widths, no edges, because the comparison is positional.
+% ---------------------------------------------------------------------------
+\begin{appfloat}[!tb]
+\begin{appfig}[d2-type / grid]
+\def\rh{0.62}
+% header
+\node[d2cellh,minimum width=4.6cm,minimum height=\rh cm,anchor=north west] at (0,0) {Operating axis};
+\node[d2cellh,minimum width=5.0cm,minimum height=\rh cm,anchor=north west] at (4.6,0) {Prior system};
+\node[d2cellh,minimum width=5.0cm,minimum height=\rh cm,anchor=north west] at (9.6,0) {New system};
+\foreach \i/\ax/\op/\np in {%
+  1/{Document production unit}/{Team-month}/{Prompt-hour},
+  2/{IND assembly time}/{Months across a group}/{Four days, one author},
+  3/{Peer review entry point}/{After completion}/{During development},
+  4/{Review latency}/{7 to 8 weeks best case}/{Same day, hour scale},
+  5/{Reviewers per round}/{Two to three humans}/{Three model manufacturers},
+  6/{Virtual trial cost}/{Above 120000 dollars}/{36330 dollars projected},
+  7/{Provenance record}/{Acknowledgement paragraph}/{Commit history plus DOI},
+  8/{Figure format}/{Raster, not reusable}/{Machine readable, reusable},
+  9/{Revision granularity}/{Whole manuscript}/{One file, one commit}}{
+  \node[d2cellg,minimum width=4.6cm,minimum height=\rh cm,anchor=north west]
+    at (0,{-\rh*\i}) {\ax};
+  \node[d2cell,minimum width=5.0cm,minimum height=\rh cm,anchor=north west]
+    at (4.6,{-\rh*\i}) {\op};
+  \node[d2celll,minimum width=5.0cm,minimum height=\rh cm,anchor=north west]
+    at (9.6,{-\rh*\i}) {\np};}
+% row 10, the emphasis row
+\node[d2cellg,minimum width=4.6cm,minimum height=\rh cm,anchor=north west] at (0,{-\rh*10}) {Author count};
+\node[d2cell,minimum width=5.0cm,minimum height=\rh cm,anchor=north west] at (4.6,{-\rh*10}) {Group, plus a CRO};
+\node[d2cellk,minimum width=5.0cm,minimum height=\rh cm,anchor=north west] at (9.6,{-\rh*10}) {One, plus the models};
+% header rule
+\draw[trialchar,line width=0.7pt] (0,{-\rh}) -- (14.6,{-\rh});
+\node[d2mid,text width=44mm,anchor=north] at (7.30,{-\rh*10-0.85})
+  {Row 10 is the axis the other nine follow from};
+\pnote{0}{-7.75}{Every cell carries a measured value from a deposited source, not an adjective.
+The prior column is white and the new\\column pale burgundy; the one emphasis
+cell is the axis that produces the other nine.}
+\end{appfig}
+\vspace{-0.6cm}
+\figcaption{Figure 2. Ten operating axes on which the prior and new trial systems
+differ,\\each cell carrying a measured value from the author's deposited record.}
+\end{appfloat}
+
+\begin{apptable}
+\begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}p{3.35cm} >{\raggedright\arraybackslash}p{3.85cm} >{\raggedright\arraybackslash}p{3.85cm} >{\raggedright\arraybackslash}X}
+\headrow \thead{Operating axis} & \thead{Prior system} & \thead{New system} & \thead{Established in}\\
+\midrule
+Document production unit & Team-month & Prompt-hour & \S2 \\
+IND assembly time & Months across a group & Four days, one author & \S3 \\
+Peer review entry point & After completion & During development & \S7 \\
+Review latency & 7 to 8 weeks best case & Same day & \S7 \\
+Reviewers per round & 2 to 3 humans & 3 model manufacturers & \S7 \\
+Virtual trial cost & Above \$120,000 per run & \$36,330 projected & \S6 \\
+Provenance record & Acknowledgement paragraph & Commit history plus DOI & \S2 \\
+Figure format & Raster, not reusable & Machine readable, reusable & \S2 \\
+Revision granularity & Whole manuscript & One file, one commit & \S2 \\
+Author count & Group, plus a CRO & One, plus the models & Every deposit \\
+\end{tabularx}
+\end{apptable}
+\vspace{-0.6cm}
+\tabcap{Table 5. The ten operating axes of Figure 2 as citable text, with the\\section
+of this paper where each value is established.}
