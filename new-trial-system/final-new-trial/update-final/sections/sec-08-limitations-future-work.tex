@@ -66,26 +66,42 @@ funding is for.
 \begin{scope}[on background layer]
 \node[dgcluster,fit=(m1)(m1l)(m2)(m2l)(m3)(m3l)] (cm1) {};\end{scope}
 \node[dgctitle,anchor=south west] at ([yshift=1.5mm]cm1.north west) {Mitigation 1};
-\draw[trialslate,dashed,line width=0.4pt] (-0.35,-3.40) -- (14.80,-3.40);
-\dgnodeg{dgtilek}{1.05}{-4.55}{\glyphsignal}{Generated text may carry a watermark}{b1}
-\dgnodeg{dgtilek}{1.05}{-6.45}{\glyphmon}{Detection policy is not yet settled}{b2}
-\dgnodeg{dgtilek}{1.05}{-8.35}{\glyphbank}{Journals differ on disclosure}{b3}
+% The divider sits at -3.85, which is 0.21 cm below the first row's cluster
+% boundary, and the second row starts at -5.45, which puts its cluster titles
+% 0.40 cm below the divider.  At -3.40 and -4.55 the divider ran through both
+% second-row titles and both second-row cluster boundaries touched the first
+% row's.
+\draw[trialslate,dashed,line width=0.4pt] (-0.35,-3.85) -- (14.80,-3.85);
+\dgnodeg{dgtilek}{1.05}{-5.45}{\glyphsignal}{Generated text may carry a watermark}{b1}
+\dgnodeg{dgtilek}{1.05}{-7.35}{\glyphmon}{Detection policy is not yet settled}{b2}
+\dgnodeg{dgtilek}{1.05}{-9.25}{\glyphbank}{Journals differ on disclosure}{b3}
 \begin{scope}[on background layer]
 \node[dgcluster2,fit=(b1)(b1l)(b2)(b2l)(b3)(b3l)] (ce2) {};\end{scope}
 \node[dgctitle2,anchor=south west] at ([yshift=1.5mm]ce2.north west) {Exposure 2, text watermarking};
-\dgnode{dgtilem}{8.35}{-4.55}{\glyphdoc}{Provenance disclosed on the cover page}{n1}
-\dgnode{dgtilem}{8.35}{-6.45}{\glyphdb}{Commit history is the primary record}{n2}
-\dgnode{dgtilem}{8.35}{-8.35}{\glyphserver}{Preprint and repository, not a journal gate}{n3}
+\dgnode{dgtilem}{8.35}{-5.45}{\glyphdoc}{Provenance disclosed on the cover page}{n1}
+\dgnode{dgtilem}{8.35}{-7.35}{\glyphdb}{Commit history is the primary record}{n2}
+\dgnode{dgtilem}{8.35}{-9.25}{\glyphserver}{Preprint and repository, not a journal gate}{n3}
 \begin{scope}[on background layer]
 \node[dgcluster,fit=(n1)(n1l)(n2)(n2l)(n3)(n3l)] (cm2) {};\end{scope}
 \node[dgctitle,anchor=south west] at ([yshift=1.5mm]cm2.north west) {Mitigation 2};
-\dgnodew{dgtiled}{12.95}{-4.45}{\glyphchart}{Residual: funding decision risk}{res}
+% The residual node is drawn without \dgnodew's default label position, which is
+% 5.4 mm below the center and therefore inside the 7.5 mm halo.  The label is set
+% 11 mm below the center on a 20 mm measure, so it spans x = 11.95 to 13.95 and
+% both inbound edges pass to the left of it.
+\node[dgtiled] (res) at (12.95,-5.75) {};
+\glyphchart{res}{trialwhite}%
 \draw[trialburg,line width=0.6pt] (res.center) circle (7.5mm);
+\node[dglabel,text width=20mm,anchor=north] (resl) at ([yshift=-11mm]res.center)
+  {Residual: funding decision risk};
 \foreach \a/\b in {a1/m1,a2/m2,a3/m3,b1/n1,b2/n2,b3/n3}{
   \draw[dgedge] (\a.east) -- node[above,font=\tiny\sffamily,fill=trialwhite,inner sep=1pt] {reduced by} (\b.west);}
-\draw[dgedged] (m3.east) -- (10.05,-2.25) -- (res.north west);
-\draw[dgedged] (n3.east) -- (10.05,-8.35) -- (res.south west);
-\pnote{0.35}{-9.55}{Exposures and mitigations share six y values exactly, so every pairing edge is
+% Both inbound edges run orthogonally up their own corridor, x = 11.15 and
+% x = 11.45, and enter the halo at 135 and 225 degrees.  Neither corridor reaches
+% the residual label at x = 11.95, and the two verticals do not overlap because
+% one ends at -5.22 and the other begins at -6.28.
+\draw[dgedged] (m3.east) -- (10.05,-2.25) -- (11.15,-2.25) -- (11.15,-5.22) -- (12.42,-5.22);
+\draw[dgedged] (n3.east) -- (10.05,-9.25) -- (11.45,-9.25) -- (11.45,-6.28) -- (12.42,-6.28);
+\pnote{0.35}{-11.05}{Exposures and mitigations share six y values exactly, so every pairing edge is
 horizontal and none is oblique.\\After six mitigations exactly one consequence
 remains, and it is a funding decision risk rather than a safety one.}
 \end{appfig}
@@ -125,10 +141,7 @@ the company alone: a qualified site, an operating room, a pathology service, an
 institutional review board of record, a drug supply agreement, a device
 acceptance certificate, and a clinical trial agreement.
 
-No further document production changes that, and the sequence ends here on
-purpose. Those seven instruments are the register the whole paper converges on:
-four were identified independently in \S\ref{sec:ind} and \S\ref{sec:protocol},
-and three are contractual rather than clinical. None can be produced by writing,
-which is the sense in which this paper ends a documentary sequence rather than
-continuing one. The method of \S\ref{sec:methods} solved the problem it was
-built for; the problem that remains is of a different kind.
+No further document production changes that. Those seven instruments are the
+register the whole paper converges on, and none can be produced by writing. The
+method of \S\ref{sec:methods} solved the problem it was built for; the problem
+that remains is of a different kind.

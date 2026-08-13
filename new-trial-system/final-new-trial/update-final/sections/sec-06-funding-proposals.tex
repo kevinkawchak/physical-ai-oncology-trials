@@ -84,7 +84,11 @@ its most checkable form.
   \draw[trialburg,line width=0.3pt] (\pb,{-0.30-0.34*\i-0.11}) rectangle (\dd,{-0.30-0.34*\i+0.11});}
 % today marker
 \draw[trialchar,dashed,line width=0.5pt] (12.10,0.30) -- (12.10,-3.40);
-\node[font=\tiny\sffamily,anchor=south,text=trialchar] at (12.10,0.32) {Aug 14, 2026};
+% The marker label is set below the foot of its own dashed rule rather than
+% above its head, because above it collides with the Aug 29 axis tick at
+% x = 12.60: both labels are about 1.5 cm wide and their centers are 0.50 cm
+% apart.
+\node[font=\tiny\sffamily,anchor=north,text=trialchar] at (12.10,-3.45) {Aug 14, 2026};
 \node[mmmid,text width=32mm] at (2.10,-4.35) {Fourteen artifacts in 74 days};
 \legkey{6.20}{-4.35}{trialburgp}{production window}
 \legkey{9.10}{-4.35}{trialburgl}{deposit}
@@ -212,7 +216,10 @@ direct work set under a 15.0 percent load against a 57 percent rate.}
   \node[gvcellg,minimum width=4.0cm,minimum height=0.46cm,anchor=north west] at (11.35,{-4.16-1.80*\i}) {\a};
   \node[gvcellg,minimum width=4.0cm,minimum height=0.46cm,anchor=north west] at (11.35,{-4.62-1.80*\i}) {\b};}
 \draw[trialchar,dashed,line width=0.8pt] (10.85,0.20) -- (10.85,-7.40);
-\node[gvctitle,rotate=90,anchor=south] at (10.75,-3.60) {firewall, federal money left of the line};
+% The rotated firewall label is centered at y = -1.80 rather than -3.60, in the
+% stretch of the corridor above the first requirement edge.  At -3.60 it ran
+% through the "requires" label on the edge at y = -4.16.
+\node[gvctitle,rotate=90,anchor=south] at (10.75,-1.80) {firewall, federal money left of the line};
 \foreach \i in {0,1,2,3}{
   \draw[gvedgeb] (4.60,{-0.80-0.56*\i}) -- (6.15,{-0.56-1.80*\i});}
 \draw[gvedged] (10.15,-4.16) -- node[above,font=\tiny,fill=trialwhite,inner sep=1pt] {requires} (11.35,-4.16);
