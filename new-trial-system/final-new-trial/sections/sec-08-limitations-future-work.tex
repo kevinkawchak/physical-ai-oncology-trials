@@ -1,0 +1,141 @@
+% sec-08-limitations-future-work.tex - Section 8.  FINAL stage.
+% Figure 25 drawn; Table 25 populated.  Senior-author pass: the two smaller
+% limits are moved up into the Limitations subsection where they belong rather
+% than trailing the Future Work subsection, and the register of seven absent
+% instruments is expanded so \S8 and \S6 agree.
+\section{Limitations and Future Work}
+\label{sec:limitations}
+
+\subsection{Limitations}
+
+Two limitations are structural rather than incidental. The first is that a
+single model family, Claude Code Opus 5, wrote every line of source in this
+paper and in the eight-stage build that produced it. A defect in that model's
+idiom appears in every artifact at once, and no amount of internal consistency
+checking inside one family detects a shared blind spot. The source study for \S7
+records the same class of limit from the other direction: its first working
+notebook used a model whose parameters were ``nearly 6 years'' old and a newer
+alternative ``may have been a better replacement'', which the author attributes
+to the generating model relying ``on older information from pre-trained
+parameters as opposed to a more exhaustive online model search process''
+\cite{aiprgliomatc}. It also records a scale ceiling: ``there was an upper limit
+when working with over 1500 lines of code'', and truncation appeared ``when
+including additional documents beyond the notebook for consideration'', so that
+``the most ideal responses were typically received when the author defined the
+problem the most directly with the least number of file attachments''
+\cite{aiprgliomatc}. The mitigation is the two independent reviewer
+manufacturers of \S7, and the residual is the case where all three agree and all
+three are wrong.
+
+The second limitation is text watermarking. Generated text may carry a
+provenance watermark, detection policy is not settled, and journals differ on
+what disclosure they require. This paper's answer is not to argue about
+detection. It is to disclose the model on the cover page of every deposited
+work, to make the commit history rather than a claim of authorship the primary
+record, and to deposit to a repository and a preprint rather than through a
+journal gate. Figure 25 pairs each exposure with the mitigation that reduces it,
+and Table 25 states the same register in citable text with the residual that
+survives each.
+
+Two further limits deserve statement even though they are smaller. This paper
+reports on documents rather than on patients: no participant has been enrolled,
+no operation has been performed under these protocols, and every clinical number
+in \S\ref{sec:ind} and \S\ref{sec:protocol} is either a published external
+result or a planned design parameter. And the review regime of
+\S\ref{sec:peerreview} was measured on a glioblastoma machine learning workflow
+rather than on a regulatory dossier; the method transfers, and the measurement
+does not. Both limits are removable only by doing the trial, which is what the
+funding is for.
+
+% ---------------------------------------------------------------------------
+% FIGURE 25.  diagrams (python)-type, clustered infrastructure.  Two exposure
+% clusters paired to two mitigation clusters across six shared y values, so
+% every pairing edge is horizontal, converging on one residual node.
+% ---------------------------------------------------------------------------
+\begin{appfloat}[!tb]
+\begin{appfig}[diagrams (python)-type / clustered infrastructure]
+\dgnodeg{dgtilek}{1.05}{1.55}{\glyphai}{One model family writes all source}{a1}
+\dgnodeg{dgtilek}{1.05}{-0.35}{\glyphdoc}{One context window bounds each stage}{a2}
+\dgnodeg{dgtilek}{1.05}{-2.25}{\glyphcloud}{Vendor availability is a project risk}{a3}
+\begin{scope}[on background layer]
+\node[dgcluster2,fit=(a1)(a1l)(a2)(a2l)(a3)(a3l)] (ce1) {};\end{scope}
+\node[dgctitle2,anchor=south west] at ([yshift=1.5mm]ce1.north west) {Exposure 1, single-vendor production};
+\dgnode{dgtilem}{8.35}{1.55}{\glyphteam}{Two independent reviewer makers}{m1}
+\dgnode{dgtilem}{8.35}{-0.35}{\glyphlink}{Machine-readable, portable specifications}{m2}
+\dgnode{dgtilem}{8.35}{-2.25}{\glyphlock}{Every artifact deposited under a DOI}{m3}
+\begin{scope}[on background layer]
+\node[dgcluster,fit=(m1)(m1l)(m2)(m2l)(m3)(m3l)] (cm1) {};\end{scope}
+\node[dgctitle,anchor=south west] at ([yshift=1.5mm]cm1.north west) {Mitigation 1};
+\draw[trialslate,dashed,line width=0.4pt] (-0.35,-3.40) -- (14.80,-3.40);
+\dgnodeg{dgtilek}{1.05}{-4.55}{\glyphsignal}{Generated text may carry a watermark}{b1}
+\dgnodeg{dgtilek}{1.05}{-6.45}{\glyphmon}{Detection policy is not yet settled}{b2}
+\dgnodeg{dgtilek}{1.05}{-8.35}{\glyphbank}{Journals differ on disclosure}{b3}
+\begin{scope}[on background layer]
+\node[dgcluster2,fit=(b1)(b1l)(b2)(b2l)(b3)(b3l)] (ce2) {};\end{scope}
+\node[dgctitle2,anchor=south west] at ([yshift=1.5mm]ce2.north west) {Exposure 2, text watermarking};
+\dgnode{dgtilem}{8.35}{-4.55}{\glyphdoc}{Provenance disclosed on the cover page}{n1}
+\dgnode{dgtilem}{8.35}{-6.45}{\glyphdb}{Commit history is the primary record}{n2}
+\dgnode{dgtilem}{8.35}{-8.35}{\glyphserver}{Preprint and repository, not a journal gate}{n3}
+\begin{scope}[on background layer]
+\node[dgcluster,fit=(n1)(n1l)(n2)(n2l)(n3)(n3l)] (cm2) {};\end{scope}
+\node[dgctitle,anchor=south west] at ([yshift=1.5mm]cm2.north west) {Mitigation 2};
+\dgnodew{dgtiled}{12.95}{-4.45}{\glyphchart}{Residual: funding decision risk}{res}
+\draw[trialburg,line width=0.6pt] (res.center) circle (7.5mm);
+\foreach \a/\b in {a1/m1,a2/m2,a3/m3,b1/n1,b2/n2,b3/n3}{
+  \draw[dgedge] (\a.east) -- node[above,font=\tiny\sffamily,fill=trialwhite,inner sep=1pt] {reduced by} (\b.west);}
+\draw[dgedged] (m3.east) -- (10.05,-2.25) -- (res.north west);
+\draw[dgedged] (n3.east) -- (10.05,-8.35) -- (res.south west);
+\pnote{0.35}{-9.55}{Exposures and mitigations share six y values exactly, so every pairing edge is
+horizontal and none is oblique.\\After six mitigations exactly one consequence
+remains, and it is a funding decision risk rather than a safety one.}
+\end{appfig}
+\vspace{-0.6cm}
+\figcaption{Figure 25. Two structural exposures, single-vendor production and
+text\\watermarking, each drawn with the mitigation that reduces it and its
+residual.}
+\end{appfloat}
+
+\begin{apptable}
+\begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}p{4.45cm} >{\raggedright\arraybackslash}p{4.55cm} >{\raggedright\arraybackslash}X}
+\headrow \thead{Exposure} & \thead{Mitigation} & \thead{Residual after mitigation}\\
+\midrule
+One model family writes all source & Two independent reviewer manufacturers at defined milestones & A defect all three share would survive \\
+One context window bounds each stage & Machine-readable, portable specifications & Re-execution costs a stage, not a project \\
+Vendor availability is a project risk & Every artifact deposited under a DOI as produced & Deposited work is unaffected \\
+Generated text may carry a watermark & Provenance disclosed on every cover page & Disclosure does not remove the watermark \\
+Detection policy is not settled & Commit history is the primary record & Policy may change after deposit \\
+Journals differ on disclosure & Deposit to preprint and repository & A funder requiring journal review is not reached \\
+\end{tabularx}
+\end{apptable}
+\vspace{-0.6cm}
+\tabcap{Table 25. Six exposures, the mitigation applied to each, and the residual\\that
+survives it, ending in one funding decision risk.}
+
+\subsection{Future work}
+
+Future work is one thing: securing funding for the PDAC hybrid clinical trial
+described in \S3 and \S4. The documents exist. The IND is written, both
+protocols are written, the statutory framework is drafted, and the applications
+are filed. What is absent is money and the institutional instruments money buys.
+The capitalization plan states the shape of the ask precisely: five Phase I
+milestones summing to \$306,000 over nine months, then seven Phase II milestones
+summing to \$1,300,000 over twenty-four, each milestone closed by three
+concurrent evidence branches that must join before an audit comparison
+\cite{capplan2026}. Seven instruments are absent, and not one can be obtained by
+the company alone: a qualified site, an operating room, a pathology service, an
+institutional review board of record, a drug supply agreement, a device
+acceptance certificate, and a clinical trial agreement.
+
+No further document production changes that. This paper is therefore the last
+document in the sequence rather than the next one in it, and the sequence ends
+here on purpose.
+
+The seven instruments named above are the register the whole paper converges on.
+Four of them, the site, the operating room, the pathology service and the
+institutional review board of record, are the ones \S\ref{sec:ind} and
+\S\ref{sec:protocol} identified independently; three more, the drug supply
+agreement, the device acceptance certificate and the clinical trial agreement,
+are contractual rather than clinical. None can be produced by writing, which is
+the sense in which this paper is the end of a documentary sequence rather than a
+step in one. The method described in \S\ref{sec:methods} solved the problem it
+was built for, and the problem that remains is of a different kind.
