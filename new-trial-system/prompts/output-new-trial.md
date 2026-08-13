@@ -209,3 +209,39 @@ was corrected while that file was open. `CHANGELOG.md` gains a 4.6.0 entry and
 
 No Python file was added or changed anywhere in this build, so the three
 `lint-and-format` jobs and the two test jobs are unaffected.
+
+### The one check that failed, and why
+
+The first pull request run failed `lint-and-format` on Python 3.10 and
+cancelled 3.11 and 3.12. No Python file was added or changed in the branch, so
+the cause was not obvious. The job runs `ruff format --check .` with markdown
+code-block formatting enabled, which means Python inside a fenced block in a
+markdown file is checked exactly like a `.py` file. The four
+`diagrams-python` specifications carried hand-wrapped list literals, and ruff
+wanted them exploded one element per line with a trailing comma.
+
+The fences were reformatted to ruff's own output. The code is unchanged in
+meaning and is still never executed, because raster output is forbidden and the
+paper draws every figure in TikZ. Verified against ruff 0.15.8 before the push:
+`ruff format --check` clean over 525 Python files, `ruff format --check
+--preview` clean over `new-trial-system`'s 53 files including every markdown
+fence, `ruff check` clean, `yamllint` clean. The second run passed all seven
+checks: three `lint-and-format`, three `test`, and `validate-scripts`.
+
+### Final counts
+
+| Measure | Value |
+|:--|:--|
+| Commits on the branch | 88, one file per commit, pushed as written |
+| Figure specifications | 25, in a 6/4/6/4/5 split |
+| Figures drawn in TikZ | 25 |
+| Tables | 25 numbered, plus one unnumbered glossary |
+| Captions | 50, all two lines within a four-character spread, mean spread 2.28 |
+| Sections | 11 |
+| draft-new-trial | 83,251 characters |
+| full-new-trial | 182,773 characters |
+| final-new-trial | 213,147 characters, against a 211,643 target |
+| Main sections, characters | 26,802 to 28,836, a 2,034 band |
+| Bibliography | 122 entries, no duplicate keys |
+| Rasters | 0 |
+
