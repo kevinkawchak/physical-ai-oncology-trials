@@ -1,0 +1,424 @@
+% sec-04-trial-protocol.tex - Section 4, Trial Protocol.  A main section.
+% FINAL stage.  Figures 10, 11, 12 and 13 drawn; Tables 11, 12 and 13 populated
+% from trial-protocol/final-protocol/publication and
+% trial-phase-2/final-protocol/publication/author.  Senior-author pass: Table 13
+% loses its Characters column padding to the Elapsed column, and two closing
+% subsections state the safety architecture in one paragraph and name the
+% instruments the two studies would need to open.
+\section{Trial Protocol}
+\label{sec:protocol}
+
+\subsection{The Phase 1 study}
+
+The Phase 1 protocol, version 1.0.0, deposited June 21, 2026, describes itself
+as an ``open-label, single-arm, dose-finding study using a standard 3+3
+escalation across three daraxonrasib dose levels (DL1 through DL3) with
+staggered (sentinel) enrollment'', planned for up to n = 18 participants
+\cite{onpremwhippl}. A mandatory gate precedes any patient-facing robotic
+activity: ``a mandatory Phase 0 simulation-validation gate ($\geq 1000$
+simulated procedures across $\geq 2$ independent frameworks, with a Unified
+Safety Level (USL) rating $\geq 7.0$) precedes any patient-facing robotic
+activity, and prespecified pause and stopping rules govern progression''
+\cite{onpremwhippl}. The intervention is stated with the same numeric
+precision: perioperative daraxonrasib with a planned preoperative pause and an
+LLM-advised postoperative restart at T+7, T+14, or T+21 days keyed to fistula
+status and drug trough, combined with an eight-arm robotic Whipple performed
+under continuous human oversight as a Class II collaborative device, with a 10
+kHz heartbeat broadcast bus, a cross-arm emergency-stop budget at or below 3 ms,
+per-arm tip-force caps at or below 3 N, a cumulative cross-arm cap at or below
+18 N, and vascular no-fly gating around the superior mesenteric and portal veins
+\cite{onpremwhippl}. Table 11 is the deposited synopsis in full.
+
+\begin{apptable}
+\begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}p{3.15cm} >{\raggedright\arraybackslash}X}
+\headrow \thead{Element} & \thead{Phase 1, first-in-human, v1.0.0, June 21, 2026}\\
+\midrule
+Design & Open-label, single-arm, 3+3 escalation, DL1 to DL3, staggered sentinel enrollment \\
+Sample size & Up to n = 18 \\
+Primary endpoints & Dose-limiting toxicity rate during escalation; device- and procedure-related serious adverse event rate through day 30, including Clavien-Dindo grade III or higher \\
+Key secondary & R0 rate at day-90 pathology; ISGPS grade B or C fistula rate; 90-day mortality; progression-free survival; overall survival to 24 months \\
+Population & Adults 18 or older, resectable or borderline-resectable KRAS G12-mutated PDAC, ECOG 0 or 1, adequate organ function \\
+Gate & Phase 0: at least 1000 simulations across at least 2 frameworks, Unified Safety Level at or above 7.0 \\
+Device limits & 10 kHz heartbeat bus; cross-arm stop at or below 3 ms; per-arm tip force at or below 3 N; cross-arm at or below 18 N \\
+Duration & Up to 28 days screening, surgery on day 0, day 1 to 7 acute window, day 30 primary safety window, day 90 pathology, follow-up every 12 weeks to 24 months \\
+Regulatory basis & IND 21 CFR \S 312 plus IDE 21 CFR \S 812, Physical AI Subpart J \\
+\end{tabularx}
+\end{apptable}
+\vspace{-0.6cm}
+\tabcap{Table 11. The Phase 1 protocol synopsis as deposited, with the gate that\\must
+close before any patient-facing robotic activity begins.}
+
+Figure 10 takes the participant's point of view rather than the study's. Nine
+forward states run down a left column at a constant 1.30 cm pitch, two exception
+states sit in a right column 8.20 cm away, and each of the fourteen transitions
+carries a guard written as a quantity that can be evaluated at the bedside. The
+guards leaving any one state partition the space: the complement of ``KRAS G12
+present and ECOG 0 or 1'' is the screen-failure guard, the complement of
+``resection complete, no intraoperative stop'' is the force-cap guard, and the
+complement of ``fistula grade below B and drug trough in range'' is the
+dose-limiting toxicity guard. No participant can therefore occupy two successors
+at once, and no state can deadlock.
+
+% ---------------------------------------------------------------------------
+% FIGURE 10.  plantuml-type, state with guards.  Nine forward states at 1.30 cm
+% in a left column, two exception states in a right column, one dashed column
+% rule at x = 7.30, and one upward return edge routed through a waypoint.
+% ---------------------------------------------------------------------------
+\begin{appfloat}[!tb]
+\begin{appfig}[plantuml-type / state with guards]
+\draw[trialslate,dashed,line width=0.4pt] (7.30,0.95) -- (7.30,-12.10);
+\node[font=\tiny\sffamily,text=trialslate,rotate=90,anchor=south] at (7.20,-6.00) {exception column};
+\node[umlinit] (i0) at (3.20,0.55) {};
+\node[umlstatesoft,text width=30mm] (st1) at (3.20,-0.30) {Screening};
+\node[umlstate,text width=30mm] (st2) at (3.20,-1.60) {Consented};
+\node[umlstate,text width=30mm] (st3) at (3.20,-2.90) {Dose assigned};
+\node[umlstateon,text width=30mm] (st4) at (3.20,-4.20) {Operative};
+\node[umlstate,text width=30mm] (st5) at (3.20,-5.50) {Acute window};
+\node[umlstatesoft,text width=30mm] (st6) at (3.20,-6.80) {Restart advised};
+\node[umlstate,text width=30mm] (st7) at (3.20,-8.10) {Day 30 safety};
+\node[umlstate,text width=30mm] (st8) at (3.20,-9.40) {Day 90 pathology};
+\node[umlstateon,text width=30mm] (st9) at (3.20,-10.70) {Long term follow up};
+\node[umlfinal] (fin) at (3.20,-11.70) {};
+\fill[trialburg] (fin.center) circle (1.1mm);
+\node[umlstategray,text width=30mm] (sf) at (11.40,-0.30) {Screen failure};
+\node[umlstategray,text width=30mm,line width=0.9pt] (hd) at (11.40,-4.85) {Hold};
+\node[umlfinal] (hf) at (11.40,-6.60) {};
+\fill[trialburg] (hf.center) circle (1.1mm);
+\draw[umlarrow] (i0) -- (st1);
+\draw[umlarrow] (st1) -- node[umlguard,pos=0.5] {[KRAS G12 and ECOG 0 or 1]} (st2);
+\draw[umlarrow] (st2) -- node[umlguard,pos=0.5] {[Phase 0 closed, USL 7.0 or above]} (st3);
+\draw[umlarrow] (st3) -- node[umlguard,pos=0.5] {[cohort slot open, sentinel elapsed]} (st4);
+\draw[umlarrow] (st4) -- node[umlguard,pos=0.5] {[resection complete, no stop]} (st5);
+\draw[umlarrow] (st5) -- node[umlguard,pos=0.5] {[fistula below B, trough in range]} (st6);
+\draw[umlarrow] (st6) -- node[umlguard,pos=0.5] {[restart at T+7, T+14 or T+21]} (st7);
+\draw[umlarrow] (st7) -- node[umlguard,pos=0.5] {[no new grade III or higher]} (st8);
+\draw[umlarrow] (st8) -- node[umlguard,pos=0.5] {[pathology adjudicated, R0 recorded]} (st9);
+\draw[umlarrow] (st9) -- node[umlguard,pos=0.5] {[24-month OS reached]} (fin);
+\draw[umlarrow] (st1.east) -- node[umlguard,pos=0.5] {[KRAS G12 absent or ECOG above 1]} (sf.west);
+\draw[umlarrow] (st4.east) -- node[umlguard,pos=0.45] {[tip force above 3 N or cross arm above 18 N]} (hd.north west);
+\draw[umlarrow] (st5.east) -- node[umlguard,pos=0.45] {[DLT within the day 30 window]} (hd.south west);
+\draw[umlarrow] (hd.north) -- ++(0,-0.0) -- (11.40,-2.90) -- node[umlguard,pos=0.55] {[de escalation approved]} (st3.east);
+\draw[umlarrow] (hd.south) -- node[umlguard,pos=0.5] {[stopping rule met]} (hf);
+\pnote{0}{-12.60}{Nine forward states at one 1.30 cm pitch read as a clock; the two exception
+states sit 8.20 cm away across a\\dashed column rule. The return edge rises to
+y = -2.90 through a waypoint 1.30 cm clear of the Operative state.}
+\end{appfig}
+\vspace{-0.6cm}
+\figcaption{Figure 10. One participant from screening to the 24-month endpoint,
+with the\\guard on every transition and the two conditions that route to a study
+hold.}
+\end{appfloat}
+
+\subsection{The Phase 2 study}
+
+The Phase 2 protocol, version 1.1.0, deposited June 23, 2026, two days after its
+predicate, is a ``multicenter, randomized 1:1, parallel-group, controlled,
+open-label study with BICR of imaging, central masked pathology, and blinded
+endpoint adjudication, conducted at eight high-volume HPB centers with a planned
+sample size of n = 220 randomized participants'' \cite{phase2proto}. It states
+its own dependence on the predicate plainly: the first-in-human study
+``established the daraxonrasib RP2D and demonstrated the feasibility and hard
+cyber-physical safety of an on-premises LLM-directed robotic Whipple, but it was
+not powered for efficacy and explicitly deferred the comparative question to a
+randomized trial'' \cite{phase2proto}. The trial targets approximately 140
+progression-free survival events for 85 percent power at a two-sided alpha of
+0.05 to detect a hazard ratio of 0.60, median PFS 14.0 months control against
+23.3 months experimental, with a single interim analysis at approximately 60
+percent of events using O'Brien-Fleming spending. Table 12 is the Phase 2
+synopsis, and every randomized element in it depends on a Phase 1 result.
+
+\begin{apptable}
+\begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}p{3.15cm} >{\raggedright\arraybackslash}X}
+\headrow \thead{Element} & \thead{Phase 2, randomized, v1.1.0, June 23, 2026}\\
+\midrule
+Design & Multicenter, randomized 1:1, parallel-group, controlled, open-label, with blinded independent central review \\
+Sample size & n = 220, approximately 110 per arm, eight high-volume HPB centers \\
+Primary endpoint & Progression-free survival per RECIST 1.1, investigator assessed, BICR as sensitivity analysis \\
+Key secondary & Overall survival; R0 rate; ISGPS grade B or C fistula rate; major pathologic response; KRAS ctDNA clearance at week 12 \\
+Statistics & About 140 PFS events, 85 percent power, two-sided alpha 0.05, target hazard ratio 0.60, median 14.0 against 23.3 months \\
+Interim analysis & One, at about 60 percent of events, O'Brien-Fleming spending, independent monitoring board \\
+Stratification & Resectability, KRAS allele G12D against other G12, neoadjuvant therapy, site \\
+Predicate & Phase 1 v1.0.0, which established the RP2D and the safety architecture \\
+\end{tabularx}
+\end{apptable}
+\vspace{-0.6cm}
+\tabcap{Table 12. The Phase 2 protocol synopsis as deposited, and the Phase 1\\predicate
+whose result each randomized element depends on.}
+
+Figure 11 draws the clinical progression that joins the two documents, and
+Figure 12 draws the documentary one. Four of the twelve Phase 1 sections were
+carried into Phase 2 unchanged, four were replaced outright because the study is
+no longer single-arm, and four elements exist in the Phase 2 document only
+because randomization requires them. Table 13 states the elapsed production
+time for both.
+
+% ---------------------------------------------------------------------------
+% FIGURE 11.  mermaid-type, flowchart LR.  Five columns, Phase 1 rungs at a
+% 1.40 cm pitch inside a tighter band than the Phase 0 and Phase 2 pairs.
+% ---------------------------------------------------------------------------
+\begin{appfloat}[!tb]
+\begin{appfig}[mermaid-type / flowchart LR]
+\node[mmsoft,text width=28mm] (s1) at (0,1.05) {Simulation validation\\at least 1000 procedures\\across 2 frameworks};
+\node[mmsoft,text width=28mm] (s2) at (0,-0.75) {Unified Safety Level\\rating at or above 7.0};
+\begin{scope}[on background layer]\node[mmlane,fit=(s1)(s2)] (p0) {};\end{scope}
+\node[mmlanetitle,anchor=south west] at ([yshift=1.3mm]p0.north west) {Phase 0, before any patient contact};
+\node[mmdec,aspect=1.9,text width=20mm] (g0) at (4.05,0.15) {Gate 0 both hold?};
+\node[mmmid,text width=28mm] (d1) at (7.90,1.55) {DL1 cohort\\3+3, sentinel staggered};
+\node[mmmid,text width=28mm] (d2) at (7.90,0.15) {DL2 cohort\\3+3};
+\node[mmmid,text width=28mm] (d3) at (7.90,-1.25) {DL3 cohort\\3+3, RP2D declared};
+\begin{scope}[on background layer]\node[mmlane,fit=(d1)(d2)(d3)] (p1) {};\end{scope}
+\node[mmlanetitle,anchor=south west] at ([yshift=1.3mm]p1.north west) {Phase 1, first in human, n up to 18};
+\node[mmdec,aspect=1.9,text width=20mm] (g1) at (11.60,0.15) {Gate 1 DLT below limit?};
+\node[mmgray,text width=27mm] (hold) at (11.60,-2.85) {Stop or de escalate\\prespecified pause rule};
+\node[mmsoft,text width=28mm] (r1) at (15.20,1.15) {Randomize 1 to 1\\8 high volume centers};
+\node[mmsoft,text width=28mm] (r2) at (15.20,-0.35) {PFS primary\\about 140 events};
+\begin{scope}[on background layer]\node[mmlane,fit=(r1)(r2)] (p2) {};\end{scope}
+\node[mmlanetitle,anchor=south west] at ([yshift=1.3mm]p2.north west) {Phase 2, multicenter randomized, n = 220};
+\node[mmgoal,text width=32mm] (out) at (15.20,-2.35) {Hazard ratio 0.60 target\\85 percent power\\two sided alpha 0.05};
+\draw[mmedge] (s1.east) -- (g0.north west);
+\draw[mmedge] (s2.east) -- (g0.south west);
+\draw[mmedgeb] (g0.east) -- node[mmlabel,above] {yes} (d2.west);
+\draw[mmedge] (d1) -- (d2);
+\draw[mmedge] (d2) -- (d3);
+\draw[mmedge] (d3.east) -- (g1.south west);
+\draw[mmedgeb] (g1.east) -- node[mmlabel,above] {yes} (r2.west);
+\draw[mmedged] (g1.south) -- node[mmlabel,right] {no} (hold.north);
+\draw[mmedged] (g0.south) -- ++(0,-1.35) -- (4.05,-3.55) -- (11.60,-3.55) -- node[mmlabel,pos=0.4] {no} (hold.south);
+\draw[mmedge] (r1) -- (r2);
+\draw[mmedgeb] (r2) -- (out);
+\pnote{0}{-4.35}{The Phase 1 rungs sit at a 1.40 cm pitch and the Phase 0 and Phase 2 pairs at
+1.80 and 1.50 cm, so the escalation\\band reads denser than the bands either side
+of it. The two hold edges enter at different anchors.}
+\end{appfig}
+\vspace{-0.6cm}
+\figcaption{Figure 11. From the Phase 0 simulation gate through three 3+3 dose
+levels to\\Phase 2 randomization, with the quantity that must hold on each rung
+shown.}
+\end{appfloat}
+
+% ---------------------------------------------------------------------------
+% FIGURE 12.  d2-type, containers.  Nesting depth two.  Three equal-width lower
+% containers at a 0.50 cm gutter against a 0.20 cm inter-leaf gutter.
+% ---------------------------------------------------------------------------
+\begin{appfloat}[!tb]
+\begin{appfig}[d2-type / containers]
+\foreach \i/\lab in {0/{Compliance},1/{Summary and schema},2/{Introduction},
+  3/{Objectives},4/{Design},5/{Population}}{
+  \node[d2gray,text width=20mm,minimum height=0.60cm,anchor=north west]
+    at ({0.30+2.38*\i},-0.55) {\lab};}
+\foreach \i/\lab in {0/{Intervention},1/{Discontinuation},2/{Assessments},
+  3/{Statistics},4/{Oversight},5/{Additional}}{
+  \node[d2gray,text width=20mm,minimum height=0.60cm,anchor=north west]
+    at ({0.30+2.38*\i},-1.35) {\lab};}
+\begin{scope}[on background layer]
+\node[d2cont,minimum width=14.6cm,minimum height=2.05cm,anchor=north west] (pc) at (0,0) {};
+\end{scope}
+\node[d2title,anchor=north west] at ([shift={(2mm,-1.5mm)}]pc.north west) {Phase 1 protocol, v1.0.0, June 21 2026};
+% carried
+\foreach \i/\lab in {0/{Compliance},1/{Introduction},2/{Discontinuation},3/{Additional}}{
+  \node[d2soft,text width=33mm,minimum height=0.62cm,anchor=north west]
+    at (0.30,{-3.85-0.70*\i}) {\lab};}
+\begin{scope}[on background layer]
+\node[d2cont,minimum width=4.55cm,minimum height=3.15cm,anchor=north west] (cc) at (0,-3.20) {};\end{scope}
+\node[d2title,anchor=north west] at ([shift={(2mm,-1.5mm)}]cc.north west) {Carried unchanged};
+% replaced
+\foreach \i/\lab in {0/{Summary and schema},1/{Objectives and endpoints},2/{Design},3/{Statistics}}{
+  \node[d2gray2,text width=33mm,minimum height=0.62cm,anchor=north west]
+    at (5.35,{-3.85-0.70*\i}) {\lab};}
+\begin{scope}[on background layer]
+\node[d2cont2,minimum width=4.55cm,minimum height=3.15cm,anchor=north west] (rc) at (5.05,-3.20) {};\end{scope}
+\node[d2title2,anchor=north west] at ([shift={(2mm,-1.5mm)}]rc.north west) {Replaced outright};
+% added
+\foreach \i/\lab in {0/{Blinded independent central review},1/{Stratified permuted block randomization},
+  2/{Interim analysis and alpha spending},3/{Multicenter site qualification}}{
+  \node[d2key,text width=33mm,minimum height=0.62cm,anchor=north west]
+    at (10.40,{-3.85-0.70*\i}) {\lab};}
+\begin{scope}[on background layer]
+\node[d2cont,minimum width=4.50cm,minimum height=3.15cm,anchor=north west,line width=0.9pt] (ac) at (10.10,-3.20) {};\end{scope}
+\node[d2title,anchor=north west] at ([shift={(2mm,-1.5mm)}]ac.north west) {Added by randomization};
+\draw[d2edgeb] (2.28,-2.05) -- node[right,font=\tiny\sffamily] {4 of 12} (2.28,-3.20);
+\draw[d2edged] (7.33,-2.05) -- node[right,font=\tiny\sffamily] {4 of 12} (7.33,-3.20);
+\draw[d2edgeb] (12.35,-2.05) -- node[right,font=\tiny\sffamily] {new} (12.35,-3.20);
+\node[d2mid,text width=60mm,anchor=north west] at (4.20,-7.35)
+  {Phase 1 v1.0.0 June 21 and Phase 2 v1.1.0 June 23, two days apart};
+\pnote{0}{-8.55}{The three lower containers are the same width and start at the same y, so the
+sort reads as a partition of one\\set. The inter-container gutter is 0.50 cm and
+the inter-leaf gutter 0.20 cm, which is what makes the nesting legible.}
+\end{appfig}
+\vspace{-0.6cm}
+\figcaption{Figure 12. The twelve Phase 1 protocol sections sorted into what
+Phase 2\\carried unchanged, what it replaced, and what randomization made
+necessary.}
+\end{appfloat}
+
+\begin{apptable}
+\begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}p{2.85cm} >{\raggedright\arraybackslash}p{1.35cm} >{\raggedright\arraybackslash}p{1.85cm} >{\raggedright\arraybackslash}p{1.55cm} >{\raggedright\arraybackslash}p{1.30cm} >{\raggedright\arraybackslash}X}
+\headrow \thead{Document} & \thead{Version} & \thead{Deposit} & \thead{Characters} & \thead{Figures} & \thead{Elapsed against the prior system}\\
+\midrule
+Phase 1 protocol & v1.0.0 & Jun 21, 2026 & 169,878 & 20 & 2 days against 6 to 12 months \\
+Phase 2 protocol & v1.1.0 & Jun 23, 2026 & 199,421 & 22 & 2 days against 6 to 12 months \\
+Both, combined & Two & Jun 21 to 23 & 369,299 & 42 & 4 days against a full design cycle \\
+\end{tabularx}
+\end{apptable}
+\vspace{-0.6cm}
+\tabcap{Table 13. Both protocol deposits, their versions, character counts and\\figure
+counts, and the elapsed production time against the prior system.}
+
+\subsection{The site the protocol assumes}
+
+Figure 13 draws the equipment a participant is operated within, and the one
+boundary that makes the protocol's on-premises claim checkable. Four layers sit
+inside the building: oversight, control, device, and record. One node sits
+outside it. The prohibited path from the on-premises model host to any external
+network is the only struck-through edge in this paper, and a site that cannot
+demonstrate that edge struck is not running this protocol, whatever else it
+satisfies.
+
+% ---------------------------------------------------------------------------
+% FIGURE 13.  diagrams (python)-type, clustered infrastructure.  Four stacked
+% clusters at a uniform 2.65 cm pitch, one long-dashed building boundary, one
+% struck-through prohibited path.
+% ---------------------------------------------------------------------------
+\begin{appfloat}[!tb]
+\begin{appfig}[diagrams (python)-type / clustered infrastructure]
+\dgnode{dgtile}{1.55}{0}{\glyphuser}{Attending surgeon}{o1}
+\dgnode{dgtile}{5.15}{0}{\glyphteam}{Study coordinator}{o2}
+\dgnode{dgtile}{8.75}{0}{\glyphmon}{Independent monitor}{o3}
+\begin{scope}[on background layer]\node[dgcluster2,fit=(o1)(o1l)(o2)(o2l)(o3)(o3l)] (l1) {};\end{scope}
+\node[dgctitle2,anchor=south west] at ([yshift=1.5mm]l1.north west) {Layer 1, oversight};
+\dgnodew{dgtiled}{1.55}{-2.65}{\glyphai}{On-premises LLM host}{k1}
+\dgnodew{dgtiled}{4.35}{-2.65}{\glyphgear}{Advisory arbiter}{k2}
+\dgnodew{dgtiled}{7.15}{-2.65}{\glyphsignal}{Heartbeat bus at 10 kHz}{k3}
+\dgnodew{dgtiled}{9.95}{-2.65}{\glyphstop}{Emergency stop under 3 ms}{k4}
+\begin{scope}[on background layer]\node[dgcluster,fit=(k1)(k1l)(k2)(k2l)(k3)(k3l)(k4)(k4l)] (l2) {};\end{scope}
+\node[dgctitle,anchor=south west] at ([yshift=1.5mm]l2.north west) {Layer 2, control};
+\dgnode{dgtilem}{1.55}{-5.30}{\glyphrobot}{Eight-arm robotic platform}{v1}
+\dgnode{dgtilem}{4.35}{-5.30}{\glyphhand}{Per-arm force cap 3 N}{v2}
+\dgnode{dgtilem}{7.15}{-5.30}{\glyphhand}{Cross-arm cap 18 N}{v3}
+\dgnode{dgtilem}{9.95}{-5.30}{\glyphshield}{Vascular no-fly gating}{v4}
+\begin{scope}[on background layer]\node[dgcluster,fit=(v1)(v1l)(v2)(v2l)(v3)(v3l)(v4)(v4l)] (l3) {};\end{scope}
+\node[dgctitle,anchor=south west] at ([yshift=1.5mm]l3.north west) {Layer 3, device};
+\dgnodeg{dgtileg}{1.55}{-7.95}{\glyphdb}{Operative log store}{c1}
+\dgnodeg{dgtileg}{5.15}{-7.95}{\glyphchart}{Pathology and imaging}{c2}
+\dgnodeg{dgtileg}{8.75}{-7.95}{\glyphlock}{Verification hash registry}{c3}
+\begin{scope}[on background layer]\node[dgcluster2,fit=(c1)(c1l)(c2)(c2l)(c3)(c3l)] (l4) {};\end{scope}
+\node[dgctitle2,anchor=south west] at ([yshift=1.5mm]l4.north west) {Layer 4, record};
+% boundary
+\draw[trialburg,line width=1.2pt,dash pattern=on 6pt off 3pt] (11.85,1.05) -- (11.85,-9.05);
+\node[dgctitle,rotate=90,anchor=south] at (11.75,-4.00) {site boundary};
+\dgnodeg{dgtileg}{13.55}{-2.65}{\glyphcloud}{Any external network}{ext}
+% chain edges
+\draw[dgedgeb] (o1l.south) -- node[right,font=\tiny\sffamily] {oversees} (k1.north);
+\draw[dgedgeb] (k1l.south) -- node[right,font=\tiny\sffamily] {advises} (v1.north);
+\draw[dgedgeb] (v1l.south) -- node[right,font=\tiny\sffamily] {writes} (c1.north);
+\draw[dgedged] (c3.north) -- node[right,font=\tiny\sffamily] {attests} (o3l.south);
+% prohibited path
+\draw[trialchar,line width=1pt,dotted] (k1.east) -- (11.85,-2.65);
+\pxmark{11.85}{-2.65}
+\node[font=\tiny\sffamily,text=trialburg,anchor=south] at (10.35,-2.45) {no path};
+\legkey{0.35}{-9.55}{trialburgp}{inside the building}
+\legkey{4.20}{-9.55}{trialmistl}{record and external}
+\pnote{0.35}{-10.25}{The four clusters sit at a uniform 2.65 cm pitch, 1.05 cm more than the tallest
+tile and label pair, so no frame\\touches another. The attestation edge rises
+7.95 cm through the corridor at x = 8.75, which carries no tile.}
+\end{appfig}
+\vspace{-0.6cm}
+\figcaption{Figure 13. The four-layer on-premises site stack, and the single
+boundary\\across which no inference request, model weight, or patient record
+passes.}
+\end{appfloat}
+
+The boundary is not a preference. It is what makes the consent language
+operable: a participant told that an on-premises model advises the operation can
+verify the claim by asking what crosses the building line, and a monitor can
+audit it by inspecting one network configuration rather than a vendor's
+assurances \cite{onpremwhippl, clintrust}. The same boundary is what the
+autonomy disclosure duty in \S5 attaches to.
+
+\subsection{Why two protocols rather than one}
+
+A Phase 1 protocol and a Phase 2 protocol two days apart is an unusual pairing,
+and the reason is structural rather than opportunistic. A first-in-human study
+of a device that advises an operation has to answer a question the drug arm
+alone cannot answer: whether the advisory changes the operation in a way that a
+randomized comparison would later detect. Writing the randomized study first, as
+a target, forces the first-in-human study to collect what the randomized study
+will need. The Phase 2 document therefore fixes the primary endpoint,
+progression-free survival per RECIST 1.1 with blinded independent central review
+as a sensitivity analysis, and the Phase 1 document collects the operative and
+pathology inputs that endpoint depends on \cite{onpremwhippl, phase2proto}.
+
+The pairing also exposes what the prior system's sequencing hides. In the prior
+system the Phase 2 protocol is written after the Phase 1 result is known, which
+means the Phase 1 case report form was designed without knowing which of its
+fields would matter. Here both documents were written against one another, and
+Figure 12 shows the consequence: only four of the twelve Phase 1 sections had to
+be replaced when the study randomized, and none of the four is a data-collection
+section. Compliance, introduction, discontinuation and additional considerations
+carried unchanged. Summary, objectives, design and statistics were replaced,
+which is exactly the set a change from single-arm dose-finding to randomized
+comparison should replace and no more.
+
+\subsection{What the two protocols assume about the site}
+
+Both protocols assume a site that does not yet exist in the form they require,
+and both say so. The Phase 1 protocol assumes one qualified high-volume
+hepato-pancreato-biliary center with an eight-arm robotic platform, an
+on-premises model host inside the building boundary of Figure 13, a pathology
+service able to adjudicate margin status at day 90, and an institutional review
+board willing to review a combined IND and IDE submission with a Physical AI
+consent opt-out \cite{onpremwhippl}. The Phase 2 protocol assumes eight such
+centers, plus central masked pathology, blinded endpoint adjudication, and a
+central randomization service with four stratification factors
+\cite{phase2proto}.
+
+None of those instruments can be obtained by a sponsor of 2.6 full-time
+equivalents acting alone, which is the point \S6 and \S8 return to. The
+protocols are written to be executable by an institution that has them, not to
+be executable by their author. That is a deliberate limit on what document
+production can accomplish, and stating it here is more useful than implying
+otherwise: the documents remove the drafting bottleneck and they do not remove
+the institutional one.
+
+\subsection{The safety architecture in one paragraph}
+
+A reader who takes only one thing from \S\ref{sec:protocol} should take the
+safety architecture, because it is the part a clinician will test first. Four
+independent limits act on the operation at once. A heartbeat broadcast at 10 kHz
+means the control layer knows within 100 microseconds that an arm has stopped
+reporting. A cross-arm emergency stop budget at or below 3 ms means that when
+any arm asserts a stop, every other arm has halted before a human could have
+noticed the condition. Per-arm tip-force caps at or below 3 N and a cumulative
+cross-arm cap at or below 18 N mean the platform cannot apply more force than
+the caps allow even if every controller above them is wrong. Vascular no-fly
+gating around the superior mesenteric and portal veins means the geometric
+region in which those forces would be most dangerous is excluded before any of
+the other three limits is tested \cite{onpremwhippl}.
+
+Those four are cyber-physical rather than advisory: none depends on the model
+being correct, and none depends on the surgeon reacting in time. The model's
+role sits above them, in the perioperative restart advisory and the operative
+guidance, and Figure 10's guard on the transition out of the operative state is
+written against the force caps rather than against the model's confidence. That
+ordering is the protocol's answer to the trust question \S\ref{sec:legislation}
+raises: the clinician is asked to rely on the model for advice and on the
+hardware for safety, and the two reliances are separable by design.
+
+\subsection{What the two protocols would need to open}
+
+The instruments the protocols require are the same class as those the IND
+requires, and the register in \S\ref{sec:limitations} lists all seven together.
+For the Phase 1 study the binding ones are a qualified high-volume
+hepato-pancreato-biliary center, an operating room with the eight-arm platform
+installed and accepted, a pathology service able to adjudicate margin status at
+day 90, and an institutional review board of record. For the Phase 2 study the
+binding ones are eight such centers plus central masked pathology, blinded
+endpoint adjudication, and a central randomization service.
+
+The protocols are deliberately not written down to what one sponsor could run
+alone. A single-site, unblinded, unadjudicated study would have been easier to
+open and would not have answered the comparative question, and the Phase 1
+document says as much when it defers that question to a randomized trial
+\cite{onpremwhippl, phase2proto}. Writing to the study that answers the question
+and then stating plainly what is missing is more useful to a funder than writing
+to the study that could be opened tomorrow.
