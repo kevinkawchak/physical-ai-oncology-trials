@@ -1,0 +1,130 @@
+% sec-04-trial-protocol.tex - Section 4, Trial Protocol.  A main section.
+% DRAFT stage.  Four figure slots, Figures 10 to 13, and three tables, Tables
+% 11, 12 and 13.  Sources are trial-protocol/final-protocol/publication and
+% trial-phase-2/final-protocol/publication/author.
+\section{Trial Protocol}
+\label{sec:protocol}
+
+\subsection{The Phase 1 study}
+
+The Phase 1 protocol, version 1.0.0, deposited June 21, 2026, is an open-label,
+single-arm, dose-finding study using a standard 3+3 escalation across three
+daraxonrasib dose levels with staggered sentinel enrollment, planned for up to
+n = 18 participants \cite{onpremwhippl}. A mandatory Phase 0 simulation
+validation gate precedes any patient-facing robotic activity: at least 1000
+simulated procedures across at least two independent frameworks, with a Unified
+Safety Level rating at or above 7.0.
+
+\draftinstr{Stage 7: quote directly from
+\appfile{trial-protocol/final-protocol/publication/LaTeX Source Files.zip},
+sections/sec-01-summary.tex, the Design paragraph and the Intervention
+paragraph, including the 10 kHz heartbeat broadcast bus, the cross-arm
+emergency-stop budget at or below 3 ms, the per-arm tip-force cap at or below
+3 N, the cumulative cross-arm cap at or below 18 N, and vascular no-fly gating
+around the superior mesenteric and portal veins.}
+
+\begin{apptable}
+\begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}p{3.2cm} >{\raggedright\arraybackslash}X}
+\headrow \thead{Element} & \thead{Phase 1, first-in-human, v1.0.0, June 21, 2026}\\
+\midrule
+Design & Open-label, single-arm, 3+3 escalation, DL1 to DL3, staggered sentinel enrollment \\
+Sample size & Up to n = 18 \\
+Primary endpoints & DLT rate during escalation; device- and procedure-related SAE rate through day 30, including Clavien-Dindo grade III or higher \\
+Key secondary & R0 rate at day-90 pathology; ISGPS grade B or C fistula rate; 90-day mortality; PFS; OS to 24 months \\
+Population & Adults, resectable or borderline-resectable KRAS G12-mutated PDAC, ECOG 0 or 1 \\
+Gate & Phase 0: at least 1000 simulations, at least 2 frameworks, USL at or above 7.0 \\
+Regulatory basis & IND 21 CFR \S 312 plus IDE 21 CFR \S 812, Physical AI Subpart J \\
+\end{tabularx}
+\end{apptable}
+\vspace{-0.6cm}
+\tabcap{Table 11. The Phase 1 protocol synopsis as deposited, with the gate that\\must
+close before any patient-facing robotic activity begins.}
+
+\figslot{plantuml-type / state with guards}{9.6}{Figure 10. One participant from
+screening to the 24-month endpoint, with the\\guard on every transition and the
+two conditions that route to a study hold.}
+
+Figure 10 takes the participant's point of view. Nine forward states run down a
+left column at a constant pitch, two exception states sit in a right column, and
+every one of the fourteen transitions carries a guard written as a quantity that
+can be evaluated at the bedside. The guards out of any one state partition the
+space, so no participant can occupy two successors at once and no state can
+deadlock.
+
+\subsection{The Phase 2 study}
+
+\draftinstr{Stage 7: quote directly from
+\appfile{trial-phase-2/final-protocol/publication/author/LaTeX Source Files.zip},
+sections/sec-01-summary.tex, the Design paragraph: multicenter, randomized 1:1,
+parallel-group, controlled, open-label, BICR of imaging, central masked
+pathology, blinded endpoint adjudication, eight high-volume HPB centers, n = 220,
+stratified by resectability, KRAS allele, neoadjuvant therapy and site;
+approximately 140 PFS events for 85 percent power at two-sided alpha 0.05 to
+detect a hazard ratio of 0.60, median PFS 14.0 months control against 23.3
+months experimental, one interim analysis at about 60 percent of events using
+O'Brien-Fleming spending.}
+
+\begin{apptable}
+\begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}p{3.2cm} >{\raggedright\arraybackslash}X}
+\headrow \thead{Element} & \thead{Phase 2, randomized, v1.1.0, June 23, 2026}\\
+\midrule
+Design & Multicenter, randomized 1:1, parallel-group, controlled, open-label with BICR \\
+Sample size & n = 220, approximately 110 per arm, eight high-volume HPB centers \\
+Primary endpoint & PFS per RECIST 1.1, investigator assessed, BICR as sensitivity analysis \\
+Key secondary & OS; R0 rate; ISGPS grade B or C fistula rate; major pathologic response; KRAS ctDNA clearance at week 12 \\
+Statistics & About 140 PFS events, 85 percent power, two-sided alpha 0.05, target hazard ratio 0.60 \\
+Stratification & Resectability, KRAS allele, neoadjuvant therapy, site \\
+Predicate & Phase 1 v1.0.0, which established the RP2D and the safety architecture \\
+\end{tabularx}
+\end{apptable}
+\vspace{-0.6cm}
+\tabcap{Table 12. The Phase 2 protocol synopsis as deposited, and the Phase 1\\predicate
+whose result each randomized element depends on.}
+
+\figslot{mermaid-type / flowchart LR}{7.8}{Figure 11. From the Phase 0 simulation
+gate through three 3+3 dose levels to\\Phase 2 randomization, with the quantity
+that must hold on each rung shown.}
+
+\figslot{d2-type / containers}{8.4}{Figure 12. The twelve Phase 1 protocol
+sections sorted into what Phase 2\\carried unchanged, what it replaced, and what
+randomization made necessary.}
+
+Figure 11 draws the clinical progression and Figure 12 draws the documentary
+one. Four of the twelve Phase 1 sections were carried into Phase 2 unchanged,
+four were replaced outright because the study is no longer single-arm, and four
+elements exist in the Phase 2 document only because randomization requires them.
+Two days separate the two deposits.
+
+\draftinstr{Stage 7: build Table 13 with columns Document, Version, Deposit
+date, Sections, Figures, Elapsed production, Prior-system analogue. Both rows
+plus a combined row. The two-day gap between June 21 and June 23 is the
+quantitative point.}
+
+\begin{apptable}
+\begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}p{3.0cm} >{\raggedright\arraybackslash}p{1.5cm} >{\raggedright\arraybackslash}p{2.0cm} >{\raggedright\arraybackslash}p{1.4cm} >{\raggedright\arraybackslash}X}
+\headrow \thead{Document} & \thead{Version} & \thead{Deposit} & \thead{Sections} & \thead{Elapsed production against the prior system}\\
+\midrule
+Phase 1 protocol & v1.0.0 & Jun 21, 2026 & 13 & 2 days against 6 to 12 months \\
+Phase 2 protocol & v1.1.0 & Jun 23, 2026 & 13 & 2 days against 6 to 12 months \\
+Both, combined & -- & Jun 21 to 23 & 26 & 4 days against a full trial-design cycle \\
+\end{tabularx}
+\end{apptable}
+\vspace{-0.6cm}
+\tabcap{Table 13. Both protocol deposits, their versions and dates, and the\\elapsed
+production time against the prior system's design cycle.}
+
+\subsection{The site the protocol assumes}
+
+\figslot{diagrams (python)-type / clustered infrastructure}{9.8}{Figure 13. The
+four-layer on-premises site stack, and the single boundary\\across which no
+inference request, model weight, or patient record passes.}
+
+Figure 13 draws the equipment a participant is operated within, and the one
+boundary that makes the protocol's on-premises claim checkable. The prohibited
+path is the only struck-through edge in this paper: a site that cannot show that
+edge struck is not running this protocol.
+
+\draftinstr{Stage 7: close the section by connecting Figure 13's boundary to the
+consent language in \appfile{trial-protocol/final-protocol/publication},
+sections/sec-05-population.tex, and to the autonomy disclosure duty in \S5. This
+is a main section: match the character count of sections 3, 5, 6 and 7.}
