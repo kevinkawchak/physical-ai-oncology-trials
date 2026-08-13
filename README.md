@@ -288,7 +288,7 @@ flowchart LR
     classDef proc fill:#00417A,stroke:#00417A,stroke-width:1.2px,color:#FFFFFF
 ```
 
-### One programme, two prices
+### One program, two prices
 
 Every table in the paper reconciles to these nine numbers, and the four-layer
 split of the five-year budget is reused verbatim from the v4.4.0 work rather
@@ -296,7 +296,7 @@ than re-derived.
 
 | Quantity | Value | Where |
 |:--|:--|:--|
-| Five-year programme, direct | $3,500,000 | §3, Table 11 |
+| Five-year program, direct | $3,500,000 | §3, Table 11 |
 | SBIR Phase I, total cost, 9 months | $306,000 | §3, Tables 8 and 9 |
 | SBIR Phase II, total cost, 24 months | $1,300,000 | §3, Tables 8 and 10 |
 | SBIR route, total, 33 months | $1,606,000 | §3, Table 8 |
@@ -362,9 +362,9 @@ skip: 41 occurrences against 20 `\figcaption` plus 21 `\tabcap`.
 Stage 8 was followed by one update pass, driven by
 [`prompts/update-capital.md`](funding/capitalization-plan/prompts/update-capital.md).
 Every caption now opens with its own number, `Figure N.` or `Table N.`, on three
-centred lines; the twenty frames measure 306.00 pt against a 306 pt page centre
-and the forty-one captions sit within 0.53 pt of it, a centring defect in the
-style file having put every float 13.1 pt to the right of centre before; the
+centered lines; the twenty frames measure 306.00 pt against a 306 pt page center
+and the forty-one captions sit within 0.53 pt of it, a centering defect in the
+style file having put every float 13.1 pt to the right of center before; the
 reference list prints and links its 20 DOIs and 17 URLs, which `unsrt.bst` had
 been dropping; and every figure and table is referred to by number in the
 running text. Stages 6 and 7 are unchanged and remain the record of what they
@@ -432,10 +432,10 @@ flowchart TB
 | 06 | Foundation for the NIH, AMP | Medical oncology | 5 years | $3,500,000 cash |
 | 07 | HHMI Investigator Program | Medical oncology | 7 years | $700,000 per year |
 | 08 | NCI Cancer Therapy Evaluation Program | Medical oncology | 5 years | $3,500,000 |
-| 09 | Convergent Research, FRO programme | Medical oncology | 5 years, dissolves | $3,500,000 |
+| 09 | Convergent Research, FRO program | Medical oncology | 5 years, dissolves | $3,500,000 |
 | 10 | UC San Diego Moores Cancer Center | Medical oncology | one meeting | none |
 
-Each qualifies only because *Science: A New Golden Age* names its programme or
+Each qualifies only because *Science: A New Golden Age* names its program or
 the mechanism it runs. The trial is constant across all ten, so a reviewer
 comparing two of them is comparing two mechanisms with the science held fixed.
 
