@@ -117,7 +117,10 @@ of the method, and where the evidence for each of those counts is held.}
 \begin{scope}[on background layer]
 \node[mmlane,minimum width=13.9cm,minimum height=2.35cm] (lp) at (7.25,-4.85) {};
 \end{scope}
-\node[mmlanetitle,anchor=north west,font=\tiny\sffamily\bfseries] at ([shift={(1.5mm,-1.2mm)}]lp.north west) {loop [once per generated file]};
+% The frame has to reach the Author lifeline at x = 0.9 because row 7 returns to
+% it, so the frame label is set 9.5 mm inside the west edge, clear of that
+% lifeline and its activation bar, rather than at the corner.
+\node[mmlanetitle,anchor=north west,font=\tiny\sffamily\bfseries] at ([shift={(9.5mm,-1.2mm)}]lp.north west) {loop [once per generated file]};
 \seqrow{-0.95}{0.9}{5.2}{mmmsg}{1 master prompt, one turn}
 \draw[mmmsg] (5.2,-1.55) to[out=20,in=-20,looseness=7] node[right=1mm,font=\tiny\sffamily] {2 decompose into eight sub-prompts} (5.2,-2.05);
 \seqrow{-2.65}{5.2}{9.5}{mmmsg}{3 read source archives}

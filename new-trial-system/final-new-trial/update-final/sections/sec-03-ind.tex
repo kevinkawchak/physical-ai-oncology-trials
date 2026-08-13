@@ -76,9 +76,16 @@ assembled into.
 \begin{scope}[on background layer]
 \node[dgcluster,fit=(d1)(d1l)(d2)(d2l)(d3)(d3l)] (cd) {};\end{scope}
 \node[dgctitle,anchor=south west] at ([yshift=1.5mm]cd.north west) {Device source};
-% subject
-\dgnodew{dgtiled}{10.60}{-2.55}{\glyphdoc}{IND v1.0, twelve modules}{ind}
+% Subject.  The tile is drawn without \dgnodew's default label position, because
+% that position is 5.4 mm below the center, which is inside the 7.5 mm halo and
+% inside the corridor the four inbound edges converge through.  The label is set
+% above the halo instead, on two lines at a 17 mm measure, so it spans
+% x = 9.75 to 11.45 and y = -1.55 to -0.95, which no edge reaches.
+\node[dgtiled] (ind) at (10.60,-2.55) {};
+\glyphdoc{ind}{trialwhite}%
 \draw[trialburg,line width=0.6pt] (ind.center) circle (7.5mm);
+\node[dglabel,text width=17mm,anchor=south] (indl) at ([yshift=10mm]ind.center)
+  {IND v1.0,\\twelve modules};
 % composed cluster
 \dgnode{dgtilem}{13.85}{-0.55}{\glyphshield}{Physical AI Subpart J text}{x1}
 \dgnode{dgtilem}{13.85}{-2.55}{\glyphuser}{Autonomy disclosure}{x2}
@@ -87,16 +94,29 @@ assembled into.
 \node[dgcluster,fit=(x1)(x1l)(x2)(x2l)(x3)(x3l)] (cx) {};\end{scope}
 \node[dgctitle,anchor=south west] at ([yshift=1.5mm]cx.north west) {Composed, no counterpart};
 % edges, one per cluster, from a stated boundary waypoint
-\draw[dgedgeb] (cr.east) -- node[above,font=\tiny\sffamily,fill=trialwhite,inner sep=1pt] {adapted} (ind.north west);
-\draw[dgedgeb] (cd.east) -- node[below,font=\tiny\sffamily,fill=trialwhite,inner sep=1pt] {specified} (ind.south west);
-\draw[dgedge] (cs.east) -- (ind.west);
-\draw[dgedge] (cc.east) -- ++(0.55,0) -- (9.95,-4.35) -- (ind.south west);
+% Every inbound edge terminates on the halo itself, at a stated bearing, rather
+% than on a tile anchor: 145, 180, 215 and 250 degrees, which is a 35 degree
+% separation at the arrowhead and no shared terminus.
+% The regulatory edge is routed over the top of the canvas rather than straight
+% at the subject, because a straight run from cr.east would cross the whole
+% simulation cluster and its four tiles.  It leaves at cr's north east, runs at
+% y = 2.05 which is 0.50 cm above every cluster title, descends at x = 11.70
+% which is 0.25 cm right of the subject label and 1.20 cm left of the composed
+% cluster, and enters the halo at 45 degrees.
+\draw[dgedgeb] (cr.north east) -- (4.15,2.05) --
+  node[above,font=\tiny\sffamily,fill=trialwhite,inner sep=1pt,pos=0.42] {adapted}
+  (11.70,2.05) -- (11.70,-2.02) -- (11.13,-2.02);
+\draw[dgedgeb] (cd.east) -- node[below,font=\tiny\sffamily,fill=trialwhite,inner sep=1pt] {specified} (9.99,-2.98);
+\draw[dgedge] (cs.east) -- (9.85,-2.55);
+% The clinical edge crosses the device cluster in the empty band between its two
+% tile rows, y = -4.70 to -5.15, rather than through the label row above it.
+\draw[dgedge] (cc.east) -- ++(0.45,0) -- (9.30,-5.00) -- (10.34,-3.26);
 \draw[dgedged] (ind.east) -- (x1.west);
 \draw[dgedged] (ind.east) -- (x2.west);
 \draw[dgedged] (ind.east) -- (x3.west);
 \pnote{0}{-7.35}{Four clusters, one edge each, leaving from a stated waypoint on the cluster's
-east boundary. The corridor between\\x = 8.95 and x = 10.15 carries no tile, so
-the four inbound edges converge without crossing a label box.}
+east boundary. Each terminates on the halo at\\its own bearing, and the subject
+label sits above the halo, so no inbound edge crosses a label box.}
 \end{appfig}
 \vspace{-0.6cm}
 \figcaption{Figure 6. Four source clusters feeding twelve IND modules, and the three\\
