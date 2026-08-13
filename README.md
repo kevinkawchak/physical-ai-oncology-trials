@@ -123,7 +123,7 @@ python unification/cross_platform_tools/framework_detector.py
 [![Rasters](https://img.shields.io/badge/PNG%20%2F%20JPG-none-C9C9C9.svg)](new-trial-system)
 [![Model](https://img.shields.io/badge/Model-Claude%20Code%20Opus%205-800020.svg)](https://claude.ai/code)
 
-**A 425-character summary.** v4.6.0 adds new-trial-system/: the paper Pancreatic Cancer LLM Clinical Trial System: From IND to Protocol to Legislation, Funding, and AI Peer Review. It discloses how one author and one master prompt produced an IND, two clinical trial protocols, five bill versions and fourteen funding artifacts, on a 1 to 4 day scale, reviewed during development by three model manufacturers. 25 figures, 25 tables, 8 stages, no rasters.
+**A 425-character summary.** v4.6.0 adds new-trial-system/: the paper Pancreatic Cancer LLM Clinical Trial System: From IND to Protocol to Legislation, Funding, and AI Peer Review, with the second-prompt update at final-new-trial/update-final/ that makes the bundle compile, redraws Figure 14 from stick actors to a class diagram, rewrites AI Peer Review around four quantified costs, and adds 13 outbound communications. 53 pages, 25 figures, 25 tables.
 
 The prior pancreatic cancer trial system built its documents on a month scale,
 through teams, with peer review arriving after completion. This release
@@ -154,10 +154,16 @@ flowchart LR
         S7["full-new-trial<br/>25 figures drawn, 183K"]:::mid
         S8["final-new-trial<br/>senior-author pass, 212K"]:::mid
     end
+    MP2["Second master prompt<br/>prompts/prompt-2-new-trial.md"]:::goal
+    UF["update-final<br/>compiles, 53 pages"]:::mid
+    CM["communications<br/>9 emails, 1 post, 3 messages"]:::soft
     REL["Release v4.6.0<br/>25 figures, 25 tables"]:::proc
     MP --> DG
     DG --> PA
-    PA --> REL
+    PA --> MP2
+    MP2 --> UF
+    UF --> CM
+    CM --> REL
     classDef goal fill:#800020,stroke:#2E2E2E,stroke-width:1.5px,color:#FFFFFF
     classDef mid fill:#A32A3C,stroke:#800020,stroke-width:1px,color:#FFFFFF
     classDef soft fill:#E2D6D9,stroke:#A32A3C,stroke-width:1px,color:#2E2E2E
@@ -173,6 +179,41 @@ flowchart LR
 | Phase 2 protocol | n = 220, eight centers, hazard ratio 0.60, 199,421 characters, 22 figures | 2 days | [trial-phase-2/final-protocol](trial-phase-2/final-protocol) |
 | Legislation | 5 bill versions plus 4 companion documents | 19 days | [new-trial-system/inputs](new-trial-system/inputs) |
 | Funding | 10 applications, 2 NIH versions, 1 capitalization plan, 1,606,000 dollar ask | 74 days | [funding](funding) |
+
+### The second prompt, and what the update stage changed
+
+A second master prompt, filed at
+[new-trial-system/prompts/prompt-2-new-trial.md](new-trial-system/prompts/prompt-2-new-trial.md),
+produced [new-trial-system/final-new-trial/update-final](new-trial-system/final-new-trial/update-final).
+It is a complete, self-contained Overleaf project that reads nothing from its
+parent, and it is the version to compile.
+
+| What changed | Why it mattered |
+|:--|:--|
+| Three `\foreach` headers re-declared in sec-03, sec-05 and sec-06 | They declared iteration macros with a digit in the name (`\x0`, `\b1`, `\p0`). A TeX control sequence cannot carry a digit, so pdfLaTeX halted inside Figure 7 and the stage 8 bundle produced no PDF at all |
+| Section 7 rewritten around quantities | Four costs the prior regime imposes and three the new regime removes, each with a number and a date, replacing an argument made on latency alone |
+| Table 21 re-cut to nine axes, Figure 22's grid to seven of them | The figure and the table now carry the same axes in the same order and cannot drift apart |
+| Figure 14 redrawn as a class diagram | The use case drawing terminated its association lines at stick-actor captions rather than at the glyphs, so the lines did not appear to connect, and the glyph read as elementary beside a statute |
+| Five defects fixed on the rendered pages | Figure 2's callout overlapped its note, Figure 4's loop label sat on an activation bar, Figure 6 ran two edges through its own subject label, Table 13 overflowed by 8.19 pt, and two paragraphs each spilled a two-line orphan |
+| Thirteen communications added | [new-trial-system/communications](new-trial-system/communications): nine funding follow-up emails, one LinkedIn post, three general messages, each carrying the paper as its first attachment |
+
+### What Section 7 now measures
+
+| Axis | Prior system | New system | Ratio or delta |
+|:--|:--|:--|:--|
+| Latency, one round | 7 to 8 weeks best case | Same day | About 50 to 1 |
+| Typical journal processing | Several months, 1 to 2 rounds | Hours, rounds unlimited | About 300 to 1 |
+| US pancreatic cancer deaths inside one round | About 7,400 over 52 days | About 6 over 1 hour | The cost of the wait |
+| Display items one paper carries | Commonly 6 to 8 per article | 25 figures and 25 tables | About 3 to 1 |
+| Author cash cost per paper | 2,000 to 6,000 dollars list charge, over 10,000 at flagship titles | 35 dollars of inference across a 14-day study | About 57 to 1 and up |
+| Direction the money runs | Author pays the journal to host the author's work | Author pays no journal, deposits under CC BY | Not comparable |
+| Reviewers per round | 2 to 3 humans | 3 model manufacturers | 1 to 1 by count |
+| Artifacts absorbed per year | 2 to 6 per author | Over 30 deposited in 2026 | About 6 to 1 |
+| Corrections before release | None, review follows release | Every round, before deposit | The decisive axis |
+
+Model peer review is not regulatory review. Nothing in the paper substitutes for
+an institutional review board, an FDA information request, or a data and safety
+monitoring board, and the paper states that limit in its own words.
 
 ### Prior system against new system
 
@@ -881,13 +922,15 @@ physical-ai-oncology-trials/
 │
 ├── new-trial-system/                  # ★ Pancreatic Cancer LLM Clinical Trial System (v4.6.0)
 │   ├── README.md                      # directory map, section-to-figure-to-table map, palette
-│   ├── prompts/                       # prompt-new-trial.md + output-new-trial.md
+│   ├── prompts/                       # 2 master prompts + 2 build outputs, verbatim
 │   ├── sub-prompts/                   # 8 stage sub-prompts, one directory each
 │   ├── mermaid/ plantuml/ d2/         # figure specifications, 6 + 4 + 6
 │   ├── diagrams-python/ graphviz/     # figure specifications, 4 + 5
 │   ├── draft-new-trial/               # Stage 6: skeleton, 25 sized slots + zip
 │   ├── full-new-trial/                # Stage 7: 25 figures drawn, 25 tables + zip
 │   ├── final-new-trial/               # Stage 8: senior-author pass + zip, no publication/
+│   │   └── update-final/              # ★ second-prompt update: compiles, 53 pages + zip
+│   ├── communications/                # ★ 9 funding emails + 1 LinkedIn post + 3 messages
 │   ├── abstracts/                     # the author's deposited abstracts, 2024 to 2026
 │   ├── inputs/                        # 3 legislation archives + the AI peer review archive
 │   ├── references/                    # references.bib + trump-ai-cancer-2025-2026.bib

@@ -22,6 +22,16 @@ funding artifacts, on a 1 to 4 day project time scale rather than the prior
 system's month scale, with AI peer review during development rather than after
 completion.
 
+A second master prompt on August 13, 2026 produced
+[final-new-trial/update-final](https://github.com/kevinkawchak/physical-ai-oncology-trials/tree/main/new-trial-system/final-new-trial/update-final):
+it repairs the defect that stopped the stage 8 bundle compiling, redraws
+Figure 14 from a use case diagram to a class diagram, rewrites the AI Peer
+Review section around four quantified costs and three quantified gains, and adds
+the thirteen outbound communications in
+[communications](https://github.com/kevinkawchak/physical-ai-oncology-trials/tree/main/new-trial-system/communications).
+The whole document, its twenty-five figures and its twenty-five tables were
+finished within three days, August 12 to August 14, 2026.
+
 ## Directory map
 
 ```
@@ -41,7 +51,20 @@ new-trial-system/
   draft-new-trial/             stage 6 source, with an Overleaf bundle
   full-new-trial/              stage 7 source, with an Overleaf bundle
   final-new-trial/             stage 8 source, with an Overleaf bundle
+    update-final/              the second-prompt update, and the bundle to compile
+  communications/              9 funding emails, 1 LinkedIn post, 3 general messages
 ```
+
+## Which directory to compile
+
+Compile
+[final-new-trial/update-final](https://github.com/kevinkawchak/physical-ai-oncology-trials/tree/main/new-trial-system/final-new-trial/update-final).
+The three earlier stages are the build record and are kept as deposited; the
+stage 8 bundle in particular does not produce a PDF, because three pgf
+`\foreach` headers in it declare iteration macros with a digit in the name and a
+TeX control sequence cannot carry a digit. The update stage re-declares those
+headers, and sets in 53 pages with no error, no undefined citation, no undefined
+reference, no bibtex warning and no overfull box above 5 pt.
 
 ## The paper
 

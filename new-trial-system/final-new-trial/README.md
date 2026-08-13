@@ -8,6 +8,15 @@
 [![Repository](https://img.shields.io/badge/Repository-v4.6.0-800020.svg)](https://github.com/kevinkawchak/physical-ai-oncology-trials)
 [![License](https://img.shields.io/badge/License-CC%20BY%204.0-C9C9C9.svg)](https://creativecommons.org/licenses/by/4.0/)
 
+> **Compile [update-final](https://github.com/kevinkawchak/physical-ai-oncology-trials/tree/main/new-trial-system/final-new-trial/update-final)
+> rather than this directory.** The bundle in this directory does not produce a
+> PDF: three pgf `\foreach` headers in `sections/` declare iteration macros with
+> a digit in the name (`\x0`, `\x1` in sec-03; `\b1`, `\b2`, `\b3` in sec-05;
+> `\p0`, `\p1`, `\d1` in sec-06), a TeX control sequence cannot carry a digit,
+> and pdfLaTeX halts inside Figure 7. The stage is kept exactly as deposited
+> because it is the build record; the repaired and revised version is in
+> `update-final`, which sets in 53 pages with no error.
+
 ## What this stage is
 
 The senior author's proof-reading pass over `full-new-trial`. No new argument is
