@@ -1,0 +1,336 @@
+% sec-07-ai-peer-review.tex - Section 7, AI Peer Review.  A main section.
+% FULL stage.  Figures 21, 22, 23 and 24 drawn; Tables 21 to 24 populated.
+% Primary source is the AI peer review archive under new-trial-system/inputs;
+% the role assignment comes from funding/RFA-RM-27-001-v2.
+\section{AI Peer Review}
+\label{sec:peerreview}
+
+\subsection{The study the method comes from}
+
+The AI peer review method used throughout this repository was established in a
+study deposited November 30, 2025 \cite{aiprgliomatc}. That study was about
+clinical trial patient matching in glioblastoma, not pancreatic cancer. The
+disease is not what transfers; the review method is, and it transfers without
+modification to the pancreatic cancer work reported in \S3 through \S6. The
+study states its own central claim in one sentence: ``A primary benefit of AI
+peer review is the ability to appropriately conduct iterative analyses and
+corrections throughout the entire manuscript process. This responsible method
+improves on over-worked and fatigued human recommendations provided after
+manuscript completion'' \cite{aiprgliomatc}. That is the whole argument in
+miniature, and everything else in this section is its measurement.
+
+The prior system's timings are the study's own: peer review from the 1970s
+through the 1990s meant mailing photographs of figures and waiting for
+type-written comments; the late 1990s and 2000s brought electronic mail and web
+portals ``to reduce physical mail delays by up to weeks, for a best-case review
+cycle of 7-8 weeks''; and an average journal publication today ``can still take
+several months for processing, including 1-2 rounds of review'', with faster
+online journals at about one month \cite{aiprgliomatc}. Figure 21 lays those
+timings against the new system's on one clock, and Table 21 gives the ratio on
+each axis.
+
+% ---------------------------------------------------------------------------
+% FIGURE 21.  mermaid-type, sequenceDiagram.  Two lanes carrying six rows each
+% over an identical 3.10 cm span, separated by one charcoal hairline, so the
+% only difference the figure can express is the axis unit.
+% ---------------------------------------------------------------------------
+\begin{appfloat}[!tb]
+\begin{appfig}[mermaid-type / sequenceDiagram]
+\node[mmactor,text width=25mm] (au) at (0.9,0) {Author};
+\node[mmactor,text width=25mm] (ed) at (5.0,0) {Editor, prior system};
+\node[mmactor,text width=25mm] (hr) at (9.2,0) {Human reviewers, 2 to 3};
+\node[mmactor,text width=25mm] (ai) at (13.5,0) {Model reviewers, 3 makers};
+\foreach \x in {0.9,5.0,9.2,13.5}{\draw[mmlife] (\x,-0.55) -- (\x,-9.55);}
+\begin{scope}[on background layer]
+\fill[trialmistl] (-0.5,-4.95) rectangle (14.3,-0.75);
+\end{scope}
+\node[mmgray,text width=52mm,minimum height=4mm] at (5.05,-0.95) {Prior system: best case 7 to 8 weeks, typical several months};
+\seqrow{-1.55}{0.9}{5.0}{mmmsg}{1 submit completed manuscript}
+\seqrow{-2.15}{5.0}{9.2}{mmmsg}{2 invite reviewers, wait for acceptance}
+\node[mmact,minimum height=1.20cm,fill=trialmist] at (9.2,-2.75) {};
+\seqrow{-3.35}{9.2}{5.0}{mmret}{3 reports after weeks, sometimes months}
+\seqrow{-3.95}{5.0}{0.9}{mmret}{4 decision plus reports, round 1}
+\seqrow{-4.35}{0.9}{5.0}{mmmsg}{5 revision, round 2 begins}
+\seqrow{-4.75}{5.0}{0.9}{mmret}{6 second decision, work already finished}
+\draw[trialchar,line width=0.5pt] (-0.5,-5.10) -- (14.3,-5.10);
+\node[mmsoft,text width=58mm,minimum height=4mm] at (7.20,-5.45) {New system: review during development, hour scale};
+\seqrow{-6.05}{0.9}{13.5}{mmmsg}{7 draft plus dataset plus code, mid project}
+\seqrow{-6.65}{13.5}{0.9}{mmret}{8 three independent reports, same day}
+\seqrow{-7.25}{0.9}{13.5}{mmmsg}{9 corrections applied, re review requested}
+\seqrow{-7.85}{13.5}{0.9}{mmret}{10 consensus and recorded disagreement}
+\seqrow{-8.55}{0.9}{13.5}{mmmsg}{11 final pass before deposit}
+\seqrow{-9.15}{13.5}{0.9}{mmret}{12 release recommendation, human decides}
+\node[mmact,minimum height=3.10cm] at (13.5,-7.60) {};
+\draw[decorate,decoration={brace,amplitude=4pt},trialchar,line width=0.5pt]
+  (-0.75,-1.55) -- (-0.75,-4.75) node[midway,left=3pt,font=\tiny\sffamily,align=right] {weeks to\\months};
+\draw[decorate,decoration={brace,amplitude=4pt},trialchar,line width=0.5pt]
+  (-0.75,-6.05) -- (-0.75,-9.15) node[midway,left=3pt,font=\tiny\sffamily,align=right] {hours};
+\pnote{-0.75}{-10.05}{Both lanes carry six rows over an identical 3.10 cm span. The row counts are
+equal by construction, so the only\\thing the two braces can differ on is the
+unit on the axis, which is the figure's whole argument.}
+\end{appfig}
+\vspace{-0.6cm}
+\figcaption{Figure 21. One manuscript on two clocks: the prior system's serial
+human\\rounds over months, and the new system's parallel model rounds within
+hours.}
+\end{appfloat}
+
+\begin{apptable}
+\begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}p{3.85cm} >{\raggedright\arraybackslash}p{3.55cm} >{\raggedright\arraybackslash}p{3.35cm} >{\raggedright\arraybackslash}X}
+\headrow \thead{Economic axis} & \thead{Prior system} & \thead{New system} & \thead{Ratio}\\
+\midrule
+Latency, one round & 7 to 8 weeks best case & Same day & About 50 to 1 \\
+Typical journal processing & Several months, 1 to 2 rounds & Hours, rounds unlimited & About 300 to 1 \\
+Reviewers per round & 2 to 3 humans & 3 model manufacturers & 1 to 1 by count \\
+Entry point & After completion & During development & Not comparable \\
+Marginal cost per round & Reviewer time, unpriced & Inference cost, tens of dollars & Orders of magnitude \\
+Artifacts absorbed per year & 2 to 6 per author & Over 30 deposited in 2026 & About 6 to 1 \\
+Corrections before release & None, review follows release & Every round, before deposit & The decisive axis \\
+\end{tabularx}
+\end{apptable}
+\vspace{-0.6cm}
+\tabcap{Table 21. Six economic axes of one review round under both regimes, and\\the
+seventh axis on which the two are not comparable at all.}
+
+Figure 22 carries the same six axes as a grid, with the ratio computed in each
+cell and the decisive seventh row separated by its own rule. A regime whose
+review arrives after release cannot apply a correction to the released object,
+whatever its cost or its latency, and that is why the seventh row is not an
+economic axis at all.
+
+% ---------------------------------------------------------------------------
+% FIGURE 22.  d2-type, grid.  One row height, four fixed column widths, no
+% edges, cut twice: once below the header and once above the decisive row.
+% ---------------------------------------------------------------------------
+\begin{appfloat}[!tb]
+\begin{appfig}[d2-type / grid]
+\def\rh{0.64}
+\node[d2cellh,minimum width=4.4cm,minimum height=\rh cm,anchor=north west] at (0,0) {Economic axis};
+\node[d2cellh,minimum width=4.0cm,minimum height=\rh cm,anchor=north west] at (4.4,0) {Prior system, human review};
+\node[d2cellh,minimum width=4.0cm,minimum height=\rh cm,anchor=north west] at (8.4,0) {New system, AI review};
+\node[d2cellh,minimum width=2.2cm,minimum height=\rh cm,anchor=north west] at (12.4,0) {Ratio};
+\foreach \i/\a/\p/\n/\r/\rs in {%
+  1/{Latency, one round}/{7 to 8 weeks best case}/{Same day}/{about 50 to 1}/{d2cellk},
+  2/{Typical journal processing}/{Several months, 1 to 2 rounds}/{Hours, rounds unlimited}/{about 300 to 1}/{d2cellk},
+  3/{Reviewers per round}/{2 to 3 humans}/{3 model manufacturers}/{1 to 1 by count}/{d2cellg},
+  4/{Entry point}/{After completion}/{During development}/{not comparable}/{d2cellg},
+  5/{Marginal cost per round}/{Reviewer time, unpriced}/{Inference cost, tens of dollars}/{orders of magnitude}/{d2cellk},
+  6/{Artifacts absorbed per year}/{2 to 6 per author}/{over 30 deposited in 2026}/{about 6 to 1}/{d2cellk}}{
+  \node[d2cellg,minimum width=4.4cm,minimum height=\rh cm,anchor=north west] at (0,{-\rh*\i}) {\a};
+  \node[d2cell,minimum width=4.0cm,minimum height=\rh cm,anchor=north west] at (4.4,{-\rh*\i}) {\p};
+  \node[d2celll,minimum width=4.0cm,minimum height=\rh cm,anchor=north west] at (8.4,{-\rh*\i}) {\n};
+  \node[\rs,minimum width=2.2cm,minimum height=\rh cm,anchor=north west] at (12.4,{-\rh*\i}) {\r};}
+\node[d2cellk,minimum width=4.4cm,minimum height=\rh cm,anchor=north west] at (0,{-\rh*7}) {Corrections before release};
+\node[d2cellg,minimum width=4.0cm,minimum height=\rh cm,anchor=north west] at (4.4,{-\rh*7}) {None, review follows release};
+\node[d2celll,minimum width=4.0cm,minimum height=\rh cm,anchor=north west] at (8.4,{-\rh*7}) {Every round, before deposit};
+\node[d2cellh,minimum width=2.2cm,minimum height=\rh cm,anchor=north west] at (12.4,{-\rh*7}) {decisive};
+\draw[trialchar,line width=0.7pt] (0,{-\rh}) -- (14.6,{-\rh});
+\draw[trialchar,line width=0.7pt] (0,{-\rh*7}) -- (14.6,{-\rh*7});
+\node[d2mid,text width=56mm,anchor=north west] at (0,{-\rh*8-0.18}) {Over 30 artifacts deposited in 2026 by one author};
+\node[d2soft,text width=48mm,anchor=north west] at (6.20,{-\rh*8-0.18}) {Three manufacturers, one frozen artifact, one round};
+\pnote{0}{-5.95}{Row 7 is separated by its own rule because it is not an economic axis: it is the
+reason the economics matter. A\\regime whose review follows release cannot
+correct the object that was released.}
+\end{appfig}
+\vspace{-0.6cm}
+\figcaption{Figure 22. Six economic axes of one review round under both regimes,
+with\\the ratio in each cell and the volume the prior system would have to
+absorb.}
+\end{appfloat}
+
+\subsection{Three manufacturers, one human gate}
+
+The pancreatic cancer funding application makes the role assignment explicit and
+binding. Its provenance section states that the ``planned tripartisan workflow
+assigns Claude Code the primary production role for code, regulatory
+adaptations, protocols, IND materials, diagrams, and repository-scale artifacts.
+ChatGPT Codex serves as the first independent peer reviewer, emphasizing
+verification, validation, uncertainty quantification, external standards,
+trial-literature synthesis, deep research, and PDF review. Google Gemini serves
+as the second independent reviewer, emphasizing accelerated code problem
+solving, meta-verification of prior stages, and administrative workflow
+support'' \cite{rfarm27001v2}. The reviews ``occur at defined mid-project
+milestones and after material corrections so that findings can change the work
+before release, with the human PI retaining final authority''. And the limit is
+stated in the same paragraph: these systems ``are disclosed as drafting and
+peer-review aids; they are not applicants, investigators, sponsors, regulators,
+clinicians, or decision-makers'' \cite{rfarm27001v2}. Table 22 names the three
+manufacturers, the role each holds, and the human principal investigator who
+retains final authority over all three.
+
+\begin{apptable}
+\begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}p{2.55cm} >{\raggedright\arraybackslash}p{3.05cm} >{\raggedright\arraybackslash}X}
+\headrow \thead{Manufacturer} & \thead{Role} & \thead{What that role covers in this work}\\
+\midrule
+Anthropic & Primary production & Code, regulatory adaptations, protocols, IND materials, diagrams, repository-scale artifacts \\
+OpenAI & First independent reviewer & Verification, validation, uncertainty quantification, external standards, trial-literature synthesis, deep research, PDF review \\
+Google & Second independent reviewer & Accelerated code problem solving, meta-verification of prior stages, administrative workflow support \\
+Human PI & Final authority & Source verification, regulatory accuracy, scientific interpretation, participant protection, final submission \\
+\end{tabularx}
+\end{apptable}
+\vspace{-0.6cm}
+\tabcap{Table 22. The three model manufacturers and the human principal\\investigator,
+and the role each holds in the reviewed pancreatic cancer work.}
+
+% ---------------------------------------------------------------------------
+% FIGURE 23.  plantuml-type, activity with fork and join.  Three branches at a
+% 5.20 cm pitch, 18 mm of clear canvas either side of each, one human gate.
+% ---------------------------------------------------------------------------
+\begin{appfloat}[!tb]
+\begin{appfig}[plantuml-type / activity with fork and join]
+\node[umlinit] (i0) at (7.50,0) {};
+\node[umlbox,text width=46mm] (a1) at (7.50,-0.85) {Artifact reaches a defined mid project milestone};
+\node[umlbox,text width=46mm] (a2) at (7.50,-2.05) {Freeze the artifact and its inputs, record the hash};
+\node[umlbar,minimum width=12.8cm] (fk) at (7.50,-2.95) {};
+\node[umlkey,text width=34mm] (b1) at (2.30,-4.45) {Anthropic, production role: code, regulatory text, diagrams};
+\node[umlctrl,text width=34mm] (b2) at (7.50,-4.45) {OpenAI, first reviewer: verification, validation, uncertainty, standards};
+\node[umlctrl,text width=34mm] (b3) at (12.70,-4.45) {Google, second reviewer: code problem solving and meta verification};
+\node[umlbar,minimum width=12.8cm] (jn) at (7.50,-6.05) {};
+\node[umlbox,text width=42mm] (a3) at (7.50,-6.85) {Join, three reports over one frozen artifact};
+\node[mmdec,aspect=2.2,text width=24mm] (d1) at (7.50,-7.95) {Reports agree?};
+\node[umlbox,text width=36mm] (cn) at (3.60,-9.05) {Apply the consensus corrections};
+\node[umlstategray,text width=36mm] (dg) at (11.40,-9.05) {Record the disagreement verbatim, both positions};
+\node[umlstategray,text width=36mm] (rt) at (11.40,-10.05) {Route to the Figure 24 resolution tree};
+\node[umlkey,text width=46mm,line width=1pt] (pi) at (7.50,-11.15) {Human principal investigator reviews, approves or rejects};
+\node[mmdec,aspect=2.2,text width=22mm] (d2) at (7.50,-12.35) {Approved?};
+\node[umlbox,text width=32mm] (rl) at (4.20,-13.45) {Release, deposit, provenance recorded};
+\node[umlfinal] (f1) at (4.20,-14.35) {};
+\fill[trialburg] (f1.center) circle (1.1mm);
+\node[umlbox,text width=32mm] (rj) at (11.40,-13.45) {Return to production with the rejection reason};
+\node[umlfinal] (f2) at (11.40,-14.35) {};
+\draw[trialchar,line width=0.6pt] ([shift={(-0.13,-0.13)}]f2.center) -- ([shift={(0.13,0.13)}]f2.center);
+\draw[umlarrow] (i0) -- (a1);
+\draw[umlarrow] (a1) -- (a2);
+\draw[umlarrow] (a2) -- (fk);
+\foreach \n in {b1,b2,b3}{\draw[umlarrow] (\n |- fk.south) -- (\n.north);
+  \draw[umlarrow] (\n.south) -- (\n |- jn.north);}
+\draw[umlarrow] (jn) -- (a3);
+\draw[umlarrow] (a3) -- (d1);
+\draw[umlarrow] (d1.west) -- ++(-0.55,0) -- (3.60,-7.95) -- node[umlguard,pos=0.6] {yes} (cn.north);
+\draw[umlarrow] (d1.east) -- ++(0.55,0) -- (11.40,-7.95) -- node[umlguard,pos=0.6] {no} (dg.north);
+\draw[umlarrow] (dg) -- (rt);
+\draw[umlarrow] (cn.south) -- (3.60,-10.55) -- (pi.north west);
+\draw[umlarrow] (rt.south) -- (11.40,-10.55) -- (pi.north east);
+\draw[umlarrow] (pi) -- (d2);
+\draw[umlarrow] (d2.west) -- ++(-0.55,0) -- (4.20,-12.35) -- node[umlguard,pos=0.6] {yes} (rl.north);
+\draw[umlarrow] (d2.east) -- ++(0.55,0) -- (11.40,-12.35) -- node[umlguard,pos=0.6] {no} (rj.north);
+\draw[umlarrow] (rl) -- (f1);
+\draw[umldash] (rj) -- (f2);
+\pnote{0}{-15.15}{The three branches sit at a 5.20 cm pitch against a 34 mm text width, leaving
+18 mm of clear canvas either side, so\\the fork and join bars read as single
+horizontal strokes rather than as a hatched band.}
+\end{appfig}
+\vspace{-0.6cm}
+\figcaption{Figure 23. One artifact reviewed concurrently by three model
+manufacturers,\\joined into one recorded disagreement set, and cleared only by the
+human PI.}
+\end{appfloat}
+
+\subsection{What the review actually found}
+
+The glioblastoma study is worth reporting in its numbers, because the numbers
+are what make the method transferable rather than aspirational. A ten-file
+dataset and a clinical BERT notebook were generated first, and after repeated
+fixes reached ``a final notebook at a low test set performance of 67.3\%''. A
+triple review conducted by three models from three manufacturers ``all yielded
+the primary recommendation to upgrade to a tabular model, which was more suitable
+for the csv dataset''; one of them then identified an open-source TabPFN-v2
+classifier, and the recommendations were implemented to yield ``a test set
+accuracy improvement to 94.0\% with few-shot learning along with peer review
+corrections'' \cite{aiprgliomatc}. An evaluation standard generated for the
+purpose scored the workflow at 87.5 percent overall quality and 0.831 efficiency
+on human, prompt, time and cost metrics. Eleven attempts to produce a working
+FastAPI repository failed before a two-model prompting strategy succeeded with
+three correct patient trial match predictions. Three independent regulatory
+analysts scored the six generated FDA, ICH and ISO documents at 8.0, 9.1 and 9.1
+out of 10, and the study records the reason each gave rather than averaging them
+\cite{aiprgliomatc}. Table 23 collects the measures.
+
+\begin{apptable}
+\begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}p{5.35cm} >{\raggedright\arraybackslash}p{2.55cm} >{\raggedright\arraybackslash}X}
+\headrow \thead{Measure} & \thead{Value} & \thead{What changed it}\\
+\midrule
+Test-set accuracy before review & 67.3 percent & Initial clinical BERT pipeline \\
+Test-set accuracy after review & 94.0 percent & Tabular model plus few-shot learning \\
+Overall workflow quality & 87.5 percent & Evaluation standard, eight criteria \\
+Efficiency score & 0.831 & Human, prompt, time and cost metrics \\
+Regulatory analyst scores & 8.0, 9.1, 9.1 of 10 & Three manufacturers, recorded separately \\
+Failed API attempts before success & 11 & Resolved by a two-model prompting strategy \\
+Study duration, one author & 14 days & Dataset through FastAPI repository \\
+\end{tabularx}
+\end{apptable}
+\vspace{-0.6cm}
+\tabcap{Table 23. What the AI peer review changed, measured, in the glioblastoma\\study
+whose method the pancreatic cancer work in this paper inherits.}
+
+Figure 24 is the reason those three regulatory scores are reported separately
+rather than as a mean of 8.7. None of the five terminal dispositions averages
+the reports, and only one, record and proceed, leaves a disagreement without an
+action; two of the five stop the artifact from progressing at all.
+
+% ---------------------------------------------------------------------------
+% FIGURE 24.  graphviz-type, decision tree.  Four ranks at a uniform 2.05 cm
+% separation, deliberately asymmetric, with a 1.50 cm empty corridor between the
+% two rank-3 subtrees.
+% ---------------------------------------------------------------------------
+\begin{appfloat}[!tb]
+\begin{appfig}[graphviz-type / decision tree]
+\node[gvboxk,text width=52mm,line width=0.9pt] (rt) at (7.50,0) {Three reports over one frozen artifact};
+\node[mmdec,aspect=2.0,text width=22mm] (d1) at (7.50,-2.05) {Do all three agree?};
+\node[gvboxs,text width=30mm] (t1) at (1.85,-4.10) {Apply the consensus};
+\node[mmdec,aspect=2.0,text width=24mm] (d2) at (9.35,-4.10) {Factual or judgmental?};
+\node[mmdec,aspect=2.0,text width=24mm] (d3) at (6.05,-6.15) {Checkable against a cited source?};
+\node[mmdec,aspect=2.0,text width=24mm] (d4) at (12.65,-6.15) {Changes a safety claim?};
+\node[gvboxs,text width=30mm] (t2) at (3.55,-8.20) {Resolve to the source, record which model erred};
+\node[gvboxm,text width=30mm] (t5) at (7.35,-8.20) {Hold the artifact, re-run the round};
+\node[gvboxm,text width=30mm] (t3) at (11.15,-8.20) {Escalate to the human PI, both positions verbatim};
+\node[gvboxs,text width=30mm] (t4) at (14.15,-8.20) {Record and proceed, note in the limitations};
+\draw[gvedge] (rt) -- (d1);
+\draw[gvedge] (d1) -- node[umlguard,pos=0.5] {yes} (t1);
+\draw[gvedge] (d1) -- node[umlguard,pos=0.5] {no} (d2);
+\draw[gvedge] (d2) -- node[umlguard,pos=0.5] {factual} (d3);
+\draw[gvedge] (d2) -- node[umlguard,pos=0.5] {judgmental} (d4);
+\draw[gvedge] (d3) -- node[umlguard,pos=0.5] {yes} (t2);
+\draw[gvedgeb] (d3) -- node[umlguard,pos=0.5] {no} (t5);
+\draw[gvedgeb] (d4) -- node[umlguard,pos=0.5] {yes} (t3);
+\draw[gvedge] (d4) -- node[umlguard,pos=0.5] {no} (t4);
+\node[gvboxg,text width=44mm] at (0.35,-6.15) {No disposition averages the reports. Two of five stop the artifact.};
+\pnote{0}{-9.45}{The tree is deliberately asymmetric: the left branch terminates in one step
+because agreement is the common case,\\and the right branch in three because
+disagreement is the case the figure exists to document.}
+\end{appfig}
+\vspace{-0.6cm}
+\figcaption{Figure 24. One disagreement from three model reports to five terminal\\dispositions,
+none of which is an average and only one of which is silent.}
+\end{appfloat}
+
+\subsection{Why only AI reviewers can carry this load}
+
+The study's conclusion is not that AI review is convenient. It is that the
+volume, complexity and frequency of AI-generated research have already passed
+what human review can absorb: this next evolution of peer review marks ``the
+pivot away from slow and irresponsible use of human peer review for
+LLM-generated data, and back to fast automation of patient health applications
+at scale'' \cite{aiprgliomatc}. The same study records that trust for the
+process ``was established over a series of human-AI works reflected in LLM code
+and non-code benchmarking, applications in literature, and prior author works
+using AI in review roles coordinated across judging, external validation,
+cross-verification, meta-verification, and tests according to FDA/ICH guidance''
+\cite{aiprgliomatc, e2eefficiency2025, gbmsynergy2025}. Table 24 lists five
+instances of that process across the author's deposited works, and the specific
+change each produced.
+
+\begin{apptable}
+\begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}p{4.95cm} >{\raggedright\arraybackslash}p{1.85cm} >{\raggedright\arraybackslash}p{2.55cm} >{\raggedright\arraybackslash}X}
+\headrow \thead{Work} & \thead{Date} & \thead{Reviewers} & \thead{What the review changed}\\
+\midrule
+Glioblastoma patient matching ML & Nov 30, 2025 & 3 manufacturers & Model class, 67.3 to 94.0 percent \\
+Code generation competition & Dec 22, 2025 & 16 models & Iterative learning on FDA adverse events \\
+NIH application v1.0 & Jul 7, 2026 & 2 reviewers & Structure and mechanism fit \\
+NIH application v2.0 & Jul 12, 2026 & 2 reviewers & Budget, milestones, review schedule \\
+Capitalization plan & Aug 11, 2026 & 2 reviewers & Column widths, caption balance, figure centering \\
+\end{tabularx}
+\end{apptable}
+\vspace{-0.6cm}
+\tabcap{Table 24. Five instances of AI peer review across the author's deposited\\works,
+and the specific change each review produced.}
