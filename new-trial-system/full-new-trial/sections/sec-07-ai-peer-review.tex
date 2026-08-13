@@ -156,7 +156,10 @@ stated in the same paragraph: these systems ``are disclosed as drafting and
 peer-review aids; they are not applicants, investigators, sponsors, regulators,
 clinicians, or decision-makers'' \cite{rfarm27001v2}. Table 22 names the three
 manufacturers, the role each holds, and the human principal investigator who
-retains final authority over all three.
+retains final authority over all three, and Figure 23 draws where the
+concurrency sits and where it stops: three manufacturers read one frozen
+artifact and its recorded hash, so no branch can observe another's output and a
+disagreement is evidence rather than an artifact of ordering.
 
 \begin{apptable}
 \begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}p{2.55cm} >{\raggedright\arraybackslash}p{3.05cm} >{\raggedright\arraybackslash}X}
@@ -334,3 +337,51 @@ Capitalization plan & Aug 11, 2026 & 2 reviewers & Column widths, caption balanc
 \vspace{-0.6cm}
 \tabcap{Table 24. Five instances of AI peer review across the author's deposited\\works,
 and the specific change each review produced.}
+
+\subsection{What AI peer review is not}
+
+Three limits are worth stating precisely, because the case for the method is
+weaker if they are left implicit. First, model review is not regulatory review.
+Nothing in \S7 substitutes for an institutional review board, an FDA
+information request, or a data and safety monitoring board, and the funding
+application says so in its own words: the models ``are not applicants,
+investigators, sponsors, regulators, clinicians, or decision-makers''
+\cite{rfarm27001v2}. Second, model review is not clinical validation.
+Improvements over time on coding, scientific-reasoning and multimodal benchmarks
+support current frontier models as independent reviewers, ``but not as clinical
+validators'' \cite{rfarm27001v2, aiprgliomatc}. Third, model review does not
+establish correctness by agreement. Three models agreeing is three reports, not
+a proof, which is why Figure 24's tree never averages and why two of its five
+dispositions stop the artifact rather than passing it.
+
+The measured evidence for the second limit is in the source study itself. Its
+own evaluation standard was ``only based on the current project, making its
+applicability based more on similarities to the second model workflow'', and its
+efficiency metrics ``were partly influenced by the author's priorities''
+\cite{aiprgliomatc}. A method that reports that about itself is more useful than
+one that does not, and it is the reason Table 23 reports three regulatory scores
+separately with the reason each analyst gave rather than a single figure of
+merit.
+
+\subsection{Why the load only grows}
+
+The volume argument is the one that does not reverse. In 2024 the author
+deposited eight works; in 2025, twelve; in 2026 through August, more than
+twenty, including an IND, two clinical trial protocols, five bill versions, ten
+funding applications, two NIH application versions and a capitalization plan
+\cite{repo2026}. Each of those is longer and more cross-referenced than its
+predecessors, because each reads the ones before it. A review regime that took
+seven to eight weeks per round in its best case was already the binding
+constraint at eight works a year; at thirty it is not a constraint but an
+exclusion, and the work simply does not enter it.
+
+That is the sense in which the two systems are incompatible rather than merely
+different. It is not that human review is worse. It is that human review is
+sized for a production regime that no longer exists on the author's side of the
+transaction, and no amount of goodwill inside the prior regime changes its
+throughput. The new regime's reviewers are the only ones capable of handling
+studies that are simultaneously larger, more complex and more frequent, and the
+glioblastoma study's closing position is exactly that: the pivot is ``away from
+slow and irresponsible use of human peer review for LLM-generated data, and back
+to fast automation of patient health applications at scale''
+\cite{aiprgliomatc}.

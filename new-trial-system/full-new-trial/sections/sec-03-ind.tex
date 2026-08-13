@@ -330,3 +330,52 @@ and it is stated here for that reason.}
 with the\\two AND gates that make a hold require a coincidence rather than a
 fault.}
 \end{appfloat}
+
+\subsection{What the volume did not cost}
+
+Volume of this kind invites one obvious objection: that a dossier written at
+this rate must be padded, and that 594,657 characters is a measure of verbosity
+rather than of coverage. The objection is answerable, and the answer is in the
+structure rather than in the prose. Every one of the twelve modules is written
+to a codified content position, so a module cannot grow by adding material that
+belongs somewhere else; the 52 distinct 21 CFR cross-references are checkable
+one by one against the regulation; the 84 tables are section-scoped rather than
+document-scoped, so a reviewer reading \S 312.23(a)(7) finds Table 6.1 and not
+Table 43; and the 22 figures are numbered in a single document sequence, so a
+cross-reference from the pharmacology module to a figure in the plan resolves
+without ambiguity \cite{phase1ind}.
+
+The second objection is that speed of this kind must come from copying. It
+partly does, and the copying is disclosed: the proposed clinical research module
+carries the Phase 1 protocol, the general investigational plan carries the Phase
+2 forward path, and the adapted 21 CFR and ICH text supplies the regulatory
+scaffolding, all of which are separately deposited and separately dated
+\cite{onpremwhippl, phase2proto, natplatform2026}. What was not copied is the
+part Figure 6 marks as composed: the Physical AI Subpart J text, the autonomy
+disclosure, and the verification cost ledger. None of the three has a
+prior-system counterpart to copy from, because no prior IND has been filed for a
+device that generates the code it executes.
+
+The third objection is the serious one: that a dossier assembled this fast
+cannot have been checked. It was checked, twice, by two model manufacturers
+independent of the one that produced it, at defined milestones and before
+deposit, which is the review regime \S7 describes and measures
+\cite{aiprgliomatc, rfarm27001v2}. That regime is not equivalent to a regulatory
+review and does not claim to be. It is equivalent to the internal quality
+control stage the prior system runs before sponsor sign-off, and it runs in
+hours rather than in the sixty days that stage is typically budgeted.
+
+\subsection{What a reviewer can check in an afternoon}
+
+The practical test of a dossier is not its length but how quickly a reviewer can
+falsify it. Four checks are available to anyone with the deposited files and no
+special access. First, open Figure 8's crosswalk and pick any codified content
+item; the named section file either satisfies it or it does not. Second, take
+any of the 52 CFR cross-references and read the cited paragraph; the dossier
+either states the requirement correctly or it does not. Third, take any number
+that appears in more than one module, the day-30 safety window, the 3 N per-arm
+force cap, the n = 18 ceiling, and check that every occurrence agrees. Fourth,
+read the four-day production claim against the commit history of
+\appfile{trial-ind}, which records when each module was written and pushed. Each
+of the four is a falsification route, and each is open because the artifacts are
+deposited rather than described.
