@@ -1,0 +1,141 @@
+% sec-03-ind.tex - Section 3, IND.  A main section.  DRAFT stage.
+% Four figure slots, Figures 6 to 9, and three tables, Tables 8, 9 and 10.
+% Every drafting instruction names trial-ind/final-ind/publication as the source
+% stage 7 must read, and quotes the exact section file to quote from.
+\section{IND}
+\label{sec:ind}
+
+\subsection{What was filed, and under what authority}
+
+The Investigational New Drug application deposited July 1, 2026 supports a Phase
+1, first-in-human, combined IND and Investigational Device Exemption
+investigation of on-premises large language model directed eight-arm robotic
+pancreaticoduodenectomy with perioperative daraxonrasib (RMC-6236) in patients
+with KRAS G12-mutated pancreatic ductal adenocarcinoma \cite{phase1ind}. It is
+filed under 21 CFR \S 312 for the investigational drug and coupled to a
+significant-risk early-feasibility device study under 21 CFR \S 812 for the
+LLM-directed robotic platform.
+
+\draftinstr{Stage 7: quote directly from
+\appfile{trial-ind/final-ind/publication/LaTeX Source Files.zip},
+sections/sec-02-introduction.tex, the sentence beginning ``This Investigational
+New Drug (IND) application'' and the sentence stating that the two pathways are
+coordinated within a single integrated protocol because the device conducts the
+resection that generates the operative and pathology inputs to the daraxonrasib
+restart advisory. Attribute the quotation to the deposited IND, not to this
+paper.}
+
+\figslot{diagrams (python)-type / clustered infrastructure}{9.0}{Figure 6. Four
+source clusters feeding twelve IND modules, with the three modules\\that had no
+prior-system analogue and were composed rather than copied.}
+
+Figure 6 shows what the dossier was assembled from. Four clusters of existing
+material fed it: adapted regulatory text, two clinical protocols with two
+published outcome sets, a simulation record, and a device specification. Three
+modules had no prior-system analogue to copy, and were composed: the Physical AI
+Subpart J text, the autonomy disclosure, and the verification cost ledger.
+
+\draftinstr{Stage 7: build Table 8 from the twelve section files of
+\appfile{trial-ind/final-ind/publication}. Columns: Module, ReGARDD position,
+Character count at deposit, Figures carried. The IND carries 22 grayscale
+figures in a single document sequence and section-scoped table numbering; state
+both.}
+
+\begin{apptable}
+\begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}p{5.2cm} >{\raggedright\arraybackslash}p{2.2cm} >{\raggedright\arraybackslash}p{2.2cm} >{\raggedright\arraybackslash}X}
+\headrow \thead{Module} & \thead{Position} & \thead{Characters} & \thead{What it establishes}\\
+\midrule
+Cover letter & 1 & to be filled & Transmittal and sponsor identity \\
+Table of contents & 2 & to be filled & ReGARDD content order \\
+FDA forms 1571 and 1572 & 3 & to be filled & The codified form set \\
+Introduction & 4 & to be filled & 312.23(a)(3)(i) introductory statement \\
+General investigational plan & 5 & to be filled & 312.23(a)(3)(iv) plan \\
+Investigator's brochure & 6 & to be filled & 312.23(a)(5) brochure \\
+Proposed clinical research & 7 & to be filled & 312.23(a)(6) protocols \\
+Chemistry, manufacturing, control & 8 & to be filled & 312.23(a)(7) CMC \\
+Pharmacology and toxicology & 9 & to be filled & 312.23(a)(8) nonclinical \\
+Previous human experience & 10 & to be filled & 312.23(a)(9) prior exposure \\
+Additional information & 11 & to be filled & 312.23(a)(10) \\
+Relevant information & 12 & to be filled & 312.23(a)(11) \\
+\end{tabularx}
+\end{apptable}
+\vspace{-0.6cm}
+\tabcap{Table 8. The twelve modules of the deposited IND in ReGARDD content\\order,
+with the codified requirement each is written to satisfy.}
+
+\subsection{The clock}
+
+\figslot{mermaid-type / gantt}{8.2}{Figure 7. Twelve IND modules on one clock:
+the new system in hours across four\\days, and the prior system's published
+calendar for the same work, in months.}
+
+\draftinstr{Stage 7: expand this subsection using the four-stage build record in
+\appfile{trial-ind/final-ind/README.md}: mermaid catalog, draft, full, final.
+State the deposit date, July 1, 2026, and the repository version at deposit,
+v4.3.0. Build Table 9 with columns Module, Repository source read, Generation
+window, Prior-system analogue.}
+
+\begin{apptable}
+\begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}p{4.0cm} >{\raggedright\arraybackslash}p{4.4cm} >{\raggedright\arraybackslash}p{2.0cm} >{\raggedright\arraybackslash}X}
+\headrow \thead{Module} & \thead{Repository source read} & \thead{Window} & \thead{Prior-system analogue}\\
+\midrule
+Introduction and plan & Adapted 21 CFR 312, ICH E6(R3) & Day 1 & Regulatory drafting, months \\
+Investigator's brochure & Phase 1 protocol, RASolute 302 & Day 2 & Nonclinical write-up \\
+Proposed clinical research & Phase 1 and Phase 2 protocols & Day 2 & Regulatory drafting \\
+Chemistry, manufacturing, control & Public daraxonrasib record & Day 2 & CMC compilation \\
+Pharmacology and toxicology & QSP and digital twin record & Day 3 & Nonclinical write-up \\
+Previous human experience & RASolute 302, Dutch cohort & Day 3 & Internal QC \\
+Figures, tables, back matter & The 22-figure catalog & Day 4 & Sponsor sign-off \\
+\end{tabularx}
+\end{apptable}
+\vspace{-0.6cm}
+\tabcap{Table 9. Each IND module, the repository source the generation read, the\\day
+it closed, and the prior system's name for the same work.}
+
+\subsection{Complexity and volume}
+
+\figslot{d2-type / sql tables}{7.4}{Figure 8. Twelve codified IND content items
+joined to the section file that\\satisfies each, and to the repository path
+where that file is deposited.}
+
+Figure 8 is the crosswalk a reviewer needs: each codified content item, the
+generated file that satisfies it, and the deposited path. Table 10 states the
+volume the crosswalk covers.
+
+\draftinstr{Stage 7: build Table 10 from the compiled IND. Include total
+character count across the twelve section files, figure count, table count,
+reference count, the number of distinct 21 CFR cross-references, and the number
+of distinct cited works. Compare each against a prior-system Phase 1 IND
+prepared by a group.}
+
+\begin{apptable}
+\begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}p{5.0cm} >{\raggedright\arraybackslash}p{3.0cm} >{\raggedright\arraybackslash}X}
+\headrow \thead{Volume measure} & \thead{Deposited IND} & \thead{What it means for a reviewer}\\
+\midrule
+Section files & 12 & One per ReGARDD content position \\
+Figures, single document sequence & 22 & Every figure numbered once, end to end \\
+Tables, section-scoped numbering & to be filled & Table 3.1, Table 5.2, and so on \\
+Total characters across sections & to be filled & The dossier's written weight \\
+Distinct 21 CFR cross-references & to be filled & Codified coverage \\
+Authors & 1 & With model assistance, disclosed \\
+Elapsed production time & 4 days & Against months in the prior system \\
+\end{tabularx}
+\end{apptable}
+\vspace{-0.6cm}
+\tabcap{Table 10. The volume one author reached in four days, measured on seven\\axes,
+and what each measure means to a regulatory reviewer.}
+
+\figslot{graphviz-type / fault tree}{8.6}{Figure 9. The clinical hold as a top
+event over eight basal failures, with the\\two AND gates that make a hold require
+a coincidence rather than a fault.}
+
+Figure 9 states the sponsor's risk as logic rather than as a list. The two
+clinical branches are AND gates, so a hold on clinical grounds requires both a
+signal and a failure to respond to it. The documentation branch is an OR gate,
+where any one omission suffices; that is precisely the branch a system which
+regenerates a complete dossier in hours is built to eliminate.
+
+\draftinstr{Stage 7: close the section by connecting the OR branch of Figure 9
+to the four-day regeneration claim, and cite \appfile{phase1ind} and
+\appfile{phase1guidance}. This is a main section: target the same character
+count as sections 4, 5, 6 and 7.}
