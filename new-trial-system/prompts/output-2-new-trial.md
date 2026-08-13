@@ -156,6 +156,20 @@ read them. Five defects:
 | Table 13 | The bold `Characters` header did not fit a 1.55 cm column and overflowed by 8.19 pt | Columns re-cut |
 | Sections 4 and 8 | Two paragraphs each spilled a two-line orphan onto an otherwise empty page | Both tightened |
 
+A second sweep over all twenty-five compiled figures, rather than a sample,
+found three more:
+
+| Where | Defect | Fix |
+|:--|:--|:--|
+| Figure 17 | The "Aug 14, 2026" marker label sat above the head of its dashed rule at x = 12.10 and collided with the "Aug 29" axis tick at x = 12.60; two labels about 1.5 cm wide with centers 0.50 cm apart | Label moved to the foot of the rule |
+| Figure 19 | The rotated firewall label, centered at y = -3.60, ran through the "requires" label on the requirement edge at y = -4.16 | Label moved to y = -1.80, above the first requirement edge |
+| Figure 25 | The row divider at y = -3.40 ran through both second-row cluster titles, the second row's cluster boundaries touched the first row's, and the residual node used the default label position 5.4 mm below center, which is inside the 7.5 mm halo | Divider to -3.85, second row to -5.45, -7.35 and -9.25, residual label 11 mm below center on a 20 mm measure, and both inbound edges re-routed orthogonally up their own corridors at x = 11.15 and x = 11.45 into the halo at 135 and 225 degrees |
+
+Two of the eight defects, Figure 6's subject label and Figure 25's residual
+label, have the same cause: `\dgnodew` places its label 5.4 mm below the node
+center, which sits inside a 7.5 mm halo and inside the corridor that inbound
+edges converge through. Both are now drawn without that default.
+
 A checker runs over the eleven section files on every build and reports zero
 findings: 25 numbered figure captions and 25 numbered table captions, each two
 lines within a four-character spread; every figure and table referenced by
