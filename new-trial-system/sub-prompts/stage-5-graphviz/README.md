@@ -34,7 +34,7 @@ grid, the dot idiom leaves the reader to follow the structure itself.
    figure in the paper shows.
 3. A caption block of exactly two lines within a four-character spread, opening
    with `Figure N. ` exactly as printed.
-4. Valid DOT source in a ` ```dot ` fence, using `digraph`, `subgraph cluster_`,
+4. Valid DOT source in a fenced `dot` block, using `digraph`, `subgraph cluster_`,
    `shape=record`, `rankdir`, and `label` only. No HTML-like labels, because the
    paper redraws them in TikZ and an HTML label states nothing the record
    syntax does not.

@@ -35,7 +35,7 @@ arrows, a d2 grid states it as a cell.
    figure in the paper shows.
 3. A caption block of exactly two lines within a four-character spread, opening
    with `Figure N. ` exactly as printed.
-4. Valid D2 source in a ` ```d2 ` fence using containers, `grid-rows`,
+4. Valid D2 source in a fenced `d2` block using containers, `grid-rows`,
    `grid-columns`, `shape: sql_table`, or `layers` as the figure requires.
 5. A TikZ construction table using the `d2*` vocabulary: `d2cont`, `d2box`,
    `d2key`, `d2mid`, `d2soft`, `d2gray`, `d2cell`, `d2cellh`, `d2sql`,

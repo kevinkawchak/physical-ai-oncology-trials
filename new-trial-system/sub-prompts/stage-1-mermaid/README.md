@@ -37,7 +37,7 @@ calendar, and the two peer-review timelines laid against one another.
 3. A caption block of exactly two lines, each within a four-character spread of
    the other, no line shorter than 62 or longer than 78 characters, opening with
    `Figure N. ` exactly as printed in the paper.
-4. Valid Mermaid source in a ` ```mermaid ` fence, using only the palette below.
+4. Valid Mermaid source in a fenced `mermaid` block, using only the palette below.
 5. A TikZ construction-notes table: element, style token, placement with an
    explicit pitch or coordinate, so the LaTeX figure is reproducible from the
    specification and does not re-scramble when a node is added.

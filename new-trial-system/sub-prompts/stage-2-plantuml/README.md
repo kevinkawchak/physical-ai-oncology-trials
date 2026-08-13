@@ -33,7 +33,7 @@ an actor boundary.
    figure in the paper shows.
 3. A caption block of exactly two lines within a four-character spread, opening
    with `Figure N. ` exactly as printed.
-4. Valid PlantUML source in a ` ```plantuml ` fence, using `@startuml` and
+4. Valid PlantUML source in a fenced `plantuml` block, using `@startuml` and
    `@enduml`, `skinparam` for color only, and no Mermaid or Graphviz keyword.
 5. A TikZ construction table using the `uml*` vocabulary: `umlbox`, `umlctrl`,
    `umlkey`, `umlusecase`, `umlstate`, `umlinit`, `umlfinal`, `umlbar`,

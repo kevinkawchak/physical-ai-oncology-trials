@@ -38,7 +38,7 @@ glyph is a vector pictogram.
    figure in the paper shows.
 3. A caption block of exactly two lines within a four-character spread, opening
    with `Figure N. ` exactly as printed.
-4. Valid Python `diagrams` source in a ` ```python ` fence, using `Diagram`,
+4. Valid Python `diagrams` source in a fenced `python` block, using `Diagram`,
    `Cluster`, `Node`, and edge operators only.
 5. A TikZ construction table using the `dg*` vocabulary: `dgnode`, `dgnodew`,
    `dgnodeg`, `dgtile`, `dgtiled`, `dgtilem`, `dgtileg`, `dgcluster`,
