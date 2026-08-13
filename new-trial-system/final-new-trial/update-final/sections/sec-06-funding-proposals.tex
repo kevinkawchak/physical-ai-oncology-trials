@@ -1,0 +1,433 @@
+% sec-06-funding-proposals.tex - Section 6, Funding Proposals.  A main section.
+% FINAL stage.  Figures 17, 18, 19 and 20 drawn; Tables 17 to 20 populated from
+% funding/capitalization-plan/final-capital/publication,
+% funding/pdac-funding-applications/final-apply/publication, and
+% funding/RFA-RM-27-001-v2.  The 36,330 dollar valuation is reported as
+% projected, never as estimated, in the prose and in every row of Table 20.
+% Senior-author pass: Table 17's Recipient column loses 0.10 cm to its Mechanism
+% column, and two closing subsections state what the money is actually for and
+% reduce the two prices to one comparison.
+\section{Funding Proposals}
+\label{sec:funding}
+
+\subsection{Ten applications, one method}
+
+In August 2026 ten funding applications were filed for a Phase 1 trial of an
+LLM-advised robotic pancreaticoduodenectomy with perioperative daraxonrasib,
+written throughout as an independent scientist \cite{tenapps2026}. Nine of the
+ten address mechanisms that fund a person or an institution. One, application
+05, addresses the only mechanism in the set built for a company, and it was the
+shortest of the ten. Each application answers a specific clause: application 01
+cites the Director's Pioneer Award as the model for ``scaling long-horizon
+grants for the best and brightest'', application 03 addresses ``the first
+federal program designed to fund independent research organizations outside
+traditional academia'', and application 05 answers the sentence that
+``programs like SBIR open doors for technician-founded ventures''
+\cite{tenapps2026, kratsios2026sciencegoldenage}. Table 17 lists all ten with
+the mechanism class and the ask each carries.
+
+\begin{apptable}
+\begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}p{0.80cm} >{\raggedright\arraybackslash}p{4.05cm} >{\raggedright\arraybackslash}p{2.85cm} >{\raggedright\arraybackslash}p{1.95cm} >{\raggedright\arraybackslash}X}
+\headrow \thead{No.} & \thead{Recipient} & \thead{Mechanism class} & \thead{Term} & \thead{Ask}\\
+\midrule
+01 & NIH Common Fund, Pioneer Award & Person-based & 5 years & \$3.5M \\
+02 & ARPA-H mission office & Organization & 36 months & \$2.1M \\
+03 & NSF TIP Directorate, X-Labs & Organization & 5 years & \$3.5M \\
+04 & DOE Office of Science, Genesis Mission & Partnership & 5 years & \$3.5M \\
+05 & NIH SEED, SBIR and STTR & Small business & 9 plus 24 months & \$1.6M \\
+06 & Foundation for the NIH, AMP & Partnership & 5 years & \$3.5M \\
+07 & HHMI Investigator Program & Person-based & 7 years & \$0.7M per year \\
+08 & NCI CTEP & Concept review & 5 years & \$3.5M \\
+09 & Convergent Research, FRO program & Organization & 5 years & \$3.5M \\
+10 & UC San Diego Moores Cancer Center & Partnership & One meeting & None \\
+\end{tabularx}
+\end{apptable}
+\vspace{-0.6cm}
+\tabcap{Table 17. The ten applications filed in August 2026, the mechanism\\
+class each addresses, the term requested, and the ask carried on each.}
+
+Figure 17 places all fourteen 2026 funding artifacts on one calendar, and
+Figure 20 draws the machinery that produced them. Four of the fourteen closed
+within one week of the work that fed them, which is the production-rate claim in
+its most checkable form.
+
+% ---------------------------------------------------------------------------
+% FIGURE 17.  mermaid-type, gantt.  One linear 74-day axis, production bar and
+% darker deposit bar abutting on each row, four ringed deposits.
+% ---------------------------------------------------------------------------
+\begin{appfloat}[!tb]
+\begin{appfig}[mermaid-type / gantt]
+\ptitle{0}{0.85}{Funding artifact production and deposit, June to August 2026}
+\axisx{0}{12.60}{0.30}
+\foreach \x/\l in {0/{Jun 15},2.52/{Jun 30},5.04/{Jul 15},7.56/{Jul 30},10.08/{Aug 14},12.60/{Aug 29}}{
+  \draw[trialslate,line width=0.3pt] (\x,0.30) -- (\x,0.40);
+  \node[font=\tiny\sffamily,anchor=south] at (\x,0.42) {\l};}
+\node[mmlanetitle,anchor=east] at (-0.15,-0.44) {Enabling};
+\node[mmlanetitle,anchor=east] at (-0.15,-2.48) {RFA};
+\node[mmlanetitle,anchor=east] at (-0.15,-3.50) {Apply};
+\node[mmlanetitle,anchor=east] at (-0.15,-4.18) {Capital};
+\foreach \i/\lab/\pa/\pb/\dd in {%
+  0/{Phase 1 protocol}/0.67/1.00/1.17,
+  1/{Phase 2 protocol}/1.17/1.50/1.67,
+  2/{PI adoption guide}/1.50/1.84/2.01,
+  3/{Document guidance paper}/2.01/2.35/2.52,
+  4/{Phase 1 IND}/2.18/2.85/3.02,
+  5/{RFA v1 production}/3.19/3.69/3.86,
+  6/{RFA v2 production}/4.03/4.53/4.70,
+  7/{Patient robot advocacy}/7.39/7.89/8.06,
+  8/{Ten application set}/8.73/10.07/10.41,
+  9/{Capitalization plan}/9.90/10.40/10.57}{
+  \node[anchor=east,font=\tiny\sffamily] at (-1.55,{-0.30-0.34*\i}) {\lab};
+  \fill[trialburgp] (\pa,{-0.30-0.34*\i-0.11}) rectangle (\pb,{-0.30-0.34*\i+0.11});
+  \draw[trialburg,line width=0.3pt] (\pa,{-0.30-0.34*\i-0.11}) rectangle (\pb,{-0.30-0.34*\i+0.11});
+  \fill[trialburgl] (\pb,{-0.30-0.34*\i-0.11}) rectangle (\dd,{-0.30-0.34*\i+0.11});
+  \draw[trialburg,line width=0.3pt] (\pb,{-0.30-0.34*\i-0.11}) rectangle (\dd,{-0.30-0.34*\i+0.11});}
+% today marker
+\draw[trialchar,dashed,line width=0.5pt] (12.10,0.30) -- (12.10,-3.40);
+\node[font=\tiny\sffamily,anchor=south,text=trialchar] at (12.10,0.32) {Aug 14, 2026};
+\node[mmmid,text width=32mm] at (2.10,-4.35) {Fourteen artifacts in 74 days};
+\legkey{6.20}{-4.35}{trialburgp}{production window}
+\legkey{9.10}{-4.35}{trialburgl}{deposit}
+\pnote{-1.55}{-5.05}{Production and deposit bars share a row and abut, so each artifact reads as one
+object whose right end is its\\deposit date. The deposit segment is always the
+darker fill, which puts the eye on the date a funder reads.}
+\end{appfig}
+\vspace{-0.6cm}
+\figcaption{Figure 17. Fourteen funding artifacts deposited between June and
+August 2026,\\their production windows, and the four deposits that closed within
+one week.}
+\end{appfloat}
+
+\subsection{The capitalization plan}
+
+The capitalization plan of August 11, 2026 converts the author from independent
+scientist to small-business operator and rewrites application 05 as the document
+it should have been \cite{capplan2026}. It states its arithmetic without
+softening: ``The identical four-layer budget costs \$3,500,000 of direct work
+over sixty months and \$1,396,000 of direct work over thirty-three. The award
+that carries the second is \$1,606,000, a 15.0 percent overhead and fee load
+against an SBIR allowance of 40 percent that the company does not claim. Routed
+through a university at a 57 percent facilities and administrative rate, the
+same direct work would cost a funder \$2,137,000'' \cite{capplan2026}. And it
+states the bridge: ``Federal money of \$1,606,000 sits below a firewall;
+contributed drug, operating room and pathology sit unpriced in the middle; and
+\$5,900,000 of private capital sits above, raised only after a milestone closes.
+That is 3.67 to one on cash alone'' \cite{capplan2026, kratsiosvought2026fy2028priorities}.
+Table 18 collects the ten quantities the plan turns on; Figure 18 prices the
+same four-layer budget three ways against a fourth column that routes the
+identical direct work through an institution, and Figure 19 shows where each
+port of the award lands and which two work packages it does not reach.
+
+\begin{apptable}
+\begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}p{5.55cm} >{\raggedright\arraybackslash}p{2.55cm} >{\raggedright\arraybackslash}X}
+\headrow \thead{Quantity} & \thead{Value} & \thead{What it governs}\\
+\midrule
+SBIR Phase I & \$306,000 & 9 months, 5 milestones \\
+SBIR Phase II & \$1,300,000 & 24 months, 7 milestones \\
+Total award & \$1,606,000 & 33 months \\
+Direct work inside the award & \$1,396,000 & The work the award pays for \\
+Direct work outside the award & \$2,104,000 & The rest of the five-year program \\
+Five-year direct program & \$3,500,000 & 60 months, direct only \\
+Company overhead and fee load & 15.0 percent & Against a 40 percent allowance not claimed \\
+Same direct work, university route & \$2,137,000 & At a 57 percent facilities and administrative rate \\
+Private capital above the firewall & \$5,900,000 & 3.67 to one on cash alone \\
+Staffing at full Phase II & 2.6 FTE & The team the plan proposes \\
+\end{tabularx}
+\end{apptable}
+\vspace{-0.6cm}
+\tabcap{Table 18. The ten capitalization quantities the plan turns on, and\\
+what each one governs in the proposed thirty-three month program.}
+
+% ---------------------------------------------------------------------------
+% FIGURE 18.  d2-type, grid.  One row height, five fixed column widths, no
+% edges, cut once by a charcoal rule between scope rows and money rows.
+% ---------------------------------------------------------------------------
+\begin{appfloat}[!tb]
+\begin{appfig}[d2-type / grid]
+\def\rh{0.66}
+\node[d2cellh,minimum width=3.8cm,minimum height=\rh cm,anchor=north west] at (0,0) {Cost layer};
+\foreach \i/\h in {0/{SBIR Phase I, 9 months},1/{SBIR Phase II, 24 months},
+  2/{Five year direct program},3/{Same work, university route}}{
+  \node[d2cellh,minimum width=2.75cm,minimum height=\rh cm,anchor=north west]
+    at ({3.8+2.75*\i},0) {\h};}
+\foreach \i/\l/\a/\b/\c/\d in {%
+  1/{Simulation and verification}/{in Phase I scope}/{carried forward}/{carried forward}/{same direct work},
+  2/{Regulatory and protocol}/{in Phase I scope}/{carried forward}/{carried forward}/{same direct work},
+  3/{Site and device readiness}/{not in scope}/{in Phase II scope}/{carried forward}/{same direct work},
+  4/{Clinical conduct}/{not in scope}/{partial}/{full}/{same direct work}}{
+  \node[d2cellg,minimum width=3.8cm,minimum height=\rh cm,anchor=north west] at (0,{-\rh*\i}) {\l};
+  \node[d2cell,minimum width=2.75cm,minimum height=\rh cm,anchor=north west] at (3.8,{-\rh*\i}) {\a};
+  \node[d2celll,minimum width=2.75cm,minimum height=\rh cm,anchor=north west] at (6.55,{-\rh*\i}) {\b};
+  \node[d2celll,minimum width=2.75cm,minimum height=\rh cm,anchor=north west] at (9.30,{-\rh*\i}) {\c};
+  \node[d2cell,minimum width=2.75cm,minimum height=\rh cm,anchor=north west] at (12.05,{-\rh*\i}) {\d};}
+\foreach \i/\l/\a/\b/\c/\d in {%
+  5/{Award}/{306000 dollars}/{1300000 dollars}/{3500000 dollars}/{2137000 dollars},
+  6/{Direct work in the award}/{part of 1396000}/{part of 1396000}/{3500000 dollars}/{1396000 dollars},
+  7/{Overhead and fee load}/{15.0 percent}/{15.0 percent}/{direct only}/{57 percent}}{
+  \node[d2cellk,minimum width=3.8cm,minimum height=\rh cm,anchor=north west] at (0,{-\rh*\i}) {\l};
+  \node[d2celll,minimum width=2.75cm,minimum height=\rh cm,anchor=north west] at (3.8,{-\rh*\i}) {\a};
+  \node[d2celll,minimum width=2.75cm,minimum height=\rh cm,anchor=north west] at (6.55,{-\rh*\i}) {\b};
+  \node[d2celll,minimum width=2.75cm,minimum height=\rh cm,anchor=north west] at (9.30,{-\rh*\i}) {\c};
+  \node[d2cellg2,minimum width=2.75cm,minimum height=\rh cm,anchor=north west] at (12.05,{-\rh*\i}) {\d};}
+\draw[trialchar,line width=0.7pt] (0,{-\rh}) -- (14.8,{-\rh});
+\draw[trialchar,line width=0.7pt] (0,{-\rh*5}) -- (14.8,{-\rh*5});
+\node[d2mid,text width=58mm,anchor=north west] at (0,{-\rh*8-0.20})
+  {Federal below a firewall, contributed unpriced, private above: 3.67 to one};
+\node[d2soft,text width=52mm,anchor=north west] at (7.60,{-\rh*8-0.20})
+  {2.6 FTE at full Phase II staffing, 33 months};
+\pnote{0}{-6.85}{Column 5 is the counterfactual: the same direct work routed through an
+institution rather than through the company,\\and it is the only column filled
+neutral across the money band.}
+\end{appfig}
+\vspace{-0.6cm}
+\figcaption{Figure 18. One four-layer budget priced three ways, and the identical\\
+direct work set under a 15.0 percent load against a 57 percent rate.}
+\end{appfloat}
+
+% ---------------------------------------------------------------------------
+% FIGURE 19.  graphviz-type, record with ports.  Four port cells at one 0.56 cm
+% height, four work package records at 1.80 cm, one firewall rule crossed
+% exactly twice.
+% ---------------------------------------------------------------------------
+\begin{appfloat}[!tb]
+\begin{appfig}[graphviz-type / record with ports]
+\node[gvcellh,minimum width=4.6cm,minimum height=0.52cm,anchor=north west] at (0,0) {Award, 1606000 dollars over 33 months};
+\foreach \i/\p in {0/{Port 1, simulation and verification},1/{Port 2, regulatory and protocol},
+  2/{Port 3, site and device readiness},3/{Port 4, clinical conduct, partial}}{
+  \node[gvcellk,minimum width=4.6cm,minimum height=0.56cm,anchor=north west]
+    at (0,{-0.52-0.56*\i}) {\p};}
+\node[gvcellh,minimum width=4.6cm,minimum height=0.52cm,anchor=north west] at (0,-2.76) {direct work inside the award, 1396000};
+\foreach \i/\t/\a/\b in {%
+  0/{Simulation and verification}/{Phase 0 gate evidence}/{VVUQ suite maintenance},
+  1/{Regulatory and protocol}/{IND maintenance}/{amendments and reports},
+  2/{Site and device readiness}/{one site qualified}/{device acceptance testing},
+  3/{Clinical conduct, partial}/{first cohorts only}/{monitoring and adjudication}}{
+  \node[gvcellh,minimum width=4.0cm,minimum height=0.46cm,anchor=north west] at (6.15,{-0.10-1.80*\i}) {\t};
+  \node[gvcells,minimum width=4.0cm,minimum height=0.46cm,anchor=north west] at (6.15,{-0.56-1.80*\i}) {\a};
+  \node[gvcells,minimum width=4.0cm,minimum height=0.46cm,anchor=north west] at (6.15,{-1.02-1.80*\i}) {\b};}
+\foreach \i/\t/\a/\b in {%
+  0/{Outside the award}/{contributed drug supply}/{unpriced in the bridge},
+  1/{Outside the award}/{operating room and pathology}/{contributed by the site}}{
+  \node[gvcellh,minimum width=4.0cm,minimum height=0.46cm,anchor=north west] at (11.35,{-3.70-1.80*\i}) {\t};
+  \node[gvcellg,minimum width=4.0cm,minimum height=0.46cm,anchor=north west] at (11.35,{-4.16-1.80*\i}) {\a};
+  \node[gvcellg,minimum width=4.0cm,minimum height=0.46cm,anchor=north west] at (11.35,{-4.62-1.80*\i}) {\b};}
+\draw[trialchar,dashed,line width=0.8pt] (10.85,0.20) -- (10.85,-7.40);
+\node[gvctitle,rotate=90,anchor=south] at (10.75,-3.60) {firewall, federal money left of the line};
+\foreach \i in {0,1,2,3}{
+  \draw[gvedgeb] (4.60,{-0.80-0.56*\i}) -- (6.15,{-0.56-1.80*\i});}
+\draw[gvedged] (10.15,-4.16) -- node[above,font=\tiny,fill=trialwhite,inner sep=1pt] {requires} (11.35,-4.16);
+\draw[gvedged] (10.15,-5.96) -- node[above,font=\tiny,fill=trialwhite,inner sep=1pt] {requires} (11.35,-5.96);
+\node[gvboxm,text width=54mm,anchor=north west] at (0,-4.05) {2104000 dollars of the five-year program sits outside the award};
+\node[gvboxs,text width=40mm,anchor=north west] at (0,-5.35) {5900000 dollars of private capital sits above the firewall};
+\pnote{0}{-8.05}{The four port cells share one 0.56 cm height, so the four edges leave at evenly
+spaced anchors and their fan is\\regular. Each requirement edge crosses the
+firewall exactly once, which is the point of drawing the firewall at all.}
+\end{appfig}
+\vspace{-0.6cm}
+\figcaption{Figure 19. The award as a four-port record, the work package each
+port pays,\\and the two packages that sit outside the award and are funded
+another way.}
+\end{appfloat}
+
+\subsection{The NIH application}
+
+Version 2.0 of the RFA-RM-27-001 application, deposited July 12, 2026, is the
+most complete single funding document in the set: twelve section files carrying
+the cover and transmittal, opportunity and organization, project summary,
+research strategy, clinical trial synopsis, human subjects and regulatory,
+statistics and safety and operations, data management and sharing, facilities
+and resources, budget and milestones and sustainability, investigator profile,
+and assurances and attachments \cite{rfarm27001v2}. Version 1.0 preceded it by
+five days \cite{rfarm27001v1}. Table 19 states what each section had to
+establish for a reviewer.
+
+\begin{apptable}
+\begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}p{0.85cm} >{\raggedright\arraybackslash}p{5.35cm} >{\raggedright\arraybackslash}X}
+\headrow \thead{No.} & \thead{Application section} & \thead{What it had to establish}\\
+\midrule
+00 & Cover and transmittal & Applicant identity and mechanism fit \\
+01 & Opportunity and organization & Why this RFA, and who is applying \\
+02 & Project summary & The one-paragraph case \\
+03 & Research strategy & Significance, innovation, approach \\
+04 & Clinical trial synopsis & The study in the funder's own form fields \\
+05 & Human subjects and regulatory & IRB, consent, and the IND status \\
+06 & Statistics, safety and operations & Powering, monitoring, and conduct \\
+07 & Data management and sharing & Where the data goes and who may read it \\
+08 & Facilities and resources & What exists and what must be obtained \\
+09 & Budget, milestones and sustainability & The money and the stop conditions \\
+10 & Investigator profile & The single investigator's record \\
+11 & Assurances and attachments & The certifications the form requires \\
+\end{tabularx}
+\end{apptable}
+\vspace{-0.6cm}
+\tabcap{Table 19. The twelve sections of the NIH application at version\\
+2.0, and what each section had to establish for a reviewer.}
+
+% ---------------------------------------------------------------------------
+% FIGURE 20.  diagrams (python)-type, clustered infrastructure.  Four aligned
+% ranks at one 1.90 cm vertical pitch; converging and diverging fans routed
+% through stated clear corridors.
+% ---------------------------------------------------------------------------
+\begin{appfloat}[!tb]
+\begin{appfig}[diagrams (python)-type / clustered infrastructure]
+\dgnodeg{dgtileg}{0.85}{1.20}{\glyphdoc}{Protocols and IND}{e1}
+\dgnodeg{dgtileg}{0.85}{-0.70}{\glyphcpu}{Simulation record}{e2}
+\dgnodeg{dgtileg}{0.85}{-2.60}{\glyphbank}{Legislative drafts}{e3}
+\dgnodeg{dgtileg}{0.85}{-4.50}{\glyphteam}{Peer review record}{e4}
+\begin{scope}[on background layer]
+\node[dgcluster2,fit=(e1)(e1l)(e2)(e2l)(e3)(e3l)(e4)(e4l)] (ce) {};\end{scope}
+\node[dgctitle2,anchor=south west] at ([yshift=1.5mm]ce.north west) {Evidence store};
+\dgnodew{dgtiled}{5.05}{1.20}{\glyphai}{Master prompt}{p1}
+\dgnodew{dgtiled}{5.05}{-0.70}{\glyphgear}{Sub-prompt schedule}{p2}
+\dgnodew{dgtiled}{5.05}{-2.60}{\glyphlink}{Draft, full, final stages}{p3}
+\dgnodew{dgtiled}{5.05}{-4.50}{\glyphshield}{Defect and format pass}{p4}
+\begin{scope}[on background layer]
+\node[dgcluster,fit=(p1)(p1l)(p2)(p2l)(p3)(p3l)(p4)(p4l)] (cp) {};\end{scope}
+\node[dgctitle,anchor=south west] at ([yshift=1.5mm]cp.north west) {Pipeline};
+\dgnode{dgtilem}{9.85}{1.20}{\glyphuser}{Person-based, 2 applications}{x1}
+\dgnode{dgtilem}{9.85}{-0.70}{\glyphserver}{Organization, 3 applications}{x2}
+\dgnode{dgtilem}{9.85}{-2.60}{\glyphhand}{Partnership, 4 applications}{x3}
+\dgnode{dgtilem}{9.85}{-4.50}{\glyphflask}{Small business, 1 plus the plan}{x4}
+\begin{scope}[on background layer]
+\node[dgcluster,fit=(x1)(x1l)(x2)(x2l)(x3)(x3l)(x4)(x4l)] (cx) {};\end{scope}
+\node[dgctitle,anchor=south west] at ([yshift=1.5mm]cx.north west) {Typed exits};
+\dgnode{dgtile}{14.10}{0.25}{\glyphlink}{Zenodo DOI}{d1}
+\dgnode{dgtile}{14.10}{-1.65}{\glyphdb}{Repository path}{d2}
+\dgnode{dgtile}{14.10}{-3.55}{\glyphlock}{Commit provenance}{d3}
+\begin{scope}[on background layer]
+\node[dgcluster,fit=(d1)(d1l)(d2)(d2l)(d3)(d3l)] (cd) {};\end{scope}
+\node[dgctitle,anchor=south west] at ([yshift=1.5mm]cd.north west) {Deposit};
+\foreach \n in {e1,e2,e3,e4}{\draw[dgedge] (\n.east) -- (p1.west);}
+\draw[dgedgeb] (p1l.south) -- (p2.north);
+\draw[dgedgeb] (p2l.south) -- (p3.north);
+\draw[dgedgeb] (p3l.south) -- (p4.north);
+\foreach \n in {x1,x2,x3,x4}{\draw[dgedgeb] (p4.east) -- (\n.west);}
+\foreach \n in {x1,x2,x3,x4}{\draw[dgedged] (\n.east) -- (cd.west);}
+\pnote{0.35}{-6.30}{The four inbound edges converge through the clear corridor between x = 2.35 and
+x = 3.55 and the four outbound\\edges diverge through x = 6.55 to 8.35; the four
+deposit edges meet one stated waypoint outside the deposit cluster.}
+\end{appfig}
+\vspace{-0.6cm}
+\figcaption{Figure 20. One evidence store, one production pipeline, and the four
+typed\\exits at which a funding artifact leaves it for a named recipient class.}
+\end{appfloat}
+
+\subsection{What the same work costs each way}
+
+The cost case is not an argument about effort; it is a comparison of published
+benchmarks against a projected figure the author's own simulation record
+supports. An empirical virtual trial in triplicate is benchmarked above
+\$120,000 per run and about 4.5 months; a ten-arm quantitative systems
+pharmacology virtual trial above \$2,000,000 and several months to over a year;
+a digital-twin simulator platform between \$28,000 and \$700,000 and 3 to 16
+weeks \cite{capplan2026, qspmetpancre, digitaltwinfda2025}. Against all three,
+the author's comparable work is projected at \$36,330 and about one month. The
+word is projected rather than estimated, because the figure is a projection from
+the source set rather than a measured invoice, and the capitalization plan
+reports it that way \cite{capplan2026}. Table 20 sets the five activities side
+by side.
+
+\begin{apptable}
+\begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}p{4.35cm} >{\raggedright\arraybackslash}p{3.15cm} >{\raggedright\arraybackslash}p{2.55cm} >{\raggedright\arraybackslash}X}
+\headrow \thead{Activity} & \thead{Industry benchmark} & \thead{Industry time} & \thead{This work}\\
+\midrule
+Empirical virtual trial, triplicate & Above \$120,000 per run & 4.5 months & \$36,330 projected, about one month \\
+Ten-arm QSP virtual trial & Above \$2,000,000 & Several months to over a year & \$36,330 projected, about one month \\
+Digital-twin simulator platform & \$28,000 to \$700,000 & 3 to 16 weeks & \$36,330 projected, about one month \\
+Phase 1 IND dossier & Group effort & Months & 4 days, one author \\
+Phase 1 and Phase 2 protocols & Group effort & 6 to 12 months each & 2 days each \\
+\end{tabularx}
+\end{apptable}
+\vspace{-0.6cm}
+\tabcap{Table 20. Five activities priced against published industry benchmarks,\\with
+the projected cost and elapsed time this work reached on each.}
+
+\subsection{What the applications concede}
+
+A funding section that reports only favorable numbers is not useful to a funder,
+and the capitalization plan does not read that way. It names four concessions in
+its own risk section, and they are worth restating because a reader of this
+paper will reach them anyway. The individual-scientist framing that made all ten
+prior applications distinctive is abandoned when the applicant becomes a
+company. Capitalization detail the author might prefer to keep private is
+published permanently under a digital object identifier. Three of the ten prior
+recipients will read a company plan as off-mechanism. And the plan proposes
+\$1,606,000 and 2.6 full-time equivalents against a novel-performers chapter that
+describes work at tens of millions of dollars with teams of ten to a hundred
+people over half a decade \cite{capplan2026, kratsios2026sciencegoldenage}.
+
+The last of those four is the one that decides the mechanism. Figure 20's typed
+exits are not a taxonomy for its own sake: nine of the ten applications address
+mechanisms that fund a person or an institution, and a firm applying to a
+person-based mechanism is off-mechanism however good the science is. That is why
+application 05 and the capitalization plan that rewrites it are the only two
+artifacts in the set aimed at the exit a company can actually reach.
+
+\subsection{What a funder can verify before committing}
+
+Every quantity in this section is checkable before any money moves, which is the
+property the deposit discipline of \S\ref{sec:methods} exists to produce. The ten applications
+are deposited with their mechanism class and their ask
+\cite{tenapps2026}. The capitalization plan is deposited with its four-layer
+budget, its two overhead regimes, its twelve costed milestones and its stop
+conditions \cite{capplan2026}. Both NIH application versions are deposited five
+days apart with their section structure intact
+\cite{rfarm27001v1, rfarm27001v2}. The simulation record behind the \$36,330
+projection is deposited, and so is the QSP work it derives from
+\cite{qspmetpancre, digitaltwinfda2025}.
+
+A funder who wants to test the production-rate claim rather than accept it can
+do so in three steps: read Figure 17's calendar, open the commit history of the
+directory named on each row, and compare the dates. A funder who wants to test
+the cost claim can read the benchmark column of Table 20 against the cited
+sources and then read the author's own simulation record. Neither test requires
+the author's cooperation, and neither is available for a plan that exists only
+as a narrative.
+
+\subsection{What the money is actually for}
+
+A funder reading Table 18 is entitled to ask what the \$1,606,000 buys that the
+existing artifacts do not already supply, given that the IND, both protocols and
+the statutory framework are written and deposited. The answer is in Figure 19's
+four ports, and none of the four is document production. Port 1 buys the Phase 0
+gate evidence: at least 1000 simulated procedures across at least two
+independent frameworks, and the maintenance of the verification suite that
+produces them. Port 2 buys IND maintenance, amendments and required reports,
+which is the recurring regulatory cost of holding an active application rather
+than the one-time cost of writing one. Port 3 buys one qualified site and device
+acceptance testing. Port 4 buys the first clinical cohorts with monitoring and
+adjudication \cite{capplan2026}.
+
+Document production, the thing this paper is about, appears nowhere in the
+budget. That is deliberate and it is the strongest statement the funding section
+can make: the method of \S\ref{sec:methods} has already removed the cost it was
+built to remove, and the remaining \$1,606,000 is the irreducible cost of
+running a trial rather than of describing one. A funder who believes the
+production-rate claims of \S\ref{sec:ind} through \S\ref{sec:legislation} should
+therefore expect the ask to be smaller than a comparable program's, and it is:
+\$1,606,000 over thirty-three months against a \$3,500,000 five-year direct
+program, with 15.0 percent overhead and fee against a 40 percent allowance not
+claimed \cite{capplan2026}.
+
+\subsection{The two prices, read as one sentence}
+
+The arithmetic of Figure 18 reduces to a single comparison a funder can carry
+away. The identical four-layer budget of direct work is \$1,396,000 when routed
+through a company with no negotiated indirect-cost rate and \$2,137,000 when
+routed through a university at a 57 percent facilities and administrative rate
+\cite{capplan2026}. The difference, \$741,000, is not a saving on the work; the
+work is the same work. It is the price of the route. Nine of the ten
+applications in Table 17 address mechanisms that take the second route, and the
+capitalization plan and application 05 exist to make the first route available
+for the same science.
+
+Above that sits the bridge. Federal money of \$1,606,000 sits below a firewall;
+contributed drug supply, operating room time and pathology sit unpriced in the
+middle, which is why Figure 19 draws them outside the award and connected to it
+by requirement edges rather than by port edges; and \$5,900,000 of private
+capital sits above, raised only after a milestone closes, giving 3.67 to one on
+cash alone against an annexed target of at least 3 to 1
+\cite{capplan2026, kratsiosvought2026fy2028priorities}. A funder is therefore
+not being asked to fund a program. It is being asked to fund the gate that
+unlocks one, and the twelve costed milestones state in advance what closing that
+gate looks like.

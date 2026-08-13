@@ -1,0 +1,468 @@
+% sec-05-legislation.tex - Section 5, Legislation.  A main section.  FINAL stage.
+% Figures 14, 15 and 16 drawn; Tables 14, 15 and 16 populated from the three
+% archives under new-trial-system/inputs.  Subsection order is duties, drafting
+% history, downward effect, which is also the order the float numbering fixes.
+% Senior-author pass: Table 14's Duty column loses 0.10 cm to its Actor column,
+% and two closing subsections state why a sponsor drafted a statute at all and
+% where the legislative work is weakest.
+\section{Legislation}
+\label{sec:legislation}
+
+\subsection{Who owes what}
+
+Five versions of one bill and four companion documents were deposited between
+May 30 and June 17, 2026. The bill is H. R. 9510, the Verification Before
+Generation in Physical AI Oncology Trials Act of 2026, and by version 5.0 it is
+a financial data amendment to the Federal Food, Drug, and Cosmetic Act
+\cite{hr9510billv5}. Its findings state the operative requirement and the reason
+for it in one sentence each. The requirement: Congress finds ``that an automated
+process must verify robot-patient interaction code before that code is generated
+or executed in a Physical AI oncology clinical investigation'' \cite{hr9510billv5}.
+The reason: ``In a disembodied pipeline an error yields a wrong number a human
+can catch downstream; in an embodied surgical system the same error class yields
+a wrong motion a human cannot catch in time. No Federal law requires the
+verification of robot-patient interaction code to clear before that code is
+generated or executed, because the order of operations is not regulated''
+\cite{hr9510billv5, verifygenact}.
+
+The companion bill supplies the vocabulary the requirement needs. It defines
+verification as ``confirmation that code was built correctly: implementation
+conforms to its specification'' and validation as ``confirmation that the right
+code was built, that is, the result agrees with an independent reference of
+reality'', both against ASME V\&V 40, and it defines the class the gate applies
+to: an artificial intelligence system ``whose output materially influences a
+clinical decision or a robot action that can affect patient safety''
+\cite{vvuqbill2026, asmevv40}. Figure 14 assigns each of the eleven duties the
+bill creates to the actor who owes it, writing each duty inside the party that
+owes it rather than beside it, so the six lines that remain in the figure are
+only the places where two parties have to interact; and Table 14 lists the
+statutory sections behind those duties.
+
+% ---------------------------------------------------------------------------
+% FIGURE 14.  plantuml-type, class diagram.  UPDATE STAGE REDRAW.  The final
+% stage drew this as a use case diagram: six stick actors in two edge columns
+% with thirteen association lines reaching across a system boundary into a field
+% of eleven ellipses.  That drawing had two defects a reader sees immediately.
+% The stick glyph is an elementary mark and reads as one beside a statutory
+% argument, and an association drawn to a stick figure terminates at the label
+% node rather than at the glyph, so the lines did not appear to connect.
+%
+% A class diagram removes both defects at their source.  Each actor is a class:
+% a name compartment carrying the party, and a member compartment carrying the
+% duties that party owes, written as members with their duty numbers.  Ownership
+% is then read inside the box rather than traced along a line, and the only
+% lines left are the six places where two parties actually interact.  Every one
+% of the six runs edge to edge between two class frames, three vertically inside
+% a column and three horizontally inside a row, so no line crosses another and
+% none crosses a class.
+%
+% Geometry.  Three columns of 4.40 cm at x = 0.30, 5.85, 11.40, gutter 1.15 cm,
+% which is the width a two-line association label needs plus 0.2 cm of clear
+% canvas either side.  Two rows with their north west corners at y = 0 and
+% y = -3.85, so the vertical associations have a 1.7 cm corridor for their
+% labels.  Canvas 15.8 by 8.3 cm.
+% ---------------------------------------------------------------------------
+\begin{appfloat}[!tb]
+\begin{appfig}[plantuml-type / class diagram]
+\umlclass{sp}{0.30}{0}{4.40}{umlclshdr}{umlclsbody}{Sponsor}{%
+  \guillemotleft regulated party\guillemotright\\[1.4pt]
+  + U1 submit robot patient code\\
+  + U3 publish the run cost ledger\\
+  + U4 attest to VVUQ completion\\[1.4pt]
+  prior law: partial U1, none U3, U4}
+\umlclass{ci}{5.85}{0}{4.40}{umlclshdr}{umlclsbody}{Clinical investigator}{%
+  \guillemotleft regulated party\guillemotright\\[1.4pt]
+  + U1 submit robot patient code\\
+  + U6 suspend on a failed gate\\[1.4pt]
+  prior law: partial U1, none U6}
+\umlclass{ib}{11.40}{0}{4.40}{umlclshdrg}{umlclsbodyg}{Institutional review board}{%
+  \guillemotleft oversight body\guillemotright\\[1.4pt]
+  + U5 review the Physical AI opt out\\
+  + U6 suspend on a failed gate\\[1.4pt]
+  prior law: partial U5, none U6}
+\umlclass{se}{0.30}{-3.85}{4.40}{umlclshdrg}{umlclsbodyg}{Secretary, FDA}{%
+  \guillemotleft Federal authority\guillemotright\\[1.4pt]
+  + U7 maintain the national registry\\
+  + U11 act on a financial deviation\\[1.4pt]
+  prior law: none for either duty}
+\umlclass{vs}{5.85}{-3.85}{4.40}{umlclshdrk}{umlclsbodyk}{Verification service}{%
+  \guillemotleft actor the prior system does not define\guillemotright\\[1.4pt]
+  + U2 clear verification before generation\\
+  + U8 certify the test suite and coverage\\[1.4pt]
+  prior law: no counterpart for either}
+\umlclass{pt}{11.40}{-3.85}{4.40}{umlclshdr}{umlclsbody}{Participant}{%
+  \guillemotleft rights holder\guillemotright\\[1.4pt]
+  + U9 receive the autonomy disclosure\\
+  + U10 exercise the opt out, no penalty\\[1.4pt]
+  prior law: partial U9, none U10}
+\begin{scope}[on background layer]
+\node[umlpkg,fit=(sph)(sp)(cih)(ci)(ibh)(ib)(seh)(se)(vsh)(vs)(pth)(pt),
+  inner sep=9pt] (bnd) {};
+\end{scope}
+\node[umlpkgtab,anchor=south west] at ([shift={(0mm,1.2mm)}]bnd.north west)
+  {Verification Before Generation in Physical AI Oncology Trials Act, H. R. 9510};
+% Three horizontal associations, each inside one row.  The label is set on two
+% lines so that it clears both class frames inside the 1.15 cm gutter.
+\draw[umlassoc] (sp.east) -- node[umlassoclbl,align=center,pos=0.5] {shares\\U1} (ci.west);
+\draw[umlassoc] (ci.east) -- node[umlassoclbl,align=center,pos=0.5] {shares\\U6} (ib.west);
+\draw[umlassoc] (se.east) -- node[umlassoclbl,align=center,pos=0.5] {registers\\U8} (vs.west);
+% Three vertical associations, each inside one column.
+\draw[umlassoc] (sp.south) -- node[umlassoclbl,pos=0.5] {U3 reported under U11} (seh.north);
+\draw[umlassoc] (ci.south) -- node[umlassoclbl,pos=0.5] {U1 code enters the U2 gate} (vsh.north);
+\draw[umlassoc] (ib.south) -- node[umlassoclbl,pos=0.5] {U5 protects U9 and U10} (pth.north);
+% Annotation band, then the legend beneath it.  The note's leader is a short
+% vertical run from the boundary edge to the note's own corner, so it crosses
+% neither the legend row nor the in-figure note.
+\node[umlnote,text width=50mm,anchor=north west] (n1) at (10.20,-6.80)
+  {U2 and U8 are the two duties of the caption: no party in force today is
+  positioned to discharge either one.};
+\draw[trialslate,line width=0.4pt,dashed] (n1.north west) -- (vs.south east);
+\pnote{0.30}{-7.15}{Ownership is read inside a class rather than along a line, so
+only six associations are drawn\\where eleven duties are assigned. Three run
+inside a row and three inside a column;\\none crosses another and none crosses a
+class.}
+\legkey{0.30}{-8.05}{trialburg}{regulated party or rights holder}
+\legkey{4.60}{-8.05}{trialslate}{oversight body or Federal authority}
+\legkey{9.20}{-8.05}{trialburgl}{party the prior trial system does not define}
+\end{appfig}
+\vspace{-0.6cm}
+\figcaption{Figure 14. Six actors and eleven statutory duties, with the two
+duties that\\no actor recognized by the prior trial system is positioned to
+discharge.}
+\end{appfloat}
+
+\begin{apptable}
+\begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}p{2.10cm} >{\raggedright\arraybackslash}p{4.85cm} >{\raggedright\arraybackslash}p{2.90cm} >{\raggedright\arraybackslash}X}
+\headrow \thead{Section} & \thead{Duty created} & \thead{Actor} & \thead{Prior-law counterpart}\\
+\midrule
+Sec. 2 & Findings, the evidence to law to cost record & Congress & None \\
+Sec. 3 & Amendment to the FD and C Act & Secretary & 21 U.S.C. as amended \\
+Sec. 4 & Comparative provisions across prior versions & Secretary & Partial \\
+Sec. 5 & Financial data, cost ledger per verification run & Sponsor & None \\
+Appendix 6 & Cost estimate for the verification regime & Sponsor & None \\
+Appendix 7 & Verification economics, per-run pricing & Sponsor & None \\
+Appendix 8 & Financial standard for reported data & Secretary & Partial \\
+Appendix 9 & Research matrix across prior developments & Secretary & None \\
+Appendix 10 & Transparency of the reported ledger & Secretary & Partial \\
+\end{tabularx}
+\end{apptable}
+\vspace{-0.6cm}
+\tabcap{Table 14. The statutory sections, the duty each creates, the actor\\
+who owes it, and whether prior law contains anything comparable.}
+
+\subsection{How the text got there}
+
+Figure 15 traces the drafting history, and Table 15 states the same lineage as
+citable text. The eleven days between version 1.0 and version 5.0 are the
+quantitative point: in the prior system, five substantive revisions of one bill
+plus four companion documents is a legislative session's work rather than a
+fortnight's. Each version's delta is traceable to a named companion. Version 4.0
+put machine-readable diagrams inside statutory text, which the narrative case
+document had argued for; version 5.0 attached a cost ledger to every
+verification run, which the clinician trust framework and the enactment
+framework had together made necessary
+\cite{narrativecase2026, clintrust, congressvote}.
+
+% ---------------------------------------------------------------------------
+% FIGURE 15.  graphviz-type, cluster with records.  Five three-field version
+% records at one width in an upper dashed cluster, four wider companion records
+% below, one orthogonal supply edge routed 1.05 cm below the bill cluster.
+% ---------------------------------------------------------------------------
+\begin{appfloat}[!tb]
+\begin{appfig}[graphviz-type / cluster with records]
+\def\vw{2.70}
+\foreach \i/\v/\d/\dl/\st in {%
+  0/{v1.0}/{Jun 1 2026}/{standalone act}/{gvcells},
+  1/{v2.0}/{Jun 4 2026}/{FD and C amendment}/{gvcells},
+  2/{v3.0}/{Jun 4 2026}/{findings become figures}/{gvcellk},
+  3/{v4.0}/{Jun 7 2026}/{Mermaid in statute}/{gvcellk},
+  4/{v5.0}/{Jun 10 2026}/{cost ledger per run}/{gvcellh}}{
+  \node[gvcellh,minimum width=\vw cm,minimum height=0.46cm,anchor=north west]
+    at ({3.05*\i},0) {\v};
+  \node[\st,minimum width=\vw cm,minimum height=0.46cm,anchor=north west]
+    at ({3.05*\i},-0.46) {\d};
+  \node[\st,minimum width=\vw cm,minimum height=0.46cm,anchor=north west]
+    at ({3.05*\i},-0.92) {\dl};}
+\begin{scope}[on background layer]
+\node[gvcluster,minimum width=15.0cm,minimum height=1.90cm,anchor=north west] (bc) at (-0.15,0.15) {};
+\end{scope}
+\node[gvctitle,anchor=south west] at ([yshift=1.5mm]bc.north west) {Bill versions, H. R. 9510};
+\foreach \i/\t/\d/\r in {%
+  0/{VVUQ Physical AI Trial Bill}/{May 30 2026}/{statutory text and definitions},
+  1/{From H. R. 9510 to Federal Law}/{Jun 14 2026}/{narrative case},
+  2/{Earning the Clinician's Trust}/{Jun 16 2026}/{eight trust questions},
+  3/{Earning the Congress's Vote}/{Jun 17 2026}/{enactment framework}}{
+  \node[gvcellh,minimum width=3.2cm,minimum height=0.46cm,anchor=north west]
+    at ({3.95*\i},-4.10) {\t};
+  \node[gvcellg,minimum width=3.2cm,minimum height=0.46cm,anchor=north west]
+    at ({3.95*\i},-4.56) {\d};
+  \node[gvcellg,minimum width=3.2cm,minimum height=0.46cm,anchor=north west]
+    at ({3.95*\i},-5.02) {\r};}
+\begin{scope}[on background layer]
+\node[gvcluster2,minimum width=15.0cm,minimum height=1.90cm,anchor=north west] (cc) at (-0.15,-3.95) {};
+\end{scope}
+\node[gvctitle,anchor=south west] at ([yshift=1.5mm]cc.north west) {Companion documents};
+\foreach \i in {0,1,2,3}{
+  \draw[gvedgeb] ({3.05*\i+\vw},-0.55) -- ({3.05*(\i+1)},-0.55);}
+\draw[gvedged] (1.60,-4.10) -- node[left,font=\tiny,fill=trialwhite,inner sep=1pt] {supplies text} (1.35,-1.38);
+\draw[gvedged] (5.55,-4.10) -- node[left,font=\tiny,fill=trialwhite,inner sep=1pt] {supplies case} (9.50,-1.38);
+\draw[gvedged] (9.50,-4.10) -- (11.20,-2.95) -- node[right,font=\tiny,fill=trialwhite,inner sep=1pt] {supplies duties} (13.55,-1.38);
+\draw[gvedged] (13.45,-4.10) -- node[right,font=\tiny,fill=trialwhite,inner sep=1pt] {supplies path} (13.90,-1.38);
+\node[gvboxm,text width=54mm,anchor=north west] at (0,-6.35) {Five versions and four companions, May 30 to June 17, 2026};
+\node[gvboxs,text width=44mm,anchor=north west] at (8.20,-6.35) {Eleven days between v1.0 and v5.0};
+\pnote{0}{-7.20}{The five version records share one width and one three-field structure, so the
+delta field reads across the rank\\as a single line. Companion records are 3.20 cm
+wide against 2.70 cm, which separates the two classes without a second stroke.}
+\end{appfig}
+\vspace{-0.6cm}
+\figcaption{Figure 15. Five bill versions across eleven days, the delta each
+added, and\\the four companion documents that supplied the material for those
+deltas.}
+\end{appfloat}
+
+\begin{apptable}
+\begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}p{1.55cm} >{\raggedright\arraybackslash}p{2.15cm} >{\raggedright\arraybackslash}p{4.95cm} >{\raggedright\arraybackslash}X}
+\headrow \thead{Version} & \thead{Deposit} & \thead{Delta over its predecessor} & \thead{Companion that supplied it}\\
+\midrule
+v1.0 & Jun 1, 2026 & Standalone Verification Before Generation Act & VVUQ Physical AI Oncology Trial Bill \\
+v2.0 & Jun 4, 2026 & Recast as an FD and C Act amendment & Carried from v1.0 \\
+v3.0 & Jun 4, 2026 & Findings rendered as figures in statutory text & Carried from v2.0 \\
+v4.0 & Jun 7, 2026 & Machine-readable diagrams inside the bill & From H. R. 9510 to Federal Law \\
+v5.0 & Jun 10, 2026 & Financial data amendment, cost ledger per run & Earning the Clinician's Trust; Earning the Congress's Vote \\
+Total & Jun 1 to 10 & Five versions, four companions & Eleven days \\
+\end{tabularx}
+\end{apptable}
+\vspace{-0.6cm}
+\tabcap{Table 15. The five bill versions, the delta each added, and the companion\\document
+that supplied the material, across eleven days in June 2026.}
+
+\subsection{Where the requirement lands}
+
+Figure 16 follows one requirement downward through four layers. The statute
+names it, an adapted 21 CFR Subpart J constrains it, the Phase 0 gate of \S\ref{sec:protocol}
+executes it, and a pre-incision checklist states it in the words a site operator
+reads. The clinician trust framework supplies the bedside form of the same duty:
+above the two supervision modes it defines, ``sits an unconditional control: the
+clinician can override and stop the system at any time, for any reason, without
+satisfying the gates first'' \cite{clintrust}. That sentence is what layer 4 of
+Figure 16 is written to make executable, and it is why the legislative work in
+this repository is not an abstraction: it terminates in a sentence somebody obeys
+on the day of surgery. Table 16 places every legislative artifact on the same
+nineteen-day window.
+
+% ---------------------------------------------------------------------------
+% FIGURE 16.  d2-type, layers.  Four equal bands of 1.85 cm at a uniform 0.75 cm
+% gutter, three vertical descent edges at one x, no horizontal edges.
+% ---------------------------------------------------------------------------
+\begin{appfloat}[!tb]
+\begin{appfig}[d2-type / layers]
+\foreach \i/\ttl/\bx/\by/\bz/\st/\ts in {%
+  0/{Layer 1, statute}/{H. R. 9510, Verification Before Generation Act}/{Amends the Federal Food, Drug, and Cosmetic Act}/{Financial data amendment, cost ledger per run}/{d2step}/{d2title},
+  1/{Layer 2, regulation}/{21 CFR 312, Physical AI Subpart J}/{21 CFR 812 significant risk device pathway}/{Adapted ICH E6 R3 clinical practice text}/{d2ghost}/{d2title2},
+  2/{Layer 3, protocol}/{Phase 0 simulation validation gate}/{At least 1000 simulations across 2 frameworks}/{Unified Safety Level at or above 7.0}/{d2ghost}/{d2title2},
+  3/{Layer 4, site standard operating procedure}/{Pre-incision verification checklist}/{Do not generate motion code before the gate clears}/{Record the run cost and the verification hash}/{d2step}/{d2title}}{
+  \begin{scope}[on background layer]
+  \node[\st,minimum width=14.8cm,minimum height=1.85cm,anchor=north west]
+    (bd\i) at (0,{-2.60*\i}) {};
+  \end{scope}
+  \node[\ts,anchor=north west] at ([shift={(2mm,-1.5mm)}]bd\i.north west) {\ttl};}
+\foreach \i/\b/\st in {0/{H. R. 9510, Verification Before Generation Act}/{d2key},
+  1/{21 CFR 312, Physical AI Subpart J}/{d2mid},
+  2/{Phase 0 simulation validation gate}/{d2mid},
+  3/{Pre-incision verification checklist}/{d2key}}{
+  \node[\st,text width=42mm,anchor=north west] at (0.30,{-0.75-2.60*\i}) {\b};}
+\foreach \i/\b in {0/{Amends the Federal Food, Drug, and Cosmetic Act},
+  1/{21 CFR 812 significant risk device pathway},
+  2/{At least 1000 simulations across 2 frameworks},
+  3/{Do not generate motion code before the gate clears}}{
+  \node[d2soft,text width=42mm,anchor=north west] at (5.15,{-0.75-2.60*\i}) {\b};}
+\foreach \i/\b/\st in {0/{Financial data amendment, cost ledger per run}/{d2soft},
+  1/{Adapted ICH E6 R3 clinical practice text}/{d2soft},
+  2/{Unified Safety Level at or above 7.0}/{d2soft},
+  3/{Record the run cost and the verification hash}/{d2gray2}}{
+  \node[\st,text width=42mm,anchor=north west] at (10.00,{-0.75-2.60*\i}) {\b};}
+\foreach \i/\lab in {0/{carries},1/{constrains},2/{executes}}{
+  \draw[d2edgeb,line width=0.9pt] (2.40,{-1.85-2.60*\i}) --
+    node[right,font=\tiny\sffamily,fill=trialwhite,inner sep=1pt] {\lab} (2.40,{-2.60-2.60*\i});}
+\node[d2mid,text width=64mm,anchor=north west] at (5.15,-10.35)
+  {Four equal bands, one uniform 0.75 cm gutter: a descent, not a funnel};
+\pnote{0}{-11.05}{Layers 1 and 4 carry the solid burgundy stroke and layers 2 and 3 the ghost
+stroke, because the statute and the\\operating room are where a requirement is
+written and where it is obeyed; the two between are the machinery.}
+\end{appfig}
+\vspace{-0.6cm}
+\figcaption{Figure 16. One requirement through four layers, from a statutory
+sentence to\\the operating-room instruction, with the artifact that carries it at
+each step.}
+\end{appfloat}
+
+\begin{apptable}
+\begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}p{5.55cm} >{\raggedright\arraybackslash}p{1.95cm} >{\raggedright\arraybackslash}p{1.95cm} >{\raggedright\arraybackslash}X}
+\headrow \thead{Legislative artifact} & \thead{Deposit} & \thead{Gap to next} & \thead{Prior-system counterpart}\\
+\midrule
+VVUQ Physical AI Oncology Trial Bill & May 30, 2026 & 2 days & A committee print cycle \\
+Verification Before Generation Act of 2026 & Jun 1, 2026 & 3 days & A first draft \\
+H. R. 9510 v3.0 & Jun 4, 2026 & 3 days & A markup revision \\
+H. R. 9510 v4.0 & Jun 7, 2026 & 3 days & A markup revision \\
+H. R. 9510 v5.0 & Jun 10, 2026 & 4 days & A reported bill \\
+From H. R. 9510 to Federal Law & Jun 14, 2026 & 2 days & A committee report \\
+Earning the Clinician's Trust & Jun 16, 2026 & 1 day & A stakeholder brief \\
+Earning the Congress's Vote & Jun 17, 2026 & end & A floor memorandum \\
+\end{tabularx}
+\end{apptable}
+\vspace{-0.6cm}
+\tabcap{Table 16. Eight legislative artifacts in nineteen days, the gap between\\each
+deposit, and the prior system's name for the equivalent stage.}
+
+\subsection{What a bill has to survive}
+
+A bill is not a paper, and the difference is worth stating because it governs
+how the legislative artifacts in this repository were written. A paper is
+finished when it is deposited. A bill is finished when it survives a markup, a
+committee report, a cost estimate, and a floor vote, and each of those stages is
+run by people who did not write it and who are entitled to ask what it costs.
+The four companion documents exist because each answers one of those questions
+before it is asked.
+
+\emph{From H. R. 9510 to Federal Law} answers the narrative question: why this
+statute rather than an agency guidance, and why a sequencing rule rather than a
+performance standard \cite{narrativecase2026}. A performance standard says the
+robot must be safe. A sequencing rule says the verification must clear before
+the code is generated, which is checkable at a moment in time rather than
+inferred from an outcome after the fact, and that is the property the embodiment
+problem makes necessary.
+
+\emph{Earning the Clinician's Trust} answers the adoption question through eight
+framed questions, of which oversight and reliability are the two the statute
+depends on \cite{clintrust}. Its oversight chapter distinguishes two supervision
+modes: human-in-the-loop, where ``the system proposes an action under
+verification before generation, but it cannot act until the clinician accepts
+it'', and human-on-the-loop, where ``the system acts under audit within
+pre-authorized bounds while the clinician monitors and retains the power to
+intervene at any moment''. It then names the failure mode a statute cannot fix
+by itself: over-trust, or automation bias, ``the tendency to defer to a machine
+even when it is wrong'', against under-trust, ``the opposite error of discarding
+useful guidance''. The design target is calibrated reliance, and the statutory
+gate exists to make calibration possible rather than to replace it.
+
+\emph{Earning the Congress's Vote} answers the enactment question, and the
+financial appendices of version 5.0 answer the cost question directly: a
+verification regime that cannot be priced per run cannot be scored, and a
+provision that cannot be scored does not reach a floor \cite{congressvote,
+hr9510billv5}. That is why the last substantive change to the bill in eleven
+days of drafting was not a safety clause but a ledger clause. The three
+appendices that carry it, cost estimate, verification economics, and financial
+standard, are the ones a committee staff member reads first and the ones the
+prior five versions did not have.
+
+\subsection{What the legislative work does not claim}
+
+Nothing in this repository is enacted, introduced, or endorsed. H. R. 9510 is a
+drafting exercise carrying a plausible bill number, written to the form of a
+House bill so that its provisions can be read against the Federal Food, Drug,
+and Cosmetic Act as they would have to be read if they were ever offered
+\cite{hr9510billv5}. The companion documents are analyses by a single author.
+The value of the exercise is not that it will pass. It is that a sponsor
+preparing a Physical AI oncology trial can now point at a specific statutory
+sentence, a specific regulatory location, a specific protocol gate, and a
+specific operating-room instruction, and show that the four agree; and a
+regulator or a legislative staffer reading the same four can find the
+disagreement, if there is one, in an afternoon rather than in a comment period.
+That is the whole of the claim, and Figure 16 is the shape of it.
+
+\subsection{Why a sponsor drafted a statute at all}
+
+The obvious objection to \S\ref{sec:legislation} is that drafting legislation is
+not a sponsor's job. It is not, and the reason it was done anyway is worth
+stating because it generalizes. A sponsor preparing a Physical AI oncology trial
+under existing law discovers that the thing it most needs to promise cannot be
+promised in any recognized form. It can promise that its device meets a
+performance specification, because 21 CFR \S 812 knows what that is. It can
+promise that its drug is manufactured to a standard, because 21 CFR \S 312 knows
+what that is. It cannot promise that the code governing robot-patient contact
+was verified before it was generated, because no regulation names that ordering
+and therefore no filing has a place to record it.
+
+Faced with that gap a sponsor has three options. It can ignore the ordering and
+promise only what the existing categories accept, which is what the prior system
+does. It can invent a private assurance and ask a site to accept it, which
+transfers the problem to an institutional review board with no basis for
+evaluating it. Or it can write what the missing category would say, publish it,
+and build its own protocol to the standard it proposes, so that the promise is
+at least legible even where it is not yet required. The third is what this
+repository did, and the Phase 0 gate of \S\ref{sec:protocol} is the same
+requirement expressed in the one place a sponsor does control.
+
+That is also why the bill's operative provision is a sequencing rule rather than
+a performance standard. A performance standard would be satisfiable by a
+sponsor's own testing after the fact, and would therefore add nothing to what 21
+CFR \S 812 already asks. A sequencing rule is satisfiable only by evidence that
+existed before the code did, which is a different kind of record and one a
+verification service could be asked to hold. The two duties Figure 14 places in
+a class no party in force today occupies are the whole content of that
+difference.
+
+\subsection{Where the legislative work is weakest}
+
+Three weaknesses are worth conceding. The first is that a verification service
+does not exist, and a statute that creates a duty no party is positioned to
+discharge is not self-executing; the bill's appendices price the regime but do
+not name who would be accredited to run it. The second is that the cost ledger
+of version 5.0 assumes verification runs are priceable per run, which is true of
+the author's own simulation record and may not be true of a service operating at
+national scale. The third is that the eight trust questions of the clinician
+framework were written by the same author as the bill they inform, so their
+agreement is not independent evidence \cite{clintrust, hr9510billv5}.
+
+None of the three is fatal to the exercise, because the exercise is not to enact
+a statute. It is to give a sponsor, a site, and a reviewer one written object
+that says what verification before generation would mean if it were required,
+and to build a protocol that satisfies it whether or not it ever is. Table 16's
+nineteen days measure how quickly that object can now be produced; the three
+weaknesses measure how much of it would survive contact with a committee, and
+the honest answer is that the sequencing rule would and the pricing might not.
+
+\subsection{How the four documents divide the work}
+
+The four legislative artifacts are not four drafts of one thing; each answers a
+question the others cannot. Setting them side by side is the clearest way to see
+what a sponsor-side legislative effort has to cover, and it is the reason
+nineteen days produced four documents rather than one long one.
+
+The VVUQ Physical AI Oncology Trial Bill supplies the definitions. Without it,
+every operative sentence in H. R. 9510 would have to carry its own vocabulary,
+and a bill that redefines verification, validation, uncertainty quantification,
+high-risk artificial intelligence and AI-enabled device software function inside
+its own text is a bill nobody can read against existing law. Anchoring those
+terms to ASME V\&V 40 and to the device regulations means a reviewer can check
+each definition against a standard rather than against the author's intent
+\cite{vvuqbill2026, asmevv40}.
+
+H. R. 9510 supplies the operative provision and, by version 5.0, the money. Its
+findings section carries the engineering record the provision rests on, its
+amendment section places the requirement inside the Federal Food, Drug, and
+Cosmetic Act rather than beside it, and its financial appendices price the
+regime per verification run \cite{hr9510billv5}. The placement matters as much
+as the provision: a freestanding act creates a parallel regime that a sponsor
+must satisfy twice, while an amendment creates one regime that the existing
+inspection and enforcement machinery already knows how to reach.
+
+\emph{From H. R. 9510 to Federal Law} supplies the narrative a committee needs,
+and \emph{Earning the Clinician's Trust} supplies the bedside form of the duty,
+which is where a statute either becomes practice or becomes paperwork
+\cite{narrativecase2026, clintrust}. \emph{Earning the Congress's Vote} supplies
+the enactment path \cite{congressvote}. Between them the five documents cover
+definition, provision, placement, cost, narrative, practice and path, and Table
+16 shows that the whole set was produced in the interval a single markup cycle
+occupies in the prior system.
+
+One consequence is worth drawing out for a funder rather than for a legislator.
+A sponsor that can produce this set in nineteen days can also revise it in
+nineteen days when a regulator, a site, or a committee objects. The prior
+system's cost of legislative engagement is dominated by the cost of the next
+draft, and a party that cannot afford the next draft argues its first one
+longer than it should. That asymmetry is the same one \S\ref{sec:ind} identifies
+in the documentation branch of the clinical hold fault tree, and it has the same
+resolution: when re-issue is cheap, a defensible position is one you can revise
+rather than one you have to defend.
+

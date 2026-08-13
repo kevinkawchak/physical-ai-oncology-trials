@@ -1,0 +1,173 @@
+% sec-00-front.tex - Abstract, reader's guide, and the two indexes.  FINAL stage.
+% Senior-author pass.  The abstract is carried forward unchanged at 1347
+% characters; the master prompt fixes that budget and no stage may exceed it.
+% Column widths in Tables 1, 2 and 3 are re-cut against the compiled widths
+% rather than the estimated ones: the Platform column of Table 2 loses 0.10 cm
+% and the Contents column of Table 3 gains it, because Table 2's longest
+% platform string is nine characters and Table 3's longest contents string is
+% fifty-two.  Every caption is checked to two lines within a four-character
+% spread.  No drafting instruction survives in this file.
+\section*{Abstract}
+\phantomsection\addcontentsline{toc}{section}{Abstract}
+
+The prior pancreatic cancer trial system built its documents on a month
+scale, through teams, with peer review arriving after completion. The new
+system produces the same documents on a 1 to 4 day project time scale, through
+one author directing a master prompt, with AI peer review arriving during
+development. This paper discloses that system across four deliverables. The IND
+assembles twelve modules under 21 CFR 312 in four days. Two protocols follow: a
+Phase 1 first-in-human study at n = 18 using a 3+3 escalation behind a Phase 0
+gate of at least 1000 simulations across two frameworks, and a Phase 2
+randomized study at n = 220 across eight centers targeting a hazard ratio of
+0.60. Five bill versions and four companion documents were deposited in eleven
+days. Fourteen funding artifacts followed, including a \$1,606,000
+small-business ask against a \$3,500,000 five-year direct program, and a virtual
+trial projected at \$36,330 against an industry benchmark above \$120,000.
+Human peer review cannot absorb this output. A best-case round is seven to eight
+weeks and a typical one several months, against three model manufacturers
+reporting the same day; and review arriving after release cannot correct the
+released object. The two systems are incompatible, and the comprehensive
+provenance record the new one leaves is why it is trusted.
+
+\section*{How to Read This Document}
+\phantomsection\addcontentsline{toc}{section}{How to Read This Document}
+
+This paper is a disclosure of a working method, and its evidence is a set of
+artifacts that already exist and are already deposited. It is written so that
+four different readers can each open it at a different page and find the thing
+they came for within two pages. Table 1 names the four and the section each
+should open first. No reader is asked to read the document front to back, and
+every entry point named in Table 1 is a table or a figure rather than a
+paragraph.
+
+\begin{apptable}
+\begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}p{2.85cm} >{\raggedright\arraybackslash}p{2.35cm} >{\raggedright\arraybackslash}p{2.35cm} >{\raggedright\arraybackslash}X}
+\headrow \thead{Reader} & \thead{Open at} & \thead{Then} & \thead{The question this reader is actually asking}\\
+\midrule
+Funding officer & \S\ref{sec:funding}, Table 18 & \S\ref{sec:methods}, Figure 3 & What was produced, at what cost, and by what repeatable method? \\
+Regulatory reviewer & \S\ref{sec:ind}, Table 9 & \S\ref{sec:protocol}, Figure 10 & Does the dossier map onto the codified content items, and where? \\
+Legislative staffer & \S\ref{sec:legislation}, Table 14 & \S\ref{sec:legislation}, Figure 14 & What duty does the bill create, and who is positioned to discharge it? \\
+Peer reviewer & \S\ref{sec:peerreview}, Table 21 & \S\ref{sec:peerreview}, Figure 24 & How was this reviewed, and what happened when the reviewers disagreed? \\
+\end{tabularx}
+\end{apptable}
+\vspace{-0.6cm}
+\tabcap{Table 1. Four readers, the section each should open first, and the one\\question
+each is actually asking of this paper's method and record.}
+
+\vspace{0.25cm}
+
+Two indexes follow, and they are the paper's other entry points. Table 2 lists
+the twenty-five figures with the platform each is drawn on and the one question
+each answers, and Table 3 does the same for the twenty-five tables. A reader who
+knows the question but not the page should start at whichever of the two carries
+it. The figure count per platform is set by purpose and not by quota: six
+mermaid figures because six claims are chronological, six d2 figures because six
+are grids or containers, five graphviz because five are structural, four
+plantuml because four need a guard or a fork to be stated honestly, and four
+clustered infrastructure figures because four are about a system's parts.
+
+\begin{apptable}
+\begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}p{0.45cm} >{\raggedright\arraybackslash}p{0.4cm} >{\raggedright\arraybackslash}p{1.65cm} >{\raggedright\arraybackslash}p{2.85cm} >{\raggedright\arraybackslash}X}
+\headrow \thead{Fig} & \thead{\S} & \thead{Platform} & \thead{Source directory} & \thead{The question it answers}\\
+\midrule
+1 & 1 & Mermaid & \appfile{mermaid/} & \footnotesize Which capability do eleven Federal actions leave unfilled? \\
+2 & 1 & D2 & \appfile{d2/} & \footnotesize On which ten axes do the prior and new systems differ? \\
+3 & 2 & PlantUML & \appfile{plantuml/} & \footnotesize Which part of the build is concurrent, and which strictly serial? \\
+4 & 2 & Mermaid & \appfile{mermaid/} & \footnotesize What happens between one prompt and one pushed commit? \\
+5 & 2 & Graphviz & \appfile{graphviz/} & \footnotesize What does a figure specification store that a raster cannot? \\
+6 & 3 & Diagrams & \appfile{diagrams-python/} & \footnotesize Which source clusters fed which IND module? \\
+7 & 3 & Mermaid & \appfile{mermaid/} & \footnotesize How long did twelve IND modules take, against the prior system? \\
+8 & 3 & D2 & \appfile{d2/} & \footnotesize Which file satisfies each codified IND content item? \\
+9 & 3 & Graphviz & \appfile{graphviz/} & \footnotesize What combination of failures would produce a clinical hold? \\
+10 & 4 & PlantUML & \appfile{plantuml/} & \footnotesize What guard fires each transition in a participant's state machine? \\
+11 & 4 & Mermaid & \appfile{mermaid/} & \footnotesize What must hold on each rung from Phase 0 to Phase 2? \\
+12 & 4 & D2 & \appfile{d2/} & \footnotesize What did Phase 2 carry, replace, and add? \\
+13 & 4 & Diagrams & \appfile{diagrams-python/} & \footnotesize What is inside the site boundary, and what is outside it? \\
+14 & 5 & PlantUML & \appfile{plantuml/} & \footnotesize Which actor owns each statutory duty? \\
+15 & 5 & Graphviz & \appfile{graphviz/} & \footnotesize What did each bill version add that its predecessor lacked? \\
+16 & 5 & D2 & \appfile{d2/} & \footnotesize How does one requirement reach the operating room? \\
+17 & 6 & Mermaid & \appfile{mermaid/} & \footnotesize When did each funding artifact appear, and how fast? \\
+18 & 6 & D2 & \appfile{d2/} & \footnotesize What does the same direct work cost under two overhead regimes? \\
+19 & 6 & Graphviz & \appfile{graphviz/} & \footnotesize Where does each dollar land, and what does the award not reach? \\
+20 & 6 & Diagrams & \appfile{diagrams-python/} & \footnotesize What machinery turned one evidence store into fourteen artifacts? \\
+21 & 7 & Mermaid & \appfile{mermaid/} & \footnotesize How long does one review round take under each regime? \\
+22 & 7 & D2 & \appfile{d2/} & \footnotesize What is the ratio between the two regimes on six economic axes? \\
+23 & 7 & PlantUML & \appfile{plantuml/} & \footnotesize Who reviews concurrently, and where does a human gate sit? \\
+24 & 7 & Graphviz & \appfile{graphviz/} & \footnotesize What happens when three model reviewers disagree? \\
+25 & 8 & Diagrams & \appfile{diagrams-python/} & \footnotesize What exposures remain, and what mitigates each? \\
+\end{tabularx}
+\end{apptable}
+\vspace{-0.6cm}
+\tabcap{Table 2. The twenty-five figures, their section, their platform, the\\
+directory carrying each one, and the question that each of them answers.}
+
+\begin{apptable}
+\begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}p{0.6cm} >{\raggedright\arraybackslash}p{0.4cm} >{\raggedright\arraybackslash}p{6.0cm} >{\raggedright\arraybackslash}X}
+\headrow \thead{Tab} & \thead{\S} & \thead{Contents} & \thead{The question it answers}\\
+\midrule
+1 & 0 & Four readers, four entry points & Which section should this reader open first? \\
+2 & 0 & Figure index, twenty-five rows & Where is each figure and what does it answer? \\
+3 & 0 & Table index, twenty-five rows & Where is each table and what does it answer? \\
+4 & 1 & Federal AI and cancer actions, Jan 2025 to Jul 2026 & What has the government already committed to? \\
+5 & 1 & Prior system against new system, ten axes & What exactly changed, measured? \\
+6 & 2 & Master prompt and sub-prompt counts across works & How many times has this method been run? \\
+7 & 2 & Machine-readable diagram storage and reuse & What does the specification format buy? \\
+8 & 3 & IND package inventory by module & What is in the dossier? \\
+9 & 3 & IND section, source, and generation window & Where did each module come from, and how fast? \\
+10 & 3 & IND complexity and volume record & What scale did one author reach? \\
+11 & 4 & Phase 1 protocol synopsis & What is the first-in-human study? \\
+12 & 4 & Phase 2 protocol synopsis and deltas & What changed when it randomized? \\
+13 & 4 & Protocol generation metrics, both protocols & How long did two protocols take? \\
+14 & 5 & Statutory sections and the duty each creates & What does the bill require of whom? \\
+15 & 5 & Bill version lineage, v1.0 to v5.0 & What did each version add? \\
+16 & 5 & Legislative artifact metrics & How much statutory text, how fast? \\
+17 & 6 & Ten funding applications and mechanism class & Who was asked, and under what authority? \\
+18 & 6 & Capitalization numbers & What is the ask, and what does it buy? \\
+19 & 6 & RFA-RM-27-001 v2 structure & What does a full NIH application contain? \\
+20 & 6 & Cost and time benchmarks, prior against new & What does the same work cost each way? \\
+21 & 7 & Prior against new peer review, side by side & Why can the prior system not absorb this? \\
+22 & 7 & Model roster and review role & Which model does what, and for whom? \\
+23 & 7 & AI peer review quality and efficiency metrics & How was review quality measured? \\
+24 & 7 & AI peer review instances across author works & How often has this been done before? \\
+25 & 8 & Limitations register with mitigations & What is still exposed, and what reduces it? \\
+\end{tabularx}
+\end{apptable}
+\vspace{-0.6cm}
+\tabcap{Table 3. The twenty-five tables, their section, their contents, and the one\\question
+each answers, so a reader who knows the question can find the page.}
+
+\section*{How This Paper Was Built}
+\phantomsection\addcontentsline{toc}{section}{How This Paper Was Built}
+
+One master prompt was supplied by the author on August 14, 2026. Claude Code
+Opus 5 decomposed it into eight sub-prompts and executed them in order without
+further author intervention, committing and pushing every generated file the
+moment it was finished. The eight stages are recorded in
+\appfile{new-trial-system/sub-prompts}, and the master prompt itself is filed
+verbatim in \appfile{new-trial-system/prompts/prompt-new-trial.md}.
+
+Stages 1 through 5 produced twenty-five machine-readable figure specifications,
+one file per figure, across five diagram platforms. Each specification carries a
+perspective statement naming what no other figure in the paper shows, the
+figure's two-line caption exactly as printed here, valid source in the
+platform's own syntax, a TikZ construction table of absolute coordinates with a
+stated node pitch, an edge-routing paragraph naming every edge that could cross
+a node and the clearance that prevents it, a value table attributing every
+number in the figure to a repository file, and a list of the exact sources read.
+No figure in this paper was drawn from memory of another figure, and no figure
+is a raster.
+
+Stages 6, 7 and 8 produced the paper three times. The draft fixed the section
+set, the figure numbering and the table numbering, and carried a bracketed
+instruction in every section naming the repository file the next stage had to
+read. The full version drew all twenty-five figures, populated all twenty-five
+tables, discharged every instruction, and wrote the prose from the four
+author-final \appfile{publication/} directories and the four input archives with
+direct quotation. This final version is the senior author's proof-reading pass:
+\S\ref{sec:introduction} through \S\ref{sec:conclusions} carry the same argument
+as the full version, set correctly on the page.
+
+Each stage produced a self-contained Overleaf bundle, and each bundle is
+deposited beside its source. A reader who wants to check the production-rate
+claim of \S\ref{sec:methods} against the record can read the branch history
+rather than this paragraph.
