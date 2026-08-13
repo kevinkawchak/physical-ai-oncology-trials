@@ -1,0 +1,434 @@
+% sec-03-ind.tex - Section 3, IND.  A main section.  FINAL stage.
+% Figures 6, 7, 8 and 9 drawn; Tables 8, 9 and 10 populated from the twelve
+% section files of trial-ind/final-ind/publication.  Senior-author pass: the
+% Module column of Table 8 loses 0.15 cm to its Characters column, which now
+% carries six digits and a comma; two closing subsections give the prior
+% system's own account of the same work and the four instruments a filing would
+% still need.
+\section{IND}
+\label{sec:ind}
+
+\subsection{What was filed, and under what authority}
+
+The Investigational New Drug application deposited July 1, 2026 supports a Phase
+1, first-in-human, combined IND and Investigational Device Exemption
+investigation of on-premises large language model directed eight-arm robotic
+pancreaticoduodenectomy with perioperative daraxonrasib (RMC-6236) in patients
+with KRAS G12-mutated pancreatic ductal adenocarcinoma \cite{phase1ind}. The
+dossier states its own authority in its opening subsection: the investigation
+``is filed under 21 CFR \S 312 for the investigational drug and is coupled to a
+significant-risk early-feasibility device study under 21 CFR \S 812 for the
+LLM-directed robotic platform; the two pathways are coordinated within a single
+integrated protocol because the device conducts the resection that generates the
+operative and pathology inputs to the daraxonrasib restart advisory''
+\cite{phase1ind}. That sentence is doing regulatory work rather than rhetorical
+work: it is the reason a single dossier can carry both a drug and a device
+without either pathway being subordinate to the other.
+
+The clinical problem the dossier addresses is stated with the same discipline.
+PDAC is the third leading cause of cancer death in the United States with total
+five-year overall survival below 13 percent \cite{siegel2025statistics}, and the
+pancreaticoduodenectomy requires resection and reconstruction of four luminal
+structures and dissection around five named vessels. The 2025 Dutch nationwide
+cohort of 1000 robotic pancreaticoduodenectomies, which anchors the contemporary
+human baseline, reported a conversion rate of 10.1 percent, Clavien-Dindo grade
+III or higher complications of 41.3 percent, International Study Group on
+Pancreatic Surgery grade B or C fistula of 24.4 percent, and 30-day mortality of
+3.9 percent \cite{dutchcohort2025, bassi2017isgps}. Figure 6 shows what the
+dossier was assembled from, and Table 8 lists the twelve modules it was
+assembled into.
+
+% ---------------------------------------------------------------------------
+% FIGURE 6.  diagrams (python)-type, clustered infrastructure.  Four source
+% clusters in two columns, one subject node with a halo, one composed cluster.
+% Every cluster contributes exactly one edge from a stated boundary waypoint.
+% ---------------------------------------------------------------------------
+\begin{appfloat}[!tb]
+\begin{appfig}[diagrams (python)-type / clustered infrastructure]
+% cluster 1, regulatory
+\dgnode{dgtile}{0.75}{0.55}{\glyphdoc}{21 CFR 312 adapted}{r1}
+\dgnode{dgtile}{2.95}{0.55}{\glyphdoc}{ICH E6 R3 adapted}{r2}
+\dgnode{dgtile}{0.75}{-1.35}{\glyphdoc}{ReGARDD template}{r3}
+\dgnode{dgtile}{2.95}{-1.35}{\glyphlock}{FDA 1571 instructions}{r4}
+\begin{scope}[on background layer]
+\node[dgcluster,fit=(r1)(r1l)(r2)(r2l)(r3)(r3l)(r4)(r4l)] (cr) {};\end{scope}
+\node[dgctitle,anchor=south west] at ([yshift=1.5mm]cr.north west) {Regulatory source};
+% cluster 2, clinical
+\dgnode{dgtilem}{0.75}{-3.75}{\glyphscalpel}{Phase 1 protocol}{c1}
+\dgnode{dgtilem}{2.95}{-3.75}{\glyphscalpel}{Phase 2 protocol}{c2}
+\dgnode{dgtilem}{0.75}{-5.65}{\glyphchart}{Dutch 1000-case cohort}{c3}
+\dgnode{dgtilem}{2.95}{-5.65}{\glyphpill}{RASolute 302 readout}{c4}
+\begin{scope}[on background layer]
+\node[dgcluster2,fit=(c1)(c1l)(c2)(c2l)(c3)(c3l)(c4)(c4l)] (cc) {};\end{scope}
+\node[dgctitle2,anchor=south west] at ([yshift=1.5mm]cc.north west) {Clinical source};
+% cluster 3, simulation
+\dgnodeg{dgtileg}{5.55}{0.55}{\glyphcpu}{QSP metastatic PDAC}{s1}
+\dgnodeg{dgtileg}{7.75}{0.55}{\glyphdb}{100000 patient in silico}{s2}
+\dgnodeg{dgtileg}{5.55}{-1.35}{\glyphai}{Digital twin proposals}{s3}
+\dgnodeg{dgtileg}{7.75}{-1.35}{\glyphgear}{VVUQ test pipeline}{s4}
+\begin{scope}[on background layer]
+\node[dgcluster2,fit=(s1)(s1l)(s2)(s2l)(s3)(s3l)(s4)(s4l)] (cs) {};\end{scope}
+\node[dgctitle2,anchor=south west] at ([yshift=1.5mm]cs.north west) {Simulation source};
+% cluster 4, device
+\dgnode{dgtile}{5.55}{-3.75}{\glyphrobot}{Eight-arm robotic stack}{d1}
+\dgnode{dgtile}{7.75}{-3.75}{\glyphsignal}{Heartbeat broadcast bus}{d2}
+\dgnode{dgtile}{6.65}{-5.65}{\glyphstop}{Force and no-fly limits}{d3}
+\begin{scope}[on background layer]
+\node[dgcluster,fit=(d1)(d1l)(d2)(d2l)(d3)(d3l)] (cd) {};\end{scope}
+\node[dgctitle,anchor=south west] at ([yshift=1.5mm]cd.north west) {Device source};
+% subject
+\dgnodew{dgtiled}{10.60}{-2.55}{\glyphdoc}{IND v1.0, twelve modules}{ind}
+\draw[trialburg,line width=0.6pt] (ind.center) circle (7.5mm);
+% composed cluster
+\dgnode{dgtilem}{13.85}{-0.55}{\glyphshield}{Physical AI Subpart J text}{x1}
+\dgnode{dgtilem}{13.85}{-2.55}{\glyphuser}{Autonomy disclosure}{x2}
+\dgnode{dgtilem}{13.85}{-4.55}{\glyphbank}{Verification cost ledger}{x3}
+\begin{scope}[on background layer]
+\node[dgcluster,fit=(x1)(x1l)(x2)(x2l)(x3)(x3l)] (cx) {};\end{scope}
+\node[dgctitle,anchor=south west] at ([yshift=1.5mm]cx.north west) {Composed, no counterpart};
+% edges, one per cluster, from a stated boundary waypoint
+\draw[dgedgeb] (cr.east) -- node[above,font=\tiny\sffamily,fill=trialwhite,inner sep=1pt] {adapted} (ind.north west);
+\draw[dgedgeb] (cd.east) -- node[below,font=\tiny\sffamily,fill=trialwhite,inner sep=1pt] {specified} (ind.south west);
+\draw[dgedge] (cs.east) -- (ind.west);
+\draw[dgedge] (cc.east) -- ++(0.55,0) -- (9.95,-4.35) -- (ind.south west);
+\draw[dgedged] (ind.east) -- (x1.west);
+\draw[dgedged] (ind.east) -- (x2.west);
+\draw[dgedged] (ind.east) -- (x3.west);
+\pnote{0}{-7.35}{Four clusters, one edge each, leaving from a stated waypoint on the cluster's
+east boundary. The corridor between\\x = 8.95 and x = 10.15 carries no tile, so
+the four inbound edges converge without crossing a label box.}
+\end{appfig}
+\vspace{-0.6cm}
+\figcaption{Figure 6. Four source clusters feeding twelve IND modules, with the
+three modules\\that had no prior-system counterpart and were composed rather than
+copied.}
+\end{appfloat}
+
+\begin{apptable}
+\begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}p{4.90cm} >{\raggedright\arraybackslash}p{1.55cm} >{\raggedright\arraybackslash}p{2.00cm} >{\raggedright\arraybackslash}X}
+\headrow \thead{Module} & \thead{Position} & \thead{Characters} & \thead{What it establishes}\\
+\midrule
+Cover letter & 1 & 19,070 & Transmittal and sponsor identity \\
+Table of contents & 2 & generated & ReGARDD content order \\
+FDA forms 1571 and 1572 & 3 & 32,067 & The codified form set \\
+Introduction & 4 & 82,102 & \S 312.23(a)(3)(i) introductory statement \\
+General investigational plan & 5 & 76,989 & \S 312.23(a)(3)(iv) plan \\
+Investigator's brochure & 6 & 47,368 & \S 312.23(a)(5) brochure \\
+Proposed clinical research & 7 & 76,193 & \S 312.23(a)(6) protocols \\
+Chemistry, manufacturing, control & 8 & 56,370 & \S 312.23(a)(7) CMC \\
+Pharmacology and toxicology & 9 & 55,719 & \S 312.23(a)(8) nonclinical \\
+Previous human experience & 10 & 48,045 & \S 312.23(a)(9) prior exposure \\
+Additional information & 11 & 47,087 & \S 312.23(a)(10) \\
+Relevant information and back matter & 12 & 53,647 & \S 312.23(a)(11) and references \\
+\end{tabularx}
+\end{apptable}
+\vspace{-0.6cm}
+\tabcap{Table 8. The twelve modules of the deposited IND in ReGARDD content order,\\their
+character count at deposit, and the codified requirement each satisfies.}
+
+\subsection{The clock}
+
+The dossier was built in four stages over four days: a figure catalog, a draft,
+a full version, and a senior-author final pass, deposited July 1, 2026 at
+repository version v4.3.0 \cite{phase1ind}. The prior system's published
+calendar for the same twelve modules is measured in months, and its stages carry
+different names: regulatory drafting, nonclinical write-up, chemistry
+compilation, internal quality control and legal review, then sponsor sign-off.
+Figure 7 places both regimes on one axis with a single break glyph where the two
+scales part, and Table 9 gives the day each module closed against the prior
+system's name for the same work.
+
+% ---------------------------------------------------------------------------
+% FIGURE 7.  mermaid-type, gantt.  Two bands at one 0.35 cm row pitch and one
+% 0.24 cm bar height, joined by a full-height break glyph, because 4 days and
+% 390 days cannot share a linear scale legibly.
+% ---------------------------------------------------------------------------
+\begin{appfloat}[!tb]
+\begin{appfig}[mermaid-type / gantt]
+\ptitle{0}{0.95}{New system: four days, one author}
+\axisx{0}{6.20}{0.35}
+\foreach \x/\l in {0/{hour 0},1.55/{24},3.10/{48},4.65/{72},6.20/{96}}{
+  \draw[trialslate,line width=0.3pt] (\x,0.35) -- (\x,0.45);
+  \node[font=\tiny\sffamily,anchor=south] at (\x,0.47) {\l};}
+\foreach \i/\lab/\x0/\x1 in {%
+  0/{Cover letter and FDA 1571}/0/1.55, 1/{Introduction and plan}/0/1.55,
+  2/{Investigator brochure}/1.55/3.10, 3/{Proposed clinical research}/1.55/3.10,
+  4/{Chemistry manufacturing control}/1.55/3.10, 5/{Pharmacology and toxicology}/3.10/4.65,
+  6/{Previous human experience}/3.10/4.65, 7/{Additional and relevant info}/3.10/4.65,
+  8/{Figures, tables, back matter}/4.65/6.20}{
+  \node[anchor=east,font=\tiny\sffamily] at (-0.15,{-0.35*\i}) {\lab};
+  \fill[trialburgp] (\x0,{-0.35*\i-0.12}) rectangle (\x1,{-0.35*\i+0.12});
+  \draw[trialburg,line width=0.3pt] (\x0,{-0.35*\i-0.12}) rectangle (\x1,{-0.35*\i+0.12});}
+\node[anchor=east,font=\tiny\sffamily] at (-0.15,-3.15) {Defect pass and deposit};
+\fill[trialburgl] (4.65,-3.27) rectangle (6.20,-3.03);
+\draw[trialburg,line width=0.3pt] (4.65,-3.27) rectangle (6.20,-3.03);
+% break glyph
+\draw[trialchar,line width=0.9pt] (6.70,0.55) -- (6.90,-4.55);
+\draw[trialchar,line width=0.9pt] (6.90,0.55) -- (7.10,-4.55);
+% lower band
+\ptitle{7.30}{0.95}{Prior system: the same work, in months}
+\axisx{7.30}{13.50}{-4.05}
+\foreach \x/\l in {7.30/{month 0},8.85/{3},10.40/{6},11.95/{9},13.50/{12}}{
+  \draw[trialslate,line width=0.3pt] (\x,-4.05) -- (\x,-3.95);
+  \node[font=\tiny\sffamily,anchor=south] at (\x,-3.93) {\l};}
+\foreach \i/\lab/\x0/\x1 in {%
+  0/{Regulatory drafting}/7.30/9.36, 1/{Nonclinical write up}/8.85/10.40,
+  2/{CMC compilation}/9.62/10.91, 3/{Internal QC and legal}/10.40/11.43,
+  4/{Sponsor sign off and deposit}/11.43/12.20}{
+  \node[anchor=east,font=\tiny\sffamily] at (7.15,{-4.40-0.35*\i}) {\lab};
+  \fill[trialmist] (\x0,{-4.40-0.35*\i-0.12}) rectangle (\x1,{-4.40-0.35*\i+0.12});
+  \draw[trialslate,line width=0.3pt] (\x0,{-4.40-0.35*\i-0.12}) rectangle (\x1,{-4.40-0.35*\i+0.12});}
+% ratio callout, in the empty right quadrant of the upper band
+\node[mmgoal,text width=34mm] at (11.10,-1.55) {Ten modules in 96 hours\\against five stages in\\about 390 days};
+% legend
+\legkey{0}{-6.45}{trialburgp}{new system module}
+\legkey{3.10}{-6.45}{trialburgl}{defect pass and deposit}
+\legkey{6.60}{-6.45}{trialmist}{prior system stage}
+\pnote{0}{-7.05}{Both bands use one 0.35 cm row pitch and one 0.24 cm bar height, so the two
+regimes are visually commensurable\\even though their axes are not. The break
+glyph is drawn once, at full canvas height, so it cannot be missed.}
+\end{appfig}
+\vspace{-0.6cm}
+\figcaption{Figure 7. Twelve IND modules on one clock: the new system in hours
+across four\\days, and the prior system's published calendar for the same work, in
+months.}
+\end{appfloat}
+
+\begin{apptable}
+\begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}p{3.9cm} >{\raggedright\arraybackslash}p{4.3cm} >{\raggedright\arraybackslash}p{1.5cm} >{\raggedright\arraybackslash}X}
+\headrow \thead{Module} & \thead{Repository source read} & \thead{Window} & \thead{Prior-system counterpart}\\
+\midrule
+Introduction and plan & Adapted 21 CFR 312, ICH E6(R3) & Day 1 & Regulatory drafting, months \\
+Investigator's brochure & Phase 1 protocol, RASolute 302 & Day 2 & Nonclinical write-up \\
+Proposed clinical research & Phase 1 and Phase 2 protocols & Day 2 & Regulatory drafting \\
+Chemistry, manufacturing, control & Public daraxonrasib record & Day 2 & CMC compilation \\
+Pharmacology and toxicology & QSP and digital twin record & Day 3 & Nonclinical write-up \\
+Previous human experience & RASolute 302, Dutch cohort & Day 3 & Internal quality control \\
+Figures, tables, back matter & The 22-figure catalog & Day 4 & Sponsor sign-off \\
+\end{tabularx}
+\end{apptable}
+\vspace{-0.6cm}
+\tabcap{Table 9. Each IND module, the repository source the generation read, the\\day
+it closed, and the prior system's name for the same work.}
+
+\subsection{Complexity and volume}
+
+The complexity feat is not the speed on its own. It is that the speed was
+reached while the dossier stayed internally consistent across 594,657 characters
+of regulatory prose, 52 distinct 21 CFR cross-references, 22 figures in a single
+document sequence, 84 section-scoped tables, and 52 bibliography entries, with
+every figure drawn in vector form and no raster anywhere. A reviewer opening the
+IND at \S 312.23(a)(8) and following its cross-reference into the general
+investigational plan finds the same dose levels, the same stopping rules and the
+same device limits stated the same way, because all twelve modules were written
+against one another rather than by separate hands. Figure 8 is the crosswalk
+that makes that checkable, and Table 10 states the volume.
+
+% ---------------------------------------------------------------------------
+% FIGURE 8.  d2-type, sql tables.  Three record boxes at one 0.46 cm row height,
+% two straight join edges leaving and entering at a row boundary.
+% ---------------------------------------------------------------------------
+\begin{appfloat}[!tb]
+\begin{appfig}[d2-type / sql tables]
+\def\rh{0.46}
+\node[d2cellh,minimum width=4.6cm,minimum height=0.52cm,anchor=north west] at (0,0) {21 CFR 312.23 content item};
+\foreach \i/\f in {1/{item id (PK)},2/{(a)(1) forms},3/{(a)(3)(i) introductory statement},
+  4/{(a)(3)(iv) general plan},5/{(a)(5) investigator brochure},6/{(a)(6) protocols},
+  7/{(a)(7) chemistry manufacturing},8/{(a)(8) pharmacology toxicology},
+  9/{(a)(9) previous human experience},10/{(a)(10) and (a)(11) information}}{
+  \node[d2celll,minimum width=4.6cm,minimum height=\rh cm,anchor=north west,align=left]
+    at (0,{-0.52-\rh*(\i-1)}) {\quad \f};}
+\node[d2cellh,minimum width=4.4cm,minimum height=0.52cm,anchor=north west] at (5.20,0) {Generated section file};
+\foreach \i/\f in {1/{file id (PK)},2/{item id (FK)},3/{sec-NN-name.tex},
+  4/{character count at deposit},5/{figures carried}}{
+  \node[d2celll,minimum width=4.4cm,minimum height=\rh cm,anchor=north west,align=left]
+    at (5.20,{-0.52-\rh*(\i-1)}) {\quad \f};}
+\node[d2cellh,minimum width=4.4cm,minimum height=0.52cm,anchor=north west] at (10.20,0) {Repository deposit};
+\foreach \i/\f in {1/{path id (PK)},2/{file id (FK)},3/{trial-ind/final-ind},
+  4/{doi 10.5281/zenodo.21097442},5/{IND v1.0, repository v4.3.0}}{
+  \node[d2celll,minimum width=4.4cm,minimum height=\rh cm,anchor=north west,align=left]
+    at (10.20,{-0.52-\rh*(\i-1)}) {\quad \f};}
+\draw[d2edgeb] (4.80,-1.21) -- node[above,font=\tiny\sffamily,fill=trialwhite,inner sep=1pt] {one to one} (5.20,-1.44);
+\draw[d2edgeb] (9.60,-1.44) -- node[above,font=\tiny\sffamily,fill=trialwhite,inner sep=1pt] {one to one} (10.20,-1.44);
+\node[d2soft,text width=44mm,anchor=north west] at (5.20,-3.85) {Twelve modules, 594657 characters};
+\node[d2mid,text width=52mm,anchor=north west] at (10.20,-3.85) {22 figures, 84 section-scoped tables, 52 references};
+\pnote{0}{-5.55}{The three record boxes share one 0.46 cm row height and one 0.52 cm header, so
+each join edge leaves and enters\\at the vertical center of a row rather than at
+an arbitrary point on a box edge.}
+\end{appfig}
+\vspace{-0.6cm}
+\figcaption{Figure 8. Twelve codified IND content items joined to the section
+file that\\satisfies each, and to the repository path where that file is
+deposited.}
+\end{appfloat}
+
+\begin{apptable}
+\begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}p{4.9cm} >{\raggedright\arraybackslash}p{2.9cm} >{\raggedright\arraybackslash}X}
+\headrow \thead{Volume measure} & \thead{Deposited IND} & \thead{What it means for a reviewer}\\
+\midrule
+Section files & 12 & One per ReGARDD content position \\
+Total characters across sections & 594,657 & The dossier's written weight \\
+Figures, single document sequence & 22 & Every figure numbered once, end to end \\
+Tables, section-scoped numbering & 84 & Table 3.1, Table 5.2, and so on \\
+Distinct 21 CFR cross-references & 52 & Codified coverage that can be spot-checked \\
+Bibliography entries & 52 & Every claim carries a source \\
+Raster images & 0 & Every figure is vector and re-renderable \\
+Authors & 1 & With model assistance, disclosed \\
+Elapsed production time & 4 days & Against months in the prior system \\
+\end{tabularx}
+\end{apptable}
+\vspace{-0.6cm}
+\tabcap{Table 10. The volume one author reached in four days, measured on nine\\axes,
+and what each measure means to a regulatory reviewer.}
+
+Figure 9 states the sponsor's residual risk as logic rather than as a list. The
+two clinical branches are AND gates, so a hold on clinical grounds requires both
+a signal and a failure to respond to it, and the protocol's pause rule is
+written to break that conjunction. The documentation branch is an OR gate, where
+any one of four omissions suffices: insufficient chemistry information, a
+brochure that omits a known risk, consent that lacks the autonomy disclosure, or
+a sponsor report filed outside its window. That branch is exactly the class of
+failure a system which can regenerate a complete, internally consistent dossier
+in four days is built to eliminate, because the cost of a full re-issue after a
+finding is four days rather than a quarter \cite{phase1ind, phase1guidance}.
+
+% ---------------------------------------------------------------------------
+% FIGURE 9.  graphviz-type, fault tree.  Four ranks at a uniform 2.15 cm
+% separation, gate glyphs drawn rather than written, every basal event with
+% exactly one parent so every minimal cut set is disjoint.
+% ---------------------------------------------------------------------------
+\begin{appfloat}[!tb]
+\begin{appfig}[graphviz-type / fault tree]
+\node[gvboxk,text width=44mm,line width=0.9pt] (top) at (7.50,0) {Clinical hold on the IND};
+\umlgateor{7.50}{-2.15}
+\umlgateand{2.20}{-4.30}
+\umlgateand{7.50}{-4.30}
+\umlgateor{12.80}{-4.30}
+\node[gvnode,text width=24mm] (b1) at (0.95,-6.90) {Safety signal exceeds the protocol limit};
+\node[gvnode,text width=24mm] (b2) at (3.45,-6.90) {Monitoring board does not pause in time};
+\node[gvnode,text width=24mm] (b3) at (6.25,-6.90) {Device force cap breached in operation};
+\node[gvnode,text width=24mm] (b4) at (8.75,-6.90) {Verification gate cleared on stale evidence};
+\node[gvgray,text width=24mm] (b5) at (10.85,-6.90) {CMC information found insufficient};
+\node[gvgray,text width=24mm] (b6) at (13.35,-6.90) {Brochure omits a known risk};
+\node[gvgray,text width=24mm] (b7) at (10.85,-8.55) {Consent lacks the autonomy disclosure};
+\node[gvgray,text width=24mm] (b8) at (13.35,-8.55) {Sponsor report outside its window};
+\draw[gvedge] (top.south) -- (7.50,-1.89);
+\draw[gvedge] (7.50,-2.41) -- (2.20,-4.04);
+\draw[gvedge] (7.50,-2.41) -- (7.50,-4.04);
+\draw[gvedge] (7.50,-2.41) -- (12.80,-4.04);
+\draw[gvedge] (2.20,-4.56) -- (b1.north);
+\draw[gvedge] (2.20,-4.56) -- (b2.north);
+\draw[gvedge] (7.50,-4.56) -- (b3.north);
+\draw[gvedge] (7.50,-4.56) -- (b4.north);
+\draw[gvedge] (12.80,-4.42) -- (b5.north);
+\draw[gvedge] (12.80,-4.42) -- (b6.north);
+\draw[gvedge] (12.80,-4.42) -- (12.10,-5.85) -- (12.10,-8.55) -- (b7.east);
+\draw[gvedge] (12.80,-4.42) -- (12.10,-5.85) -- (12.10,-8.55) -- (b8.west);
+\node[gvboxm,text width=46mm] at (2.20,-8.55) {Two clinical branches are AND gates. The documentation branch is an OR gate, and is the branch the four-day re-issue removes.};
+\pnote{0}{-9.85}{Each basal event has exactly one parent, so every minimal cut set is disjoint.
+The only place an edge passes\\between two nodes is the 0.35 cm gap at x = 12.10,
+and it is stated here for that reason.}
+\end{appfig}
+\vspace{-0.6cm}
+\figcaption{Figure 9. The clinical hold as a top event over eight basal failures,
+with the\\two AND gates that make a hold require a coincidence rather than a
+fault.}
+\end{appfloat}
+
+\subsection{What the volume did not cost}
+
+Volume of this kind invites one obvious objection: that a dossier written at
+this rate must be padded, and that 594,657 characters is a measure of verbosity
+rather than of coverage. The objection is answerable, and the answer is in the
+structure rather than in the prose. Every one of the twelve modules is written
+to a codified content position, so a module cannot grow by adding material that
+belongs somewhere else; the 52 distinct 21 CFR cross-references are checkable
+one by one against the regulation; the 84 tables are section-scoped rather than
+document-scoped, so a reviewer reading \S 312.23(a)(7) finds Table 6.1 and not
+Table 43; and the 22 figures are numbered in a single document sequence, so a
+cross-reference from the pharmacology module to a figure in the plan resolves
+without ambiguity \cite{phase1ind}.
+
+The second objection is that speed of this kind must come from copying. It
+partly does, and the copying is disclosed: the proposed clinical research module
+carries the Phase 1 protocol, the general investigational plan carries the Phase
+2 forward path, and the adapted 21 CFR and ICH text supplies the regulatory
+scaffolding, all of which are separately deposited and separately dated
+\cite{onpremwhippl, phase2proto, natplatform2026}. What was not copied is the
+part Figure 6 marks as composed: the Physical AI Subpart J text, the autonomy
+disclosure, and the verification cost ledger. None of the three has a
+prior-system counterpart to copy from, because no prior IND has been filed for a
+device that generates the code it executes.
+
+The third objection is the serious one: that a dossier assembled this fast
+cannot have been checked. It was checked, twice, by two model manufacturers
+independent of the one that produced it, at defined milestones and before
+deposit, which is the review regime \S7 describes and measures
+\cite{aiprgliomatc, rfarm27001v2}. That regime is not equivalent to a regulatory
+review and does not claim to be. It is equivalent to the internal quality
+control stage the prior system runs before sponsor sign-off, and it runs in
+hours rather than in the sixty days that stage is typically budgeted.
+
+\subsection{What a reviewer can check in an afternoon}
+
+The practical test of a dossier is not its length but how quickly a reviewer can
+falsify it. Four checks are available to anyone with the deposited files and no
+special access. First, open Figure 8's crosswalk and pick any codified content
+item; the named section file either satisfies it or it does not. Second, take
+any of the 52 CFR cross-references and read the cited paragraph; the dossier
+either states the requirement correctly or it does not. Third, take any number
+that appears in more than one module, the day-30 safety window, the 3 N per-arm
+force cap, the n = 18 ceiling, and check that every occurrence agrees. Fourth,
+read the four-day production claim against the commit history of
+\appfile{trial-ind}, which records when each module was written and pushed. Each
+of the four is a falsification route, and each is open because the artifacts are
+deposited rather than described.
+
+\subsection{The prior system's own account of the same work}
+
+It is worth being precise about what the prior system does with these twelve
+modules, because the comparison in Figure 7 is otherwise an assertion. In the
+prior system a Phase 1 IND for a combined drug and device investigation is
+produced by a regulatory affairs function working from a protocol supplied by
+clinical development, a chemistry section supplied by manufacturing, a
+nonclinical section supplied by toxicology, and a brochure assembled from all
+three. Each of those inputs arrives on its own schedule; the regulatory function
+reconciles them; legal and quality review the reconciliation; and the sponsor
+signs. The five stages of Figure 7's lower band are that sequence, and the
+months on its axis are the intervals between handoffs rather than the time spent
+writing.
+
+That is the structural reason the new system's four days is not merely a faster
+version of the same thing. There are no handoffs. The general investigational
+plan and the chemistry module were written against one another within the same
+day rather than reconciled across two functions in the same quarter, which is
+why a number that appears in both appears identically in both without a
+reconciliation step. The comprehensive cross-reference discipline reported in
+Table 10, 52 codified references across twelve modules, is a consequence of that
+adjacency rather than an achievement on top of it.
+
+The corresponding loss is also structural and should be stated. A single author
+cannot supply the independent judgment that four functions supply, and no amount
+of internal consistency substitutes for it. That is precisely the gap
+\S\ref{sec:peerreview} fills with two independent model manufacturers reviewing
+during development, and it is the reason the review regime is reported as part
+of the method rather than as an afterthought.
+
+\subsection{What the dossier would need to become a filing}
+
+Nothing in \S\ref{sec:ind} is filed. Converting the deposited dossier into an
+active IND requires four things the sponsor does not hold: a sponsor-investigator
+of record willing to sign Form FDA 1571 for the investigation as described, an
+institutional review board of record willing to review a combined IND and IDE
+submission carrying a Physical AI consent opt-out, a drug supply agreement for
+daraxonrasib, and a device acceptance certificate for the eight-arm platform
+described in \S\ref{sec:protocol}. Each is an institutional instrument rather
+than a document, and each is named in the register of \S\ref{sec:limitations}.
+
+The dossier is written so that acquiring those four does not require rewriting
+it. Every module is separately compilable, every figure is drawn from a
+specification rather than from a rendering, and every table is section-scoped
+rather than document-scoped, so a change forced by a site's particulars touches
+one module and renumbers nothing. That property is worth more to a sponsor than
+the four-day production figure, because a filing is amended far more often than
+it is written.
