@@ -22,26 +22,26 @@ from diagrams.generic.blank import Blank
 
 with Diagram("On-premises site stack", show=False, direction="TB"):
     with Cluster("Layer 1, oversight"):
-        ov = [Blank("Attending surgeon"),
-              Blank("Study coordinator"),
-              Blank("Independent monitor")]
+        ov = [Blank("Attending surgeon"), Blank("Study coordinator"), Blank("Independent monitor")]
 
     with Cluster("Layer 2, control"):
-        ct = [Blank("On-premises LLM host"),
-              Blank("Advisory arbiter"),
-              Blank("Heartbeat bus at 10 kHz"),
-              Blank("Emergency stop under 3 ms")]
+        ct = [
+            Blank("On-premises LLM host"),
+            Blank("Advisory arbiter"),
+            Blank("Heartbeat bus at 10 kHz"),
+            Blank("Emergency stop under 3 ms"),
+        ]
 
     with Cluster("Layer 3, device"):
-        dv = [Blank("Eight-arm robotic platform"),
-              Blank("Per-arm force cap 3 N"),
-              Blank("Cross-arm cap 18 N"),
-              Blank("Vascular no-fly gating")]
+        dv = [
+            Blank("Eight-arm robotic platform"),
+            Blank("Per-arm force cap 3 N"),
+            Blank("Cross-arm cap 18 N"),
+            Blank("Vascular no-fly gating"),
+        ]
 
     with Cluster("Layer 4, record"):
-        rc = [Blank("Operative log store"),
-              Blank("Pathology and imaging"),
-              Blank("Verification hash registry")]
+        rc = [Blank("Operative log store"), Blank("Pathology and imaging"), Blank("Verification hash registry")]
 
     outside = Blank("Any external network")
 

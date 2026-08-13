@@ -23,27 +23,31 @@ from diagrams.generic.blank import Blank
 
 with Diagram("Funding artifact production", show=False, direction="LR"):
     with Cluster("Evidence store"):
-        ev = [Blank("Protocols and IND"),
-              Blank("Simulation record"),
-              Blank("Legislative drafts"),
-              Blank("Peer review record")]
+        ev = [
+            Blank("Protocols and IND"),
+            Blank("Simulation record"),
+            Blank("Legislative drafts"),
+            Blank("Peer review record"),
+        ]
 
     with Cluster("Pipeline"):
-        pl = [Blank("Master prompt"),
-              Blank("Sub-prompt schedule"),
-              Blank("Draft, full, final stages"),
-              Blank("Defect and format pass")]
+        pl = [
+            Blank("Master prompt"),
+            Blank("Sub-prompt schedule"),
+            Blank("Draft, full, final stages"),
+            Blank("Defect and format pass"),
+        ]
 
     with Cluster("Typed exits"):
-        ex = [Blank("Person-based mechanism"),
-              Blank("Organization mechanism"),
-              Blank("Partnership mechanism"),
-              Blank("Small-business mechanism")]
+        ex = [
+            Blank("Person-based mechanism"),
+            Blank("Organization mechanism"),
+            Blank("Partnership mechanism"),
+            Blank("Small-business mechanism"),
+        ]
 
     with Cluster("Deposit"):
-        dp = [Blank("Zenodo DOI"),
-              Blank("Repository path"),
-              Blank("Commit provenance")]
+        dp = [Blank("Zenodo DOI"), Blank("Repository path"), Blank("Commit provenance")]
 
     for n in ev:
         n >> Edge(label="reads") >> pl[0]

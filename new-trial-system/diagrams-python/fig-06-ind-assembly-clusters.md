@@ -23,33 +23,35 @@ from diagrams.generic.blank import Blank
 
 with Diagram("IND assembly", show=False, direction="LR"):
     with Cluster("Regulatory source"):
-        reg = [Blank("21 CFR 312 adapted"),
-               Blank("ICH E6 R3 adapted"),
-               Blank("ReGARDD IND template"),
-               Blank("FDA 1571 instructions")]
+        reg = [
+            Blank("21 CFR 312 adapted"),
+            Blank("ICH E6 R3 adapted"),
+            Blank("ReGARDD IND template"),
+            Blank("FDA 1571 instructions"),
+        ]
 
     with Cluster("Clinical source"):
-        clin = [Blank("Phase 1 protocol v1.0.0"),
-                Blank("Phase 2 protocol v1.1.0"),
-                Blank("Dutch 1000-case cohort"),
-                Blank("RASolute 302 readout")]
+        clin = [
+            Blank("Phase 1 protocol v1.0.0"),
+            Blank("Phase 2 protocol v1.1.0"),
+            Blank("Dutch 1000-case cohort"),
+            Blank("RASolute 302 readout"),
+        ]
 
     with Cluster("Simulation source"):
-        sim = [Blank("QSP metastatic PDAC"),
-               Blank("100000 patient in silico"),
-               Blank("Digital twin proposals"),
-               Blank("VVUQ test pipeline")]
+        sim = [
+            Blank("QSP metastatic PDAC"),
+            Blank("100000 patient in silico"),
+            Blank("Digital twin proposals"),
+            Blank("VVUQ test pipeline"),
+        ]
 
     with Cluster("Device source"):
-        dev = [Blank("Eight-arm robotic stack"),
-               Blank("Heartbeat broadcast bus"),
-               Blank("Force and no-fly limits")]
+        dev = [Blank("Eight-arm robotic stack"), Blank("Heartbeat broadcast bus"), Blank("Force and no-fly limits")]
 
     ind = Blank("IND v1.0, twelve modules")
 
-    composed = [Blank("Physical AI Subpart J text"),
-                Blank("Autonomy disclosure"),
-                Blank("Verification cost ledger")]
+    composed = [Blank("Physical AI Subpart J text"), Blank("Autonomy disclosure"), Blank("Verification cost ledger")]
 
     for n in reg:
         n >> Edge(label="adapted") >> ind

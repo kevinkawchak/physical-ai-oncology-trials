@@ -22,24 +22,32 @@ from diagrams.generic.blank import Blank
 
 with Diagram("Limitations and mitigations", show=False, direction="LR"):
     with Cluster("Exposure 1, single-vendor production"):
-        e1 = [Blank("One model family writes all source"),
-              Blank("One context window bounds each stage"),
-              Blank("Vendor availability is a project risk")]
+        e1 = [
+            Blank("One model family writes all source"),
+            Blank("One context window bounds each stage"),
+            Blank("Vendor availability is a project risk"),
+        ]
 
     with Cluster("Mitigation 1"):
-        m1 = [Blank("Two independent reviewer manufacturers"),
-              Blank("Machine-readable specifications, portable"),
-              Blank("Every artifact deposited under a DOI")]
+        m1 = [
+            Blank("Two independent reviewer manufacturers"),
+            Blank("Machine-readable specifications, portable"),
+            Blank("Every artifact deposited under a DOI"),
+        ]
 
     with Cluster("Exposure 2, text watermarking"):
-        e2 = [Blank("Generated text may carry a watermark"),
-              Blank("Detection policy is not yet settled"),
-              Blank("Journals differ on disclosure")]
+        e2 = [
+            Blank("Generated text may carry a watermark"),
+            Blank("Detection policy is not yet settled"),
+            Blank("Journals differ on disclosure"),
+        ]
 
     with Cluster("Mitigation 2"):
-        m2 = [Blank("Provenance disclosed on the cover page"),
-              Blank("Commit history is the primary record"),
-              Blank("Preprint and repository, not journal gate")]
+        m2 = [
+            Blank("Provenance disclosed on the cover page"),
+            Blank("Commit history is the primary record"),
+            Blank("Preprint and repository, not journal gate"),
+        ]
 
     residual = Blank("Residual: funding decision risk")
 
