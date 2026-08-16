@@ -17,7 +17,6 @@
 [![Phase 2 Primary](https://img.shields.io/badge/Primary-PFS%20HR-00417A.svg)](trial-phase-2/final-protocol/publication)
 [![Protocol DOI v1.1.0](https://img.shields.io/badge/Protocol%20DOI%20v1.1.0-10.5281%2Fzenodo.20807027-blue.svg)](https://doi.org/10.5281/zenodo.20807027)
 [![Document Generation](https://img.shields.io/badge/Method-Single%20prompt%20mermaid%E2%86%92draft%E2%86%92full%E2%86%92final-2F5D7C.svg)](trial-documents)
-(https://doi.org/10.5281/zenodo.21018646)
 [![IND](https://img.shields.io/badge/IND-Phase%201%20PDAC%20AI%20Generation-blue.svg)](trial-ind)
 [![Funding Applications](https://img.shields.io/badge/Funding-10%20Independent%20Scientist%20Applications-00417A.svg)](funding/pdac-funding-applications)
 [![Policy Basis](https://img.shields.io/badge/Policy-Science%3A%20A%20New%20Golden%20Age-3C7DB2.svg)](funding/science-golden-age)
