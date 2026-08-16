@@ -7,7 +7,6 @@
 [![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.18445179-blue)](https://doi.org/10.5281/zenodo.18445179)
 [![Python](https://img.shields.io/badge/Python-3.10%20|%203.11%20|%203.12-blue.svg)](https://www.python.org/)
 [![Contributors](https://img.shields.io/badge/Contributors-4-blue.svg)](releases.md)
-[![Trial Protocol](https://img.shields.io/badge/Trial%20Protocol-Phase%201%20IND%2FIDE-00417A.svg)](trial-protocol)
 [![Intervention](https://img.shields.io/badge/Intervention-Robotic%20Whipple%20%2B%20Daraxonrasib-00417A.svg)](trial-protocol)
 [![NIH Template](https://img.shields.io/badge/Template-NIH--FDA%20IND%2FIDE-6C757D.svg)](trial-protocol/nih-protocol)
 [![Protocol DOI](https://img.shields.io/badge/Protocol%20DOI%20v1.0.0-10.5281%2Fzenodo.20780121-blue.svg)](https://doi.org/10.5281/zenodo.20780121)
