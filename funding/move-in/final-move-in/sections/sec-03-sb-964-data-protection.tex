@@ -1,0 +1,162 @@
+% sec-03: Document 03, SB 964, model transparency and clinical data protection.
+% STAGE 3.  Two column widths retuned; no content change.
+\docpart{SB 964 Data Protection}{SB 964 - California Oncology Model Transparency
+and Clinical Data Protection Act of 2026}
+
+\section{Findings and Declarations}
+
+\begin{enumerate}
+\item California has legislated three times on artificial intelligence in
+  health care and once on training data transparency, and none of the four
+  instruments reaches an interventional clinical trial
+  \cite{ab3030_2024,ab489_2025,sb1120_2024,ab2013_2024}.
+
+\item AB 2013 requires a developer to publish a documentation summary of the
+  data used to train a generative system \cite{ab2013_2024}. It does not require
+  a clinical trial site to say which model version produced a given completion,
+  and in a trial that distinction decides whether a result can be reconstructed.
+
+\item A prompt and its completion, once a clinician acts on them, are source
+  records. Federal law already requires source records to be attributable,
+  legible, contemporaneous, original, and accurate, and to be retained
+  \cite{cfr11,cfr312}. This act states how that obligation applies to a model.
+
+\item A national platform specification published in 2026 established a
+  hash-chained audit trail with provenance services as a workable construction
+  for exactly this record, across sites rather than within one
+  \cite{natplatform2026}.
+
+\item De-identification obligations under federal health privacy law and the
+  research use limits under the Common Rule both apply, and a site that meets one
+  does not thereby meet the other \cite{cfr45part164,cfr45part46}.
+
+\item A model version that cannot be named cannot be audited. This act therefore
+  makes the version register, not the model, the object of regulation.
+\end{enumerate}
+
+\section{Definitions}
+
+Terms defined in document 01 §2 carry the same meaning here. In addition:
+
+\begin{enumerate}
+\item ``Model'' means a large language model or an ensemble of such models
+  operated on premises at a qualified site.
+
+\item ``Model version'' means a specific set of weights, system prompt,
+  retrieval corpus, decoding parameters, and guardrail configuration, identified
+  by a version string and a content hash.
+
+\item ``Prompt'' means the complete input presented to a model version,
+  including retrieved context.
+
+\item ``Completion'' means the complete output returned by a model version.
+
+\item ``Hash-chained audit trail'' means an append-only record in which each
+  entry carries the cryptographic hash of the preceding entry, so that deletion
+  or alteration of any entry is detectable.
+
+\item ``Provenance record'' means the linkage from a completion to the model
+  version, the prompt, the retrieval sources, the requesting user, and the human
+  disposition.
+
+\item ``Secondary use'' means any use of trial data other than the conduct,
+  analysis, reporting, or regulatory submission of the trial for which it was
+  collected.
+\end{enumerate}
+
+\section{Model Transparency Obligations}
+
+\begin{mvtable}
+\begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}p{4.4cm} >{\raggedright\arraybackslash}p{2.6cm} >{\raggedright\arraybackslash}X}
+\headrow \thead{Obligation} & \thead{Frequency} & \thead{Record that discharges it}\\
+\midrule
+Training data provenance summary & On registration, and on any change & The developer's published documentation summary, filed with the department \\
+Model version register entry & Before first clinical use of a version & The register row: version string, content hash, effective date, approver \\
+Retrieval corpus manifest & Quarterly & The manifest with a content hash per source document \\
+Guardrail configuration statement & On each version & The configuration file hash and a plain-language statement of what is blocked \\
+Known limitation statement & On each version, and on discovery & The limitation log, which carries the date of discovery and the mitigation \\
+\end{tabularx}
+\end{mvtable}
+\tabcapl{tab:sb964obl}{Five transparency obligations, each discharged by a
+record rather than by a policy. The version register is the same artifact the
+federal change control plan requires under document 07 §5, not a second one.}
+
+A qualified site shall not place a model version into clinical use before its
+register entry exists. The register is the object the department surveys and the
+object a federal reviewer is offered, and maintaining one artifact for both is a
+requirement of this section rather than a convenience.
+
+\section{Clinical Data Protection}
+
+\begin{enumerate}
+\item Trial data shall be de-identified under the expert determination or safe
+  harbor method before any use outside the conduct of the trial
+  \cite{cfr45part164}.
+
+\item Secondary use is prohibited without specific, separately documented
+  consent. A general consent to research does not authorize secondary use of
+  prompts or completions.
+
+\item A prompt or completion that contains identifiers is protected health
+  information and is handled as such. A site shall not rely on the fact that a
+  completion was generated rather than recorded to treat it as anything else.
+
+\item Where the federal privacy standard and the Common Rule differ, the more
+  protective governs, and the site shall document which standard it applied and
+  why \cite{cfr45part164,cfr45part46}.
+\end{enumerate}
+
+\section{Audit Trail and Retention}
+
+\begin{enumerate}
+\item The audit trail shall record, for each model interaction: the model
+  version string and content hash; the prompt; the completion; the retrieval
+  sources; the requesting user; the timestamp to the second; and the human
+  disposition, which is one of accepted, modified, or rejected, with the name of
+  the clinician who made it.
+
+\item The audit trail shall be append-only and hash-chained. A site shall
+  verify chain integrity monthly and shall retain the verification record.
+
+\item Records shall be retained for six years from database lock. Federal law
+  requires two years after the later of marketing application approval or
+  discontinuation of shipment with notice to the agency \cite{cfr312}, and state
+  facility record law requires less. Where the periods differ, the longest
+  governs, and six years is the period this chapter sets.
+
+\item Access logs to any premises zone classified as restricted or machine under
+  document 09 §1 shall be retained for the same six years, so that a question
+  about who was present can be answered for as long as a question about what the
+  model produced.
+\end{enumerate}
+
+\begin{mvtable}
+\begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}p{4.2cm} >{\raggedright\arraybackslash}p{2.5cm} >{\raggedright\arraybackslash}X}
+\headrow \thead{Record class} & \thead{Retention} & \thead{Authority, and why this period}\\
+\midrule
+Prompts, completions, dispositions & 6 years from lock & Longest of 21 CFR 312.62, state facility law, and this chapter \\
+Model version register & 6 years from lock & Must outlive every completion it explains \\
+Chain integrity verifications & 6 years from lock & Evidence that the trail was not altered \\
+Premises access logs & 6 years from lock & Document 09 §2; the presence question must survive as long as the output question \\
+Consent records & 6 years from lock & 21 CFR 50 as adapted \cite{cfr50adapt} \\
+\end{tabularx}
+\end{mvtable}
+\tabcapl{tab:sb964ret}{Retention by record class. The period is uniform at six
+years by design: a package whose classes expire on different dates produces an
+archive that cannot answer a question about a single day.}
+
+\section{Enforcement and Breach Notification}
+
+\begin{enumerate}
+\item A site shall notify the department of a breach affecting trial data within
+  72 hours of discovery, and affected participants within 15 days. Notification
+  under existing California breach law is not displaced by this section.
+
+\item Deficiencies under this chapter are classified as Class A, Class B, or
+  Class C with the meanings and penalty ranges given in document 01 §5. A
+  failure of chain integrity that cannot be explained is a Class A deficiency.
+
+\item A site that places a model version into clinical use without a register
+  entry commits a Class B deficiency for the first occurrence and a Class A
+  deficiency for any subsequent occurrence.
+\end{enumerate}

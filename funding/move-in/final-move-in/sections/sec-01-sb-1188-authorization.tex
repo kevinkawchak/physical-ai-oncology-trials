@@ -1,0 +1,216 @@
+% sec-01: Document 01, SB 1188, the California site authorization act.
+% STAGE 3.  Two column widths retuned; finding (b) tightened by one clause.
+\docpart{SB 1188 Site Authorization}{SB 1188 - California PDAC LLM Oncology
+Clinical Trial Site Authorization and Site Establishment Act of 2026}
+
+\section{Legislative Findings and Declarations}
+
+The Legislature finds and declares all of the following.
+
+\begin{enumerate}
+\item Pancreatic ductal adenocarcinoma remains among the most lethal solid
+  tumors, and the resectable setting is served by fewer interventional trials
+  than the metastatic setting. The one large readout available in 2026,
+  RASolute 302, reported a median overall survival of 13.2 months against 6.6 in
+  previously treated metastatic disease and is silent on the resectable setting
+  \cite{rasolute302}.
+
+\item Simulation work completed between 2025 and 2026 supports, without
+  establishing, the hypothesis that a targeted agent combined with a staged
+  robotic resection can be studied safely in the resectable setting. A ten-arm
+  quantitative systems pharmacology run returned a median overall survival of
+  12.8 months against 5.4 for chemotherapy, and a 1000-patient digital twin
+  returned a best progression-free survival hazard ratio of 0.31
+  \cite{qspmetpancre,daraxsims}.
+
+\item That simulation work carries its own stated limitations, which the
+  Legislature adopts rather than sets aside: the pharmacology run assumes no
+  acquired resistance and ideal pharmacodynamics, and the digital twin uses no
+  patient-specific pharmacokinetic, pharmacodynamic, or tumor growth parameters
+  \cite{qspmetpancre,daraxsims}.
+
+\item A credibility assessment aligned to ASME V\&V 40 and to ICH M15 scored
+  81.9 across 55 verification notebook tests, which is a measured figure and not
+  a regulatory finding \cite{daraxsims,asmevv40,ichm15}.
+
+\item Three adapted regulatory frameworks covering good clinical practice, human
+  subject protection, and investigational new drug applications have been
+  published for physical artificial intelligence oncology trials and provide a
+  workable governance spine for a site of this kind
+  \cite{iche6r3adapt,cfr50adapt,cfr312adapt}.
+
+\item A twenty-four-hour physical artificial intelligence oncology trial
+  simulation demonstrated that a robot fleet can sustain a clinical schedule at
+  99.7 percent uptime with all seven documented adverse events at Grade 1 or
+  Grade 2 and all resolved within the hour they occurred \cite{newtrial2026}.
+
+\item California has already legislated in adjacent territory. AB 3030 governs
+  the use of generative artificial intelligence in patient communications,
+  AB 489 addresses deceptive professional terms, SB 1120 governs utilization
+  review, and AB 2013 requires training data transparency
+  \cite{ab3030_2024,ab489_2025,sb1120_2024,ab2013_2024}. None of the four
+  reaches the interventional clinical trial setting, and none addresses a model
+  whose output is retained as a source record.
+
+\item A large language model confined to advisory output does not practice
+  medicine and does not replace a clinician. The distinction between advisory
+  output and directive output is the distinction on which participant safety in
+  this setting depends, and it is capable of being written as a testable rule
+  \cite{cliniciantrust}.
+
+\item An independent investigator, operating outside a university, can now
+  assemble a complete regulatory package for a Phase 1 trial, and has done so
+  \cite{phase1protocol,indapp}. State law should not be the reason such a site
+  cannot open.
+
+\item California has an opportunity to authorize the first such site in the
+  nation. The authorization created by this chapter is conditional, revocable,
+  time-limited, and reportable, because a first authorization that is none of
+  those things is not an authorization but a concession.
+\end{enumerate}
+
+\section{Definitions}
+
+For purposes of this chapter, the following definitions apply. A term defined
+here carries the same meaning in documents 02, 03, 06, and 07 of this package.
+
+\begin{enumerate}
+\item ``LLM-directed clinical workflow'' means a sequence of clinical tasks in
+  an interventional trial in which a large language model produces output that
+  is presented to a licensed clinician before any action is taken on it.
+
+\item ``Advisory-only output'' means output that cannot reach a participant,
+  cannot alter a device setting, cannot change a dose, and cannot enter the
+  clinical record except through an affirmative act by a named human, recorded
+  at the time it is taken.
+
+\item ``Robotic procedure suite'' means a room in which one or more robot
+  instances operate within a defined envelope during a study procedure.
+
+\item ``Robot instance'' means one physical robot, identified by serial number,
+  registered under §4 of the regulations adopted pursuant to this chapter.
+
+\item ``Site safety officer'' means the individual responsible for robot
+  envelopes, interlocks, and the emergency stop chain, who holds the training
+  required by the standard operating procedures of the site.
+
+\item ``Qualified site'' means a facility that has met the building, premises,
+  parking, staffing, equipment, and regulatory requirements established under
+  this chapter and holds a current authorization from the department.
+
+\item ``Sponsor-investigator'' has the meaning given in 21 CFR 312.3, and the
+  department shall not authorize a site at which a person who controls the
+  sponsor also serves as a clinical investigator \cite{cfr312,cfr54}.
+
+\item ``Audit trail'' means a hash-chained, append-only record of every model
+  prompt, every model completion, and every human disposition of a completion,
+  retained under §5 of document 03 of this package.
+
+\item ``Department'' means the California Department of Public Health.
+\end{enumerate}
+
+\section{Site Authorization}
+
+\begin{enumerate}
+\item An applicant shall file an application containing the contents specified
+  in the regulations adopted under this chapter. The department shall review the
+  application for completeness within 30 days of filing. If the department does
+  not act within 30 days, the application is deemed complete.
+
+\item The department shall complete substantive review within 90 days of the
+  date an application is complete. If the department does not act within 90
+  days, a conditional authorization is deemed granted for a period of 180 days,
+  during which the department may complete its review.
+
+\item A conditional authorization is valid for 24 months and may be renewed for
+  successive 24-month terms.
+
+\item No participant may be enrolled at a conditionally authorized site until
+  all of the following have occurred: institutional review board approval of the
+  protocol; a safe-to-proceed determination on the investigational new drug
+  application under 21 CFR 312.42 \cite{cfr312}; and a departmental site visit.
+
+\item Full authorization may be granted after the site has treated six
+  participants and has passed a departmental survey conducted under §5 of the
+  regulations adopted under this chapter.
+\end{enumerate}
+
+\begin{mvtable}
+\begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}p{0.9cm} >{\raggedright\arraybackslash}p{4.1cm} >{\raggedright\arraybackslash}p{2.2cm} >{\raggedright\arraybackslash}X}
+\headrow \thead{Step} & \thead{Action} & \thead{Statutory clock} & \thead{Consequence if the department does not act}\\
+\midrule
+1 & Application filed & Day 0 & None; the clock starts \\
+2 & Completeness review & 30 days & Application deemed complete \\
+3 & Substantive review & 90 days & Conditional authorization deemed granted for 180 days \\
+4 & Conditional authorization issued & 24 months & Expires; no enrollment may continue \\
+5 & First participant hold released & On three conditions & Hold remains; no enrollment \\
+6 & Departmental survey & After 6 participants & Conditional authorization continues to its term \\
+7 & Full authorization & 24-month renewals & Site reverts to conditional status \\
+\end{tabularx}
+\end{mvtable}
+\tabcapl{tab:sb1188auth}{The authorization sequence, with the consequence of
+departmental silence stated for every step. A statute that is silent on
+inaction has no schedule, only an aspiration.}
+
+\section{Operating Conditions}
+
+Each condition below is implemented by a document in this package, and the
+department may verify compliance against that document.
+
+\begin{mvtable}
+\begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}p{4.6cm} >{\raggedright\arraybackslash}p{2.6cm} >{\raggedright\arraybackslash}X}
+\headrow \thead{Condition} & \thead{Implemented by} & \thead{Evidence the department may request}\\
+\midrule
+Minimum staffing and delegation & Document 14 & The roster, the delegation of authority log, the training records \\
+Premises zones and robot envelopes & Document 09 & The zone plan, the envelope survey, the interlock test record \\
+Model governance and disclosure & Document 03 & The model version register and the audit trail extract \\
+Safety reporting & Document 13 & The safety report log and the transmission receipts \\
+Emergency response & Document 11 & The plan, the quarterly drill records, the after-action reports \\
+Record retention & Document 03 & The retention schedule and the archive index \\
+\end{tabularx}
+\end{mvtable}
+\tabcapl{tab:sb1188cond}{The six operating conditions and the artifact that
+discharges each. No condition in this chapter is satisfied by a policy
+statement; each is satisfied by a record.}
+
+\section{Inspection, Enforcement, and Suspension}
+
+\begin{enumerate}
+\item The department may enter and inspect a qualified site during hours of
+  operation without prior notice.
+
+\item Deficiencies are classified as follows, and the same three classes are
+  used in documents 03, 06, and 12 of this package so that one event is not
+  graded on three scales.
+  \begin{enumerate}
+  \item Class A: a deficiency that presents immediate jeopardy to a participant.
+    The department shall suspend the affected activity immediately, and the
+    civil penalty is not less than \$10,000 and not more than \$25,000 per
+    occurrence.
+  \item Class B: a deficiency presenting a substantial probability of harm. The
+    site shall file a correction plan within 10 days, and the civil penalty is
+    not less than \$2,500 and not more than \$10,000.
+  \item Class C: an administrative or record deficiency with no probability of
+    harm. The site shall file a correction plan within 30 days, and the civil
+    penalty is not more than \$2,500.
+  \end{enumerate}
+
+\item A site may appeal a classification to the department within 15 days, and
+  the department shall decide the appeal within 45 days. A Class A suspension is
+  not stayed by an appeal.
+\end{enumerate}
+
+\section{Reporting and Sunset}
+
+\begin{enumerate}
+\item The department shall report annually to the Legislature. The report shall
+  state the number of authorized sites, the number of participants enrolled, the
+  number and class of deficiencies cited, every model fault reported under §5 of
+  document 11 of this package, and the department's recommendation on
+  continuation.
+
+\item This chapter shall remain in effect only until January 1, 2032, and as of
+  that date is repealed, unless a later enacted statute deletes or extends that
+  date. The annual report required by subdivision (a) is the record on which any
+  extension is to be decided.
+\end{enumerate}
