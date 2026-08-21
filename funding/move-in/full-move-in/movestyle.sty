@@ -192,6 +192,11 @@
 % past the right margin and reports as overfull.
 \newenvironment{mvtable}{\par\addvspace{0.28em}\noindent\ignorespaces}%
   {\unskip\par\addvspace{0.34em}}
+% \mvltable wraps a table that is taller than one page and must break across
+% pages.  It carries the same vertical space as \mvtable but no \noindent and
+% no closing \unskip, because an xltabular is a vertical-mode construction and
+% a leading \noindent would start a paragraph in front of it.
+\newenvironment{mvltable}{\par\addvspace{0.28em}}{\par\addvspace{0.34em}}
 % \thead{...} - the Corporate Blue header cell used by every table.
 \newcommand{\thead}[1]{\textcolor{protowhite}{\bfseries #1}}
 \newcommand{\headrow}{\rowcolor{protoblue}}

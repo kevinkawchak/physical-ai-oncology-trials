@@ -25,10 +25,14 @@ overlapping, and no work is counted twice.}
 
 \section{The Activation Checklist}
 
-\begin{mvtable}
-\begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}p{0.7cm} >{\raggedright\arraybackslash}p{4.2cm} >{\raggedright\arraybackslash}p{2.4cm} >{\raggedright\arraybackslash}X}
+\begin{mvltable}
+\begin{xltabular}{\textwidth}{>{\raggedright\arraybackslash}p{0.7cm} >{\raggedright\arraybackslash}p{4.2cm} >{\raggedright\arraybackslash}p{2.4cm} >{\raggedright\arraybackslash}X}
 \headrow \thead{\cboxx} & \thead{Item} & \thead{Owner} & \thead{Evidence that closes it}\\
 \midrule
+\endfirsthead
+\headrow \thead{\cboxx} & \thead{Item} & \thead{Owner} & \thead{Evidence that closes it}\\
+\midrule
+\endhead
 \cboxx & Certificate of occupancy issued & Director of clinical operations & The certificate \\
 \cboxx & Air balance report accepted & Site safety officer & Balance report against document 08 §3 \\
 \cboxx & Medical gas verification & Site safety officer & NFPA 99 verification certificate \\
@@ -49,18 +53,22 @@ overlapping, and no work is counted twice.}
 \cboxx & State authorization issued & Regulatory affairs and quality manager & The authorization \\
 \cboxx & Transportation arrangements procedure live & Research nurse and participant navigator & Document 10 §5 procedure, approved \\
 \cboxx & Site initiation visit complete & Director of clinical operations & The visit report \\
-\end{tabularx}
-\end{mvtable}
+\end{xltabular}
+\end{mvltable}
 \tabcapl{tab:activation}{Twenty checklist items. Every owner is one of the
 eleven roles in document 14 §1 and never a department name, because a department
 cannot be asked why an item is still open.}
 
 \section{Standard Operating Procedure Index}
 
-\begin{mvtable}
-\begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}p{1.3cm} >{\raggedright\arraybackslash}p{4.4cm} >{\raggedright\arraybackslash}p{2.4cm} >{\raggedright\arraybackslash}X}
+\begin{mvltable}
+\begin{xltabular}{\textwidth}{>{\raggedright\arraybackslash}p{2.2cm} >{\raggedright\arraybackslash}p{4.4cm} >{\raggedright\arraybackslash}p{2.4cm} >{\raggedright\arraybackslash}X}
 \headrow \thead{Class} & \thead{Procedure} & \thead{Owner} & \thead{Review}\\
 \midrule
+\endfirsthead
+\headrow \thead{Class} & \thead{Procedure} & \thead{Owner} & \thead{Review}\\
+\midrule
+\endhead
 Conventional & Informed consent and re-consent & Lead clinical research coordinator & Annual \\
 Conventional & Eligibility screening and enrollment & Lead clinical research coordinator & Annual \\
 Conventional & Dose escalation decision and cohort review & Data manager and biostatistician & Annual \\
@@ -81,8 +89,8 @@ Robot & Interlock test and register amendment & Site safety officer & Semiannual
 Robot & Emergency stop actuation and two-person restart & Site safety officer & Semiannual \\
 Robot & Terminal cleaning of a procedure suite & Site safety officer & Annual \\
 Robot & Reportable robotic event capture and notification & Regulatory affairs and quality manager & Semiannual \\
-\end{tabularx}
-\end{mvtable}
+\end{xltabular}
+\end{mvltable}
 \tabcapl{tab:sopindex}{Twenty procedures in three classes. The class column
 exists so that a monitor can see at a glance which procedures a conventional
 Phase 1 site would also hold, which is the first ten, and which exist only
