@@ -11,6 +11,7 @@
 [![Citations](https://img.shields.io/badge/Bibliography-76%20of%2076%20cited-brightgreen.svg)](references.bib)
 [![publication](https://img.shields.io/badge/publication%2F-not%20generated-9AA1A8.svg)](../sub-prompts/final-move-in)
 [![Bundle](https://img.shields.io/badge/Overleaf-final--move--in--LaTeX.zip-6C757D.svg)](final-move-in-LaTeX.zip)
+[![PDF](https://img.shields.io/badge/PDF-main.pdf%2C%2067%20pages-6C757D.svg)](main.pdf)
 [![Paper DOI](https://img.shields.io/badge/Paper%20DOI%20v1.0-10.5281%2Fzenodo.xxxxxxxx-blue.svg)](https://doi.org/10.5281/zenodo.xxxxxxxx)
 [![Repository](https://img.shields.io/badge/Repository-v4.7.0-6C757D.svg)](../../../README.md)
 
@@ -30,6 +31,7 @@ There is no `publication/` subdirectory at this stage, by instruction.
 | [`references.bib`](references.bib) | 76 entries, all 76 cited |
 | [`sections/`](sections) | 17 files: front matter, fifteen documents, back matter |
 | [`final-move-in-LaTeX.zip`](final-move-in-LaTeX.zip) | The Overleaf bundle, 21 files. Unpacked into an empty directory and compiled with `pdflatex`, `bibtex`, `pdflatex`, `pdflatex`, it returns 0 errors and 67 pages, so the author fixes nothing |
+| [`main.pdf`](main.pdf) | The compiled package, 67 pages, built from these sources in the same pass that produced the bundle, so neither can be newer than the other |
 
 ## Measured result across the three stages
 
