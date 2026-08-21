@@ -20,9 +20,12 @@
 % measured page required it.
 %
 % \vspace AND \hspace.  Spacing is applied through a named macro.  A bare
-% \vspace appears in a section file only twice, both in the back matter, around
-% the rule that separates the citation block from the reference list; the pair is
-% the parent build's own idiom.  \hspace does not appear in body prose at all.
+% \vspace appears in a section file exactly three times, all in the back matter,
+% around the rule that separates the citation block from the reference list; the
+% group is the parent build's own idiom for that rule.  \hspace does not appear
+% in any section file.  Where a block had to be held together the instrument is
+% \needspace, which is the parent style's own instrument and is used twice:
+% before section 6 of document 12 and before the cost table of document 13.
 %
 % COLUMN WIDTHS.  Unchanged from stage 2 except where the stage 2 error pass
 % measured an overfull box: one header cell wider than its column, one twelve-

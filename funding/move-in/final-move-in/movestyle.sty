@@ -27,9 +27,12 @@
 % 0.62em to 0.42em at part level and from 0.12em to 0.06em at section level, so
 % seventeen part entries and ninety-six section entries hold on three pages
 % instead of spilling two lines onto a fourth that is then 96 percent empty.
-% \mvltable is added for a table that must break across pages.  And \mvtable
-% now closes with \nopagebreak, so a table caption can no longer be separated
-% from the table it names by a page break.
+% \mvltable is added for a table that must break across pages, and both table
+% wrappers now close with \nopagebreak, so a caption can no longer be separated
+% from the table it names.  A \section reserves 6.2 baselines rather than 3.4,
+% because most sections in this package open with a full-width table and 3.4
+% baselines is satisfied by space a table cannot use, which left five headings
+% stranded at the foot of a page in stage 2.
 %
 % The \docpart mechanism is adapted from physical_ai_legislation.sty in
 % funding/move-in/inputs/Physical-AI-Oncology-Clinical-Trial-Site-Complete-
@@ -177,7 +180,7 @@
 % ---------- No heading may be the last thing on a page.  Reserving the heading
 % ---------- plus three lines of its own text moves the pair together.
 \let\mv@section\section
-\renewcommand{\section}{\needspace{3.4\baselineskip}\mv@section}
+\renewcommand{\section}{\needspace{9\baselineskip}\mv@section}
 \let\mv@subsection\subsection
 \renewcommand{\subsection}{\needspace{3\baselineskip}\mv@subsection}
 \let\mv@subsubsection\subsubsection
@@ -204,7 +207,8 @@
 % pages.  It carries the same vertical space as \mvtable but no \noindent and
 % no closing \unskip, because an xltabular is a vertical-mode construction and
 % a leading \noindent would start a paragraph in front of it.
-\newenvironment{mvltable}{\par\addvspace{0.28em}}{\par\addvspace{0.34em}}
+\newenvironment{mvltable}{\par\addvspace{0.28em}}%
+  {\par\nopagebreak\addvspace{0.34em}\nopagebreak}
 % \thead{...} - the Corporate Blue header cell used by every table.
 \newcommand{\thead}[1]{\textcolor{protowhite}{\bfseries #1}}
 \newcommand{\headrow}{\rowcolor{protoblue}}
