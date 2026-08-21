@@ -12,6 +12,14 @@ claim in the La Jolla package can be traced to a source in two steps: the source
 map in a stage README names the artifact, and the file here says what is inside
 it.
 
+The two artifact READMEs are verbatim copies of the READMEs that shipped with
+the artifacts they describe, and the abstract corpus is a verbatim copy of the
+author's own deposited-abstract collection. They are not edited, so the relative
+links inside the seminar deck README still point at the directory layout of the
+repository that deck was built in, not at this one. That is a property of a copy
+of record and is left alone deliberately; every link in a file written for this
+package resolves inside this repository.
+
 ## Files
 
 | File | Describes | Why the build reads it |
