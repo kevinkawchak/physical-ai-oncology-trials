@@ -1,0 +1,214 @@
+% sec-13: Document 13, the conventional pancreatic cancer trial requirements
+% manual.  Operative for master prompt clause B.
+\docpart{Trial Requirements}{Conventional Pancreatic Cancer Clinical Trial
+Requirements Manual}
+
+\section{Scope: What the Site Must Have Regardless of the Model}
+
+This document is written to pass one test. A reader who deletes every large
+language model and every robot from the site still holds a complete conventional
+Phase 1 pancreatic cancer requirements manual. Nothing in the six sections that
+follow depends on the model, and nothing in them is relaxed because the model is
+present.
+
+That order matters. A site that satisfies its model governance obligations and
+falls short on investigational product accountability has failed as a clinical
+trial site, and no amount of audit trail repairs it. The model earns its place
+inside the conventional requirements; the conventional requirements do not bend
+to accommodate it.
+
+\section{Protocol, IND, and IRB}
+
+The trial is an open-label, single-arm, 3+3 dose escalation of perioperative
+daraxonrasib with a staged robotic pancreaticoduodenectomy in resectable
+pancreatic ductal adenocarcinoma, enrolling up to 18 treated participants and up
+to 30 screened \cite{phase1protocol}. The filing is the investigational new drug
+application deposited in July 2026 \cite{indapp}, written against the section
+skeleton of the adapted Part 312 framework \cite{cfr312adapt,cfr312}.
+
+Three positioning statements travel with every description of this trial and are
+stated here rather than left to a reader to infer. Daraxonrasib is
+investigational and is already in Phase 3 evaluation; it is not described as
+first in human anywhere in this package, and the supportable novelty claim
+concerns the integrated surgical and advisory workflow. The robotic
+configuration is specified at the site agreement and not before. No drug supply
+agreement, letter of authorization, or regulatory cross-reference is in place
+with the agent's developer, and no approach has been made.
+
+Institutional review board review is obtained before any screening activity. The
+board of record is the board named in the site agreement. Continuing review,
+amendment submission, and reporting of unanticipated problems follow the adapted
+human subject protection framework \cite{cfr50adapt,cfr50,cfr45part46}.
+
+\section{Eligibility, Consent, and Enrollment}
+
+\begin{mvtable}
+\begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}p{2.0cm} >{\raggedright\arraybackslash}X}
+\headrow \thead{Criterion} & \thead{Statement}\\
+\midrule
+Inclusion & Histologically or cytologically confirmed pancreatic ductal adenocarcinoma \\
+Inclusion & Resectable disease by multidisciplinary review, without arterial involvement \\
+Inclusion & Age 18 years or older \\
+Inclusion & Eastern Cooperative Oncology Group performance status 0 or 1 \\
+Inclusion & Adequate hematologic, hepatic, renal, and coagulation function by protocol thresholds \\
+Inclusion & Able to give written informed consent and to attend the visit schedule \\
+Exclusion & Prior systemic therapy for pancreatic ductal adenocarcinoma \\
+Exclusion & Borderline resectable or locally advanced disease \\
+Exclusion & Distant metastatic disease on baseline imaging \\
+Exclusion & Uncontrolled intercurrent illness, including active infection requiring systemic therapy \\
+Exclusion & Clinically significant cardiac disease, or a corrected QT interval above the protocol threshold \\
+Exclusion & Pregnancy or unwillingness to use protocol-specified contraception \\
+\end{tabularx}
+\end{mvtable}
+\tabcapl{tab:eligibility}{Six inclusion and six exclusion criteria. The second
+exclusion is the one that distinguishes this trial from the external readout it
+is compared against: RASolute 302 studied metastatic, previously treated disease
+and is silent on the resectable setting \cite{rasolute302}.}
+
+Consent follows the architecture in document 02 §4 and is not restated. The
+enrollment log records screening number, consent date, eligibility disposition,
+assigned dose level, and, where a participant screens out, the criterion that
+was not met.
+
+\section{Dose Escalation and Dose-Limiting Toxicity}
+
+\begin{mvtable}
+\begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}p{1.4cm} >{\raggedright\arraybackslash}p{2.8cm} >{\raggedright\arraybackslash}p{2.2cm} >{\raggedright\arraybackslash}X}
+\headrow \thead{Level} & \thead{Daily dose} & \thead{Participants} & \thead{Escalation rule}\\
+\midrule
+$-1$ & 100 mg once daily & 3 to 6 & Entered only on de-escalation from level 1 \\
+1 & 160 mg once daily & 3 to 6 & 0 of 3 with a dose-limiting toxicity escalates; 1 of 3 expands to 6 \\
+2 & 220 mg once daily & 3 to 6 & As level 1; 2 or more of 6 stops escalation \\
+3 & 300 mg once daily & 3 to 6 & As level 1; the highest level studied \\
+\end{tabularx}
+\end{mvtable}
+\tabcapl{tab:escalation}{Four dose levels and the escalation rule at each. Three
+escalation levels at up to six participants each is the eighteen-participant
+ceiling; level $-1$ is entered only by de-escalation and does not add to it.}
+
+The dose-limiting toxicity window runs from the first dose of daraxonrasib
+through postoperative day 30. A design that leaves the window unstated is not a
+design, and a perioperative trial whose window ends before the operation is not
+measuring the risk it exists to measure.
+
+\begin{mvtable}
+\begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}p{4.2cm} >{\raggedright\arraybackslash}X}
+\headrow \thead{Grading instrument} & \thead{What it grades}\\
+\midrule
+CTCAE version 5.0 \cite{ctcae5} & Every non-surgical adverse event; Grade 3 or higher within the window is presumptively dose limiting \\
+Clavien-Dindo \cite{claviendindo} & Surgical complications; Grade IIIb or higher within the window is presumptively dose limiting \\
+ISGPS 2016 definition \cite{isgpsfistula} & Postoperative pancreatic fistula; Grade B or C is recorded and adjudicated \\
+RECIST 1.1 \cite{recist11} & Radiographic response, where a target lesion is measurable \\
+\end{tabularx}
+\end{mvtable}
+\tabcapl{tab:grading}{Four grading instruments and what each governs. Naming all
+four is what allows a surgical trial to be escalated on a rule rather than on a
+discussion, because a complication has a grade before it has an opinion.}
+
+Cohort review is convened by the data manager and biostatistician within 5
+business days of the last participant in a cohort completing the window. The
+review record states each participant's dose-limiting toxicity status, the
+grading instrument applied, and the escalation decision.
+
+\section{Pharmacy, Laboratory, Imaging, and Biospecimens}
+
+\textbf{Pharmacy.} Investigational product is received, stored under monitored
+conditions, dispensed against a written order, reconciled at every visit, and
+returned or destroyed with a record. Accountability follows the sponsor and
+investigator recordkeeping requirements \cite{cfr312}. Compounding is performed
+in the buffer room and the containment area built to the air change and pressure
+requirements in document 08 §3, under USP General Chapters 797 and 800
+\cite{usp797800}.
+
+\textbf{Laboratory.} Safety laboratory testing is performed by a laboratory
+certified under the Clinical Laboratory Improvement Amendments \cite{clia88}.
+The site's own specimen processing laboratory performs collection, processing,
+aliquoting, and storage only, and reports no clinical result.
+
+\textbf{Imaging.} Baseline cross-sectional imaging is obtained within 28 days of
+the first dose. Response assessment follows RECIST 1.1 \cite{recist11}.
+Post-treatment imaging follows the protocol schedule. Imaging is performed off
+site under the imaging agreement, which is why document 08 §4 provides no
+imaging suite and no shielding.
+
+\textbf{Biospecimens.} Tumor tissue, plasma for circulating tumor
+deoxyribonucleic acid, and whole blood are collected at protocol-specified time
+points. Chain of custody is recorded from collection through processing,
+storage, and shipment. Specimen freezers are on the generator and carbon dioxide
+backup described in document 11 §4.
+
+\section{Monitoring, Source Documentation, Safety Reporting, and Archive}
+
+\begin{mvtable}
+\begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}p{3.6cm} >{\raggedright\arraybackslash}p{2.8cm} >{\raggedright\arraybackslash}X}
+\headrow \thead{Obligation} & \thead{Interval or clock} & \thead{Authority}\\
+\midrule
+Site initiation visit & Before first participant & Activation gate G5, document 12 §1 \\
+Monitoring visit & Every 6 weeks while enrolling; every 12 weeks otherwise & Risk-proportionate monitoring \cite{iche6r3adapt} \\
+Source data verification & 100 percent for consent, eligibility, dose, and dose-limiting toxicity; risk-based otherwise & Adapted good clinical practice \cite{iche6r3adapt} \\
+Serious and unexpected suspected adverse reaction & 15 calendar days & 21 CFR 312.32 \cite{cfr312} \\
+Fatal or life-threatening & 7 calendar days & 21 CFR 312.32 \cite{cfr312} \\
+Reportable robotic event & 5 business days; 24 hours with injury & Document 02 §6 \\
+Annual report to the agency & Within 60 days of the anniversary & 21 CFR 312.33 \cite{cfr312} \\
+Archive & 6 years from database lock & Document 03 §5, the longest applicable period \\
+\end{tabularx}
+\end{mvtable}
+\tabcapl{tab:monitoring}{Eight obligations with the clock and the authority for
+each. The state and federal clocks are compared in document 02 §6 and the
+shorter governs; nothing in this table is the longer of two.}
+
+Source documentation is attributable, legible, contemporaneous, original, and
+accurate. A correction strikes through, initials, dates, and states a reason,
+and never obscures the original entry. Electronic source records, including the
+prompts and completions treated as source under document 03 §5, meet the
+electronic record requirements \cite{cfr11}.
+
+\section{The Evidence Behind the Design}
+
+\begin{mvtable}
+\begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}p{2.6cm} >{\raggedright\arraybackslash}p{1.5cm} >{\raggedright\arraybackslash}p{1.7cm} >{\raggedright\arraybackslash}p{1.5cm} >{\raggedright\arraybackslash}X}
+\headrow \thead{Source} & \thead{Date} & \thead{Test arm} & \thead{Control} & \thead{Stated limitation, in the authors' own words}\\
+\midrule
+Empirical triplicate, 100,000 patients \cite{triplicate2025} & Jul 2025 & Grade 3+ adverse events 8.0\% & Grade 3+ 25.0\% & One log file favors experimental while the KRAS-mutant report favors control; trial-to-trial variability \\
+QSP simulation, 10 arms \cite{qspmetpancre} & Aug 2025 & 12.8 months median overall survival, hazard ratio 0.25 & 5.4 months & Assumes no acquired resistance and ideal pharmacodynamics; Grade 3+ adverse events consistently high in all arms \\
+Digital twin, 1000 patients \cite{daraxsims} & Oct 2025 & 12.1 months median overall survival, progression-free hazard ratio 0.31 & Not applicable & No patient-specific pharmacokinetic, pharmacodynamic, or tumor growth parameters; simple maximum-effect model, no immune compartments \\
+RASolute 302 \cite{rasolute302} & May 2026 & 13.2 months median overall survival & 6.6 months & Metastatic and previously treated; silent on the resectable setting \\
+\end{tabularx}
+\end{mvtable}
+\tabcapl{tab:evidence}{Four sources with the limitation each set of authors
+stated, carried in the same row as the result. No row can be read without the
+caveat that qualifies it, which is the condition on citing any of them.}
+
+The 2025 simulated ratio of 2.4-fold and the 2026 observed ratio of 2.0-fold are
+close. That proximity is a chronology observation and a hypothesis-supporting
+one. It is \textbf{not} a validation claim, and three differences are material:
+1000 simulated against 241 enrolled; a combination against a single agent; and
+KRAS G12C against a primarily G12D and G12V population. Those three clauses
+appear here in the same paragraph as the numbers, and they appear in the same
+paragraph as the numbers everywhere else in this package.
+
+A credibility assessment aligned to ASME V\&V 40 and to ICH M15 returned a score
+of 81.9 across 55 verification notebook tests \cite{daraxsims,asmevv40,ichm15}.
+That is a measured figure from the author's own verification suite and is not a
+regulatory finding.
+
+\begin{mvtable}
+\begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}p{4.2cm} >{\raggedright\arraybackslash}p{3.0cm} >{\raggedright\arraybackslash}p{2.2cm} >{\raggedright\arraybackslash}X}
+\headrow \thead{Work product} & \thead{Industry benchmark} & \thead{Industry time} & \thead{This author}\\
+\midrule
+Empirical virtual trial, triplicate & Above \$120,000 per run & 4.5 months & \$36,330 projected, about one month \\
+Ten-arm QSP virtual trial & Above \$2,000,000 & Several months to over a year & \$36,330 projected, about one month \\
+Digital-twin simulator platform & \$28,000 to \$700,000 & 3 to 16 weeks & \$36,330 projected, about one month \\
+\end{tabularx}
+\end{mvtable}
+\tabcapl{tab:cost}{Three work products against their industry benchmarks. The
+\$36,330 figure is a projection from the author's own source set, computed at
+one operator working sixty hours a week, and is reported as projected rather
+than as a completed accounting.}
+
+The reason a funder should read this section rather than the model governance
+sections is that the design decisions above are the ones a data monitoring
+committee will examine: a stated dose-limiting toxicity window that spans the
+operation, four named grading instruments, an eighteen-participant ceiling that
+follows from the escalation rule rather than from a budget, and four evidence
+sources each carrying its own stated limitation.
