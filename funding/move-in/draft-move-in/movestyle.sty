@@ -328,7 +328,7 @@
     \addvspace{0.62em \@plus\p@}%
     \setlength\@tempdima{1.9em}%
     \begingroup
-      \parindent \z@ \rightskip \@pnumwidth
+      \parindent \z@ \rightskip \@pnumwidth \@plus 4em
       \parfillskip -\@pnumwidth
       {\leavevmode\small\bfseries\color{accentcol}%
        \advance\leftskip\@tempdima
@@ -393,7 +393,11 @@
 \do\s\do\t\do\u\do\v\do\w\do\x\do\y\do\z\do\A\do\B\do\C\do\D\do\E\do\F\do\G%
 \do\H\do\I\do\J\do\K\do\L\do\M\do\N\do\O\do\P\do\Q\do\R\do\S\do\T\do\U\do\V%
 \do\W\do\X\do\Y\do\Z\do\0\do\1\do\2\do\3\do\4\do\5\do\6\do\7\do\8\do\9}
-\Urlmuskip=0mu plus 3mu\relax
+% The stretch on \Urlmuskip is deliberately small.  At the parent's 3mu a long
+% link in a ragged-right paragraph takes almost all of the line's available
+% stretch, and the URL prints with a visible gap between every character.  At
+% 0.45mu the break opportunities survive and the link sets as a word.
+\Urlmuskip=0mu plus 0.45mu\relax
 % \mvfile{path} - a repository path in monospace.  \nolinkurl and \path both
 % fail to break a path inside a \draftnote argument, so the scanner below
 % inserts an explicit break opportunity after every character: a path can then

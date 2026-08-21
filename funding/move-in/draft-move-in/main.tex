@@ -86,10 +86,13 @@ medical society; and was adapted using Claude Code Opus 5.}\normalsize\par
 
 \vspace{0.15em}
 
-{\sloppy\noindent\footnotesize The paper (v1.0) is at
-\url{https://doi.org/10.5281/zenodo.xxxxxxxx}
+% The deposit line carries two full links.  Under the bounded RaggedRight
+% rightskip of movestyle.sty its first line cannot reach the margin and reports
+% underfull, so this one paragraph is set with the unbounded \raggedright.
+{\raggedright\noindent\footnotesize The paper (v1.0) is at
+\href{https://doi.org/10.5281/zenodo.xxxxxxxx}{https://doi.org/10.5281/zenodo.xxxxxxxx}
 and the repository (v4.7.0) is at
-\url{https://github.com/kevinkawchak/physical-ai-oncology-trials}.
+\href{https://github.com/kevinkawchak/physical-ai-oncology-trials}{https://github.com/kevinkawchak/physical-ai-oncology-trials}.
 The paper files are deposited in
 \href{https://github.com/kevinkawchak/physical-ai-oncology-trials/tree/main/funding/move-in}{/funding/move-in}.\normalsize\par}
 
@@ -103,7 +106,7 @@ stewardship; Legislative engagement}
 \mvrule{0.6pt}
 
 % ---------- Clickable table of contents, in the template's form ----------
-\renewcommand{\contentsname}{\color{accentcol}Table of Contents}
+\renewcommand{\contentsname}{Table of Contents}
 {\setlength{\parskip}{0pt}\footnotesize\linespread{0.94}\selectfont\tableofcontents}
 
 \vspace{-0.10em}
