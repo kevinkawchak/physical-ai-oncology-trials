@@ -226,23 +226,34 @@
 % ============================================================
 \newcounter{docpart}
 \renewcommand{\thedocpart}{\arabic{docpart}}
-\newcommand{\docpart}[2]{%
-  \refstepcounter{docpart}%
-  \setcounter{section}{0}%
-  \markboth{#1}{#1}%
-  \phantomsection
-  \addcontentsline{toc}{part}{\protect\numberline{\thedocpart.}#2}%
+% \mv@docblock{eyebrow}{title} - the ruled block shared by \docpart, \docfront
+% and \docback, so the fifteen documents and the two matter sections open in
+% exactly the same shape.
+\newcommand{\mv@docblock}[2]{%
   {\setlength{\parskip}{0pt}\setlength{\parindent}{0pt}%
    \noindent{\color{protoblue}\rule{\linewidth}{1.1pt}}\par
    \vspace{0.42em}%
-   \noindent{\footnotesize\sffamily\bfseries\color{pablue1}%
-     DOCUMENT \thedocpart\ OF 15}\par
+   \noindent{\footnotesize\sffamily\bfseries\color{pablue1}#1}\par
    \vspace{0.30em}%
    \noindent{\large\bfseries\color{protoblue}#2}\par
    \vspace{0.42em}%
    \noindent{\color{protoblue}\rule{\linewidth}{0.5pt}}\par}%
   \addvspace{0.70em}%
   \@afterheading}
+% \docfront{header}{eyebrow}{title} - front matter and back matter, unnumbered.
+\newcommand{\docfront}[3]{%
+  \setcounter{section}{0}%
+  \markboth{#1}{#1}%
+  \phantomsection
+  \addcontentsline{toc}{part}{#3}%
+  \mv@docblock{#2}{#3}}
+\newcommand{\docpart}[2]{%
+  \refstepcounter{docpart}%
+  \setcounter{section}{0}%
+  \markboth{#1}{#1}%
+  \phantomsection
+  \addcontentsline{toc}{part}{\protect\numberline{\thedocpart.}#2}%
+  \mv@docblock{DOCUMENT \thedocpart\ OF 15}{#2}}
 
 % ============================================================
 % COVER FURNITURE.  The theme is adapted from the San Francisco package: a
