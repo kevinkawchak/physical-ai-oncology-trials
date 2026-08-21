@@ -1,0 +1,91 @@
+% sec-16: back matter.  Abbreviations, availability, contributions, citation,
+% and the reference list.
+% STAGE 3.  The abbreviations table moves to a page-breaking form; the two bare
+% \vspace calls around the rule before the reference list are the only two in
+% any section file of this package, and they are the parent build's own idiom.
+% The abbreviation list was audited against the body in both directions: every
+% short form used more than once appears here, and every row here is used.
+\docfront{Back Matter}{LA JOLLA MOVE-IN, BACK MATTER}{Back Matter}
+
+\bmhead{Abbreviations}
+
+\begin{mvltable}
+\begin{xltabular}{\textwidth}{>{\raggedright\arraybackslash}p{1.5cm} >{\raggedright\arraybackslash}X >{\raggedright\arraybackslash}p{1.5cm} >{\raggedright\arraybackslash}X}
+\headrow \thead{Short} & \thead{Expansion} & \thead{Short} & \thead{Expansion}\\
+\midrule
+\endfirsthead
+\headrow \thead{Short} & \thead{Expansion} & \thead{Short} & \thead{Expansion}\\
+\midrule
+\endhead
+ACH & Air changes per hour & ISGPS & International Study Group of Pancreatic Surgery \\
+ADA & Americans with Disabilities Act & ISO & International Organization for Standardization \\
+AE & Adverse event & LLM & Large language model \\
+CCR & California Code of Regulations & NFPA & National Fire Protection Association \\
+CEQA & California Environmental Quality Act & NIST & National Institute of Standards and Technology \\
+CFR & Code of Federal Regulations & PDAC & Pancreatic ductal adenocarcinoma \\
+CLIA & Clinical Laboratory Improvement Amendments & QSP & Quantitative systems pharmacology \\
+CTCAE & Common Terminology Criteria for Adverse Events & RECIST & Response Evaluation Criteria in Solid Tumors \\
+CUP & Conditional use permit & RPO & Recovery point objective \\
+DLT & Dose-limiting toxicity & RTO & Recovery time objective \\
+DOI & Digital object identifier & SOP & Standard operating procedure \\
+FTE & Full-time equivalent & USP & United States Pharmacopeia \\
+IDE & Investigational device exemption & VVUQ & Verification, validation and uncertainty quantification \\
+IEC & International Electrotechnical Commission & 3+3 & The dose escalation rule at document 13 §4 \\
+IND & Investigational new drug & CRC & Clinical research coordinator \\
+IRB & Institutional review board & HPB & Hepatopancreatobiliary \\
+\end{xltabular}
+\end{mvltable}
+\tabcapl{tab:abbrev}{Abbreviations, in two column pairs at the body measure. The
+rule for inclusion is mechanical: every abbreviation used more than once in the
+body appears here, and every row here is used in the body.}
+
+\bmhead{Data and Code Availability}
+
+{\raggedright Every work cited to a digital object identifier is openly
+deposited. The repository is at
+\href{https://github.com/kevinkawchak/physical-ai-oncology-trials}{https://github.com/kevinkawchak/physical-ai-oncology-trials},
+version v4.7.0 \cite{repo2026}.\par}
+
+The package is deposited in \texttt{funding/move-in}. That subtree contains the
+master prompt filed verbatim and the build output of record in
+\texttt{prompts/}; fifteen stage sub-prompts in three directories under
+\texttt{sub-prompts/}; the three input artifacts in \texttt{inputs/} with a
+README for each; and three complete LaTeX source sets in
+\texttt{draft-move-in/}, \texttt{full-move-in/} and \texttt{final-move-in/},
+each with its own Overleaf bundle. There is no \texttt{final-move-in/publication}
+directory, by instruction.
+
+No raster image is used anywhere in this package. Every rule, badge and mark on
+the cover is drawn in the style file. The claim is checkable: a search of the
+subtree for a PNG or a JPEG file returns nothing.
+
+\bmhead{Author Contributions and Conflicts}
+
+Kevin Kawchak is the sole author. He is chief executive of ChemicalQDevice and
+holds 100 percent of it. He is therefore not a clinical investigator on the
+trial this package describes: every trigger in 21 CFR 54.2 would fire if he held
+both roles, so the investigator role sits wholly with the site, and the three
+decisions where an interested party could move the result are held at the site
+under document 14 §3 \cite{cfr54}.
+
+He holds no equity in Revolution Medicines and no equity in any robotic surgery
+vendor. No sponsor, contract research organization, institutional review board,
+regulator, or medical society reviewed this package or authorized any statement
+in it. No agreement of any kind exists with UC San Diego or with Moores Cancer
+Center. The work was adapted using Claude Code Opus 5.
+
+\bmhead{Citation}
+
+Kawchak K. La Jolla Move-In: Pancreatic Oncology Clinical Trial Site Complete
+Documentation Package. Zenodo. 2026; \dlink{10.5281/zenodo.xxxxxxxx}.
+
+\vspace{0.2em}
+\mvrule{0.5pt}
+\vspace{-0.1em}
+
+\bmhead{References}
+\vspace{-0.35em}
+\begin{mvrefs}
+\bibliographystyle{unsrturl}
+\bibliography{references}
+\end{mvrefs}
