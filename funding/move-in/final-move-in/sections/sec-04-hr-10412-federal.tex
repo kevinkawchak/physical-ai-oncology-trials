@@ -1,5 +1,7 @@
 % sec-04: Document 04, H. R. 10412, the federal vehicle and the lobbying target.
-% STAGE 3.  Two column widths retuned; no content change.
+% STAGE 3.  Two column widths retuned; the eight-row operative-sections table
+% moved to a page-breaking form, because its obligation column wraps to three
+% lines in five of its eight rows.
 \docpart{H. R. 10412 Federal Act}{H. R. 10412 - Independent Investigator
 Pancreatic Cancer Trial Site Act of 2026}
 
@@ -76,10 +78,14 @@ In this Act:
 
 \section{Demonstration Site Designation}
 
-\begin{mvtable}
-\begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}p{0.9cm} >{\raggedright\arraybackslash}p{4.4cm} >{\raggedright\arraybackslash}X}
+\begin{mvltable}
+\begin{xltabular}{\textwidth}{>{\raggedright\arraybackslash}p{0.9cm} >{\raggedright\arraybackslash}p{4.4cm} >{\raggedright\arraybackslash}X}
 \headrow \thead{Sec} & \thead{Provision} & \thead{What it obligates, and of whom}\\
 \midrule
+\endfirsthead
+\headrow \thead{Sec} & \thead{Provision} & \thead{What it obligates, and of whom}\\
+\midrule
+\endhead
 101 & Designation authority & The Secretary may designate not more than 5 sites per fiscal year, on application \\
 102 & Eligibility criteria & An applicant must hold a state authorization, an active protocol, and a safe-to-proceed determination \\
 103 & Term and renewal & 5 years, renewable once, with a public record of each designation \\
@@ -88,8 +94,8 @@ In this Act:
 201 & Authorization of appropriations & \$3,500,000 per designated site over 5 years, not to exceed \$17,500,000 per fiscal year cohort \\
 301 & Review timeline reporting & The Secretary reports annually on covered review actions and their elapsed times \\
 401 & Savings clause & Nothing in this Act displaces 21 CFR parts 50, 312, or 812, or the Federal Policy for the Protection of Human Subjects \\
-\end{tabularx}
-\end{mvtable}
+\end{xltabular}
+\end{mvltable}
 \tabcapl{tab:hr10412}{The operative sections. Section 104 is the provision that
 makes the rest of the Act defensible: a demonstration designation that waived a
 safety requirement would be a worse instrument than none at all.}
