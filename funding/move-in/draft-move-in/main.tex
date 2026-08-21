@@ -1,0 +1,154 @@
+% ============================================================
+% main.tex - DRAFT stage (stage 1 of the three-stage move-in build).
+% "La Jolla Move-In: Pancreatic Oncology Clinical Trial Site Complete
+% Documentation Package".  Draft 1.0, repository v4.7.0.
+% La Jolla, San Diego, August 23, 2026.
+%
+% WHAT THIS STAGE IS.  A compiling skeleton whose job is to remove every open
+% question before stage 2 begins.  Each of the seventeen section files carries
+% its headings, its table shells, and one bracketed [DRAFTING INSTRUCTION] per
+% subsection.  Every instruction names an exact repository file or directory,
+% set with \mvfile, so full-move-in resolves instructions rather than inventing
+% content.  No \draftnote survives into stage 2.
+%
+% STRUCTURE.  Fifteen documents, each opened by \docpart and preceded by
+% \clearpage, so every document starts on its own page (master prompt clause J).
+% The table of contents keeps the template form: a part-level line per document
+% with its sections nested beneath.
+%
+% Compile on Overleaf with pdfLaTeX:
+%   pdflatex main -> bibtex main -> pdflatex main -> pdflatex main
+% ============================================================
+\documentclass[11pt]{article}
+\usepackage{movestyle}
+
+\title{La Jolla Move-In: Pancreatic Oncology Clinical Trial Site Complete
+Documentation Package}
+\author{Kevin Kawchak}
+\date{August 23, 2026}
+
+\begin{document}
+\thispagestyle{plain}
+
+% =====================================================================
+% COVER PAGE.  The theme is adapted from the San Francisco predecessor in
+% inputs/Physical-AI-Oncology-Clinical-Trial-Site-Complete-Documentation-
+% Package.zip: a centered title block over stacked italic disclaimer blocks,
+% with the table of contents immediately beneath.  What is added is the ruled
+% frame, the badge line, and the fifteen-cell document strip.
+% =====================================================================
+\mvcover{ChemicalQDevice \;|\; Independent Research Paper \;|\; Draft 1.0}%
+{La Jolla Move-In: Pancreatic Oncology Clinical Trial Site Complete
+Documentation Package}%
+{15 Documents for California's First PDAC LLM Oncology Clinical Trial Site}%
+{Legislation, Regulations, Building Code, Premises Code, Conventional Trial
+Requirements, and Operations}
+
+\vspace{0.30em}
+
+\begin{center}
+\mvbadge{Draft 1.0} \enspace \mvbadgel{Repository v4.7.0} \enspace
+\mvbadgel{15 documents} \enspace \mvbadgel{11 roles} \enspace
+\mvbadgel{\$700,000 per year}
+\end{center}
+
+\vspace{-0.30em}
+
+\mvstrip{1/{01 SB 1188 Site Authorization},2/{02 AB 3162 Patient Rights},3/{03 SB 964 Data Protection},4/{04 H. R. 10412 Federal Act},5/{05 San Diego Municipal Code}}%
+{6/{06 Title 22 Chapter 15},7/{07 FDA Compliance Guide},8/{08 Building Code},9/{09 Premises Code},10/{10 Parking and Transport}}%
+{11/{11 Emergency Plan},12/{12 Activation and SOPs},13/{13 Trial Requirements},14/{14 Staffing and Roles},15/{15 Funding and Lobbying}}
+
+\vspace{-0.10em}
+\mvrule{0.9pt}
+
+\begin{center}\small
+Kevin Kawchak\,\orcidicon{0009-0007-5457-8667}, CEO ChemicalQDevice \;|\;
+\href{mailto:kevink@chemicalqdevice.com}{kevink@chemicalqdevice.com}\\
+\href{https://doi.org/10.5281/zenodo.xxxxxxxx}{10.5281/zenodo.xxxxxxxx} \;|\;
+\href{https://orcid.org/0009-0007-5457-8667}{0009-0007-5457-8667}\\
+La Jolla, San Diego \;|\; August 23, 2026, Draft 1.0
+\end{center}
+
+\vspace{-0.20em}
+\mvrule{0.5pt}
+
+\noindent\footnotesize\textit{Independent research paper and practical adoption
+guide. It is not medical or regulatory advice and is not endorsed by the FDA,
+NIH, HHS, an IRB, ICH, or any sponsor. All figures derive from the author's
+repository sources and are illustrative unless tied to a cited
+reference.}\normalsize\par
+
+\vspace{0.15em}
+
+\noindent\footnotesize\textbf{Disclaimer:} \textit{This work is independent and
+is not endorsed or sponsored by any trial sponsor, CRO, site, IRB, regulator, or
+medical society; and was adapted using Claude Code Opus 5.}\normalsize\par
+
+\vspace{0.15em}
+
+{\sloppy\noindent\footnotesize The paper (v1.0) is at
+\url{https://doi.org/10.5281/zenodo.xxxxxxxx}
+and the repository (v4.7.0) is at
+\url{https://github.com/kevinkawchak/physical-ai-oncology-trials}.
+The paper files are deposited in
+\href{https://github.com/kevinkawchak/physical-ai-oncology-trials/tree/main/funding/move-in}{/funding/move-in}.\normalsize\par}
+
+\renewcommand{\keywordname}{\textbf{Keywords}}
+\keywords{La Jolla; Pancreatic ductal adenocarcinoma; Phase 1 clinical trial
+site; Large language model governance; Robotic pancreaticoduodenectomy;
+Daraxonrasib; Site authorization; Building and premises code; Federal award
+stewardship; Legislative engagement}
+
+\vspace{0.30em}
+\mvrule{0.6pt}
+
+% ---------- Clickable table of contents, in the template's form ----------
+\renewcommand{\contentsname}{\color{accentcol}Table of Contents}
+{\setlength{\parskip}{0pt}\footnotesize\linespread{0.94}\selectfont\tableofcontents}
+
+\vspace{-0.10em}
+\mvrule{0.6pt}
+
+\begin{center}\footnotesize August 23, 2026\end{center}
+
+% ---------- Body: one \input per section (Rule 6) ----------
+% \clearpage discipline.  Clause J requires that each of the fifteen documents
+% opens on its own page, so a barrier precedes every \docpart without exception.
+% The front matter and the back matter take the same treatment, so the reader
+% never meets a document that begins halfway down a page.
+\clearpage
+\input{sections/sec-00-front}
+\clearpage
+\input{sections/sec-01-sb-1188-authorization}
+\clearpage
+\input{sections/sec-02-ab-3162-patient-rights}
+\clearpage
+\input{sections/sec-03-sb-964-data-protection}
+\clearpage
+\input{sections/sec-04-hr-10412-federal}
+\clearpage
+\input{sections/sec-05-san-diego-municipal}
+\clearpage
+\input{sections/sec-06-title-22-regulations}
+\clearpage
+\input{sections/sec-07-fda-compliance-guide}
+\clearpage
+\input{sections/sec-08-building-code}
+\clearpage
+\input{sections/sec-09-premises-code}
+\clearpage
+\input{sections/sec-10-parking-transportation}
+\clearpage
+\input{sections/sec-11-emergency-preparedness}
+\clearpage
+\input{sections/sec-12-site-activation-sops}
+\clearpage
+\input{sections/sec-13-conventional-trial-requirements}
+\clearpage
+\input{sections/sec-14-staffing-and-roles}
+\clearpage
+\input{sections/sec-15-funding-and-lobbying}
+\clearpage
+\input{sections/sec-16-backmatter}
+
+\end{document}
