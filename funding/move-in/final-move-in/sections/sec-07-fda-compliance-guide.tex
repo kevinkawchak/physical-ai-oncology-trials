@@ -1,0 +1,157 @@
+% sec-07: Document 07, the federal compliance guide for the LLM and robotic
+% workflow.  Operative for master prompt clause C.
+% STAGE 3.  The fourteen-row correction map moved to mvltable, because it is
+% taller than one page once its Requirement column wraps.  Two widths retuned.
+\docpart{FDA Compliance Guide}{FDA LLM and Robotic Workflow National Compliance
+Guide for a Phase 1 PDAC Clinical Trial Site}
+
+\section{Purpose and Scope}
+
+This document is a map from one clinical trial site to the federal requirements
+that already govern it. It is not a submission, not a guidance document, not an
+agency position, and not a claim that any workflow described here has been
+reviewed or accepted. The honest form of the request that a large language model
+and robotic workflow be acceptable to the agency is a map that a reviewer can
+check, requirement by requirement, against artifacts that exist.
+
+Its scope is the site described in the front matter of this package, operating
+the Phase 1 protocol at document 13 §2. Nothing here applies to a marketed
+device, to a commercial software product, or to any use of a model outside an
+investigational setting.
+
+\section{The Regulatory Position of the Site}
+
+The trial is a combined investigational new drug and investigational device
+investigation \cite{phase1protocol}. The filing is the 172-page investigational
+new drug application deposited in July 2026, which follows the section skeleton
+established by the adapted Part 312 framework \cite{indapp,cfr312adapt}.
+
+\begin{mvtable}
+\begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}p{4.2cm} >{\raggedright\arraybackslash}p{3.4cm} >{\raggedright\arraybackslash}X}
+\headrow \thead{Component} & \thead{Pathway} & \thead{Why it sits there}\\
+\midrule
+Perioperative daraxonrasib & Investigational new drug, 21 CFR 312 & An investigational agent administered under a protocol \cite{cfr312} \\
+Robotic surgical platform & Investigational device exemption, 21 CFR 812, or a cleared device used within its labeling & Determined at the site agreement; the configuration is not specified before then \\
+LLM advisory output & Neither, while it remains advisory-only & It produces no output that reaches a participant except through an affirmative human act \\
+Electronic records and signatures & 21 CFR 11 & Prompts, completions and dispositions are source records \cite{cfr11} \\
+Financial disclosure & 21 CFR 54 & Decides the sponsor-investigator firewall in document 14 §3 \cite{cfr54} \\
+Human subject protection & 21 CFR 50 and 45 CFR 46 & Consent and protection, as adapted \cite{cfr50,cfr45part46,cfr50adapt} \\
+\end{tabularx}
+\end{mvtable}
+\tabcapl{tab:fdaposition}{Six components and the pathway each sits on. The third
+row is the one that must be defended: the advisory-only boundary in §5 is what
+keeps the model out of the device pathway, and if the boundary moves, the row
+moves with it.}
+
+\section{Correction Map to 21 CFR Parts 11, 50, 54, 312, and 812}
+
+\begin{mvltable}
+\begin{xltabular}{\textwidth}{>{\raggedright\arraybackslash}p{2.6cm} >{\raggedright\arraybackslash}p{4.2cm} >{\raggedright\arraybackslash}X}
+\headrow \thead{Citation} & \thead{Requirement} & \thead{Where this site discharges it}\\
+\midrule
+\endfirsthead
+\headrow \thead{Citation} & \thead{Requirement} & \thead{Where this site discharges it}\\
+\midrule
+\endhead
+21 CFR 11.10(a) & Validation of systems to ensure accuracy and consistency & Document 12 §6 quality management; the model version register at document 03 §3 \\
+21 CFR 11.10(e) & Secure, computer-generated, time-stamped audit trails & Document 03 §5, hash-chained and verified monthly \\
+21 CFR 11.10(d) & Limiting system access to authorized individuals & Document 09 §2 access control; the machine room is a restricted zone \\
+21 CFR 50.20 & General requirements for informed consent & Document 02 §4 and document 13 §3 \\
+21 CFR 50.25 & Elements of informed consent & Document 02 §4, including the model disclosure and the human-only pathway \\
+21 CFR 54.2 & Definitions triggering financial disclosure & Document 14 §3, which assigns the investigator role wholly to the site \\
+21 CFR 54.4 & Certification and disclosure statements & Document 15 §2 stewardship controls \\
+21 CFR 312.23 & Investigational new drug content and format & The filed application \cite{indapp} \\
+21 CFR 312.32 & Safety reporting & Document 13 §6, with the state clock in document 02 §6 \\
+21 CFR 312.42 & Clinical holds & Document 01 §3(d), the first participant hold \\
+21 CFR 312.57 & Sponsor recordkeeping for drug disposition & Document 13 §5 pharmacy \\
+21 CFR 312.62 & Investigator recordkeeping and retention & Document 03 §5, at six years \\
+21 CFR 812.140 & Device records & Document 06 §4 robot instance register \\
+21 CFR 812.150 & Device reports & Document 02 §6 reportable robotic events \\
+\end{xltabular}
+\end{mvltable}
+\tabcapl{tab:fdamap}{Fourteen requirements and the document in this package that
+discharges each. Every row names a document rather than a policy, so a reviewer
+can ask for the artifact by name.}
+
+\section{ICH E6(R3) Mapping}
+
+The good clinical practice spine is the adapted ICH E6(R3) framework published
+in March 2026 rather than the source guideline, because the adaptation addresses
+the physical artificial intelligence case the source does not
+\cite{iche6r3adapt,iche6r3}. Where the two differ, the difference is stated.
+
+\begin{mvtable}
+\begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}p{3.4cm} >{\raggedright\arraybackslash}p{3.6cm} >{\raggedright\arraybackslash}X}
+\headrow \thead{Principle} & \thead{Site implementation} & \thead{Where the adaptation differs from the source}\\
+\midrule
+Quality by design & Document 12 §6 & Adds the model version as a quality-critical factor \\
+Investigator responsibility & Document 14 §2 & Names a delegated task set for a model governance role the source does not contemplate \\
+Data governance & Document 03 §5 & Treats a completion as a source record \\
+Risk-proportionate monitoring & Document 13 §6 & Adds envelope and interlock records to the monitoring scope \\
+Records and reports & Document 03 §5 & Extends retention to six years \\
+\end{tabularx}
+\end{mvtable}
+\tabcapl{tab:iche6map}{Five good clinical practice principles. Each row states
+where the adapted framework goes beyond the source, because a reviewer who is
+told only that a site follows good clinical practice learns nothing about the
+model.}
+
+\section{The Advisory-Only Boundary and Software Change Control}
+
+This is the load-bearing section of the document. The boundary is written as a
+rule that can be tested rather than as a commitment.
+
+\begin{enumerate}
+\item \textbf{What the model may produce.} A summary of source documents already
+  in the record; a proposed differential; a proposed order set; a proposed
+  eligibility assessment; a draft narrative for an adverse event; and a
+  literature retrieval with citations.
+
+\item \textbf{What the model may not do.} It may not transmit any output to a
+  participant. It may not write to the electronic data capture system. It may not
+  set, change, or confirm a dose. It may not command, configure, or release any
+  robot motion. These four prohibitions are enforced at the interface, not by
+  policy: the model process has no write credential to the data capture system
+  and no route to the robot control network, which is segmented under document
+  08 §5.
+
+\item \textbf{What a human must do first.} A licensed clinician named in the
+  delegation log must record a disposition of accepted, modified, or rejected
+  before any completion is acted on. A completion with no recorded disposition
+  is treated as rejected.
+
+\item \textbf{What record proves it.} The audit trail entry under document 03
+  §5, carrying the model version, the prompt, the completion, the clinician
+  name, the disposition, and the timestamp to the second.
+\end{enumerate}
+
+Verification precedes generation: the site does not accept a completion into the
+record on the strength of the model's confidence, and the verification-first
+position is the one established in the 2026 legislative and assurance work
+\cite{vvuqbill,cliniciantrust}.
+
+Software change control follows a predetermined change control plan
+\cite{fdasamd}. A change to weights, system prompt, retrieval corpus, decoding
+parameters, or guardrail configuration is a new model version and requires a new
+register entry under document 03 §3 before clinical use. The register is a single
+artifact serving both the state obligation and the federal plan, which is stated
+in document 03 §3 and is repeated here so that neither reader is surprised.
+
+\section{Pre-Submission Sequence and Evidence Package}
+
+\begin{mvtable}
+\begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}p{0.9cm} >{\raggedright\arraybackslash}p{3.8cm} >{\raggedright\arraybackslash}X}
+\headrow \thead{Step} & \thead{Action} & \thead{Evidence carried, and the limitation stated with it}\\
+\midrule
+1 & Pre-submission request \cite{fdapresub} & The protocol, the boundary rule in §5, and the segmentation drawing \\
+2 & Credibility package & ASME V\&V 40 and ICH M15 aligned score of 81.9 across 55 verification tests \cite{daraxsims,asmevv40,ichm15}. Limitation: no patient-specific pharmacokinetic, pharmacodynamic, or tumor growth parameters \\
+3 & Simulation evidence & Ten-arm run at 12.8 months median overall survival against 5.4 \cite{qspmetpancre}. Limitation: assumes no acquired resistance and ideal pharmacodynamics \\
+4 & External comparison & RASolute 302 at 13.2 against 6.6 \cite{rasolute302}. Limitation: metastatic and previously treated; silent on the resectable setting \\
+5 & Model documentation & The version register, the guardrail statement, and the change control plan \cite{fdasamd,fdaaiguidance2025} \\
+6 & Investigational new drug submission & The filed application \cite{indapp} \\
+\end{tabularx}
+\end{mvtable}
+\tabcapl{tab:presub}{The six-step sequence. Every evidence row carries the
+limitation its own source stated, in the same cell as the result, because a
+reviewer who has to look elsewhere for the caveat has been given a claim rather
+than evidence.}
