@@ -1,5 +1,8 @@
 % sec-01: Document 01, SB 1188, the California site authorization act.
-% STAGE 3.  Two column widths retuned; finding (b) tightened by one clause.
+% STAGE 3.  Two column widths retuned; finding (b) tightened by one clause;
+% the seven-step authorization table moved to a page-breaking form, because a
+% seven-row table with a four-line consequence cell is taller than the space the
+% five subdivisions above it leave.
 \docpart{SB 1188 Site Authorization}{SB 1188 - California PDAC LLM Oncology
 Clinical Trial Site Authorization and Site Establishment Act of 2026}
 
@@ -135,10 +138,14 @@ here carries the same meaning in documents 02, 03, 06, and 07 of this package.
   regulations adopted under this chapter.
 \end{enumerate}
 
-\begin{mvtable}
-\begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}p{0.9cm} >{\raggedright\arraybackslash}p{4.1cm} >{\raggedright\arraybackslash}p{2.2cm} >{\raggedright\arraybackslash}X}
+\begin{mvltable}
+\begin{xltabular}{\textwidth}{>{\raggedright\arraybackslash}p{0.9cm} >{\raggedright\arraybackslash}p{4.1cm} >{\raggedright\arraybackslash}p{2.2cm} >{\raggedright\arraybackslash}X}
 \headrow \thead{Step} & \thead{Action} & \thead{Statutory clock} & \thead{Consequence if the department does not act}\\
 \midrule
+\endfirsthead
+\headrow \thead{Step} & \thead{Action} & \thead{Statutory clock} & \thead{Consequence if the department does not act}\\
+\midrule
+\endhead
 1 & Application filed & Day 0 & None; the clock starts \\
 2 & Completeness review & 30 days & Application deemed complete \\
 3 & Substantive review & 90 days & Conditional authorization deemed granted for 180 days \\
@@ -146,8 +153,8 @@ here carries the same meaning in documents 02, 03, 06, and 07 of this package.
 5 & First participant hold released & On three conditions & Hold remains; no enrollment \\
 6 & Departmental survey & After 6 participants & Conditional authorization continues to its term \\
 7 & Full authorization & 24-month renewals & Site reverts to conditional status \\
-\end{tabularx}
-\end{mvtable}
+\end{xltabular}
+\end{mvltable}
 \tabcapl{tab:sb1188auth}{The authorization sequence, with the consequence of
 departmental silence stated for every step. A statute that is silent on
 inaction has no schedule, only an aspiration.}
