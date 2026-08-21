@@ -132,7 +132,31 @@ bioanalytical support sit in a contributed non-federal column that carries no
 dollar figure, because no agreement exists and an invented cost-share number is
 worse than none.
 
-## 6. Build method
+## 6. Measured result
+
+| Metric | Draft | Full | Final |
+|:--|:--|:--|:--|
+| Errors | 0 | 0 | 0 |
+| Overfull boxes | 0 | 0 | 0 |
+| Underfull boxes | 0 | 0 | 0 |
+| Undefined citations and references | 0 | 0 | 0 |
+| Bibliography entries printed | 2 | 76 | 76 of 76 |
+| Pages | 27 | 71 | 67 |
+| Contents pages | 4 | 4 | 3 |
+| Pages under twelve body lines | 5 | 4 | 0 |
+| Pages ending on a heading | not measured | 5 | 0 |
+| Tables at the body measure | 17 shells | 56 | 56 |
+| Fixed columns carrying the ragged prefix | 51 of 51 | 130 of 130 | 130 of 130 |
+| Source characters | 60,992 | 167,972 | 175,256 |
+
+Every stage was compiled with `pdflatex`, `bibtex`, `pdflatex`, `pdflatex`
+before its commit, and each `.zip` was unpacked into an empty directory and
+compiled again, so the author opens any of the three in Overleaf and fixes
+nothing. The predecessor's `all_documents.tex` is 150,972 characters; the final
+stage is 175,256, a ratio of 1.16, and the difference is structural: this
+package carries 56 full-width tables where the predecessor carries none.
+
+## 7. Build method
 
 Three stages, five sub-prompts each, one directory per stage. No diagram
 platform stages, because Rule 3 forbids diagrams; where the parent build would
@@ -148,7 +172,7 @@ Each stage emits `main.tex`, `movestyle.sty`, `references.bib`,
 `sections/*.tex`, two READMEs, and its own Overleaf `.zip`, rebuilt from the
 same sources in the same pass as the compile.
 
-## 7. Files used from other directories (Rule 5)
+## 8. Files used from other directories (Rule 5)
 
 | Source | Used where |
 |:--|:--|
@@ -167,7 +191,7 @@ same sources in the same pass as the compile.
 | [`../../trial-protocol/`](../../trial-protocol), [`../../trial-ind/`](../../trial-ind) | The Phase 1 protocol and the investigational new drug filing the site is built to run |
 | [`../../new-trial/`](../../new-trial) | The 24-hour simulation the predecessor package was built on, cited where a La Jolla requirement derives from it |
 
-## 8. What this package is not
+## 9. What this package is not
 
 Nothing here is enacted, filed, or agreed. SB 1188, AB 3162, SB 964 and
 H. R. 10412 are independent drafts and no bill by those numbers is before any
@@ -179,6 +203,6 @@ already in Phase 3 evaluation, and is nowhere described as first in human; the
 supportable novelty claim concerns the integrated surgical and advisory
 workflow. The ten coworkers are roles, not hires.
 
-## 9. License
+## 10. License
 
 Creative Commons Attribution 4.0 International (CC BY 4.0).
