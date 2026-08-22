@@ -181,14 +181,50 @@ prose, and changing them would make the citation wrong. Every word of authored
 prose in the package is American English, and the dialect audit over a
 thirty-seven word list returns zero.
 
+### The repository close
+
+The last commits update the repository rather than the package: the root
+`README.md` gains the v4.7.0 release badge, four new badges, a dated 8/23
+headline entry, one new section carrying a build diagram and four tables, and
+the `funding/` subtree; `funding/README.md` gains the move-in package, its stage
+table and its Rule 5 rows, and is renumbered so no two sections share a number;
+`CHANGELOG.md` gains a v4.7.0 entry that states explicitly that version 4.6.0 is
+delivered on a separate branch in pull request #76 and is not part of this
+release; and `releases.md` gains the release notes in the required format.
+
+The four continuous integration jobs were run locally before the close, because
+the master prompt asks specifically that the three `lint-and-format` checks not
+fail:
+
+| Check | Result |
+|:--|:--|
+| `ruff check .` | All checks passed |
+| `ruff format --check .` | 525 files already formatted |
+| `yamllint -d relaxed configs/ unification/...` | exit 0 |
+| `pytest tests/` | 1608 passed, 80 skipped |
+
+No Python file and no YAML file is added or modified by this build, so the three
+matrix `lint-and-format` jobs and the `test` jobs see exactly what they saw on
+the base branch.
+
+Two late defects were found in the closing sweep and fixed rather than left: one
+sentence in `funding/README.md` and one in a stage 3 sub-prompt README each
+carried a British spelling. The dialect audit was then re-run over every markdown
+file this build authored and returns zero. The remaining hits in the repository
+are in three classes that are correct as they stand: the verbatim master prompt,
+which must not be edited; the dialect word list itself, which has to contain the
+words it forbids; and copies of record, including the seminar deck README and the
+author's deposited-abstract corpus, whose relative links also still point at the
+repositories they were written in.
+
 ### Deviations from the commit ledger
 
 Rule 6 asks for one commit per section file. Stage 3 landed sections 01 through
 04 in a single commit first, and each of those four then received its own
 follow-up commit carrying a further improvement, so every section file in every
-stage has at least one commit of its own. The total is 66 stage commits across
-the three stages against a floor of 30, plus bootstrap, repository and release
-commits.
+stage has at least one commit of its own. The total is 68 stage commits across
+the three stages against a floor of 30, plus eight bootstrap commits and nine
+repository and release commits.
 
 ### What is not claimed
 
