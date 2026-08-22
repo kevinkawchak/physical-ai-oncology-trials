@@ -73,7 +73,7 @@ Kawchak K. Zenodo. https://doi.org/10.5281/zenodo.21232965
 
 ## 3. New in v4.7.0: the La Jolla move-in package
 
-[`move-in/`](move-in) is what the programme does with the money once an award
+[`move-in/`](move-in) is what the program does with the money once an award
 lands. Fifteen documents stand up California's first pancreatic ductal
 adenocarcinoma large language model oncology clinical trial site, in La Jolla,
 for a chief executive and ten coworkers, against the same $700,000 per year and

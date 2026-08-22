@@ -48,7 +48,7 @@ happened.
 |:--|:--|
 | [`../full-move-in/`](../full-move-in) | Stage 2 is the input; every correction identified there is applied here |
 | [`../../../pdac-funding-applications/final-apply/main.tex`](../../../pdac-funding-applications/final-apply/main.tex) | The `\clearpage` discipline commentary, adapted in sub-prompt 1 |
-| [`../../../pdac-funding-applications/final-apply/applystyle.sty`](../../../pdac-funding-applications/final-apply/applystyle.sty) | The spacing vocabulary catalogued in sub-prompt 2 |
+| [`../../../pdac-funding-applications/final-apply/applystyle.sty`](../../../pdac-funding-applications/final-apply/applystyle.sty) | The spacing vocabulary itemized in sub-prompt 2 |
 | [`../../../capitalization-plan/final-capital/`](../../../capitalization-plan/final-capital) | The habit of recording defects with measured sizes rather than absorbing them |
 | [`../../inputs/`](../../inputs) | Every claim is verified back to the artifact it came from in sub-prompt 4 |
 
