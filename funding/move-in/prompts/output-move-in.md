@@ -203,6 +203,10 @@ fail:
 | `yamllint -d relaxed configs/ unification/...` | exit 0 |
 | `pytest tests/` | 1608 passed, 80 skipped |
 
+All seven jobs then ran on the pull request head and all seven returned success:
+`lint-and-format` on Python 3.10, 3.11 and 3.12, `test` on the same three, and
+`validate-scripts`.
+
 No Python file and no YAML file is added or modified by this build, so the three
 matrix `lint-and-format` jobs and the `test` jobs see exactly what they saw on
 the base branch.
@@ -222,9 +226,10 @@ repositories they were written in.
 Rule 6 asks for one commit per section file. Stage 3 landed sections 01 through
 04 in a single commit first, and each of those four then received its own
 follow-up commit carrying a further improvement, so every section file in every
-stage has at least one commit of its own. The total is 68 stage commits across
-the three stages against a floor of 30, plus eight bootstrap commits and nine
-repository and release commits.
+stage has at least one commit of its own. The total is 69 stage commits across
+the three stages against a floor of 30, twenty-two for stage 1, twenty-two for
+stage 2 and twenty-five for stage 3, plus eighteen bootstrap, repository and
+release commits, for eighty-eight in all.
 
 ### What is not claimed
 
