@@ -1,0 +1,105 @@
+% sec-10-references-backmatter.tex - Back matter and references.  DRAFT stage.
+% Follows the pattern of
+% funding/capitalization-plan/final-capital/publication/sections/
+% sec-11-references-backmatter.tex: abbreviations, data and code availability,
+% author contributions and conflicts, citation, then the two-column reference
+% list.
+%
+% ONE DELIBERATE DEPARTURE FROM THE PARENT.  The parent numbers its
+% abbreviations block as a table.  This paper's table budget is exactly
+% twenty-five, all twenty-five carry an argument, and all twenty-five are
+% indexed in Table 3.  The abbreviations block is a reference aid rather than an
+% argument, so it is set at the body measure in the same idiom as every other
+% table but is left unnumbered, and the count of numbered tables stays at
+% twenty-five.
+%
+% BIBLIOGRAPHY STYLE.  unsrturl, not unsrt.  unsrt drops the doi and url fields
+% that references.bib carries on every entry, which is why a reference list
+% built with it prints neither a DOI string nor a clickable target.  unsrturl is
+% unsrt entry for entry with those two fields restored, and trialstyle.sty marks
+% the printed DOIs and URLs in the accent color.  \UrlBreaks is re-asserted
+% after url and hyperref so no reference line runs past the right margin.
+\section*{Back Matter}
+\phantomsection\addcontentsline{toc}{section}{Back Matter}
+
+\bmhead{Abbreviations}
+
+Every abbreviation this paper uses is expanded below, in two column pairs at the
+body measure. Trial-specific terms follow the definitions in the published Phase
+1 protocol rather than being redefined here.
+
+\begin{apptable}
+\begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}p{1.5cm} >{\raggedright\arraybackslash}X >{\raggedright\arraybackslash}p{1.5cm} >{\raggedright\arraybackslash}X}
+\headrow \thead{Short} & \thead{Expansion} & \thead{Short} & \thead{Expansion}\\
+\midrule
+AE & Adverse event & IRB & Institutional review board \\
+BICR & Blinded independent central review & ISGPS & \scriptsize{International Study Group of Pancreatic Surgery} \\
+CCDI & Childhood Cancer Data Initiative & LLM & Large language model \\
+CFR & Code of Federal Regulations & MPR & Major pathologic response \\
+CMC & Chemistry, manufacturing and control & OS & Overall survival \\
+CRO & Contract research organization & PDAC & Pancreatic ductal adenocarcinoma \\
+ctDNA & Circulating tumor DNA & PFS & Progression-free survival \\
+DLT & Dose-limiting toxicity & QSP & Quantitative systems pharmacology \\
+DOI & Digital object identifier & RP2D & Recommended Phase 2 dose \\
+EO & Executive Order & SAE & Serious adverse event \\
+F and A & Facilities and administrative cost & SBIR & Small Business Innovation Research \\
+FDA & Food and Drug Administration & STTR & Small Business Technology Transfer \\
+FTE & Full-time equivalent & USL & Unified Safety Level \\
+HHS & Department of Health and Human Services & VVUQ & \scriptsize{Verification, validation and uncertainty quantification} \\
+ICH & \scriptsize{International Council for Harmonization} & 3+3 & Standard 3 plus 3 dose escalation \\
+IDE & Investigational device exemption & & \\
+IND & Investigational new drug & & \\
+\end{tabularx}
+\end{apptable}
+
+\draftinstr{Stage 7: check this list against the compiled paper and add any
+abbreviation that appears in the body and is missing here. Remove any that the
+final text does not use.}
+
+\bmhead{Data and Code Availability}
+
+{\sloppy Every work cited to a digital object identifier is openly deposited.
+The repository is at
+\url{https://github.com/kevinkawchak/physical-ai-oncology-trials},
+version v4.6.0 \cite{repo2026}.\par} The directory
+\appfile{new-trial-system} contains the eight-stage sub-prompt schedule, the
+twenty-five figure specifications across five machine-readable diagram
+platforms, the three build stages with an Overleaf bundle for each, the master
+prompt filed verbatim together with the full build output, and the TikZ source
+of every figure printed here. No raster image is used anywhere in this paper.
+
+\draftinstr{Stage 7: add the per-directory paths, and name the four
+\appfile{publication/} directories this paper read: trial-ind/final-ind,
+trial-protocol/final-protocol, trial-phase-2/final-protocol/author, and
+funding/capitalization-plan/final-capital.}
+
+\bmhead{Author Contributions and Conflicts}
+
+Kevin Kawchak is the sole author. He is the sole officer, sole director and sole
+owner of ChemicalQDevice, which is the sponsor described throughout the
+documents this paper reports on, and he holds no equity in Revolution Medicines
+or in any robotic surgery vendor. He is not, and under the plan reported in
+\S6 will not become, a clinical investigator on the trial. No sponsor, contract
+research organization, institutional review board, regulator, or medical society
+reviewed this paper or authorized any statement in it. Nothing reported here is
+an approved protocol, an active IND, or an enacted statute. Claude Code Opus 5
+adapted this work; ChatGPT Codex and Google Gemini served as independent
+reviewers of the work reported in \S7, and none of the three is an applicant,
+investigator, sponsor, regulator, clinician, or decision-maker.
+
+\bmhead{Citation}
+
+Kawchak K. Pancreatic Cancer LLM Clinical Trial System: From IND to Protocol to
+Legislation, Funding, and AI Peer Review. Zenodo. 2026;
+\dlink{10.5281/zenodo.xxxxxxxx}.
+
+\vspace{0.2em}
+\apprule{0.5pt}
+\vspace{-0.1em}
+
+\bmhead{References}
+\vspace{-0.35em}
+\begin{apprefs}
+\bibliographystyle{unsrturl}
+\bibliography{references}
+\end{apprefs}

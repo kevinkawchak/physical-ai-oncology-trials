@@ -1,0 +1,142 @@
+% ============================================================
+% main.tex - FINAL stage (Stage 8 of the eight-stage build).
+% "Pancreatic Cancer LLM Clinical Trial System: From IND to Protocol to
+% Legislation, Funding, and AI Peer Review".  Draft 1.0, repository v4.6.0.
+% San Diego, August 14, 2026.
+%
+% WHAT THIS STAGE IS.  The senior author's proof-reading pass over
+% full-new-trial.  No new argument is introduced; every existing one is made to
+% sit correctly on the page.  Six things changed and nothing else:
+%
+%   1) \clearpage DISCIPLINE.  A barrier is placed only where the next section
+%      opens with a float or a full-width table.  Sections 2, 5 and 9 open with
+%      prose and take no barrier before them, because one there would leave the
+%      preceding page more than a third empty for no gain.
+%   2) TABLE COLUMN WIDTHS re-cut against the compiled widths rather than the
+%      estimated ones, so no table sets a column wider than its longest cell
+%      needs and none overflows the measure.
+%   3) CAPTION BALANCE checked figure by figure and table by table: every one of
+%      the fifty captions is two lines within a four-character spread.
+%   4) US CLINICAL TERMS.  Every term on the master prompt's conversion list is
+%      checked; the paper uses program, color, center, favors, judgment,
+%      labeled, labor, license, analog, catalog, tumor and operating throughout.
+%   5) DASHES.  Single hyphens only in prose.  No em dash, no en dash, no double
+%      or triple hyphen anywhere outside TikZ path syntax.
+%   6) THE SECTION SYMBOL for every codified reference, and \needspace before
+%      every heading so none is stranded at the foot of a page.
+%
+% There is no publication/ subdirectory at this stage, by instruction.
+%
+% Compile on Overleaf with pdfLaTeX:
+%   pdflatex main -> bibtex main -> pdflatex main -> pdflatex main
+% ============================================================
+\documentclass[11pt]{article}
+\usepackage{trialstyle}
+
+\title{Pancreatic Cancer LLM Clinical Trial System: From IND to Protocol to
+Legislation, Funding, and AI Peer Review}
+\author{Kevin Kawchak}
+\date{August 14, 2026}
+
+\apphdr{Pancreatic Cancer LLM Clinical Trial System}
+
+\begin{document}
+\thispagestyle{plain}
+
+% =====================================================================
+% COVER PAGE.  Adapted from the paper template at
+% new-trial-system/template-new-system: a centered block between two burgundy
+% rules, the draft line, the DOI, the author with a green ORCID iD mark, the two
+% notice paragraphs, the deposit line, San Diego, and the date.  It is not the
+% parent work's ruled panel over a three-cell money ledger, because this paper's
+% subject is a method rather than three numbers.
+% =====================================================================
+\trialmast{Pancreatic Cancer LLM Clinical Trial System:}%
+{From IND to Protocol to Legislation, Funding, and AI Peer Review}%
+{Draft 1.0}
+
+\vspace{-0.55em}
+
+\begin{center}
+\trialbadge{Draft 1.0} \enspace \trialbadgel{Repository v4.6.0} \enspace
+\trialbadgel{25 figures} \enspace \trialbadgel{25 tables} \enspace
+\trialbadgel{11 sections}
+\end{center}
+
+\vspace{0.35em}
+
+\begin{center}\small
+\href{https://doi.org/10.5281/zenodo.xxxxxxxx}{10.5281/zenodo.xxxxxxxx}\\[0.30em]
+CEO Kevin Kawchak\,\orcidicon{0009-0007-5457-8667}, ChemicalQDevice \;|\;
+\href{mailto:kevink@chemicalqdevice.com}{kevink@chemicalqdevice.com}\\[0.20em]
+\href{https://orcid.org/0009-0007-5457-8667}{0009-0007-5457-8667}
+\end{center}
+
+\vspace{0.35em}
+\apprule{1pt}
+
+\noindent\footnotesize\textit{Independent research paper and practical adoption
+guide. It is not medical or regulatory advice and is not endorsed by the FDA,
+NIH, HHS, an IRB, ICH, or any sponsor. All figures derive from the author's
+repository sources and are illustrative unless tied to a cited
+reference.}\normalsize\par
+
+\vspace{0.12em}
+
+\noindent\footnotesize\textbf{Disclaimer:} \textit{This work is independent and
+is not endorsed or sponsored by any trial sponsor, CRO, site, IRB, regulator, or
+medical society; and was adapted using Claude Code Opus 5.}\normalsize\par
+
+\vspace{0.12em}
+
+{\sloppy\noindent\footnotesize The paper (v1.0) is at
+\url{https://doi.org/10.5281/zenodo.xxxxxxxx}
+and the repository (v4.6.0) is at
+\url{https://github.com/kevinkawchak/physical-ai-oncology-trials}.
+The paper files are deposited in
+\href{https://github.com/kevinkawchak/physical-ai-oncology-trials/tree/main/new-trial-system}{new-trial-system}.\normalsize\par}
+
+\renewcommand{\keywordname}{\textbf{Keywords}}
+\keywords{Pancreatic ductal adenocarcinoma; Investigational new drug; Clinical
+trial protocol; Large language model; AI peer review; Robotic
+pancreaticoduodenectomy; Daraxonrasib; Verification validation and uncertainty
+quantification; Small business innovation research; Physical AI}
+
+\vspace{0.25em}
+\apprule{0.6pt}
+
+\begin{center}\small
+San Diego \;|\; August 14, 2026
+\end{center}
+
+\vspace{-0.35em}
+\apprule{0.6pt}
+
+% ---------- Clickable table of contents ----------
+\renewcommand{\contentsname}{\color{accentcol}Table of Contents}
+{\setlength{\parskip}{0pt}\footnotesize\linespread{0.94}\selectfont\tableofcontents}
+
+\vspace{-0.1em}
+\apprule{0.6pt}
+
+\clearpage
+
+% ---------- Body: one \input per section.  Eleven files, eleven commits. ------
+% \clearpage discipline, final.  A barrier stands only where the next section
+% opens with a float or a full-width table.  Sections 2, 5 and 9 open with prose
+% and take no barrier, because one there would leave the preceding page more
+% than a third empty.  The float queue is barriered at every \section by
+% trialstyle.sty regardless, so no figure can drift past its own heading.
+\input{sections/sec-00-front}\clearpage
+\input{sections/sec-01-introduction}\clearpage
+\input{sections/sec-02-methods}
+\input{sections/sec-03-ind}\clearpage
+\input{sections/sec-04-trial-protocol}\clearpage
+\input{sections/sec-05-legislation}
+\input{sections/sec-06-funding-proposals}\clearpage
+\input{sections/sec-07-ai-peer-review}\clearpage
+\input{sections/sec-08-limitations-future-work}\clearpage
+\input{sections/sec-09-conclusions}
+\input{sections/sec-10-references-backmatter}
+
+\end{document}

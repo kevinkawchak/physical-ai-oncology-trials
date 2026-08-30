@@ -1,0 +1,87 @@
+FROM: kevink@chemicalqdevice.com
+
+TO: info@fnih.org
+CC: partnerships@fnih.org
+
+SUBJECT: Partnership concept follow-up - the pre-competitive perioperative RAS consortium, with the shared evidence layer now documented
+
+=== BODY ===
+Dear Foundation for the National Institutes of Health,
+
+This follows my earlier partnership concept for a pre-competitive perioperative
+RAS consortium in resectable KRAS-mutated pancreatic cancer. The consortium
+structure is unchanged. What I am adding is the part a pre-competitive
+partnership actually depends on: a documented, reusable evidence layer that no
+single member has to build twice.
+
+The attached paper describes that layer. One author produced an Investigational
+New Drug application in four days, a Phase 1 first-in-human protocol at n = 18
+behind a Phase 0 gate of at least 1000 simulations across two frameworks, and a
+Phase 2 randomized protocol at n = 220 across eight centers targeting a hazard
+ratio of 0.60. Every figure in the paper is a machine-readable specification
+rather than an image, which is the property that makes an artifact shareable
+across a consortium: a member who wants to change a figure edits its coordinates,
+and the next document reads the specification rather than redrawing the picture.
+Twenty-five specifications total about 158 KB.
+
+The pre-competitive case is strongest at the review layer, which is Section 7.
+Under the prior arrangement each member's manuscript enters a separate seven to
+eight week human round after completion. Under the arrangement described here,
+three model manufacturers read one frozen artifact and its recorded hash
+concurrently, before deposit, with a human principal investigator holding final
+authority; corrections land in the artifact rather than in an erratum, and the
+review findings are deposited beside the work rather than withheld from it. For a
+consortium whose value is shared evidence, review that is public and pre-release
+is worth more than review that is private and post-release.
+
+The clinical stakes are the reason the timing is worth arguing about at all. US
+pancreatic cancer deaths ran about 51,980 in 2025, about 142 a day, so a
+best-case review round spans roughly 7,400 of them. The paper is careful to say
+that review does not cause those deaths; the point is that latency is a quantity
+a consortium can choose to reduce.
+
+I remain an unaffiliated independent scientist intending to partner at UC San
+Diego Moores Cancer Center at the feasibility stage only; UC San Diego is not a
+sponsor, site, or endorser of this work.
+
+Sincerely,
+CEO Kevin Kawchak
+ChemicalQDevice
+August 14, 2026
+=== END BODY ===
+
+ATTACHMENTS TO INCLUDE, IN THIS ORDER
+1. Pancreatic Cancer LLM Clinical Trial System: From IND to Protocol to
+   Legislation, Funding, and AI Peer Review. Draft 1.0, San Diego,
+   August 14, 2026. Fifty-three pages, 25 figures, 25 tables.
+   Compile from new-trial-system/final-new-trial/update-final:
+   pdflatex main -> bibtex main -> pdflatex main -> pdflatex main
+   DOI to be asserted on deposit; state "DOI pending" until Zenodo issues it.
+2. app-06-fnih-amp.pdf, the original partnership concept, unchanged.
+3. A Phase 2, Daraxonrasib and LLM Guided Robotic PDAC Whipple Procedure,
+   Clinical Trial Protocol.
+   https://doi.org/10.5281/zenodo.20807027
+4. On-Premises LLM-Directed Robotic Pancreaticoduodenectomy with Perioperative
+   Daraxonrasib (RMC-6236) in KRAS-Mutated Pancreatic Ductal Adenocarcinoma.
+   https://doi.org/10.5281/zenodo.20780121
+5. AI Peer Review Acceleration of LLM-Generated Glioblastoma Clinical Trial
+   Patient Matching ML, FDA/ICH/ISO, and FastAPI.
+   https://doi.org/10.5281/zenodo.17752127
+
+EXTERNAL WORK TO CITE BUT NOT ATTACH
+- O'Reilly EM et al. Daraxonrasib or Chemotherapy in Previously Treated
+  Metastatic Pancreatic Cancer. N Engl J Med. 2026.
+  https://doi.org/10.1056/NEJMoa2605555
+- Siegel RL et al. Cancer Statistics, 2025. CA Cancer J Clin. 2025;75(1):10-45.
+  https://doi.org/10.3322/caac.21871
+
+BEFORE SENDING
+- Confirm both FNIH addresses against the current contact page, and confirm
+  whether partnership concepts are received by email or through a form.
+- Name no company as a consortium member. The concept is pre-competitive and no
+  sponsor has agreed to anything.
+- Do not describe daraxonrasib as first-in-human anywhere.
+- Replace "DOI pending" with the issued DOI if Zenodo has minted one.
+- Confirm the compiled paper is fifty-three pages and that every DOI opens.
+- Confirm no sentence describes UC San Diego as a partner, sponsor, site, or
+  endorser.

@@ -1,0 +1,69 @@
+% sec-08-limitations-future-work.tex - Section 8.  DRAFT stage.
+% One page maximum.  One figure slot, Figure 25, and one table, Table 25.
+\section{Limitations and Future Work}
+\label{sec:limitations}
+
+\subsection{Limitations}
+
+Two limitations are structural rather than incidental. The first is that a
+single model family, Claude Code Opus 5, wrote every line of source in this
+paper and in the eight-stage build that produced it. A defect in that model's
+idiom appears in every artifact at once, and no amount of internal consistency
+checking inside one family detects a shared blind spot. The mitigation is the
+two independent reviewer manufacturers of \S7, and the residual is the case
+where all three agree and all three are wrong.
+
+\draftinstr{Stage 7: expand the single-vendor limitation using the recorded
+limitations of \appfile{new-trial-system/inputs/AI\_Peer\_Review\_Acceleration\_
+of\_LLM\_Generated\_Glioblastoma\_Clinical\_Trial\_Patient\_Matching\_ML\_\_FDA\_
+ICH\_ISO\_\_and\_FastAPI.zip}, section Limitations and Future Work: the upper
+limit encountered when working with over 1500 lines of code, the truncation seen
+when additional documents were attached, and the finding that the most useful
+responses came when the problem was defined most directly with the fewest file
+attachments.}
+
+The second is text watermarking. Generated text may carry a provenance
+watermark, detection policy is not settled, and journals differ on what
+disclosure they require. This paper's answer is not to argue about detection: it
+is to disclose the model on the cover page, to make the commit history rather
+than a claim of authorship the primary record, and to deposit to a repository
+and a preprint rather than through a journal gate.
+
+\figslot{diagrams (python)-type / clustered infrastructure}{9.2}{Figure 25. Two structural exposures, single-vendor production and text\\
+watermarking, each with the mitigation that reduces it and its residual.}
+
+Figure 25 pairs each exposure with its mitigation and terminates in a single
+residual. After all six mitigations, exactly one consequence remains, and it is
+a funding decision risk rather than a scientific or a safety one. Table 25
+states the same register in citable text.
+
+\begin{apptable}
+\begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}p{4.5cm} >{\raggedright\arraybackslash}p{4.6cm} >{\raggedright\arraybackslash}X}
+\headrow \thead{Exposure} & \thead{Mitigation} & \thead{Residual after mitigation}\\
+\midrule
+One model family writes all source & Two independent reviewer manufacturers at defined milestones & A defect all three share would survive \\
+One context window bounds each stage & Machine-readable, portable specifications & Re-execution costs a stage, not a project \\
+Vendor availability is a project risk & Every artifact deposited under a DOI as produced & Deposited work is unaffected \\
+Generated text may carry a watermark & Provenance disclosed on every cover page & Disclosure does not remove the watermark \\
+Detection policy is not settled & Commit history is the primary record & Policy may change after deposit \\
+Journals differ on disclosure & Deposit to preprint and repository & A funder requiring journal review is not reached \\
+\end{tabularx}
+\end{apptable}
+\vspace{-0.6cm}
+\tabcap{Table 25. Six exposures, the mitigation applied to each, and the\\
+residual that survives it, ending in one funding decision risk.}
+
+\subsection{Future work}
+
+Future work is one thing: securing funding for the PDAC hybrid clinical trial
+described in \S3 and \S4. The documents exist. The IND is written, both
+protocols are written, the statutory framework is drafted, and the applications
+are filed. What is absent is money and the institutional instruments that money
+buys, and no further document production changes that.
+
+\draftinstr{Stage 7: name the specific next steps from
+\appfile{funding/capitalization-plan/final-capital/publication}, the twelve
+milestone schedule: the five Phase I milestones summing to \$306,000 and the
+seven Phase II milestones summing to \$1,300,000, and the instruments the
+company cannot obtain alone. Do not add any future work that is not funding.
+One page maximum for the whole section.}

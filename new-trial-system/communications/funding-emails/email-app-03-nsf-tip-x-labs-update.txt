@@ -1,0 +1,80 @@
+FROM: kevink@chemicalqdevice.com
+
+TO: tip@nsf.gov
+CC: info@nsf.gov
+
+SUBJECT: X-Labs concept follow-up - the operating method for an independent research organization in physical AI surgical oncology, now documented end to end
+
+=== BODY ===
+Dear NSF Technology, Innovation and Partnerships Directorate,
+
+This follows my earlier X-Labs concept outline for an independent research
+organization in physical AI surgical oncology built around a Phase 1 pancreatic
+cancer trial. The concept is unchanged. What is new is that the organization's
+operating method is now disclosed as a paper rather than described as an
+intention, which is the thing an X-Labs reviewer has to be able to evaluate
+before an organization exists to evaluate.
+
+The attached paper is that disclosure. It reports one author, directing a single
+master prompt, producing an Investigational New Drug application in four days,
+two clinical trial protocols, five versions of a Federal bill with four companion
+documents in eleven days, and fourteen funding artifacts on a one to four day
+project time scale. It carries twenty-five figures and twenty-five tables across
+fifty-three pages and was finished inside three days. The method is written to be
+copied: the master prompt is filed verbatim, the eight-stage schedule is filed,
+every figure is a machine-readable specification with an absolute-coordinate
+construction table, and the commit history is the production record.
+
+Two things in it bear directly on the X-Labs question of whether a small
+organization can carry work at national scale. The first is Section 5, which
+takes five versions of H. R. 9510, the Verification Before Generation in Physical
+AI Oncology Trials Act, from findings through a financial data amendment, and
+draws the six actors and eleven duties the statute creates. The second is
+Section 7, which is why the volume is trustworthy: three model manufacturers
+review one frozen artifact concurrently before deposit, with a human principal
+investigator holding final authority. A best-case human round is seven to eight
+weeks; three model reports arrive the same day, and the corrections land in the
+artifact rather than in an erratum.
+
+The organizational ask is unchanged. I remain an unaffiliated independent
+scientist intending to partner at UC San Diego Moores Cancer Center at the
+feasibility stage only; UC San Diego is not a sponsor, site, or endorser of this
+work.
+
+Sincerely,
+CEO Kevin Kawchak
+ChemicalQDevice
+August 14, 2026
+=== END BODY ===
+
+ATTACHMENTS TO INCLUDE, IN THIS ORDER
+1. Pancreatic Cancer LLM Clinical Trial System: From IND to Protocol to
+   Legislation, Funding, and AI Peer Review. Draft 1.0, San Diego,
+   August 14, 2026. Fifty-three pages, 25 figures, 25 tables.
+   Compile from new-trial-system/final-new-trial/update-final:
+   pdflatex main -> bibtex main -> pdflatex main -> pdflatex main
+   DOI to be asserted on deposit; state "DOI pending" until Zenodo issues it.
+2. app-03-nsf-tip-x-labs.pdf, the original concept outline, unchanged.
+3. National Platform for Physical AI Oncology Trials.
+   https://doi.org/10.5281/zenodo.19244918
+4. H. R. 9510 (Bill v5.0) 2026, Verification Before Generation in Physical AI
+   Oncology Trials Act.
+   https://doi.org/10.5281/zenodo.20619762
+5. Earning the Clinician's Trust: New Framework for Verified Physical AI
+   Oncology Trials.
+   https://doi.org/10.5281/zenodo.20710602
+
+EXTERNAL WORK TO CITE BUT NOT ATTACH
+- Winning the Race: America's AI Action Plan. The White House, July 23, 2025.
+- Executive Order 14363, Launching the Genesis Mission, November 24, 2025.
+
+BEFORE SENDING
+- Confirm both NSF addresses against the current TIP contact page and check
+  whether a Dear Colleague Letter or an open X-Labs call requires a portal
+  submission instead of email.
+- Present the bill as an author-drafted legislative proposal. It is not
+  introduced legislation and must never be described as pending before Congress.
+- Replace "DOI pending" with the issued DOI if Zenodo has minted one.
+- Confirm the compiled paper is fifty-three pages and that every DOI opens.
+- Confirm no sentence describes UC San Diego as a partner, sponsor, site, or
+  endorser.

@@ -1,0 +1,84 @@
+FROM: kevink@chemicalqdevice.com
+
+TO: sc.genesis@science.doe.gov
+CC: sc.asc@science.doe.gov
+
+SUBJECT: Genesis Mission white paper follow-up - a documented physical AI production method for the operating room robotics testbed, Phase 1 PDAC
+
+=== BODY ===
+Dear Genesis Mission Office,
+
+This follows my earlier white paper proposing a robotics mission testbed for
+physical AI in a human operating room, built around a Phase 1 pancreatic cancer
+trial. The testbed proposal is unchanged. This note adds the production method
+behind it, which is now deposited as a paper rather than described in a
+paragraph.
+
+Executive Order 14363 directs an integrated AI platform bringing together
+Federal computing, data and research resources, and the Secretary of Energy to
+identify twenty national science and technology challenges. Verified physical AI
+in a human operating room is a candidate challenge with an unusual property: the
+verification question is upstream of the compute question. The attached paper is
+the evidence that one author can produce the regulatory, protocol, legislative
+and funding layers of such a challenge on a one to four day project time scale,
+which means a national testbed's document layer is not the constraint.
+
+The specifics are in the paper. An Investigational New Drug application assembled
+in four days across twelve modules under 21 CFR 312. A Phase 1 first-in-human
+study at n = 18 using a 3+3 escalation behind a Phase 0 gate of at least 1000
+simulations across two frameworks, and a Phase 2 randomized study at n = 220
+across eight centers targeting a hazard ratio of 0.60. Five bill versions with
+four companion documents in eleven days. A virtual trial projected at $36,330
+against an industry benchmark above $120,000 per run. Twenty-five figures and
+twenty-five tables across fifty-three pages, all of it finished inside three
+days, with every figure specified in machine-readable form rather than drawn as
+an image.
+
+For a Genesis reviewer the relevant section is 7, because it explains the
+verification of the output rather than the output itself. Three model
+manufacturers review one frozen artifact and its recorded hash concurrently, with
+a human principal investigator holding final authority; two of five disagreement
+dispositions stop the artifact rather than passing it. Nothing in it is a
+substitute for regulatory review, and the paper states that limit explicitly.
+
+I remain a single independent performer intending to partner at UC San Diego
+Moores Cancer Center at the feasibility stage only; UC San Diego is not a
+sponsor, site, or endorser of this work.
+
+Sincerely,
+CEO Kevin Kawchak
+ChemicalQDevice
+August 14, 2026
+=== END BODY ===
+
+ATTACHMENTS TO INCLUDE, IN THIS ORDER
+1. Pancreatic Cancer LLM Clinical Trial System: From IND to Protocol to
+   Legislation, Funding, and AI Peer Review. Draft 1.0, San Diego,
+   August 14, 2026. Fifty-three pages, 25 figures, 25 tables.
+   Compile from new-trial-system/final-new-trial/update-final:
+   pdflatex main -> bibtex main -> pdflatex main -> pdflatex main
+   DOI to be asserted on deposit; state "DOI pending" until Zenodo issues it.
+2. app-04-doe-genesis-mission.pdf, the original white paper, unchanged.
+3. QSP Metastatic Pancreatic Cancer AI Clinical Trial Simulation: From Protocol
+   to Digital Twin.
+   https://doi.org/10.5281/zenodo.17001137
+4. National Platform for Physical AI Oncology Trials.
+   https://doi.org/10.5281/zenodo.19244918
+5. Verification Before Generation Act of 2026.
+   https://doi.org/10.5281/zenodo.20485580
+
+EXTERNAL WORK TO CITE BUT NOT ATTACH
+- Executive Order 14363, Launching the Genesis Mission, November 24, 2025.
+- ASME V&V 40 and ICH M15, the two standards the credibility score is scored
+  against.
+
+BEFORE SENDING
+- Confirm both DOE Office of Science addresses against the current Genesis
+  Mission contact page.
+- Keep the $36,330 figure described as projected rather than estimated.
+- Do not describe the operating room work as a DOE facility activity; it is a
+  clinical study conducted at a cancer center under FDA oversight.
+- Replace "DOI pending" with the issued DOI if Zenodo has minted one.
+- Confirm the compiled paper is fifty-three pages and that every DOI opens.
+- Confirm no sentence describes UC San Diego as a partner, sponsor, site, or
+  endorser.
