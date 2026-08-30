@@ -26,7 +26,7 @@
 
 This repository provides production-ready configurations, validated pipelines, and integration guides for deploying robotic systems, digital twins, and embodied AI agents in oncology. 
 
-**8/14: v4.6.0 (Pancreatic Cancer LLM Clinical Trial System)** *v4.6.0 adds new-trial-system/: the paper Pancreatic Cancer LLM Clinical Trial System: From IND to Protocol to Legislation, Funding, and AI Peer Review.* [![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.xxxxxxxx-blue)](https://doi.org/10.5281/zenodo.xxxxxxxx)
+**8/14: v4.6.0 (Pancreatic Cancer LLM Clinical Trial System)** *v4.6.0 adds new-trial-system/: the paper Pancreatic Cancer LLM Clinical Trial System: From IND to Protocol to Legislation, Funding, and AI Peer Review.* 
 
 **8/11: v4.5.0 (ChemicalQDevice Capitalization Plan)** *v4.5.0 adds funding/capitalization-plan/: the company-conversion paper From Independent Scientist to Novel Performer, an SBIR operating, milestone and capitalization plan.* [![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.21887807-blue)](https://doi.org/10.5281/zenodo.21887807)
 
