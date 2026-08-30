@@ -7,7 +7,6 @@
 [![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.18445179-blue)](https://doi.org/10.5281/zenodo.18445179)
 [![Python](https://img.shields.io/badge/Python-3.10%20|%203.11%20|%203.12-blue.svg)](https://www.python.org/)
 [![Contributors](https://img.shields.io/badge/Contributors-4-blue.svg)](releases.md)
-[![Trial Protocol](https://img.shields.io/badge/Trial%20Protocol-Phase%201%20IND%2FIDE-00417A.svg)](trial-protocol)
 [![Intervention](https://img.shields.io/badge/Intervention-Robotic%20Whipple%20%2B%20Daraxonrasib-00417A.svg)](trial-protocol)
 [![NIH Template](https://img.shields.io/badge/Template-NIH--FDA%20IND%2FIDE-6C757D.svg)](trial-protocol/nih-protocol)
 [![Protocol DOI](https://img.shields.io/badge/Protocol%20DOI%20v1.0.0-10.5281%2Fzenodo.20780121-blue.svg)](https://doi.org/10.5281/zenodo.20780121)
@@ -15,18 +14,12 @@
 [![Phase 2 Protocol](https://img.shields.io/badge/Trial%20Protocol-Phase%202%20Randomized%20Controlled-00417A.svg)](trial-phase-2)
 [![Phase 2 Design](https://img.shields.io/badge/Design-Multicenter%208%20centers%201%3A1-blue.svg)](trial-phase-2)
 [![Phase 2 Primary](https://img.shields.io/badge/Primary-PFS%20HR-00417A.svg)](trial-phase-2/final-protocol/publication)
-[![Protocol DOI v1.1.0](https://img.shields.io/badge/Protocol%20DOI%20v1.1.0-10.5281%2Fzenodo.20807027-blue.svg)](https://doi.org/10.5281/zenodo.20807027)
 [![Document Generation](https://img.shields.io/badge/Method-Single%20prompt%20mermaid%E2%86%92draft%E2%86%92full%E2%86%92final-2F5D7C.svg)](trial-documents)
-[![Paper DOI v1.0](https://img.shields.io/badge/Paper%20DOI%20v1.0-10.5281%2Fzenodo.21018646-blue.svg)](https://doi.org/10.5281/zenodo.21018646)
 [![IND](https://img.shields.io/badge/IND-Phase%201%20PDAC%20AI%20Generation-blue.svg)](trial-ind)
 [![Funding Applications](https://img.shields.io/badge/Funding-10%20Independent%20Scientist%20Applications-00417A.svg)](funding/pdac-funding-applications)
 [![Policy Basis](https://img.shields.io/badge/Policy-Science%3A%20A%20New%20Golden%20Age-3C7DB2.svg)](funding/science-golden-age)
 [![Summary Paper DOI](https://img.shields.io/badge/Paper%20DOI%20v1.0-10.5281%2Fzenodo.21787424-blue.svg)](https://doi.org/10.5281/zenodo.21787424)
-[![Capitalization Plan](https://img.shields.io/badge/Capitalization-ChemicalQDevice%20SBIR%20Plan-00417A.svg)](funding/capitalization-plan)
-[![New Trial System](https://img.shields.io/badge/New%20Trial%20System-IND%20to%20Protocol%20to%20Legislation%20to%20Funding-800020.svg)](new-trial-system)
-[![System Figures](https://img.shields.io/badge/Figures-25-800020.svg)](new-trial-system)
-[![System Tables](https://img.shields.io/badge/Tables-25-A32A3C.svg)](new-trial-system)
-[![AI Peer Review](https://img.shields.io/badge/AI%20Peer%20Review-3%20manufacturers%2C%20during%20development-A32A3C.svg)](new-trial-system/final-new-trial)
+
 
 
 **Comprehensive developments for integrating physical AI into oncology clinical trials, by Claude Code, Cowork; with Assistance from ChatGPT and Google Gemini.**
