@@ -1,4 +1,4 @@
-# new-trial-system - Pancreatic Cancer LLM Clinical Trial System (v4.6.0). Note: Currently in Draft mode.
+# new-trial-system - Pancreatic Cancer LLM Clinical Trial System (v4.6.0). Note: Publication is currently in Draft mode.
 
 [![Paper](https://img.shields.io/badge/Paper-Draft%201.0-800020.svg)](https://github.com/kevinkawchak/physical-ai-oncology-trials/tree/main/new-trial-system)
 [![Repository](https://img.shields.io/badge/Repository-v4.6.0-A32A3C.svg)](https://github.com/kevinkawchak/physical-ai-oncology-trials)
