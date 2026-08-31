@@ -26,7 +26,7 @@
 
 This repository provides production-ready configurations, validated pipelines, and integration guides for deploying robotic systems, digital twins, and embodied AI agents in oncology. 
 
-**8/30: FDA Approves Pancreatic Cancer Drug Rasonque (Daraxonrasib) by Revolution Medicines on August 26, 2026** *Daraxonsrasib is ChemicalQDevice’s number one LLM-focused cancer drug researched since identified by Google Gemini as being the most likely to aid startup funding in June 2025.*
+**8/30: FDA Approves Pancreatic Cancer Drug Rasonque (Daraxonrasib) by Revolution Medicines on August 26, 2026** *Daraxonsrasib is ChemicalQDevice’s number one LLM-focused cancer drug researched since identified by Google Gemini as being the most likely to aid startup funding in June 2025. [FDA Approval](https://www.fda.gov/news-events/press-announcements/fda-approves-first-class-targeted-therapy-metastatic-pancreatic-cancer)*
 
 **8/14: v4.6.0 (PDAC LLM Clinical Trial System)** *v4.6.0 adds new-trial-system/: the paper Pancreatic Cancer LLM Clinical Trial System: From IND to Protocol to Legislation, Funding, and AI Peer Review.* 
 
