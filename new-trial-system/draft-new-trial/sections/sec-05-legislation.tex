@@ -1,0 +1,136 @@
+% sec-05-legislation.tex - Section 5, Legislation.  A main section.  DRAFT
+% stage.  Three figure slots, Figures 14, 15 and 16, and three tables, Tables
+% 14, 15 and 16.  Sources are the three archives under new-trial-system/inputs.
+%
+% SUBSECTION ORDER.  Duties first, drafting history second, downward effect
+% third.  The order is set by float numbering as much as by argument: Figure 14
+% is the use case and Figure 15 the lineage, so the duty subsection must open
+% the section, and Table 14 accordingly carries the statutory sections while
+% Table 15 carries the version lineage.
+\section{Legislation}
+\label{sec:legislation}
+
+\subsection{Who owes what}
+
+Five versions of one bill and four companion documents were deposited between
+June 1 and June 17, 2026. The bill is H. R. 9510, the Verification Before
+Generation in Physical AI Oncology Trials Act of 2026, and by version 5.0 it is
+a financial data amendment to the Federal Food, Drug, and Cosmetic Act
+\cite{hr9510billv5}. Its operative requirement is a sequencing rule: an
+automated verification, validation, and uncertainty quantification process must
+clear robot-patient interaction code before that code is generated or executed.
+
+\draftinstr{Stage 7: quote directly from
+\appfile{new-trial-system/inputs/HR-9510-Bill-v5.zip}, sections/s2-findings.tex,
+subsection (a) In General and subsection (b) The Embodiment Problem and the
+Sequencing Gap, including the sentence contrasting a disembodied pipeline, where
+an error yields a wrong number a human can catch downstream, with an embodied
+surgical system, where the same error class yields a wrong motion a human cannot
+catch in time.}
+
+\figslot{plantuml-type / use case}{9.2}{Figure 14. Six actors and eleven statutory duties, with the two
+duties that\\no actor recognized by the prior trial system is positioned to
+discharge.}
+
+Figure 14 assigns each duty to the actor who owes it. Two of the eleven belong
+to a verification service, which is an actor the prior trial system does not
+define: there is no party today whose statutory function is to clear
+robot-patient interaction code before that code is generated, and none whose
+function is to certify the coverage of the suite that clears it. Table 14 lists
+the statutory sections behind those duties.
+
+\draftinstr{Stage 7: build Table 14 from
+\appfile{new-trial-system/inputs/VVUQ-Physical-AI-Oncology-Trial-Bill.zip},
+sections/statutory\_text.tex and sections/section\_by\_section.tex. Columns:
+Section, Duty created, Actor who owes it, Prior-law counterpart or none. Quote
+the definitions section for the term the bill introduces.}
+
+\begin{apptable}
+\begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}p{2.2cm} >{\raggedright\arraybackslash}p{5.0cm} >{\raggedright\arraybackslash}p{2.8cm} >{\raggedright\arraybackslash}X}
+\headrow \thead{Section} & \thead{Duty created} & \thead{Actor} & \thead{Prior-law counterpart}\\
+\midrule
+Sec. 2 & Findings, the evidence to law to cost record & Congress & None \\
+Sec. 3 & Amendment to the FD and C Act & Secretary & 21 U.S.C. as amended \\
+Sec. 4 & Comparative provisions & Secretary & Partial \\
+Sec. 5 & Financial data, cost ledger per verification run & Sponsor & None \\
+Appendix & Cost estimate and verification economics & Sponsor & None \\
+Appendix & Research matrix and transparency & Secretary & Partial \\
+\end{tabularx}
+\end{apptable}
+\vspace{-0.6cm}
+\tabcap{Table 14. The statutory sections, the duty each creates, the actor\\
+who owes it, and whether prior law contains anything comparable.}
+
+\subsection{How the text got there}
+
+\figslot{graphviz-type / cluster with records}{7.6}{Figure 15. Five bill versions across eleven days, the delta each
+added, and\\the four companion documents that supplied the material for those
+deltas.}
+
+Figure 15 traces the drafting history, and Table 15 states the same lineage as
+citable text. The eleven days between version 1.0 and version 5.0 are the
+quantitative point: in the prior system, five substantive revisions of one bill
+plus four companion documents is a legislative session's work, not a fortnight's.
+
+\draftinstr{Stage 7: build Table 15 from
+\appfile{new-trial-system/graphviz/fig-15-bill-lineage-clusters.md}, structure
+table. Columns: Version, Date, Delta over predecessor, Companion that supplied
+it. Five rows plus a totals row giving eleven days.}
+
+\begin{apptable}
+\begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}p{1.6cm} >{\raggedright\arraybackslash}p{2.2cm} >{\raggedright\arraybackslash}p{5.0cm} >{\raggedright\arraybackslash}X}
+\headrow \thead{Version} & \thead{Deposit} & \thead{Delta over its predecessor} & \thead{Companion that supplied it}\\
+\midrule
+v1.0 & Jun 1, 2026 & Standalone Verification Before Generation Act & VVUQ Physical AI Oncology Trial Bill \\
+v2.0 & Jun 4, 2026 & Recast as an FD and C Act amendment & Carried from v1.0 \\
+v3.0 & Jun 4, 2026 & Findings rendered as figures in statutory text & Carried from v2.0 \\
+v4.0 & Jun 7, 2026 & Machine-readable diagrams inside the bill & From H. R. 9510 to Federal Law \\
+v5.0 & Jun 10, 2026 & Financial data amendment, cost ledger per run & Earning the Clinician's Trust; Earning the Congress's Vote \\
+Total & Jun 1 to 10 & Five versions, four companions & Eleven days \\
+\end{tabularx}
+\end{apptable}
+\vspace{-0.6cm}
+\tabcap{Table 15. The five bill versions, the delta each added, and the companion\\document
+that supplied the material, across eleven days in June 2026.}
+
+\subsection{Where the requirement lands}
+
+\figslot{d2-type / layers}{8.8}{Figure 16. One requirement through four layers, from a statutory
+sentence to\\the operating-room instruction, with the artifact that carries it at
+each step.}
+
+Figure 16 follows one requirement downward. The statute names it, an adapted 21
+CFR Subpart J constrains it, the Phase 0 gate of \S4 executes it, and a
+pre-incision checklist states it in the words a site operator reads. The
+legislative work in this repository is not an abstraction: it terminates in a
+sentence somebody obeys on the day of surgery. Table 16 places every legislative
+artifact on the same nineteen-day window.
+
+\draftinstr{Stage 7: quote from
+\appfile{new-trial-system/inputs/Earning-the-Clinician's-Trust.zip},
+sections/q4-oversight.tex and sections/q6-reliability.tex, and connect the eight
+trust questions to the duties in Table 14. Then fill the elapsed column of
+Table 16 from the deposit dates in
+\appfile{new-trial-system/abstracts/README.md}.}
+
+\begin{apptable}
+\begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}p{5.6cm} >{\raggedright\arraybackslash}p{2.0cm} >{\raggedright\arraybackslash}p{2.0cm} >{\raggedright\arraybackslash}X}
+\headrow \thead{Legislative artifact} & \thead{Deposit} & \thead{Elapsed} & \thead{Prior-system counterpart}\\
+\midrule
+VVUQ Physical AI Oncology Trial Bill & May 30, 2026 & to be filled & A committee print cycle \\
+Verification Before Generation Act of 2026 & Jun 1, 2026 & to be filled & A first draft \\
+H. R. 9510 v3.0 & Jun 4, 2026 & to be filled & A markup revision \\
+H. R. 9510 v4.0 & Jun 7, 2026 & to be filled & A markup revision \\
+H. R. 9510 v5.0 & Jun 10, 2026 & to be filled & A reported bill \\
+From H. R. 9510 to Federal Law & Jun 14, 2026 & to be filled & A committee report \\
+Earning the Clinician's Trust & Jun 16, 2026 & to be filled & A stakeholder brief \\
+Earning the Congress's Vote & Jun 17, 2026 & to be filled & A floor memorandum \\
+\end{tabularx}
+\end{apptable}
+\vspace{-0.6cm}
+\tabcap{Table 16. Eight legislative artifacts in nineteen days, the gap between\\each
+deposit, and the prior system's name for the equivalent stage.}
+
+\draftinstr{Stage 8: this is a main section. Match the character count of
+sections 3, 4, 6 and 7, and verify that Figures 14, 15 and 16 and Tables 14, 15
+and 16 are each referenced once by name.}

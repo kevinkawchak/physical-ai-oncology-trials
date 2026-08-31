@@ -1,0 +1,88 @@
+FROM: kevink@chemicalqdevice.com
+
+TO: ncictepinfo@mail.nih.gov
+CC: ncinExT@mail.nih.gov
+
+SUBJECT: Concept submission follow-up - perioperative daraxonrasib in resectable KRAS-mutated PDAC, with the four-day IND assembly and the crosswalk now documented
+
+=== BODY ===
+Dear NCI Cancer Therapy Evaluation Program,
+
+This follows my earlier concept submission inquiry regarding perioperative
+daraxonrasib (RMC-6236) in resectable KRAS-mutated pancreatic ductal
+adenocarcinoma, submitted as an unaffiliated investigator. The clinical concept
+is unchanged. This note documents how the supporting dossier was assembled and
+how it can be checked, which is the practical question for a CTEP concept from
+an investigator without an institutional regulatory office behind him.
+
+The attached paper sets out the assembly. Twelve modules under 21 CFR 312 in four
+days, filed as a combined IND and Investigational Device Exemption because the
+device conducts the resection that generates the operative and pathology inputs
+to the drug advisory. The paper's Figure 8 is a crosswalk from each codified
+21 CFR 312.23 content item to the named section file that satisfies it and to the
+repository path where that file is deposited, so a reviewer can pick any content
+item and check it against the deposit rather than against a description. Total
+regulatory prose is 594,657 characters with 52 distinct 21 CFR cross-references,
+22 figures in a single document sequence and 84 section-scoped tables.
+
+The clinical framing is unchanged and stated conservatively. PDAC is the third
+leading cause of cancer death in the United States with five-year overall
+survival below 13 percent. The contemporary human baseline is the 2025 Dutch
+nationwide cohort of 1000 robotic pancreaticoduodenectomies: conversion 10.1
+percent, Clavien-Dindo grade III or higher 41.3 percent, ISGPS grade B or C
+fistula 24.4 percent, 30-day mortality 3.9 percent. The Phase 1 study is n = 18
+on a 3+3 escalation behind a Phase 0 gate of at least 1000 simulations across two
+frameworks; the Phase 2 study is n = 220 across eight centers at a target hazard
+ratio of 0.60.
+
+Section 7 states the review regime, and states its limits in the same breath.
+Model review is not regulatory review. Nothing in this system substitutes for an
+institutional review board, an FDA information request, or a data and safety
+monitoring board, and the paper says so explicitly.
+
+I remain an unaffiliated independent investigator intending to partner at UC San
+Diego Moores Cancer Center at the feasibility stage only; UC San Diego is not a
+sponsor, site, or endorser of this work.
+
+Sincerely,
+CEO Kevin Kawchak
+ChemicalQDevice
+August 14, 2026
+=== END BODY ===
+
+ATTACHMENTS TO INCLUDE, IN THIS ORDER
+1. Pancreatic Cancer LLM Clinical Trial System: From IND to Protocol to
+   Legislation, Funding, and AI Peer Review. Draft 1.0, San Diego,
+   August 14, 2026. Fifty-three pages, 25 figures, 25 tables.
+   Compile from new-trial-system/final-new-trial/update-final:
+   pdflatex main -> bibtex main -> pdflatex main -> pdflatex main
+   DOI to be asserted on deposit; state "DOI pending" until Zenodo issues it.
+2. Investigational New Drug Application - Daraxonrasib, Phase 1, LLM-Directed
+   Robotic Whipple in KRAS-Mutated PDAC.
+   https://doi.org/10.5281/zenodo.21097442
+3. app-08-nci-ctep.pdf, the original concept inquiry, unchanged.
+4. On-Premises LLM-Directed Robotic Pancreaticoduodenectomy with Perioperative
+   Daraxonrasib (RMC-6236) in KRAS-Mutated Pancreatic Ductal Adenocarcinoma.
+   https://doi.org/10.5281/zenodo.20780121
+5. A Phase 2, Daraxonrasib and LLM Guided Robotic PDAC Whipple Procedure,
+   Clinical Trial Protocol.
+   https://doi.org/10.5281/zenodo.20807027
+
+EXTERNAL WORK TO CITE BUT NOT ATTACH
+- O'Reilly EM et al. Daraxonrasib or Chemotherapy in Previously Treated
+  Metastatic Pancreatic Cancer. N Engl J Med. 2026.
+  https://doi.org/10.1056/NEJMoa2605555
+- Bassi C et al. The 2016 update of the ISGPS definition of postoperative
+  pancreatic fistula. Surgery. 2017.
+
+BEFORE SENDING
+- Confirm both CTEP addresses against the current NCI contact page, and confirm
+  whether an investigator-initiated concept must go through CTEP's own portal.
+- Do not describe daraxonrasib as first-in-human anywhere. It is investigational
+  and already in Phase 3 evaluation.
+- State the unaffiliated status and the absence of an IRB of record in the first
+  paragraph of any cover note.
+- Replace "DOI pending" with the issued DOI if Zenodo has minted one.
+- Confirm the compiled paper is fifty-three pages and that every DOI opens.
+- Confirm no sentence describes UC San Diego as a partner, sponsor, site, or
+  endorser.

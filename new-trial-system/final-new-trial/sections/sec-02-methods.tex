@@ -1,0 +1,265 @@
+% sec-02-methods.tex - Section 2, Methods.  FINAL stage.
+% Figures 3, 4 and 5 drawn; Tables 6 and 7 populated.  Senior-author pass: the
+% Projects column of Table 6 narrows to its widest cell, and two closing
+% subsections state the adoption cost and the provenance argument the rest of
+% the paper depends on.
+\section{Methods}
+\label{sec:methods}
+
+The method is one master prompt, decomposed by the model into sub-prompts that
+the model then executes in order, with every generated file committed and pushed
+before the next is written. Earlier 2026 papers in this repository reached a
+similar effect through a sequence of user prompts, one per stage: the
+regulatory adaptations of March 2026, the national platform paper, and the site
+documentation package were all built that way, and the author had to be present
+at each stage boundary to issue the next instruction \cite{natplatform2026}.
+Under the master prompt schedule the author is present once, at the start, and
+thereafter watches the branch. The schedule used here has eight stages: five
+that produce machine-readable figure specifications, one per diagram platform,
+and three that produce the paper itself at increasing quality, draft, full and
+final. Figure 3 draws that schedule as a single activity and marks where the
+concurrency actually is.
+
+Two properties of the schedule matter more than its length. The first is that
+the twenty-five figure slots are fixed before the fork, so five specification
+stages can run against one plan without any of them invalidating another; the
+second is that the unit of work is one file rather than one stage, so the branch
+carries a usable state after every write rather than after every stage. Figure 4
+draws one turn at that granularity. Table 6 counts how many separate deposited
+projects have used each element of the method, which is the basis on which it is
+offered as reliable rather than as novel.
+
+% ---------------------------------------------------------------------------
+% FIGURE 3.  plantuml-type, activity with fork and join.  Five concurrent
+% branches at a 3.30 cm pitch, then a strictly serial chain at 1.10 cm.
+% ---------------------------------------------------------------------------
+\begin{appfloat}[!tb]
+\begin{appfig}[plantuml-type / activity with fork and join]
+\node[umlinit] (i0) at (7.50,0) {};
+\node[umlbox,text width=44mm] (a1) at (7.50,-0.85) {Master prompt received,\\one turn, all directives};
+\node[umlbox,text width=52mm] (a2) at (7.50,-2.05) {Decompose into eight sub-prompts\\and fix the 25 figure slots};
+\node[umlbar,minimum width=13.6cm] (fk) at (7.50,-2.95) {};
+\node[umlctrl,text width=25mm] (s1) at (0.90,-4.25) {Stage 1 mermaid\\6 specifications};
+\node[umlctrl,text width=25mm] (s2) at (4.20,-4.25) {Stage 2 plantuml\\4 specifications};
+\node[umlctrl,text width=25mm] (s3) at (7.50,-4.25) {Stage 3 d2\\6 specifications};
+\node[umlctrl,text width=25mm] (s4) at (10.80,-4.25) {Stage 4 diagrams\\4 specifications};
+\node[umlctrl,text width=25mm] (s5) at (14.10,-4.25) {Stage 5 graphviz\\5 specifications};
+\node[umlbar,minimum width=13.6cm] (jn) at (7.50,-5.55) {};
+\node[mmdec,aspect=2.2,text width=24mm] (d1) at (7.50,-6.60) {All 25 slots specified?};
+\node[umlbox,text width=40mm] (p6) at (5.10,-7.85) {Stage 6 draft new trial\\instructions, slots, contents};
+\node[umlbox,text width=40mm] (p7) at (5.10,-8.95) {Stage 7 full new trial\\every figure drawn,\\every table populated};
+\node[umlkey,text width=40mm] (p8) at (5.10,-10.25) {Stage 8 final new trial\\senior author pass,\\no publication directory};
+\node[umlbox,text width=32mm] (rt) at (12.30,-7.85) {Return to the\\unfilled stage};
+\node[umlfinal] (df) at (12.30,-9.05) {};
+\draw[trialchar,line width=0.6pt] ([shift={(-0.13,-0.13)}]df.center) -- ([shift={(0.13,0.13)}]df.center);
+\node[umlbox,text width=40mm] (ru) at (5.10,-11.55) {Repository update,\\changelog, releases, version};
+\node[umlfinal] (fin) at (5.10,-12.45) {};
+\fill[trialburg] (fin.center) circle (1.1mm);
+% edges
+\draw[umlarrow] (i0) -- (a1);
+\draw[umlarrow] (a1) -- (a2);
+\draw[umlarrow] (a2) -- (fk);
+\foreach \n in {s1,s2,s3,s4,s5}{\draw[umlarrow] (\n |- fk.south) -- (\n.north);
+  \draw[umlarrow] (\n.south) -- (\n |- jn.north);}
+\draw[umlarrow] (jn) -- (d1);
+\draw[umlarrow] (d1.west) -- ++(-1.05,0) -- (5.10,-6.60) -- (p6.north)
+  node[umlguard,pos=0.55] {yes};
+\draw[umlarrow] (p6) -- (p7);
+\draw[umlarrow] (p7) -- (p8);
+\draw[umlarrow] (p8) -- (ru);
+\draw[umlarrow] (ru) -- (fin);
+\draw[umlarrow] (d1.east) -- (12.30,-6.60) -- (rt.north)
+  node[umlguard,pos=0.45] {no};
+\draw[umldash] (rt) -- (df);
+\pnote{-0.30}{-13.35}{The fork is honest: the five specification stages share only the 25-slot
+figure plan fixed before it, so none can\\invalidate another. The three paper
+stages are drawn serially because each reads the whole of its predecessor.}
+\end{appfig}
+\vspace{-0.6cm}
+\figcaption{Figure 3. The eight-stage build as one activity: five diagram stages
+fork and\\join on a shared specification, then three paper stages run strictly in
+order.}
+\end{appfloat}
+
+\begin{apptable}
+\begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}p{4.65cm} >{\raggedright\arraybackslash}p{1.45cm} >{\raggedright\arraybackslash}p{2.45cm} >{\raggedright\arraybackslash}X}
+\headrow \thead{Method element} & \thead{Projects} & \thead{First use} & \thead{Evidence}\\
+\midrule
+Master prompt, single turn & 3 & Jul 2026 & \appfile{funding/pdac-funding-applications/prompts} \\
+AI-generated sub-prompt schedule & 3 & Jul 2026 & \appfile{funding/capitalization-plan/sub-prompts} \\
+Five-platform specification set & 3 & Jul 2026 & Five directories per project \\
+Draft, full, final staging & 8 & Mar 2026 & Every paper directory since March 2026 \\
+One file, one commit, pushed live & 3 & Jul 2026 & The branch history of each build \\
+Machine-readable figure reuse & 3 & Jul 2026 & Specifications re-read, not re-derived \\
+AI peer review round & 5 & Nov 2025 & \S\ref{sec:peerreview}, Table 24 \\
+DOI deposit per artifact & 30 or more & 2024 & \appfile{new-trial-system/abstracts/README.md} \\
+\end{tabularx}
+\end{apptable}
+\vspace{-0.6cm}
+\tabcap{Table 6. How many separate deposited projects have used each element\\
+of the method, and where the evidence for each of those counts is held.}
+
+% ---------------------------------------------------------------------------
+% FIGURE 4.  mermaid-type, sequenceDiagram.  Four lifelines, twelve rows at a
+% 0.62 cm pitch, one loop frame over rows 5 to 7, two self-call arcs at a fixed
+% 0.85 cm loop width to the right of the Claude lifeline.
+% ---------------------------------------------------------------------------
+\begin{appfloat}[!tb]
+\begin{appfig}[mermaid-type / sequenceDiagram]
+\node[mmactor,text width=25mm] (au) at (0.9,0) {Author, one human};
+\node[mmactor,text width=25mm] (cc) at (5.2,0) {Claude Code Opus 5};
+\node[mmactor,text width=25mm] (rp) at (9.5,0) {Repository tree};
+\node[mmactor,text width=25mm] (gh) at (13.6,0) {GitHub branch};
+\foreach \x in {0.9,5.2,9.5,13.6}{\draw[mmlife] (\x,-0.55) -- (\x,-8.95);}
+\node[mmact,minimum height=8.30cm] at (0.9,-4.70) {};
+\node[mmact,minimum height=7.30cm] at (5.2,-4.60) {};
+% loop frame drawn first so rows sit above it
+\begin{scope}[on background layer]
+\node[mmlane,minimum width=13.9cm,minimum height=2.35cm] (lp) at (7.25,-4.85) {};
+\end{scope}
+\node[mmlanetitle,anchor=north west,font=\tiny\sffamily\bfseries] at ([shift={(1.5mm,-1.2mm)}]lp.north west) {loop [once per generated file]};
+\seqrow{-0.95}{0.9}{5.2}{mmmsg}{1 master prompt, one turn}
+\draw[mmmsg] (5.2,-1.55) to[out=20,in=-20,looseness=7] node[right=1mm,font=\tiny\sffamily] {2 decompose into eight sub-prompts} (5.2,-2.05);
+\seqrow{-2.65}{5.2}{9.5}{mmmsg}{3 read source archives}
+\seqrow{-3.27}{9.5}{5.2}{mmret}{4 extracted sources, nothing invented}
+\seqrow{-4.15}{5.2}{9.5}{mmmsg}{5 write one file}
+\seqrow{-4.85}{5.2}{13.6}{mmmsg}{6 commit and push immediately}
+\seqrow{-5.55}{13.6}{0.9}{mmret}{7 branch state visible in real time}
+\seqrow{-6.45}{0.9}{13.6}{mmedged}{8 optional interrupt, any point}
+\draw[mmmsg] (5.2,-7.05) to[out=20,in=-20,looseness=7] node[right=1mm,font=\tiny\sffamily] {9 defect pass over the whole stage} (5.2,-7.55);
+\seqrow{-8.05}{5.2}{13.6}{mmmsg}{10 correction commit}
+\seqrow{-8.55}{5.2}{13.6}{mmmsg}{11 repository update commit}
+\seqrow{-8.95}{13.6}{0.9}{mmret}{12 stage complete, bundle attached}
+% elapsed braces
+\draw[decorate,decoration={brace,amplitude=4pt},trialchar,line width=0.5pt]
+  (-0.75,-0.85) -- (-0.75,-3.35) node[midway,left=3pt,font=\tiny\sffamily,align=right] {read\\phase};
+\draw[decorate,decoration={brace,amplitude=4pt},trialchar,line width=0.5pt]
+  (-0.75,-3.75) -- (-0.75,-6.05) node[midway,left=3pt,font=\tiny\sffamily,align=right] {write\\loop};
+\pnote{-0.75}{-9.75}{The loop frame encloses exactly three rows, which is the claim: the unit of
+work is one file, not one stage. The\\author interrupt at row 8 is dashed and
+runs 0.60 cm below the frame, so it crosses no activation bar.}
+\end{appfig}
+\vspace{-0.6cm}
+\figcaption{Figure 4. One generation turn from master prompt to pushed commit,
+with the\\four participants, the two return paths, and the point the author can
+stop it.}
+\end{appfloat}
+
+The second half of the method is storage. Every figure in this paper exists
+first as a specification: a perspective statement, a two-line caption, valid
+source in the platform's own syntax, a construction table of absolute
+coordinates, an edge-routing paragraph, and a value table naming the repository
+file each number came from. That format costs about 6 to 9 kilobytes per figure
+and can be read back as the input to the next paper; a raster of the same figure
+costs 180 to 900 kilobytes and can be read back as nothing. Figure 5 puts the
+two records side by side, and Table 7 states what each stored field buys.
+
+% ---------------------------------------------------------------------------
+% FIGURE 5.  graphviz-type, dot record.  Two seven-field records at one 0.42 cm
+% field height, two outcome records, three edges, no crossings.
+% ---------------------------------------------------------------------------
+\begin{appfloat}[!tb]
+\begin{appfig}[graphviz-type / dot record]
+\def\fh{0.42}
+\node[gvcellh,minimum width=5.2cm,minimum height=0.50cm,anchor=north west] at (0,0) {Machine-readable specification};
+\foreach \i/\f in {1/{perspective statement},2/{caption, two lines, exact},
+  3/{source in a fenced block},4/{TikZ construction table},
+  5/{edge routing paragraph},6/{value table with sources},7/{repository source list}}{
+  \node[gvcells,minimum width=5.2cm,minimum height=\fh cm,anchor=north west]
+    at (0,{-0.50-\fh*(\i-1)}) {\f};}
+\node[gvcells,minimum width=5.2cm,minimum height=\fh cm,anchor=north west,font=\tiny\bfseries]
+  at (0,{-0.50-\fh*7}) {about 6 to 9 kilobytes};
+\node[gvcellh,minimum width=5.2cm,minimum height=0.50cm,anchor=north west] at (0,-4.35) {Raster image of the same figure};
+\foreach \i/\f in {1/{pixels},2/{no perspective},3/{no caption},4/{no coordinates},
+  5/{no routing},6/{no values},7/{no sources}}{
+  \node[gvcellg,minimum width=5.2cm,minimum height=\fh cm,anchor=north west]
+    at (0,{-4.85-\fh*(\i-1)}) {\f};}
+\node[gvcellg,minimum width=5.2cm,minimum height=\fh cm,anchor=north west,font=\tiny\bfseries]
+  at (0,{-4.85-\fh*7}) {about 180 to 900 kilobytes};
+\node[gvcellh,minimum width=5.0cm,minimum height=0.50cm,anchor=north west] at (8.05,-0.85) {Readable back as input};
+\foreach \i/\f in {1/{regenerate at another size},2/{re-color to a new palette},
+  3/{extend by one node},4/{diff against the prior version},
+  5/{cite the value's source},6/{audit the routing claim}}{
+  \node[gvcells,minimum width=5.0cm,minimum height=\fh cm,anchor=north west]
+    at (8.05,{-1.35-\fh*(\i-1)}) {\f};}
+\node[gvcellh,minimum width=5.0cm,minimum height=0.50cm,anchor=north west] at (8.05,-5.20) {Not readable back};
+\node[gvcellg,minimum width=5.0cm,minimum height=\fh cm,anchor=north west] at (8.05,-5.70) {re-drawn by hand};
+\node[gvcellg,minimum width=5.0cm,minimum height=\fh cm,anchor=north west] at (8.05,-6.12) {or re-generated from nothing};
+\draw[gvedgeb] (5.2,-1.90) -- node[above,font=\tiny,fill=trialwhite,inner sep=1pt] {six fields survive} (8.05,-2.15);
+\draw[gvedgeg] (5.2,-6.05) -- node[above,font=\tiny,fill=trialwhite,inner sep=1pt] {none survive} (8.05,-5.91);
+\draw[gvedged] (2.60,-3.90) -- node[right,font=\tiny] {rendered once, if ever} (2.60,-4.35);
+\node[gvboxm,text width=40mm,anchor=north west] at (8.05,-7.05)
+  {Twenty-five specifications: about 190 kilobytes in total};
+\pnote{0}{-8.55}{Both left-hand records carry exactly seven fields at one 0.42 cm field height,
+so the comparison is field for\\field and the only variable is what each field
+holds. No edge enters a record at a field center.}
+\end{appfig}
+\vspace{-0.6cm}
+\figcaption{Figure 5. Two records for one figure: the machine-readable
+specification\\and the raster image, with the six fields only the first returns as
+input.}
+\end{appfloat}
+
+\begin{apptable}
+\begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}p{3.25cm} >{\raggedright\arraybackslash}p{3.45cm} >{\raggedright\arraybackslash}p{2.95cm} >{\raggedright\arraybackslash}X}
+\headrow \thead{Property} & \thead{Specification} & \thead{Raster} & \thead{Consequence for the next paper}\\
+\midrule
+Size on disk & 6 to 9 kilobytes & 180 to 900 kilobytes & The whole figure set fits in one raster's space \\
+Caption & Two lines, exact & None & Captions are diffable across versions \\
+Coordinates & Absolute, stated & None & A node can be added without a re-layout \\
+Routing & Stated per edge & None & Overlap claims are auditable \\
+Values & Sourced per cell & None & No number in a figure is unattributable \\
+Reuse & Read back as input & Re-drawn by hand & The next paper starts from this one \\
+\end{tabularx}
+\end{apptable}
+\vspace{-0.6cm}
+\tabcap{Table 7. What a machine-readable figure specification stores that a\\raster
+does not, and what each stored field buys the next paper.}
+
+Two properties of this method are worth separating from its mechanics, because
+they are what make it repeatable by somebody else. The first is that nothing in
+the schedule requires the author to be a good writer at speed. The specification
+stages produce structured objects, not prose, and the paper stages read those
+objects; the quality of the figures is therefore a property of the
+specifications rather than of the drafting session that used them. The second is
+that the branch is the record. There is no separate build log, no note-taking
+file, and no reconstruction after the fact: the order in which the twenty-five
+specifications, the three stage bundles and the eleven section files appear on
+the branch is the order in which they were written, and it is checkable by
+anybody with the repository \cite{repo2026}.
+
+\subsection{What the method costs to adopt}
+
+The method is offered as adoptable, so its cost should be stated. It requires
+one person, a repository, a model subscription, and a LaTeX toolchain. It does
+not require a team, a project manager, a document management system, or a
+version control convention beyond one file per commit. The eight-stage schedule
+is a text file; the figure specifications are text files; the paper is a text
+file set. Nothing in the method is proprietary to the author, and the two
+directories that record it, \appfile{new-trial-system/prompts} and
+\appfile{new-trial-system/sub-prompts}, are written to be copied rather than
+admired.
+
+Three failure modes are worth naming for anybody adopting it. The first is
+fixing the figure plan too late: if the twenty-five slots are not settled before
+the specification stages fork, the stages contradict one another and the paper
+renumbers, which is the layout-instability defect the specifications are written
+against. The second is letting a stage hold work back for a batch commit, which
+destroys the property that makes the branch a record. The third is writing prose
+before the specifications exist, which produces figures that illustrate
+paragraphs rather than paragraphs that read figures; every figure in this paper
+was specified before the section that discusses it was written, and the
+difference is visible in how often the prose says what a figure shows rather
+than restating it.
+
+\subsection{Provenance as an output, not a byproduct}
+
+The word provenance is used deliberately throughout this paper. In the prior
+system, provenance is an acknowledgement paragraph: a claim about who did what,
+made after the fact, unverifiable in principle. In the new system it is the
+commit history, which is produced as a side effect of the production rule rather
+than written afterward, and which records the order, the timing and the content
+of every write. That distinction is what makes the timing claims of
+\S\ref{sec:ind} through \S\ref{sec:funding} checkable rather than assertable,
+and it is the property a funder should test first, because it is the cheapest to
+test and the one everything else depends on.

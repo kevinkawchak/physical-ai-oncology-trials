@@ -1,0 +1,80 @@
+PERSPECTIVE: Policy staff and science press
+USE: General purpose. A congressional health or science staffer, an agency policy
+office, a science reporter, a think tank analyst. Written to be quotable and to
+survive a fact check.
+LENGTH: Short. Reads in under three minutes.
+DATE: August 14, 2026
+ATTACHMENT: Pancreatic Cancer LLM Clinical Trial System: From IND to Protocol to
+Legislation, Funding, and AI Peer Review. Draft 1.0. Attach the compiled PDF.
+
+=== MESSAGE ===
+One author, one prompt, three days: what it means for Federal AI and cancer policy
+
+Between September 2025 and mid-2026 the Federal government committed to using
+artificial intelligence against cancer in an unusually direct way. Executive
+Order 14355 tasked an AI-driven approach to pediatric cancer. The Childhood
+Cancer Data Initiative budget doubled from $50 million to $100 million. The
+Genesis Mission launched with more than $1.2 billion obligated and planned across
+fiscal 2026 and 2027. The Department of Health and Human Services launched a
+department-wide clinical trials effort in June 2026, and the National Cancer
+Institute began working with cancer centers to streamline trial activation.
+
+Every one of those actions supplies capability: compute, data, agency review
+capacity, faster site activation. None of them supplies a method for producing
+the documents a sponsor must file. That gap is what the attached paper closes,
+and it closes it with a worked example rather than a proposal.
+
+The measured claims, each checkable against a deposited artifact:
+
+- An Investigational New Drug application, twelve modules under 21 CFR 312,
+  assembled in four days by one author.
+- Two clinical trial protocols: a Phase 1 first-in-human study at n = 18 behind
+  a simulation gate of at least 1,000 runs across two frameworks, and a Phase 2
+  randomized study at n = 220 across eight centers.
+- Five versions of a Federal bill with four companion documents, in eleven days.
+- Fourteen funding artifacts, including a $1,606,000 small-business ask against a
+  $3,500,000 five-year direct program.
+- A virtual trial projected at $36,330 against an industry benchmark above
+  $120,000 per run.
+- This paper, fifty-three pages with twenty-five figures and twenty-five tables,
+  finished in three days.
+
+The finding a policy reader should take away is about the review layer rather
+than the production layer. A best-case human peer review round is seven to eight
+weeks; a typical journal processing time is several months. One author deposited
+more than thirty works in 2026. A review regime sized for two to six works a
+year is not a constraint at thirty, it is an exclusion, and the work does not
+enter it. The paper's argument is that the two systems are incompatible rather
+than merely different, and that the incompatibility is arithmetic rather than
+attitude.
+
+The cost structure is worth a line of its own. List article processing charges
+commonly run $2,000 to $6,000 per article and exceed $10,000 at several flagship
+titles. The researcher pays the journal, and the journal supplies a page on its
+own site carrying the researcher's work. The workflow this review method came
+from cost $35 in total inference across a fourteen-day study.
+
+Two things this work does not say, and both should survive any summary of it.
+First, model peer review is not regulatory review; it does not replace an
+institutional review board, an FDA information request, or a data and safety
+monitoring board, and the paper states that limit in its own words. Second, the
+bill discussed in the paper is an author-drafted legislative proposal. It has not
+been introduced and is not pending before Congress.
+
+Kevin Kawchak
+ChemicalQDevice
+August 14, 2026
+Repository: https://github.com/kevinkawchak/physical-ai-oncology-trials
+=== END MESSAGE ===
+
+NOTES FOR THE AUTHOR
+- The two disclaimers at the end are load-bearing. Any version of this message
+  that drops them is not sendable to press or to policy staff.
+- Keep the $36,330 figure described as projected rather than estimated.
+- If a reporter asks for the strongest counterargument, give them the real one:
+  this is one author's record on one class of artifact, the evaluation standard
+  used to score it was built for that project, and its efficiency metrics were
+  partly influenced by the author's own priorities. The paper concedes both.
+- Do not name any cancer center as a partner, sponsor, site, or endorser.
+- Confirm every Federal action, date and dollar figure in the first paragraph
+  against the citations in the paper's introduction before sending.

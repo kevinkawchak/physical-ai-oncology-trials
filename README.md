@@ -25,11 +25,16 @@
 [![Award](https://img.shields.io/badge/Award-%24700%2C000%20%C3%97%205%20years-6C757D.svg)](funding/move-in/final-move-in/sections)
 
 
-**Comprehensive developments for integrating physical AI into oncology clinical trials, by Claude Code, Cowork; with Assistance from ChatGPT and Google Gemini.**
+
+**Comprehensive developments for integrating physical AI into oncology clinical trials, by Claude Code; with Assistance from ChatGPT and Google Gemini.**
 
 This repository provides production-ready configurations, validated pipelines, and integration guides for deploying robotic systems, digital twins, and embodied AI agents in oncology. 
 
+**8/30: FDA Approves Pancreatic Cancer Drug Rasonque (Daraxonrasib) by Revolution Medicines on August 26, 2026** *Daraxonsrasib is ChemicalQDevice’s number one LLM-focused cancer drug researched since identified by Google Gemini as being the most likely to aid startup funding in June 2025.* [FDA Approval](https://www.fda.gov/news-events/press-announcements/fda-approves-first-class-targeted-therapy-metastatic-pancreatic-cancer)
+
 **8/23: v4.7.0 (La Jolla Move-In: PDAC Trial Site Documentation)** *v4.7.0 adds funding/move-in/: fifteen documents that stand up California's first PDAC LLM oncology clinical trial site in La Jolla, for a chief executive and ten coworkers, against a $700,000 per year five-year federal award.* [![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.xxxxxxxx-blue)](https://doi.org/10.5281/zenodo.xxxxxxxx)
+
+**8/14: v4.6.0 (PDAC LLM Clinical Trial System)** *v4.6.0 adds new-trial-system/: the paper Pancreatic Cancer LLM Clinical Trial System: From IND to Protocol to Legislation, Funding, and AI Peer Review.* 
 
 **8/11: v4.5.0 (ChemicalQDevice Capitalization Plan)** *v4.5.0 adds funding/capitalization-plan/: the company-conversion paper From Independent Scientist to Novel Performer, an SBIR operating, milestone and capitalization plan.* [![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.21887807-blue)](https://doi.org/10.5281/zenodo.21887807)
 
@@ -217,6 +222,171 @@ are roles, not hires.
 
 ---
 
+## Pancreatic Cancer LLM Clinical Trial System (v4.6.0)
+
+[![Paper](https://img.shields.io/badge/Paper-Pancreatic%20Cancer%20LLM%20Clinical%20Trial%20System-800020.svg)](new-trial-system/final-new-trial)
+[![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.xxxxxxxx-A32A3C.svg)](https://doi.org/10.5281/zenodo.xxxxxxxx)
+[![Figures](https://img.shields.io/badge/Figures-25-6B6B6B.svg)](new-trial-system)
+[![Tables](https://img.shields.io/badge/Tables-25-6B6B6B.svg)](new-trial-system/final-new-trial)
+[![Platforms](https://img.shields.io/badge/Diagram%20platforms-5-6B6B6B.svg)](new-trial-system/sub-prompts)
+[![Stages](https://img.shields.io/badge/Build%20stages-8-C9C9C9.svg)](new-trial-system/sub-prompts)
+[![Sections](https://img.shields.io/badge/Sections-11-C9C9C9.svg)](new-trial-system/final-new-trial/sections)
+[![Rasters](https://img.shields.io/badge/PNG%20%2F%20JPG-none-C9C9C9.svg)](new-trial-system)
+[![Model](https://img.shields.io/badge/Model-Claude%20Code%20Opus%205-800020.svg)](https://claude.ai/code)
+
+**A 425-character summary.** v4.6.0 adds new-trial-system/: the paper Pancreatic Cancer LLM Clinical Trial System: From IND to Protocol to Legislation, Funding, and AI Peer Review, with the second-prompt update at final-new-trial/update-final/ that makes the bundle compile, redraws Figure 14 from stick actors to a class diagram, rewrites AI Peer Review around four quantified costs, and adds 13 outbound communications. 53 pages, 25 figures, 25 tables.
+
+The prior pancreatic cancer trial system built its documents on a month scale,
+through teams, with peer review arriving after completion. This release
+discloses the system that replaces it: one author, one master prompt, a 1 to 4
+day project time scale, and AI peer review that arrives during development
+rather than after it. The four deliverables it produced, an IND, two clinical
+trial protocols, a legislative framework and fourteen funding artifacts, are all
+separately deposited and separately dated, and the paper reports on them rather
+than proposing them.
+
+### The build, end to end
+
+```mermaid
+%%{init: {'theme':'base','themeVariables':{'fontSize':'12px','lineColor':'#6B6B6B'}}}%%
+flowchart LR
+    MP["One master prompt<br/>prompts/prompt-new-trial.md"]:::goal
+    subgraph DG["Stages 1 to 5, twenty-five figure specifications"]
+        direction TB
+        D1["mermaid, 6"]:::soft
+        D2["plantuml, 4"]:::soft
+        D3["d2, 6"]:::soft
+        D4["diagrams python, 4"]:::soft
+        D5["graphviz, 5"]:::soft
+    end
+    subgraph PA["Stages 6 to 8, three paper sources"]
+        direction TB
+        S6["draft-new-trial<br/>25 sized slots, 83K characters"]:::mid
+        S7["full-new-trial<br/>25 figures drawn, 183K"]:::mid
+        S8["final-new-trial<br/>senior-author pass, 212K"]:::mid
+    end
+    MP2["Second master prompt<br/>prompts/prompt-2-new-trial.md"]:::goal
+    UF["update-final<br/>compiles, 53 pages"]:::mid
+    CM["communications<br/>9 emails, 1 post, 3 messages"]:::soft
+    REL["Release v4.6.0<br/>25 figures, 25 tables"]:::proc
+    MP --> DG
+    DG --> PA
+    PA --> MP2
+    MP2 --> UF
+    UF --> CM
+    CM --> REL
+    classDef goal fill:#800020,stroke:#2E2E2E,stroke-width:1.5px,color:#FFFFFF
+    classDef mid fill:#A32A3C,stroke:#800020,stroke-width:1px,color:#FFFFFF
+    classDef soft fill:#E2D6D9,stroke:#A32A3C,stroke-width:1px,color:#2E2E2E
+    classDef proc fill:#C9C9C9,stroke:#2E2E2E,stroke-width:1px,color:#2E2E2E
+```
+
+### What the four deliverables measured
+
+| Deliverable | Scale reached | Elapsed | Deposited at |
+|:--|:--|:--|:--|
+| Phase 1 IND | 12 modules, 594,657 characters, 22 figures, 84 tables, 52 CFR cross-references | 4 days | [trial-ind/final-ind](trial-ind/final-ind) |
+| Phase 1 protocol | n = 18, 3+3 escalation behind a Phase 0 gate, 169,878 characters, 20 figures | 2 days | [trial-protocol/final-protocol](trial-protocol/final-protocol) |
+| Phase 2 protocol | n = 220, eight centers, hazard ratio 0.60, 199,421 characters, 22 figures | 2 days | [trial-phase-2/final-protocol](trial-phase-2/final-protocol) |
+| Legislation | 5 bill versions plus 4 companion documents | 19 days | [new-trial-system/inputs](new-trial-system/inputs) |
+| Funding | 10 applications, 2 NIH versions, 1 capitalization plan, 1,606,000 dollar ask | 74 days | [funding](funding) |
+
+### The second prompt, and what the update stage changed
+
+A second master prompt, filed at
+[new-trial-system/prompts/prompt-2-new-trial.md](new-trial-system/prompts/prompt-2-new-trial.md),
+produced [new-trial-system/final-new-trial/update-final](new-trial-system/final-new-trial/update-final).
+It is a complete, self-contained Overleaf project that reads nothing from its
+parent, and it is the version to compile.
+
+| What changed | Why it mattered |
+|:--|:--|
+| Three `\foreach` headers re-declared in sec-03, sec-05 and sec-06 | They declared iteration macros with a digit in the name (`\x0`, `\b1`, `\p0`). A TeX control sequence cannot carry a digit, so pdfLaTeX halted inside Figure 7 and the stage 8 bundle produced no PDF at all |
+| Section 7 rewritten around quantities | Four costs the prior regime imposes and three the new regime removes, each with a number and a date, replacing an argument made on latency alone |
+| Table 21 re-cut to nine axes, Figure 22's grid to seven of them | The figure and the table now carry the same axes in the same order and cannot drift apart |
+| Figure 14 redrawn as a class diagram | The use case drawing terminated its association lines at stick-actor captions rather than at the glyphs, so the lines did not appear to connect, and the glyph read as elementary beside a statute |
+| Five defects fixed on the rendered pages | Figure 2's callout overlapped its note, Figure 4's loop label sat on an activation bar, Figure 6 ran two edges through its own subject label, Table 13 overflowed by 8.19 pt, and two paragraphs each spilled a two-line orphan |
+| Thirteen communications added | [new-trial-system/communications](new-trial-system/communications): nine funding follow-up emails, one LinkedIn post, three general messages, each carrying the paper as its first attachment |
+
+### What Section 7 now measures
+
+| Axis | Prior system | New system | Ratio or delta |
+|:--|:--|:--|:--|
+| Latency, one round | 7 to 8 weeks best case | Same day | About 50 to 1 |
+| Typical journal processing | Several months, 1 to 2 rounds | Hours, rounds unlimited | About 300 to 1 |
+| US pancreatic cancer deaths inside one round | About 7,400 over 52 days | About 6 over 1 hour | The cost of the wait |
+| Display items one paper carries | Commonly 6 to 8 per article | 25 figures and 25 tables | About 3 to 1 |
+| Author cash cost per paper | 2,000 to 6,000 dollars list charge, over 10,000 at flagship titles | 35 dollars of inference across a 14-day study | About 57 to 1 and up |
+| Direction the money runs | Author pays the journal to host the author's work | Author pays no journal, deposits under CC BY | Not comparable |
+| Reviewers per round | 2 to 3 humans | 3 model manufacturers | 1 to 1 by count |
+| Artifacts absorbed per year | 2 to 6 per author | Over 30 deposited in 2026 | About 6 to 1 |
+| Corrections before release | None, review follows release | Every round, before deposit | The decisive axis |
+
+Model peer review is not regulatory review. Nothing in the paper substitutes for
+an institutional review board, an FDA information request, or a data and safety
+monitoring board, and the paper states that limit in its own words.
+
+### Prior system against new system
+
+| Axis | Prior system | New system |
+|:--|:--|:--|
+| Document production unit | Team-month | Prompt-hour |
+| IND assembly time | Months across a group | Four days, one author |
+| Peer review entry point | After completion | During development |
+| Review latency, one round | 7 to 8 weeks best case | Same day |
+| Reviewers per round | 2 to 3 humans | 3 model manufacturers |
+| Virtual trial cost | Above 120,000 dollars per run | 36,330 dollars projected |
+| Provenance record | Acknowledgement paragraph | Commit history plus DOI |
+| Figure format | Raster, not reusable | Machine readable, reusable |
+| Revision granularity | Whole manuscript | One file, one commit |
+| Author count | Group, plus a CRO | One, plus the models |
+
+### The five diagram platforms, by purpose and not by quota
+
+| Platform | Figures | What it owns | Specifications |
+|:--|:--|:--|:--|
+| Mermaid | 1, 4, 7, 11, 17, 21 | Order in time, and decisions taken at a point in time | [mermaid](new-trial-system/mermaid) |
+| PlantUML | 3, 10, 14, 23 | Formal notation: actors, guards, concurrency | [plantuml](new-trial-system/plantuml) |
+| D2 | 2, 8, 12, 16, 18, 22 | Nesting and tabulation | [d2](new-trial-system/d2) |
+| Diagrams (Python) | 6, 13, 20, 25 | Clustered infrastructure carrying glyphs | [diagrams-python](new-trial-system/diagrams-python) |
+| Graphviz | 5, 9, 15, 19, 24 | Records, clusters, fault and decision trees | [graphviz](new-trial-system/graphviz) |
+
+### Paper contents
+
+| Section | Title | Figures | Tables |
+|:--|:--|:--|:--|
+| 0 | Abstract, reader's guide, indexes, build record | none | 1, 2, 3 |
+| 1 | Introduction | 1, 2 | 4, 5 |
+| 2 | Methods | 3, 4, 5 | 6, 7 |
+| 3 | IND | 6, 7, 8, 9 | 8, 9, 10 |
+| 4 | Trial Protocol | 10, 11, 12, 13 | 11, 12, 13 |
+| 5 | Legislation | 14, 15, 16 | 14, 15, 16 |
+| 6 | Funding Proposals | 17, 18, 19, 20 | 17, 18, 19, 20 |
+| 7 | AI Peer Review | 21, 22, 23, 24 | 21, 22, 23, 24 |
+| 8 | Limitations and Future Work | 25 | 25 |
+| 9 | Conclusions | none | none |
+| 10 | Back matter and references | none | glossary |
+
+Sections 3 through 7 are the paper's main sections and sit within a 2,000
+character band of one another.
+
+### Palette
+
+Burgundy `#800020`, lighter burgundy 1 `#A32A3C`, lighter burgundy 2 `#E2D6D9`,
+Charcoal `#2E2E2E`, Slate Gray `#6B6B6B`, Mist Gray `#C9C9C9`, white. Charcoal is
+a stroke and a text color only, so no figure in the paper carries a black or
+near-black fill. The paper body is black text throughout.
+
+### Where to start
+
+| If you are | Open | Then |
+|:--|:--|:--|
+| A funder | [final-new-trial](new-trial-system/final-new-trial) §6, Table 18 | §2, Figure 3 |
+| A regulatory reviewer | [final-new-trial](new-trial-system/final-new-trial) §3, Table 9 | §4, Figure 10 |
+| A legislative staffer | [final-new-trial](new-trial-system/final-new-trial) §5, Table 14 | §5, Figure 14 |
+| A peer reviewer | [final-new-trial](new-trial-system/final-new-trial) §7, Table 21 | §7, Figure 24 |
+| Reproducing the method | [prompts](new-trial-system/prompts) | [sub-prompts](new-trial-system/sub-prompts) |
+
 ## ChemicalQDevice Capitalization Plan (v4.5.0)
 
 [![Paper](https://img.shields.io/badge/Paper-From%20Independent%20Scientist%20to%20Novel%20Performer-00417A.svg)](funding/capitalization-plan/final-capital)
@@ -228,7 +398,7 @@ are roles, not hires.
 [![Compile](https://img.shields.io/badge/pdfLaTeX-0%20errors%2C%200%20overfull-9AA1A8.svg)](funding/capitalization-plan/final-capital)
 [![Rasters](https://img.shields.io/badge/PNG%20%2F%20JPG-none-9AA1A8.svg)](funding/capitalization-plan)
 
-**A 425-character summary.** v4.5.0 adds funding/capitalization-plan/: the ChemicalQDevice conversion paper From Independent Scientist to Novel Performer, an SBIR operating, milestone and capitalization plan. It prices one programme twice, $1,396,000 of direct work inside a $1,606,000 award against $3,500,000 over five years, costs twelve auditable milestones, and sets private capital behind a 21 CFR part 54 firewall. 20 figures, 21 tables, 0 errors.
+**A 425-character summary.** v4.5.0 adds funding/capitalization-plan/: the ChemicalQDevice conversion paper From Independent Scientist to Novel Performer, an SBIR operating, milestone and capitalization plan. It prices one program twice, $1,396,000 of direct work inside a $1,606,000 award against $3,500,000 over five years, costs twelve auditable milestones, and sets private capital behind a 21 CFR part 54 firewall. 20 figures, 21 tables, 0 errors.
 
 Ten applications were filed in August 2026 as an independent scientist. Nine
 address mechanisms that fund a person or an institution; one, application 05,
@@ -270,7 +440,7 @@ flowchart LR
     classDef proc fill:#00417A,stroke:#00417A,stroke-width:1.2px,color:#FFFFFF
 ```
 
-### One programme, two prices
+### One program, two prices
 
 Every table in the paper reconciles to these nine numbers, and the four-layer
 split of the five-year budget is reused verbatim from the v4.4.0 work rather
@@ -278,7 +448,7 @@ than re-derived.
 
 | Quantity | Value | Where |
 |:--|:--|:--|
-| Five-year programme, direct | $3,500,000 | §3, Table 11 |
+| Five-year program, direct | $3,500,000 | §3, Table 11 |
 | SBIR Phase I, total cost, 9 months | $306,000 | §3, Tables 8 and 9 |
 | SBIR Phase II, total cost, 24 months | $1,300,000 | §3, Tables 8 and 10 |
 | SBIR route, total, 33 months | $1,606,000 | §3, Table 8 |
@@ -344,9 +514,9 @@ skip: 41 occurrences against 20 `\figcaption` plus 21 `\tabcap`.
 Stage 8 was followed by one update pass, driven by
 [`prompts/update-capital.md`](funding/capitalization-plan/prompts/update-capital.md).
 Every caption now opens with its own number, `Figure N.` or `Table N.`, on three
-centred lines; the twenty frames measure 306.00 pt against a 306 pt page centre
-and the forty-one captions sit within 0.53 pt of it, a centring defect in the
-style file having put every float 13.1 pt to the right of centre before; the
+centered lines; the twenty frames measure 306.00 pt against a 306 pt page center
+and the forty-one captions sit within 0.53 pt of it, a centering defect in the
+style file having put every float 13.1 pt to the right of center before; the
 reference list prints and links its 20 DOIs and 17 URLs, which `unsrt.bst` had
 been dropping; and every figure and table is referred to by number in the
 running text. Stages 6 and 7 are unchanged and remain the record of what they
@@ -414,10 +584,10 @@ flowchart TB
 | 06 | Foundation for the NIH, AMP | Medical oncology | 5 years | $3,500,000 cash |
 | 07 | HHMI Investigator Program | Medical oncology | 7 years | $700,000 per year |
 | 08 | NCI Cancer Therapy Evaluation Program | Medical oncology | 5 years | $3,500,000 |
-| 09 | Convergent Research, FRO programme | Medical oncology | 5 years, dissolves | $3,500,000 |
+| 09 | Convergent Research, FRO program | Medical oncology | 5 years, dissolves | $3,500,000 |
 | 10 | UC San Diego Moores Cancer Center | Medical oncology | one meeting | none |
 
-Each qualifies only because *Science: A New Golden Age* names its programme or
+Each qualifies only because *Science: A New Golden Age* names its program or
 the mechanism it runs. The trial is constant across all ten, so a reviewer
 comparing two of them is comparing two mechanisms with the science held fixed.
 
@@ -860,6 +1030,22 @@ physical-ai-oncology-trials/
 ├── V1_RELEASE.md
 ├── LICENSE
 ├── requirements.txt
+│
+├── new-trial-system/                  # ★ Pancreatic Cancer LLM Clinical Trial System (v4.6.0)
+│   ├── README.md                      # directory map, section-to-figure-to-table map, palette
+│   ├── prompts/                       # 2 master prompts + 2 build outputs, verbatim
+│   ├── sub-prompts/                   # 8 stage sub-prompts, one directory each
+│   ├── mermaid/ plantuml/ d2/         # figure specifications, 6 + 4 + 6
+│   ├── diagrams-python/ graphviz/     # figure specifications, 4 + 5
+│   ├── draft-new-trial/               # Stage 6: skeleton, 25 sized slots + zip
+│   ├── full-new-trial/                # Stage 7: 25 figures drawn, 25 tables + zip
+│   ├── final-new-trial/               # Stage 8: senior-author pass + zip, no publication/
+│   │   └── update-final/              # ★ second-prompt update: compiles, 53 pages + zip
+│   ├── communications/                # ★ 9 funding emails + 1 LinkedIn post + 3 messages
+│   ├── abstracts/                     # the author's deposited abstracts, 2024 to 2026
+│   ├── inputs/                        # 3 legislation archives + the AI peer review archive
+│   ├── references/                    # references.bib + trump-ai-cancer-2025-2026.bib
+│   └── template-new-system/           # the paper template this work adapts
 │
 ├── funding/                           # ★ La Jolla Move-In, PDAC trial site (v4.7.0)
 │   ├── README.md                      # funding hub: structure, DOIs, source map

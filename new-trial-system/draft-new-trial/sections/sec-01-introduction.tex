@@ -1,0 +1,111 @@
+% sec-01-introduction.tex - Section 1, Introduction.  DRAFT stage.
+% One page maximum of prose.  Two figure slots, Figures 1 and 2, and two tables,
+% Tables 4 and 5.  Every drafting instruction names the exact bib file or
+% repository directory stage 7 must read.
+\section{Introduction}
+\label{sec:introduction}
+
+Between January 2025 and July 2026 the executive branch committed to artificial
+intelligence and to cancer at the same time, and in the same documents. Executive
+Order 14179 removed barriers to American leadership in AI \cite{eo14179}, and
+Executive Order 14212 established the MAHA Commission \cite{eo14212}. Executive
+Order 14355, signed September 30, 2025, is the only executive order aimed
+squarely at both topics: it tasks the MAHA Commission, in coordination with HHS,
+the Assistant to the President for Science and Technology, and the Special
+Advisor for AI and Crypto, with developing ways to use AI for improved
+diagnoses, treatments, cures, and prevention of pediatric cancer
+\cite{eo14355, eo14355app, akin_eo14355}.
+
+\draftinstr{Stage 7: expand this section to one full page using
+\appfile{new-trial-system/references/trump-ai-cancer-2025-2026.bib}. The
+required citation keys, in order, are eo14179, eo14212, eo14355 with
+eo14355app and akin\_eo14355, ccdidoubling\_nih, eo14363 with
+doe\_genesis\_launch, biogenesis\_nih with hpcwire\_genesis,
+crs\_ai\_healthcare, hhs\_ai\_strategy, cms\_healthtech, maha\_strategy,
+trialblazer, aacr\_policymonitor\_2026, cancerdiscovery\_fy27 and
+science\_fundingbill. Tone: the administration and the FDA are ambitious about
+cancer and about large language models, and this paper's system is the sponsor
+side answer to that ambition. Do not exceed one page of prose.}
+
+\figslot{mermaid-type / flowchart LR}{7.6}{Figure 1. Eleven Federal AI and cancer actions from January 2025 to
+July\\2026, the three capabilities they supply, and the one they leave unfilled.}
+
+The same period funded the commitment. HHS raised the Childhood Cancer Data
+Initiative budget from \$50 million to \$100 million and committed to bringing
+private-sector partners in to apply advanced AI \cite{ccdidoubling_nih}.
+Executive Order 14363 launched the Genesis Mission \cite{eo14363}, and its NIH
+arm, the Bio Genesis Mission announced July 22, 2026, carries more than \$1.2
+billion in obligated FY2026 and planned FY2027 funding
+\cite{biogenesis_nih, hpcwire_genesis}. Table 4 places these actions on one
+chronology.
+
+\draftinstr{Stage 7: build Table 4 from the same bib file. Eleven to fourteen
+rows, columns Action, Date, What it supplies, Citation key. Include the
+June 22, 2026 HHS department-wide clinical trial effort and Operation
+TrialBlazer.}
+
+\begin{apptable}
+\begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}p{5.4cm} >{\raggedright\arraybackslash}p{2.1cm} >{\raggedright\arraybackslash}X}
+\headrow \thead{Action} & \thead{Date} & \thead{What it supplies to a pancreatic cancer sponsor}\\
+\midrule
+EO 14179, Removing Barriers to American Leadership in AI & Jan 23, 2025 & Policy cover for AI in a regulated submission \\
+EO 14212, MAHA Commission & Feb 13, 2025 & The parent authority EO 14355 cites \\
+FDA Elsa generative AI tool & Jun 2, 2025 & An agency that reads AI-assisted protocol text \\
+EO 14355, Unlocking Cures for Pediatric Cancer with AI & Sep 30, 2025 & The only order aimed at AI and cancer together \\
+CCDI budget doubled to \$100 million & Sep 30, 2025 & Money for AI-driven oncology data work \\
+EO 14363, Launching the Genesis Mission & Nov 24, 2025 & An integrated Federal AI platform \\
+HHS AI Strategy and the agentic AI platform & Dec 1 to 4, 2025 & Agency-side capacity to process AI-assisted filings \\
+Operation TrialBlazer & Jun 22, 2026 & Faster trial activation at cancer centers \\
+HHS department-wide clinical trial effort & Jun 22, 2026 & A stated intent to restore U.S. trial leadership \\
+Bio Genesis Mission & Jul 22, 2026 & Over \$1.2 billion toward AI in biology \\
+\end{tabularx}
+\end{apptable}
+\vspace{-0.6cm}
+\tabcap{Table 4. Ten Federal actions between January 2025 and July 2026, and what\\each
+supplies to a sponsor preparing a pancreatic cancer trial dossier.}
+
+What none of them supplies is a sponsor-side method. Compute, data, platform,
+agency review capacity and faster site activation are all being built; the
+document a sponsor must file is still written the way it was written in 2015.
+That gap is the subject of this paper, and Figure 1 states it directly.
+
+\draftinstr{Stage 7: expand the gap argument, then introduce the paper's four
+deliverables in one sentence each, keyed to sections 3 through 7.}
+
+\figslot{d2-type / grid}{7.2}{Figure 2. Ten operating axes on which the prior and the new trial system\\
+differ, each cell carrying a measured value from the deposited record.}
+
+Table 5 and Figure 2 carry the same ten axes: the first as text a reader can
+cite, the second as a grid a reader can scan. The prior system is not described
+here as bad work. It is described as work whose unit is a team-month, and a
+team-month cannot produce an IND, two protocols, five bill versions and fourteen
+funding artifacts inside a single quarter.
+
+\draftinstr{Stage 7: build Table 5 from
+\appfile{new-trial-system/d2/fig-02-old-versus-new-system-grid.md}, cell value
+table. Ten rows, columns Axis, Prior system, New system, Source. The figure and
+the table must agree exactly, value for value.}
+
+\begin{apptable}
+\begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}p{3.5cm} >{\raggedright\arraybackslash}p{3.9cm} >{\raggedright\arraybackslash}p{3.9cm} >{\raggedright\arraybackslash}X}
+\headrow \thead{Operating axis} & \thead{Prior system} & \thead{New system} & \thead{Source}\\
+\midrule
+Document production unit & Team-month & Prompt-hour & Build record \\
+IND assembly time & Months across a group & Four days, one author & \S3 \\
+Peer review entry point & After completion & During development & \S7 \\
+Review latency & 7 to 8 weeks best case & Same day & \S7 \\
+Reviewers per round & 2 to 3 humans & 3 model manufacturers & \S7 \\
+Virtual trial cost & Above \$120,000 per run & \$36,330 projected & \S6 \\
+Provenance record & Acknowledgement paragraph & Commit history plus DOI & \S2 \\
+Figure format & Raster, not reusable & Machine readable, reusable & \S2 \\
+Revision granularity & Whole manuscript & One file, one commit & \S2 \\
+Author count & Group, plus a CRO & One, plus the models & Every deposit \\
+\end{tabularx}
+\end{apptable}
+\vspace{-0.6cm}
+\tabcap{Table 5. The ten operating axes of Figure 2 as citable text,\\
+with the section of this paper where each value is established.}
+
+\draftinstr{Stage 8: check that this section still fits one page of prose after
+the two floats settle, and that Figure 1, Figure 2, Table 4 and Table 5 are each
+referenced once by name above.}
