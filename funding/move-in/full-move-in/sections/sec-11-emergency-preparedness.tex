@@ -1,0 +1,143 @@
+% sec-11: Document 11, emergency preparedness and business continuity.
+\docpart{Emergency Plan}{PDAC LLM Oncology Clinical Trial Site Emergency
+Preparedness and Business Continuity Plan}
+
+\section{Scope and Command Structure}
+
+This plan covers fire, seismic events, power and utility loss, cybersecurity
+incidents, model faults, and robot faults, and the continuity of operations
+after any of them. It uses the eleven roles named in document 14 §1 and creates
+no new titles.
+
+\begin{mvtable}
+\begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}p{4.0cm} >{\raggedright\arraybackslash}p{4.0cm} >{\raggedright\arraybackslash}X}
+\headrow \thead{Function} & \thead{Held by} & \thead{Succession}\\
+\midrule
+Incident commander & Director of clinical operations & Regulatory affairs and quality manager, then chief executive \\
+Clinical command & Site principal investigator & Sub-investigator, medical oncology \\
+Robot and facility safety & Site safety officer & Robotics vendor field engineer, on call \\
+Model and data & Model governance lead & Data manager and biostatistician \\
+Participant liaison & Research nurse and participant navigator & Lead clinical research coordinator \\
+\end{tabularx}
+\end{mvtable}
+\tabcapl{tab:command}{Five command functions and their succession. Only one
+decision may not be delegated: the decision to stop a procedure already in
+progress belongs to the site principal investigator or, in that person's
+absence, to the sub-investigator, and to nobody else.}
+
+\section{Fire and Evacuation}
+
+\begin{enumerate}
+\item On alarm, all robot instances receive a hardware stop under document 09 §3
+  and are left in place. No attempt is made to power down a robot in an orderly
+  sequence during an alarm.
+
+\item Egress follows the routes established in the life safety plan approved at
+  commissioning gate C5 \cite{nfpa101}. There are two means of egress from each
+  procedure suite.
+
+\item A participant under anesthesia is moved by defend-in-place to the adjacent
+  smoke compartment, and is evacuated from the building only on the order of the
+  incident commander after consultation with clinical command.
+
+\item Assembly is at the designated point outside the loading area. The
+  ambulance approach described in document 10 §4 is kept clear at all times and
+  is not used for assembly.
+
+\item Accountability is by badge reader roll call for the restricted and machine
+  zones, and by sign-in sheet for the clinical zone.
+\end{enumerate}
+
+\section{Seismic and Structural Events}
+
+\begin{enumerate}
+\item During shaking, personnel take cover and no procedure is started. A
+  procedure already in progress is stopped at the earliest safe point on the
+  order of clinical command.
+
+\item After shaking stops, the site safety officer performs a documented walk of
+  every restricted zone before any robot instance is re-energized.
+
+\item Robotic operations may not resume until every instance in the affected
+  suite has passed an interlock test and an envelope survey, and the robot
+  instance register has been amended under document 06 §4. A seismic event is a
+  register-amending event even where no fault is found, because the absence of a
+  fault is itself the finding that has to be recorded.
+
+\item Structural inspection by a licensed engineer is required before
+  re-occupancy where the recorded ground motion exceeds the threshold in the
+  facility's post-event inspection procedure.
+\end{enumerate}
+
+\section{Power Failure and Utility Loss}
+
+\begin{mvtable}
+\begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}p{3.0cm} >{\raggedright\arraybackslash}p{2.9cm} >{\raggedright\arraybackslash}p{2.0cm} >{\raggedright\arraybackslash}X}
+\headrow \thead{System} & \thead{Backup} & \thead{Runtime} & \thead{Action at exhaustion}\\
+\midrule
+Procedure suite, critical branch & Uninterruptible supply, then generator & 15 minutes bridge, 96 hours generator & Close the case; transfer under the mutual aid arrangement in §6 \\
+Machine room & Uninterruptible supply, then generator & 30 minutes bridge, 96 hours generator & Orderly model shutdown; the human-only pathway continues \\
+Specimen freezers & Generator, plus carbon dioxide backup & 96 hours, plus 24 hours & Transfer specimens to the partner site under the mutual aid arrangement \\
+Pharmacy containment exhaust & Generator & 96 hours & Suspend compounding; no exception \\
+Life safety branch & Generator & 96 hours & Evacuate under §2 \\
+Data and audit trail & Uninterruptible supply, then generator & Recovery point 15 minutes, recovery time 4 hours & Restore from the geographically separate replica \\
+\end{tabularx}
+\end{mvtable}
+\tabcapl{tab:power}{Six systems, their backup and their runtime. The 96-hour
+generator figure assumes the standing fuel contract; without it the figure is
+the tank, which is 30 hours, and the plan states both rather than the more
+favorable one.}
+
+\section{Cybersecurity Incident and Model Fault}
+
+These are two distinct events with two distinct responses, and treating them as
+one is the error this section exists to prevent.
+
+\begin{mvtable}
+\begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}p{3.6cm} >{\raggedright\arraybackslash}p{3.4cm} >{\raggedright\arraybackslash}X}
+\headrow \thead{Event} & \thead{First action} & \thead{What continues}\\
+\midrule
+Network compromise, clinical segment & Isolate the segment; notify the incident commander within 15 minutes & Procedures continue on paper source documents; nothing is entered until integrity is verified \\
+Network compromise, model segment & Isolate; suspend all model output & Everything. The site reverts to the human-only pathway, which is the standard of care \\
+Model output outside the verified envelope & Suspend the model version; record the fault & Everything, on the human-only pathway \\
+Audit trail chain integrity failure & Freeze the store; preserve; notify the department within 24 hours & Procedures continue; no completion is accepted until the chain is restored \\
+Robot fault or unintended motion & Hardware stop; secure the suite; record a reportable robotic event & The suite is closed until an interlock test passes \\
+\end{tabularx}
+\end{mvtable}
+\tabcapl{tab:cyber}{Five incident classes. The second and third rows carry the
+whole design: a model fault does not stop the trial, it stops the advisory
+output, because the human pathway was never dependent on the model.}
+
+Response follows the identify, protect, detect, respond, and recover functions
+of the NIST Cybersecurity Framework 2.0 \cite{nistcsf2}. The fault taxonomy for
+model output is the verification-before-generation taxonomy established in the
+2026 legislative work \cite{vvuqbill}. A model fault is reported to the
+department under document 06 §6 and appears in the department's annual report to
+the Legislature under document 01 §6.
+
+\section{Business Continuity, Drills, and Training}
+
+\begin{enumerate}
+\item The recovery point objective for trial data is 15 minutes and the recovery
+  time objective is 4 hours, achieved by continuous replication to a
+  geographically separate store.
+
+\item The site maintains a written mutual aid arrangement with at least one
+  clinical facility within 30 minutes travel time for participant transfer, and
+  with one specimen storage facility. The intended partner of choice sits 1.6
+  miles away, but no agreement exists, so the arrangement is with whichever
+  facility executes one.
+
+\item Drills are conducted quarterly on a fixed rotation: quarter one, robot
+  fault during an active procedure; quarter two, cybersecurity incident and
+  model fault; quarter three, building evacuation with a participant under
+  anesthesia; quarter four, extended power failure and continuity activation.
+
+\item Every drill produces an after-action record reviewed by the incident
+  commander, and any corrective action enters the quality system under document
+  12 §6.
+
+\item Emergency preparedness training is 8 hours annually for all personnel, and
+  is part of the training hours fixed in document 12 §5. This document does not
+  set its own hours.
+\end{enumerate}

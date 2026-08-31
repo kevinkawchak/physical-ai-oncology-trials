@@ -1,0 +1,78 @@
+% sec-13: Document 13, the conventional pancreatic cancer trial requirements
+% manual.  This is the operative document for master prompt clause B.
+\docpart{Trial Requirements}{Conventional Pancreatic Cancer Clinical Trial
+Requirements Manual}
+
+\section{Scope: What the Site Must Have Regardless of the Model}
+
+\draftnote{Open with the test this document is written to pass: a reader who
+deletes every large language model and every robot from the site still holds a
+complete conventional Phase 1 pancreatic cancer requirements manual. Say that in
+the first paragraph and hold to it for the whole document. Nothing in this
+document may depend on the model.}
+
+\section{Protocol, IND, and IRB}
+
+\draftnote{Take the protocol from \mvfile{trial-protocol/} and the filing from
+\mvfile{trial-ind/}. State the design in one paragraph: open-label, single-arm,
+3+3 dose escalation, up to eighteen treated participants, perioperative
+daraxonrasib with a staged robotic pancreaticoduodenectomy. State the positioning
+correction from
+\mvfile{funding/potential-partners/UC-San-Diego/priority-steps.md} in the same
+paragraph: daraxonrasib is investigational and already in Phase 3 evaluation, and
+is not described as first in human.}
+
+\section{Eligibility, Consent, and Enrollment}
+
+\draftnote{Inclusion and exclusion criteria as two lettered lists, the consent
+process, and the enrollment log. Keep the consent architecture identical to
+document 02 \sect{}4 and cite \mvfile{regulatory/Adaption-21-CFR-Part-50/}.}
+
+\section{Dose Escalation and Dose-Limiting Toxicity}
+
+\begin{mvtable}
+\begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}p{1.6cm} >{\raggedright\arraybackslash}p{2.6cm} >{\raggedright\arraybackslash}p{2.4cm} >{\raggedright\arraybackslash}X}
+\headrow \thead{Level} & \thead{Dose} & \thead{Participants} & \thead{Escalation rule}\\
+\midrule
+$-1$ & to be fixed & to be fixed & to be fixed \\
+1 & to be fixed & to be fixed & to be fixed \\
+\end{tabularx}
+\end{mvtable}
+\tabcapl{tab:escalation}{The escalation table. Stage 2 completes it from the
+protocol and states the dose-limiting toxicity window explicitly, because a 3+3
+design with an unstated window is not a design.}
+
+\draftnote{Define dose-limiting toxicity against CTCAE version 5.0 and the
+surgical complication grading against Clavien-Dindo, and grade postoperative
+pancreatic fistula against the 2016 International Study Group of Pancreatic
+Surgery definition. Name all three.}
+
+\section{Pharmacy, Laboratory, Imaging, and Biospecimens}
+
+\draftnote{Four subsections. Pharmacy: accountability under 21 CFR 312.57 and
+312.62 and compounding under USP 797 and 800. Laboratory: certification under
+the Clinical Laboratory Improvement Amendments. Imaging: response assessment
+under RECIST 1.1 and the acquisition schedule. Biospecimens: collection,
+processing, storage and chain of custody. Keep every facility requirement
+identical to document 08 \sect{}3.}
+
+\section{Monitoring, Source Documentation, Safety Reporting, and Archive}
+
+\draftnote{Monitoring plan, source data verification, the safety reporting
+clocks under 21 CFR 312.32, and the archive period. Keep the archive period
+aligned with document 03 \sect{}5 and document 06 \sect{}6.}
+
+\section{The Evidence Behind the Design}
+
+\draftnote{This is the section a funder reads. Build the four-source evidence
+table from
+\mvfile{funding/pdac-funding-applications/final-apply/sections/sec-05-trial-evidence.tex}:
+the 100,000-patient triplicate, the ten-arm quantitative systems pharmacology
+run at 12.8 months median overall survival against 5.4, the 1000-patient digital
+twin at a progression-free survival hazard ratio of 0.31, and RASolute 302 at
+13.2 months against 6.6. Carry each source's own stated limitation in the same
+row as its result. State the 2.4-fold against 2.0-fold proximity as a chronology
+observation and not a validation claim, and name the three material differences.
+Add the cost benchmark table from
+\mvfile{funding/capitalization-plan/final-capital/sections/sec-06-clinical-evidence.tex},
+with the \$36,330 figure described as projected and never as estimated.}

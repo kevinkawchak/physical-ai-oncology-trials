@@ -1,0 +1,172 @@
+% sec-02: Document 02, AB 3162, participant rights and robotic safety.
+% STAGE 3.  Two column widths retuned against the longest cell in each; a
+% \needspace binds the paragraph that explains subdivision (a) to the list it
+% explains, so the two cannot be separated by a page break.
+\docpart{AB 3162 Patient Rights}{AB 3162 - California LLM Oncology Patient
+Rights and Robotic Safety Act of 2026}
+
+\section{Findings and Declarations}
+
+The Legislature finds and declares all of the following. The findings in
+document 01 §1 of this package are incorporated and are not repeated.
+
+\begin{enumerate}
+\item A participant in an interventional oncology trial consents to an
+  investigational agent and to an investigational procedure. Where a large
+  language model also contributes to the conduct of that trial, the participant
+  is entitled to know it, in the consent discussion and not only in the consent
+  form \cite{cfr50adapt}.
+
+\item Patient-facing work published in 2026 establishes that participants
+  understand and use a stated right of refusal when it is offered in plain
+  terms, and that the offer costs a site scheduling capacity rather than safety
+  \cite{patientadvocacy,patientinstructions2026}.
+
+\item A ten-gate assurance suite developed for a mobile surgical humanoid
+  demonstrates that a robot in a clinical envelope can be held to a testable
+  safety specification rather than to a manufacturer's assurance
+  \cite{h2humanoid}.
+
+\item Clinician trust in a model-assisted workflow is earned by supervision that
+  is recorded, not by model accuracy alone, and the record of supervision is
+  what a participant is entitled to rely on \cite{cliniciantrust}.
+
+\item Existing California law addresses generative artificial intelligence in
+  patient communications and in utilization review, but not the interventional
+  trial setting \cite{ab3030_2024,sb1120_2024}.
+
+\item An emergency stop that a participant's care team cannot reach within one
+  step is not an emergency stop. Safety in a robotic procedure suite is a matter
+  of measured distances and measured times, and this act states both.
+
+\item A right that has no evidentiary record cannot be enforced. Each right
+  created by this act is paired in §4 with the record that proves it was
+  honored.
+
+\item Remedies under this act are limited to injunctive relief, because a
+  damages remedy in an investigational setting would deter the very sites the
+  state is trying to authorize while adding nothing that the department's
+  enforcement power under document 01 §5 does not already provide.
+\end{enumerate}
+
+\section{Definitions}
+
+Participant, advisory-only output, robotic procedure suite, robot instance, and
+site safety officer carry the meanings given in document 01 §2. In addition:
+
+\begin{enumerate}
+\item ``Human-only pathway'' means the conduct of a participant's trial
+  procedures with no large language model output generated, retrieved, or
+  displayed in connection with that participant's care.
+
+\item ``Robotic operating envelope'' means the three-dimensional volume within
+  which a robot instance may move during a study procedure, defined in document
+  09 §3 and marked on the floor of the suite.
+
+\item ``Emergency stop'' means a hardware-initiated command that arrests all
+  robot motion, independent of software state.
+
+\item ``Reportable robotic event'' means any unintended motion, any envelope
+  breach, any interlock failure, and any emergency stop actuation, whether or
+  not a participant was present.
+\end{enumerate}
+
+\section{Participant Rights}
+
+A participant at a qualified site has all of the following rights, which may not
+be waived by contract, by consent form, or by protocol.
+
+\begin{enumerate}
+\item The right to a human-only pathway, on request, at any time, without giving
+  a reason and without effect on eligibility, on the assigned dose level, or on
+  any other aspect of trial participation.
+
+\item The right to be told, in the consent discussion, that a large language
+  model contributes advisory output to the conduct of the trial, what it is used
+  for, and what it is not permitted to do.
+
+\item The right to know that no model output reaches the participant except
+  through an affirmative act by a named clinician.
+
+\item The right to a copy of the model output generated in connection with the
+  participant's own care, and of the clinician's disposition of it, on request
+  and at no charge.
+
+\item The right to be informed of any reportable robotic event that occurred
+  during a procedure in which the participant was present, within 72 hours.
+
+\item The right to withdraw from the trial without prejudice to continuing care,
+  and to a written statement of the care that will continue.
+
+\item The right to raise a concern to the department directly, without going
+  through the site, and to be told how.
+\end{enumerate}
+
+\needspace{4\baselineskip}
+Subdivision (a) is stated first and without qualification because it is the
+right that costs the site money. Its operational consequence is carried into
+the standard operating procedure index at document 12 §3 as a named procedure
+with a named owner.
+
+\section{Disclosure and Consent}
+
+\begin{mvtable}
+\begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}p{4.0cm} >{\raggedright\arraybackslash}p{3.5cm} >{\raggedright\arraybackslash}X}
+\headrow \thead{Disclosure} & \thead{Where it is made} & \thead{Evidence that it was made}\\
+\midrule
+A model contributes advisory output & Consent form and consent discussion & Signed consent form, and the coordinator's consent discussion note \\
+What the model is not permitted to do & Consent discussion & The consent discussion note, which names the four prohibitions \\
+The human-only pathway is available & Consent discussion and the participant handout & The handout acknowledgment line, initialed \\
+The audit trail is retained & Consent form & The consent form section on records \\
+A reportable robotic event occurred & Within 72 hours, in writing & The event notification letter and the delivery record \\
+Withdrawal does not end clinical care & Consent form and at withdrawal & The withdrawal note and the continuing care statement \\
+\end{tabularx}
+\end{mvtable}
+\tabcapl{tab:ab3162disc}{Disclosure, its place, and its evidence. Every row
+names a record a monitor could ask for, because a disclosure obligation with no
+record is unverifiable at a survey.}
+
+The consent architecture follows the adapted human subject protection framework
+rather than being invented here \cite{cfr50adapt,cfr50}. Where the adapted
+framework and 45 CFR Part 46 differ, the more protective governs
+\cite{cfr45part46}.
+
+\section{Robotic Safety Requirements}
+
+The numbers in this section are identical to document 09 §3, which is the
+section that owns them. A site may not comply with one and not the other.
+
+\begin{mvtable}
+\begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}p{4.9cm} >{\raggedright\arraybackslash}p{2.8cm} >{\raggedright\arraybackslash}X}
+\headrow \thead{Requirement} & \thead{Value} & \thead{Standard}\\
+\midrule
+Envelope boundary beyond maximum reach & 1.2 meters, floor-marked & Site specification \\
+Emergency stop reach from any point inside the envelope & 0.8 meters & Site specification \\
+Emergency stop at each suite door & Required & Site specification \\
+Independent interlock channels & 3 & ISO 13849-1 category 3 \cite{iec80601277} \\
+Motion arrest after a stop command & 250 milliseconds & IEC 80601-2-77 \cite{iec80601277} \\
+Quasi-static force limit in collaborative operation & 80 newtons & ISO 13482 \cite{iso134822014} \\
+Restart after an emergency stop & Two-person authorization & Document 09 §3 \\
+\end{tabularx}
+\end{mvtable}
+\tabcapl{tab:ab3162safe}{The seven safety values. Each is a measurement a
+surveyor can take with a tape, a stopwatch, or a force gauge, which is the test
+this act applies to every safety claim.}
+
+\section{Adverse Event Reporting and Remedies}
+
+\begin{enumerate}
+\item A reportable robotic event shall be recorded in the site's event log
+  within one hour and reported to the department within 5 business days. An
+  event resulting in participant injury shall be reported within 24 hours.
+
+\item Adverse event reporting to the federal government is governed by the
+  investigational new drug safety reporting requirements and is not displaced by
+  this section \cite{cfr312,cfr312adapt}. Where the state and federal clocks
+  differ, the shorter governs.
+
+\item A participant, or the department on a participant's behalf, may bring an
+  action for injunctive relief to enforce a right created by §3. This act
+  creates no right to damages. The limit is stated in the same subdivision as
+  the remedy so that it cannot be read as an oversight.
+\end{enumerate}

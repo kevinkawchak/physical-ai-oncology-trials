@@ -1,0 +1,95 @@
+% sec-16: back matter.  Abbreviations, availability, contributions, citation,
+% and the reference list.
+% STAGE 3.  The abbreviations table moves to a page-breaking form.  The three
+% bare \vspace calls below, around the rule before the reference list, are the
+% only three in any section file of this package, and they are the parent
+% build's own idiom for that rule.
+% The abbreviation list was rebuilt at this stage.  At stage 2 it carried thirty
+% entries, thirteen of which never appeared in the body, and two cells were
+% blank.  The list was recomputed mechanically from the body: every all-capital
+% token of two to six characters appearing twice or more, plus the standards and
+% codified short forms a reader meets once and still needs expanded.  It now
+% carries twenty-four entries in twelve full rows with no blank cell.
+\docfront{Back Matter}{LA JOLLA MOVE-IN, BACK MATTER}{Back Matter}
+
+\bmhead{Abbreviations}
+
+\begin{mvltable}
+\begin{xltabular}{\textwidth}{>{\raggedright\arraybackslash}p{1.6cm} >{\raggedright\arraybackslash}X >{\raggedright\arraybackslash}p{1.6cm} >{\raggedright\arraybackslash}X}
+\headrow \thead{Short} & \thead{Expansion} & \thead{Short} & \thead{Expansion}\\
+\midrule
+\endfirsthead
+\headrow \thead{Short} & \thead{Expansion} & \thead{Short} & \thead{Expansion}\\
+\midrule
+\endhead
+ADA & Americans with Disabilities Act & IRB & Institutional review board \\
+AI & Artificial intelligence & ISGPS & International Study Group of Pancreatic Surgery \\
+ASME & American Society of Mechanical Engineers & ISO & International Organization for Standardization \\
+CFR & Code of Federal Regulations & LLM & Large language model \\
+CTCAE & Common Terminology Criteria for Adverse Events & NFPA & National Fire Protection Association \\
+FDA & United States Food and Drug Administration & NIST & National Institute of Standards and Technology \\
+FTE & Full-time equivalent & PDAC & Pancreatic ductal adenocarcinoma \\
+HHS & United States Department of Health and Human Services & QSP & Quantitative systems pharmacology \\
+ICH & International Council for Harmonisation & RECIST & Response Evaluation Criteria in Solid Tumors \\
+IDE & Investigational device exemption & USP & United States Pharmacopeia \\
+IEC & International Electrotechnical Commission & VVUQ & Verification, validation and uncertainty quantification \\
+IND & Investigational new drug & 3+3 & The dose escalation rule at document 13 §4 \\
+\end{xltabular}
+\end{mvltable}
+\tabcapl{tab:abbrev}{Twenty-four abbreviations in two column pairs at the body
+measure. The rule for inclusion is mechanical and was run in both directions:
+every short form appearing twice or more in the body is listed, and every row
+listed appears in the body. \emph{Harmonisation} in the ICH row is that
+body's own registered name and is not an exception to the American spelling
+used everywhere else.}
+
+\bmhead{Data and Code Availability}
+
+{\raggedright Every work cited to a digital object identifier is openly
+deposited. The repository is at
+\href{https://github.com/kevinkawchak/physical-ai-oncology-trials}{https://github.com/kevinkawchak/physical-ai-oncology-trials},
+version v4.7.0 \cite{repo2026}.\par}
+
+The package is deposited in \texttt{funding/move-in}. That subtree contains the
+master prompt filed verbatim and the build output of record in
+\texttt{prompts/}; fifteen stage sub-prompts in three directories under
+\texttt{sub-prompts/}; the three input artifacts in \texttt{inputs/} with a
+README for each; and three complete LaTeX source sets in
+\texttt{draft-move-in/}, \texttt{full-move-in/} and \texttt{final-move-in/},
+each with its own Overleaf bundle. There is no \texttt{final-move-in/publication}
+directory, by instruction.
+
+No raster image is used anywhere in this package. Every rule, badge and mark on
+the cover is drawn in the style file. The claim is checkable: a search of the
+subtree for a PNG or a JPEG file returns nothing.
+
+\bmhead{Author Contributions and Conflicts}
+
+Kevin Kawchak is the sole author. He is chief executive of ChemicalQDevice and
+holds 100 percent of it. He is therefore not a clinical investigator on the
+trial this package describes: every trigger in 21 CFR 54.2 would fire if he held
+both roles, so the investigator role sits wholly with the site, and the three
+decisions where an interested party could move the result are held at the site
+under document 14 §3 \cite{cfr54}.
+
+He holds no equity in Revolution Medicines and no equity in any robotic surgery
+vendor. No sponsor, contract research organization, institutional review board,
+regulator, or medical society reviewed this package or authorized any statement
+in it. No agreement of any kind exists with UC San Diego or with Moores Cancer
+Center. The work was adapted using Claude Code Opus 5.
+
+\bmhead{Citation}
+
+Kawchak K. La Jolla Move-In: Pancreatic Oncology Clinical Trial Site Complete
+Documentation Package. Zenodo. 2026; \dlink{10.5281/zenodo.xxxxxxxx}.
+
+\vspace{0.2em}
+\mvrule{0.5pt}
+\vspace{-0.1em}
+
+\bmhead{References}
+\vspace{-0.35em}
+\begin{mvrefs}
+\bibliographystyle{unsrturl}
+\bibliography{references}
+\end{mvrefs}

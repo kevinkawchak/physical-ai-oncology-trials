@@ -1,0 +1,67 @@
+% sec-07: Document 07, the federal compliance guide for the LLM and robotic
+% workflow.  This is the operative document for master prompt clause C.
+\docpart{FDA Compliance Guide}{FDA LLM and Robotic Workflow National Compliance
+Guide for a Phase 1 PDAC Clinical Trial Site}
+
+\section{Purpose and Scope}
+
+\draftnote{Say what this document is and what it is not. It is a map from the
+site to the federal requirements that already exist. It is not a submission, not
+a guidance document, and not an FDA position. State that in the first paragraph,
+because the master prompt's clause C asks for the workflow to be acceptable to
+the agency and the honest form of that ask is a map, not a claim.}
+
+\section{The Regulatory Position of the Site}
+
+\draftnote{Take the combined investigational new drug and investigational device
+exemption position from \mvfile{trial-protocol/} and
+\mvfile{trial-ind/}, and the filing itself from paper 16 of
+\mvfile{funding/move-in/inputs/READMES/README-LLM-Pancreatic-Oncology-Clinical-Trial-System-Large-Documents-Funding-and-AI-Peer-Review.md},
+the 172-page Investigational New Drug Application. State which parts of the
+workflow sit under the drug filing, which under the device pathway, and which
+under neither because they are practice of medicine.}
+
+\section{Correction Map to 21 CFR Parts 11, 50, 54, 312, and 812}
+
+\begin{mvtable}
+\begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}p{2.4cm} >{\raggedright\arraybackslash}p{4.2cm} >{\raggedright\arraybackslash}X}
+\headrow \thead{Citation} & \thead{Requirement} & \thead{Where this site discharges it}\\
+\midrule
+21 CFR 11.10 & to be fixed & to be fixed \\
+21 CFR 312.62 & to be fixed & to be fixed \\
+\end{tabularx}
+\end{mvtable}
+\tabcapl{tab:fdamap}{The correction map. Stage 2 completes it from the three
+adapted frameworks at \mvfile{regulatory/}, one row per requirement, and every
+row names a document in this package.}
+
+\draftnote{Build the map from
+\mvfile{regulatory/adaption-ich-e6r3/}, \mvfile{regulatory/Adaption-21-CFR-Part-50/}
+and \mvfile{regulatory/Adaption-21-CFR-Part-312/}. Add 21 CFR Part 11 for the
+electronic record and signature position and 21 CFR Part 54 for the financial
+disclosure position, which is the one that decides the sponsor-investigator
+firewall in document 14 \sect{}3.}
+
+\section{ICH E6(R3) Mapping}
+
+\draftnote{Map the site to the good clinical practice principles, using the
+author's own adaptation rather than the source guideline where the two differ,
+and say when they differ.}
+
+\section{The Advisory-Only Boundary and Software Change Control}
+
+\draftnote{This is the load-bearing section of the document. State the boundary
+as a rule that can be tested: what the model may produce, what a human must do
+before any of it reaches a participant, and what record proves the human acted.
+Take the verification-before-generation position from paper 11 and the
+supervision rationale from paper 13 of the deck table. State the change control
+plan against the FDA predetermined change control plan guidance.}
+
+\section{Pre-Submission Sequence and Evidence Package}
+
+\draftnote{Order the pre-submission steps and name the evidence each one
+carries, drawing the credibility evidence from
+\mvfile{funding/pdac-funding-applications/final-apply/sections/sec-05-trial-evidence.tex}:
+the ASME V\&V 40 and ICH M15 aligned credibility score of 81.9 across 55
+verification notebook tests. Carry the limitation each source stated in the same
+row as its result.}

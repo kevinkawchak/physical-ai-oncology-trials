@@ -1,0 +1,460 @@
+% ============================================================
+% movestyle.sty
+% Style for "La Jolla Move-In: Pancreatic Oncology Clinical Trial Site
+% Complete Documentation Package".  Draft 1.0, repository v4.7.0,
+% August 23, 2026.
+%
+% WHAT THIS STYLE IS.  It is applystyle.sty from
+% funding/pdac-funding-applications/final-apply/ with two changes and no others:
+%
+%   1) DELETED.  Rule 3 of the master prompt forbids diagrams, so all five TikZ
+%      diagram vocabularies (mm*, uml*, d2*, dg*, gv*), the appfig frame, the
+%      appfloat carrier, figcaption, figslot and the twenty-four vector glyph
+%      macros are removed.  A palette audit is a grep for "appfig", which must
+%      return nothing.  TikZ survives only for three pieces of cover furniture:
+%      a badge, the fifteen-cell document strip, and the ORCID mark.
+%
+%   2) ADDED.  The per-document machinery this package needs and the parent did
+%      not: \docpart, which opens one of the fifteen documents with a ruled
+%      block, restarts its section numbering, writes a part-level line into the
+%      table of contents, and re-keys the hyperref anchors so fifteen documents
+%      that each begin at section 1 do not collide; \mvcover and \mvstrip for
+%      the cover; \draftnote and \mvfile for the stage 1 drafting instructions;
+%      and a numbered \tabcap, because a table a funder is asked to read has to
+%      be referable by number.
+%
+% STAGE 3 CHANGES.  Three, and no others.  The contents lead is reduced from
+% 0.62em to 0.42em at part level and from 0.12em to 0.06em at section level, so
+% seventeen part entries and ninety-six section entries hold on three pages
+% instead of spilling two lines onto a fourth that is then 96 percent empty.
+% \mvltable is added for a table that must break across pages, and both table
+% wrappers now close with \nopagebreak, so a caption can no longer be separated
+% from the table it names.  A \section reserves 6.2 baselines rather than 3.4,
+% because most sections in this package open with a full-width table and 3.4
+% baselines is satisfied by space a table cannot use, which left five headings
+% stranded at the foot of a page in stage 2.
+%
+% The \docpart mechanism is adapted from physical_ai_legislation.sty in
+% funding/move-in/inputs/Physical-AI-Oncology-Clinical-Trial-Site-Complete-
+% Documentation-Package.zip, which solved the same problem for eleven documents.
+%
+% SENIOR-AUTHOR FORMATTING.  RaggedRight body with even interword spacing and no
+% right-margin overflow; maximal widow, orphan and broken penalties so no single
+% line is stranded and no paragraph ends in a one-word or two-word line; long
+% URLs break on any character; single hyphens only; the section symbol for every
+% codified reference.  No raster image anywhere.
+%
+% Compile on Overleaf with pdfLaTeX:
+%   pdflatex main -> bibtex main -> pdflatex main -> pdflatex main
+% ============================================================
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{movestyle}[2026/08/23 v4.7.0 La Jolla Move-In documentation package style, final]
+
+% ---------- Fonts: Times-like serif body, Helvetica-like sans for furniture,
+% ---------- a monospace face for repository paths.
+\RequirePackage{mathptmx}
+\RequirePackage[scaled=0.92]{helvet}
+\RequirePackage{courier}
+\RequirePackage[T1]{fontenc}
+\RequirePackage[utf8]{inputenc}
+\RequirePackage{textcomp}
+\RequirePackage{amsmath}
+\RequirePackage{amssymb}
+
+\RequirePackage[letterpaper,top=0.92in,bottom=0.92in,left=0.95in,right=0.95in,%
+  headheight=14pt,headsep=12pt,footskip=22pt]{geometry}
+
+\RequirePackage{xcolor}
+\RequirePackage[protrusion=true,expansion=false]{microtype}
+\RequirePackage{array}
+\RequirePackage{longtable}
+\RequirePackage{tabularx}
+\RequirePackage{xltabular}
+\RequirePackage{ragged2e}
+\RequirePackage{needspace}
+\RequirePackage{placeins}
+\RequirePackage{enumitem}
+\RequirePackage{booktabs}
+\RequirePackage{colortbl}
+\RequirePackage{multicol}
+\RequirePackage{tikz}
+
+% ============================================================
+% PALETTE.  Eight tokens, and no ninth.  No black fill.  Carried unchanged from
+% applystyle.sty so the La Jolla package sits in the same visual family as the
+% ten funding applications and the capitalization plan.
+% ============================================================
+\definecolor{protoblue}{HTML}{00417A}   % Corporate Blue - commitments, goals
+\definecolor{protogray}{HTML}{6C757D}   % Professional Gray - process, oversight
+\definecolor{protowhite}{rgb}{1,1,1}    % Classic White
+\definecolor{protoblack}{rgb}{0,0,0}    % strokes and text ONLY, never a fill
+\definecolor{pagrayl}{HTML}{E9ECEF}     % grayscale, light
+\definecolor{pagraym}{HTML}{CED4DA}     % grayscale, medium
+\definecolor{pagrayd}{HTML}{9AA1A8}     % grayscale, medium-dark
+\definecolor{pablue1}{HTML}{3C7DB2}     % lighter shade 1 of protoblue
+\definecolor{pablue2}{HTML}{DCE8F1}     % lighter shade 2 of protoblue
+\definecolor{orcidgreen}{HTML}{A6CE39}
+\colorlet{accentcol}{protoblue}
+\pagecolor{protowhite}
+
+% ============================================================
+% BODY TYPOGRAPHY.  Even interword spacing, no right-margin overflow, no
+% stranded line, no paragraph ending in one or two words.
+% ============================================================
+\tolerance=2000
+\emergencystretch=3em
+\hbadness=4000
+\hyphenpenalty=70
+\exhyphenpenalty=70
+\RaggedRight
+\setlength{\RaggedRightParindent}{0pt}
+\setlength{\RaggedRightRightskip}{0pt plus 2em}
+\widowpenalty=10000
+\clubpenalty=10000
+\displaywidowpenalty=10000
+\brokenpenalty=10000
+% \finalhyphendemerits and a stretchable \parfillskip together stop a paragraph
+% from ending in a line carrying only one or two words.
+\finalhyphendemerits=10000
+\setlength{\parfillskip}{0pt plus 0.75\textwidth}
+\raggedbottom
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{3.2pt plus 1pt minus 0.5pt}
+\frenchspacing
+
+% ---------- Break long URLs on any character so no link overflows. ----------
+\def\UrlBreaks{\do\/\do-\do.\do=\do_\do?\do\&\do\%\do\#\do\:\do\a\do\b\do\c%
+\do\d\do\e\do\f\do\g\do\h\do\i\do\j\do\k\do\l\do\m\do\n\do\o\do\p\do\q\do\r%
+\do\s\do\t\do\u\do\v\do\w\do\x\do\y\do\z\do\A\do\B\do\C\do\D\do\E\do\F\do\G%
+\do\H\do\I\do\J\do\K\do\L\do\M\do\N\do\O\do\P\do\Q\do\R\do\S\do\T\do\U\do\V%
+\do\W\do\X\do\Y\do\Z\do\0\do\1\do\2\do\3\do\4\do\5\do\6\do\7\do\8\do\9}
+% The unsrt family lowercases title fields, so a \S in a title is emitted as
+% \s; \s is provided so every codified reference renders the section symbol.
+\providecommand{\s}{\S}
+% \sect is the section symbol used in running prose.
+\newcommand{\sect}{\S}
+
+% ---------- Lists.  Tight, and lettered or arabic in the codified idiom the
+% ---------- San Francisco package used, so a subdivision reads as (a), (b).
+\setlist[enumerate,1]{label=(\alph*),leftmargin=1.9em,itemsep=2.2pt,parsep=1.6pt,topsep=3pt}
+\setlist[enumerate,2]{label=(\arabic*),leftmargin=1.9em,itemsep=1.8pt,parsep=1.2pt,topsep=2.4pt}
+\setlist[enumerate,3]{label=(\Alph*),leftmargin=1.9em,itemsep=1.6pt,parsep=1pt,topsep=2pt}
+\setlist[itemize,1]{label=\textbullet,leftmargin=1.5em,itemsep=2.2pt,parsep=1.6pt,topsep=3pt}
+\setlist[itemize,2]{label=\textendash,leftmargin=1.5em,itemsep=1.8pt,parsep=1.2pt,topsep=2.4pt}
+
+% ---------- Running header.  \leftmark carries the short name of the document
+% ---------- currently open, set by \docpart.
+\RequirePackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0pt}
+\fancyhead[L]{\footnotesize\thepage}
+\fancyhead[C]{\footnotesize\scshape\leftmark}
+\fancyhead[R]{\footnotesize Draft 1.0}
+\fancypagestyle{plain}{%
+  \fancyhf{}%
+  \renewcommand{\headrulewidth}{0pt}%
+  \fancyfoot[C]{\footnotesize\thepage}}
+% Only \docpart may set the running mark.  article.cls installs a \sectionmark
+% that overwrites \leftmark at every heading, which would replace the document
+% name in the header with the name of whichever section is open.  Both marks are
+% silenced, so the header names the document a reader is inside.
+\renewcommand{\sectionmark}[1]{}
+\renewcommand{\subsectionmark}[1]{}
+\AtBeginDocument{\markboth{La Jolla Move-In}{La Jolla Move-In}}
+
+% ---------- Section headings. ----------
+\RequirePackage{titlesec}
+\titleformat{\section}{\large\bfseries\color{accentcol}}{\thesection.}{0.55em}{}[{\color{accentcol}\titlerule[0.6pt]}]
+\titleformat{\subsection}{\normalsize\bfseries\color{accentcol}}{\thesubsection}{0.45em}{}
+\titleformat{\subsubsection}{\normalsize\bfseries\itshape\color{protoblack}}{\thesubsubsection}{0.45em}{}
+\titlespacing*{\section}{0pt}{1.25ex plus 0.35ex}{0.7ex}
+\titlespacing*{\subsection}{0pt}{0.95ex plus 0.3ex}{0.45ex}
+\titlespacing*{\subsubsection}{0pt}{0.85ex plus 0.3ex}{0.35ex}
+
+% A table can never migrate past the heading of the section that introduces it.
+\AtBeginDocument{\let\mv@oldsection\section
+  \renewcommand{\section}{\FloatBarrier\mv@oldsection}}
+
+% ---------- No heading may be the last thing on a page.  Reserving the heading
+% ---------- plus three lines of its own text moves the pair together.
+\let\mv@section\section
+\renewcommand{\section}{\needspace{9\baselineskip}\mv@section}
+\let\mv@subsection\subsection
+\renewcommand{\subsection}{\needspace{3\baselineskip}\mv@subsection}
+\let\mv@subsubsection\subsubsection
+\renewcommand{\subsubsection}{\needspace{2.6\baselineskip}\mv@subsubsection}
+
+% ============================================================
+% TABLE COLUMNS.  Every fixed-width column is ragged-right so no cell shows a
+% large interword gap, and every table is set to the exact body measure.
+% ============================================================
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
+\newcolumntype{C}[1]{>{\centering\arraybackslash}p{#1}}
+\newcolumntype{R}[1]{>{\raggedleft\arraybackslash}p{#1}}
+\newcolumntype{Y}{>{\raggedright\arraybackslash}X}
+\renewcommand{\arraystretch}{1.16}
+\setlength{\tabcolsep}{4.6pt}
+% \mvtable / \endmvtable wrap a full-width table with the fixed vertical space
+% applied above and below every table in the package.  The closing \unskip
+% removes the interword space that the newline after \end{tabularx} would
+% otherwise contribute: without it every table sets one space (0.25em, 2.74pt)
+% past the right margin and reports as overfull.
+\newenvironment{mvtable}{\par\addvspace{0.28em}\noindent\ignorespaces}%
+  {\unskip\par\nopagebreak\addvspace{0.34em}\nopagebreak}
+% \mvltable wraps a table that is taller than one page and must break across
+% pages.  It carries the same vertical space as \mvtable but no \noindent and
+% no closing \unskip, because an xltabular is a vertical-mode construction and
+% a leading \noindent would start a paragraph in front of it.
+\newenvironment{mvltable}{\par\addvspace{0.28em}}%
+  {\par\nopagebreak\addvspace{0.34em}\nopagebreak}
+% \thead{...} - the Corporate Blue header cell used by every table.
+\newcommand{\thead}[1]{\textcolor{protowhite}{\bfseries #1}}
+\newcommand{\headrow}{\rowcolor{protoblue}}
+% \altrow - the pale banding row used in long reference tables.
+\newcommand{\altrow}{\rowcolor{pagrayl}}
+
+% ---------- Table captions, numbered.  A funder is asked to read these tables,
+% ---------- so each one has to be referable by number from the running text.
+\newcounter{mvtab}
+\renewcommand{\themvtab}{\arabic{mvtab}}
+\newcommand{\mv@setcap}[1]{%
+  \par\nopagebreak
+  {\setlength{\parskip}{0pt}\setlength{\parindent}{0pt}%
+   \noindent\hfil
+   \begin{minipage}{0.94\linewidth}\centering\footnotesize\itshape
+     \textbf{Table \themvtab.}\ #1
+   \end{minipage}%
+   \hfil\null\par}\addvspace{0.30em}}
+% \tabcap{text} - an unlabeled numbered caption.
+\newcommand{\tabcap}[1]{\refstepcounter{mvtab}\mv@setcap{#1}}
+% \tabcapl{label}{text} - the same, carrying a \label for \ref.
+\newcommand{\tabcapl}[2]{\refstepcounter{mvtab}\label{#1}\mv@setcap{#2}}
+
+% ============================================================
+% \docpart - one of the fifteen documents.
+% It restarts section numbering, writes a part-level contents line, re-keys the
+% hyperref anchors so fifteen documents that each begin at section 1 do not
+% collide, and sets the running header to the document's short name.
+% Usage:  \docpart{Short header name}{Full document title}
+% main.tex issues \clearpage before every one, so each document opens on its own
+% page, which is clause J of the master prompt.
+% ============================================================
+\newcounter{docpart}
+\renewcommand{\thedocpart}{\arabic{docpart}}
+% \mv@docblock{eyebrow}{title} - the ruled block shared by \docpart, \docfront
+% and \docback, so the fifteen documents and the two matter sections open in
+% exactly the same shape.
+\newcommand{\mv@docblock}[2]{%
+  {\setlength{\parskip}{0pt}\setlength{\parindent}{0pt}%
+   \noindent{\color{protoblue}\rule{\linewidth}{1.1pt}}\par
+   \vspace{0.42em}%
+   \noindent{\footnotesize\sffamily\bfseries\color{pablue1}#1}\par
+   \vspace{0.30em}%
+   \noindent{\large\bfseries\color{protoblue}#2}\par
+   \vspace{0.42em}%
+   \noindent{\color{protoblue}\rule{\linewidth}{0.5pt}}\par}%
+  \addvspace{0.70em}%
+  \@afterheading}
+% \docfront{header}{eyebrow}{title} - front matter and back matter, unnumbered.
+\newcommand{\docfront}[3]{%
+  \setcounter{section}{0}%
+  \markboth{#1}{#1}%
+  \phantomsection
+  \addcontentsline{toc}{part}{#3}%
+  \mv@docblock{#2}{#3}}
+\newcommand{\docpart}[2]{%
+  \refstepcounter{docpart}%
+  \setcounter{section}{0}%
+  \markboth{#1}{#1}%
+  \phantomsection
+  \addcontentsline{toc}{part}{\protect\numberline{\thedocpart.}#2}%
+  \mv@docblock{DOCUMENT \thedocpart\ OF 15}{#2}}
+
+% ============================================================
+% COVER FURNITURE.  The theme is adapted from the San Francisco package: a
+% centered title block over stacked italic disclaimer blocks, then the contents.
+% What is added is a ruled frame, a badge line, and a fifteen-cell strip.
+% ============================================================
+% \mvrule{width} - the accent rule used between cover blocks.
+\newcommand{\mvrule}[1]{{\color{protoblue}\rule{\linewidth}{#1}}}
+% \mvcover{eyebrow}{title}{subtitle}{third line} - the centered masthead.
+\newcommand{\mvcover}[4]{%
+  {\setlength{\parskip}{0pt}\setlength{\parindent}{0pt}\centering
+   \mvrule{1.4pt}\par
+   \vspace{0.62em}%
+   {\footnotesize\sffamily\bfseries\color{pablue1}#1}\par
+   \vspace{0.62em}%
+   {\LARGE\bfseries\color{protoblue}#2}\par
+   \vspace{0.55em}%
+   {\large #3}\par
+   \vspace{0.42em}%
+   {\normalsize\color{protogray}#4}\par
+   \vspace{0.62em}%
+   \mvrule{0.7pt}\par}}
+% \mvbadge / \mvbadgel - inline badges on the cover.
+\newcommand{\mvbadge}[1]{%
+  \tikz[baseline=(bd.base)]{\node[rectangle,rounded corners=2pt,fill=protoblue,
+    text=protowhite,inner xsep=5pt,inner ysep=2pt,font=\scriptsize\bfseries] (bd) {#1};}}
+\newcommand{\mvbadgel}[1]{%
+  \tikz[baseline=(bd.base)]{\node[rectangle,rounded corners=2pt,fill=pablue2,
+    draw=protoblue,line width=0.5pt,text=protoblue,inner xsep=5pt,inner ysep=2pt,
+    font=\scriptsize\bfseries] (bd) {#1};}}
+% \mvstrip{row}{row}{row} - the fifteen-cell document strip, three rows of five.
+% Each cell is wide enough for a document short name at \tiny without
+% hyphenation.  Row 1 is the legislation part, row 2 regulations and building,
+% row 3 premises and operations.
+\newcommand{\mvstrip}[3]{%
+  \par\addvspace{0.3em}%
+  \noindent\begin{tikzpicture}[x=0.1985\textwidth]
+    \foreach \i/\lab [count=\n from 0] in {#1}{%
+      \node[rectangle,draw=protoblue,line width=0.6pt,rounded corners=1.5pt,
+            fill=pablue2,text width=0.166\textwidth,minimum height=6.6mm,
+            inner sep=2.5pt,align=center,font=\tiny\sffamily,text=protoblue]
+            at (\n,0) {\lab};}
+    \foreach \i/\lab [count=\n from 0] in {#2}{%
+      \node[rectangle,draw=pablue1,line width=0.6pt,rounded corners=1.5pt,
+            fill=protowhite,text width=0.166\textwidth,minimum height=6.6mm,
+            inner sep=2.5pt,align=center,font=\tiny\sffamily,text=protoblue]
+            at (\n,-0.72) {\lab};}
+    \foreach \i/\lab [count=\n from 0] in {#3}{%
+      \node[rectangle,draw=protogray,line width=0.6pt,rounded corners=1.5pt,
+            fill=pagrayl,text width=0.166\textwidth,minimum height=6.6mm,
+            inner sep=2.5pt,align=center,font=\tiny\sffamily]
+            at (\n,-1.44) {\lab};}
+  \end{tikzpicture}\par\addvspace{0.3em}}
+
+% ---------- PNG-free ORCID iD mark. ----------
+\newcommand{\orcidicon}[1]{%
+  \href{https://orcid.org/#1}{\protect\tikz[baseline=-0.75ex]{%
+    \node[circle,fill=orcidgreen,minimum size=9.2pt,inner sep=0pt](orc){};
+    \node at (orc){\textcolor{white}{\sffamily\bfseries\fontsize{5.4}{5.4}\selectfont iD}};}}}
+
+% ============================================================
+% TABLE OF CONTENTS.  article.cls opens every section entry with
+% \addvspace{1.0em}, which over fifteen documents and roughly one hundred
+% sections spills the contents across several mostly empty pages.  The lead is
+% reduced and part entries are set compactly, which keeps each document's block
+% visually grouped.
+% ============================================================
+\makeatletter
+\renewcommand*\l@part[2]{%
+  \ifnum \c@tocdepth >-2\relax
+    \addpenalty{-\@highpenalty}%
+    \addvspace{0.42em \@plus\p@}%
+    \setlength\@tempdima{1.9em}%
+    \begingroup
+      \parindent \z@ \rightskip \@pnumwidth \@plus 4em
+      \parfillskip -\@pnumwidth
+      {\leavevmode\small\bfseries\color{accentcol}%
+       \advance\leftskip\@tempdima
+       \hskip -\leftskip
+       #1\nobreak\hfil
+       \nobreak\hb@xt@\@pnumwidth{\hss #2\kern-\p@\kern\p@}\par}%
+      \penalty\@highpenalty
+    \endgroup
+  \fi}
+\renewcommand*\l@section[2]{%
+  \ifnum \c@tocdepth >\z@
+    \addpenalty\@secpenalty
+    \addvspace{0.06em \@plus\p@}%
+    \setlength\@tempdima{1.9em}%
+    \begingroup
+      \parindent \z@ \rightskip \@pnumwidth
+      \parfillskip -\@pnumwidth
+      \leavevmode\footnotesize
+      \advance\leftskip 1.9em
+      \advance\leftskip\@tempdima
+      \hskip -\leftskip
+      #1\nobreak\leaders\hbox{$\m@th\mkern 2mu\hbox{.}\mkern 2mu$}\hfil
+      \nobreak\hb@xt@\@pnumwidth{\hfil\normalfont #2\kern-\p@\kern\p@}\par
+    \endgroup
+  \fi}
+\makeatother
+\setcounter{tocdepth}{1}
+
+% ============================================================
+% PAPER FURNITURE.
+% ============================================================
+\providecommand{\keywordname}{\textbf{Keywords}}
+\providecommand{\keywords}[1]{\par\addvspace{\smallskipamount}%
+  {\setlength{\parindent}{0pt}\footnotesize\keywordname\enspace #1\par}}
+\providecommand{\bmhead}[1]{\par\addvspace{0.45\baselineskip}\needspace{2\baselineskip}%
+  \phantomsection\addcontentsline{toc}{section}{#1}%
+  {\noindent\large\bfseries\color{accentcol}#1}\par\addvspace{2pt}}
+% \cboxx - an empty check box, used by the activation checklist.
+\providecommand{\cboxx}{\raisebox{0.12ex}{\framebox[1.25ex]{\rule{0pt}{0.95ex}}}}
+% \draftnote{...} - a bracketed drafting instruction, stage 1 only.  Every one
+% names the exact repository file or directory a later stage must process.  No
+% \draftnote survives into full-move-in or final-move-in.
+\newcommand{\draftnote}[1]{\par\addvspace{3pt}%
+  {\setlength{\parindent}{0pt}\small\color{protogray}%
+   \textbf{[DRAFTING INSTRUCTION]}\itshape\ #1\par}%
+  \addvspace{3pt}}
+
+\RequirePackage[hidelinks,pdfusetitle]{hyperref}
+% Anchors are keyed to the document, so section 1 of document 1 and section 1 of
+% document 2 are distinct destinations.  hyperref defines \theHsection when it
+% loads, so these three redefinitions must follow it, not precede it.
+\renewcommand{\theHsection}{\arabic{docpart}.\arabic{section}}
+\renewcommand{\theHsubsection}{\arabic{docpart}.\arabic{section}.\arabic{subsection}}
+\renewcommand{\theHsubsubsection}{\arabic{docpart}.\arabic{section}.\arabic{subsection}.\arabic{subsubsection}}
+\RequirePackage{url}
+% The url package resets \UrlBreaks when it loads, so the any-character break
+% rule is re-asserted here, after url and hyperref, together with stretchable
+% inter-character glue.  Without this a long bibliography URL cannot be broken
+% and overflows the measure.
+\def\UrlBreaks{\do\/\do-\do.\do=\do_\do?\do\&\do\%\do\#\do\:\do\a\do\b\do\c%
+\do\d\do\e\do\f\do\g\do\h\do\i\do\j\do\k\do\l\do\m\do\n\do\o\do\p\do\q\do\r%
+\do\s\do\t\do\u\do\v\do\w\do\x\do\y\do\z\do\A\do\B\do\C\do\D\do\E\do\F\do\G%
+\do\H\do\I\do\J\do\K\do\L\do\M\do\N\do\O\do\P\do\Q\do\R\do\S\do\T\do\U\do\V%
+\do\W\do\X\do\Y\do\Z\do\0\do\1\do\2\do\3\do\4\do\5\do\6\do\7\do\8\do\9}
+% The stretch on \Urlmuskip is deliberately small.  At the parent's 3mu a long
+% link in a ragged-right paragraph takes almost all of the line's available
+% stretch, and the URL prints with a visible gap between every character.  At
+% 0.45mu the break opportunities survive and the link sets as a word.
+\Urlmuskip=0mu plus 0.45mu\relax
+% \mvfile{path} - a repository path in monospace.  \nolinkurl and \path both
+% fail to break a path inside a \draftnote argument, so the scanner below
+% inserts an explicit break opportunity after every character: a path can then
+% wrap anywhere and can never overflow the measure.  \penalty300 keeps TeX
+% preferring a real word space when one is available.
+\makeatletter
+\def\mv@fend{\mv@fend}
+\def\mv@fscan#1{%
+  \ifx\mv@fend#1%
+    \let\mv@fnext\relax
+  \else
+    #1\penalty300\relax
+    \let\mv@fnext\mv@fscan
+  \fi
+  \mv@fnext}
+\newcommand{\mvfile}[1]{{\ttfamily\hyphenchar\font=-1\relax
+  \mv@fscan#1\mv@fend}}
+\makeatother
+% \dlink{10.5281/zenodo.NNNNNNN} - a DOI printed as text and hyperlinked, so
+% every reference carries both the DOI string and a clickable target.
+\newcommand{\dlink}[1]{\href{https://doi.org/#1}{#1}}
+% Ragged-right bibliography with generous emergency stretch, so no reference
+% line runs past the right margin.  This is appended to \thebibliography at
+% package load with etoolbox rather than redefined inside \AtBeginDocument: the
+% LaTeX begin-document hook stores its argument in a macro body, so a literal
+% #1 there is read as a parameter of that body and the compile stops at
+% \begin{document}.  \apptocmd has no such hazard.
+\RequirePackage{etoolbox}
+\apptocmd{\thebibliography}{%
+  \raggedright\emergencystretch=8em\relax
+  \setlength{\itemsep}{1.1pt}\setlength{\parsep}{0pt}\setlength{\topsep}{0pt}}{}{}
+% \mvrefs{...} - the reference list set in two columns at \footnotesize.  A
+% package of fifteen documents cannot afford a single-column list of long
+% protocol titles, and two columns halve its height without shrinking the type
+% further.  The section heading is set above the columns rather than inside.
+\newenvironment{mvrefs}%
+  {\needspace{4\baselineskip}%
+   \setlength{\multicolsep}{0pt}\setlength{\columnsep}{13pt}%
+   \begin{multicols}{2}\footnotesize\raggedright
+   \setlength{\emergencystretch}{10em}%
+   \renewcommand{\section}[2]{}}%
+  {\end{multicols}}
+\endinput

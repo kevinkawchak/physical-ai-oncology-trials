@@ -1,7 +1,7 @@
 # End-to-End Physical AI Unification of Oncology Clinical Trials
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Release](https://img.shields.io/badge/Release-v4.6.0-brightgreen.svg)](https://github.com/kevinkawchak/physical-ai-oncology-trials)
+[![Release](https://img.shields.io/badge/Release-v4.7.0-brightgreen.svg)](https://github.com/kevinkawchak/physical-ai-oncology-trials)
 [![Last Updated](https://img.shields.io/badge/Updated-August%202026-blue.svg)](https://github.com/kevinkawchak/physical-ai-oncology-trials)
 [![Protocol](https://img.shields.io/badge/Protocol-MCP-purple.svg)](https://github.com/kevinkawchak/physical-ai-oncology-trials)
 [![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.18445179-blue)](https://doi.org/10.5281/zenodo.18445179)
@@ -19,6 +19,10 @@
 [![Funding Applications](https://img.shields.io/badge/Funding-10%20Independent%20Scientist%20Applications-00417A.svg)](funding/pdac-funding-applications)
 [![Policy Basis](https://img.shields.io/badge/Policy-Science%3A%20A%20New%20Golden%20Age-3C7DB2.svg)](funding/science-golden-age)
 [![Summary Paper DOI](https://img.shields.io/badge/Paper%20DOI%20v1.0-10.5281%2Fzenodo.21787424-blue.svg)](https://doi.org/10.5281/zenodo.21787424)
+[![Trial Site](https://img.shields.io/badge/Trial%20site-La%20Jolla%2C%20San%20Diego-00417A.svg)](funding/move-in)
+[![Site Documents](https://img.shields.io/badge/Site%20documents-15-3C7DB2.svg)](funding/move-in/final-move-in)
+[![Site Staff](https://img.shields.io/badge/Site%20staff-CEO%20%2B%2010%20coworkers-6C757D.svg)](funding/move-in/final-move-in/sections)
+[![Award](https://img.shields.io/badge/Award-%24700%2C000%20%C3%97%205%20years-6C757D.svg)](funding/move-in/final-move-in/sections)
 
 
 
@@ -27,6 +31,8 @@
 This repository provides production-ready configurations, validated pipelines, and integration guides for deploying robotic systems, digital twins, and embodied AI agents in oncology. 
 
 **8/30: FDA Approves Pancreatic Cancer Drug Rasonque (Daraxonrasib) by Revolution Medicines on August 26, 2026** *Daraxonrasib is ChemicalQDevice's number one LLM-focused cancer drug researched since identified by Google Gemini as being the most likely to aid startup funding in June 2025.* [FDA Approval](https://www.fda.gov/news-events/press-announcements/fda-approves-first-class-targeted-therapy-metastatic-pancreatic-cancer)
+
+**8/23: v4.7.0 (La Jolla Move-In: PDAC Trial Site Documentation)** *v4.7.0 adds funding/move-in/: fifteen documents that stand up California's first PDAC LLM oncology clinical trial site in La Jolla, for a chief executive and ten coworkers, against a $700,000 per year five-year federal award.* [![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.xxxxxxxx-blue)](https://doi.org/10.5281/zenodo.xxxxxxxx)
 
 **8/14: v4.6.0 (PDAC LLM Clinical Trial System)** *v4.6.0 adds new-trial-system/: the paper Pancreatic Cancer LLM Clinical Trial System: From IND to Protocol to Legislation, Funding, and AI Peer Review.* 
 
@@ -104,6 +110,116 @@ python scripts/verify_installation.py
 # Detect available simulation frameworks
 python unification/cross_platform_tools/framework_detector.py
 ```
+---
+
+## La Jolla Move-In: PDAC LLM Oncology Clinical Trial Site (v4.7.0)
+
+[![Package](https://img.shields.io/badge/Package-La%20Jolla%20Move--In-00417A.svg)](funding/move-in/final-move-in)
+[![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.xxxxxxxx-3C7DB2.svg)](https://doi.org/10.5281/zenodo.xxxxxxxx)
+[![Documents](https://img.shields.io/badge/Documents-15-6C757D.svg)](funding/move-in)
+[![Tables](https://img.shields.io/badge/Tables-56-6C757D.svg)](funding/move-in/final-move-in)
+[![Stages](https://img.shields.io/badge/Build%20stages-3-9AA1A8.svg)](funding/move-in/sub-prompts)
+[![Compile](https://img.shields.io/badge/pdfLaTeX-0%20errors%2C%2067%20pages-9AA1A8.svg)](funding/move-in/final-move-in)
+[![Citations](https://img.shields.io/badge/Bibliography-76%20of%2076%20cited-9AA1A8.svg)](funding/move-in/final-move-in/references.bib)
+[![Rasters](https://img.shields.io/badge/PNG%20%2F%20JPG-none-9AA1A8.svg)](funding/move-in)
+
+**A 425-character summary.** v4.7.0 adds funding/move-in/: the La Jolla Move-In package, fifteen documents that stand up California's first PDAC LLM oncology clinical trial site for a chief executive and ten coworkers against a $700,000 per year, five-year federal award. Four legislation, three regulations, four building and premises, four operations. 56 tables at the body measure, no diagrams, three build stages, 67 pages, 76 citations, zero errors.
+
+The predecessor package described a twenty-four-hour San Francisco site serving
+168 participants a day with twenty-nine robot instances. This one is narrower
+and harder: one disease, one Phase 1 protocol, one building, eleven named
+people, and a funded budget that has to close. Everything the site does has to
+satisfy conventional pancreatic cancer trial requirements first, and the large
+language model and robotic workflow second.
+
+### The build, end to end
+
+```mermaid
+flowchart TB
+    MP["Master prompt<br/>prompts/prompt-move-in.md"]:::goal
+    SP["3 stage sub-prompt directories<br/>5 sub-prompts each"]:::proc
+    S1["Stage 1 draft-move-in<br/>96 drafting instructions"]:::soft
+    S2["Stage 2 full-move-in<br/>15 documents, 56 tables"]:::soft
+    S3["Stage 3 final-move-in<br/>senior-author pass"]:::accent
+    REL["Release v4.7.0<br/>README + CHANGELOG + releases"]:::proc
+    IN["inputs/<br/>SF package, accomplishments, seminar deck"]:::input
+    MP --> SP --> S1 --> S2 --> S3 --> REL
+    IN --> S1
+    IN --> S2
+    classDef goal fill:#00417A,stroke:#00417A,stroke-width:1.5px,color:#FFFFFF
+    classDef proc fill:#6C757D,stroke:#00417A,stroke-width:1px,color:#FFFFFF
+    classDef accent fill:#3C7DB2,stroke:#00417A,stroke-width:1px,color:#FFFFFF
+    classDef soft fill:#DCE8F1,stroke:#3C7DB2,stroke-width:1px,color:#00417A
+    classDef input fill:#E9ECEF,stroke:#6C757D,stroke-width:1px,color:#000000
+```
+
+### The fifteen documents
+
+| # | Part | Document | What only this document gives the reader |
+|:--|:--|:--|:--|
+| 01 | I | SB 1188, Site Authorization Act | The state authority a site of this kind needs, and the clock the department runs on |
+| 02 | I | AB 3162, Patient Rights and Robotic Safety | Seven participant rights, including a pathway with no model in it |
+| 03 | I | SB 964, Model Transparency and Data Protection | What must be disclosed about the model, and how long a prompt is kept |
+| 04 | I | H. R. 10412, Federal Act | A demonstration designation and a published clock on federal review |
+| 05 | II | San Diego Municipal Code Update | Whether this use is permitted on this parcel, and under what permit |
+| 06 | II | Title 22, Division 5, Chapter 15 | The department's application, survey and enforcement machinery |
+| 07 | II | FDA LLM and Robotic Workflow Compliance Guide | A fourteen-row map from federal law to a document in this package |
+| 08 | III | Building Code Standards | Floor loading, air changes, the machine room, eight commissioning gates |
+| 09 | III | Premises Code | Four zones, eight envelope and interlock values, five waste streams |
+| 10 | III | Parking and Transportation Standards | 46 stalls derived from visit concurrency, and transport after a Whipple |
+| 11 | III | Emergency Preparedness Plan | What happens when power, network, model, or building fails |
+| 12 | IV | Site Activation and Standard Operating Procedures | Five gates, a twenty-item checklist, a twenty-procedure index |
+| 13 | IV | Conventional Trial Requirements Manual | Everything the site needs if the model and the robots were deleted |
+| 14 | IV | Staffing, Role Delineation, and Move-In Plan | Eleven people, what each is for, and the week each arrives |
+| 15 | IV | Funding Stewardship and Legislative Engagement | Where the money goes, what may be lobbied for, and with whose funds |
+
+### The eleven people and the money
+
+| Role | Award FTE | Charged per year |
+|:--|:--|:--|
+| Chief Executive Officer and sponsor representative | 0.20 | $42,000 |
+| Site principal investigator, hepatopancreatobiliary surgery | 0.10 | $34,000 |
+| Sub-investigator, gastrointestinal medical oncology | 0.10 | $28,000 |
+| Director of clinical operations | 0.40 | $54,000 |
+| Lead clinical research coordinator | 1.00 | $88,000 |
+| Regulatory affairs and quality manager | 0.45 | $52,000 |
+| Investigational drug pharmacist | 0.20 | $30,000 |
+| Robotics and physical AI systems engineer, site safety officer | 0.55 | $72,000 |
+| LLM verification and model governance lead | 0.40 | $58,000 |
+| Data manager and biostatistician | 0.30 | $38,000 |
+| Research nurse and participant navigator | 0.25 | $25,000 |
+| **Personnel total** | **3.95** | **$521,000** |
+| Premises, compute, regulatory, participant costs, verification | | $179,000 |
+| **Total direct cost** | | **$700,000 per year, $3,500,000 over five years** |
+
+The chief executive is not a clinical investigator. He is chief executive of the
+sponsor and holds 100 percent of it, so every trigger in 21 CFR 54.2 would fire
+if he held both roles; the investigator role sits wholly with the site.
+
+### The three stages, measured
+
+| Stage | Directory | What it produces | Compile |
+|:--|:--|:--|:--|
+| 1 | [`draft-move-in/`](funding/move-in/draft-move-in) | Skeleton with 96 drafting instructions naming exact repository paths | 0 errors, 27 pages |
+| 2 | [`full-move-in/`](funding/move-in/full-move-in) | Every instruction resolved, 56 tables populated | 0 errors, 71 pages |
+| 3 | [`final-move-in/`](funding/move-in/final-move-in) | Senior-author pass, no `publication/` | 0 errors, 67 pages |
+
+Stage 3 was driven by measurement rather than reading: the stage 2 PDF was
+converted to text, every page counted, and every page carrying fewer than twelve
+body lines or ending on a heading was fixed at its cause. The result is 0 short
+pages, 0 stranded headings, 0 overfull boxes, 0 underfull boxes, and 76 of 76
+bibliography entries cited.
+
+### What is not claimed
+
+Nothing here is enacted, filed, or agreed. SB 1188, AB 3162, SB 964 and
+H. R. 10412 are independent drafts and no bill by those numbers is before any
+legislature. The site is not leased, permitted, or built, and its address is
+withheld until a lease is executed. No agreement of any kind exists with UC San
+Diego or Moores Cancer Center. Daraxonrasib is investigational and already in
+Phase 3 evaluation and is nowhere described as first in human. The ten coworkers
+are roles, not hires.
+
 ---
 
 ## Pancreatic Cancer LLM Clinical Trial System (v4.6.0)
@@ -931,8 +1047,17 @@ physical-ai-oncology-trials/
 │   ├── references/                    # references.bib + trump-ai-cancer-2025-2026.bib
 │   └── template-new-system/           # the paper template this work adapts
 │
-├── funding/                           # ChemicalQDevice Capitalization Plan (v4.5.0)
+├── funding/                           # ★ La Jolla Move-In, PDAC trial site (v4.7.0)
 │   ├── README.md                      # funding hub: structure, DOIs, source map
+│   ├── move-in/                       # v4.7.0 build, three-stage schedule, 15 documents
+│   │   ├── README.md                  # build hub: roster, roles, budget, source map
+│   │   ├── inputs/                    # SF package zip, accomplishments, seminar deck
+│   │   │   └── READMES/               # one README per artifact + the abstract corpus
+│   │   ├── prompts/                   # prompt-move-in.md (verbatim) + output-move-in.md
+│   │   ├── sub-prompts/               # draft/ full/ final/, 5 sub-prompts each
+│   │   ├── draft-move-in/             # Stage 1: skeleton, 96 drafting instructions + zip
+│   │   ├── full-move-in/              # Stage 2: 15 documents, 56 tables + zip
+│   │   └── final-move-in/             # Stage 3: senior-author pass + zip (no publication dir)
 │   ├── capitalization-plan/           # v4.5.0 build, one eight-stage schedule
 │   │   ├── prompts/                   # prompt-capital.md + update-capital.md + output-capital.md
 │   │   ├── sub-prompts/               # 8 stage sub-prompts, one directory each

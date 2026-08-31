@@ -1,0 +1,162 @@
+% sec-12: Document 12, site activation and standard operating procedures.
+\docpart{Activation and SOPs}{PDAC LLM Oncology Clinical Trial Site Activation
+Checklist and Standard Operating Procedures}
+
+\section{Activation Gates}
+
+Five gates. Each carries a stop condition that is a signed instrument or a
+number rather than a judgment, which is the gate discipline the capitalization
+plan established for its twelve milestones \cite{capplan}.
+
+\begin{mvtable}
+\begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}p{1.0cm} >{\raggedright\arraybackslash}p{3.4cm} >{\raggedright\arraybackslash}X}
+\headrow \thead{Gate} & \thead{Name} & \thead{Stop condition, stated before the work begins}\\
+\midrule
+G1 & Premises accepted & Commissioning gate C8 closed and the certificate of occupancy issued under document 08 §6 \\
+G2 & Systems verified & All 14 robot instances passed an interlock test; the segmentation test at C6 failed to make a connection; the audit trail chain verified \\
+G3 & People in place & All 11 roles filled; delegation log signed; training hours in §5 complete for every named person \\
+G4 & Regulatory cleared & Institutional review board approval in hand; safe-to-proceed on the investigational new drug application; state authorization under document 01 §3 \\
+G5 & First participant in & G1 through G4 all closed; site initiation visit complete; first participant consented on the approved form \\
+\end{tabularx}
+\end{mvtable}
+\tabcapl{tab:gates}{The five activation gates. G1 opens where commissioning gate
+C8 closes, so the building document and this one share a boundary rather than
+overlapping, and no work is counted twice.}
+
+\section{The Activation Checklist}
+
+\begin{mvltable}
+\begin{xltabular}{\textwidth}{>{\raggedright\arraybackslash}p{0.7cm} >{\raggedright\arraybackslash}p{4.2cm} >{\raggedright\arraybackslash}p{2.4cm} >{\raggedright\arraybackslash}X}
+\headrow \thead{\cboxx} & \thead{Item} & \thead{Owner} & \thead{Evidence that closes it}\\
+\midrule
+\endfirsthead
+\headrow \thead{\cboxx} & \thead{Item} & \thead{Owner} & \thead{Evidence that closes it}\\
+\midrule
+\endhead
+\cboxx & Certificate of occupancy issued & Director of clinical operations & The certificate \\
+\cboxx & Air balance report accepted & Site safety officer & Balance report against document 08 §3 \\
+\cboxx & Medical gas verification & Site safety officer & NFPA 99 verification certificate \\
+\cboxx & Generator load bank and transfer test & Site safety officer & Test record, 96-hour fuel contract executed \\
+\cboxx & Network segmentation test & Model governance lead & Failed connection attempt log \\
+\cboxx & Envelope survey, 14 instances & Site safety officer & Survey record and floor markings photographed \\
+\cboxx & Interlock test, 14 instances & Site safety officer & Test record filed to the robot instance register \\
+\cboxx & Robot instance register filed & Regulatory affairs and quality manager & Department filing receipt \\
+\cboxx & Model version register entry & Model governance lead & Register row with content hash \\
+\cboxx & Audit trail chain verified & Model governance lead & Verification record \\
+\cboxx & Pharmacy compounding competency & Investigational drug pharmacist & USP 797 and 800 competency records \\
+\cboxx & Laboratory certification confirmed & Data manager and biostatistician & Clinical Laboratory Improvement Amendments certificate \cite{clia88} \\
+\cboxx & Delegation of authority log signed & Site principal investigator & The signed log \\
+\cboxx & Training hours complete, all 11 roles & Director of clinical operations & Training matrix at 100 percent \\
+\cboxx & Standard operating procedures approved & Regulatory affairs and quality manager & The index at §3, every row approved \\
+\cboxx & Institutional review board approval & Regulatory affairs and quality manager & The approval letter \\
+\cboxx & Safe-to-proceed confirmed & Chief executive and sponsor representative & The agency correspondence \\
+\cboxx & State authorization issued & Regulatory affairs and quality manager & The authorization \\
+\cboxx & Transportation arrangements procedure live & Research nurse and participant navigator & Document 10 §5 procedure, approved \\
+\cboxx & Site initiation visit complete & Director of clinical operations & The visit report \\
+\end{xltabular}
+\end{mvltable}
+\tabcapl{tab:activation}{Twenty checklist items. Every owner is one of the
+eleven roles in document 14 §1 and never a department name, because a department
+cannot be asked why an item is still open.}
+
+\section{Standard Operating Procedure Index}
+
+\begin{mvltable}
+\begin{xltabular}{\textwidth}{>{\raggedright\arraybackslash}p{2.2cm} >{\raggedright\arraybackslash}p{4.4cm} >{\raggedright\arraybackslash}p{2.4cm} >{\raggedright\arraybackslash}X}
+\headrow \thead{Class} & \thead{Procedure} & \thead{Owner} & \thead{Review}\\
+\midrule
+\endfirsthead
+\headrow \thead{Class} & \thead{Procedure} & \thead{Owner} & \thead{Review}\\
+\midrule
+\endhead
+Conventional & Informed consent and re-consent & Lead clinical research coordinator & Annual \\
+Conventional & Eligibility screening and enrollment & Lead clinical research coordinator & Annual \\
+Conventional & Dose escalation decision and cohort review & Data manager and biostatistician & Annual \\
+Conventional & Investigational product receipt, storage, dispensing, return & Investigational drug pharmacist & Annual \\
+Conventional & Specimen collection, processing, chain of custody & Data manager and biostatistician & Annual \\
+Conventional & Adverse event capture, grading, reporting & Regulatory affairs and quality manager & Annual \\
+Conventional & Source documentation and correction & Lead clinical research coordinator & Annual \\
+Conventional & Monitoring visit hosting and query resolution & Director of clinical operations & Annual \\
+Conventional & Protocol deviation identification and reporting & Regulatory affairs and quality manager & Annual \\
+Conventional & Archive and retention & Regulatory affairs and quality manager & Biennial \\
+Model & Model version registration and release & Model governance lead & Semiannual \\
+Model & Prompt and completion disposition recording & Model governance lead & Semiannual \\
+Model & Audit trail chain verification & Model governance lead & Semiannual \\
+Model & Human-only pathway on participant request & Research nurse and participant navigator & Semiannual \\
+Model & Model fault identification and suspension & Model governance lead & Semiannual \\
+Robot & Envelope survey and floor marking & Site safety officer & Semiannual \\
+Robot & Interlock test and register amendment & Site safety officer & Semiannual \\
+Robot & Emergency stop actuation and two-person restart & Site safety officer & Semiannual \\
+Robot & Terminal cleaning of a procedure suite & Site safety officer & Annual \\
+Robot & Reportable robotic event capture and notification & Regulatory affairs and quality manager & Semiannual \\
+\end{xltabular}
+\end{mvltable}
+\tabcapl{tab:sopindex}{Twenty procedures in three classes. The class column
+exists so that a monitor can see at a glance which procedures a conventional
+Phase 1 site would also hold, which is the first ten, and which exist only
+because of the model and the robots.}
+
+\section{Delegation of Authority}
+
+\begin{enumerate}
+\item The delegation of authority log records, for each person: name, role,
+  delegated tasks by identifier, training completion date, signature of the site
+  principal investigator, effective date, and end date.
+
+\item A task may not be performed before the log entry authorizing it exists.
+  This rule has no exception, including during activation.
+
+\item The delegated task sets are listed by role in document 14 §2, and the log
+  refers to them by identifier rather than restating them.
+
+\item The log is reviewed at every monitoring visit and at every departmental
+  survey.
+\end{enumerate}
+
+\section{Training and Competency}
+
+This section owns the training hours. Documents 06 §3 and 11 §6 cite them and do
+not restate them.
+
+\begin{mvtable}
+\begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}p{4.6cm} >{\raggedright\arraybackslash}p{2.2cm} >{\raggedright\arraybackslash}X}
+\headrow \thead{Role} & \thead{Initial hours} & \thead{Competency assessment}\\
+\midrule
+Site safety officer & 160 & Interlock test performed under observation; emergency stop timing measured \\
+Model governance lead & 120 & Register entry, chain verification, and a fault suspension performed under observation \\
+Lead clinical research coordinator & 80 & Consent discussion observed and scored \\
+Director of clinical operations & 80 & Activation checklist walkthrough \\
+Regulatory affairs and quality manager & 80 & Safety report drafted and reviewed \\
+Research nurse and participant navigator & 80 & Consent observation; transportation procedure walkthrough \\
+Investigational drug pharmacist & 60 & Compounding competency under USP 797 and 800 \\
+Data manager and biostatistician & 60 & Escalation decision dry run \\
+Site principal investigator and sub-investigator & 40 & Protocol examination \\
+Chief executive and sponsor representative & 40 & Sponsor obligations examination \\
+All personnel, annually & 24 & Refresher, including 8 hours emergency preparedness \\
+\end{tabularx}
+\end{mvtable}
+\tabcapl{tab:training}{Initial training hours by role and the competency
+assessment that closes each. Re-training is triggered by a role change, a Class
+A or Class B deficiency in that role's area, or a failed competency assessment.}
+
+\section{Quality Management and Deviation Handling}
+
+\begin{enumerate}
+\item Deviations are classified as Class A, Class B, or Class C with the
+  meanings established in document 01 §5. A single event is graded once, on one
+  scale, and the classification is recorded with the reason.
+
+\item A Class A deviation is reported to the department within 24 hours under
+  document 06 §6 and enters the corrective and preventive action system
+  immediately. A Class B deviation is reported within 5 business days. A Class C
+  deviation is reported in the annual report.
+
+\item Every corrective action names an owner, a due date, and the evidence that
+  will close it. An action with no evidence field is not accepted into the
+  system.
+
+\item A quality review is held quarterly, attended by the director of clinical
+  operations, the regulatory affairs and quality manager, the site safety
+  officer, and the model governance lead. Its record is the input to the annual
+  report under document 06 §6.
+\end{enumerate}

@@ -1,0 +1,147 @@
+% sec-08: Document 08, the building code standards for the La Jolla facility.
+% STAGE 3.  The one \clearpage inside a document in this whole package is here,
+% before section 6.  In stage 2 the commissioning table filled the page section 5
+% left and its caption was pushed alone onto the next page, which then carried
+% three lines and 96 percent white space.  The barrier moves the heading, the
+% table and the caption together.  Two column widths retuned.
+\docpart{Building Code}{Building Code Standards for a PDAC LLM Oncology Clinical
+Trial Facility}
+
+\section{Scope, Occupancy, and Applicable Codes}
+
+This document states what has to be built. It applies to a 12,400 gross square
+foot leasehold with 7,850 square feet of clinical floor area, within an existing
+permitted structure in the La Jolla Community Plan area.
+
+\begin{mvtable}
+\begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}p{4.2cm} >{\raggedright\arraybackslash}p{3.2cm} >{\raggedright\arraybackslash}X}
+\headrow \thead{Area} & \thead{Occupancy} & \thead{Consequence of the classification}\\
+\midrule
+Robotic procedure suites, recovery, sterile core & Ambulatory care, Group B with ambulatory care provisions & Sprinklers throughout the smoke compartment; two means of egress from each suite; smoke compartment not exceeding 22,500 square feet \\
+Exam rooms, infusion positions & Business, Group B & Standard egress; no additional smoke compartmentation \\
+Investigational drug pharmacy & Business, Group B with hazardous materials control area & Containment and exhaust under USP 800; quantities below control area maximums \cite{usp797800} \\
+Specimen laboratory & Business, Group B & Negative pressure; no flammable storage above control area limits \\
+Machine room & Business, Group B & Dedicated cooling; restricted access under document 09 §2 \\
+Administrative and staff & Business, Group B & Standard \\
+\end{tabularx}
+\end{mvtable}
+\tabcapl{tab:occupancy}{Occupancy by area. The first row is the expensive one:
+the ambulatory care classification, not the robots, drives the sprinkler,
+egress, and smoke compartment cost in the tenant improvement budget at document
+14 §6.}
+
+The governing codes are the California Building Standards Code, Title 24
+\cite{ccr24}; NFPA 99 for health care facilities \cite{nfpa99}; and NFPA 101 for
+life safety \cite{nfpa101}. Where the California amendments and the model code
+differ, the California amendment governs.
+
+\section{Site and Structural Provisions}
+
+\begin{mvtable}
+\begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}p{4.2cm} >{\raggedright\arraybackslash}p{3.4cm} >{\raggedright\arraybackslash}X}
+\headrow \thead{Element} & \thead{Requirement} & \thead{Why this trial needs it}\\
+\midrule
+Procedure suite live load & 100 pounds per square foot & Robot bases, boom-mounted equipment, and a full instrument cart on the same slab \\
+Robot base anchorage & Post-installed anchors to a slab not less than 5 inches, designed for the manufacturer's overturning moment & Registration drift is a data quality failure before it is a safety failure \\
+Vibration at the robot base & Not more than 3,200 micro-inches per second, one-third octave, during operation & Instrument tip deflection is the limiting factor for a needle-placement instance \\
+Procedure suite clear height & 10 feet 6 inches to the lowest obstruction & Boom-mounted lights and the surgical platform's full articulation \\
+Suite floor area & 720 square feet each, two suites & Envelope plus the 1.2 meter clearance in document 09 §3 plus a circulation path \\
+Seismic restraint & All suspended equipment, medical gas, and the machine room racks & Title 24 seismic provisions; post-event inspection under document 11 §3 \\
+\end{tabularx}
+\end{mvtable}
+\tabcapl{tab:structural}{Six structural provisions. The vibration limit is the
+one a general contractor will question, and it is stated because the device
+envelope work that this site inherits assumes it \cite{whipple60s,h2humanoid}.}
+
+\section{Mechanical, Electrical, and Plumbing}
+
+\begin{mvtable}
+\begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}p{4.0cm} >{\raggedright\arraybackslash}p{1.9cm} >{\raggedright\arraybackslash}p{2.4cm} >{\raggedright\arraybackslash}X}
+\headrow \thead{Space} & \thead{Air changes} & \thead{Pressure} & \thead{Additional requirement}\\
+\midrule
+Robotic procedure suite & 20 per hour & Positive, 0.01 inches water column & Minimum 4 outside air changes; temperature 68 to 75 degrees Fahrenheit \\
+Sterile core & 20 per hour & Positive & Adjacent to both suites \\
+Soiled utility & 10 per hour & Negative & Exhausted directly outdoors \\
+Pharmacy buffer room & 30 per hour & Positive & ISO Class 7; USP 797 \cite{usp797800} \\
+Pharmacy containment area & 12 per hour & Negative & External exhaust; USP 800 \cite{usp797800} \\
+Specimen laboratory & 8 per hour & Negative & Fume hood exhausted directly outdoors \\
+Machine room & 6 per hour & Neutral & 64 to 81 degrees Fahrenheit; dedicated cooling \\
+\end{tabularx}
+\end{mvtable}
+\tabcapl{tab:mep}{Air changes and pressure by space. Document 09 §4 sets traffic
+patterns against exactly these relationships, and document 13 §5 sets the
+pharmacy and laboratory requirements against the same two rows.}
+
+The essential electrical system carries three branches under NFPA 99: life
+safety, critical, and equipment \cite{nfpa99}. Both procedure suites, the
+machine room, the specimen freezers, and the pharmacy hoods are on the critical
+or equipment branch. Isolated power is provided in each procedure suite. The
+plumbing serving the pharmacy buffer and containment areas is separated from
+general plumbing, with a dedicated hand-washing sink outside the buffer room
+boundary.
+
+\section{Medical Gas, Shielding, and Specialty Systems}
+
+Each procedure suite is provided with oxygen, medical air, nitrogen for
+instrument drive where the platform requires it, and two waste anesthetic gas
+disposal connections. Vacuum is provided at four outlets per suite. Medical gas
+systems are installed, tested, and verified under NFPA 99, and the verification
+record is part of the commissioning package in §6 \cite{nfpa99}.
+
+The protocol schedules cross-sectional imaging for response assessment under
+RECIST 1.1 at intervals stated in document 13 §5 \cite{recist11}. That imaging is
+performed off site under the imaging agreement, so this facility provides no
+computed tomography or magnetic resonance suite and requires no structural
+shielding for one. Intraoperative ultrasound is performed with a mobile imaging
+assistant instance and requires no shielding. Stating this explicitly is
+deliberate: a reader who assumes an imaging suite will over-build the mechanical
+and electrical systems by a wide margin.
+
+\section{Technology Infrastructure and the Machine Room}
+
+The on-premises model node is why this document differs from an ordinary
+ambulatory surgical center building code. The protocol requires the model to run
+on premises rather than on a hosted service \cite{phase1protocol}.
+
+\begin{mvtable}
+\begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}p{3.6cm} >{\raggedright\arraybackslash}p{3.9cm} >{\raggedright\arraybackslash}X}
+\headrow \thead{Provision} & \thead{Requirement} & \thead{Cross-reference}\\
+\midrule
+Room area & 180 square feet & Front matter site table \\
+Power & Two 208 volt three-phase circuits on the equipment branch & NFPA 99 \cite{nfpa99} \\
+Uninterruptible supply & 30 minutes at full load, then generator & Document 11 §4 \\
+Cooling & Dedicated, redundant, 64 to 81 degrees Fahrenheit & §3 of this document \\
+Physical access & Restricted zone; badge plus second factor & Document 09 §2 \\
+Network segmentation & Three segments: clinical, model, robot control, with no route between model and robot control & Document 07 §5, and document 11 §5 \\
+Egress of data & One monitored path to the audit trail store; no outbound internet from the model segment & Document 03 §5 \\
+\end{tabularx}
+\end{mvtable}
+\tabcapl{tab:machineroom}{Seven machine room provisions. The sixth is the one
+that makes the advisory-only boundary in document 07 §5 a matter of wiring
+rather than of policy: there is no route from the model segment to the robot
+control segment.}
+
+\clearpage
+\section{Commissioning and Certificate of Occupancy}
+
+Commissioning proceeds as a gated sequence. The last commissioning gate is the
+first activation gate in document 12 §1, so the two documents share a boundary
+rather than overlapping.
+
+\begin{mvtable}
+\begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}p{0.9cm} >{\raggedright\arraybackslash}p{3.8cm} >{\raggedright\arraybackslash}X}
+\headrow \thead{Gate} & \thead{Scope} & \thead{Evidence that closes it}\\
+\midrule
+C1 & Structural and anchorage & Special inspection reports; anchor pull test records \\
+C2 & Mechanical air balance & Balance report showing every row of Table~\ref{tab:mep} met \\
+C3 & Electrical and essential branch & Generator load bank test; transfer time record; isolated power line isolation monitor test \\
+C4 & Medical gas & NFPA 99 verification certificate \cite{nfpa99} \\
+C5 & Fire and life safety & Sprinkler acceptance; alarm test; egress inspection \cite{nfpa101} \\
+C6 & Machine room and network & Segmentation test showing no route from model to robot control; cooling redundancy test \\
+C7 & Robot installation and envelope survey & Envelope markings surveyed; interlock test record for all 14 instances \\
+C8 & Certificate of occupancy & The certificate, issued after the county health plan check under document 05 §6 \\
+\end{tabularx}
+\end{mvtable}
+\tabcapl{tab:commissioning}{Eight commissioning gates. Gate C6 is tested by
+attempting a connection and failing to make one, which is the only form of
+evidence that a segmentation claim can carry.}

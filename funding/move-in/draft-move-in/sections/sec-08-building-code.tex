@@ -1,0 +1,63 @@
+% sec-08: Document 08, the building code standards for the La Jolla facility.
+\docpart{Building Code}{Building Code Standards for a PDAC LLM Oncology Clinical
+Trial Facility}
+
+\section{Scope, Occupancy, and Applicable Codes}
+
+\draftnote{Fix the occupancy classification and name every code that governs:
+the California Building Standards Code, Title 24, NFPA 99 for health care
+facilities, and NFPA 101 for life safety. State which parts of the facility are
+business occupancy and which are ambulatory care, because the two carry
+different sprinkler and egress requirements and the difference decides the
+tenant improvement cost in document 14 \sect{}6.}
+
+\section{Site and Structural Provisions}
+
+\begin{mvtable}
+\begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}p{4.0cm} >{\raggedright\arraybackslash}p{3.0cm} >{\raggedright\arraybackslash}X}
+\headrow \thead{Element} & \thead{Requirement} & \thead{Why this trial needs it}\\
+\midrule
+Procedure suite floor loading & to be fixed & to be fixed \\
+Vibration limit at the robot base & to be fixed & to be fixed \\
+\end{tabularx}
+\end{mvtable}
+\tabcapl{tab:structural}{Structural provisions. Stage 2 fixes each value and
+states the consequence of not meeting it, which for a robot base is a
+registration error rather than a structural failure.}
+
+\draftnote{Derive the robotic arm base and vibration provisions from the device
+envelope described in papers 9 and 10 of the deck table at
+\mvfile{funding/move-in/inputs/READMES/README-LLM-Pancreatic-Oncology-Clinical-Trial-System-Large-Documents-Funding-and-AI-Peer-Review.md}.
+Cite IEC 80601-2-77 for robotically assisted surgical equipment.}
+
+\section{Mechanical, Electrical, and Plumbing}
+
+\draftnote{Air changes per hour and pressure relationships for the procedure
+suites, the pharmacy compounding area, and the specimen laboratory; essential
+electrical system branches; and the plumbing provisions for the compounding
+area. Take the pharmacy provisions from USP General Chapters 797 and 800, and
+keep them identical to document 13 \sect{}5.}
+
+\section{Medical Gas, Shielding, and Specialty Systems}
+
+\draftnote{Medical gas outlets per suite, imaging shielding where a fluoroscopic
+or computed tomography unit is present, and the specialty systems the protocol
+requires. If the protocol does not require an imaging modality on site, say so
+and state where the imaging is performed instead, citing
+\mvfile{trial-protocol/}.}
+
+\section{Technology Infrastructure and the Machine Room}
+
+\draftnote{The on-premises model node is the reason this document differs from
+an ordinary ambulatory surgical center building code. Fix the machine room
+provisions: power, cooling, physical access, network segmentation, and the
+uninterruptible supply runtime. Keep the segmentation identical to document 09
+\sect{}2 and document 11 \sect{}5. Take the on-premises requirement from
+\mvfile{trial-protocol/} rather than asserting it.}
+
+\section{Commissioning and Certificate of Occupancy}
+
+\draftnote{The commissioning sequence as a gated table, ending at the
+certificate of occupancy, and the handoff to the activation checklist in
+document 12 \sect{}2. The two must share a boundary: the last commissioning gate
+is the first activation gate.}

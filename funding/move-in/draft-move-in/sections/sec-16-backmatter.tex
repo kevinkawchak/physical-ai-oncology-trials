@@ -1,0 +1,61 @@
+% sec-16: back matter.  Abbreviations, availability, contributions, citation,
+% and the reference list.
+\docfront{Back Matter}{LA JOLLA MOVE-IN, BACK MATTER}{Back Matter}
+
+\bmhead{Abbreviations}
+
+\draftnote{Build the abbreviations table in two column pairs at the body
+measure. The rule for inclusion is mechanical: every abbreviation used more than
+once in the body appears here, and every row here is used in the body. Stage 3
+audits the table against the body in both directions.}
+
+\begin{mvtable}
+\begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}p{1.5cm} >{\raggedright\arraybackslash}X >{\raggedright\arraybackslash}p{1.5cm} >{\raggedright\arraybackslash}X}
+\headrow \thead{Short} & \thead{Expansion} & \thead{Short} & \thead{Expansion}\\
+\midrule
+AE & Adverse event & IRB & Institutional review board \\
+CFR & Code of Federal Regulations & LLM & Large language model \\
+PDAC & Pancreatic ductal adenocarcinoma & SOP & Standard operating procedure \\
+\end{tabularx}
+\end{mvtable}
+\tabcapl{tab:abbrev}{Abbreviations, in two column pairs at the body measure.
+Stage 1 carries three representative pairs; stage 2 completes the table.}
+
+\bmhead{Data and Code Availability}
+
+{\sloppy Every work cited to a digital object identifier is openly deposited.
+The repository is at
+\url{https://github.com/kevinkawchak/physical-ai-oncology-trials},
+version v4.7.0 \cite{repo2026}.\par}
+
+\draftnote{Complete the availability paragraph: name the three stage
+directories, the two prompt files, the fifteen sub-prompts, and the input
+artifacts. State that no raster image is used anywhere in the package, which is
+Rule 3, and that the statement can be checked by searching the subtree for
+\mvfile{.png} and \mvfile{.jpg}.}
+
+\bmhead{Author Contributions and Conflicts}
+
+\draftnote{Kevin Kawchak is the sole author. State the 21 CFR Part 54 position
+in the same paragraph as the conflict statement, because the two are the same
+fact seen from two sides: he is chief executive of the sponsor, holds 100
+percent of it, and is therefore not a clinical investigator on this trial. State
+that no sponsor, contract research organization, institutional review board,
+regulator or medical society reviewed this package or authorized any statement
+in it, and that the work was adapted using Claude Code Opus 5.}
+
+\bmhead{Citation}
+
+Kawchak K. La Jolla Move-In: Pancreatic Oncology Clinical Trial Site Complete
+Documentation Package. Zenodo. 2026; \dlink{10.5281/zenodo.xxxxxxxx}.
+
+\vspace{0.2em}
+\mvrule{0.5pt}
+\vspace{-0.1em}
+
+\bmhead{References}
+\vspace{-0.35em}
+\begin{mvrefs}
+\bibliographystyle{unsrturl}
+\bibliography{references}
+\end{mvrefs}

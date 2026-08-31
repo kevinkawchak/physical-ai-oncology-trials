@@ -1,0 +1,143 @@
+% sec-09: Document 09, the premises code.
+\docpart{Premises Code}{PDAC LLM Oncology Clinical Trial Site Premises Code}
+
+\section{Scope and Zone Classification}
+
+This document states who and what may be where. The premises are divided into
+four zones. The zone scheme fixed here is used unchanged by documents 10, 11
+and 12.
+
+\begin{mvtable}
+\begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}p{2.0cm} >{\raggedright\arraybackslash}p{3.4cm} >{\raggedright\arraybackslash}p{3.0cm} >{\raggedright\arraybackslash}X}
+\headrow \thead{Zone} & \thead{Rooms} & \thead{Who may enter} & \thead{Credential and record}\\
+\midrule
+Public & Lobby, waiting, public restrooms, participant education room & Anyone, during hours of operation & None; closed-circuit recording retained 90 days \\
+Clinical & Exam rooms, infusion positions, phlebotomy, consultation & Participants with an appointment, escorted visitors, clinical staff & Badge for staff; sign-in for participants; visit record \\
+Restricted & Procedure suites, sterile core, soiled utility, pharmacy, specimen laboratory & Named staff on the delegation log; a participant during a scheduled procedure & Badge plus role authorization; access log retained six years \\
+Machine & Machine room, network closets, audit trail store & Model governance lead, site safety officer, and named information technology staff & Badge plus second factor; two-person entry for any change; access log retained six years \\
+\end{tabularx}
+\end{mvtable}
+\tabcapl{tab:zones}{The four premises zones. A zone with no access record is a
+zone with no control, so every row names both the credential and the record, and
+the two restricted-zone retention periods match document 03 §5.}
+
+\section{Access Control and Physical Security}
+
+\begin{enumerate}
+\item Badges are issued in four classes matching the four zones. A badge grants
+  the lowest zone required for the holder's delegated tasks and no higher.
+
+\item A visitor to the clinical zone is escorted at all times by a badged staff
+  member. A visitor may not enter the restricted or machine zones.
+
+\item After-hours access, meaning access outside the hours in document 05 §5, is
+  granted only for a procedure already in progress or a participant safety
+  event, and generates an alert to the director of clinical operations.
+
+\item Access logs for the restricted and machine zones are retained for six
+  years from database lock, the period fixed by document 03 §5, so that a
+  question about who was present can be answered for as long as a question about
+  what the model produced.
+
+\item Closed-circuit recording covers the public zone, the loading area, and
+  every restricted zone door, and does not cover the interior of an exam room, a
+  procedure suite, or a restroom.
+\end{enumerate}
+
+\section{Robot Operating Envelopes and Interlocks}
+
+This section owns the numbers. Document 02 §5 restates them and may not vary
+them.
+
+\begin{mvtable}
+\begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}p{4.6cm} >{\raggedright\arraybackslash}p{2.8cm} >{\raggedright\arraybackslash}X}
+\headrow \thead{Requirement} & \thead{Value} & \thead{How it is verified}\\
+\midrule
+Envelope boundary beyond maximum reach & 1.2 meters & Surveyed and floor-marked at commissioning gate C7 \\
+Emergency stop reach from any point inside the envelope & 0.8 meters & Measured with a tape at each survey \\
+Emergency stop at each suite door & Required & Visual inspection and actuation test \\
+Independent interlock channels & 3, at category 3 & Channel-by-channel fault injection \cite{iec80601277} \\
+Motion arrest after a stop command & 250 milliseconds & High-speed timing record \cite{iec80601277} \\
+Quasi-static force limit, collaborative operation & 80 newtons & Force gauge at the instrument tip \cite{iso134822014} \\
+Restart after an emergency stop & Two-person authorization & Log entry with both names, and a re-verification of the register under document 06 §4 \\
+Interlock test interval & Monthly, and after any fault & Test record filed to the robot instance register \\
+\end{tabularx}
+\end{mvtable}
+\tabcapl{tab:envelopes}{Eight envelope and interlock requirements. Each is
+verified by a measurement rather than by a manufacturer's assurance, which is
+the position the ten-gate assurance work established \cite{h2humanoid}.}
+
+The eight robot types and fourteen instances are distributed as follows: two
+robotic surgical platforms, one per suite; two limb-stabilization collaborative
+instances; one imaging-guided needle placement instance; two intraoperative
+ultrasound imaging assistants; two specimen transport and handling instances;
+one pharmacy compounding instance; two rehabilitation gait trainers; and two
+sterile processing loading instances.
+
+\section{Clean, Sterile, and Soiled Corridors}
+
+Traffic follows the pressure relationships fixed in document 08 §3 and does not
+vary from them.
+
+\begin{enumerate}
+\item Sterile supply moves from the sterile core into a procedure suite and
+  never in the reverse direction.
+
+\item A used instrument tray moves from a procedure suite into soiled utility
+  through the soiled corridor, and never through the sterile core.
+
+\item A specimen transport instance moves between a procedure suite and the
+  specimen laboratory on a defined path that does not cross the sterile core.
+  The path is marked and is part of the envelope survey at commissioning gate
+  C7.
+
+\item Where the geometry of the leasehold forces a single corridor to serve both
+  directions, a temporal separation is used instead: soiled movement is confined
+  to a scheduled window after the last procedure of the day, and the schedule is
+  a controlled record.
+\end{enumerate}
+
+\section{Waste Streams and Housekeeping}
+
+\begin{mvtable}
+\begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}p{3.2cm} >{\raggedright\arraybackslash}p{2.7cm} >{\raggedright\arraybackslash}p{2.8cm} >{\raggedright\arraybackslash}X}
+\headrow \thead{Stream} & \thead{Container} & \thead{Pickup} & \thead{Record}\\
+\midrule
+General & Standard, lidded & Twice weekly & None required \\
+Recyclable & Standard, labeled & Weekly & None required \\
+Regulated medical & Red, rigid, lined & Twice weekly, Tuesday and Friday, 07:00 to 09:00 & Manifest retained three years \\
+Cytotoxic and pharmaceutical & Yellow, rigid, sealed & Weekly, by the licensed hauler & Manifest retained three years; USP 800 handling \cite{usp797800} \\
+Electronic and media & Locked, tamper-evident & On demand & Destruction certificate; media from the machine zone destroyed rather than resold \\
+\end{tabularx}
+\end{mvtable}
+\tabcapl{tab:waste}{Five waste streams. The pickup windows are identical to
+document 05 §5, because a municipal operating standard and a premises procedure
+that disagree about a delivery window produce a code violation on an ordinary
+Tuesday.}
+
+Housekeeping in the restricted zone is performed by trained staff on a written
+schedule, using agents compatible with the robot manufacturers' cleaning
+instructions. Terminal cleaning of a procedure suite follows every procedure and
+is recorded.
+
+\section{Signage, Wayfinding, and Occupant Conduct}
+
+\begin{enumerate}
+\item Every zone boundary carries signage stating the zone, the credential
+  required, and the name of the responsible role.
+
+\item Each procedure suite door carries the emergency stop location, the
+  envelope boundary notice, and the two-person restart requirement.
+
+\item The wayfinding path from the accessible parking stall to the clinical zone
+  entrance is the accessible route described in document 10 §3, and is signed at
+  each decision point.
+
+\item No person may enter a marked envelope while a robot instance in that
+  envelope is energized, except a member of the procedure team performing a
+  delegated task. A participant is positioned before energizing and is never
+  moved into an energized envelope.
+
+\item Photography and recording are prohibited in the restricted and machine
+  zones without written authorization from the director of clinical operations.
+\end{enumerate}
