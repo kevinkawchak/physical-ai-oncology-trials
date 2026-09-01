@@ -15,7 +15,7 @@
 [![Paper DOI](https://img.shields.io/badge/Paper%20DOI%20v1.0-10.5281%2Fzenodo.22216519-blue.svg)](https://doi.org/10.5281/zenodo.22216519)
 [![Repository](https://img.shields.io/badge/Repository-v4.7.0-6C757D.svg)](../../../README.md)
 
-The senior author's proof-reading pass over `full-move-in`. **No new argument is
+See [Publication](https://github.com/kevinkawchak/physical-ai-oncology-trials/tree/main/funding/move-in/final-move-in/publication) for final author files. The senior author's proof-reading pass over `full-move-in`. **No new argument is
 introduced.** Every existing one is made to sit correctly on the page, every
 number is verified twice, and the dialect, punctuation and spacing checks are
 run to zero.
