@@ -225,7 +225,6 @@ are roles, not hires.
 ## Pancreatic Cancer LLM Clinical Trial System (v4.6.0)
 
 [![Paper](https://img.shields.io/badge/Paper-Pancreatic%20Cancer%20LLM%20Clinical%20Trial%20System-800020.svg)](new-trial-system/final-new-trial)
-[![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.xxxxxxxx-A32A3C.svg)](https://doi.org/10.5281/zenodo.xxxxxxxx)
 [![Figures](https://img.shields.io/badge/Figures-25-6B6B6B.svg)](new-trial-system)
 [![Tables](https://img.shields.io/badge/Tables-25-6B6B6B.svg)](new-trial-system/final-new-trial)
 [![Platforms](https://img.shields.io/badge/Diagram%20platforms-5-6B6B6B.svg)](new-trial-system/sub-prompts)
