@@ -10,7 +10,7 @@
 [![Diagrams](https://img.shields.io/badge/Diagrams-none%2C%20by%20Rule%203-9AA1A8.svg)](sub-prompts)
 [![Compiler](https://img.shields.io/badge/Compiler-pdfLaTeX%20%2B%20BibTeX-6C757D.svg)](final-move-in)
 [![Template DOI](https://img.shields.io/badge/Template%20DOI-10.5281%2Fzenodo.19176370-blue.svg)](https://doi.org/10.5281/zenodo.19176370)
-[![Paper DOI](https://img.shields.io/badge/Paper%20DOI%20v1.0-10.5281%2Fzenodo.xxxxxxxx-blue.svg)](https://doi.org/10.5281/zenodo.xxxxxxxx)
+[![Paper DOI](https://img.shields.io/badge/Paper%20DOI%20v1.0-10.5281%2Fzenodo.22216519-blue.svg)](https://doi.org/10.5281/zenodo.22216519)
 [![ORCID](https://img.shields.io/badge/ORCID-0009--0007--5457--8667-6C757D.svg)](https://orcid.org/0009-0007-5457-8667)
 [![Repository](https://img.shields.io/badge/Repository-v4.7.0-6C757D.svg)](../../README.md)
 
