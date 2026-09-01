@@ -115,7 +115,7 @@ python unification/cross_platform_tools/framework_detector.py
 ## La Jolla Move-In: PDAC LLM Oncology Clinical Trial Site (v4.7.0)
 
 [![Package](https://img.shields.io/badge/Package-La%20Jolla%20Move--In-00417A.svg)](funding/move-in/final-move-in)
-[![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.xxxxxxxx-3C7DB2.svg)](https://doi.org/10.5281/zenodo.xxxxxxxx)
+[![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.22216519-3C7DB2.svg)](https://doi.org/10.5281/zenodo.22216519)
 [![Documents](https://img.shields.io/badge/Documents-15-6C757D.svg)](funding/move-in)
 [![Tables](https://img.shields.io/badge/Tables-56-6C757D.svg)](funding/move-in/final-move-in)
 [![Stages](https://img.shields.io/badge/Build%20stages-3-9AA1A8.svg)](funding/move-in/sub-prompts)
