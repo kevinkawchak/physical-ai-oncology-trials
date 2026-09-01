@@ -9,7 +9,6 @@
 [![Short pages](https://img.shields.io/badge/Short%20pages-0-brightgreen.svg)](main.tex)
 [![Stranded headings](https://img.shields.io/badge/Stranded%20headings-0-brightgreen.svg)](main.tex)
 [![Citations](https://img.shields.io/badge/Bibliography-76%20of%2076%20cited-brightgreen.svg)](references.bib)
-[![Bundle](https://img.shields.io/badge/Overleaf-final--move--in--LaTeX.zip-6C757D.svg)](final-move-in-LaTeX.zip)
 [![Repository](https://img.shields.io/badge/Repository-v4.7.0-6C757D.svg)](../../../README.md)
 
 Publication: The senior author's proof-reading pass over `full-move-in`. **No new argument is
