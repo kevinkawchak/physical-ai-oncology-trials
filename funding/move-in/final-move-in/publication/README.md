@@ -104,7 +104,7 @@ named in `references.bib`.
 | Every table referred to by number exists and carries that number | correct, 56 of 56 |
 | August 23, 2026 on the cover, in the citation line, and nowhere a different date for the same event | correct |
 | v4.7.0 in the cover deposit line and every README badge | correct |
-| The identifier is the placeholder `10.5281/zenodo.xxxxxxxx` in all three places and is nowhere fabricated | correct |
+| The identifier is the placeholder `10.5281/zenodo.22216519` in all three places and is nowhere fabricated | correct |
 
 ## Audits run to zero
 
