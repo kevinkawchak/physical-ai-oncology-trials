@@ -2,6 +2,7 @@
 
 [![License](https://img.shields.io/badge/License-CC%20BY%204.0-yellow.svg)](https://creativecommons.org/licenses/by/4.0/)
 [![Repository](https://img.shields.io/badge/Repository-v4.7.0-6C757D.svg)](../../../README.md)
+[![Paper DOI](https://img.shields.io/badge/Paper%20DOI%20v1.0-10.5281%2Fzenodo.22216519-blue.svg)](https://doi.org/10.5281/zenodo.22216519)
 
 Publication: The senior author's proof-reading pass over `full-move-in`. **No new argument is
 introduced.** Every existing one is made to sit correctly on the page, every
