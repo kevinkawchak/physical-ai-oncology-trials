@@ -9,7 +9,6 @@
 [![Short pages](https://img.shields.io/badge/Short%20pages-0-brightgreen.svg)](main.tex)
 [![Stranded headings](https://img.shields.io/badge/Stranded%20headings-0-brightgreen.svg)](main.tex)
 [![Citations](https://img.shields.io/badge/Bibliography-76%20of%2076%20cited-brightgreen.svg)](references.bib)
-[![publication](https://img.shields.io/badge/publication%2F-not%20generated-9AA1A8.svg)](../sub-prompts/final-move-in)
 [![Bundle](https://img.shields.io/badge/Overleaf-final--move--in--LaTeX.zip-6C757D.svg)](final-move-in-LaTeX.zip)
 [![PDF](https://img.shields.io/badge/PDF-main.pdf%2C%2067%20pages-6C757D.svg)](main.pdf)
 [![Paper DOI](https://img.shields.io/badge/Paper%20DOI%20v1.0-10.5281%2Fzenodo.22216519-blue.svg)](https://doi.org/10.5281/zenodo.22216519)
