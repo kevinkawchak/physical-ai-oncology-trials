@@ -22,17 +22,6 @@ run to zero.
 
 There is no `publication/` subdirectory at this stage, by instruction.
 
-## Files
-
-| File | What it is |
-|:--|:--|
-| [`main.tex`](main.tex) | The cover, the contents at a tightened lead, and one `\input` per section |
-| [`movestyle.sty`](movestyle.sty) | Three stage 3 changes and no others, listed below |
-| [`references.bib`](references.bib) | 76 entries, all 76 cited |
-| [`sections/`](sections) | 17 files: front matter, fifteen documents, back matter |
-| [`final-move-in-LaTeX.zip`](final-move-in-LaTeX.zip) | The Overleaf bundle, 21 files. Unpacked into an empty directory and compiled with `pdflatex`, `bibtex`, `pdflatex`, `pdflatex`, it returns 0 errors and 67 pages, so the author fixes nothing |
-| [`main.pdf`](main.pdf) | The compiled package, 67 pages, built from these sources in the same pass that produced the bundle, so neither can be newer than the other |
-
 ## Measured result across the three stages
 
 | Metric | Draft | Full | Final |
@@ -130,17 +119,6 @@ named in `references.bib`.
 | Bare `\hspace` in a section file | 0 |
 | Bare `\vspace` in a section file | 3, all in the back matter around one rule, the parent build's own idiom |
 | Raster images anywhere in the subtree | 0 |
-
-## Files used from other directories (Rule 5)
-
-| Source | Used where |
-|:--|:--|
-| [`../full-move-in/`](../full-move-in) | The input to this stage; every section begins as its stage 2 counterpart |
-| [`../../pdac-funding-applications/final-apply/main.tex`](../../pdac-funding-applications/final-apply/main.tex) | The `\clearpage` discipline: a barrier only where the measured page requires it, never scattered |
-| [`../../pdac-funding-applications/final-apply/applystyle.sty`](../../pdac-funding-applications/final-apply/applystyle.sty) | The `\needspace` idiom for holding a heading to its content, extended here to hold a block to itself |
-| [`../../capitalization-plan/final-capital/`](../../capitalization-plan/final-capital) | The practice of recording each defect with its measured size rather than absorbing it silently |
-| [`../inputs/`](../inputs) | Verification pass 1: every claim checked back to the artifact it came from |
-| [`../sub-prompts/final-move-in/`](../sub-prompts/final-move-in) | The five sub-prompts this stage executes |
 
 ## License
 
