@@ -1,14 +1,6 @@
 # Publication: final-move-in - stage 3 of 3, the polished package (v4.7.0)
 
 [![License](https://img.shields.io/badge/License-CC%20BY%204.0-yellow.svg)](https://creativecommons.org/licenses/by/4.0/)
-[![Stage](https://img.shields.io/badge/Stage-3%20of%203-00417A.svg)](../sub-prompts/final-move-in)
-[![Documents](https://img.shields.io/badge/Documents-15-00417A.svg)](sections)
-[![Tables](https://img.shields.io/badge/Tables-56%20at%20body%20measure-3C7DB2.svg)](sections)
-[![Compile](https://img.shields.io/badge/Compile-0%20errors%2C%2067%20pages-brightgreen.svg)](main.tex)
-[![Overfull](https://img.shields.io/badge/Overfull-0-brightgreen.svg)](main.tex)
-[![Short pages](https://img.shields.io/badge/Short%20pages-0-brightgreen.svg)](main.tex)
-[![Stranded headings](https://img.shields.io/badge/Stranded%20headings-0-brightgreen.svg)](main.tex)
-[![Citations](https://img.shields.io/badge/Bibliography-76%20of%2076%20cited-brightgreen.svg)](references.bib)
 [![Repository](https://img.shields.io/badge/Repository-v4.7.0-6C757D.svg)](../../../README.md)
 
 Publication: The senior author's proof-reading pass over `full-move-in`. **No new argument is
