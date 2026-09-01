@@ -20,8 +20,6 @@ introduced.** Every existing one is made to sit correctly on the page, every
 number is verified twice, and the dialect, punctuation and spacing checks are
 run to zero.
 
-There is no `publication/` subdirectory at this stage, by instruction.
-
 ## Measured result across the three stages
 
 | Metric | Draft | Full | Final |
