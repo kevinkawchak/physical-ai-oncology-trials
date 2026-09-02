@@ -32,13 +32,15 @@ could not have asked. None re-explains the program from the beginning.
   \node[gvcell,minimum width=17mm,text width=17mm] at (2.55,\y) {\d};
   \node[gvcell,minimum width=25mm,text width=25mm] at (4.30,\y) {\a};
   \node[gvcells,minimum width=34mm,text width=34mm] at (6.85,\y) {\s};}
-\node[gvctitle,anchor=west] (ct) at (-1.65,0.62)
+\node[gvctitle,anchor=west] (ct) at (-1.62,0.62)
   {Federal mechanisms holding an inquiry from ChemicalQDevice};
-\node[gvcluster,fit=(ct)(-1.68,0.30)(8.60,-4.30),inner sep=6pt] {};
+% The fit value is braced: its coordinates carry commas, and an unbraced value
+% would be split into separate keys by the TikZ key parser.
+\node[gvcluster,fit={(ct)(-1.65,0.34)(8.62,-4.28)},inner sep=6pt] {};
 \node[gvboxk,text width=44mm] (apr) at (3.50,-5.55)
   {FDA approval, August 26, 2026: one field changes in every record};
 \foreach \y in {-0.78,-1.56,-2.34,-3.12,-3.90}{
-  \draw[gvedgeb] (apr.north) .. controls (3.50,-4.75) .. (-1.55,\y);}
+  \draw[gvedgeb] (apr.north) .. controls (3.50,-4.80) .. (-1.52,\y);}
 \end{appfig}
 \vspace{-0.60cm}
 \figcaption{Figure 2. Five federal mechanisms as records, each with what was sent, when,\\
@@ -68,6 +70,23 @@ to retire agent uncertainty alongside workflow uncertainty; half of what it was
 for has since been retired externally at no cost to that office. Telling a
 program manager this before being asked is cheaper than being asked, and it is
 the kind of fact a program manager remembers about an applicant.
+
+Letter 5 belongs in the same register as the other four for a reason that is
+easy to miss. It is addressed to a person, it carries a subject line, and it
+asks for an action, which is what makes it correspondence rather than a note to
+self. It is also the only letter of the five whose recipient can act on the same
+day it is sent. The four federal letters open a conversation whose next move
+belongs to someone else; the brokerage letter closes one.
+
+\subsection{What is deliberately not sent today}
+
+Two things that could be sent today are not. No approach is made to the agent's
+developer, because a developer reasonably asks who is funding the work and the
+four federal letters above are the answer to that question; that approach is day
+2. No approach is made to a clinical site, because a site asks the same question
+in a different form and then asks who the investigator is; that approach is day
+3. Sending all three classes of letter in one day would produce three
+conversations that each need the other two to have finished first.
 
 \subsection{The single approval step}
 

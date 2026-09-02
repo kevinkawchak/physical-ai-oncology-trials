@@ -33,29 +33,28 @@ has sent a federal office, and they appear here for the same reason.
 
 \begin{appfloat}[!tb]
 \begin{appfig}[mermaid-type / flowchart with a dated transition]
-% Three columns on a 5.6cm pitch.  Before column converges on the transition
-% node; after column diverges from it.  The unchanged panel hangs below the
+% Three columns on a 5.6cm pitch.  The before column converges on the transition
+% node; the after column diverges from it.  The unchanged panel hangs below the
 % node on a dashed edge, so it reads as a qualification of the arrow.
-\foreach \y/\lab in {0/{Agent investigational, Phase 3 ongoing},
-                     -1.55/{Funder underwrites agent, device, workflow},
-                     -3.10/{The 2025 simulation is a hypothesis}}{
-  \node[mmgray,text width=30mm] (b\y) at (0,\y) {\lab};}
-\node[mmdec,text width=25mm] (fda) at (5.6,-1.55)
-  {FDA approval\\Rasonque\\August 26, 2026};
-\node[mmgoal,text width=30mm] (a0) at (11.2,0) {Agent approved and labeled, metastatic};
-\node[mmmid,text width=30mm] (a1) at (11.2,-1.55) {Funder underwrites device and workflow};
-\node[mmsoft,text width=30mm] (a2) at (11.2,-3.10) {The 2025 simulation is a dated public call};
-\foreach \y in {0,-1.55,-3.10}{\draw[mmedge] (b\y.east) -- (fda.west);}
-\foreach \n in {a0,a1,a2}{\draw[mmedgeb] (fda.east) -- (\n.west);}
+% Node names are plain letters and digits: a name carrying a dot would be read
+% as a node-and-anchor pair, and a name carrying a minus as a subtraction.
+\node[mmgray,text width=30mm] (bone)   at (0,0)      {Agent investigational, Phase 3 ongoing};
+\node[mmgray,text width=30mm] (btwo)   at (0,-1.55)  {Funder underwrites agent, device, workflow};
+\node[mmgray,text width=30mm] (bthree) at (0,-3.10)  {The 2025 simulation is a hypothesis};
+\node[mmdec,text width=25mm]  (fda)    at (5.6,-1.55){FDA approval\\Rasonque\\August 26, 2026};
+\node[mmgoal,text width=30mm] (aone)   at (11.2,0)     {Agent approved and labeled, metastatic};
+\node[mmmid,text width=30mm]  (atwo)   at (11.2,-1.55) {Funder underwrites device and workflow};
+\node[mmsoft,text width=30mm] (athree) at (11.2,-3.10) {The 2025 simulation is a dated public call};
+\foreach \n in {bone,btwo,bthree}{\draw[mmedge]  (\n.east) -- (fda.west);}
+\foreach \n in {aone,atwo,athree}{\draw[mmedgeb] (fda.east) -- (\n.west);}
 % Unchanged panel: four boxes on a 2.95cm pitch, framed and titled.
-\foreach \x/\lab in {2.40/{Perioperative use still investigational},
-                     5.35/{An IND is still required},
-                     8.30/{No supply agreement exists},
-                     11.25/{Robotic configuration not specified}}{
-  \node[mmsoft,text width=25mm,font=\tiny\sffamily] (u\x) at (\x,-5.35) {\lab};}
-\node[mmlanetitle,anchor=west] (utitle) at (0.10,-4.55) {Unchanged by the approval};
-\node[mmlane,fit=(u2.40)(u11.25)(utitle),inner sep=7pt] {};
-\draw[mmedged] (fda.south) -- ++(0,-1.55) -| (5.35,-4.30);
+\node[mmsoft,text width=25mm,font=\tiny\sffamily] (uone)   at (2.40,-5.35)  {Perioperative use still investigational};
+\node[mmsoft,text width=25mm,font=\tiny\sffamily] (utwo)   at (5.35,-5.35)  {An IND is still required};
+\node[mmsoft,text width=25mm,font=\tiny\sffamily] (uthree) at (8.30,-5.35)  {No supply agreement exists};
+\node[mmsoft,text width=25mm,font=\tiny\sffamily] (ufour)  at (11.25,-5.35) {Robotic configuration not specified};
+\node[mmlanetitle,anchor=west] (utitle) at (0.60,-4.55) {Unchanged by the approval};
+\node[mmlane,fit={(uone)(ufour)(utitle)},inner sep=7pt] {};
+\draw[mmedged] (fda.south) -- (5.35,-4.28);
 \end{appfig}
 \vspace{-0.60cm}
 \figcaption{Figure 1. What the FDA approval changed in the ask, as three items moving\\

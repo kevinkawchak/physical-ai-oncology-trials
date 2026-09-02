@@ -104,6 +104,11 @@ adenocarcinoma}
 \apprule{0.6pt}
 
 % ---------- Clickable table of contents ----------
+% tocdepth is 1, sections only.  At depth 2 the contents of a fourteen-page
+% packet ran to a second page carrying nine lines, which is a short page in the
+% one place a reader is guaranteed to look.  A packet this size does not need
+% subsection-level contents, and the seven section titles say what each holds.
+\setcounter{tocdepth}{1}
 \renewcommand{\contentsname}{\color{accentcol}Table of Contents}
 {\setlength{\parskip}{0pt}\footnotesize\linespread{0.94}\selectfont\tableofcontents}
 
