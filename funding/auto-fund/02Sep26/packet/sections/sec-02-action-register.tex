@@ -1,0 +1,79 @@
+% sec-02: the action register and the single approval step.
+% Figure 2 (graphviz-type records), Table 2, and the actionbox.
+\section{The Action Register}
+
+Five mechanisms hold an inquiry from this company, sent between July 10 and
+August 8, 2026 \cite{tenapps2026}. Every one of those inquiries was written
+before the approval. This section is the register of what is sent back, to whom,
+and what each letter newly asks.
+
+\subsection{Why none of these is a cold letter}
+
+A re-contact after a material change is a normal and welcome event for a program
+officer. A fresh introduction five weeks after the first letter reads as though
+the first letter was forgotten, and it invites the answer the first letter
+already received. So each of the five opens by naming the earlier inquiry and its
+date, states the one fact that changed, and asks a question the earlier letter
+could not have asked. None re-explains the program from the beginning.
+
+\begin{appfloat}[!tb]
+\begin{appfig}[graphviz-type / record nodes in a dashed cluster]
+% Five-row, four-column record table.  Column widths are cut to the longest real
+% cell in each column.  Row pitch 0.78cm; header row 0.72cm deep.
+\foreach \x/\w/\lab in {0/30/{Mechanism}, 2.55/17/{Contacted}, 4.30/25/{Ask}, 6.85/34/{State now}}{
+  \node[gvcellh,minimum width=\w mm,text width=\w mm] at (\x,0) {\lab};}
+\foreach \y/\m/\d/\a/\s in {%
+  -0.78/{NIH SEED, SBIR}/{Aug 2026}/{\$306K Phase I}/{Re-contact sent},
+  -1.56/{ARPA-H mission office}/{Aug 2026}/{\$2.1M, three gates}/{Gate 1 narrowing proposed},
+  -2.34/{NCI CTEP}/{Aug 2026}/{Concept review}/{Routing question open},
+  -3.12/{NIH Pioneer, DP1}/{Jul 2026}/{\$700K per year}/{Codes and effort open},
+  -3.90/{NSF TIP, X-Labs}/{Aug 2026}/{\$700K per year}/{Held for day 5}}{
+  \node[gvcell,minimum width=30mm,text width=30mm] at (0,\y) {\m};
+  \node[gvcell,minimum width=17mm,text width=17mm] at (2.55,\y) {\d};
+  \node[gvcell,minimum width=25mm,text width=25mm] at (4.30,\y) {\a};
+  \node[gvcells,minimum width=34mm,text width=34mm] at (6.85,\y) {\s};}
+\node[gvctitle,anchor=west] (ct) at (-1.65,0.62)
+  {Federal mechanisms holding an inquiry from ChemicalQDevice};
+\node[gvcluster,fit=(ct)(-1.68,0.30)(8.60,-4.30),inner sep=6pt] {};
+\node[gvboxk,text width=44mm] (apr) at (3.50,-5.55)
+  {FDA approval, August 26, 2026: one field changes in every record};
+\foreach \y in {-0.78,-1.56,-2.34,-3.12,-3.90}{
+  \draw[gvedgeb] (apr.north) .. controls (3.50,-4.75) .. (-1.55,\y);}
+\end{appfig}
+\vspace{-0.60cm}
+\figcaption{Figure 2. Five federal mechanisms as records, each with what was sent, when,\\
+what was asked, and the state of the file after one change of external fact.}
+\end{appfloat}
+
+\subsection{The five letters}
+
+\begin{apptable}
+\begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}p{0.5cm} >{\raggedright\arraybackslash}p{3.4cm} >{\raggedright\arraybackslash}X}
+\headrow \thead{\#} & \thead{Recipient} & \thead{The one question this letter newly asks}\\
+\midrule
+1 & NIH SEED and SBIR program staff & Does an approved agent change the Phase I feasibility bar applied to a combined drug, device, and software workflow \\
+2 & ARPA-H mission office & Can gate 1 be narrowed in scope and repriced, since half of what it was written to retire has resolved externally \\
+3 & NCI Cancer Therapy Evaluation Program & Is perioperative use of a newly approved agent inside or outside the investigator-initiated concept pathway \\
+4 & NIH Common Fund and CSR review contacts & Do the tentative science codes and the 51 percent effort expectation change for a firm rather than an institution \\
+5 & The company's broker-dealer & Execution of a four-rung Treasury ladder cut to a nine-month operating horizon \\
+\end{tabularx}
+\end{apptable}
+\vspace{-0.60cm}
+\tabcap{Table 2. The five letters of this day, the recipient of each, and the\\
+single question in each that the earlier inquiry could not have asked.}
+
+Letter 2 is the one worth pausing on. It proposes a \textbf{reduction} in a filed
+outline rather than an expansion of it. Gate 1 of the August outline was written
+to retire agent uncertainty alongside workflow uncertainty; half of what it was
+for has since been retired externally at no cost to that office. Telling a
+program manager this before being asked is cheaper than being asked, and it is
+the kind of fact a program manager remembers about an applicant.
+
+\subsection{The single approval step}
+
+\actionbox{One decision is open on this day}{Approve sending the five letters in
+\appfile{funding/auto-fund/02Sep26/emails}, and approve the Treasury instruction
+in \appfile{funding/auto-fund/02Sep26/investing}. Every address, subject line,
+body, attachment manifest, order type and limit is written. No drafting remains.
+Letters 1 to 4 and letter 5 should not be sent in the same session: a brokerage
+desk and a program office should never appear in the same thread.}
