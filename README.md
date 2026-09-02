@@ -203,16 +203,6 @@ body lines or ending on a heading was fixed at its cause. The result is 0 short
 pages, 0 stranded headings, 0 overfull boxes, 0 underfull boxes, and 76 of 76
 bibliography entries cited.
 
-### What is not claimed
-
-Nothing here is enacted, filed, or agreed. SB 1188, AB 3162, SB 964 and
-H. R. 10412 are independent drafts and no bill by those numbers is before any
-legislature. The site is not leased, permitted, or built, and its address is
-withheld until a lease is executed. No agreement of any kind exists with UC San
-Diego or Moores Cancer Center. Daraxonrasib is investigational and already in
-Phase 3 evaluation and is nowhere described as first in human. The ten coworkers
-are roles, not hires.
-
 ---
 
 ## Pancreatic Cancer LLM Clinical Trial System (v4.6.0)
