@@ -1,0 +1,103 @@
+% sec-04: the corporate reserve.  Figure 3 (d2-type grid with a measure strip),
+% Table 4.  No dollar amount appears: the instruction sizes the reserve as a
+% share, and a figure or table that invented a balance would state a number the
+% instruction deliberately does not.
+\section{How the Company Holds Its Own Money}
+
+A funder reading a small business proposal reasonably asks how that business
+holds the cash it already has. This section answers it in one page. It is
+included in a packet sent to program officers because the answer is short, it is
+conservative, and it is the kind of thing that is easier to state before it is
+asked than after.
+
+\subsection{Why a ladder rather than a sweep}
+
+The company's operating horizon for the coming period is nine months, matching
+the duration of a Small Business Innovation Research Phase I award should one be
+made \cite{nihsbirseed}. A single sweep balance earns a rate but expresses no
+view about when money is needed. A ladder expresses exactly that view: each
+maturity is placed near a point at which the company has a known cash need, so no
+position has to be sold before maturity to meet one.
+
+The ladder is also a governance instrument. Each maturity is a decision point at
+which the horizon is re-read rather than letting an automatic roll make the
+decision silently, which is why auto-reinvestment is switched off on every rung.
+
+\begin{appfloat}[!tb]
+\begin{appfig}[d2-type / grid beside a measure strip on one scale]
+% Left panel: four claim rows on a 0.76cm pitch.  Right panel: a twelve-month
+% rule with four rung markers and a shaded nine-month band.  A 10mm corridor
+% separates them and no element spans it.
+\foreach \x/\w/\lab in {0/42/{Claim on the reserve}, 3.30/18/{Timing}, 4.90/22/{Rung that meets it}}{
+  \node[d2cellh,minimum width=\w mm,text width=\w mm] at (\x,0) {\lab};}
+\foreach \y/\c/\t/\r in {%
+  -0.76/{Operating burn, quarter 1}/{Month 3}/{Rung A},
+  -1.52/{Phase I milestones 1 to 3}/{Month 6}/{Rung B},
+  -2.28/{Phase I milestones 4 and 5}/{Month 9}/{Rung C},
+  -3.04/{Contingency, unclaimed}/{Month 12}/{Rung D}}{
+  \node[d2celll,minimum width=42mm,text width=42mm] at (0,\y) {\c};
+  \node[d2cell,minimum width=18mm,text width=18mm] at (3.30,\y) {\t};
+  \node[d2cellk,minimum width=22mm,text width=22mm] at (4.90,\y) {\r};}
+\ptitle{-1.70}{0.62}{Four claims, four maturities}
+% Right panel: shifted scope, 0.40cm per month.
+\begin{scope}[shift={(7.60,-2.30)}]
+  \node[mmband,minimum width=3.6cm,minimum height=0.5cm,anchor=south west] at (0,-0.25) {};
+  \axisx{0}{4.9}{0}
+  \foreach \m/\lab in {0/0, 1.2/3, 2.4/6, 3.6/9, 4.8/12}{
+    \draw[fundgray,line width=0.3pt] (\m,0) -- (\m,-0.12);
+    \node[font=\tiny\sffamily,text=fundgray,anchor=north] at (\m,-0.16) {\lab};}
+  \node[font=\tiny\sffamily,text=fundgray,anchor=north] at (2.4,-0.52) {months from settlement};
+  \foreach \m/\h/\lab in {1.2/0.62/{A, 20 pct}, 2.4/1.30/{B, 20 pct},
+                          3.6/0.62/{C, 20 pct}, 4.8/1.30/{D, 20 pct}}{
+    \draw[fundmid,line width=0.7pt] (\m,0.04) -- (\m,\h-0.16);
+    \node[d2cellk,minimum width=15mm,text width=13mm] at (\m,\h) {\lab};}
+  \ptitle{0}{2.10}{The same claims on a twelve-month rule}
+  \pnote{0}{-0.90}{Shaded band: the nine-month Phase I horizon.}
+  \legkey{0}{-1.25}{fundpale}{Liquid sleeve, 15 pct, no maturity}
+  \legkey{2.35}{-1.25}{fundgrayl}{Sweep residual, 5 pct}
+\end{scope}
+\end{appfig}
+\vspace{-0.60cm}
+\figcaption{Figure 3. The corporate reserve as four maturities and one liquid sleeve,\\
+placed against the dated claims each rung is cut to meet, at one scale.}
+\end{appfloat}
+
+\subsection{The six lines}
+
+Sizes are expressed as a share of the reserve rather than in dollars, so the
+instruction stays correct whatever the balance is on the day it is approved. No
+dollar amount is stated here for the same reason.
+
+\begin{apptable}
+\begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}p{2.2cm} >{\raggedright\arraybackslash}p{3.0cm} >{\raggedright\arraybackslash}p{1.5cm} >{\raggedright\arraybackslash}p{2.6cm} >{\raggedright\arraybackslash}X}
+\headrow \thead{Line} & \thead{Instrument} & \thead{Share} & \thead{Order type} & \thead{Maturity or horizon}\\
+\midrule
+Rung A & U.S. Treasury bill & 20 pct & Non-competitive at auction & About 3 months \\
+Rung B & U.S. Treasury bill & 20 pct & Non-competitive at auction & About 6 months \\
+Rung C & U.S. Treasury bill & 20 pct & Non-competitive at auction & About 9 months \\
+Rung D & U.S. Treasury note or bill & 20 pct & Secondary market & About 12 months \\
+Liquid sleeve & Short-duration Treasury ETF & 15 pct & Limit, day, never market & No maturity; sized for an unexpected need \\
+Residual & Government money market sweep & 5 pct & Sweep & Overnight \\
+\end{tabularx}
+\end{apptable}
+\vspace{-0.60cm}
+\tabcap{Table 4. The six lines of the reserve, each with its instrument, its\\
+share, the order type it is entered under, and the horizon it is cut to.}
+
+Rungs A through D are direct obligations with a stated maturity date and a CUSIP
+on each rung, not a fund wrapper \cite{treasuryauctions2026}. The distinction is
+the whole point: a fund has a price and a direct obligation has a maturity, and
+the ladder exists to own maturities.
+
+\subsection{What is excluded, and why}
+
+No margin, no options, no securities lending, no prime money market fund, no
+corporate credit, and no equity. A research company's operating reserve should
+carry no financing risk, no optionality, and no counterparty risk it was not paid
+to take. Award funds, if any arrive, are segregated and never mixed into the
+reserve, which is the same separation of federal from non-federal funds the site
+package sets out \cite{movein2026}.
+
+Nothing in this section is investment advice or a recommendation to any other
+person, and nothing in it has been placed. It is the sole member's direction for
+the company's own reserve.
