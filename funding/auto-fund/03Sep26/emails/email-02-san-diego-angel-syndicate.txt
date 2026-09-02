@@ -1,0 +1,96 @@
+FROM: kevink@chemicalqdevice.com
+
+TO: [Screening or applications address, from the organization's own contact page]
+    Tech Coast Angels, San Diego network - https://www.techcoastangels.com
+    San Diego Angel Conference at USD - https://sandiegoangelconference.com
+
+CC: [None. Send one letter per organization, never a combined recipient list]
+
+SUBJECT: San Diego pancreatic oncology company - request for a screening conversation, not a pitch slot
+
+=== BODY ===
+Dear Screening Committee,
+
+I am the chief executive of ChemicalQDevice, a San Diego company working on
+verification-first artificial intelligence for oncology clinical trials. I am
+writing to ask for a screening conversation rather than a pitch slot, because I
+would rather find out early whether this is the wrong fit than take a slot from a
+company that is the right one.
+
+What the company does, in three sentences. It develops a governed, advisory-only
+large language model layer for robotic pancreaticoduodenectomy in KRAS-mutated
+pancreatic ductal adenocarcinoma, together with the regulatory and protocol
+package a Phase 1 trial of that workflow requires. Its output is public: a
+repository carrying a Phase 1 protocol, a Phase 2 protocol, an investigational
+new drug application, quantitative trial simulations with their verification
+notebooks, and a full site documentation package. Everything a diligence process
+would ask for in week one is already published, dated, and citable.
+
+Why now. On August 26, 2026 the FDA approved Rasonque (daraxonrasib) as the
+first-in-class targeted therapy for metastatic pancreatic cancer. In June 2025,
+fourteen months earlier, this company's method identified a daraxonrasib
+combination as its lead candidate from a review of forty pancreatic ductal
+adenocarcinoma meta-analyses, and in August 2025 a ten-arm simulation returned
+median overall survival of 12.8 months against 5.4 for chemotherapy. In May 2026
+RASolute 302 reported 13.2 against 6.6 in previously treated metastatic disease.
+The simulated ratio was 2.4-fold and the observed was 2.0-fold. That proximity is
+a chronology observation and a hypothesis-supporting one, not a validation claim,
+and three differences are material: 1000 simulated against 241 enrolled, a
+combination against a single agent, and KRAS G12C against a primarily G12D and
+G12V population.
+
+What the capital question looks like, described and not offered. A federal Small
+Business Innovation Research route would supply roughly $1.6 million over
+thirty-three months. The five-year program is $3.5 million in direct cost. The
+gap is about $2.1 million, and closing it is what private capital would be for.
+The company is examining three instruments for that purpose and has selected
+none. **This letter is not an offer to sell or a solicitation of an offer to buy
+any security, and no offering exists.**
+
+What I am asking for. Thirty minutes with whoever screens life science and
+medical device submissions in your group, to answer two questions: whether a
+company whose primary output to date is regulatory and computational rather than
+clinical is inside your mandate at all, and if it is, what the group would want
+to see before a formal submission.
+
+I would welcome a short call at your convenience.
+
+Sincerely,
+CEO Kevin Kawchak
+ChemicalQDevice
+San Diego, California
+kevink@chemicalqdevice.com
+ORCID 0009-0007-5457-8667
+=== END BODY ===
+
+ATTACHMENTS COMPILED FROM THIS DIRECTORY
+1. 03Sep26-private-capital-bridge.pdf
+   Compile from packet/main.tex in this day directory:
+   pdflatex main -> bibtex main -> pdflatex main -> pdflatex main
+   Twelve pages. No DOI is asserted for this document.
+
+ATTACHMENTS THE AUTHOR MUST ADD BY HAND
+1. None. Everything else is linked, not attached. A first letter carrying four
+   attachments is a first letter that does not get read.
+
+EXTERNAL WORK TO CITE BUT NOT ATTACH
+- The public repository:
+  https://github.com/kevinkawchak/physical-ai-oncology-trials
+- FDA. FDA Approves First-in-Class Targeted Therapy for Metastatic Pancreatic
+  Cancer. August 26, 2026.
+  https://www.fda.gov/news-events/press-announcements/fda-approves-first-class-targeted-therapy-metastatic-pancreatic-cancer
+
+BEFORE SENDING
+- Replace the bracketed address with the screening or applications address from
+  the organization's own contact page. Do not guess an individual's address.
+- Send one letter per organization. Never put two organizations on one recipient
+  line; an angel group that sees a competitor in the header stops reading.
+- Confirm the letter contains no offering term: no valuation, no cap, no
+  discount, no minimum, no closing date. Rule 506(b) permits no general
+  solicitation, and this letter must read as a request for a conversation.
+- Confirm the sentence beginning "This letter is not an offer to sell" is present
+  and unedited.
+- Confirm no sentence describes daraxonrasib as first in human.
+- Confirm no institution is described as a partner, sponsor, site, or endorser.
+- Confirm the three material differences appear in the same paragraph as the
+  simulation numbers.
