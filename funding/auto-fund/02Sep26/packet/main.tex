@@ -1,0 +1,129 @@
+% ============================================================
+% main.tex - Day 1 packet, "The Approval Dividend".
+% ChemicalQDevice daily funding action packet, repository v4.8.0.
+% Deposited in funding/auto-fund/02Sep26/packet.
+%
+% WHAT THIS DOCUMENT IS.  The attachment that accompanies the five letters in
+% ../emails.  It is written so that a recipient who opens it without having read
+% anything else in the repository can decide, from this file alone, whether to
+% take a call.  Nothing in it is a submission of record and nothing in it is an
+% agreement.
+%
+% STRUCTURE.  Seven sections, one .tex file each, per Rule 6 of the master
+% prompt.  Three figures, five tables.  Every figure is TikZ; no raster image is
+% used anywhere.
+%
+% SPACING INVARIANT.  Every float in this packet is closed with
+%     \end{appfig}   \vspace{-0.60cm}  \figcaption{...}
+%     \end{apptable} \vspace{-0.60cm}  \tabcap{...}
+% which leaves exactly 24.5pt - 0.60cm = 7.44pt from the last rule to the first
+% caption line, identically for every figure and every table.
+%
+% COMPILE ON OVERLEAF WITH pdfLaTeX:
+%   pdflatex main -> bibtex main -> pdflatex main -> pdflatex main
+% ============================================================
+\documentclass[11pt]{article}
+\usepackage{fundstyle}
+
+\title{The Approval Dividend: Converting the Rasonque Approval into Five Federal
+Re-Contacts and One Treasury Instruction}
+\author{Kevin Kawchak}
+\date{September 2, 2026}
+
+\fundhdr{The Approval Dividend}{Day 1 of 5}
+
+\begin{document}
+\thispagestyle{plain}
+
+% =====================================================================
+% COVER.  A solid accent header block carrying the decision, over a white ruled
+% panel carrying the subtitle, over a three-cell strip carrying the ask, the
+% instrument and the horizon.  A daily action packet leads with what is being
+% decided, so the decision is first on the page and the money is third.
+% =====================================================================
+\fundmast{ChemicalQDevice \;|\; Daily Funding Action Packet \;|\; Day 1 of 5}%
+{The Approval Dividend}%
+{Five federal re-contacts and one Treasury instruction, written against the
+August 26, 2026 approval of Rasonque (daraxonrasib) in metastatic pancreatic
+cancer. One approval step is open, and it belongs to the chief executive.}
+
+\vspace{0.15em}
+
+\begin{center}
+\appbadge{Day 1 of 5} \enspace \appbadgel{Repository v4.8.0} \enspace
+\appbadgel{3 figures} \enspace \appbadgel{5 tables} \enspace
+\appbadgel{5 letters}
+\end{center}
+
+\vspace{-0.15em}
+
+\funddeck{The ask}{\$306,000}{SBIR Phase I, 9 months}%
+{The follow-on}{\$1,300,000}{SBIR Phase II, 24 months}%
+{The program}{\$3,500,000}{60 months, direct cost}
+
+\vspace{-0.1em}
+\apprule{0.9pt}
+
+\begin{center}\small
+CEO Kevin Kawchak\,\orcidicon{0009-0007-5457-8667}, ChemicalQDevice \;|\;
+\href{mailto:kevink@chemicalqdevice.com}{kevink@chemicalqdevice.com}\\
+\href{https://orcid.org/0009-0007-5457-8667}{0009-0007-5457-8667} \;|\;
+San Diego, California
+\end{center}
+
+\vspace{-0.25em}
+\apprule{0.5pt}
+
+\noindent\footnotesize\textit{Independent research paper and practical adoption
+guide. It is not medical or regulatory advice and is not endorsed by the FDA,
+NIH, HHS, an IRB, ICH, or any sponsor. All figures derive from the author's
+repository sources and are illustrative unless tied to a cited
+reference.}\normalsize\par
+
+\vspace{0.12em}
+
+\noindent\footnotesize\textbf{Disclaimer:} \textit{This work is independent and
+is not endorsed or sponsored by any trial sponsor, CRO, site, IRB, regulator, or
+medical society; and was adapted using Claude Code Opus 5.}\normalsize\par
+
+\vspace{0.12em}
+
+{\sloppy\noindent\footnotesize Repository (v4.8.0) is at
+\url{https://github.com/kevinkawchak/physical-ai-oncology-trials}.
+The paper files are deposited in
+\href{https://github.com/kevinkawchak/physical-ai-oncology-trials/tree/main/funding/auto-fund}{funding/auto-fund}.
+No digital object identifier is asserted for this document.\normalsize\par}
+
+\renewcommand{\keywordname}{\textbf{Keywords}}
+\keywords{Small business innovation research; Daily funding actions; RAS(ON)
+inhibitor approval; Treasury ladder; Perioperative daraxonrasib; Robotic
+pancreaticoduodenectomy; Advisory-only large language model; Pancreatic ductal
+adenocarcinoma}
+
+\vspace{0.25em}
+\apprule{0.6pt}
+
+% ---------- Clickable table of contents ----------
+\renewcommand{\contentsname}{\color{accentcol}Table of Contents}
+{\setlength{\parskip}{0pt}\footnotesize\linespread{0.94}\selectfont\tableofcontents}
+
+\vspace{-0.1em}
+\apprule{0.6pt}
+
+\clearpage
+
+% ---------- Body: one \input per section (Rule 6) ----------
+% \clearpage discipline.  A barrier is placed only where the next section opens
+% with a figure or a full-width table, so no float drifts out of the section
+% that discusses it.  Sections 3 and 5 open with prose and take no barrier
+% before them, because one there would leave the preceding page part empty for
+% no gain.
+\input{sections/sec-00-front}\clearpage
+\input{sections/sec-01-what-changed}\clearpage
+\input{sections/sec-02-action-register}\clearpage
+\input{sections/sec-03-evidence}
+\input{sections/sec-04-capital}\clearpage
+\input{sections/sec-05-outreach-and-route}
+\input{sections/sec-06-references}
+
+\end{document}
