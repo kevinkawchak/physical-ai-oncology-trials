@@ -1,0 +1,74 @@
+% sec-03: the data room as typed records.  Figure 11 (d2-type sql table),
+% Table 17.
+\section{The Data Room}
+
+A data room organized by document type is a data room nobody can navigate. This
+one is organized by the question each folder answers, and every folder's first
+line states what is **not** true of its contents rather than leaving a reviewer
+to discover it.
+
+\begin{appfloat}[!tb]
+\begin{appfig}[d2-type / sql table records with an access class column]
+% Ten rows on a 0.66cm pitch; header band 0.70cm deep.  There are no edges: a
+% record listing has no connectors, and drawing one between folders would assert
+% a reading order the data room does not have.
+\node[d2cellh,minimum width=34mm,text width=32mm] at (0,0) {Folder};
+\node[d2cellh,minimum width=52mm,text width=50mm] at (3.10,0) {The question it answers};
+\node[d2cellh,minimum width=32mm,text width=30mm] at (6.90,0) {Access class};
+\foreach \y/\f/\q/\c/\s in {%
+  -0.66/{01 Entity and ownership}/{Who owns this, and since when}/{Open on request}/d2cell,
+  -1.32/{02 The program}/{What is being built, and at what stage}/{Already public}/d2cellk,
+  -1.98/{03 The evidence}/{What is known, with its limitations}/{Already public}/d2cellk,
+  -2.64/{04 Regulatory}/{Prepared, and not submitted}/{Open on request}/d2cell,
+  -3.30/{05 Capital}/{The gap, and that no offering exists}/{Under a CDA}/d2cellg,
+  -3.96/{06 Correspondence}/{Who was approached, when, and with what result}/{Under a CDA}/d2cellg,
+  -4.62/{07 Recognition}/{What correspondence has been received}/{Open on request}/d2cell,
+  -5.28/{08 Team and roles}/{One person today, eleven roles planned}/{Open on request}/d2cell,
+  -5.94/{09 Risks and stops}/{What would make this program stop}/{Open on request}/d2cell}{
+  \node[d2celll,minimum width=34mm,text width=32mm] at (0,\y) {\f};
+  \node[d2celll,minimum width=52mm,text width=50mm] at (3.10,\y) {\q};
+  \node[\s,minimum width=32mm,text width=30mm] at (6.90,\y) {\c};}
+\ptitle{-1.75}{0.62}{Nine folders, three access classes}
+\node[font=\tiny\itshape,text=fundgray,anchor=north west,text width=118mm]
+  at (-1.75,-6.45) {Folders 02 and 03 are already public in full, which shortens
+  most diligence by a week. Folders 05 and 06 sit behind an agreement for the
+  counterparty's protection as much as the company's: folder 06 names people who
+  did not consent to publication.};
+\end{appfig}
+\vspace{-0.60cm}
+\figcaption{Figure 11. The data room as nine typed records, each carrying the question it\\
+answers and the access class that governs who may be sent it and when.}
+\end{appfloat}
+
+\subsection{What each folder's first line says}
+
+\begin{apptable}
+\begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}p{3.0cm} >{\raggedright\arraybackslash}p{4.6cm} >{\raggedright\arraybackslash}X}
+\headrow \thead{Folder} & \thead{Its first line} & \thead{Why that line is first rather than buried}\\
+\midrule
+04 Regulatory & Nothing in this folder has been submitted & A folder of regulatory documents reads as a submission history unless it says otherwise \\
+05 Capital & No offering exists and no instrument has been selected & A folder containing a Form D draft reads as a live offering unless it says otherwise \\
+06 Correspondence & No agreement of any kind exists & A folder of institutional letters reads as a relationship unless it says otherwise \\
+07 Recognition & Each item is a fact about correspondence and none is an award, agreement, commitment, or review & The single most easily overstated fact this company holds \\
+08 Team and roles & One person today; the eleven roles are roles and not hires & A roster reads as a headcount unless it says otherwise \\
+\end{tabularx}
+\end{apptable}
+\vspace{-0.60cm}
+\tabcap{Table 17. Five folders whose first line states what is not true of their\\
+contents, and the misreading each line exists specifically to prevent.}
+
+\subsection{Custody, if the program stops}
+
+Regulatory records are retained under the sponsor and investigator terms of 21
+CFR 312.57 and 312.62 \cite{ecfr2026part312records}. The public deposits remain
+public under their own licenses and require no custodian at all, which is one of
+the quieter advantages of having published everything. Entity and capital records
+sit with the company and its counsel.
+
+\subsection{What is deliberately not in the data room}
+
+No participant data of any kind, because no participant exists. No document
+produced by an institution, because none has been produced. No developer material
+and no robotic vendor material, because no relationship exists with either. A
+data room carrying an empty folder invites the question of why the folder is
+empty, so those folders are not created.
