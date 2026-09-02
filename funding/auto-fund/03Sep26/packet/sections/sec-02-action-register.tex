@@ -1,0 +1,86 @@
+% sec-02: the five letters, the signing order, and the single approval step.
+% Figure 6 (mermaid-type sequence), Table 7, and the actionbox.
+\section{The Action Register}
+
+Five letters leave on this day and they are deliberately not interchangeable. One
+opens a commercial relationship that has never been opened. Two ask for
+introductions and describe no security. One engages counsel on a defined scope.
+One prepares an account that would receive a subscription that does not yet
+exist.
+
+\begin{apptable}
+\begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}p{0.5cm} >{\raggedright\arraybackslash}p{3.4cm} >{\raggedright\arraybackslash}X}
+\headrow \thead{\#} & \thead{Recipient} & \thead{The ask, and what the letter deliberately does not do}\\
+\midrule
+1 & The agent's developer, external research & A scientific feasibility conversation and the next submission window. It does not ask for drug, funding, or a letter of authorization in this letter \\
+2 & Regional angel and syndicate screening committees & A screening conversation. It states no valuation, cap, discount, minimum, or closing date \\
+3 & Life science family offices & A read of the public repository, then a call. It carries no attachment at all \\
+4 & Securities counsel & An engagement scoped to one instrument, two filings, and one eligibility question. It does not state a conclusion the company has relied on \\
+5 & The broker-dealer corporate desk & A subscription account opened and left unfunded. It states plainly that no offering exists \\
+\end{tabularx}
+\end{apptable}
+\vspace{-0.60cm}
+\tabcap{Table 7. The five letters of this day, the ask in each, and the thing\\
+each letter is deliberately written not to do.}
+
+\subsection{The order, and the idleness inside it}
+
+Figure 6 draws the signing sequence of a financing across four participants. Its
+useful content is not the order, which is obvious, but the idle spans: counsel is
+idle for four consecutive spans in the middle, and a purchaser is idle for seven.
+That distribution is the argument for engaging counsel on a defined scope rather
+than an open retainer. The scope is what counsel does in the spans where counsel
+is not idle, and it is priceable in advance.
+
+\begin{appfloat}[!tb]
+\begin{appfig}[mermaid-type / sequence with lifelines and activation bars]
+% Four lifelines on a 3.30cm pitch; nine messages on a 0.62cm pitch.  \seqrow
+% draws one message row, so a message can be moved by changing one number.
+\node[mmactor] (ceo) at (0,0)    {Chief executive};
+\node[mmactor] (cns) at (3.30,0) {Securities counsel};
+\node[mmactor] (inv) at (6.60,0) {Purchaser};
+\node[mmactor] (brk) at (9.90,0) {Broker-dealer};
+\foreach \n in {ceo,cns,inv,brk}{\draw[mmlife] (\n.south) -- ++(0,-6.05);}
+\seqrow{-0.85}{0}{3.30}{mmmsg}{Engagement scope, four items}
+\seqrow{-1.47}{3.30}{0}{mmret}{SBIR ownership answer, in writing}
+\seqrow{-2.09}{0}{3.30}{mmmsg}{Instrument selected}
+\seqrow{-2.71}{3.30}{0}{mmret}{Documents drafted, filings prepared}
+\seqrow{-3.33}{0}{9.90}{mmmsg}{Open the subscription account}
+\seqrow{-3.95}{9.90}{0}{mmret}{Account open, wire instructions issued}
+\seqrow{-4.57}{0}{6.60}{mmmsg}{Documents, after a prior relationship exists}
+\seqrow{-5.19}{6.60}{9.90}{mmmsg}{Subscription funds}
+\seqrow{-5.81}{9.90}{0}{mmret}{Funds received, first sale dated}
+% Activation bars on the participant that owns each span.
+\node[mmact,minimum height=1.9cm] at (3.30,-2.10) {};
+\node[mmact,minimum height=1.0cm] at (9.90,-3.65) {};
+\node[mmact,minimum height=1.0cm] at (6.60,-4.90) {};
+\node[mmact,minimum height=5.3cm] at (0,-3.35) {};
+\pnote{10.60}{-2.10}{Counsel idle after\\the written answer}
+\pnote{10.60}{-4.60}{Purchaser appears\\in two spans only}
+\end{appfig}
+\vspace{-0.60cm}
+\figcaption{Figure 6. The signing order of a private financing across four participants,\\
+drawn so that both the sequence and the idle spans between it are visible.}
+\end{appfloat}
+
+\subsection{Why the developer letter is on this day and not the last one}
+
+The developer's public external research portal has indicated that submissions
+were closed \cite{revmedexternal2026}. The approval changes this company's
+posture, not that portal's calendar, so the letter asks for the next submission
+window and a scientific conversation and asks for nothing a closed window would
+have to refuse.
+
+It sits after the federal re-contacts of day 1 because a developer reasonably
+asks who is funding the work, and day 1 is the answer to that question. It sits
+before the site approaches of day 3 because a site asks the same question in a
+different form and then asks who the investigator is.
+
+\subsection{The single approval step}
+
+\actionbox{One decision is open on this day}{Approve one instrument from \S3, one
+raise size, and the first approach to the agent's developer in
+\appfile{funding/auto-fund/03Sep26/emails}. The comparison is finished, the
+letters are written, and the two filings are prepared and deliberately unfiled.
+Letters 2 and 3 must not be sent to more than one organization on a single
+recipient line, and no letter may state an offering term.}
