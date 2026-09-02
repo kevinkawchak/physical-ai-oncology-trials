@@ -1,0 +1,103 @@
+% sec-01: the approval, the chronology, and the four things unchanged.
+% Figure 1 (mermaid-type flowchart), Table 1.
+\section{What Changed on August 26, 2026}
+
+The FDA approved Rasonque (daraxonrasib), Revolution Medicines' RAS(ON)
+multi-selective inhibitor, as the first-in-class targeted therapy for metastatic
+pancreatic cancer \cite{fdarasonque2026}. That is one sentence, and this section
+is about the difference between what it does change and what a reader in a hurry
+might assume it changes.
+
+\subsection{The dated chronology}
+
+Four artifacts, each public, each dated, and each citable without contacting this
+company \cite{daraxstory2026}.
+
+In June 2025 a review of forty pancreatic ductal adenocarcinoma meta-analyses
+totaling over 400,000 words ranked a daraxonrasib combination as the lead funding
+candidate for this company \cite{daraxident}. In August 2025 a ten-arm
+quantitative systems pharmacology simulation across roughly 250 ordinary
+differential equations returned median overall survival of 12.8 months against
+5.4 for chemotherapy \cite{qspmetpancre}. In May 2026, nine months later,
+RASolute 302 reported 13.2 months against 6.6 in the RAS G12 population of
+previously treated metastatic pancreatic cancer \cite{rasolute302}. In August
+2026 the agent was approved.
+
+The simulated ratio was 2.4-fold and the observed ratio was 2.0-fold. That
+proximity is a chronology observation and a hypothesis-supporting one. It is
+\textbf{not} a validation claim, and three differences are material: 1000
+simulated against 241 enrolled; a combination against a single agent; and KRAS
+G12C against a primarily G12D and G12V population. Those three clauses have
+appeared in the same paragraph as those numbers in every document this company
+has sent a federal office, and they appear here for the same reason.
+
+\begin{appfloat}[!tb]
+\begin{appfig}[mermaid-type / flowchart with a dated transition]
+% Three columns on a 5.6cm pitch.  Before column converges on the transition
+% node; after column diverges from it.  The unchanged panel hangs below the
+% node on a dashed edge, so it reads as a qualification of the arrow.
+\foreach \y/\lab in {0/{Agent investigational, Phase 3 ongoing},
+                     -1.55/{Funder underwrites agent, device, workflow},
+                     -3.10/{The 2025 simulation is a hypothesis}}{
+  \node[mmgray,text width=30mm] (b\y) at (0,\y) {\lab};}
+\node[mmdec,text width=25mm] (fda) at (5.6,-1.55)
+  {FDA approval\\Rasonque\\August 26, 2026};
+\node[mmgoal,text width=30mm] (a0) at (11.2,0) {Agent approved and labeled, metastatic};
+\node[mmmid,text width=30mm] (a1) at (11.2,-1.55) {Funder underwrites device and workflow};
+\node[mmsoft,text width=30mm] (a2) at (11.2,-3.10) {The 2025 simulation is a dated public call};
+\foreach \y in {0,-1.55,-3.10}{\draw[mmedge] (b\y.east) -- (fda.west);}
+\foreach \n in {a0,a1,a2}{\draw[mmedgeb] (fda.east) -- (\n.west);}
+% Unchanged panel: four boxes on a 2.95cm pitch, framed and titled.
+\foreach \x/\lab in {2.40/{Perioperative use still investigational},
+                     5.35/{An IND is still required},
+                     8.30/{No supply agreement exists},
+                     11.25/{Robotic configuration not specified}}{
+  \node[mmsoft,text width=25mm,font=\tiny\sffamily] (u\x) at (\x,-5.35) {\lab};}
+\node[mmlanetitle,anchor=west] (utitle) at (0.10,-4.55) {Unchanged by the approval};
+\node[mmlane,fit=(u2.40)(u11.25)(utitle),inner sep=7pt] {};
+\draw[mmedged] (fda.south) -- ++(0,-1.55) -| (5.35,-4.30);
+\end{appfig}
+\vspace{-0.60cm}
+\figcaption{Figure 1. What the FDA approval changed in the ask, as three items moving\\
+across one dated transition, and four items the approval leaves untouched.}
+\end{appfloat}
+
+\subsection{The four rows that matter}
+
+\begin{apptable}
+\begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}p{2.9cm} >{\raggedright\arraybackslash}p{4.6cm} >{\raggedright\arraybackslash}X}
+\headrow \thead{Dimension} & \thead{Before the approval} & \thead{After the approval}\\
+\midrule
+Agent status & Investigational, Phase 3 evaluation ongoing & Approved and labeled in metastatic disease \\
+Risk underwritten & Agent risk, device risk, workflow risk & Device risk and workflow risk \\
+Supply question & Whether an investigational agent can be obtained at all & Whether a perioperative investigational use of an approved agent can be supported \\
+Method evidence & A method argued from its own outputs & A method with one external checkpoint a reviewer can date \\
+\end{tabularx}
+\end{apptable}
+\vspace{-0.60cm}
+\tabcap{Table 1. The four dimensions the approval moves, stated as a before and\\
+an after, with no fifth row claimed and no row overstated in either column.}
+
+\subsection{The four things it does not change}
+
+Each of the following is a place where an enthusiastic reading of the approval
+would be wrong, and each is stated in every letter this packet accompanies.
+
+The proposed use remains investigational. The approval covers metastatic disease;
+this program proposes perioperative use in resectable and borderline-resectable
+disease, and an investigational new drug application is still required
+\cite{ecfr2026part312}.
+
+No supply arrangement exists. No drug supply agreement, letter of authorization,
+or regulatory cross-reference is in place with the agent's developer, and no
+approach has been made \cite{revmedexternal2026}.
+
+The device and software questions are untouched. The advisory boundary, the 3
+millisecond arm-level stop, the 500 millisecond system-wide stop, the
+verification harness, and the human-authority guarantee are exactly where they
+were \cite{onpremwhippl}.
+
+The novelty claim is unchanged. Daraxonrasib is nowhere described as first in
+human. The supportable claim concerns the first prospective clinical evaluation
+of the integrated surgical and advisory workflow, subject to FDA and
+institutional confirmation.
