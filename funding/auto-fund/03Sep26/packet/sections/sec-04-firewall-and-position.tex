@@ -1,0 +1,98 @@
+% sec-04: the part 54 firewall and the financing state machine.
+% Figure 5 (plantuml-type state machine with guards), Table 9.
+\section{The Firewall the Instrument Must Leave Intact}
+
+The chief executive is chief executive of the sponsor and holds the whole of it.
+He is not a clinical investigator on the trial this program describes, will not
+be one, and is nowhere described as one. The investigator role sits wholly with
+the clinical site.
+
+That is not modesty. It is the only arrangement under which the financial
+interest a founder necessarily has in his own company does not become an
+investigator financial interest that a reviewer must weigh against the data
+\cite{ecfr2026part54,fdafindisclosure2013}.
+
+\begin{apptable}
+\begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}p{4.0cm} >{\raggedright\arraybackslash}p{1.5cm} >{\raggedright\arraybackslash}X}
+\headrow \thead{21 CFR 54.2 trigger} & \thead{Would fire} & \thead{Why, if the roles were combined}\\
+\midrule
+Compensation whose value could be influenced by the study outcome & Yes & Founder equity value is influenced by the outcome by construction \\
+Significant equity interest in a non-publicly traded sponsor & Yes & One hundred percent of a private company \\
+Proprietary interest: patent, trademark, copyright, licensing & Yes & The company holds the workflow and documentation assets \\
+Significant payments of other sorts & Yes & The company funds the work \\
+\end{tabularx}
+\end{apptable}
+\vspace{-0.60cm}
+\tabcap{Table 9. All four financial disclosure triggers would fire if one person\\
+held both roles, which is why the separation is structural rather than partial.}
+
+Because all four would fire at once, the separation cannot be a matter of degree.
+A Phase 1 3+3 escalation carries no randomization, so the firewall binds on dose
+assignment, dose-limiting toxicity adjudication, and the analysis plan instead.
+That wording is carried forward deliberately, so that it still binds when a Phase
+2 successor introduces randomization \cite{phase2proto}.
+
+\subsection{What each instrument does to the firewall}
+
+A simple agreement for future equity and a convertible note leave it untouched
+until conversion: holders take no board seat and no protective provisions at
+signing. A priced preferred round usually brings both, which introduces persons
+with governance rights and an economic interest in the study outcome. That is not
+itself an investigator interest, but it changes who is in the room when dose and
+analysis questions are discussed, and the value of a firewall is that it is easy
+to describe.
+
+\subsection{The financing as five states and four guards}
+
+\begin{appfloat}[!tb]
+\begin{appfig}[plantuml-type / state machine with guard conditions]
+% Five states on a 2.85cm horizontal pitch.  The long return transition is
+% routed at y = -1.35, which is 0.55cm below the deepest state box edge, so it
+% passes under state 2 rather than through it.
+\node[umlinit] (i) at (-0.95,0) {};
+\node[umlstateon,text width=22mm]   (s1) at (0.35,0)  {Comparing};
+\node[umlstatesoft,text width=22mm] (s2) at (3.20,0)  {Selected};
+\node[umlstatesoft,text width=22mm] (s3) at (6.05,0)  {Prepared};
+\node[umlstate,text width=22mm]     (s4) at (8.90,0)  {First close};
+\node[umlstategray,text width=22mm] (s5) at (11.75,0) {Reported};
+\node[umlfinal] (f) at (13.05,0) {};
+\draw[umlarrow] (i) -- (s1);
+\draw[umlarrow] (s1) -- (s2);
+\draw[umlarrow] (s2) -- (s3);
+\draw[umlarrow] (s3) -- (s4);
+\draw[umlarrow] (s4) -- (s5);
+\draw[umlarrow] (s5) -- (f);
+\node[umlguard,text width=25mm,anchor=south] at (1.78,0.34)  {[counsel confirms the ownership answer in writing]};
+\node[umlguard,text width=25mm,anchor=south] at (4.63,0.34)  {[documents drafted, filings prepared, not filed]};
+\node[umlguard,text width=25mm,anchor=south] at (7.48,0.34)  {[a prior relationship exists with every purchaser]};
+\node[umlguard,text width=25mm,anchor=south] at (10.33,0.34) {[Form D filed within 15 days of the first sale]};
+\draw[umldash] (s1.north) .. controls (-0.35,1.30) and (1.05,1.30) .. (s1.north east);
+\node[umlguard,text width=26mm,anchor=south] at (0.35,1.32) {[ownership answer unresolved]};
+\draw[umldash] (s3.south) -- (6.05,-1.35) -- (0.35,-1.35) -- (s1.south);
+\node[umlguard,text width=42mm,anchor=north] at (3.20,-1.40) {[a term would change the SBIR eligibility answer]};
+\end{appfig}
+\vspace{-0.60cm}
+\figcaption{Figure 5. The financing as five states and the four conditions that gate the\\
+transitions between them, with the two paths that return to the first state.}
+\end{appfloat}
+
+Each of the four is a guard rather than a step. The ownership answer gates the
+instrument because the answer determines the instrument and not the reverse. The
+filings are prepared and not filed because a Form D filed before a first sale
+publishes an offering that does not exist \cite{secformd2026}. The prior
+relationship is a condition about the past rather than the present, which is what
+makes the no-general-solicitation rule hard to satisfy retroactively. And the
+fifteen-day clock starts at the sale and is not extended.
+
+\subsection{The four questions this section hands to counsel}
+
+Who holds the investigational new drug application, the sponsor or the developer.
+Whether a site physician could serve as sponsor-investigator, and whether that
+would be better or worse for the firewall than the current split. Who performs
+safety reporting, monitoring, pharmacovigilance, drug accountability and annual
+reports. And who pays for insurance, indemnification, subject injury, and device
+and software validation \cite{ecfr2026part312records}.
+
+The applicant, the site principal investigator, the FDA sponsor, the application
+holder and the device manufacturer do not have to be the same entity. Their
+responsibilities do have to be explicit, and they are not yet.
