@@ -1,0 +1,89 @@
+% sec-03: who is responsible for what.  Figure 7 (graphviz-type clusters),
+% Table 15.
+\section{Who Is Responsible for What}
+
+A site agreement is blocked more often by an unanswered responsibility question
+than by a scientific one. This section states the split as it would stand, marks
+everything conditional as conditional, and lists the four questions that are open.
+
+\begin{appfloat}[!tb]
+\begin{appfig}[graphviz-type / three dashed clusters with edges only between them]
+% Three clusters on a 4.75cm pitch; nodes on a 0.92cm pitch.  Every edge runs
+% between clusters and none runs inside one, which is what keeps the clusters
+% readable.  Developer edges are dashed: they are conditional on an agreement
+% that does not exist.
+\foreach \y/\lab in {0/{Dose assignment}, -0.92/{Dose-limiting toxicity adjudication},
+                     -1.84/{Analysis execution and unblinding},
+                     -2.76/{Investigator financial disclosure}}{
+  \node[gvboxs,text width=26mm] (st\y) at (0,\y) {\lab};}
+\foreach \y/\lab in {0/{Protocol authorship and amendment}, -0.92/{Analysis plan, pre-specified},
+                     -1.84/{Safety reporting and annual reports},
+                     -2.76/{Insurance and subject injury}}{
+  \node[gvboxm,text width=26mm] (sp\y) at (4.75,\y) {\lab};}
+\foreach \y/\lab in {0/{Drug supply}, -0.92/{Letter of authorization},
+                     -1.84/{Pharmacovigilance requirements}}{
+  \node[gvboxg2,text width=26mm] (dv\y) at (9.50,\y) {\lab};}
+\node[gvctitle,anchor=south west] (ct1) at (-1.30,0.60) {Site, under an agreement that does not yet exist};
+\node[gvctitle,anchor=south west] (ct2) at (3.45,0.60) {Sponsor, ChemicalQDevice};
+\node[gvctitle,anchor=south west] (ct3) at (8.20,0.60) {Developer, no agreement exists};
+\node[gvcluster,fit={(st0)(st-2.76)(ct1)},inner sep=6pt] {};
+\node[gvcluster,fit={(sp0)(sp-2.76)(ct2)},inner sep=6pt] {};
+\node[gvcluster2,fit={(dv0)(dv-1.84)(ct3)},inner sep=6pt] {};
+\draw[gvedgeb] (sp0.west) -- node[above,font=\tiny] {site concurs} (st0.east);
+\draw[gvedgeb] (sp-0.92.west) -- node[above,font=\tiny] {pre-specified} (st-1.84.east);
+\draw[gvedged] (dv0.west) -- node[above,font=\tiny] {if agreed} (sp0.east);
+\draw[gvedged] (dv-0.92.west) -- node[above,font=\tiny] {if agreed} (sp-1.84.east);
+\draw[gvedgeg] (st-2.76.south) -- ++(0,-0.45) -| node[near start,below,font=\tiny] {collected and maintained} (sp-2.76.south);
+\node[font=\tiny\itshape,text=fundgray,anchor=north west,text width=118mm]
+  at (-1.30,-3.85) {Dashed edges are conditional on an agreement that does not
+  exist. No approach beyond a first feasibility letter has been made to the
+  developer, and no institution has agreed to anything.};
+\end{appfig}
+\vspace{-0.60cm}
+\figcaption{Figure 7. Site, sponsor and developer obligations as three disjoint sets, with\\
+edges only between them and dashed lines wherever no agreement yet exists.}
+\end{appfloat}
+
+\subsection{Why the site holds the investigator role}
+
+The chief executive is chief executive of the sponsor and holds the whole of it.
+He is not a clinical investigator on this trial, will not be one, and is nowhere
+described as one. If he held both roles, all four of the 21 CFR 54.2 disclosable
+interests would fire at once: compensation influenced by the study outcome,
+significant equity in a non-publicly traded sponsor, a proprietary interest in
+the workflow assets, and significant payments of other sorts
+\cite{ecfr2026part54,fdafindisclosure2013}.
+
+Because all four would fire, the separation cannot be partial. A Phase 1 3+3
+escalation carries no randomization, so the boundary binds on dose assignment,
+dose-limiting toxicity adjudication, and the analysis plan instead, and the
+wording is carried forward so that it still binds when a Phase 2 successor
+introduces randomization \cite{phase2proto}.
+
+\subsection{The three corrections every letter carries}
+
+\begin{apptable}
+\begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}p{0.5cm} >{\raggedright\arraybackslash}p{5.2cm} >{\raggedright\arraybackslash}X}
+\headrow \thead{\#} & \thead{The correction} & \thead{Why it travels with every communication}\\
+\midrule
+1 & Daraxonrasib is not described as first in human & It is approved in the metastatic setting and was in Phase 3 evaluation before that. The supportable claim concerns the integrated surgical and advisory workflow \\
+2 & The robotic configuration is specified at the site agreement and not before & No site can assess feasibility or regulatory status without an identifiable platform, and asserting one this company does not have would be worse than asserting none \\
+3 & No institution is a partner, sponsor, site, or endorser & No agreement of any kind exists, and a single sentence implying otherwise would be found by the institution named in it \\
+\end{tabularx}
+\end{apptable}
+\vspace{-0.60cm}
+\tabcap{Table 15. The three positioning corrections carried into every letter,\\
+with the reason each one travels rather than being stated once and filed.}
+
+\subsection{The four questions this section leaves open}
+
+Who holds the investigational new drug application, the sponsor or the developer.
+Whether a site physician could serve as sponsor-investigator, and whether that
+would be better or worse than the current split. Who performs safety reporting,
+monitoring, pharmacovigilance, drug accountability and annual reports. And who
+pays for insurance, indemnification, subject injury, and device and software
+validation \cite{ecfr2026part312records}.
+
+All four are asked in the fifth letter of this day. None is answered here,
+because answering them in a document the institution has not seen would be
+answering them alone.
