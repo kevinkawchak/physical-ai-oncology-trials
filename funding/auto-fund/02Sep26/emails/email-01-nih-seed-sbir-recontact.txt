@@ -1,0 +1,121 @@
+FROM: kevink@chemicalqdevice.com
+
+TO: seedinfo@nih.gov
+
+CC: sbir@nih.gov
+
+SUBJECT: Follow-up to August 2026 SBIR inquiry - approved RAS(ON) agent changes the Phase I feasibility question for a governed surgical advisory system
+
+=== BODY ===
+Dear NIH SEED and SBIR Program Staff,
+
+I wrote to this office in early August 2026 as an independent scientist and small
+business owner, asking whether the SBIR pathway was the right mechanism for a
+governed surgical advisory system supporting a robotic pancreaticoduodenectomy
+with a perioperative RAS(ON) inhibitor. That inquiry is on file under the title
+"A Small-Business Path to a Governed Surgical Advisory System for the Robotic
+Whipple." I am writing again because one fact in it has changed.
+
+On August 26, 2026 the FDA approved Rasonque (daraxonrasib) as the first-in-class
+targeted therapy for metastatic pancreatic cancer. The agent named throughout my
+August inquiry as investigational is now approved, labeled, and commercially
+supplied in that setting.
+
+I want to be precise about what this does and does not change, because the
+distinction is the whole substance of this letter.
+
+It does not remove the investigational new drug application. The approval covers
+the metastatic setting. My proposed use is perioperative, in resectable and
+borderline-resectable disease, and remains investigational. Nothing in the
+approval makes that use approved, and I describe it nowhere as approved.
+
+What it does change is the composition of the risk a Phase I award would
+underwrite. In August, an SBIR reviewer looking at this program saw three risks
+stacked: whether the agent would clear, whether the device and workflow were
+feasible, and whether a small business could execute both. One of those three has
+now resolved externally, on the public record, with a date a reviewer can check.
+The remaining risk is device and workflow, which is the risk an SBIR Phase I is
+designed to retire.
+
+There is a second change and it is one I state carefully. In June 2025, fourteen
+months before the approval, this company's method identified a daraxonrasib
+combination as its lead candidate from a forty-meta-analysis review of pancreatic
+ductal adenocarcinoma literature, and in August 2025 a ten-arm quantitative
+systems pharmacology simulation returned median overall survival of 12.8 months
+against 5.4 for chemotherapy. In May 2026 the RASolute 302 trial reported 13.2
+months against 6.6 in the RAS G12 population of previously treated metastatic
+disease. The simulated ratio was 2.4-fold and the observed ratio was 2.0-fold.
+That proximity is a chronology observation and a hypothesis-supporting one. It is
+not a validation claim, and three differences are material: 1000 simulated
+against 241 enrolled, a combination against a single agent, and KRAS G12C against
+a primarily G12D and G12V population. I have carried those three sentences in the
+same paragraph as those numbers in every document I have sent this office, and I
+carry them here.
+
+The attached packet sets out the Phase I scope at $306,000 over nine months and
+the Phase II follow-on at $1,300,000 over twenty-four months, unchanged from the
+August inquiry, together with the five milestones inside Phase I and the four
+guards on the Phase I to Phase II transition.
+
+Two questions.
+
+First, does an approved agent change the feasibility bar the SBIR program applies
+to a combined drug, device, and software workflow, or is the bar set on the
+device and software components alone regardless of the agent's status?
+
+Second, is there a pre-application conversation available before the next
+receipt date, for an applicant whose Phase I aim is the verification and
+governance layer rather than the agent?
+
+I would welcome a short call at your convenience.
+
+Sincerely,
+CEO Kevin Kawchak
+ChemicalQDevice
+San Diego, California
+kevink@chemicalqdevice.com
+ORCID 0009-0007-5457-8667
+=== END BODY ===
+
+ATTACHMENTS COMPILED FROM THIS DIRECTORY
+1. 02Sep26-approval-dividend.pdf
+   Compile from packet/main.tex in this day directory:
+   pdflatex main -> bibtex main -> pdflatex main -> pdflatex main
+   Fourteen pages. No DOI is asserted for this document.
+
+ATTACHMENTS THE AUTHOR MUST ADD BY HAND
+1. From Independent Scientist to Novel Performer: A Small-Business Operating,
+   Milestone, and Capitalization Plan for a Phase 1 LLM-Advised Robotic Whipple.
+   https://doi.org/10.5281/zenodo.21887807
+   (Local copy: funding/capitalization-plan/final-capital/publication/)
+2. Clinical Trial Funding Application v2.0, RFA-RM-27-001, Kawchak K.
+   https://doi.org/10.5281/zenodo.21317266
+3. On-Premises LLM-Directed Robotic Pancreaticoduodenectomy with Perioperative
+   Daraxonrasib (RMC-6236) in KRAS-Mutated Pancreatic Ductal Adenocarcinoma.
+   https://doi.org/10.5281/zenodo.20780121
+
+EXTERNAL WORK TO CITE BUT NOT ATTACH
+- FDA. FDA Approves First-in-Class Targeted Therapy for Metastatic Pancreatic
+  Cancer. August 26, 2026.
+  https://www.fda.gov/news-events/press-announcements/fda-approves-first-class-targeted-therapy-metastatic-pancreatic-cancer
+- O'Reilly EM et al. Daraxonrasib or Chemotherapy in Previously Treated
+  Metastatic Pancreatic Cancer. N Engl J Med. 2026.
+  https://doi.org/10.1056/NEJMoa2605555
+  (Do not attach the publisher PDF; link it in the body if asked.)
+
+BEFORE SENDING
+- Confirm both addresses against the NIH SEED contact page on the day of sending.
+  Program mailboxes change and a bounced inquiry is not resubmitted
+  automatically.
+- Confirm the compiled PDF opens and that every DOI link in it resolves.
+- Confirm no sentence describes daraxonrasib as first in human. It is approved in
+  the metastatic setting and was in Phase 3 evaluation before that.
+- Confirm no sentence implies the approval covers the perioperative use, or that
+  an investigational new drug application is no longer required.
+- Confirm no manufacturer, model, arm count, or software version is asserted for
+  the robotic platform. The configuration is specified at the site agreement.
+- Confirm no institution is described as a partner, sponsor, site, or endorser.
+- Confirm the SBA Company Registry control number is current before sending, per
+  forms/form-02-sba-company-registry.md in this day directory.
+- Total attachment size should stay under 10 MB; if it does not, send items 2 and
+  3 as DOI links rather than files.
