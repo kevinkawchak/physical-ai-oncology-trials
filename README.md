@@ -350,32 +350,6 @@ monitoring board, and the paper states that limit in its own words.
 | Diagrams (Python) | 6, 13, 20, 25 | Clustered infrastructure carrying glyphs | [diagrams-python](new-trial-system/diagrams-python) |
 | Graphviz | 5, 9, 15, 19, 24 | Records, clusters, fault and decision trees | [graphviz](new-trial-system/graphviz) |
 
-### Paper contents
-
-| Section | Title | Figures | Tables |
-|:--|:--|:--|:--|
-| 0 | Abstract, reader's guide, indexes, build record | none | 1, 2, 3 |
-| 1 | Introduction | 1, 2 | 4, 5 |
-| 2 | Methods | 3, 4, 5 | 6, 7 |
-| 3 | IND | 6, 7, 8, 9 | 8, 9, 10 |
-| 4 | Trial Protocol | 10, 11, 12, 13 | 11, 12, 13 |
-| 5 | Legislation | 14, 15, 16 | 14, 15, 16 |
-| 6 | Funding Proposals | 17, 18, 19, 20 | 17, 18, 19, 20 |
-| 7 | AI Peer Review | 21, 22, 23, 24 | 21, 22, 23, 24 |
-| 8 | Limitations and Future Work | 25 | 25 |
-| 9 | Conclusions | none | none |
-| 10 | Back matter and references | none | glossary |
-
-Sections 3 through 7 are the paper's main sections and sit within a 2,000
-character band of one another.
-
-### Palette
-
-Burgundy `#800020`, lighter burgundy 1 `#A32A3C`, lighter burgundy 2 `#E2D6D9`,
-Charcoal `#2E2E2E`, Slate Gray `#6B6B6B`, Mist Gray `#C9C9C9`, white. Charcoal is
-a stroke and a text color only, so no figure in the paper carries a black or
-near-black fill. The paper body is black text throughout.
-
 ### Where to start
 
 | If you are | Open | Then |
