@@ -1,4 +1,4 @@
-# move-in - La Jolla Move-In: Pancreatic Oncology Clinical Trial Site Complete Documentation Package (v4.7.0)
+# La Jolla Move-In: Pancreatic Oncology Clinical Trial Site Complete Documentation Package (v4.7.0)
 
 [![License](https://img.shields.io/badge/License-CC%20BY%204.0-yellow.svg)](https://creativecommons.org/licenses/by/4.0/)
 [![Documents](https://img.shields.io/badge/Documents-15-00417A.svg)](final-move-in)
