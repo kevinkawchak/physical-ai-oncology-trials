@@ -1,0 +1,110 @@
+FROM: kevink@chemicalqdevice.com
+
+TO: ctep_ic@mail.nih.gov
+
+CC: ncictephelp@mail.nih.gov
+
+SUBJECT: Follow-up to August 2026 concept submission - is perioperative use of a newly approved RAS(ON) agent inside or outside the CTEP concept pathway
+
+=== BODY ===
+Dear CTEP Investigator-Initiated Concept Staff,
+
+I submitted a concept to this program in early August 2026 titled "Perioperative
+Daraxonrasib (RMC-6236) in Resectable KRAS-Mutated Pancreatic Ductal
+Adenocarcinoma." I am writing with one question that the concept as submitted
+could not have asked, because the fact it turns on did not yet exist.
+
+On August 26, 2026 the FDA approved Rasonque (daraxonrasib) as the first-in-class
+targeted therapy for metastatic pancreatic cancer. My concept proposes the agent
+perioperatively in resectable and borderline-resectable disease, which is not the
+approved setting and remains investigational.
+
+The question is a routing question rather than a scientific one.
+
+An agent that is investigational everywhere and an agent that is approved in one
+setting and investigational in another are not the same object from a program
+office's point of view. The supply route differs, the comparator conversation
+differs, and the relationship with the agent's developer differs. I would rather
+ask which pathway this now belongs in than assume the answer and submit into the
+wrong queue.
+
+The clinical content of the concept is unchanged and I will restate it in three
+sentences so this letter stands on its own. The design is a Phase 1, open-label,
+single-arm, 3+3 dose escalation in up to 18 participants with resectable or
+borderline-resectable KRAS G12-mutated pancreatic ductal adenocarcinoma. It
+combines perioperative daraxonrasib with a staged robotic
+pancreaticoduodenectomy and an on-premises large language model whose output is
+strictly advisory, with no path to the robotic arms and surgeon approval of every
+motion. Co-primary endpoints are 30-day device-related or procedure-related
+serious adverse events, dose-limiting toxicity with determination of the maximum
+tolerated dose or recommended Phase 2 dose, and completion of protocol-assigned
+robotic tasks without unsafe conversion.
+
+The supporting quantitative material is published and each item carries the
+limitation its own authors stated. A ten-arm quantitative systems pharmacology
+simulation returned 12.8 months median overall survival against 5.4 for
+chemotherapy, assuming no acquired resistance and ideal pharmacodynamics. A
+1000-patient digital twin returned 12.1 months and a progression-free hazard
+ratio of 0.31, with no patient-specific pharmacokinetic or tumor growth
+parameters and a simple Emax model. A verification, validation, and uncertainty
+quantification exercise across 55 tests returned a credibility score of 81.9
+against the ASME V and V 40 framework, which is a pre-trial credibility score and
+not a post-trial validation.
+
+Two questions.
+
+First, with the agent now approved in the metastatic setting, does a
+perioperative concept in resectable disease remain inside the CTEP
+investigator-initiated concept pathway, or would the program direct it to a
+different route?
+
+Second, if it remains inside, does the approval change what CTEP expects an
+investigator to have settled with the agent's developer before a concept is
+reviewed?
+
+I would welcome a short call at your convenience.
+
+Sincerely,
+CEO Kevin Kawchak
+ChemicalQDevice
+San Diego, California
+kevink@chemicalqdevice.com
+ORCID 0009-0007-5457-8667
+=== END BODY ===
+
+ATTACHMENTS COMPILED FROM THIS DIRECTORY
+1. 02Sep26-approval-dividend.pdf
+   Compile from packet/main.tex in this day directory:
+   pdflatex main -> bibtex main -> pdflatex main -> pdflatex main
+   Fourteen pages. No DOI is asserted for this document.
+
+ATTACHMENTS THE AUTHOR MUST ADD BY HAND
+1. On-Premises LLM-Directed Robotic Pancreaticoduodenectomy with Perioperative
+   Daraxonrasib (RMC-6236) in KRAS-Mutated Pancreatic Ductal Adenocarcinoma.
+   https://doi.org/10.5281/zenodo.20780121
+2. Investigational New Drug Application, Phase 1 PDAC.
+   https://doi.org/10.5281/zenodo.21097442
+3. QSP Metastatic Pancreatic Cancer AI Clinical Trial Simulation.
+   https://doi.org/10.5281/zenodo.17001137
+
+EXTERNAL WORK TO CITE BUT NOT ATTACH
+- FDA. FDA Approves First-in-Class Targeted Therapy for Metastatic Pancreatic
+  Cancer. August 26, 2026.
+  https://www.fda.gov/news-events/press-announcements/fda-approves-first-class-targeted-therapy-metastatic-pancreatic-cancer
+- O'Reilly EM et al. Daraxonrasib or Chemotherapy in Previously Treated
+  Metastatic Pancreatic Cancer. N Engl J Med. 2026.
+  https://doi.org/10.1056/NEJMoa2605555
+
+BEFORE SENDING
+- Confirm both addresses against the current CTEP contact page on the day of
+  sending.
+- Confirm the concept title in the opening paragraph matches the title on the
+  August submission exactly, character for character.
+- Confirm no sentence describes daraxonrasib as first in human.
+- Confirm no sentence implies the approval covers the perioperative use.
+- Confirm each of the three quantitative items is stated with the limitation its
+  own authors gave it, in the same sentence.
+- Confirm no manufacturer, model, arm count, or software version is asserted.
+- Confirm no institution is described as a partner, sponsor, site, or endorser.
+- Do not describe any conversation with the agent's developer as having occurred.
+  None has.
