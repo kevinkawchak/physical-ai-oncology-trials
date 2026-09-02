@@ -1,0 +1,95 @@
+% sec-03: three instruments on eight attributes.  Figure 4 (d2-type grid),
+% Table 8.  No amount appears in the figure, by the rule stated in sec-00.
+\section{Three Instruments, One Deciding Row}
+
+Three instruments could raise the same amount. They differ on eight attributes,
+and seven of those eight are trade-offs a founder can weigh from experience. The
+eighth is not a trade-off at all: it is a federal eligibility question with a
+right answer, and it decides the choice for a company in this position.
+
+\begin{appfloat}[!tb]
+\begin{appfig}[d2-type / three-column container comparison, no edges]
+% Nine rows on a 0.68cm pitch.  The three instrument columns are equal at 26mm
+% so that no column reads as favored by width; the attribute column is 40mm
+% because its labels are the longest cells in the figure.  There are no edges:
+% the three instruments are alternatives, not stages.
+\node[d2cellh,minimum width=40mm,text width=40mm] at (0,0) {Attribute};
+\foreach \x/\lab in {3.15/{Post-money SAFE}, 5.85/{Convertible note}, 8.55/{Priced preferred}}{
+  \node[d2cellh,minimum width=26mm,text width=24mm] at (\x,0) {\lab};}
+\foreach \y/\a/\s/\n/\p in {%
+  -0.68/{Time to first close}/{Days}/{Days to weeks}/{Weeks to months},
+  -1.36/{Legal cost to issuer}/{Lowest}/{Low}/{Highest},
+  -2.04/{Accrues interest}/{No}/{Yes}/{No},
+  -2.72/{Has a maturity date}/{No}/{Yes}/{No},
+  -3.40/{Ownership at signing}/{None}/{None}/{Immediate},
+  -4.08/{Cap table clarity later}/{Good}/{Good}/{Best},
+  -4.76/{Governance given away}/{None}/{None}/{Board seat usual}}{
+  \node[d2celll,minimum width=40mm,text width=40mm] at (0,\y) {\a};
+  \node[d2cell,minimum width=26mm,text width=24mm] at (3.15,\y) {\s};
+  \node[d2cell,minimum width=26mm,text width=24mm] at (5.85,\y) {\n};
+  \node[d2cell,minimum width=26mm,text width=24mm] at (8.55,\y) {\p};}
+\draw[fundmid,line width=0.9pt] (-1.05,-5.10) -- (9.85,-5.10);
+\node[d2celll,minimum width=40mm,text width=40mm] at (0,-5.44) {SBIR ownership answer};
+\node[d2cellk,minimum width=26mm,text width=24mm] at (3.15,-5.44) {Unchanged};
+\node[d2cellk,minimum width=26mm,text width=24mm] at (5.85,-5.44) {Unchanged};
+\node[d2cellg,minimum width=26mm,text width=24mm] at (8.55,-5.44) {Can change};
+\ptitle{-1.05}{0.62}{Three alternatives, not three stages}
+\node[font=\tiny\itshape,text=fundgray,anchor=north west,text width=118mm]
+  at (-1.05,-5.95) {No valuation, cap, discount, minimum, or closing date appears
+  in this figure. Those are offering terms, and no offering exists.};
+\end{appfig}
+\vspace{-0.60cm}
+\figcaption{Figure 4. Three candidate instruments across eight attributes at one raise\\
+size, with the row that decides the choice for this company marked in fill.}
+\end{appfloat}
+
+\subsection{Why the last row dominates}
+
+Under 13 CFR 121.702, majority ownership by multiple venture capital operating
+companies, hedge funds, or private equity firms changes Small Business Innovation
+Research eligibility and, at some agencies, requires a separate authorization
+\cite{ecfr2026sbirownership}. The SBA Company Registry asks that question
+directly, and the answer is re-checked at every financing event rather than
+annually \cite{sbirregistry2026}.
+
+An instrument that has not converted transfers no ownership, so the registry
+answer on the day after signing is the same as the day before. A priced round
+that transfers majority ownership can change it. That does not make a priced
+round wrong; it makes it a decision that must be taken with the federal route's
+status in front of the decision-maker rather than discovered afterward at a
+receipt date.
+
+That reading is the company's own and is sent to counsel for confirmation or
+correction before any instrument is signed. It is item two of the engagement
+letter, and it is the single most consequential item in that engagement.
+
+\subsection{The tranche shape, if the instrument is convertible}
+
+\begin{apptable}
+\begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}p{1.9cm} >{\raggedright\arraybackslash}p{4.2cm} >{\raggedright\arraybackslash}X}
+\headrow \thead{Tranche} & \thead{What it funds} & \thead{The evidence that opens it}\\
+\midrule
+First & Site feasibility, regulatory pre-submission, the verification harness & An instrument selected and counsel engaged \\
+Second & Site agreement, IRB submission, first-participant readiness & A written site feasibility outcome from a named institution \\
+Third & Trial conduct beyond what the federal route funds & An accepted investigational new drug application \\
+\end{tabularx}
+\end{apptable}
+\vspace{-0.60cm}
+\tabcap{Table 8. Three tranches keyed to evidence rather than to a calendar,\\
+with the artifact that opens each stated as a condition and not a date.}
+
+Tranching against evidence rather than against a calendar is deliberate. A holder
+who funds a tranche is funding a stated next artifact, and a tranche that does not
+open because its trigger did not fire is a smaller loss than a full raise spent
+against a milestone that never arrived.
+
+\subsection{The recommendation}
+
+Take the instrument that leaves the ownership answer unchanged until a deliberate
+decision is made to change it, and take it with one valuation cap rather than
+several. A stack of instruments at different caps produces a cap table that a
+later institutional round has to unwind before it can price, and unwinding costs
+more than the difference between the caps.
+
+That is a recommendation to the chief executive about this company's own capital
+structure. It is not advice to any other person, and it is not an offer.
