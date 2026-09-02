@@ -12,30 +12,33 @@ everything conditional as conditional, and lists the four questions that are ope
 % between clusters and none runs inside one, which is what keeps the clusters
 % readable.  Developer edges are dashed: they are conditional on an agreement
 % that does not exist.
-\foreach \y/\lab in {0/{Dose assignment}, -0.92/{Dose-limiting toxicity adjudication},
-                     -1.84/{Analysis execution and unblinding},
-                     -2.76/{Investigator financial disclosure}}{
-  \node[gvboxs,text width=26mm] (st\y) at (0,\y) {\lab};}
-\foreach \y/\lab in {0/{Protocol authorship and amendment}, -0.92/{Analysis plan, pre-specified},
-                     -1.84/{Safety reporting and annual reports},
-                     -2.76/{Insurance and subject injury}}{
-  \node[gvboxm,text width=26mm] (sp\y) at (4.75,\y) {\lab};}
-\foreach \y/\lab in {0/{Drug supply}, -0.92/{Letter of authorization},
-                     -1.84/{Pharmacovigilance requirements}}{
-  \node[gvboxg2,text width=26mm] (dv\y) at (9.50,\y) {\lab};}
-\node[gvctitle,anchor=south west] (ct1) at (-1.30,0.60) {Site, under an agreement that does not yet exist};
-\node[gvctitle,anchor=south west] (ct2) at (3.45,0.60) {Sponsor, ChemicalQDevice};
-\node[gvctitle,anchor=south west] (ct3) at (8.20,0.60) {Developer, no agreement exists};
-\node[gvcluster,fit={(st0)(st-2.76)(ct1)},inner sep=6pt] {};
-\node[gvcluster,fit={(sp0)(sp-2.76)(ct2)},inner sep=6pt] {};
-\node[gvcluster2,fit={(dv0)(dv-1.84)(ct3)},inner sep=6pt] {};
-\draw[gvedgeb] (sp0.west) -- node[above,font=\tiny] {site concurs} (st0.east);
-\draw[gvedgeb] (sp-0.92.west) -- node[above,font=\tiny] {pre-specified} (st-1.84.east);
-\draw[gvedged] (dv0.west) -- node[above,font=\tiny] {if agreed} (sp0.east);
-\draw[gvedged] (dv-0.92.west) -- node[above,font=\tiny] {if agreed} (sp-1.84.east);
-\draw[gvedgeg] (st-2.76.south) -- ++(0,-0.45) -| node[near start,below,font=\tiny] {collected and maintained} (sp-2.76.south);
+% Node names are plain letters and digits.  A generated name carrying a minus or
+% a dot would be read as a subtraction or as a node-and-anchor pair.
+\node[gvboxs,text width=26mm] (sa) at (0,0)     {Dose assignment};
+\node[gvboxs,text width=26mm] (sb) at (0,-0.92) {Dose-limiting toxicity adjudication};
+\node[gvboxs,text width=26mm] (sc) at (0,-1.84) {Analysis execution and unblinding};
+\node[gvboxs,text width=26mm] (sd) at (0,-2.76) {Investigator financial disclosure};
+\node[gvboxm,text width=26mm] (pa) at (4.75,0)     {Protocol authorship and amendment};
+\node[gvboxm,text width=26mm] (pb) at (4.75,-0.92) {Analysis plan, pre-specified};
+\node[gvboxm,text width=26mm] (pc) at (4.75,-1.84) {Safety reporting and annual reports};
+\node[gvboxm,text width=26mm] (pd) at (4.75,-2.76) {Insurance and subject injury};
+\node[gvboxg2,text width=26mm] (da) at (9.50,0)     {Drug supply};
+\node[gvboxg2,text width=26mm] (db) at (9.50,-0.92) {Letter of authorization};
+\node[gvboxg2,text width=26mm] (dc) at (9.50,-1.84) {Pharmacovigilance requirements};
+\node[gvctitle,anchor=south west] (ct1) at (-1.28,0.62) {Site, under an agreement that does not yet exist};
+\node[gvctitle,anchor=south west] (ct2) at (3.47,0.62) {Sponsor, ChemicalQDevice};
+\node[gvctitle,anchor=south west] (ct3) at (8.22,0.62) {Developer, no agreement exists};
+\node[gvcluster,fit={(sa)(sd)(ct1)},inner sep=6pt] {};
+\node[gvcluster,fit={(pa)(pd)(ct2)},inner sep=6pt] {};
+\node[gvcluster2,fit={(da)(dc)(ct3)},inner sep=6pt] {};
+\draw[gvedgeb] (pa.west) -- node[above,font=\tiny] {site concurs} (sa.east);
+\draw[gvedgeb] (pb.west) -- node[above,font=\tiny] {pre-specified} (sc.east);
+\draw[gvedged] (da.west) -- node[above,font=\tiny] {if agreed} (pa.east);
+\draw[gvedged] (db.west) -- node[above,font=\tiny] {if agreed} (pc.east);
+\draw[gvedgeg] (sd.south) -- ++(0,-0.50)
+  -- node[midway,below,font=\tiny] {collected and maintained} (4.75,-3.26) -- (pd.south);
 \node[font=\tiny\itshape,text=fundgray,anchor=north west,text width=118mm]
-  at (-1.30,-3.85) {Dashed edges are conditional on an agreement that does not
+  at (-1.28,-4.05) {Dashed edges are conditional on an agreement that does not
   exist. No approach beyond a first feasibility letter has been made to the
   developer, and no institution has agreed to anything.};
 \end{appfig}
@@ -87,3 +90,26 @@ validation \cite{ecfr2026part312records}.
 All four are asked in the fifth letter of this day. None is answered here,
 because answering them in a document the institution has not seen would be
 answering them alone.
+
+\subsection{The confidentiality route, asked rather than assumed}
+
+No confidential engineering detail travels before a confidentiality agreement is
+in place, and the route that agreement should follow is a question in the fifth
+letter of this day rather than an assumption in the first. The project is
+investigator-authored, seeks federal support, has a for-profit applicant, and may
+require drug support from a third party, and each of those facts can change which
+institutional office should hold the agreement.
+
+Asking is cheaper than guessing. An agreement executed through the wrong office
+is renegotiated through the right one, and the renegotiation happens at the point
+where the detail is actually needed, which is the worst moment to discover it.
+
+\subsection{What a reader should take from this section}
+
+That the responsibility split is written down before it is negotiated, that
+everything conditional is marked conditional in the figure as well as in the
+text, and that the four open questions are named rather than papered over. A
+site that receives a document asserting a split it never agreed to reads a
+company that will be difficult later. A site that receives one marking its own
+gaps reads a company that has thought about the agreement it is asking for.
+
