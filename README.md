@@ -216,16 +216,7 @@ bibliography entries cited.
 [![Rasters](https://img.shields.io/badge/PNG%20%2F%20JPG-none-C9C9C9.svg)](new-trial-system)
 [![Model](https://img.shields.io/badge/Model-Claude%20Code%20Opus%205-800020.svg)](https://claude.ai/code)
 
-**A 425-character summary.** v4.6.0 adds new-trial-system/: the paper Pancreatic Cancer LLM Clinical Trial System: From IND to Protocol to Legislation, Funding, and AI Peer Review, with the second-prompt update at final-new-trial/update-final/ that makes the bundle compile, redraws Figure 14 from stick actors to a class diagram, rewrites AI Peer Review around four quantified costs, and adds 13 outbound communications. 53 pages, 25 figures, 25 tables.
-
-The prior pancreatic cancer trial system built its documents on a month scale,
-through teams, with peer review arriving after completion. This release
-discloses the system that replaces it: one author, one master prompt, a 1 to 4
-day project time scale, and AI peer review that arrives during development
-rather than after it. The four deliverables it produced, an IND, two clinical
-trial protocols, a legislative framework and fourteen funding artifacts, are all
-separately deposited and separately dated, and the paper reports on them rather
-than proposing them.
+**Summary.** v4.6.0 adds new-trial-system/: the paper Pancreatic Cancer LLM Clinical Trial System: From IND to Protocol to Legislation, Funding, and AI Peer Review, with the second-prompt update at final-new-trial/update-final/ that makes the bundle compile, redraws Figure 14 from stick actors to a class diagram, rewrites AI Peer Review around four quantified costs, and adds 13 outbound communications. 53 pages, 25 figures, 25 tables.
 
 ### The build, end to end
 
@@ -354,13 +345,7 @@ monitoring board, and the paper states that limit in its own words.
 [![Compile](https://img.shields.io/badge/pdfLaTeX-0%20errors%2C%200%20overfull-9AA1A8.svg)](funding/capitalization-plan/final-capital)
 [![Rasters](https://img.shields.io/badge/PNG%20%2F%20JPG-none-9AA1A8.svg)](funding/capitalization-plan)
 
-**A 425-character summary.** v4.5.0 adds funding/capitalization-plan/: the ChemicalQDevice conversion paper From Independent Scientist to Novel Performer, an SBIR operating, milestone and capitalization plan. It prices one program twice, $1,396,000 of direct work inside a $1,606,000 award against $3,500,000 over five years, costs twelve auditable milestones, and sets private capital behind a 21 CFR part 54 firewall. 20 figures, 21 tables, 0 errors.
-
-Ten applications were filed in August 2026 as an independent scientist. Nine
-address mechanisms that fund a person or an institution; one, application 05,
-addresses the only mechanism built for a company. This release converts the
-author to a small-business operator and rewrites that application as the
-document it should have been.
+**Summary.** v4.5.0 adds funding/capitalization-plan/: the ChemicalQDevice conversion paper From Independent Scientist to Novel Performer, an SBIR operating, milestone and capitalization plan. It prices one program twice, $1,396,000 of direct work inside a $1,606,000 award against $3,500,000 over five years, costs twelve auditable milestones, and sets private capital behind a 21 CFR part 54 firewall. 20 figures, 21 tables, 0 errors.
 
 ### The build, end to end
 
