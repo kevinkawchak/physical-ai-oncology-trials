@@ -1,0 +1,82 @@
+% sec-04: the foundation funnel and three mechanisms.
+% Figure 9 (mermaid-type flowchart with gates), Table 13.
+\section{The Foundation Route}
+
+Two foundation letters go out on this day and neither asks for money. Both ask
+whether a mechanism can fund a Phase 1 whose sponsor is a for-profit small
+business with an academic clinical site under a separate agreement. That question
+is answerable by email in a week; the same answer discovered after a full
+application costs a cycle, and a cycle for a disease foundation is usually a
+year.
+
+\begin{appfloat}[!tb]
+\begin{appfig}[mermaid-type / flowchart with labeled gates]
+% Four gates along one row on a 3.05cm pitch.  Every exit leaves the row upward
+% and every hold leaves it downward, so no edge crosses another edge and none
+% passes through a node.
+\node[mmin,text width=26mm] (q) at (0,0) {Mechanism question, asked before applying};
+\node[mmdec,text width=20mm] (g1) at (3.05,0) {For-profit sponsor eligible?};
+\node[mmdec,text width=20mm] (g2) at (6.10,0) {Phase 1 resectable in scope?};
+\node[mmdec,text width=20mm] (g3) at (9.15,0) {Is a cycle open?};
+\node[mmmid,text width=22mm]  (l)  at (12.20,0) {Letter of intent};
+\node[mmdec,text width=20mm] (g4) at (15.25,0) {Named site at LOI stage?};
+\node[mmgoal,text width=22mm] (a) at (18.30,0) {Full application, then award decision};
+\node[mmgray,text width=24mm] (x1) at (3.05,1.75) {Stop. Effort saved, nothing filed};
+\node[mmgray,text width=24mm] (x2) at (6.10,1.75) {Stop, or reshape to a different aim};
+\node[mmsoft,text width=24mm] (w)  at (9.15,-1.80) {Hold the pack for the next cycle};
+\node[mmsoft,text width=24mm] (s)  at (15.25,-1.80) {Hold until a site names an investigator};
+\draw[mmedgeb] (q) -- (g1);
+\draw[mmedgeb] (g1) -- node[mmlabel] {yes} (g2);
+\draw[mmedgeb] (g2) -- node[mmlabel] {yes} (g3);
+\draw[mmedgeb] (g3) -- node[mmlabel] {open} (l);
+\draw[mmedgeb] (l) -- (g4);
+\draw[mmedgeb] (g4) -- node[mmlabel] {no} (a);
+\draw[mmedge] (g1) -- node[mmlabel] {no} (x1);
+\draw[mmedge] (g2) -- node[mmlabel] {no} (x2);
+\draw[mmedged] (g3) -- node[mmlabel] {closed} (w);
+\draw[mmedged] (w) -| ([xshift=-0.45cm]l.south);
+\draw[mmedged] (g4) -- node[mmlabel] {yes} (s);
+\draw[mmedged] (s) -| ([xshift=-0.45cm]a.south);
+\end{appfig}
+\vspace{-0.60cm}
+\figcaption{Figure 9. The foundation funnel drawn as four gates, with the exit at each and\\
+the two holds, so that the cheapest gate to fail is visible as the first one.}
+\end{appfloat}
+
+\subsection{Three mechanisms, and what each would have to answer}
+
+\begin{apptable}
+\begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}p{3.4cm} >{\raggedright\arraybackslash}p{2.4cm} >{\raggedright\arraybackslash}X}
+\headrow \thead{Mechanism class} & \thead{Cycle} & \thead{The eligibility question that decides it}\\
+\midrule
+Disease foundation research grant, pancreatic cancer specific & Published annual cycle & Whether the applicant of record may be a company with a named academic site, or must be the institution \\
+Pre-competitive consortium, public and private partners & Rolling, by consortium formation & Whether a single-company applicant can join a mechanism designed for multi-party consortia \\
+Institutional pilot award at a candidate site & Annual, applied for by the site & Whether a site investigator would apply, which is a site decision and not this company's \\
+\end{tabularx}
+\end{apptable}
+\vspace{-0.60cm}
+\tabcap{Table 13. Three foundation mechanism classes with their cycle shape and\\
+the single eligibility question that determines whether an application fits.}
+
+The third row is the one this company cannot act on alone. An institutional pilot
+award is applied for by the institution, so it becomes available only after the
+feasibility conversation of \S2 has produced an investigator who wants it. It is
+listed here so that it is not forgotten at the moment it becomes possible
+\cite{ucsdmoores2026}.
+
+\subsection{What a foundation is told about the evidence}
+
+The same six quantities that go to a federal reviewer, each carrying the
+limitation its own authors stated: a ten-arm quantitative systems pharmacology
+run at 12.8 months median overall survival against 5.4 \cite{qspmetpancre}, the
+RASolute 302 readout at 13.2 against 6.6 \cite{rasolute302}, a 1000-patient
+digital twin at 12.1 months and a progression-free hazard ratio of 0.31
+\cite{onpremwhippl}, a credibility score of 81.9 across 55 verification tests
+against the ASME V and V 40 framework \cite{asmevv40}, and an empirical
+triplicate across 100,000 records \cite{daraxident}.
+
+Three of the six are in silico or digital twin results and are labeled as such in
+every table that carries them. The proximity between the 2025 simulation and the
+2026 trial readout is a chronology observation and a hypothesis-supporting one,
+not a validation claim, and the sample size, single-agent and molecular-selection
+differences are material.
