@@ -123,14 +123,7 @@ python unification/cross_platform_tools/framework_detector.py
 [![Citations](https://img.shields.io/badge/Bibliography-76%20of%2076%20cited-9AA1A8.svg)](funding/move-in/final-move-in/references.bib)
 [![Rasters](https://img.shields.io/badge/PNG%20%2F%20JPG-none-9AA1A8.svg)](funding/move-in)
 
-**A 425-character summary.** v4.7.0 adds funding/move-in/: the La Jolla Move-In package, fifteen documents that stand up California's first PDAC LLM oncology clinical trial site for a chief executive and ten coworkers against a $700,000 per year, five-year federal award. Four legislation, three regulations, four building and premises, four operations. 56 tables at the body measure, no diagrams, three build stages, 67 pages, 76 citations, zero errors.
-
-The predecessor package described a twenty-four-hour San Francisco site serving
-168 participants a day with twenty-nine robot instances. This one is narrower
-and harder: one disease, one Phase 1 protocol, one building, eleven named
-people, and a funded budget that has to close. Everything the site does has to
-satisfy conventional pancreatic cancer trial requirements first, and the large
-language model and robotic workflow second.
+**Summary.** v4.7.0 adds funding/move-in/: the La Jolla Move-In package, fifteen documents that stand up California's first PDAC LLM oncology clinical trial site for a chief executive and ten coworkers against a $700,000 per year, five-year federal award. Four legislation, three regulations, four building and premises, four operations. 56 tables at the body measure, no diagrams, three build stages, 67 pages, 76 citations, zero errors.
 
 ### The build, end to end
 
