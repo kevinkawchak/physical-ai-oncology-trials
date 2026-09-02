@@ -1,0 +1,104 @@
+% sec-01: two institutions, seven capability criteria, and where functions sit.
+% Figure 8 (diagrams-type clustered topology), Table 12.
+\section{Two Routes, Run in Parallel and Disclosed}
+
+Two La Jolla institutions are approached on the same day by two different routes,
+asking two different questions. Each letter discloses the other. Neither is asked
+for exclusivity and neither is described to the other as preferred.
+
+\subsection{Why parallel rather than sequential}
+
+A sequential approach costs a quarter. A first institution takes four to eight
+weeks to route an unsolicited feasibility request to the right surgeon, and if
+the answer is no, the second institution starts from zero after that. For an
+eighteen-participant Phase 1 whose protocol is already complete and deposited,
+spending a quarter to learn a routing answer is the expensive option
+\cite{onpremwhippl}.
+
+A parallel approach costs something too, and it is worth naming. Two institutions
+in one small clinical community will learn of each other's involvement. The only
+question is whether they learn it from the letter or from a colleague, and
+learning it from the letter is strictly better for everyone.
+
+\begin{apptable}
+\begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}p{3.6cm} >{\raggedright\arraybackslash}p{3.4cm} >{\raggedright\arraybackslash}X}
+\headrow \thead{Criterion} & \thead{Route one} & \thead{Route two}\\
+\midrule
+Entry point & Escalation on a published path, after an August 2026 request & An inbound visibility notice to a digital trials group \\
+What leads the letter & The clinical program & The artificial intelligence method \\
+The ask & A routing decision: who is the right site principal investigator & A read of the public portfolio and a view on the method \\
+Pancreatic surgical volume & The criterion a first meeting establishes & The criterion a first meeting establishes \\
+Robotic platform availability & Asked, not assumed. No configuration is asserted & Asked, not assumed \\
+Trial operations and budgeting & A trials office and a budget questionnaire route exist & A centralized research operations office exists \\
+What neither is asked & To endorse, to host, or to commit & To endorse, to host, or to commit \\
+\end{tabularx}
+\end{apptable}
+\vspace{-0.60cm}
+\tabcap{Table 12. The two candidate routes against seven criteria, with the two\\
+rows that are asked rather than assumed marked by their own wording.}
+
+The asks differ because the entry points differ. Approaching a digital trials
+group with a request to host an experimental surgical operation would be asking
+the wrong department for the wrong thing, and approaching a cancer center's
+leadership with a method-evaluation invitation would waste an escalation that
+already has a published path.
+
+\subsection{Where each function would physically sit}
+
+Figure 8 answers the question a site operations lead asks first, which is not who
+is responsible but where the work happens. A function that is legally the
+sponsor's but physically on a hospital floor needs space, badge access, and a
+network drop, and none of that appears in an obligation diagram.
+
+\begin{appfloat}[!tb]
+\begin{appfig}[diagrams-type / clustered infrastructure with vector glyphs]
+% Three dashed clusters on a 4.55cm pitch; tiles on a 1.75cm pitch.  \dgnode
+% places the tile, its pictogram and its label as three related nodes, so a fit
+% over the tile and its label encloses both.
+\dgnode{dgtile}{0}{0}{\glyphrobot}{Robotic procedure suite}{c1}
+\dgnode{dgtile}{0}{-1.75}{\glyphpill}{Investigational pharmacy}{c2}
+\dgnode{dgtile}{0}{-3.50}{\glyphuser}{Consent and follow-up clinic}{c3}
+\dgnode{dgtile}{0}{-5.25}{\glyphflask}{Pathology and specimens}{c4}
+\dgnodew{dgtilem}{4.55}{0}{\glyphai}{On-premises model host}{s1}
+\dgnodew{dgtilem}{4.55}{-1.75}{\glyphgear}{Verification harness}{s2}
+\dgnodew{dgtilem}{4.55}{-3.50}{\glyphdoc}{Regulatory binder}{s3}
+\dgnodeg{dgtileg}{9.10}{0}{\glyphnet}{Robot control network}{x1}
+\dgnodeg{dgtileg}{9.10}{-1.75}{\glyphdb}{Electronic data capture}{x2}
+\node[dgctitle,anchor=south west] (t1) at (-1.30,0.62) {Clinical campus, candidate site, feasibility stage only};
+\node[dgctitle,anchor=south west] (t2) at (3.25,0.62) {Sponsor premises};
+\node[dgctitle2,anchor=south west] (t3) at (7.80,0.62) {Reachable by neither};
+\node[dgcluster,fit={(c1)(c4l)(t1)},inner sep=7pt] {};
+\node[dgcluster,fit={(s1)(s3l)(t2)},inner sep=7pt] {};
+\node[dgcluster2,fit={(x1)(x2l)(t3)},inner sep=7pt] {};
+\draw[dgedgeb] (s1) -- (s2);
+\draw[dgedge] (c1) -- (c4);
+\draw[dgedged] (s1) -- (x1);
+\draw[dgedged] (s1) -- (x2);
+\pxmark{6.95}{0}
+\pxmark{6.95}{-1.05}
+\node[font=\tiny\itshape,text=fundgray,anchor=north west,text width=118mm]
+  at (-1.30,-6.50) {The third cluster is the point of the figure. The model
+  process holds no write credential to data capture and no route to robot
+  control, which is a property of the wiring rather than of a policy document.};
+\end{appfig}
+\vspace{-0.60cm}
+\figcaption{Figure 8. Where each trial function would physically sit, and the two systems\\
+the advisory model process is architecturally prevented from ever reaching.}
+\end{appfloat}
+
+\subsection{The clinical introductions that are deliberately deferred}
+
+Two clinicians at one of the two institutions are relevant to this program by
+specialty, and no public professional address was located for either. This
+company will not guess one. If that institution responds, the introduction is
+requested through its own research services rather than attempted directly. The
+rule holds generally: an introduction requested through an institution is an
+introduction the institution knows about \cite{scrippsdtc2026}.
+
+\subsection{The escalation rule, applied to both}
+
+If there is no response within three business days, the original request is
+forwarded once, with a short note, to the contact one level up on the published
+path. Once, and not repeatedly. A second escalation inside a week converts a
+routing question into an impression of the company, and the impression outlasts
+the question.
