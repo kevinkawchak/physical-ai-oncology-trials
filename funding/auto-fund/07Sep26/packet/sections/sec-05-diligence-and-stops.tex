@@ -1,0 +1,83 @@
+% sec-05: the diligence bank and the failure combinations.  Figure 12
+% (graphviz-type fault tree with AND and OR gates), Table 19.
+\section{What a Diligence Process Will Ask, and What Would Stop This}
+
+Twenty-two questions, eighteen of which have a file that answers them and four of
+which do not. The four are marked rather than distributed among the eighteen,
+because a diligence process that finds an unanswered question the company had not
+noticed draws a conclusion about the company, and one that finds a question the
+company has already routed draws a different one.
+
+\begin{apptable}
+\begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}p{5.4cm} >{\raggedright\arraybackslash}p{3.0cm} >{\raggedright\arraybackslash}X}
+\headrow \thead{The question with no answer today} & \thead{Waiting on} & \thead{The route already in motion}\\
+\midrule
+Which FDA center leads the review of a drug, a robotic platform, and advisory software together & A Pre-Request for Designation response & The letter of this day, held for the next open session \\
+Is a perioperative drug supply route available on any path & A developer response to a first approach & The developer letter of day 2, the first approach of any kind \\
+Who holds the investigational new drug application & A sponsor-investigator determination & The clinical trial support services letter of day 3 \\
+What robotic configuration is proposed & A site agreement & Question 4 of the day 3 feasibility agenda, where the configuration is settled \\
+\end{tabularx}
+\end{apptable}
+\vspace{-0.60cm}
+\tabcap{Table 19. The four diligence questions with no answer today, each with\\
+what it waits on and the route by which it is already being asked.}
+
+The other eighteen are answered by files in this repository and are listed in
+full in \appfile{funding/auto-fund/07Sep26/briefs}, with the file for each named
+beside it.
+
+\subsection{The failure combinations}
+
+\begin{appfloat}[!tb]
+\begin{appfig}[graphviz-type / fault tree with AND and OR gates]
+% Three levels.  The decisive leaf hangs to the left at a shallower depth than
+% the AND gates, which keeps its edge from crossing either gate.  Every other
+% edge is a straight segment between a gate and a node directly below it.
+\node[gvboxk,text width=46mm] (top) at (5.60,0) {The five-day block produces no usable outcome};
+\umlgateor{5.60}{-1.05}
+\draw[gvundir] (top.south) -- (5.60,-0.79);
+\node[gvboxg2,text width=34mm] (dec) at (1.30,-2.62) {No perioperative supply route exists on any path};
+\draw[gvundir] (5.28,-1.27) -- node[midway,above,sloped,font=\tiny] {alone is decisive} (dec.north east);
+\umlgateand{4.30}{-2.30}
+\umlgateand{9.30}{-2.30}
+\draw[gvundir] (5.60,-1.27) -- (4.30,-2.04);
+\draw[gvundir] (5.92,-1.27) -- (9.30,-2.04);
+\node[gvboxs,text width=32mm] (l1) at (3.10,-3.75) {No site will host an investigator-initiated trial};
+\node[gvboxs,text width=32mm] (l2) at (5.60,-3.75) {No federal mechanism accepts the shape};
+\node[gvboxs,text width=32mm] (l3) at (8.10,-3.75) {A combination determination puts review out of reach};
+\node[gvboxs,text width=32mm] (l4) at (10.60,-3.75) {No private instrument closes the gap};
+\draw[gvundir] (4.30,-2.52) -- (l1.north);
+\draw[gvundir] (4.30,-2.52) -- (l2.north);
+\draw[gvundir] (9.30,-2.52) -- (l3.north);
+\draw[gvundir] (9.30,-2.52) -- (l4.north);
+\node[font=\tiny\itshape,text=fundgray,anchor=north west,text width=118mm]
+  at (-0.30,-4.65) {No probability is attached to any leaf. Assigning one would
+  invent precision the evidence does not support, and a fault tree is useful for
+  its structure whether or not its leaves carry numbers.};
+\end{appfig}
+\vspace{-0.60cm}
+\figcaption{Figure 12. What has to fail for the week to produce nothing, by combination:\\
+one decisive single point, and two pairs that each need both halves to fail.}
+\end{appfloat}
+
+\subsection{What the tree argues}
+
+That there is exactly one single point of failure, and it is drug supply for the
+perioperative investigational use. Everything else requires a pair. That
+asymmetry is why the developer letter went out on day 2 rather than being
+deferred, and why the Pre-Request for Designation was written on the quietest day
+of the block rather than squeezed into a busy one \cite{fdacombination2026}.
+
+The tree also argues something reassuring, which a fault tree usually does not.
+Two of the four paired failures already have a second route open: a second
+clinical site was approached in parallel on day 3, and a second class of funder,
+the disease foundations, was approached on the same day. A pair that requires
+both halves to fail is a pair with two chances to survive.
+
+\subsection{Why the stop conditions are published at all}
+
+A funder asked to accept a risk is entitled to know which risks the company has
+already identified. A company that names its own stop conditions is easier to
+believe about everything else, and the capitalization plan states the same
+principle in its own risk section rather than confining it to an appendix
+\cite{capitalplan2026}.
