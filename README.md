@@ -474,7 +474,7 @@ produced.
 [![Partner](https://img.shields.io/badge/Partner%20of%20choice-UC%20San%20Diego%20Moores-6C757D.svg)](funding/potential-partners/UC-San-Diego)
 [![Rasters](https://img.shields.io/badge/PNG%20%2F%20JPG-none-9AA1A8.svg)](funding/pdac-funding-applications)
 
-**A 425-character summary.** v4.4.0 adds `funding/pdac-funding-applications/`:
+**Summary.** v4.4.0 adds `funding/pdac-funding-applications/`:
 ten recipient-unique Phase 1 pancreatic cancer funding applications written as an
 independent scientist under the White House report's $200 billion
 individual-scientist realignment, five surgical and five medical oncology, all
