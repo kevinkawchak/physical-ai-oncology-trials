@@ -22,17 +22,17 @@ from diagrams.generic.blank import Blank
 
 with Diagram("Trial functions by location", direction="LR"):
     with Cluster("Clinical campus, candidate site"):
-        orsuite  = Rack("Robotic procedure suite")
+        orsuite = Rack("Robotic procedure suite")
         pharmacy = Storage("Investigational pharmacy")
-        clinic   = Blank("Consent and follow-up clinic")
-        path     = Storage("Pathology and specimens")
+        clinic = Blank("Consent and follow-up clinic")
+        path = Storage("Pathology and specimens")
     with Cluster("Sponsor premises, ChemicalQDevice"):
-        model    = Rack("On-premises model host")
-        verify   = Rack("Verification harness")
-        regbind  = Storage("Regulatory binder")
+        model = Rack("On-premises model host")
+        verify = Rack("Verification harness")
+        regbind = Storage("Regulatory binder")
     with Cluster("Neither, and deliberately so"):
-        control  = Blank("Robot control network")
-        edc      = Storage("Electronic data capture")
+        control = Blank("Robot control network")
+        edc = Storage("Electronic data capture")
     model >> verify
     orsuite >> path
 ```
