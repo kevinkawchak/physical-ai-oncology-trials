@@ -1,4 +1,4 @@
-# funding - ChemicalQDevice PDAC Trial Funding (repository v4.8.0)
+# Funding - ChemicalQDevice PDAC Trial Funding (repository v4.8.0)
 
 [![License](https://img.shields.io/badge/License-CC%20BY%204.0-yellow.svg)](https://creativecommons.org/licenses/by/4.0/)
 [![Applications](https://img.shields.io/badge/Applications-12%20total-00417A.svg)](pdac-funding-applications/applications)
