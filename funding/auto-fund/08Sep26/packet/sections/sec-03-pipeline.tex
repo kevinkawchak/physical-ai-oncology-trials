@@ -1,0 +1,72 @@
+% sec-03: the thirty-day pipeline.  Figure 15 (d2-type layers), Table 22.
+\section{The Thirty-Day Pipeline}
+
+One rule governs this section: an item whose next action belongs to this company
+is not pipeline. It is work, and it belongs on a to-do list. Confusing the two
+produces a pipeline that looks busy and moves nothing, and a founder who reads it
+feels productive without being so.
+
+Every row below therefore waits on somebody else.
+
+\begin{apptable}
+\begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}p{3.4cm} >{\raggedright\arraybackslash}p{1.6cm} >{\raggedright\arraybackslash}p{2.6cm} >{\raggedright\arraybackslash}X}
+\headrow \thead{Stage} & \thead{Count} & \thead{Interval basis} & \thead{What the stage contains}\\
+\midrule
+Asked and waiting & 17 & Varies by counterparty & Every open item across federal, commercial, institutional, state and regional \\
+Answerable inside thirty days & 9 & 5 to 15 business days & Those whose stated interval is short enough to resolve in the window \\
+Unblocks something else & 4 & No interval; each is routed & The four diligence questions with no answer today \\
+Decisions expected & 5 & If nothing goes wrong & One classification, one determination, one instrument, one site routing, and zero to three federal replies \\
+Cannot be chased at all & 4 & Somebody else's calendar & Classification, foundation cycle, developer window, review board calendar \\
+\end{tabularx}
+\end{apptable}
+\vspace{-0.60cm}
+\tabcap{Table 22. Five pipeline stages with their counts and the basis of each\\
+interval, including the four items no action by this company can advance.}
+
+\begin{appfloat}[!tb]
+\begin{appfig}[d2-type / layered stack with a count on each layer]
+% Four stacked layers of decreasing width on a common axis, and a fifth drawn to
+% one side because it is not part of the funnel.  There is no edge to the side
+% layer: the absence of the connector is the point.
+\node[d2step,text width=88mm,align=center] (l1) at (0,0) {Asked and waiting};
+\node[d2step,text width=68mm,align=center] (l2) at (0,-1.15) {Answerable inside thirty days};
+\node[d2step,text width=48mm,align=center] (l3) at (0,-2.30) {Unblocks something else};
+\node[d2key,text width=34mm,align=center]  (l4) at (0,-3.45) {Decisions expected};
+\node[d2ghost,text width=42mm,align=center] (l5) at (5.10,-1.72) {Cannot be chased at all};
+\node[d2cellk,minimum width=12mm,text width=10mm] at (5.05,0) {17};
+\node[d2cellk,minimum width=12mm,text width=10mm] at (4.35,-1.15) {9};
+\node[d2cellk,minimum width=12mm,text width=10mm] at (3.65,-2.30) {4};
+\node[d2cellk,minimum width=12mm,text width=10mm] at (2.95,-3.45) {5};
+\node[d2cellg,minimum width=12mm,text width=10mm] at (7.35,-1.72) {4};
+\draw[d2edgeb] (l1) -- (l2);
+\draw[d2edgeb] (l2) -- (l3);
+\draw[d2edgeb] (l3) -- (l4);
+\node[font=\tiny\itshape,text=fundgray,anchor=north west,text width=118mm]
+  at (-4.60,-4.15) {No edge reaches the side layer, and the absence is the point.
+  The four items there are not a stage of the funnel: they arrive on somebody
+  else's calendar, and drawing a connector would suggest they can be moved along.};
+\ptitle{-4.60}{0.72}{Wide where questions are cheap, narrow where decisions are dear}
+\end{appfig}
+\vspace{-0.60cm}
+\figcaption{Figure 15. The thirty-day pipeline as four narrowing layers, with the four\\
+items that cannot be chased drawn outside the funnel rather than inside it.}
+\end{appfloat}
+
+\subsection{The four that cannot be chased, named separately}
+
+The FDA classification arrives when it arrives, and an applicant who chases a
+classification request is an applicant the office remembers
+\cite{fdacombination2026}. A foundation cycle runs on published dates that are
+not negotiable. A developer submission window opens on the developer's calendar.
+An institutional review board meets when it meets.
+
+Naming these four separately matters for a practical reason. A founder with time
+and anxiety will chase something, and it should not be one of these.
+
+\subsection{What thirty days produce if nothing goes wrong}
+
+Five decisions, four of which unblock something else. That is a reasonable month
+for a company of one person. If nothing arrives at all, the four unanswered
+diligence questions are unchanged and the stop conditions are unchanged, which is
+the honest downside and is already written down in the preceding day's packet
+rather than discovered later.
