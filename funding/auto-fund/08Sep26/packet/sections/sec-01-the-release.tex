@@ -1,0 +1,85 @@
+% sec-01: the release.  Figure 13 (mermaid-type gantt), Table 21.
+\section{The Release}
+
+Six checks precede any transmission, and any one of them failing stops the entry.
+They are restated here rather than referenced, because a check nobody can find is
+a check nobody runs.
+
+The market is open, confirmed against the exchange calendar rather than assumed.
+The release approval was given on the preceding day and is unchanged overnight.
+The financing branch is unchanged, so the queue stands as cut against the
+nine-month horizon rather than being amended after entry. The auction calendar
+has been re-read this morning, because auctions do not settle on a federal
+holiday and a calendar read before one is wrong for the week after it
+\cite{treasuryauctions2026}. The limit prices were written this morning from the
+last completed session's close. And the reserve balance is current, since every
+order size is a share of it.
+
+\begin{appfloat}[!tb]
+\begin{appfig}[mermaid-type / gantt across one market session]
+% A seven-hour rule at 1.55cm per hour, nine bars on a 0.52cm pitch.  \ganttrow
+% draws one bar, so a bar is moved by changing one number.  The auction cutoff
+% is a vertical rule rather than a bar, because a cutoff is an instant.
+\node[mmband,minimum width=0.39cm,minimum height=5.4cm,anchor=south west] at (0,-4.95) {};
+\node[mmband,minimum width=0.39cm,minimum height=5.4cm,anchor=south west] at (10.46,-4.95) {};
+\axisx{0}{10.85}{0.42}
+\foreach \x/\lab in {0/{open}, 1.55/{+1h}, 3.10/{+2h}, 4.65/{+3h}, 6.20/{+4h},
+                     7.75/{+5h}, 9.30/{+6h}, 10.85/{close}}{
+  \draw[fundgray,line width=0.3pt] (\x,0.42) -- (\x,0.28);
+  \node[font=\tiny\sffamily,text=fundgray,anchor=south] at (\x,0.48) {\lab};}
+\ganttrow{0}{0}{0.65}{mmbarg}{Confirm open, re-read auctions}
+\ganttrow{-0.52}{0.65}{1.04}{mmbarg}{Write this morning's limits}
+\ganttrow{-1.04}{1.30}{1.82}{mmbark}{Release four held letters}
+\ganttrow{-1.56}{1.82}{2.34}{mmbark}{Enter auction bids, lines 1 to 3}
+\ganttrow{-2.08}{2.45}{2.71}{mmbar}{Enter line 4, limit, day}
+\ganttrow{-2.60}{3.23}{3.49}{mmbar}{Enter line 5, limit, day}
+\ganttrow{-3.12}{3.62}{4.40}{mmbar}{Send the three follow-ups}
+\ganttrow{-3.64}{4.65}{5.81}{mmbar}{Submit the portal items}
+\ganttrow{-4.16}{9.30}{9.82}{mmbark}{Reconcile, write the fill record}
+\ganttrow{-4.68}{9.82}{10.21}{mmbark}{File the release record}
+\draw[fundaccent,line width=0.9pt] (2.34,0.30) -- (2.34,-4.95);
+\node[font=\tiny\sffamily,text=fundaccent,anchor=west] at (2.42,0.62) {auction cutoff, an instant};
+\legkey{0}{-5.45}{fundgrayl}{Before the open}
+\legkey{2.60}{-5.45}{fundmid}{Release and record}
+\legkey{5.60}{-5.45}{fundpale}{Entry and submission}
+\pnote{7.90}{-5.45}{Shaded bands: the first and last fifteen minutes.}
+\end{appfig}
+\vspace{-0.60cm}
+\figcaption{Figure 13. One open market session, with the release and execution steps in\\
+sequence and the auction cutoff drawn as an instant that constrains them all.}
+\end{appfloat}
+
+\subsection{What was released, and what was withheld}
+
+\begin{apptable}
+\begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}p{4.2cm} >{\raggedright\arraybackslash}p{2.1cm} >{\raggedright\arraybackslash}X}
+\headrow \thead{Item} & \thead{Released} & \thead{The dependency, or the reason it was withheld}\\
+\midrule
+Congressional district letter & Yes & Held from the closed day; district offices are open \\
+State finance center letter & Yes & The same \\
+Regional development letter & Yes & The same \\
+FDA Pre-Request for Designation & Yes & The same. The most consequential item in the block \\
+Federal follow-up, round two & Yes & Three business days elapsed since the day 1 letters \\
+Developer follow-up, window only & Yes & Three business days elapsed; one question, not two \\
+Six queued orders & Yes & Six checks passed, in the sequence an auction cutoff sets \\
+Portal submissions & Yes & Support desks open again \\
+Site follow-up & \textbf{No} & Only two business days have elapsed since the day 3 letters \\
+Foundation follow-up & \textbf{No} & The same \\
+Site meeting confirmation & Conditional & Sent only if an institution replied; otherwise left unsent \\
+\end{tabularx}
+\end{apptable}
+\vspace{-0.60cm}
+\tabcap{Table 21. Eleven items with whether each was released, and the interval\\
+or dependency that decided it, including the three deliberately withheld.}
+
+\subsection{Why the withheld items matter more than the released ones}
+
+A block that releases everything it has written is a block with no discipline in
+it. The federal holiday is not a business day, which makes this the third
+business day after day 1 and only the second after day 3. A site that receives a
+follow-up on the second business day reads a company counting hours, and the
+impression outlasts the letter.
+
+The conditional item is the same principle in a different form. A confirmation
+letter with nothing to confirm is a second request wearing a confirmation's
+clothes, and recipients notice.
