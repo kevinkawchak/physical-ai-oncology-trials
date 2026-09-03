@@ -33,7 +33,7 @@ artifact that must exist by the end of each day for the week to have held.}
 \dgnode{dgtile}{5.70}{0}{\glyphteam}{Site and partner: institutions, foundations}{we}
 \dgnodew{dgtilem}{8.55}{0}{\glyphdoc}{Preparation: data room, next week's drafts}{th}
 \dgnode{dgtile}{11.40}{0}{\glyphclock}{Execution: release, follow-ups, record}{fr}
-\node[pnote,anchor=north] at (0,-1.62) {};
+% \pnote is a macro, not a TikZ style; the budget labels below are plain nodes.
 \foreach \x/\b in {0/{90 min}, 2.85/{75 min}, 5.70/{90 min}, 8.55/{120 min}, 11.40/{75 min}}{
   \node[font=\tiny\sffamily\bfseries,text=fundaccent,anchor=north] at (\x,-1.66) {\b};}
 \foreach \x/\t/\n in {0/{Monday}/c1, 2.85/{Tuesday}/c2, 5.70/{Wednesday}/c3,
@@ -89,3 +89,17 @@ is done. The block just completed maps onto the frame exactly, in order: federal
 capital, site and partner, preparation, execution. That mapping was not
 accidental, and it is the argument that this is the right frame rather than a
 convenient one.
+
+\subsection{What the cadence costs, stated honestly}
+
+Seven and a half hours a week is roughly a fifth of a working week spent on
+funding rather than on the technical work that produces the artifacts funding
+describes. For a company of one person that is a real cost and it is worth
+naming rather than presenting the cadence as free.
+
+The alternative is worse in a specific way. Funding work that has no fixed budget
+expands to fill whatever anxiety is available, and it does so on exactly the days
+when a deadline is near, which are the days the technical work is also most
+pressed. A fixed budget converts an unbounded claim on attention into a bounded
+one, and the bound is what makes the technical work survivable alongside it.
+

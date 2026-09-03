@@ -65,7 +65,7 @@ pdflatex main
 | Underfull boxes | 0 |
 | Undefined citations | 0 |
 | Undefined references | 0 |
-| Pages | 13 |
+| Pages | 14 |
 | Figures | 3, all TikZ |
 | Tables | 5, all at the exact body measure |
 | Raster images | 0 |

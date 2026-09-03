@@ -56,6 +56,24 @@ is a control question rather than a preference question. Auto-reinvestment is of
 on every rung, confirmed in the account settings rather than in an order ticket.
 And there is no margin balance, no option position, and no lending consent.
 
+\subsection{Why the entry order is not a preference}
+
+An auction cutoff is external, published, and unforgiving: a non-competitive bid
+submitted after a broker's internal cutoff is not submitted at all, and the next
+opportunity is the following auction. A limit order is none of those things; it
+rests through the session and can be canceled at the close and re-priced
+tomorrow.
+
+Sequencing therefore follows the constraint rather than the convenience. The
+three auction lines go first because they are the only lines whose window can
+close while the rest of the session is still open, and the exchange-traded line
+goes last because its only timing constraint is internal, which is that it is not
+entered in the first or last fifteen minutes of the session.
+
+The general rule is worth naming because it recurs: where one action has an
+external deadline and another does not, the external one goes first even when the
+other is more urgent to the person doing it.
+
 \subsection{The single approval step}
 
 \actionbox{One decision is open on this day}{Approve the release, confirming that
