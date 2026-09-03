@@ -21,7 +21,7 @@
 [![Summary Paper DOI](https://img.shields.io/badge/Paper%20DOI%20v1.0-10.5281%2Fzenodo.21787424-blue.svg)](https://doi.org/10.5281/zenodo.21787424)
 [![Trial Site](https://img.shields.io/badge/Trial%20site-La%20Jolla%2C%20San%20Diego-00417A.svg)](funding/move-in)
 [![Site Documents](https://img.shields.io/badge/Site%20documents-15-3C7DB2.svg)](funding/move-in/final-move-in)
-[![Target Site Staff](https://img.shields.io/badge/Site%20staff-CEO%20%2B%2010%20coworkers-6C757D.svg)](funding/move-in/final-move-in/sections)
+[![Target Site Staff](https://img.shields.io/badge/Target%20Site%20staff-CEO%20%2B%2010%20coworkers-6C757D.svg)](funding/move-in/final-move-in/sections)
 [![Target Award](https://img.shields.io/badge/Target%20Award-%24700%2C000%20%C3%97%205%20years-6C757D.svg)](funding/move-in/final-move-in/sections)
 
 
