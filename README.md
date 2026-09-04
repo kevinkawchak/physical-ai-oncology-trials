@@ -1,8 +1,8 @@
 # End-to-End Physical AI Unification of Oncology Clinical Trials
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Release](https://img.shields.io/badge/Release-v4.7.0-brightgreen.svg)](https://github.com/kevinkawchak/physical-ai-oncology-trials)
-[![Last Updated](https://img.shields.io/badge/Updated-August%202026-blue.svg)](https://github.com/kevinkawchak/physical-ai-oncology-trials)
+[![Release](https://img.shields.io/badge/Release-v4.8.0-brightgreen.svg)](https://github.com/kevinkawchak/physical-ai-oncology-trials)
+[![Last Updated](https://img.shields.io/badge/Updated-September%202026-blue.svg)](https://github.com/kevinkawchak/physical-ai-oncology-trials)
 [![Protocol](https://img.shields.io/badge/Protocol-MCP-purple.svg)](https://github.com/kevinkawchak/physical-ai-oncology-trials)
 [![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.18445179-blue)](https://doi.org/10.5281/zenodo.18445179)
 [![Python](https://img.shields.io/badge/Python-3.10%20|%203.11%20|%203.12-blue.svg)](https://www.python.org/)
@@ -23,12 +23,18 @@
 [![Site Documents](https://img.shields.io/badge/Site%20documents-15-3C7DB2.svg)](funding/move-in/final-move-in)
 [![Target Site Staff](https://img.shields.io/badge/Target%20Site%20staff-CEO%20%2B%2010%20coworkers-6C757D.svg)](funding/move-in/final-move-in/sections)
 [![Target Award](https://img.shields.io/badge/Target%20Award-%24700%2C000%20%C3%97%205%20years-6C757D.svg)](funding/move-in/final-move-in/sections)
+[![Daily Funding](https://img.shields.io/badge/Daily%20funding%20actions-5%20business%20days-00417A.svg)](funding/auto-fund)
+[![Approval Steps](https://img.shields.io/badge/Approval%20steps-1%20per%20day-3C7DB2.svg)](funding/auto-fund)
+[![Rasonque](https://img.shields.io/badge/Rasonque-approved%208%2F26%2F26-6C757D.svg)](https://www.fda.gov/news-events/press-announcements/fda-approves-first-class-targeted-therapy-metastatic-pancreatic-cancer)
+[![Daily Packets](https://img.shields.io/badge/Packets-5%20%C3%97%207%20sections-6C757D.svg)](funding/auto-fund)
 
 
 
 **Comprehensive developments for integrating physical AI into oncology clinical trials, by Claude Code; with Assistance from ChatGPT and Google Gemini.**
 
 This repository provides production-ready configurations, validated pipelines, and integration guides for deploying robotic systems, digital twins, and embodied AI agents in oncology. 
+
+**9/8: v4.8.0 (auto-fund: Daily Funding Actions for Final CEO Approval)** *v4.8.0 adds funding/auto-fund/: five business days of complete funding actions, each ending in one approval step. 26 letters, 13 briefs, 9 form packs, 5 capital instruction sets, 15 figures, 25 tables, and five compiled packets.* [Directory](funding/auto-fund)
 
 **8/30: FDA Approves Pancreatic Cancer Drug Rasonque (Daraxonrasib) by Revolution Medicines on August 26, 2026** *Daraxonrasib is ChemicalQDevice's number one LLM-focused cancer drug researched since identified by Google Gemini as being the most likely to aid startup funding in June 2025.* [**FDA Approval**](https://www.fda.gov/news-events/press-announcements/fda-approves-first-class-targeted-therapy-metastatic-pancreatic-cancer)
 
@@ -110,6 +116,132 @@ python scripts/verify_installation.py
 # Detect available simulation frameworks
 python unification/cross_platform_tools/framework_detector.py
 ```
+---
+
+## Daily Funding Actions for Final CEO Approval (v4.8.0)
+
+[![Directory](https://img.shields.io/badge/Directory-funding%2Fauto--fund-00417A.svg)](funding/auto-fund)
+[![Business days](https://img.shields.io/badge/Business%20days-5-00417A.svg)](funding/auto-fund)
+[![Approval steps](https://img.shields.io/badge/Approval%20steps-1%20per%20day-3C7DB2.svg)](funding/auto-fund)
+[![Letters](https://img.shields.io/badge/Letters-26%20.txt-6C757D.svg)](funding/auto-fund)
+[![Briefs](https://img.shields.io/badge/Briefs-13%20.md-6C757D.svg)](funding/auto-fund)
+[![Form packs](https://img.shields.io/badge/Form%20packs-9%20.md-6C757D.svg)](funding/auto-fund)
+[![Figures](https://img.shields.io/badge/Figures-15-9AA1A8.svg)](funding/auto-fund)
+[![Tables](https://img.shields.io/badge/Tables-25-9AA1A8.svg)](funding/auto-fund)
+[![Compile](https://img.shields.io/badge/pdfLaTeX-0%20errors%2C%205%20packets-9AA1A8.svg)](funding/auto-fund)
+[![Rasters](https://img.shields.io/badge/PNG%20%2F%20JPG-none-9AA1A8.svg)](funding/auto-fund)
+
+**Summary.** v4.8.0 adds funding/auto-fund/: five business days of funding actions for CEO Kevin Kawchak, each ending in a single approval step. 26 letters, 13 technical briefs, 9 form packs, 5 capital instruction sets, 15 TikZ figures, 25 tables and five compiled packets, with no raster images anywhere. The block converts the August 26, 2026 FDA approval of Rasonque (daraxonrasib) into one full week of specific, dated, sendable asks.
+
+### What changed, and why the directory exists now
+
+On August 26, 2026 the FDA approved **Rasonque (daraxonrasib)** as the
+first-in-class targeted therapy for metastatic pancreatic cancer. ChemicalQDevice
+has used that molecule to prove large language model utility since June 2025.
+The approval converts fourteen months of work from a prediction into a record,
+and that changes the ask rather than the science.
+
+| Dimension | Before August 26, 2026 | After |
+|:--|:--|:--|
+| Agent status | Investigational, Phase 3 evaluation ongoing | Approved and labeled in metastatic disease |
+| Risk a funder underwrites | Agent risk, device risk, workflow risk | Device risk and workflow risk |
+| The 2025 simulation | A hypothesis about a molecule | A dated public call on a molecule that later cleared the FDA |
+| What is unchanged | | The perioperative use remains investigational, an IND is still required, and no supply agreement exists |
+
+### The five business days
+
+```mermaid
+flowchart LR
+    D1["Day 1 · 02Sep26<br/>Approval to ask<br/>5 letters, federal"]:::goal
+    D2["Day 2 · 03Sep26<br/>Private capital bridge<br/>3 instruments, 1 firewall"]:::soft
+    D3["Day 3 · 04Sep26<br/>Site and partner<br/>2 routes, 2 foundations"]:::soft
+    D4["Day 4 · 07Sep26<br/>Staged queue<br/>Labor Day, nothing sent"]:::hold
+    D5["Day 5 · 08Sep26<br/>Execution record<br/>Release, enter, close"]:::accent
+    CAD["Weekly cadence<br/>7.5 hours, 5 standing functions"]:::proc
+    D1 --> D2 --> D3 --> D4 --> D5 --> CAD
+    CAD -.->|next block| D1
+    classDef goal fill:#00417A,stroke:#00417A,stroke-width:1.5px,color:#FFFFFF
+    classDef accent fill:#3C7DB2,stroke:#00417A,stroke-width:1px,color:#FFFFFF
+    classDef soft fill:#DCE8F1,stroke:#3C7DB2,stroke-width:1px,color:#00417A
+    classDef hold fill:#E9ECEF,stroke:#9AA1A8,stroke-width:1px,color:#000000
+    classDef proc fill:#6C757D,stroke:#00417A,stroke-width:1px,color:#FFFFFF
+```
+
+| Day | Directory | Theme | The one decision it asks for | Federal | Market |
+|:--|:--|:--|:--|:--|:--|
+| 1 | [`02Sep26`](funding/auto-fund/02Sep26) | Approval to ask | Send five re-contacts, two replies, and one Treasury instruction | Open | Open |
+| 2 | [`03Sep26`](funding/auto-fund/03Sep26) | Private capital bridge | Pick one instrument, one size, one developer approach | Open | Open |
+| 3 | [`04Sep26`](funding/auto-fund/04Sep26) | Site and partner | Name a target week for a feasibility meeting | Open | Open |
+| 4 | [`07Sep26`](funding/auto-fund/07Sep26) | Staged queue | Authorize the release list | **Closed** | **Closed** |
+| 5 | [`08Sep26`](funding/auto-fund/08Sep26) | Execution record | Approve the release, adopt the weekly cadence | Open | Open |
+
+Day 4 is Labor Day. Federal offices and both exchanges are closed, which is not a
+gap in the schedule but the reason that day has the shape it does: a day on which
+no counterparty can act is the right day to build the data room, draft what will
+be sent, and queue what will be traded.
+
+### What a day contains, and the format rule
+
+```mermaid
+flowchart TB
+    DAY["One business day"]:::goal
+    EM["emails/<br/>.txt · addresses, subject,<br/>body, attachments, checklist"]:::soft
+    BR["briefs/<br/>.md · plain text for<br/>technical readers"]:::soft
+    FO["forms/<br/>.md · field-by-field,<br/>character limits checked"]:::soft
+    IN["investing/<br/>.md · instruments, order<br/>types, limits, settlement"]:::soft
+    DG["diagrams/<br/>.md · one spec per figure,<br/>native source plus TikZ"]:::proc
+    PK["packet/<br/>.tex → .pdf + Overleaf zip<br/>7 sections, 3 figures, 5 tables"]:::accent
+    DAY --> EM & BR & FO & IN & DG --> PK
+    classDef goal fill:#00417A,stroke:#00417A,stroke-width:1.5px,color:#FFFFFF
+    classDef accent fill:#3C7DB2,stroke:#00417A,stroke-width:1px,color:#FFFFFF
+    classDef soft fill:#DCE8F1,stroke:#3C7DB2,stroke-width:1px,color:#00417A
+    classDef proc fill:#6C757D,stroke:#00417A,stroke-width:1px,color:#FFFFFF
+```
+
+Anything a person receives as correspondence is `.txt`. Anything a technical
+reader reads inline is `.md`. Anything compiled into a PDF is `.tex` inside a zip
+for Overleaf. The rule is not varied for convenience.
+
+### The five packets, measured
+
+| Day | Packet | Accent | Pages | Errors | Overfull | Figures | Tables |
+|:--|:--|:--|:--|:--|:--|:--|:--|
+| 1 | The Approval Dividend | Pacific Teal `#0E5C63` | 14 | 0 | 0 | 3 | 5 |
+| 2 | The Private Capital Bridge | Harbor Navy `#1B3A5C` | 13 | 0 | 0 | 3 | 5 |
+| 3 | The Site and Partner Package | Cypress Green `#2F5D3A` | 12 | 0 | 0 | 3 | 5 |
+| 4 | The Staged Queue | Slate Plum `#5B3A5E` | 13 | 0 | 0 | 3 | 5 |
+| 5 | The Execution Record | Ember Rust `#8A4B2A` | 14 | 0 | 0 | 3 | 5 |
+
+All five share one `fundstyle.sty` that differs between days only in the six hex
+values of its palette block. The spacing invariant is `-0.60cm`, giving exactly
+7.44 pt from every float's last rule to the first caption line, and every caption
+is two hand-balanced lines.
+
+### The fifteen figures, three per platform
+
+| Platform | Figures | Native construct used |
+|:--|:--|:--|
+| Mermaid | 1, 6, 13 | Flowchart with a dated transition, sequence with lifelines, Gantt across one session |
+| Graphviz | 2, 7, 12 | Record nodes in a cluster, three dashed obligation clusters, fault tree with AND and OR gates |
+| D2 | 3, 4, 11 | Grid with a measure strip, three-column comparison, SQL table records |
+| PlantUML | 5, 10 | State machine with four guards, activity with a fork and a join |
+| Diagrams | 8, 14, 15 | Campus topology with vector glyphs, cadence clusters, layered pipeline stack |
+
+Every figure is TikZ compiled from source in this repository. The parent style's
+stick-figure actor macro is deleted rather than left unused, so no basic human
+stick figure can appear in a document a funder opens.
+
+### What is not claimed
+
+Nothing in the directory is a submission of record, an agreement, an offering, or
+an award. No agreement of any kind exists with any clinical institution, with the
+agent's developer, or with any robotic surgery vendor. No offering exists and no
+instrument has been selected. No investigational new drug application has been
+submitted. Daraxonrasib is approved in the metastatic setting and is nowhere
+described as first in human; the perioperative use this program proposes remains
+investigational. The $36,330 virtual trial figure is described as **projected**
+wherever it appears, never as estimated.
+
 ---
 
 ## La Jolla Move-In: PDAC LLM Oncology Clinical Trial Site (v4.7.0)
@@ -988,8 +1120,25 @@ physical-ai-oncology-trials/
 │   ├── references/                    # references.bib + trump-ai-cancer-2025-2026.bib
 │   └── template-new-system/           # the paper template this work adapts
 │
-├── funding/                           # ★ La Jolla Move-In, PDAC trial site (v4.7.0)
+├── funding/                           # ★ Daily funding actions, auto-fund (v4.8.0)
 │   ├── README.md                      # funding hub: structure, DOIs, source map
+│   ├── auto-fund/                     # v4.8.0 build, 5 business days, 1 approval each
+│   │   ├── README.md                  # hub: the format rule, the 15 figures, source map
+│   │   ├── inputs/                    # an index of the 9 repository sources, not a copy
+│   │   ├── prompts/                   # prompt-auto-fund.md + output-auto-fund.md
+│   │   ├── sub-prompts/               # day-1 .. day-5, one schedule README each
+│   │   ├── 02Sep26/                   # Day 1, Approval to Ask, Pacific Teal
+│   │   ├── 03Sep26/                   # Day 2, Private Capital Bridge, Harbor Navy
+│   │   ├── 04Sep26/                   # Day 3, Site and Partner, Cypress Green
+│   │   ├── 07Sep26/                   # Day 4, Staged Queue, Labor Day, Slate Plum
+│   │   └── 08Sep26/                   # Day 5, Execution Record, Ember Rust
+│   │       ├── emails/                # .txt letters, each with a pre-send checklist
+│   │       ├── briefs/                # .md technical briefs for plain-text readers
+│   │       ├── forms/                 # .md field-by-field online submission packs
+│   │       ├── investing/             # .md instruments, order types, limits, settlement
+│   │       ├── diagrams/              # .md one specification per figure
+│   │       └── packet/                # main.tex, fundstyle.sty, references.bib,
+│   │                                  # sections/sec-00 .. sec-06.tex, main.pdf, zip
 │   ├── move-in/                       # v4.7.0 build, three-stage schedule, 15 documents
 │   │   ├── README.md                  # build hub: roster, roles, budget, source map
 │   │   ├── inputs/                    # SF package zip, accomplishments, seminar deck

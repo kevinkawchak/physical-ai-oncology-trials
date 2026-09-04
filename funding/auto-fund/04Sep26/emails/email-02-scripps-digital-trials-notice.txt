@@ -1,0 +1,104 @@
+FROM: kevink@chemicalqdevice.com
+
+TO: dtc@scripps.edu
+
+CC: gquer@scripps.edu, eramos@scripps.edu, etopol@scripps.edu, fortmann.adelaide@scrippshealth.org
+
+SUBJECT: Public verification-first AI oncology portfolio from a San Diego company - an invitation to evaluate the method
+
+=== BODY ===
+Dear Digital Trials Center,
+
+This is an informational notice rather than a request, and I have written it so
+that it can be ignored without cost if the work is not of interest.
+
+ChemicalQDevice is a San Diego company publishing a verification-first
+artificial intelligence portfolio for oncology clinical trials. The portfolio is
+public in full at
+https://github.com/kevinkawchak/physical-ai-oncology-trials
+and I am writing to invite an independent evaluation of its verification,
+provenance, simulation and regulatory-document methods by anyone at Scripps for
+whom that is interesting.
+
+Five items are the ones worth an hour.
+
+1. QSP Metastatic Pancreatic Cancer AI Clinical Trial Simulation, from protocol
+   to prediction, code, verification and validation, and playbook.
+   https://doi.org/10.5281/zenodo.17001137
+2. A 100,000-patient, 24-month, five-arm pancreatic cancer in silico Phase III
+   simulation, in triplicate.
+   https://doi.org/10.5281/zenodo.15735068
+3. Phase 1 Pancreatic Cancer Trial: Efficient LLM Document Guidance.
+   https://doi.org/10.5281/zenodo.21018646
+4. Investigational New Drug Application for a Phase 1 LLM-advised robotic Whipple
+   trial. https://doi.org/10.5281/zenodo.21097442
+5. Oncology Trial Principal Investigator LLM Adoption Guide, with its
+   verification, validation and uncertainty quantification materials.
+   https://doi.org/10.5281/zenodo.20843290
+
+For each of the five, the repository carries the public link, the compiled PDF,
+a summary, the methods used, the human review process, the known limitations, the
+regulatory status, and a statement that the work is investigational and has not
+established clinical safety or efficacy. Three of the quantitative results are in
+silico or digital twin results and are labeled as such wherever they appear.
+
+How the artificial intelligence work is actually done, since that is the part a
+digital trials group would want to interrogate. Multiple frontier systems are
+used for independent drafting, review, and discrepancy identification: one for
+repository-scale production, one for independent verification and document
+analysis, and one for a second review pass. The human investigator retains
+responsibility for every scientific, clinical and regulatory conclusion. Nothing
+is accepted because a model produced it.
+
+There is a clinical program behind the portfolio and I mention it once, at the
+end, deliberately. It is a Phase 1 study of perioperative daraxonrasib with a
+robotic pancreaticoduodenectomy and an advisory-only model, in KRAS-mutated
+pancreatic ductal adenocarcinoma. On August 26, 2026 the FDA approved Rasonque
+(daraxonrasib) in the metastatic setting; the perioperative use in resectable
+disease that this program proposes is not the approved setting and remains
+investigational. I am not asking Scripps to host anything in this letter.
+
+Two disclosures. I am approaching UC San Diego in parallel on the same day, by a
+different route and with a different question; neither institution is being asked
+for exclusivity and neither is described to the other as preferred. And no
+agreement of any kind exists with any institution.
+
+If an independent evaluation of the method is of interest to anyone on this list,
+I would welcome a conversation at your convenience. If it is not, no reply is
+needed.
+
+Sincerely,
+CEO Kevin Kawchak
+ChemicalQDevice
+San Diego, California
+kevink@chemicalqdevice.com
+ORCID 0009-0007-5457-8667
+=== END BODY ===
+
+ATTACHMENTS COMPILED FROM THIS DIRECTORY
+1. None. This letter's argument is that the work is public and should be read
+   where it lives. An attachment would contradict it.
+
+ATTACHMENTS THE AUTHOR MUST ADD BY HAND
+1. None.
+
+EXTERNAL WORK TO CITE BUT NOT ATTACH
+- FDA. FDA Approves First-in-Class Targeted Therapy for Metastatic Pancreatic
+  Cancer. August 26, 2026.
+  https://www.fda.gov/news-events/press-announcements/fda-approves-first-class-targeted-therapy-metastatic-pancreatic-cancer
+
+BEFORE SENDING
+- Confirm all five addresses against
+  funding/potential-partners/Scripps/priority-steps.md §6 and against the current
+  institutional directory on the day of sending.
+- Confirm every one of the five deposit links opens. A letter whose argument is
+  "read the work" cannot afford a dead link.
+- Confirm the clinical program is mentioned once and at the end, not at the top.
+  The portfolio leads; the trial follows.
+- Confirm the letter does not ask Scripps to host, to endorse, or to commit.
+- Confirm the parallel UC San Diego approach is disclosed, and that UC San Diego
+  is not described as preferred or as secondary.
+- Confirm no sentence describes daraxonrasib as first in human, and none implies
+  the approval covers the perioperative use.
+- Confirm no manufacturer, model, arm count, or software version is asserted.
+- Do not send after the Moores letter. Send both within the same hour.

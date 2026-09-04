@@ -1,0 +1,97 @@
+FROM: kevink@chemicalqdevice.com
+
+TO: [Broker-dealer corporate service desk, address on the account statement]
+
+CC: [Registered representative of record on the ChemicalQDevice LLC account]
+
+SUBJECT: ChemicalQDevice LLC - execution instruction for six orders, entered today only
+
+=== BODY ===
+Dear Service Desk,
+
+Please treat this message as a written execution instruction for the
+ChemicalQDevice LLC corporate account. I am the sole member and chief executive
+and the sole authorized person on the account.
+
+Six lines, in this order. Please confirm each fill by reply.
+
+1. United States Treasury bill, approximately three months to maturity.
+   Non-competitive bid at the next auction, or secondary market if the auction
+   date falls outside this week. 20 percent of the reserve balance.
+
+2. United States Treasury bill, approximately six months. Same basis.
+   20 percent.
+
+3. United States Treasury bill, approximately nine months. Same basis.
+   20 percent.
+
+4. United States Treasury note or bill, approximately twelve months. Secondary
+   market, limit order, day. Limit: [write this morning's figure here, taken
+   from the last completed session's close plus one tick]. 20 percent.
+
+5. [Ticker of the single selected short-duration United States Treasury
+   exchange-traded fund]. Buy. LIMIT ORDER, DAY. Limit: [write this morning's
+   figure here, taken from the last completed session's close plus one cent].
+   15 percent of the reserve, rounded down to a whole share count. Please do not
+   enter this order in the first fifteen or the last fifteen minutes of the
+   session.
+
+6. Leave the residual, approximately 5 percent, in the account's government money
+   market sweep.
+
+CONSTRAINTS ON EVERY LINE ABOVE.
+
+No margin. No options. No securities lending. No auto-reinvestment on any rung:
+each maturity is to remain in the sweep until I instruct otherwise. No prime
+money market fund. No corporate credit. No equity. Time in force is DAY on lines
+4 and 5, and never good-till-canceled.
+
+TWO CONFIRMATIONS I NEED BEFORE YOU ACT.
+
+First, please confirm the auction date and settlement date for each tenor in
+lines 1 to 3, and your own cutoff time relative to each auction. A non-competitive
+bid submitted after your internal cutoff is not submitted, and I would rather
+know that before the fact.
+
+Second, please confirm the current reserve balance as of this morning, since
+every size above is a share of it.
+
+Please do not act on any instruction concerning this account that does not come
+from this address, and please call me to confirm anything that appears to.
+
+Sincerely,
+CEO Kevin Kawchak
+ChemicalQDevice LLC
+San Diego, California
+kevink@chemicalqdevice.com
+=== END BODY ===
+
+ATTACHMENTS COMPILED FROM THIS DIRECTORY
+1. None. A brokerage instruction should carry no attachment.
+
+ATTACHMENTS THE AUTHOR MUST ADD BY HAND
+1. None.
+
+EXTERNAL WORK TO CITE BUT NOT ATTACH
+- TreasuryDirect auction announcements, data, and results.
+  https://www.treasurydirect.gov/auctions/announcements-data-results/
+- U.S. Department of the Treasury daily par yield curve rates.
+  https://home.treasury.gov/resource-center/data-chart-center/interest-rates/
+
+BEFORE SENDING
+- Confirm the market is open today, against the exchange calendar rather than an
+  assumption about the date.
+- Write both bracketed limit figures this morning. A limit carried from a file
+  written before a weekend and a holiday is three days stale.
+- Replace the bracketed ticker with the single selected fund. One fund, not
+  three.
+- Re-read the auction calendar before sending. Auctions do not settle on a
+  federal holiday, and a calendar read before one will be wrong for this week.
+- Confirm the financing branch is unchanged. If an instrument was selected
+  overnight, this queue is re-cut against the twenty-four-month horizon before it
+  is sent, not amended after.
+- Confirm no line says good-till-canceled.
+- Do not send this letter and any federal, institutional, or investor letter in
+  the same session.
+- This instruction is not investment advice and is not a recommendation to any
+  other person. It is the sole member's direction for the company's own reserve.

@@ -1,0 +1,92 @@
+% sec-02: execution and settlement.  Table 24 and the actionbox.
+\section{Execution and Settlement}
+
+Six lines are entered in an order set by an external constraint rather than by
+preference. The auction cutoff is a hard stop and a limit order is not, so the
+auction bids go first.
+
+\begin{apptable}
+\begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}p{0.5cm} >{\raggedright\arraybackslash}p{3.4cm} >{\raggedright\arraybackslash}p{1.2cm} >{\raggedright\arraybackslash}p{2.8cm} >{\raggedright\arraybackslash}X}
+\headrow \thead{\#} & \thead{Instrument} & \thead{Size} & \thead{Entry} & \thead{Settlement basis, and what is recorded}\\
+\midrule
+1 & Treasury bill, about 3 months & 20 pct & First, auction & Auction settlement date on the announcement; CUSIP, par, discount price, maturity \\
+2 & Treasury bill, about 6 months & 20 pct & First, auction & The same \\
+3 & Treasury bill, about 9 months & 20 pct & First, auction & The same \\
+4 & Treasury note or bill, about 12 months & 20 pct & Second, limit, day & Regular way secondary; CUSIP, par, price, trade and settlement dates \\
+5 & Short-duration Treasury ETF & 15 pct & Third, limit, day, mid-session & Standard fund settlement; ticker, shares, execution price, dates \\
+6 & Government money market sweep & 5 pct & Automatic & Overnight; balance only \\
+\end{tabularx}
+\end{apptable}
+\vspace{-0.60cm}
+\tabcap{Table 24. Six lines with size, entry order, and settlement basis, in the\\
+sequence an external auction cutoff imposes rather than one chosen freely.}
+
+\subsection{The record written on the day of the fill}
+
+Not at quarter end. A ledger written from statements three months later
+reconciles to the statements and to nothing else. Every line records its
+instrument identifier, side and quantity, price, trade date, settlement date,
+maturity date where it has one, the share of reserve it represented on the
+morning of entry, and a confirmation that auto-reinvestment is off.
+
+Treasury bills are issued at a discount and the accretion is interest income for
+federal purposes recognized at maturity or sale. Interest on direct United States
+Treasury obligations is exempt from California personal income tax and the
+exemption flows through a single-member limited liability company treated as a
+disregarded entity, subject to confirmation by the company's tax preparer
+\cite{treasuryyield2026}.
+
+\subsection{If a line does not fill}
+
+An auction line that misses a cutoff is carried to the next auction. It is not
+replaced by a secondary purchase at a worse basis in order to feel finished. A
+limit line that is not reached is canceled at the close and re-priced the next
+morning, and \textbf{is never converted to a market order to complete a day}.
+
+That last instruction is the most important line in this section. A ladder built
+to avoid being forced should not be completed by forcing it, and the temptation
+to do so arrives precisely on the day the rest of the block went well.
+
+\subsection{Reconciliation at the close}
+
+Every line either filled or is recorded as unfilled with a reason, so no line is
+unaccounted for. The six shares sum to one hundred percent of the reserve as of
+this morning. No position outside the authorized set exists in the account, which
+is a control question rather than a preference question. Auto-reinvestment is off
+on every rung, confirmed in the account settings rather than in an order ticket.
+And there is no margin balance, no option position, and no lending consent.
+
+\subsection{Why the entry order is not a preference}
+
+An auction cutoff is external, published, and unforgiving: a non-competitive bid
+submitted after a broker's internal cutoff is not submitted at all, and the next
+opportunity is the following auction. A limit order is none of those things; it
+rests through the session and can be canceled at the close and re-priced
+tomorrow.
+
+Sequencing therefore follows the constraint rather than the convenience. The
+three auction lines go first because they are the only lines whose window can
+close while the rest of the session is still open, and the exchange-traded line
+goes last because its only timing constraint is internal, which is that it is not
+entered in the first or last fifteen minutes of the session.
+
+The general rule is worth naming because it recurs: where one action has an
+external deadline and another does not, the external one goes first even when the
+other is more urgent to the person doing it.
+
+The rule has a cost, and the cost is that the most consequential action of a
+given day is frequently not the first one taken. That inversion is uncomfortable
+and it is correct. Urgency is a property of the person holding the list, while a
+cutoff is a property of the world, and only one of the two moves when a founder
+decides it should. Writing the sequence down the night before is what keeps the
+distinction intact at nine in the morning, when the temptation is to begin with
+whatever felt largest at breakfast.
+
+\subsection{The single approval step}
+
+\actionbox{One decision is open on this day}{Approve the release, confirming that
+nothing changed overnight that would invalidate the preceding day's authorization,
+and adopt the weekly cadence in \S4. The release is mechanical and is governed by
+the six checks in \S1; the cadence is the decision that makes the next block a
+substitution of content into a known frame rather than a fresh design. Nothing in
+\S2 is investment advice, and no order is entered except against its checks.}

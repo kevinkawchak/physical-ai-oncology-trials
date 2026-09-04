@@ -1,0 +1,105 @@
+% sec-04: the weekly cadence.  Figure 14 (diagrams-type clustered topology),
+% Table 23.
+\section{The Weekly Cadence}
+
+The block just completed was designed from nothing, which cost more time in
+design than in execution. A week that produces five days of correspondence and no
+recurring rhythm has to be reinvented, so the block closes by fixing one.
+
+\begin{apptable}
+\begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}p{2.2cm} >{\raggedright\arraybackslash}p{3.0cm} >{\raggedright\arraybackslash}p{1.6cm} >{\raggedright\arraybackslash}X}
+\headrow \thead{Weekday} & \thead{Theme} & \thead{Budget} & \thead{The artifact that must exist by the end of it}\\
+\midrule
+Monday & Federal & 90 min & Sent letters, and any registration confirmed current \\
+Tuesday & Capital & 75 min & A capital decision recorded, or a written reason none was taken \\
+Wednesday & Site and partner & 90 min & Sent letters, and any meeting confirmed with an agenda attached \\
+Thursday & Preparation & 120 min & The data room updated, and next week's drafts written and held \\
+Friday & Execution and record & 75 min & Orders entered against their checks, follow-ups sent, the record table filed \\
+\midrule
+\textbf{Total} & Five standing functions & \textbf{7.5 h} & One person, sustainable alongside the technical work \\
+\end{tabularx}
+\end{apptable}
+\vspace{-0.60cm}
+\tabcap{Table 23. The weekly cadence by weekday, with a time budget and the one\\
+artifact that must exist by the end of each day for the week to have held.}
+
+\begin{appfloat}[!tb]
+\begin{appfig}[diagrams-type / clustered topology with vector glyphs]
+% Five clusters on a 2.85cm pitch, one glyph tile each.  \dgnode places the
+% tile, its pictogram and its label as three related nodes, so a braced fit over
+% the tile and its label encloses both.  The carry edge runs 1.4cm below the row.
+\dgnode{dgtile}{0}{0}{\glyphbank}{Federal: re-contacts, program questions}{mo}
+\dgnode{dgtile}{2.85}{0}{\glyphchart}{Capital: instruments, counsel, treasury}{tu}
+\dgnode{dgtile}{5.70}{0}{\glyphteam}{Site and partner: institutions, foundations}{we}
+\dgnodew{dgtilem}{8.55}{0}{\glyphdoc}{Preparation: data room, next week's drafts}{th}
+\dgnode{dgtile}{11.40}{0}{\glyphclock}{Execution: release, follow-ups, record}{fr}
+% \pnote is a macro, not a TikZ style; the budget labels below are plain nodes.
+\foreach \x/\b in {0/{90 min}, 2.85/{75 min}, 5.70/{90 min}, 8.55/{120 min}, 11.40/{75 min}}{
+  \node[font=\tiny\sffamily\bfseries,text=fundaccent,anchor=north] at (\x,-1.66) {\b};}
+\foreach \x/\t/\n in {0/{Monday}/c1, 2.85/{Tuesday}/c2, 5.70/{Wednesday}/c3,
+                      8.55/{Thursday}/c4, 11.40/{Friday}/c5}{
+  \node[dgctitle,anchor=south] (\n) at (\x,0.62) {\t};}
+\node[dgcluster,fit={(mo)(mol)(c1)},inner sep=7pt] {};
+\node[dgcluster,fit={(tu)(tul)(c2)},inner sep=7pt] {};
+\node[dgcluster,fit={(we)(wel)(c3)},inner sep=7pt] {};
+\node[dgcluster2,fit={(th)(thl)(c4)},inner sep=7pt] {};
+\node[dgcluster,fit={(fr)(frl)(c5)},inner sep=7pt] {};
+\draw[dgedgeb] (mo) -- (tu);
+\draw[dgedgeb] (tu) -- (we);
+\draw[dgedgeb] (we) -- (th);
+\draw[dgedgeb] (th) -- (fr);
+\draw[dgedged] (11.40,-2.30) -- (11.40,-2.90) -- (0,-2.90) -- (0,-2.30);
+\node[font=\tiny\itshape,text=fundgray,anchor=north] at (5.70,-2.98)
+  {Carry rule: unfinished work moves to the same weekday next week, never to the next day.};
+\node[font=\tiny\itshape,text=fundgray,anchor=north west,text width=118mm] at (-1.30,-3.55)
+  {Thursday is filled because it is the day that makes the following week
+  possible; every other day spends what Thursday built. Seven and a half hours a
+  week in total.};
+\end{appfig}
+\vspace{-0.60cm}
+\figcaption{Figure 14. The weekly cadence as five standing functions with a time budget\\
+each, and the carry rule that moves unfinished work a week rather than a day.}
+\end{appfloat}
+
+\subsection{The three rules that make it survive a real week}
+
+A holiday moves the theme rather than deleting it: whichever weekday is closed
+becomes the preparation day, and the themes shift around it. That is exactly what
+the block just completed did, which is the evidence that the rule works.
+
+No day runs over its budget. A Monday that takes three hours has borrowed from
+Thursday, and Thursday is the day that makes the following week possible.
+
+Unfinished work is carried to the same weekday next week rather than squeezed
+into the next day. A cadence that reschedules within a week stops being a cadence
+by Wednesday.
+
+\subsection{What is deliberately not in the cadence}
+
+Fundraising conversations with no scheduled next action. Reading. Writing the
+technical artifacts themselves, which is the rest of the week and is not funding
+work \cite{capitalplan2026}. And anything that would be chased rather than waited
+for: the four unchaseable items in \S3 are checked on Thursday and never acted
+on.
+
+\subsection{How the next block is built from this}
+
+Take the five weekday themes, substitute the current content, and the design work
+is done. The block just completed maps onto the frame exactly, in order: federal,
+capital, site and partner, preparation, execution. That mapping was not
+accidental, and it is the argument that this is the right frame rather than a
+convenient one.
+
+\subsection{What the cadence costs, stated honestly}
+
+Seven and a half hours a week is roughly a fifth of a working week spent on
+funding rather than on the technical work that produces the artifacts funding
+describes. For a company of one person that is a real cost and it is worth
+naming rather than presenting the cadence as free.
+
+The alternative is worse in a specific way. Funding work that has no fixed budget
+expands to fill whatever anxiety is available, and it does so on exactly the days
+when a deadline is near, which are the days the technical work is also most
+pressed. A fixed budget converts an unbounded claim on attention into a bounded
+one, and the bound is what makes the technical work survivable alongside it.
+

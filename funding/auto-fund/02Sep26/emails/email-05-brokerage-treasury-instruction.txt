@@ -1,0 +1,96 @@
+FROM: kevink@chemicalqdevice.com
+
+TO: [Broker-dealer corporate service desk, address on the account statement]
+
+CC: [Registered representative of record on the ChemicalQDevice LLC account]
+
+SUBJECT: ChemicalQDevice LLC corporate account - Treasury ladder instruction against a nine-month operating horizon
+
+=== BODY ===
+Dear Service Desk,
+
+Please treat this message as a written instruction for the ChemicalQDevice LLC
+corporate brokerage account. I am the sole member and chief executive and the
+sole authorized person on the account.
+
+The company's operating horizon for the coming period is nine months, matching
+the duration of a Small Business Innovation Research Phase I award should one be
+made. I want the corporate reserve laddered to that horizon rather than held in a
+single sweep, so that each maturity lands near a point at which the company has a
+known cash need, and so that no position has to be sold before maturity to meet
+one.
+
+Please execute the following, in this order, and confirm each fill by reply.
+
+1. United States Treasury bills, purchased at auction or in the secondary market,
+   in four equal rungs maturing at approximately three, six, nine and twelve
+   months from settlement. Equal par value in each rung. Non-competitive bids are
+   acceptable at auction. Please do not use a fund wrapper for this sleeve; I
+   want direct obligations with a stated maturity date and CUSIP on each rung.
+
+2. A short-duration United States Treasury exchange-traded fund as the liquid
+   sleeve, sized at one rung, entered as a limit order and not at market. The
+   ticker and the limit are set out in
+   investing/capital-01-treasury-ladder.md in the repository directory this
+   letter accompanies, which I will send separately or read to you.
+
+3. Leave the residual in the account's government money market sweep. Do not move
+   the residual into a prime fund.
+
+Constraints that apply to every line above.
+
+No margin. No options. No securities lending. No auto-reinvestment on any rung;
+each maturity is to remain in the sweep until I instruct otherwise, because a
+maturity is a decision point and an automatic roll removes the decision. No
+single non-Treasury position at any time. No equity purchase is authorized by
+this instruction.
+
+Two questions.
+
+First, please confirm the account's current title, tax identification of record,
+and authorized-person list, so that any discrepancy is found before rather than
+after an order is entered.
+
+Second, please confirm whether Treasury auction participation is available
+directly through this account, and if so, the cutoff time relative to each
+auction.
+
+Please do not act on any instruction concerning this account that does not come
+from this address, and please call me to confirm anything that appears to.
+
+Sincerely,
+CEO Kevin Kawchak
+ChemicalQDevice LLC
+San Diego, California
+kevink@chemicalqdevice.com
+=== END BODY ===
+
+ATTACHMENTS COMPILED FROM THIS DIRECTORY
+1. None. A brokerage instruction should carry no attachment. The ladder detail is
+   read from investing/capital-01-treasury-ladder.md over the phone or pasted
+   into the body, so that no file has to be opened by the desk.
+
+ATTACHMENTS THE AUTHOR MUST ADD BY HAND
+1. None.
+
+EXTERNAL WORK TO CITE BUT NOT ATTACH
+- TreasuryDirect auction schedule and results.
+  https://www.treasurydirect.gov/auctions/announcements-data-results/
+- U.S. Department of the Treasury daily par yield curve rates.
+  https://home.treasury.gov/resource-center/data-chart-center/interest-rates/
+
+BEFORE SENDING
+- Replace both bracketed address lines with the actual desk address and the
+  registered representative from the current account statement. Do not send this
+  to a general marketing address.
+- Confirm the account title reads ChemicalQDevice LLC exactly, and that the
+  authorized-person list carries one name.
+- Confirm the limit price in investing/capital-01-treasury-ladder.md against the
+  prior session's close before quoting it. A limit written on one day and sent on
+  another is a stale limit.
+- Confirm the nine-month horizon still matches the Phase I duration in
+  funding/pdac-funding-applications/applications/app-05-nih-sbir-seed.
+- This instruction is not investment advice and is not a recommendation to any
+  other person. It is the sole member's direction for the company's own reserve.
+- Do not send this letter and the four federal letters in the same session. A
+  brokerage desk and a program office should never appear in the same thread.

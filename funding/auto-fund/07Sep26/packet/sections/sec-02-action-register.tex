@@ -1,0 +1,92 @@
+% sec-02: the queued orders and the single approval step.  Table 20 and the
+% actionbox.
+\section{The Queue}
+
+Six orders are sized, priced by basis rather than by figure, and present in no
+broker system. Every one is entered on the next open market session after the
+release approval, and nowhere today.
+
+\begin{apptable}
+\begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}p{0.5cm} >{\raggedright\arraybackslash}p{3.6cm} >{\raggedright\arraybackslash}p{1.3cm} >{\raggedright\arraybackslash}p{2.6cm} >{\raggedright\arraybackslash}X}
+\headrow \thead{\#} & \thead{Instrument} & \thead{Side} & \thead{Type} & \thead{Limit basis, size, time in force}\\
+\midrule
+1 & U.S. Treasury bill, about 3 months & Buy & Non-competitive at auction & Not applicable; 20 pct of reserve; auction \\
+2 & U.S. Treasury bill, about 6 months & Buy & Non-competitive at auction & Not applicable; 20 pct; auction \\
+3 & U.S. Treasury bill, about 9 months & Buy & Non-competitive at auction & Not applicable; 20 pct; auction \\
+4 & U.S. Treasury note or bill, about 12 months & Buy & Limit, secondary market & Last session's close plus one tick; 20 pct; day \\
+5 & Short-duration Treasury ETF, one fund only & Buy & Limit, day, never market & Last session's close plus one cent; 15 pct; day \\
+6 & Government money market sweep & Hold & Sweep & Not applicable; 5 pct residual; continuous \\
+\end{tabularx}
+\end{apptable}
+\vspace{-0.60cm}
+\tabcap{Table 20. Six queued orders with instrument, side, type, and the basis\\
+each limit is set from, since a price written today would be three days stale.}
+
+\subsection{Why a basis and not a price}
+
+A limit written before a closed weekend and a holiday is three days stale by the
+time the market opens. So the queue records the basis, which is the last
+completed session's close plus one increment, and the actual figure is written
+into the broker instruction on the morning of entry. The same rule governed the
+day 1 instruction and is restated here because the interval is longer.
+
+Time in force is \textbf{day} on every order that has one, and never good-till-
+canceled. A standing order written a session in advance can fill days later at a
+price the instruction never contemplated, which converts a queued order into a
+standing exposure \cite{treasuryauctions2026}.
+
+\subsection{The auction re-check, which is not optional}
+
+Treasury auctions do not settle on a federal holiday, and an auction calendar
+read before one will be wrong for the following week. Before any of orders 1 to
+3 is placed, the auction announcements page is re-read and three things are
+confirmed: the next auction date for each tenor, its settlement date, and the
+broker's own cutoff relative to that auction. A non-competitive bid submitted
+after a broker's internal cutoff is not submitted at all.
+
+\subsection{The branch these orders sit under}
+
+No financing instrument has been selected, so every order above sits under the
+unfinanced nine-month branch established on day 1. If an instrument is selected
+before the next session, the queue is re-cut against the twenty-four-month branch
+before it is entered, rather than entered and then amended.
+
+\subsection{What is not queued, and why the omissions are deliberate}
+
+The site start-up pool of the preceding day is not in Table 20. It is held in a
+government sweep, one short bill, and one liquid fund, and its draws release
+against artifacts produced by an institution rather than against a market
+session. Queuing it here would imply a schedule it does not have and would
+suggest to a reader that money is committed when none is.
+
+Subscription funds are not queued because none exist and no offering exists.
+Federal award funds are not queued because none exist, and would not be queued in
+any case: they are drawn under the award's own terms and are never commingled
+with the operating reserve in either direction.
+
+Three sources of money, three treatments, and the separation is established
+before the first dollar rather than reconstructed afterward.
+
+\subsection{The six checks that stand between this table and an entered order}
+
+The queue is not self-executing and the approval below does not make it so. Six
+checks run on the next session before any order is transmitted, and each of them
+has failed for somebody at some point, which is why each is written down rather
+than assumed.
+
+Is the market actually open, confirmed against the exchange calendar rather than
+against an assumption about which Monday it is. Has the release approval been
+given. Has the financing decision changed the branch, in which case the queue is
+re-cut before entry rather than entered and amended. Has the auction calendar
+been re-read, which is the check most likely to be skipped and most likely to
+matter. Is the limit price written this morning rather than carried from this
+file. And is the reserve balance current, since every size above is a share of it.
+
+\subsection{The single approval step}
+
+\actionbox{One decision is open on this day}{Approve the release list in Table 16
+and the queue in Table 20, so that the next open session begins with both already
+authorized. One approval on a closed day replaces five separate approvals taken
+under time pressure on the following session. Nothing is sent or entered by this
+approval: the release itself happens on the next session, against the six checks
+in \appfile{funding/auto-fund/07Sep26/investing}.}

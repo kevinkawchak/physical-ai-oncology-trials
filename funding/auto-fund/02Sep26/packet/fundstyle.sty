@@ -1,0 +1,957 @@
+% ============================================================
+% fundstyle.sty
+% Style for the ChemicalQDevice daily funding action packets deposited in
+% funding/auto-fund.  Repository v4.8.0.
+%
+% THIS COPY IS DAY 1, 02Sep26, "The Approval Dividend".  Its accent is Pacific
+% Teal #0E5C63 with #2F8A93 and #DCEBEC as its two lighter shades.  The five
+% daily copies of this file differ ONLY in the six hex values of the palette
+% block below; every line beneath that block is identical across the five, so a
+% correction made once can be applied five times without reading five files.
+%
+% WHAT THIS STYLE IS.  It adapts capstyle.sty from
+% funding/capitalization-plan/final-capital and keeps that work's five TikZ
+% diagram vocabularies, one per machine-readable diagram platform:
+%
+%   1) mermaid-type            (mm* styles)   flowchart / sequence / state / gantt
+%   2) plantuml-type           (uml* styles)  use case / state with guards / activity
+%   3) d2-type                 (d2* styles)   containers, grids, sql tables, layers
+%   4) diagrams (python)-type  (dg* styles)   clustered infrastructure with glyphs
+%   5) graphviz-type           (gv* styles)   dot records, clusters, fault trees
+%
+% WHAT IS NEW HERE.  Five things, and nothing else.
+%
+%   a) THE SPACING INVARIANT IS -0.60cm.  appfig and apptable each close with a
+%      RIGID \vskip 24.5pt, and \figcaption and \tabcap each open with
+%      \nointerlineskip, so the source order
+%          \end{appfig}  \vspace{-0.60cm}  \figcaption{...}
+%      leaves exactly 24.5pt - 0.60cm = 7.44pt from the last rule to the first
+%      caption line, for every figure and every table in every packet, floating
+%      or inline, whatever precedes or follows it on the page.  A packet's
+%      caption whitespace signature is therefore identical everywhere.
+%
+%   b) CAPTIONS ARE TWO LINES.  \figcaption and \tabcap set a centered italic
+%      block broken by hand onto exactly two lines of near-equal width, each
+%      opening with its own number, "Figure N. " or "Table N. ".  The two lines
+%      of one caption are held within a small character spread of each other.
+%
+%   c) A NEW COVER.  \fundmast is a solid accent header block with reversed-out
+%      type over a white ruled panel, and \funddeck is a three-cell decision
+%      strip.  It is neither the RFA-RM-27-001-v2 centered form-field theme nor
+%      the parent work's ruled panel over a three-cell money ledger: a daily
+%      action packet leads with what is being decided, so the decision is the
+%      first thing on the page and the money is the third.
+%
+%   d) THE PALETTE IS PER-DAY.  Every color in this file is declared in the one
+%      palette block below.  A packet is re-themed by changing the six accent
+%      hex values in that block and nothing else; the structural code beneath it
+%      is identical across the five packets, so a correction made once applies
+%      five times.  No fill token is near-black: black survives as a stroke
+%      color and as text only.
+%
+%   e) NO STICK FIGURES.  The parent style shipped a \umlactor macro that drew a
+%      circle-and-limbs actor.  It is deleted rather than left unused, because a
+%      basic human stick figure reads as unprofessional in a document a funder
+%      will open.  Where the parent would have drawn an actor, this style uses a
+%      labeled umlbox or a dgtile carrying a vector pictogram.
+%
+% SENIOR-AUTHOR FORMATTING.  RaggedRight body with even interword spacing and no
+% right-margin overflow; maximal widow, orphan and broken penalties so no single
+% line is stranded and no paragraph ends in a one-word or two-word line; long
+% URLs break on any character; single hyphens only, no em dash and no double
+% dash; the section symbol for every codified reference.  No raster image is
+% used or produced anywhere.
+%
+% COMPILE.  Overleaf, pdfLaTeX:
+%   pdflatex main -> bibtex main -> pdflatex main -> pdflatex main
+% ============================================================
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{fundstyle}[2026/09/02 v4.8.0 ChemicalQDevice daily funding packet style]
+
+% ---------- Fonts: Times-like serif body; Helvetica-like sans and a monospace
+% ---------- face for the diagram vocabularies that are sans or mono natively.
+\RequirePackage{mathptmx}
+\RequirePackage[scaled=0.92]{helvet}
+\RequirePackage{courier}
+\RequirePackage[T1]{fontenc}
+\RequirePackage[utf8]{inputenc}
+\RequirePackage{textcomp}
+\RequirePackage{amsmath}
+\RequirePackage{amssymb}
+
+\RequirePackage[letterpaper,top=0.92in,bottom=0.92in,left=0.95in,right=0.95in,%
+  headheight=14pt,headsep=12pt,footskip=22pt]{geometry}
+
+\RequirePackage{xcolor}
+\RequirePackage[protrusion=true,expansion=false]{microtype}
+\RequirePackage{array}
+\RequirePackage{longtable}
+\RequirePackage{tabularx}
+\RequirePackage{xltabular}
+\RequirePackage{ragged2e}
+\RequirePackage{needspace}
+\RequirePackage{placeins}
+% Barrier the float queue at every section, so a figure can never drift past the
+% heading of the section that discusses it.  main.tex also issues \clearpage
+% between sections that open with a float.
+\AtBeginDocument{\let\fund@oldsection\section
+  \renewcommand{\section}{\FloatBarrier\fund@oldsection}}
+\RequirePackage{enumitem}
+\RequirePackage{booktabs}
+\RequirePackage{caption}
+\RequirePackage{adjustbox}
+\RequirePackage{multicol}
+\RequirePackage{changepage}
+
+% ---------- TikZ and every library the five vocabularies use. ----------
+\RequirePackage{tikz}
+\usetikzlibrary{shapes.geometric,shapes.symbols,shapes.misc,shapes.multipart,%
+  shapes.arrows,arrows.meta,positioning,fit,backgrounds,calc,%
+  decorations.pathreplacing,matrix,chains,scopes,quotes}
+
+% ============================================================
+% PALETTE.  The only block that differs between the five daily packets.  Nine
+% tokens and no tenth.  fundink is a stroke and text color ONLY: a near-black
+% fill is forbidden, and a search for "fundink" inside a fill= key must return
+% nothing outside this sentence.
+% ============================================================
+\definecolor{fundaccent}{HTML}{0E5C63}  % day accent - commitments, goals, headings
+\definecolor{fundmid}{HTML}{2F8A93}     % lighter shade 1 of the day accent
+\definecolor{fundpale}{HTML}{DCEBEC}    % lighter shade 2 of the day accent
+\definecolor{fundgray}{HTML}{6C757D}    % Professional Gray - process, oversight
+\definecolor{fundgrayl}{HTML}{E9ECEF}   % grayscale, light
+\definecolor{fundgraym}{HTML}{CED4DA}   % grayscale, medium
+\definecolor{fundgrayd}{HTML}{9AA1A8}   % grayscale, medium-dark
+\definecolor{fundwhite}{rgb}{1,1,1}     % Classic White
+\definecolor{fundink}{rgb}{0,0,0}       % strokes and text ONLY, never a fill
+\definecolor{orcidgreen}{HTML}{A6CE39}
+\colorlet{accentcol}{fundaccent}
+\pagecolor{fundwhite}
+
+% ---------- Backward-compatible aliases, so a figure written against the parent
+% ---------- style's color names compiles here without edit.
+\colorlet{protoblue}{fundaccent}
+\colorlet{protogray}{fundgray}
+\colorlet{protowhite}{fundwhite}
+\colorlet{protoblack}{fundink}
+\colorlet{pagrayl}{fundgrayl}
+\colorlet{pagraym}{fundgraym}
+\colorlet{pagrayd}{fundgrayd}
+\colorlet{pablue1}{fundmid}
+\colorlet{pablue2}{fundpale}
+
+% ============================================================
+% BODY TYPOGRAPHY.  Even interword spacing, no right-margin overflow, no
+% stranded line, and no paragraph ending in a one-word or two-word line.
+% ============================================================
+\tolerance=2000
+\emergencystretch=3em
+\hbadness=4000
+\hyphenpenalty=70
+\exhyphenpenalty=70
+\RaggedRight
+\setlength{\RaggedRightParindent}{0pt}
+% 2em of stretch, and no more.  A larger right skip lets a ragged-right line end
+% far short of the measure and reads as a gap; a smaller one forces interword
+% stretch back into the line.  Measured at this body width, 2em is the value at
+% which neither defect appears.
+\setlength{\RaggedRightRightskip}{0pt plus 2em}
+\widowpenalty=10000
+\clubpenalty=10000
+\displaywidowpenalty=10000
+\brokenpenalty=10000
+% \finalhyphendemerits and a stretchable \parfillskip together stop a paragraph
+% from ending in a line carrying only one or two words.
+\finalhyphendemerits=10000
+\setlength{\parfillskip}{0pt plus 0.75\textwidth}
+\raggedbottom
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{3.2pt plus 1pt minus 0.5pt}
+\frenchspacing
+
+% ---------- Break long URLs on any character so no link overflows. ----------
+\def\UrlBreaks{\do\/\do-\do.\do=\do_\do?\do\&\do\%\do\#\do\:\do\a\do\b\do\c%
+\do\d\do\e\do\f\do\g\do\h\do\i\do\j\do\k\do\l\do\m\do\n\do\o\do\p\do\q\do\r%
+\do\s\do\t\do\u\do\v\do\w\do\x\do\y\do\z\do\A\do\B\do\C\do\D\do\E\do\F\do\G%
+\do\H\do\I\do\J\do\K\do\L\do\M\do\N\do\O\do\P\do\Q\do\R\do\S\do\T\do\U\do\V%
+\do\W\do\X\do\Y\do\Z\do\0\do\1\do\2\do\3\do\4\do\5\do\6\do\7\do\8\do\9}
+% The unsrt family lowercases title fields, so a \S in a title is emitted as
+% \s; provide \s so every codified reference renders the section symbol.
+\providecommand{\s}{\S}
+
+% ---------- Running header.  \fundhdr is set by each packet's main.tex. ----------
+\RequirePackage{fancyhdr}
+\newcommand{\fundhdrtext}{Daily Funding Action Packet}
+\newcommand{\fundrighttext}{ChemicalQDevice}
+\newcommand{\fundhdr}[2]{\renewcommand{\fundhdrtext}{#1}\renewcommand{\fundrighttext}{#2}}
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0pt}
+\fancyhead[L]{\footnotesize\thepage}
+\fancyhead[C]{\footnotesize\scshape\fundhdrtext}
+\fancyhead[R]{\footnotesize\fundrighttext}
+\fancypagestyle{plain}{%
+  \fancyhf{}%
+  \renewcommand{\headrulewidth}{0pt}%
+  \fancyfoot[C]{\footnotesize\thepage}}
+
+% ---------- Section headings. ----------
+\RequirePackage{titlesec}
+\titleformat{\section}{\large\bfseries\color{accentcol}}{\thesection}{0.55em}{}[{\color{accentcol}\titlerule[0.6pt]}]
+\titleformat{\subsection}{\normalsize\bfseries\color{accentcol}}{\thesubsection}{0.45em}{}
+\titleformat{\subsubsection}{\normalsize\bfseries\itshape\color{fundink}}{\thesubsubsection}{0.45em}{}
+\titlespacing*{\section}{0pt}{1.25ex plus 0.35ex}{0.7ex}
+\titlespacing*{\subsection}{0pt}{0.95ex plus 0.3ex}{0.45ex}
+\titlespacing*{\subsubsection}{0pt}{0.85ex plus 0.3ex}{0.35ex}
+
+% ---------- No heading may be the last thing on a page.  Reserving the heading
+% ---------- plus three lines of its own text moves the pair together.
+\let\fund@section\section
+\renewcommand{\section}{\needspace{3.4\baselineskip}\fund@section}
+\let\fund@subsection\subsection
+\renewcommand{\subsection}{\needspace{3\baselineskip}\fund@subsection}
+\let\fund@subsubsection\subsubsection
+\renewcommand{\subsubsection}{\needspace{2.6\baselineskip}\fund@subsubsection}
+
+% ============================================================
+% TABLE COLUMNS.  Every fixed-width column carries a prepended
+% \raggedright\arraybackslash, so no cell shows a large interword gap, and every
+% table is set to the exact body measure with \begin{tabularx}{\textwidth}.
+% Column widths are cut to the longest real cell in each column, so no row
+% carries one deep cell beside four shallow ones.
+% ============================================================
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
+\newcolumntype{C}[1]{>{\centering\arraybackslash}p{#1}}
+\newcolumntype{R}[1]{>{\raggedleft\arraybackslash}p{#1}}
+\newcolumntype{Y}{>{\raggedright\arraybackslash}X}
+\newcommand{\ragcol}[1]{>{\raggedright\arraybackslash}p{#1}}
+\renewcommand{\arraystretch}{1.16}
+\setlength{\tabcolsep}{4.6pt}
+% RIGID SPACING, identical to the figure carrier.  apptable closes with the same
+% \vskip 24.5pt that appfig closes with, and \tabcap opens with
+% \nointerlineskip, so the source order
+%     \end{apptable}  \vspace{-0.60cm}  \tabcap{...}
+% leaves exactly 7.44pt from the last rule to the first caption line.  The
+% closing \unskip removes the interword space that the newline after
+% \end{tabularx} would otherwise contribute: without it every table sets one
+% space past the right margin and reports as overfull.
+\newenvironment{apptable}{\par\addvspace{0.28em}\noindent\ignorespaces}%
+  {\unskip\par\nobreak\vskip 24.5pt\relax}
+\newcommand{\thead}[1]{\textcolor{fundwhite}{\bfseries #1}}
+\newcommand{\headrow}{\rowcolor{fundaccent}}
+\RequirePackage{colortbl}
+% \tabcap{...} - a table caption on two centered italic lines, opening with its
+% own number.
+% X CENTRING.  The closing \null is load-bearing and is the reason this macro,
+% \figcaption and the appfig frame all carry one.  TeX deletes a glue item that
+% ends a paragraph, so the older idiom
+%     \noindent\hfil <box> \hfil\par
+% loses its second \hfil at \par; the surviving first \hfil then absorbs the
+% whole slack and drives the box against the right margin.  \null is an empty
+% \hbox: it ends the paragraph with a box rather than with glue, both \hfil
+% survive, and the two split the slack evenly.  It has zero width, height and
+% depth, so no spacing invariant in this file moves.
+\newcommand{\tabcap}[1]{%
+  \nointerlineskip\par\nopagebreak
+  {\setlength{\parskip}{0pt}\setlength{\parindent}{0pt}%
+   \noindent\null\hfil
+   \begin{minipage}{0.94\linewidth}\centering\footnotesize\itshape #1\end{minipage}%
+   \hfil\null\par}\addvspace{0.30em}}
+
+% ============================================================
+% FIGURE FRAME.  One centered, ruled, white-background frame shared by every
+% figure, carrying a monospace tag naming the diagram platform and the native
+% construct being reproduced.  The frame fits itself to the text measure and to
+% the page, so no figure can overflow horizontally or vertically.
+% ============================================================
+\newsavebox{\appbox}
+\newsavebox{\appfitted}
+\newsavebox{\apptagbox}
+\newlength{\appmaxw}
+\newlength{\appmaxh}
+\newlength{\appw}
+\def\apptagtext{}
+
+\tikzset{
+  appevery/.style={>={Stealth[length=2.1mm]},line width=0.6pt,font=\footnotesize,
+    every node/.append style={align=center}}
+}
+
+% ---------- FLOAT CARRIER.  A figure too tall for the space left on a page
+% ---------- would strand that space.  Wrapping the figure and its caption in an
+% ---------- appfloat lets running text close the page and sets the figure at
+% ---------- the head of the next one.  One float per page top, none at the
+% ---------- bottom, because a figure in these packets is tall.
+\setcounter{topnumber}{1}
+\setcounter{bottomnumber}{0}
+\setcounter{totalnumber}{1}
+\renewcommand{\topfraction}{0.90}
+\renewcommand{\bottomfraction}{0.0}
+\renewcommand{\textfraction}{0.08}
+\renewcommand{\floatpagefraction}{0.50}
+\setlength{\textfloatsep}{17pt plus 2pt minus 4pt}
+\setlength{\floatsep}{15pt plus 2pt minus 4pt}
+\setlength{\intextsep}{15pt plus 2pt minus 4pt}
+\newif\ifappfloating \appfloatingfalse
+\newenvironment{appfloat}[1][!tb]{%
+  \begin{figure}[#1]\appfloatingtrue\centering}{\end{figure}}
+
+\newenvironment{appfig}[1][]{%
+  \def\apptagtext{#1}%
+  \ifappfloating\par\nointerlineskip\else\par\penalty-60\vskip 12pt\relax\fi
+  \begin{lrbox}{\appbox}%
+  \begin{tikzpicture}[appevery]%
+}{%
+  \end{tikzpicture}%
+  \end{lrbox}%
+  \setlength{\appmaxw}{\dimexpr\textwidth-26pt\relax}%
+  \setlength{\appmaxh}{0.66\textheight}%
+  \begin{lrbox}{\appfitted}%
+    \adjustbox{max width=\appmaxw,max totalheight=\appmaxh}{\usebox{\appbox}}%
+  \end{lrbox}%
+  \sbox{\apptagbox}{\scriptsize\ttfamily\color{fundgray}\apptagtext}%
+  \setlength{\appw}{\wd\appfitted}%
+  \ifdim\wd\apptagbox>\appw\setlength{\appw}{\wd\apptagbox}\fi
+  \ifappfloating\else
+    \needspace{\dimexpr\ht\appfitted+\dp\appfitted+4\baselineskip\relax}%
+  \fi
+  {\setlength{\parskip}{0pt}\setlength{\parindent}{0pt}%
+   \setlength{\fboxrule}{0.4pt}\setlength{\fboxsep}{7pt}%
+   \noindent\null\hfil
+   \fcolorbox{fundink}{fundwhite}{%
+     \begin{minipage}{\appw}%
+       \raggedright\usebox{\apptagbox}\par\vspace{1.4pt}%
+       {\color{fundgraym}\hrule height 0.4pt}\vspace{4.5pt}%
+       \noindent\usebox{\appfitted}%
+     \end{minipage}}%
+   \hfil\null\par}%
+  \nobreak\vskip 24.5pt\relax}
+
+% ---------- Caption: a small centered italic block on exactly two manually
+% ---------- balanced lines, opening with its own number, "Figure N.".
+\newcommand{\figcaption}[1]{%
+  \nointerlineskip\nopagebreak
+  {\setlength{\parskip}{0pt}\setlength{\parindent}{0pt}%
+   \noindent\null\hfil
+   \begin{minipage}{0.94\linewidth}%
+   \centering\footnotesize\itshape #1%
+   \end{minipage}%
+   \hfil\null\par}%
+  \ifappfloating\else\vskip 12pt\relax\fi}
+
+
+% ============================================================
+% 1) MERMAID-TYPE VOCABULARY (mm*)
+% Decisions in time: flowchart, sequence, state, gantt.
+% ============================================================
+\tikzset{
+  mmin/.style={rectangle,rounded corners=2pt,draw=fundaccent,fill=fundwhite,
+    minimum height=7mm,inner sep=3pt,text width=27mm,text=fundink,
+    font=\scriptsize\sffamily},
+  mmstep/.style={rectangle,rounded corners=2pt,draw=fundink,fill=fundgray,
+    minimum height=7mm,inner sep=3pt,text width=27mm,text=fundwhite,
+    font=\scriptsize\sffamily},
+  mmdec/.style={diamond,aspect=2.1,draw=fundink,fill=fundgraym,inner sep=1pt,
+    text width=23mm,text=fundink,font=\scriptsize\sffamily},
+  mmgoal/.style={rectangle,rounded corners=2pt,draw=fundink,line width=0.9pt,
+    fill=fundaccent,minimum height=7mm,inner sep=3pt,text width=29mm,
+    text=fundwhite,font=\scriptsize\sffamily},
+  mmmid/.style={rectangle,rounded corners=2pt,draw=fundaccent,line width=0.8pt,
+    fill=fundmid,minimum height=7mm,inner sep=3pt,text width=29mm,
+    text=fundwhite,font=\scriptsize\sffamily},
+  mmsoft/.style={rectangle,rounded corners=2pt,draw=fundaccent,fill=fundpale,
+    minimum height=7mm,inner sep=3pt,text width=27mm,text=fundink,
+    font=\scriptsize\sffamily},
+  mmgray/.style={rectangle,rounded corners=2pt,draw=fundgray,fill=fundgrayl,
+    minimum height=7mm,inner sep=3pt,text width=27mm,text=fundink,
+    font=\scriptsize\sffamily},
+  mmgrayd/.style={rectangle,rounded corners=2pt,draw=fundgray,fill=fundgrayd,
+    minimum height=7mm,inner sep=3pt,text width=27mm,text=fundink,
+    font=\scriptsize\sffamily},
+  mmperson/.style={ellipse,draw=fundink,fill=fundwhite,inner sep=2pt,
+    text width=23mm,minimum height=8mm,text=fundink,font=\scriptsize\sffamily},
+  mmlane/.style={rectangle,draw=fundgray,dashed,inner sep=6pt,rounded corners=1pt},
+  mmlanetitle/.style={font=\scriptsize\bfseries\sffamily,text=fundaccent},
+  mmedge/.style={->,draw=fundgray,line width=0.7pt},
+  mmedged/.style={->,draw=fundgray,dashed,line width=0.7pt},
+  mmedgeb/.style={->,draw=fundaccent,line width=0.9pt},
+  mmedgek/.style={->,draw=fundink,line width=0.8pt},
+  mmlabel/.style={font=\scriptsize\itshape,fill=fundwhite,inner sep=1pt},
+  % sequence-diagram primitives
+  mmactor/.style={rectangle,draw=fundaccent,fill=fundpale,minimum height=6mm,
+    inner sep=3pt,text width=21mm,font=\scriptsize\sffamily\bfseries,text=fundaccent},
+  mmlife/.style={draw=fundgray,dashed,line width=0.5pt},
+  mmact/.style={rectangle,draw=fundink,fill=fundmid,minimum width=2.6mm,inner sep=0pt},
+  mmmsg/.style={->,draw=fundaccent,line width=0.7pt,font=\tiny\sffamily},
+  mmret/.style={->,draw=fundgray,dashed,line width=0.6pt,font=\tiny\sffamily},
+  % gantt primitives
+  mmbar/.style={rectangle,draw=fundaccent,fill=fundpale,minimum height=3.6mm,inner sep=0pt},
+  mmbark/.style={rectangle,draw=fundaccent,fill=fundmid,minimum height=3.6mm,inner sep=0pt},
+  mmbarg/.style={rectangle,draw=fundgray,fill=fundgraym,minimum height=3.6mm,inner sep=0pt},
+  mmband/.style={rectangle,draw=none,fill=fundgrayl,inner sep=0pt}
+}
+
+% ============================================================
+% 2) PLANTUML-TYPE VOCABULARY (uml*)
+% Formal notation: use case, state with guards, activity with fork and join.
+% ============================================================
+\tikzset{
+  umlbox/.style={rectangle,draw=fundink,line width=0.6pt,fill=fundpale,
+    inner sep=3pt,text width=27mm,minimum height=7mm,font=\scriptsize\sffamily,align=center},
+  umlctrl/.style={rectangle,draw=fundink,line width=0.6pt,fill=fundgray,
+    text=fundwhite,inner sep=3pt,text width=27mm,minimum height=7mm,
+    font=\scriptsize\sffamily,align=center},
+  umlkey/.style={rectangle,draw=fundink,line width=1pt,fill=fundaccent,
+    text=fundwhite,inner sep=3pt,text width=27mm,minimum height=7mm,
+    font=\scriptsize\sffamily,align=center},
+  umlusecase/.style={ellipse,draw=fundaccent,line width=0.6pt,fill=fundpale,
+    inner sep=2pt,text width=25mm,minimum height=8mm,font=\tiny\sffamily,align=center},
+  umlusekey/.style={umlusecase,fill=fundaccent,text=fundwhite,draw=fundaccent},
+  umlusegray/.style={umlusecase,fill=fundgrayl,draw=fundgray},
+  umlnote/.style={rectangle,draw=fundgray,line width=0.5pt,fill=fundgrayl,
+    inner sep=3pt,text width=29mm,font=\tiny\sffamily\itshape,align=left},
+  umlpkg/.style={rectangle,draw=fundink,line width=0.6pt,fill=fundwhite,inner sep=6pt},
+  umlpkgtab/.style={rectangle,draw=fundink,line width=0.6pt,fill=fundpale,
+    inner sep=2pt,font=\tiny\sffamily\bfseries},
+  umlstate/.style={rectangle,rounded corners=4pt,draw=fundaccent,line width=0.6pt,
+    fill=fundwhite,inner sep=3pt,text width=29mm,minimum height=8mm,
+    font=\tiny\sffamily,align=center},
+  umlstateon/.style={umlstate,fill=fundaccent,text=fundwhite,draw=fundaccent,line width=0.9pt},
+  umlstatesoft/.style={umlstate,fill=fundpale},
+  umlstategray/.style={umlstate,fill=fundgraym,draw=fundgray},
+  umlinit/.style={circle,fill=fundaccent,minimum size=2.6mm,inner sep=0pt},
+  umlfinal/.style={circle,draw=fundink,line width=0.6pt,minimum size=3.6mm,inner sep=0pt},
+  umlbar/.style={rectangle,fill=fundaccent,minimum height=1.2mm,inner sep=0pt},
+  umlarrow/.style={->,>=Stealth,draw=fundink,line width=0.6pt,font=\tiny\sffamily},
+  umldash/.style={->,>=Stealth,draw=fundgray,dashed,line width=0.55pt,font=\tiny\sffamily},
+  umlassoc/.style={draw=fundink,line width=0.55pt,font=\tiny\sffamily},
+  umlguard/.style={font=\tiny\sffamily,fill=fundwhite,inner sep=1pt,text=fundink}
+}
+
+% \umlactor is DELETED here, not merely unused.  The parent style drew a
+% circle-and-limbs stick actor; a basic human stick figure reads as
+% unprofessional in a document a funder will open, so every place the parent
+% would have used one, this style uses a labeled umlbox or a dgtile carrying a
+% vector pictogram instead.
+
+% Fault-tree gate glyphs, used by the graphviz-type fault tree.  An AND gate
+% has a flat bottom; an OR gate has a curved bottom.  Neither is filled black.
+\newcommand{\umlgateand}[2]{%
+  \draw[draw=fundink,line width=0.6pt,fill=fundgraym]
+    (#1-0.32,#2-0.20) -- (#1-0.32,#2+0.02)
+    arc (180:0:0.32 and 0.26) -- (#1+0.32,#2-0.20) -- cycle;
+  \node[font=\tiny\sffamily,anchor=north] at (#1,#2-0.22) {AND};}
+\newcommand{\umlgateor}[2]{%
+  \draw[draw=fundink,line width=0.6pt,fill=fundgrayl]
+    (#1-0.32,#2-0.20) .. controls (#1-0.10,#2-0.06) and (#1+0.10,#2-0.06) .. (#1+0.32,#2-0.20)
+    -- (#1+0.32,#2+0.02) arc (0:180:0.32 and 0.26) -- cycle;
+  \node[font=\tiny\sffamily,anchor=north] at (#1,#2-0.22) {OR};}
+
+% ============================================================
+% 3) D2-TYPE VOCABULARY (d2*)
+% Nesting and tabulation: containers, true grids, sql tables, layers.
+% ============================================================
+\tikzset{
+  d2cont/.style={rectangle,rounded corners=3pt,draw=fundmid,line width=0.8pt,
+    fill=fundwhite,inner sep=7pt},
+  d2cont2/.style={rectangle,rounded corners=3pt,draw=fundgrayd,line width=0.8pt,
+    fill=fundgrayl,inner sep=7pt},
+  d2title/.style={font=\scriptsize\sffamily\bfseries,text=fundaccent,inner sep=1pt},
+  d2title2/.style={font=\scriptsize\sffamily\bfseries,text=fundgray,inner sep=1pt},
+  d2box/.style={rectangle,rounded corners=2.5pt,draw=fundmid,line width=0.7pt,
+    fill=fundwhite,inner sep=3pt,text width=25mm,minimum height=7mm,
+    font=\tiny\sffamily,align=center},
+  d2key/.style={d2box,fill=fundaccent,draw=fundaccent,text=fundwhite},
+  d2mid/.style={d2box,fill=fundmid,draw=fundaccent,text=fundwhite},
+  d2soft/.style={d2box,fill=fundpale,draw=fundmid},
+  d2gray/.style={d2box,fill=fundgrayl,draw=fundgray},
+  d2gray2/.style={d2box,fill=fundgraym,draw=fundgray},
+  d2cell/.style={rectangle,draw=fundmid,line width=0.4pt,fill=fundwhite,
+    minimum width=14mm,minimum height=6mm,inner sep=1.5pt,font=\tiny\sffamily,align=center},
+  d2cellh/.style={d2cell,fill=fundaccent,text=fundwhite,font=\tiny\sffamily\bfseries},
+  d2celll/.style={d2cell,fill=fundpale,align=left},
+  d2cellk/.style={d2cell,fill=fundmid,text=fundwhite},
+  d2cellg/.style={d2cell,fill=fundgrayl},
+  d2sql/.style={rectangle split,rectangle split parts=2,draw=fundmid,line width=0.7pt,
+    rounded corners=2.5pt,fill=fundwhite,rectangle split part fill={fundaccent,fundwhite},
+    text width=34mm,inner sep=3pt,font=\tiny\sffamily,align=left},
+  d2edge/.style={->,>=Stealth,draw=fundgray,line width=0.7pt,font=\tiny\sffamily},
+  d2edgeb/.style={->,>=Stealth,draw=fundaccent,line width=0.8pt,font=\tiny\sffamily},
+  d2edged/.style={->,>=Stealth,draw=fundgrayd,dashed,line width=0.6pt,font=\tiny\sffamily},
+  d2step/.style={rectangle,rounded corners=3pt,draw=fundmid,line width=0.9pt,
+    fill=fundwhite,inner sep=6pt},
+  d2ghost/.style={rectangle,rounded corners=3pt,draw=fundgraym,line width=0.4pt,
+    fill=fundwhite,inner sep=6pt}
+}
+
+% ============================================================
+% 4) DIAGRAMS (PYTHON)-TYPE VOCABULARY (dg*)
+% mingrammer/diagrams renders an icon glyph with the label set beneath it and
+% groups nodes into dashed titled clusters.  Reproduced here with a rounded
+% glyph tile carrying a vector pictogram and a caption line under the tile.
+% ============================================================
+\tikzset{
+  dgtile/.style={rectangle,rounded corners=2.2pt,draw=fundaccent,line width=0.7pt,
+    fill=fundpale,minimum width=9mm,minimum height=9mm,inner sep=0pt},
+  dgtiled/.style={dgtile,fill=fundaccent,draw=fundaccent},
+  dgtilem/.style={dgtile,fill=fundmid,draw=fundaccent},
+  dgtileg/.style={dgtile,fill=fundgrayl,draw=fundgray},
+  dgtilek/.style={dgtile,fill=fundgraym,draw=fundgrayd},
+  dglabel/.style={font=\tiny\sffamily,text width=23mm,align=center,inner sep=1pt},
+  dgcluster/.style={rectangle,rounded corners=3pt,draw=fundmid,dashed,line width=0.7pt,
+    fill=fundwhite,inner sep=7pt},
+  dgcluster2/.style={rectangle,rounded corners=3pt,draw=fundgrayd,dashed,line width=0.7pt,
+    fill=fundgrayl,inner sep=7pt},
+  dgctitle/.style={font=\tiny\sffamily\bfseries,text=fundaccent,inner sep=1pt},
+  dgctitle2/.style={font=\tiny\sffamily\bfseries,text=fundgray,inner sep=1pt},
+  dgedge/.style={->,>=Stealth,draw=fundgray,line width=0.7pt,font=\tiny\sffamily},
+  dgedgeb/.style={->,>=Stealth,draw=fundaccent,line width=0.8pt,font=\tiny\sffamily},
+  dgedged/.style={->,>=Stealth,draw=fundgrayd,dashed,line width=0.6pt,font=\tiny\sffamily},
+  dgbi/.style={<->,>=Stealth,draw=fundgray,line width=0.7pt,font=\tiny\sffamily}
+}
+
+% ---------- Vector pictograms.  Every tile carries one; none is a raster.
+% ---------- Each takes (node name, stroke color) and draws itself centered on
+% ---------- that node, so tiles stay legible at any figure scale.
+\newcommand{\glyphserver}[2]{\begin{scope}[shift={(#1.center)},draw=#2,line width=0.45pt]
+  \draw (-0.20,0.26) rectangle (0.20,0.10);\draw (-0.20,0.06) rectangle (0.20,-0.10);
+  \draw (-0.20,-0.14) rectangle (0.20,-0.30);
+  \fill[#2] (-0.15,0.18) circle (0.022);\fill[#2] (-0.15,-0.02) circle (0.022);
+  \fill[#2] (-0.15,-0.22) circle (0.022);\end{scope}}
+\newcommand{\glyphdb}[2]{\begin{scope}[shift={(#1.center)},draw=#2,line width=0.45pt]
+  \draw (-0.19,0.20) arc (180:360:0.19 and 0.075);\draw (-0.19,0.20) arc (180:0:0.19 and 0.075);
+  \draw (-0.19,0.20) -- (-0.19,-0.20);\draw (0.19,0.20) -- (0.19,-0.20);
+  \draw (-0.19,-0.20) arc (180:360:0.19 and 0.075);
+  \draw (-0.19,0.03) arc (180:360:0.19 and 0.075);\end{scope}}
+\newcommand{\glyphcpu}[2]{\begin{scope}[shift={(#1.center)},draw=#2,line width=0.45pt]
+  \draw (-0.16,-0.16) rectangle (0.16,0.16);\draw (-0.07,-0.07) rectangle (0.07,0.07);
+  \foreach \k in {-0.09,0,0.09}{\draw (\k,0.16) -- (\k,0.25);\draw (\k,-0.16) -- (\k,-0.25);
+  \draw (0.16,\k) -- (0.25,\k);\draw (-0.16,\k) -- (-0.25,\k);}\end{scope}}
+\newcommand{\glyphnet}[2]{\begin{scope}[shift={(#1.center)},draw=#2,line width=0.45pt]
+  \draw (-0.24,0.22) rectangle (-0.06,0.06);\draw (0.06,0.22) rectangle (0.24,0.06);
+  \draw (-0.09,-0.28) rectangle (0.09,-0.12);
+  \draw (-0.15,0.06) -- (-0.15,-0.02) -- (0.15,-0.02) -- (0.15,0.06);
+  \draw (0,-0.02) -- (0,-0.12);\end{scope}}
+\newcommand{\glyphrobot}[2]{\begin{scope}[shift={(#1.center)},draw=#2,line width=0.5pt]
+  \draw (-0.24,-0.26) -- (-0.10,0.02) -- (0.14,0.14);\fill[#2] (-0.24,-0.26) circle (0.04);
+  \fill[#2] (-0.10,0.02) circle (0.035);\draw (0.14,0.14) -- (0.24,0.04);
+  \draw (0.14,0.14) -- (0.22,0.24);\draw (-0.28,-0.30) rectangle (-0.14,-0.24);\end{scope}}
+\newcommand{\glyphshield}[2]{\begin{scope}[shift={(#1.center)},draw=#2,line width=0.45pt]
+  \draw (0,0.27) -- (0.20,0.16) -- (0.20,-0.06) -- (0,-0.28) -- (-0.20,-0.06) -- (-0.20,0.16) -- cycle;
+  \draw[line width=0.55pt] (-0.09,0.02) -- (-0.02,-0.08) -- (0.11,0.12);\end{scope}}
+\newcommand{\glyphdoc}[2]{\begin{scope}[shift={(#1.center)},draw=#2,line width=0.45pt]
+  \draw (-0.16,-0.26) -- (-0.16,0.26) -- (0.07,0.26) -- (0.18,0.15) -- (0.18,-0.26) -- cycle;
+  \draw (0.07,0.26) -- (0.07,0.15) -- (0.18,0.15);
+  \foreach \k in {0.04,-0.04,-0.12}{\draw (-0.10,\k) -- (0.11,\k);}\end{scope}}
+\newcommand{\glyphmon}[2]{\begin{scope}[shift={(#1.center)},draw=#2,line width=0.45pt]
+  \draw (-0.24,-0.08) rectangle (0.24,0.24);\draw (-0.06,-0.08) -- (-0.06,-0.22);
+  \draw (0.06,-0.08) -- (0.06,-0.22);\draw (-0.16,-0.22) -- (0.16,-0.22);
+  \draw (-0.17,0.02) -- (-0.08,0.14) -- (0.02,0.04) -- (0.16,0.18);\end{scope}}
+\newcommand{\glyphlock}[2]{\begin{scope}[shift={(#1.center)},draw=#2,line width=0.45pt]
+  \draw (-0.16,-0.24) rectangle (0.16,0.04);\draw (-0.09,0.04) arc (180:0:0.09 and 0.14);
+  \fill[#2] (0,-0.10) circle (0.035);\end{scope}}
+\newcommand{\glyphgear}[2]{\begin{scope}[shift={(#1.center)},draw=#2,line width=0.45pt]
+  \draw (0,0) circle (0.15);\draw (0,0) circle (0.06);
+  \foreach \a in {0,60,...,300}{\draw (\a:0.15) -- (\a:0.25);}\end{scope}}
+\newcommand{\glyphai}[2]{\begin{scope}[shift={(#1.center)},draw=#2,line width=0.45pt]
+  \draw (0,0) circle (0.25);\draw (-0.25,0) .. controls (-0.08,0.16) and (0.08,-0.16) .. (0.25,0);
+  \fill[#2] (-0.12,0.10) circle (0.03);\fill[#2] (0.12,-0.10) circle (0.03);
+  \fill[#2] (0.10,0.12) circle (0.03);\fill[#2] (-0.10,-0.12) circle (0.03);\end{scope}}
+\newcommand{\glyphuser}[2]{\begin{scope}[shift={(#1.center)},draw=#2,line width=0.45pt]
+  \draw (0,0.15) circle (0.10);\draw (-0.20,-0.26) arc (180:0:0.20 and 0.28);\end{scope}}
+\newcommand{\glyphclock}[2]{\begin{scope}[shift={(#1.center)},draw=#2,line width=0.45pt]
+  \draw (0,0) circle (0.24);\draw (0,0) -- (0,0.15);\draw (0,0) -- (0.12,-0.05);
+  \foreach \a in {0,90,180,270}{\draw (\a:0.20) -- (\a:0.24);}\end{scope}}
+\newcommand{\glyphflask}[2]{\begin{scope}[shift={(#1.center)},draw=#2,line width=0.45pt]
+  \draw (-0.07,0.26) -- (-0.07,0.06) -- (-0.20,-0.24) -- (0.20,-0.24) -- (0.07,0.06) -- (0.07,0.26);
+  \draw (-0.11,0.26) -- (0.11,0.26);\draw (-0.14,-0.10) -- (0.14,-0.10);\end{scope}}
+\newcommand{\glyphpill}[2]{\begin{scope}[shift={(#1.center)},draw=#2,line width=0.45pt,rotate=-40]
+  \draw[rounded corners=0.11cm] (-0.25,-0.11) rectangle (0.25,0.11);
+  \draw (0,-0.11) -- (0,0.11);\end{scope}}
+\newcommand{\glyphchart}[2]{\begin{scope}[shift={(#1.center)},draw=#2,line width=0.45pt]
+  \draw (-0.24,-0.24) -- (-0.24,0.24);\draw (-0.24,-0.24) -- (0.26,-0.24);
+  \fill[#2] (-0.16,-0.24) rectangle (-0.07,-0.02);\fill[#2] (-0.03,-0.24) rectangle (0.06,0.14);
+  \fill[#2] (0.10,-0.24) rectangle (0.19,-0.10);\end{scope}}
+\newcommand{\glyphstop}[2]{\begin{scope}[shift={(#1.center)},draw=#2,line width=0.5pt]
+  \draw (0,0) circle (0.25);\fill[#2] (-0.13,-0.05) rectangle (0.13,0.05);\end{scope}}
+\newcommand{\glyphbank}[2]{\begin{scope}[shift={(#1.center)},draw=#2,line width=0.45pt]
+  \draw (-0.26,0.04) -- (0,0.24) -- (0.26,0.04);\draw (-0.24,-0.22) -- (0.24,-0.22);
+  \foreach \k in {-0.16,0,0.16}{\draw (\k,0.02) -- (\k,-0.20);}\end{scope}}
+\newcommand{\glyphscalpel}[2]{\begin{scope}[shift={(#1.center)},draw=#2,line width=0.45pt]
+  \draw (-0.26,-0.20) -- (-0.02,-0.02);\draw (-0.02,-0.02) -- (0.24,0.24) -- (0.26,0.06)
+    -- (0.06,-0.14) -- cycle;\end{scope}}
+\newcommand{\glyphcloud}[2]{\begin{scope}[shift={(#1.center)},draw=#2,line width=0.45pt]
+  \draw (-0.22,-0.06) arc (180:360:0.22 and 0.14);
+  \draw (-0.22,-0.06) arc (200:80:0.11);\draw (-0.05,0.10) arc (170:10:0.12 and 0.13);
+  \draw (0.18,0.06) arc (120:-10:0.09);\end{scope}}
+\newcommand{\glyphsignal}[2]{\begin{scope}[shift={(#1.center)},draw=#2,line width=0.45pt]
+  \fill[#2] (0,-0.20) circle (0.045);
+  \foreach \r in {0.11,0.19,0.27}{\draw (\r,-0.20) arc (0:75:\r);\draw (-\r,-0.20) arc (180:105:\r);}\end{scope}}
+\newcommand{\glyphlink}[2]{\begin{scope}[shift={(#1.center)},draw=#2,line width=0.5pt]
+  \draw[rounded corners=0.07cm] (-0.26,-0.02) rectangle (-0.02,0.10);
+  \draw[rounded corners=0.07cm] (0.02,-0.10) rectangle (0.26,0.02);
+  \draw (-0.06,0.04) -- (0.06,-0.04);\end{scope}}
+\newcommand{\glyphhand}[2]{\begin{scope}[shift={(#1.center)},draw=#2,line width=0.45pt]
+  \draw (-0.16,-0.28) -- (-0.16,0.04) arc (180:0:0.05) -- (-0.06,0.18) arc (180:0:0.05)
+    -- (0.04,0.10) arc (180:0:0.05) -- (0.14,-0.02) -- (0.14,-0.28) -- cycle;\end{scope}}
+\newcommand{\glyphteam}[2]{\begin{scope}[shift={(#1.center)},draw=#2,line width=0.45pt]
+  \draw (-0.13,0.14) circle (0.075);\draw (0.13,0.14) circle (0.075);
+  \draw (-0.27,-0.20) arc (180:0:0.14 and 0.20);\draw (-0.01,-0.20) arc (180:0:0.14 and 0.20);
+  \end{scope}}
+
+% \dgnode{style}{x}{y}{glyph}{label}{name} - icon tile with the label beneath.
+% Defines two nodes: <name> (the tile) and <name>l (the label), so a surrounding
+% \node[dgcluster,fit=(n1)(n1l)...] encloses both.
+\newcommand{\dgnode}[6]{%
+  \node[#1] (#6) at (#2,#3) {};
+  #4{#6}{fundaccent}%
+  \node[dglabel,anchor=north] (#6l) at ([yshift=-5.4mm]#6.center) {#5};}
+\newcommand{\dgnodew}[6]{% dark-blue tile, white pictogram
+  \node[#1] (#6) at (#2,#3) {};
+  #4{#6}{fundwhite}%
+  \node[dglabel,anchor=north] (#6l) at ([yshift=-5.4mm]#6.center) {#5};}
+\newcommand{\dgnodeg}[6]{% gray tile, gray pictogram
+  \node[#1] (#6) at (#2,#3) {};
+  #4{#6}{fundgray}%
+  \node[dglabel,anchor=north] (#6l) at ([yshift=-5.4mm]#6.center) {#5};}
+
+% ============================================================
+% 5) GRAPHVIZ-TYPE VOCABULARY (gv*)
+% Graphviz defaults: Times labels, thin black strokes, plain ellipses, record
+% nodes as ruled boxes, dashed cluster subgraphs with corner titles.
+% ============================================================
+\tikzset{
+  gvnode/.style={ellipse,draw=fundink,line width=0.55pt,fill=fundwhite,
+    inner sep=1.5pt,text width=23mm,minimum height=7mm,font=\tiny,align=center},
+  gvkey/.style={gvnode,fill=fundaccent,text=fundwhite,draw=fundaccent,line width=0.8pt},
+  gvmid/.style={gvnode,fill=fundmid,text=fundwhite},
+  gvsoft/.style={gvnode,fill=fundpale},
+  gvgray/.style={gvnode,fill=fundgrayl},
+  gvgray2/.style={gvnode,fill=fundgraym},
+  gvgray3/.style={gvnode,fill=fundgrayd},
+  gvbox/.style={rectangle,draw=fundink,line width=0.55pt,fill=fundwhite,
+    inner sep=2.5pt,text width=25mm,minimum height=6mm,font=\tiny,align=center},
+  gvboxk/.style={gvbox,fill=fundaccent,text=fundwhite},
+  gvboxm/.style={gvbox,fill=fundmid,text=fundwhite},
+  gvboxs/.style={gvbox,fill=fundpale},
+  gvboxg/.style={gvbox,fill=fundgrayl},
+  gvboxg2/.style={gvbox,fill=fundgraym},
+  gvcircle/.style={circle,draw=fundink,line width=0.55pt,fill=fundwhite,
+    inner sep=0.5pt,text width=14mm,minimum size=11mm,font=\tiny,align=center},
+  gvcircleg/.style={gvcircle,fill=fundgrayd},
+  gvcell/.style={rectangle,draw=fundink,line width=0.4pt,fill=fundwhite,
+    minimum height=4.6mm,inner sep=2pt,font=\tiny,align=center},
+  gvcellh/.style={gvcell,fill=fundaccent,text=fundwhite,font=\tiny\bfseries},
+  gvcells/.style={gvcell,fill=fundpale},
+  gvcellg/.style={gvcell,fill=fundgrayl},
+  gvcluster/.style={rectangle,draw=fundgray,dashed,line width=0.6pt,fill=fundwhite,inner sep=6pt},
+  gvcluster2/.style={rectangle,draw=fundgray,dashed,line width=0.6pt,fill=fundgrayl,inner sep=6pt},
+  gvctitle/.style={font=\tiny\bfseries,text=fundaccent,inner sep=1pt},
+  gvedge/.style={->,>=Stealth,draw=fundink,line width=0.5pt,font=\tiny},
+  gvedgeb/.style={->,>=Stealth,draw=fundaccent,line width=0.75pt,font=\tiny},
+  gvedged/.style={->,>=Stealth,draw=fundgrayd,dashed,line width=0.5pt,font=\tiny},
+  gvedgeg/.style={->,>=Stealth,draw=fundgray,line width=0.5pt,font=\tiny},
+  gvundir/.style={draw=fundink,line width=0.5pt,font=\tiny},
+  gvundirb/.style={draw=fundaccent,line width=0.75pt,font=\tiny},
+  gvundird/.style={draw=fundgrayd,dashed,line width=0.5pt,font=\tiny}
+}
+
+% ============================================================
+% SHARED QUANTITATIVE PRIMITIVES.  Small reusable chart parts so a figure that
+% carries data reads as a chart rather than a box-and-arrow drawing, while
+% staying pure TikZ: no plotting package, no raster output.
+% ============================================================
+% \hbarrow{y}{x-end}{fill}{left label}{right label}
+\newcommand{\hbarrow}[5]{%
+  \node[anchor=east,font=\tiny\sffamily] at (-0.12,#1) {#4};
+  \fill[#3] (0,#1-0.17) rectangle (#2,#1+0.17);
+  \draw[fundink,line width=0.3pt] (0,#1-0.17) rectangle (#2,#1+0.17);
+  \node[anchor=west,font=\tiny\sffamily] at (#2+0.10,#1) {#5};}
+% \vbarcol{x}{height}{fill}{x label}{top label}
+\newcommand{\vbarcol}[5]{%
+  \fill[#3] (#1-0.26,0) rectangle (#1+0.26,#2);
+  \draw[fundink,line width=0.3pt] (#1-0.26,0) rectangle (#1+0.26,#2);
+  \node[font=\tiny\sffamily,anchor=north,text width=16mm,align=center] at (#1,-0.07) {#4};
+  \node[font=\tiny\sffamily,anchor=south,inner sep=1.5pt] at (#1,#2) {#5};}
+% \vbarpair{x}{h1}{h2}{fill1}{fill2}{x label} - control beside experimental
+\newcommand{\vbarpair}[6]{%
+  \fill[#4] (#1-0.30,0) rectangle (#1-0.02,#2);
+  \draw[fundink,line width=0.3pt] (#1-0.30,0) rectangle (#1-0.02,#2);
+  \fill[#5] (#1+0.02,0) rectangle (#1+0.30,#3);
+  \draw[fundink,line width=0.3pt] (#1+0.02,0) rectangle (#1+0.30,#3);
+  \node[font=\tiny\sffamily,anchor=north,text width=17mm,align=center] at (#1,-0.07) {#6};}
+% \hmcell{x}{y}{tint 0-100}{label} - one heat-map cell on the blue ramp.
+\newcommand{\hmcell}[4]{%
+  \fill[fundaccent!#3] (#1,#2) rectangle (#1+1,#2+0.55);
+  \draw[fundink!35,line width=0.2pt] (#1,#2) rectangle (#1+1,#2+0.55);
+  \node[font=\tiny\sffamily,text=black] at (#1+0.5,#2+0.275) {#4};}
+\newcommand{\hmcellw}[4]{%
+  \fill[fundaccent!#3] (#1,#2) rectangle (#1+1,#2+0.55);
+  \draw[fundink!35,line width=0.2pt] (#1,#2) rectangle (#1+1,#2+0.55);
+  \node[font=\tiny\sffamily,text=white] at (#1+0.5,#2+0.275) {#4};}
+% \ciband{y}{lo}{hi}{point}{label} - an exact interval on a rule.
+\newcommand{\ciband}[5]{%
+  \draw[fundaccent,line width=1.1pt] (#2,#1) -- (#3,#1);
+  \draw[fundink,line width=0.5pt] (#2,#1-0.10) -- (#2,#1+0.10);
+  \draw[fundink,line width=0.5pt] (#3,#1-0.10) -- (#3,#1+0.10);
+  \fill[fundaccent] (#4,#1) circle (0.055);
+  \node[anchor=east,font=\tiny\sffamily] at (-0.15,#1) {#5};}
+% \axisx{x0}{x1}{y} and \axisy{y0}{y1}{x} - hairline chart rules.
+\newcommand{\axisx}[3]{\draw[fundgray,line width=0.4pt] (#1,#3) -- (#2,#3);}
+\newcommand{\axisy}[3]{\draw[fundgray,line width=0.4pt] (#3,#1) -- (#3,#2);}
+% \legkey{x}{y}{fill}{text} - one legend swatch.
+\newcommand{\legkey}[4]{%
+  \fill[#3] (#1,#2-0.09) rectangle (#1+0.30,#2+0.09);
+  \draw[fundink,line width=0.3pt] (#1,#2-0.09) rectangle (#1+0.30,#2+0.09);
+  \node[anchor=west,font=\tiny\sffamily] at (#1+0.38,#2) {#4};}
+% \ptitle{x}{y}{text} - an in-figure panel title.
+\newcommand{\ptitle}[3]{\node[font=\scriptsize\sffamily\bfseries,text=fundaccent,anchor=west] at (#1,#2) {#3};}
+% \pnote{x}{y}{text} - an in-figure footnote line.
+\newcommand{\pnote}[3]{\node[font=\tiny\sffamily,text=fundgray,anchor=west,align=left] at (#1,#2) {#3};}
+% \pxmark{x}{y} - the struck-through-cable glyph used where an edge is absent.
+\newcommand{\pxmark}[2]{%
+  \draw[fundink,line width=0.9pt] (#1-0.13,#2-0.13) -- (#1+0.13,#2+0.13);
+  \draw[fundink,line width=0.9pt] (#1-0.13,#2+0.13) -- (#1+0.13,#2-0.13);}
+
+
+% ---------- Two row helpers, so a sequence figure and a gantt figure stay
+% ---------- readable in source.  Both are used by more than one packet.
+% \seqrow{y}{x1}{x2}{style}{label} - one message row of a sequence diagram.
+\newcommand{\seqrow}[5]{%
+  \draw[#4] (#2,#1) -- (#3,#1) node[midway,above,font=\tiny\sffamily,
+    inner sep=1pt,fill=fundwhite] {#5};}
+% \ganttrow{y}{x0}{x1}{style}{left label} - one bar of a gantt chart.
+\newcommand{\ganttrow}[5]{%
+  \node[anchor=east,font=\tiny\sffamily] at (-0.12,#1) {#5};
+  \node[#4,anchor=west,minimum width={(#3-#2)*1cm}] at (#2,#1) {};}
+
+% ============================================================
+% PACKET FURNITURE.  The cover of a daily action packet leads with what is being
+% decided, so a solid accent header block carries the decision, a white ruled
+% panel carries the subtitle, and a three-cell strip carries the ask, the
+% instrument and the horizon.  This is neither the RFA-RM-27-001-v2 centered
+% form-field theme nor the parent work's ruled panel over a money ledger.
+% ============================================================
+% \fundmast{eyebrow}{title}{subtitle} - the accent header block over a ruled
+% white panel.  The header is filled with the day accent and its type is
+% reversed out, so the packet is identifiable across a desk by color alone.
+\newcommand{\fundmast}[3]{%
+  \par\noindent\begin{tikzpicture}
+    \node[rectangle,draw=fundaccent,line width=0.7pt,fill=fundaccent,
+          text width=\dimexpr\textwidth-22pt\relax,
+          inner xsep=9pt,inner ysep=7pt,align=left,anchor=north west] (mhh) at (0,0)
+          {{\footnotesize\sffamily\bfseries\color{fundwhite} #1}\\[0.34em]
+           {\LARGE\bfseries\color{fundwhite} #2}};
+    \node[rectangle,draw=fundaccent,line width=0.7pt,fill=fundwhite,
+          text width=\dimexpr\textwidth-22pt\relax,
+          inner xsep=9pt,inner ysep=7pt,align=left,anchor=north west] (mhb)
+          at ([yshift=-0.6pt]mhh.south west)
+          {{\small\color{fundink} #3}};
+  \end{tikzpicture}\par}
+% \fundcell{name}{label}{value}{note}{fill}{text color} - one strip cell.
+\newcommand{\fundcell}[6]{%
+  \node[rectangle,draw=fundaccent,line width=0.6pt,rounded corners=2pt,fill=#5,
+        text width=\dimexpr0.28\textwidth-9pt\relax,minimum height=13.5mm,
+        inner sep=4pt,align=center,font=\tiny\sffamily,text=#6,anchor=north west]
+        (#1) at (0,0)
+        {\textbf{#2}\\[0.20em]{\small\bfseries #3}\\[0.16em]#4};}
+% \funddeck{...} - the three-cell decision strip.  Cells are placed by an
+% explicit xshift chain rather than by a \foreach over a fill list, because
+% choosing a fill with \ifnum inside a TikZ key list expands too late.
+\newcommand{\funddeck}[9]{%
+  \par\addvspace{0.32em}%
+  \noindent\begin{tikzpicture}
+    \fundcell{fc@a}{#1}{#2}{#3}{fundaccent}{fundwhite}
+    \node[rectangle,draw=fundaccent,line width=0.6pt,rounded corners=2pt,fill=fundpale,
+          text width=\dimexpr0.28\textwidth-9pt\relax,minimum height=13.5mm,
+          inner sep=4pt,align=center,font=\tiny\sffamily,text=fundaccent,
+          anchor=north west]
+          (fc@b) at ([xshift=0.055\textwidth]fc@a.north east)
+          {\textbf{#4}\\[0.20em]{\small\bfseries #5}\\[0.16em]#6};
+    \node[rectangle,draw=fundgray,line width=0.6pt,rounded corners=2pt,fill=fundgrayl,
+          text width=\dimexpr0.28\textwidth-9pt\relax,minimum height=13.5mm,
+          inner sep=4pt,align=center,font=\tiny\sffamily,text=fundink,
+          anchor=north west]
+          (fc@c) at ([xshift=0.055\textwidth]fc@b.north east)
+          {\textbf{#7}\\[0.20em]{\small\bfseries #8}\\[0.16em]#9};
+  \end{tikzpicture}\par\addvspace{0.32em}}
+% \appbadge{text} / \appbadgel{text} - inline cover badges.
+\newcommand{\appbadge}[1]{%
+  \tikz[baseline=(bd.base)]{\node[rectangle,rounded corners=2pt,fill=fundaccent,
+    text=fundwhite,inner xsep=5pt,inner ysep=2pt,font=\scriptsize\bfseries] (bd) {#1};}}
+\newcommand{\appbadgel}[1]{%
+  \tikz[baseline=(bd.base)]{\node[rectangle,rounded corners=2pt,fill=fundpale,
+    draw=fundaccent,line width=0.5pt,text=fundaccent,inner xsep=5pt,inner ysep=2pt,
+    font=\scriptsize\bfseries] (bd) {#1};}}
+% \apprule{width} - the thin accent rule used between cover blocks.
+\newcommand{\apprule}[1]{{\color{fundaccent}\rule{\linewidth}{#1}}}
+% \actionbox{title}{body} - the single approval box each packet closes §2 with.
+% It is the one place in a packet where the chief executive is addressed
+% directly, and it is drawn rather than set in bold so it cannot be skimmed past.
+\newcommand{\actionbox}[2]{%
+  \par\addvspace{0.35em}\needspace{3.2\baselineskip}%
+  \noindent\begin{tikzpicture}
+    \node[rectangle,draw=fundaccent,line width=1pt,fill=fundpale,rounded corners=3pt,
+          text width=\dimexpr\textwidth-24pt\relax,inner xsep=10pt,inner ysep=8pt,
+          align=left,anchor=north west] at (0,0)
+          {{\small\bfseries\color{fundaccent} #1}\\[0.30em]{\small\color{fundink} #2}};
+  \end{tikzpicture}\par\addvspace{0.35em}}
+% \figslot{tag}{height in cm}{caption} - a sized placeholder carrying its final
+% figure number and type tag.  Kept defined so a figure can be reverted to a
+% placeholder without a style edit; no packet calls it.
+\newcommand{\figslot}[3]{%
+  \begin{appfloat}[!tb]
+  \begin{appfig}[#1]
+  \draw[fundgraym,line width=0.5pt] (0,0) rectangle (13.6,#2);
+  \node[font=\scriptsize\sffamily,text=fundgray] at (6.8,{#2/2}) {placeholder};
+  \end{appfig}
+  \vspace{-0.60cm}
+  \figcaption{#3}
+  \end{appfloat}}
+
+% \pfb - a zero-width break opportunity, for use inside \texttt paths and TikZ
+% labels, so a long repository path can never overflow the measure.
+\newcommand{\pfb}{\discretionary{}{}{}}
+% \appfile{path} is defined at the foot of this file, after url and hyperref.
+
+% ---------- PNG-free ORCID iD mark. ----------
+\newcommand{\orcidicon}[1]{%
+  \href{https://orcid.org/#1}{\protect\tikz[baseline=-0.75ex]{%
+    \node[circle,fill=orcidgreen,minimum size=9.2pt,inner sep=0pt](orc){};
+    \node at (orc){\textcolor{white}{\sffamily\bfseries\fontsize{5.4}{5.4}\selectfont iD}};}}}
+
+% ---------- Table of contents.  article.cls opens every section entry with
+% ---------- \addvspace{1.0em}, which over eight entries spills the contents
+% ---------- onto a second page that is then mostly empty.  The lead is reduced
+% ---------- to 0.20em, which keeps the sections visually grouped and brings the
+% ---------- contents back to a single page.
+\makeatletter
+\renewcommand*\l@section[2]{%
+  \ifnum \c@tocdepth >\z@
+    \addpenalty\@secpenalty
+    \addvspace{0.20em \@plus\p@}%
+    \setlength\@tempdima{1.5em}%
+    \begingroup
+      \parindent \z@ \rightskip \@pnumwidth
+      \parfillskip -\@pnumwidth
+      \leavevmode \bfseries
+      \advance\leftskip\@tempdima
+      \hskip -\leftskip
+      #1\nobreak\hfil
+      \nobreak\hb@xt@\@pnumwidth{\hss #2\kern-\p@\kern\p@}\par
+    \endgroup
+  \fi}
+\makeatother
+
+\providecommand{\keywordname}{\textbf{Keywords}}
+\providecommand{\keywords}[1]{\par\addvspace{\smallskipamount}%
+  {\setlength{\parindent}{0pt}\footnotesize\keywordname\enspace #1\par}}
+\providecommand{\bmhead}[1]{\par\addvspace{0.45\baselineskip}\needspace{2\baselineskip}%
+  \phantomsection\addcontentsline{toc}{section}{#1}%
+  {\noindent\large\bfseries\color{accentcol}#1}\par\addvspace{2pt}}
+\providecommand{\cboxx}{\raisebox{0.12ex}{\framebox[1.25ex]{\rule{0pt}{0.95ex}}}}
+
+\RequirePackage[hidelinks,pdfusetitle]{hyperref}
+\RequirePackage{url}
+% The url package resets \UrlBreaks when it loads, so the any-character break
+% rule is re-asserted here, after url and hyperref, together with stretchable
+% inter-character glue.  Without this a long bibliography URL cannot be broken
+% and overflows the measure.
+\def\UrlBreaks{\do\/\do-\do.\do=\do_\do?\do\&\do\%\do\#\do\:\do\a\do\b\do\c%
+\do\d\do\e\do\f\do\g\do\h\do\i\do\j\do\k\do\l\do\m\do\n\do\o\do\p\do\q\do\r%
+\do\s\do\t\do\u\do\v\do\w\do\x\do\y\do\z\do\A\do\B\do\C\do\D\do\E\do\F\do\G%
+\do\H\do\I\do\J\do\K\do\L\do\M\do\N\do\O\do\P\do\Q\do\R\do\S\do\T\do\U\do\V%
+\do\W\do\X\do\Y\do\Z\do\0\do\1\do\2\do\3\do\4\do\5\do\6\do\7\do\8\do\9}
+\Urlmuskip=0mu plus 1mu\relax
+% \appfile{path} - a repository path in monospace.  \nolinkurl and \path both
+% fail to break these paths inside a macro argument, so the scanner below
+% inserts an explicit break opportunity after every character: a path can then
+% wrap anywhere and can never overflow the measure.  \penalty300 keeps TeX
+% preferring a real word space when one is available.
+\makeatletter
+\def\app@fend{\app@fend}
+\def\app@fscan#1{%
+  \ifx\app@fend#1%
+    \let\app@fnext\relax
+  \else
+    #1\penalty300\relax
+    \let\app@fnext\app@fscan
+  \fi
+  \app@fnext}
+\newcommand{\appfile}[1]{{\ttfamily\hyphenchar\font=-1\relax
+  \app@fscan#1\app@fend}}
+\makeatother
+% ============================================================
+% CLICKABLE DOIs AND URLs IN THE REFERENCE LIST.
+%
+% THE DEFECT THIS SOLVES.  references.bib carries a doi field on many entries
+% and a url field on most.  Plain unsrt.bst reads neither: BibTeX drops both,
+% and no amount of hyperref configuration can hyperlink data that never reached
+% the .bbl.  A reference list built on identifiers would then print none of
+% them.
+%
+% THE FIX, IN TWO PARTS.  sections/sec-06 asks for unsrturl rather than unsrt.
+% unsrturl is the urlbst-generated companion of unsrt shipped with TeX Live and
+% with Overleaf; it is unsrt entry for entry, plus two closing blocks: an entry
+% with a doi prints \href{https://doi.org/D}{doi:D}, and an entry without one
+% prints its url through \url.  An entry carrying both, which is this bib file's
+% convention where the url is the DOI resolver, prints the DOI only, so no
+% reference shows the same target twice.  This file supplies the second part:
+% the marking that makes those targets look like targets.
+%
+% WHY THE COLOR IS SCOPED THE WAY IT IS.  hyperref is loaded with hidelinks, so
+% the contents, the internal cross-references and the cover's prose links carry
+% no decoration, which is what a printed page wants.  A reference list is the
+% one place a reader is expected to click, so a printed DOI or URL, anything set
+% through \url, \path or \dlink, is marked in the accent color, and nothing else
+% is.  The rule is: a link whose text IS its target is colored; a link hidden
+% behind prose is not.
+% ============================================================
+\renewcommand{\UrlFont}{\ttfamily\color{accentcol}}
+% \dlink{10.5281/zenodo.NNNNNNN} - a DOI printed as text and hyperlinked, so
+% every reference carries both the DOI string and a clickable target.
+\newcommand{\dlink}[1]{\href{https://doi.org/#1}{\textcolor{accentcol}{#1}}}
+% urlbst's .bbl declares these with \providecommand, so declaring them here wins
+% and keeps the reference list's wording under this file's control.
+\providecommand{\urlprefix}{URL: }
+\providecommand{\doitext}{doi:}
+% Ragged-right bibliography with generous emergency stretch, so no reference
+% line runs past the right margin.
+\AtBeginDocument{%
+  \let\fundoldbibliography\thebibliography
+  \renewcommand{\thebibliography}[1]{%
+    \fundoldbibliography{#1}\raggedright\emergencystretch=8em\relax
+    \setlength{\itemsep}{0.4pt}\setlength{\parsep}{0pt}\setlength{\topsep}{0pt}}}
+% \apprefs{...} - the reference list set in two columns at \scriptsize.  A short
+% packet cannot afford a single-column list of long protocol titles, and two
+% columns halve its height without shrinking the type further.
+\newenvironment{apprefs}%
+  {\needspace{4\baselineskip}%
+   \setlength{\multicolsep}{0pt}\setlength{\columnsep}{13pt}%
+   \begin{multicols}{2}\scriptsize\raggedright
+   \setlength{\emergencystretch}{10em}%
+   \renewcommand{\section}[2]{}}%
+  {\end{multicols}}
+\captionsetup{font=small,labelfont=bf,justification=raggedright,singlelinecheck=false}
+
+% ============================================================
+% DIAGRAM X SHIFT.  A figure whose content is optically heavier on one side
+% reads as though it were off the measure even when its frame is centered.  The
+% length is named rather than an ad hoc \hspace, so the shift is auditable and
+% identical wherever it is used, and it is set to zero because the three
+% centring carriers above now close with \null and every frame and caption in
+% these packets measures on the page center.  It is kept and documented so a
+% future optical correction has one named length to change.
+%
+%   \begin{appfloat}[!tb]
+%   \begin{adjustwidth}{\DiagramXShift}{\dimexpr-\DiagramXShift\relax}
+%   \begin{appfig}[platform / construct]  ...  \end{appfig}
+%   \end{adjustwidth}
+%   \vspace{-0.60cm}
+%   \figcaption{...}
+%   \end{appfloat}
+% ============================================================
+\newlength{\DiagramXShift}
+\setlength{\DiagramXShift}{0mm}
+\endinput

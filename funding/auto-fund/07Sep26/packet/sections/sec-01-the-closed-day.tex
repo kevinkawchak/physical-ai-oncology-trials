@@ -1,0 +1,81 @@
+% sec-01: the shape of a closed day.  Figure 10 (plantuml-type activity with a
+% fork and a join), Table 16 (the release list).
+\section{The Shape of a Closed Day}
+
+A day with no available counterparty forks into two lanes. One produces things
+that must be held, because they reach somebody. The other produces things that
+are finished the moment they are written, because they reach nobody until asked
+for. Both run at once, and both become releasable at the same point.
+
+\begin{appfloat}[!tb]
+\begin{appfig}[plantuml-type / activity with one fork and one join]
+% A vertical spine with one fork bar and one join bar, and two lanes at a 4.20cm
+% separation.  The lanes leave the fork bar at its left and right thirds and
+% rejoin at the corresponding thirds of the join bar, so no lane edge crosses
+% the spine.
+\node[umlinit] (i) at (4.20,0.90) {};
+\node[umlbox,text width=46mm] (start) at (4.20,0.10) {Federal holiday. No counterparty can act};
+\node[umlbar,minimum width=62mm] (fk) at (4.20,-0.78) {};
+\node[umlstatesoft,text width=34mm] (la) at (2.10,-1.58) {Write the four letters};
+\node[umlstatesoft,text width=34mm] (lb) at (2.10,-2.63) {Set the release list};
+\node[umlstatesoft,text width=34mm] (lc) at (2.10,-3.68) {Queue the orders, entered nowhere};
+\node[umlbox,text width=34mm] (ra) at (6.30,-1.58) {Assemble the data room};
+\node[umlbox,text width=34mm] (rb) at (6.30,-2.63) {Fix the recognition letter wording};
+\node[umlbox,text width=34mm] (rc) at (6.30,-3.68) {Build the diligence question bank};
+\node[umlbar,minimum width=62mm] (jn) at (4.20,-4.50) {};
+\node[umlkey,text width=46mm] (ap) at (4.20,-5.32) {Single approval: authorize the release list};
+\node[umlctrl,text width=46mm] (nx) at (4.20,-6.24) {Next open session};
+\node[umlbox,text width=46mm] (rl) at (4.20,-7.16) {Release the queue, enter the orders};
+\node[umlfinal] (f) at (4.20,-7.90) {};
+\draw[umlarrow] (i) -- (start);
+\draw[umlarrow] (start) -- (fk);
+\draw[umlarrow] (2.10,-0.78) -- (la);
+\draw[umlarrow] (6.30,-0.78) -- (ra);
+\draw[umlarrow] (la) -- (lb);
+\draw[umlarrow] (lb) -- (lc);
+\draw[umlarrow] (ra) -- (rb);
+\draw[umlarrow] (rb) -- (rc);
+\draw[umlarrow] (lc) -- (2.10,-4.50);
+\draw[umlarrow] (rc) -- (6.30,-4.50);
+\draw[umlarrow] (jn) -- (ap);
+\draw[umlarrow] (ap) -- (nx);
+\draw[umlarrow] (nx) -- (rl);
+\draw[umlarrow] (rl) -- (f);
+\node[umlguard,text width=34mm,anchor=south] at (2.10,-1.15) {Held lane: reaches a counterparty};
+\node[umlguard,text width=34mm,anchor=south] at (6.30,-1.15) {Finished lane: reaches nobody yet};
+\node[font=\tiny\itshape,text=fundgray,anchor=west,text width=40mm] at (8.30,-2.63)
+  {Everything in the held lane carries a HOLD FOR RELEASE line naming the next
+  open session as its earliest send or entry time.};
+\end{appfig}
+\vspace{-0.60cm}
+\figcaption{Figure 10. The closed day as one fork into two concurrent lanes, one of which\\
+must be held for release, joined at the single approval the day asks for.}
+\end{appfloat}
+
+\subsection{The release list}
+
+\begin{apptable}
+\begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}p{4.0cm} >{\raggedright\arraybackslash}p{2.5cm} >{\raggedright\arraybackslash}X}
+\headrow \thead{Item} & \thead{Earliest release} & \thead{Why it cannot go today}\\
+\midrule
+Congressional district letter & Next open session & District offices observe the federal holiday \\
+State finance center letter & Next open session & State offices observe the same holiday \\
+Regional development letter & Next open session & The same \\
+FDA Pre-Request for Designation & Next open session & The office is closed, and this is the letter least worth sending into a backlog \\
+Six queued orders & Next open market session & Both exchanges are closed; an order entered now rejects or fills at an unseen open \\
+Grants.gov workspace submission & Next open session & Portal support is closed, and this submission's failure mode needs support \\
+eRA Commons profile changes & Next open session & The same \\
+\end{tabularx}
+\end{apptable}
+\vspace{-0.60cm}
+\tabcap{Table 16. Seven items with their earliest release and the specific\\
+reason each one cannot usefully leave this company on a closed day.}
+
+\subsection{What is finished today and needs no release}
+
+The data room, the recognition letter wording, and the diligence question bank.
+None of the three reaches anybody until a counterparty asks for it, so there is
+nothing to hold and each is complete on the day it is written. That is the
+argument for the day's existence: a closed day cannot produce correspondence that
+lands well, but it can produce every internal artifact that correspondence later
+depends on.

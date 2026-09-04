@@ -1,0 +1,113 @@
+% ============================================================
+% main.tex - Day 3 packet, "The Site and Partner Package".
+% ChemicalQDevice daily funding action packet, repository v4.8.0.
+% Deposited in funding/auto-fund/04Sep26/packet.
+%
+% WHAT THIS DOCUMENT IS.  The attachment that accompanies the five letters in
+% ../emails.  It is written so that a site principal investigator, a clinical
+% trials office, or a foundation reviewer can decide from this file alone
+% whether a 45-minute meeting is worth placing.
+%
+% STRUCTURE.  Seven sections, one .tex file each, per Rule 6.  Three figures,
+% five tables.  Every figure is TikZ.
+%
+% SPACING INVARIANT.  \vspace{-0.60cm} before every caption, giving 7.44pt from
+% the last rule to the first caption line, identically for every float.
+%
+% COMPILE ON OVERLEAF WITH pdfLaTeX:
+%   pdflatex main -> bibtex main -> pdflatex main -> pdflatex main
+% ============================================================
+\documentclass[11pt]{article}
+\usepackage{fundstyle}
+
+\title{The Site and Partner Package: Two Parallel Routes, Five Feasibility
+Questions, and the Determination That Gates Them}
+\author{Kevin Kawchak}
+\date{September 4, 2026}
+
+\fundhdr{The Site and Partner Package}{Day 3 of 5}
+
+\begin{document}
+\thispagestyle{plain}
+
+\fundmast{ChemicalQDevice \;|\; Daily Funding Action Packet \;|\; Day 3 of 5}%
+{The Site and Partner Package}%
+{Two La Jolla institutions approached in parallel on the same day, two
+foundations asked a mechanism question, and one determination that gates every
+other item. No agreement of any kind exists with any institution named here.}
+
+\vspace{0.15em}
+
+\begin{center}
+\appbadge{Day 3 of 5} \enspace \appbadgel{Repository v4.8.0} \enspace
+\appbadgel{3 figures} \enspace \appbadgel{5 tables} \enspace
+\appbadgel{No agreements}
+\end{center}
+
+\vspace{-0.15em}
+
+\funddeck{The trial}{18 participants}{Phase 1, 3+3 escalation}%
+{The meeting}{45 minutes}{Five questions, one agenda}%
+{Site start-up}{\$420,000}{Held, nothing committed}
+
+\vspace{-0.1em}
+\apprule{0.9pt}
+
+\begin{center}\small
+CEO Kevin Kawchak\,\orcidicon{0009-0007-5457-8667}, ChemicalQDevice \;|\;
+\href{mailto:kevink@chemicalqdevice.com}{kevink@chemicalqdevice.com}\\
+\href{https://orcid.org/0009-0007-5457-8667}{0009-0007-5457-8667} \;|\;
+San Diego, California
+\end{center}
+
+\vspace{-0.25em}
+\apprule{0.5pt}
+
+\noindent\footnotesize\textit{Independent research paper and practical adoption
+guide. It is not medical or regulatory advice and is not endorsed by the FDA,
+NIH, HHS, an IRB, ICH, or any sponsor. All figures derive from the author's
+repository sources and are illustrative unless tied to a cited
+reference.}\normalsize\par
+
+\vspace{0.12em}
+
+\noindent\footnotesize\textbf{Disclaimer:} \textit{This work is independent and
+is not endorsed or sponsored by any trial sponsor, CRO, site, IRB, regulator, or
+medical society; and was adapted using Claude Code Opus 5.}\normalsize\par
+
+\vspace{0.12em}
+
+{\sloppy\noindent\footnotesize Repository (v4.8.0) is at
+\url{https://github.com/kevinkawchak/physical-ai-oncology-trials}.
+The paper files are deposited in
+\href{https://github.com/kevinkawchak/physical-ai-oncology-trials/tree/main/funding/auto-fund}{funding/auto-fund}.
+No digital object identifier is asserted for this document.\normalsize\par}
+
+\renewcommand{\keywordname}{\textbf{Keywords}}
+\keywords{Site feasibility; Sponsor-investigator determination; Clinical trials
+office; Investigator-initiated trial; Disease foundation mechanisms;
+Confidentiality agreement; Robotic pancreaticoduodenectomy; Pancreatic ductal
+adenocarcinoma}
+
+\vspace{0.25em}
+\apprule{0.6pt}
+
+\setcounter{tocdepth}{1}
+\renewcommand{\contentsname}{\color{accentcol}Table of Contents}
+{\setlength{\parskip}{0pt}\footnotesize\linespread{0.94}\selectfont\tableofcontents}
+
+\vspace{-0.1em}
+\apprule{0.6pt}
+
+\clearpage
+
+% ---------- Body: one \input per section (Rule 6) ----------
+\input{sections/sec-00-front}\clearpage
+\input{sections/sec-01-two-routes}\clearpage
+\input{sections/sec-02-action-register}\clearpage
+\input{sections/sec-03-obligations}\clearpage
+\input{sections/sec-04-foundations}\clearpage
+\input{sections/sec-05-startup-costs}
+\input{sections/sec-06-references}
+
+\end{document}

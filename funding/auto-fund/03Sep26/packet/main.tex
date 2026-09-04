@@ -1,0 +1,115 @@
+% ============================================================
+% main.tex - Day 2 packet, "The Private Capital Bridge".
+% ChemicalQDevice daily funding action packet, repository v4.8.0.
+% Deposited in funding/auto-fund/03Sep26/packet.
+%
+% WHAT THIS DOCUMENT IS.  The attachment that accompanies the five letters in
+% ../emails.  It describes instruments under consideration and describes no
+% offering.  It is not an offer to sell or a solicitation of an offer to buy any
+% security, and that sentence appears on its cover as well as here.
+%
+% STRUCTURE.  Seven sections, one .tex file each, per Rule 6 of the master
+% prompt.  Three figures, five tables.  Every figure is TikZ.
+%
+% SPACING INVARIANT.  Every float closes with \vspace{-0.60cm} before its
+% caption, which leaves exactly 24.5pt - 0.60cm = 7.44pt from the last rule to
+% the first caption line, identically for every figure and every table.
+%
+% COMPILE ON OVERLEAF WITH pdfLaTeX:
+%   pdflatex main -> bibtex main -> pdflatex main -> pdflatex main
+% ============================================================
+\documentclass[11pt]{article}
+\usepackage{fundstyle}
+
+\title{The Private Capital Bridge: Three Instruments, One Firewall, and the
+\$2.1 Million the Federal Route Does Not Buy}
+\author{Kevin Kawchak}
+\date{September 3, 2026}
+
+\fundhdr{The Private Capital Bridge}{Day 2 of 5}
+
+\begin{document}
+\thispagestyle{plain}
+
+\fundmast{ChemicalQDevice \;|\; Daily Funding Action Packet \;|\; Day 2 of 5}%
+{The Private Capital Bridge}%
+{Three candidate instruments at one raise size, the conflict firewall each would
+have to leave intact, and the first approach to the agent's developer. This
+document is not an offer to sell or a solicitation of an offer to buy any
+security, and no offering exists.}
+
+\vspace{0.15em}
+
+\begin{center}
+\appbadge{Day 2 of 5} \enspace \appbadgel{Repository v4.8.0} \enspace
+\appbadgel{3 figures} \enspace \appbadgel{5 tables} \enspace
+\appbadgel{No offering}
+\end{center}
+
+\vspace{-0.15em}
+
+\funddeck{The gap}{\$2,104,000}{What the SBIR route does not buy}%
+{The position}{\$5,900,000}{Private, behind the firewall}%
+{The leverage}{3.67 to 1}{Against a 3 to 1 target}
+
+\vspace{-0.1em}
+\apprule{0.9pt}
+
+\begin{center}\small
+CEO Kevin Kawchak\,\orcidicon{0009-0007-5457-8667}, ChemicalQDevice \;|\;
+\href{mailto:kevink@chemicalqdevice.com}{kevink@chemicalqdevice.com}\\
+\href{https://orcid.org/0009-0007-5457-8667}{0009-0007-5457-8667} \;|\;
+San Diego, California
+\end{center}
+
+\vspace{-0.25em}
+\apprule{0.5pt}
+
+\noindent\footnotesize\textit{Independent research paper and practical adoption
+guide. It is not medical or regulatory advice and is not endorsed by the FDA,
+NIH, HHS, an IRB, ICH, or any sponsor. All figures derive from the author's
+repository sources and are illustrative unless tied to a cited
+reference.}\normalsize\par
+
+\vspace{0.12em}
+
+\noindent\footnotesize\textbf{Disclaimer:} \textit{This work is independent and
+is not endorsed or sponsored by any trial sponsor, CRO, site, IRB, regulator, or
+medical society; and was adapted using Claude Code Opus 5.}\normalsize\par
+
+\vspace{0.12em}
+
+{\sloppy\noindent\footnotesize Repository (v4.8.0) is at
+\url{https://github.com/kevinkawchak/physical-ai-oncology-trials}.
+The paper files are deposited in
+\href{https://github.com/kevinkawchak/physical-ai-oncology-trials/tree/main/funding/auto-fund}{funding/auto-fund}.
+No digital object identifier is asserted for this document.\normalsize\par}
+
+\renewcommand{\keywordname}{\textbf{Keywords}}
+\keywords{Private placement; Simple agreement for future equity; Convertible
+note; SBIR ownership and control; 21 CFR part 54; Capital firewall; Use of
+proceeds; Pancreatic ductal adenocarcinoma}
+
+\vspace{0.25em}
+\apprule{0.6pt}
+
+% ---------- Clickable table of contents.  tocdepth 1: sections only. ----------
+\setcounter{tocdepth}{1}
+\renewcommand{\contentsname}{\color{accentcol}Table of Contents}
+{\setlength{\parskip}{0pt}\footnotesize\linespread{0.94}\selectfont\tableofcontents}
+
+\vspace{-0.1em}
+\apprule{0.6pt}
+
+\clearpage
+
+% ---------- Body: one \input per section (Rule 6) ----------
+\input{sections/sec-00-front}\clearpage
+\input{sections/sec-01-the-gap}\clearpage
+\input{sections/sec-02-action-register}\clearpage
+\input{sections/sec-03-instruments}\clearpage
+\input{sections/sec-04-firewall-and-position}\clearpage
+\input{sections/sec-05-reserve}
+\input{sections/sec-06-references}
+
+\end{document}

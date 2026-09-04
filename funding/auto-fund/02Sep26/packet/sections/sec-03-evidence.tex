@@ -1,0 +1,60 @@
+% sec-03: the six checkable quantities.  Table 3.  No figure: this section is a
+% table and the prose that qualifies it, and a figure here would decorate rather
+% than add.
+\section{The Evidence a Funder Is Buying}
+
+Every quantity below is published or deposited, every one carries the limitation
+its own authors stated, and no in-silico result is presented as a clinical one.
+The discipline matters more here than anywhere else in this packet, because a
+funding request that overstates its evidence is asking for money under a false
+description.
+
+\begin{apptable}
+\begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}p{2.7cm} >{\raggedright\arraybackslash}p{1.85cm} >{\raggedright\arraybackslash}p{2.2cm} >{\raggedright\arraybackslash}p{1.15cm} >{\raggedright\arraybackslash}X}
+\headrow \thead{Source} & \thead{Test arm} & \thead{Comparator} & \thead{Tier} & \thead{The limitation its own authors gave it}\\
+\midrule
+RASolute 302, May 2026 & 13.2 mo median OS & 6.6 mo median OS & Trial & Metastatic and previously treated; silent on the resectable setting \\
+QSP simulation, ten arms, 250 ODEs & 12.8 mo median OS, HR 0.25 & 5.4 mo median OS & In silico & Assumes no acquired resistance and ideal pharmacodynamics; grade 3 and above high in all arms \\
+Digital twin, 1000 patients & 12.1 mo median OS & Not applicable & Twin & No patient-specific PK, PD, or tumor growth parameters; simple Emax model \\
+Digital twin, progression-free survival & HR 0.31 & Not applicable & Twin & Same source and same limitation; no immune compartments \\
+VVUQ credibility, 55 tests & Score 81.9 & V and V 40 gate & Twin & A pre-trial credibility score, not a post-trial validation \\
+Empirical triplicate, 100,000 records & Grade 3 plus, 8.0 percent & 25.0 percent & In silico & The G12C log favors experimental while the KRAS-mutant report favors control \\
+\end{tabularx}
+\end{apptable}
+\vspace{-0.60cm}
+\tabcap{Table 3. Six quantities with their comparator, their evidence tier, and\\
+the limitation each set of authors stated, in the same row as the result.}
+
+\subsection{What the six rows are and where they came from}
+
+Rows one and two are the pair that carries the chronology in §1
+\cite{rasolute302,qspmetpancre}. Rows three, four and five come from the
+1000-patient digital twin deposited with its verification notebooks
+\cite{onpremwhippl}, whose credibility exercise runs 55 tests against the ASME V
+and V 40 framework \cite{asmevv40} and is aligned to the model-informed drug
+development principles in ICH M15 \cite{ichm15}. Row six is the empirical
+triplicate across 100,000 synthetic records \cite{daraxident}.
+
+Every row is reused without re-derivation from the capitalization plan
+\cite{capitalplan2026}, which is where the same six quantities are set out with
+their full provenance.
+
+\subsection{The disease this is for}
+
+Pancreatic ductal adenocarcinoma remains the disease with the widest gap between
+incidence and survival in the United States \cite{siegel2025statistics}, and the
+standard of care after resection is adjuvant combination chemotherapy
+\cite{conroy2018folfirinox}. Postoperative pancreatic fistula, the complication
+that dominates the safety conversation in any Whipple protocol, is graded against
+the 2016 International Study Group definition \cite{bassi2017isgps}, and that
+definition is the one the Phase 1 protocol uses \cite{onpremwhippl}.
+
+\subsection{What is not claimed}
+
+No result above establishes clinical safety or efficacy of the workflow this
+program proposes. Three of the six are in silico or digital twin results and are
+labeled as such in their own row. The trial row describes a different population,
+a different line of therapy, and a single agent rather than a combination. The
+credibility score is a pre-trial score. A reviewer who reads only the test-arm
+column of Table 3 will have read the table wrong, which is why the limitation
+column is set at the widest measure on the page.

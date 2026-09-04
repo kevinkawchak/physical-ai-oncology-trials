@@ -1,0 +1,132 @@
+HOLD FOR RELEASE: not before the next open federal business session.
+
+FROM: kevink@chemicalqdevice.com
+
+TO: combination@fda.gov
+
+CC: druginfo@fda.hhs.gov, OPEQSubmissionSupport@fda.hhs.gov, DICE@fda.hhs.gov
+
+SUBJECT: Pre-RFD - perioperative daraxonrasib, robotic surgical workflow, and an advisory-only LLM: request for preliminary classification and lead center
+
+=== BODY ===
+Dear Office of Combination Products,
+
+I am requesting a Pre-Request for Designation for a proposed Phase 1 study whose
+components fall across more than one center, and I would rather ask which center
+leads than assume it.
+
+The sponsor is ChemicalQDevice LLC, a California small business. The study is a
+Phase 1, open-label, single-arm, 3+3 dose escalation in up to 18 participants
+with resectable or borderline-resectable KRAS G12-mutated pancreatic ductal
+adenocarcinoma. Below, each component is described separately, as the office's
+guidance asks.
+
+1. The investigational drug. Daraxonrasib, a RAS(ON) multi-selective inhibitor,
+   administered perioperatively. The agent was approved as Rasonque on August 26,
+   2026 for metastatic pancreatic cancer. The proposed perioperative use in
+   resectable disease is not the approved setting and is investigational. An
+   investigational new drug application has been prepared and has not been
+   submitted.
+
+2. The robotic surgical platform and instruments. A cleared robotic surgical
+   system used for a staged pancreaticoduodenectomy. The specific manufacturer,
+   model, arm count, instrument set, software version and cleared intended use
+   are not asserted in this letter, because the configuration is determined at a
+   clinical site agreement that does not yet exist. I recognize this may limit
+   how specific a preliminary determination can be, and I would value knowing
+   whether the office can respond usefully before a configuration is identified,
+   or whether the request should wait until one is.
+
+3. The advisory software. An on-premises large language model producing
+   text-form recommendations to the operating surgeon.
+
+4. Data inputs and outputs. Inputs are the protocol, the participant's imaging
+   and laboratory record, and intraoperative documentation entered by the
+   clinical team. Outputs are text recommendations displayed to the surgeon.
+
+5. Whether recommendations are visible to clinicians during surgery. Yes,
+   displayed on a screen in the operating room.
+
+6. Whether the surgeon can independently review the basis of a recommendation.
+   Yes. Each recommendation carries the protocol section and the record fields it
+   was derived from, and the surgeon can act without it.
+
+7. Whether software output controls equipment or only provides advice. **Advice
+   only, and enforced at the interface rather than by policy.** The model process
+   holds no write credential to the electronic data capture system and no route
+   to the robot control network. There is no configuration of the system in which
+   a model output reaches an actuator. Arm-level stop is specified at 3
+   milliseconds and system-wide stop at 500 milliseconds, and the operating
+   surgeon approves every motion.
+
+8. Sponsor and manufacturer roles. ChemicalQDevice would be the sponsor. No drug
+   supply agreement, letter of authorization, or regulatory cross-reference is in
+   place with the agent's developer, and no agreement of any kind exists with any
+   clinical site or robotic surgery vendor.
+
+Three questions.
+
+First, what is the preliminary classification of this system, and which center
+would lead its review?
+
+Second, are separate drug and device submissions expected, or would a single
+pathway apply?
+
+Third, given item 2 above, can the office respond usefully before the robotic
+configuration is identified, or should the request be resubmitted once a site
+agreement fixes it?
+
+I am preparing parallel meeting packages in either case: a pre-IND Type B request
+through the Center for Drug Evaluation and Research, and a device and software
+Q-Submission, and I would rather sequence them correctly than submit both and
+withdraw one.
+
+Sincerely,
+CEO Kevin Kawchak
+ChemicalQDevice LLC
+San Diego, California
+kevink@chemicalqdevice.com
+ORCID 0009-0007-5457-8667
+=== END BODY ===
+
+ATTACHMENTS COMPILED FROM THIS DIRECTORY
+1. 07Sep26-staged-queue.pdf, sections 1 and 5 only.
+   Compile from packet/main.tex in this day directory:
+   pdflatex main -> bibtex main -> pdflatex main -> pdflatex main
+   Send only the sections describing the system and its stop conditions. The
+   capital and outreach sections are not relevant to a classification request.
+
+ATTACHMENTS THE AUTHOR MUST ADD BY HAND
+1. On-Premises LLM-Directed Robotic Pancreaticoduodenectomy with Perioperative
+   Daraxonrasib (RMC-6236) in KRAS-Mutated Pancreatic Ductal Adenocarcinoma.
+   https://doi.org/10.5281/zenodo.20780121
+2. Investigational New Drug Application, Phase 1 PDAC.
+   https://doi.org/10.5281/zenodo.21097442
+3. A one-page component diagram showing the four components and the two systems
+   the model process cannot reach.
+
+EXTERNAL WORK TO CITE BUT NOT ATTACH
+- FDA Office of Combination Products, Request for Designation and Pre-RFD.
+  https://www.fda.gov/combination-products/about-office-combination-products
+- 21 CFR Part 312, Investigational New Drug Application.
+  https://www.ecfr.gov/current/title-21/chapter-I/subchapter-D/part-312
+- FDA. FDA Approves First-in-Class Targeted Therapy for Metastatic Pancreatic
+  Cancer. August 26, 2026.
+  https://www.fda.gov/news-events/press-announcements/fda-approves-first-class-targeted-therapy-metastatic-pancreatic-cancer
+
+BEFORE SENDING
+- RELEASE CONDITION: not before the next open federal business session. Federal
+  offices are closed on the day this letter was written.
+- Confirm all four addresses against the current FDA contact pages on the day of
+  sending.
+- Confirm each of the eight components is described separately and that item 7
+  states the advisory boundary as an interface property, not a policy commitment.
+- Confirm item 2 states plainly that the configuration is not yet identified.
+  Asserting a platform this company has not secured would be worse than asserting
+  none, and would have to be corrected later in writing.
+- Confirm no sentence describes daraxonrasib as first in human, and none implies
+  the approval covers the perioperative use.
+- Confirm no institution is described as a partner, sponsor, site, or endorser,
+  and that no contact with the agent's developer is described as having produced
+  an agreement.
+- Confirm the attachment is sections 1 and 5 only, not the whole packet.
