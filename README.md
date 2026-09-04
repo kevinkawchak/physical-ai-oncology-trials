@@ -21,7 +21,7 @@
 [![Summary Paper DOI](https://img.shields.io/badge/Paper%20DOI%20v1.0-10.5281%2Fzenodo.21787424-blue.svg)](https://doi.org/10.5281/zenodo.21787424)
 [![Trial Site](https://img.shields.io/badge/Trial%20site-La%20Jolla%2C%20San%20Diego-00417A.svg)](funding/move-in)
 [![Site Documents](https://img.shields.io/badge/Site%20documents-15-3C7DB2.svg)](funding/move-in/final-move-in)
-[![Site Staff](https://img.shields.io/badge/Site%20staff-CEO%20%2B%2010%20coworkers-6C757D.svg)](funding/move-in/final-move-in/sections)
+[![Target Site Staff](https://img.shields.io/badge/Target%20Site%20staff-CEO%20%2B%2010%20coworkers-6C757D.svg)](funding/move-in/final-move-in/sections)
 [![Target Award](https://img.shields.io/badge/Target%20Award-%24700%2C000%20%C3%97%205%20years-6C757D.svg)](funding/move-in/final-move-in/sections)
 [![Daily Funding](https://img.shields.io/badge/Daily%20funding%20actions-5%20business%20days-00417A.svg)](funding/auto-fund)
 [![Approval Steps](https://img.shields.io/badge/Approval%20steps-1%20per%20day-3C7DB2.svg)](funding/auto-fund)
@@ -36,7 +36,7 @@ This repository provides production-ready configurations, validated pipelines, a
 
 **9/8: v4.8.0 (auto-fund: Daily Funding Actions for Final CEO Approval)** *v4.8.0 adds funding/auto-fund/: five business days of complete funding actions, each ending in one approval step. 26 letters, 13 briefs, 9 form packs, 5 capital instruction sets, 15 figures, 25 tables, and five compiled packets.* [Directory](funding/auto-fund)
 
-**8/30: FDA Approves Pancreatic Cancer Drug Rasonque (Daraxonrasib) by Revolution Medicines on August 26, 2026** *Daraxonrasib is ChemicalQDevice's number one LLM-focused cancer drug researched since identified by Google Gemini as being the most likely to aid startup funding in June 2025.* [FDA Approval](https://www.fda.gov/news-events/press-announcements/fda-approves-first-class-targeted-therapy-metastatic-pancreatic-cancer)
+**8/30: FDA Approves Pancreatic Cancer Drug Rasonque (Daraxonrasib) by Revolution Medicines on August 26, 2026** *Daraxonrasib is ChemicalQDevice's number one LLM-focused cancer drug researched since identified by Google Gemini as being the most likely to aid startup funding in June 2025.* [**FDA Approval**](https://www.fda.gov/news-events/press-announcements/fda-approves-first-class-targeted-therapy-metastatic-pancreatic-cancer)
 
 **9/1: v4.7.0 (La Jolla Move-In: PDAC Trial Site Documentation)** *v4.7.0 adds funding/move-in/: fifteen documents that stand up California's first PDAC LLM oncology clinical trial site in La Jolla, for a chief executive and ten coworkers, against a $700,000 per year five-year federal award.* [![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.22216519-blue.svg)](https://doi.org/10.5281/zenodo.22216519)
 
