@@ -3,7 +3,7 @@
 [![Repository](https://img.shields.io/badge/Repository-v4.8.0-00417A.svg)](../../../../README.md)
 [![Day](https://img.shields.io/badge/Day-1%20of%205-0E5C63.svg)](../../02Sep26)
 [![Accent](https://img.shields.io/badge/Accent-Pacific%20Teal%20%230E5C63-0E5C63.svg)](../../02Sep26/packet)
-[![Emails](https://img.shields.io/badge/Emails-5-6C757D.svg)](../../02Sep26/emails)
+[![Emails](https://img.shields.io/badge/Emails-7-6C757D.svg)](../../02Sep26/emails)
 [![Briefs](https://img.shields.io/badge/Briefs-3-6C757D.svg)](../../02Sep26/briefs)
 [![Forms](https://img.shields.io/badge/Form%20packs-2-6C757D.svg)](../../02Sep26/forms)
 [![Capital](https://img.shields.io/badge/Capital%20sets-1-6C757D.svg)](../../02Sep26/investing)
@@ -45,6 +45,8 @@ asks a question the earlier letter could not have asked.
 | 3 | `emails/email-03-nci-ctep-concept.txt` | `.txt` | NCI Cancer Therapy Evaluation Program |
 | 4 | `emails/email-04-nih-pioneer-eligibility.txt` | `.txt` | NIH Common Fund and CSR review contacts |
 | 5 | `emails/email-05-brokerage-treasury-instruction.txt` | `.txt` | The company's broker-dealer |
+| 5a | `emails/email-06-nci-ctep-gore-reply.txt` | `.txt` | Chief, Investigational Drug Branch, CTEP |
+| 5b | `emails/email-07-nih-pioneer-labosky-reply.txt` | `.txt` | Program Leader, High-Risk, High-Reward Research |
 | 6 | `briefs/brief-01-approval-delta.md` | `.md` | Technical reviewers who read plain text |
 | 7 | `briefs/brief-02-sbir-phase-i-readiness.md` | `.md` | An SBIR program officer's technical staff |
 | 8 | `briefs/brief-03-evidence-one-page.md` | `.md` | Any reviewer who wants the numbers alone |
@@ -95,7 +97,7 @@ PlantUML and Diagrams are deliberately unused on day 1 and appear on days 2, 3,
 |:--|:--|
 | 1 | `02Sep26/README.md` |
 | 2 | `02Sep26/emails/README.md` |
-| 3 to 7 | The five `.txt` emails, one commit each |
+| 3 to 7 | The five `.txt` re-contact emails, one commit each |
 | 8 | `02Sep26/briefs/` |
 | 9 | `02Sep26/forms/` |
 | 10 | `02Sep26/investing/` |
@@ -104,6 +106,7 @@ PlantUML and Diagrams are deliberately unused on day 1 and appear on days 2, 3,
 | 16 to 22 | `packet/sections/sec-00` .. `sec-06`, one commit each |
 | 23 | `packet/sections/README.md` |
 | 24 | `packet/main.pdf` and `packet/02Sep26-packet-LaTeX.zip` |
+| 25, 26 | Letters 6 and 7, added after two substantive replies came back. A reply is not scheduled in advance: it exists because a recipient answered, and it is committed when it is written |
 
 ## Rule 5 source map
 

@@ -3,7 +3,8 @@
 [![Repository](https://img.shields.io/badge/Repository-v4.8.0-00417A.svg)](../../../README.md)
 [![Day](https://img.shields.io/badge/Day-1%20of%205-0E5C63.svg)](.)
 [![Approval steps](https://img.shields.io/badge/Approval%20steps-1-0E5C63.svg)](#the-one-approval-step)
-[![Emails](https://img.shields.io/badge/Emails-5-6C757D.svg)](emails)
+[![Emails](https://img.shields.io/badge/Emails-7-6C757D.svg)](emails)
+[![Replies](https://img.shields.io/badge/Replies%20received-2-3C7DB2.svg)](#the-two-replies-that-came-back)
 [![Briefs](https://img.shields.io/badge/Briefs-3-6C757D.svg)](briefs)
 [![Form packs](https://img.shields.io/badge/Form%20packs-2-6C757D.svg)](forms)
 [![Capital](https://img.shields.io/badge/Capital%20set-1-6C757D.svg)](investing)
@@ -25,8 +26,9 @@ Everything in this directory is finished. The addresses are filled, the subject
 lines are written, the bodies are final, the attachments are named, and the
 brokerage instruction carries order types and limits. One decision is open:
 
-> **Approve sending the five letters in [`emails/`](emails), and approve the
-> Treasury instruction in [`investing/`](investing).**
+> **Approve sending the five re-contact letters and the two replies in
+> [`emails/`](emails), and approve the Treasury instruction in
+> [`investing/`](investing).**
 
 Nothing in this directory has been sent, filed, entered, or agreed.
 
@@ -35,17 +37,19 @@ Nothing in this directory has been sent, filed, entered, or agreed.
 | Order | Item | Where | Time | Depends on |
 |:--|:--|:--|:--|:--|
 | 1 | Read the packet's §2, the action register | [`packet/`](packet) | 6 minutes | Nothing |
-| 2 | Approve or amend the five letters | [`emails/`](emails) | 15 minutes | Item 1 |
+| 2 | Approve or amend the five re-contact letters | [`emails/`](emails) | 15 minutes | Item 1 |
 | 3 | Compile the packet PDF and confirm it opens | [`packet/`](packet) | 3 minutes | Item 2 |
 | 4 | Send letters 1 to 4 | [`emails/`](emails) | 10 minutes | Items 2, 3 |
 | 5 | Confirm the entity record is current before letter 5 | [`forms/`](forms) | 20 minutes | Nothing |
 | 6 | Send letter 5, the Treasury instruction | [`emails/`](emails) | 4 minutes | Items 2, 5 |
 | 7 | File the two form packs | [`forms/`](forms) | 35 minutes | Item 5 |
+| 8 | Read the two replies received, then approve letters 6 and 7 | [`emails/`](emails) | 20 minutes | Item 1 |
+| 9 | Send letters 6 and 7, each inside its original thread | [`emails/`](emails) | 8 minutes | Item 8 |
 
 The whole day is a little over an hour and a half of the chief executive's time,
 and no item in it requires drafting.
 
-## The five letters, and what each newly asks
+## The five re-contact letters, and what each newly asks
 
 Not one of these is a fresh introduction. Each names the earlier inquiry, states
 the one fact that changed, and asks a question the earlier letter could not have
@@ -58,6 +62,41 @@ asked.
 | 3 | [`email-03-nci-ctep-concept.txt`](emails/email-03-nci-ctep-concept.txt) | NCI Cancer Therapy Evaluation Program | Whether an approved agent used perioperatively is in or out of the concept pathway |
 | 4 | [`email-04-nih-pioneer-eligibility.txt`](emails/email-04-nih-pioneer-eligibility.txt) | NIH Common Fund and CSR review contacts | Whether the science codes and the effort expectation change with the drug risk removed |
 | 5 | [`email-05-brokerage-treasury-instruction.txt`](emails/email-05-brokerage-treasury-instruction.txt) | The company's broker-dealer | Execution of a Treasury ladder against a known nine-month Phase I horizon |
+
+## The two replies that came back
+
+Two of the five produced substantive replies within the week, and letters 6 and 7
+answer them. Neither reply was a rejection and neither was an encouragement. Both
+were corrections, and the first is the most useful thing a federal office has
+told this company.
+
+| # | File | From | What the reply established |
+|:--|:--|:--|:--|
+| 6 | [`email-06-nci-ctep-gore-reply.txt`](emails/email-06-nci-ctep-gore-reply.txt) | Chief, Investigational Drug Branch, Cancer Therapy Evaluation Program | A cooperative research and development agreement is entered by the drug company, which this company is not; and **all of that program's trials are investigator-initiated**, so a company-originated concept is the wrong shape by construction |
+| 7 | [`email-07-nih-pioneer-labosky-reply.txt`](emails/email-07-nih-pioneer-labosky-reply.txt) | Program Leader, High-Risk, High-Reward Research Program, Common Fund | The company may apply if registered, or a partner institution may apply on the chief executive's behalf; either way the submitting entity must **agree to house and support the research**, and the offer of a meeting covers the award and explicitly not the research |
+
+### What the first reply changes about this program's route
+
+The site conversation of [`../04Sep26`](../04Sep26) was sequenced as one step
+among several. It is now the **precondition** for the federal concept route
+entirely. If a perioperative concept has a path through that program, the concept
+belongs to a qualified investigator at an institution, and this company's role
+narrows to the advisory software component and the documentation.
+
+That is a smaller role than the one letter 3 set out to claim. Letter 6 concedes
+it plainly and asks for no exception, because the two points are structural
+rather than negotiable and a company that argues with a program chief about what
+his program is will not get a second reply.
+
+### What the second reply changes
+
+Less, and more usefully. It confirms two viable application routes rather than
+one, and it identifies the clause that actually matters, which is not
+registration but the certification that the submitting entity will house and
+support the research. Registering is a form; housing and supporting a clinical
+study is a commitment, and the same paperwork makes them look alike. Letter 7
+asks what that certification means for a small business before making it, rather
+than making it and finding out.
 
 ## What changed on August 26, 2026, stated once
 
@@ -82,7 +121,7 @@ investigational new drug application.
 ```
 02Sep26/
 ├── README.md              this approval sheet
-├── emails/                5 .txt letters, each with its own pre-send checklist
+├── emails/                7 .txt letters: 5 re-contacts and 2 replies received
 ├── briefs/                3 .md technical briefs for plain-text readers
 ├── forms/                 2 .md field-by-field online form packs
 ├── investing/             1 .md capital instruction with order types and limits
@@ -106,6 +145,8 @@ investigational new drug application.
 | `final-capital/sections/sec-03-gate-and-programme.tex` | [`../../capitalization-plan`](../../capitalization-plan) | Packet Table 5 and the money column of Figure 3 |
 | `final-capital/capstyle.sty` | [`../../capitalization-plan`](../../capitalization-plan) | `packet/fundstyle.sty`, recolored and with the stick-figure macro deleted |
 | `daraxonrasib-llm-story.md` | [`../..`](../..) | The packet §1 chronology, quoted rather than paraphrased |
+| `briefs/brief-01-approval-delta.md` | This day | Letter 6's one-page component and role map |
+| `forms/form-01-sam-gov-entity-validation.md`, `form-02-sba-company-registry.md` | This day | Letter 7's one-page registration status sheet |
 
 ## Positioning, carried into every file in this directory
 

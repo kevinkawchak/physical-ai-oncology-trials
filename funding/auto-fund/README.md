@@ -3,7 +3,7 @@
 [![Repository](https://img.shields.io/badge/Repository-v4.8.0-00417A.svg)](../../README.md)
 [![Business days](https://img.shields.io/badge/Business%20days-5-00417A.svg)](#the-five-business-days)
 [![Approval trigger](https://img.shields.io/badge/Trigger-Rasonque%20approved%208%2F26%2F26-3C7DB2.svg)](https://www.fda.gov/news-events/press-announcements/fda-approves-first-class-targeted-therapy-metastatic-pancreatic-cancer)
-[![Emails](https://img.shields.io/badge/Emails-24%20.txt-6C757D.svg)](#what-a-day-contains)
+[![Emails](https://img.shields.io/badge/Emails-26%20.txt-6C757D.svg)](#what-a-day-contains)
 [![Briefs](https://img.shields.io/badge/Technical%20briefs-13%20.md-6C757D.svg)](#what-a-day-contains)
 [![Forms](https://img.shields.io/badge/Form%20packs-9%20.md-6C757D.svg)](#what-a-day-contains)
 [![Capital](https://img.shields.io/badge/Capital%20instruction%20sets-5-6C757D.svg)](#what-a-day-contains)
@@ -66,7 +66,7 @@ receives as correspondence is `.txt`. Anything a technical reader reads inline i
 
 | Day | Directory | Theme | Federal offices | US equity market |
 |:--|:--|:--|:--|:--|
-| 1 | [`02Sep26/`](02Sep26) | Approval to ask: re-contact the federal mechanisms already approached | Open | Open |
+| 1 | [`02Sep26/`](02Sep26) | Approval to ask: re-contact the federal mechanisms already approached, and reply to the two responses | Open | Open |
 | 2 | [`03Sep26/`](03Sep26) | Private capital: instruments, angels, family offices, the developer relationship | Open | Open |
 | 3 | [`04Sep26/`](04Sep26) | Site and partner: Moores, Scripps, foundations, and the disease-specific funders | Open | Open |
 | 4 | [`07Sep26/`](07Sep26) | Labor Day: nothing can be sent or traded, so everything is staged and queued | **Closed** | **Closed** |
