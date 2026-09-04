@@ -34,7 +34,7 @@
 
 This repository provides production-ready configurations, validated pipelines, and integration guides for deploying robotic systems, digital twins, and embodied AI agents in oncology. 
 
-**9/8: v4.8.0 (auto-fund: Daily Funding Actions for Final CEO Approval)** *v4.8.0 adds funding/auto-fund/: five business days of complete funding actions, each ending in one approval step. 24 letters, 13 briefs, 9 form packs, 5 capital instruction sets, 15 figures, 25 tables, and five compiled packets.* [Directory](funding/auto-fund)
+**9/8: v4.8.0 (auto-fund: Daily Funding Actions for Final CEO Approval)** *v4.8.0 adds funding/auto-fund/: five business days of complete funding actions, each ending in one approval step. 26 letters, 13 briefs, 9 form packs, 5 capital instruction sets, 15 figures, 25 tables, and five compiled packets.* [Directory](funding/auto-fund)
 
 **8/30: FDA Approves Pancreatic Cancer Drug Rasonque (Daraxonrasib) by Revolution Medicines on August 26, 2026** *Daraxonrasib is ChemicalQDevice's number one LLM-focused cancer drug researched since identified by Google Gemini as being the most likely to aid startup funding in June 2025.* [FDA Approval](https://www.fda.gov/news-events/press-announcements/fda-approves-first-class-targeted-therapy-metastatic-pancreatic-cancer)
 
@@ -123,7 +123,7 @@ python unification/cross_platform_tools/framework_detector.py
 [![Directory](https://img.shields.io/badge/Directory-funding%2Fauto--fund-00417A.svg)](funding/auto-fund)
 [![Business days](https://img.shields.io/badge/Business%20days-5-00417A.svg)](funding/auto-fund)
 [![Approval steps](https://img.shields.io/badge/Approval%20steps-1%20per%20day-3C7DB2.svg)](funding/auto-fund)
-[![Letters](https://img.shields.io/badge/Letters-24%20.txt-6C757D.svg)](funding/auto-fund)
+[![Letters](https://img.shields.io/badge/Letters-26%20.txt-6C757D.svg)](funding/auto-fund)
 [![Briefs](https://img.shields.io/badge/Briefs-13%20.md-6C757D.svg)](funding/auto-fund)
 [![Form packs](https://img.shields.io/badge/Form%20packs-9%20.md-6C757D.svg)](funding/auto-fund)
 [![Figures](https://img.shields.io/badge/Figures-15-9AA1A8.svg)](funding/auto-fund)
@@ -131,7 +131,7 @@ python unification/cross_platform_tools/framework_detector.py
 [![Compile](https://img.shields.io/badge/pdfLaTeX-0%20errors%2C%205%20packets-9AA1A8.svg)](funding/auto-fund)
 [![Rasters](https://img.shields.io/badge/PNG%20%2F%20JPG-none-9AA1A8.svg)](funding/auto-fund)
 
-**Summary.** v4.8.0 adds funding/auto-fund/: five business days of funding actions for CEO Kevin Kawchak, each ending in a single approval step. 24 letters, 13 technical briefs, 9 form packs, 5 capital instruction sets, 15 TikZ figures, 25 tables and five compiled packets, with no raster images anywhere. The block converts the August 26, 2026 FDA approval of Rasonque (daraxonrasib) into one full week of specific, dated, sendable asks.
+**Summary.** v4.8.0 adds funding/auto-fund/: five business days of funding actions for CEO Kevin Kawchak, each ending in a single approval step. 26 letters, 13 technical briefs, 9 form packs, 5 capital instruction sets, 15 TikZ figures, 25 tables and five compiled packets, with no raster images anywhere. The block converts the August 26, 2026 FDA approval of Rasonque (daraxonrasib) into one full week of specific, dated, sendable asks.
 
 ### What changed, and why the directory exists now
 
@@ -169,7 +169,7 @@ flowchart LR
 
 | Day | Directory | Theme | The one decision it asks for | Federal | Market |
 |:--|:--|:--|:--|:--|:--|
-| 1 | [`02Sep26`](funding/auto-fund/02Sep26) | Approval to ask | Send five re-contacts and one Treasury instruction | Open | Open |
+| 1 | [`02Sep26`](funding/auto-fund/02Sep26) | Approval to ask | Send five re-contacts, two replies, and one Treasury instruction | Open | Open |
 | 2 | [`03Sep26`](funding/auto-fund/03Sep26) | Private capital bridge | Pick one instrument, one size, one developer approach | Open | Open |
 | 3 | [`04Sep26`](funding/auto-fund/04Sep26) | Site and partner | Name a target week for a feasibility meeting | Open | Open |
 | 4 | [`07Sep26`](funding/auto-fund/07Sep26) | Staged queue | Authorize the release list | **Closed** | **Closed** |
@@ -206,7 +206,7 @@ for Overleaf. The rule is not varied for convenience.
 
 | Day | Packet | Accent | Pages | Errors | Overfull | Figures | Tables |
 |:--|:--|:--|:--|:--|:--|:--|:--|
-| 1 | The Approval Dividend | Pacific Teal `#0E5C63` | 13 | 0 | 0 | 3 | 5 |
+| 1 | The Approval Dividend | Pacific Teal `#0E5C63` | 14 | 0 | 0 | 3 | 5 |
 | 2 | The Private Capital Bridge | Harbor Navy `#1B3A5C` | 13 | 0 | 0 | 3 | 5 |
 | 3 | The Site and Partner Package | Cypress Green `#2F5D3A` | 12 | 0 | 0 | 3 | 5 |
 | 4 | The Staged Queue | Slate Plum `#5B3A5E` | 13 | 0 | 0 | 3 | 5 |

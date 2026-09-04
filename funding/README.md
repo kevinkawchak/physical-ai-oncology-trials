@@ -95,7 +95,7 @@ file in the directory says otherwise.
 
 | Day | Directory | Theme | The one decision |
 |:--|:--|:--|:--|
-| 1 | [`auto-fund/02Sep26`](auto-fund/02Sep26) | Approval to ask | Send five federal re-contacts and one Treasury instruction |
+| 1 | [`auto-fund/02Sep26`](auto-fund/02Sep26) | Approval to ask | Send five federal re-contacts, two replies, and one Treasury instruction |
 | 2 | [`auto-fund/03Sep26`](auto-fund/03Sep26) | Private capital bridge | Pick one instrument, one size, one developer approach |
 | 3 | [`auto-fund/04Sep26`](auto-fund/04Sep26) | Site and partner | Name a target week for a feasibility meeting |
 | 4 | [`auto-fund/07Sep26`](auto-fund/07Sep26) | Staged queue | Authorize the release list; Labor Day, nothing is sent |
@@ -103,7 +103,7 @@ file in the directory says otherwise.
 
 | Produced | Count | Format |
 |:--|:--|:--|
-| Letters, each with a pre-send checklist | 24 | `.txt` |
+| Letters, each with a pre-send checklist | 26 | `.txt` |
 | Technical briefs for plain-text readers | 13 | `.md` |
 | Field-by-field online submission packs | 9 | `.md` |
 | Capital instruction sets | 5 | `.md` |
