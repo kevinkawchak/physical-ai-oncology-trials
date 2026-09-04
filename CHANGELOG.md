@@ -34,10 +34,12 @@ Format follows [Keep a Changelog](https://keepachangelog.com/).
 - One TikZ style error: `\pnote` is a macro taking three arguments, not a style, and using it in a node's option list halted the day 5 compile.
 - Markdown emphasis leaked into three `.tex` files, where `**` renders as literal asterisks rather than as bold. Converted to `\textbf`.
 - Three bibliography entries carried no resolvable target at all. All 56 now resolve.
-- One table caption was 23 characters out of balance between its two lines; rebalanced. The mean spread across all 40 captions is 2.9 characters.
-- Fourteen short pages across the five packets, each fixed at its cause by adding substantive text or by tightening prose rather than by inserting a skip: a nine-line contents page removed by setting `tocdepth` to sections only, and thirteen section-closing pages of three to fourteen lines brought above twenty. No `\vspace` was added to the body of any packet.
+- One table caption was 23 characters out of balance between its two lines; rebalanced. The mean spread across all 40 captions is 3.0 characters.
+- Seventeen short pages across the five packets, each fixed at its cause by adding substantive text or by tightening prose rather than by inserting a skip: a nine-line contents page removed by setting `tocdepth` to sections only, and sixteen section-closing pages of three to nineteen lines brought above twenty. The last three were found only after the day 1 letters were added, when every page in all five packets was re-measured from the compiled PDFs rather than from the sources. No `\vspace` was added to the body of any packet.
 - One overfull vbox of 15.72 pt in day 1's reference list, caused by the three new bibliography urls; fixed with a page barrier before the list in that packet only, because the same barrier was measured in the other four and made each of them worse.
 - Page counts quoted in nine letters and one packet README no longer matched the compiled documents; all aligned to the measured values.
+- British spellings in the five `fundstyle.sty` header comments (`colour`, `centred`, `centre`) and three carried over into `funding/README.md` from an earlier release. All corrected to La Jolla usage, which the directory requires everywhere except where the word is part of a file name in `funding/capitalization-plan`, in the verbatim prompt, or in the rule that names the forbidden spellings.
+- `funding/auto-fund/03Sep26/packet/` and `08Sep26/packet/` - three pages that fell below the twenty-line standard the directory publishes, at sixteen, nineteen and sixteen lines. Each filled with a substantive closing paragraph in the section that ends there: what a reader cannot check against the repository and why, what the deadline-first rule costs, and what publishing the pipeline gives away. Both packets recompiled at 13 and 14 pages, 0 errors, 0 overfull boxes.
 
 ## [4.7.0] - 2026-08-23
 

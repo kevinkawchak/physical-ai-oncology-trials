@@ -97,12 +97,16 @@ Every one was found by compiling and measuring rather than by reading.
    All three now carry a `url`. All 56 entries in every packet resolve.
 7. **One table caption 23 characters out of balance** between its two lines, 69
    against 46. Rebalanced to 66 and 69. The mean spread across all 40 captions is
-   2.9 characters and none exceeds 8.
-8. **Fourteen short pages** across the five packets, ranging from three to
-   fourteen body lines. Each was fixed at its cause: a nine-line contents page
-   removed by setting `tocdepth` to sections only, and thirteen section-closing
+   3.0 characters and none exceeds 8.
+8. **Seventeen short pages** across the five packets, ranging from three to
+   nineteen body lines. Each was fixed at its cause: a nine-line contents page
+   removed by setting `tocdepth` to sections only, and sixteen section-closing
    pages brought above twenty lines by adding substantive text or by tightening
-   prose. **No `\vspace` was added to the body of any packet.**
+   prose. The last three were found only after the day-1 letters were added,
+   when every page in all five packets was re-measured from the compiled PDFs
+   rather than from the sources: one in day 2 at sixteen lines and two in day 5
+   at nineteen and sixteen. **No `\vspace` was added to the body of any
+   packet.**
 9. **One overfull vbox of 15.72 pt** in day 1's reference list, appearing only
    after the three new bibliography urls lengthened it. A page barrier before the
    list fixed it in that packet; the same barrier was measured in the other four
@@ -118,9 +122,11 @@ Across every text source in the directory, excluding the verbatim prompt file:
 em dashes, en dashes, smart quotes, ellipses, non-breaking spaces, `SS` in place
 of the section symbol, `tabularx` not set to `\textwidth`, fixed columns without
 a prepended `\raggedright\arraybackslash`, float spacing other than `-0.60cm`,
-and captions that are not exactly two lines. 790 relative links were resolved
-against the filesystem; the only two that did not resolve pointed at this file,
-which is written in the final commit.
+and captions that are not exactly two lines. Every relative link in the
+markdown this work adds or changes was resolved against the filesystem: 580 of
+them, none broken. Thirteen broken relative links do exist elsewhere in the
+repository, in a copied artifact README under `funding/move-in/inputs/`, and
+they are left alone because this work does not touch that file.
 
 ### Instructions that needed interpretation
 
@@ -155,8 +161,8 @@ as facts about correspondence, and never as awards, agreements, or reviews.
 ### Final measured state
 
 Five packets, seven sections each, 35 section files. 15 TikZ figures, 25 tables,
-40 two-line captions. 24 letters, 13 briefs, 9 form packs, 5 capital instruction
-sets, 15 figure specifications, 49 READMEs. Five compiled PDFs at 13, 13, 12, 13
+40 two-line captions. 26 letters, 13 briefs, 9 form packs, 5 capital instruction
+sets, 15 figure specifications, 49 READMEs. Five compiled PDFs at 14, 13, 12, 13
 and 14 pages, each at zero errors, zero overfull boxes, zero underfull boxes,
 zero undefined citations and zero undefined references, with no page under twenty
 lines. Five Overleaf zips, eleven files each. Zero PNG or JPG files, and zero
