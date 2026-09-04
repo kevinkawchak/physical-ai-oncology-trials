@@ -32,7 +32,7 @@ repository can decide, from this file alone, whether to take a call.
 |:--|:--|:--|:--|
 | 0 | `sec-00-front.tex` | Abstract, what this packet is for, and how to read it in six minutes | none |
 | 1 | `sec-01-what-changed.tex` | The approval, the dated chronology, and the four things it does not change | Figure 1, Table 1 |
-| 2 | `sec-02-action-register.tex` | The five letters, what each newly asks, and the single approval step | Figure 2, Table 2 |
+| 2 | `sec-02-action-register.tex` | Seven letters, the two replies received and what the first one changes, the single approval step | Figure 2, Table 2 |
 | 3 | `sec-03-evidence.tex` | The six checkable quantities, each with its authors' stated limitation | Table 3 |
 | 4 | `sec-04-capital.tex` | The corporate reserve as a four-rung ladder against a nine-month horizon | Figure 3, Table 4 |
 | 5 | `sec-05-outreach-and-route.tex` | The SBIR route against the five-year program, and the delta between them | Table 5 |
@@ -66,7 +66,7 @@ second `pdflatex` passes.
 | Underfull boxes | 0 |
 | Undefined citations | 0 |
 | Undefined references | 0 |
-| Pages | 13 |
+| Pages | 14 |
 | Figures | 3, all TikZ |
 | Tables | 5, all at the exact body measure |
 | Raster images | 0 |
