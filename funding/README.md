@@ -14,7 +14,7 @@
 [![DOI v1.0](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.21232965-blue.svg)](https://doi.org/10.5281/zenodo.21232965)
 
 Everything the *Daraxonrasib Phase 1 LLM-Directed Robotic Whipple in
-KRAS-Mutated PDAC* programme uses to ask for money: two completed NIH
+KRAS-Mutated PDAC* program uses to ask for money: two completed NIH
 applications with DOIs, ten independent-scientist application file sets, the
 company-conversion capitalization plan that rewrites the one of those ten
 addressed to a company mechanism, the fifteen-document La Jolla move-in package
@@ -163,7 +163,7 @@ appear in it are citations of prior published work.
 | 06 | Foundation for the NIH, AMP | Medical oncology | $3.5M cash, rest contributed |
 | 07 | HHMI Investigator Program | Medical oncology | Person-based, 7-year horizon |
 | 08 | NCI Cancer Therapy Evaluation Program | Medical oncology | $700K per year, 5 years |
-| 09 | Convergent Research, FRO programme | Medical oncology | $3.5M, dissolves in year 5 |
+| 09 | Convergent Research, FRO program | Medical oncology | $3.5M, dissolves in year 5 |
 | 10 | UC San Diego Moores Cancer Center | Medical oncology | A 45-minute feasibility meeting |
 
 ## 6. What each directory supplies to the others (Rule 5)
@@ -172,7 +172,7 @@ appear in it are citations of prior published work.
 |:--|:--|:--|
 | [`science-golden-age/`](science-golden-age) | Ten verbatim chunks of the July 2026 report plus 186 BibTeX entries | Every application's §1 and §2; the summary paper's §1 and §2 |
 | [`RFA-RM-27-001-v2/`](RFA-RM-27-001-v2) | Trial synopsis, endpoint wording, budget frame, 58 bibliography entries | Every application's §3 to §5; the summary paper's §5 |
-| [`RFA-RM-27-001/`](RFA-RM-27-001) | The first application, as a time point | Programme chronology |
+| [`RFA-RM-27-001/`](RFA-RM-27-001) | The first application, as a time point | Program chronology |
 | [`pdfs/`](pdfs) | Compiled PDFs of both applications | Manual-attachment lists in the ten emails |
 | [`supplementary/`](supplementary) | Founding-document ledger and two compiled PDFs | Prior-work tables and attachment lists |
 | [`supplementary/source-files/`](supplementary/source-files) | Three LaTeX source zips: patient-robot-advocacy, daraxonrasib simulations, the original proposal | Palette and the five diagram vocabularies; all quantitative evidence; the first proposal time point |
