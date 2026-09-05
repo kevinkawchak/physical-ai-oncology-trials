@@ -24,7 +24,6 @@
 [![Target Site Staff](https://img.shields.io/badge/Target%20Site%20staff-CEO%20%2B%2010%20coworkers-6C757D.svg)](funding/move-in/final-move-in/sections)
 [![Target Award](https://img.shields.io/badge/Target%20Award-%24700%2C000%20%C3%97%205%20years-6C757D.svg)](funding/move-in/final-move-in/sections)
 [![Daily Funding](https://img.shields.io/badge/Daily%20funding%20actions-5%20business%20days-00417A.svg)](funding/auto-fund)
-[![Approval Steps](https://img.shields.io/badge/Approval%20steps-1%20per%20day-3C7DB2.svg)](funding/auto-fund)
 [![Rasonque](https://img.shields.io/badge/Rasonque-approved%208%2F26%2F26-6C757D.svg)](https://www.fda.gov/news-events/press-announcements/fda-approves-first-class-targeted-therapy-metastatic-pancreatic-cancer)
 
 
