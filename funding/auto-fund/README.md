@@ -186,7 +186,9 @@ approval before any part of it leaves the repository. No order in
 instruments named are candidates for a treasury policy the chief executive sets.
 UC San Diego, Moores Cancer Center, Scripps Research and Scripps Health are named
 as candidate partners at the feasibility stage only, and no agreement of any kind
-exists with any of them. No drug supply agreement, letter of authorization, or
+exists with any of them. 
+
+No drug supply agreement, letter of authorization, or
 regulatory cross-reference is in place with Revolution Medicines. No robotic
 configuration has been specified or cleared. No patient has been treated. The
 approval of Rasonque is an approval of a drug in the metastatic setting and is
