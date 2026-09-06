@@ -11,75 +11,35 @@ SUBJECT: Pre-RFD - perioperative daraxonrasib, robotic surgical workflow, and an
 === BODY ===
 Dear Office of Combination Products,
 
-I am requesting a Pre-Request for Designation for a proposed Phase 1 study whose
-components fall across more than one center, and I would rather ask which center
-leads than assume it.
+I am requesting a Pre-Request for Designation for a proposed Phase 1 study whose components fall across more than one center, and I would rather ask which center leads than assume it.
 
-The sponsor is ChemicalQDevice LLC, a California small business. The study is a
-Phase 1, open-label, single-arm, 3+3 dose escalation in up to 18 participants
-with resectable or borderline-resectable KRAS G12-mutated pancreatic ductal
-adenocarcinoma. Below, each component is described separately, as the office's
-guidance asks.
+The sponsor is ChemicalQDevice LLC, a California small business. The study is a Phase 1, open-label, single-arm, 3+3 dose escalation in up to 18 participants with resectable or borderline-resectable KRAS G12-mutated pancreatic ductal adenocarcinoma. Below, each component is described separately, as the office's guidance asks.
 
-1. The investigational drug. Daraxonrasib, a RAS(ON) multi-selective inhibitor,
-   administered perioperatively. The agent was approved as Rasonque on August 26,
-   2026 for metastatic pancreatic cancer. The proposed perioperative use in
-   resectable disease is not the approved setting and is investigational. An
-   investigational new drug application has been prepared and has not been
-   submitted.
+1. The investigational drug. Daraxonrasib, a RAS(ON) multi-selective inhibitor, administered perioperatively. The agent was approved as Rasonque on August 26, 2026 for metastatic pancreatic cancer. The proposed perioperative use in resectable disease is not the approved setting and is investigational. An investigational new drug application has been prepared and has not been submitted.
 
-2. The robotic surgical platform and instruments. A cleared robotic surgical
-   system used for a staged pancreaticoduodenectomy. The specific manufacturer,
-   model, arm count, instrument set, software version and cleared intended use
-   are not asserted in this letter, because the configuration is determined at a
-   clinical site agreement that does not yet exist. I recognize this may limit
-   how specific a preliminary determination can be, and I would value knowing
-   whether the office can respond usefully before a configuration is identified,
-   or whether the request should wait until one is.
+2. The robotic surgical platform and instruments. A cleared robotic surgical system used for a staged pancreaticoduodenectomy. The specific manufacturer, model, arm count, instrument set, software version and cleared intended use are not asserted in this letter, because the configuration is determined at a clinical site agreement that does not yet exist. I recognize this may limit how specific a preliminary determination can be, and I would value knowing whether the office can respond usefully before a configuration is identified, or whether the request should wait until one is.
 
-3. The advisory software. An on-premises large language model producing
-   text-form recommendations to the operating surgeon.
+3. The advisory software. An on-premises large language model producing text-form recommendations to the operating surgeon.
 
-4. Data inputs and outputs. Inputs are the protocol, the participant's imaging
-   and laboratory record, and intraoperative documentation entered by the
-   clinical team. Outputs are text recommendations displayed to the surgeon.
+4. Data inputs and outputs. Inputs are the protocol, the participant's imaging and laboratory record, and intraoperative documentation entered by the clinical team. Outputs are text recommendations displayed to the surgeon.
 
-5. Whether recommendations are visible to clinicians during surgery. Yes,
-   displayed on a screen in the operating room.
+5. Whether recommendations are visible to clinicians during surgery. Yes, displayed on a screen in the operating room.
 
-6. Whether the surgeon can independently review the basis of a recommendation.
-   Yes. Each recommendation carries the protocol section and the record fields it
-   was derived from, and the surgeon can act without it.
+6. Whether the surgeon can independently review the basis of a recommendation. Yes. Each recommendation carries the protocol section and the record fields it was derived from, and the surgeon can act without it.
 
-7. Whether software output controls equipment or only provides advice. **Advice
-   only, and enforced at the interface rather than by policy.** The model process
-   holds no write credential to the electronic data capture system and no route
-   to the robot control network. There is no configuration of the system in which
-   a model output reaches an actuator. Arm-level stop is specified at 3
-   milliseconds and system-wide stop at 500 milliseconds, and the operating
-   surgeon approves every motion.
+7. Whether software output controls equipment or only provides advice. Advice only, and enforced at the interface rather than by policy. The model process holds no write credential to the electronic data capture system and no route to the robot control network. There is no configuration of the system in which a model output reaches an actuator. Arm-level stop is specified at 3 milliseconds and system-wide stop at 500 milliseconds, and the operating surgeon approves every motion.
 
-8. Sponsor and manufacturer roles. ChemicalQDevice would be the sponsor. No drug
-   supply agreement, letter of authorization, or regulatory cross-reference is in
-   place with the agent's developer, and no agreement of any kind exists with any
-   clinical site or robotic surgery vendor.
+8. Sponsor and manufacturer roles. ChemicalQDevice would be the sponsor. No drug supply agreement, letter of authorization, or regulatory cross-reference is in place with the agent's developer, and no agreement of any kind exists with any clinical site or robotic surgery vendor.
 
 Three questions.
 
-First, what is the preliminary classification of this system, and which center
-would lead its review?
+First, what is the preliminary classification of this system, and which center would lead its review?
 
-Second, are separate drug and device submissions expected, or would a single
-pathway apply?
+Second, are separate drug and device submissions expected, or would a single pathway apply?
 
-Third, given item 2 above, can the office respond usefully before the robotic
-configuration is identified, or should the request be resubmitted once a site
-agreement fixes it?
+Third, given item 2 above, can the office respond usefully before the robotic configuration is identified, or should the request be resubmitted once a site agreement fixes it?
 
-I am preparing parallel meeting packages in either case: a pre-IND Type B request
-through the Center for Drug Evaluation and Research, and a device and software
-Q-Submission, and I would rather sequence them correctly than submit both and
-withdraw one.
+I am preparing parallel meeting packages in either case: a pre-IND Type B request through the Center for Drug Evaluation and Research, and a device and software Q-Submission, and I would rather sequence them correctly than submit both and withdraw one.
 
 Sincerely,
 CEO Kevin Kawchak
