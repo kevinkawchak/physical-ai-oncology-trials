@@ -14,7 +14,7 @@
 
 Day 1 asked the federal side for the $1,606,000 the SBIR route can supply. This
 day addresses the $2,104,000 it cannot, the $5,900,000 private position that
-would close it, and the one commercial relationship the approval makes newly
+would close it, and the commercial relationship the approval makes newly
 askable.
 
 ## The one approval step
