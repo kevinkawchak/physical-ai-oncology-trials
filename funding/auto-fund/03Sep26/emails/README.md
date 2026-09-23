@@ -7,7 +7,7 @@
 [![Offering language](https://img.shields.io/badge/Offering%20language-none-9AA1A8.svg)](#the-line-none-of-these-letters-crosses)
 [![Bracketed addresses](https://img.shields.io/badge/Bracketed%20addresses-marked-9AA1A8.svg)](#addresses-that-are-bracketed-and-why)
 
-Five letters in plain text. Letter 1 opens a commercial relationship. Letters 2
+Five letters in plain text are included. Letter 1 opens a commercial relationship. Letters 2
 and 3 ask for introductions. Letter 4 engages counsel. Letter 5 prepares the
 account that would receive a subscription.
 
