@@ -24,7 +24,7 @@
 [![Rasonque](https://img.shields.io/badge/Rasonque-approved%208%2F26%2F26-6C757D.svg)](https://www.fda.gov/news-events/press-announcements/fda-approves-first-class-targeted-therapy-metastatic-pancreatic-cancer)
 
 
-**Comprehensive developments for integrating physical AI into oncology clinical trials by Claude Code; with additional assistance from ChatGPT and Google Gemini.**
+**Comprehensive developments for integrating physical AI into oncology clinical trials by Anthropic Claude Code; with additional assistance from ChatGPT and Google Gemini.**
 
 This repository provides production-ready configurations, validated pipelines, and integration guides for deploying robotic systems, digital twins, and embodied AI agents in oncology. 
 
