@@ -23,10 +23,9 @@
 [![Target Award](https://img.shields.io/badge/Target%20Award-%24700%2C000%20%C3%97%205%20years-6C757D.svg)](funding/move-in/final-move-in/sections)
 [![Rasonque](https://img.shields.io/badge/Rasonque-approved%208%2F26%2F26-6C757D.svg)](https://www.fda.gov/news-events/press-announcements/fda-approves-first-class-targeted-therapy-metastatic-pancreatic-cancer)
 
-
 **Comprehensive developments for integrating physical AI into oncology clinical trials by Anthropic Claude Code; with additional assistance from OpenAI ChatGPT and Google Gemini.**
 
-This repository provides production-ready configurations, validated pipelines, and integration guides for deploying robotic systems, digital twins, and embodied AI agents in oncology. 
+This repository provides production-ready configurations, validated pipelines, and integration guides for deploying robotic systems, digital twins, and embodied AI agents in the field of oncology. 
 
 **9/8: v4.8.0 (auto-fund: Daily Funding Actions for Final CEO Approval)** *v4.8.0 adds funding/auto-fund/: five business days of complete funding actions, each ending in one approval step. 26 letters, 13 briefs, 9 form packs, 5 capital instruction sets, 15 figures, 25 tables, and five compiled packets.* [**Directory**](funding/auto-fund)
 
