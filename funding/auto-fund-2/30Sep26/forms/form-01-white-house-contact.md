@@ -35,11 +35,11 @@ unless the form requires it.
 
 ## The message
 
-Paste exactly, as one block. It is 1,212 characters, well inside any limit the
+Paste exactly, as one block. It is 1,261 characters, well inside any limit the
 form has carried.
 
 ```
-Thank you for the communications that followed my message of September 12, 2026. In that message I named three priority changes for myself and my startup, ChemicalQDevice: obedience over hard work and responsibilities; adaptation to existing authority, order, and structure; and a teamwork-based early-rise, scheduled routine. I have since written each one down as an operating rule. When an office that owns a rule answers, the company follows the answer before doing more of its own work. The company takes the role an existing structure offers, even when that role is smaller than the one it asked for. The working day begins at 5:00 a.m. Pacific, so the company's correspondence arrives at the start of Washington's day. ChemicalQDevice develops AI-assisted oncology clinical trial documents, including a Phase 1 protocol built around daraxonrasib, which the FDA approved in August as Rasonque. I have offered to serve as a contributor, under direction, within the federal structures where AI-assisted clinical research is organized, and I have written to the Office of Science and Technology Policy to ask where that service belongs. Respectfully, Kevin Kawchak, CEO, ChemicalQDevice, San Diego, California.
+Thank you for the communications that followed my message of September 12, 2026. In that message I named three priority changes for myself and my startup, ChemicalQDevice: 1) Obedience over hard work and responsibilities. 2) Adapted to existing authority, order, and structure. 3) Acclimated to a teamwork based early-rise, scheduled routine. I have since written each one down as an operating rule. When an office that owns a rule answers, the company follows the answer before doing more of its own work. The company takes the role an existing structure offers, even when that role is smaller than the one it asked for. The working day begins at 5:00 a.m. Pacific, so the company's correspondence arrives at the start of Washington's day. ChemicalQDevice develops AI-assisted oncology clinical trial documents, including a Phase 1 protocol built around daraxonrasib, which the FDA approved in August as Rasonque for metastatic pancreatic cancer. I have offered to serve as a contributor, under direction, within the federal structures where AI-assisted clinical research is organized, and I have written to the Office of Science and Technology Policy to ask where that service belongs. Respectfully, Kevin Kawchak, CEO, ChemicalQDevice, San Diego, California.
 ```
 
 ## After submitting
