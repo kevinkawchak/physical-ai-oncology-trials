@@ -1,0 +1,105 @@
+% sec-03: the roster.  Table 3, Figure 2 (diagrams-type clustered glyph tiles).
+\section{Eleven Roles, and the Six an Applicant Can Fill}
+
+The staffing plan behind the company's federal applications is published as
+document 14 of the La Jolla site package \cite{movein2026}. It names eleven
+roles at 3.95 award-funded full-time equivalents, prices them at \$521,000 a
+year in salary and fringe combined, and fits them inside a \$700,000 annual
+direct cost. Nine of the eleven are part-time, and the fractions are what make
+an eleven-person site affordable on that budget.
+
+Table 3 reads the plan from the point of view of an unsolicited applicant. Four
+roles require a California clinical license and would come from the host
+institution. One is held by the chief executive. The remaining six require
+training and experience but no license, and those are the six the two
+inquiries could fill.
+
+\begin{apptable}
+\begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}p{0.5cm} >{\raggedright\arraybackslash}p{6.0cm} >{\raggedright\arraybackslash}p{0.9cm} >{\raggedright\arraybackslash}p{1.7cm} >{\raggedright\arraybackslash}p{2.0cm} >{\raggedright\arraybackslash}X}
+\headrow \thead{No} & \thead{Role} & \thead{FTE} & \thead{Per year} & \thead{License} & \thead{Applicant fit}\\
+\midrule
+1 & Chief executive, sponsor & 0.20 & \$42,000 & None & Sponsor \\
+2 & Site principal investigator & 0.10 & \$34,000 & Medical & Host institution \\
+3 & Sub-investigator, medical oncology & 0.10 & \$28,000 & Medical & Host institution \\
+4 & Director of clinical operations & 0.40 & \$54,000 & None & Open \\
+5 & Lead clinical research coordinator & 1.00 & \$88,000 & None & Open \\
+6 & Regulatory and quality manager & 0.45 & \$52,000 & None & Open \\
+7 & Investigational drug pharmacist & 0.20 & \$30,000 & Pharmacy & Host institution \\
+8 & Systems engineer, safety officer & 0.55 & \$72,000 & None & Open \\
+9 & Model governance lead & 0.40 & \$58,000 & None & Open \\
+10 & Data manager and biostatistician & 0.30 & \$38,000 & None & Open \\
+11 & Research nurse and navigator & 0.25 & \$25,000 & Nursing & Host institution \\
+ & \textbf{Total} & \textbf{3.95} & \textbf{\$521,000} & & \textbf{6 open} \\
+\end{tabularx}
+\end{apptable}
+\vspace{-0.60cm}
+\tabcap{Table 3. The eleven roles with their award-funded effort and cost, the license\\
+each requires, and whether an unsolicited applicant could fill it; six roles are open.}
+
+The six open roles carry 3.10 of the 3.95 full-time equivalents and \$362,000 of
+the \$521,000 personnel line. That is the part of the budget a reviewer would
+expect a small business to recruit for itself, and it is the part the two
+inquiries speak to. The licensed roles are drawn from the host institution under
+a site agreement, which is why no unsolicited message is ever routed to them.
+
+\begin{appfloat}[!tb]
+\begin{appfig}[diagrams (python)-type / clustered glyph tiles by location]
+% Four clusters: two open to an applicant (accent tiles, white glyphs), one for
+% the host institution's licensed roles and one for the sponsor (gray tiles).
+% Tile pitch is 2.45 cm; labels sit 5.4 mm below each tile.
+\dgnodew{dgtiled}{0}{0}{\glyphgear}{Director of clinical operations, 0.40}{ra}
+\dgnodew{dgtiled}{2.45}{0}{\glyphdoc}{Lead clinical research coordinator, 1.00}{rb}
+\dgnodew{dgtiled}{4.90}{0}{\glyphshield}{Regulatory and quality manager, 0.45}{rc}
+\dgnodew{dgtiled}{7.90}{0}{\glyphrobot}{Systems engineer, site safety officer, 0.55}{rd}
+\dgnodew{dgtiled}{10.35}{0}{\glyphai}{Model governance lead, 0.40}{re}
+\dgnodew{dgtiled}{12.80}{0}{\glyphchart}{Data manager and biostatistician, 0.30}{rf}
+\dgnodeg{dgtileg}{0}{-3.05}{\glyphscalpel}{Site principal investigator, 0.10}{rg}
+\dgnodeg{dgtileg}{2.45}{-3.05}{\glyphpill}{Sub-investigator, medical oncology, 0.10}{rh}
+\dgnodeg{dgtileg}{4.90}{-3.05}{\glyphflask}{Investigational drug pharmacist, 0.20}{ri}
+\dgnodeg{dgtileg}{7.35}{-3.05}{\glyphhand}{Research nurse and navigator, 0.25}{rj}
+\dgnodeg{dgtilek}{11.55}{-3.05}{\glyphbank}{Chief executive, sponsor representative, 0.20}{rk}
+\begin{scope}[on background layer]
+\node[dgcluster,fit={(ra)(ral)(rc)(rcl)}] (ca) {};
+\node[dgcluster,fit={(rd)(rdl)(rf)(rfl)}] (cb) {};
+\node[dgcluster2,fit={(rg)(rgl)(rj)(rjl)}] (cc) {};
+\node[dgcluster2,fit={(rk)(rkl)}] (cd) {};
+\end{scope}
+\node[dgctitle,anchor=south west] at (ca.north west) {Site operations: open to an applicant, 1.85 FTE};
+\node[dgctitle,anchor=south west] at (cb.north west) {Systems and data: open to an applicant, 1.25 FTE};
+\node[dgctitle2,anchor=south west] at (cc.north west) {Host institution: California license required, 0.65 FTE};
+\node[dgctitle2,anchor=south west] at (cd.north west) {Sponsor, 0.20 FTE};
+\legkey{-1.25}{-5.05}{fundaccent}{Open to an unsolicited applicant: 6 roles, 3.10 FTE}
+\legkey{6.60}{-5.05}{fundgrayl}{Licensed, or held by the sponsor: 5 roles, 0.85 FTE}
+\end{appfig}
+\vspace{-0.60cm}
+\figcaption{Figure 2. The eleven roles grouped by where each sits and who can fill it, with the\\
+six open roles in the accent color and the five licensed or sponsor roles in gray.}
+\end{appfloat}
+
+\subsection{What the six roles do in the robotic Phase 1}
+
+The trial the roles would run is an open-label, single-arm, 3+3 dose escalation
+of perioperative daraxonrasib at 160, 220 and 300 mg with a 28-day
+dose-limiting toxicity window, in up to 18 treated participants undergoing a
+staged eight-arm robotic pancreaticoduodenectomy \cite{onpremwhippl,phase1ind}.
+Each open role owns a part of that design that no other role can cover.
+
+The lead clinical research coordinator runs consent, screening and every study
+visit, and is the only full-time role on the award. The director of clinical
+operations closes the activation checklist and hosts monitoring visits. The
+regulatory affairs and quality manager holds the correspondence with the review
+board and the agency. The systems engineer and site safety officer owns the 3 N
+per-arm and 18 N cumulative force limits, the 3 ms cross-arm stop and the 500 ms
+system stop. The model governance lead holds the boundary that keeps the
+on-premises language model advisory only. The data manager and biostatistician
+convenes each cohort review and locks the database.
+
+\subsection{Why the licensed roles are never recruited this way}
+
+A site principal investigator, a medical oncology sub-investigator, an
+investigational drug pharmacist and a research nurse are licensed clinicians
+whose time on the trial is contributed under the site agreement. Recruiting any
+of them through an unsolicited message would bypass the institution that
+credentials them, and the sponsor-investigator firewall in the site package
+requires that every investigator decision sit with the site rather than with the
+company \cite{movein2026}.

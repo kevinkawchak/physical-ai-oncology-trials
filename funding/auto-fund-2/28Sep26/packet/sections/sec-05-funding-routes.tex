@@ -1,0 +1,99 @@
+% sec-05: four routes that can fund a first hire.  Table 5, Figure 3
+% (graphviz-type record nodes).
+\section{Four Routes That Can Fund a First Hire}
+
+An applicant's first question after "is there a role" is "is it paid for," and
+the honest answer today is "not yet." This section sets out the four routes by
+which a first hire could be paid, what each is worth, what gate stands in front
+of it, and where it stands after today's letters. Only two of the four can pay
+a salary. The third rewards jobs after they exist, and the fourth bridges a
+timing gap and is never a source.
+
+\begin{apptable}
+\begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}p{3.4cm} >{\raggedright\arraybackslash}p{4.3cm} >{\raggedright\arraybackslash}X >{\raggedright\arraybackslash}p{2.6cm}}
+\headrow \thead{Route} & \thead{Amount and window} & \thead{Gate in front of it} & \thead{Status today}\\
+\midrule
+NIH SBIR Phase I & \$306,000 over 9 months & PI employed by the company & Letter 1 sent \\
+NSF SBIR Phase I & \$305,000, 6 to 18 months & A Project Pitch invitation & Pitch on day 4 \\
+California Competes & A negotiated tax credit & New California jobs & Letter 2 asks \\
+Company reserve & \$40,000 for 13 weeks & Award letter and offer & Rung A named \\
+\end{tabularx}
+\end{apptable}
+\vspace{-0.60cm}
+\tabcap{Table 5. Four routes that could pay for a first hire, with what each is worth, the\\
+gate in front of it, and where it stands; only the first two can pay a salary outright.}
+
+The two federal routes are close in size and different in shape. The NIH Phase
+I is the company's own planned budget of \$306,000, carried unchanged from its
+ten-application work \cite{tenapps2026,nihsbirseed}. The NSF Phase I ceiling
+under the current solicitation is \$305,000, and NSF will not take a full
+proposal without first inviting one through a Project Pitch \cite{nsf26510}. A
+consenting applicant could be named in either, in the form the NIH letter asks
+about, and never in both for the same effort.
+
+\begin{appfloat}[!tb]
+\begin{appfig}[graphviz-type / record nodes under one root]
+% One root ellipse and four record nodes, each a column of five ruled cells:
+% the route, then amount, window, gate and status.  A gray field-name column
+% on the left labels the rows once, as a graphviz record's field ports would.
+\node[gvkey,text width=30mm] (root) at (5.35,1.55) {A first hire, paid on award};
+\foreach \y/\f in {0/Route, -0.72/Amount, -1.44/Window, -2.16/Gate, -2.88/Today}{
+  \node[gvcellg,text width=17mm,minimum height=7mm] at (-2.35,\y) {\f};}
+\foreach \x/\a/\b/\c/\d/\e/\h in {%
+  0.00/{NIH SBIR Phase I}/{\$306,000 total}/{9 months}/{PI primarily employed by the company}/{Letter 1 sent}/gvcellh,
+  3.55/{NSF SBIR Phase I}/{Up to \$305,000}/{6 to 18 months}/{Project Pitch invitation first}/{Pitch on day 4}/gvcellh,
+  7.10/{California Competes}/{Negotiated tax credit}/{GO-Biz periods}/{California jobs created}/{Letter 2 asks}/gvcellh,
+  10.65/{Company reserve}/{\$40,000 ceiling}/{90 days pre-award}/{Award letter and offer}/{Rung A designated}/gvcells}{
+  \node[\h,text width=30mm,minimum height=7mm] at (\x,0) {\a};
+  \node[gvcell,text width=30mm,minimum height=7mm] at (\x,-0.72) {\b};
+  \node[gvcell,text width=30mm,minimum height=7mm] at (\x,-1.44) {\c};
+  \node[gvcell,text width=30mm,minimum height=7mm] at (\x,-2.16) {\d};
+  \node[gvcell,text width=30mm,minimum height=7mm] at (\x,-2.88) {\e};}
+\draw[gvedgeb] (root.south west) to[out=-120,in=90] (0.00,0.36);
+\draw[gvedgeb] (root.south) to[out=-100,in=90] (3.55,0.36);
+\draw[gvedge]  (root.south) to[out=-80,in=90] (7.10,0.36);
+\draw[gvedged] (root.south east) to[out=-60,in=90]
+  node[pos=0.55,right,font=\tiny\itshape,fill=fundwhite,inner sep=1pt] {bridge only} (10.65,0.36);
+\ptitle{-3.25}{1.55}{Four routes, five fields}
+\pnote{-3.25}{-3.72}{Bold edges pay salary; the plain edge credits tax once jobs exist; the dashed edge only bridges timing.}
+\end{appfig}
+\vspace{-0.60cm}
+\figcaption{Figure 3. The four routes as records under one root, with the same five fields on\\
+each, so that amount, window, gate and status can be read straight across the rows.}
+\end{appfloat}
+
+\subsection{The money frame a first hire sits inside}
+
+None of the numbers below is re-derived for this packet. The program's direct
+cost is \$700,000 a year for five years, \$3,500,000 in total, of which
+\$521,000 a year is personnel across 3.95 full-time equivalents
+\cite{movein2026}. The SBIR route through Phase I at \$306,000 and Phase II at
+\$1,300,000 totals \$1,606,000, leaving a delta of \$2,104,000 that the SBIR
+route does not buy; the capitalization plan places \$5,900,000 of private
+capital behind a firewall against that delta, a private to federal leverage of
+3.67 to 1 \cite{capitalplan2026}. The company's comparable virtual trial work is
+\textbf{projected} at \$36,330 per run, and that figure describes simulation work
+already deposited rather than the cost of the clinical trial.
+
+\subsection{What a funder buys when it pays for these roles}
+
+A funder who pays for the six open roles is paying for the people who would run
+a specific trial: open-label, single-arm, 3+3 escalation of perioperative
+daraxonrasib at 160, 220 and 300 mg, up to 18 participants, a 28-day
+dose-limiting toxicity window, and a staged eight-arm robotic
+pancreaticoduodenectomy with 56 degrees of freedom, 640 sensor channels and a
+five-vessel no-fly gate, advised but never controlled by an on-premises language
+model \cite{onpremwhippl,phase1ind}. The evidence behind the agent choice is
+dated and public: a 2025 simulation that returned 12.8 against 5.4 months
+\cite{qspmetpancre}, and a 2026 Phase 3 readout of 13.2 against 6.6 months in
+the RAS G12 population \cite{rasolute302}. That proximity is a chronology
+observation, not a validation claim: the simulation modeled 1000 patients and a
+combination, and the trial enrolled a different population on a single agent.
+
+Pancreatic ductal adenocarcinoma remains the disease with the widest gap between
+incidence and survival in the United States \cite{siegel2025statistics}, and the
+standard of care after resection is still combination chemotherapy
+\cite{conroy2018folfirinox}. The developer's own adjuvant Phase 3 in resected
+disease, RASolute 304, is now enrolling \cite{ctgov304}. The perioperative,
+robot-assisted use this program proposes is a different question from either
+trial, and it is the question the six roles would be hired to answer.
