@@ -1,0 +1,113 @@
+% sec-03: the follow-up rule and the ledger of the week.  Table 23, Figure 15
+% (mermaid-type top-down flowchart).
+\section{The Follow-Up Rule}
+
+\subsection{The rule}
+
+A letter earns one follow-up on the third business day after it was sent,
+counting only days the recipient's office was open. The follow-up is sent only
+if no reply has arrived and only if it carries one new fact. A notice that asked
+for nothing earns none. Two letters to the same office in one week share one
+follow-up, and a later letter to an office supersedes an earlier one and starts
+its clock again. An applicant is never followed up: the company answers an
+applicant who writes, and waits for one who has not.
+
+The rule is the first of the three priorities in the September 12 message,
+applied to the company's own correspondence. Obedience over hard work means
+waiting for the office that owns the answer rather than writing again because
+writing is work that can be done.
+
+\subsection{The ledger}
+
+Table 23 applies the rule to every email of the week. The due column gives the
+third open business day, the first on which a follow-up may leave, on the
+assumption that the office was open throughout.
+
+\begin{apptable}
+\begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}p{0.8cm} >{\raggedright\arraybackslash}p{4.7cm} >{\raggedright\arraybackslash}p{4.1cm} >{\raggedright\arraybackslash}p{1.9cm} >{\raggedright\arraybackslash}X}
+\headrow \thead{Day} & \thead{Recipient} & \thead{Asked for} & \thead{Due} & \thead{Today}\\
+\midrule
+1 & NIH SBIR program office & A personnel answer & Thursday & In letter 1 \\
+1 & SBA, E-Verify, CalCompetes & First-employer answers & Thursday & Held \\
+1 & UC San Diego offices & Staff training access & Thursday & Superseded \\
+2 & SEC San Francisco & Venue, a record, a call & Today & Letter 2 \\
+2 & FDA Oncology AI Program & Venue & Today & Letter 3 \\
+2 & Anthropic, OpenAI, Revolution Medicines & Nothing; three notices & None & None \\
+3 & OSTP & The right office & Monday & Wait \\
+3 & Genesis Mission partnerships & A contributor's place & Monday & Wait \\
+3 & Moores Clinical Trials Office & A contributor's role & Monday & Wait \\
+3 & NCI CTEP & Nothing; one fact & None & None \\
+4 & NSF SBIR & A route it missed & Tuesday & Wait \\
+4 & NCTI principal investigator & The gate in writing & Tuesday & Wait \\
+4 & NAIRR Pilot & Shared resources & Tuesday & Wait \\
+4 & NIH SBIR program office & Advice on scope & Tuesday & In letter 1 \\
+\end{tabularx}
+\end{apptable}
+\vspace{-0.60cm}
+\tabcap{Table 23. The sixteen emails of the week against the follow-up rule, the three notices\\
+in one row, with the day each may first be followed up and what happens to each today.}
+
+\subsection{Why the NIH follow-up goes to NCI}
+
+NIH received two letters this week, a personnel question on Monday and an overlap
+disclosure on Thursday, both copied to the NCI SBIR Development Center. Two
+follow-ups to one office would be one too many, so one consolidated letter
+answers for both. It goes to the NCI center directly, because the application
+would be assigned to the National Cancer Institute, and because the center asks
+first-time Phase I applicants to send a Specific Aims page so that it can connect
+them with a program director \cite{ncisbir2026,ncisbirpd2026}. The page is
+summarized in \S4.
+
+\subsection{What silence means}
+
+Nothing. An office that has not answered in three days has taken no position,
+and no file in this block describes silence as one. The follow-ups say so by
+what they leave out: none repeats a question more sharply, none sets a deadline,
+and each says it will not write again unless asked or unless it has a new fact.
+
+\subsection{The rule, drawn as the questions it asks}
+
+Figure 15 draws the rule as five questions asked in order, each of which can stop
+a follow-up, and sets beside each how many of this week's messages it stopped.
+Only a letter that passes all five reaches the federal window.
+
+\begin{appfloat}[!tb]
+\begin{appfig}[mermaid-type / flowchart, top down, with the week's counts]
+% Five decisions down the left, each with its stopping outcome to the right and
+% the week's count beside that.  The goal is the one accent node, at the foot.
+\node[mmin,text width=30mm,align=center] (st) at (0,0) {A letter sent earlier this week};
+\node[mmdec,aspect=4,text width=24mm,align=center] (d1) at (0,-1.30) {To an applicant?};
+\node[mmdec,aspect=4,text width=24mm,align=center] (d2) at (0,-2.55) {Reply received?};
+\node[mmdec,aspect=4,text width=24mm,align=center] (d3) at (0,-3.80) {Asked for anything?};
+\node[mmdec,aspect=4,text width=24mm,align=center] (d4) at (0,-5.05) {Three open days?};
+\node[mmdec,aspect=4,text width=24mm,align=center] (d5) at (0,-6.30) {One new fact?};
+\node[mmgoal,text width=34mm,align=center] (gl) at (0,-7.60) {Send one follow-up in the federal window};
+\node[mmgray,text width=40mm] (o1) at (5.40,-1.30) {Send nothing unless the applicant wrote back};
+\node[mmsoft,text width=40mm] (o2) at (5.40,-2.55) {Answer the reply; no follow-up};
+\node[mmgray,text width=40mm] (o3) at (5.40,-3.80) {A notice: it earns no follow-up};
+\node[mmgray,text width=40mm] (o4) at (5.40,-5.05) {Wait, counting only open days};
+\node[mmgray,text width=40mm] (o5) at (5.40,-6.30) {Hold until there is one};
+\foreach \y/\t in {-1.30/{2 LinkedIn replies wait on this},
+  -2.55/{Checked first, at 5:00 a.m.},
+  -3.80/{4 letters: three notices and CTEP},
+  -5.05/{6 due Monday or Tuesday; 1 restarted},
+  -6.30/{1 held: the letter to the SBA}}{
+  \node[font=\scriptsize\sffamily,text=fundgrayd,anchor=west] at (8.10,\y) {\t};}
+\node[font=\scriptsize\sffamily,text=fundaccent,anchor=west] at (2.40,-7.60) {3 today; NIH's two letters share one};
+\draw[mmedge] (st) -- (d1);
+\draw[mmedge] (d1) -- node[mmlabel,right] {no} (d2);
+\draw[mmedge] (d2) -- node[mmlabel,right] {no} (d3);
+\draw[mmedge] (d3) -- node[mmlabel,right] {yes} (d4);
+\draw[mmedge] (d4) -- node[mmlabel,right] {yes} (d5);
+\draw[mmedgeb] (d5) -- node[mmlabel,right] {yes} (gl);
+\draw[mmedge] (d1) -- node[mmlabel,above] {yes} (o1);
+\draw[mmedge] (d2) -- node[mmlabel,above] {yes} (o2);
+\draw[mmedge] (d3) -- node[mmlabel,above] {no} (o3);
+\draw[mmedge] (d4) -- node[mmlabel,above] {no} (o4);
+\draw[mmedge] (d5) -- node[mmlabel,above] {no} (o5);
+\ptitle{-2.20}{0.75}{Five questions before a second message}
+\end{appfig}
+\vspace{-0.60cm}
+\figcaption{Figure 15. The follow-up rule as five questions asked in order, each able to stop\\
+a second message, with the number of this week's messages each question stopped.}
+\end{appfloat}
