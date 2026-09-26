@@ -1,0 +1,102 @@
+% sec-01: the inquiry, the gate, and the funding ladder.  Table 16, Figure 10
+% (d2-type layered stack).
+\section{The Inquiry, and the Gate in Front of the Pilot}
+
+\subsection{What was asked, and what the answer must be}
+
+An inquiry to apply is an honor, and it is also a question with an exact
+answer. The pilot the inquiry concerns is new: NSF announced it in September
+2026 as a way to carry deep technologies from its small business portfolio
+toward market readiness, with the Institute at the University of Central Florida
+selecting the companies and managing their milestones \cite{nsfncti2026}. The
+gate to it is published, and the company does not yet pass it. The answer
+therefore does three things and no more: it thanks the agency, it states the
+gate and the company's place against it in writing, and it asks whether the
+inquiry had a different route in mind. The letter to the pilot's principal
+investigator asks the same question of the Institute \cite{nctiucf2026}.
+
+\subsection{The tiers and pilots, side by side}
+
+Table 16 sets every NSF tier and pilot the inquiry could concern beside its
+amount, its eligibility, and the company's position today. The amounts are
+those published in the current solicitations and the pilot's announcement
+\cite{nsf26510,nsf26511,nsfncti2026}. Only one row is open to the company now,
+and it carries no money: the Project Pitch, which NSF requires before any
+Phase I proposal.
+
+\begin{apptable}
+\begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}p{3.9cm} >{\raggedright\arraybackslash}p{4.2cm} >{\raggedright\arraybackslash}p{3.8cm} >{\raggedright\arraybackslash}X}
+\headrow \thead{Tier or pilot} & \thead{Amount} & \thead{Who is eligible} & \thead{The company}\\
+\midrule
+Project Pitch & None; four short fields & Any small business & Submitted today \\
+SBIR Phase I & \$305K; 6 to 18 months & Invited after a Pitch & Once invited \\
+SBIR Phase II & \$1.25M; about 24 months & Phase I awardees & After Phase I \\
+Phase IIB supplement & \$50K to \$500K, with a match & Phase II awardees & Ledger at \$0 \\
+NCTI Readiness Pilot & \$1M to \$3.75M each, of \$20M & Recent Phase II or IIB & Not yet eligible \\
+Strategic Breakthrough & Up to \$30M; 1 to 1 match & Phase II awardees & Not yet eligible \\
+Instrumentation, 26-511 & Share of a \$40M emphasis & Instrument proposers & Outside scope \\
+\end{tabularx}
+\end{apptable}
+\vspace{-0.60cm}
+\tabcap{Table 16. The NSF tiers and pilots the inquiry could concern, each with its amount, who\\
+is eligible, and the company's place today; only the Project Pitch is open to it now.}
+
+\subsection{The same tiers, drawn as a ladder}
+
+Figure 10 draws Table 16 as the stack it really is. Each layer is reached only
+through the one beneath it, and the gate between two layers is an award, a
+match, or an invitation. The company stands on the lowest layer. The pilot the
+inquiry concerns sits two gates above the first award the company could win.
+
+\begin{appfloat}[!tb]
+\begin{appfig}[d2-type / layered stack, each layer gated by the one below]
+% Six layers bottom to top, each a D2 container 11.0 cm wide with the tier on
+% the left and its amount on the right.  The gate that opens a layer is set in
+% the right-hand column at the boundary beneath it.  The company marker is the
+% one accent layer, at the bottom.
+\tikzset{d2tier/.style={text width=48mm,minimum height=7.2mm,align=left,anchor=west}}
+\node[d2key,d2tier,font=\scriptsize\sffamily\bfseries] at (0.00,0.00) {Project Pitch};
+\node[d2key,d2tier] at (5.30,0.00) {No funding; four fields; two a year};
+\node[d2soft,d2tier,font=\scriptsize\sffamily\bfseries] at (0.00,1.05) {SBIR Phase I};
+\node[d2soft,d2tier] at (5.30,1.05) {Up to \$305K, 6 to 18 months};
+\node[d2soft,d2tier,font=\scriptsize\sffamily\bfseries] at (0.00,2.10) {SBIR Phase II};
+\node[d2soft,d2tier] at (5.30,2.10) {Up to \$1.25M, about 24 months};
+\node[d2gray,d2tier,font=\scriptsize\sffamily\bfseries] at (0.00,3.15) {Phase IIB supplement};
+\node[d2gray,d2tier] at (5.30,3.15) {\$50K to \$500K, with a match};
+\node[d2gray,d2tier,font=\scriptsize\sffamily\bfseries] at (0.00,4.20) {Commercialization Readiness Pilot};
+\node[d2gray,d2tier] at (5.30,4.20) {\$1M to \$3.75M each; 6 to 8 firms};
+\node[d2gray,d2tier,font=\scriptsize\sffamily\bfseries] at (0.00,5.25) {Strategic Breakthrough};
+\node[d2gray,d2tier] at (5.30,5.25) {Up to \$30M, 1 to 1 match};
+\begin{scope}[on background layer]
+\foreach \y in {0.00,1.05,2.10,3.15,4.20,5.25}{
+  \draw[fundmid,line width=0.5pt,rounded corners=3pt,fill=fundwhite] (-0.15,\y-0.47) rectangle (10.75,\y+0.47);}
+\end{scope}
+\foreach \y/\g in {0.52/invitation after the Pitch, 1.57/a Phase I award, 2.62/a Phase II award, 3.67/Phase II or IIB, 4.72/Phase II and a match}{
+  \node[font=\tiny\sffamily,text=fundgrayd,anchor=west] at (11.25,\y) {gate: \g};
+  \draw[d2edged] (11.15,\y-0.30) -- (11.15,\y+0.30);}
+\node[d2key,text width=24mm,minimum height=7.2mm] (here) at (13.35,0.00) {The company is here};
+\draw[d2edgeb] (here.west) -- (10.80,0.00);
+\legkey{0.00}{-0.95}{fundaccent}{Open to the company today}
+\legkey{4.30}{-0.95}{fundpale}{Reached by winning the layer below}
+\legkey{9.05}{-0.95}{fundgrayl}{Needs a Phase II award first}
+\ptitle{-0.10}{6.20}{Each layer opens only from the one beneath it}
+\end{appfig}
+\vspace{-0.60cm}
+\figcaption{Figure 10. The NSF tiers and pilots as a layered stack, each opened only by an award\\
+or a match on the layer below, with the company on the Pitch layer at the bottom.}
+\end{appfloat}
+
+\subsection{The standing fact}
+
+The trial behind the program is built around daraxonrasib, which the FDA
+approved on August 26, 2026 as Rasonque for metastatic pancreatic adenocarcinoma
+after prior systemic therapy \cite{fdarasonque2026,fdadisco2026,revmedapproval2026}.
+The approval followed Revolution Medicines' Phase 1/2 program and its Phase 3
+RASolute 302 trial \cite{ctgov001,ctgov302,rasolute302}. ChemicalQDevice's AI
+papers on the molecule were developed independently of that program and
+simultaneously with it, from the June 2025 identification study
+\cite{daraxident} to the Phase 1 protocol and investigational new drug
+application of 2026 \cite{onpremwhippl,phase1ind}. The perioperative use the
+company's protocol proposes remains investigational, and a separate adjuvant
+Phase 3 trial of the molecule has been enrolling since December 2025
+\cite{ctgov304}.

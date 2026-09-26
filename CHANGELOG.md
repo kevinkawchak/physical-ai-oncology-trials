@@ -5,6 +5,36 @@ Format follows [Keep a Changelog](https://keepachangelog.com/).
 
 ## [Unreleased]
 
+## [4.9.0] - 2026-09-26
+
+### Added
+- `funding/auto-fund-2/` - **Daily Funding Actions, Second Block: Four Signals Answered**, five business days of funding actions for CEO Kevin Kawchak (ChemicalQDevice), from September 28 to October 2, 2026, each ending in one approval step. It follows the structure of `funding/auto-fund/` and answers four signals, one a day, with a fifth day that sends only the follow-ups that have earned their interval.
+- `funding/auto-fund-2/prompts/` - the master prompt filed verbatim under a single heading (`prompt-auto-fund-2.md`), and the build output of record under a single heading (`output-auto-fund-2.md`).
+- `funding/auto-fund-2/sub-prompts/` - one schedule per business day, each with its single decision, deliverables, figure and table plan, invariants, commit order and Rule 5 source map.
+- `funding/auto-fund-2/inputs/` - the sources every day reads, the money frame, the Phase 1 numbers, and a register of 36 recipient addresses, each checked against the page its organization publishes, with the channels that are not email (the LinkedIn threads, the White House contact form, the brokerage portal).
+- `funding/auto-fund-2/28Sep26/` - **Day 1, The Unsolicited Applicants.** Two identical LinkedIn replies to the two people who wrote in the week of September 21 with no posting, three emails opening routes that could fund a first hire (NIH SBIR contingent personnel, first-employer readiness, UC San Diego research staff training), a role-fit brief with pay ranges on request and a six-question structured interview, two employer form packs, and a $40,000 contingent payroll earmark.
+- `funding/auto-fund-2/29Sep26/` - **Day 2, The External Standard Request.** The reply to the SEC San Francisco Regional Office, which is taking the request "very seriously", with the eleven dated identifiers behind it; a routing letter to the FDA's Oncology AI Program; notices to Anthropic, OpenAI and Revolution Medicines; eight criteria an external standard would have to meet, scored against the record; EDGAR access readiness; and a restricted trading list.
+- `funding/auto-fund-2/30Sep26/` - **Day 3, The Structured Team.** The September 12, 2026 message quoted verbatim, its three priorities turned into operating rules, the White House contact form, four letters offering a contributor's place in OSTP, the Genesis Mission, the Moores Clinical Trials Office and the CTEP thread, the 5:00 a.m. Pacific weekday, and a quarter-end policy review.
+- `funding/auto-fund-2/01Oct26/` - **Day 4, The Pilot Inquiry.** The answer to NSF's inquiry about a multi-million-dollar pilot, stating the published gate (active or recent Phase II or IIB awardees for the $20 million NCTI pilot; Phase II for Strategic Breakthrough) and the company's place against it; the Project Pitch with each field measured against its limit; letters to the NCTI principal investigator, the NAIRR Pilot and NIH; the NSF, NIH and private capital split; and a match ledger opened at $0.
+- `funding/auto-fund-2/02Oct26/` - **Day 5, The Week's Record.** The sixteen emails of the week measured against the follow-up rule, three earned follow-ups (to the NCI SBIR Development Center with a one-page Specific Aims, to the SEC office, and to the FDA's Oncology AI Program), two LinkedIn replies sent only if an applicant has answered, the robotic Phase 1 in nineteen checkable numbers, the weekly cadence version 2, and a week-close ledger.
+- Five compiled packets, one per day, each of seven sections, ten pages, three TikZ figures and five tables, with `main.tex`, `fundstyle.sty`, `references.bib`, `sections/`, `main.pdf` and an Overleaf zip tested on its own. Fifteen figures, three per platform across Mermaid, Graphviz, D2, PlantUML and Diagrams, each with a specification file carrying its native source and exact caption.
+- Comprehensive READMEs with badges and Rule 5 source maps in every directory under `funding/auto-fund-2/`.
+
+### Changed
+- Root `README.md`: release badge to v4.9.0, two new badges, a dated 9/26 headline entry, and one new section (*Daily Funding Actions, Second Block: Four Signals Answered*) with two mermaid diagrams and three tables; the funding subtree of the repository structure updated with `auto-fund-2/`.
+- `funding/README.md`: version to v4.9.0, two new badges, `auto-fund-2/` added to the structure tree, one new numbered section for v4.9.0 with the following sections renumbered, and one new row in the Rule 5 table.
+- `fundstyle.sty` (per day): a thin band in the lighter accent below the cover block; hyphenation switched off inside every TikZ node; a `\needspace` without stretch or negative penalty, and a zero section penalty, so no page ends early at a heading.
+
+### Fixed
+- CI: `lint-and-format` failed on the pushed branch because ruff 0.16 formats Python code blocks inside Markdown, and the Diagrams source in `28Sep26/diagrams/fig-02-roster-by-location.md` used hanging list indentation. The block is now in ruff's format, and `ruff format --check`, `ruff check` and `yamllint` pass on the whole repository with ruff 0.16.9, the version CI installs.
+- Day 1: the section float barrier flushed Figure 2 onto a page of its own, leaving about two thirds of it empty. The figure is now defined before Table 3, and the packet is ten pages with no short page.
+- Days 1 to 3: a References heading could be stranded at the foot of a page; room is now reserved before it.
+- Day 4: an unescaped style name inside a TikZ `\foreach` halted the compile; the six layers of Figure 10 are now drawn one node per line.
+- Day 5: a 0.41 pt overfull box in the balanced reference columns, removed by dropping one uncited entry.
+- Several tables whose rows wrapped unevenly were rebalanced by column width and shorter cells, and the planned widest-column values in the sub-prompts were updated to the widths actually set.
+- The chief executive, the CTEP branch chief and the applicants are referred to without gendered pronouns throughout the block.
+- The `$36,330` figure for the author's virtual trial work is described as **projected** throughout the new directory, never as estimated.
+
 ## [4.8.0] - 2026-09-08
 
 ### Added

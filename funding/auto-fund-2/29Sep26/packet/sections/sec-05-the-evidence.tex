@@ -1,0 +1,63 @@
+% sec-05: the evidence a funder is buying.  Table 10.
+\section{The Evidence Behind the Robotic Phase 1}
+
+The request to the SEC office concerns the company's research as a body of
+work. A funder reading this packet has a narrower question: what trial would the
+money run, and what evidence says it is worth running? This section answers with
+six quantities a reviewer can check, each beside the limitation its own authors
+stated, and with the design numbers fixed in the deposited protocol.
+
+\begin{apptable}
+\begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}p{3.6cm} >{\raggedright\arraybackslash}p{2.8cm} >{\raggedright\arraybackslash}p{2.7cm} >{\raggedright\arraybackslash}p{1.7cm} >{\raggedright\arraybackslash}X}
+\headrow \thead{Source} & \thead{Test arm} & \thead{Comparator} & \thead{Tier} & \thead{Stated limitation}\\
+\midrule
+RASolute 302, 2026 & 13.2 mo mOS & 6.6 mo mOS & Trial & Metastatic setting only \\
+QSP model, 250 ODEs & 12.8 mo, HR 0.25 & 5.4 mo mOS & In silico & No resistance modeled \\
+Twin, 1000 patients & 12.1 mo mOS & No comparator & Twin & Simple Emax model \\
+Twin, PFS & HR 0.31 & No comparator & Twin & No immune compartments \\
+VVUQ, 55 tests & Score 81.9 & V and V 40 gate & Twin & Pre-trial score only \\
+Empirical triplicate & G3+ 8.0 pct & G3+ 25.0 pct & In silico & Two logs disagree \\
+\end{tabularx}
+\end{apptable}
+\vspace{-0.60cm}
+\tabcap{Table 10. Six quantities that a reviewer can check against a published or deposited\\
+source, each set beside its comparator, its evidence tier, and its stated limitation.}
+
+Only the first row is a clinical result, and it is the developer's, in the
+metastatic setting \cite{rasolute302}. The other five are the company's own
+in silico and digital twin work \cite{qspmetpancre,daraxsims}. No row is
+presented without its limitation, and none is presented as evidence for the
+perioperative use this program proposes. What the six do establish is that the
+agent choice was made on a dated, quantitative record, and that the one
+clinical readout since has landed near the company's simulation.
+
+\subsection{The trial the evidence supports}
+
+The deposited Phase 1 protocol is open-label, single-arm, 3+3 dose escalation of
+perioperative daraxonrasib at 160, 220 and 300 mg, with a 28-day dose-limiting
+toxicity window, in up to 18 treated participants with resectable or
+borderline-resectable KRAS-mutated pancreatic ductal adenocarcinoma
+\cite{onpremwhippl}. The procedure is a staged eight-arm robotic
+pancreaticoduodenectomy with 56 degrees of freedom and 640 sensor channels, force
+limits of 3 N per arm and 18 N cumulative, a 3 ms cross-arm stop against a 500 ms
+system stop, and a five-vessel no-fly gate. An on-premises language model is
+confined to advisory output, with no write credential to data capture and no
+route to the robot control network \cite{phase1ind}.
+
+The disease the trial addresses remains the one with the widest gap between
+incidence and survival in the United States \cite{siegel2025statistics}. The
+developer's own adjuvant Phase 3 in resected disease is enrolling
+\cite{ctgov304}. The perioperative, robot-assisted question this program asks is
+a different one from either of the developer's Phase 3 trials, and it is the
+question a Phase 1 is designed to open.
+
+\subsection{The money frame}
+
+The program's direct cost is \$700,000 a year for five years, \$3,500,000 in
+total. An SBIR route of \$306,000 in Phase I and \$1,300,000 in Phase II totals
+\$1,606,000, leaving a delta of \$2,104,000 that the capitalization plan places
+against \$5,900,000 of private capital behind a firewall, a leverage of 3.67 to 1
+\cite{capitalplan2026,tenapps2026}. The company's comparable virtual trial work is
+\textbf{projected} at \$36,330 per run, a figure that describes simulation work
+already deposited and not the cost of the clinical trial. None of these numbers
+depends on the SEC request, and none changes with its outcome.

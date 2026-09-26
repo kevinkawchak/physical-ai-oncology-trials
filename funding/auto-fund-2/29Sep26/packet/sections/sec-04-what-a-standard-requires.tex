@@ -1,0 +1,106 @@
+% sec-04: what an external standard requires.  Table 9, Figure 6 (d2-type grid).
+\section{What an External Standard Requires}
+
+A request to be listed as an external standard invites one question before any
+other: a standard by what measure? This section proposes eight criteria that any
+body of work would have to meet before a reviewer could reference it as a
+benchmark for oncology clinical trial research, and scores the company's record
+against each. The criteria draw on the ASME approach to computational model
+credibility \cite{asmevv40}, the ICH principles for model-informed drug
+development \cite{ichm15}, and the FDA's draft guidance on artificial
+intelligence in regulatory decision-making \cite{fdaaiguidance2025}.
+
+Three of the eight are met across the record: persistent identifiers, dated
+versions, and an open method. The other five are met in part or not yet, and
+each is taken in turn below before Table 9 summarizes all eight.
+
+\begin{appfloat}[!tb]
+\begin{appfig}[d2-type / grid with shaded status cells]
+% Rows: eight criteria.  Columns: five parts of the record.  Cell fill encodes
+% status: accent = carries it, mid = in part, light gray = does not.
+\foreach \x/\lab in {3.30/{2025 papers}, 5.30/{Protocols and IND}, 7.30/{Applications and plans}, 9.30/{Repository and builds}, 11.30/{Outside replies}}{
+  \node[d2cellh,minimum width=19mm,text width=17mm,minimum height=8mm] at (\x,0) {\lab};}
+\node[d2cellh,minimum width=38mm,text width=36mm,minimum height=8mm] at (0.60,0) {Criterion};
+\foreach \y/\c in {-0.78/{1. Persistent identifiers}, -1.46/{2. Dated versions}, -2.14/{3. Open method}, -2.82/{4. Credibility assessment}, -3.50/{5. Regulatory mapping}, -4.18/{6. Independent review}, -4.86/{7. Outcome validation}, -5.54/{8. Adoption, confirmed}}{
+  \node[d2celll,minimum width=38mm,text width=36mm,minimum height=6.8mm] at (0.60,\y) {\c};}
+% one row per criterion: fills for the five columns, left to right
+\foreach \y/\a/\b/\c/\d/\e in {%
+  -0.78/fundaccent/fundaccent/fundaccent/fundmid/fundgrayl,
+  -1.46/fundaccent/fundaccent/fundaccent/fundaccent/fundgrayl,
+  -2.14/fundaccent/fundmid/fundmid/fundaccent/fundgrayl,
+  -2.82/fundaccent/fundgrayl/fundgrayl/fundmid/fundgrayl,
+  -3.50/fundgrayl/fundaccent/fundmid/fundmid/fundgrayl,
+  -4.18/fundmid/fundmid/fundmid/fundmid/fundgrayl,
+  -4.86/fundmid/fundgrayl/fundgrayl/fundgrayl/fundgrayl,
+  -5.54/fundgrayl/fundgrayl/fundgrayl/fundgrayl/fundgrayl}{
+  \foreach \x/\f in {3.30/\a, 5.30/\b, 7.30/\c, 9.30/\d, 11.30/\e}{
+    \node[d2cell,fill=\f,minimum width=19mm,minimum height=6.8mm] at (\x,\y) {};}}
+\legkey{-1.30}{-6.35}{fundaccent}{Carries the criterion}
+\legkey{2.90}{-6.35}{fundmid}{Carries it in part}
+\legkey{6.60}{-6.35}{fundgrayl}{Does not carry it yet}
+\ptitle{-1.30}{0.75}{Where each criterion is carried}
+\end{appfig}
+\vspace{-0.60cm}
+\figcaption{Figure 6. The eight criteria against five parts of the record, shaded by whether each\\
+part carries the criterion fully, in part, or not yet; the last two rows are open.}
+\end{appfloat}
+
+\subsection{Where each criterion is carried}
+
+Before the criteria are taken one by one, Figure 6 shows where in the record each
+is carried. It breaks the record into five parts and shades each cell by whether
+that part carries the criterion fully, in part, or not at all. Two things stand
+out. The first three criteria are carried across the whole record. The last two
+are carried only by replies the company does not yet have.
+
+\subsection{The five criteria not yet fully met}
+
+\textbf{Credibility assessment.} The score of 81.9 over 55 tests is a pre-trial
+credibility score for the digital twin, not a post-trial validation, and it
+covers the model rather than the trial documents \cite{daraxsims}. Extending the
+same test battery to the Phase 1 protocol's decision rules is the next step.
+
+\textbf{Regulatory mapping.} The investigational new drug application and both
+protocols are mapped to 21 CFR Part 312 and adapted ICH guidance
+\cite{phase1ind,ecfr2026part312}. No regulator has reviewed the mapping, and the
+routing letter to the FDA program asks where such a review would belong.
+
+\textbf{Independent review.} Each document is produced by one model and reviewed
+by two others from different developers \cite{tripartisan2026}. A clinical
+investigator's written review of the Phase 1 protocol, published with consent,
+would add the human reviewer a standard needs.
+
+\textbf{Outcome validation.} The only comparison between a company prediction
+and a trial result is a chronology. A prospective test means publishing a dated
+prediction for one endpoint of a trial that has not yet reported, and being
+scored on it afterward.
+
+\textbf{Adoption.} The company can document its own use of OpenAI and Anthropic
+tools. It cannot document either company's internal use of its papers, and it
+has written to both inviting a correction. Until either replies, the criterion
+is unmet on independent evidence, and the company says so.
+
+\subsection{The eight criteria together}
+
+\begin{apptable}
+\begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}p{0.5cm} >{\raggedright\arraybackslash}p{4.4cm} >{\raggedright\arraybackslash}X >{\raggedright\arraybackslash}p{1.6cm}}
+\headrow \thead{No} & \thead{Criterion} & \thead{What the record holds today} & \thead{Status}\\
+\midrule
+1 & Persistent identifiers & Eleven DOIs across the program & Met \\
+2 & Dated versions & Deposit dates; releases v4.0.0 to v4.9.0 & Met \\
+3 & Open method & Public source, prompts and build records & Met \\
+4 & Credibility assessment & VVUQ score 81.9 over 55 tests, pre-trial & In part \\
+5 & Regulatory mapping & 21 CFR 312 and ICH mapping, unreviewed & In part \\
+6 & Independent review & Two model reviewers; no human reviewer & In part \\
+7 & Outcome validation & One chronology; no prospective test & Not yet \\
+8 & Adoption, confirmed & The company's statement, unconfirmed & Not yet \\
+\end{tabularx}
+\end{apptable}
+\vspace{-0.60cm}
+\tabcap{Table 9. Eight criteria for an external standard scored against the record as\\
+it stands today: three are met, three are met in part, and two are not yet met.}
+
+A table that scored every criterion as met would be read as advocacy. This one
+says two are not yet met, and the subsection above names the action that would
+change each of the five that fall short. That is what makes it a record rather
+than a pitch.

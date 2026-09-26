@@ -1,0 +1,63 @@
+FROM: kevink@chemicalqdevice.com
+
+TO: sbir@nsf.gov
+
+CC: policy@nsf.gov, rgov@nsf.gov
+
+SUBJECT: Re: Inquiry about applying to an NSF multi-million-dollar pilot program - ChemicalQDevice's eligibility position and next step
+
+=== BODY ===
+Dear NSF SBIR Program Staff,
+
+Thank you for the inquiry about whether ChemicalQDevice would apply to a multi-million-dollar pilot program. I would like to answer it exactly, because the honest answer is more useful to you than an eager one. I have copied the Policy Office, because eligibility is a policy question, and the Research.gov help desk, because the next step runs through Research.gov.
+
+My understanding of the published gates is this. The Commercialization Readiness Pilot run by the National Commercialization and Translation Institute is open to active or recent NSF SBIR/STTR Phase II and IIB awardees, and the Strategic Breakthrough tier is open to Phase II awardees after consultation with a program officer. ChemicalQDevice holds no NSF award today, so as I read those gates it is not yet eligible for either. If the inquiry contemplates a route I have missed, I would be grateful to know it.
+
+The step I can take today is the one the published route begins with. I am submitting a Project Pitch under NSF 26-510 for the technology in my program that NSF can fund: a governed, advisory-only language model layer for robotic oncologic surgery. The layer produces text recommendations to an operating surgeon, holds no write credential to the data capture system and no route to the robot control network, and every document it produces is verified by two independent models from different developers, with a public audit trail. I understand that NSF's SBIR program does not fund clinical trials, and the Pitch does not ask it to. The Phase 1 trial in which the layer would one day be used is a separate question for the National Institutes of Health and private capital.
+
+For context, the trial is built around daraxonrasib, which the FDA approved on August 26, 2026 as Rasonque for metastatic pancreatic cancer. The company's AI work on the molecule was developed independently of its developer and simultaneously with the developer's Phase 1/2 and Phase 3 trials, and every item is deposited with a persistent identifier.
+
+Two questions.
+1) Does the inquiry refer to the Commercialization Readiness Pilot, or to another pilot I should read?
+2) For the Research.gov help desk: is there anything a first-time small business applicant should confirm in its organization record before a Pitch invitation arrives, so that a full proposal is not delayed?
+
+Thank you for thinking of the company.
+
+Sincerely,
+CEO Kevin Kawchak
+ChemicalQDevice
+San Diego, California
+kevink@chemicalqdevice.com
+ORCID 0009-0007-5457-8667
+=== END BODY ===
+
+ATTACHMENTS COMPILED FROM THIS DIRECTORY
+1. 01Oct26-pilot-inquiry.pdf
+   Compile from ../packet/main.tex in this day directory:
+   pdflatex main -> bibtex main -> pdflatex main -> pdflatex main
+   Then rename main.pdf to the name above. No DOI is asserted for this
+   document. Section 1 (the tiers and the gate, Table 16 and Figure 10) and
+   Section 4 (the Phase I technical objectives, Table 19) are the two relevant.
+
+ATTACHMENTS THE AUTHOR MUST ADD BY HAND
+1. The NSF inquiry itself, quoted below the signature if this reply is not sent
+   inside the inquiry's own thread.
+
+EXTERNAL WORK TO CITE BUT NOT ATTACH
+- NSF 26-510, SBIR/STTR Phase I, Phase II, and Fast-Track Programs.
+  https://www.nsf.gov/funding/opportunities/small-business-innovation-research-small-business-technology/nsf26-510/solicitation
+- NSF Launches $20M Pilot to Accelerate Commercialization of Promising Deep
+  Technologies from Small Businesses.
+  https://www.nsf.gov/news/nsf-launches-20m-pilot-accelerate-commercialization
+
+BEFORE SENDING
+- Reply inside the inquiry's own thread. If the inquiry came to
+  kevinkawchak@gmail.com, send from that address instead.
+- If the inquiry named a specific pilot, replace question 1 with one sentence
+  naming that pilot and restating its published gate.
+- Confirm the three addresses against ../../inputs/README.md.
+- Submit the Project Pitch before sending, or change "I am submitting" to "I
+  will submit" if it is not yet in.
+- Confirm no sentence claims eligibility the company does not have, and no
+  sentence describes the inquiry as a proposal invitation.
+- Confirm no sentence describes Rasonque as approved for perioperative use.

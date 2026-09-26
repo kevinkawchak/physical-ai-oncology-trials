@@ -1,0 +1,71 @@
+FROM: kevink@chemicalqdevice.com
+
+TO: OncologyAI@fda.hhs.gov
+
+CC: FDAOncology@fda.hhs.gov, combination@fda.gov
+
+SUBJECT: Which federal venue owns a question about an external standard for AI-developed oncology trial documents - a small company's routing request
+
+=== BODY ===
+Dear Oncology AI Program,
+
+I am writing to ask for a routing answer rather than a review, and I have kept this letter short for that reason. I have copied the Oncology Center of Excellence and the Office of Combination Products because the program behind the question would, if it ever reached a submission, be a combination product.
+
+ChemicalQDevice is a one-person San Diego company. Since June 2025 it has deposited a dated, public record of AI-developed oncology trial documents built around daraxonrasib: an identification study, a survival simulation, a Phase 1 protocol for a staged robotic pancreaticoduodenectomy with perioperative daraxonrasib, a Phase 2 protocol, an investigational new drug application, and several funding applications. The work was developed independently of Revolution Medicines, and simultaneously with its Phase 1/2 and Phase 3 trials. On August 26, 2026 the FDA approved daraxonrasib as Rasonque for metastatic pancreatic cancer. The perioperative use my documents propose is not the approved setting and remains investigational.
+
+The question arises because I asked the SEC San Francisco Regional Office whether the company's oncology trial research could be listed as an external standard for substantial oncology clinical trial research, on the basis that the company's LLM papers have been used extensively by OpenAI and Anthropic. The office has written that it is taking the request very seriously. I have told the office I understand that the Commission does not set clinical research standards, and that I am writing to you in parallel.
+
+My questions are about venue only.
+1) Does the Oncology AI Program accept inquiries from a small company about how an independent body of AI-developed oncology trial documents could be evaluated, referenced, or used as an external benchmark, and if not, which office does?
+2) Is there an existing FDA mechanism, such as a pilot, a public workshop, or a recognized consensus standards process, where a question of this kind belongs?
+3) For the Office of Combination Products: if the program's device and software components are ever submitted, is a Pre-Request for Designation the right first step, or should it wait until a clinical site sponsors the concept?
+
+I am not asking the FDA to review, endorse, or comment on any document, and I will not describe any reply as an FDA position. If the answer is that no venue exists today, that is a useful answer and I will say so to the SEC office.
+
+Thank you for considering it.
+
+Sincerely,
+CEO Kevin Kawchak
+ChemicalQDevice
+San Diego, California
+kevink@chemicalqdevice.com
+ORCID 0009-0007-5457-8667
+=== END BODY ===
+
+ATTACHMENTS COMPILED FROM THIS DIRECTORY
+1. 29Sep26-external-standard-request.pdf
+   Compile from ../packet/main.tex in this day directory:
+   pdflatex main -> bibtex main -> pdflatex main -> pdflatex main
+   Section 4 (what an external standard requires, Table 9 and Figure 6) and
+   Section 5 (the six checkable quantities, Table 10) are the two relevant here.
+
+ATTACHMENTS THE AUTHOR MUST ADD BY HAND
+1. None.
+
+SEND ONLY IF ASKED, NOT WITH THIS LETTER
+- On-Premises LLM-Directed Robotic Pancreaticoduodenectomy with Perioperative
+  Daraxonrasib (RMC-6236) in KRAS-Mutated Pancreatic Ductal Adenocarcinoma.
+  https://doi.org/10.5281/zenodo.20780121
+- Investigational New Drug Application, Phase 1 PDAC.
+  https://doi.org/10.5281/zenodo.21097442
+
+EXTERNAL WORK TO CITE BUT NOT ATTACH
+- FDA OCE Oncology AI Program.
+  https://www.fda.gov/about-fda/oncology-center-excellence/oce-oncology-artificial-intelligence-program
+- FDA. Considerations for the Use of Artificial Intelligence to Support
+  Regulatory Decision-Making for Drug and Biological Products, draft guidance.
+  https://www.fda.gov/regulatory-information/search-fda-guidance-documents/considerations-use-artificial-intelligence-support-regulatory-decision-making-drug-and-biological
+- FDA Combination Product Contacts.
+  https://www.fda.gov/combination-products/jurisdictional-information/combination-product-contacts
+
+BEFORE SENDING
+- Send only after letter 1 has gone to the SEC office, so this letter's third
+  paragraph is true when it is read.
+- Confirm the three addresses against ../../inputs/README.md.
+- Confirm the SEC office's words appear only as "very seriously," and only as a
+  statement about the request.
+- Confirm no sentence describes Rasonque as approved for perioperative use.
+- If the Pre-RFD letter from funding/auto-fund/07Sep26/emails/email-04 was sent
+  and answered, replace question 3 with one sentence referring to that answer.
+- The Office of Combination Products asks that a Pre-RFD be identified in the
+  subject line. This letter is not a Pre-RFD and must not be labeled as one.

@@ -1,0 +1,53 @@
+FROM: kevink@chemicalqdevice.com
+
+TO: NAIRR_Pilot@nsf.gov
+
+CC: nairr-oc@nsf.gov, sbir@nsf.gov
+
+SUBJECT: Can a small company's verification research use NAIRR Pilot resources, on synthetic data only?
+
+=== BODY ===
+Dear NAIRR Pilot Team,
+
+I am writing to ask whether a very small company's research can use National Artificial Intelligence Research Resource Pilot resources, and if so, through which route. I have copied the NAIRR Operations Center and NSF's SBIR program, to which I am submitting a Project Pitch on the same research.
+
+ChemicalQDevice is a one-person San Diego company. Its research question is how to verify a governed, advisory-only language model used in robotic oncologic surgery: a model that produces text recommendations to a surgeon, holds no write credential to clinical data systems and no route to robot control, and whose every output is checked by two independent models from different developers before it is trusted. The verification work is compute-heavy, because each check runs several models over the same inputs.
+
+Two constraints I would hold to without exception.
+1) No patient data, identifiable or de-identified, would ever reach a shared resource. Only synthetic data, generated from published parameters, would be used.
+2) The deployed clinical model would stay on premises at the clinical site. Shared resources would be used for research on verification methods only.
+
+My questions are whether NAIRR Pilot resource requests are open to small businesses or only to researchers at eligible institutions, and whether a company that is a candidate for an NSF SBIR award has a separate route.
+
+Thank you for considering it.
+
+Sincerely,
+CEO Kevin Kawchak
+ChemicalQDevice
+San Diego, California
+kevink@chemicalqdevice.com
+ORCID 0009-0007-5457-8667
+=== END BODY ===
+
+ATTACHMENTS COMPILED FROM THIS DIRECTORY
+1. None today. If the team asks for a description, send Section 5 of the
+   compiled packet, which shows where compute, data and review would sit
+   (Figure 12).
+
+ATTACHMENTS THE AUTHOR MUST ADD BY HAND
+1. None.
+
+EXTERNAL WORK TO CITE BUT NOT ATTACH
+- NSF, National Artificial Intelligence Research Resource.
+  https://www.nsf.gov/focus-areas/ai/nairr
+- NAIRR Pilot. https://nairrpilot.org/
+
+BEFORE SENDING
+- Confirm the three addresses against ../../inputs/README.md.
+- Confirm both constraints are stated exactly as above. They are commitments,
+  and the company must be able to keep them.
+- Confirm no sentence suggests the clinical trial itself would run on shared
+  resources.
+- If the NAIRR Pilot site shows an application portal open to small
+  businesses on the day of sending, apply through it and send this letter only
+  if the portal leaves the eligibility question open.

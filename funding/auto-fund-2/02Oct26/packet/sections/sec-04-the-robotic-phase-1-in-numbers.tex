@@ -1,0 +1,80 @@
+% sec-04: the robotic Phase 1 in numbers, and the Specific Aims in brief.
+% Table 24.
+\section{The Robotic Phase 1, in Numbers}
+
+Every letter of the week points back to one trial, and a funder deciding whether
+it is worth money needs to see that every part of it is specified to a number
+someone can check. Table 24 gathers those numbers from the deposited protocol,
+the investigational new drug application, the capitalization plan and the site
+package \cite{onpremwhippl,phase1ind,capitalplan2026,movein2026}. Nothing in it
+is new; everything in it is checkable.
+
+\subsection{What the numbers say to a funder}
+
+The design is conventional where it should be and specified where it is new. A
+3+3 escalation across three dose levels in up to 18 participants is the most
+familiar Phase 1 design there is. What is new, the robot and the model, is bound
+by numbers: a 3 ms stop across eight arms, a tip-force cap of 3 N per arm and
+18 N in all, a five-vessel no-fly gate, a gate of at least 1,000 simulated
+procedures across at least two independent frameworks with a Unified Safety
+Level of at least 7.0 before any patient, and a language model with no route to
+act \cite{onpremwhippl,phase1ind}. A funder does not have to trust the
+company's judgment about safety; it can read the limits.
+
+The evidence behind the agent is a dated chronology. In August 2025 the
+company's ten-arm simulation returned 12.8 against 5.4 months of median overall
+survival \cite{qspmetpancre}; in May 2026 the developer's Phase 3 trial reported
+13.2 against 6.6 in the RAS G12 population \cite{rasolute302}; and the approval
+that followed reported 13.2 against 6.7 in the overall population
+\cite{fdarasonque2026}. The company calls the closeness a chronology, not a
+validation, because the populations, regimens and sample sizes differ.
+Pancreatic ductal adenocarcinoma remains the cancer with the widest gap between
+incidence and survival in the United States \cite{siegel2025statistics}, and
+after resection the standard remains combination chemotherapy
+\cite{conroy2018folfirinox}.
+
+\begin{apptable}
+\begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}p{5.0cm} >{\raggedright\arraybackslash}p{7.3cm} >{\raggedright\arraybackslash}X}
+\headrow \thead{Parameter} & \thead{Value} & \thead{Source}\\
+\midrule
+Design & Open-label, single-arm, 3+3 escalation & Protocol \\
+Dose levels of daraxonrasib & 160, 220 and 300 mg & Protocol \\
+Participants & Up to 18, with sentinel enrollment & Protocol \\
+Dose-limiting toxicity window & 28 days & Protocol \\
+Primary safety window & Day 30; Clavien-Dindo III or higher & Protocol \\
+Key secondary endpoints & R0 at day 90; fistula; 24-month survival & Protocol \\
+\midrule
+Arms and degrees of freedom & 8 arms, 56 degrees of freedom & Protocol \\
+Sensor channels & 640, at 80 per arm & Protocol \\
+Positional accuracy & 0.05 mm root mean square at 1,200 mm/s & Protocol \\
+Emergency stops & 3 ms across arms; 500 ms for the system & Protocol, IND \\
+Tip-force caps & 3 N per arm; 18 N across all arms & Protocol \\
+Gate before any patient & 1,000 simulated procedures, 2 frameworks & IND \\
+Language model & Advisory only; no write access, no route & IND \\
+\midrule
+Simulated survival, 2025 & 12.8 against 5.4 months; hazard ratio 0.25 & Company QSP \\
+Credibility battery & 81.9 over 55 tests & Capital plan \\
+Reported survival, RAS G12 & 13.2 against 6.6 months & RASolute 302 \\
+\midrule
+NIH Phase I, then Phase II & \$306,000 over 9 months, then \$1,300,000 & Capital plan \\
+Clinical conduct in Phase II & 6 participants at \$48,000 each & Capital plan \\
+Program direct cost & \$700,000 a year, \$521,000 of it personnel & Site package \\
+\end{tabularx}
+\end{apptable}
+\vspace{-0.60cm}
+\tabcap{Table 24. The robotic Phase 1 in nineteen numbers, grouped as design, procedure and\\
+safety, evidence, and money, each with the deposited document a funder can check.}
+
+\subsection{The Specific Aims, in brief}
+
+The one-page Specific Aims sent with today's letter 1 proposes three aims for an
+NIH Phase I of \$306,000 over nine months \cite{capitalplan2026}. The first fixes
+the model's context of use inside the protocol: the decisions it may advise on,
+and those it may never touch, which are dose assignment, dose-limiting toxicity
+calls and analysis. The second evaluates the layer in simulated use with the
+site's surgical team, as part of the protocol's simulation gate. The third
+assembles the credibility evidence for that context of use, framed on ASME V\&V
+40 \cite{asmevv40} and read against the FDA's draft guidance on artificial
+intelligence in regulatory decision-making \cite{fdaaiguidance2025}, citing
+rather than repeating any NSF-funded verification results \cite{nsf26510}. None
+of the three aims asks NIH to pay for what the NSF Pitch proposes.

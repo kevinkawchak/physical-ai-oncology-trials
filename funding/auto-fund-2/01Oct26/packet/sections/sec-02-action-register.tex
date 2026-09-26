@@ -1,0 +1,122 @@
+% sec-02: the action register.  Table 17, Figure 11 (plantuml-type activity
+% diagram with a fork, a join, and a connector).
+\section{The Action Register}
+
+Table 17 lists the day's seven actions in the order they are done. The answer to
+the inquiry goes first, because every other letter refers to it. The Pitch waits
+on the organization record, and the letter to NIH waits on the Pitch, because it
+reports the Pitch as submitted.
+
+\begin{apptable}
+\begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}p{0.5cm} >{\raggedright\arraybackslash}p{6.4cm} >{\raggedright\arraybackslash}p{2.6cm} >{\raggedright\arraybackslash}X}
+\headrow \thead{No} & \thead{Action} & \thead{File} & \thead{Waits on}\\
+\midrule
+1 & Answer the NSF inquiry & {\footnotesize\ttfamily email-01} & Nothing \\
+2 & Ask the pilot's gate of its investigator & {\footnotesize\ttfamily email-02} & Row 1 sent \\
+3 & Confirm the Research.gov record & {\footnotesize\ttfamily form-02} & An active SAM.gov record \\
+4 & Submit the Project Pitch & {\footnotesize\ttfamily form-01} & Row 3 \\
+5 & Ask about NAIRR Pilot resources & {\footnotesize\ttfamily email-03} & Nothing \\
+6 & Disclose the Pitch to NIH & {\footnotesize\ttfamily email-04} & Row 4 submitted \\
+7 & Open the match ledger & {\footnotesize\ttfamily capital-04} & Nothing \\
+\end{tabularx}
+\end{apptable}
+\vspace{-0.60cm}
+\tabcap{Table 17. The day's seven actions in the order they are done, each with the file that\\
+carries it and what it waits on; the letter to NIH follows the Pitch it discloses.}
+
+\subsection{From the Pitch to a proposal}
+
+Figure 11 draws the route from the answer to a proposal as an activity diagram.
+Two branches run in parallel and must join before the Pitch is submitted: the
+registration branch, which confirms the company's federal entity record and its
+Research.gov organization \cite{researchgov2026}, and the drafting branch, which
+writes the four Pitch fields and measures each against its character limit. The
+diagram breaks at a connector and resumes at the right. NSF then invites a full
+proposal or declines to \cite{nsf26510}. A declined Pitch is revised and
+submitted again, and the solicitation allows two Pitches a year.
+
+\begin{appfloat}[!tb]
+\begin{appfig}[plantuml-type / activity diagram with a fork, a join, and a connector]
+% Left block: the answer, a fork into two branches, the join, and the Pitch,
+% ending at connector A.  Right block: connector A, the NIH disclosure, the
+% one decision, and the stop, with a note on what an award would open.
+\node[umlinit] (st) at (3.50,0.30) {};
+\node[umlbox,text width=46mm] (a1) at (3.50,-0.35) {Answer the NSF inquiry, letter 1};
+\node[umlbar,minimum width=70mm] (fk) at (3.50,-1.00) {};
+\node[umlbox,text width=40mm] (b1) at (1.25,-1.65) {Confirm SAM.gov and the UEI};
+\node[umlbox,text width=40mm] (b2) at (1.25,-2.60) {Research.gov organization};
+\node[umlbox,text width=40mm] (b3) at (1.25,-3.55) {Assign the PI and AOR roles};
+\node[umlbox,text width=40mm] (c1) at (5.75,-1.65) {Draft the four Pitch fields};
+\node[umlbox,text width=40mm] (c2) at (5.75,-2.60) {Check each field's limit};
+\node[umlbox,text width=40mm] (c3) at (5.75,-3.55) {Confirm no field proposes a trial};
+\node[umlbar,minimum width=70mm] (jn) at (3.50,-4.20) {};
+\node[umlkey,text width=46mm] (sb) at (3.50,-4.85) {Submit the Project Pitch};
+\node[circle,draw=fundink,line width=0.6pt,fill=fundwhite,minimum size=4.2mm,
+  inner sep=0pt,font=\tiny\sffamily\bfseries] (ca) at (3.50,-5.55) {A};
+\draw[umlarrow] (st) -- (a1);
+\draw[umlarrow] (a1) -- (fk);
+\draw[umlarrow] (fk.south -| b1) -- (b1);
+\draw[umlarrow] (fk.south -| c1) -- (c1);
+\draw[umlarrow] (b1) -- (b2);
+\draw[umlarrow] (b2) -- (b3);
+\draw[umlarrow] (c1) -- (c2);
+\draw[umlarrow] (c2) -- (c3);
+\draw[umlarrow] (b3) -- (jn.north -| b3);
+\draw[umlarrow] (c3) -- (jn.north -| c3);
+\draw[umlarrow] (jn) -- (sb);
+\draw[umlarrow] (sb) -- (ca);
+\node[circle,draw=fundink,line width=0.6pt,fill=fundwhite,minimum size=4.2mm,
+  inner sep=0pt,font=\tiny\sffamily\bfseries] (cb) at (10.60,0.30) {A};
+\node[umlbox,text width=46mm] (d1) at (10.60,-0.35) {Disclose the Pitch to NIH, letter 4};
+\node[diamond,aspect=2.4,draw=fundink,line width=0.6pt,fill=fundwhite,inner sep=1pt,
+  text width=26mm,font=\tiny\sffamily,align=center] (dc) at (10.60,-1.55) {Invited to submit a proposal?};
+\node[umlbox,text width=40mm] (p1) at (10.60,-2.95) {Proposal by the next deadline};
+\node[umlbox,text width=40mm] (p2) at (10.60,-3.90) {Merit review on NSF's criteria};
+\node[umlbox,text width=24mm] (r1) at (14.35,-2.95) {Revise and pitch again};
+\node[diamond,draw=fundink,line width=0.6pt,fill=fundwhite,minimum size=3.6mm,inner sep=0pt] (mg) at (10.60,-4.70) {};
+\node[umlfinal] (en) at (10.60,-5.45) {};
+\fill[fundink] (en) circle (0.9mm);
+\node[umlnote,text width=27mm] (nt) at (14.10,-5.45) {Only a Phase II award opens the pilot and Strategic Breakthrough};
+\draw[umlarrow] (cb) -- (d1);
+\draw[umlarrow] (d1) -- (dc);
+\draw[umlarrow] (dc.south) -- node[umlguard,right,pos=0.35] {[yes]} (p1.north);
+\draw[umlarrow] (dc.east) -| node[umlguard,above,pos=0.25] {[no]} (r1.north);
+\draw[umlarrow] (p1) -- (p2);
+\draw[umlarrow] (p2) -- (mg);
+\draw[umlarrow] (r1.south) |- (mg.east);
+\draw[umlarrow] (mg) -- (en);
+\draw[umldash,-] (nt.west) -- (en.east);
+\ptitle{-0.75}{0.95}{Two branches join before the Pitch}
+\end{appfig}
+\vspace{-0.60cm}
+\figcaption{Figure 11. The route from the answer to a proposal, with registration and drafting\\
+run in parallel and joined before the Pitch, then one decision that NSF alone makes.}
+\end{appfloat}
+
+\subsection{What each letter asks}
+
+Letter 1 thanks NSF's SBIR program for the inquiry, states the gate, and asks
+whether the inquiry contemplates a route the company has missed. It copies the
+Policy Office, which owns the rules the gate is written in, and the Research.gov
+help desk, which would resolve any registration fault \cite{nsfseedcontact,nsfpappg}.
+Letter 2 asks the pilot's principal investigator at the University of Central
+Florida to confirm the gate in writing, and asks for nothing else
+\cite{nctiucf2026}. Letter 3 asks the NAIRR Pilot whether a small business can
+request shared resources for verification research on synthetic data only
+\cite{nsfnairr2026,nairrpilot2026}. Letter 4 tells the NIH SBIR program office
+and the National Cancer Institute's SBIR team that an NSF Pitch has been
+submitted on the verification work, so that any later NIH application discloses
+it and neither agency pays for the same work twice
+\cite{nihsbirseed,ncisbir2026,sbapolicydirective}.
+
+\subsection{A note on the date}
+
+October 1 is the first day of the federal fiscal year. If appropriations have
+lapsed, NSF staff may not answer for a time, and a portal may accept a
+submission it cannot yet process. The Pitch can still be submitted. Nothing else
+is followed up until three business days after the agency reopens.
+
+\actionbox{The one approval this day asks for}{Approve answering the NSF inquiry,
+testing the pilot's published eligibility gate in writing with its principal
+investigator, and submitting the Project Pitch that opens the only route to it.
+Approve disclosing the Pitch to NIH on the day it is submitted.}

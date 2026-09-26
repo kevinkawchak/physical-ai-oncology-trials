@@ -1,0 +1,81 @@
+% sec-03: independence and simultaneity.  Table 8, Figure 5 (mermaid-type gantt).
+\section{Independence and Simultaneity}
+
+Two words in the request carry most of its weight. \emph{Independently} means
+the company had no relationship with Revolution Medicines, no access to its data,
+and no right of reference to its filings; every input to the company's work was
+public. \emph{Simultaneously} means the work was done while the developer's
+trials were running, not after their results were known. Both are claims about
+time, and both can be checked against public registries. Table 8 sets the two
+calendars side by side.
+
+\begin{apptable}
+\begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}p{2.9cm} >{\raggedright\arraybackslash}p{6.3cm} >{\raggedright\arraybackslash}X}
+\headrow \thead{Period} & \thead{Revolution Medicines, public record} & \thead{ChemicalQDevice, deposited record}\\
+\midrule
+2022 to 2024 & Phase 1/1b opens; RASolute 302 opens & No work on the molecule \\
+June 2025 & RASolute 302 enrolling & Identification across forty meta-analyses \\
+August 2025 & RASolute 302 enrolling & QSP simulation, 12.8 against 5.4 months \\
+December 2025 & RASolute 304, adjuvant Phase 3, opens & Physical AI work follows in 2026 \\
+May to July 2026 & Readout: 13.2 against 6.6 months & Protocols, IND and funding applications \\
+August 26, 2026 & FDA approval as Rasonque & Ten applications, capitalization plan \\
+September 2026 & RASolute 304 enrolling & Site package and these funding actions \\
+\end{tabularx}
+\end{apptable}
+\vspace{-0.60cm}
+\tabcap{Table 8. The developer's trial calendar and the company's deposit calendar on one\\
+set of rows, showing work begun while the Phase 3 trial was still enrolling patients.}
+
+The developer's rows come from the public registries and the published readout
+\cite{ctgov001,ctgov302,ctgov304,rasolute302}. The company's rows come from its
+own deposit dates \cite{daraxident,qspmetpancre,onpremwhippl,phase1ind,movein2026}.
+Nothing in either column depends on the other. Figure 5 draws the same two
+calendars as a gantt chart, so the overlap can be seen rather than read.
+
+\begin{appfloat}[!tb]
+\begin{appfig}[mermaid-type / gantt chart, two sections on one axis]
+% Axis: mid 2024 to late 2026 at 5 cm per year, x = (year - 2024.5) * 5.
+% Developer bars are gray; company bars and milestones are in the accent.
+\fill[fundgrayl] (2.50,0.40) rectangle (7.50,-4.25);
+\foreach \x/\lab in {0/{mid 2024}, 2.50/2025, 7.50/2026, 11.25/{Q4 2026}}{
+  \draw[fundgray,line width=0.3pt] (\x,0.40) -- (\x,-4.25);
+  \node[font=\tiny\sffamily,text=fundgray,anchor=south] at (\x,0.42) {\lab};}
+\node[mmlanetitle,anchor=west] at (-3.30,0.05) {Revolution Medicines};
+\ganttrow{-0.40}{0.00}{11.50}{mmbarg}{Phase 1/1b, since 2022}
+\ganttrow{-0.95}{1.50}{9.50}{mmbarg}{RASolute 302, Phase 3}
+\ganttrow{-1.50}{7.25}{11.50}{mmbarg}{RASolute 304, adjuvant}
+\node[anchor=east,font=\tiny\sffamily] at (-0.12,-2.05) {Readout and approval};
+\node[diamond,draw=fundink,fill=fundgrayd,minimum size=2.6mm,inner sep=0pt] at (9.55,-2.05) {};
+\node[font=\tiny\sffamily,anchor=east] at (9.35,-2.05) {302 reported};
+\node[diamond,draw=fundink,fill=fundaccent,minimum size=2.6mm,inner sep=0pt] at (10.75,-2.05) {};
+\node[font=\tiny\sffamily,anchor=west] at (10.95,-2.05) {Approved};
+\node[mmlanetitle,anchor=west] at (-3.30,-2.60) {ChemicalQDevice};
+\node[anchor=east,font=\tiny\sffamily] at (-0.12,-3.05) {2025 papers};
+\node[diamond,draw=fundink,fill=fundaccent,minimum size=2.6mm,inner sep=0pt] at (4.75,-3.05) {};
+\node[diamond,draw=fundink,fill=fundaccent,minimum size=2.6mm,inner sep=0pt] at (5.60,-3.05) {};
+\node[font=\tiny\sffamily,anchor=west] at (5.85,-3.05) {Identification, then QSP simulation};
+\ganttrow{-3.60}{9.80}{10.30}{mmbark}{Protocols, IND, applications}
+\ganttrow{-4.15}{10.40}{11.25}{mmbark}{Plans, site package, funding blocks}
+\draw[fundaccent,dashed,line width=0.7pt] (10.75,0.40) -- (10.75,-4.25);
+\pnote{-3.30}{-4.70}{Shaded band: calendar 2025. Dashed line: the approval on August 26, 2026.}
+\end{appfig}
+\vspace{-0.60cm}
+\figcaption{Figure 5. The developer's three trials and the company's deposits on one time\\
+axis, with the company's first two papers inside the Phase 3 enrollment window.}
+\end{appfloat}
+
+\subsection{What the overlap shows, and what it does not}
+
+The overlap shows that the company chose the molecule and simulated its effect
+while the Phase 3 trial was enrolling, and published both before the trial
+reported. It does not show that the simulation predicted the trial. The
+simulation modeled 1000 patients on a combination in a KRAS G12C population; the
+trial enrolled 241 patients in the relevant comparison on a single agent in a
+primarily G12D and G12V population. The two survival figures, 12.8 and 13.2
+months, are close, and the company describes that closeness as a dated chronology
+and never as a validation \cite{qspmetpancre,rasolute302}.
+
+It also does not show that the developer knew of the company's work or relied on
+it. There is no evidence either way, and the company claims none. Independence
+runs in both directions: the company did not use the developer's data, and it
+does not suggest the developer used its papers.

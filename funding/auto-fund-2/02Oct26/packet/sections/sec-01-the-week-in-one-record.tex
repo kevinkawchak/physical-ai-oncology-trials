@@ -1,0 +1,102 @@
+% sec-01: the week in one record.  Table 21, Figure 13 (graphviz-type record
+% chain, one rank per weekday).
+\section{The Week in One Record}
+
+\subsection{Four signals, one a day}
+
+Each signal of the week was answered on the day whose theme it fits: federal
+program offices on Monday, regulators on Tuesday, the structures the company
+works inside on Wednesday, and pilots and solicitations on Thursday. Table 21
+sets the four beside the letters each produced and what each is waiting on. The
+SEC office's words are the only words of any office quoted in this block, and
+they are quoted exactly; no White House communication is quoted or paraphrased
+anywhere \cite{whcontact2026}.
+
+\begin{apptable}
+\begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}p{1.9cm} >{\raggedright\arraybackslash}p{4.6cm} >{\raggedright\arraybackslash}p{3.6cm} >{\raggedright\arraybackslash}X}
+\headrow \thead{Day} & \thead{Signal} & \thead{Sent} & \thead{Waiting on}\\
+\midrule
+Monday & Two unsolicited LinkedIn applicants & 3 emails, 2 replies & NIH, the SBA, UC San Diego; each applicant \\
+Tuesday & The SEC office, ``very seriously'' & 5 emails & The SEC office and the FDA, on venue \\
+Wednesday & White House communications & 4 emails, 1 form & OSTP, the Genesis Mission, Moores \\
+Thursday & An NSF pilot inquiry & 4 emails, 2 filings & NSF on the Pitch; the pilot's gate \\
+Friday & None & 3 follow-ups & The same answers, each with a date \\
+\end{tabularx}
+\end{apptable}
+\vspace{-0.60cm}
+\tabcap{Table 21. The week's four signals, one a day, each with what it produced and what it\\
+is waiting on; Friday spends no signal and sends only the follow-ups that are earned.}
+
+\subsection{The same week, drawn as a chain}
+
+Figure 13 draws the week as a chain of records, one rank per weekday, from the
+signal to the letters it produced to the answers still pending. The bold edges
+on the right are the follow-ups: Monday's and Tuesday's pending answers reach
+Friday's letters through the rule, and Thursday's letter to NIH joins Monday's
+in one consolidated follow-up. Wednesday's and Thursday's other letters reach
+nothing on Friday, because their interval has not yet run: theirs fall due on
+Monday and Tuesday of the following week.
+
+\begin{appfloat}[!tb]
+\begin{appfig}[graphviz-type / record chain, one rank per weekday]
+% Five ranks left to right.  In each: a header cell, the signal as an ellipse,
+% the letters as a two-field record, and the pending answers as an ellipse.
+% The follow-up edges run in a channel beneath the ranks and rise into
+% Friday's record from the left.
+\foreach \x/\d in {0.00/Monday, 3.20/Tuesday, 6.40/Wednesday, 9.60/Thursday, 12.80/Friday}{
+  \node[gvcellh,text width=22mm,minimum height=5mm] at (\x,0.05) {\d};}
+\node[gvkey,text width=19mm] (s1) at (0.00,-0.95) {Two unsolicited applicants};
+\node[gvkey,text width=19mm] (s2) at (3.20,-0.95) {The SEC office's update};
+\node[gvkey,text width=19mm] (s3) at (6.40,-0.95) {White House communications};
+\node[gvkey,text width=19mm] (s4) at (9.60,-0.95) {An NSF pilot inquiry};
+\node[gvgray,text width=19mm] (s5) at (12.80,-0.95) {No new signal};
+\foreach \i/\x/\a/\b in {1/0.00/{3 emails, 2 replies}/{Personnel, first hire, training},
+  2/3.20/{5 emails}/{Venue; 3 notices ask nothing},
+  3/6.40/{4 emails, 1 form}/{A contributor's place},
+  4/9.60/{4 emails, 2 filings}/{Gate, resources, disclosure}}{
+  \node[gvcells,text width=25mm,minimum height=5mm] (l\i a) at (\x,-2.05) {\a};
+  \node[gvcell,text width=25mm,minimum height=5mm] (l\i b) at (\x,-2.57) {\b};}
+\node[gvcellh,text width=25mm,minimum height=5mm] (l5a) at (12.80,-2.05) {3 follow-ups};
+\node[gvcell,text width=25mm,minimum height=5mm] (l5b) at (12.80,-2.57) {Only what has earned one};
+\node[gvgray,text width=19mm] (p1) at (0.00,-3.80) {NIH, SBA, UC San Diego; each applicant};
+\node[gvgray,text width=19mm] (p2) at (3.20,-3.80) {The SEC office and the FDA, on venue};
+\node[gvgray,text width=19mm] (p3) at (6.40,-3.80) {OSTP, Genesis, Moores; due Monday};
+\node[gvgray,text width=19mm] (p4) at (9.60,-3.80) {NSF, NCTI, NAIRR; due Tuesday};
+\node[gvsoft,text width=19mm] (p5) at (12.80,-3.80) {Read first on Monday at 5:00};
+\foreach \i in {1,2,3,4,5}{
+  \draw[gvedge] (s\i) -- (l\i a);
+  \draw[gvedge] (l\i b) -- (p\i);}
+\draw[gvedgeb] (l4a.east) -- node[above=1pt,font=\tiny,inner sep=1pt] {joins} (l5a.west);
+\draw[gvundirb] (p1.south) -- (0.00,-4.85) -- (11.20,-4.85);
+\draw[gvundirb] (p2.south) -- (3.20,-4.85);
+\draw[gvedgeb] (11.20,-4.85) -- (11.20,-2.57) -- (l5b.west);
+\node[font=\tiny,fill=fundwhite,inner sep=1pt] at (6.40,-4.85) {follow-up, on the third open business day};
+\ptitle{-1.40}{0.85}{From signal to letter to pending answer}
+\end{appfig}
+\vspace{-0.60cm}
+\figcaption{Figure 13. The week as a record chain, one rank per weekday, with the follow-up edges\\
+that let Monday's and Tuesday's letters, and no others, reach Friday's three follow-ups.}
+\end{appfloat}
+
+\subsection{The totals}
+
+Sixteen emails went out on the first four days, each to at least three verified
+addresses, drawn from a register of thirty-six. Two LinkedIn replies went on
+Monday, and two more are drafted today, each to be sent only if its applicant has
+answered. Three submissions were made: the White House contact form, the NSF
+Project Pitch, and the Research.gov organization record \cite{nsf26510}. Two
+words are attributed to the SEC office, and none to any other office.
+
+\subsection{The standing fact}
+
+The trial behind every letter of the week is built around daraxonrasib, which
+the FDA approved on August 26, 2026 as Rasonque for metastatic pancreatic
+adenocarcinoma after prior systemic therapy
+\cite{fdarasonque2026,fdadisco2026,revmedapproval2026}. The approval followed
+Revolution Medicines' Phase 1/2 program and its Phase 3 RASolute 302 trial
+\cite{ctgov001,ctgov302,rasolute302}. ChemicalQDevice's AI papers on the
+molecule were developed independently of that program and simultaneously with
+it, from the June 2025 identification study \cite{daraxident} to the Phase 1 and
+Phase 2 protocols and the investigational new drug application of 2026
+\cite{onpremwhippl,phase2proto,phase1ind}. The perioperative use the company's
+protocol proposes remains investigational.

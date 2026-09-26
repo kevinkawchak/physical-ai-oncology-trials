@@ -1,0 +1,64 @@
+% sec-03: how the program is split between NSF, NIH and private capital.
+% Table 18.
+\section{How the Program Is Split}
+
+\subsection{The rule that shapes the split}
+
+NSF's SBIR program funds technical innovation with commercial potential, and it
+does not fund clinical trials \cite{nsf26510}. The National Institutes of Health
+fund clinical research, including small business work that leads to a trial
+\cite{nihsbirseed,ncisbir2026}. The program's private capital sits behind a
+firewall that gives no investor any say in trial conduct, and pays for what
+neither agency pays for \cite{capitalplan2026}. The split in Table 18 follows
+those three facts and nothing else. No component is marked yes in two public
+columns.
+
+\begin{apptable}
+\begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}p{5.3cm} >{\raggedright\arraybackslash}p{3.2cm} >{\raggedright\arraybackslash}p{3.5cm} >{\raggedright\arraybackslash}X}
+\headrow \thead{Component} & \thead{NSF SBIR} & \thead{NIH SBIR} & \thead{Private capital}\\
+\midrule
+Verification method for the model & Yes, the Pitch & No & No \\
+Boundary tests and audit trail & Yes & Cites the NSF result & No \\
+Timing tests, hardware in the loop & Yes & No & No \\
+Protocol, IND, site activation & No & Yes & In part \\
+Drug, surgery, and follow-up & No & Yes, at the site & In part \\
+Robot platform, site build-out & No & In part & Yes \\
+Commercializing the method & After Phase II & No & Yes \\
+\end{tabularx}
+\end{apptable}
+\vspace{-0.60cm}
+\tabcap{Table 18. The program's seven components split between NSF, NIH and private capital,\\
+with no component funded twice; the verification work is the part proposed to NSF.}
+
+\subsection{Why the scopes cannot overlap}
+
+The NSF work ends where a patient begins. It produces a verification method, a
+test suite and measured failure rates on synthetic cases generated from
+published parameters. The NIH work begins where a patient begins: it uses the
+verified layer inside a trial that belongs to a site investigator, under an
+investigational new drug application filed under 21 CFR Part 312
+\cite{ecfr2026part312}. If both were funded, the NIH work would cite the NSF
+results rather than repeat them, and each application would disclose the other,
+as the SBIR policy directive requires \cite{sbapolicydirective}. Letter 4 tells
+NIH so in writing, with NSF copied.
+
+\subsection{The money on each side}
+
+An NSF Phase I is worth up to \$305,000 \cite{nsf26510}. The company's plan
+carries an NIH Phase I of \$306,000 and an NIH Phase II of \$1,300,000, for an
+SBIR route of \$1,606,000, and places \$5,900,000 of private capital behind the
+firewall against the \$2,104,000 delta the route does not buy
+\cite{capitalplan2026}. The NSF and NIH Phase I figures are nearly equal and pay
+for different work, and neither is counted twice anywhere in the company's
+documents. The private figure is a plan, not a completed raise, and the day's
+match ledger records its opening balance as zero.
+
+\subsection{What the split means for the trial}
+
+None of the robotic Phase 1 is proposed to NSF. What NSF would fund is the
+evidence that the advisory layer inside that trial stays inside its boundaries.
+That is the evidence an institutional review board and the FDA will ask for
+before the layer is allowed near a patient \cite{fdaaiguidance2025}, and it is
+the evidence a clinical funder will ask for before paying for the trial it sits
+inside. The NSF work therefore does not compete with the NIH route. It is the
+step that makes the NIH route fundable.

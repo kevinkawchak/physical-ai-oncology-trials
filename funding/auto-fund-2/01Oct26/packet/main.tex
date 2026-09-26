@@ -1,0 +1,109 @@
+% ============================================================
+% main.tex - Day 4 packet, "The Pilot Inquiry".
+% ChemicalQDevice daily funding action packet, repository v4.9.0.
+% Deposited in funding/auto-fund-2/01Oct26/packet.
+%
+% WHAT THIS DOCUMENT IS.  The fourth packet of the block.  It answers an inquiry from
+% the National Science Foundation about applying to a multi-million-dollar pilot
+% program, states the pilot's published eligibility gate and the company's place
+% against it, and sets out the Project Pitch that opens the only route to it.
+%
+% STRUCTURE.  Seven sections, one .tex file each, per Rule 6.  Three figures,
+% five tables.  Every figure is TikZ; no raster is read or written.
+%
+% SPACING INVARIANT.  \vspace{-0.60cm} before every caption, giving 7.44pt from
+% the last rule to the first caption line, identically for every float.
+%
+% COMPILE ON OVERLEAF WITH pdfLaTeX:
+%   pdflatex main -> bibtex main -> pdflatex main -> pdflatex main
+% ============================================================
+\documentclass[11pt]{article}
+\usepackage{fundstyle}
+
+\title{The Pilot Inquiry: The Published Gate to a Multi-Million-Dollar NSF Pilot, and the Project Pitch That Opens the Route}
+\author{Kevin Kawchak}
+\date{October 1, 2026}
+
+\fundhdr{The Pilot Inquiry}{Day 4 of 5}
+
+\begin{document}
+\thispagestyle{plain}
+
+\fundmast{ChemicalQDevice \;|\; Daily Funding Action Packet \;|\; Day 4 of 5}%
+{The Pilot Inquiry}%
+{The National Science Foundation asked whether the company would apply to a
+multi-million-dollar pilot program. This packet answers exactly: the pilot's published
+gate, where the company stands against it, and the Pitch that takes the first step today.}
+
+\vspace{0.15em}
+
+\begin{center}
+\appbadge{Day 4 of 5} \enspace \appbadgel{Repository v4.9.0} \enspace
+\appbadgel{3 figures} \enspace \appbadgel{5 tables} \enspace
+\appbadgel{Pitch first, pilot later}
+\end{center}
+
+\vspace{-0.15em}
+
+\funddeck{The pilot}{\$20M}{Six to eight awards of \$1M to \$3.75M}%
+{The gate}{Phase II}{An NSF award the company does not yet hold}%
+{The first step}{\$305K}{Phase I, opened by the Pitch submitted today}
+
+\vspace{-0.1em}
+\apprule{0.9pt}
+
+\begin{center}\small
+CEO Kevin Kawchak\,\orcidicon{0009-0007-5457-8667}, ChemicalQDevice \;|\;
+\href{mailto:kevinkawchak@gmail.com}{kevinkawchak@gmail.com}\\
+\href{https://orcid.org/0009-0007-5457-8667}{0009-0007-5457-8667} \;|\;
+San Diego, California
+\end{center}
+
+\vspace{-0.25em}
+\apprule{0.5pt}
+
+\noindent\footnotesize\textit{Independent research paper and practical adoption
+guide. It is not medical or regulatory advice and is not endorsed by the FDA,
+NIH, HHS, an IRB, ICH, or any sponsor. All figures derive from the author's
+repository sources and are illustrative unless tied to a cited
+reference.}\normalsize\par
+
+\vspace{0.12em}
+
+\noindent\footnotesize\textbf{Disclaimer:} \textit{This work is independent and
+is not endorsed or sponsored by any trial sponsor, CRO, site, IRB, regulator, or
+medical society; and was adapted using Claude Code Opus 5.5.}\normalsize\par
+
+\vspace{0.12em}
+
+{\sloppy\noindent\footnotesize Repository (v4.9.0) is at
+\url{https://github.com/kevinkawchak/physical-ai-oncology-trials}.
+The paper files are deposited in
+\href{https://github.com/kevinkawchak/physical-ai-oncology-trials/tree/main/funding/auto-fund-2}{/funding/auto-fund-2}.
+No digital object identifier is asserted for this document.\normalsize\par}
+
+\renewcommand{\keywordname}{\textbf{Keywords}}
+\keywords{National Science Foundation; SBIR Phase I; Project Pitch; Commercialization Readiness Pilot; Strategic Breakthrough; Language model verification; Robotic surgery; Pancreatic ductal adenocarcinoma}
+
+\vspace{0.25em}
+\apprule{0.6pt}
+
+\setcounter{tocdepth}{1}
+\renewcommand{\contentsname}{\color{accentcol}Table of Contents}
+{\setlength{\parskip}{0pt}\footnotesize\linespread{0.94}\selectfont\tableofcontents}
+
+\vspace{-0.1em}
+\apprule{0.6pt}
+
+% The body follows the contents on the cover page rather than after a page
+% break, so the cover carries no block of empty space below its contents.
+% ---------- Body: one \input per section (Rule 6) ----------
+\input{sections/sec-00-front}
+\input{sections/sec-01-the-inquiry-and-the-gate}
+\input{sections/sec-02-action-register}
+\input{sections/sec-03-how-the-program-is-split}
+\input{sections/sec-04-the-phase-i-objectives}
+\input{sections/sec-05-merit-review}
+\input{sections/sec-06-references}
+
+\end{document}

@@ -1,0 +1,110 @@
+% sec-05: merit review, where the work would run, and the quantitative record.
+% Table 20, Figure 12 (diagrams (python)-type clustered infrastructure).
+\section{The Merit Review Map}
+
+NSF reviews every proposal against two criteria, Intellectual Merit and Broader
+Impacts, and judges SBIR proposals on their commercial impact as well
+\cite{nsfpappg,nsf26510}. Table 20 maps each question a reviewer will ask to the
+evidence the company can put in front of that reviewer today, and names the
+evidence it does not yet have. The last column is as important as the third: a
+reviewer trusts a map that shows its own gaps.
+
+\begin{apptable}
+\begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}p{2.5cm} >{\raggedright\arraybackslash}p{3.6cm} >{\raggedright\arraybackslash}p{5.4cm} >{\raggedright\arraybackslash}X}
+\headrow \thead{Criterion} & \thead{What NSF asks} & \thead{The evidence today} & \thead{Not yet in hand}\\
+\midrule
+Intellectual Merit & Advances knowledge? & Model disagreement used as a signal to withhold & Measured rates \\
+Intellectual Merit & Well reasoned? & A hard boundary, not instructions; ASME V\&V 40 & An outside review \\
+Intellectual Merit & Team qualified? & A dated public record since June 2025 & Staff, on award \\
+Intellectual Merit & Resources adequate? & On-premises compute; a NAIRR request & A NAIRR reply \\
+Broader Impacts & Benefit to society & Models used only once shown to stay in bounds & Phase I evidence \\
+Broader Impacts & Workforce & Eleven planned roles, six needing no license & A first hire \\
+Commercial impact & Who pays, and why? & Centers, sponsors and robot makers, for a checkable boundary & A paying customer \\
+\end{tabularx}
+\end{apptable}
+\vspace{-0.60cm}
+\tabcap{Table 20. The seven questions an NSF reviewer asks under the three criteria, with the\\
+evidence the company can show today and the evidence it does not yet have in hand.}
+
+\subsection{Where compute, data and review would sit}
+
+The resources question is answered by a drawing rather than a sentence. Figure 12
+places every component in one of three clusters: the clinical site, where the
+model runs and where patient data would stay; the shared NAIRR Pilot resources,
+which would see only synthetic cases and the company's code if a request were
+granted \cite{nairrpilot2026}; and the public record, which receives the method
+and the measured rates. The robot control network is a cluster of its own inside
+the site, and the model has no route into it.
+
+\begin{appfloat}[!tb]
+\begin{appfig}[diagrams (python)-type / clustered infrastructure, three clusters and one nested]
+% Site cluster on the left, with the robot control network nested in its lowest
+% row.  NAIRR resources upper right, public record lower right.  Accent tiles run
+% on premises; gray tiles are shared or public.  Tile pitch 2.55 cm.
+\dgnodew{dgtiled}{0.00}{0.00}{\glyphdb}{Data capture; the model cannot write}{m5}
+\dgnodew{dgtiled}{2.55}{0.00}{\glyphai}{Advisory language model, on premises}{m1}
+\dgnodew{dgtilem}{5.10}{0.00}{\glyphai}{Two verifier models, other developers}{m2}
+\dgnode{dgtile}{0.00}{-2.25}{\glyphlock}{Segmentation: no route to control}{lk}
+\dgnode{dgtile}{2.55}{-2.25}{\glyphdoc}{Audit trail, replayable}{m3}
+\dgnode{dgtile}{5.10}{-2.25}{\glyphmon}{Surgeon's console, advice as text}{m4}
+\dgnodew{dgtilem}{0.00}{-4.55}{\glyphrobot}{Eight-arm platform}{r1}
+\dgnodew{dgtilem}{2.55}{-4.55}{\glyphstop}{Stops at 3 ms and 500 ms}{r2}
+\dgnodew{dgtilem}{5.10}{-4.55}{\glyphgear}{Force limits, 3 N and 18 N}{r3}
+\dgnodeg{dgtileg}{9.90}{0.00}{\glyphcloud}{Allocated compute, if granted}{n1}
+\dgnodeg{dgtileg}{12.45}{0.00}{\glyphflask}{Synthetic cases from published values}{n2}
+\dgnodeg{dgtileg}{9.90}{-2.25}{\glyphchart}{Measured disagreement rates}{n3}
+\dgnodeg{dgtileg}{9.90}{-4.55}{\glyphlink}{Repository and identifiers}{p1}
+\dgnodeg{dgtileg}{12.45}{-4.55}{\glyphdoc}{Report of rates and limits}{p2}
+\begin{scope}[on background layer]
+\node[inner sep=7pt,fit={(r1)(r1l)(r3)(r3l)}] (crx) {};
+\node[dgcluster,fit={(m5)(m5l)(m2)(m2l)(crx)},inner sep=9pt] (cs) {};
+\node[dgcluster2,fit={(r1)(r1l)(r3)(r3l)}] (cr) {};
+\node[dgcluster2,fit={(n1)(n1l)(n2)(n2l)(n3)(n3l)}] (cn) {};
+\node[dgcluster2,fit={(p1)(p1l)(p2)(p2l)}] (cp) {};
+\end{scope}
+\node[dgctitle,anchor=south west] at (cs.north west) {Clinical site, on premises: no patient data leaves it};
+\node[dgctitle2,anchor=south east] at ([yshift=1pt]cr.north east) {Isolated robot control network};
+\node[dgctitle2,anchor=south west] at (cn.north west) {NAIRR Pilot shared resources};
+\node[dgctitle2,anchor=south west] at (cp.north west) {Public record};
+\draw[dgedged] (m5) -- node[above,font=\tiny\sffamily,fill=fundwhite,inner sep=1pt] {read} (m1);
+\draw[dgedgeb] (m1) -- node[above,font=\tiny\sffamily,fill=fundwhite,inner sep=1pt] {output} (m2);
+\draw[dgedgeb] (m2l.south) -- (m4);
+\draw[dgedge] (m2l.south west) -- (m3);
+\draw[dgedged,-] (m1l.south west) -- (lk);
+\draw[dgedged,-] (lkl.south) -- (r1);
+\draw[dgedged] (m2) -- node[above,font=\tiny\sffamily,fill=fundwhite,inner sep=1pt] {code only} (n1);
+\draw[dgedge] (n2) -- (n1);
+\draw[dgedge] (n1l.south) -- (n3);
+\draw[dgedge] (n3.east) -| (p2);
+\draw[dgedge] (p2) -- (p1);
+\legkey{-0.60}{-6.55}{fundaccent}{Runs on premises at the site}
+\legkey{6.40}{-6.55}{fundgrayl}{Shared or public; synthetic data only}
+\end{appfig}
+\vspace{-0.60cm}
+\figcaption{Figure 12. Where compute, data and review would sit, with the model and its verifiers\\
+on premises, the robot network sealed off, and only code and synthetic cases shared.}
+\end{appfloat}
+
+\subsection{The quantitative record behind the robotic Phase 1}
+
+A funder of the verification work is also, one step removed, a funder of the
+trial it would make possible, and that trial rests on a dated quantitative
+record. In August 2025 the company's ten-arm simulation of the agent returned a
+median overall survival of 12.8 months against 5.4 for chemotherapy
+\cite{qspmetpancre}. In May 2026 the developer's Phase 3 trial reported 13.2
+months against 6.6 in the RAS G12 population of previously treated metastatic
+disease \cite{rasolute302}, and the approval that followed reported 13.2 against
+6.7 months in the overall population \cite{fdarasonque2026}. The company
+describes the closeness of the simulated and reported figures as a chronology,
+not a validation, because the populations, regimens and sample sizes differ.
+Pancreatic ductal adenocarcinoma remains the cancer with the widest gap between
+incidence and survival in the United States \cite{siegel2025statistics}, and
+after resection the standard remains combination chemotherapy
+\cite{conroy2018folfirinox}.
+
+The program's direct cost is \$700,000 a year for five years, of which \$521,000
+is personnel across 3.95 full-time equivalents \cite{movein2026}. The company's
+comparable virtual trial work is \textbf{projected} at \$36,330 per run and about
+one month, against industry benchmarks above \$120,000 and 4.5 months
+\cite{capitalplan2026}. That figure describes simulation work, not the cost of
+the clinical trial.

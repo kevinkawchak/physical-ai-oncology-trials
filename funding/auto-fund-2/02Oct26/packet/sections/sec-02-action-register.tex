@@ -1,0 +1,102 @@
+% sec-02: the action register and the cadence the day adopts.  Table 22,
+% Figure 14 (diagrams (python)-type clustered topology).
+\section{The Action Register}
+
+Table 22 lists the day's nine actions in the order they are done. The first
+reads every reply that arrived during the week, because a follow-up to an office
+that has already answered would be the one mistake this day exists to prevent.
+Each letter and each LinkedIn reply waits on a condition, and none is sent if its
+condition fails.
+
+\begin{apptable}
+\begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}p{0.5cm} >{\raggedright\arraybackslash}p{6.4cm} >{\raggedright\arraybackslash}p{2.6cm} >{\raggedright\arraybackslash}X}
+\headrow \thead{No} & \thead{Action} & \thead{File} & \thead{Waits on}\\
+\midrule
+1 & Read every reply of the week & The inbox & Nothing \\
+2 & Write to the NCI SBIR Development Center & {\footnotesize\ttfamily email-01} & No NIH reply; NIH open \\
+3 & Follow up with the SEC office & {\footnotesize\ttfamily email-02} & No reply; office open \\
+4 & Follow up with the Oncology AI Program & {\footnotesize\ttfamily email-03} & No reply; office open \\
+5 & Answer Applicant A & {\footnotesize\ttfamily linkedin-03} & Applicant A replied \\
+6 & Answer Applicant B & {\footnotesize\ttfamily linkedin-04} & Applicant B replied \\
+7 & Check the SBIR.gov registry record & {\footnotesize\ttfamily form-01} & Nothing \\
+8 & Close the week's capital ledger & {\footnotesize\ttfamily capital-05} & The last session \\
+9 & Adopt the weekly cadence & {\footnotesize\ttfamily brief-03} & Nothing \\
+\end{tabularx}
+\end{apptable}
+\vspace{-0.60cm}
+\tabcap{Table 22. The day's nine actions in the order they are done, each with the file that\\
+carries it and the condition it waits on; no letter leaves if its condition fails.}
+
+\subsection{The cadence the day adopts}
+
+The last action turns the week into a rule. Figure 14 draws the weekly cadence
+as a set of places and the paths a letter takes between them: in through the
+inbox, the LinkedIn threads and the portals; through the 5:00 read and the 5:30
+approval, where the follow-up rule is applied; out through the federal and West
+Coast windows; and into the record, which the next morning reads first. Every
+weekday keeps the same places and the same times, and only the theme of the two
+federal windows changes from day to day \cite{autofund2026}.
+
+\begin{appfloat}[!tb]
+\begin{appfig}[diagrams (python)-type / clustered topology of one working day]
+% Four clusters left to right: what comes in, the morning gate, the windows
+% out, and the record.  Edges run on orthogonal buses so none crosses a label;
+% one dashed edge returns from the record to the morning read.
+\dgnode{dgtile}{0.00}{0.00}{\glyphmon}{Email inbox}{i1}
+\dgnode{dgtile}{0.00}{-2.35}{\glyphuser}{LinkedIn threads}{i2}
+\dgnode{dgtile}{0.00}{-4.70}{\glyphnet}{Portals and forms}{i3}
+\dgnodew{dgtilem}{3.60}{0.00}{\glyphclock}{5:00 read, replies first}{g1}
+\dgnodew{dgtilem}{3.60}{-2.35}{\glyphlock}{Follow-up rule, three open days}{g2}
+\dgnodew{dgtiled}{3.60}{-4.70}{\glyphshield}{5:30 approval, one decision}{g3}
+\dgnodew{dgtiled}{7.20}{0.00}{\glyphbank}{Federal window, 6:00 to 8:00}{o1}
+\dgnodew{dgtiled}{7.20}{-2.35}{\glyphlink}{West Coast window, 11:00}{o2}
+\dgnodew{dgtiled}{7.20}{-4.70}{\glyphbank}{Second federal window, 12:30}{o3}
+\dgnodeg{dgtileg}{10.80}{0.00}{\glyphgear}{Build and commit, 2:00}{r1}
+\dgnodeg{dgtileg}{10.80}{-2.35}{\glyphdoc}{Record, 3:30}{r2}
+\dgnodeg{dgtileg}{10.80}{-4.70}{\glyphchart}{Friday ledger and follow-ups}{r3}
+\begin{scope}[on background layer]
+\node[dgcluster2,fit={(i1)(i1l)(i3)(i3l)}] (ci) {};
+\node[dgcluster,fit={(g1)(g1l)(g3)(g3l)}] (cg) {};
+\node[dgcluster,fit={(o1)(o1l)(o3)(o3l)}] (co) {};
+\node[dgcluster2,fit={(r1)(r1l)(r3)(r3l)}] (cr) {};
+\end{scope}
+\node[dgctitle2,anchor=south west] at (ci.north west) {In};
+\node[dgctitle,anchor=south west] at (cg.north west) {The gate};
+\node[dgctitle,anchor=south west] at (co.north west) {Out};
+\node[dgctitle2,anchor=south west] at (cr.north west) {The record};
+\draw[dgedge] (i1) -- (g1);
+\draw[dgedge,-] (i2.east) -- (1.80,-2.35) -- (1.80,0.00);
+\draw[dgedge,-] (i3.east) -- (1.80,-4.70) -- (1.80,-2.35);
+\draw[dgedgeb] (g1l.south) -- (g2);
+\draw[dgedgeb] (g2l.south) -- (g3);
+\draw[dgedgeb,-] (g3.east) -- (5.40,-4.70) -- (5.40,0.00);
+\draw[dgedgeb] (5.40,0.00) -- (o1);
+\draw[dgedgeb] (5.40,-2.35) -- (o2);
+\draw[dgedgeb] (5.40,-4.70) -- (o3);
+\draw[dgedge] (o1) -- (r1);
+\draw[dgedge,-] (o2.east) -- (9.00,-2.35) -- (9.00,0.00);
+\draw[dgedge,-] (o3.east) -- (9.00,-4.70) -- (9.00,-2.35);
+\draw[dgedge] (r1l.south) -- (r2);
+\draw[dgedge] (r2l.south) -- (r3);
+\draw[dgedged] (r1.north east) -- (11.25,1.45) -- node[above,font=\tiny\sffamily] {read first, next morning} (4.05,1.45) -- (g1.north east);
+\legkey{-0.60}{-6.60}{fundaccent}{The day's decisions and sends}
+\legkey{6.20}{-6.60}{fundgrayl}{Inputs and the record}
+\end{appfig}
+\vspace{-0.60cm}
+\figcaption{Figure 14. One working day as a topology of four places, with every letter passing\\
+the follow-up rule and the 5:30 approval, and the record read first next morning.}
+\end{appfloat}
+
+\subsection{What the approval includes}
+
+Approving the day approves each conditional action with its condition, not the
+action alone. If the SEC office has replied, letter 2 is not sent and the reply
+is answered instead. If an applicant has not replied, nothing is sent to that
+applicant. If appropriations lapsed on October 1, the three federal letters wait
+until their offices have been open for three business days, and nothing else on
+this list changes \cite{ncisbir2026,secsf2026,fdaoceai2026}.
+
+\actionbox{The one approval this day asks for}{Approve sending the three earned
+follow-ups, each only if its condition holds; answering each applicant who has
+replied, and no other; and adopting the weekly cadence, version 2, as the rule
+for every week that follows.}

@@ -1,0 +1,93 @@
+% sec-03: the structure map.  Table 13, Figure 7 (graphviz-type directed tree).
+\section{The Structure Map}
+
+The second priority is adaptation to existing authority, order, and structure,
+and a company cannot adapt to a structure it has not drawn. Table 13 names each
+authority the program touches, what that authority governs, and the place the
+company takes inside it. In every row the company's place is smaller than the
+authority's, and that is the point of the table.
+
+\begin{apptable}
+\begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}p{4.6cm} >{\raggedright\arraybackslash}p{6.1cm} >{\raggedright\arraybackslash}X}
+\headrow \thead{Authority} & \thead{What it governs here} & \thead{The company's place}\\
+\midrule
+President, through OSTP & Science and technology policy & A correspondent \\
+DOE, Genesis Mission & Laboratory-led AI-for-science teams & A prospective subcontributor \\
+FDA, Oncology Center & Oncology review; its AI program & An inquirer about venue \\
+FDA, drug center & The IND for perioperative use & Sponsor of record, if filed \\
+FDA, combination products & Which center leads the review & A future applicant \\
+NIH, NCI & Investigator-initiated trials; SBIR & Contributor; SBIR applicant \\
+NSF & The SBIR program and its pilots & A Project Pitch applicant \\
+UC San Diego IRB, Moores & Human subjects review; site conduct & Investigator's contributor \\
+SEC & Securities markets; any Form D & Correspondent; future filer \\
+California & Employment, payroll, site permits & An employer, when it has one \\
+\end{tabularx}
+\end{apptable}
+\vspace{-0.60cm}
+\tabcap{Table 13. The ten authorities the program touches, what each governs, and the\\
+company's place inside each; in every row the company's place is the smaller one.}
+
+\subsection{The same map, drawn as a tree}
+
+Figure 7 draws the federal part of the map as a directed tree, with the company
+at the bottom and every edge pointing down to it. The Securities and Exchange
+Commission is drawn with a dashed edge because it is an independent agency, and
+the Office of Science and Technology Policy is drawn beside the agencies rather
+than above them because it advises and coordinates rather than directs.
+
+\begin{appfloat}[!tb]
+\begin{appfig}[graphviz-type / directed tree, rank by rank]
+% Five ranks top to bottom.  Solid edges: line authority.  Dashed edges: an
+% independent agency, or an advisory office.  The company is the one accent
+% node, at the bottom, with four edges arriving from above.
+\node[gvkey,text width=24mm] (pr) at (6.45,0) {The President};
+\node[gvgray,text width=22mm] (os) at (0.25,-1.50) {OSTP, advises and coordinates};
+\node[gvnode,text width=22mm] (hh) at (3.35,-1.50) {HHS};
+\node[gvnode,text width=22mm] (ns) at (6.45,-1.50) {NSF};
+\node[gvnode,text width=22mm] (de) at (9.55,-1.50) {DOE};
+\node[gvgray,text width=22mm] (se) at (12.65,-1.50) {SEC, independent agency};
+\node[gvnode,text width=22mm] (fd) at (0.85,-3.00) {FDA: OCE, drug center, OCP};
+\node[gvnode,text width=22mm] (nc) at (3.85,-3.00) {NIH: NCI and CTEP};
+\node[gvnode,text width=22mm] (sb) at (6.85,-3.00) {NSF SBIR and its pilots};
+\node[gvnode,text width=22mm] (gm) at (9.85,-3.00) {Genesis Mission, lab-led teams};
+\node[gvnode,text width=22mm] (sf) at (12.85,-3.00) {San Francisco Regional Office};
+\node[gvsoft,text width=24mm] (si) at (2.35,-4.60) {Site investigator, under the IRB};
+\node[gvkey,text width=26mm] (cq) at (6.85,-6.30) {ChemicalQDevice, contributor};
+\draw[gvedged] (pr) -- (os);
+\draw[gvedge]  (pr) -- (hh);
+\draw[gvedge]  (pr) -- (ns);
+\draw[gvedge]  (pr) -- (de);
+\draw[gvedged] (pr) -- (se);
+\draw[gvedge]  (hh) -- (fd);
+\draw[gvedge]  (hh) -- (nc);
+\draw[gvedge]  (ns) -- (sb);
+\draw[gvedge]  (de) -- (gm);
+\draw[gvedge]  (se) -- (sf);
+\draw[gvedge]  (fd) -- node[font=\tiny,fill=fundwhite,inner sep=1pt,left=1pt] {IND} (si);
+\draw[gvedge]  (nc) -- node[font=\tiny,fill=fundwhite,inner sep=1pt,right=1pt] {investigator-initiated} (si);
+\draw[gvedgeb] (si) -- node[font=\tiny,fill=fundwhite,inner sep=1pt] {directs} (cq);
+\draw[gvedgeb] (sb) -- node[font=\tiny,fill=fundwhite,inner sep=1pt,pos=0.35] {applicant} (cq);
+\draw[gvedgeb] (gm) -- node[font=\tiny,fill=fundwhite,inner sep=1pt,pos=0.30] {subcontributor} (cq);
+\draw[gvedged] (sf) -- node[font=\tiny,fill=fundwhite,inner sep=1pt,pos=0.25] {correspondent} (cq);
+\ptitle{-0.95}{0.60}{Authority runs down to the company}
+\end{appfig}
+\vspace{-0.60cm}
+\figcaption{Figure 7. The federal part of the structure map as a directed tree, with every\\
+edge pointing down to the company, which sits at the bottom as a contributor.}
+\end{appfloat}
+
+\subsection{Three rules the map implies}
+
+\textbf{Every investigator decision sits with the site.} The company's chief
+executive holds all of the sponsor, and so holds none of the decisions an
+interested party could move. \S5 lists them.
+
+\textbf{No authority is asked to do another's work.} The Securities and Exchange
+Commission is not asked to judge clinical research, and the Cancer Therapy
+Evaluation Program is not asked to fund a company concept. Each letter in this
+block is addressed by that rule.
+
+\textbf{The company's place is stated in writing before it is taken.} Each letter
+to a structure says which place the company is offering to take, so that no
+structure has to infer it. A row of Table 13 changes only when an authority
+answers, and then it changes to the authority's own words.
