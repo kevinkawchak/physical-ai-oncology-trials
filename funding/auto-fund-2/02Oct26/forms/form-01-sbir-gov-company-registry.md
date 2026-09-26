@@ -8,10 +8,11 @@ block, before the next application is drafted.
 
 ## Why this form, this week
 
-Every SBIR application names the company's registry record. NIH asks for the
-registration certificate, a PDF carrying the Small Business Concern (SBC)
-Control ID, to be attached to each application, and the NSF solicitation asks
-for the same identifier at the full proposal stage. This week the company
+Every SBIR application names the company's registry record. The registry
+issues each company one Small Business Concern (SBC) Control ID, a nine-digit
+number used at every participating agency. NIH asks for it on the SBIR/STTR
+Information form of each application, with the registration certificate
+attached, and NSF asks for the same registration before a full proposal. This week the company
 pitched to NSF, disclosed that pitch to NIH, and asked NCI for a program
 director. Before any of those becomes an application, the record it will cite
 must be current, and a week that brought two applicants and a private-capital
@@ -30,8 +31,8 @@ question is a week in which two of its answers could change.
 | Company website and contact | The company's public site; `kevink@chemicalqdevice.com` | No |
 
 If every row still reads "No", the record is current and nothing is submitted.
-Download the certificate again only if the portal shows a later revision date
-than the copy on file.
+Download the certificate again, from the account dashboard's document box, only
+if the portal shows a later revision date than the copy on file.
 
 ## The two rows that could change, and what triggers each
 
@@ -60,7 +61,7 @@ checked on the day either one does.
 
 ## Sources
 
-- SBIR.gov, company registration: https://www.sbir.gov/registration
-- NIH SEED, Small Business Funding: https://seed.nih.gov/small-business-funding
-- NSF 26-510: https://www.nsf.gov/funding/opportunities/small-business-innovation-research-small-business-technology/nsf26-510/solicitation
+- SBIR.gov, Company Registration: https://app.www.sbir.gov/company-registration/overview
+- NIH, G.440 SBIR/STTR Information Form: https://grants.nih.gov/grants/how-to-apply-application-guide/forms-i/general/g.440-sbir-sttr-information-form.htm
+- NSF SBIR, SBA Company Registry: https://seedfund.nsf.gov/how-to-submit/sba-company-registry
 - The Phase I submission checklist, row A2: `funding/auto-fund/08Sep26/forms/form-01-sbir-phase-i-submission-checklist.md`
