@@ -1,0 +1,117 @@
+% sec-01: the signal.  Table 1, Figure 1 (mermaid-type flowchart).
+\section{The Signal, and Why It Is Spent First}
+
+\subsection{What arrived}
+
+Two LinkedIn messages, a few days apart, from two people who do not know each
+other and did not know the other had written. Each asked, in their own words,
+whether ChemicalQDevice was hiring. Neither was answering a posting, because
+there was none: the company has published no job listing, no careers page and
+no request for applicants, and it has used no recruiter. Each message named the
+company's public work as the reason for writing.
+
+\subsection{The standing fact behind every day of this block}
+
+On August 26, 2026 the FDA approved Rasonque (daraxonrasib), Revolution
+Medicines' RAS(ON) multi-selective inhibitor, as a first-in-class targeted
+therapy for metastatic pancreatic adenocarcinoma after prior systemic therapy
+\cite{fdarasonque2026,fdadisco2026,revmedapproval2026}. The approval rests on the
+Phase 3 RASolute 302 trial, which reported a median overall survival of 13.2
+months against 6.6 months for chemotherapy in the RAS G12 population
+\cite{rasolute302,ctgov302}, and it followed the developer's Phase 1/2 program,
+registered as the Phase 1/1b study of RMC-6236 \cite{ctgov001}.
+
+ChemicalQDevice's AI papers were developed independently of that program and
+simultaneously with it. In June 2025, while RASolute 302 was enrolling, the
+company ranked a daraxonrasib combination first of forty pancreatic cancer
+meta-analyses \cite{daraxident}. In August 2025 its ten-arm quantitative systems
+pharmacology simulation returned 12.8 months against 5.4 for chemotherapy
+\cite{qspmetpancre}. Between June and August 2026, before and after the approval,
+it deposited a Phase 1 protocol, an investigational new drug application, a
+Phase 2 protocol and two funding applications around the molecule
+\cite{onpremwhippl,phase1ind,phase2proto,fundapp1,fundapp2}. Each carries a date,
+and the chronology is kept in one public file \cite{daraxstory2026}. That record
+is what the two applicants read.
+
+\subsection{Why two inquiries are evidence}
+
+Federal small-business review scores the team. Until last week the company's
+answer was a plan: eleven roles at 3.95 award-funded full-time equivalents and a
+\$521,000 personnel line inside a \$700,000 annual direct cost \cite{movein2026}.
+Table 1 sets out what two unprompted inquiries add to that plan, and, in the
+same row, what they cannot show.
+
+\begin{apptable}
+\begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}p{4.4cm} >{\raggedright\arraybackslash}p{5.0cm} >{\raggedright\arraybackslash}X}
+\headrow \thead{What a reviewer asks} & \thead{What the two inquiries show} & \thead{What they do not show}\\
+\midrule
+Does the company's work reach people outside it? & Two people read it and acted without being asked & How many read it and did not write \\
+Could the company recruit on award? & Interest exists before any recruiting has begun & That either person would accept an offer \\
+Is an eleven-role plan realistic? & Two inquiries arrived for a plan not yet funded & That either person fits a specific role \\
+Would the team work inside the program's structure? & Both replies state the structured schedule first & Anything, until each person answers \\
+\end{tabularx}
+\end{apptable}
+\vspace{-0.60cm}
+\tabcap{Table 1. What two unprompted inquiries show a reviewer who scores the team,\\
+set beside what they cannot show, so that no row can be read as a claim of hire.}
+
+The right-hand column carries as much weight as the middle one. A company that
+presents two inquiries as two hires has turned evidence into a claim, and a
+reviewer who notices will discount every other number on the page.
+
+Three features make the signal worth more than its size. It is unprompted, so
+it carries no selection effect from the company's own outreach. It arrived
+before an award, when most small businesses have only a recruiting timeline to
+offer a reviewer. And it is the first test of the priorities the chief
+executive set out on September 12, 2026, which the next subsection states as
+terms of work.
+
+\begin{appfloat}[!tb]
+\begin{appfig}[mermaid-type / flowchart with two decisions and two stops]
+% Two rows read as one path: left to right on the upper row, right to left on
+% the lower row.  Each decision has a "no" branch that ends in a gray stop node,
+% so the figure shows every place the thread can end, not only the happy path.
+\node[mmin]   (a) at (0,0)     {LinkedIn message, no posting};
+\node[mmstep] (b) at (3.65,0)  {Same reply to both: no open role today};
+\node[mmdec,text width=19mm] (c) at (7.35,0) {Resume and consent to be named?};
+\node[mmstep] (d) at (11.05,0) {One-page letter of intent, contingent on award};
+\node[mmstep] (e) at (11.05,-2.35) {Named in an NIH or NSF application};
+\node[mmdec,text width=19mm] (f) at (7.35,-2.35) {Award made?};
+\node[mmstep] (g) at (3.65,-2.35) {Structured interview, six questions};
+\node[mmgoal] (h) at (0,-2.35)  {Offer with pay range; I-9, EDD, DE 34};
+\node[mmgray] (s1) at (7.35,1.75) {Thread closes courteously; nothing is kept};
+\node[mmgray] (s2) at (7.35,-4.10) {No hire; the payroll earmark is released};
+\draw[mmedge]  (a) -- (b);
+\draw[mmedge]  (b) -- (c);
+\draw[mmedgeb] (c) -- node[mmlabel,above] {yes} (d);
+\draw[mmedged] (c) -- node[mmlabel,right] {no} (s1);
+\draw[mmedge]  (d) -- (e);
+\draw[mmedge]  (e) -- (f);
+\draw[mmedgeb] (f) -- node[mmlabel,above] {yes} (g);
+\draw[mmedged] (f) -- node[mmlabel,right] {no} (s2);
+\draw[mmedgeb] (g) -- (h);
+\ptitle{-1.55}{1.75}{From a message to a funded offer}
+\pnote{-1.55}{-4.10}{Every node above the lower row\\is free of obligation to both sides}
+\end{appfig}
+\vspace{-0.60cm}
+\figcaption{Figure 1. The path from an unprompted LinkedIn message to a funded offer, with the\\
+two places the thread ends and the one point after which an obligation begins.}
+\end{appfloat}
+
+\subsection{The three priorities, stated as terms of work}
+
+On September 12, 2026 the chief executive wrote to the President that the
+startup's priorities had changed to three: obedience over hard work and
+responsibilities; adaptation to existing authority, order, and structure; and a
+teamwork-based, early-rise, scheduled routine. Day 3 of this block answers the
+White House correspondence that followed. Day 1 applies the three priorities to
+the only people who have so far asked to work inside them.
+
+Each reply says, before anything else about the role, that the team works a
+structured, early-start weekday schedule under established clinical and
+regulatory procedures. The interview plan in \S4 tests the first two priorities
+with two of its six questions: one asks for a time the candidate followed a
+procedure they disagreed with, and the other asks who decides when a procedure
+in a regulated study may be changed. A candidate who answers that the procedure's
+owner and the reviewing body decide has understood the program's structure
+before reading its protocol.
