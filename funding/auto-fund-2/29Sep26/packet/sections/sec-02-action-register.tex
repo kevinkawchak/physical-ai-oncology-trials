@@ -1,0 +1,100 @@
+% sec-02: the action register.  Table 7, Figure 4 (plantuml-type state machine).
+\section{The Action Register}
+
+Table 7 lists the day's seven actions in the order they are done. The order is
+not arbitrary. The SEC office hears from the company before anyone else hears
+about the request, and the company adopts its own trading rule before it writes
+to a public company's investor relations office.
+
+\begin{apptable}
+\begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}p{0.5cm} >{\raggedright\arraybackslash}p{6.4cm} >{\raggedright\arraybackslash}p{2.6cm} >{\raggedright\arraybackslash}X}
+\headrow \thead{No} & \thead{Action} & \thead{File} & \thead{Waits on}\\
+\midrule
+1 & Reply to the SEC office with the record & {\footnotesize\ttfamily email-01} & Nothing \\
+2 & Ask the FDA which venue applies & {\footnotesize\ttfamily email-02} & Row 1 sent \\
+3 & Notify Anthropic, copying the office & {\footnotesize\ttfamily email-03} & Row 1 sent \\
+4 & Notify OpenAI, copying the office & {\footnotesize\ttfamily email-04} & Row 3, the same day \\
+5 & Adopt the trading and disclosure rules & {\footnotesize\ttfamily capital-02} & Nothing \\
+6 & Notify Revolution Medicines & {\footnotesize\ttfamily email-05} & Rows 1 and 5 \\
+7 & Prepare and hold EDGAR access & {\footnotesize\ttfamily form-01} & A first filing \\
+\end{tabularx}
+\end{apptable}
+\vspace{-0.60cm}
+\tabcap{Table 7. The day's seven actions in the order they are done, with the file that carries\\
+each and what it waits on; the trading rule is adopted before the sixth row is sent.}
+
+\subsection{The request as a state machine}
+
+A request to a regulator moves through states the company does not control, and
+it is easy to describe a state as further along than it is. Figure 4 draws the
+states, marks the one the request is in today, and writes on each transition the
+condition that moves it. Only two of those conditions are in the company's hands:
+supplying the record, and correcting it if a named company asks.
+
+\begin{appfloat}[!tb]
+\begin{appfig}[plantuml-type / state machine with guards]
+% Upper row: the path to date, left to right.  Lower row: the three outcomes the
+% office alone decides.  The current state is filled with the accent color.
+% Guards on the upper row sit just above the gap between two states.
+\node[umlinit] (i) at (-1.05,0) {};
+\node[umlstate,text width=24mm] (s1) at (0.95,0) {Submitted\\request and basis};
+\node[umlstateon,text width=24mm] (s2) at (4.65,0) {Acknowledged\\``very seriously''};
+\node[umlstatesoft,text width=24mm] (s3) at (8.35,0) {Record supplied\\eleven identifiers};
+\node[umlstatesoft,text width=24mm] (s4) at (12.05,0) {Venue answered\\by the FDA program};
+\node[umlstategray,text width=24mm] (o1) at (4.65,-2.75) {Referred to\\another office};
+\node[umlstategray,text width=24mm] (o2) at (8.35,-2.75) {Considered further\\by the office};
+\node[umlstategray,text width=24mm] (o3) at (12.05,-2.75) {Closed: no venue\\exists today};
+\draw[umlarrow] (i) -- (s1);
+\draw[umlarrow] (s1) -- (s2);
+\draw[umlarrow] (s2) -- (s3) node[midway,umlguard,above=5.5mm] {[letter 1]};
+\draw[umlarrow] (s3) -- (s4) node[midway,umlguard,above=5.5mm] {[FDA replies]};
+\draw[umlarrow] ([xshift=-5mm]s3.north) .. controls +(-0.35,1.05) and +(0.35,1.05)
+  .. node[pos=0.5,above,umlguard] {[a named company corrects]} ([xshift=5mm]s3.north);
+\draw[umlarrow] (s4.south) -- node[umlguard,right=1pt,pos=0.5] {[no venue]} (o3.north);
+\draw[umlarrow] ([xshift=-6mm]s4.south) -- node[umlguard,pos=0.55,fill=fundwhite] {[office continues]} (o2.north);
+\draw[umlarrow] ([xshift=-11mm]s4.south) -- node[umlguard,pos=0.72,fill=fundwhite] {[office refers]} (o1.north);
+\node[umlnote,text width=30mm,anchor=north west] at (-1.30,-1.95)
+  {Only the two upper guards are in the company's hands. No state is ever
+  described publicly as a finding.};
+\ptitle{-1.30}{1.45}{Where the request stands}
+\end{appfig}
+\vspace{-0.60cm}
+\figcaption{Figure 4. The request as a state machine, with today's state filled, the guard on each\\
+transition written in brackets, and the three outcomes that only the office decides.}
+\end{appfloat}
+
+\subsection{Who each letter reaches, and why}
+
+The reply to the office copies the Los Angeles Regional Office, whose region
+includes San Diego, and the Office of the Advocate for Small Business Capital
+Formation, because the request comes from a small business with a capital
+formation question behind it \cite{secregional2026,secoasb2026}. The routing
+letter to the FDA's Oncology AI Program copies the Oncology Center of Excellence
+and the Office of Combination Products, because the program behind the question
+would, if it ever reached a submission, be a combination of a drug, a robotic
+device and advisory software \cite{fdaoceai2026,fdaoce2026,fdacombination2026}.
+
+Row 7 is readiness, not a filing. The company prepared, and left unfiled, a Form
+D for a private offering in the first block of funding actions; a Form D is due
+within fifteen days after a first sale, and EDGAR access must exist before then
+\cite{secformd2026,secformid2026}. An office that is taking a request from this
+company seriously should never find the company unable to file on time.
+
+\subsection{What the three notices are for}
+
+Letters 3, 4 and 5 ask for nothing. They exist because a company that names
+third parties in a request to a federal office tells them first. OpenAI and
+Anthropic are each told what the company's own repository records about their
+tools, and each is invited to correct the request's description of them, with
+the correction copied to the office the same day
+\cite{tripartisan2026,anthropicnews2026}.
+Revolution Medicines is told that independent research on its molecule is
+referenced, that no relationship of any kind exists, and that the request
+concerns nothing about the company or its securities \cite{revmedapproval2026}.
+The SEC is deliberately not copied on that letter.
+
+\actionbox{The one approval this day asks for}{Approve answering the SEC office
+with the full dated record, routing the clinical-standard question to the FDA's
+Oncology AI Program, and notifying the three companies the request names or
+concerns. Adopt the trading and disclosure rules before the notice to
+Revolution Medicines is sent.}
