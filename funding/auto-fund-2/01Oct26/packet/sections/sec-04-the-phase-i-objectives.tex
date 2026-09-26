@@ -1,0 +1,67 @@
+% sec-04: the Phase I technical objectives.  Table 19.
+\section{The Phase I Technical Objectives}
+
+\subsection{What the Pitch proposes}
+
+The Pitch proposes a governed, advisory-only language model layer for robotic
+oncologic surgery, and a verification method that makes its behavior checkable.
+The layer runs on premises at a clinical site. It produces text recommendations
+to the operating surgeon and nothing else: it holds no write credential to the
+data capture system, no route to the robot control network, and no ability to
+act on equipment \cite{onpremwhippl,phase1ind}. Every output is checked by two
+independent models from different developers before it is shown, a practice the
+company already follows in its own work \cite{tripartisan2026}, and every check
+is written to an audit trail that can be replayed.
+
+The innovation is the combination of three things that clinical AI systems
+usually treat separately: a hard architectural boundary, enforced by network
+segmentation and credential design rather than by instructions to the model;
+cross-model verification, in which disagreement between independent models is a
+signal to withhold advice rather than noise; and a credibility assessment framed
+on the ASME V\&V 40 approach to computational models \cite{asmevv40}, extended
+from simulation to advisory text.
+
+\subsection{Five measures, each with a threshold}
+
+Table 19 states the Phase I as five measures. The first four are the technical
+risks the Pitch names; the fifth restates the physical limits of the deposited
+protocol that the layer must never touch. Each row has a threshold a reviewer
+can check at the end of the award.
+
+\begin{apptable}
+\begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}p{2.9cm} >{\raggedright\arraybackslash}p{5.0cm} >{\raggedright\arraybackslash}p{4.6cm} >{\raggedright\arraybackslash}X}
+\headrow \thead{Objective} & \thead{Measure} & \thead{Threshold} & \thead{Source}\\
+\midrule
+Boundary integrity & Open paths across the boundary, tested on every build & Zero write credentials; no route to robot control & Protocol, IND \\
+Verification yield & How often verifiers disagree, and flag a seeded error & A withholding threshold set from measured rates & Company method \\
+Credibility & An ASME V\&V 40 battery, extended to advisory text & Twin at 81.9 over 55 tests; extension with limits & Deposited twin \\
+Timing & Latency against each safety stop, on a hardware bench & No effect on 3 ms arm or 500 ms system stops & Protocol \\
+Physical limits & Any advisory path to a force or vessel control & Zero paths to the 3 N, 18 N and five-vessel limits & Protocol \\
+\end{tabularx}
+\end{apptable}
+\vspace{-0.60cm}
+\tabcap{Table 19. The Phase I as five measures, each with a threshold a reviewer can check at\\
+the end of the award and the deposited source it comes from; no patient data is used.}
+
+\subsection{What the Phase I would produce}
+
+A Phase I would produce three things: a verification method, the test suite that
+exercises it on every build, and a public report of measured rates with their
+limitations. The main technical risks are building synthetic cases realistic
+enough to expose failure, choosing verifier models that fail independently
+rather than together, and measuring rare events without patient data. Each is a
+question of engineering and measurement, which is the kind of question NSF
+funds.
+
+\subsection{What is not proposed}
+
+No clinical trial is proposed, and no patient data is used, identifiable or
+de-identified. The deployed clinical model stays on premises at the site, and
+any shared computing resource would see only synthetic cases and the company's
+own code. The robotic Phase 1 the layer would one day sit inside remains an
+open-label, single-arm, 3+3 dose escalation of perioperative daraxonrasib at
+160, 220 and 300 mg, with a 28-day dose-limiting toxicity window, in up to 18
+treated participants undergoing a staged eight-arm robotic
+pancreaticoduodenectomy with 56 degrees of freedom and 640 sensor channels
+\cite{onpremwhippl}. That trial belongs to a site investigator and to NIH and
+private funding, as \S3 sets out.
