@@ -1,0 +1,109 @@
+% ============================================================
+% main.tex - Day 1 packet, "The Unsolicited Applicants".
+% ChemicalQDevice daily funding action packet, repository v4.9.0.
+% Deposited in funding/auto-fund-2/28Sep26/packet.
+%
+% WHAT THIS DOCUMENT IS.  The first packet of the second five-day block.  Two
+% people asked to join a company that had posted no position; this packet
+% answers both the same way, maps them against the eleven-role staffing plan,
+% and opens the routes that could fund them.
+%
+% STRUCTURE.  Seven sections, one .tex file each, per Rule 6.  Three figures,
+% five tables.  Every figure is TikZ; no raster is read or written.
+%
+% SPACING INVARIANT.  \vspace{-0.60cm} before every caption, giving 7.44pt from
+% the last rule to the first caption line, identically for every float.
+%
+% COMPILE ON OVERLEAF WITH pdfLaTeX:
+%   pdflatex main -> bibtex main -> pdflatex main -> pdflatex main
+% ============================================================
+\documentclass[11pt]{article}
+\usepackage{fundstyle}
+
+\title{The Unsolicited Applicants: Two LinkedIn Inquiries, No Posting, and the Structured Team That Can Fund Them}
+\author{Kevin Kawchak}
+\date{September 28, 2026}
+
+\fundhdr{The Unsolicited Applicants}{Day 1 of 5}
+
+\begin{document}
+\thispagestyle{plain}
+
+\fundmast{ChemicalQDevice \;|\; Daily Funding Action Packet \;|\; Day 1 of 5}%
+{The Unsolicited Applicants}%
+{Two people asked to join a company that had posted no position. This packet answers both
+the same way, places them against the eleven-role staffing plan, and opens the three routes
+that could fund them, without an offer, a promise, or a name.}
+
+\vspace{0.15em}
+
+\begin{center}
+\appbadge{Day 1 of 5} \enspace \appbadgel{Repository v4.9.0} \enspace
+\appbadgel{3 figures} \enspace \appbadgel{5 tables} \enspace
+\appbadgel{Rasonque approved}
+\end{center}
+
+\vspace{-0.15em}
+
+\funddeck{The signal}{2 inquiries}{Unprompted, on LinkedIn}%
+{The roster}{6 of 11 roles}{Open to an unlicensed applicant}%
+{The earmark}{\$40,000}{13 weeks, contingent on award}
+
+\vspace{-0.1em}
+\apprule{0.9pt}
+
+\begin{center}\small
+CEO Kevin Kawchak\,\orcidicon{0009-0007-5457-8667}, ChemicalQDevice \;|\;
+\href{mailto:kevinkawchak@gmail.com}{kevinkawchak@gmail.com}\\
+\href{https://orcid.org/0009-0007-5457-8667}{0009-0007-5457-8667} \;|\;
+San Diego, California
+\end{center}
+
+\vspace{-0.25em}
+\apprule{0.5pt}
+
+\noindent\footnotesize\textit{Independent research paper and practical adoption
+guide. It is not medical or regulatory advice and is not endorsed by the FDA,
+NIH, HHS, an IRB, ICH, or any sponsor. All figures derive from the author's
+repository sources and are illustrative unless tied to a cited
+reference.}\normalsize\par
+
+\vspace{0.12em}
+
+\noindent\footnotesize\textbf{Disclaimer:} \textit{This work is independent and
+is not endorsed or sponsored by any trial sponsor, CRO, site, IRB, regulator, or
+medical society; and was adapted using Claude Code Opus 5.5.}\normalsize\par
+
+\vspace{0.12em}
+
+{\sloppy\noindent\footnotesize Repository (v4.9.0) is at
+\url{https://github.com/kevinkawchak/physical-ai-oncology-trials}.
+The paper files are deposited in
+\href{https://github.com/kevinkawchak/physical-ai-oncology-trials/tree/main/funding/auto-fund-2}{/funding/auto-fund-2}.
+No digital object identifier is asserted for this document.\normalsize\par}
+
+\renewcommand{\keywordname}{\textbf{Keywords}}
+\keywords{Unsolicited applicants; Contingent personnel; Small business innovation research; Staffing plan; Structured interview; California employer obligations; Payroll earmark; Pancreatic ductal adenocarcinoma}
+
+\vspace{0.25em}
+\apprule{0.6pt}
+
+\setcounter{tocdepth}{1}
+\renewcommand{\contentsname}{\color{accentcol}Table of Contents}
+{\setlength{\parskip}{0pt}\footnotesize\linespread{0.94}\selectfont\tableofcontents}
+
+\vspace{-0.1em}
+\apprule{0.6pt}
+
+% The body follows the contents on the cover page rather than after a page
+% break, so the cover carries no block of empty space below its contents.
+% ---------- Body: one \input per section (Rule 6) ----------
+\input{sections/sec-00-front}
+\input{sections/sec-01-the-signal}
+\input{sections/sec-02-action-register}
+\input{sections/sec-03-the-roster}
+\input{sections/sec-04-obligations}
+\input{sections/sec-05-funding-routes}
+\input{sections/sec-06-references}
+
+\end{document}
