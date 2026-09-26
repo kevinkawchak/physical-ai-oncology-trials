@@ -1,6 +1,6 @@
 # Physical AI Oncology Trials: Comprehensive Examples
 
-*Production-ready code examples for the most pressing use cases in physical AI oncology trials*
+*Production-ready code examples for pressing use cases in physical AI oncology trials*
 
 **Version**: 2.7.1
 **Status**: Active Development
