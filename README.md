@@ -1,7 +1,7 @@
 # End-to-End Physical AI Unification of Oncology Clinical Trials
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Release](https://img.shields.io/badge/Release-v4.8.0-brightgreen.svg)](https://github.com/kevinkawchak/physical-ai-oncology-trials)
+[![Release](https://img.shields.io/badge/Release-v4.9.0-brightgreen.svg)](https://github.com/kevinkawchak/physical-ai-oncology-trials)
 [![Last Updated](https://img.shields.io/badge/Updated-September%202026-blue.svg)](https://github.com/kevinkawchak/physical-ai-oncology-trials)
 [![Protocol](https://img.shields.io/badge/Protocol-MCP-purple.svg)](https://github.com/kevinkawchak/physical-ai-oncology-trials)
 [![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.18445179-blue)](https://doi.org/10.5281/zenodo.18445179)
@@ -22,10 +22,14 @@
 [![Target Site Staff](https://img.shields.io/badge/Target%20Site%20staff-CEO%20%2B%2010%20coworkers-6C757D.svg)](funding/move-in/final-move-in/sections)
 [![Target Award](https://img.shields.io/badge/Target%20Award-%24700%2C000%20%C3%97%205%20years-6C757D.svg)](funding/move-in/final-move-in/sections)
 [![Rasonque](https://img.shields.io/badge/Rasonque-approved%208%2F26%2F26-6C757D.svg)](https://www.fda.gov/news-events/press-announcements/fda-approves-first-class-targeted-therapy-metastatic-pancreatic-cancer)
+[![Daily Funding 2](https://img.shields.io/badge/v4.9.0-Daily%20Funding%20Actions%2C%20Second%20Block-00417A.svg)](funding/auto-fund-2)
+[![Four Signals](https://img.shields.io/badge/Signals-LinkedIn%20%C2%B7%20SEC%20%C2%B7%20White%20House%20%C2%B7%20NSF-3C7DB2.svg)](funding/auto-fund-2)
 
 **Comprehensive developments for integrating physical AI into oncology clinical trials by Anthropic Claude Code; with additional assistance from OpenAI ChatGPT and Google Gemini.**
 
 This repository provides production-ready configurations, validated pipelines, and integration guides for deploying robotic systems, digital twins, and embodied AI agents in the field of oncology. 
+
+**9/26: v4.9.0 (auto-fund-2: Four Signals Answered in Five Business Days)** *v4.9.0 adds funding/auto-fund-2/: two unsolicited LinkedIn applicants, the SEC San Francisco office taking the external standard request "very seriously", White House communications, and an NSF multi-million-dollar pilot inquiry, answered in 19 emails, 4 LinkedIn replies, 15 figures, 25 tables and five compiled packets.* [**Directory**](funding/auto-fund-2)
 
 **9/8: v4.8.0 (auto-fund: Daily Funding Actions for Final CEO Approval)** *v4.8.0 adds funding/auto-fund/: five business days of complete funding actions, each ending in one approval step. 26 letters, 13 briefs, 9 form packs, 5 capital instruction sets, 15 figures, 25 tables, and five compiled packets.* [**Directory**](funding/auto-fund)
 
@@ -109,6 +113,119 @@ python scripts/verify_installation.py
 # Detect available simulation frameworks
 python unification/cross_platform_tools/framework_detector.py
 ```
+---
+
+## Daily Funding Actions, Second Block: Four Signals Answered (v4.9.0)
+
+[![Directory](https://img.shields.io/badge/Directory-funding%2Fauto--fund--2-00417A.svg)](funding/auto-fund-2)
+[![Business days](https://img.shields.io/badge/Business%20days-5-00417A.svg)](funding/auto-fund-2)
+[![Signals](https://img.shields.io/badge/New%20signals-4-3C7DB2.svg)](funding/auto-fund-2)
+[![Emails](https://img.shields.io/badge/Emails-19%20.txt%2C%203%2B%20addresses%20each-6C757D.svg)](funding/auto-fund-2)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn%20replies-4-6C757D.svg)](funding/auto-fund-2/28Sep26/linkedin)
+[![Figures](https://img.shields.io/badge/Figures-15-9AA1A8.svg)](funding/auto-fund-2)
+[![Tables](https://img.shields.io/badge/Tables-25-9AA1A8.svg)](funding/auto-fund-2)
+[![Compile](https://img.shields.io/badge/pdfLaTeX-0%20errors%2C%200%20overfull-9AA1A8.svg)](funding/auto-fund-2)
+[![Rasters](https://img.shields.io/badge/PNG%20%2F%20JPG-none-9AA1A8.svg)](funding/auto-fund-2)
+
+**Summary.** v4.9.0 adds funding/auto-fund-2/: five business days of funding actions for CEO Kevin Kawchak. Two unsolicited LinkedIn applicants, the SEC San Francisco office taking the external standard request "very seriously", White House communications and an NSF multi-million-dollar pilot inquiry are answered in 19 emails with 3+ verified addresses, 4 LinkedIn replies, 15 TikZ figures, 25 tables and five compiled ten-page packets.
+
+### The four signals, one a day
+
+```mermaid
+flowchart LR
+    D1["Day 1 · 28Sep26<br/>Two unsolicited<br/>LinkedIn applicants"]:::d1
+    D2["Day 2 · 29Sep26<br/>SEC San Francisco<br/>external standard request"]:::d2
+    D3["Day 3 · 30Sep26<br/>White House<br/>communications"]:::d3
+    D4["Day 4 · 01Oct26<br/>NSF multi-million<br/>pilot inquiry"]:::d4
+    D5["Day 5 · 02Oct26<br/>The week's record<br/>3 earned follow-ups"]:::d5
+    CAD["Weekly cadence v2<br/>follow-up rule"]:::proc
+    D1 --> D2 --> D3 --> D4 --> D5 --> CAD
+    CAD -.->|next Monday, 5:00| D1
+    classDef d1 fill:#2E5E4E,stroke:#2E5E4E,color:#FFFFFF
+    classDef d2 fill:#34495E,stroke:#34495E,color:#FFFFFF
+    classDef d3 fill:#7A1F2B,stroke:#7A1F2B,color:#FFFFFF
+    classDef d4 fill:#4B2A7B,stroke:#4B2A7B,color:#FFFFFF
+    classDef d5 fill:#8C5A12,stroke:#8C5A12,color:#FFFFFF
+    classDef proc fill:#6C757D,stroke:#00417A,color:#FFFFFF
+```
+
+| Day | Directory | Signal | The one decision it asks for | Sent |
+|:--|:--|:--|:--|:--|
+| 1 | [`28Sep26`](funding/auto-fund-2/28Sep26) | Two job applicants wrote on LinkedIn with no posting | Answer both alike and open three routes that could fund a first hire | 3 emails, 2 LinkedIn replies |
+| 2 | [`29Sep26`](funding/auto-fund-2/29Sep26) | The SEC San Francisco Regional Office is taking the request "very seriously" | Answer with the dated record, route the clinical question to the FDA, notify the named parties | 5 emails |
+| 3 | [`30Sep26`](funding/auto-fund-2/30Sep26) | Several White House communications after the September 12 message | Answer through the contact form and OSTP; take a contributor's place in four structures | 4 emails, 1 web form |
+| 4 | [`01Oct26`](funding/auto-fund-2/01Oct26) | An NSF inquiry about a multi-million-dollar pilot | Answer exactly, test the pilot's gate, submit the Project Pitch | 4 emails, 2 submissions |
+| 5 | [`02Oct26`](funding/auto-fund-2/02Oct26) | None | Send only the follow-ups that have earned their interval; adopt the cadence | 3 emails, up to 2 LinkedIn replies |
+
+The request to the SEC office, that the company's oncology clinical trial research
+be listed as an external standard, rests on the company's own statement that its
+LLM papers have been used extensively by OpenAI and Anthropic. Daraxonrasib is
+FDA approved as Rasonque, and the company's AI papers on it were developed
+independently of, and simultaneously with, Revolution Medicines' Phase 1/2 and
+Phase 3 trials.
+
+### The follow-up rule the week ends on
+
+```mermaid
+flowchart TD
+    L["A letter sent earlier this week"]:::soft
+    Q1{"To an applicant?"}:::dec
+    Q2{"Reply received?"}:::dec
+    Q3{"Asked for anything?"}:::dec
+    Q4{"Three open business days?"}:::dec
+    Q5{"One new fact?"}:::dec
+    S["Send one follow-up<br/>in the federal window"]:::goal
+    N["Stop: answer a reply, wait,<br/>or send nothing"]:::hold
+    L --> Q1 -->|no| Q2 -->|no| Q3 -->|yes| Q4 -->|yes| Q5 -->|yes| S
+    Q1 -->|yes| N
+    Q2 -->|yes| N
+    Q3 -->|no| N
+    Q4 -->|no| N
+    Q5 -->|no| N
+    classDef goal fill:#8C5A12,stroke:#8C5A12,color:#FFFFFF
+    classDef soft fill:#F4EADB,stroke:#B98A45,color:#000000
+    classDef dec fill:#E9ECEF,stroke:#6C757D,color:#000000
+    classDef hold fill:#CED4DA,stroke:#6C757D,color:#000000
+```
+
+Of the sixteen emails sent on the first four days, four asked for nothing, six
+have not yet earned a follow-up, two share one, one is held and one is
+superseded. Three follow-ups leave on day 5, each only if still unanswered.
+
+### The five packets, measured
+
+| Day | Packet | Accent | Pages | Errors | Overfull | Figures | Tables | References |
+|:--|:--|:--|:--|:--|:--|:--|:--|:--|
+| 1 | The Unsolicited Applicants | Torrey Pine `#2E5E4E` | 10 | 0 | 0 | 1 to 3 | 1 to 5 | 44 |
+| 2 | The External Standard Request | Harbor Slate `#34495E` | 10 | 0 | 0 | 4 to 6 | 6 to 10 | 37 |
+| 3 | The Structured Team | Mission Oxblood `#7A1F2B` | 10 | 0 | 0 | 7 to 9 | 11 to 15 | 39 |
+| 4 | The Pilot Inquiry | Pancreatic Purple `#4B2A7B` | 10 | 0 | 0 | 10 to 12 | 16 to 20 | 37 |
+| 5 | The Week's Record | Sunset Cliffs Amber `#8C5A12` | 10 | 0 | 0 | 13 to 15 | 21 to 25 | 41 |
+
+Every caption is two hand-balanced lines set `-0.60cm` below its float, every
+table is exactly the body width with raggedright columns, and every reference
+carries a clickable url, with a doi and a doi url wherever an identifier exists.
+
+### The robotic Phase 1 a funder is asked to back
+
+| Parameter | Value |
+|:--|:--|
+| Design | Open-label, single-arm, 3+3 escalation of perioperative daraxonrasib at 160, 220 and 300 mg, up to 18 participants |
+| Procedure | Staged eight-arm robotic pancreaticoduodenectomy, 56 degrees of freedom, 640 sensor channels |
+| Safety limits | 3 ms cross-arm stop, 500 ms system stop, 3 N per arm and 18 N in all, five-vessel no-fly gate |
+| Gate before any patient | At least 1,000 simulated procedures across at least 2 frameworks, Unified Safety Level at least 7.0 |
+| Evidence | Simulated 12.8 against 5.4 months (August 2025); reported 13.2 against 6.6 months, RAS G12 (May 2026) |
+| Money | NIH SBIR $306,000 then $1,300,000; NSF Phase I up to $305,000; $700,000 a year direct; $36,330 **projected** per virtual trial run |
+
+### What is not claimed
+
+No office quoted or written to has taken a position, and silence is never
+described as one. Only two words are attributed to the SEC office, and no White
+House communication is quoted or paraphrased. Neither applicant is named. The
+company holds no NSF or NIH award and is not yet eligible for the NSF pilot. The
+perioperative use of Rasonque remains investigational, and no investigational
+new drug application has been submitted.
+
 ---
 
 ## Daily Funding Actions for Final CEO Approval (v4.8.0)
@@ -1113,8 +1230,24 @@ physical-ai-oncology-trials/
 │   ├── references/                    # references.bib + trump-ai-cancer-2025-2026.bib
 │   └── template-new-system/           # the paper template this work adapts
 │
-├── funding/                           # ★ Daily funding actions, auto-fund (v4.8.0)
+├── funding/                           # ★ Daily funding actions, auto-fund-2 (v4.9.0)
 │   ├── README.md                      # funding hub: structure, DOIs, source map
+│   ├── auto-fund-2/                   # v4.9.0 build, 4 signals over 5 business days
+│   │   ├── README.md                  # hub: the four signals, the address and paste rules
+│   │   ├── inputs/                    # sources, the money frame, the 36-address register
+│   │   ├── prompts/                   # prompt-auto-fund-2.md + output-auto-fund-2.md
+│   │   ├── sub-prompts/               # day-1 .. day-5, one schedule README each
+│   │   ├── 28Sep26/                   # Day 1, Unsolicited Applicants, Torrey Pine
+│   │   ├── 29Sep26/                   # Day 2, External Standard Request, Harbor Slate
+│   │   ├── 30Sep26/                   # Day 3, Structured Team, Mission Oxblood
+│   │   ├── 01Oct26/                   # Day 4, Pilot Inquiry, Pancreatic Purple
+│   │   └── 02Oct26/                   # Day 5, Week's Record, Sunset Cliffs Amber
+│   │       ├── emails/                # .txt letters, 3+ verified addresses each
+│   │       ├── linkedin/              # .txt replies to the applicants (days 1 and 5)
+│   │       ├── briefs/  forms/        # .md technical briefs and form packs
+│   │       ├── investing/  diagrams/  # .md capital instructions and figure specs
+│   │       └── packet/                # main.tex, fundstyle.sty, references.bib,
+│   │                                  # sections/, main.pdf, Overleaf zip
 │   ├── auto-fund/                     # v4.8.0 build, 5 business days, 1 approval each
 │   │   ├── README.md                  # hub: the format rule, the 15 figures, source map
 │   │   ├── inputs/                    # an index of the 9 repository sources, not a copy

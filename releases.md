@@ -4,6 +4,42 @@ Release notes for the physical-ai-oncology-trials repository.
 
 ---
 
+Daily Funding Actions, Second Block: Four Signals Answered (v4.9.0)
+v4.9.0 - auto-fund-2: Four Signals Answered in Five Business Days
+
+## Summary
+
+This release adds funding/auto-fund-2/, the second block of daily funding actions for CEO Kevin Kawchak (ChemicalQDevice, San Diego), covering five business days from September 28 to October 2, 2026. It follows the structure of funding/auto-fund/ and answers four signals, one a day: two unsolicited LinkedIn inquiries from job applicants, the SEC San Francisco Regional Office's word that it is taking the chief executive's request "very seriously", several White House communications after the September 12, 2026 message, and an NSF inquiry about applying to a multi-million-dollar pilot program. The fifth day spends no new signal and sends only the follow-ups that have earned their interval. Daraxonrasib is FDA approved as Rasonque, and the company's AI papers on it were developed independently of, and simultaneously with, Revolution Medicines' Phase 1/2 and Phase 3 trials.
+
+A 425-character summary: v4.9.0 adds funding/auto-fund-2/: five business days of funding actions for CEO Kevin Kawchak. Two unsolicited LinkedIn applicants, the SEC San Francisco office taking the external standard request "very seriously", White House communications and an NSF multi-million-dollar pilot inquiry are answered in 19 emails with 3+ verified addresses, 4 LinkedIn replies, 15 TikZ figures, 25 tables and five compiled ten-page packets.
+
+## Features
+
+- funding/auto-fund-2/28Sep26: Day 1, The Unsolicited Applicants. Two identical LinkedIn replies with no applicant named anywhere, three emails opening NIH SBIR, first-employer and UC San Diego routes that could fund a first hire, a structured six-question interview with pay ranges given only on request, two employer form packs, and a $40,000 contingent payroll earmark.
+- funding/auto-fund-2/29Sep26: Day 2, The External Standard Request. The reply to the SEC San Francisco Regional Office with the dated record behind the request, a routing letter to the FDA's Oncology AI Program, notices to Anthropic, OpenAI and Revolution Medicines, eight criteria an external standard would have to meet scored against the record, EDGAR access readiness, and a restricted trading list.
+- funding/auto-fund-2/30Sep26: Day 3, The Structured Team. The September 12 message quoted verbatim, its three priorities stated as operating rules, the White House contact form, four letters offering a contributor's place inside established structures, and the 5:00 a.m. Pacific weekday.
+- funding/auto-fund-2/01Oct26: Day 4, The Pilot Inquiry. The exact answer to NSF with the published gate beside the pilot, the Project Pitch with every field within its limit, letters to the pilot's principal investigator, the NAIRR Pilot and NIH, and the split that keeps NSF, NIH and private capital from paying for the same work.
+- funding/auto-fund-2/02Oct26: Day 5, The Week's Record. The sixteen emails of the week measured against the follow-up rule, three earned follow-ups including a one-page Specific Aims to the NCI SBIR Development Center, the robotic Phase 1 in nineteen checkable numbers, and the weekly cadence version 2.
+- 19 emails, each with at least three recipient addresses verified against the publishing organization's own page, and each body written one paragraph per line so that it pastes into iOS Mail on an iPhone without repair; 4 LinkedIn replies.
+- Five compiled packets of seven sections and ten pages each, 15 TikZ figures (three per platform across Mermaid, Graphviz, D2, PlantUML and Diagrams), 25 tables at the body width, 198 references each with a clickable url, and an Overleaf zip per day tested on its own at 0 errors and 0 overfull boxes.
+- Comprehensive READMEs with badges and Rule 5 source maps in every directory; the root README and funding/README.md updated for v4.9.0.
+
+## Contributors
+@kevinkawchak
+@claude
+@openai
+@google-gemini
+
+## Notes
+
+Nothing in this release is a submission of record, an agreement, an offering, or an award. The SEC office's words are quoted exactly, "very seriously", and are never described as a finding, a listing, an endorsement, or a decision. The statement that the company's LLM papers have been used extensively by OpenAI and Anthropic is the company's own statement, made as the basis of its request. The White House communications are facts about correspondence; their text is not in the repository and is neither quoted nor paraphrased.
+
+The company holds no NSF or NIH award and is not yet eligible for the NSF Commercialization Readiness Pilot or the Strategic Breakthrough tier; the Project Pitch is the first step on the published route. NSF's SBIR program does not fund clinical trials, and the Pitch proposes only the verification of the advisory language model layer, on synthetic data. Rasonque is approved in the metastatic setting, and the perioperative use the program proposes remains investigational.
+
+Neither applicant is named anywhere in the repository, and neither is told that the other exists. The $36,330 virtual trial figure is described as projected wherever it appears. No PNG or JPG is generated, and no Python or YAML file is added or modified. Ruff also formats the Python code blocks inside Markdown, so the Diagrams sources in the figure specifications are kept in ruff's format; ruff format --check, ruff check and yamllint pass on the whole repository with ruff 0.16.9, the version the lint-and-format checks across Python 3.10, 3.11 and 3.12 install.
+
+---
+
 Daily Funding Actions for Final CEO Approval (v4.8.0)
 v4.8.0 - auto-fund: Five Business Days of Funding Actions, Each Ending in One Approval Step
 

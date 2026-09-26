@@ -1,13 +1,15 @@
-# Funding - ChemicalQDevice PDAC Trial Funding (v4.8.0)
+# Funding - ChemicalQDevice PDAC Trial Funding (v4.9.0)
 
 [![License](https://img.shields.io/badge/License-CC%20BY%204.0-yellow.svg)](https://creativecommons.org/licenses/by/4.0/)
 [![Applications](https://img.shields.io/badge/Applications-12%20total-00417A.svg)](pdac-funding-applications/applications)
 [![Policy basis](https://img.shields.io/badge/Policy-Science%3A%20A%20New%20Golden%20Age-3C7DB2.svg)](science-golden-age)
 [![Partner of choice](https://img.shields.io/badge/Partner-UC%20San%20Diego%20Moores-6C757D.svg)](potential-partners/UC-San-Diego)
-[![Repository](https://img.shields.io/badge/Repository-v4.8.0-6C757D.svg)](../README.md)
+[![Repository](https://img.shields.io/badge/Repository-v4.9.0-6C757D.svg)](../README.md)
 [![Capitalization plan](https://img.shields.io/badge/v4.5.0-Capitalization%20Plan-00417A.svg)](capitalization-plan)
 [![La Jolla Move-In](https://img.shields.io/badge/v4.7.0-La%20Jolla%20Move--In-00417A.svg)](move-in)
 [![Daily Funding](https://img.shields.io/badge/v4.8.0-Daily%20Funding%20Actions-00417A.svg)](auto-fund)
+[![Daily Funding 2](https://img.shields.io/badge/v4.9.0-Daily%20Funding%20Actions%2C%20Second%20Block-00417A.svg)](auto-fund-2)
+[![Signals](https://img.shields.io/badge/Signals%20answered-4-3C7DB2.svg)](auto-fund-2)
 [![Business days](https://img.shields.io/badge/Business%20days-5-3C7DB2.svg)](auto-fund)
 [![Site documents](https://img.shields.io/badge/Site%20documents-15-3C7DB2.svg)](move-in/final-move-in)
 [![DOI v2.0](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.21317266-blue.svg)](https://doi.org/10.5281/zenodo.21317266)
@@ -29,6 +31,11 @@ that supply their quantitative evidence.
 ```
 funding/
   README.md                       this hub
+  auto-fund-2/                    v4.9.0: four signals answered in five business days
+    README.md                     the four signals, the address and paste rules
+    inputs/  prompts/  sub-prompts/
+    28Sep26/  29Sep26/  30Sep26/  01Oct26/  02Oct26/
+      emails/  linkedin/  briefs/  forms/  investing/  diagrams/  packet/
   auto-fund/                      v4.8.0: five business days of funding actions
     README.md                     the format rule, the 15 figures, the source map
     inputs/  prompts/  sub-prompts/
@@ -78,7 +85,44 @@ KRAS-Mutated PDAC."*
 Kawchak, K. (2026). Clinical Trial Funding Application, RFA-RM-27-001,
 Kawchak K. Zenodo. https://doi.org/10.5281/zenodo.21232965
 
-## 3. New in v4.8.0: daily funding actions for final CEO approval
+## 3. New in v4.9.0: four signals answered in five business days
+
+[`auto-fund-2/`](auto-fund-2) is the second block of daily funding actions. Where
+the first block converted the Rasonque approval into a week of asks, this one
+answers four signals the company received: two job applicants who wrote on
+LinkedIn with no posting, the SEC San Francisco Regional Office's word that it
+is taking the chief executive's request "very seriously", several White House
+communications after the September 12, 2026 message, and an NSF inquiry about a
+multi-million-dollar pilot program. Each is answered on its own day, and the
+fifth day sends only the follow-ups that have earned their interval.
+
+| Day | Directory | Signal | The one decision |
+|:--|:--|:--|:--|
+| 1 | [`auto-fund-2/28Sep26`](auto-fund-2/28Sep26) | Two unsolicited LinkedIn applicants | Answer both alike; open three routes that could fund a first hire |
+| 2 | [`auto-fund-2/29Sep26`](auto-fund-2/29Sep26) | The SEC office's update on the external standard request | Answer with the dated record; route the clinical question to the FDA |
+| 3 | [`auto-fund-2/30Sep26`](auto-fund-2/30Sep26) | White House communications | Answer through OSTP; take a contributor's place in four structures |
+| 4 | [`auto-fund-2/01Oct26`](auto-fund-2/01Oct26) | An NSF pilot inquiry | Answer exactly; test the gate; submit the Project Pitch |
+| 5 | [`auto-fund-2/02Oct26`](auto-fund-2/02Oct26) | None | Send three earned follow-ups; adopt the weekly cadence |
+
+| Produced | Count | Format |
+|:--|:--|:--|
+| Emails, each with at least three verified addresses | 19 | `.txt` |
+| LinkedIn replies to the two applicants | 4 | `.txt` |
+| Technical briefs | 15 | `.md` |
+| Form packs, including the White House form and the NSF Project Pitch | 7 | `.md` |
+| Capital instructions, none of which places an order | 5 | `.md` |
+| Figure specifications, three per platform | 15 | `.md` |
+| Compiled packets, seven sections and ten pages each | 5 | `.tex`, `.pdf`, `.zip` |
+| Tables, all at the body measure | 25 | LaTeX |
+| Raster images | 0 | |
+
+Every letter body is one paragraph per line, so it pastes into iOS Mail without
+repair. Every packet compiles with pdfLaTeX and BibTeX at zero errors and zero
+overfull boxes. The block adds no Python or YAML file, and the Python sources
+inside its Diagrams specifications are kept in ruff's format, because ruff checks
+code blocks in Markdown as well.
+
+## 4. New in v4.8.0: daily funding actions for final CEO approval
 
 [`auto-fund/`](auto-fund) is what the program does every business day while the
 applications above are outstanding. Five day directories, each carrying every
@@ -118,7 +162,7 @@ boxes, zero underfull boxes, and zero undefined citations or references. The
 whole directory adds no Python file, so the repository's three lint-and-format
 checks are unaffected.
 
-## 4. New in v4.7.0: the La Jolla move-in package
+## 5. New in v4.7.0: the La Jolla move-in package
 
 [`move-in/`](move-in) is what the program does with the money once an award
 lands. Fifteen documents stand up California's first pancreatic ductal
@@ -142,7 +186,7 @@ and is not re-derived.
 | 2 | [`move-in/full-move-in/`](move-in/full-move-in) | 0 errors, 71 pages |
 | 3 | [`move-in/final-move-in/`](move-in/final-move-in) | 0 errors, 67 pages, 0 short pages |
 
-## 5. New in v4.4.0: ten independent-scientist application file sets
+## 6. New in v4.4.0: ten independent-scientist application file sets
 
 [`pdac-funding-applications/`](pdac-funding-applications) adds ten complete
 funding application email file sets, each unique to its recipient, each written
@@ -166,7 +210,7 @@ appear in it are citations of prior published work.
 | 09 | Convergent Research, FRO program | Medical oncology | $3.5M, dissolves in year 5 |
 | 10 | UC San Diego Moores Cancer Center | Medical oncology | A 45-minute feasibility meeting |
 
-## 6. What each directory supplies to the others (Rule 5)
+## 7. What each directory supplies to the others (Rule 5)
 
 | Directory | Supplies | Consumed by |
 |:--|:--|:--|
@@ -183,8 +227,9 @@ appear in it are citations of prior published work.
 | [`pdac-funding-applications/`](pdac-funding-applications) | Ten application file sets and the summary paper | The v4.4.0 release; the `$700,000` budget frame and the four-source evidence table reused by `move-in/` |
 | [`capitalization-plan/`](capitalization-plan) | The company conversion, the 21 CFR part 54 firewall wording, the three cost benchmark rows and the projected `$36,330` figure | The v4.5.0 release; documents 13, 14 and 15 of `move-in/` |
 | [`move-in/`](move-in) | Fifteen site documents, eleven roles, and the six-line split of the annual `$700,000` | The v4.7.0 release |
+| [`auto-fund/`](auto-fund) | The daily format, `fundstyle.sty`, the weekly cadence, and the CTEP contributor position | The v4.9.0 release in `auto-fund-2/` |
 
-## 7. Positioning constraints that apply to everything here
+## 8. Positioning constraints that apply to everything here
 
 - Daraxonrasib is **not** first-in-human. It is investigational and already in
   Phase 3 evaluation. The supportable claim is the first prospective clinical
@@ -204,6 +249,6 @@ appear in it are citations of prior published work.
   clinical research, and established clinical evidence are labelled separately
   wherever they appear.
 
-## 8. License
+## 9. License
 
 Creative Commons Attribution 4.0 International ([CC BY 4.0](https://creativecommons.org/licenses/by/4.0/deed.en)).
