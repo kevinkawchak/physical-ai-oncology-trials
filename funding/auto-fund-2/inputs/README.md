@@ -5,7 +5,7 @@
 [![Copies](https://img.shields.io/badge/Copied%20files-none-3C7DB2.svg)](#why-nothing-is-copied-here)
 [![Money frame](https://img.shields.io/badge/Frame-%24700K%20%C3%97%205%20years-6C757D.svg)](#the-money-frame-no-day-re-derives)
 [![Phase 1](https://img.shields.io/badge/Phase%201-3%2B3%2C%20up%20to%2018-6C757D.svg)](#the-robotic-phase-1-in-numbers)
-[![Addresses](https://img.shields.io/badge/Verified%20addresses-35-6C757D.svg)](#the-address-register)
+[![Addresses](https://img.shields.io/badge/Verified%20addresses-36-6C757D.svg)](#the-address-register)
 [![Rasters](https://img.shields.io/badge/PNG%20%2F%20JPG-none-9AA1A8.svg)](.)
 
 This directory is an index, not an archive. It names every repository source the
