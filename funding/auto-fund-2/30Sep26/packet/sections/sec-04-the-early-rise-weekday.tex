@@ -1,0 +1,82 @@
+% sec-04: the early-rise weekday.  Table 14, Figure 8 (d2-type timetable grid).
+\section{The Early-Rise Weekday}
+
+The third priority is a teamwork-based early-rise, scheduled routine. The
+reason for the early start is practical. Washington is three hours ahead of La
+Jolla, so a letter sent at 6:00 a.m. Pacific arrives at 9:00 a.m. Eastern, at the
+top of a federal working day, and a reply received by 2:00 p.m. Pacific can still
+be answered before that day ends. Table 14 sets out the day block by block, in
+both time zones.
+
+\begin{apptable}
+\begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}p{2.3cm} >{\raggedright\arraybackslash}p{2.3cm} >{\raggedright\arraybackslash}p{4.2cm} >{\raggedright\arraybackslash}X}
+\headrow \thead{Pacific} & \thead{Eastern} & \thead{Block} & \thead{What happens}\\
+\midrule
+5:00 to 5:30 & 8:00 to 8:30 & Start & Read overnight replies \\
+5:30 to 6:00 & 8:30 to 9:00 & Approval & Approve or hold the day's actions \\
+6:00 to 8:00 & 9:00 to 11:00 & Federal window & Letters to federal offices \\
+8:00 to 11:00 & 11:00 to 2:00 & Technical work & Protocols, code, packets \\
+11:00 to 12:00 & 2:00 to 3:00 & West Coast window & California institutions \\
+12:00 to 12:30 & 3:00 to 3:30 & Break & None \\
+12:30 to 2:00 & 3:30 to 5:00 & Second federal window & Same-day answers \\
+2:00 to 3:30 & 5:00 to 6:30 & Build and commit & Everything written is committed \\
+3:30 to 4:00 & 6:30 to 7:00 & Record & File the day; stage tomorrow \\
+\end{tabularx}
+\end{apptable}
+\vspace{-0.60cm}
+\tabcap{Table 14. The early-rise weekday in Pacific and Eastern time, block by block, from\\
+a 5:00 a.m. start to a 4:00 p.m. record, with two federal correspondence windows.}
+
+The weekday has the same shape every day. What changes is the theme of the two
+federal windows, which follows the weekly cadence the first block of funding
+actions set \cite{autofund2026}. Figure 8 lays the week out as a grid, so that a
+new team member can see in one look where every hour of every day goes.
+
+\begin{appfloat}[!tb]
+\begin{appfig}[d2-type / timetable grid, blocks against weekdays]
+% Rows: nine blocks.  Columns: the time, then Monday to Friday.  Federal
+% windows are accent cells carrying the day's theme; technical work is gray.
+\node[d2cellh,minimum width=24mm,text width=22mm,minimum height=7mm] at (0.00,0) {Pacific time};
+\foreach \x/\d in {2.55/Monday, 4.95/Tuesday, 7.35/Wednesday, 9.75/Thursday, 12.15/Friday}{
+  \node[d2cellh,minimum width=24mm,text width=22mm,minimum height=7mm] at (\x,0) {\d};}
+\foreach \y/\t in {-0.68/{5:00 Start}, -1.28/{5:30 Approval}, -1.88/{6:00 Federal}, -2.48/{8:00 Technical}, -3.08/{11:00 West Coast}, -3.68/{12:00 Break}, -4.28/{12:30 Federal}, -4.88/{2:00 Build}, -5.48/{3:30 Record}}{
+  \node[d2celll,minimum width=24mm,text width=22mm,minimum height=6mm] at (0.00,\y) {\t};}
+% the six blocks that are identical every day
+\foreach \x in {2.55,4.95,7.35,9.75,12.15}{
+  \node[d2cell,fill=fundpale,minimum width=24mm,minimum height=6mm] at (\x,-0.68) {Read replies};
+  \node[d2cell,fill=fundpale,minimum width=24mm,minimum height=6mm] at (\x,-1.28) {Approve};
+  \node[d2cellg,minimum width=24mm,minimum height=6mm] at (\x,-2.48) {Technical work};
+  \node[d2cell,fill=fundpale,minimum width=24mm,minimum height=6mm] at (\x,-3.08) {Institutions};
+  \node[d2cell,minimum width=24mm,minimum height=6mm] at (\x,-3.68) {Break};
+  \node[d2cellg,minimum width=24mm,minimum height=6mm] at (\x,-4.88) {Commit};
+  \node[d2cellk,minimum width=24mm,minimum height=6mm] at (\x,-5.48) {Record};}
+% the two federal windows carry the day's theme
+\foreach \x/\th in {2.55/{Program offices}, 4.95/{Regulators, capital}, 7.35/{Sites, structures}, 9.75/{Pilots, solicitations}, 12.15/{Follow-ups, record}}{
+  \node[d2cell,fill=fundaccent,text=fundwhite,minimum width=24mm,text width=22mm,minimum height=6mm] at (\x,-1.88) {\th};
+  \node[d2cell,fill=fundaccent,text=fundwhite,minimum width=24mm,text width=22mm,minimum height=6mm] at (\x,-4.28) {\th};}
+\legkey{-1.20}{-6.25}{fundaccent}{Federal windows, by weekly theme}
+\legkey{4.40}{-6.25}{fundgrayl}{Technical work and commit}
+\legkey{8.90}{-6.25}{fundmid}{Record, never skipped}
+\ptitle{-1.20}{0.70}{One week, one timetable}
+\end{appfig}
+\vspace{-0.60cm}
+\figcaption{Figure 8. The early-rise week as a timetable grid, with the two federal windows\\
+carrying each day's theme and every other block identical from Monday to Friday.}
+\end{appfloat}
+
+\subsection{The five team rules}
+
+Every team member keeps the same start, the same windows, and the same record
+time. Nothing leaves the company before the 5:30 approval block has passed it. No
+follow-up is sent inside three business days of the letter it follows, counted in
+days the recipient's office is open. A reply received after 2:00 p.m. Pacific is
+answered the next morning in the federal window, not in the evening. And the
+record block is never skipped, because a letter with no record is a letter
+nobody can reconstruct three weeks later.
+
+\subsection{The team the routine is for}
+
+The company has one member today and two unsolicited applicants, and each reply
+on day 1 told the applicant about the schedule before anything else about the
+role. The routine is written for a team before there is one, so that the first
+people to join are joining a structure rather than building it.
