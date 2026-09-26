@@ -1,0 +1,109 @@
+% ============================================================
+% main.tex - Day 5 packet, "The Week's Record".
+% ChemicalQDevice daily funding action packet, repository v4.9.0.
+% Deposited in funding/auto-fund-2/02Oct26/packet.
+%
+% WHAT THIS DOCUMENT IS.  The fifth and last packet of the block.  It spends no new
+% signal.  It records every letter of the week against the follow-up rule, sends
+% only the follow-ups that have earned their interval, states the robotic Phase 1
+% in numbers for a funder, and hands the next week a cadence rather than a design.
+%
+% STRUCTURE.  Seven sections, one .tex file each, per Rule 6.  Three figures,
+% five tables.  Every figure is TikZ; no raster is read or written.
+%
+% SPACING INVARIANT.  \vspace{-0.60cm} before every caption, giving 7.44pt from
+% the last rule to the first caption line, identically for every float.
+%
+% COMPILE ON OVERLEAF WITH pdfLaTeX:
+%   pdflatex main -> bibtex main -> pdflatex main -> pdflatex main
+% ============================================================
+\documentclass[11pt]{article}
+\usepackage{fundstyle}
+
+\title{The Week's Record: Four Signals, Sixteen Letters, Three Earned Follow-Ups, and the Robotic Phase 1 in Numbers}
+\author{Kevin Kawchak}
+\date{October 2, 2026}
+
+\fundhdr{The Week's Record}{Day 5 of 5}
+
+\begin{document}
+\thispagestyle{plain}
+
+\fundmast{ChemicalQDevice \;|\; Daily Funding Action Packet \;|\; Day 5 of 5}%
+{The Week's Record}%
+{Four signals arrived in one week and four days answered them. This packet spends no new
+signal: it records every letter against the follow-up rule, sends only the three that have
+earned a second message, and states the robotic Phase 1 in numbers a funder can check.}
+
+\vspace{0.15em}
+
+\begin{center}
+\appbadge{Day 5 of 5} \enspace \appbadgel{Repository v4.9.0} \enspace
+\appbadgel{3 figures} \enspace \appbadgel{5 tables} \enspace
+\appbadgel{Follow-ups only}
+\end{center}
+
+\vspace{-0.15em}
+
+\funddeck{The week}{16 letters}{Four signals, one record}%
+{The rule}{3 days}{Open business days, then one follow-up}%
+{The trial}{18 max}{Participants, three dose levels, eight arms}
+
+\vspace{-0.1em}
+\apprule{0.9pt}
+
+\begin{center}\small
+CEO Kevin Kawchak\,\orcidicon{0009-0007-5457-8667}, ChemicalQDevice \;|\;
+\href{mailto:kevinkawchak@gmail.com}{kevinkawchak@gmail.com}\\
+\href{https://orcid.org/0009-0007-5457-8667}{0009-0007-5457-8667} \;|\;
+San Diego, California
+\end{center}
+
+\vspace{-0.25em}
+\apprule{0.5pt}
+
+\noindent\footnotesize\textit{Independent research paper and practical adoption
+guide. It is not medical or regulatory advice and is not endorsed by the FDA,
+NIH, HHS, an IRB, ICH, or any sponsor. All figures derive from the author's
+repository sources and are illustrative unless tied to a cited
+reference.}\normalsize\par
+
+\vspace{0.12em}
+
+\noindent\footnotesize\textbf{Disclaimer:} \textit{This work is independent and
+is not endorsed or sponsored by any trial sponsor, CRO, site, IRB, regulator, or
+medical society; and was adapted using Claude Code Opus 5.5.}\normalsize\par
+
+\vspace{0.12em}
+
+{\sloppy\noindent\footnotesize Repository (v4.9.0) is at
+\url{https://github.com/kevinkawchak/physical-ai-oncology-trials}.
+The paper files are deposited in
+\href{https://github.com/kevinkawchak/physical-ai-oncology-trials/tree/main/funding/auto-fund-2}{/funding/auto-fund-2}.
+No digital object identifier is asserted for this document.\normalsize\par}
+
+\renewcommand{\keywordname}{\textbf{Keywords}}
+\keywords{Weekly record; Follow-up rule; NCI SBIR; Specific Aims; SEC San Francisco Regional Office; Oncology AI Program; Robotic pancreaticoduodenectomy; Daraxonrasib}
+
+\vspace{0.25em}
+\apprule{0.6pt}
+
+\setcounter{tocdepth}{1}
+\renewcommand{\contentsname}{\color{accentcol}Table of Contents}
+{\setlength{\parskip}{0pt}\footnotesize\linespread{0.94}\selectfont\tableofcontents}
+
+\vspace{-0.1em}
+\apprule{0.6pt}
+
+% The body follows the contents on the cover page rather than after a page
+% break, so the cover carries no block of empty space below its contents.
+% ---------- Body: one \input per section (Rule 6) ----------
+\input{sections/sec-00-front}
+\input{sections/sec-01-the-week-in-one-record}
+\input{sections/sec-02-action-register}
+\input{sections/sec-03-the-follow-up-rule}
+\input{sections/sec-04-the-robotic-phase-1-in-numbers}
+\input{sections/sec-05-the-routes-opened}
+\input{sections/sec-06-references}
+
+\end{document}
