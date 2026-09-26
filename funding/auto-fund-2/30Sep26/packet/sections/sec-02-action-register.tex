@@ -1,0 +1,102 @@
+% sec-02: the action register.  Table 12, Figure 9 (plantuml-type activity
+% diagram with three swimlanes).
+\section{The Action Register}
+
+Table 12 lists the day's seven actions in the order they are done. The White
+House form goes first, because letter 1 says it has been submitted. The CTEP
+follow-up goes after the letter to Moores, because it reports that letter as
+sent.
+
+\begin{apptable}
+\begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}p{0.5cm} >{\raggedright\arraybackslash}p{6.4cm} >{\raggedright\arraybackslash}p{2.6cm} >{\raggedright\arraybackslash}X}
+\headrow \thead{No} & \thead{Action} & \thead{File} & \thead{Waits on}\\
+\midrule
+1 & Submit the White House contact form & {\footnotesize\ttfamily form-01} & Nothing \\
+2 & Write to OSTP & {\footnotesize\ttfamily email-01} & Row 1 \\
+3 & Offer a contributor's place, Genesis & {\footnotesize\ttfamily email-02} & Nothing \\
+4 & Offer a contributor's role, Moores & {\footnotesize\ttfamily email-03} & Nothing \\
+5 & Follow up in the CTEP thread & {\footnotesize\ttfamily email-04} & Row 4 sent \\
+6 & Adopt the early-rise weekday & {\footnotesize\ttfamily brief-03} & Nothing \\
+7 & Run the quarter-end policy review & {\footnotesize\ttfamily capital-03} & The quarter's last session \\
+\end{tabularx}
+\end{apptable}
+\vspace{-0.60cm}
+\tabcap{Table 12. The day's seven actions in the order they are done, each with the file that\\
+carries it and what it waits on; the White House form is submitted before letter 1.}
+
+\subsection{How one letter moves under the three rules}
+
+Every letter this block sends, and every reply it receives, follows the same
+path. Figure 9 draws that path across the three parties it touches: the office
+that writes or answers, the chief executive, and the repository record. The one
+decision on the path is the first rule in action: if the company does not own
+the answer, the letter goes to the office that does.
+
+\begin{appfloat}[!tb]
+\begin{appfig}[plantuml-type / activity diagram with three swimlanes]
+% Three swimlanes left to right.  Activities are rounded boxes; the one
+% decision is a diamond; the start and end are the PlantUML filled circles.
+\fill[fundgrayl] (-2.30,0.95) rectangle (2.30,-7.10);
+\fill[fundpale] (2.30,0.95) rectangle (7.90,-7.10);
+\fill[fundgrayl] (7.90,0.95) rectangle (12.50,-7.10);
+\draw[fundgray,line width=0.4pt] (-2.30,0.95) rectangle (12.50,-7.10);
+\draw[fundgray,line width=0.4pt] (2.30,0.95) -- (2.30,-7.10);
+\draw[fundgray,line width=0.4pt] (7.90,0.95) -- (7.90,-7.10);
+\node[umlpkgtab,anchor=north] at (0.00,0.90) {Office, or counterparty};
+\node[umlpkgtab,anchor=north] at (5.10,0.90) {Chief executive};
+\node[umlpkgtab,anchor=north] at (10.20,0.90) {Repository record};
+\node[umlinit] (st) at (0.00,-0.30) {};
+\node[umlbox,text width=30mm] (a1) at (0.00,-1.05) {A letter or a reply arrives};
+\node[umlbox,text width=36mm] (a2) at (5.10,-1.05) {Read at 5:00 against the structure map};
+\node[diamond,aspect=2.2,draw=fundink,line width=0.6pt,fill=fundwhite,inner sep=1pt,
+  text width=26mm,font=\tiny\sffamily,align=center] (d1) at (5.10,-2.45) {Does the company own the answer?};
+\node[umlbox,text width=30mm] (a3) at (0.00,-3.85) {The office that owns the rule answers};
+\node[umlbox,text width=36mm] (a4) at (5.10,-3.85) {Draft in the approved form};
+\node[umlkey,text width=36mm] (a5) at (5.10,-4.95) {Approve in the 5:30 block; send in the federal window};
+\node[umlbox,text width=30mm] (a6) at (10.20,-4.95) {Record the letter at 3:30};
+\node[umlbox,text width=30mm] (a7) at (10.20,-6.05) {Follow up only after three business days};
+\node[umlfinal] (en) at (10.20,-6.75) {};
+\fill[fundink] (en) circle (0.9mm);
+\draw[umlarrow] (st) -- (a1);
+\draw[umlarrow] (a1) -- (a2);
+\draw[umlarrow] (a2) -- (d1);
+\draw[umlarrow] (d1.west) -| node[umlguard,above,pos=0.25] {[no: route it]} (a3.north);
+\draw[umlarrow] (a3.east) -- (a4.west);
+\draw[umlarrow] (d1.south) -- node[umlguard,right,pos=0.45] {[yes]} (a4.north);
+\draw[umlarrow] (a4) -- (a5);
+\draw[umlarrow] (a5) -- (a6);
+\draw[umlarrow] (a6) -- (a7);
+\draw[umlarrow] (a7) -- (en);
+\ptitle{-2.25}{1.35}{One letter, three lanes}
+\end{appfig}
+\vspace{-0.60cm}
+\figcaption{Figure 9. The path every letter follows across three lanes, with one decision that\\
+sends a question to the office that owns its rule before the company acts on it.}
+\end{appfloat}
+
+\subsection{What each letter asks}
+
+The OSTP letter asks only which office is the right place for a small company to
+offer service under direction \cite{ostp2026,ostpinfo2026}. The Genesis Mission
+letter asks whether a small business can join a laboratory-led team as a
+subcontributor, and whether clinical research is in scope
+\cite{doegenesis2026,doegenesisfoa2026}. The Moores letter offers the advisory
+software component to an investigator, under the university's procedures and
+contracting route \cite{ucsdmoorescto2026,ucsdactri2026,ucsdocta2026}. The CTEP
+follow-up reports one fact and asks for nothing \cite{ctep2026}. The OSTP letter
+also copies the Office of Personnel Management's AI workforce team, because the
+federal AI workforce programs are the other structure where a small AI company
+could serve under direction \cite{opmaiworkforce2026,opmtechforce2026}.
+
+\subsection{A note on the date}
+
+September 30 is the last day of the federal fiscal year. If appropriations lapse
+at midnight, some federal offices written to this week may not answer for a
+time. Silence in that case is expected, and the three-business-day rule is
+counted in days the recipient's office is open.
+
+\actionbox{The one approval this day asks for}{Approve answering the White House
+through its contact form and the Office of Science and Technology Policy, and
+placing the company, by letter, inside four established structures as a
+contributor rather than a lead. Adopt the early-rise weekday as the team's
+schedule from the next business day.}
