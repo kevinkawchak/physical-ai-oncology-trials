@@ -71,8 +71,8 @@ D2 and PlantUML are not used on day 5.
 |:--|:--|:--|
 | 21 | The week's four signals, each with its letters and what is pending | 4.6 cm |
 | 22 | The day's action register | 6.4 cm |
-| 23 | The follow-up ledger: every letter of the week against the rule | 5.6 cm |
-| 24 | The robotic Phase 1 in numbers, for a funder | 5.2 cm |
+| 23 | The follow-up ledger: every letter of the week against the rule | 4.7 cm |
+| 24 | The robotic Phase 1 in numbers, for a funder | 7.3 cm |
 | 25 | The funding routes opened this week, with amount and next step | 4.4 cm |
 
 ## Invariants restated for this day

@@ -33,9 +33,9 @@ caption line.
 
 | Figure | Line 1 | Line 2 | Spread |
 |:--|:--|:--|:--|
-| 1 | 82 characters | 78 characters | 4 |
+| 1 | 78 characters | 82 characters | 4 |
 | 2 | 83 characters | 82 characters | 1 |
-| 3 | 81 characters | 83 characters | 2 |
+| 3 | 81 characters | 80 characters | 1 |
 
 ## Rules every figure here obeys
 

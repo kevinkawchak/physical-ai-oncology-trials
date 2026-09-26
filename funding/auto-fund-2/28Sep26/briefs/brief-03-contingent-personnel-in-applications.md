@@ -27,7 +27,7 @@ what must be true first.
 
 For an SBIR award, the principal investigator's primary employment must be with
 the small business at the time of award and for the duration of the project. The
-chief executive is the principal investigator and meets that rule himself. The
+chief executive is the principal investigator and already meets that rule. The
 two prospective staff are not principal investigators, and the question put to
 NIH is whether any comparable employment rule reaches them at the time of
 application. Until NIH answers, the company assumes the conservative position:

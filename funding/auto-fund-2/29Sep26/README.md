@@ -13,7 +13,7 @@
 [![Quote](https://img.shields.io/badge/SEC%20words-%22very%20seriously%22-9AA1A8.svg)](#what-the-office-said-and-what-it-did-not)
 
 The SEC San Francisco Regional Office has written to the chief executive that it
-is taking his request "very seriously." The request is that ChemicalQDevice's
+is taking the chief executive's request "very seriously." The request is that ChemicalQDevice's
 oncology clinical trial research be listed as an external standard for
 substantial oncology clinical trial research, because the company's LLM papers
 have been used extensively by OpenAI and Anthropic.

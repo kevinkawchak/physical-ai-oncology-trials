@@ -64,7 +64,7 @@ private-capital question.
 | Figure | Platform | Native construct | Why this platform |
 |:--|:--|:--|:--|
 | 10 | D2 | Layered stack | The NSF funding ladder is a set of layers, each gated by the one below |
-| 11 | PlantUML | Activity with a fork and a join | Registration and the Pitch run in parallel and must join before a proposal |
+| 11 | PlantUML | Activity with a fork and a join | Registration and drafting run in parallel and must join before the Pitch is submitted |
 | 12 | Diagrams | Clustered infrastructure | Where compute, data and review sit if NAIRR resources are used |
 
 Mermaid and Graphviz are not used on day 4.
@@ -73,11 +73,11 @@ Mermaid and Graphviz are not used on day 4.
 
 | Table | Subject | Widest column |
 |:--|:--|:--|
-| 16 | The NSF tiers and pilots, with eligibility and the company's position | 4.6 cm |
+| 16 | The NSF tiers and pilots, with eligibility and the company's position | 4.2 cm |
 | 17 | The day's action register | 6.4 cm |
-| 18 | How the program is split between NSF, NIH and private capital | 4.4 cm |
-| 19 | The Phase I technical objectives, each with a measure and a threshold | 4.8 cm |
-| 20 | NSF merit review criteria against the program's evidence | 4.2 cm |
+| 18 | How the program is split between NSF, NIH and private capital | 5.3 cm |
+| 19 | The Phase I technical objectives, each with a measure and a threshold | 5.0 cm |
+| 20 | NSF merit review criteria against the program's evidence | 5.4 cm |
 
 ## Invariants restated for this day
 

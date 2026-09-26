@@ -47,9 +47,9 @@ node, so no node name carries the decimal x coordinate.
 ## Caption, exactly as set
 
 > Figure 3. The four routes as records under one root, with the same five fields on
-> each, so that amount, window, gate and status can be read straight across the rows.
+> each, so that amount, window, gate and status are read straight across the rows.
 
-The two lines are 81 and 83 characters.
+The two lines are 81 and 80 characters.
 
 ## Where it is used
 

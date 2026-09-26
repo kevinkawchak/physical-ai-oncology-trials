@@ -67,11 +67,11 @@ Mermaid and Diagrams are not used on day 3.
 
 | Table | Subject | Widest column |
 |:--|:--|:--|
-| 11 | The three priorities, each with its operating rule and its evidence | 5.6 cm |
+| 11 | The three priorities, each with its operating rule and its evidence | 5.8 cm |
 | 12 | The day's action register | 6.4 cm |
-| 13 | The structure map: each authority, what it governs, and the company's place | 5.2 cm |
-| 14 | The early-rise weekday, block by block | 5.8 cm |
-| 15 | Decisions inside the Phase 1 and who holds each | 5.4 cm |
+| 13 | The structure map: each authority, what it governs, and the company's place | 6.1 cm |
+| 14 | The early-rise weekday, block by block | 4.2 cm |
+| 15 | Decisions inside the Phase 1 and who holds each | 5.3 cm |
 
 ## Invariants restated for this day
 

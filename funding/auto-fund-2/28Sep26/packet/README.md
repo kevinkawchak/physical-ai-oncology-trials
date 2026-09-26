@@ -56,7 +56,7 @@ outside this directory is read, and no image file of any kind is read.
 
 | Measure | Value |
 |:--|:--|
-| Pages | 11 |
+| Pages | 10 |
 | LaTeX errors | 0 |
 | Overfull boxes | 0 |
 | Underfull boxes | 0 |

@@ -74,10 +74,10 @@ PlantUML and D2 are not used on day 1. No platform is used twice in one day.
 | Table | Subject | Widest column |
 |:--|:--|:--|
 | 1 | What the two inquiries show a funder, and what they do not | 5.0 cm |
-| 2 | The day's action register | 4.6 cm |
-| 3 | The eleven roles, their FTE, and whether an unsolicited applicant can fill each | 5.2 cm |
-| 4 | Employer obligations before and after a first hire, with trigger and deadline | 4.0 cm |
-| 5 | Four routes that can fund a first hire | 3.2 cm |
+| 2 | The day's action register | 6.4 cm |
+| 3 | The eleven roles, their FTE, and whether an unsolicited applicant can fill each | 6.0 cm |
+| 4 | Employer obligations before and after a first hire, with trigger and deadline | 4.3 cm |
+| 5 | Four routes that can fund a first hire | 4.3 cm |
 
 ## Invariants restated for this day
 

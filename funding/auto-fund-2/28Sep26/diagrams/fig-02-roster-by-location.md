@@ -24,18 +24,24 @@ from diagrams.onprem.monitoring import Grafana
 
 with Diagram("Eleven roles by location", show=False, direction="TB"):
     with Cluster("Site operations: open to an applicant, 1.85 FTE"):
-        ops = [Server("Director of clinical operations, 0.40"),
-               Rack("Lead clinical research coordinator, 1.00"),
-               Firewall("Regulatory and quality manager, 0.45")]
+        ops = [
+            Server("Director of clinical operations, 0.40"),
+            Rack("Lead clinical research coordinator, 1.00"),
+            Firewall("Regulatory and quality manager, 0.45"),
+        ]
     with Cluster("Systems and data: open to an applicant, 1.25 FTE"):
-        sys = [Server("Systems engineer, site safety officer, 0.55"),
-               Grafana("Model governance lead, 0.40"),
-               SQL("Data manager and biostatistician, 0.30")]
+        sys = [
+            Server("Systems engineer, site safety officer, 0.55"),
+            Grafana("Model governance lead, 0.40"),
+            SQL("Data manager and biostatistician, 0.30"),
+        ]
     with Cluster("Host institution: California license required, 0.65 FTE"):
-        host = [Mobile("Site principal investigator, 0.10"),
-                Mobile("Sub-investigator, medical oncology, 0.10"),
-                Mobile("Investigational drug pharmacist, 0.20"),
-                Mobile("Research nurse and navigator, 0.25")]
+        host = [
+            Mobile("Site principal investigator, 0.10"),
+            Mobile("Sub-investigator, medical oncology, 0.10"),
+            Mobile("Investigational drug pharmacist, 0.20"),
+            Mobile("Research nurse and navigator, 0.25"),
+        ]
     with Cluster("Sponsor, 0.20 FTE"):
         ceo = Server("Chief executive, sponsor representative, 0.20")
 ```
@@ -68,4 +74,5 @@ The two lines are 83 and 82 characters.
 
 ## Where it is used
 
-`../packet/sections/sec-03-the-roster.tex`, after Table 3.
+`../packet/sections/sec-03-the-roster.tex`, after the first paragraph and before Table 3,
+so that it is placed before §4 begins.

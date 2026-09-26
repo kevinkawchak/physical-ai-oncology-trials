@@ -12,7 +12,7 @@
 [![Commits](https://img.shields.io/badge/Commits-24%2B-9AA1A8.svg)](#commit-order)
 
 The day after the SEC San Francisco Regional Office wrote to the chief executive
-that it is taking his request "very seriously." The request is that
+that it is taking the chief executive's request "very seriously." The request is that
 ChemicalQDevice's oncology clinical trial research be listed as an external
 standard for substantial oncology clinical trial research, on the basis that the
 company's LLM papers have been used extensively by OpenAI and Anthropic.
@@ -73,10 +73,10 @@ Diagrams and Graphviz are not used on day 2.
 
 | Table | Subject | Widest column |
 |:--|:--|:--|
-| 6 | The deposited record, with dates and identifiers | 6.4 cm |
+| 6 | The deposited record, with dates and identifiers | 4.4 cm |
 | 7 | The day's action register | 6.4 cm |
-| 8 | The developer's trials and the company's papers, side by side | 5.4 cm |
-| 9 | Eight criteria for an external standard against the record | 5.0 cm |
+| 8 | The developer's trials and the company's papers, side by side | 6.3 cm |
+| 9 | Eight criteria for an external standard against the record | 4.4 cm |
 | 10 | The six checkable quantities and the Phase 1 design | 3.6 cm |
 
 ## Invariants restated for this day

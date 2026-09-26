@@ -232,8 +232,8 @@ in that day's `packet/README.md`.
 ## Positioning constraints
 
 Nothing in this directory is a submission of record and nothing here is an
-agreement. Each day is a proposal to the chief executive and requires his
-approval before any part of it leaves the repository. No order in `investing/`
+agreement. Each day is a proposal to the chief executive and requires the chief
+executive's approval before any part of it leaves the repository. No order in `investing/`
 has been placed and none is investment advice.
 
 The SEC office's words are quoted exactly as received, "very seriously," and are

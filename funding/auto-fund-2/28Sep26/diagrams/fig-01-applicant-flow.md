@@ -50,10 +50,10 @@ broken across two lines inside a box.
 
 ## Caption, exactly as set
 
-> Figure 1. The path from an unprompted LinkedIn message to a funded offer, with the
-> two places the thread ends and the one point after which an obligation begins.
+> Figure 1. The path from an unprompted LinkedIn message to a funded offer, with
+> the two places the thread ends and the one point after which an obligation begins.
 
-The two lines are 82 and 78 characters.
+The two lines are 78 and 82 characters.
 
 ## Where it is used
 
