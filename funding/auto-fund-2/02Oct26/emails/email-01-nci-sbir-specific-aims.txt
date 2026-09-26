@@ -1,0 +1,64 @@
+FROM: kevink@chemicalqdevice.com
+
+TO: ncisbir@mail.nih.gov
+
+CC: sbir@od.nih.gov, SEEDinfo@nih.gov
+
+SUBJECT: One follow-up for two SBIR questions this week, and a request to be directed to an NCI program director, with a one-page Specific Aims
+
+=== BODY ===
+Dear NCI SBIR Development Center,
+
+This week I wrote twice to the NIH SBIR and STTR program office, with your center copied both times: on Monday with a question about naming prospective personnel, and on Thursday to disclose an NSF Project Pitch on a related technology. Rather than follow up on each, I am sending one letter for both, and sending it to you directly, because the application I have in view would most likely be assigned to the National Cancer Institute. I have copied the program office and NIH SEED as before.
+
+The two open questions, restated in one line each.
+1) May a Phase I application name a person who is not yet an employee as prospective personnel, supported by a letter of intent contingent on the award?
+2) Is there any step the office would advise now to keep the NIH application's scope clearly apart from the NSF Pitch, which concerns verification methods only and involves no clinical trial and no patient data?
+
+One new request. I would be grateful to be directed to the NCI SBIR program director whose portfolio covers software used inside a surgical oncology trial, so that I can send a one-page Specific Aims before writing the full application. The draft is attached. It proposes three aims for a governed, advisory-only software layer inside a Phase 1 trial of perioperative daraxonrasib with a staged robotic pancreaticoduodenectomy: fixing the layer's context of use in the protocol, a simulated-use evaluation with the site's surgical team, and the credibility evidence for that context of use. The FDA approved daraxonrasib as Rasonque for metastatic pancreatic cancer on August 26, 2026; the perioperative use remains investigational.
+
+I am not asking for a review of the aims, only for the right person to send them to. If the center prefers that I wait for the next receipt date's guidance instead, I will.
+
+Thank you for your time this week.
+
+Sincerely,
+CEO Kevin Kawchak
+ChemicalQDevice
+San Diego, California
+kevink@chemicalqdevice.com
+ORCID 0009-0007-5457-8667
+=== END BODY ===
+
+ATTACHMENTS COMPILED FROM THIS DIRECTORY
+1. specific-aims-one-page.pdf, one page.
+   Assemble from ../briefs/brief-02-the-robotic-phase-1-in-numbers.md: the
+   section headed "Specific Aims, one page" and nothing else. Set it in 11 point
+   type with half-inch margins, which fits one page.
+2. 02Oct26-weeks-record.pdf
+   Compile from ../packet/main.tex in this day directory:
+   pdflatex main -> bibtex main -> pdflatex main -> pdflatex main
+   Then rename main.pdf to the name above. No DOI is asserted for this
+   document. Section 4 (the robotic Phase 1 in numbers, Table 24) and Section 5
+   (the routes opened this week, Table 25) are the two relevant.
+
+ATTACHMENTS THE AUTHOR MUST ADD BY HAND
+1. None.
+
+EXTERNAL WORK TO CITE BUT NOT ATTACH
+- NCI SBIR Development Center. https://sbir.cancer.gov/
+- NIH SEED, Small Business Funding. https://seed.nih.gov/small-business-funding
+- On-Premises LLM-Directed Robotic Pancreaticoduodenectomy with Perioperative
+  Daraxonrasib (RMC-6236) in KRAS-Mutated Pancreatic Ductal Adenocarcinoma.
+  https://doi.org/10.5281/zenodo.20780121
+
+BEFORE SENDING
+- Send only if neither Monday's nor Thursday's letter has been answered. If one
+  has, drop its question from the numbered list and say so in one sentence.
+- Send only if NIH has been open on three business days since Monday. If
+  appropriations lapsed on October 1, hold this letter until it has.
+- Confirm the three addresses against ../../inputs/README.md.
+- Confirm the Specific Aims page names no applicant, no site that has not
+  agreed, and no agreement of any kind.
+- Confirm the NSF Pitch was submitted on October 1. If it was not, change
+  "an NSF Project Pitch" in the first paragraph to "a planned NSF Project Pitch".
+- Confirm no sentence describes Rasonque as approved for perioperative use.
