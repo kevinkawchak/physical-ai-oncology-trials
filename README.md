@@ -11,7 +11,6 @@
 [![NIH Template](https://img.shields.io/badge/Template-NIH--FDA%20IND%2FIDE-6C757D.svg)](trial-protocol/nih-protocol)
 [![Protocol DOI](https://img.shields.io/badge/Protocol%20DOI%20v1.0.0-10.5281%2Fzenodo.20780121-blue.svg)](https://doi.org/10.5281/zenodo.20780121)
 [![Protocol License](https://img.shields.io/badge/Protocol%20License-CC%20BY%204.0-yellow.svg)](https://creativecommons.org/licenses/by/4.0/)
-[![Phase 2 Protocol](https://img.shields.io/badge/Trial%20Protocol-Phase%202%20Randomized%20Controlled-00417A.svg)](trial-phase-2)
 [![Phase 2 Primary](https://img.shields.io/badge/Primary-PFS%20HR-00417A.svg)](trial-phase-2/final-protocol/publication)
 [![IND](https://img.shields.io/badge/IND-Phase%201%20PDAC%20AI%20Generation-blue.svg)](trial-ind)
 [![Funding Applications](https://img.shields.io/badge/Funding-10%20Independent%20Scientist%20Applications-00417A.svg)](funding/pdac-funding-applications)
