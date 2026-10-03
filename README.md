@@ -22,7 +22,7 @@
 [![Target Site Staff](https://img.shields.io/badge/Target%20Site%20staff-CEO%20%2B%2010%20coworkers-6C757D.svg)](funding/move-in/final-move-in/sections)
 [![Target Award](https://img.shields.io/badge/Target%20Award-%24700%2C000%20%C3%97%205%20years-6C757D.svg)](funding/move-in/final-move-in/sections)
 [![Rasonque](https://img.shields.io/badge/Rasonque-approved%208%2F26%2F26-6C757D.svg)](https://www.fda.gov/news-events/press-announcements/fda-approves-first-class-targeted-therapy-metastatic-pancreatic-cancer)
-[![Four Signals](https://img.shields.io/badge/Signals-LinkedIn%20%C2%B7%20SEC%20%C2%B7%20White%20House%20%C2%B7%20NSF-3C7DB2.svg)](funding/auto-fund-2)
+[![Four Signals](https://img.shields.io/badge/Signals-%C2%B7%20SEC%20%C2%B7%20White%20House%20%C2%B7%20NSF-3C7DB2.svg)](funding/auto-fund-2)
 
 **Comprehensive developments for integrating physical AI into oncology clinical trials by Anthropic Claude Code; with additional assistance from OpenAI ChatGPT and Google Gemini.**
 
