@@ -22,7 +22,7 @@ business day directory holds everything that day's actions need: verified
 recipient addresses, subject lines, complete letter bodies, LinkedIn replies,
 technical briefs, field-by-field form content, capital instructions, and one
 compiled packet a recipient can be sent. Nothing here is sent, filed, ordered, or
-agreed. Each day ends in one approval step, and that step belongs to the chief
+agreed. Each day ends in one approval step, which belongs to the chief
 executive.
 
 ## The standing fact every day repeats
