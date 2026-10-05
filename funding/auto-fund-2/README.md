@@ -17,7 +17,7 @@
 **A constant stream of funding actions for CEO Kevin Kawchak to make final
 decisions on, continued.** The first block, [`../auto-fund`](../auto-fund),
 converted the FDA approval of Rasonque into five days of requests. This second set of emails
-utilizes four new signals that arrived in the week of September 21, 2026. Each
+utilizes four new signals that arrived the week of September 21, 2026. Each
 business day directory holds everything that day's actions need: verified
 recipient addresses, subject lines, complete letter bodies, LinkedIn replies,
 technical briefs, field-by-field form content, capital instructions, and one
