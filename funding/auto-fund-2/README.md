@@ -37,7 +37,7 @@ developer's Phase 1/2 program, registered as the Phase 1/1b study of RMC-6236
 ([NCT05379985](https://clinicaltrials.gov/study/NCT05379985)).
 
 ChemicalQDevice's AI papers were developed **independently and simultaneously**
-with both of those trial phases. The company selected daraxonrasib from forty
+alongside both of those trial phases. The company selected daraxonrasib from forty
 pancreatic cancer meta-analyses in June 2025
 ([10.5281/zenodo.15735068](https://doi.org/10.5281/zenodo.15735068)), simulated a
 2.4-fold median overall survival gain in August 2025
