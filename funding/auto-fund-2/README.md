@@ -14,8 +14,7 @@
 [![Rasters](https://img.shields.io/badge/PNG%20%2F%20JPG-none-9AA1A8.svg)](.)
 [![ORCID](https://img.shields.io/badge/ORCID-0009--0007--5457--8667-A6CE39.svg)](https://orcid.org/0009-0007-5457-8667)
 
-**A constant stream of funding actions for CEO Kevin Kawchak to make final
-decisions on, continued.** The first block, [`../auto-fund`](../auto-fund),
+**A constant stream of funding actions for CEO Kevin Kawchak to make final company decisions on.** The first block, [`../auto-fund`](../auto-fund),
 converted the FDA approval of Rasonque into five days of requests. This second set of emails
 utilizes four new signals that arrived the week of September 21, 2026. Each
 business day directory holds everything that day's actions need: verified
