@@ -17,6 +17,7 @@ prior published work, two compiled PDFs, and, in
 | [`Physical AI Oncology Trial Founding Documents.md`](Physical%20AI%20Oncology%20Trial%20Founding%20Documents.md) | The ledger of fourteen prior works with DOIs, across funding, trial, and legislation. Supported by 16 GitHub repositories and part of 53 total LLM works |
 | `Daraxonrasib Efficient LLM Trial Simulations.pdf` | Python notebook and no-code simulations; empirical, QSP, and digital-twin platforms |
 | `Physical AI Oncology Trial Competition Proposal.pdf` | The original January 13, 2026 proposal; end-to-end hybrid edge-cloud AI architecture |
+| `ChemicalQDevice_Accomplishments.pdf` | The original August 18, 2026 achievements; comprehensive Physical AI oncology trial studies|
 | [`source-files/`](source-files) | Three LaTeX source zips |
 
 Also referenced, hosted outside this repository: the
