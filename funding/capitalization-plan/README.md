@@ -18,8 +18,7 @@ August 11, 2026. DOI [10.5281/zenodo.21887807](https://doi.org/10.5281/zenodo.21
 ## What this is, and what changed
 
 The ten applications filed in
-[`../pdac-funding-applications`](../pdac-funding-applications) were written by an
-independent scientist. Nine of the ten applications are addressed to mechanisms that fund a
+[`../pdac-funding-applications`](../pdac-funding-applications) were written by the qualifying independent scientist. Nine of the ten applications are addressed to mechanisms that fund a
 person or an institution. One, application 05, is addressed to the only
 mechanism in the set that funds a **company**.
 
