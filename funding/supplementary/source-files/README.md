@@ -48,6 +48,10 @@ architecture. Used as the **first released proposal time point** in the
 programme chronology, which is what makes the June 2025 to August 2026 sequence
 verifiable rather than asserted.
 
+## 4. `ChemicalQDevice_Accomplishments.docx`
+
+The original ChemicalQDevice accomplishments document in .docx format.
+
 ## Rule 3 note
 
 No raster output is derived from any of these sources. Every figure in v4.4.0 is
