@@ -19,10 +19,9 @@ August 11, 2026. DOI [10.5281/zenodo.21887807](https://doi.org/10.5281/zenodo.21
 
 The ten applications filed in
 [`../pdac-funding-applications`](../pdac-funding-applications) were written by an
-independent scientist. Nine of the ten are addressed to mechanisms that fund a
+independent scientist. Nine of the ten applications are addressed to mechanisms that fund a
 person or an institution. One, application 05, is addressed to the only
-mechanism in the set that funds a **company**, and it was the shortest of the
-ten.
+mechanism in the set that funds a **company**.
 
 This paper converts the author from independent scientist to small-business
 operator and rewrites that one application as the document it should have been:
