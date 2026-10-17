@@ -71,7 +71,7 @@ The entries below link to persistent publication records where a DOI was include
 
 | Topic | Publication |
 |---|---|
-| NIH Directorâs Pioneer Award application version 2.0 | [Clinical Trial Funding Application v2.0, RFA-RM-27-001](https://doi.org/10.5281/zenodo.21317266) |
+| NIH Director’s Pioneer Award application version 2.0 | [Clinical Trial Funding Application v2.0, RFA-RM-27-001](https://doi.org/10.5281/zenodo.21317266) |
 | Earlier funding application version | [Clinical Trial Funding Application, RFA-RM-27-001](https://doi.org/10.5281/zenodo.21232965) |
 | Collection of ten funding applications associated with a proposed Phase I PDAC trial | [10 Funding Applications: A Phase 1, First-in-Human PDAC Clinical Trial Protocol](https://doi.org/10.5281/zenodo.21787424) |
 | Physical AI oncology trial competition proposal | [Competition proposal PDF in the repository](https://github.com/kevinkawchak/physical-ai-oncology-trials/blob/main/funding/supplementary/Physical%20AI%20Oncology%20Trial%20Competition%20Proposal.pdf) |
