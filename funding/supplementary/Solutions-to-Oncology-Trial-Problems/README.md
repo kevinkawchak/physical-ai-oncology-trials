@@ -54,7 +54,7 @@ The entries below link to persistent publication records where a DOI was include
 
 | Topic | Publication |
 |---|---|
-| Phase I investigational new drug application concept for daraxonrasib and a proposed LLM-directed robotic Whipple workflow | [Investigational New Drug Application â Daraxonrasib, Phase 1](https://doi.org/10.5281/zenodo.21097442) |
+| Phase I investigational new drug application concept for daraxonrasib and a proposed LLM-directed robotic Whipple workflow | [Investigational New Drug Application - Daraxonrasib, Phase 1](https://doi.org/10.5281/zenodo.21097442) |
 | On-premises LLM-directed pancreaticoduodenectomy protocol concept | [On-Premises LLM-Directed Robotic Pancreaticoduodenectomy](https://doi.org/10.5281/zenodo.20780121) |
 | Proposed Phase II protocol concept | [A Phase 2, Daraxonrasib + LLM Guided Robotic PDAC Whipple Procedure](https://doi.org/10.5281/zenodo.20807027) |
 | LLM document-development guidance for a Phase I pancreatic-cancer trial | [Phase 1 Pancreatic Cancer Trial: Efficient LLM Document Guidance](https://doi.org/10.5281/zenodo.21018646) |
