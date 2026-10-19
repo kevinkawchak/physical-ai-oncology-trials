@@ -27,6 +27,11 @@
 
 This repository provides production-ready configurations, validated pipelines, and integration guides for deploying robotic systems, digital twins, and embodied AI agents in the field of oncology. 
 
+**Paper:** *Solutions to LLM + Robotic Oncology Trial Problems*  
+**Author:** Kevin Kawchak  
+**Date:** October 17, 2026  
+**Persistent identifier:** [10.5281/zenodo.23427490](https://doi.org/10.5281/zenodo.23427490)
+
 **9/26: v4.9.0 (auto-fund-2: Four Signals Answered in Five Business Days)** *v4.9.0 adds funding/auto-fund-2/: two unsolicited LinkedIn applicants, the SEC San Francisco office taking the external standard request "very seriously", White House communications, and an NSF multi-million-dollar pilot inquiry, answered in 19 emails, 4 LinkedIn replies, 15 figures, 25 tables and five compiled packets.* [**Directory**](funding/auto-fund-2)
 
 **9/8: v4.8.0 (auto-fund: Daily Funding Actions for Final CEO Approval)** *v4.8.0 adds funding/auto-fund/: five business days of complete funding actions, each ending in one approval step. 26 letters, 13 briefs, 9 form packs, 5 capital instruction sets, 15 figures, 25 tables, and five compiled packets.* [**Directory**](funding/auto-fund)
