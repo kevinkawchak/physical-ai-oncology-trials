@@ -177,7 +177,7 @@ This checklist is a general review aid, not a substitute for applicable clinical
 
 ## Citation
 
-If you use this paper, cite the version associated with the persistent identifier:
+If you use this paper, cite the version associated with the digital object identifier (DOI):
 
 > Kawchak, K. (2026). *Solutions to LLM + Robotic Oncology Trial Problems*. Zenodo. https://doi.org/10.5281/zenodo.23427490
 
