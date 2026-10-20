@@ -7,7 +7,6 @@
 [![Repository](https://img.shields.io/badge/Repository-v4.9.0-6C757D.svg)](../README.md)
 [![Capitalization plan](https://img.shields.io/badge/v4.5.0-Capitalization%20Plan-00417A.svg)](capitalization-plan)
 [![La Jolla Move-In](https://img.shields.io/badge/v4.7.0-La%20Jolla%20Move--In-00417A.svg)](move-in)
-[![Daily Funding](https://img.shields.io/badge/v4.8.0-Daily%20Funding%20Actions-00417A.svg)](auto-fund)
 [![Daily Funding 2](https://img.shields.io/badge/v4.9.0-Daily%20Funding%20Actions%2C%20Second%20Block-00417A.svg)](auto-fund-2)
 [![Signals](https://img.shields.io/badge/Signals%20answered-4-3C7DB2.svg)](auto-fund-2)
 [![Business days](https://img.shields.io/badge/Business%20days-5-3C7DB2.svg)](auto-fund)
