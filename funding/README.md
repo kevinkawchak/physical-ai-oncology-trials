@@ -15,12 +15,10 @@
 [![DOI v1.0](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.21232965-blue.svg)](https://doi.org/10.5281/zenodo.21232965)
 
 Everything the *Daraxonrasib Phase 1 LLM-Directed Robotic Whipple in
-KRAS-Mutated PDAC* program uses to ask for money: 2 completed NIH
+KRAS-Mutated PDAC* program uses to ask for funding: 2 completed NIH
 applications with DOIs, 10 independent-scientist application file sets, the
 company-conversion capitalization plan that rewrites the one of those 10
-addressed to a company mechanism. This includes the fifteen-document La Jolla move-in package
-that spends the award once it is won, the White House policy corpus they are all
-written against, the partner-site research, and the supplementary source sets
+addressed to a company mechanism. This includes the fifteen-document La Jolla move-in package that spends the award once it is won, the White House policy corpus they are all written against, the partner-site research, and the supplementary source sets
 that supply their quantitative evidence.
 
 ---
