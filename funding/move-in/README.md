@@ -7,7 +7,6 @@
 [![Award](https://img.shields.io/badge/Award-%24700%2C000%20%C3%97%205%20years-6C757D.svg)](final-move-in/sections/sec-15-funding-and-lobbying.tex)
 [![Trial](https://img.shields.io/badge/Trial-Phase%201%20PDAC%20robotic%20Whipple-00417A.svg)](../../trial-protocol)
 [![Stages](https://img.shields.io/badge/Stages-draft%20%E2%86%92%20full%20%E2%86%92%20final-6C757D.svg)](sub-prompts)
-[![Diagrams](https://img.shields.io/badge/Diagrams-none%2C%20by%20Rule%203-9AA1A8.svg)](sub-prompts)
 [![Compiler](https://img.shields.io/badge/Compiler-pdfLaTeX%20%2B%20BibTeX-6C757D.svg)](final-move-in)
 [![Template DOI](https://img.shields.io/badge/Template%20DOI-10.5281%2Fzenodo.19176370-blue.svg)](https://doi.org/10.5281/zenodo.19176370)
 [![Paper DOI](https://img.shields.io/badge/Paper%20DOI%20v1.0-10.5281%2Fzenodo.22216519-blue.svg)](https://doi.org/10.5281/zenodo.22216519)
