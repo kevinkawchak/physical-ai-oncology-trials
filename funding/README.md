@@ -1,7 +1,6 @@
 # Funding - ChemicalQDevice PDAC Trial Funding (v4.9.0)
 
 [![License](https://img.shields.io/badge/License-CC%20BY%204.0-yellow.svg)](https://creativecommons.org/licenses/by/4.0/)
-[![Applications](https://img.shields.io/badge/Applications-12%20total-00417A.svg)](pdac-funding-applications/applications)
 [![Policy basis](https://img.shields.io/badge/Policy-Science%3A%20A%20New%20Golden%20Age-3C7DB2.svg)](science-golden-age)
 [![Partner of choice](https://img.shields.io/badge/Partner-UC%20San%20Diego%20Moores-6C757D.svg)](potential-partners/UC-San-Diego)
 [![Repository](https://img.shields.io/badge/Repository-v4.9.0-6C757D.svg)](../README.md)
